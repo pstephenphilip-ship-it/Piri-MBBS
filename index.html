@@ -1452,7 +1452,7 @@ document.addEventListener('keydown',function(e){
         var _origPharma=pharmaShowDrug;
         window.pharmaShowDrug=function(drug){
           _origPharma(drug);
-          _pharmaDrug=drug&&drug.name?drug.name:(typeof drug==='string'?drug:'');
+          _pharmaDrug=drug&&drug.drugs?drug.drugs:(drug&&drug.name?drug.name:(typeof drug==='string'?drug:''));
           setTimeout(function(){ annotRender('pharmacology'); },80);
         };
       }
