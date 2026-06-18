@@ -651,9 +651,12 @@ const PRESET_Q={"conditions__CARDIOVASCULAR__Acute Coronary Syndrome": [{"type":
 function fcKey(p,s,t){return 'piri_fc__'+p+'__'+s+'__'+t;}
 function loadFCView(p) {
   const st = getState(p); if (!st.activeTopic) return;
-  const _fcRaw = localStorage.getItem(fcKey(p,st.activeSystem,st.activeTopic));
-  try { st.fcCards = JSON.parse(_fcRaw||'[]'); } catch { st.fcCards=[]; }
-  if (st.fcCards.length === 0) { const _pk = p+'__'+st.activeSystem+'__'+st.activeTopic; if (PRESET_FC[_pk]) st.fcCards = JSON.parse(JSON.stringify(PRESET_FC[_pk])); }
+  const _pk = p+'__'+st.activeSystem+'__'+st.activeTopic;
+  const presetCards = PRESET_FC[_pk] ? JSON.parse(JSON.stringify(PRESET_FC[_pk])) : [];
+  let userCards = [];
+  try { userCards = JSON.parse(localStorage.getItem(fcKey(p,st.activeSystem,st.activeTopic))||'[]'); } catch {}
+  const presetIds = new Set(presetCards.map(c=>c.id));
+  st.fcCards = [...presetCards, ...userCards.filter(c=>!presetIds.has(c.id))];
   st.fcIndex = 0;
   const ti=document.getElementById('fcTitle-'+p); const sub=document.getElementById('fcSub-'+p);
   if(ti) ti.textContent=st.activeTopic+' — Flashcards';
@@ -677,8 +680,11 @@ function fcRestart(p){const st=getState(p);st.fcIndex=0;renderFC(p);}
 function addCard(p){
   const front=document.getElementById('fcFront-'+p); const back=document.getElementById('fcBack-'+p);
   if(!front||!back||!front.value.trim()||!back.value.trim()){alert('Both front and back required.');return;}
-  const st=getState(p); st.fcCards.push({front:front.value.trim(),back:back.value.trim(),id:Date.now()});
-  localStorage.setItem(fcKey(p,st.activeSystem,st.activeTopic),JSON.stringify(st.fcCards));
+  const st=getState(p); const newCard={front:front.value.trim(),back:back.value.trim(),id:Date.now()};
+  st.fcCards.push(newCard);
+  const _pk=p+'__'+st.activeSystem+'__'+st.activeTopic;
+  const presetIds=new Set((PRESET_FC[_pk]||[]).map(c=>c.id));
+  localStorage.setItem(fcKey(p,st.activeSystem,st.activeTopic),JSON.stringify(st.fcCards.filter(c=>!presetIds.has(c.id))));
   front.value='';back.value='';
   const sub=document.getElementById('fcSub-'+p); if(sub)sub.textContent=st.fcCards.length+' card'+(st.fcCards.length!==1?'s':'');
   const tot=document.getElementById('fcTot-'+p); if(tot)tot.textContent=st.fcCards.length;
@@ -688,9 +694,12 @@ function addCard(p){
 function qKey(p,s,t){return 'piri_q__'+p+'__'+s+'__'+t;}
 function loadQView(p){
   const st=getState(p); if(!st.activeTopic)return;
-  const _qRaw=localStorage.getItem(qKey(p,st.activeSystem,st.activeTopic));
-  try{st.questions=JSON.parse(_qRaw||'[]');}catch{st.questions=[];}
-  if(st.questions.length===0){const _pk=p+'__'+st.activeSystem+'__'+st.activeTopic;if(PRESET_Q[_pk])st.questions=JSON.parse(JSON.stringify(PRESET_Q[_pk]));}
+  const _pk=p+'__'+st.activeSystem+'__'+st.activeTopic;
+  const presetQs=PRESET_Q[_pk]?JSON.parse(JSON.stringify(PRESET_Q[_pk])):[];
+  let userQs=[];
+  try{userQs=JSON.parse(localStorage.getItem(qKey(p,st.activeSystem,st.activeTopic))||'[]');}catch{}
+  const presetQIds=new Set(presetQs.map(q=>q.id));
+  st.questions=[...presetQs,...userQs.filter(q=>!presetQIds.has(q.id))];
   st.qAnswered={};
   const ti=document.getElementById('qTitle-'+p); const sub=document.getElementById('qSub-'+p);
   if(ti)ti.textContent=st.activeTopic+' — Questions';
@@ -1498,23 +1507,6 @@ document.addEventListener('keydown',function(e){
 })();
 // ══ End Personal Annotation System ══════════════════════════════════════════
 
-function seedPresets() {
-  try {
-    const fcK = 'piri_fc__conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
-    const qK  = 'piri_q__conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
-    const pk  = 'conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
-    const existingFC = JSON.parse(localStorage.getItem(fcK) || '[]');
-    if (existingFC.length === 0 && PRESET_FC[pk]) {
-      localStorage.setItem(fcK, JSON.stringify(PRESET_FC[pk]));
-    }
-    const existingQ = JSON.parse(localStorage.getItem(qK) || '[]');
-    if (existingQ.length === 0 && PRESET_Q[pk]) {
-      localStorage.setItem(qK, JSON.stringify(PRESET_Q[pk]));
-    }
-  } catch(e) {}
-}
-
-seedPresets();
 </script>
 </body>
 </html>
