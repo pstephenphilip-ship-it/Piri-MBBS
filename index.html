@@ -656,7 +656,7 @@ function loadFCView(p) {
   let userCards = [];
   try { userCards = JSON.parse(localStorage.getItem(fcKey(p,st.activeSystem,st.activeTopic))||'[]'); } catch {}
   const presetIds = new Set(presetCards.map(c=>c.id));
-  st.fcCards = [...presetCards, ...userCards.filter(c=>!presetIds.has(c.id))];
+  st.fcCards = [...presetCards, ...userCards.filter(c=>!presetIds.has(c.id) && c.front && c.back)];
   st.fcIndex = 0;
   const ti=document.getElementById('fcTitle-'+p); const sub=document.getElementById('fcSub-'+p);
   if(ti) ti.textContent=st.activeTopic+' — Flashcards';
@@ -699,7 +699,7 @@ function loadQView(p){
   let userQs=[];
   try{userQs=JSON.parse(localStorage.getItem(qKey(p,st.activeSystem,st.activeTopic))||'[]');}catch{}
   const presetQIds=new Set(presetQs.map(q=>q.id));
-  st.questions=[...presetQs,...userQs.filter(q=>!presetQIds.has(q.id))];
+  st.questions=[...presetQs,...userQs.filter(q=>!presetQIds.has(q.id) && q.question)];
   st.qAnswered={};
   const ti=document.getElementById('qTitle-'+p); const sub=document.getElementById('qSub-'+p);
   if(ti)ti.textContent=st.activeTopic+' — Questions';
