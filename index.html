@@ -1069,7 +1069,7 @@ function showAnnotPopup(p, cx, cy, yPct){
   pop.innerHTML = '<div class="annot-popup-title">Personal Note</div>'
     + '<textarea id="annot-popup-ta" placeholder="Type your note here..."></textarea>'
     + '<div class="annot-popup-btns">'
-    + '<button class="btn-annot-save" onclick="commitAnnot(''+p+'','+yPct+')">Save Note</button>'
+    + '<button class="btn-annot-save" onclick="commitAnnot(\\\'' + p + '\\\',' + yPct + ')">Save Note</button>'
     + '<button class="btn-annot-cancel" onclick="removeAnnotPopup()">Cancel</button>'
     + '</div>';
   document.body.appendChild(pop);
@@ -1127,7 +1127,7 @@ function renderAnnotations(p){
         card.className='annot-card';
         card.innerHTML='<div class="annot-card-num">Note '+(i+1)+'</div>'
           +'<div class="annot-card-text">'+a.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>'
-          +'<button class="annot-card-del" onclick="deleteAnnot(''+p+'','+a.id+')">Delete</button>';
+          +'<button class="annot-card-del" onclick="deleteAnnot(&apos;'+p+'&apos;,'+a.id+')">Delete</button>';
         sb.appendChild(card);
         // pin
         if(pinsEl && panel){
