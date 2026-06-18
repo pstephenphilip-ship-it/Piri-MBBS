@@ -524,7 +524,7 @@ function loadNote(p, name) {
       richEl.style.display = '';
       richEl.innerHTML = RICH_NOTES[richKey];
       const actions = document.querySelector('#notes-panel-conditions .note-actions');
-      if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
+      if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save):not(.btn-annot)').forEach(b => b.style.display = 'none');
     } else {
       let richEl = document.getElementById('rich-note-display');
       if (richEl) richEl.style.display = 'none';
