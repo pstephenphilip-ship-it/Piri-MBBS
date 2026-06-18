@@ -318,26 +318,25 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 .note-panel-inner{flex:1;overflow-y:auto;position:relative;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
 
-/* ══ Personal Annotation System v2 ═══════════════════════════════════════ */
-#annot-sidebar{width:36px;min-width:36px;border-left:1px solid var(--border);background:var(--surface);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;transition:width 0.2s ease;}
-#annot-sidebar.open{width:250px;min-width:250px;}
-.annot-sidebar-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 8px;border-bottom:1px solid var(--border);flex-shrink:0;min-height:42px;}
-.annot-sidebar-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;opacity:0;transition:opacity 0.15s;}
-#annot-sidebar.open .annot-sidebar-title{opacity:1;}
-.annot-toggle-btn{background:none;border:1px solid var(--border2);border-radius:3px;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 5px;flex-shrink:0;line-height:1;transition:color 0.12s,border-color 0.12s;}
+
+/* ══ Personal Annotation System ═════════════════════════════════════════════ */
+.annot-sidebar{width:36px;min-width:36px;border-left:1px solid var(--border);background:var(--surface);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;transition:width 0.2s ease;}
+.annot-sidebar.open{width:250px;min-width:250px;}
+.annot-sidebar-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 8px;border-bottom:1px solid var(--border);flex-shrink:0;min-height:42px;gap:6px;}
+.annot-sidebar-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;overflow:hidden;opacity:0;transition:opacity 0.15s;flex:1;}
+.annot-sidebar.open .annot-sidebar-title{opacity:1;}
+.annot-toggle-btn{background:none;border:1px solid var(--border2);border-radius:3px;color:var(--muted);cursor:pointer;font-size:13px;padding:2px 6px;flex-shrink:0;line-height:1;transition:color 0.12s,border-color 0.12s;}
 .annot-toggle-btn:hover{color:var(--gold);border-color:var(--gold);}
 .annot-cards-wrap{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;padding:8px;display:none;}
-#annot-sidebar.open .annot-cards-wrap{display:block;}
+.annot-sidebar.open .annot-cards-wrap{display:block;}
 .annot-empty{font-family:var(--mono);font-size:10px;color:var(--muted2);text-align:center;padding:16px 6px;line-height:1.7;}
 .annot-card{background:var(--surface2);border:1px solid var(--border2);border-left:3px solid var(--gold);border-radius:var(--radius);padding:10px 12px;margin-bottom:10px;}
 .annot-card-quote{font-family:var(--mono);font-size:10px;color:var(--gold);opacity:0.85;margin-bottom:6px;font-style:italic;line-height:1.4;word-break:break-word;}
 .annot-card-text{font-size:12px;line-height:1.6;color:var(--text);word-break:break-word;white-space:pre-wrap;margin-bottom:8px;}
 .annot-card-actions{display:flex;gap:6px;}
 .annot-card-edit,.annot-card-del,.annot-card-save,.annot-card-cancel{font-family:var(--mono);font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;border-radius:3px;padding:3px 8px;cursor:pointer;border:1px solid;}
-.annot-card-edit{color:var(--accent);border-color:rgba(0,194,168,0.3);background:none;}
-.annot-card-edit:hover{background:var(--accent-dim);}
-.annot-card-del{color:var(--danger);border-color:rgba(255,107,107,0.3);background:none;}
-.annot-card-del:hover{background:rgba(255,107,107,0.1);}
+.annot-card-edit{color:var(--accent);border-color:rgba(0,194,168,0.3);background:none;}.annot-card-edit:hover{background:var(--accent-dim);}
+.annot-card-del{color:var(--danger);border-color:rgba(255,107,107,0.3);background:none;}.annot-card-del:hover{background:rgba(255,107,107,0.1);}
 .annot-card-save{color:var(--gold);border-color:rgba(240,180,41,0.3);background:var(--gold-dim);}
 .annot-card-cancel{color:var(--muted);border-color:var(--border);background:none;}
 .annot-edit-ta{width:100%;background:var(--bg);border:1px solid var(--gold);border-radius:3px;color:var(--text);font-family:var(--sans);font-size:12px;padding:6px 8px;resize:none;outline:none;min-height:60px;margin-bottom:6px;line-height:1.5;}
@@ -354,7 +353,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .btn-annot-save{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
-/* ══ End Personal Annotation System v2 ═══════════════════════════════════ */
+/* ══ End Personal Annotation System ══════════════════════════════════════════ */
 </style>
 </head>
 <body>
@@ -1193,263 +1192,276 @@ document.addEventListener('keydown',function(e){
 });
 // ── End Personal Annotation System ──────────────────────────────────
 
-// ══ Personal Annotation System v2 ══════════════════════════════════════════
+
+
+
+// ══ Personal Annotation System ══════════════════════════════════════════════
 (function(){
+  var NOTE_PANELS = ['conditions','osce-exam','osce-comms','skills','anatomy','histology','signs','investigations'];
+  var ALL_PANELS = NOTE_PANELS.concat(['pharmacology']);
   var _pendingText = '';
+  var _activePanel = '';
 
-  function annotKey(sys, topic){ return 'piri_annot__conditions__'+sys+'__'+topic; }
+  function annotKey(p, sys, topic){ return 'piri_annot__'+p+'__'+(sys||'')+'__'+topic; }
+  function sbId(p){ return 'annot-sb-'+p; }
+  function wrapId(p){ return 'annot-wrap-'+p; }
 
-  function ensureSidebar(){
-    if(document.getElementById('annot-sidebar')) return;
-    var tv = document.querySelector('#tab-conditions');
-    if(!tv) return;
-    var sb = document.createElement('div');
-    sb.id = 'annot-sidebar';
-    var savedOpen = localStorage.getItem('piri_annot_sidebar') !== 'closed';
-    if(savedOpen) sb.classList.add('open');
-    sb.innerHTML = '<div class="annot-sidebar-hdr">'
-      +'<span class="annot-sidebar-title">My Notes</span>'
-      +'<button class="annot-toggle-btn" onclick="annotToggleSidebar()" title="Toggle notes panel">📝</button>'
-      +'</div>'
-      +'<div class="annot-cards-wrap" id="annot-cards-wrap"></div>';
-    tv.appendChild(sb);
+  // For pharmacology, track active drug via override
+  var _pharmaDrug = '';
+
+  function getActiveTopic(p){
+    if(p === 'pharmacology') return { sys: '', topic: _pharmaDrug };
+    var st = getState(p);
+    if(!st || !st.activeTopic) return null;
+    return { sys: st.activeSystem, topic: st.activeTopic };
   }
 
-  window.annotToggleSidebar = function(){
-    var sb = document.getElementById('annot-sidebar');
+  function ensureSidebar(p){
+    if(document.getElementById(sbId(p))) return;
+    var tab = document.getElementById('tab-'+p);
+    if(!tab) return;
+    var sb = document.createElement('div');
+    sb.id = sbId(p);
+    sb.className = 'annot-sidebar';
+    if(localStorage.getItem('piri_annot_sb_'+p)==='open') sb.classList.add('open');
+    var hdr = document.createElement('div');
+    hdr.className = 'annot-sidebar-hdr';
+    var title = document.createElement('span');
+    title.className = 'annot-sidebar-title';
+    title.textContent = 'My Notes';
+    var btn = document.createElement('button');
+    btn.className = 'annot-toggle-btn';
+    btn.title = 'Toggle personal notes';
+    btn.textContent = '📝';
+    btn.dataset.panel = p;
+    btn.onclick = function(){ annotToggle(this.dataset.panel); };
+    hdr.appendChild(title); hdr.appendChild(btn);
+    var wrap = document.createElement('div');
+    wrap.className = 'annot-cards-wrap';
+    wrap.id = wrapId(p);
+    sb.appendChild(hdr); sb.appendChild(wrap);
+    tab.appendChild(sb);
+  }
+
+  window.annotToggle = function(p){
+    var sb = document.getElementById(sbId(p));
     if(!sb) return;
-    var isOpen = sb.classList.toggle('open');
-    localStorage.setItem('piri_annot_sidebar', isOpen ? 'open' : 'closed');
+    var open = sb.classList.toggle('open');
+    localStorage.setItem('piri_annot_sb_'+p, open ? 'open' : 'closed');
   };
 
-  function setupListeners(){
-    var panel = document.getElementById('notes-panel-conditions');
-    if(!panel || panel._annotSetup) return;
-    panel._annotSetup = true;
-    document.addEventListener('mouseup', function(e){
-      if(e.target.closest('#annot-sidebar') || e.target.closest('#annot-popup-el') || e.target.closest('#annot-tooltip-el')) return;
+  function getContentPanel(p){
+    if(p === 'pharmacology') return document.getElementById('pharma-detail');
+    return document.getElementById('notes-panel-'+p);
+  }
+
+  function setupPanel(p){
+    var panel = getContentPanel(p);
+    if(!panel || panel._annotReady) return;
+    panel._annotReady = true;
+    panel.addEventListener('mouseup', function(e){
+      if(e.target.closest('.annot-sidebar')||e.target.closest('#annot-popup-el')||e.target.closest('#annot-tip-el')) return;
       setTimeout(function(){
         var sel = window.getSelection();
-        if(!sel || sel.isCollapsed || !sel.toString().trim()) { removeAnnotTooltip(); return; }
+        if(!sel||sel.isCollapsed||!sel.toString().trim()){ removeTip(); return; }
         var range = sel.getRangeAt(0);
-        if(!panel.contains(range.commonAncestorContainer)) { removeAnnotTooltip(); return; }
+        if(!panel.contains(range.commonAncestorContainer)){ removeTip(); return; }
         var rect = range.getBoundingClientRect();
         _pendingText = sel.toString().trim();
-        showAnnotTooltip(rect.left + rect.width/2, rect.top);
+        _activePanel = p;
+        showTip(rect.left+rect.width/2, rect.top);
       }, 10);
-    });
-    document.addEventListener('mousedown', function(e){
-      if(!e.target.closest('#annot-tooltip-el') && !e.target.closest('#annot-popup-el')){
-        removeAnnotTooltip();
-      }
     });
   }
 
-  function showAnnotTooltip(cx, cy){
-    removeAnnotTooltip();
+  function showTip(cx,cy){
+    removeTip();
     var tip = document.createElement('div');
-    tip.id = 'annot-tooltip-el';
+    tip.id = 'annot-tip-el';
     tip.className = 'annot-tooltip';
     tip.textContent = '📝 Add Note';
     tip.style.left = Math.min(cx, window.innerWidth-130)+'px';
-    tip.style.top = (cy - 44)+'px';
-    tip.onclick = function(e){
-      e.stopPropagation();
-      removeAnnotTooltip();
-      showAnnotPopup(cx, cy);
-    };
+    tip.style.top = (cy-44)+'px';
+    tip.onclick = function(e){ e.stopPropagation(); removeTip(); showPopup(cx,cy); };
     document.body.appendChild(tip);
   }
+  function removeTip(){ var el=document.getElementById('annot-tip-el'); if(el) el.remove(); }
 
-  function removeAnnotTooltip(){
-    var el = document.getElementById('annot-tooltip-el');
-    if(el) el.remove();
-  }
-
-  function showAnnotPopup(cx, cy){
+  function showPopup(cx,cy){
     window.removeAnnotPopup();
     var pop = document.createElement('div');
-    pop.id = 'annot-popup-el';
-    pop.className = 'annot-popup';
-    var left = Math.min(cx+10, window.innerWidth-295);
-    var top = Math.min(cy+10, window.innerHeight-230);
-    pop.style.left = left+'px';
-    pop.style.top = top+'px';
-    var quoteTxt = _pendingText.length > 80 ? _pendingText.substring(0,80)+'…' : _pendingText;
-    pop.innerHTML = '<div class="annot-popup-title">Add Personal Note</div>'
-      +'<div class="annot-popup-quote">&ldquo;'+esc(quoteTxt)+'&rdquo;</div>'
-      +'<textarea id="annot-popup-ta" placeholder="Type your note here..."></textarea>'
-      +'<div class="annot-popup-btns">'
-      +'<button class="btn-annot-save" onclick="annotCommit()">Save Note</button>'
-      +'<button class="btn-annot-cancel" onclick="removeAnnotPopup()">Cancel</button>'
-      +'</div>';
+    pop.id = 'annot-popup-el'; pop.className = 'annot-popup';
+    pop.style.left = Math.min(cx+10,window.innerWidth-295)+'px';
+    pop.style.top = Math.min(cy+10,window.innerHeight-240)+'px';
+    var qt = _pendingText.length>80 ? _pendingText.substring(0,80)+'...' : _pendingText;
+    var title = document.createElement('div'); title.className='annot-popup-title'; title.textContent='Add Personal Note';
+    var quote = document.createElement('div'); quote.className='annot-popup-quote'; quote.textContent='"'+qt+'"';
+    var ta = document.createElement('textarea'); ta.id='annot-pop-ta'; ta.placeholder='Type your note here...';
+    var btns = document.createElement('div'); btns.className='annot-popup-btns';
+    var sv = document.createElement('button'); sv.className='btn-annot-save'; sv.textContent='Save Note'; sv.onclick=window.annotCommit;
+    var cn = document.createElement('button'); cn.className='btn-annot-cancel'; cn.textContent='Cancel'; cn.onclick=window.removeAnnotPopup;
+    btns.appendChild(sv); btns.appendChild(cn);
+    pop.appendChild(title); pop.appendChild(quote); pop.appendChild(ta); pop.appendChild(btns);
     document.body.appendChild(pop);
-    setTimeout(function(){ var t=document.getElementById('annot-popup-ta'); if(t) t.focus(); }, 40);
+    setTimeout(function(){ ta.focus(); },40);
   }
 
-  window.removeAnnotPopup = function(){
-    var el = document.getElementById('annot-popup-el');
-    if(el) el.remove();
-  };
+  window.removeAnnotPopup = function(){ var el=document.getElementById('annot-popup-el'); if(el) el.remove(); };
 
   window.annotCommit = function(){
-    var ta = document.getElementById('annot-popup-ta');
-    if(!ta || !ta.value.trim()){ window.removeAnnotPopup(); return; }
-    var st = getState('conditions');
-    if(!st || !st.activeTopic){ window.removeAnnotPopup(); return; }
-    var key = annotKey(st.activeSystem, st.activeTopic);
-    var annots = [];
-    try{ annots = JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    annots.push({ id: Date.now(), selectedText: _pendingText, note: ta.value.trim() });
-    localStorage.setItem(key, JSON.stringify(annots));
+    var ta=document.getElementById('annot-pop-ta');
+    if(!ta||!ta.value.trim()){ window.removeAnnotPopup(); return; }
+    var p=_activePanel;
+    var info=getActiveTopic(p);
+    if(!info||!info.topic){ window.removeAnnotPopup(); return; }
+    var key=annotKey(p,info.sys,info.topic);
+    var annots=[];
+    try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
+    annots.push({ id:Date.now(), selectedText:_pendingText, note:ta.value.trim() });
+    localStorage.setItem(key,JSON.stringify(annots));
     window.removeAnnotPopup();
-    _pendingText = '';
-    window.getSelection() && window.getSelection().removeAllRanges();
-    annotRender();
-    // Open sidebar if closed
-    var sb = document.getElementById('annot-sidebar');
-    if(sb && !sb.classList.contains('open')) annotToggleSidebar();
+    _pendingText='';
+    window.getSelection()&&window.getSelection().removeAllRanges();
+    annotRender(p);
+    var sb=document.getElementById(sbId(p));
+    if(sb&&!sb.classList.contains('open')) annotToggle(p);
   };
 
-  window.annotDelete = function(id){
-    var st = getState('conditions');
-    if(!st || !st.activeTopic) return;
-    var key = annotKey(st.activeSystem, st.activeTopic);
-    var annots = [];
-    try{ annots = JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    annots = annots.filter(function(a){ return a.id !== id; });
-    localStorage.setItem(key, JSON.stringify(annots));
-    annotRender();
-  };
-
-  window.annotStartEdit = function(id){
-    var card = document.querySelector('.annot-card[data-annot-id="'+id+'"]');
-    if(!card) return;
-    var textEl = card.querySelector('.annot-card-text');
-    var actEl = card.querySelector('.annot-card-actions');
-    var cur = textEl.textContent;
-    textEl.innerHTML = '<textarea class="annot-edit-ta">'+esc(cur)+'</textarea>';
-    actEl.innerHTML = '<button class="annot-card-save" onclick="annotSaveEdit('+id+')">Save</button>'
-      +'<button class="annot-card-cancel" onclick="annotRender()">Cancel</button>';
-    var ta = textEl.querySelector('textarea');
-    if(ta){ ta.focus(); ta.setSelectionRange(ta.value.length, ta.value.length); }
-  };
-
-  window.annotSaveEdit = function(id){
-    var card = document.querySelector('.annot-card[data-annot-id="'+id+'"]');
-    if(!card) return;
-    var ta = card.querySelector('.annot-edit-ta');
-    if(!ta) return;
-    var st = getState('conditions');
-    var key = annotKey(st.activeSystem, st.activeTopic);
-    var annots = [];
-    try{ annots = JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    var ann = annots.find(function(a){ return a.id === id; });
-    if(ann) ann.note = ta.value.trim();
-    localStorage.setItem(key, JSON.stringify(annots));
-    annotRender();
-  };
-
-  function applyHighlights(annots){
-    // Remove existing highlights first
-    document.querySelectorAll('.annot-highlight').forEach(function(el){
-      var txt = document.createTextNode(el.textContent);
-      el.parentNode.replaceChild(txt, el);
+  function applyHighlights(p, annots){
+    var panel=getContentPanel(p);
+    if(panel) panel.querySelectorAll('.annot-highlight').forEach(function(el){
+      el.parentNode.replaceChild(document.createTextNode(el.textContent),el);
     });
-    var panel = document.getElementById('notes-panel-conditions');
-    if(!panel) return;
+    if(!panel||!annots.length) return;
     annots.forEach(function(a){
       if(!a.selectedText) return;
-      var walker = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null, false);
+      var walker=document.createTreeWalker(panel,NodeFilter.SHOW_TEXT,null,false);
       var node;
-      while(node = walker.nextNode()){
-        var idx = node.nodeValue.indexOf(a.selectedText);
-        if(idx >= 0 && !node.parentElement.classList.contains('annot-highlight')){
-          var before = node.nodeValue.substring(0, idx);
-          var after = node.nodeValue.substring(idx + a.selectedText.length);
-          var mark = document.createElement('mark');
-          mark.className = 'annot-highlight';
-          mark.dataset.annotId = a.id;
-          mark.textContent = a.selectedText;
-          mark.title = a.note;
-          mark.onclick = (function(aid){
-            return function(){
-              var card = document.querySelector('.annot-card[data-annot-id="'+aid+'"]');
-              if(card){ card.scrollIntoView({behavior:'smooth',block:'center'}); }
-              var sb = document.getElementById('annot-sidebar');
-              if(sb && !sb.classList.contains('open')) annotToggleSidebar();
-            };
-          })(a.id);
-          var parent = node.parentNode;
-          parent.insertBefore(document.createTextNode(before), node);
-          parent.insertBefore(mark, node);
-          parent.insertBefore(document.createTextNode(after), node);
-          parent.removeChild(node);
-          break;
-        }
+      while(node=walker.nextNode()){
+        if(node.parentElement.classList.contains('annot-highlight')) continue;
+        var idx=node.nodeValue.indexOf(a.selectedText);
+        if(idx<0) continue;
+        var mark=document.createElement('mark');
+        mark.className='annot-highlight'; mark.textContent=a.selectedText; mark.title=a.note;
+        mark.dataset.panel=p; mark.dataset.annotId=a.id;
+        mark.onclick=(function(pid,aid){
+          return function(){
+            var card=document.querySelector('#'+wrapId(pid)+' .annot-card[data-id="'+aid+'"]');
+            if(card) card.scrollIntoView({behavior:'smooth',block:'center'});
+            var sb=document.getElementById(sbId(pid));
+            if(sb&&!sb.classList.contains('open')) annotToggle(pid);
+          };
+        })(p,a.id);
+        var par=node.parentNode;
+        par.insertBefore(document.createTextNode(node.nodeValue.substring(0,idx)),node);
+        par.insertBefore(mark,node);
+        par.insertBefore(document.createTextNode(node.nodeValue.substring(idx+a.selectedText.length)),node);
+        par.removeChild(node);
+        break;
       }
     });
   }
 
-  window.annotRender = function(){
-    ensureSidebar();
-    setupListeners();
-    var wrap = document.getElementById('annot-cards-wrap');
-    if(!wrap) return;
-    var st = getState('conditions');
-    if(!st || !st.activeTopic){
-      wrap.innerHTML = '<div class="annot-empty">Select a condition to see your notes.</div>';
-      document.querySelectorAll('.annot-highlight').forEach(function(el){
-        el.replaceWith(document.createTextNode(el.textContent));
-      });
-      return;
+  window.annotRender = function(p){
+    ensureSidebar(p); setupPanel(p);
+    var wrap=document.getElementById(wrapId(p)); if(!wrap) return;
+    var info=getActiveTopic(p);
+    if(!info||!info.topic){
+      wrap.innerHTML='<div class="annot-empty">Select a topic to see your notes.</div>';
+      applyHighlights(p,[]); return;
     }
-    var key = annotKey(st.activeSystem, st.activeTopic);
-    var annots = [];
-    try{ annots = JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    applyHighlights(annots);
-    if(annots.length === 0){
-      wrap.innerHTML = '<div class="annot-empty">Highlight any text in the notes to add a personal comment.</div>';
-      return;
-    }
-    wrap.innerHTML = '';
-    annots.forEach(function(a, i){
-      var card = document.createElement('div');
-      card.className = 'annot-card';
-      card.dataset.annotId = a.id;
-      var qt = a.selectedText.length > 60 ? a.selectedText.substring(0,60)+'…' : a.selectedText;
-      card.innerHTML = '<div class="annot-card-quote">&ldquo;'+esc(qt)+'&rdquo;</div>'
-        +'<div class="annot-card-text">'+esc(a.note)+'</div>'
-        +'<div class="annot-card-actions">'
-        +'<button class="annot-card-edit" onclick="annotStartEdit('+a.id+')">Edit</button>'
-        +'<button class="annot-card-del" onclick="annotDelete('+a.id+')">Delete</button>'
-        +'</div>';
+    var key=annotKey(p,info.sys,info.topic);
+    var annots=[];
+    try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
+    applyHighlights(p,annots);
+    if(!annots.length){ wrap.innerHTML='<div class="annot-empty">Highlight any text to add a personal note.</div>'; return; }
+    wrap.innerHTML='';
+    annots.forEach(function(a){
+      var card=document.createElement('div'); card.className='annot-card'; card.dataset.id=a.id;
+      var qt=a.selectedText.length>60?a.selectedText.substring(0,60)+'...':a.selectedText;
+      var qEl=document.createElement('div'); qEl.className='annot-card-quote'; qEl.textContent='"'+qt+'"';
+      var tEl=document.createElement('div'); tEl.className='annot-card-text'; tEl.textContent=a.note;
+      var aEl=document.createElement('div'); aEl.className='annot-card-actions';
+      var editBtn=document.createElement('button'); editBtn.className='annot-card-edit'; editBtn.textContent='Edit';
+      editBtn.dataset.panel=p; editBtn.dataset.id=a.id;
+      editBtn.onclick=function(){ annotStartEdit(this.dataset.panel,parseInt(this.dataset.id)); };
+      var delBtn=document.createElement('button'); delBtn.className='annot-card-del'; delBtn.textContent='Delete';
+      delBtn.dataset.panel=p; delBtn.dataset.id=a.id;
+      delBtn.onclick=function(){ annotDelete(this.dataset.panel,parseInt(this.dataset.id)); };
+      aEl.appendChild(editBtn); aEl.appendChild(delBtn);
+      card.appendChild(qEl); card.appendChild(tEl); card.appendChild(aEl);
       wrap.appendChild(card);
     });
   };
 
-  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  window.annotDelete = function(p,id){
+    var info=getActiveTopic(p); if(!info||!info.topic) return;
+    var key=annotKey(p,info.sys,info.topic);
+    var annots=[];
+    try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
+    localStorage.setItem(key,JSON.stringify(annots.filter(function(a){ return a.id!==id; })));
+    annotRender(p);
+  };
 
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ window.removeAnnotPopup(); removeAnnotTooltip(); }
+  window.annotStartEdit = function(p,id){
+    var card=document.querySelector('#'+wrapId(p)+' .annot-card[data-id="'+id+'"]'); if(!card) return;
+    var tEl=card.querySelector('.annot-card-text');
+    var aEl=card.querySelector('.annot-card-actions');
+    var ta=document.createElement('textarea'); ta.className='annot-edit-ta'; ta.value=tEl.textContent;
+    tEl.innerHTML=''; tEl.appendChild(ta);
+    var sv=document.createElement('button'); sv.className='annot-card-save'; sv.textContent='Save';
+    sv.dataset.panel=p; sv.dataset.id=id;
+    sv.onclick=function(){ annotSaveEdit(this.dataset.panel,parseInt(this.dataset.id)); };
+    var cn=document.createElement('button'); cn.className='annot-card-cancel'; cn.textContent='Cancel';
+    cn.dataset.panel=p; cn.onclick=function(){ annotRender(this.dataset.panel); };
+    aEl.innerHTML=''; aEl.appendChild(sv); aEl.appendChild(cn);
+    ta.focus(); ta.setSelectionRange(ta.value.length,ta.value.length);
+  };
+
+  window.annotSaveEdit = function(p,id){
+    var card=document.querySelector('#'+wrapId(p)+' .annot-card[data-id="'+id+'"]'); if(!card) return;
+    var ta=card.querySelector('.annot-edit-ta'); if(!ta) return;
+    var info=getActiveTopic(p);
+    var key=annotKey(p,info.sys,info.topic);
+    var annots=[];
+    try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
+    var ann=annots.find(function(a){ return a.id===id; });
+    if(ann) ann.note=ta.value.trim();
+    localStorage.setItem(key,JSON.stringify(annots));
+    annotRender(p);
+  };
+
+  document.addEventListener('mousedown',function(e){
+    if(!e.target.closest('#annot-tip-el')&&!e.target.closest('#annot-popup-el')) removeTip();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){ window.removeAnnotPopup(); removeTip(); }
   });
 
-  // Hook into page load
-  var _origLoadNote = null;
-  var checkInterval = setInterval(function(){
-    if(typeof loadNote === 'function' && !_origLoadNote){
-      _origLoadNote = loadNote;
-      window.loadNote = function(p, name){
-        _origLoadNote(p, name);
-        if(p === 'conditions') setTimeout(window.annotRender, 80);
+  // Hook into loadNote for standard panels
+  var _orig=null;
+  var _iv=setInterval(function(){
+    if(typeof loadNote==='function'&&!_orig){
+      _orig=loadNote;
+      window.loadNote=function(p,name){
+        _orig(p,name);
+        if(NOTE_PANELS.indexOf(p)>=0) setTimeout(function(){ annotRender(p); },80);
       };
-      clearInterval(checkInterval);
-      ensureSidebar();
-      setupListeners();
+      // Hook into pharmaShowDrug for pharmacology tab
+      if(typeof pharmaShowDrug==='function'){
+        var _origPharma=pharmaShowDrug;
+        window.pharmaShowDrug=function(drug){
+          _origPharma(drug);
+          _pharmaDrug=drug&&drug.name?drug.name:(typeof drug==='string'?drug:'');
+          setTimeout(function(){ annotRender('pharmacology'); },80);
+        };
+      }
+      clearInterval(_iv);
+      ALL_PANELS.forEach(function(p){ ensureSidebar(p); setupPanel(p); });
     }
-  }, 200);
+  },200);
 })();
-// ══ End Personal Annotation System v2 ══════════════════════════════════════
+// ══ End Personal Annotation System ══════════════════════════════════════════
 </script>
 </body>
 </html>
