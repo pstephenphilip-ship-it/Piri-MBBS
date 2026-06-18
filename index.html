@@ -1499,15 +1499,19 @@ document.addEventListener('keydown',function(e){
 // ══ End Personal Annotation System ══════════════════════════════════════════
 
 function seedPresets() {
-  const fcK = 'piri_fc__conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
-  const qK  = 'piri_q__conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
-  const pk  = 'conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
-  if (!localStorage.getItem(fcK) && PRESET_FC[pk]) {
-    localStorage.setItem(fcK, JSON.stringify(PRESET_FC[pk]));
-  }
-  if (!localStorage.getItem(qK) && PRESET_Q[pk]) {
-    localStorage.setItem(qK, JSON.stringify(PRESET_Q[pk]));
-  }
+  try {
+    const fcK = 'piri_fc__conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
+    const qK  = 'piri_q__conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
+    const pk  = 'conditions__CARDIOVASCULAR__Acute Coronary Syndrome';
+    const existingFC = JSON.parse(localStorage.getItem(fcK) || '[]');
+    if (existingFC.length === 0 && PRESET_FC[pk]) {
+      localStorage.setItem(fcK, JSON.stringify(PRESET_FC[pk]));
+    }
+    const existingQ = JSON.parse(localStorage.getItem(qK) || '[]');
+    if (existingQ.length === 0 && PRESET_Q[pk]) {
+      localStorage.setItem(qK, JSON.stringify(PRESET_Q[pk]));
+    }
+  } catch(e) {}
 }
 
 seedPresets();
