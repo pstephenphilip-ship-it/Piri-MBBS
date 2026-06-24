@@ -1480,3 +1480,831 @@ MCQ_HYPERCALCAEMIA_DRUGS = [
         ),
     },
 ]
+# endocrinology_gaps.py
+# Medical education content for MBBS Endocrinology revision site
+# GAP 1: Causes of Hypernatraemia
+# GAP 2: Euthyroid Goitre and Approach to Neck Lump
+
+# =============================================================================
+# GAP 1: CAUSES OF HYPERNATRAEMIA
+# =============================================================================
+
+HTML_NOTES_HYPERNATRAEMIA = """
+<div class="rn-section-title">Causes of Hypernatraemia (Na &gt; 145 mmol/L)</div>
+<div class="rn-body">
+
+  <div class="rn-callout rn-callout-blue">
+    <strong>Definition:</strong> Serum sodium &gt;145 mmol/L. Always reflects a deficit of water relative to sodium.
+    Hypernatraemia is a hyperosmolar state &mdash; water moves out of cells, causing <strong>cellular dehydration</strong>.
+    The most common cause is <strong>inadequate water intake</strong> rather than excess sodium.
+  </div>
+
+  <div class="rn-section-title">Category 1: Water Loss (Most Common)</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Mechanism</th>
+          <th>Examples</th>
+          <th>Key Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Insensible losses</strong></td>
+          <td>Fever, burns, sweating, tachypnoea</td>
+          <td>Urine concentrated (U<sub>osm</sub> &gt;700); kidney conserving water appropriately</td>
+        </tr>
+        <tr>
+          <td><strong>GI losses</strong></td>
+          <td>Diarrhoea, vomiting, fistulae &mdash; without adequate water replacement</td>
+          <td>Often hypotonic fluid loss; urine concentrated</td>
+        </tr>
+        <tr>
+          <td><strong>Diabetes Insipidus (cranial)</strong></td>
+          <td>ADH deficiency: trauma, pituitary surgery, tumour, sarcoidosis, Langerhans cell histiocytosis</td>
+          <td>Polyuria, dilute urine (U<sub>osm</sub> &lt;300); responds to desmopressin</td>
+        </tr>
+        <tr>
+          <td><strong>Diabetes Insipidus (nephrogenic)</strong></td>
+          <td>Lithium toxicity, hypercalcaemia, hypokalaemia, inherited (AVPR2/AQP2 mutations), tubulointerstitial disease</td>
+          <td>Dilute urine; <em>does not</em> respond to desmopressin; aquaporin-2 defect</td>
+        </tr>
+        <tr>
+          <td><strong>Osmotic diuresis</strong></td>
+          <td>Hyperglycaemia (DKA/HHS), mannitol, urea, contrast agents</td>
+          <td>Polyuria with isosthenuric/mildly concentrated urine; glucosuria in DKA</td>
+        </tr>
+        <tr>
+          <td><strong>Loop diuretics</strong></td>
+          <td>Furosemide, bumetanide</td>
+          <td>Hypotonic urine loss; commonly combined with poor oral intake in elderly</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-section-title">Category 2: Sodium Gain (Less Common)</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Cause</th>
+          <th>Examples</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Iatrogenic</strong></td>
+          <td>Hypertonic saline (3% NaCl), sodium bicarbonate infusion, TPN with insufficient free water</td>
+          <td>Most common sodium-gain cause in hospital; review fluid prescriptions</td>
+        </tr>
+        <tr>
+          <td><strong>Hyperaldosteronism</strong></td>
+          <td>Conn's syndrome, secondary hyperaldosteronism</td>
+          <td>Sodium retention + hypokalaemia; hypertension; hypernatraemia often mild</td>
+        </tr>
+        <tr>
+          <td><strong>Cushing's syndrome</strong></td>
+          <td>Excess cortisol (mineralocorticoid activity)</td>
+          <td>Sodium and water retention; hypokalaemic alkalosis</td>
+        </tr>
+        <tr>
+          <td><strong>Salt poisoning</strong></td>
+          <td>Child abuse, accidental ingestion, sea-water drowning</td>
+          <td>Rare; urine sodium high; hypervolaemic hypernatraemia</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-section-title">Category 3: Impaired Thirst / Access to Water</div>
+  <div class="rn-body">
+    <p>Even with intact ADH, thirst is the primary defence against hypernatraemia. Impaired thirst leads to <strong>essential hypernatraemia (adipsia)</strong>.</p>
+    <ul>
+      <li><strong>Hypothalamic damage:</strong> tumours (craniopharyngioma), surgery, sarcoidosis, trauma &mdash; destroys osmoreceptors</li>
+      <li><strong>Elderly patients:</strong> blunted thirst perception; reduced renal concentrating ability; common in care homes</li>
+      <li><strong>Intubated / obtunded patients:</strong> cannot self-regulate fluid intake; entirely dependent on prescribed fluids</li>
+      <li><strong>Infants:</strong> dependent on carers; at risk with formula errors or diarrhoeal illness</li>
+    </ul>
+  </div>
+
+  <div class="rn-callout rn-callout-blue">
+    <strong>Diagnostic Approach:</strong>
+    <ol>
+      <li>Assess volume status (hypovolaemic / euvolaemic / hypervolaemic hypernatraemia)</li>
+      <li>Urine osmolality + urine sodium:
+        <ul>
+          <li>U<sub>osm</sub> &gt;700 &rarr; appropriate renal response (extrarenal loss or inadequate intake)</li>
+          <li>U<sub>osm</sub> &lt;300 &rarr; diabetes insipidus</li>
+          <li>U<sub>osm</sub> 300&ndash;700 &rarr; partial DI or osmotic diuresis</li>
+        </ul>
+      </li>
+      <li>Water deprivation test &plusmn; desmopressin to distinguish cranial vs nephrogenic DI</li>
+    </ol>
+  </div>
+
+  <div class="rn-section-title">Management of Hypernatraemia</div>
+  <div class="rn-callout rn-callout-red">
+    <strong>Critical Rule:</strong> Correct hypernatraemia <strong>SLOWLY</strong>. Brain cells adapt to hyperosmolality by accumulating idiogenic osmoles.
+    Rapid correction &rarr; rapid cerebral swelling &rarr; <strong>cerebral oedema, seizures, herniation</strong>.
+    <br><br>
+    <strong>Maximum correction rate:</strong>
+    <ul>
+      <li>Chronic hypernatraemia (&gt;48h or unknown duration): <strong>max 10&ndash;12 mmol/L/day</strong> (0.5 mmol/L/hr)</li>
+      <li>Acute hypernatraemia (&lt;48h, known onset): can correct faster (1&ndash;2 mmol/L/hr)</li>
+    </ul>
+  </div>
+
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Calculate Free Water Deficit (FWD)</strong></td>
+          <td>FWD (L) = TBW &times; (Na<sub>measured</sub> / 140 &minus; 1)<br>
+          TBW = 0.6 &times; weight (men), 0.5 &times; weight (women/elderly)<br>
+          <em>e.g. 70 kg man, Na 160: TBW = 42 L; FWD = 42 &times; (160/140 &minus; 1) = 6 L</em></td>
+        </tr>
+        <tr>
+          <td><strong>2. Replace deficit over 48&ndash;72h</strong></td>
+          <td>Add ongoing losses + insensible losses (~500&ndash;1000 mL/day) to total replacement volume</td>
+        </tr>
+        <tr>
+          <td><strong>3. Fluid choice</strong></td>
+          <td>
+            <ul>
+              <li>Oral water (preferred if patient can swallow)</li>
+              <li>IV 5% dextrose (free water; monitor glucose)</li>
+              <li>IV 0.45% NaCl (hypotonic saline &mdash; if also volume-depleted)</li>
+              <li>0.9% NaCl if severely hypovolaemic (haemodynamic priority first)</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>4. Monitor</strong></td>
+          <td>Check serum Na every 4&ndash;6 hours; adjust infusion rate accordingly</td>
+        </tr>
+        <tr>
+          <td><strong>5. Treat underlying cause</strong></td>
+          <td>Desmopressin for cranial DI; discontinue lithium/offending drug for nephrogenic DI; treat hyperglycaemia; review sodium-containing infusions</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-callout rn-callout-green">
+    <strong>Treatment Summary by Cause:</strong>
+    <ul>
+      <li><strong>Cranial DI:</strong> Intranasal/oral desmopressin (DDAVP) + free water</li>
+      <li><strong>Nephrogenic DI:</strong> Low-sodium diet, thiazide diuretics (paradoxically reduce urine output), NSAIDs (indomethacin), amiloride (for lithium-induced)</li>
+      <li><strong>Osmotic diuresis:</strong> Treat hyperglycaemia; stop mannitol; ensure free water replacement</li>
+      <li><strong>Iatrogenic:</strong> Stop hypertonic fluids; replace free water deficit</li>
+    </ul>
+  </div>
+
+</div>
+"""
+
+FC_HYPERNATRAEMIA = [
+    {
+        "front": "What is the most common cause of hypernatraemia in hospitalised patients?",
+        "back": "Inadequate free water intake (especially in elderly, intubated, or cognitively impaired patients). Water loss exceeding intake is more common than sodium gain. Always review fluid prescription and access to oral fluids.",
+    },
+    {
+        "front": "Give the formula for Free Water Deficit (FWD) and what it represents.",
+        "back": (
+            "FWD (L) = TBW x (Na_measured / 140 - 1)\n"
+            "TBW = 0.6 x weight (men), 0.5 x weight (women/elderly).\n"
+            "FWD estimates the volume of free water needed to restore normonatraemia. "
+            "Must also account for ongoing losses."
+        ),
+    },
+    {
+        "front": "What urine osmolality findings help distinguish diabetes insipidus from extrarenal water loss in hypernatraemia?",
+        "back": (
+            "U_osm >700 mOsm/kg: appropriate renal response -> extrarenal loss (fever, diarrhoea) or inadequate intake\n"
+            "U_osm <300 mOsm/kg: diabetes insipidus (cranial or nephrogenic)\n"
+            "U_osm 300-700: partial DI or osmotic diuresis\n"
+            "Follow with water deprivation test +/- desmopressin to differentiate cranial vs nephrogenic DI."
+        ),
+    },
+    {
+        "front": "Why must chronic hypernatraemia be corrected slowly, and what is the safe maximum rate?",
+        "back": (
+            "Brain cells adapt to hyperosmolality by generating idiogenic osmoles (taurine, myoinositol). "
+            "Rapid correction causes water to rush into brain cells -> cerebral oedema -> seizures, herniation.\n"
+            "Max rate: 10-12 mmol/L/day (0.5 mmol/L/hr) for chronic (>48h) hypernatraemia.\n"
+            "Acute (<48h): can correct at ~1-2 mmol/L/hr."
+        ),
+    },
+    {
+        "front": "What are the causes of nephrogenic diabetes insipidus?",
+        "back": (
+            "Acquired (common): Lithium toxicity (most common drug cause), hypercalcaemia, hypokalaemia, "
+            "tubulointerstitial nephritis, sickle cell disease\n"
+            "Congenital (rare): AVPR2 (V2 receptor) mutation (X-linked), AQP2 (aquaporin-2) mutation (autosomal)\n"
+            "Key: does NOT respond to desmopressin -- treat with low-sodium diet + thiazide diuretics."
+        ),
+    },
+    {
+        "front": "List four causes of hypernatraemia due to sodium gain (hypervolaemic hypernatraemia).",
+        "back": (
+            "1. Iatrogenic: hypertonic saline (3% NaCl), sodium bicarbonate infusions, TPN with insufficient free water\n"
+            "2. Hyperaldosteronism (Conn's syndrome) -- sodium retention + hypokalaemia\n"
+            "3. Cushing's syndrome -- mineralocorticoid activity of cortisol\n"
+            "4. Salt poisoning -- accidental ingestion, child abuse, sea-water drowning (rare)\n"
+            "Clue: urine sodium is HIGH in sodium-gain causes."
+        ),
+    },
+]
+
+MCQ_HYPERNATRAEMIA = [
+    {
+        "type": "mcq",
+        "question": (
+            "A 78-year-old woman with dementia is admitted from a care home with confusion and reduced oral intake "
+            "for 4 days. Serum Na is 162 mmol/L. Urine osmolality is 820 mOsm/kg. "
+            "Which is the most appropriate initial management?"
+        ),
+        "options": [
+            "A. IV 0.9% saline at 500 mL/hr",
+            "B. IV 5% dextrose, correcting Na by no more than 10-12 mmol/L over 24 hours",
+            "C. IV 3% hypertonic saline",
+            "D. Oral desmopressin",
+            "E. IV 5% dextrose, correcting Na by 20 mmol/L over 24 hours",
+        ],
+        "answer": "B",
+        "explanation": (
+            "This patient has chronic hypernatraemia (>48h duration) due to inadequate free water intake -- "
+            "the high urine osmolality confirms appropriate renal conservation. Correction must be slow: "
+            "maximum 10-12 mmol/L/day to avoid cerebral oedema. IV 5% dextrose provides free water without sodium. "
+            "Option A (0.9% saline) will not reduce serum sodium. "
+            "Option E risks cerebral oedema from over-rapid correction. Desmopressin is for DI, not indicated here."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 35-year-old man develops polyuria (6 L/day) and polydipsia 2 weeks after transsphenoidal pituitary surgery. "
+            "Serum Na is 149 mmol/L, urine osmolality 185 mOsm/kg, serum osmolality 305 mOsm/kg. "
+            "After 8 hours of water deprivation, urine osmolality rises to 620 mOsm/kg following desmopressin. "
+            "What is the diagnosis?"
+        ),
+        "options": [
+            "A. Primary polydipsia (psychogenic)",
+            "B. Nephrogenic diabetes insipidus",
+            "C. Cranial diabetes insipidus",
+            "D. Osmotic diuresis",
+            "E. Reset osmostat",
+        ],
+        "answer": "C",
+        "explanation": (
+            "Post-pituitary surgery polyuria with dilute urine (U_osm <300) and elevated serum osmolality confirms "
+            "diabetes insipidus. The key discriminator: urine osmolality rises to >600 mOsm/kg after desmopressin "
+            "-- this is CRANIAL DI (ADH deficiency; kidney responds normally to exogenous ADH). "
+            "Nephrogenic DI would show minimal response to desmopressin. "
+            "Primary polydipsia causes dilutional hyponatraemia, not hypernatraemia. "
+            "Treatment: intranasal or oral desmopressin."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 52-year-old man with bipolar disorder on long-term lithium has serum Na 155 mmol/L, "
+            "urine osmolality 210 mOsm/kg. Desmopressin administration produces no significant change in urine osmolality. "
+            "Which treatment is most appropriate for his diabetes insipidus?"
+        ),
+        "options": [
+            "A. Desmopressin nasal spray",
+            "B. High-sodium diet with furosemide",
+            "C. Low-sodium diet, thiazide diuretic, and amiloride",
+            "D. Fluid restriction",
+            "E. Carbamazepine",
+        ],
+        "answer": "C",
+        "explanation": (
+            "This is lithium-induced nephrogenic DI -- the kidney is resistant to ADH "
+            "(confirmed by lack of response to desmopressin). "
+            "Management: (1) Low-sodium diet -- reduces proximal tubular reabsorption, increasing water reabsorption passively; "
+            "(2) Thiazide diuretics (e.g. hydrochlorothiazide) -- paradoxically reduce urine output via volume contraction; "
+            "(3) Amiloride -- blocks the ENaC channel that lithium enters in collecting duct cells. "
+            "Desmopressin is ineffective in nephrogenic DI. "
+            "Carbamazepine is used for cranial DI (stimulates ADH release)."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 70 kg man has serum sodium of 158 mmol/L. Using the free water deficit formula, "
+            "approximately how many litres of free water are required to restore normonatraemia (target 140 mmol/L)?"
+        ),
+        "options": [
+            "A. 2.7 L",
+            "B. 5.4 L",
+            "C. 8.1 L",
+            "D. 1.4 L",
+            "E. 10.8 L",
+        ],
+        "answer": "B",
+        "explanation": (
+            "FWD = TBW x (Na_measured / 140 - 1). "
+            "For a 70 kg man: TBW = 0.6 x 70 = 42 L. "
+            "FWD = 42 x (158/140 - 1) = 42 x 0.129 = 5.4 L. "
+            "This represents the deficit to reach target Na of 140 mmol/L. "
+            "In practice, add ongoing insensible and urinary losses, and correct over 48-72h (chronic hypernatraemia)."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "Which combination of biochemical findings is most consistent with hypernatraemia "
+            "due to primary hyperaldosteronism (Conn's syndrome)?"
+        ),
+        "options": [
+            "A. High Na, high K, metabolic acidosis, low aldosterone",
+            "B. High Na, low K, metabolic alkalosis, high aldosterone, low renin",
+            "C. High Na, low K, metabolic acidosis, high renin, high aldosterone",
+            "D. High Na, high K, metabolic alkalosis, high renin",
+            "E. High Na, normal K, normal acid-base, high renin",
+        ],
+        "answer": "B",
+        "explanation": (
+            "Conn's syndrome (primary hyperaldosteronism) causes: sodium retention (hypernatraemia, usually mild), "
+            "potassium wasting (hypokalaemia), metabolic alkalosis (H+ loss via aldosterone effect on H+-ATPase), "
+            "high aldosterone, and suppressed renin (primary autonomous aldosterone production suppresses the "
+            "renin-angiotensin axis). This distinguishes it from secondary hyperaldosteronism (high renin)."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 6-month-old infant presents with irritability, a high-pitched cry, and seizures. "
+            "Serum Na is 172 mmol/L. The mother reports the infant has been formula-fed. "
+            "Which diagnosis should be most urgently considered?"
+        ),
+        "options": [
+            "A. Cranial diabetes insipidus",
+            "B. Nephrogenic diabetes insipidus",
+            "C. Non-accidental injury with salt poisoning",
+            "D. Congenital adrenal hyperplasia",
+            "E. Syndrome of inappropriate ADH secretion",
+        ],
+        "answer": "C",
+        "explanation": (
+            "Severe symptomatic hypernatraemia (Na >170 mmol/L) in a formula-fed infant must raise immediate concern "
+            "for non-accidental injury (NAI) with deliberate salt poisoning. Formula errors can cause hypernatraemia, "
+            "but the severity and neurological symptoms (high-pitched cry, seizures) warrant urgent safeguarding assessment. "
+            "Urine sodium will be elevated if the source is exogenous salt. "
+            "A full child protection workup is mandatory. "
+            "Cranial/nephrogenic DI would present with polyuria and dilute urine, typically at lower sodium levels."
+        ),
+    },
+]
+
+
+# =============================================================================
+# GAP 2: EUTHYROID GOITRE AND APPROACH TO NECK LUMP
+# =============================================================================
+
+HTML_NOTES_EUTHYROID_GOITRE = """
+<div class="rn-section-title">Euthyroid Goitre and Approach to the Neck Lump</div>
+<div class="rn-body">
+
+  <div class="rn-callout rn-callout-blue">
+    <strong>Goitre</strong> = any enlargement of the thyroid gland, regardless of thyroid function.
+    The majority of goitres in clinical practice are <strong>euthyroid</strong> &mdash; normal TFTs.
+    Always assess: function (TFTs), morphology (USS), and cytology (FNA) when indicated.
+  </div>
+
+  <div class="rn-section-title">Classification of Goitre by Cause</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Key Features</th>
+          <th>TFTs</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Simple / Colloid goitre</strong></td>
+          <td>Soft, diffuse; commonest worldwide; due to iodine deficiency</td>
+          <td>Normal (euthyroid)</td>
+          <td>Endemic in iodine-poor regions; moves on swallowing; usually no treatment needed</td>
+        </tr>
+        <tr>
+          <td><strong>Multinodular goitre (MNG)</strong></td>
+          <td>Irregular, lobulated; multiple nodules; most common cause in iodine-sufficient countries</td>
+          <td>Usually normal; may become toxic (toxic MNG)</td>
+          <td>Can cause compressive symptoms; risk of malignant transformation low but present</td>
+        </tr>
+        <tr>
+          <td><strong>Physiological goitre</strong></td>
+          <td>Diffuse, soft; puberty or pregnancy</td>
+          <td>Normal</td>
+          <td>Increased thyroid demand; resolves spontaneously; no treatment</td>
+        </tr>
+        <tr>
+          <td><strong>Hashimoto's thyroiditis</strong></td>
+          <td>Firm, rubbery, may be irregular; autoimmune</td>
+          <td>Euthyroid early &rarr; hypothyroid later; anti-TPO antibodies positive</td>
+          <td>Most common cause of hypothyroidism in iodine-sufficient world; increased lymphoma risk</td>
+        </tr>
+        <tr>
+          <td><strong>Graves' disease</strong></td>
+          <td>Diffuse, smooth, bruit; TSH-receptor antibodies (TRAb)</td>
+          <td>Hyperthyroid (&darr;TSH, &uarr;FT4)</td>
+          <td>Thyroid bruit is pathognomonic; associated with pretibial myxoedema, exophthalmos</td>
+        </tr>
+        <tr>
+          <td><strong>Subacute (de Quervain's) thyroiditis</strong></td>
+          <td>Painful, tender goitre; post-viral; elevated ESR/CRP</td>
+          <td>Transient thyrotoxicosis &rarr; hypothyroid &rarr; euthyroid</td>
+          <td>Treat with NSAIDs/aspirin; steroids for severe cases; usually self-limiting</td>
+        </tr>
+        <tr>
+          <td><strong>Riedel's thyroiditis</strong></td>
+          <td>Woody hard, fibrous; can invade local structures; rare</td>
+          <td>Hypothyroid (if extensive fibrosis)</td>
+          <td>Can mimic malignancy clinically; associated with IgG4-related disease; treat with steroids/tamoxifen</td>
+        </tr>
+        <tr>
+          <td><strong>Thyroid malignancy</strong></td>
+          <td>Hard, irregular, rapidly growing; lymphadenopathy; hoarseness (RLN invasion)</td>
+          <td>Usually normal</td>
+          <td>Papillary (most common, good prognosis); follicular; medullary (MEN2); anaplastic (worst prognosis)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-section-title">Approach to the Neck Lump &mdash; Key Examination Questions</div>
+  <div class="rn-callout rn-callout-blue">
+    <strong>Systematic approach to any neck lump:</strong>
+    <ol>
+      <li><strong>Does it move with swallowing?</strong> &rarr; If YES &rarr; thyroid origin (thyroid moves with larynx during swallowing)</li>
+      <li><strong>Does it move with tongue protrusion?</strong> &rarr; If YES &rarr; thyroglossal cyst (attached to hyoid bone / thyroglossal tract)</li>
+      <li><strong>Midline vs lateral?</strong> &rarr; Midline: thyroid, thyroglossal cyst, dermoid, submental lymph node. Lateral: lymph node, branchial cyst, parotid, carotid body tumour</li>
+      <li><strong>Consistency?</strong> &rarr; Soft (colloid/simple goitre), firm (Hashimoto's, MNG), hard (malignancy, Riedel's), fluctuant (cyst, abscess)</li>
+      <li><strong>Pulsatile?</strong> &rarr; Carotid artery aneurysm, carotid body tumour (mobile side-to-side, not vertically)</li>
+      <li><strong>Transilluminates?</strong> &rarr; Cystic lesion (hygroma, branchial cyst)</li>
+    </ol>
+  </div>
+
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Neck Lump</th>
+          <th>Location</th>
+          <th>Key Features</th>
+          <th>Moves with swallowing</th>
+          <th>Moves with tongue protrusion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Thyroid goitre / nodule</strong></td>
+          <td>Anterior midline/bilateral</td>
+          <td>Moves with thyroid; TFTs + USS</td>
+          <td>Yes</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Thyroglossal cyst</strong></td>
+          <td>Midline, at/below hyoid</td>
+          <td>Young patient; smooth, cystic</td>
+          <td>Yes</td>
+          <td>Yes (pathognomonic)</td>
+        </tr>
+        <tr>
+          <td><strong>Cervical lymph node</strong></td>
+          <td>Along sternocleidomastoid</td>
+          <td>Reactive, lymphoma, metastatic; assess for primary</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Branchial cyst</strong></td>
+          <td>Lateral, anterior to SCM (upper third)</td>
+          <td>Young adult; smooth, fluctuant, transilluminates</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Parotid swelling</strong></td>
+          <td>Preauricular / angle of jaw</td>
+          <td>Fills the space between mandible and mastoid</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td><strong>Carotid body tumour</strong></td>
+          <td>Bifurcation of carotid (upper neck)</td>
+          <td>Pulsatile; mobile side-to-side only; splays carotids on angiography</td>
+          <td>No</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-section-title">Investigations for Goitre / Thyroid Nodule</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Investigation</th>
+          <th>Purpose</th>
+          <th>Key Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TFTs (TSH, FT4, FT3)</strong></td>
+          <td>Assess function (hypo/hyper/euthyroid)</td>
+          <td>First-line; suppressed TSH &rarr; consider toxic nodule; always do before FNA</td>
+        </tr>
+        <tr>
+          <td><strong>Thyroid antibodies</strong></td>
+          <td>Anti-TPO (Hashimoto's); TRAb (Graves'); anti-Tg</td>
+          <td>Useful for autoimmune aetiology; anti-TPO present in 95% of Hashimoto's</td>
+        </tr>
+        <tr>
+          <td><strong>USS neck</strong></td>
+          <td>Morphology, nodule characteristics, lymph nodes</td>
+          <td>U-TIRADS classification guides FNA; malignant features: hypoechoic, microcalcification, irregular margins, taller-than-wide, increased vascularity</td>
+        </tr>
+        <tr>
+          <td><strong>Fine Needle Aspiration (FNA)</strong></td>
+          <td>Cytological diagnosis</td>
+          <td>Bethesda / Thy classification: Thy1 (inadequate), Thy2 (benign), Thy3a/3f (follicular lesion), Thy4 (suspicious), Thy5 (malignant). Thy3&ndash;5 &rarr; surgery</td>
+        </tr>
+        <tr>
+          <td><strong>Isotope scan (Tc-99m or I-123)</strong></td>
+          <td>Function of individual nodules</td>
+          <td>Hot nodule = autonomous/functioning &rarr; benign (rarely malignant). Cold nodule = non-functioning &rarr; ~5&ndash;15% malignancy risk &rarr; needs FNA. Warm = indeterminate</td>
+        </tr>
+        <tr>
+          <td><strong>CT / MRI neck and chest</strong></td>
+          <td>Extent of disease, retrosternal/substernal extension</td>
+          <td>Assess tracheal deviation/compression, SVC obstruction; CT with contrast may interfere with radioiodine treatment (iodine load)</td>
+        </tr>
+        <tr>
+          <td><strong>Calcitonin</strong></td>
+          <td>Screen for medullary thyroid carcinoma</td>
+          <td>Elevated in MTC; also check CEA; genetic testing (RET mutation) for MEN2</td>
+        </tr>
+        <tr>
+          <td><strong>Laryngoscopy</strong></td>
+          <td>Vocal cord assessment</td>
+          <td>Pre-operatively or if hoarseness present &mdash; assess RLN function</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-section-title">Indications for Surgery (Thyroidectomy)</div>
+  <div class="rn-callout rn-callout-red">
+    <strong>Operate when:</strong>
+    <ul>
+      <li><strong>Compressive symptoms:</strong> dysphagia, dyspnoea, stridor, SVC obstruction, tracheal deviation &gt;1 cm</li>
+      <li><strong>Suspicious or malignant cytology:</strong> Thy3f (follicular lesion &mdash; diagnostic lobectomy), Thy4, Thy5</li>
+      <li><strong>Retrosternal / substernal goitre</strong> with symptoms or airway compromise</li>
+      <li><strong>Hyperthyroidism not controlled medically</strong> (toxic MNG, Graves' refractory to antithyroids)</li>
+      <li><strong>Cosmetic / psychosocial:</strong> significant goitre causing distress</li>
+      <li><strong>Rapid growth</strong> or features of malignancy (hardness, lymphadenopathy, RLN palsy)</li>
+    </ul>
+  </div>
+
+  <div class="rn-callout rn-callout-green">
+    <strong>Post-thyroidectomy Complications to Know:</strong>
+    <ul>
+      <li><strong>Hypocalcaemia:</strong> parathyroid gland damage/removal &rarr; hypoparathyroidism &rarr; tetany (Chvostek's, Trousseau's signs). Monitor Ca2+ post-op; replace calcium &plusmn; calcitriol.</li>
+      <li><strong>RLN palsy:</strong> recurrent laryngeal nerve injury &rarr; hoarseness (unilateral) or stridor/respiratory distress (bilateral). Bilateral RLN injury may require tracheostomy.</li>
+      <li><strong>Thyroid storm:</strong> precipitated by surgery in inadequately prepared hyperthyroid patient &mdash; prevent by rendering euthyroid pre-operatively.</li>
+      <li><strong>Hypothyroidism:</strong> expected after total thyroidectomy &rarr; lifelong levothyroxine replacement.</li>
+    </ul>
+  </div>
+
+</div>
+"""
+
+FC_EUTHYROID_GOITRE = [
+    {
+        "front": "What is the single most important clinical sign that distinguishes a thyroid lump from all other neck lumps?",
+        "back": (
+            "Movement on swallowing. The thyroid gland is enveloped in pretracheal fascia and moves superiorly "
+            "with the larynx during swallowing. Ask the patient to swallow a sip of water while you observe/palpate. "
+            "A thyroglossal cyst also moves on swallowing AND on tongue protrusion (pathognomonic of thyroglossal cyst)."
+        ),
+    },
+    {
+        "front": "What is the Thy (Bethesda) classification for thyroid FNA cytology, and which categories require surgery?",
+        "back": (
+            "Thy1 = Non-diagnostic / inadequate (repeat FNA)\n"
+            "Thy2 = Benign (observe; USS surveillance)\n"
+            "Thy3a = Atypia of undetermined significance\n"
+            "Thy3f = Follicular lesion / neoplasm (diagnostic lobectomy -- cannot exclude follicular carcinoma on cytology alone)\n"
+            "Thy4 = Suspicious for malignancy (surgery)\n"
+            "Thy5 = Malignant (surgery)\n"
+            "Thy3-5 require surgical intervention."
+        ),
+    },
+    {
+        "front": "What does a 'cold' nodule on isotope scan mean, and how does it compare to a 'hot' nodule?",
+        "back": (
+            "Cold nodule = does not take up isotope -> non-functioning -> ~5-15% malignancy risk -> requires FNA.\n"
+            "Hot nodule = autonomous functioning nodule -> takes up isotope, suppresses rest of gland "
+            "-> almost always benign (rarely malignant) -> may cause hyperthyroidism (toxic adenoma).\n"
+            "Warm nodule = intermediate uptake -> indeterminate -> further assessment needed."
+        ),
+    },
+    {
+        "front": "What are the four main types of thyroid carcinoma and their key distinguishing features?",
+        "back": (
+            "1. Papillary (70-80%): most common; excellent prognosis; psammoma bodies; RET/PTC rearrangement; spreads to lymph nodes\n"
+            "2. Follicular (10-15%): haematogenous spread (bone, lung); cannot diagnose on FNA (need capsular invasion on histology)\n"
+            "3. Medullary (5%): calcitonin-secreting C-cells; associated with MEN2 (RET mutation); check calcitonin + CEA\n"
+            "4. Anaplastic (<2%): worst prognosis; rapidly growing; elderly patients; often inoperable at presentation"
+        ),
+    },
+    {
+        "front": "What are the five main indications for thyroidectomy in a patient with goitre?",
+        "back": (
+            "1. Compressive symptoms: dysphagia, dyspnoea, stridor, SVC obstruction, tracheal deviation\n"
+            "2. Suspicious/malignant FNA: Thy3f (diagnostic lobectomy), Thy4 or Thy5 (total thyroidectomy)\n"
+            "3. Retrosternal goitre causing symptoms\n"
+            "4. Hyperthyroidism uncontrolled medically (toxic MNG, refractory Graves')\n"
+            "5. Cosmetic / rapid growth / clinical concern for malignancy"
+        ),
+    },
+    {
+        "front": "Describe the clinical features that suggest thyroid malignancy in a patient presenting with a neck lump.",
+        "back": (
+            "Red flags for thyroid malignancy:\n"
+            "- Hard, irregular, fixed (not mobile) nodule\n"
+            "- Rapid growth\n"
+            "- Hoarseness (recurrent laryngeal nerve invasion)\n"
+            "- Cervical lymphadenopathy\n"
+            "- Dysphagia or stridor (tracheal/oesophageal invasion)\n"
+            "- Age <20 or >70 years (higher malignancy risk)\n"
+            "- Male sex (goitres less common, higher malignancy rate)\n"
+            "- History of neck irradiation\n"
+            "- Family history of thyroid cancer or MEN2"
+        ),
+    },
+]
+
+MCQ_EUTHYROID_GOITRE = [
+    {
+        "type": "mcq",
+        "question": (
+            "A 28-year-old woman presents with a midline neck swelling that moves both on swallowing and on tongue protrusion. "
+            "It is smooth, soft, and non-tender. TFTs are normal. What is the most likely diagnosis?"
+        ),
+        "options": [
+            "A. Thyroid colloid cyst",
+            "B. Thyroglossal cyst",
+            "C. Branchial cyst",
+            "D. Dermoid cyst",
+            "E. Cervical lymphadenopathy",
+        ],
+        "answer": "B",
+        "explanation": (
+            "Movement on both swallowing AND tongue protrusion is pathognomonic of a thyroglossal cyst. "
+            "The cyst is attached to the thyroglossal tract, connected to the base of the tongue via the foramen caecum. "
+            "Tongue protrusion pulls the hyoid bone (and attached cyst) upward. "
+            "Thyroid lumps move on swallowing but NOT on tongue protrusion. "
+            "Branchial cysts are lateral neck lumps. "
+            "Treatment is Sistrunk's operation (excision of cyst + middle third of hyoid bone to prevent recurrence)."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 55-year-old man presents with a right-sided thyroid nodule discovered incidentally on CT. TSH is normal. "
+            "Ultrasound shows a 2.5 cm hypoechoic nodule with microcalcifications and irregular margins. "
+            "FNA cytology reports Thy4. What is the next step?"
+        ),
+        "options": [
+            "A. Repeat USS in 6 months",
+            "B. Isotope scan to assess nodule function",
+            "C. Total thyroidectomy",
+            "D. Reassurance -- Thy4 is benign",
+            "E. Trial of levothyroxine suppression therapy",
+        ],
+        "answer": "C",
+        "explanation": (
+            "Thy4 = 'suspicious for malignancy' -- this requires surgical resection. "
+            "The ultrasound features (hypoechoic, microcalcifications, irregular margins) are TIRADS features "
+            "strongly associated with thyroid malignancy, most likely papillary thyroid carcinoma. "
+            "Total thyroidectomy is indicated for Thy4/Thy5 with high suspicion of malignancy. "
+            "Isotope scan is not needed when cytology already shows Thy4. "
+            "Levothyroxine suppression is outdated and not recommended."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 45-year-old woman presents with a firm, rubbery, painless goitre. "
+            "TFTs show TSH 6.2 mU/L, FT4 10 pmol/L. Anti-TPO antibodies are markedly elevated. "
+            "Which statement about her condition is correct?"
+        ),
+        "options": [
+            "A. She has Graves' disease and requires carbimazole",
+            "B. She has Hashimoto's thyroiditis and the goitre confirms she cannot be euthyroid",
+            "C. She has Hashimoto's thyroiditis; she is currently hypothyroid and requires levothyroxine",
+            "D. She has subacute thyroiditis and the condition will resolve spontaneously",
+            "E. The hard consistency of the goitre indicates malignancy requiring urgent FNA",
+        ],
+        "answer": "C",
+        "explanation": (
+            "This is Hashimoto's thyroiditis (autoimmune hypothyroidism) -- positive anti-TPO antibodies, "
+            "firm/rubbery goitre, and biochemical hypothyroidism (high TSH, low-normal FT4). "
+            "She is currently hypothyroid and requires levothyroxine replacement. "
+            "Patients with Hashimoto's can be euthyroid in early disease before progressing to hypothyroidism. "
+            "The goitre in Hashimoto's is typically firm and rubbery (lymphocytic infiltration) "
+            "but NOT woody hard (that is Riedel's). "
+            "Subacute (de Quervain's) thyroiditis presents with a painful, tender goitre and elevated ESR."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 62-year-old man presents with progressive dysphagia and dyspnoea over 6 months. "
+            "Examination reveals a large, firm goitre with tracheal deviation. CXR shows substernal extension. "
+            "TFTs are normal. FNA cytology is Thy2 (benign). What is the most appropriate management?"
+        ),
+        "options": [
+            "A. Reassure and observe -- cytology is benign",
+            "B. Start levothyroxine to suppress TSH and shrink goitre",
+            "C. Radioiodine ablation",
+            "D. Surgical thyroidectomy",
+            "E. High-dose prednisolone",
+        ],
+        "answer": "D",
+        "explanation": (
+            "Although cytology is benign (Thy2), this patient has clear compressive symptoms "
+            "(dysphagia, dyspnoea) and substernal extension with tracheal deviation -- "
+            "these are independent indications for thyroidectomy regardless of cytology result. "
+            "Compressive symptoms indicate significant airway risk. "
+            "Levothyroxine suppression does not effectively shrink multinodular goitre and is not evidence-based. "
+            "Radioiodine can reduce goitre size but is slower and not first-line for substernal goitre "
+            "with acute compressive symptoms. Surgery is the definitive treatment."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": "Which of the following is a recognised cause of a PAINFUL thyroid goitre?",
+        "options": [
+            "A. Simple colloid goitre",
+            "B. Multinodular goitre",
+            "C. Hashimoto's thyroiditis",
+            "D. Subacute (de Quervain's) thyroiditis",
+            "E. Riedel's thyroiditis",
+        ],
+        "answer": "D",
+        "explanation": (
+            "Subacute (de Quervain's) thyroiditis classically presents with a painful, tender thyroid goitre, "
+            "typically following a viral upper respiratory tract infection. "
+            "It is associated with elevated ESR/CRP, and thyroid function follows a characteristic pattern: "
+            "early thyrotoxicosis (release of stored thyroid hormone) -> hypothyroid phase -> recovery to euthyroid. "
+            "Simple colloid, MNG, Hashimoto's, and Riedel's thyroiditis are all typically PAINLESS. "
+            "Treatment: NSAIDs/aspirin for mild disease; corticosteroids for severe cases."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 38-year-old woman is found to have a thyroid nodule. Isotope scan shows a 'hot' nodule with "
+            "suppression of the remaining gland. TSH is 0.1 mU/L (low), FT4 is raised. FNA of the hot nodule is Thy2. "
+            "What is the most accurate statement?"
+        ),
+        "options": [
+            "A. Hot nodules carry a 15% malignancy risk and require urgent surgery",
+            "B. This is a toxic adenoma; hot nodules are almost always benign",
+            "C. A cold nodule would be more reassuring than a hot nodule",
+            "D. FNA is mandatory for all hot nodules regardless of isotope findings",
+            "E. This patient's hyperthyroidism is most likely due to Graves' disease",
+        ],
+        "answer": "B",
+        "explanation": (
+            "A hot (autonomously functioning) nodule on isotope scan is almost always benign -- "
+            "it is a toxic adenoma (Plummer's disease). The risk of malignancy in a hot nodule is very low (<1%). "
+            "By contrast, cold nodules carry a 5-15% malignancy risk and require FNA. "
+            "This patient's suppressed TSH confirms the nodule is causing hyperthyroidism (toxic adenoma). "
+            "It is NOT Graves' disease -- Graves' causes diffuse goitre with diffuse isotope uptake and positive TRAb. "
+            "Treatment options for toxic adenoma: radioiodine or surgery (hemithyroidectomy)."
+        ),
+    },
+]
