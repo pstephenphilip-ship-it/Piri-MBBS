@@ -601,3 +601,882 @@ MCQ_SECONDARY_DM = [
         "explanation": "Steroid-induced diabetes characteristically causes predominantly post-prandial hyperglycaemia (steroids peak 4–8 hours after morning dose → afternoon/evening glucose rise) with relatively preserved fasting glucose. Prandial (short-acting) insulin given with meals, especially lunch and dinner, targets this pattern most effectively. Basal insulin alone addresses overnight fasting glucose but not the post-prandial spike. Sulphonylureas can be used but prandial insulin is preferred for significant hyperglycaemia on high-dose steroids."
     },
 ]
+# endocrinology_gaps.py
+# Medical education content for MBBS Endocrinology revision site
+# GAP 1: Full Pituitary Hormone Roster
+# GAP 2: Furosemide + Prednisolone in Acute Hypercalcaemia
+
+# ---------------------------------------------------------------------------
+# GAP 1 — PITUITARY HORMONE ROSTER
+# ---------------------------------------------------------------------------
+
+HTML_NOTES_PITUITARY_HORMONES = """
+<div class="rn-section-title">Pituitary Hormone Roster</div>
+<div class="rn-body">
+
+  <div class="rn-callout rn-callout-blue">
+    <strong>Mnemonic — Anterior Pituitary (Adenohypophysis):</strong>
+    <strong>"FLAT PEG"</strong> — <strong>F</strong>SH, <strong>L</strong>H,
+    <strong>A</strong>CTH, <strong>T</strong>SH, <strong>P</strong>rolactin,
+    <strong>E</strong>ndorphins (beta-endorphin / MSH co-products), <strong>G</strong>H
+  </div>
+
+  <div class="rn-section-title">Anterior Pituitary (Adenohypophysis)</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Hormone</th>
+          <th>Stimulated by</th>
+          <th>Inhibited by</th>
+          <th>Target / Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>GH</strong> (Growth Hormone / Somatotropin)</td>
+          <td>GHRH (hypothalamus); ghrelin</td>
+          <td>Somatostatin; IGF-1 (long-loop); GH itself (short-loop)</td>
+          <td>Liver &#x2192; <strong>IGF-1</strong>; linear growth (epiphyses), lipolysis,
+              gluconeogenesis, protein synthesis</td>
+        </tr>
+        <tr>
+          <td><strong>TSH</strong> (Thyroid-Stimulating Hormone / Thyrotropin)</td>
+          <td>TRH (hypothalamus)</td>
+          <td>T3/T4 (negative feedback); somatostatin; dopamine</td>
+          <td>Thyroid follicular cells &#x2192; T3/T4; iodine uptake, thyroid growth</td>
+        </tr>
+        <tr>
+          <td><strong>ACTH</strong> (Adrenocorticotrophic Hormone / Corticotropin)</td>
+          <td>CRH (hypothalamus); stress; ADH (synergistic)</td>
+          <td>Cortisol (negative feedback)</td>
+          <td>Adrenal cortex (zona fasciculata/reticularis) &#x2192; <strong>cortisol</strong>,
+              androgens (DHEA-S)</td>
+        </tr>
+        <tr>
+          <td><strong>LH</strong> (Luteinising Hormone)</td>
+          <td>GnRH (hypothalamus, pulsatile)</td>
+          <td>Sex steroids (oestrogen, testosterone); inhibin</td>
+          <td>&#x2640; Ovulation trigger; corpus luteum &#x2192; progesterone.
+              &#x2642; Leydig cells &#x2192; <strong>testosterone</strong></td>
+        </tr>
+        <tr>
+          <td><strong>FSH</strong> (Follicle-Stimulating Hormone)</td>
+          <td>GnRH (hypothalamus, pulsatile)</td>
+          <td>Inhibin (primarily); sex steroids</td>
+          <td>&#x2640; Follicle development, oestrogen (via aromatase).
+              &#x2642; Sertoli cells &#x2192; <strong>spermatogenesis</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Prolactin</strong> (PRL)</td>
+          <td>TRH; oestrogen; nipple stimulation; stress</td>
+          <td><strong>Dopamine</strong> (dominant tonic inhibitor — unique mechanism)</td>
+          <td>Breast &#x2192; <strong>lactation</strong>; inhibits GnRH &#x2192;
+              amenorrhoea / erectile dysfunction at high levels</td>
+        </tr>
+        <tr>
+          <td><strong>beta-Endorphin / alpha-MSH</strong> (POMC derivatives, co-secreted with ACTH)</td>
+          <td>CRH (co-processed from POMC)</td>
+          <td>Cortisol</td>
+          <td>Opioid analgesia; melanocyte stimulation (hyperpigmentation in Addison's
+              via high ACTH/MSH)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-callout rn-callout-blue">
+    <strong>Key fact — Prolactin is unique:</strong> it is under <em>tonic inhibition</em> by
+    dopamine from the hypothalamus. Loss of dopaminergic input (e.g. dopamine-blocking drugs
+    such as metoclopramide, antipsychotics; or a pituitary stalk lesion) raises prolactin.
+    All other anterior pituitary hormones require a positive releasing hormone signal.
+  </div>
+
+  <div class="rn-section-title">Posterior Pituitary (Neurohypophysis)</div>
+  <div class="rn-callout rn-callout-blue">
+    <strong>Important distinction:</strong> The posterior pituitary does <em>not</em> synthesise
+    hormones. ADH and oxytocin are made in hypothalamic nuclei and transported down axons for
+    <strong>storage and release</strong> from the posterior pituitary.
+  </div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Hormone</th>
+          <th>Synthesised in</th>
+          <th>Stimuli for Release</th>
+          <th>Receptors and Effects</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ADH / AVP</strong> (Antidiuretic Hormone / Arginine Vasopressin)</td>
+          <td>Supraoptic nucleus (predominantly); some paraventricular nucleus</td>
+          <td>&#x2191; Plasma osmolality (osmoreceptors); &#x2193; blood volume/pressure
+              (baroreceptors); nausea; pain</td>
+          <td>
+            <strong>V2</strong> receptors (renal collecting duct) &#x2192; aquaporin-2 insertion
+            &#x2192; water reabsorption (antidiuresis)<br>
+            <strong>V1</strong> receptors (vascular smooth muscle) &#x2192; vasoconstriction
+            (at high/pharmacological doses)
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Oxytocin</strong></td>
+          <td>Paraventricular nucleus (predominantly); some supraoptic nucleus</td>
+          <td>Cervical/vaginal stretch (Ferguson reflex); nipple stimulation;
+              positive-feedback loop in labour</td>
+          <td>Uterine smooth muscle &#x2192; <strong>labour contractions</strong>;
+              myoepithelial cells &#x2192; <strong>milk ejection</strong> (let-down reflex)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-callout rn-callout-red">
+    <strong>Exam trap — ADH vs Oxytocin nuclei:</strong> Both are made in BOTH nuclei, but
+    ADH is predominantly supraoptic and oxytocin predominantly paraventricular.
+    Destruction of the stalk or posterior pituitary causes central DI (&#x2193; ADH) without
+    affecting synthesis (which continues in the hypothalamus), so DI can partially recover
+    over time.
+  </div>
+
+  <div class="rn-section-title">Hypothalamic-Pituitary Axes — Quick Reference</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Axis</th>
+          <th>Hypothalamic signal</th>
+          <th>Pituitary hormone</th>
+          <th>End-organ hormone</th>
+          <th>Feedback</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>GH axis</td>
+          <td>GHRH (+) / Somatostatin (-)</td>
+          <td>GH</td>
+          <td>IGF-1 (liver)</td>
+          <td>IGF-1 inhibits GHRH and GH; somatostatin inhibits GH</td>
+        </tr>
+        <tr>
+          <td>Thyroid axis</td>
+          <td>TRH (+)</td>
+          <td>TSH</td>
+          <td>T3 / T4</td>
+          <td>T3/T4 inhibit TRH and TSH</td>
+        </tr>
+        <tr>
+          <td>Adrenal axis</td>
+          <td>CRH (+)</td>
+          <td>ACTH</td>
+          <td>Cortisol</td>
+          <td>Cortisol inhibits CRH and ACTH</td>
+        </tr>
+        <tr>
+          <td>Gonadal axis</td>
+          <td>GnRH (+, pulsatile)</td>
+          <td>LH / FSH</td>
+          <td>Sex steroids / inhibin</td>
+          <td>Steroids and inhibin inhibit GnRH, LH, FSH</td>
+        </tr>
+        <tr>
+          <td>Prolactin axis</td>
+          <td>Dopamine (-) / TRH (+)</td>
+          <td>Prolactin</td>
+          <td>—</td>
+          <td>Prolactin stimulates dopamine (short-loop auto-inhibition)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+"""
+
+FC_PITUITARY_HORMONES = [
+    {
+        "front": "What mnemonic covers the six main anterior pituitary hormones and what does each letter stand for?",
+        "back": (
+            "<strong>FLAT PEG</strong><br>"
+            "F — FSH<br>"
+            "L — LH<br>"
+            "A — ACTH<br>"
+            "T — TSH<br>"
+            "P — Prolactin<br>"
+            "E — Endorphins (beta-endorphin / MSH, POMC derivatives)<br>"
+            "G — GH"
+        ),
+    },
+    {
+        "front": "Which anterior pituitary hormone is under TONIC INHIBITION rather than tonic stimulation, and what is the inhibitor?",
+        "back": (
+            "<strong>Prolactin</strong> — tonically inhibited by <strong>dopamine</strong> "
+            "from the hypothalamus (tuberoinfundibular pathway).<br><br>"
+            "Clinical implication: dopamine antagonists (antipsychotics, metoclopramide) "
+            "and stalk compression raise prolactin "
+            "-> galactorrhoea, amenorrhoea, hypogonadism."
+        ),
+    },
+    {
+        "front": "Where are ADH and oxytocin SYNTHESISED, and where are they RELEASED from?",
+        "back": (
+            "<strong>Synthesised in hypothalamic nuclei:</strong><br>"
+            "ADH — predominantly supraoptic nucleus<br>"
+            "Oxytocin — predominantly paraventricular nucleus<br><br>"
+            "<strong>Released from:</strong> posterior pituitary (neurohypophysis), "
+            "which merely stores them."
+        ),
+    },
+    {
+        "front": "Name the two ADH receptor subtypes, their locations, and their effects.",
+        "back": (
+            "<strong>V1 (V1a)</strong> — vascular smooth muscle "
+            "-> <strong>vasoconstriction</strong> "
+            "(relevant at high/pharmacological doses, e.g. vasopressin in septic shock)<br><br>"
+            "<strong>V2</strong> — renal collecting duct principal cells "
+            "-> insertion of <strong>aquaporin-2</strong> channels "
+            "-> water reabsorption -> concentrated urine<br><br>"
+            "V2 antagonists (vaptans) used in SIADH."
+        ),
+    },
+    {
+        "front": "What are the hypothalamic stimulatory and inhibitory regulators of GH secretion?",
+        "back": (
+            "<strong>Stimulatory:</strong> GHRH (Growth Hormone-Releasing Hormone); "
+            "also ghrelin<br><br>"
+            "<strong>Inhibitory:</strong> Somatostatin (GHIH); IGF-1 (long-loop negative "
+            "feedback); GH itself (short-loop)<br><br>"
+            "Octreotide (somatostatin analogue) lowers GH — used in acromegaly treatment."
+        ),
+    },
+    {
+        "front": "ACTH is cleaved from a larger precursor. Name the precursor and two other hormones also derived from it.",
+        "back": (
+            "<strong>Precursor:</strong> POMC (Pro-opiomelanocortin)<br><br>"
+            "<strong>Also derived from POMC:</strong><br>"
+            "beta-Endorphin (endogenous opioid)<br>"
+            "alpha-MSH / beta-MSH (melanocyte-stimulating hormones)<br><br>"
+            "Clinical relevance: in Addison's disease, high ACTH drive "
+            "-> high MSH -> <strong>hyperpigmentation</strong> of skin and mucosae."
+        ),
+    },
+]
+
+MCQ_PITUITARY_HORMONES = [
+    {
+        "type": "mcq",
+        "question": (
+            "A 28-year-old woman is started on haloperidol for schizophrenia. "
+            "Six weeks later she reports milky nipple discharge and her periods have stopped. "
+            "Serum prolactin is markedly elevated. "
+            "Which best explains the mechanism of hyperprolactinaemia in this case?"
+        ),
+        "options": [
+            "A. Haloperidol directly stimulates lactotroph cells via TRH receptors",
+            "B. Haloperidol blocks dopamine D2 receptors, removing tonic inhibition of prolactin secretion",
+            "C. Haloperidol stimulates GHRH release, which cross-reacts with prolactin receptors",
+            "D. Haloperidol causes pituitary stalk compression, destroying somatotrophs",
+            "E. Haloperidol activates V2 receptors, promoting prolactin gene transcription",
+        ],
+        "answer": "B",
+        "explanation": (
+            "Prolactin is uniquely under tonic inhibitory control by dopamine via the "
+            "tuberoinfundibular pathway. Dopamine D2 receptor antagonists (typical antipsychotics, "
+            "metoclopramide, domperidone) remove this inhibition, causing hyperprolactinaemia "
+            "leading to galactorrhoea and amenorrhoea (by suppressing GnRH pulsatility). "
+            "TRH is a stimulator but not the primary regulator. Stalk compression is a structural "
+            "cause, not a pharmacological one."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A medical student is asked about the posterior pituitary. "
+            "Which statement is CORRECT regarding ADH and oxytocin?"
+        ),
+        "options": [
+            "A. Both hormones are synthesised by specialised cells within the posterior pituitary",
+            "B. ADH is predominantly synthesised in the paraventricular nucleus",
+            "C. Oxytocin is predominantly synthesised in the supraoptic nucleus",
+            "D. Both hormones are synthesised in hypothalamic nuclei and stored in the posterior pituitary",
+            "E. Destruction of the posterior pituitary permanently abolishes ADH production",
+        ],
+        "answer": "D",
+        "explanation": (
+            "The posterior pituitary (neurohypophysis) does NOT synthesise hormones. "
+            "ADH and oxytocin are made by magnocellular neurons in the hypothalamus "
+            "(ADH predominantly supraoptic nucleus; oxytocin predominantly paraventricular "
+            "nucleus), transported down axons, and stored in Herring bodies in the posterior "
+            "pituitary. Because synthesis continues in the hypothalamus, destruction of the "
+            "posterior pituitary or stalk does not permanently abolish ADH production — "
+            "diabetes insipidus may partially recover over time."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "In the hypothalamic-pituitary-thyroid axis, which combination of signals "
+            "correctly describes regulation of TSH secretion?"
+        ),
+        "options": [
+            "A. TRH stimulates; T3/T4 stimulate; somatostatin inhibits",
+            "B. TRH stimulates; T3/T4 inhibit; dopamine inhibits",
+            "C. CRH stimulates; T3/T4 inhibit; somatostatin inhibits",
+            "D. TRH stimulates; T3/T4 stimulate; GnRH inhibits",
+            "E. GHRH stimulates; T3/T4 inhibit; somatostatin inhibits",
+        ],
+        "answer": "B",
+        "explanation": (
+            "TSH is stimulated by TRH (from hypothalamus) and inhibited by T3/T4 (negative "
+            "feedback — T3 is the active intracellular form). Dopamine also inhibits TSH "
+            "secretion (relevant in dopamine infusions causing secondary hypothyroidism in ITU). "
+            "Somatostatin can inhibit TSH but dopamine is the more clinically tested inhibitor "
+            "alongside T3/T4. CRH drives ACTH, not TSH; GHRH drives GH."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "Which anterior pituitary hormone is derived from POMC, "
+            "and which clinical sign results from excess co-secretion of its fellow POMC derivative?"
+        ),
+        "options": [
+            "A. TSH; pretibial myxoedema",
+            "B. GH; acral enlargement",
+            "C. ACTH; hyperpigmentation",
+            "D. Prolactin; galactorrhoea",
+            "E. FSH; gynaecomastia",
+        ],
+        "answer": "C",
+        "explanation": (
+            "ACTH is cleaved from POMC alongside beta-endorphin and alpha/beta-MSH "
+            "(melanocyte-stimulating hormones). In primary adrenal insufficiency (Addison's "
+            "disease), loss of cortisol negative feedback drives high CRH -> high POMC "
+            "processing -> high ACTH and high MSH. Excess MSH stimulates melanocytes -> "
+            "characteristic hyperpigmentation of skin creases, buccal mucosa, and scars."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "Octreotide is used in the treatment of acromegaly. "
+            "What is its mechanism of action relevant to GH excess?"
+        ),
+        "options": [
+            "A. It is a GHRH analogue that desensitises GHRH receptors on somatotrophs",
+            "B. It is a somatostatin analogue that inhibits GH release from somatotrophs",
+            "C. It blocks IGF-1 receptors in peripheral tissues, reducing GH-driven effects",
+            "D. It is a dopamine agonist that suppresses GH via the same pathway as prolactin inhibition",
+            "E. It inhibits the conversion of GH to IGF-1 in the liver",
+        ],
+        "answer": "B",
+        "explanation": (
+            "Octreotide is a long-acting somatostatin analogue. Somatostatin (growth hormone "
+            "inhibitory hormone, GHIH) is the main physiological inhibitor of GH release from "
+            "pituitary somatotrophs. Octreotide mimics this action, reducing GH (and IGF-1) levels "
+            "in acromegaly. It also inhibits TSH and various GI hormones. Pegvisomant is the GH "
+            "receptor antagonist (option C mechanism). Dopamine agonists (cabergoline) have a minor "
+            "role in acromegaly but are not the mechanism of octreotide."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 32-year-old man presents with infertility and low testosterone. "
+            "LH and FSH are both undetectable. MRI shows a large pituitary macroadenoma. "
+            "His serum prolactin is 8,500 mU/L (normal < 500). "
+            "What is the most likely mechanism causing his hypogonadism?"
+        ),
+        "options": [
+            "A. Direct destruction of gonadotroph cells by the adenoma",
+            "B. Hyperprolactinaemia suppressing pulsatile GnRH release from the hypothalamus",
+            "C. Raised IGF-1 inhibiting LH receptor expression in Leydig cells",
+            "D. Excess dopamine secretion from the adenoma blocking LH release",
+            "E. ADH excess causing water retention and dilutional hypogonadism",
+        ],
+        "answer": "B",
+        "explanation": (
+            "Hyperprolactinaemia (from a prolactinoma here) suppresses the hypothalamic GnRH "
+            "pulse generator. Pulsatile GnRH is required for normal LH and FSH secretion; "
+            "absent/suppressed GnRH signal -> suppression of gonadotrophs -> low LH/FSH -> "
+            "hypogonadism (low testosterone in males, oligo/amenorrhoea in females). "
+            "This is a functional — not structural — cause of hypogonadism, and normalises "
+            "with dopamine agonist treatment (cabergoline) that reduces prolactin."
+        ),
+    },
+]
+
+# ---------------------------------------------------------------------------
+# GAP 2 — FUROSEMIDE + PREDNISOLONE IN ACUTE HYPERCALCAEMIA
+# ---------------------------------------------------------------------------
+
+HTML_NOTES_HYPERCALCAEMIA_DRUGS = """
+<div class="rn-section-title">Acute Hypercalcaemia: Drug Management</div>
+<div class="rn-body">
+
+  <div class="rn-callout rn-callout-red">
+    <strong>Severe / symptomatic hypercalcaemia (corrected Ca&#xB2;&#x207A; &gt; 3.0 mmol/L
+    or symptomatic) is a medical emergency.</strong>
+    Symptoms: bones (pain), stones (renal colic), groans (nausea/vomiting/constipation),
+    psychic moans (confusion, lethargy, coma).
+    ECG: <strong>shortened QT interval</strong>.
+  </div>
+
+  <div class="rn-section-title">Step-by-Step Acute Management Sequence</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Intervention</th>
+          <th>Dose / Route</th>
+          <th>Mechanism</th>
+          <th>Key Caveat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1 — FIRST AND MOST IMPORTANT</strong></td>
+          <td><strong>IV 0.9% Normal Saline</strong></td>
+          <td>2–4 L/day IV (guided by clinical assessment)</td>
+          <td>
+            Rehydration (hypercalcaemia causes nephrogenic DI &#x2192; dehydration
+            &#x2192; worsened hypercalcaemia).<br>
+            Volume expansion &#x2192; &#x2191; GFR &#x2192;
+            <strong>calciuresis</strong> (calcium follows sodium excretion)
+          </td>
+          <td>Monitor for fluid overload (cardiac/renal disease);
+              replace electrolytes (K&#x207A;, Mg&#xB2;&#x207A;)</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td><strong>Furosemide</strong> (loop diuretic)</td>
+          <td>20–40 mg IV</td>
+          <td>
+            Inhibits Na&#x207A;/K&#x207A;/2Cl&#x207B; co-transporter in thick ascending limb
+            of loop of Henle. Reduces paracellular Ca&#xB2;&#x207A; reabsorption
+            &#x2192; <strong>calciuresis</strong>
+          </td>
+          <td>
+            <strong>MUST only be given after adequate rehydration.</strong>
+            If given to a dehydrated patient &#x2192; haemoconcentration
+            &#x2192; <strong>worsens hypercalcaemia</strong> and risks AKI.
+            Thiazides are <strong>contraindicated</strong> (&#x2191; Ca&#xB2;&#x207A; reabsorption).
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td><strong>IV Bisphosphonates</strong> (zoledronate or pamidronate)</td>
+          <td>
+            Zoledronate 4 mg IV over 15 min (single dose);<br>
+            Pamidronate 60–90 mg IV over 2–4 h
+          </td>
+          <td>
+            Bind hydroxyapatite in bone &#x2192; taken up by osteoclasts &#x2192;
+            inhibit farnesyl pyrophosphate synthase (mevalonate pathway)
+            &#x2192; osteoclast apoptosis &#x2192; &#x2193; bone resorption
+            &#x2192; &#x2193; Ca&#xB2;&#x207A; release
+          </td>
+          <td>
+            Onset <strong>2–4 days</strong>; peak effect <strong>4–7 days</strong>.
+            Check renal function before use (dose-adjust if eGFR &lt; 35).
+            Mainstay for <strong>malignancy-associated hypercalcaemia</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td><strong>Prednisolone</strong> (corticosteroid)</td>
+          <td>40–60 mg/day oral (or equivalent IV hydrocortisone)</td>
+          <td>
+            <strong>(a)</strong> Inhibits <strong>1&#x03B1;-hydroxylase</strong> in activated
+            macrophages (granuloma-associated) &#x2192; &#x2193; conversion of 25-OH-D to
+            <strong>1,25-(OH)&#x2082;-D (calcitriol)</strong>
+            &#x2192; &#x2193; intestinal Ca&#xB2;&#x207A; absorption.<br>
+            <strong>(b)</strong> Anti-cytokine effect &#x2192; &#x2193; osteoclast activation
+            in lymphoma / myeloma.<br>
+            <strong>(c)</strong> &#x2193; Intestinal Ca&#xB2;&#x207A; absorption directly
+          </td>
+          <td>
+            Specifically indicated for:
+            <ul>
+              <li><strong>Granulomatous disease</strong> — sarcoidosis, TB, berylliosis,
+                  fungal infections</li>
+              <li><strong>Haematological malignancy</strong> — lymphoma, myeloma</li>
+              <li><strong>Vitamin D toxicity</strong></li>
+            </ul>
+            <em>Not effective</em> for primary hyperparathyroidism or solid-tumour
+            PTHrP-mediated hypercalcaemia.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td><strong>Calcitonin</strong></td>
+          <td>4–8 IU/kg SC/IM every 6–12 h</td>
+          <td>
+            Inhibits osteoclast-mediated bone resorption (calcitonin receptor).
+            Promotes renal Ca&#xB2;&#x207A; excretion
+          </td>
+          <td>
+            <strong>Fastest onset</strong> of pharmacological agents (hours).
+            Effect is short-lived due to <strong>tachyphylaxis</strong>
+            (receptor downregulation within 24–48 h).
+            Used as a <em>bridge</em> while bisphosphonates take effect.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>6</strong></td>
+          <td><strong>Cinacalcet</strong> (calcimimetic)</td>
+          <td>30–90 mg oral BD</td>
+          <td>
+            Allosteric activator of <strong>calcium-sensing receptor (CaSR)</strong> on
+            parathyroid chief cells &#x2192; &#x2193; PTH secretion
+          </td>
+          <td>
+            Indicated for: <strong>primary hyperparathyroidism</strong> (unfit for surgery),
+            <strong>tertiary hyperparathyroidism</strong> in CKD, parathyroid carcinoma.
+            Not effective for PTHrP-mediated or vitamin-D-mediated hypercalcaemia.
+          </td>
+        </tr>
+        <tr>
+          <td><strong>7</strong></td>
+          <td><strong>Haemodialysis</strong> (or haemodiafiltration)</td>
+          <td>Low-calcium dialysate</td>
+          <td>Direct removal of calcium from plasma</td>
+          <td>
+            Reserved for <strong>refractory severe hypercalcaemia</strong> with renal failure,
+            cardiac arrhythmias, or when other treatments are contraindicated.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rn-callout rn-callout-red">
+    <strong>Critical Rule — Furosemide Timing:</strong> Furosemide must NEVER be given
+    before adequate IV fluid rehydration. A dehydrated hypercalcaemic patient given furosemide
+    will lose more water than calcium &#x2192; haemoconcentration &#x2192; higher serum calcium
+    &#x2192; renal vasoconstriction &#x2192; AKI. <strong>Fluids first. Furosemide second.</strong>
+  </div>
+
+  <div class="rn-callout rn-callout-green">
+    <strong>Prednisolone — when to use it (mechanism summary):</strong><br>
+    Prednisolone is effective when hypercalcaemia is driven by <strong>excess calcitriol
+    (1,25-dihydroxyvitamin D)</strong> production or cytokine-driven osteoclast activation:
+    <ul>
+      <li><strong>Sarcoidosis / TB / granulomata:</strong> macrophage 1&#x03B1;-hydroxylase
+          &#x2192; &#x2191; calcitriol &#x2192; &#x2191; gut Ca&#xB2;&#x207A; absorption.
+          Prednisolone blocks this enzyme.</li>
+      <li><strong>Lymphoma / myeloma:</strong> cytokines activate osteoclasts.
+          Prednisolone suppresses cytokine drive.</li>
+    </ul>
+    It does NOT lower PTH and is <strong>ineffective for primary hyperparathyroidism</strong>.
+  </div>
+
+  <div class="rn-section-title">Causes of Hypercalcaemia and Preferred Treatments</div>
+  <div class="rn-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Cause</th>
+          <th>Mechanism</th>
+          <th>Specific Treatment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary hyperparathyroidism</td>
+          <td>&#x2191; PTH &#x2192; &#x2191; bone resorption + &#x2191; renal Ca&#xB2;&#x207A;
+              reabsorption + &#x2191; calcitriol</td>
+          <td>Parathyroidectomy (definitive); cinacalcet (medical)</td>
+        </tr>
+        <tr>
+          <td>Malignancy (PTHrP)</td>
+          <td>PTHrP mimics PTH at same receptors; bone metastases cause lytic resorption</td>
+          <td>IV bisphosphonates; treat underlying malignancy; IV fluids</td>
+        </tr>
+        <tr>
+          <td>Sarcoidosis / granulomata</td>
+          <td>Macrophage 1&#x03B1;-hydroxylase &#x2192; &#x2191; calcitriol
+              &#x2192; &#x2191; gut absorption</td>
+          <td><strong>Prednisolone</strong>; avoid sun/vitamin D supplementation</td>
+        </tr>
+        <tr>
+          <td>Lymphoma / myeloma</td>
+          <td>Cytokine-driven osteoclast activation &#xB1; ectopic calcitriol production</td>
+          <td><strong>Prednisolone</strong>; bisphosphonates; treat malignancy</td>
+        </tr>
+        <tr>
+          <td>Tertiary hyperparathyroidism (CKD)</td>
+          <td>Autonomous PTH hypersecretion after prolonged secondary HPT</td>
+          <td>Cinacalcet; parathyroidectomy</td>
+        </tr>
+        <tr>
+          <td>Vitamin D toxicity</td>
+          <td>Exogenous calcitriol excess &#x2192; &#x2191; gut Ca&#xB2;&#x207A; absorption</td>
+          <td><strong>Prednisolone</strong>; stop supplement; IV fluids</td>
+        </tr>
+        <tr>
+          <td>Thiazide diuretics</td>
+          <td>&#x2191; Renal Ca&#xB2;&#x207A; reabsorption in distal convoluted tubule</td>
+          <td>Stop thiazide; switch to loop diuretic (furosemide) if diuresis required</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+"""
+
+FC_HYPERCALCAEMIA_DRUGS = [
+    {
+        "front": (
+            "What is the FIRST and most important step in managing acute severe hypercalcaemia, "
+            "and what is its dual mechanism?"
+        ),
+        "back": (
+            "<strong>IV 0.9% Normal Saline (2-4 L/day)</strong><br><br>"
+            "Mechanism:<br>"
+            "1. <strong>Rehydration</strong> — hypercalcaemia causes nephrogenic DI "
+            "-> polyuria -> dehydration -> worsened hypercalcaemia (vicious cycle)<br>"
+            "2. <strong>Calciuresis</strong> — volume expansion raises GFR and promotes "
+            "urinary calcium excretion (calcium follows sodium in the proximal tubule)"
+        ),
+    },
+    {
+        "front": (
+            "Why must furosemide ONLY be given AFTER IV fluid rehydration in hypercalcaemia? "
+            "What happens if given to a dehydrated patient?"
+        ),
+        "back": (
+            "Furosemide causes <strong>calciuresis</strong> by blocking the "
+            "Na+/K+/2Cl- transporter in the thick ascending limb, reducing "
+            "paracellular Ca2+ reabsorption.<br><br>"
+            "If given to a <strong>dehydrated patient</strong>:<br>"
+            "- More water lost than calcium -> haemoconcentration<br>"
+            "- Serum calcium concentration <strong>rises further</strong><br>"
+            "- Renal hypoperfusion -> AKI<br><br>"
+            "<strong>Rule: Fluids first. Furosemide second.</strong>"
+        ),
+    },
+    {
+        "front": (
+            "In which clinical scenarios is prednisolone indicated for hypercalcaemia? "
+            "What is the mechanism in granulomatous disease?"
+        ),
+        "back": (
+            "<strong>Indications:</strong><br>"
+            "- Granulomatous disease: sarcoidosis, TB, berylliosis, fungal infections<br>"
+            "- Haematological malignancy: lymphoma, myeloma<br>"
+            "- Vitamin D toxicity<br><br>"
+            "<strong>Mechanism (granulomata):</strong> Activated macrophages within "
+            "granulomata express <strong>1alpha-hydroxylase</strong>, converting "
+            "25-OH-D to <strong>calcitriol (1,25-(OH)2-D)</strong> -> raised intestinal "
+            "Ca2+ absorption.<br>"
+            "Prednisolone inhibits this enzyme -> lower calcitriol -> lower calcium.<br><br>"
+            "<em>Not effective for primary HPT or PTHrP-mediated hypercalcaemia.</em>"
+        ),
+    },
+    {
+        "front": "What is the onset and main limitation of calcitonin in treating hypercalcaemia?",
+        "back": (
+            "<strong>Onset:</strong> Rapid — hours (fastest pharmacological agent available)<br><br>"
+            "<strong>Main limitation:</strong> <strong>Tachyphylaxis</strong> — receptor "
+            "downregulation within 24-48 hours -> effect wanes despite continued dosing<br><br>"
+            "<strong>Role:</strong> Bridge therapy while bisphosphonates take effect "
+            "(bisphosphonates onset 2-4 days, peak 4-7 days)"
+        ),
+    },
+    {
+        "front": (
+            "What is the mechanism of IV bisphosphonates in hypercalcaemia, "
+            "and after how many days does peak effect occur?"
+        ),
+        "back": (
+            "<strong>Mechanism:</strong> Bisphosphonates (zoledronate, pamidronate) "
+            "bind hydroxyapatite in bone -> internalised by osteoclasts -> inhibit "
+            "<strong>farnesyl pyrophosphate synthase</strong> (mevalonate pathway) "
+            "-> disrupt osteoclast cytoskeleton -> <strong>osteoclast apoptosis</strong> "
+            "-> reduced bone resorption -> reduced Ca2+ release<br><br>"
+            "<strong>Onset:</strong> 2-4 days<br>"
+            "<strong>Peak effect:</strong> 4-7 days<br><br>"
+            "Mainstay for malignancy-associated hypercalcaemia."
+        ),
+    },
+    {
+        "front": (
+            "What is cinacalcet, what is its mechanism, "
+            "and for which causes of hypercalcaemia is it used?"
+        ),
+        "back": (
+            "<strong>Class:</strong> Calcimimetic agent<br><br>"
+            "<strong>Mechanism:</strong> Allosteric activator of the "
+            "<strong>calcium-sensing receptor (CaSR)</strong> on parathyroid chief cells "
+            "-> increased CaSR sensitivity to Ca2+ -> reduced PTH secretion<br><br>"
+            "<strong>Indications:</strong><br>"
+            "- Primary hyperparathyroidism (patients unfit for surgery)<br>"
+            "- Tertiary hyperparathyroidism in CKD<br>"
+            "- Parathyroid carcinoma<br><br>"
+            "<em>Not effective for PTHrP-, calcitriol-, or vitamin-D-mediated hypercalcaemia "
+            "(CaSR-independent mechanisms).</em>"
+        ),
+    },
+]
+
+MCQ_HYPERCALCAEMIA_DRUGS = [
+    {
+        "type": "mcq",
+        "question": (
+            "A 65-year-old woman with known sarcoidosis presents with nausea, confusion and "
+            "polyuria. Corrected calcium is 3.4 mmol/L. She is commenced on IV 0.9% saline. "
+            "Which additional treatment is most specifically indicated for the underlying "
+            "cause of her hypercalcaemia?"
+        ),
+        "options": [
+            "A. IV zoledronate",
+            "B. SC calcitonin",
+            "C. Oral prednisolone",
+            "D. Oral cinacalcet",
+            "E. IV furosemide before completing fluid resuscitation",
+        ],
+        "answer": "C",
+        "explanation": (
+            "Sarcoidosis causes hypercalcaemia via activated macrophages in granulomata "
+            "expressing 1alpha-hydroxylase -> excess calcitriol (1,25-dihydroxyvitamin D) "
+            "-> raised intestinal calcium absorption. Prednisolone inhibits macrophage "
+            "1alpha-hydroxylase and is the specific treatment. Bisphosphonates and calcitonin "
+            "reduce bone resorption but do not address the underlying calcitriol-driven mechanism. "
+            "Cinacalcet lowers PTH and is used in hyperparathyroidism. Furosemide before "
+            "adequate rehydration is dangerous and contraindicated."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 72-year-old man with multiple myeloma has a corrected calcium of 3.6 mmol/L. "
+            "He receives 3 litres of IV saline over 6 hours. "
+            "Calcium is still 3.3 mmol/L. What is the most appropriate next pharmacological step?"
+        ),
+        "options": [
+            "A. IV furosemide 40 mg to promote calciuresis",
+            "B. SC calcitonin 4 IU/kg every 12 h as definitive long-term therapy",
+            "C. IV zoledronate 4 mg over 15 minutes",
+            "D. Oral cinacalcet 30 mg BD",
+            "E. Oral prednisolone 60 mg/day as the only required treatment",
+        ],
+        "answer": "C",
+        "explanation": (
+            "After adequate IV fluid rehydration, IV bisphosphonates are the mainstay for "
+            "malignancy-associated hypercalcaemia (including myeloma). Zoledronate 4 mg IV "
+            "is preferred over pamidronate due to shorter infusion time and equivalent efficacy. "
+            "Furosemide (A) can now be considered post-rehydration but bisphosphonates address "
+            "the underlying mechanism of osteoclast-mediated bone resorption. Calcitonin (B) has "
+            "a bridging role but is not definitive due to tachyphylaxis. Cinacalcet (D) is for "
+            "PTH-driven causes. Prednisolone alone (E) is insufficient for myeloma without "
+            "bisphosphonates."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A junior doctor gives IV furosemide 40 mg to a patient with a calcium of "
+            "3.1 mmol/L before starting IV fluids. "
+            "Repeat calcium 2 hours later is 3.5 mmol/L. "
+            "What is the most likely explanation for the worsening hypercalcaemia?"
+        ),
+        "options": [
+            "A. Furosemide directly stimulates PTH release from parathyroid glands",
+            "B. Furosemide increases calcitriol production in the kidney",
+            "C. Furosemide caused diuresis, leading to haemoconcentration and worsened hypercalcaemia",
+            "D. Furosemide blocks calcium-sensing receptors, raising the calcium set-point",
+            "E. Furosemide activates osteoclasts via the mevalonate pathway",
+        ],
+        "answer": "C",
+        "explanation": (
+            "Furosemide causes loss of water and electrolytes. If given to a dehydrated patient "
+            "before IV fluid rehydration, it causes further haemoconcentration — the serum calcium "
+            "concentration rises because there is less volume to dilute it. Additionally, reduced "
+            "renal perfusion from volume depletion impairs calcium excretion. This is the classic "
+            "error of giving furosemide before fluids. The rule is: IV saline first to restore "
+            "volume and establish calciuresis via GFR expansion, then furosemide if needed."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "Which of the following correctly describes the timeline of bisphosphonate action "
+            "in acute hypercalcaemia and the rationale for using calcitonin concurrently?"
+        ),
+        "options": [
+            "A. Bisphosphonates act within 1 hour; calcitonin is used for its prolonged 7-day effect",
+            "B. Bisphosphonates peak in 2-4 hours; calcitonin bridges until oral agents can be started",
+            "C. Bisphosphonates onset 2-4 days, peak 4-7 days; calcitonin acts within hours but causes tachyphylaxis, serving as a bridge",
+            "D. Bisphosphonates onset 7-10 days; calcitonin is preferred first-line as it has no tachyphylaxis",
+            "E. Bisphosphonates and calcitonin have identical onset; combination prevents rebound hypercalcaemia",
+        ],
+        "answer": "C",
+        "explanation": (
+            "IV bisphosphonates (zoledronate, pamidronate) have an onset of 2-4 days with peak "
+            "effect at 4-7 days due to the time required for osteoclast apoptosis. Calcitonin "
+            "acts within hours by directly inhibiting osteoclast function, providing rapid but "
+            "temporary calcium lowering. However, tachyphylaxis (receptor downregulation) develops "
+            "within 24-48 hours, making calcitonin unsuitable as monotherapy. Combining early "
+            "calcitonin with bisphosphonates bridges the gap until bisphosphonates reach full effect."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A 45-year-old man with a history of tuberculosis is found to have a corrected "
+            "calcium of 2.98 mmol/L. PTH is suppressed. 25-OH-vitamin D is normal. "
+            "1,25-(OH)2-vitamin D (calcitriol) is markedly elevated. "
+            "Which enzyme is responsible and where does it act?"
+        ),
+        "options": [
+            "A. 25-hydroxylase in the liver, converting vitamin D2 to 25-OH-D",
+            "B. 1alpha-hydroxylase in the kidney proximal tubule, stimulated by elevated PTH",
+            "C. 1alpha-hydroxylase in activated macrophages within granulomata, functioning autonomously",
+            "D. 24-hydroxylase in the kidney, converting 25-OH-D to the active form",
+            "E. CYP2R1 in the liver, constitutively active in granulomatous disease",
+        ],
+        "answer": "C",
+        "explanation": (
+            "In granulomatous diseases (TB, sarcoidosis), activated macrophages express "
+            "1alpha-hydroxylase (CYP27B1) autonomously — independent of PTH regulation. "
+            "This enzyme converts 25-OH-D to calcitriol (1,25-(OH)2-D) at sites of "
+            "granulomatous inflammation. The result is calcitriol-driven hypercalcaemia with "
+            "suppressed PTH (from the elevated calcium). Renal 1alpha-hydroxylase (B) is "
+            "PTH-dependent and PTH is suppressed here. 24-hydroxylase (D) inactivates vitamin D "
+            "metabolites rather than activating them. This is why prednisolone — which inhibits "
+            "macrophage 1alpha-hydroxylase — is the specific treatment."
+        ),
+    },
+    {
+        "type": "mcq",
+        "question": (
+            "A patient with end-stage renal disease on haemodialysis develops severe "
+            "hypercalcaemia with a corrected calcium of 3.8 mmol/L and is anuric. "
+            "Which treatment modality is most appropriate?"
+        ),
+        "options": [
+            "A. IV 0.9% saline 4 L over 12 hours",
+            "B. IV furosemide 120 mg to promote renal calcium excretion",
+            "C. SC calcitonin as sole definitive therapy",
+            "D. Haemodialysis with low-calcium dialysate",
+            "E. Oral prednisolone 60 mg/day as first-line treatment",
+        ],
+        "answer": "D",
+        "explanation": (
+            "In anuric patients with renal failure, IV fluids (A) will cause fluid overload "
+            "without achieving calciuresis (no urine output). Furosemide (B) cannot work without "
+            "renal function. Calcitonin (C) provides temporary reduction but tachyphylaxis limits "
+            "its utility as sole therapy and it does not remove calcium from the body. "
+            "Haemodialysis with a low-calcium dialysate is the definitive acute treatment for "
+            "severe refractory hypercalcaemia in anuric/oliguric patients — calcium is directly "
+            "removed across the dialysis membrane. Prednisolone (E) is only appropriate for "
+            "specific calcitriol/cytokine-mediated causes and would not address this acutely."
+        ),
+    },
+]
