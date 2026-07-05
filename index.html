@@ -38,6 +38,8 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .tab-view{display:none;flex:1;overflow:hidden;position:relative;}.tab-view.visible{display:flex;}
 .system-sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex-shrink:0;overflow-x:hidden;}
 .sidebar-header{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:14px 16px 10px;border-bottom:1px solid var(--border);background:var(--surface);}
+.sys-group-header{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);padding:14px 16px 6px;margin-top:6px;border-top:1px solid var(--border);pointer-events:none;user-select:none;}
+.sys-group-header:first-child{border-top:none;margin-top:0;padding-top:6px;}
 .search-wrap{padding:10px 12px;border-bottom:1px solid var(--border);}
 .search-input{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:var(--sans);font-size:12px;padding:7px 10px;outline:none;transition:border-color 0.15s;}
 .search-input:focus{border-color:var(--accent);}.search-input::placeholder{color:var(--muted2);}
@@ -679,15 +681,34 @@ function initTab(p) {
 
 const SYS_COLORS = {};
 const SYS_COLOR_DEFAULT = '#00C2A8';
+function osceGroupOf(name) {
+  try {
+    if (typeof TAB_OSCE_EXAM !== 'undefined' && TAB_OSCE_EXAM[name]) return 'Examinations';
+    if (typeof TAB_OSCE_COMMS !== 'undefined' && TAB_OSCE_COMMS[name]) return 'Communication & History';
+    if (typeof TAB_SKILLS !== 'undefined' && TAB_SKILLS[name]) return 'Clinical Skills';
+  } catch (e) {}
+  return null;
+}
 function renderSysList(p, data, filter) {
   const list = document.getElementById('syslist-' + p);
   if (!list) return;
   list.innerHTML = '';
   const st = getState(p);
+  let _curGroup = null;
   Object.entries(data).forEach(([name, sysData]) => {
     const topics = sysData.conditions || sysData.topics || [];
     const matches = filter ? topics.filter(t => (window.daNorm?window.daNorm(t):t.toLowerCase()).includes(window.daNorm?window.daNorm(filter):filter.toLowerCase()) || (window.daMatchAlias && window.daMatchAlias(p, name, t, filter.toLowerCase()))) : topics;
     if (filter && matches.length === 0) return;
+    if (p === 'osce') {
+      const g = osceGroupOf(name);
+      if (g && g !== _curGroup) {
+        _curGroup = g;
+        const gh = document.createElement('div');
+        gh.className = 'sys-group-header';
+        gh.textContent = g;
+        list.appendChild(gh);
+      }
+    }
     const item = document.createElement('div');
     item.className = 'system-item' + (st.activeSystem === name ? ' active' : '');
     item.style.setProperty('--sc', SYS_COLOR_DEFAULT);
