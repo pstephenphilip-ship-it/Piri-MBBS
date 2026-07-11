@@ -358,24 +358,26 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .btn-annot-save{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
-/* ── My Notes as a floating button + overlay (matches the Review tab) ── */
+/* ── My Notes: floating button opens an inline side panel (main notes stay visible) ── */
 .annot-fab{position:fixed;top:60px;right:22px;z-index:901;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#231a02;background:linear-gradient(135deg,#F0B429 0%,#F59E0B 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(240,180,41,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
 .annot-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(240,180,41,.4);}
 .annot-fab svg{width:17px;height:17px;flex-shrink:0;}
+.annot-fab.is-hidden{display:none;}
+.da-rv-fab.is-hidden{display:none;}
 .annot-fab-badge{background:rgba(35,26,2,.85);color:#FCE9B8;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
 .annot-fab-badge.zero{display:none;}
 @media (max-width:720px){.annot-fab{top:58px;right:16px;padding:12px;border-radius:50%;}.annot-fab .annot-fab-label{display:none;}.annot-fab .annot-fab-badge{position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
-.annot-overlay{position:fixed;inset:0;background:rgba(8,10,16,.66);backdrop-filter:blur(3px);z-index:1200;display:none;align-items:flex-start;justify-content:center;padding:56px 16px 16px;}
-.annot-overlay.open{display:flex;}
-.annot-box{width:100%;max-width:560px;background:var(--surface);border:1px solid var(--border2);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.55);overflow:hidden;display:flex;flex-direction:column;max-height:84vh;}
-.annot-box-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border);gap:12px;}
-.annot-box-titles{min-width:0;}
-.annot-box-title{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
-.annot-box-title .abt-dot{width:9px;height:9px;border-radius:2px;background:var(--gold);}
-.annot-box-sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.annot-box-close{background:none;border:none;color:var(--muted);font-size:24px;line-height:1;cursor:pointer;padding:0 4px;flex-shrink:0;}
-.annot-box-close:hover{color:var(--text);}
-.annot-box .annot-cards-wrap{display:block;flex:1;overflow-y:auto;padding:14px 16px;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+.annot-drawer{width:0;min-width:0;flex-shrink:0;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;transition:width .2s ease;}
+.annot-drawer.open{width:300px;min-width:300px;border-left:1px solid var(--border2);}
+@media (max-width:720px){.annot-drawer.open{width:82vw;min-width:82vw;}}
+.annot-drawer-hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.annot-drawer-titles{min-width:0;}
+.annot-drawer-title{font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.annot-drawer-title .abt-dot{width:9px;height:9px;border-radius:2px;background:var(--gold);flex-shrink:0;}
+.annot-drawer-sub{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.annot-drawer-close{background:none;border:1px solid var(--border2);border-radius:6px;color:var(--muted);font-size:18px;line-height:1;cursor:pointer;padding:2px 8px;flex-shrink:0;}
+.annot-drawer-close:hover{color:var(--text);border-color:var(--gold);}
+.annot-drawer .annot-cards-wrap{display:block;flex:1;overflow-y:auto;padding:12px 14px;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
 /* ══ End Personal Annotation System ══════════════════════════════════════════ */
 .rn-batman-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px;}
 .rn-bm-card{display:flex;align-items:flex-start;gap:10px;background:#F1F3F8;border:1.5px solid var(--rn-border);border-radius:10px;padding:12px 14px;color:#1E2640;}
@@ -2040,35 +2042,37 @@ initTab('conditions');
     fab.dataset.panel = p;
     fab.innerHTML = '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2.5H4.5A.5.5 0 004 3v12a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V5.5z"/><path d="M11 2.5V6h3"/><path d="M6.5 9h5M6.5 12h3"/></svg><span class="annot-fab-label">My Notes</span><span class="annot-fab-badge zero" id="annot-fab-badge-'+p+'">0</span>';
     fab.onclick = function(){ annotToggle(this.dataset.panel); };
-    // Overlay modal holding the note cards
-    var ov = document.createElement('div');
-    ov.id = sbId(p);
-    ov.className = 'annot-overlay';
-    ov.dataset.panel = p;
-    ov.onclick = function(e){ if(e.target===this) annotToggle(this.dataset.panel); };
-    var box = document.createElement('div'); box.className = 'annot-box';
-    var hdr = document.createElement('div'); hdr.className = 'annot-box-hdr';
-    var titles = document.createElement('div'); titles.className = 'annot-box-titles';
-    var title = document.createElement('div'); title.className = 'annot-box-title';
+    // Inline side drawer — slides open beside the main notes (both stay visible)
+    var drawer = document.createElement('div');
+    drawer.id = sbId(p);
+    drawer.className = 'annot-drawer';
+    drawer.dataset.panel = p;
+    var hdr = document.createElement('div'); hdr.className = 'annot-drawer-hdr';
+    var titles = document.createElement('div'); titles.className = 'annot-drawer-titles';
+    var title = document.createElement('div'); title.className = 'annot-drawer-title';
     title.innerHTML = '<span class="abt-dot"></span>My Notes';
-    var sub = document.createElement('div'); sub.className = 'annot-box-sub'; sub.id = 'annot-box-sub-'+p;
+    var sub = document.createElement('div'); sub.className = 'annot-drawer-sub'; sub.id = 'annot-box-sub-'+p;
     titles.appendChild(title); titles.appendChild(sub);
-    var close = document.createElement('button'); close.className = 'annot-box-close'; close.innerHTML = '&times;';
+    var close = document.createElement('button'); close.className = 'annot-drawer-close'; close.innerHTML = '&times;';
+    close.title = 'Close notes';
     close.dataset.panel = p;
     close.onclick = function(){ annotToggle(this.dataset.panel); };
     hdr.appendChild(titles); hdr.appendChild(close);
     var wrap = document.createElement('div');
     wrap.className = 'annot-cards-wrap';
     wrap.id = wrapId(p);
-    box.appendChild(hdr); box.appendChild(wrap);
-    ov.appendChild(box);
-    tab.appendChild(fab); tab.appendChild(ov);
+    drawer.appendChild(hdr); drawer.appendChild(wrap);
+    tab.appendChild(fab); tab.appendChild(drawer);
   }
 
   window.annotToggle = function(p){
-    var ov = document.getElementById(sbId(p));
-    if(!ov) return;
-    ov.classList.toggle('open');
+    var drawer = document.getElementById(sbId(p));
+    if(!drawer) return;
+    var open = drawer.classList.toggle('open');
+    var fab = document.getElementById('annot-fab-'+p);
+    if(fab) fab.classList.toggle('is-hidden', open);
+    var rv = document.getElementById('daRvTrigger');
+    if(rv) rv.classList.toggle('is-hidden', open);
   };
 
   function getContentPanel(p){
@@ -2303,7 +2307,7 @@ initTab('conditions');
     if(!e.target.closest('#annot-tip-el')&&!e.target.closest('#annot-popup-el')) removeTip();
   });
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){ window.removeAnnotPopup(); removeTip(); var _ov=document.querySelector('.annot-overlay.open'); if(_ov) _ov.classList.remove('open'); }
+    if(e.key==='Escape'){ window.removeAnnotPopup(); removeTip(); var _d=document.querySelector('.annot-drawer.open'); if(_d) annotToggle(_d.dataset.panel); }
   });
 
   // Hook into loadNote for standard panels
