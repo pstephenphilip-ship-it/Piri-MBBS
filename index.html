@@ -33,13 +33,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .nav-arrow-right{box-shadow:-6px 0 8px -6px rgba(0,0,0,.5);}
 .nav-tab{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.01em;color:var(--muted);padding:0 16px;height:52px;display:flex;align-items:center;gap:7px;cursor:pointer;border-bottom:2px solid transparent;border-top:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;user-select:none;}.nav-tab-icon{display:flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0;opacity:0.55;transition:opacity 0.15s;}.nav-tab:hover .nav-tab-icon,.nav-tab.active .nav-tab-icon{opacity:1;}
 .nav-tab:hover{color:var(--text);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
-.nav-tab.mock-tab{color:#fff;background:linear-gradient(135deg,#FF4D5E,#E11D48);border-radius:8px;height:38px;margin:0 10px 0 4px;padding:0 15px;box-shadow:0 2px 10px rgba(225,29,72,0.35);border-bottom:2px solid transparent;border-top:2px solid transparent;position:relative;font-weight:700;}
-.nav-tab.mock-tab:hover{color:#fff;background:linear-gradient(135deg,#FF6472,#F01d54);box-shadow:0 3px 16px rgba(225,29,72,0.5);}
-.nav-tab.mock-tab .nav-tab-icon{opacity:1;}
-.nav-tab.mock-tab.active{color:#fff;border-bottom-color:transparent;box-shadow:0 0 0 2px rgba(255,255,255,0.25),0 3px 16px rgba(225,29,72,0.55);}
-.nav-tab.mock-tab .mock-tab-badge{font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:.08em;background:rgba(255,255,255,0.9);color:#E11D48;padding:1px 5px;border-radius:6px;margin-left:2px;line-height:1.4;}
 @keyframes mockPulse{0%,100%{box-shadow:0 2px 10px rgba(225,29,72,0.35);}50%{box-shadow:0 2px 18px rgba(225,29,72,0.7);}}
-.nav-tab.mock-tab:not(.active){animation:mockPulse 2.6s ease-in-out infinite;}
 .app-body{display:flex;height:calc(100vh - 52px);overflow:hidden;}
 .da-fav-mark{color:#f5c518;font-size:11px;margin-left:auto;padding-left:6px;flex-shrink:0;line-height:1;}
 .tab-view{display:none;flex:1;overflow:hidden;position:relative;}.tab-view.visible{display:flex;}
@@ -359,14 +353,24 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 /* ── My Notes: floating button opens an inline side panel (main notes stay visible) ── */
+/* Shared sizing so My Notes / Review / Custom Mock buttons look identical */
+.annot-fab,.da-rv-fab,.mock-fab{width:176px;box-sizing:border-box;justify-content:flex-start;}
 .annot-fab{position:fixed;top:60px;right:22px;z-index:901;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#231a02;background:linear-gradient(135deg,#F0B429 0%,#F59E0B 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(240,180,41,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
 .annot-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(240,180,41,.4);}
 .annot-fab svg{width:17px;height:17px;flex-shrink:0;}
-.annot-fab.is-hidden{display:none;}
-.da-rv-fab.is-hidden{display:none;}
-.annot-fab-badge{background:rgba(35,26,2,.85);color:#FCE9B8;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
+.annot-fab.is-hidden,.da-rv-fab.is-hidden,.mock-fab.is-hidden{display:none;}
+.annot-fab-badge{margin-left:auto;background:rgba(35,26,2,.85);color:#FCE9B8;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
 .annot-fab-badge.zero{display:none;}
-@media (max-width:720px){.annot-fab{top:58px;right:16px;padding:12px;border-radius:50%;}.annot-fab .annot-fab-label{display:none;}.annot-fab .annot-fab-badge{position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
+/* Custom Mock floating button (red) — stacked under Review */
+.mock-fab{position:fixed;top:164px;right:22px;z-index:900;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,#FF4D5E 0%,#E11D48 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(225,29,72,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
+.mock-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(225,29,72,.4);}
+.mock-fab svg{width:17px;height:17px;flex-shrink:0;}
+.mock-fab-badge{margin-left:auto;font-family:var(--mono);font-size:8px;font-weight:800;letter-spacing:.06em;background:rgba(255,255,255,0.92);color:#E11D48;padding:2px 6px;border-radius:8px;line-height:1.3;}
+@media (max-width:720px){
+  .annot-fab,.da-rv-fab,.mock-fab{width:auto;justify-content:center;}
+  .annot-fab{top:58px;right:16px;padding:12px;border-radius:50%;}.annot-fab .annot-fab-label{display:none;}.annot-fab .annot-fab-badge{margin-left:0;position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}
+  .mock-fab{top:150px;right:16px;padding:12px;border-radius:50%;}.mock-fab .mock-fab-label{display:none;}.mock-fab .mock-fab-badge{display:none;}
+}
 .annot-drawer{width:0;min-width:0;flex-shrink:0;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;transition:width .2s ease;}
 .annot-drawer.open{width:300px;min-width:300px;border-left:1px solid var(--border2);}
 @media (max-width:720px){.annot-drawer.open{width:82vw;min-width:82vw;}}
@@ -479,7 +483,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     <div class="nav-tab active" onclick="switchMainTab('conditions',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15C9 15 3 11 3 7a4 4 0 018 0 4 4 0 018 0c0 4-6 8-6 8z"/><path d="M9 7v3m-1.5-1.5h3"/></svg></span>Medical Conditions</div>
     <div class="nav-tab" onclick="switchMainTab('anatomy',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2C6 2 4 4 4 7c0 2 1 3 2 4v3h6v-3c1-1 2-2 2-4 0-3-2-5-5-5z"/><path d="M7 14v1.5a2 2 0 004 0V14"/><path d="M6.5 8C7.5 8 8 8.5 9 9.5 10 8.5 10.5 8 11.5 8"/></svg></span>Anatomy</div>
     <div class="nav-tab" onclick="switchMainTab('histology',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><circle cx="9" cy="9" r="2"/><path d="M9 4v2m0 6v2M4 9h2m6 0h2"/></svg></span>Histology</div>
-    <div class="nav-tab mock-tab" onclick="switchMainTab('mock',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="10" r="6"/><path d="M9 10V7"/><path d="M7 1h4"/><path d="M14.5 5l1-1"/></svg></span>Custom Mocks<span class="mock-tab-badge">NEW</span></div>
     <div class="nav-tab" onclick="switchMainTab('signs',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14L6 6l3 5 2-3 2 4 2-6"/></svg></span>Signs & Symptoms</div>
     <div class="nav-tab" onclick="switchMainTab('investigations',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h6v6l2 7H4l2-7V2z"/><path d="M6 2h6M7 9h4"/><circle cx="9" cy="12" r="1"/></svg></span>Investigations</div>
     <div class="nav-tab" onclick="switchMainTab('osce',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="12" height="11" rx="2"/><path d="M6 4V3a1 1 0 012 0v1m2 0V3a1 1 0 012 0v1"/><path d="M6 9h6m-6 3h4"/></svg></span>OSCE</div>
@@ -877,6 +880,27 @@ window.MOCK_BANK = {
 
   // ================= SETUP =================
   window.initMock=function(){ if(S.phase==='running'){showScreen('run');return;} if(S.phase==='results'){showScreen('results');return;} renderSetup(); showScreen('setup'); };
+
+  // Open the Custom Mock full view from the floating button (no nav tab)
+  window.openMock=function(){
+    document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
+    document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+    var tm=document.getElementById('tab-mock'); if(tm) tm.classList.add('visible');
+    try{ if(typeof updateHash==='function') updateHash('mock',null,null,null); }catch(e){}
+    // Focused exam mode: tuck the floating buttons away while inside the mock
+    var mf=document.getElementById('mockFab'); if(mf) mf.classList.add('is-hidden');
+    var rv=document.getElementById('daRvTrigger'); if(rv) rv.classList.add('is-hidden');
+    initMock();
+  };
+  function addMockFab(){
+    if(document.getElementById('mockFab')) return;
+    var b=document.createElement('button');
+    b.id='mockFab'; b.className='mock-fab'; b.title='Custom Mock Exam';
+    b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="10" r="6"/><path d="M9 10V7"/><path d="M7 1.5h4"/><path d="M14.5 5l1-1"/></svg><span class="mock-fab-label">Custom Mock</span><span class="mock-fab-badge">NEW</span>';
+    b.onclick=window.openMock;
+    document.body.appendChild(b);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', addMockFab); else addMockFab();
 
   function showScreen(which){
     el('mockSetup').style.display=which==='setup'?'':'none';
@@ -1418,6 +1442,7 @@ function restoreFromHash() {
   var system = parts[1] ? decodeURIComponent(parts[1]) : null;
   var topic = parts[2] ? decodeURIComponent(parts[2]) : null;
   var mode = parts[3] || 'notes';
+  if (tab === 'mock') { if (window.openMock) window.openMock(); return; }
   var navEl = document.querySelector('.nav-tab[onclick*="\'' + tab + '\'"]');
   if (!navEl) return;
   switchMainTab(tab, navEl, true);
@@ -1444,6 +1469,11 @@ function switchMainTab(id, el, skipHash) {
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('visible');
   el.classList.add('active');
+  // Restore the floating buttons when leaving the focused mock view
+  if (id !== 'mock') {
+    var _mf = document.getElementById('mockFab'); if (_mf) _mf.classList.remove('is-hidden');
+    var _rv = document.getElementById('daRvTrigger'); if (_rv) _rv.classList.remove('is-hidden');
+  }
   if (el && el.scrollIntoView) { try { el.scrollIntoView({ inline:'nearest', block:'nearest', behavior:'smooth' }); } catch(e){} }
   if (window.updateNavArrows) setTimeout(window.updateNavArrows, 350);
   if (!skipHash) updateHash(id, null, null, null);
@@ -2073,6 +2103,8 @@ initTab('conditions');
     if(fab) fab.classList.toggle('is-hidden', open);
     var rv = document.getElementById('daRvTrigger');
     if(rv) rv.classList.toggle('is-hidden', open);
+    var mf = document.getElementById('mockFab');
+    if(mf) mf.classList.toggle('is-hidden', open);
   };
 
   function getContentPanel(p){
@@ -3447,9 +3479,9 @@ function hideFlyout(p) {
 .da-rv-fab{position:fixed;top:112px;right:22px;z-index:900;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#04121a;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(0,194,168,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
 .da-rv-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(0,194,168,.4);}
 .da-rv-fab svg{width:17px;height:17px;flex-shrink:0;}
-.da-rv-badge{background:rgba(4,18,26,.85);color:#7FE9DC;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
+.da-rv-badge{margin-left:auto;background:rgba(4,18,26,.85);color:#7FE9DC;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
 .da-rv-badge.zero{display:none;}
-@media (max-width:720px){.da-rv-fab{top:110px;right:16px;padding:12px;border-radius:50%;}.da-rv-fab .da-rv-label{display:none;}.da-rv-fab .da-rv-badge{position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
+@media (max-width:720px){.da-rv-fab{top:104px;right:16px;padding:12px;border-radius:50%;}.da-rv-fab .da-rv-label{display:none;}.da-rv-fab .da-rv-badge{margin-left:0;position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
 .da-rv-overlay{position:fixed;inset:0;background:rgba(8,10,16,.66);backdrop-filter:blur(3px);z-index:1200;display:none;align-items:flex-start;justify-content:center;padding:56px 16px 16px;}
 .da-rv-overlay.open{display:flex;}
 .da-rv-box{width:100%;max-width:620px;background:var(--surface);border:1px solid var(--border2);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.55);overflow:hidden;display:flex;flex-direction:column;max-height:84vh;}
