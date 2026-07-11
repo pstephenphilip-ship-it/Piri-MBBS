@@ -622,6 +622,27 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .mk-btn-sm{padding:9px 15px;font-size:12.5px;border-radius:9px;}
 .mk-hero-note{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.02em;}
 .mk-bank-note{margin:18px auto 0;max-width:520px;font-size:12.5px;line-height:1.55;color:#F0B429;background:rgba(240,180,41,0.10);border:1px dashed rgba(240,180,41,0.4);border-radius:10px;padding:11px 15px;}
+/* Overall progress card */
+.mk-progress{margin-top:22px;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:16px 18px;}
+.mk-progress-head{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;user-select:none;}
+.mk-progress-h{font-size:14px;font-weight:700;color:#E8EAF0;}
+.mk-progress-sub{font-size:11px;color:#6B7280;margin-top:3px;font-family:var(--mono);}
+.mk-progress-num{font-family:var(--mono);font-size:14px;font-weight:800;color:#B8BEC9;display:flex;align-items:center;gap:10px;white-space:nowrap;}
+.mk-progress-num b{color:#FF6472;font-size:19px;}
+.mk-progress-num svg{width:14px;height:14px;stroke:#6B7280;transition:transform .18s;}
+.mk-progress.open .mk-progress-num svg{transform:rotate(180deg);}
+.mk-progress-bar{height:8px;border-radius:5px;background:var(--surface2);overflow:hidden;margin-top:13px;}
+.mk-progress-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#FF4D5E,#E11D48);transition:width .5s;}
+.mk-progress-systems{display:none;margin-top:14px;border-top:1px solid var(--border);padding-top:10px;max-height:320px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+.mk-progress.open .mk-progress-systems{display:block;}
+.mk-prog-row{display:flex;align-items:center;gap:12px;padding:6px 2px;}
+.mk-prog-name{flex:1;min-width:0;font-size:12.5px;color:#D5DAE3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mk-prog-cat{font-family:var(--mono);font-size:9px;color:#8B93A3;text-transform:uppercase;letter-spacing:.04em;border:1px solid var(--border2);border-radius:4px;padding:0 4px;}
+.mk-prog-frac{font-family:var(--mono);font-size:11px;color:#8B93A3;width:60px;text-align:right;flex-shrink:0;}
+.mk-prog-mini{width:96px;height:6px;border-radius:4px;background:var(--surface2);overflow:hidden;flex-shrink:0;}
+.mk-prog-mini-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#FF6472,#E11D48);}
+.mk-prog-pct{font-family:var(--mono);font-size:11px;font-weight:700;color:#B8BEC9;width:38px;text-align:right;flex-shrink:0;}
+@media(max-width:600px){.mk-prog-mini{width:52px;}.mk-prog-frac{width:48px;}}
 /* ---- Customise panel ---- */
 .mk-cust{margin-top:26px;background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden;}
 .mk-cust-head{padding:18px 22px;border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
@@ -877,6 +898,7 @@ window.MOCK_BANK = {
   // ---- state ----
   var S={phase:'setup',sel:{},questions:[],answers:{},flagged:{},current:0,limit:0,remaining:0,timer:null,endAt:0,startAt:0,revFilter:'all',lastResult:null};
   var TREE_OPEN={};
+  var PROG_OPEN=false;
 
   // ---- persistence (summary history) ----
   var HIST_KEY='piri_mock_history_v1';
@@ -931,6 +953,19 @@ window.MOCK_BANK = {
   var TOTAL_BANK=null;
   function totalBankCount(){ if(TOTAL_BANK==null){var n=0;groups().forEach(function(g){n+=grpQCount(g);});TOTAL_BANK=n;} return TOTAL_BANK; }
 
+  // Overall + per-system progress: how many questions have been answered (used)
+  function bankStats(){
+    var used=loadUsed(); var systems=[]; var total=0, done=0;
+    groups().forEach(function(g){
+      var t=0,u=0;
+      g.topics.forEach(function(tp){ qForTopic(g.tab,g.system,tp).forEach(function(q){ t++; if(q.id!=null&&used.has(q.id)) u++; }); });
+      total+=t; done+=u;
+      if(t>0) systems.push({name:g.system,cat:g.cat,total:t,done:u});
+    });
+    systems.sort(function(a,b){ return (b.done-a.done)||(b.total-a.total); });
+    return {total:total,done:done,systems:systems};
+  }
+
   function renderSetup(){
     var hist=loadHist();
     var used=usedCount();
@@ -951,6 +986,30 @@ window.MOCK_BANK = {
     }
     var lastReview = S.lastResult? '<button class="mk-btn mk-btn-ghost mk-btn-sm" onclick="mockReviewLast()">Review last mock &rsaquo;</button>':'';
     var bankEmpty = totalBankCount()===0;
+    // Overall progress card (tap to expand a per-system breakdown)
+    var progressHtml='';
+    if(!bankEmpty){
+      var st=bankStats();
+      var op=st.total?Math.round(st.done/st.total*100):0;
+      var rows=st.systems.map(function(s){
+        var sp=s.total?Math.round(s.done/s.total*100):0;
+        var cat=(s.cat&&s.cat!=='Medical Conditions')?' <span class="mk-prog-cat">'+esc(s.cat)+'</span>':'';
+        return '<div class="mk-prog-row"><span class="mk-prog-name">'+esc(s.name)+cat+'</span>'+
+          '<span class="mk-prog-frac">'+s.done+'/'+s.total+'</span>'+
+          '<div class="mk-prog-mini"><div class="mk-prog-mini-fill" style="width:'+sp+'%"></div></div>'+
+          '<span class="mk-prog-pct">'+sp+'%</span></div>';
+      }).join('');
+      progressHtml='<div class="mk-progress'+(PROG_OPEN?' open':'')+'" id="mkProgress">'+
+        '<div class="mk-progress-head" onclick="mockToggleProgress()">'+
+          '<div class="mk-progress-titles"><div class="mk-progress-h">Questions completed</div>'+
+            '<div class="mk-progress-sub">'+op+'% of the bank &middot; tap for a breakdown by system</div></div>'+
+          '<div class="mk-progress-num"><span><b>'+st.done+'</b> / '+st.total+'</span>'+
+            '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6l4 4 4-4"/></svg></div>'+
+        '</div>'+
+        '<div class="mk-progress-bar"><div class="mk-progress-fill" style="width:'+op+'%"></div></div>'+
+        '<div class="mk-progress-systems">'+(rows||'<div class="mk-prog-row" style="color:#6B7280;">No systems with questions yet.</div>')+'</div>'+
+      '</div>';
+    }
     var emptyBanner = bankEmpty ? '<div class="mk-bank-note">&#128295; The mock question bank is being built &mdash; you can explore the customisation options now; questions will appear here once added.</div>' : '';
     el('mockSetup').innerHTML=
       '<div class="mk-hero">'+
@@ -965,6 +1024,7 @@ window.MOCK_BANK = {
         emptyBanner+
         (lastReview?'<div style="margin-top:14px;">'+lastReview+'</div>':'')+
       '</div>'+
+      progressHtml+
       '<div class="mk-cust" id="mkCust" style="display:none;">'+
         '<div class="mk-cust-head"><h2><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h12M6 9h9M9 13h6"/></svg>Customise your paper</h2>'+
           '<button class="mk-mini-btn" onclick="mockToggleCustomise()">Close</button></div>'+
@@ -1019,6 +1079,11 @@ window.MOCK_BANK = {
     var open=c.style.display!=='none';
     c.style.display=open?'none':'';
     if(!open){ c.scrollIntoView({behavior:'smooth',block:'start'}); }
+  };
+
+  window.mockToggleProgress=function(){
+    PROG_OPEN=!PROG_OPEN;
+    var pc=el('mkProgress'); if(pc) pc.classList.toggle('open', PROG_OPEN);
   };
 
   function renderNumChips(){
