@@ -358,6 +358,24 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .btn-annot-save{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
+/* ── My Notes as a floating button + overlay (matches the Review tab) ── */
+.annot-fab{position:fixed;top:60px;right:22px;z-index:901;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#231a02;background:linear-gradient(135deg,#F0B429 0%,#F59E0B 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(240,180,41,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
+.annot-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(240,180,41,.4);}
+.annot-fab svg{width:17px;height:17px;flex-shrink:0;}
+.annot-fab-badge{background:rgba(35,26,2,.85);color:#FCE9B8;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
+.annot-fab-badge.zero{display:none;}
+@media (max-width:720px){.annot-fab{top:58px;right:16px;padding:12px;border-radius:50%;}.annot-fab .annot-fab-label{display:none;}.annot-fab .annot-fab-badge{position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
+.annot-overlay{position:fixed;inset:0;background:rgba(8,10,16,.66);backdrop-filter:blur(3px);z-index:1200;display:none;align-items:flex-start;justify-content:center;padding:56px 16px 16px;}
+.annot-overlay.open{display:flex;}
+.annot-box{width:100%;max-width:560px;background:var(--surface);border:1px solid var(--border2);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.55);overflow:hidden;display:flex;flex-direction:column;max-height:84vh;}
+.annot-box-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border);gap:12px;}
+.annot-box-titles{min-width:0;}
+.annot-box-title{font-family:var(--sans);font-size:15px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
+.annot-box-title .abt-dot{width:9px;height:9px;border-radius:2px;background:var(--gold);}
+.annot-box-sub{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.annot-box-close{background:none;border:none;color:var(--muted);font-size:24px;line-height:1;cursor:pointer;padding:0 4px;flex-shrink:0;}
+.annot-box-close:hover{color:var(--text);}
+.annot-box .annot-cards-wrap{display:block;flex:1;overflow-y:auto;padding:14px 16px;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
 /* ══ End Personal Annotation System ══════════════════════════════════════════ */
 .rn-batman-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px;}
 .rn-bm-card{display:flex;align-items:flex-start;gap:10px;background:#F1F3F8;border:1.5px solid var(--rn-border);border-radius:10px;padding:12px 14px;color:#1E2640;}
@@ -2014,34 +2032,43 @@ initTab('conditions');
     if(document.getElementById(sbId(p))) return;
     var tab = document.getElementById('tab-'+p);
     if(!tab) return;
-    var sb = document.createElement('div');
-    sb.id = sbId(p);
-    sb.className = 'annot-sidebar';
-    if(localStorage.getItem('piri_annot_sb_'+p)==='open') sb.classList.add('open');
-    var hdr = document.createElement('div');
-    hdr.className = 'annot-sidebar-hdr';
-    var title = document.createElement('span');
-    title.className = 'annot-sidebar-title';
-    title.textContent = 'My Notes';
-    var btn = document.createElement('button');
-    btn.className = 'annot-toggle-btn';
-    btn.title = 'Toggle personal notes';
-    btn.textContent = '📝';
-    btn.dataset.panel = p;
-    btn.onclick = function(){ annotToggle(this.dataset.panel); };
-    hdr.appendChild(title); hdr.appendChild(btn);
+    // Floating trigger button (same interface pattern as the Review tab)
+    var fab = document.createElement('button');
+    fab.className = 'annot-fab';
+    fab.id = 'annot-fab-'+p;
+    fab.title = 'My personal notes';
+    fab.dataset.panel = p;
+    fab.innerHTML = '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2.5H4.5A.5.5 0 004 3v12a.5.5 0 00.5.5h9a.5.5 0 00.5-.5V5.5z"/><path d="M11 2.5V6h3"/><path d="M6.5 9h5M6.5 12h3"/></svg><span class="annot-fab-label">My Notes</span><span class="annot-fab-badge zero" id="annot-fab-badge-'+p+'">0</span>';
+    fab.onclick = function(){ annotToggle(this.dataset.panel); };
+    // Overlay modal holding the note cards
+    var ov = document.createElement('div');
+    ov.id = sbId(p);
+    ov.className = 'annot-overlay';
+    ov.dataset.panel = p;
+    ov.onclick = function(e){ if(e.target===this) annotToggle(this.dataset.panel); };
+    var box = document.createElement('div'); box.className = 'annot-box';
+    var hdr = document.createElement('div'); hdr.className = 'annot-box-hdr';
+    var titles = document.createElement('div'); titles.className = 'annot-box-titles';
+    var title = document.createElement('div'); title.className = 'annot-box-title';
+    title.innerHTML = '<span class="abt-dot"></span>My Notes';
+    var sub = document.createElement('div'); sub.className = 'annot-box-sub'; sub.id = 'annot-box-sub-'+p;
+    titles.appendChild(title); titles.appendChild(sub);
+    var close = document.createElement('button'); close.className = 'annot-box-close'; close.innerHTML = '&times;';
+    close.dataset.panel = p;
+    close.onclick = function(){ annotToggle(this.dataset.panel); };
+    hdr.appendChild(titles); hdr.appendChild(close);
     var wrap = document.createElement('div');
     wrap.className = 'annot-cards-wrap';
     wrap.id = wrapId(p);
-    sb.appendChild(hdr); sb.appendChild(wrap);
-    tab.appendChild(sb);
+    box.appendChild(hdr); box.appendChild(wrap);
+    ov.appendChild(box);
+    tab.appendChild(fab); tab.appendChild(ov);
   }
 
   window.annotToggle = function(p){
-    var sb = document.getElementById(sbId(p));
-    if(!sb) return;
-    var open = sb.classList.toggle('open');
-    localStorage.setItem('piri_annot_sb_'+p, open ? 'open' : 'closed');
+    var ov = document.getElementById(sbId(p));
+    if(!ov) return;
+    ov.classList.toggle('open');
   };
 
   function getContentPanel(p){
@@ -2054,7 +2081,7 @@ initTab('conditions');
     if(!panel || panel._annotReady) return;
     panel._annotReady = true;
     panel.addEventListener('mouseup', function(e){
-      if(e.target.closest('.annot-sidebar')||e.target.closest('#annot-popup-el')||e.target.closest('#annot-tip-el')) return;
+      if(e.target.closest('.annot-overlay')||e.target.closest('.annot-fab')||e.target.closest('#annot-popup-el')||e.target.closest('#annot-tip-el')) return;
       setTimeout(function(){
         var sel = window.getSelection();
         if(!sel||sel.isCollapsed||!sel.toString().trim()){ removeTip(); return; }
@@ -2194,19 +2221,28 @@ initTab('conditions');
     });
   }
 
+  function annotSetMeta(p, count, subText){
+    var badge=document.getElementById('annot-fab-badge-'+p);
+    if(badge){ badge.textContent=count>99?'99+':count; badge.classList.toggle('zero', !count); }
+    var sub=document.getElementById('annot-box-sub-'+p);
+    if(sub){ sub.textContent=subText||''; }
+  }
+
   window.annotRender = function(p){
     ensureSidebar(p); setupPanel(p);
     var wrap=document.getElementById(wrapId(p)); if(!wrap) return;
     var info=getActiveTopic(p);
     if(!info||!info.topic){
       wrap.innerHTML='<div class="annot-empty">Select a topic to see your notes.</div>';
+      annotSetMeta(p, 0, '');
       applyHighlights(p,[]); return;
     }
     var key=annotKey(p,info.sys,info.topic);
     var annots=[];
     try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
+    annotSetMeta(p, annots.length, (info.sys?info.sys+' · ':'')+info.topic);
     applyHighlights(p,annots);
-    if(!annots.length){ wrap.innerHTML='<div class="annot-empty">Highlight any text to add a personal note.</div>'; return; }
+    if(!annots.length){ wrap.innerHTML='<div class="annot-empty">Highlight any text in the note to add a personal note.</div>'; return; }
     wrap.innerHTML='';
     annots.forEach(function(a){
       var card=document.createElement('div'); card.className='annot-card'; card.dataset.id=a.id;
@@ -2267,7 +2303,7 @@ initTab('conditions');
     if(!e.target.closest('#annot-tip-el')&&!e.target.closest('#annot-popup-el')) removeTip();
   });
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){ window.removeAnnotPopup(); removeTip(); }
+    if(e.key==='Escape'){ window.removeAnnotPopup(); removeTip(); var _ov=document.querySelector('.annot-overlay.open'); if(_ov) _ov.classList.remove('open'); }
   });
 
   // Hook into loadNote for standard panels
@@ -3404,12 +3440,12 @@ function hideFlyout(p) {
 
 <!-- ===== Spaced repetition (Anki-style SM-2) review layer ===== -->
 <style>
-.da-rv-fab{position:fixed;top:60px;right:22px;z-index:900;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#04121a;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(0,194,168,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
+.da-rv-fab{position:fixed;top:112px;right:22px;z-index:900;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#04121a;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);border:none;border-radius:26px;padding:12px 20px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 24px rgba(0,0,0,.4),0 2px 6px rgba(0,194,168,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
 .da-rv-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(0,194,168,.4);}
 .da-rv-fab svg{width:17px;height:17px;flex-shrink:0;}
 .da-rv-badge{background:rgba(4,18,26,.85);color:#7FE9DC;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
 .da-rv-badge.zero{display:none;}
-@media (max-width:720px){.da-rv-fab{top:58px;right:16px;padding:12px;border-radius:50%;}.da-rv-fab .da-rv-label{display:none;}.da-rv-fab .da-rv-badge{position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
+@media (max-width:720px){.da-rv-fab{top:110px;right:16px;padding:12px;border-radius:50%;}.da-rv-fab .da-rv-label{display:none;}.da-rv-fab .da-rv-badge{position:absolute;top:-4px;right:-4px;background:#E0566B;color:#fff;}}
 .da-rv-overlay{position:fixed;inset:0;background:rgba(8,10,16,.66);backdrop-filter:blur(3px);z-index:1200;display:none;align-items:flex-start;justify-content:center;padding:56px 16px 16px;}
 .da-rv-overlay.open{display:flex;}
 .da-rv-box{width:100%;max-width:620px;background:var(--surface);border:1px solid var(--border2);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.55);overflow:hidden;display:flex;flex-direction:column;max-height:84vh;}
