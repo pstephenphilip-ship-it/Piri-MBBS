@@ -675,12 +675,21 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .mk-selstat .mk-warn{color:#F0B429;}
 /* ---- Recent results ---- */
 .mk-recent{margin-top:26px;}
-.mk-recent h3{font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#8B93A3;margin-bottom:12px;}
+.mk-recent-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.mk-recent h3{font-size:13px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#8B93A3;}
+.mk-reset-btn{color:#F0B429;border-color:rgba(240,180,41,0.35);}
+.mk-reset-btn:hover{color:#fff;border-color:var(--gold);background:rgba(240,180,41,0.12);}
+.mk-hist-none{font-size:12.5px;color:#6B7280;font-family:var(--mono);padding:6px 2px;}
 .mk-hist-card{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:13px 18px;margin-bottom:9px;}
-.mk-hist-pct{font-family:var(--mono);font-size:20px;font-weight:800;width:64px;text-align:center;}
+.mk-hist-pct{font-family:var(--mono);font-size:20px;font-weight:800;width:64px;text-align:center;flex-shrink:0;}
 .mk-hist-meta{flex:1;min-width:0;}
 .mk-hist-title{font-size:13.5px;font-weight:600;color:#E8EAF0;}
 .mk-hist-sub{font-size:11.5px;color:#6B7280;font-family:var(--mono);margin-top:2px;}
+.mk-hist-actions{display:flex;gap:7px;flex-shrink:0;}
+.mk-hist-btn{font-family:var(--sans);font-size:11.5px;font-weight:600;color:#B8BEC9;background:var(--surface2);border:1px solid var(--border2);border-radius:7px;padding:6px 11px;cursor:pointer;white-space:nowrap;transition:.12s;}
+.mk-hist-btn:hover{color:#fff;border-color:var(--gold);}
+.mk-hist-del:hover{color:#FF6472;border-color:#E11D48;background:rgba(225,29,72,0.08);}
+@media(max-width:640px){.mk-hist-card{flex-wrap:wrap;}.mk-hist-actions{width:100%;}}
 /* ---- Runner ---- */
 .mk-run-top{position:sticky;top:0;z-index:20;background:rgba(13,15,20,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border2);padding:12px 20px;display:flex;align-items:center;gap:16px;}
 .mk-timer{font-family:var(--mono);font-size:22px;font-weight:800;letter-spacing:.02em;color:#E8EAF0;display:flex;align-items:center;gap:9px;}
@@ -872,7 +881,17 @@ window.MOCK_BANK = {
   // ---- persistence (summary history) ----
   var HIST_KEY='piri_mock_history_v1';
   function loadHist(){try{return JSON.parse(localStorage.getItem(HIST_KEY)||'[]');}catch(e){return[];}}
-  function saveHist(h){try{localStorage.setItem(HIST_KEY,JSON.stringify(h.slice(0,8)));}catch(e){}}
+  function saveHist(h){try{localStorage.setItem(HIST_KEY,JSON.stringify(h.slice(0,20)));}catch(e){}}
+
+  // Answered-question tracking: a question answered in any mock is "used" and
+  // won't be drawn again until it's reset. Only ANSWERED questions are marked
+  // (skip a 120-q paper after 100 answers → only those 100 are consumed).
+  var USED_KEY='piri_mock_used_v1';
+  function loadUsed(){ try{ return new Set(JSON.parse(localStorage.getItem(USED_KEY)||'[]')); }catch(e){ return new Set(); } }
+  function saveUsed(s){ try{ localStorage.setItem(USED_KEY, JSON.stringify(Array.from(s))); }catch(e){} }
+  function markUsed(ids){ if(!ids||!ids.length) return; var s=loadUsed(); ids.forEach(function(i){ if(i!=null) s.add(i); }); saveUsed(s); }
+  function unUse(ids){ if(!ids||!ids.length) return; var s=loadUsed(); ids.forEach(function(i){ s.delete(i); }); saveUsed(s); }
+  function usedCount(){ return loadUsed().size; }
 
   function pctColor(p){if(p>=70)return'#1F8B5E';if(p>=50)return'#F0B429';return'#E11D48';}
   function fmtTime(sec){sec=Math.max(0,Math.round(sec));var m=Math.floor(sec/60),s=sec%60;return m+':'+(s<10?'0':'')+s;}
@@ -914,13 +933,21 @@ window.MOCK_BANK = {
 
   function renderSetup(){
     var hist=loadHist();
+    var used=usedCount();
     var histHtml='';
-    if(hist.length){
-      histHtml='<div class="mk-recent"><h3>Recent Results</h3>'+hist.map(function(h){
+    if(used>0 || hist.length){
+      var resetAll = used>0 ? '<button class="mk-mini-btn mk-reset-btn" onclick="mockResetAllUsed()" title="Make every answered question available again">&#8635; Reset answered questions ('+used+')</button>' : '';
+      var cards = hist.length ? hist.map(function(h,idx){
+        var ans = (h.answered!=null?h.answered:h.total);
         return '<div class="mk-hist-card"><div class="mk-hist-pct" style="color:'+pctColor(h.pct)+'">'+h.pct+'%</div>'+
           '<div class="mk-hist-meta"><div class="mk-hist-title">'+esc(h.label)+'</div>'+
-          '<div class="mk-hist-sub">'+h.correct+'/'+h.total+' correct &middot; '+esc(h.date)+'</div></div></div>';
-      }).join('')+'</div>';
+          '<div class="mk-hist-sub">'+h.correct+'/'+h.total+' correct &middot; '+ans+' answered &middot; '+esc(h.date)+'</div></div>'+
+          '<div class="mk-hist-actions">'+
+            (h.usedIds&&h.usedIds.length?'<button class="mk-hist-btn" title="Return this mock&rsquo;s questions to the bank" onclick="mockResetEntry('+idx+')">&#8635; Reset</button>':'')+
+            '<button class="mk-hist-btn mk-hist-del" title="Delete this result" onclick="mockDeleteEntry('+idx+')">&times; Delete</button>'+
+          '</div></div>';
+      }).join('') : '<div class="mk-hist-none">No completed mocks yet.</div>';
+      histHtml='<div class="mk-recent"><div class="mk-recent-head"><h3>Recent Results</h3>'+resetAll+'</div>'+cards+'</div>';
     }
     var lastReview = S.lastResult? '<button class="mk-btn mk-btn-ghost mk-btn-sm" onclick="mockReviewLast()">Review last mock &rsaquo;</button>':'';
     var bankEmpty = totalBankCount()===0;
@@ -964,6 +991,28 @@ window.MOCK_BANK = {
   }
 
   window.mockReviewLast=function(){ if(S.lastResult){ S.phase='results'; renderResults(); showScreen('results'); } };
+
+  // Delete a single result from history (questions stay marked as answered)
+  window.mockDeleteEntry=function(idx){
+    var hist=loadHist(); if(idx<0||idx>=hist.length) return;
+    if(!window.confirm('Delete this mock result from your history?')) return;
+    hist.splice(idx,1); saveHist(hist); renderSetup();
+  };
+  // Reset a single mock: return its answered questions to the bank + remove it
+  window.mockResetEntry=function(idx){
+    var hist=loadHist(); if(idx<0||idx>=hist.length) return;
+    var h=hist[idx];
+    var n=(h.usedIds&&h.usedIds.length)||0;
+    if(!window.confirm('Reset this mock? Its '+n+' answered question'+(n===1?'':'s')+' will become available again, and the result will be removed from history.')) return;
+    unUse(h.usedIds||[]);
+    hist.splice(idx,1); saveHist(hist); renderSetup();
+  };
+  // Reset every answered question across all mocks (does not touch history)
+  window.mockResetAllUsed=function(){
+    var n=usedCount(); if(!n) return;
+    if(!window.confirm('Make all '+n+' answered question'+(n===1?'':'s')+' available again? Your saved results will be kept.')) return;
+    saveUsed(new Set()); renderSetup();
+  };
 
   window.mockToggleCustomise=function(){
     var c=el('mkCust'); if(!c)return;
@@ -1073,7 +1122,7 @@ window.MOCK_BANK = {
     });
     return list;
   }
-  function selectedAvail(){ var n=0; selectedTopicList().forEach(function(t){n+=qForTopic(t.tab,t.sys,t.topic).length;}); return n; }
+  function selectedAvail(){ var used=loadUsed(); var n=0; selectedTopicList().forEach(function(t){ qForTopic(t.tab,t.sys,t.topic).forEach(function(q){ if(!(q.id!=null && used.has(q.id))) n++; }); }); return n; }
 
   function updateSelStat(){
     var stat=el('mkSelStat'); if(!stat)return;
@@ -1111,6 +1160,11 @@ window.MOCK_BANK = {
 
   function begin(pool,want,label){
     if(!pool.length){ alert('No questions available for this selection.'); return; }
+    // Drop questions already answered in previous mocks (until reset)
+    var used=loadUsed();
+    var fresh=pool.filter(function(q){ return !(q.id!=null && used.has(q.id)); });
+    if(!fresh.length){ alert('You have already answered every available question in this selection.\n\nUse "Reset answered questions" on the mock screen to make them appear again.'); return; }
+    pool=fresh;
     shuffle(pool);
     var n=Math.min(want>0?want:pool.length,pool.length);
     S.questions=pool.slice(0,n);
@@ -1200,20 +1254,24 @@ window.MOCK_BANK = {
     }
     stopTimer();
     var timeUsed=Math.min(S.limit,Math.round((Date.now()-S.startAt)/1000));
-    // grade
-    var correct=0; var bySys={};
+    // grade + collect the ids of questions that were actually answered
+    var correct=0; var bySys={}; var answeredIds=[];
     S.questions.forEach(function(q,i){
-      var sel=S.answers[i]; var ok=sel===q.correctIndex; if(ok)correct++;
+      var sel=S.answers[i];
+      if(sel!=null && q.id!=null) answeredIds.push(q.id);
+      var ok=sel===q.correctIndex; if(ok)correct++;
       var sk=q._sys; if(!bySys[sk])bySys[sk]={correct:0,total:0,topics:{}};
       bySys[sk].total++; if(ok)bySys[sk].correct++;
       var tk=q._topic; if(!bySys[sk].topics[tk])bySys[sk].topics[tk]={correct:0,total:0};
       bySys[sk].topics[tk].total++; if(ok)bySys[sk].topics[tk].correct++;
     });
     var pct=total?Math.round(correct/total*100):0;
+    // Only answered questions are consumed — skipped ones stay in the bank
+    markUsed(answeredIds);
     S.lastResult={correct:correct,total:total,pct:pct,timeUsed:timeUsed,bySys:bySys,label:S.label,auto:!!auto};
-    // history
+    // history (store the answered ids so this mock can be individually reset)
     var hist=loadHist();
-    hist.unshift({pct:pct,correct:correct,total:total,label:(S.label||'Mock').replace(/&middot;/g,'·').replace(/&[a-z]+;/g,''),date:dateStr()});
+    hist.unshift({hid:Date.now()+'-'+Math.round(timeUsed), pct:pct,correct:correct,total:total,answered:answeredIds.length,usedIds:answeredIds,label:(S.label||'Mock').replace(/&middot;/g,'·').replace(/&[a-z]+;/g,''),date:dateStr()});
     saveHist(hist);
     S.phase='results'; renderResults(); showScreen('results');
   };
