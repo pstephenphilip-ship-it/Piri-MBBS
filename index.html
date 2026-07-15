@@ -5184,6 +5184,59 @@ window.MOCK_BANK = {
       explanation:[
         "Osler = Ouch (painful, pulps, immune); Janeway = painless (palms/soles, embolic). Any two of the three axes — pain, site, mechanism — score.",
         "Pairs with ie-020 (shared objective ie-janeway-osler) — a mock will not draw both. As in ie-020, the embolic-vs-immune mechanism split is the classic examined attribution rather than settled pathology."
+      ] },
+    { id:"ie-026", type:"mcq", objective:"ie-blood-cultures",
+      question:"A 55-year-old woman presents with two weeks of low-grade fever, malaise and a new murmur; she is haemodynamically stable. Subacute infective endocarditis is suspected. Which is the single most important initial investigation?",
+      options:["Three sets of blood cultures from separate sites before antibiotics","A single blood culture then immediate intravenous antibiotics","Transthoracic echocardiogram before any blood cultures","Serum procalcitonin","CT chest, abdomen and pelvis"],
+      correctIndex:0,
+      explanation:[
+        "Blood cultures are the CORNERSTONE — at least THREE sets from SEPARATE sites, spaced, taken BEFORE antibiotics, because the organism (a) is a major Duke criterion and (b) directs weeks of targeted therapy.",
+        "A stable subacute patient gives time to do this properly. PERSISTENT bacteraemia (repeatedly positive cultures) is itself characteristic of IE.",
+        "A single culture (B) risks missing the organism or being dismissed as a skin contaminant; imaging or procalcitonin (C, D, E) come after securing the microbiology."
+      ] },
+    { id:"ie-027", type:"mcq",
+      question:"A 34-year-old man who injects drugs is brought in acutely unwell — temperature 39.8°C, blood pressure 88/50 mmHg, heart rate 128 and a new murmur. Acute infective endocarditis with sepsis is suspected. What is the most appropriate approach to antibiotics and cultures?",
+      options:["Withhold antibiotics until the blood cultures have grown an organism","Take blood cultures in quick succession, then start empirical antibiotics","Start empirical antibiotics immediately, as blood cultures can wait until tomorrow","Give a single dose of antibiotics, then take cultures once he is stable","Delay both cultures and antibiotics until echocardiography is complete"],
+      correctIndex:1,
+      explanation:[
+        "In ACUTE IE with SEPSIS you must not delay antibiotics dangerously — but you can still get cultures first by taking the sets in QUICK SUCCESSION over a short period, then starting empirical therapy immediately.",
+        "Contrast the stable subacute patient (ie-026), where cultures can be spaced out over time.",
+        "Withholding antibiotics in septic shock (A) is dangerous; treating before or without cultures (C, D) sabotages the microbiological diagnosis and can render cultures negative; delaying for echo (E) is wrong — cultures and antibiotics come first."
+      ] },
+    { id:"ie-028", type:"mcq", objective:"ie-echo-toe",
+      question:"A 62-year-old man with three positive blood-culture sets growing Staphylococcus aureus and a new aortic murmur has a transthoracic echocardiogram reported as normal. Clinical suspicion of endocarditis remains high. What is the most appropriate next step?",
+      options:["Exclude infective endocarditis, as the echo is normal","Repeat the transthoracic echo in six weeks","Stop antibiotics and discharge","Arrange transoesophageal echocardiography","Reassure the patient that the valves are structurally normal"],
+      correctIndex:3,
+      explanation:[
+        "A NORMAL echo does NOT exclude IE — TTE misses small, prosthetic-valve or posteriorly-sited vegetations.",
+        "With high suspicion (positive cultures + new murmur), proceed to TRANSOESOPHAGEAL echo (TOE), which is far more sensitive.",
+        "TOE is also indicated up front for a PROSTHETIC valve, a POOR transthoracic window, or a SUSPECTED COMPLICATION such as an aortic root abscess."
+      ] },
+    { id:"ie-029", type:"mcq",
+      question:"A patient with clinical and echocardiographic evidence of endocarditis has three sets of blood cultures, taken before antibiotics, that remain sterile. Which investigation is most likely to identify the cause?",
+      options:["A fourth set of standard aerobic blood cultures","Repeat transthoracic echocardiography","Serum procalcitonin","Bone marrow aspirate","Serology for Coxiella, Bartonella and Brucella"],
+      correctIndex:4,
+      explanation:[
+        "True culture-negative IE (cultures taken BEFORE antibiotics) points to FASTIDIOUS / intracellular organisms that will not grow on standard media — Coxiella burnetii (Q fever), Bartonella, Brucella and HACEK — identified by SEROLOGY (and, where available, PCR or 16S sequencing of resected valve tissue).",
+        "Repeating standard cultures (A) will stay sterile; the other tests do not identify the organism.",
+        "Recall from ie-008 that the commonest cause of culture-negative IE overall is PRIOR ANTIBIOTICS — excluded here by the timing."
+      ] },
+    { id:"ie-030", type:"mcq",
+      question:"A 58-year-old woman with subacute endocarditis has baseline investigations. Which combination of findings would most support the diagnosis?",
+      options:["Microcytic anaemia, low CRP, clear urine","Polycythaemia, low ESR, glycosuria","Neutropenia, low immunoglobulins, ketonuria","Macrocytic anaemia, low rheumatoid factor, proteinuria only","Normocytic anaemia, raised CRP and ESR, microscopic haematuria"],
+      correctIndex:4,
+      explanation:[
+        "The typical picture is NORMOCYTIC anaemia (anaemia of chronic disease), RAISED CRP and ESR with leucocytosis, a raised RHEUMATOID FACTOR and immunoglobulins, plus MICROSCOPIC HAEMATURIA (with or without red cell casts) from immune-complex glomerulonephritis.",
+        "The other options invert one or more of the anaemia type, the inflammatory-marker direction, or the urinary finding, and several point to unrelated diagnoses (e.g. glycosuria/ketonuria in diabetes)."
+      ] },
+    { id:"ie-031", type:"saq", objective:"ie-blood-cultures",
+      question:"A patient is admitted with suspected infective endocarditis. (a) Name the single most important investigation and state when it should be taken relative to antibiotics. (b) Which imaging test is first-line, and what is arranged if it is normal but suspicion remains high? (c) What ECG change would signal an aortic root abscess?",
+      answer:"(a) Blood cultures — at least three sets, taken before antibiotics. (b) Transthoracic echo first-line; if normal with ongoing high suspicion, arrange transoesophageal echo (a normal echo does not exclude IE). (c) New or progressive AV block (lengthening PR interval progressing to heart block).",
+      accept:["blood cultures","before antibiotics","three sets","3 sets","transthoracic","tte","transoesophageal","transesophageal","toe","av block","heart block","pr interval","pr prolongation"],
+      markPoints:["(a) blood cultures, before antibiotics","(b) TTE first, then TOE if normal / normal echo does not exclude","(c) new AV block / PR prolongation"],
+      explanation:[
+        "Cornerstone microbiology (cultures before antibiotics), staged imaging (TTE then TOE, a normal echo not excluding the diagnosis), and the ECG red flag (new AV block = root abscess) are the three investigation pillars.",
+        "Tagged to exclude ie-026 under random draw (part (a) is the tightest verbatim leak); the echo overlap with ie-028 and the AV-block overlap with ie-014 are accepted as legitimate consolidation."
       ] }
   ]
 };
