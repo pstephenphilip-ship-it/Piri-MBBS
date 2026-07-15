@@ -5087,6 +5087,9 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-014", type:"mcq", objective:"ie-root-abscess",
       question:"A 52-year-old warehouse supervisor is on the coronary care unit being treated for Staphylococcus aureus aortic valve endocarditis, confirmed on blood cultures and echocardiography five days earlier. He has poorly controlled type 2 diabetes and had a dental extraction three weeks before admission. He is on intravenous flucloxacillin and takes metformin and atorvastatin; he is on no antiarrhythmic, digoxin or rate-limiting medication. He remains febrile but haemodynamically stable. On continuous telemetry over 48 hours his PR interval lengthens progressively, and he then develops complete heart block. Which complication does this most likely indicate?",
+      image:"https://upload.wikimedia.org/wikipedia/commons/2/24/CompleteHeartBlock.jpg",
+      imageAlt:"12-lead ECG showing complete (third-degree) AV block, with P waves marching independently of the QRS complexes.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>38 bpm</b></span><span>BP <b>116/72 mmHg</b></span><span>Temp <b>38.3 &deg;C</b></span></div><div class="mk-obs-h" style="margin-top:9px">ECG / telemetry</div><div class="mk-obs-line">PR interval prolonged from 190 ms on admission to 340 ms; now complete AV dissociation with a slow junctional escape.</div>',
       options:["Coronary artery septic embolism","Immune-complex myocarditis","Digoxin toxicity","Aortic root abscess","Acute pericarditis"],
       correctIndex:3,
@@ -5117,6 +5120,8 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-017", type:"mcq",
       question:"A 45-year-old builder is 10 days into treatment for aortic valve endocarditis. He had been improving, but over the last few hours he has developed rapidly worsening breathlessness and can no longer lie flat. On examination there is a loud early diastolic murmur that is new since admission, a collapsing pulse with a wide pulse pressure, and bilateral basal crepitations. Heart sounds are otherwise normal and there is no pericardial rub. What is the mechanism of his deterioration?",
+      audio:"assets/audio/ar_murmur.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>112 bpm</b></span><span>BP <b>128/44 mmHg</b></span><span>RR <b>28 /min</b></span><span>Temp <b>37.9 &deg;C</b></span></div><div class="mk-obs-h" style="margin-top:9px">Examination</div><div class="mk-obs-line">New loud early diastolic murmur; collapsing pulse; bibasal crepitations to mid-zones; no pericardial rub.</div>',
       options:["Immune-complex myocarditis of the ventricle","Septic embolism to a coronary artery","Destruction of the aortic leaflets causing acute regurgitation","Aortic root abscess extending into the conduction system","A large pericardial effusion causing cardiac tamponade"],
       correctIndex:2,
@@ -5138,6 +5143,9 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-019", type:"mcq",
       question:"A 58-year-old man is referred with three weeks of fevers, night sweats and malaise, and his GP noted a new murmur. He had a colonoscopy with polypectomy two months ago and takes no regular medication. Over the past few days he has developed painful lumps on his fingers. Examination shows exquisitely tender, violaceous nodules on the pulps of the index and middle fingers. What is the most likely finding?",
+      image:"https://upload.wikimedia.org/wikipedia/commons/0/07/Osler_Nodules_Hand.jpg",
+      imageAlt:"Clinical photograph of a hand with tender violaceous nodules on the pulps of the fingers.",
+      imageCredit:"Roberto J. Galindo, CC BY-SA 4.0, via Wikimedia Commons.",
       options:["Janeway lesions","Splinter haemorrhages","Osler's nodes","Bouchard's nodes","Gottron's papules"],
       correctIndex:2,
       explanation:[
@@ -5165,6 +5173,9 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-022", type:"mcq",
       question:"A 40-year-old bricklayer is admitted with two weeks of fever, sweats and a new murmur. He has no significant past medical history and takes no regular medication. Examination reveals thin longitudinal reddish-brown streaks under several fingernails. Which statement is most accurate?",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/ac/Splinter_hemorrhage.jpg",
+      imageAlt:"Close-up of a fingernail showing a thin longitudinal reddish-brown streak beneath the nail plate.",
+      imageCredit:"Splarka, public domain, via Wikimedia Commons.",
       options:["They are pathognomonic of infective endocarditis","They confirm systemic embolisation has occurred","They exclude a diagnosis of infective endocarditis","They are only ever caused by infective endocarditis","They are non-specific and commonly result from trauma"],
       correctIndex:4,
       explanation:[
@@ -5417,6 +5428,30 @@ window.MOCK_BANK = {
       explanation:[
         "The three surgical categories: HEART FAILURE (from valve destruction), UNCONTROLLED INFECTION (abscess, fungal/resistant organism, persistent bacteraemia, prosthetic dehiscence) and PREVENTION OF EMBOLISM (large mobile or recurrent-embolising vegetation).",
         "Tagged to exclude ie-043 under random draw (heart failure is the tightest verbatim leak); the fungal (ie-044) and embolic (ie-045) overlaps are accepted as legitimate consolidation."
+      ] },
+    { id:"ie-049", type:"mcq", objective:"ie-janeway-osler",
+      image:"https://upload.wikimedia.org/wikipedia/commons/6/69/Janeway_lesion.JPG",
+      imageAlt:"Clinical photograph of a palm showing flat, non-tender erythematous and haemorrhagic macules.",
+      imageCredit:"Warfieldian, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 36-year-old man who injects drugs is admitted with Staphylococcus aureus endocarditis. He has developed the flat, painless red lesions on his palms and soles shown here; they do not blanch and are not tender. What are they?",
+      options:["Osler's nodes","Splinter haemorrhages","Janeway lesions","Roth spots","Petechiae"],
+      correctIndex:2,
+      explanation:[
+        "These are JANEWAY LESIONS — painLESS, flat, erythematous/haemorrhagic macules on the PALMS and SOLES, caused by septic microemboli (a vascular/embolic phenomenon), classically with Staph aureus.",
+        "Trap: Osler's nodes are the mirror image — PAINFUL, raised nodules on the finger/toe PULPS, from immune-complex vasculitis ('Osler = Ouch'). A photograph cannot convey tenderness, so the stem states the lesions are non-tender.",
+        "Both are minor Duke criteria (Janeway = vascular; Osler = immunologic). Shares the Janeway-vs-Osler objective with ie-020 and ie-025."
+      ] },
+    { id:"ie-050", type:"mcq",
+      image:"https://upload.wikimedia.org/wikipedia/commons/f/fb/Endocarditis_ultrasound.JPG",
+      imageAlt:"Echocardiogram with an arrow indicating a mobile echogenic mass attached to a heart valve leaflet.",
+      imageCredit:"Daisuke Koya et al., CC BY 2.0, via Wikimedia Commons.",
+      question:"A 41-year-old man who injects drugs has two weeks of fever, rigors and a pansystolic murmur at the lower left sternal edge. His echocardiogram is shown, with the arrow indicating an abnormal mobile mass on the tricuspid valve. What does the arrow indicate?",
+      options:["A papillary fibroelastoma","A cardiac myxoma","A bland (non-infective) thrombus","A vegetation","A normal valve leaflet"],
+      correctIndex:3,
+      explanation:[
+        "The arrowed mobile, echogenic mass attached to the valve leaflet is a VEGETATION — the echocardiographic hallmark of infective endocarditis and a MAJOR Duke criterion (endocardial involvement).",
+        "In someone who injects drugs, with fever and a right-sided murmur, a tricuspid vegetation is the expected finding. TOE is more sensitive than TTE for small or prosthetic-valve vegetations (ie-028).",
+        "Distractors are other intracardiac masses: a papillary fibroelastoma and a myxoma are tumours (myxoma classically in the left atrium), and a bland thrombus is sterile — none fits fever plus a new murmur plus this appearance."
       ] }
   ]
 };
