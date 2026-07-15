@@ -5210,7 +5210,8 @@ window.MOCK_BANK = {
       explanation:[
         "A NORMAL echo does NOT exclude IE — TTE misses small, prosthetic-valve or posteriorly-sited vegetations.",
         "With high suspicion (positive cultures + new murmur), proceed to TRANSOESOPHAGEAL echo (TOE), which is far more sensitive.",
-        "TOE is also indicated up front for a PROSTHETIC valve, a POOR transthoracic window, or a SUSPECTED COMPLICATION such as an aortic root abscess."
+        "TOE is also indicated up front for a PROSTHETIC valve, a POOR transthoracic window, or a SUSPECTED COMPLICATION such as an aortic root abscess.",
+        "Transferable principle: a normal test does NOT clear a patient with HIGH pretest probability — the same logic as a normal chest X-ray or D-dimer not excluding aortic dissection, and a single normal troponin/ECG not excluding ACS. Raise the test (TTE → TOE), don't lower the suspicion."
       ] },
     { id:"ie-029", type:"mcq",
       question:"A patient with clinical and echocardiographic evidence of endocarditis has three sets of blood cultures, taken before antibiotics, that remain sterile. Which investigation is most likely to identify the cause?",
@@ -5237,6 +5238,54 @@ window.MOCK_BANK = {
       explanation:[
         "Cornerstone microbiology (cultures before antibiotics), staged imaging (TTE then TOE, a normal echo not excluding the diagnosis), and the ECG red flag (new AV block = root abscess) are the three investigation pillars.",
         "Tagged to exclude ie-026 under random draw (part (a) is the tightest verbatim leak); the echo overlap with ie-028 and the AV-block overlap with ie-014 are accepted as legitimate consolidation."
+      ] },
+    { id:"ie-032", type:"mcq",
+      question:"A 66-year-old man with a prosthetic mitral valve has three weeks of fever. Two separate blood-culture sets grow Streptococcus viridans, and transoesophageal echo shows a 9 mm vegetation on the prosthesis. Using the modified Duke criteria, how is his diagnosis best classified?",
+      options:["Possible infective endocarditis","Definite infective endocarditis","Rejected, as the criteria are insufficient","Indeterminate until valve histology","Possible only, pending a fourth culture"],
+      correctIndex:1,
+      explanation:[
+        "Two MAJOR criteria = DEFINITE IE. Major #1 = a typical organism (Strep viridans) in at least two separate cultures; major #2 = endocardial involvement (echo vegetation). The other routes to definite are 1 major + 3 minor, or 5 minor.",
+        "Once two majors are met, no valve histology or extra culture is needed — distractors C, D and E all wrongly imply you need more.",
+        "Cross-link: a prosthetic valve seeded by Strep viridans at three weeks fits the late-PVE / community-organism picture of ie-011.",
+        "Card: the Duke criteria are LESS SENSITIVE in prosthetic-valve IE — vegetations are harder to see and the picture is often atypical — which is exactly why TOE is mandatory in prosthetic cases (ie-028)."
+      ] },
+    { id:"ie-033", type:"mcq", objective:"ie-duke-major",
+      question:"Which of the following is a major criterion in the modified Duke criteria for infective endocarditis?",
+      options:["Fever above 38°C","Osler's nodes","A vegetation demonstrated on echocardiography","Splinter haemorrhages","A predisposing valve lesion or injecting drug use"],
+      correctIndex:2,
+      explanation:[
+        "Endocardial involvement — an echo VEGETATION (or abscess, or new prosthetic dehiscence), or a NEW regurgitant murmur — is one of the two majors (the other being typical positive cultures).",
+        "The rest are all MINOR: fever, a predisposing valve lesion / IVDU, and the vascular and immunologic phenomena (Osler = immunologic; splinters = vascular). Common trap: the dramatic peripheral stigmata feel major but are only minor criteria.",
+        "Microbiological major — an exception worth knowing: Coxiella burnetii counts as a MAJOR on a SINGLE positive culture or a phase I IgG titre >1:800, unlike the usual 'typical organism in at least two separate sets' rule. This closes the loop to ie-008 / ie-029."
+      ] },
+    { id:"ie-034", type:"mcq",
+      question:"Which combination is sufficient for a diagnosis of definite infective endocarditis on clinical criteria?",
+      options:["One major criterion alone","One major plus one minor criterion","Three minor criteria alone","One major plus three minor criteria","Two minor criteria alone"],
+      correctIndex:3,
+      explanation:[
+        "Definite IE (clinical) = 2 major, OR 1 major + 3 minor, OR 5 minor (or pathological proof). Option D meets it; the others fall short.",
+        "The wrong options are not arbitrary: B (1 major + 1 minor) and C (3 minor) are precisely the POSSIBLE-IE thresholds — the next tier down — so a half-knowing student lands there rather than on nonsense.",
+        "Full three-tier structure: DEFINITE = 2 major / 1 major + 3 minor / 5 minor / pathological proof. POSSIBLE = 1 major + 1 minor, or 3 minor. REJECTED = a firm alternative diagnosis, resolution with 4 or fewer days of antibiotics, no pathological evidence at surgery/autopsy after 4 or fewer days of antibiotics, or simply not meeting 'possible' (this is what ie-032's 'rejected' option formally means)."
+      ] },
+    { id:"ie-035", type:"mcq",
+      question:"Under the modified Duke criteria, which of the following counts as an immunological phenomenon (a minor criterion)?",
+      options:["Osler's nodes","Janeway lesions","Splenic infarction","A mycotic aneurysm","Septic pulmonary emboli"],
+      correctIndex:0,
+      explanation:[
+        "Immunological minors = Osler's nodes, Roth spots, glomerulonephritis, raised rheumatoid factor. The other options are VASCULAR minors (a different category): Janeway lesions, arterial emboli/infarcts, mycotic aneurysm, septic pulmonary emboli.",
+        "Every distractor is a GENUINE minor criterion, just from the other category — so you must know which STREAM each belongs to, not merely whether it is a criterion at all.",
+        "Full lists — VASCULAR: major arterial emboli, septic pulmonary infarcts, mycotic aneurysm, intracranial haemorrhage, conjunctival haemorrhage, Janeway lesions. IMMUNOLOGIC: glomerulonephritis (links ie-015), Osler's nodes, Roth spots, rheumatoid factor (links ie-030).",
+        "This maps directly onto the three-streams framework (Block 3): embolic stream → vascular minors; immune stream → immunologic minors."
+      ] },
+    { id:"ie-036", type:"saq", objective:"ie-duke-major",
+      question:"State the two major criteria of the modified Duke criteria for infective endocarditis.",
+      answer:"(1) Positive blood cultures — a typical organism in at least two separate sets, or persistently positive cultures. (2) Evidence of endocardial involvement — an echocardiographic vegetation, abscess or new prosthetic dehiscence, or a new valvular regurgitant murmur.",
+      accept:["blood cultures","typical organism","two sets","2 sets","two separate","persistently positive","persistent bacteraemia","endocardial","vegetation","abscess","dehiscence","new regurgitation","new murmur","echo"],
+      markPoints:["(1) typical organism in two or more cultures / persistent bacteraemia","(2) endocardial involvement (echo vegetation/abscess/dehiscence, or new regurgitation)"],
+      explanation:[
+        "The two majors are (1) typical positive blood cultures and (2) endocardial involvement — together they define most cases, since two majors = definite IE.",
+        "Currency: ESC 2023 revised the criteria — adding cardiac CT and 18F-FDG PET/CT findings as MAJOR imaging criteria (particularly valuable in prosthetic-valve IE, where echo and clinical criteria are less sensitive) and expanding the microbiological majors. Classic modified Duke is what is examined at MBBS; the imaging expansion is the direction of travel.",
+        "Pairs with ie-033 (shared objective ie-duke-major) — a mock will not draw both."
       ] }
   ]
 };
