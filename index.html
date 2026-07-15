@@ -5286,6 +5286,60 @@ window.MOCK_BANK = {
         "The two majors are (1) typical positive blood cultures and (2) endocardial involvement — together they define most cases, since two majors = definite IE.",
         "Currency: ESC 2023 revised the criteria — adding cardiac CT and 18F-FDG PET/CT findings as MAJOR imaging criteria (particularly valuable in prosthetic-valve IE, where echo and clinical criteria are less sensitive) and expanding the microbiological majors. Classic modified Duke is what is examined at MBBS; the imaging expansion is the direction of travel.",
         "Pairs with ie-033 (shared objective ie-duke-major) — a mock will not draw both."
+      ] },
+    { id:"ie-037", type:"mcq",
+      question:"A patient with confirmed native-valve infective endocarditis is started on treatment. Which statement best explains why the antibiotics must be given intravenously, at high dose, and for several weeks?",
+      options:["The avascular vegetation needs high sustained bactericidal drug levels to sterilise it","Oral antibiotics are absolutely contraindicated in any form of cardiac infection","A short bacteriostatic course will reliably eradicate the organisms from the valve","Intravenous access is needed chiefly to monitor the patient's daily fluid balance","High doses are required only to overcome the patient's antibiotic allergy"],
+      correctIndex:0,
+      explanation:[
+        "The vegetation is a fibrin-platelet mass with POOR blood supply and a very HIGH, metabolically dormant bacterial density — so BACTERICIDAL drugs at HIGH sustained concentrations for a PROLONGED course (typically 4–6 weeks IV) are needed to penetrate and sterilise it. Bacteriostatic, short or oral courses relapse.",
+        "This is the SPINE of the whole management block: the avascular vegetation (ie-003) forces prolonged, high-dose, IV, bactericidal therapy — and everything downstream is a consequence of it (synergy for tolerant enterococci, rifampicin for biofilm, weeks not days, not oral).",
+        "Currency: selected oral-switch regimens exist for stable patients (the POET trial), but IV bactericidal therapy remains the examined standard."
+      ] },
+    { id:"ie-038", type:"mcq", objective:"ie-regimen-mssa",
+      question:"A 50-year-old man with native aortic valve endocarditis has blood cultures growing methicillin-sensitive Staphylococcus aureus (MSSA). He has no drug allergies. Which is the most appropriate first-line antibiotic?",
+      options:["Vancomycin","Flucloxacillin","Benzylpenicillin","Amoxicillin","Gentamicin"],
+      correctIndex:1,
+      explanation:[
+        "MSSA on a NATIVE valve → high-dose IV FLUCLOXACILLIN (e.g. 2 g IV every 4 hours) for 4–6 weeks — a bactericidal anti-staphylococcal penicillin.",
+        "Each wrong option is first-line for a DIFFERENT context: vancomycin → MRSA or penicillin allergy (it is inferior to flucloxacillin for MSSA); benzylpenicillin → sensitive Strep viridans; amoxicillin → empirical/enterococcal; gentamicin → an adjunct only in specific settings (enterococcal synergy, prosthetic-valve staph), NOT routine in native-valve staph.",
+        "Currency: gentamicin is no longer routinely added in native-valve staphylococcal IE — ESC 2015 dropped it because the nephrotoxicity outweighed any benefit."
+      ] },
+    { id:"ie-039", type:"mcq",
+      question:"A 48-year-old woman with native mitral valve endocarditis grows methicillin-sensitive Staph aureus, but she has documented anaphylaxis to penicillin. Which is the most appropriate first-line antibiotic?",
+      options:["Flucloxacillin","Amoxicillin","Vancomycin","Benzylpenicillin","Co-amoxiclav"],
+      correctIndex:2,
+      explanation:[
+        "With true penicillin ANAPHYLAXIS, every penicillin (flucloxacillin, amoxicillin, benzylpenicillin, co-amoxiclav) is unsafe — use VANCOMYCIN (a glycopeptide).",
+        "Trap: four of the five options are penicillins; anaphylaxis rules out the ENTIRE class, not just the one drug — the same class-effect logic as ACE-inhibitor angioedema and the equally-teratogenic ARB point. Flucloxacillin would be first-line only if she were NOT allergic (ie-038).",
+        "Daptomycin is the standard second-line alternative for staphylococcal IE in penicillin-intolerant patients. Match the substitution to the ALLERGY, not just the organism."
+      ] },
+    { id:"ie-040", type:"mcq",
+      question:"A 74-year-old man who recently underwent transurethral resection of the prostate has Enterococcus faecalis endocarditis on a native valve. Which regimen is most appropriate?",
+      options:["Flucloxacillin alone","Benzylpenicillin alone","Vancomycin alone","Amoxicillin plus gentamicin","Metronidazole plus ceftriaxone"],
+      correctIndex:3,
+      explanation:[
+        "Enterococci are relatively penicillin-TOLERANT, so a cell-wall agent alone is often only bacteriostatic — they need SYNERGISTIC therapy: AMOXICILLIN + gentamicin. The aminoglycoside enters through the cell-wall disruption the penicillin causes and then kills, so the COMBINATION is bactericidal where monotherapy is not.",
+        "This is forced by the vegetation (ie-003): the avascular mass demands BACTERICIDAL therapy, so an only-bacteriostatic single agent will not sterilise it — the synergy requirement is not arbitrary.",
+        "Practicalities: gentamicin is now given for a SHORTER period (commonly ~2 weeks) alongside 4–6 weeks of amoxicillin, because of nephro/ototoxicity; amoxicillin + ceftriaxone is the alternative (gentamicin toxicity or high-level aminoglycoside resistance). The single-agent options are insufficient or wrong-spectrum; metronidazole covers anaerobes. Forward-linked from ie-013."
+      ] },
+    { id:"ie-041", type:"mcq",
+      question:"A 68-year-old woman with a prosthetic aortic valve has staphylococcal endocarditis. Compared with the equivalent native-valve regimen, which additional agent is characteristically added for prosthetic-valve staphylococcal IE?",
+      options:["Metronidazole","Amoxicillin","Benzylpenicillin","Ciprofloxacin","Rifampicin"],
+      correctIndex:4,
+      explanation:[
+        "Prosthetic-valve staphylococcal IE adds RIFAMPICIN (plus gentamicin) to the anti-staphylococcal backbone (flucloxacillin or vancomycin). Rifampicin penetrates BIOFILM and acts on organisms adherent to prosthetic material — the direct payoff of ie-007's biofilm point — where other agents struggle.",
+        "Rifampicin is added once bacteraemia is CLEARING, not started alone: used as monotherapy or into a high bacterial load, rapid resistance emerges.",
+        "Prosthetic-valve IE also runs LONGER — at least 6 weeks — so both the drug and the duration flex with the prosthesis."
+      ] },
+    { id:"ie-042", type:"saq", objective:"ie-regimen-mssa",
+      question:"Name the first-line antibiotic(s) for each of the following causes of infective endocarditis: (a) native-valve MSSA; (b) penicillin-sensitive Streptococcus viridans; (c) Enterococcus faecalis; (d) MRSA.",
+      answer:"(a) flucloxacillin; (b) benzylpenicillin; (c) amoxicillin + gentamicin; (d) vancomycin.",
+      accept:["flucloxacillin","benzylpenicillin","benzyl penicillin","penicillin g","amoxicillin","gentamicin","vancomycin"],
+      markPoints:["(a) flucloxacillin","(b) benzylpenicillin","(c) amoxicillin + gentamicin","(d) vancomycin"],
+      explanation:[
+        "The regimen map: native MSSA → flucloxacillin; sensitive Strep viridans → benzylpenicillin; Enterococcus → amoxicillin + gentamicin (synergy); MRSA (or penicillin allergy) → vancomycin. All are IV, bactericidal, and prolonged (4–6 weeks, longer for prosthetic valves).",
+        "Tagged to exclude ie-038 under random draw (part (a) is the tightest verbatim leak); the enterococcal overlap with ie-040 is accepted as legitimate consolidation."
       ] }
   ]
 };
