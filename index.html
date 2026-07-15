@@ -5112,7 +5112,7 @@ window.MOCK_BANK = {
   // ---- grading helpers (MCQ auto-marked; SAQ self-marked in review) ----
   function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; return a!=null; }
   function isCorrect(q,i){ if(q&&q.type==='saq') return S.selfMark[i]===true; return S.answers[i]===q.correctIndex; }
-  function gradeAll(){
+  function gradeAll(){try{window.daStreakPing&&window.daStreakPing();}catch(e){}
     var correct=0,bySys={},answeredIds=[];
     S.questions.forEach(function(q,i){
       if(isAnswered(q,i)&&q.id!=null)answeredIds.push(q.id);
@@ -6295,7 +6295,7 @@ function renderFC(p) {
   if(rating)rating.style.display='none';
 }
 function flipCard(p){const el=document.getElementById('fcc-'+p);if(!el)return;el.classList.toggle('flipped');const rating=document.getElementById('fcRating-'+p);if(rating)rating.style.display=el.classList.contains('flipped')?'flex':'none';}
-function fcRate(p,r){
+function fcRate(p,r){try{window.daStreakPing&&window.daStreakPing();}catch(e){}
   const st=getState(p);
   if(!st.fcMastered) st.fcMastered=new Set();
   const card=st.fcCards[st.fcIndex];
@@ -6391,7 +6391,7 @@ function renderQ(p){
     card.innerHTML=body; area.appendChild(card);
   });
 }
-function selectMcq(p,qi,oi){const st=getState(p);if(st.qAnswered[qi]!==undefined)return;document.querySelectorAll('#qcard-'+p+'-'+qi+' .q-option').forEach(o=>o.classList.remove('selected'));const _opt=document.getElementById('qopt-'+p+'-'+qi+'-'+oi);if(_opt)_opt.classList.add('selected');st.qAnswered[qi+'_sel']=oi;}
+function selectMcq(p,qi,oi){const st=getState(p);if(st.qAnswered[qi]!==undefined)return;try{window.daStreakPing&&window.daStreakPing();}catch(e){};document.querySelectorAll('#qcard-'+p+'-'+qi+' .q-option').forEach(o=>o.classList.remove('selected'));const _opt=document.getElementById('qopt-'+p+'-'+qi+'-'+oi);if(_opt)_opt.classList.add('selected');st.qAnswered[qi+'_sel']=oi;}
 function revealA(p,qi){
   const st=getState(p); const q=st.questions[qi]; if(!q)return;
   const expEl=document.getElementById('qexp-'+p+'-'+qi); if(expEl)expEl.classList.add('visible');
@@ -8431,6 +8431,64 @@ function hideFlyout(p) {
       container.appendChild(item);
     });
   };
+})();
+</script>
+<style>
+.da-streak-chip{display:inline-flex;align-items:center;gap:5px;margin-right:10px;padding:6px 11px;border-radius:999px;border:1.5px solid rgba(249,115,22,.42);background:rgba(249,115,22,.15);color:#FB923C;font-family:var(--mono,monospace);font-weight:800;font-size:13px;cursor:pointer;line-height:1;white-space:nowrap;transition:transform .15s ease,box-shadow .15s ease;}
+.da-streak-chip:hover{box-shadow:0 2px 10px rgba(249,115,22,.28);}
+.da-streak-flame{font-size:14px;}
+.da-streak-chip.da-streak-cold{border-color:rgba(148,163,184,.4);background:rgba(148,163,184,.14);color:#94A3B8;}
+.da-streak-chip.da-streak-cold .da-streak-flame{filter:grayscale(1);opacity:.55;}
+.da-streak-pop{animation:daStreakPop .5s ease;}
+@keyframes daStreakPop{0%{transform:scale(1);}30%{transform:scale(1.3);}62%{transform:scale(.93);}100%{transform:scale(1);}}
+@media (max-width:560px){.da-streak-chip{padding:6px 9px;margin-right:6px;}}
+</style>
+<script>
+/* Daily study streak — self-contained, localStorage-backed. */
+(function(){
+  var KEY='piri_streak_v1';
+  function pad(n){return n<10?'0'+n:''+n;}
+  function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+  function dayNum(s){var p=s.split('-');return Math.floor(Date.UTC(+p[0],+p[1]-1,+p[2])/86400000);}
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+  function live(s){ if(!s.last) return 0; var t=dayNum(todayStr()), l=dayNum(s.last); return (l===t||l===t-1)?(s.cur||0):0; }
+  function injectChip(){
+    if(document.getElementById('daStreakChip')) return;
+    var area=document.getElementById('accountArea');
+    if(!area||!area.parentNode) return;
+    var b=document.createElement('button');
+    b.id='daStreakChip'; b.type='button'; b.className='da-streak-chip'; b.setAttribute('aria-label','Daily study streak');
+    b.innerHTML='<span class="da-streak-flame">🔥</span><span class="da-streak-num" id="daStreakNum">0</span>';
+    b.addEventListener('click', showInfo);
+    area.parentNode.insertBefore(b, area);
+  }
+  function render(){
+    var s=load(), n=live(s), el=document.getElementById('daStreakNum'), chip=document.getElementById('daStreakChip');
+    if(el) el.textContent=n;
+    if(chip){ chip.classList.toggle('da-streak-cold', n===0); chip.title = n>0 ? (n+'-day study streak'+(s.best?(' · best '+s.best):'')) : 'Study today to start a streak'; }
+  }
+  function pop(){ var c=document.getElementById('daStreakChip'); if(!c) return; c.classList.remove('da-streak-pop'); void c.offsetWidth; c.classList.add('da-streak-pop'); }
+  function ping(){
+    var s=load(), t=todayStr();
+    if(s.last===t){ render(); return; }
+    s.cur = (s.last && (dayNum(t)-dayNum(s.last)===1)) ? (s.cur||0)+1 : 1;
+    s.best = Math.max(s.best||0, s.cur);
+    s.last = t;
+    save(s); render(); pop();
+  }
+  function showInfo(){
+    var s=load(), n=live(s);
+    var msg = n>0
+      ? ('🔥 '+n+'-day study streak!\nLongest streak: '+(s.best||n)+' day'+(((s.best||n)!==1)?'s':'')+'.\n\nStudy a flashcard or answer a question every day to keep it alive.')
+      : ('No active streak yet.\nStudy a flashcard or answer a question today to start one!'+(s.best?('\n\nYour best so far: '+s.best+' day'+((s.best!==1)?'s':'')+'.'):''));
+    if(window.daToast){ try{ window.daToast(msg.replace(/\n+/g,'  ')); return; }catch(e){} }
+    alert(msg);
+  }
+  window.daStreakPing=ping;
+  window.daStreakInfo=showInfo;
+  function boot(){ injectChip(); render(); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 </script>
 </body>
