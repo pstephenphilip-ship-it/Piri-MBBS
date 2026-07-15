@@ -5122,6 +5122,68 @@ window.MOCK_BANK = {
         "Teaching point (d): the Janeway lesion is EMBOLIC despite resembling the immune lesions — the forward-hook to Block 4's Janeway-versus-Osler discrimination (Janeway = painless, palms/soles, septic microemboli; Osler = painful, finger/toe pulps, immune complex).",
         "Currency caveat: the 'Osler = immune / Janeway = embolic' split is the CLASSIC examinable teaching, but the mechanisms are somewhat contested — histology of both has shown mixed embolic and vasculitic features. Answer the classic split (it is what is examined), but treat it as a traditional attribution rather than settled pathology.",
         "This SAQ consolidates the block. It is tagged to exclude ie-014 under random draw (part (a) names the aortic root abscess verbatim); the looser overlaps with ie-015 (immune GN) and ie-016 (embolisation) are accepted as legitimate whole-map consolidation."
+      ] },
+    { id:"ie-019", type:"mcq",
+      question:"A 58-year-old man with three weeks of fever and a new murmur reports painful lumps on his fingers. Examination shows exquisitely tender, violaceous nodules on the pulps of the index and middle fingers. What is the most likely finding?",
+      options:["Janeway lesions","Splinter haemorrhages","Osler's nodes","Bouchard's nodes","Gottron's papules"],
+      correctIndex:2,
+      explanation:[
+        "Painful, tender nodules on the finger/toe PULPS = Osler's nodes ('Osler = Ouch'), an immune-complex vasculitic phenomenon of (usually subacute) IE.",
+        "The distractors span other nodule/papule conditions, so eliminating requires knowing appearance and site, not just 'IE sign or not': Janeway lesions = PAINLESS macules on palms/soles (embolic); Bouchard's nodes = osteoarthritis (bony PIP swellings, painless); Gottron's papules = dermatomyositis (over the knuckles); splinter haemorrhages = subungual streaks.",
+        "Note: pain is the whole discriminator, and a photograph cannot show it — the finding must always be described as tender in the stem."
+      ] },
+    { id:"ie-020", type:"mcq", objective:"ie-janeway-osler",
+      question:"A student is asked to distinguish Janeway lesions from Osler's nodes. Which statement is correct?",
+      options:["Janeway lesions are painless; Osler's nodes are painful","Janeway lesions occur on the finger pulps; Osler's nodes on the palms","Osler's nodes are embolic; Janeway lesions are immune-mediated","Both are pathognomonic for infective endocarditis","Both are painful and occur only in acute endocarditis"],
+      correctIndex:0,
+      explanation:[
+        "The classic split: Janeway = PAINLESS, palms and soles, embolic (septic microemboli); Osler = OUCH (painful), finger/toe pulps, immune-complex vasculitis.",
+        "B swaps the sites; C swaps the mechanisms; D is false — neither is pathognomonic (both are only MINOR Duke criteria and both occur in other conditions); E is false (Osler's nodes are typically subacute, not acute-only).",
+        "Currency: the mechanisms are somewhat contested (mixed embolic/vasculitic histology in both — see ie-018), but the painless-embolic vs painful-immune split is what is examined."
+      ] },
+    { id:"ie-021", type:"mcq",
+      question:"Fundoscopy in a patient with subacute endocarditis shows several retinal haemorrhages with pale, white centres. What are these?",
+      options:["Cotton-wool spots","Hard exudates","Drusen","Roth spots","Dot-and-blot haemorrhages"],
+      correctIndex:3,
+      explanation:[
+        "Roth spots = retinal haemorrhages with PALE (fibrin/platelet) centres, a minor sign of IE.",
+        "Non-specific: they also occur in leukaemia, diabetes, severe anaemia and hypertension, so a Roth spot supports but never confirms IE.",
+        "Distractors: cotton-wool spots (retinal microinfarcts) and hard exudates are hypertensive/diabetic; drusen = age-related macular degeneration; dot-and-blot haemorrhages = diabetic retinopathy."
+      ] },
+    { id:"ie-022", type:"mcq",
+      question:"A 40-year-old man with fever and a murmur has thin longitudinal reddish-brown streaks under several fingernails. He is a bricklayer. Which statement is most accurate?",
+      options:["They are pathognomonic of infective endocarditis","They confirm systemic embolisation has occurred","They exclude a diagnosis of infective endocarditis","They are only ever caused by infective endocarditis","They are non-specific and commonly result from trauma"],
+      correctIndex:4,
+      explanation:[
+        "Splinter haemorrhages are subungual linear haemorrhages; MOST are traumatic (especially in manual workers) and they occur in many conditions — they are NON-SPECIFIC.",
+        "In the right context (fever + new murmur) they support IE as a minor vascular sign, but they are not pathognomonic, do not confirm embolisation, and certainly do not exclude the diagnosis.",
+        "Teaching point: do not over-weight a non-specific sign in isolation — the whole clinical picture matters."
+      ] },
+    { id:"ie-023", type:"mcq",
+      question:"In infective endocarditis, which of the following is the most commonly present clinical feature?",
+      options:["Osler's nodes","Fever","Splinter haemorrhages","Roth spots","Splenomegaly"],
+      correctIndex:1,
+      explanation:[
+        "Fever is present in around 90% and is the most consistent feature; with a new or changing murmur it drives the clinical suspicion.",
+        "The eponymous peripheral stigmata (Osler, Janeway, Roth) are actually UNCOMMON in modern series — classic but not sensitive.",
+        "Key teaching: the ABSENCE of peripheral stigmata does NOT exclude IE. Fever + murmur + a risk factor is the trigger to take blood cultures and arrange echocardiography."
+      ] },
+    { id:"ie-024", type:"mcq",
+      question:"A 70-year-old woman admitted with fever has a murmur documented as soft on admission that is now clearly louder and regurgitant two days later. Which statement best reflects the significance of this finding?",
+      options:["A changing murmur is an incidental finding of no concern","It indicates that the fever has resolved","A new or changing regurgitant murmur suggests endocarditis","It is diagnostic of acute rheumatic fever","Murmurs never change during the course of endocarditis"],
+      correctIndex:2,
+      explanation:[
+        "A NEW or CHANGING regurgitant murmur occurs in up to ~85% of cases and reflects progressive VALVE DESTRUCTION; in a febrile patient it strongly suggests IE and mandates echocardiography and blood cultures.",
+        "It is the CHANGE that matters: a pre-existing fixed murmur is far less specific. A changing murmur is neither incidental, nor a marker of resolving fever, nor diagnostic of rheumatic fever."
+      ] },
+    { id:"ie-025", type:"saq", objective:"ie-janeway-osler",
+      question:"State two features that distinguish Janeway lesions from Osler's nodes in infective endocarditis.",
+      answer:"Any two of — pain: Janeway painless vs Osler painful; site: palms and soles vs finger and toe pulps; mechanism: embolic (septic microemboli) vs immune-complex vasculitis.",
+      accept:["painless","painful","palms","soles","pulps","finger","toe","embolic","embolism","immune","immune complex","immune-complex","vasculitis"],
+      markPoints:["Pain: Janeway painless vs Osler painful","Site: palms/soles vs finger/toe pulps","Mechanism: embolic vs immune-complex (any two)"],
+      explanation:[
+        "Osler = Ouch (painful, pulps, immune); Janeway = painless (palms/soles, embolic). Any two of the three axes — pain, site, mechanism — score.",
+        "Pairs with ie-020 (shared objective ie-janeway-osler) — a mock will not draw both. As in ie-020, the embolic-vs-immune mechanism split is the classic examined attribution rather than settled pathology."
       ] }
   ]
 };
