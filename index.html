@@ -5340,6 +5340,59 @@ window.MOCK_BANK = {
       explanation:[
         "The regimen map: native MSSA → flucloxacillin; sensitive Strep viridans → benzylpenicillin; Enterococcus → amoxicillin + gentamicin (synergy); MRSA (or penicillin allergy) → vancomycin. All are IV, bactericidal, and prolonged (4–6 weeks, longer for prosthetic valves).",
         "Tagged to exclude ie-038 under random draw (part (a) is the tightest verbatim leak); the enterococcal overlap with ie-040 is accepted as legitimate consolidation."
+      ] },
+    { id:"ie-043", type:"mcq", objective:"ie-surgery-indications",
+      question:"Four patients with infective endocarditis are reviewed. Which one has the strongest and most urgent indication for valve surgery?",
+      options:["Acute severe aortic regurgitation with pulmonary oedema and hypotension","A single splinter haemorrhage and a positive rheumatoid factor","A 4 mm mitral vegetation with no embolic events","Fever settling on appropriate antibiotics after five days","Microscopic haematuria from immune-complex glomerulonephritis"],
+      correctIndex:0,
+      explanation:[
+        "HEART FAILURE from acute valve regurgitation (leaflet destruction) is the COMMONEST and most URGENT indication for surgery in IE — haemodynamic compromise will not wait for antibiotics to work. This pays off ie-017 (leaflet destruction → acute AR → the commonest surgical trigger).",
+        "Every distractor is a real IE feature managed MEDICALLY, so the question tests ranking urgency, not spotting a complication: minor immune/vascular phenomena, a small vegetation without emboli, settling fever, and IE-related glomerulonephritis (which improves as the infection is treated).",
+        "Three broad surgical categories: heart failure, uncontrolled infection, and prevention of embolism."
+      ] },
+    { id:"ie-044", type:"mcq",
+      question:"A 60-year-old man with a prosthetic aortic valve has infective endocarditis, and blood cultures and valve material grow Candida albicans. In addition to antifungal therapy, what is the most appropriate management?",
+      options:["Continue medical therapy alone for six weeks","Refer for valve surgery","Switch to oral fluconazole and discharge","Add rifampicin and reassess in a month","Repeat echocardiography in three months"],
+      correctIndex:1,
+      explanation:[
+        "FUNGAL IE (Candida, Aspergillus) — like other RESISTANT / uncontrolled organisms and prosthetic infection with persistent bacteraemia — is an indication for SURGERY: antifungals rarely sterilise a fungal vegetation, and mortality is very high without valve replacement. This is the uncontrolled-infection category (which also includes aortic root abscess and persistently positive cultures despite appropriate therapy).",
+        "Trap (D): adding rifampicin is the PROSTHETIC reflex from ie-041 misapplied to a FUNGAL organism — rifampicin is staph-specific and does nothing here."
+      ] },
+    { id:"ie-045", type:"mcq",
+      question:"A 44-year-old woman with mitral valve endocarditis has a 15 mm mobile vegetation. Despite one week of appropriate intravenous antibiotics she suffers a second embolic stroke. What is the most appropriate management?",
+      options:["Continue the same antibiotics unchanged","Start therapeutic anticoagulation to prevent further emboli","Refer for early valve surgery","Add aspirin and clopidogrel","Repeat blood cultures and wait"],
+      correctIndex:2,
+      explanation:[
+        "Recurrent emboli despite appropriate antibiotics, especially with a LARGE (>10 mm) mobile vegetation, is an indication for SURGERY to remove the embolic source and prevent further events. This is the prevention-of-embolism category.",
+        "Do NOT pick B: anticoagulation does not prevent embolism in IE and RAISES the risk of haemorrhagic transformation of a septic infarct or rupture of a mycotic aneurysm — a genuinely counterintuitive but important point.",
+        "Nuance: the rule is 'don't START anticoagulation for IE'. A patient ALREADY anticoagulated (prosthetic valve, atrial fibrillation) needs an individualised specialist decision — there is even a case for temporarily interrupting it in staphylococcal prosthetic-valve IE with a recent stroke, given the haemorrhage risk."
+      ] },
+    { id:"ie-046", type:"mcq",
+      question:"A patient with endocarditis and acute severe mitral regurgitation has pulmonary oedema, only four days into a planned six-week antibiotic course. The team asks whether surgery must wait until antibiotics are completed. What is the correct approach?",
+      options:["Wait until the full antibiotic course is completed before any surgery","Wait at least two weeks of antibiotics before operating","Surgery is contraindicated until blood cultures are negative","Proceed to early surgery now, as the haemodynamic indication overrides timing","Surgery should be avoided entirely while on antibiotics"],
+      correctIndex:3,
+      explanation:[
+        "With a HARD indication (heart failure, uncontrolled infection, high embolic risk), surgery must NOT be delayed to complete antibiotics — EARLY surgery is life-saving and delay increases mortality. Antibiotics continue through and after the operation.",
+        "The distractors are all versions of the same dangerous instinct — sterilise or complete the course first — which is wrong when the patient is decompensating; operating on infected tissue feels risky but is correct here.",
+        "Neurological timing caveat (relevant to ie-045's two-stroke patient): an ISCHAEMIC stroke generally does NOT preclude early surgery, but INTRACRANIAL HAEMORRHAGE usually warrants delay (commonly around a month), because the anticoagulation needed for cardiopulmonary bypass risks catastrophic extension. This keeps 'don't delay' from being over-generalised."
+      ] },
+    { id:"ie-047", type:"mcq",
+      question:"A 55-year-old man with treated left-sided infective endocarditis has persistent swinging fevers after two weeks of appropriate antibiotics, with new left upper quadrant pain and tenderness. Blood cultures are now negative. What is the most likely explanation?",
+      options:["Antibiotic-induced drug fever only","Successful treatment; the fever is coincidental","Immune-complex glomerulonephritis","Osler's nodes causing the pain","A splenic abscess"],
+      correctIndex:4,
+      explanation:[
+        "PERSISTENT or recurrent fever despite appropriate antibiotics should prompt a search for a METASTATIC / deep-seated focus — most commonly a SPLENIC ABSCESS (an infected splenic embolus), needing CT and drainage or splenectomy; it will not clear on antibiotics alone.",
+        "The now-negative cultures are the key clue: they exclude ongoing bacteraemia and point to a walled-off, sequestered focus — the same avascular/sequestered logic that makes the vegetation itself hard to treat (ie-003).",
+        "This is the EMBOLIC stream (ie-016: left-sided → spleen) declaring itself late. Other causes of persistent fever: uncontrolled valve infection/abscess, drug fever, line infection. The other embolic complication to remember is a ruptured intracranial mycotic aneurysm — sudden severe headache."
+      ] },
+    { id:"ie-048", type:"saq", objective:"ie-surgery-indications",
+      question:"State three indications for cardiac surgery in infective endocarditis.",
+      answer:"Any three of: heart failure from valve destruction (acute severe regurgitation); uncontrolled infection (aortic root or annular abscess, fungal or resistant organism, persistent bacteraemia despite appropriate antibiotics); prevention of embolism (large >10 mm mobile vegetation, or recurrent emboli despite antibiotics); prosthetic valve dehiscence.",
+      accept:["heart failure","valve destruction","regurgitation","abscess","root abscess","uncontrolled infection","fungal","resistant organism","persistent bacteraemia","recurrent emboli","large vegetation","vegetation >10","10mm","prosthetic dehiscence","dehiscence"],
+      markPoints:["Heart failure / valve destruction","Uncontrolled infection (abscess, fungal/resistant, persistent bacteraemia)","Prevention of embolism (large or recurrent emboli)"],
+      explanation:[
+        "The three surgical categories: HEART FAILURE (from valve destruction), UNCONTROLLED INFECTION (abscess, fungal/resistant organism, persistent bacteraemia, prosthetic dehiscence) and PREVENTION OF EMBOLISM (large mobile or recurrent-embolising vegetation).",
+        "Tagged to exclude ie-043 under random draw (heart failure is the tightest verbatim leak); the fungal (ie-044) and embolic (ie-045) overlaps are accepted as legitimate consolidation."
       ] }
   ]
 };
