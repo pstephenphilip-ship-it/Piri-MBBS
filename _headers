@@ -1,2 +1,23 @@
 /*
   Cache-Control: no-cache
+
+/content/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/img/*
+  Cache-Control: public, max-age=2592000
+
+/assets/*
+  Cache-Control: public, max-age=2592000
+
+/icon-192.png
+  Cache-Control: public, max-age=2592000
+/icon-512.png
+  Cache-Control: public, max-age=2592000
+/icon-maskable-512.png
+  Cache-Control: public, max-age=2592000
+
+/sw.js
+  Cache-Control: no-cache
+/manifest.webmanifest
+  Cache-Control: no-cache
