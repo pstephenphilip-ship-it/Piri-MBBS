@@ -4953,6 +4953,57 @@ window.MOCK_BANK = {
         "Keith-Wagener-Barker grading: grade 1 = arteriolar narrowing with an increased light reflex (COPPER wiring); grade 2 = AV nipping with more marked reflex change (progressing to SILVER wiring); grade 3 = flame haemorrhages, cotton-wool spots and hard exudates; grade 4 = PAPILLOEDEMA. Grades 3–4 indicate malignant/accelerated hypertension (a hypertensive emergency, htn-049).",
         "Distractors: (A) papilloedema is a swollen optic disc (grade 4, htn-049); (B) neovascularisation is proliferative DIABETIC retinopathy; (C) a cherry-red spot is central retinal artery occlusion (or a storage disease); (D) drusen are the yellow deposits of age-related macular degeneration."
       ] }
+  ],
+  "conditions__CARDIOVASCULAR__Infective Endocarditis": [
+    { id:"ie-001", type:"mcq",
+      question:"A 58-year-old man is admitted with three weeks of drenching night sweats, fevers and malaise. Four years ago he was treated for infective endocarditis following a dental abscess. His background also includes a bicuspid aortic valve noted incidentally, type 2 diabetes for 20 years, and a normal colonoscopy last year for altered bowel habit. Of the factors in his history, which most strongly predisposes him to a further episode of infective endocarditis?",
+      options:["Bicuspid aortic valve","Previous infective endocarditis","Type 2 diabetes mellitus","Recent colonoscopy","Age over 55 years"],
+      correctIndex:1,
+      explanation:[
+        "Previous infective endocarditis is the single STRONGEST risk factor for a further episode — a scarred, previously infected valve is the most vulnerable substrate for organisms to seed.",
+        "The three HIGHEST-risk categories (which drive antibiotic prophylaxis decisions later) are: previous IE, a prosthetic valve or prosthetic valve material, and certain congenital heart disease (unrepaired cyanotic disease, or repairs with residual defects or prosthetic material). Prosthetic valve is the one high-risk factor absent from this stem — it sits alongside previous IE at the very top.",
+        "Trap (B vs A): a bicuspid aortic valve is a genuine structural predisposition, but — like rheumatic valve disease and other structural lesions — it is only MODERATE risk, far below prior endocarditis. The question asks for the STRONGEST factor, so this tests ranking risk, not identifying it.",
+        "Diabetes and age are weak general associations. The normal colonoscopy is a red herring here — it would have mattered had it shown a colorectal cancer with Strep bovis bacteraemia (a link explored later in this topic)."
+      ] },
+    { id:"ie-002", type:"mcq",
+      question:"A 62-year-old woman with long-standing rheumatic mitral valve disease presents with a six-week history of low-grade fever, fatigue, weight loss and lethargy. She is pale, with new splenomegaly and early finger clubbing. Blood cultures grow Streptococcus viridans. Which term best describes this presentation?",
+      options:["Acute infective endocarditis","Rheumatic fever recurrence","Libman-Sacks endocarditis","Subacute infective endocarditis","Non-bacterial thrombotic (marantic) endocarditis"],
+      correctIndex:3,
+      explanation:[
+        "An insidious course over weeks to months, on a PREVIOUSLY DAMAGED valve, with Strep viridans, is the classic picture of subacute bacterial endocarditis (SBE). The clubbing, splenomegaly and anaemia of chronic disease reflect prolonged low-grade infection.",
+        "Trap (D vs A): acute IE is a FULMINANT illness over hours to days, typically Staph aureus, and can strike a normal valve. Tempo + organism + valve substrate separate the two.",
+        "The sterile-vegetation distractors are excluded by the POSITIVE cultures: Libman-Sacks (SLE) and marantic (malignancy) endocarditis grow nothing — this tests the sterile-versus-infective vegetation distinction. Rheumatic fever recurrence would not grow Strep viridans on blood cultures.",
+        "Currency note: the acute/subacute split is classic and still examined, but modern (ESC) classification is by VALVE TYPE and ACQUISITION — native vs prosthetic; community- vs healthcare-associated; IVDU-related — because organism and valve substrate drive management more than tempo does."
+      ] },
+    { id:"ie-003", type:"mcq", objective:"ie-vegetation",
+      question:"A 45-year-old man undergoes mitral valve replacement for infective endocarditis. Histology of the resected valve shows the characteristic lesion coating the leaflet. Which components predominantly make up this lesion?",
+      options:["Platelets, fibrin and colonies of organisms","Neutrophils within caseating granulomas","Cholesterol clefts and lipid-laden macrophages","Fibrous tissue and dystrophic calcification","Lymphocytes and Aschoff bodies"],
+      correctIndex:0,
+      explanation:[
+        "The VEGETATION — the pathological hallmark of IE — is a mass of PLATELETS, FIBRIN, microorganisms and inflammatory cells. Its relatively avascular, fibrin-rich structure shelters organisms from immune cells and antibiotics, which is why treatment must be PROLONGED, high-dose, bactericidal and IV — not oral, short-course or bacteriostatic.",
+        "Pathogenesis sequence (this explains the risk factors in ie-001): endothelial damage from turbulent flow over an abnormal valve → a STERILE platelet-fibrin thrombus (non-bacterial thrombotic endocarditis) → transient bacteraemia seeds it → infective vegetation. That chain is why damaged and prosthetic valves are vulnerable, and it links the sterile-NBTE idea to its infective counterpart.",
+        "Distractors: caseating granulomas = tuberculosis; cholesterol clefts and foam cells = atheroma; fibrosis with dystrophic calcification = degenerative valve disease; Aschoff bodies = RHEUMATIC FEVER — the tempting cardiac pick, but a different pathology.",
+        "Pairs with the SAQ ie-005 (shared objective: the vegetation and its composition) — a mock will not draw both."
+      ] },
+    { id:"ie-004", type:"mcq",
+      question:"A 29-year-old man who injects heroin intravenously presents with fever, rigors, cough and pleuritic chest pain. A chest radiograph shows multiple peripheral, partly cavitating lung lesions. Which valve is most likely to be affected?",
+      options:["Mitral valve","Aortic valve","Pulmonary valve","Prosthetic valve","Tricuspid valve"],
+      correctIndex:4,
+      explanation:[
+        "Intravenous drug use classically causes RIGHT-SIDED (tricuspid) endocarditis — injected organisms seed the first valve they reach. Right-sided vegetations embolise to the LUNGS, producing septic pulmonary emboli that appear as multiple peripheral cavitating lesions (the clue that clinches tricuspid here).",
+        "Organising concept — the embolisation stream: RIGHT-sided emboli go to the lungs; LEFT-sided (mitral/aortic) emboli go to the brain, spleen and kidneys. In non-IVDU native-valve IE the left-sided valves predominate.",
+        "Nuance: tricuspid is the classic IVDU answer, but left-sided IE also occurs in IVDU and actually carries WORSE outcomes — the septic pulmonary emboli here are what make tricuspid the secure answer.",
+        "Cross-links: the embolisation stream (Block 3) and the respiratory picture of cavitating septic emboli."
+      ] },
+    { id:"ie-005", type:"saq", objective:"ie-vegetation",
+      question:"In infective endocarditis, name the characteristic lesion that forms on the affected valve, and list the main components of which it is composed.",
+      answer:"The vegetation — composed of platelets and fibrin, microorganisms (bacteria), and inflammatory cells/debris deposited on a damaged endocardial surface.",
+      accept:["vegetation","platelets","fibrin","organisms","bacteria","microbes","inflammatory cells"],
+      markPoints:["Names the vegetation","Platelets and fibrin","Microorganisms / bacteria"],
+      explanation:[
+        "The vegetation is the pathological hallmark of IE: platelets + fibrin + organisms + inflammatory cells/debris, deposited on a damaged endocardial surface.",
+        "Pairs with the MCQ ie-003 (shared objective: the vegetation) — a mock will not draw both."
+      ] }
   ]
 };
 </script>
