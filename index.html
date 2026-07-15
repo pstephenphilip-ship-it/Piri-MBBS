@@ -5003,6 +5003,77 @@ window.MOCK_BANK = {
       explanation:[
         "The vegetation is the pathological hallmark of IE: platelets + fibrin + organisms + inflammatory cells/debris, deposited on a damaged endocardial surface.",
         "Pairs with the MCQ ie-003 (shared objective: the vegetation) — a mock will not draw both."
+      ] },
+    { id:"ie-006", type:"mcq",
+      question:"A 71-year-old man presents with five weeks of malaise, low-grade fever, weight loss and new normocytic anaemia. Echo confirms a mitral valve vegetation, and blood cultures grow Streptococcus gallolyticus (formerly Strep bovis). Alongside antibiotics, which further investigation is most important?",
+      options:["Transoesophageal echocardiogram","CT coronary angiography","Colonoscopy","Bone marrow biopsy","Whole-body PET-CT"],
+      correctIndex:2,
+      explanation:[
+        "Streptococcus bovis/gallolyticus bacteraemia is strongly associated with COLORECTAL NEOPLASIA — the bowel is the portal of entry, so every case mandates COLONOSCOPY to exclude an occult colorectal cancer ('bovis = bowel').",
+        "Trap (C vs A): a transoesophageal echo would legitimately be done to characterise the valve, but the question asks what the ORGANISM dictates — and it is the microbiology, not the valve, that mandates the colonoscopy. This is an organism-driven versus valve-driven investigation discrimination.",
+        "Pays off the colonoscopy red herring seeded in ie-001."
+      ] },
+    { id:"ie-007", type:"mcq", objective:"ie-early-pve",
+      question:"A 68-year-old woman develops swinging fevers and rigors six weeks after mechanical aortic valve replacement. A new murmur is heard and echo shows a vegetation on the prosthesis. Which organism is the most likely cause?",
+      options:["Staphylococcus epidermidis","Streptococcus viridans","Streptococcus gallolyticus","Enterococcus faecalis","Coxiella burnetii"],
+      correctIndex:0,
+      explanation:[
+        "Prosthetic valve endocarditis WITHIN 2 months (early PVE) is usually PERIOPERATIVE contamination with coagulase-negative staphylococci — Staphylococcus epidermidis. Its ability to form biofilm on prosthetic material makes it the signature early-PVE organism.",
+        "Cutoff caveat: <2 months is the classic MICROBIOLOGICAL cutoff, but ESC defines early PVE as <12 months, with the 2–12 month window being intermediate/mixed (neither purely perioperative nor purely community). This stem uses 6 weeks — safely early — to avoid that grey zone; don't apply a hard rule to an ambiguous 6-month case.",
+        "Contrast ie-011: beyond 2 months the organism profile shifts back towards native-valve (community) organisms."
+      ] },
+    { id:"ie-008", type:"mcq",
+      question:"A 44-year-old sheep farmer presents with two months of fevers, weight loss and breathlessness. Echo shows an aortic valve vegetation, but three sets of blood cultures taken before antibiotics remain sterile at five days. He recently assisted with lambing. Which organism is most likely?",
+      options:["Staphylococcus aureus","Streptococcus viridans","Enterococcus faecalis","Staphylococcus epidermidis","Coxiella burnetii"],
+      correctIndex:4,
+      explanation:[
+        "Culture-negative IE plus exposure to PARTURIENT farm animals (lambing) is Q fever — Coxiella burnetii, a fastidious intracellular organism that will not grow on standard cultures; diagnosis is SEROLOGICAL.",
+        "Other culture-negative causes: HACEK organisms, Bartonella, Brucella, and — COMMONEST of all — prior antibiotics. Most 'culture-negative' IE is antibiotic-suppressed, not exotic; the stem's 'taken before antibiotics' deliberately removes that possibility to force the fastidious answer.",
+        "The four distractors all grow readily on routine culture, so sterile bottles exclude them."
+      ] },
+    { id:"ie-009", type:"mcq",
+      question:"A 55-year-old man with type 2 diabetes is admitted with cellulitis and a peripheral cannula that has been in situ for a week. He becomes acutely unwell with high fever and rigors, develops a new murmur, and echo shows a vegetation on a previously normal mitral valve. Which organism is the most likely cause?",
+      options:["Streptococcus viridans","Staphylococcus aureus","Staphylococcus epidermidis","HACEK organisms","Streptococcus gallolyticus"],
+      correctIndex:1,
+      explanation:[
+        "Staphylococcus aureus is the COMMONEST cause of IE overall and the classic cause of ACUTE IE that can destroy a structurally NORMAL valve (links ie-002). Skin/soft-tissue infection and intravascular lines — not only IVDU — are typical portals.",
+        "Trap: candidates over-associate Staph aureus with injecting drug use alone. Here the portals are cellulitis and a cannula.",
+        "The virulence that lets it seed a normal valve and cause rapid destruction is what puts Staph aureus at the head of the surgery-and-mortality queue later in this topic."
+      ] },
+    { id:"ie-010", type:"mcq",
+      question:"A 63-year-old woman with metastatic pancreatic adenocarcinoma presents with a right-hemisphere embolic stroke. Echo shows small vegetations on the mitral valve; she is afebrile and three sets of blood cultures are sterile. Which is the most likely diagnosis?",
+      options:["Subacute bacterial endocarditis","Libman-Sacks endocarditis","Marantic endocarditis","Acute Staphylococcus aureus endocarditis","Rheumatic valvulitis"],
+      correctIndex:2,
+      explanation:[
+        "Sterile vegetations + MALIGNANCY (classically mucinous adenocarcinoma) + afebrile + EMBOLIC phenomena = marantic endocarditis (non-bacterial thrombotic endocarditis, NBTE), driven by a hypercoagulable state.",
+        "Trap (C vs B): Libman-Sacks is the OTHER sterile vegetation — but that is the one of SLE, not malignancy. The two sterile vegetations are distinguished by their driver (malignancy/hypercoagulable vs SLE).",
+        "Sterile cultures and the absence of fever exclude the infective options, completing the sterile-versus-infective distinction seeded in ie-002."
+      ] },
+    { id:"ie-011", type:"mcq",
+      question:"A 70-year-old man develops subacute endocarditis 14 months after a bioprosthetic aortic valve replacement, shortly after a dental extraction. Which organism is now most likely?",
+      options:["Staphylococcus epidermidis","Coxiella burnetii","Candida albicans","Streptococcus viridans","Pseudomonas aeruginosa"],
+      correctIndex:3,
+      explanation:[
+        "LATE PVE (>2 months, especially beyond a year) behaves like NATIVE-valve IE — community organisms such as Strep viridans (here seeded by dental work) and Staph aureus predominate, rather than the perioperative coagulase-negative staph of EARLY (<2 month) disease. This is the deliberate EXCEPTION to 'prosthetic = Staph epidermidis' (contrast ie-007).",
+        "Cutoff caveat: the 2-month line is the classic teaching cutoff; ESC uses 12 months, with a 2–12 month intermediate window that is mixed. This stem uses 14 months — safely late — so the native-type answer is secure. Don't apply a hard '>2 months = native-type' rule to a 6-month case."
+      ] },
+    { id:"ie-012", type:"saq", objective:"ie-early-pve",
+      question:"Name the single most likely causative organism in each context of infective endocarditis: (a) a young man who injects drugs intravenously, presenting acutely; (b) subacute endocarditis two weeks after dental extraction on a rheumatic valve; (c) endocarditis six weeks after prosthetic valve surgery; (d) culture-negative endocarditis in a farmer with lambing exposure.",
+      answer:"(a) Staphylococcus aureus; (b) Streptococcus viridans; (c) Staphylococcus epidermidis (coagulase-negative staph); (d) Coxiella burnetii (Q fever).",
+      accept:["staph aureus","staphylococcus aureus","strep viridans","streptococcus viridans","staph epidermidis","staphylococcus epidermidis","coagulase negative","coagulase-negative","coxiella","coxiella burnetii","q fever"],
+      markPoints:["(a) Staphylococcus aureus","(b) Streptococcus viridans","(c) Staphylococcus epidermidis / coagulase-negative staph","(d) Coxiella burnetii"],
+      explanation:[
+        "The organism-context matched pairs are the highest-yield IE recall: Staph aureus (acute / IVDU / skin & lines), Strep viridans (dental / damaged valve), Staph epidermidis (early PVE, biofilm), Strep gallolyticus (bowel → colonoscopy) and Coxiella (culture-negative / farm).",
+        "This is a whole-map consolidation item that overlaps ie-007 (early PVE), ie-008 (Coxiella), ie-009 (Staph aureus) and ie-011 (viridans). It is tagged to exclude ie-007 under random draw (the closest verbatim leak — part (c)); the remaining overlaps are accepted as legitimate consolidation, since testing the whole map at once is a different task from any single pairing."
+      ] },
+    { id:"ie-013", type:"mcq",
+      question:"A 74-year-old man is admitted with three weeks of fever, sweats and lethargy and is found to have a new aortic regurgitant murmur with an aortic vegetation on echo. Four weeks earlier he underwent transurethral resection of the prostate. Which organism is the most likely cause?",
+      options:["Enterococcus faecalis","Streptococcus viridans","Staphylococcus epidermidis","Coxiella burnetii","Candida albicans"],
+      correctIndex:0,
+      explanation:[
+        "Enterococcus faecalis lives in the GI and GU tracts, and its endocarditis classically follows LOWER-GI or GENITOURINARY instrumentation — TURP, catheterisation, colonoscopy — in older men. The recent TURP is the portal.",
+        "Therapeutically important (forward-link to the antibiotics block): enterococci are relatively penicillin-tolerant and need SYNERGISTIC therapy — amoxicillin PLUS gentamicin (or amoxicillin + ceftriaxone) — for a bactericidal effect, not penicillin alone.",
+        "Distractors: Strep viridans = dental; Staph epidermidis = early PVE; Coxiella = culture-negative/farm; Candida = fungal IE (IVDU, prosthetic valves, long-term lines, immunocompromised) — large, friable vegetations with a poor prognosis that often need surgery."
       ] }
   ]
 };
