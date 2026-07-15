@@ -8695,7 +8695,9 @@ function hideFlyout(p) {
     window[name]=function(){ var r; try{ r=orig.apply(this,arguments); }finally{ try{ after.apply(this,arguments); }catch(e){} } return r; };
   }
   function initWraps(){
-    wrap('selectSystem', function(p){ if(MQ.matches) setStep(p,'topics'); });
+    // Tapping a system runs showCondFlyout (topics are a flyout) — that's the real hook.
+    wrap('showCondFlyout', function(p){ if(MQ.matches) setStep(p,'topics'); });
+    wrap('selectSystem', function(p){ if(MQ.matches) setStep(p,'topics'); });   // deep-links / init
     wrap('selectTopic', function(p){ if(MQ.matches) setStep(p,'content'); });
     wrap('switchMainTab', function(id){ setStep(id,'systems'); });
     wrap('pharmaSelectSection', function(){ if(MQ.matches) setStep('pharmacology','topics'); });
