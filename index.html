@@ -5454,6 +5454,54 @@ window.MOCK_BANK = {
         "The arrowed mobile, echogenic mass attached to the valve leaflet is a VEGETATION — the echocardiographic hallmark of infective endocarditis and a MAJOR Duke criterion (endocardial involvement).",
         "In someone who injects drugs, with fever and a right-sided murmur, a tricuspid vegetation is the expected finding. TOE is more sensitive than TTE for small or prosthetic-valve vegetations (ie-028).",
         "Distractors are other intracardiac masses: a papillary fibroelastoma and a myxoma are tumours (myxoma classically in the left atrium), and a bland thrombus is sterile — none fits fever plus a new murmur plus this appearance."
+      ] },
+    { id:"ie-051", type:"mcq", objective:"ie-prophylaxis",
+      question:"A 60-year-old man with a prosthetic aortic valve is due to have a dental extraction and asks whether he needs antibiotics beforehand to prevent infective endocarditis. According to current NICE guidance, what is the most appropriate advice?",
+      options:["Antibiotic prophylaxis against IE is not routinely recommended","Give a single dose of oral amoxicillin one hour before the procedure","Give a five-day course of amoxicillin around the procedure","Give intravenous vancomycin at induction","Prophylaxis is needed only for extractions, not other dental work"],
+      correctIndex:0,
+      explanation:[
+        "NICE (CG64) does NOT routinely recommend antibiotic prophylaxis against IE for dental or other procedures, even in at-risk groups — a deliberate reversal of older UK practice.",
+        "Rationale: cumulative bacteraemia from everyday chewing and tooth-brushing vastly outweighs procedural bacteraemia; prophylaxis has never been shown to prevent IE; and it carries anaphylaxis and antibiotic-resistance harm.",
+        "Currency: the wording was AMENDED in 2015 to 'not routinely recommended' (rather than an absolute bar), permitting individualised decisions for the highest-risk patients after specialist discussion. The distractors are all versions of the OLD practice.",
+        "Pairs with ie-052 (shared objective ie-prophylaxis)."
+      ] },
+    { id:"ie-052", type:"mcq", objective:"ie-prophylaxis",
+      question:"A patient with previous infective endocarditis will not receive routine antibiotic prophylaxis before dental work under NICE guidance. Which is the most appropriate advice to give instead?",
+      options:["Take daily prophylactic penicillin indefinitely","Maintain good oral hygiene and attend regular dental review","Avoid all dental treatment in future","He is no longer at risk, so no action is needed","Rinse with chlorhexidine mouthwash before brushing each day"],
+      correctIndex:1,
+      explanation:[
+        "The positive advice is GOOD ORAL HYGIENE and regular dental review — reducing the everyday bacteraemia that matters most — plus educating at-risk patients to seek prompt help for unexplained fever.",
+        "Trap (D): he remains in the HIGHEST-risk tier (previous IE, ie-001) — prophylaxis simply does not help, which is a different claim from 'no longer at risk'. He still needs the fever-awareness education.",
+        "International contrast: AHA/ESC still recommend prophylaxis for the highest-risk groups (previous IE, prosthetic valve, certain congenital disease), so this is a UK-specific divergence worth knowing. Chlorhexidine is not recommended as IE prophylaxis.",
+        "Pairs with ie-051 (shared objective ie-prophylaxis)."
+      ] },
+    { id:"ie-053", type:"mcq",
+      question:"A patient with suspected native-valve infective endocarditis is acutely septic; blood cultures have just been taken. Which empirical antibiotic regimen should be started immediately, before culture results are available?",
+      options:["Flucloxacillin monotherapy","Oral doxycycline","Await culture results before starting antibiotics","Metronidazole plus ceftriaxone","Amoxicillin plus gentamicin"],
+      correctIndex:4,
+      explanation:[
+        "For a NATIVE valve, blind/empirical therapy is typically AMOXICILLIN + GENTAMICIN — broad cover for streptococci, enterococci and staphylococci while sensitivities are awaited. With penicillin allergy, MRSA risk or severe sepsis, use vancomycin + gentamicin.",
+        "This is the direct payoff of ie-027 (take cultures, then treat immediately — with THIS). Prosthetic-valve empirical cover differs: vancomycin + gentamicin + rifampicin, to catch coagulase-negative staph (ie-007/ie-041).",
+        "Trap (A): flucloxacillin monotherapy is the TARGETED MSSA answer (ie-038) misapplied empirically — empirical cover must be broad until the organism is known, then narrowed. Awaiting cultures (C) is dangerous in sepsis.",
+        "Card: exact regimens vary by guideline and local policy (some UK empirical regimens are flucloxacillin-containing; ESC blind therapy differs) — this is the standard teaching answer, and local antimicrobial policy governs in practice."
+      ] },
+    { id:"ie-054", type:"mcq",
+      question:"A patient with a permanent pacemaker develops Staphylococcus aureus bacteraemia, and echocardiography shows a vegetation on a pacing lead. In addition to prolonged antibiotics, what is the most appropriate management?",
+      options:["Complete removal (extraction) of the entire pacing system","Intravenous antibiotics alone, leaving the device in situ","Reposition the affected lead","Continue the device in place and add rifampicin","Replace only the pulse generator"],
+      correctIndex:0,
+      explanation:[
+        "Cardiac implantable electronic device (CIED) lead endocarditis requires COMPLETE SYSTEM EXTRACTION (leads and generator) plus prolonged antibiotics — infected prosthetic hardware harbours BIOFILM that antibiotics alone cannot clear, so half-measures relapse.",
+        "This is the ie-007 (biofilm) and ie-041 (rifampicin for prosthetic material) logic, and the same rule as any infected implant: source control by removing the hardware.",
+        "Trap (D): adding rifampicin while LEAVING the leads in is the prosthetic-valve reflex applied instead of extraction — rifampicin helps with the hardware OUT, it does not rescue retained infected leads."
+      ] },
+    { id:"ie-055", type:"mcq", objective:"ie-root-abscess",
+      question:"A patient with aortic valve endocarditis has a weekly ECG during treatment. What is the main purpose of this monitoring?",
+      options:["To monitor for new atrial fibrillation","To detect QT-interval prolongation caused by the antibiotics","To confirm that the infection has resolved","To screen for myocardial ischaemia","To detect a lengthening PR interval, signalling root abscess"],
+      correctIndex:4,
+      explanation:[
+        "Serial ECGs screen for a PROLONGING PR interval progressing to new AV block — the red flag for an aortic ROOT ABSCESS (conduction-system invasion), the direct payoff of ie-014.",
+        "Other treatment monitoring: repeat blood cultures to confirm clearance, CRP/inflammatory-marker trend, repeat echocardiography, and gentamicin/vancomycin levels with renal function.",
+        "Trap (B): antibiotic QT monitoring is a genuine concern in other contexts, so eliminating it requires knowing the IE-specific reason for serial ECGs. Tagged with ie-014/ie-018 on the root-abscess objective."
       ] }
   ]
 };
