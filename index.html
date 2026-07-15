@@ -8657,8 +8657,15 @@ function hideFlyout(p) {
   #tab-calculator .calc-layout{flex-direction:column;overflow-y:auto;}
   .mk-screen{padding:22px 14px 90px;}
   .mk-hero h1{font-size:23px;}
+  .mk-run-body{padding:16px 12px 96px;}
   /* Tables / wide content never force the page to scroll sideways */
   .rn-table,.note-content table{display:block;overflow-x:auto;max-width:100%;}
+}
+/* Mock runner (single-column mode, <=1080px incl. tablets): show the QUESTION first.
+   The number grid (palette) is 1000px+ tall and was placed first (order:-1),
+   burying the question far below the fold. Move it below as a compact strip. */
+@media (max-width:1080px){
+  .mk-palette{order:2;position:static;top:auto;max-height:230px;overflow-y:auto;}
 }
 </style>
 <script>
