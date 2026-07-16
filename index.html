@@ -585,110 +585,135 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 </div>
 <div class="app-body">
 <style>
-.tab-view.home-view.visible{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.home-inner{max-width:720px;margin:0 auto;padding:44px 24px 64px;box-sizing:border-box;}
-.home-brand{text-align:center;margin-bottom:30px;}
-.home-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
-.home-word{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.home-tag{font-size:14px;color:var(--muted);margin-top:6px;}
-.home-streak{display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:16px;border:1.5px solid rgba(249,115,22,.42);background:linear-gradient(135deg,rgba(249,115,22,.16),rgba(249,115,22,.05));margin-bottom:22px;}
-.home-streak.cold{border-color:var(--border2);background:var(--surface);}
-.hs-flame{font-size:44px;line-height:1;filter:drop-shadow(0 2px 8px rgba(249,115,22,.4));}
-.home-streak.cold .hs-flame{filter:grayscale(1);opacity:.5;}
-.hs-main{flex:1;min-width:0;}
-.hs-num{font-family:var(--mono);font-weight:800;font-size:30px;line-height:1;color:#FB923C;}
-.home-streak.cold .hs-num{color:var(--muted);}
-.hs-unit{font-size:14px;font-weight:600;color:var(--muted);}
-.hs-sub{font-size:13px;color:var(--text);opacity:.82;margin-top:7px;line-height:1.5;}
-.hs-best{text-align:center;padding-left:16px;border-left:1px solid var(--border2);}
-.hs-best-num{font-family:var(--mono);font-weight:800;font-size:22px;color:var(--text);line-height:1;}
-.hs-best-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:4px;}
-.home-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px;}
-.home-stat{background:var(--surface);border:1.5px solid var(--border2);border-radius:12px;padding:16px 10px;text-align:center;}
-.home-stat .n{font-family:var(--mono);font-size:24px;font-weight:800;line-height:1;}
-.home-stat .l{font-size:10.5px;color:var(--muted);margin-top:5px;text-transform:uppercase;letter-spacing:.06em;}
-.home-notes{background:var(--surface);border:1.5px solid var(--border2);border-radius:14px;overflow:hidden;}
-.hn-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-weight:700;font-size:14px;color:var(--text);border-bottom:1px solid var(--border2);}
-.hn-clear{font-size:11px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;}
-.hn-clear:hover{color:var(--danger);}
-.hn-toolbar{display:flex;gap:4px;padding:8px 12px;border-bottom:1px solid var(--border2);flex-wrap:wrap;}
-.hn-btn{min-width:32px;height:30px;padding:0 8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);border-radius:7px;cursor:pointer;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center;}
-.hn-btn:hover{border-color:var(--accent);color:var(--accent);}
-.hn-body{min-height:150px;max-height:340px;overflow-y:auto;padding:14px 16px;font-size:14px;line-height:1.7;color:var(--text);outline:none;}
-.hn-body:empty:before{content:attr(data-placeholder);color:var(--muted);}
-.hn-body ul{margin:6px 0;padding-left:22px;}
-.hn-body li{margin:2px 0;}
-.hn-hint{padding:9px 16px;font-size:11px;color:var(--muted);border-top:1px solid var(--border2);}
-@media(max-width:560px){.home-stats{grid-template-columns:repeat(2,1fr);}.hs-best{display:none;}.home-inner{padding:28px 16px 56px;}}
+.tab-view.home-view.visible{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--rn-bg);}
+.wc-host{display:block !important;height:100%;overflow-y:auto;background:var(--rn-bg);text-align:left;}
+.welcome-inner{max-width:720px;margin:0 auto;padding:44px 24px 64px;box-sizing:border-box;}
+.wc-brand{text-align:center;margin-bottom:30px;}
+.wc-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
+.wc-word{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.wc-tag{font-size:14px;color:#6B7280;margin-top:6px;}
+.wc-streak{display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:16px;border:1.5px solid #FAD9B0;background:linear-gradient(135deg,#FFF3E4 0%,#FFFDFA 100%);margin-bottom:22px;}
+.wc-streak.cold{border-color:#E2E6F0;background:#fff;}
+.wc-flame{font-size:44px;line-height:1;}
+.wc-streak.cold .wc-flame{filter:grayscale(1);opacity:.5;}
+.wc-hs-main{flex:1;min-width:0;}
+.wc-hs-num{font-family:var(--mono);font-weight:800;font-size:30px;line-height:1;color:#EA7A0C;}
+.wc-streak.cold .wc-hs-num{color:#9CA3AF;}
+.wc-hs-unit{font-size:14px;font-weight:600;color:#6B7280;}
+.wc-hs-sub{font-size:13px;color:#374151;margin-top:7px;line-height:1.5;}
+.wc-best{text-align:center;padding-left:16px;border-left:1px solid #E2E6F0;}
+.wc-best-n{font-family:var(--mono);font-weight:800;font-size:22px;color:#1E2640;line-height:1;}
+.wc-best-l{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;margin-top:4px;}
+.wc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.wc-stat{background:#fff;border:1.5px solid #E2E6F0;border-radius:12px;padding:16px 10px;text-align:center;}
+.wc-stat .n{font-family:var(--mono);font-size:24px;font-weight:800;line-height:1;}
+.wc-stat .l{font-size:10.5px;color:#9CA3AF;margin-top:5px;text-transform:uppercase;letter-spacing:.06em;}
+.wc-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#9CA3AF;letter-spacing:.04em;margin-top:4px;}
+.wc-notes{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;overflow:hidden;}
+.wc-nhead{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-weight:700;font-size:14px;color:#1E2640;border-bottom:1px solid #E2E6F0;}
+.wc-nclear{font-size:11px;font-weight:600;color:#9CA3AF;background:none;border:none;cursor:pointer;}
+.wc-nclear:hover{color:#DC2626;}
+.wc-ntoolbar{display:flex;gap:4px;padding:8px 12px;border-bottom:1px solid #E2E6F0;flex-wrap:wrap;}
+.wc-nbtn{min-width:32px;height:30px;padding:0 8px;border:1px solid #E2E6F0;background:#F3F5FA;color:#374151;border-radius:7px;cursor:pointer;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center;}
+.wc-nbtn:hover{border-color:#00C2A8;color:#00A892;}
+.wc-nbody{min-height:150px;max-height:340px;overflow-y:auto;padding:14px 16px;font-size:14px;line-height:1.7;color:#1E2640;outline:none;}
+.wc-nbody:empty:before{content:attr(data-placeholder);color:#9CA3AF;}
+.wc-nbody ul{margin:6px 0;padding-left:22px;}.wc-nbody li{margin:2px 0;}
+.wc-nhint{padding:9px 16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E2E6F0;}
+@media(max-width:560px){.wc-stats{grid-template-columns:repeat(2,1fr);}.wc-best{display:none;}.welcome-inner{padding:28px 16px 56px;}}
 </style>
-<div id="tab-home" class="tab-view home-view visible">
-  <div class="home-inner">
-    <div class="home-brand">
-      <img src="logo.png" alt="DoctoRise">
-      <div class="home-word">DoctoRise</div>
-      <div class="home-tag">Your complete medical reference &mdash; pick up where you left off.</div>
-    </div>
-    <div class="home-streak" id="homeStreak">
-      <div class="hs-flame">&#128293;</div>
-      <div class="hs-main">
-        <div><span class="hs-num" id="hsNum">0</span> <span class="hs-unit">day streak</span></div>
-        <div class="hs-sub" id="hsSub">Study a flashcard or answer a question today to start a streak.</div>
-      </div>
-      <div class="hs-best"><div class="hs-best-num" id="hsBest">0</div><div class="hs-best-lbl">best</div></div>
-    </div>
-    <div class="home-stats">
-      <div class="home-stat"><div class="n" id="home-stat-conditions" style="color:var(--accent)">&mdash;</div><div class="l">Conditions</div></div>
-      <div class="home-stat"><div class="n" id="home-stat-flashcards" style="color:var(--purple)">&mdash;</div><div class="l">Flashcards</div></div>
-      <div class="home-stat"><div class="n" id="home-stat-questions" style="color:var(--gold)">&mdash;</div><div class="l">Questions</div></div>
-      <div class="home-stat"><div class="n" id="home-stat-systems" style="color:var(--danger)">&mdash;</div><div class="l">Systems</div></div>
-    </div>
-    <div class="home-notes">
-      <div class="hn-head"><span>&#128221; My Notes &amp; To-Do</span><button class="hn-clear" onclick="homeNotesClear()">Clear</button></div>
-      <div class="hn-toolbar">
-        <button class="hn-btn" type="button" title="Bold" onmousedown="return homeFmtMD(event,'bold')"><b>B</b></button>
-        <button class="hn-btn" type="button" title="Italic" onmousedown="return homeFmtMD(event,'italic')"><i>I</i></button>
-        <button class="hn-btn" type="button" title="Underline" onmousedown="return homeFmtMD(event,'underline')"><u>U</u></button>
-        <button class="hn-btn" type="button" title="Bullet list" onmousedown="return homeFmtMD(event,'insertUnorderedList')">&#8226;</button>
-      </div>
-      <div class="hn-body" id="homeNotes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="homeNotesSave()"></div>
-      <div class="hn-hint">Saved automatically on this device.</div>
-    </div>
-  </div>
-</div>
+<div id="tab-home" class="tab-view home-view"><div class="wc-host" id="homeHost"></div></div>
 <script>
 (function(){
-  function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
-  window.renderHomeStreak=function(){
+  function esc(s){return s;}
+  function welcomeHTML(opts){
+    opts=opts||{};
+    var streak='<div class="wc-streak js-streak"><div class="wc-flame">&#128293;</div>'
+      +'<div class="wc-hs-main"><div><span class="wc-hs-num js-hs-num">0</span> <span class="wc-hs-unit">day streak</span></div>'
+      +'<div class="wc-hs-sub js-hs-sub">Study a flashcard or answer a question today to start a streak.</div></div>'
+      +'<div class="wc-best"><div class="wc-best-n js-hs-best">0</div><div class="wc-best-l">best</div></div></div>';
+    var stats='<div class="wc-stats">'
+      +'<div class="wc-stat"><div class="n js-stat-cond" style="color:#00A892">&mdash;</div><div class="l">Conditions</div></div>'
+      +'<div class="wc-stat"><div class="n js-stat-fc" style="color:#8B5CF6">&mdash;</div><div class="l">Flashcards</div></div>'
+      +'<div class="wc-stat"><div class="n js-stat-q" style="color:#CA8A04">&mdash;</div><div class="l">Questions</div></div>'
+      +'<div class="wc-stat"><div class="n js-stat-sys" style="color:#EF5350">&mdash;</div><div class="l">Systems</div></div></div>';
+    var tail = opts.notes
+      ? ('<div class="wc-notes"><div class="wc-nhead"><span>&#128221; My Notes &amp; To-Do</span><button class="wc-nclear" onclick="homeNotesClear()">Clear</button></div>'
+        +'<div class="wc-ntoolbar">'
+        +'<button class="wc-nbtn" type="button" title="Bold" onmousedown="return homeFmtMD(event,\'bold\')"><b>B</b></button>'
+        +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return homeFmtMD(event,\'italic\')"><i>I</i></button>'
+        +'<button class="wc-nbtn" type="button" title="Underline" onmousedown="return homeFmtMD(event,\'underline\')"><u>U</u></button>'
+        +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return homeFmtMD(event,\'insertUnorderedList\')">&#8226;</button>'
+        +'</div>'
+        +'<div class="wc-nbody" id="homeNotes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="homeNotesSave()"></div>'
+        +'<div class="wc-nhint">Saved automatically on this device.</div></div>')
+      : ('<div class="wc-hint">'+(opts.hint||'&larr; Select a topic to begin')+'</div>');
+    return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
+      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+stats+tail+'</div>';
+  }
+
+  window.updateStreakUI=function(){
     var s=window.daStreakState?window.daStreakState():{cur:0,best:0,activeToday:false};
-    setTxt('hsNum',s.cur); setTxt('hsBest',s.best);
-    var box=document.getElementById('homeStreak'); if(box) box.classList.toggle('cold',s.cur===0);
-    var sub=document.getElementById('hsSub');
-    if(sub){ sub.textContent = s.cur>0 ? (s.activeToday?('Studied today — your streak is safe. Keep it going! 💪'):('Study today to keep your '+s.cur+'-day streak alive!')) : 'Study a flashcard or answer a question today to start a streak.'; }
+    document.querySelectorAll('.js-hs-num').forEach(function(e){e.textContent=s.cur;});
+    document.querySelectorAll('.js-hs-best').forEach(function(e){e.textContent=s.best;});
+    document.querySelectorAll('.js-streak').forEach(function(e){e.classList.toggle('cold',s.cur===0);});
+    var msg = s.cur>0 ? (s.activeToday?'Studied today \u2014 your streak is safe. Keep it going! \ud83d\udcaa':('Study today to keep your '+s.cur+'-day streak alive!')) : 'Study a flashcard or answer a question today to start a streak.';
+    document.querySelectorAll('.js-hs-sub').forEach(function(e){e.textContent=msg;});
   };
-  var counted=false;
-  window.renderHome=function(){
-    renderHomeStreak();
-    homeNotesLoad();
-    setTxt('home-stat-systems', (typeof CONDITIONS_SYSTEMS!=='undefined')?Object.keys(CONDITIONS_SYSTEMS).length:'—');
-    if(counted) return; counted=true;
+  window.renderHomeStreak=window.updateStreakUI;
+
+  var STATCACHE=null;
+  function applyStats(o){
+    if(!o)return;
+    document.querySelectorAll('.js-stat-cond').forEach(function(e){e.textContent=o.cond;});
+    document.querySelectorAll('.js-stat-fc').forEach(function(e){e.textContent=o.fc;});
+    document.querySelectorAll('.js-stat-q').forEach(function(e){e.textContent=o.q;});
+  }
+  function updateStatsUI(){
+    var sys=(typeof CONDITIONS_SYSTEMS!=='undefined')?Object.keys(CONDITIONS_SYSTEMS).length:'\u2014';
+    document.querySelectorAll('.js-stat-sys').forEach(function(e){e.textContent=sys;});
+    if(STATCACHE){ applyStats(STATCACHE); return; }
     Promise.all([
       (window.loadManifest?window.loadManifest():Promise.resolve({systems:[]})),
       fetch('content/subnav.json').then(function(r){return r.ok?r.json():{};}).catch(function(){return {};})
     ]).then(function(res){
-      var mf=res[0]||{}, sn=res[1]||{};
-      var tf=0,tq=0;(mf.systems||[]).forEach(function(s){tf+=s.fcards||0;tq+=s.qcards||0;});
-      setTxt('home-stat-flashcards',tf); setTxt('home-stat-questions',tq);
+      var mf=res[0]||{}, sn=res[1]||{}, tf=0,tq=0;
+      (mf.systems||[]).forEach(function(s){tf+=s.fcards||0;tq+=s.qcards||0;});
+      var cond='\u2014';
       if(typeof CONDITIONS_SYSTEMS!=='undefined'){
-        setTxt('home-stat-conditions', Object.keys(CONDITIONS_SYSTEMS).reduce(function(a,sys){var m=CONDITIONS_SYSTEMS[sys];return a+((m.conditions||[]).reduce(function(x,t){var subs=(sn&&sn[sys+'__'+t])||null;return x+((subs&&subs.length)?subs.length:1);},0));},0));
+        cond=Object.keys(CONDITIONS_SYSTEMS).reduce(function(a,sy){var m=CONDITIONS_SYSTEMS[sy];return a+((m.conditions||[]).reduce(function(x,t){var subs=(sn&&sn[sy+'__'+t])||null;return x+((subs&&subs.length)?subs.length:1);},0));},0);
       }
+      STATCACHE={cond:cond,fc:tf,q:tq}; applyStats(STATCACHE);
     });
-  };
+  }
+  window.updateStatsUI=updateStatsUI;
+
+  function paintWelcome(container, opts){ if(!container)return; container.innerHTML=welcomeHTML(opts); updateStreakUI(); updateStatsUI(); if(opts&&opts.notes){ nloaded=false; homeNotesLoad(); } }
+  window.paintWelcome=paintWelcome;
+
+  // Notes (single instance, home only)
   var NKEY='piri_home_notes_v1', nloaded=false, nt;
   window.homeNotesLoad=function(){ if(nloaded)return; var el=document.getElementById('homeNotes'); if(!el)return; try{var v=localStorage.getItem(NKEY); if(v!=null) el.innerHTML=v;}catch(e){} nloaded=true; };
   window.homeNotesSave=function(){ var el=document.getElementById('homeNotes'); if(!el)return; clearTimeout(nt); nt=setTimeout(function(){try{localStorage.setItem(NKEY,el.innerHTML);}catch(e){}},250); };
   window.homeFmtMD=function(ev,cmd){ ev.preventDefault(); var el=document.getElementById('homeNotes'); if(!el)return false; el.focus(); try{document.execCommand(cmd,false,null);}catch(e){} homeNotesSave(); return false; };
   window.homeNotesClear=function(){ var el=document.getElementById('homeNotes'); if(!el)return; if(el.innerHTML.trim() && !window.confirm('Clear all your notes? This cannot be undone.'))return; el.innerHTML=''; homeNotesSave(); };
+
+  window.renderHome=function(){ paintWelcome(document.getElementById('homeHost'), {notes:true}); };
   window.goHome=function(skipHash){ if(window.switchMainTab) window.switchMainTab('home', null, skipHash); };
+
+  // Paint the shared welcome panel into every section's empty/placeholder state
+  var SECTION_HINTS={conditions:'&larr; Select a system, then a condition',anatomy:'&larr; Select a topic to open its note',histology:'&larr; Select a topic to open its note',signs:'&larr; Select a topic to open its note',investigations:'&larr; Select a topic to open its note',osce:'&larr; Select a station to begin'};
+  window.paintSectionWelcomes=function(){
+    Object.keys(SECTION_HINTS).forEach(function(tab){
+      var el=document.getElementById('empty-'+tab);
+      if(!el || el.getAttribute('data-wc')) return;
+      el.classList.add('wc-host'); el.removeAttribute('style'); el.setAttribute('data-wc','1');
+      el.innerHTML=welcomeHTML({hint:SECTION_HINTS[tab]});
+    });
+    updateStreakUI(); updateStatsUI();
+  };
+  function boot(){ if(document.getElementById('homeHost')) renderHome(); paintSectionWelcomes(); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
 </script>
 <div id="tab-conditions" class="tab-view"><div class="system-sidebar"><div class="sidebar-header">Systems</div><div class="search-wrap"><input type="text" class="search-input" id="search-conditions" placeholder="Search conditions..." oninput="handleSearch('conditions',this.value)"></div><div class="system-list" id="syslist-conditions"></div></div><div class="condition-list"><div class="clist-header"><div class="clist-system-name" id="sysname-conditions">Select a system</div><div class="clist-subtitle" id="syscount-conditions"></div></div><div class="condition-items" id="topiclist-conditions"></div></div><div class="note-area" id="notearea-conditions"><div class="note-empty" id="empty-conditions" style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#374151;text-align:center;padding:48px;">
@@ -8081,6 +8106,7 @@ async function selectTopic(p, name, skipHash) {
 function showEmpty(p) {
   const emptyEl = document.getElementById('empty-' + p);
   if (emptyEl) emptyEl.style.display = '';
+  if (window.updateStreakUI) { try { window.updateStreakUI(); window.updateStatsUI && window.updateStatsUI(); } catch(e){} }
   const bar = document.getElementById('modeBar-' + p);
   if (bar) bar.classList.remove('visible');
   const na = document.getElementById('notearea-' + p);
