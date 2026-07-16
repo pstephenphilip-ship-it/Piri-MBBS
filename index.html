@@ -6222,6 +6222,220 @@ window.MOCK_BANK = {
         "In sustained hypertension the baroreceptors RESET: over days the reflex re-zeroes to treat the new, higher pressure as its 'normal' set-point, so it stops firing an error signal against it. The reflex still buffers ACUTE swings brilliantly (seconds-to-minutes) but no longer opposes the chronically elevated level.",
         "This is why baroreflex physiology and essential hypertension coexist, and it hands the LONG-TERM set-point to the kidney (fcvs-061) via pressure-natriuresis and RAAS — the baroreflex simply follows.",
         "Clinical anchor: it is the same 'set-point moves up' principle as the rightward shift of cerebral autoregulation (fcvs-068) — and why hypertension is treated with volume/RAAS control rather than by trying to 'fix' the baroreflex."
+      ] },
+    { id:"fcvs-071", type:"mcq",
+      question:"In early septic shock the systemic vascular resistance is very low. Despite a low mean arterial pressure, tissue blood flow is often high ('warm shock'). Which haemodynamic relationship explains this?",
+      options:[
+        "Flow = pressure gradient ÷ resistance",
+        "Flow = pressure gradient × resistance",
+        "Flow depends on resistance alone, not the pressure gradient",
+        "Flow falls whenever the vascular resistance falls",
+        "Flow is fixed by the mean arterial pressure alone"],
+      correctIndex:0,
+      explanation:[
+        "Blood flow obeys the haemodynamic Ohm's law: Q = ΔP / R. In warm shock the SVR is very low, so even a reduced ΔP (low MAP) can still drive a normal or HIGH flow — distributive shock is a problem of low SVR and maldistribution, not low output.",
+        "Contrast cardiogenic and hypovolaemic shock, where the cardiac output (and hence flow) FALLS.",
+        "Clinical anchor: this is why septic shock is treated with a VASOCONSTRICTOR (noradrenaline) to restore SVR and MAP, not primarily with an inotrope (cross-link: fcvs-073, BP = CO × SVR; Shock)."
+      ] },
+    { id:"fcvs-072", type:"mcq",
+      question:"Arteriolar smooth muscle contracts and the vessel radius halves. Approximately what happens to that arteriole's resistance?",
+      options:[
+        "It doubles (rises 2-fold)",
+        "It quadruples (rises 4-fold)",
+        "It rises about 16-fold",
+        "It halves as the radius halves",
+        "Unchanged — length, not radius, sets resistance"],
+      correctIndex:2,
+      explanation:[
+        "By Poiseuille's law, resistance is inversely proportional to the FOURTH power of the radius (R ∝ 1/r⁴). Halving the radius therefore raises resistance by 2⁴ = 16-fold.",
+        "This 4th-power dependence is why tiny changes in arteriolar calibre swing flow and pressure enormously — and why the ARTERIOLES (not the capillaries) are the control point for SVR and the target of every vasoconstrictor and vasodilator.",
+        "Clinical anchor: why a small dose of a pressor markedly raises BP; radius dominates day-to-day resistance, though viscosity and vessel length also contribute (fcvs-082)."
+      ] },
+    { id:"fcvs-073", type:"mcq",
+      question:"A patient in cardiogenic shock has a low cardiac output but a cool periphery and a near-normal blood pressure. How is the blood pressure being maintained?",
+      options:[
+        "A fall in the systemic vascular resistance",
+        "A compensatory rise in systemic vascular resistance",
+        "A rise in cardiac output offsetting the low SVR",
+        "Autoregulation raising the mean arterial pressure",
+        "Blood pressure is independent of the cardiac output"],
+      correctIndex:1,
+      explanation:[
+        "BP = CO × SVR. When CO falls, a reflex sympathetic RISE in SVR (the cool, clamped-down periphery) defends the pressure — so a 'normal' BP can hide a dangerously low cardiac output.",
+        "Contrast the low-SVR, warm periphery of septic/distributive shock (fcvs-071): cold shock = low CO + high SVR; warm shock = high/normal CO + low SVR.",
+        "Clinical anchor: BP is a POOR early marker of shock — read perfusion instead (capillary refill, lactate, urine output, SvO₂ fcvs-056). The cold-vs-warm distinction guides pressor vs inotrope."
+      ] },
+    { id:"fcvs-074", type:"mcq",
+      image:"assets/ecg/pressure_profile.svg",
+      imageAlt:"A graph of mean pressure falling from the aorta to the great veins, divided into five regions numbered ① to ⑤; the pressure falls most steeply across region ③.",
+      question:"The graph shows mean pressure falling from the aorta to the great veins, with five regions labelled ① to ⑤. At which region is vascular resistance greatest?",
+      options:[
+        "Region ①",
+        "Region ②",
+        "Region ③",
+        "Region ④",
+        "Region ⑤"],
+      correctIndex:2,
+      explanation:[
+        "The STEEPEST pressure drop marks the site of greatest resistance — the ARTERIOLES (region ③). Pressure is high and pulsatile in the large and small arteries (①②), falls steeply across the arterioles, then is low and steady in the capillaries and veins (④⑤).",
+        "This is why arterioles are called the 'resistance vessels' that set SVR, and why they also DAMP the pulsatility, protecting the fragile capillaries downstream.",
+        "Clinical anchor: arteriolar tone is the main determinant of SVR and of diastolic BP — the site where vasoactive drugs act."
+      ] },
+    { id:"fcvs-075", type:"mcq",
+      question:"Roughly two-thirds of the total blood volume sits in the veins at any moment. What is the main functional consequence of sympathetic venoconstriction?",
+      options:[
+        "It is the main determinant of systemic vascular resistance",
+        "It reduces cardiac output by trapping blood peripherally",
+        "It lowers the heart rate through the baroreflex",
+        "Increased venous return and cardiac preload",
+        "Little effect, because the veins carry little blood volume"],
+      correctIndex:3,
+      explanation:[
+        "Veins are CAPACITANCE vessels, holding ~65–70% of the blood volume at low pressure. Sympathetic venoconstriction squeezes this reservoir → blood shifts centrally → ↑venous return → ↑preload → ↑stroke volume (Frank-Starling) → ↑cardiac output.",
+        "The arterioles, not the veins, set SVR — option A is the classic trap.",
+        "Clinical anchor: venoconstriction defends preload in early haemorrhage and shock; conversely GTN/nitrates VENODILATE → pool blood → ↓preload, which is how they relieve angina and acute pulmonary oedema (cross-link: ACS, Acute Heart Failure)."
+      ] },
+    { id:"fcvs-076", type:"mcq",
+      question:"A patient's blood pressure is 120/60 mmHg. What is the approximate mean arterial pressure, and why is it not simply the average of 120 and 60?",
+      options:[
+        "90 mmHg; the arithmetic mean of systolic and diastolic",
+        "80 mmHg; diastole occupies more of the cardiac cycle",
+        "60 mmHg; MAP equals the diastolic pressure",
+        "100 mmHg; MAP is weighted toward the systolic",
+        "120 mmHg; MAP equals the systolic pressure"],
+      correctIndex:1,
+      explanation:[
+        "MAP ≈ diastolic + ⅓(pulse pressure) = 60 + ⅓(60) = 80 mmHg. It is weighted toward DIASTOLIC because at a normal rate the heart spends about twice as long in diastole as in systole.",
+        "MAP (not systolic) is the pressure that drives organ perfusion (MAP = CO × SVR).",
+        "Clinical anchor: MAP ≥ 65 mmHg is the usual resuscitation target in sepsis/shock. Note the ⅓ weighting drifts toward ½ as the heart rate rises and diastole shortens disproportionately — the same diastolic-shortening principle as fcvs-013/049, here applied to the MAP formula itself."
+      ] },
+    { id:"fcvs-077", type:"mcq", objective:"fcvs-arterial-stiffness",
+      question:"An 80-year-old has a blood pressure of 176/68 mmHg — isolated systolic hypertension with a wide pulse pressure. What is the main vascular cause?",
+      options:[
+        "A low stroke volume from a stenosed aortic valve",
+        "Increased arteriolar resistance in the periphery",
+        "A slow heart rate lengthening the diastolic interval",
+        "Peripheral venous pooling reducing venous return",
+        "Stiffening of the large elastic arteries with age"],
+      correctIndex:4,
+      explanation:[
+        "A WIDE pulse pressure (systolic − diastolic) reflects STIFF, non-compliant large arteries. With age the aorta loses elastin, so the same stroke volume generates a higher systolic peak while the diastolic falls (loss of the Windkessel cushion, fcvs-078).",
+        "Contrast: aortic REGURGITATION also widens the pulse pressure (diastolic run-off through the incompetent valve), whereas a NARROW pulse pressure signals a low stroke volume (aortic stenosis, hypovolaemia/shock).",
+        "Clinical anchor: isolated systolic hypertension of the elderly is a stiffness disease — still treated (CCB/thiazide) because it drives stroke and LVH risk."
+      ] },
+    { id:"fcvs-078", type:"mcq", objective:"fcvs-arterial-stiffness",
+      question:"The aorta and large arteries expand in systole and recoil in diastole. What is the main functional benefit of this elastic (Windkessel) property?",
+      options:[
+        "It sustains forward flow and pressure during diastole",
+        "It is the main site of systemic vascular resistance",
+        "It generates the pressure that drives the circulation",
+        "It slows the heart rate during the diastolic phase",
+        "It is where most gas and nutrient exchange occurs"],
+      correctIndex:0,
+      explanation:[
+        "In systole the elastic aorta stretches and STORES part of the stroke volume; in diastole it RECOILS, pushing that stored blood onward — sustaining forward flow and diastolic pressure between beats, and smoothing pulsatile ejection into steady capillary flow (the 'air-chamber' Windkessel effect).",
+        "When the arteries stiffen (age, atherosclerosis) this cushion is lost → higher systolic, lower diastolic, a wide pulse pressure (fcvs-077).",
+        "Clinical anchor: coronary filling occurs in DIASTOLE, so the diastolic pressure held up by aortic recoil directly supports myocardial perfusion (forward-link to the Coronary Circulation block)."
+      ] },
+    { id:"fcvs-079", type:"mcq", objective:"fcvs-oedema",
+      image:"assets/ecg/capillary_starling.svg",
+      imageAlt:"A capillary with two opposing forces on fluid across its wall: arrow ① points outward and arrow ② points inward, with a lymphatic vessel draining below.",
+      question:"The diagram shows a capillary with two opposing forces on fluid across its wall, ① and ②, plus lymphatic drainage. Force ① pushes fluid OUT and force ② pulls fluid IN. Which force, when it RISES, produces the oedema of heart failure?",
+      options:[
+        "Force ① — the capillary hydrostatic pressure",
+        "Force ② — the plasma oncotic pressure",
+        "Neither; heart-failure oedema is from low oncotic pressure",
+        "Neither; it is caused by raised capillary permeability",
+        "Lymphatic drainage failure is the cause in heart failure"],
+      correctIndex:0,
+      explanation:[
+        "Fluid movement obeys the Starling balance: capillary HYDROSTATIC pressure (force ①) pushes fluid OUT, plasma ONCOTIC pressure from albumin (force ②) pulls it IN, and the small net filtrate returns via the LYMPHATICS. In heart failure, venous congestion raises the capillary HYDROSTATIC pressure → filtration outstrips reabsorption and lymphatic capacity → oedema.",
+        "Low oncotic pressure and raised permeability also cause oedema, but by different routes (fcvs-080, fcvs-084). Treat heart-failure oedema by LOWERING the filling/hydrostatic pressure (diuretics, venodilators).",
+        "Payoff — same force, different cause: DIHYDROPYRIDINE calcium-channel blockers (amlodipine) dilate PREcapillary arterioles more than POSTcapillary venules, so more arterial pressure is transmitted to the capillary → raised force ① → filtration → ANKLE OEDEMA. Because there is no venous congestion, the JVP is NORMAL and diuretics DON'T work — the drug must be reduced/switched (cross-link: Hypertension, htn-034)."
+      ] },
+    { id:"fcvs-080", type:"mcq", objective:"fcvs-oedema",
+      question:"A child with nephrotic syndrome develops generalised oedema and a very low serum albumin. Which Starling-force change is responsible?",
+      options:[
+        "Raised capillary hydrostatic pressure",
+        "Increased capillary permeability to protein",
+        "Obstruction of the lymphatic drainage",
+        "Reduced plasma oncotic pressure",
+        "Raised plasma oncotic pressure"],
+      correctIndex:3,
+      explanation:[
+        "Heavy proteinuria → HYPOALBUMINAEMIA → the plasma ONCOTIC pressure that normally holds fluid inside the capillary falls → net filtration into the interstitium → oedema. The same low-oncotic mechanism drives the oedema of LIVER failure (↓albumin synthesis) and severe MALNUTRITION.",
+        "This 'underfill' picture is cleanest in CHILDHOOD minimal-change disease. In adults the OVERFILL hypothesis — primary renal Na⁺ retention via ENaC — explains much nephrotic oedema, and many patients are plasma-volume EXPANDED rather than contracted; the classic teaching stands but should not be over-generalised.",
+        "Clinical anchor: the FOUR-mechanism framework for oedema — ↑hydrostatic (heart failure, fcvs-079), ↓oncotic (here), ↑permeability (sepsis/burns/angioedema, fcvs-084), and lymphatic obstruction (fcvs-081) — every peripheral oedema fits one or a mix."
+      ] },
+    { id:"fcvs-081", type:"mcq", objective:"fcvs-oedema",
+      question:"A woman develops chronic, non-pitting swelling of the arm years after axillary node clearance and radiotherapy for breast cancer. Which mechanism underlies the swelling?",
+      options:[
+        "Raised capillary hydrostatic pressure",
+        "Reduced plasma oncotic pressure",
+        "Increased capillary permeability",
+        "Right-sided heart failure with venous congestion",
+        "Impaired lymphatic drainage"],
+      correctIndex:4,
+      explanation:[
+        "The lymphatics return the net capillary filtrate — including filtered protein — to the circulation. When they are obstructed or removed (post-surgical/radiotherapy LYMPHOEDEMA, or filariasis worldwide), protein-rich fluid accumulates in the interstitium.",
+        "The 'non-pitting' teaching needs a caveat: EARLY lymphoedema DOES pit (it is simple fluid); it is the ESTABLISHED phase — with dermal fibrosis and fat deposition — that becomes characteristically NON-pitting. This stem is the chronic, years-later case.",
+        "Clinical anchor: the fourth Starling-based mechanism (with ↑hydrostatic, ↓oncotic, ↑permeability, fcvs-079/080/084). Non-pitting, unilateral limb oedema after cancer treatment = lymphoedema until proven otherwise — and must be told apart from DVT and venous causes."
+      ] },
+    { id:"fcvs-082", type:"mcq",
+      question:"A man with polycythaemia vera (a very high haematocrit) has hypertension and headaches. How does the raised haematocrit add to the vascular resistance?",
+      options:[
+        "It lowers viscosity, so the resistance falls",
+        "Haematocrit has no effect on vascular resistance",
+        "It raises blood viscosity, increasing resistance",
+        "It dilates the arterioles to compensate for flow",
+        "It acts only by increasing the effective vessel length"],
+      correctIndex:2,
+      explanation:[
+        "Poiseuille's law shows resistance rises with VISCOSITY as well as falling with radius⁴. A very high haematocrit markedly raises whole-blood viscosity → ↑SVR, impaired flow and O₂ delivery, and a thrombotic tendency (hyperviscosity).",
+        "Radius still dominates minute-to-minute resistance (fcvs-072), but viscosity matters here — and viscosity FALLS in anaemia (a determinant of the anaemia flow murmur, fcvs-055/085).",
+        "Clinical anchor: VENESECTION lowers haematocrit/viscosity in polycythaemia; hyperviscosity also occurs in the paraproteinaemias (myeloma, Waldenström macroglobulinaemia)."
+      ] },
+    { id:"fcvs-083", type:"mcq",
+      question:"A 6.0 cm abdominal aortic aneurysm carries a far higher rupture risk than a 4.0 cm one at the same blood pressure. Which principle best explains why rupture risk climbs steeply as it enlarges?",
+      options:[
+        "Poiseuille's law: resistance falls as the radius rises",
+        "Laplace's law: wall tension rises with the radius",
+        "The Windkessel cushion is lost in a dilated aorta",
+        "Blood viscosity rises within the aneurysm sac",
+        "Bernoulli's principle lowers the intraluminal pressure"],
+      correctIndex:1,
+      explanation:[
+        "By Laplace's law, wall tension T ∝ (P × r) / wall thickness. As the aneurysm dilates, r rises → wall tension rises → the wall stretches and THINS → tension rises further: a self-amplifying loop, so rupture risk climbs steeply with diameter (the basis of AAA diameter thresholds for repair, ~5.5 cm; also aortic dissection).",
+        "Option A is a well-chosen trap — Poiseuille's radius relationship is a TRUE statement, but it is the wrong principle here (it governs flow/resistance, not wall stress).",
+        "The same equation does three more jobs: pressure overload raises wall stress → concentric HYPERTROPHY thickens the wall → stress normalises (why LVH develops in hypertension/AS, htn-024/050); and the DILATED failing ventricle has a large radius → high wall stress → high myocardial O₂ demand → the vicious cycle of HFrEF. Clinical anchor: one equation links aneurysm rupture, LVH, and the dilated-heart oxygen spiral."
+      ] },
+    { id:"fcvs-084", type:"mcq", objective:"fcvs-oedema",
+      question:"A patient stable on an ACE inhibitor for two years develops sudden lip and tongue swelling (angioedema). By which of the four Starling-based oedema mechanisms does this occur?",
+      options:[
+        "Raised capillary hydrostatic pressure",
+        "Reduced plasma oncotic pressure",
+        "Obstruction of the lymphatic drainage",
+        "Reduced capillary hydrostatic pressure",
+        "Increased capillary permeability"],
+      correctIndex:4,
+      explanation:[
+        "ACE normally degrades BRADYKININ; inhibiting it lets bradykinin accumulate → increased capillary/venular PERMEABILITY → protein-rich fluid leaks into the tissues → angioedema. This completes the four-mechanism framework (↑hydrostatic fcvs-079, ↓oncotic fcvs-080, lymphatic fcvs-081, ↑permeability here); other permeability oedemas are sepsis, burns, ARDS and anaphylaxis.",
+        "Clinical anchor: ACEi angioedema is a CLASS effect (bradykinin-mediated, not IgE), can appear months-to-years after starting, is commoner in Black patients, and mandates STOPPING the ACEi — the airway is the danger.",
+        "One mechanism seen three times: bradykinin accumulation also causes the ACEi COUGH (fcvs-063) — the cough, the angioedema and the RAAS cascade are the same pharmacology (cross-link: Hypertension, htn-039)."
+      ] },
+    { id:"fcvs-085", type:"mcq",
+      question:"Blood normally flows silently (laminar flow). What change converts laminar flow into the turbulence that generates an audible murmur?",
+      options:[
+        "A rise in blood viscosity above the normal range",
+        "A fall in the velocity of blood flow through a vessel",
+        "An increase in the plasma oncotic pressure",
+        "High velocity through a narrowing, or low blood viscosity",
+        "A wider lumen, which slows the velocity of flow"],
+      correctIndex:3,
+      explanation:[
+        "Laminar flow becomes TURBULENT (and audible) above a critical Reynolds number (Re = ρvd/η) — favoured by HIGH velocity (a stenotic or regurgitant jet), a large diameter, and LOW viscosity. A murmur therefore tells you there is turbulence; the Cardiac Cycle block owns WHEN a murmur falls (fcvs-006/007), while this owns WHY it exists.",
+        "Option A is a sharper distractor than it looks: raised viscosity SUPPRESSES turbulence — the exact reverse of the answer. It predicts the inversion between fcvs-082 and fcvs-055 — the POLYCYTHAEMIC patient (high viscosity) is LESS likely to have a flow murmur, while the ANAEMIC patient (low viscosity) is MORE likely — the same Poiseuille/Reynolds viscosity term acting in opposite directions.",
+        "Option E stipulates a wider lumen that slows the velocity (continuity): at lower velocity the net effect is LESS turbulence. Clinical anchor: a flow murmur (anaemia, pregnancy, fever) versus true valve disease — velocity and viscosity, not just the valve, decide whether you hear anything."
       ] }
   ]
 };
