@@ -8446,9 +8446,9 @@ function initPharma(){
     item.innerHTML='<span class="system-icon">'+data.icon+'</span><span class="system-name">'+name+'</span><span class="system-count">'+total+'</span>';
     list.appendChild(item);
   });
-  pharmaSelectSection(Object.keys(PHARMA_SECTIONS)[0]);
+  pharmaSelectSection(Object.keys(PHARMA_SECTIONS)[0], true);
 }
-function pharmaSelectSection(name){
+function pharmaSelectSection(name, skipFlyout){
   pharmaActiveSection=name;
   document.querySelectorAll('#pharma-section-list .system-item').forEach(el=>el.classList.toggle('active',el.querySelector('.system-name').textContent===name));
   const data=PHARMA_SECTIONS[name];
@@ -8457,7 +8457,10 @@ function pharmaSelectSection(name){
   document.getElementById('pharma-sub-count').textContent=total+' drug entr'+(total!==1?'ies':'y');
   renderPharmaDrugList(data.subsections,'');
   pharmaShowEmpty();
-  // Show the drug list panel as flyout
+  // Open the drug-list flyout only on a real class click; on initial tab load
+  // (skipFlyout) leave it closed so just the main sidebar shows, matching the
+  // Medical Conditions behaviour.
+  if(skipFlyout) return;
   var cl=document.querySelector('#tab-pharmacology .condition-list');
   if(cl) cl.classList.add('cl-visible');
   setTimeout(function(){
