@@ -6038,6 +6038,190 @@ window.MOCK_BANK = {
         "Cardiac output rises with heart rate up to an OPTIMAL rate — the PEAK at Point 3 — then FALLS at higher rates because diastole shortens and filling/stroke volume drop (fcvs-049).",
         "The relationship is an inverted-U, not a straight line: Points 1–2 sit on the rising limb, Point 3 is the optimum, and Points 4–5 are the falling limb where lost filling outweighs the extra beats.",
         "Clinical anchor: both profound bradycardia (fcvs-054) and very fast AF/SVT (fcvs-049) sit off the peak, giving a lower CO."
+      ] },
+    { id:"fcvs-058", type:"mcq",
+      question:"On standing, gravity pools blood in the legs and arterial pressure tends to fall. How does the baroreceptor reflex correct this within seconds?",
+      options:[
+        "Reduced firing raises sympathetic drive → ↑HR and vasoconstriction",
+        "Increased firing raises parasympathetic (vagal) tone throughout",
+        "The kidney releases renin within the first few seconds",
+        "Atrial natriuretic peptide causes rapid systemic vasodilation",
+        "Cerebral autoregulation raises the systemic arterial pressure"],
+      correctIndex:0,
+      explanation:[
+        "Baroreceptors (carotid sinus, aortic arch) fire in proportion to arterial stretch. When BP FALLS, they fire LESS → the medulla raises sympathetic outflow and withdraws vagal tone → ↑HR, ↑contractility and vasoconstriction → BP is restored within SECONDS.",
+        "This is a fast, neural, seconds-to-minutes buffer — not a volume mechanism (renin/RAAS is the slow, long-term arm, fcvs-061).",
+        "Clinical anchor: when this reflex fails (ageing, autonomic neuropathy, over-diuresis, antihypertensives) → ORTHOSTATIC HYPOTENSION and postural syncope."
+      ] },
+    { id:"fcvs-059", type:"mcq",
+      question:"In acute aortic dissection a pure arterial vasodilator (e.g. hydralazine) is dangerous if given BEFORE a beta-blocker. Why?",
+      options:[
+        "Arterial vasodilators paradoxically raise the mean blood pressure",
+        "Reflex tachycardia and harder contraction raise aortic dP/dt",
+        "Arterial vasodilators reliably cause a protective reflex bradycardia",
+        "Vasodilators directly abolish the baroreceptor reflex arc itself",
+        "They increase renal perfusion and switch on the RAAS axis"],
+      correctIndex:1,
+      explanation:[
+        "A vasodilator drops BP → UNLOADS the baroreceptors → a reflex sympathetic surge (tachycardia, ↑contractility) → a raised RATE of aortic pressure rise (dP/dt) and shear on the intimal flap → the dissection PROPAGATES.",
+        "So the sequence is a beta-blocker (or labetalol) FIRST to blunt rate and dP/dt, THEN a vasodilator (fcvs-058 shows the same baroreflex, here working against you).",
+        "Clinical anchor: in dissection you must control the RATE OF RISE and shear, not just the absolute pressure (cross-link: Aortic Dissection, ad-022)."
+      ] },
+    { id:"fcvs-060", type:"mcq",
+      question:"The peripheral chemoreceptors (carotid and aortic bodies) also influence blood pressure. What do they sense, and what is the cardiovascular effect?",
+      options:[
+        "Arterial stretch; they act to lower the systemic blood pressure",
+        "Circulating blood volume; they trigger renin release from the kidney",
+        "Low O₂, high CO₂ or low pH; they raise sympathetic tone",
+        "The plasma sodium level; they release aldosterone directly",
+        "Body core temperature; they cause reflex peripheral vasodilation"],
+      correctIndex:2,
+      explanation:[
+        "Chemoreceptors sense HYPOXIA, HYPERCAPNIA and ACIDOSIS. Their main job is ventilatory, but in SEVERE hypoxia/ischaemia they also drive sympathetic activation → vasoconstriction and a rise in BP.",
+        "Contrast with baroreceptors, which sense PRESSURE (stretch); chemoreceptors sense the BLOOD GASES — two different afferent limbs feeding the same medullary centres.",
+        "Clinical anchor: the chemoreflex sympathetic surge in severe hypoxaemia and in cardiac arrest; also the sympathetic overactivity of obstructive sleep apnoea driving hypertension."
+      ] },
+    { id:"fcvs-061", type:"mcq",
+      question:"Which mechanism is the principal LONG-TERM (hours-to-days) controller of blood pressure?",
+      options:[
+        "The fast baroreceptor reflex acting through the medulla",
+        "The peripheral chemoreceptors in the carotid and aortic bodies",
+        "Cerebral (organ-level) autoregulation of arteriolar tone",
+        "The kidney, via the RAAS and blood-volume control",
+        "The Bainbridge (atrial stretch) reflex on the sinus node"],
+      correctIndex:3,
+      explanation:[
+        "The baroreflex handles seconds-to-minutes and RESETS to whatever pressure persists (fcvs-070), so it cannot set the long-term level. The long-term set-point is the KIDNEY, via RAAS and pressure-natriuresis (volume control).",
+        "This is Guyton's central idea: only the kidney can indefinitely match salt/water output to intake, so the long-term operating pressure is a renal function.",
+        "Clinical anchor: nearly every secondary hypertension is renal or endocrine-on-the-kidney (renal artery stenosis, Conn's, CKD) — and why volume/RAAS drugs, not baroreflex tricks, treat it (fcvs-062)."
+      ] },
+    { id:"fcvs-062", type:"mcq",
+      question:"What is the main stimulus for renin release from the juxtaglomerular cells?",
+      options:[
+        "High renal perfusion, high distal Na⁺ delivery, or vagal drive",
+        "A rise in the plasma sodium concentration on its own",
+        "Parasympathetic (vagal) activation of the juxtaglomerular cells",
+        "A high circulating blood volume with a high renal pressure",
+        "Low renal perfusion, low Na⁺, or sympathetic drive"],
+      correctIndex:4,
+      explanation:[
+        "Renin is released when the kidney senses UNDERFILLING: ↓renal perfusion pressure, LOW tubular Na⁺ at the macula densa, or ↑sympathetic (β1) drive. The mirror-image conditions (high perfusion, high Na⁺, vagal tone) SUPPRESS renin — which is why option A is the exact opposite trap.",
+        "So renin is a low-flow / low-volume alarm, not a high-sodium sensor.",
+        "Clinical anchor: RENAL ARTERY STENOSIS → the stenotic kidney sees low perfusion → inappropriate renin → secondary hypertension despite a normal or high systemic BP; also why β-blockers lower renin and NSAIDs blunt it."
+      ] },
+    { id:"fcvs-063", type:"mcq",
+      image:"assets/ecg/raas_cascade.svg",
+      imageAlt:"A vertical cascade of four boxes — Angiotensinogen, Angiotensin I, Angiotensin II, Aldosterone — linked by three arrows numbered ①, ② and ③ from top to bottom.",
+      question:"The renin–angiotensin–aldosterone cascade is shown. An ACE inhibitor blocks which numbered conversion step?",
+      options:[
+        "Step ①",
+        "Step ②",
+        "Step ③",
+        "It blocks the angiotensin II receptor instead of a step",
+        "It blocks aldosterone acting at the distal nephron"],
+      correctIndex:1,
+      explanation:[
+        "Angiotensin-converting enzyme (mainly pulmonary endothelium) catalyses the conversion of ANGIOTENSIN I → ANGIOTENSIN II — the middle arrow, Step ②. An ACE inhibitor blocks that step.",
+        "Reading the cascade shows why the RAAS drugs differ by WHERE they act: an ARB blocks the AT-II receptor (option D), spironolactone/eplerenone block aldosterone (option E), and renin inhibitors block Step ① — same axis, different points. (Drug CHOICE is the Hypertension block's job.)",
+        "Clinical anchor: Step ② also generates bradykinin breakdown — inhibiting it lets bradykinin accumulate → the classic ACEi COUGH and angioedema, the pharmacological reason ARBs are the cough-free alternative."
+      ] },
+    { id:"fcvs-064", type:"mcq",
+      question:"Through which combination of actions does angiotensin II raise blood pressure?",
+      options:[
+        "Vasoconstriction, aldosterone, ADH/thirst and Na⁺ retention",
+        "Vasodilation, natriuresis, diuresis and renin suppression",
+        "Bradycardia, reduced contractility and venous pooling of blood",
+        "Aldosterone suppression, reduced thirst and potassium retention",
+        "Potassium retention, free-water loss and reflex vasodilation"],
+      correctIndex:0,
+      explanation:[
+        "Angiotensin II raises BP through FOUR converging actions: direct arteriolar vasoconstriction (↑SVR); aldosterone release (Na⁺/water → ↑volume); ADH release and thirst (↑volume); and direct proximal Na⁺ reabsorption plus efferent arteriolar constriction (which defends GFR).",
+        "It therefore lifts BOTH halves of BP = CO × SVR — the volume arm and the resistance arm — which is why interrupting it is so effective. (The distractors are all coherent but point the WRONG way, so you must know the direction, not spot the longest option.)",
+        "Clinical anchor: the efferent-constriction action is why starting an ACEi/ARB can bump the CREATININE (GFR falls as efferent tone drops) — expected up to ~30%, and profound in bilateral renal artery stenosis (cross-link: renal)."
+      ] },
+    { id:"fcvs-065", type:"mcq",
+      question:"Aldosterone contributes to raising blood pressure by which mechanism?",
+      options:[
+        "Direct vasoconstriction of the systemic arterioles",
+        "Increasing the heart rate and myocardial contractility",
+        "↑Na⁺ and water reabsorption distally → ↑blood volume",
+        "Stimulating further renin release from the kidney",
+        "Causing a brisk natriuresis and an accompanying diuresis"],
+      correctIndex:2,
+      explanation:[
+        "Aldosterone acts on the DISTAL nephron (principal cells) to reabsorb Na⁺ and water in exchange for K⁺ and H⁺ → ↑plasma volume → ↑preload → ↑CO → ↑BP. It is the VOLUME arm of RAAS, whereas angiotensin II is the vasoconstrictor arm (fcvs-064).",
+        "The Na⁺/K⁺/H⁺ exchange is why excess aldosterone gives HYPOKALAEMIA and a metabolic alkalosis.",
+        "Clinical anchor: CONN'S SYNDROME (primary hyperaldosteronism) → hypertension with hypokalaemia; spironolactone/eplerenone (aldosterone antagonists) treat it and are the 4th-line drug in resistant hypertension."
+      ] },
+    { id:"fcvs-066", type:"mcq",
+      question:"ANP and BNP are released when the cardiac chambers are stretched (volume overload). What do they do, and why is BNP used as a heart-failure marker?",
+      options:[
+        "Cause vasoconstriction and retain salt and water",
+        "Stimulate renin and aldosterone release from the kidney",
+        "Raise the heart rate and increase myocardial contractility",
+        "Natriuresis and vasodilation; BNP tracks ventricular stretch",
+        "Retain potassium while driving a net free-water loss"],
+      correctIndex:3,
+      explanation:[
+        "The natriuretic peptides — ANP (atrial) and BNP (ventricular) — are the physiological OPPOSITE of RAAS: they promote natriuresis and vasodilation → ↓volume and ↓BP. BNP rises in proportion to VENTRICULAR WALL STRETCH (raised filling pressures), so it is a blood marker of heart failure; a normal BNP makes untreated HF unlikely.",
+        "Neprilysin normally DEGRADES BNP. Sacubitril (in the ARNI sacubitril/valsartan) inhibits neprilysin, so it exploits this system — but that also means an ARNI RAISES measured BNP while LOWERING NT-proBNP (which is not a neprilysin substrate). So on an ARNI you monitor with NT-proBNP, not BNP.",
+        "Clinical anchor: the BNP/NT-proBNP test to triage breathlessness and gate echocardiography, and the ARNI caveat above (cross-link: Chronic Heart Failure, chf-011)."
+      ] },
+    { id:"fcvs-067", type:"mcq",
+      question:"Vital organs keep their blood flow roughly constant despite swings in systemic pressure. How is this achieved?",
+      options:[
+        "By raising or lowering the whole-body cardiac output",
+        "Through the systemic arterial baroreceptor reflex",
+        "By releasing renin from the juxtaglomerular apparatus",
+        "Through generalised systemic arterial vasoconstriction",
+        "Each organ tunes its own arteriolar tone (myogenic/metabolic)"],
+      correctIndex:4,
+      explanation:[
+        "Autoregulation is ORGAN-LEVEL, not systemic: each organ adjusts its OWN arteriolar tone — a MYOGENIC response (vessel constricts when stretched by higher pressure) plus METABOLIC control (local metabolites, e.g. adenosine/CO₂, vasodilate when flow is inadequate). Flow is held constant across a plateau of pressures, but is overwhelmed at the extremes.",
+        "This is distinct from the baroreflex (which regulates SYSTEMIC pressure) — autoregulation regulates LOCAL flow.",
+        "Clinical anchor: cerebral autoregulation and its rightward shift in chronic hypertension (fcvs-068); coronary and renal autoregulation follow the same principle."
+      ] },
+    { id:"fcvs-068", type:"mcq",
+      question:"In chronic hypertension the cerebral autoregulation curve shifts to the RIGHT. What is the consequence when treating a hypertensive emergency?",
+      options:[
+        "Lower the BP gradually (≤25% of MAP), or the adapted brain hypoperfuses",
+        "The blood pressure can safely be normalised as fast as possible",
+        "The brain will now tolerate essentially any degree of hypotension",
+        "Cerebral autoregulation has been lost completely and permanently",
+        "Cerebral blood flow now rises linearly with the systemic pressure"],
+      correctIndex:0,
+      explanation:[
+        "A rightward shift means the brain is adapted to high pressures and its LOWER autoregulatory limit is raised — so a 'normal' BP can now cause cerebral HYPOPERFUSION. Hypertensive emergencies are therefore lowered only GRADUALLY (roughly ≤25% of MAP in the first hour), not straight to normal.",
+        "The autoregulatory range is shifted, NOT abolished (options C/D are the trap) — the plateau still exists, just at higher pressures.",
+        "Clinical anchor / exception: ACUTE ISCHAEMIC STROKE → PERMISSIVE hypertension (the ischaemic penumbra depends on the pressure) — the same logic in reverse (cross-link: Hypertension htn-045; Stroke htn-054)."
+      ] },
+    { id:"fcvs-069", type:"mcq",
+      question:"A patient with rapidly rising intracranial pressure develops hypertension with bradycardia and irregular breathing (the Cushing reflex). What is the purpose of the hypertension?",
+      options:[
+        "To lower the raised intracranial pressure directly",
+        "To defend cerebral perfusion (CPP = MAP − ICP)",
+        "To increase the heart rate reflexively via the baroreflex",
+        "To trigger renin release and expand the blood volume",
+        "To cause protective vasodilation of the cerebral vessels"],
+      correctIndex:1,
+      explanation:[
+        "As ICP rises, CEREBRAL PERFUSION PRESSURE (CPP = MAP − ICP) is squeezed; the reflex drives systemic BP UP to restore it. The BRADYCARDIA is a baroreflex response to that hypertension, and the irregular (Cheyne-Stokes/ataxic) breathing reflects brainstem compression — the ominous Cushing TRIAD of critically raised ICP.",
+        "So this hypertension is DOING A JOB. That places it in a cluster worth naming — 'is this pressure doing a job?': raised ICP/Cushing (protective, do NOT lower it — treat the ICP) and acute ischaemic stroke (permissive, htn-054) both need the pressure; chronic hypertensive adaptation is lowered GRADUALLY (fcvs-068); only AORTIC DISSECTION is lowered HARDER and faster (fcvs-059, htn-047). The answer to 'how aggressively do I lower this BP?' depends on which scenario you are in.",
+        "Clinical anchor: hypertension + bradycardia in a patient with a headache or reduced GCS = raised ICP until proven otherwise — image the brain, do not just treat the number."
+      ] },
+    { id:"fcvs-070", type:"mcq",
+      question:"The baroreflex corrects a falling blood pressure within seconds. Why does it NOT prevent chronic hypertension from developing?",
+      options:[
+        "It is abolished permanently as soon as the BP first rises",
+        "It responds only to a rising, and never to a falling, pressure",
+        "It is overridden entirely by the peripheral chemoreceptors",
+        "It controls heart rate only and has no effect on vascular tone",
+        "It resets to defend the new higher pressure as normal"],
+      correctIndex:4,
+      explanation:[
+        "In sustained hypertension the baroreceptors RESET: over days the reflex re-zeroes to treat the new, higher pressure as its 'normal' set-point, so it stops firing an error signal against it. The reflex still buffers ACUTE swings brilliantly (seconds-to-minutes) but no longer opposes the chronically elevated level.",
+        "This is why baroreflex physiology and essential hypertension coexist, and it hands the LONG-TERM set-point to the kidney (fcvs-061) via pressure-natriuresis and RAAS — the baroreflex simply follows.",
+        "Clinical anchor: it is the same 'set-point moves up' principle as the rightward shift of cerebral autoregulation (fcvs-068) — and why hypertension is treated with volume/RAAS control rather than by trying to 'fix' the baroreflex."
       ] }
   ]
 };
