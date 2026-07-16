@@ -4983,6 +4983,71 @@ window.MOCK_BANK = {
         "Distractors: (A) papilloedema is a swollen optic disc (grade 4, htn-049); (B) neovascularisation is proliferative DIABETIC retinopathy; (C) a cherry-red spot is central retinal artery occlusion (or a storage disease); (D) drusen are the yellow deposits of age-related macular degeneration."
       ] }
   ],
+  "conditions__CARDIOVASCULAR__Tachycardia": [
+    { id:"ie-023p", type:"saq",
+      question:"In infective endocarditis, what is the single most commonly present clinical feature? (one word)",
+      answer:"Fever",
+      accept:["fever","pyrexia","febrile","high temperature","raised temperature","temperature"],
+      markPoints:["Fever — present in ~90%, the most consistent feature","The peripheral stigmata (Osler, Janeway, Roth) are UNCOMMON — their absence does not exclude IE","Fever + new/changing murmur + a risk factor = the trigger for blood cultures and echo"],
+      explanation:[
+        "Fever is present in around 90% and is the most consistent feature; with a new or changing murmur it drives the clinical suspicion.",
+        "The eponymous peripheral stigmata (Osler, Janeway, Roth) are actually UNCOMMON in modern series — classic but not sensitive.",
+        "Key teaching: the ABSENCE of peripheral stigmata does NOT exclude IE. Fever + murmur + a risk factor is the trigger to take blood cultures and arrange echocardiography."
+      ] },
+    { id:"ie-031p", type:"fill", objective:"ie-blood-cultures",
+      question:"A patient with a surgically repaired ventricular septal defect is admitted with three weeks of fever and a new murmur; infective endocarditis is suspected. Fill in the blank for each investigation step.",
+      data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>96 bpm</b></span><span>BP <b>118/72 mmHg</b></span><span>RR <b>18/min</b></span><span>Temp <b>38.4 &deg;C</b></span></div>',
+      rows:[
+        "(a) Single most important investigation, and when it is taken relative to antibiotics:  {{0}}",
+        "(b) First-line imaging is transthoracic echo (TTE); if that is normal but suspicion stays high, what is arranged?  {{1}}",
+        "(c) ECG change that would signal an aortic root abscess:  {{2}}"
+      ],
+      blanks:[
+        {label:"(a) key investigation + timing",accept:["blood cultures","blood culture","cultures","three sets","3 sets","blood cultures before antibiotics"],answer:"Blood cultures — three sets, taken before antibiotics"},
+        {label:"(b) if TTE is normal",accept:["toe","tee","transoesophageal","transesophageal","transoesophageal echo","transesophageal echo","transoesophageal echocardiogram"],answer:"Transoesophageal echo (TOE)"},
+        {label:"(c) ECG change",accept:["av block","heart block","complete heart block","new av block","pr prolongation","prolonged pr","pr interval","first degree","first-degree","conduction delay"],answer:"New / progressive AV block (PR prolongation → heart block)"}
+      ],
+      explanation:[
+        "Cornerstone microbiology (blood cultures BEFORE antibiotics), staged imaging (TTE then TOE, a normal echo not excluding the diagnosis), and the ECG red flag (new AV block = aortic root abscess) are the three investigation pillars.",
+        "Tagged to exclude ie-026 under random draw (part (a) is the tightest verbatim leak); the echo overlap with ie-028 and the AV-block overlap with ie-014 are accepted as legitimate consolidation."
+      ] },
+    { id:"ie-034p", type:"fill",
+      question:"Modified Duke criteria: there are three ways to reach a diagnosis of DEFINITE infective endocarditis on CLINICAL grounds. Fill in the number of criteria needed for each pathway.",
+      rows:[
+        "{{0}} major",
+        "{{1}} major  +  {{2}} minor",
+        "{{3}} minor"
+      ],
+      blanks:[
+        {label:"major-only pathway",accept:["2","two"],answer:"2"},
+        {label:"major (mixed pathway)",accept:["1","one"],answer:"1"},
+        {label:"minor (mixed pathway)",accept:["3","three"],answer:"3"},
+        {label:"minor-only pathway",accept:["5","five"],answer:"5"}
+      ],
+      explanation:[
+        "Definite IE on CLINICAL criteria = 2 major, OR 1 major + 3 minor, OR 5 minor. (There is also a PATHOLOGICAL route to definite — organisms or active endocarditis proven from a vegetation/abscess at surgery or autopsy.)",
+        "Mind the tier below: 1 major + 1 minor, or 3 minor, is POSSIBLE IE — drop one criterion from any definite pathway and you land there, not on definite.",
+        "Full three-tier structure: DEFINITE = 2 major / 1 major + 3 minor / 5 minor / pathological proof. POSSIBLE = 1 major + 1 minor, or 3 minor. REJECTED = a firm alternative diagnosis, resolution with ≤4 days of antibiotics, no pathological evidence at surgery/autopsy after ≤4 days of antibiotics, or simply not meeting 'possible' (this is what ie-032's 'rejected' option formally means)."
+      ] },
+    { id:"ie-048p", type:"multi", objective:"ie-surgery-indications",
+      boxLabel:"Indications for surgery",
+      question:"A patient with infective endocarditis is being assessed for cardiac surgery. From the options below, select ALL that are recognised indications for surgery and place them in the box.",
+      options:[
+        "Heart failure from severe acute aortic or mitral regurgitation",
+        "Fever that settles within 48 hours of starting antibiotics",
+        "Perivalvular (aortic-root or annular) abscess, or new heart block",
+        "A single small (<5 mm) vegetation with no embolic events",
+        "Persistent bacteraemia despite appropriate antibiotics, or a fungal/resistant organism",
+        "Blood cultures that become negative after 3 days of treatment",
+        "A large mobile vegetation (>10 mm) with a recurrent embolic event on antibiotics",
+        "Uncomplicated right-sided (tricuspid) endocarditis responding to antibiotics"],
+      correct:[0,2,4,6],
+      explanation:[
+        "The three surgical categories (ESC): HEART FAILURE from valve destruction (option 1 — the commonest and most urgent, ie-043); UNCONTROLLED INFECTION (option 3 perivalvular abscess/new heart block, and option 5 persistent bacteraemia or a fungal/resistant organism); and PREVENTION OF EMBOLISM (option 7 — a large mobile vegetation that keeps embolising despite antibiotics).",
+        "Why the others are NOT indications: fever settling within 48 h (option 2) and cultures clearing by day 3 (option 6) mean the infection is being CONTROLLED by antibiotics; a small vegetation with no emboli (option 4) is watched, not operated on; and uncomplicated right-sided/tricuspid IE (option 8) usually responds to antibiotics alone — a key IVDU-endocarditis point (ie-046).",
+        "New heart block (option 3) matters because it signals perivalvular/root abscess extension into the conducting system — a cross-link to the Bradycardia block. Tagged with ie-043 so a single mock won't draw both."
+      ] }
+  ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
       question:"A 58-year-old man is admitted with three weeks of night sweats, fevers and malaise. Four years ago he was treated for infective endocarditis following a dental abscess. He also has a bicuspid aortic valve, type 2 diabetes, and a normal colonoscopy last year for altered bowel habit. His observations are shown. Which factor most strongly predisposes him to a further episode of infective endocarditis?",
