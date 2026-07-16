@@ -7298,7 +7298,10 @@ window.MOCK_BANK = {
     for(var gi=0; gi<pool.length; gi++){ var sk=pool[gi]._sys||'_'; if(!bySys[sk]){ bySys[sk]=[]; sysOrder.push(sk); } bySys[sk].push(pool[gi]); }
     shuffle(sysOrder);
     // Objective de-duplication (never two questions sharing an `objective` in one paper) is
-    // applied as we pick.
+    // applied as we pick. Non-clinical "Foundations of ..." topics are capped at 5% of the
+    // paper (relaxed only by the backfill below if the pool can't otherwise reach the length).
+    var foundCap=Math.floor(n*0.05), foundCount=0;
+    var isFound=function(q){ return /^Foundations/i.test(q._topic||''); };
     var picked=[], usedObj={}, progress=true;
     while(picked.length<n && progress){
       progress=false;
@@ -7306,8 +7309,10 @@ window.MOCK_BANK = {
         var arr=bySys[sysOrder[si]];
         while(arr.length){
           var q=arr.shift(), ob=q.objective;
-          if(ob && usedObj[ob]) continue;   // skip if its objective-pair is already in the paper
+          if(ob && usedObj[ob]) continue;                 // objective-pair already in the paper
+          if(isFound(q) && foundCount>=foundCap) continue; // foundations cap reached
           if(ob) usedObj[ob]=1;
+          if(isFound(q)) foundCount++;
           picked.push(q); progress=true; break;
         }
       }
