@@ -5640,8 +5640,127 @@ window.MOCK_BANK = {
       correctIndex:4,
       explanation:[
         "In LBBB the LEFT ventricle depolarises late, so AORTIC closure (A2) is delayed until AFTER pulmonary closure (P2) — the reverse of normal. This gives REVERSED (paradoxical) splitting: the split is audible in EXPIRATION and NARROWS on inspiration (the opposite of physiological splitting).",
-        "The three patterns: PHYSIOLOGICAL (inspiration → more venous return → delayed P2, so the split widens); FIXED (atrial septal defect — equal filling of both sides regardless of respiration); REVERSED (delayed A2 — LBBB, or severe aortic stenosis).",
+        "The three patterns: PHYSIOLOGICAL (inspiration → more venous return → delayed P2, so the split widens); FIXED (atrial septal defect — inspiration's extra systemic venous return is offset by a REDUCED left-to-right shunt, so right-heart loading stays roughly constant and the split does not vary); REVERSED (delayed A2 — LBBB, or severe aortic stenosis).",
         "Clinical anchor: reversed splitting points to delayed left-ventricular ejection — LBBB or severe AS."
+      ] },
+    { id:"fcvs-015", type:"mcq",
+      question:"Ivabradine lowers the heart rate without reducing blood pressure or contractility. Which mechanism explains this selectivity?",
+      options:["It blocks the funny current (If), flattening the SA-node phase-4 slope","It blocks L-type calcium channels in vascular smooth muscle","It blocks beta-1 adrenoceptors on the myocardium","It blocks fast sodium channels in ventricular myocytes","It prolongs the plateau by blocking potassium channels"],
+      correctIndex:0,
+      explanation:[
+        "Ivabradine selectively blocks the FUNNY CURRENT (If) — a mixed inward Na⁺/K⁺ current carried by HCN channels (hyperpolarisation-activated, cyclic-nucleotide-gated) that drives slow phase-4 depolarisation in SA-node cells. Flattening phase 4 means threshold is reached later, so the rate falls. (Calcium contributes to phase 4 separately, via the T-type current later in the drift.)",
+        "Because it acts ONLY on the pacemaker current, it slows the heart with NO effect on vascular tone (no BP drop) or contractility — unlike beta-blockers or calcium-channel blockers.",
+        "Four levers on heart rate seen in this subtab: block If (ivabradine, here); block nodal Ca²⁺ (verapamil/diltiazem, fcvs-017); raise vagal tone (digoxin, fcvs-024) or remove it (atropine, fcvs-021); and the sympathetic β1→cAMP→If lever (fcvs-027). Clinical anchor: rate control in heart failure/angina when a beta-blocker is insufficient or not tolerated (chf-021)."
+      ] },
+    { id:"fcvs-016", type:"mcq",
+      question:"In atrial fibrillation the atria depolarise at 300–600/min, yet the ventricular rate is much slower. Which property of the AV node is chiefly responsible?",
+      options:["Its rapid, non-decremental conduction velocity","A long refractory period with decremental conduction","Its spontaneous phase-4 (pacemaker) depolarisation","Its location within the interventricular septum","Its dense sympathetic innervation"],
+      correctIndex:1,
+      explanation:[
+        "The AV node has a LONG refractory period and conducts DECREMENTALLY (faster impulses conduct more slowly, and many are blocked), so only a fraction of the chaotic atrial impulses reach the ventricles — an irregular, far slower response.",
+        "This is protective: unchecked atrial rates of 300–600/min would drive the ventricles into a lethal rate. Trap (C): the AV node DOES have phase-4 automaticity (it can be an escape pacemaker), but that is not what limits the ventricular rate here.",
+        "Clinical anchor: every AF rate-control drug (beta-blockers, non-dihydropyridine calcium blockers, digoxin) works by further slowing AV-nodal conduction (fcvs-017, fcvs-024)."
+      ] },
+    { id:"fcvs-017", type:"mcq",
+      question:"The phase-0 upstroke of the SA and AV node action potential depends on which ion — and which drug class therefore slows AV conduction?",
+      options:["Sodium influx; class I sodium-channel blockers","Potassium efflux; class III potassium-channel blockers","Calcium influx; non-dihydropyridine calcium-channel blockers","Chloride influx; loop diuretics","Sodium efflux; cardiac glycosides"],
+      correctIndex:2,
+      explanation:[
+        "Nodal (SA/AV) cells have NO fast sodium channels — their slow phase-0 upstroke is driven by CALCIUM influx (unlike working myocytes, whose phase 0 is sodium-driven).",
+        "So NON-DIHYDROPYRIDINE calcium-channel blockers (verapamil, diltiazem — Vaughan-Williams class IV) act on the node to slow AV conduction and rate. Dihydropyridines (amlodipine) act on vascular smooth muscle, not the node.",
+        "Clinical anchor: verapamil/diltiazem for rate control in AF/SVT — and why combining them with a beta-blocker is hazardous (additive nodal suppression)."
+      ] },
+    { id:"fcvs-018", type:"mcq",
+      question:"The plateau (phase 2) of the ventricular action potential is sustained by calcium influx. What are its two main consequences?",
+      options:["A short action potential that allows rapid re-firing","Spontaneous depolarisation and automaticity","Rapid repolarisation and a stable resting potential","A long refractory period (no tetany) and triggered contraction","Membrane hyperpolarisation and slowed conduction"],
+      correctIndex:3,
+      explanation:[
+        "The Ca²⁺ plateau does two things: it PROLONGS the action potential (~300 ms) → a long absolute refractory period, so the muscle cannot be re-excited until it relaxes (NO tetany — a fibrillating pump ejects nothing); and the entering Ca²⁺ TRIGGERS calcium-induced calcium release → contraction (excitation-contraction coupling).",
+        "Contrast the pacemaker AP, which has no plateau (fcvs-025).",
+        "Clinical anchor: this long refractoriness, together with the AV node, caps how fast the ventricles can be driven — and its relative refractory period is the vulnerable window of fcvs-026."
+      ] },
+    { id:"fcvs-019", type:"mcq",
+      question:"In complete heart block with a broad-complex escape rhythm, what maintains the ventricular rate, and at roughly what rate?",
+      options:["A junctional (AV-nodal) escape, at 40–60/min","The SA node resuming, at 60–100/min","Retrograde conduction from the atria","Increased sympathetic drive, at 100–120/min","A ventricular (Purkinje) escape, at 20–40/min"],
+      correctIndex:4,
+      explanation:[
+        "When conduction fails completely, a subsidiary pacemaker below the block takes over. A BROAD-complex escape arises from ventricular/Purkinje tissue — slow (~20–40/min) and unreliable.",
+        "Trap (A): a NARROW-complex junctional escape is faster (~40–60/min) and more stable — QRS width tells you the escape level. Pacemaker hierarchy: SA 60–100 > AV 40–60 > ventricular 20–40.",
+        "Clinical anchor: a slow, broad-complex escape in complete heart block is haemodynamically precarious → pacing (brady)."
+      ] },
+    { id:"fcvs-020", type:"mcq",
+      question:"A class III antiarrhythmic (amiodarone, sotalol) blocks the potassium channels responsible for phase 3. What is the effect on the action potential and the ECG?",
+      options:["It shortens the action potential and the QT interval","It prolongs the action potential and the QT interval","It slows the phase-0 upstroke and widens the QRS","It steepens phase 4 and speeds the heart rate","It abolishes the plateau"],
+      correctIndex:1,
+      explanation:[
+        "Phase-3 repolarisation is K⁺ efflux; blocking those channels PROLONGS repolarisation → longer AP → longer QT interval.",
+        "Vaughan-Williams map: I = Na⁺/phase 0 (QRS), II = beta-blocker/phase 4, III = K⁺/phase 3 (QT), IV = Ca²⁺/nodal phase 0. Caveat: the map is cleaner than the drugs — sotalol also has class II (beta-blocking) action, and amiodarone has all four classes.",
+        "Clinical anchor: QT prolongation is the shared hazard of class III drugs → torsades de pointes risk (why sotalol/amiodarone need ECG monitoring)."
+      ] },
+    { id:"fcvs-021", type:"mcq",
+      question:"At rest the heart rate (~70/min) is slower than the intrinsic SA-node rate (~100/min) because of tonic vagal activity. By what mechanism does atropine raise the heart rate?",
+      options:["It directly steepens the phase-4 funny current","It stimulates cardiac beta-1 adrenoceptors","It blocks muscarinic M2 receptors, removing vagal slowing","It blocks potassium channels in the SA node","It increases calcium influx during phase 0"],
+      correctIndex:2,
+      explanation:[
+        "At rest the VAGUS dominates (acetylcholine on M2 receptors flattens the SA-node phase-4 slope and hyperpolarises the cell). Atropine is antimuscarinic — it blocks M2, lifting the vagal brake so the intrinsic pacemaker speeds up. It does not stimulate the sympathetic system; it unmasks the intrinsic rate.",
+        "Contrast fcvs-027: the sympathetic system STEEPENS phase 4 (β1→cAMP→If); the vagus FLATTENS it. Atropine removes the flattening.",
+        "Clinical anchor: first-line for symptomatic bradycardia — and ineffective in infranodal (broad-complex) block, where the lesion is below the vagally-innervated node (brady)."
+      ] },
+    { id:"fcvs-022", type:"mcq",
+      question:"In hyperkalaemia the resting membrane potential becomes less negative, partially inactivating the fast sodium channels. What is the direct effect on the ventricular action potential and ECG?",
+      options:["A faster phase-0 upstroke and a narrow QRS","A steeper phase 4 and a faster heart rate","A longer plateau and a shortened QT interval","A slowed phase-0 upstroke and a broad QRS","No effect, since potassium governs only phase 4"],
+      correctIndex:3,
+      explanation:[
+        "A less-negative resting potential leaves a fraction of fast Na⁺ channels INACTIVATED, so phase 0 is slower and conduction slows → a BROAD QRS (and, untreated, sine-wave then arrest).",
+        "The earliest change is peaked/tented T waves (faster K⁺-driven repolarisation); progressive rises broaden the QRS and flatten the P wave.",
+        "Clinical anchor: the hyperkalaemia ECG (tall tented T → broad QRS → sine wave), and why calcium gluconate stabilises the myocardium (electrolytes)."
+      ] },
+    { id:"fcvs-023", type:"mcq",
+      question:"The AV node is normally the only electrical connection between atria and ventricles and imposes a conduction delay. In Wolff–Parkinson–White syndrome an accessory pathway bypasses it. What is the direct ECG consequence?",
+      options:["A prolonged PR interval, as in first-degree block","Complete (third-degree) heart block","A prolonged QT interval with U waves","Absent P waves with an irregular rhythm","A short PR interval with a delta wave (pre-excitation)"],
+      correctIndex:4,
+      explanation:[
+        "An accessory pathway (bundle of Kent) conducts atria→ventricles WITHOUT the AV nodal delay, so part of the ventricle depolarises EARLY: a short PR and a slurred initial QRS — the DELTA WAVE (ventricular pre-excitation).",
+        "The AV delay normally protects the ventricles from fast atrial rates (fcvs-016); bypassing it is why AF in WPW can conduct dangerously fast.",
+        "Clinical anchor: short PR + delta wave = WPW — and why AV-nodal blocking drugs (adenosine, verapamil, digoxin) can be hazardous in pre-excited AF."
+      ] },
+    { id:"fcvs-024", type:"mcq",
+      question:"Digoxin is used for rate control in atrial fibrillation. By which mechanism does it slow the ventricular rate?",
+      options:["It raises vagal tone, slowing AV-nodal conduction","It blocks cardiac beta-1 adrenoceptors","It blocks the funny current in the SA node","It blocks fast sodium channels in the His bundle","It shortens the atrial refractory period"],
+      correctIndex:0,
+      explanation:[
+        "Digoxin's rate-control effect is INDIRECT and VAGAL — it enhances parasympathetic tone at the AV node, slowing AV conduction and the ventricular response in AF.",
+        "Because it works through vagal tone, it is LESS effective when sympathetic drive is high (exercise, sepsis) — good for a sedentary/elderly patient at rest, poor for exertional control.",
+        "Clinical anchor: digoxin for AF rate control (its positive inotropy via Na⁺/K⁺-ATPase inhibition is a separate action)."
+      ] },
+    { id:"fcvs-025", type:"mcq",
+      image:"assets/ecg/ap_shapes_schematic.svg",
+      imageAlt:"Five action-potential tracings labelled 1 to 5. Four show a flat resting baseline with a rapid upstroke and a plateau; one shows a slowly drifting baseline with a rounded upstroke and no plateau.",
+      question:"The diagram shows five action potentials (labelled 1–5), each recorded from a different region of the heart. Which trace was recorded from the SA node?",
+      options:["Trace 1","Trace 2","Trace 3","Trace 4","Trace 5"],
+      correctIndex:1,
+      explanation:[
+        "The SA node is a SLOW-RESPONSE pacemaker: no stable resting potential, a slowly DRIFTING phase-4 baseline (the funny current) that reaches threshold spontaneously, a rounded Ca²⁺-driven upstroke, and NO plateau. Trace 2 is the only one with that drifting, plateau-less shape.",
+        "The fast-response traces (atrial, His-Purkinje, ventricular) have a flat resting potential, a sharp Na⁺ upstroke and a Ca²⁺ plateau (the flat-topped shape).",
+        "Clinical anchor: only pacemaker cells have automaticity — why the SA node normally sets the rate, and why nodal disease or escape underlies bradyarrhythmias."
+      ] },
+    { id:"fcvs-026", type:"mcq",
+      question:"During the relative refractory period a sufficiently strong stimulus can re-excite the ventricle. On the ECG this vulnerable period corresponds to which wave, and what can a stimulus there provoke?",
+      options:["The P wave; atrial fibrillation","The QRS complex; complete heart block","The PR segment; a junctional rhythm","The T wave; ventricular fibrillation","The U wave; asystole"],
+      correctIndex:3,
+      explanation:[
+        "The relative refractory period sits on the DOWNSLOPE of the T wave — a stimulus landing here (R-on-T) can trigger VENTRICULAR FIBRILLATION, because some myocardium is excitable while some is still refractory (the re-entry substrate).",
+        "This is why DC cardioversion is SYNCHRONISED to the R wave — to avoid delivering the shock on the T wave and inducing VF. Defibrillation of VF is UNSYNCHRONISED, because there is no organised QRS to synchronise to.",
+        "Clinical anchor: R-on-T and synchronised cardioversion (ALS / tachyarrhythmia management)."
+      ] },
+    { id:"fcvs-027", type:"mcq",
+      question:"Sympathetic stimulation of the SA node increases the heart rate. Through which signalling sequence does noradrenaline steepen the phase-4 slope?",
+      options:["It blocks muscarinic M2 receptors, removing vagal tone","It opens L-type calcium channels in the peripheral vasculature","It blocks phase-3 potassium channels, prolonging the action potential","β1 → Gi → reduced cAMP, flattening the phase-4 slope","β1 → Gs → increased cAMP, which binds HCN channels to steepen If"],
+      correctIndex:4,
+      explanation:[
+        "Noradrenaline acts on β1 receptors → Gs protein → adenylyl cyclase → ↑cAMP. cAMP binds the HCN channels DIRECTLY (they are cyclic-nucleotide-gated), steepening the funny current (If) and the phase-4 slope → threshold sooner → faster rate (it also enhances Ca²⁺ currents → ↑contractility and ↑AV conduction).",
+        "This is the mirror of the vagal effect (fcvs-021): sympathetic STEEPENS phase 4, vagus FLATTENS it — every rate drug pushes one of these two levers.",
+        "Clinical anchor: this is the lever BETA-BLOCKERS interrupt (the most-used rate-control drug), and why ivabradine — acting on the same If/phase-4 slope but on the channel itself — is the alternative when a beta-blocker fails or is not tolerated (fcvs-015, chf-021)."
       ] }
   ]
 };
