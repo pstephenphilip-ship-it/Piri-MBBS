@@ -5200,6 +5200,25 @@ window.MOCK_BANK = {
         "Rationale: cumulative bacteraemia from everyday chewing and tooth-brushing vastly outweighs procedural bacteraemia; prophylaxis has never been shown to prevent IE; and it carries anaphylaxis and antibiotic-resistance harm. Daily prophylactic penicillin (A) and chlorhexidine mouthwash (E) are not recommended, and avoiding dental care (C) would WORSEN oral health and IE risk.",
         "Trap (D): a prosthetic valve keeps him in the HIGHEST-risk tier — prophylaxis simply does not help, which is a different claim from 'no longer at risk'. The 2015 amendment softened the wording to 'not routinely recommended', permitting individualised decisions for the highest-risk patients after specialist discussion.",
         "International contrast: AHA/ESC still recommend prophylaxis for the highest-risk groups (previous IE, prosthetic valve, certain congenital disease) — a UK-specific divergence worth knowing."
+      ] },
+    { id:"ie-005p", type:"multi", objective:"ie-vegetation",
+      boxLabel:"Components of a vegetation",
+      question:"A vegetation is the characteristic lesion of infective endocarditis, forming on the affected valve. Select ALL the main components of which it is composed.",
+      options:[
+        "Platelets",
+        "A dense neutrophil (leukocyte) infiltrate",
+        "Fibrin",
+        "Calcium deposits",
+        "Microorganisms (bacterial colonies)",
+        "Cholesterol and lipid",
+        "A rich network of new blood vessels",
+        "Granulomatous tissue"],
+      correct:[0,2,4],
+      explanation:[
+        "A vegetation is essentially PLATELETS + FIBRIN + MICROORGANISMS: organisms colonise a sterile platelet-fibrin thrombus (non-bacterial thrombotic endocarditis) on damaged endocardium and become enmeshed within it.",
+        "The defining feature is what it LACKS: a vegetation is relatively AVASCULAR with only SCANT leukocytes — so the organisms are shielded from immune cells and from antibiotics. That is why IE needs prolonged, high-dose, BACTERICIDAL IV therapy to sterilise it (ie-003, ie-037).",
+        "The distractors are the wrong tissue types: NOT a dense neutrophil infiltrate (it is immune-privileged), and no calcium, cholesterol, neovascularisation or granulomas — those belong to degenerative valve disease or other pathologies.",
+        "Pairs with the MCQ ie-003 (shared objective: the vegetation) — a mock will not draw both."
       ] }
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
@@ -5246,13 +5265,23 @@ window.MOCK_BANK = {
         "Nuance: tricuspid is the classic IVDU answer, but left-sided IE also occurs in IVDU and actually carries WORSE outcomes — the septic pulmonary emboli here are what make tricuspid the secure answer.",
         "Cross-links: the embolisation stream (Block 3) and the respiratory picture of cavitating septic emboli."
       ] },
-    { id:"ie-005", type:"saq", objective:"ie-vegetation",
-      question:"In infective endocarditis, name the characteristic lesion that forms on the affected valve, and list the main components of which it is composed.",
-      answer:"The vegetation — composed of platelets and fibrin, microorganisms (bacteria), and inflammatory cells/debris deposited on a damaged endocardial surface.",
-      accept:["vegetation","platelets","fibrin","organisms","bacteria","microbes","inflammatory cells"],
-      markPoints:["Names the vegetation","Platelets and fibrin","Microorganisms / bacteria"],
+    { id:"ie-005", type:"multi", objective:"ie-vegetation",
+      boxLabel:"Components of a vegetation",
+      question:"A vegetation is the characteristic lesion of infective endocarditis, forming on the affected valve. Select ALL the main components of which it is composed.",
+      options:[
+        "Platelets",
+        "A dense neutrophil (leukocyte) infiltrate",
+        "Fibrin",
+        "Calcium deposits",
+        "Microorganisms (bacterial colonies)",
+        "Cholesterol and lipid",
+        "A rich network of new blood vessels",
+        "Granulomatous tissue"],
+      correct:[0,2,4],
       explanation:[
-        "The vegetation is the pathological hallmark of IE: platelets + fibrin + organisms + inflammatory cells/debris, deposited on a damaged endocardial surface.",
+        "A vegetation is essentially PLATELETS + FIBRIN + MICROORGANISMS: organisms colonise a sterile platelet-fibrin thrombus (non-bacterial thrombotic endocarditis) on damaged endocardium and become enmeshed within it.",
+        "The defining feature is what it LACKS: a vegetation is relatively AVASCULAR with only SCANT leukocytes — so the organisms are shielded from immune cells and from antibiotics. That is why IE needs prolonged, high-dose, BACTERICIDAL IV therapy to sterilise it (ie-003, ie-037).",
+        "The distractors are the wrong tissue types: NOT a dense neutrophil infiltrate (it is immune-privileged), and no calcium, cholesterol, neovascularisation or granulomas — those belong to degenerative valve disease or other pathologies.",
         "Pairs with the MCQ ie-003 (shared objective: the vegetation) — a mock will not draw both."
       ] },
     { id:"ie-006", type:"mcq",
