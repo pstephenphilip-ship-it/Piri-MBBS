@@ -7947,6 +7947,13 @@ function switchMainTab(id, el, skipHash) {
   if (id === 'pharmacology') { initPharma(); return; }
   const st = getState(id);
   if (!st.initialised) { initTab(id); st.initialised = true; }
+  else if (!skipHash) {
+    // Genuine tab click (not a deep-link/hash restore): land on the welcome
+    // panel rather than re-opening whichever topic was last viewed.
+    st.activeTopic = null;
+    document.querySelectorAll('#topiclist-' + id + ' .condition-item').forEach(el => el.classList.remove('active'));
+    showEmpty(id);
+  }
 }
 
 function initTab(p) {
