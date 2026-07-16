@@ -8115,6 +8115,7 @@ function loadNote(p, name) {
       }
       richEl.style.display = '';
       richEl.innerHTML = expandAbbrs(RICH_NOTES[richKey]);
+      if (window.linkDrugsInEl) { try { window.linkDrugsInEl(richEl); } catch(e){} }
       const actions = document.querySelector('#notes-panel-conditions .note-actions');
       if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
     } else {
@@ -10599,5 +10600,138 @@ function hideFlyout(p) {
 #pharma-detail .pharma-card-pearl{--pc:#B9860B;--pcbg:rgba(185,134,11,.14);}
 #pharma-detail .pharma-card-pearl .pharma-card-body{background:rgba(185,134,11,.06);font-weight:500;color:#3A2E12;}
 </style>
+<style>
+.drug-link{color:inherit;text-decoration:none;border-bottom:1.5px dotted var(--rn-blue,#3B7DD8);cursor:pointer;border-radius:2px;transition:background .12s ease,border-color .12s ease;}
+.drug-link:hover{background:var(--rn-blue-bg,#EBF2FF);border-bottom-style:solid;}
+.pharma-back-bar{position:sticky;top:0;z-index:20;padding:10px 4px 8px;background:linear-gradient(var(--rn-bg,#F7F8FC) 60%,rgba(247,248,252,0));}
+.pharma-back-btn{display:inline-flex;align-items:center;gap:7px;background:var(--rn-blue,#3B7DD8);color:#fff;border:none;border-radius:999px;padding:8px 15px;font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 2px 8px rgba(59,125,216,.3);}
+.pharma-back-btn:hover{filter:brightness(1.08);}
+.pharma-back-btn b{font-weight:700;margin-left:1px;}
+</style>
+<script>
+/* ===== Notes <-> Pharmacology cross-linking ===== */
+(function(){
+  var SKIP_ELEM={A:1,ABBR:1,BUTTON:1,H1:1,H2:1,H3:1,H4:1,STYLE:1,SCRIPT:1,MARK:1,CODE:1};
+  var SKIP_NAMES={};
+  ['oxygen','water','air','saline','glucose','sodium','potassium','calcium','magnesium','phosphate','chloride','iron','fluids','alcohol'].forEach(function(n){SKIP_NAMES[n]=1;});
+  function escRx(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+  function buildIndex(){
+    if(window.__DRUG_INDEX) return;
+    if(typeof PHARMA_SEARCH==='undefined') return;
+    var idx={}, names=[];
+    PHARMA_SEARCH.forEach(function(t){
+      var nm=t[0]; if(!nm) return; var key=nm.toLowerCase();
+      if(nm.length<4) return; if(SKIP_NAMES[key]) return;
+      if(!idx[key]){ idx[key]=t; names.push(nm); }
+    });
+    names.sort(function(a,b){return b.length-a.length;});
+    window.__DRUG_INDEX=idx;
+    try{ window.__DRUG_RX=new RegExp('(?<![\\w-])('+names.map(escRx).join('|')+')(?![\\w-])','gi'); }
+    catch(e){ window.__DRUG_RX=new RegExp('\\b('+names.map(escRx).join('|')+')\\b','gi'); }
+  }
+  window.linkDrugsInEl=function(root){
+    if(!root) return; buildIndex();
+    var idx=window.__DRUG_INDEX, rx=window.__DRUG_RX; if(!idx||!rx) return;
+    var panes=root.querySelectorAll('.tt-pane');
+    var scopes=panes.length?Array.prototype.slice.call(panes):[root];
+    scopes.forEach(function(scope){
+      var seen={};
+      var walker=document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+        acceptNode:function(n){
+          if(!n.nodeValue||!/\S/.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+          var p=n.parentNode;
+          while(p&&p!==scope){
+            if(SKIP_ELEM[p.nodeName]) return NodeFilter.FILTER_REJECT;
+            if(p.classList&&(p.classList.contains('tt-btn')||p.classList.contains('tt-nav')||p.classList.contains('drug-link'))) return NodeFilter.FILTER_REJECT;
+            if(p.classList&&p.classList.contains('tt-pane')&&p!==scope) return NodeFilter.FILTER_REJECT;
+            p=p.parentNode;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      var nodes=[],tn; while(tn=walker.nextNode()) nodes.push(tn);
+      nodes.forEach(function(node){
+        var text=node.nodeValue; rx.lastIndex=0;
+        var m,frag=null,last=0;
+        while((m=rx.exec(text))){
+          var name=m[0], key=name.toLowerCase();
+          if(!idx[key]||seen[key]) continue;
+          seen[key]=1;
+          frag=frag||document.createDocumentFragment();
+          if(m.index>last) frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+          var a=document.createElement('a');
+          a.className='drug-link'; a.setAttribute('data-drug',key);
+          a.setAttribute('title','View '+name+' in Pharmacology'); a.textContent=name;
+          frag.appendChild(a); last=m.index+name.length;
+        }
+        if(frag){ if(last<text.length) frag.appendChild(document.createTextNode(text.slice(last))); node.parentNode.replaceChild(frag,node); }
+      });
+    });
+  };
+  function getScroller(el){
+    var e=el;
+    while(e&&e!==document.body){
+      var s=getComputedStyle(e);
+      if((s.overflowY==='auto'||s.overflowY==='scroll')&&e.scrollHeight>e.clientHeight+4) return e;
+      e=e.parentElement;
+    }
+    return null;
+  }
+  function captureOrigin(){
+    var st=(typeof getState==='function')?getState('conditions'):{};
+    var disp=document.getElementById('rich-note-display');
+    var actBtn=disp&&disp.querySelector('.tt-btn.tt-act');
+    var sc=disp?getScroller(disp):null;
+    return {tab:'conditions',system:st.activeSystem,topic:st.activeTopic,
+      pane:actBtn?actBtn.getAttribute('data-pane'):null,
+      scrollTop:sc?sc.scrollTop:0, label:st.activeTopic||'notes'};
+  }
+  function showBackBar(label){
+    var det=document.getElementById('pharma-detail'); if(!det) return;
+    var bar=document.getElementById('pharma-back-bar');
+    if(!bar){ bar=document.createElement('div'); bar.id='pharma-back-bar'; bar.className='pharma-back-bar';
+      bar.innerHTML='<button type="button" class="pharma-back-btn" onclick="pharmaReturnToNote()"><span>←</span> Back to <b id="pharma-back-label"></b></button>';
+      det.insertBefore(bar, det.firstChild);
+    }
+    var lbl=document.getElementById('pharma-back-label'); if(lbl) lbl.textContent=label||'notes';
+    bar.style.display='';
+  }
+  function hideBackBar(){ var bar=document.getElementById('pharma-back-bar'); if(bar) bar.style.display='none'; }
+  function openDrug(tuple){
+    var d=(typeof _pharmaHydrate==='function')?_pharmaHydrate(tuple):null; if(!d) return;
+    var navEl=document.querySelector('.nav-tab[onclick*="pharmacology"]');
+    if(typeof switchMainTab==='function') switchMainTab('pharmacology', navEl);
+    if(d.section && typeof pharmaSelectSection==='function') pharmaSelectSection(d.section);
+    if(typeof pharmaShowDrug==='function') pharmaShowDrug(d);
+    showBackBar(window.__pharmaReturn?window.__pharmaReturn.label:'notes');
+  }
+  window.pharmaReturnToNote=function(){
+    var o=window.__pharmaReturn; hideBackBar();
+    if(!o){ if(window.goHome) window.goHome(); return; }
+    window.__pharmaReturn=null;
+    var navEl=null; document.querySelectorAll(".nav-tab").forEach(function(t){ if((t.getAttribute("onclick")||"").indexOf("'"+o.tab+"'")>=0) navEl=t; });
+    if(typeof switchMainTab==='function') switchMainTab(o.tab, navEl);
+    try{
+      var st=getState(o.tab); st.activeSystem=o.system;
+      selectSystem(o.tab,o.system,true);
+      var pr=selectTopic(o.tab,o.topic,true);
+      var restore=function(){
+        var disp=document.getElementById('rich-note-display');
+        if(o.pane&&disp){ var btn=disp.querySelector('.tt-btn[data-pane="'+o.pane+'"]'); if(btn) btn.click(); }
+        if(o.scrollTop&&disp){ var sc=getScroller(disp)||disp; sc.scrollTop=o.scrollTop; }
+      };
+      if(pr&&pr.then) pr.then(function(){setTimeout(restore,20);}); else setTimeout(restore,60);
+    }catch(e){}
+  };
+  document.addEventListener('click', function(e){
+    var a=e.target.closest?e.target.closest('.drug-link'):null; if(!a) return;
+    e.preventDefault(); e.stopPropagation();
+    var key=a.getAttribute('data-drug'); buildIndex();
+    var tuple=window.__DRUG_INDEX&&window.__DRUG_INDEX[key]; if(!tuple) return;
+    window.__pharmaReturn=captureOrigin();
+    openDrug(tuple);
+  }, true);
+})();
+</script>
 </body>
 </html>
