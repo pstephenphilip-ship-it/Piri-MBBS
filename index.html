@@ -8055,7 +8055,7 @@ async function selectTopic(p, name, skipHash) {
 
 function showEmpty(p) {
   const emptyEl = document.getElementById('empty-' + p);
-  if (emptyEl) emptyEl.style.display = '';
+  if (emptyEl) emptyEl.style.removeProperty('display');
   if (window.updateStreakUI) { try { window.updateStreakUI(); window.updateStatsUI && window.updateStatsUI(); } catch(e){} }
   const bar = document.getElementById('modeBar-' + p);
   if (bar) bar.classList.remove('visible');
@@ -8114,6 +8114,11 @@ function loadNote(p, name) {
         container && container.parentNode && container.parentNode.insertBefore(richEl, container);
       }
       richEl.style.display = '';
+      // Safeguard: force the welcome/landing panel hidden whenever a note renders,
+      // immune to any CSS specificity (previously a .wc-host !important rule could
+      // override selectTopic's inline display:none and keep the homescreen showing).
+      var _welc = document.getElementById('empty-conditions');
+      if (_welc) _welc.style.setProperty('display', 'none', 'important');
       richEl.innerHTML = expandAbbrs(RICH_NOTES[richKey]);
       if (window.linkDrugsInEl) { try { window.linkDrugsInEl(richEl); } catch(e){} }
       const actions = document.querySelector('#notes-panel-conditions .note-actions');
