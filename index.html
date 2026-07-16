@@ -813,6 +813,11 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .mk-mchip:hover{border-color:#8B6FD6;background:#FBFAFF;}
 .mk-mchip-text{flex:1;font-size:14px;line-height:1.5;color:#241C40;}
 .mk-mchip-x{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#8B6FD6;background:#F2EEFE;}
+.mk-fill{display:flex;flex-direction:column;gap:14px;margin-bottom:14px;}
+.mk-fill-row{font-size:14.5px;line-height:2.1;color:#1E2640;}
+.mk-fill-input{display:inline-block;width:auto;min-width:64px;max-width:100%;padding:5px 11px;margin:0 3px;border:1.5px solid #B9A8E8;border-radius:8px;background:#FBFAFF;font-family:var(--mono);font-size:14px;color:#241C40;outline:none;vertical-align:baseline;}
+.mk-fill-input:focus{border-color:#8B6FD6;background:#FFFFFF;}
+.mk-fill-blabel{font-family:var(--mono);font-size:11px;color:#8A93A6;margin-bottom:3px;}
 .mk-qactions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap;}
 .mk-qactions-l{display:flex;gap:10px;}
 .mk-flag-btn{background:#FFFFFF;border:1px solid #D8DBE8;color:#374151;font-size:12.5px;font-weight:600;padding:10px 15px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
@@ -5044,8 +5049,8 @@ window.MOCK_BANK = {
     { id:"ie-007", type:"mcq", objective:"ie-early-pve",
       question:"A 68-year-old woman develops fevers and rigors six weeks after mechanical aortic valve replacement. A new murmur is heard and transoesophageal echo shows a vegetation on the prosthesis. Her observations are shown. Which organism is the most likely cause?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>104 bpm</b></span><span>BP <b>118/70 mmHg</b></span><span>RR <b>20/min</b></span><span>SpO2 <b>96% RA</b></span><span>Temp <b>38.7 &deg;C</b></span></div>',
-      options:["Staphylococcus epidermidis","Streptococcus viridans","Streptococcus gallolyticus","Enterococcus faecalis","Coxiella burnetii"],
-      correctIndex:0,
+      options:["Streptococcus viridans","Staphylococcus epidermidis","Streptococcus gallolyticus","Enterococcus faecalis","Coxiella burnetii"],
+      correctIndex:1,
       explanation:[
         "Prosthetic valve endocarditis WITHIN 2 months (early PVE) is usually PERIOPERATIVE contamination with coagulase-negative staphylococci — Staphylococcus epidermidis. Its ability to form biofilm on prosthetic material makes it the signature early-PVE organism.",
         "Cutoff caveat: <2 months is the classic MICROBIOLOGICAL cutoff, but ESC defines early PVE as <12 months, with the 2–12 month window being intermediate/mixed (neither purely perioperative nor purely community). This stem uses 6 weeks — safely early — to avoid that grey zone; don't apply a hard rule to an ambiguous 6-month case.",
@@ -5209,10 +5214,11 @@ window.MOCK_BANK = {
         "In the right context (fever + new murmur) they support IE as a minor vascular sign, but they are NOT more specific than Osler nodes (A), do not confirm embolisation (B), are not themselves a listed Duke criterion (C), and do not by themselves mandate surgery (D).",
         "Teaching point: do not over-weight a non-specific sign in isolation — the whole clinical picture matters."
       ] },
-    { id:"ie-023", type:"mcq",
-      question:"In infective endocarditis, which of the following is the most commonly present clinical feature?",
-      options:["Osler's nodes","Fever","Splinter haemorrhages","Roth spots","Splenomegaly"],
-      correctIndex:1,
+    { id:"ie-023", type:"saq",
+      question:"In infective endocarditis, what is the single most commonly present clinical feature? (one word)",
+      answer:"Fever",
+      accept:["fever","pyrexia","febrile","high temperature","raised temperature","temperature"],
+      markPoints:["Fever — present in ~90%, the most consistent feature","The peripheral stigmata (Osler, Janeway, Roth) are UNCOMMON — their absence does not exclude IE","Fever + new/changing murmur + a risk factor = the trigger for blood cultures and echo"],
       explanation:[
         "Fever is present in around 90% and is the most consistent feature; with a new or changing murmur it drives the clinical suspicion.",
         "The eponymous peripheral stigmata (Osler, Janeway, Roth) are actually UNCOMMON in modern series — classic but not sensitive.",
@@ -5285,14 +5291,21 @@ window.MOCK_BANK = {
         "The typical picture is NORMOCYTIC anaemia (anaemia of chronic disease), RAISED CRP and ESR with leucocytosis, a raised RHEUMATOID FACTOR and immunoglobulins, plus MICROSCOPIC HAEMATURIA (with or without red cell casts) from immune-complex glomerulonephritis.",
         "The distractors now also raise CRP/ESR, so the marker direction is no longer the giveaway: discriminate on the anaemia type (microcytic A, polycythaemia B, macrocytic C), the absence of any inflammatory response (D), and the urinary finding — the full IE picture is normocytic anaemia + raised markers + haematuria together."
       ] },
-    { id:"ie-031", type:"saq", objective:"ie-blood-cultures",
-      question:"A patient with a surgically repaired ventricular septal defect is admitted with three weeks of fever and a new murmur, and infective endocarditis is suspected. (a) Name the single most important investigation and state when it should be taken relative to antibiotics. (b) Which imaging test is first-line, and what is arranged if it is normal but suspicion remains high? (c) What ECG change would signal an aortic root abscess?",
+    { id:"ie-031", type:"fill", objective:"ie-blood-cultures",
+      question:"A patient with a surgically repaired ventricular septal defect is admitted with three weeks of fever and a new murmur; infective endocarditis is suspected. Fill in the blank for each investigation step.",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>96 bpm</b></span><span>BP <b>118/72 mmHg</b></span><span>RR <b>18/min</b></span><span>Temp <b>38.4 &deg;C</b></span></div>',
-      answer:"(a) Blood cultures — at least three sets, taken before antibiotics. (b) Transthoracic echo first-line; if normal with ongoing high suspicion, arrange transoesophageal echo (a normal echo does not exclude IE). (c) New or progressive AV block (lengthening PR interval progressing to heart block).",
-      accept:["blood cultures","before antibiotics","three sets","3 sets","transthoracic","tte","transoesophageal","transesophageal","toe","av block","heart block","pr interval","pr prolongation"],
-      markPoints:["(a) blood cultures, before antibiotics","(b) TTE first, then TOE if normal / normal echo does not exclude","(c) new AV block / PR prolongation"],
+      rows:[
+        "(a) Single most important investigation, and when it is taken relative to antibiotics:  {{0}}",
+        "(b) First-line imaging is transthoracic echo (TTE); if that is normal but suspicion stays high, what is arranged?  {{1}}",
+        "(c) ECG change that would signal an aortic root abscess:  {{2}}"
+      ],
+      blanks:[
+        {label:"(a) key investigation + timing",accept:["blood cultures","blood culture","cultures","three sets","3 sets","blood cultures before antibiotics"],answer:"Blood cultures — three sets, taken before antibiotics"},
+        {label:"(b) if TTE is normal",accept:["toe","tee","transoesophageal","transesophageal","transoesophageal echo","transesophageal echo","transoesophageal echocardiogram"],answer:"Transoesophageal echo (TOE)"},
+        {label:"(c) ECG change",accept:["av block","heart block","complete heart block","new av block","pr prolongation","prolonged pr","pr interval","first degree","first-degree","conduction delay"],answer:"New / progressive AV block (PR prolongation → heart block)"}
+      ],
       explanation:[
-        "Cornerstone microbiology (cultures before antibiotics), staged imaging (TTE then TOE, a normal echo not excluding the diagnosis), and the ECG red flag (new AV block = root abscess) are the three investigation pillars.",
+        "Cornerstone microbiology (blood cultures BEFORE antibiotics), staged imaging (TTE then TOE, a normal echo not excluding the diagnosis), and the ECG red flag (new AV block = aortic root abscess) are the three investigation pillars.",
         "Tagged to exclude ie-026 under random draw (part (a) is the tightest verbatim leak); the echo overlap with ie-028 and the AV-block overlap with ie-014 are accepted as legitimate consolidation."
       ] },
     { id:"ie-032", type:"mcq",
@@ -5315,14 +5328,23 @@ window.MOCK_BANK = {
         "The rest are all MINOR: fever, a predisposing valve lesion / IVDU, and the vascular and immunologic phenomena (Osler = immunologic; splinters = vascular). Common trap: the dramatic peripheral stigmata feel major but are only minor criteria.",
         "Microbiological major — an exception worth knowing: Coxiella burnetii counts as a MAJOR on a SINGLE positive culture or a phase I IgG titre >1:800, unlike the usual 'typical organism in at least two separate sets' rule. This closes the loop to ie-008 / ie-029."
       ] },
-    { id:"ie-034", type:"mcq",
-      question:"Which combination is sufficient for a diagnosis of definite infective endocarditis on clinical criteria?",
-      options:["One major criterion alone","One major plus one minor criterion","Three minor criteria alone","One major plus three minor criteria","Two minor criteria alone"],
-      correctIndex:3,
+    { id:"ie-034", type:"fill",
+      question:"Modified Duke criteria: there are three ways to reach a diagnosis of DEFINITE infective endocarditis on CLINICAL grounds. Fill in the number of criteria needed for each pathway.",
+      rows:[
+        "{{0}} major",
+        "{{1}} major  +  {{2}} minor",
+        "{{3}} minor"
+      ],
+      blanks:[
+        {label:"major-only pathway",accept:["2","two"],answer:"2"},
+        {label:"major (mixed pathway)",accept:["1","one"],answer:"1"},
+        {label:"minor (mixed pathway)",accept:["3","three"],answer:"3"},
+        {label:"minor-only pathway",accept:["5","five"],answer:"5"}
+      ],
       explanation:[
-        "Definite IE (clinical) = 2 major, OR 1 major + 3 minor, OR 5 minor (or pathological proof). Option D meets it; the others fall short.",
-        "The wrong options are not arbitrary: B (1 major + 1 minor) and C (3 minor) are precisely the POSSIBLE-IE thresholds — the next tier down — so a half-knowing student lands there rather than on nonsense.",
-        "Full three-tier structure: DEFINITE = 2 major / 1 major + 3 minor / 5 minor / pathological proof. POSSIBLE = 1 major + 1 minor, or 3 minor. REJECTED = a firm alternative diagnosis, resolution with 4 or fewer days of antibiotics, no pathological evidence at surgery/autopsy after 4 or fewer days of antibiotics, or simply not meeting 'possible' (this is what ie-032's 'rejected' option formally means)."
+        "Definite IE on CLINICAL criteria = 2 major, OR 1 major + 3 minor, OR 5 minor. (There is also a PATHOLOGICAL route to definite — organisms or active endocarditis proven from a vegetation/abscess at surgery or autopsy.)",
+        "Mind the tier below: 1 major + 1 minor, or 3 minor, is POSSIBLE IE — drop one criterion from any definite pathway and you land there, not on definite.",
+        "Full three-tier structure: DEFINITE = 2 major / 1 major + 3 minor / 5 minor / pathological proof. POSSIBLE = 1 major + 1 minor, or 3 minor. REJECTED = a firm alternative diagnosis, resolution with ≤4 days of antibiotics, no pathological evidence at surgery/autopsy after ≤4 days of antibiotics, or simply not meeting 'possible' (this is what ie-032's 'rejected' option formally means)."
       ] },
     { id:"ie-035", type:"mcq",
       question:"Under the modified Duke criteria, which of the following counts as an immunological phenomenon (a minor criterion)?",
@@ -5382,8 +5404,8 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-041", type:"mcq",
       question:"A 68-year-old woman with a mechanical aortic valve replacement has staphylococcal prosthetic valve endocarditis. Compared with the equivalent native-valve regimen, which additional agent is characteristically added?",
-      options:["Metronidazole","Amoxicillin","Benzylpenicillin","Ciprofloxacin","Rifampicin"],
-      correctIndex:4,
+      options:["Metronidazole","Amoxicillin","Benzylpenicillin","Rifampicin","Ciprofloxacin"],
+      correctIndex:3,
       explanation:[
         "Prosthetic-valve staphylococcal IE adds RIFAMPICIN (plus gentamicin) to the anti-staphylococcal backbone (flucloxacillin or vancomycin). Rifampicin penetrates BIOFILM and acts on organisms adherent to prosthetic material — the direct payoff of ie-007's biofilm point — where other agents struggle.",
         "Rifampicin is added once bacteraemia is CLEARING, not started alone: used as monotherapy or into a high bacterial load, rapid resistance emerges.",
@@ -6628,7 +6650,7 @@ window.MOCK_BANK = {
   function qForTopic(tab,sys,topic){
     var k=tab+'__'+sys+'__'+topic;var arr=bank()[k];
     if(!arr)return[];
-    return arr.filter(function(q){return q&&((q.type==='mcq'&&q.options&&q.options.length>=2&&typeof q.correctIndex==='number')||(q.type==='saq'&&typeof q.answer==='string'&&q.answer)||(q.type==='multi'&&q.options&&q.options.length>=2&&Array.isArray(q.correct)&&q.correct.length>=1));});
+    return arr.filter(function(q){return q&&((q.type==='mcq'&&q.options&&q.options.length>=2&&typeof q.correctIndex==='number')||(q.type==='saq'&&typeof q.answer==='string'&&q.answer)||(q.type==='multi'&&q.options&&q.options.length>=2&&Array.isArray(q.correct)&&q.correct.length>=1)||(q.type==='fill'&&Array.isArray(q.rows)&&Array.isArray(q.blanks)&&q.blanks.length>=1));});
   }
   function groups(){
     var out=[];
@@ -6718,9 +6740,10 @@ window.MOCK_BANK = {
   function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
   // ---- grading helpers (MCQ auto-marked; SAQ self-marked in review) ----
-  function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; if(q&&q.type==='multi') return Array.isArray(a)&&a.length>0; return a!=null; }
+  function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; if(q&&q.type==='multi') return Array.isArray(a)&&a.length>0; if(q&&q.type==='fill') return Array.isArray(a)&&a.some(function(x){return x&&String(x).trim()!=='';}); return a!=null; }
   function isCorrect(q,i){ if(q&&q.type==='saq') return S.selfMark[i]===true;
     if(q&&q.type==='multi'){ var a=S.answers[i], c=q.correct||[]; if(!Array.isArray(a)||a.length!==c.length) return false; for(var k=0;k<c.length;k++){ if(a.indexOf(c[k])<0) return false; } return true; }
+    if(q&&q.type==='fill'){ var fa=S.answers[i], bl=q.blanks||[]; if(!Array.isArray(fa)) return false; for(var b=0;b<bl.length;b++){ var v=fa[b]; if(!v||!String(v).trim()) return false; if(!saqMatch(String(v),bl[b].accept||[])) return false; } return true; }
     return S.answers[i]===q.correctIndex; }
   function gradeAll(){try{window.daStreakPing&&window.daStreakPing();}catch(e){}
     var correct=0,bySys={},answeredIds=[];
@@ -7214,6 +7237,21 @@ window.MOCK_BANK = {
       body='<div class="mk-mpool">'+(pool||'<div class="mk-mpool-empty">All options placed &mdash; tap one below to send it back.</div>')+'</div>'+
         '<div class="mk-mbox"><div class="mk-mbox-lbl">'+esc(q.boxLabel||'Selected')+' &middot; <span class="mk-mbox-count">'+selArr.length+' selected</span></div>'+
         (chosen||'<div class="mk-mbox-empty">Tap an option above to place it here.</div>')+'</div>';
+    } else if(q.type==='fill'){
+      label='Fill in the blanks';
+      var fav=Array.isArray(sel)?sel:[];
+      var rowsHtml=(q.rows||[]).map(function(row){
+        var out='', re=/\{\{(\d+)\}\}/g, last=0, m;
+        while((m=re.exec(row))){
+          out+=esc(row.slice(last,m.index));
+          var bi=parseInt(m[1],10);
+          out+='<input class="mk-fill-input" type="text" autocomplete="off" value="'+esc(fav[bi]!=null?fav[bi]:'')+'" oninput="mockFillInput('+bi+',this.value)" aria-label="blank '+(bi+1)+'">';
+          last=m.index+m[0].length;
+        }
+        out+=esc(row.slice(last));
+        return '<div class="mk-fill-row">'+out+'</div>';
+      }).join('');
+      body='<div class="mk-fill">'+rowsHtml+'</div><div class="mk-saq-hint">Fill every blank &mdash; all must be correct for the mark.</div>';
     } else {
       label='Select one answer';
       body=q.options.map(function(o,i){
@@ -7261,6 +7299,8 @@ window.MOCK_BANK = {
   window.mockSelect=function(i){ S.answers[S.current]=i; if(S.eliminated[S.current])delete S.eliminated[S.current][i]; renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
   // Multi-select (select-all-that-apply): tap to place an option in the box, tap again to return it.
   window.mockMultiToggle=function(i){ var a=S.answers[S.current]; if(!Array.isArray(a))a=[]; var p=a.indexOf(i); if(p>=0){a.splice(p,1);}else{a.push(i);} if(a.length){a.sort(function(x,y){return x-y;});S.answers[S.current]=a;}else{delete S.answers[S.current];} renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
+  // Fill-in-the-blank: update one blank without re-rendering (keeps input focus), like the SAQ textarea.
+  window.mockFillInput=function(bi,val){ var q=S.questions[S.current]; var n=(q&&q.blanks)?q.blanks.length:0; var a=S.answers[S.current]; if(!Array.isArray(a)){a=[];for(var k=0;k<n;k++)a.push('');} a[bi]=String(val); var any=a.some(function(x){return x&&String(x).trim()!=='';}); if(any){S.answers[S.current]=a;}else{delete S.answers[S.current];} renderPalette(); updateProg(); saveInProgress(); };
   // Cross out / restore an option (elimination technique). Crossing out the
   // currently-selected answer also deselects it.
   window.mockEliminate=function(e,i){ if(e){e.stopPropagation();} var m=S.eliminated[S.current]||(S.eliminated[S.current]={}); if(m[i]){ delete m[i]; } else { m[i]=1; if(S.answers[S.current]===i)delete S.answers[S.current]; } renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
@@ -7411,6 +7451,18 @@ window.MOCK_BANK = {
           else if(!isC&&isS){cls+=' mk-wrong';marker='<span class="mk-rev-marker" style="color:#E11D48">You chose &mdash; not correct</span>';}
           return '<div class="'+cls+'"><div class="mk-opt-letter">'+(isS?'&#10003;':'&nbsp;')+'</div><div style="flex:1;">'+esc(o)+'</div>'+marker+'</div>';
         }).join('');
+      } else if(q.type==='fill'){
+        var fav=Array.isArray(sel)?sel:[]; var bl=q.blanks||[];
+        body=bl.map(function(b,bi){
+          var v=fav[bi]!=null?String(fav[bi]):''; var matched=v.trim()&&saqMatch(v,b.accept||[]);
+          var cls='mk-rev-opt'+(matched?' mk-correct':(v.trim()?' mk-wrong':''));
+          var your=v.trim()?esc(v):'<span style="color:#8A93A6;font-style:italic;">(left blank)</span>';
+          var acc=(b.accept&&b.accept.length)?'<div class="mk-saq-acc">Accepted: '+b.accept.map(esc).join(' &middot; ')+'</div>':'';
+          return '<div class="'+cls+'"><div class="mk-opt-letter">'+(matched?'&#10003;':(v.trim()?'&times;':'&nbsp;'))+'</div><div style="flex:1;">'+
+            '<div class="mk-fill-blabel">'+esc(b.label||('Blank '+(bi+1)))+'</div>'+
+            '<div>Your answer: '+your+'</div>'+
+            '<div style="color:#1F8B5E;">Model: '+esc(b.answer||'')+'</div>'+acc+'</div></div>';
+        }).join('');
       } else {
         body=q.options.map(function(o,oi){
           var cls='mk-rev-opt'; var marker='';
@@ -7488,6 +7540,10 @@ window.MOCK_BANK = {
         var cls='mk-rev-opt'+(isC?' mk-correct':'');
         var marker=isC?'<span class="mk-rev-marker" style="color:#1F8B5E">Indication</span>':'';
         return '<div class="'+cls+'"><div class="mk-opt-letter">'+(isC?'&#10003;':'&nbsp;')+'</div><div style="flex:1;">'+esc(o)+'</div>'+marker+'</div>';
+      }).join('');
+    } else if(q.type==='fill'){
+      body=(q.blanks||[]).map(function(b,bi){
+        return '<div class="mk-rev-opt mk-correct"><div class="mk-opt-letter">&#10003;</div><div style="flex:1;"><div class="mk-fill-blabel">'+esc(b.label||('Blank '+(bi+1)))+'</div><div style="color:#1F8B5E;">'+esc(b.answer||'')+'</div></div></div>';
       }).join('');
     } else {
       body=q.options.map(function(o,oi){
