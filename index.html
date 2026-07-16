@@ -4996,10 +4996,10 @@ window.MOCK_BANK = {
         "Distractors: caseating granulomas = tuberculosis; cholesterol clefts and foam cells = atheroma; fibrosis with dystrophic calcification = degenerative valve disease; Aschoff bodies = RHEUMATIC FEVER — the tempting cardiac pick, but a different pathology.",
         "Pairs with the SAQ ie-005 (shared objective: the vegetation and its composition) — a mock will not draw both."
       ] },
-    { id:"ie-004", type:"mcq",
+    { id:"ie-004", type:"mcq", objective:"ie-ivdu-tricuspid",
       question:"A 29-year-old man who injects heroin presents with four days of fever, rigors, cough and pleuritic chest pain. A chest radiograph shows multiple peripheral, partly cavitating lung lesions. His observations are shown. Which valve is most likely to be affected?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>118 bpm</b></span><span>BP <b>104/62 mmHg</b></span><span>RR <b>26/min</b></span><span>SpO2 <b>93% RA</b></span><span>Temp <b>39.4 &deg;C</b></span></div>',
-      options:["Mitral valve","Aortic valve","Pulmonary valve","Prosthetic valve","Tricuspid valve"],
+      options:["Mitral valve","Aortic valve","Pulmonary valve","No particular valve predilection","Tricuspid valve"],
       correctIndex:4,
       explanation:[
         "Intravenous drug use classically causes RIGHT-SIDED (tricuspid) endocarditis — injected organisms seed the first valve they reach. Right-sided vegetations embolise to the LUNGS, producing septic pulmonary emboli that appear as multiple peripheral cavitating lesions (the clue that clinches tricuspid here).",
@@ -5019,7 +5019,7 @@ window.MOCK_BANK = {
     { id:"ie-006", type:"mcq",
       question:"A 71-year-old man presents with five weeks of malaise, low-grade fever and weight loss, with a new normocytic anaemia. Echo confirms a mitral vegetation and blood cultures grow Streptococcus gallolyticus (formerly Strep bovis). His results are shown. Alongside antibiotics, which further investigation is most important?",
       data:'<table class="mk-labs"><tr><td>Haemoglobin</td><td><b>103 g/L</b></td><td>130&ndash;170</td></tr><tr><td>MCV</td><td><b>84 fL</b></td><td>80&ndash;100</td></tr><tr><td>CRP</td><td><b>52 mg/L</b></td><td>&lt;5</td></tr></table>',
-      options:["Transoesophageal echocardiogram","CT coronary angiography","Colonoscopy","Bone marrow biopsy","Whole-body PET-CT"],
+      options:["Transoesophageal echocardiogram","CT coronary angiography","Colonoscopy (lower GI endoscopy)","Bone marrow biopsy","Whole-body PET-CT"],
       correctIndex:2,
       explanation:[
         "Streptococcus bovis/gallolyticus bacteraemia is strongly associated with COLORECTAL NEOPLASIA — the bowel is the portal of entry, so every case mandates COLONOSCOPY to exclude an occult colorectal cancer ('bovis = bowel').",
@@ -5120,12 +5120,12 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-016", type:"mcq",
       question:"A 48-year-old woman with native mitral valve endocarditis and no injecting drug use has a large, mobile vegetation and no intracardiac shunt. Fragments of the vegetation embolise into the circulation. To which of the following sites are her emboli most likely to travel?",
-      options:["The lungs","The portal vein and liver","The deep veins of the legs","The right ventricle","The brain, spleen and kidneys"],
+      options:["The lungs (septic pulmonary emboli)","The coronary arteries only","The deep veins of the legs","The portal vein and liver","The brain, spleen and kidneys"],
       correctIndex:4,
       explanation:[
         "LEFT-sided vegetations embolise into the SYSTEMIC ARTERIAL circulation → brain (stroke, mycotic aneurysm), spleen and kidneys (infarcts), and limbs.",
         "Contrast RIGHT-sided disease (IVDU / tricuspid), which sends septic pulmonary emboli to the LUNGS (ie-004). Left = arterial/systemic; right = venous return → lungs.",
-        "The portal / venous / DVT distractors confuse VENOUS with ARTERIAL embolism: a vegetation on a left-sided valve enters the arterial tree, not the venous system."
+        "Distractors: right-sided emboli go to the LUNGS (A); the portal and leg-vein options confuse VENOUS with ARTERIAL embolism. Coronary emboli (B) can occur but are far less common than the brain/spleen/kidney triad, so the systemic arterial answer is the one most likely to be correct."
       ] },
     { id:"ie-017", type:"mcq",
       question:"A 45-year-old man with aortic valve endocarditis develops rapidly worsening breathlessness and orthopnoea. There is a new loud early diastolic murmur, a collapsing pulse with a wide pulse pressure, and bibasal crepitations, but no pericardial rub. His observations are shown. What is the mechanism of his deterioration?",
@@ -5150,7 +5150,7 @@ window.MOCK_BANK = {
         "Currency caveat: the 'Osler = immune / Janeway = embolic' split is the CLASSIC examinable teaching, but the mechanisms are somewhat contested — histology of both has shown mixed embolic and vasculitic features. Answer the classic split (it is what is examined), but treat it as a traditional attribution rather than settled pathology.",
         "This SAQ consolidates the block. It is tagged to exclude ie-014 under random draw (part (a) names the aortic root abscess verbatim); the looser overlaps with ie-015 (immune GN) and ie-016 (embolisation) are accepted as legitimate whole-map consolidation."
       ] },
-    { id:"ie-019", type:"mcq",
+    { id:"ie-019", type:"mcq", objective:"ie-janeway-osler",
       question:"A 58-year-old man with three weeks of fevers and a new murmur develops painful lumps on his fingers. Examination shows exquisitely tender, violaceous nodules on the pulps of the index and middle fingers. What is the most likely finding?",
       image:"https://upload.wikimedia.org/wikipedia/commons/0/07/Osler_Nodules_Hand.jpg",
       imageAlt:"Clinical photograph of a hand with tender violaceous nodules on the pulps of the fingers.",
@@ -5187,11 +5187,11 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/a/ac/Splinter_hemorrhage.jpg",
       imageAlt:"Close-up of a fingernail showing a thin longitudinal reddish-brown streak beneath the nail plate.",
       imageCredit:"Splarka, public domain, via Wikimedia Commons.",
-      options:["They are pathognomonic of infective endocarditis","They confirm systemic embolisation has occurred","They exclude a diagnosis of infective endocarditis","They are only ever caused by infective endocarditis","They are non-specific and commonly result from trauma"],
+      options:["They are more specific for IE than Osler's nodes","They indicate that systemic embolisation has occurred","They are themselves a minor Duke criterion","Their presence is an indication for urgent surgery","They are non-specific and commonly result from trauma"],
       correctIndex:4,
       explanation:[
         "Splinter haemorrhages are subungual linear haemorrhages; MOST are traumatic (especially in manual workers) and they occur in many conditions — they are NON-SPECIFIC.",
-        "In the right context (fever + new murmur) they support IE as a minor vascular sign, but they are not pathognomonic, do not confirm embolisation, and certainly do not exclude the diagnosis.",
+        "In the right context (fever + new murmur) they support IE as a minor vascular sign, but they are NOT more specific than Osler nodes (A), do not confirm embolisation (B), are not themselves a listed Duke criterion (C), and do not by themselves mandate surgery (D).",
         "Teaching point: do not over-weight a non-specific sign in isolation — the whole clinical picture matters."
       ] },
     { id:"ie-023", type:"mcq",
@@ -5206,11 +5206,11 @@ window.MOCK_BANK = {
     { id:"ie-024", type:"mcq",
       question:"A 70-year-old woman is admitted with fever. A soft systolic murmur documented on admission is clearly louder and now regurgitant two days later. Her observations are shown. Which statement best reflects the significance of this finding?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>96 bpm</b></span><span>BP <b>124/78 mmHg</b></span><span>Temp <b>38.6 &deg;C</b></span></div><div class="mk-obs-h" style="margin-top:9px">Auscultation</div><div class="mk-obs-line">Admission: soft systolic murmur. Day 2: louder murmur with a clearly regurgitant quality.</div>',
-      options:["A changing murmur is an incidental finding of no concern","It indicates that the fever has resolved","A new or changing regurgitant murmur suggests endocarditis","It is diagnostic of acute rheumatic fever","Murmurs never change during the course of endocarditis"],
+      options:["It usually reflects the fever rather than the valve","It is commonly heard in stable IE and does not change management","It reflects valve destruction and warrants urgent echocardiography","It indicates the infection is responding to treatment","It is more likely a flow murmur than a new valve lesion"],
       correctIndex:2,
       explanation:[
-        "A NEW or CHANGING regurgitant murmur occurs in up to ~85% of cases and reflects progressive VALVE DESTRUCTION; in a febrile patient it strongly suggests IE and mandates echocardiography and blood cultures.",
-        "It is the CHANGE that matters: a pre-existing fixed murmur is far less specific. A changing murmur is neither incidental, nor a marker of resolving fever, nor diagnostic of rheumatic fever."
+        "A murmur is present in up to ~85% of cases; a genuinely CHANGING murmur, though a classic sign, is less common — and reflects progressive VALVE DESTRUCTION. In a febrile patient a new or changing regurgitant murmur strongly suggests IE and mandates echocardiography and blood cultures.",
+        "It is the CHANGE that matters. The distractors: it is not simply a fever/high-output murmur (A) or a flow murmur (E), it does not signal treatment response (D), and in IE a changing murmur is NOT without management consequence (B) — it reflects ongoing valve damage."
       ] },
     { id:"ie-025", type:"saq", objective:"ie-janeway-osler",
       question:"State two features that distinguish Janeway lesions from Osler's nodes in infective endocarditis.",
@@ -5244,7 +5244,7 @@ window.MOCK_BANK = {
     { id:"ie-028", type:"mcq", objective:"ie-echo-toe",
       question:"A 62-year-old man with three positive blood-culture sets growing Staphylococcus aureus and a new aortic murmur has a transthoracic echo reported as normal, with poor acoustic windows. Clinical suspicion of endocarditis remains high. What is the most appropriate next step?",
       data:'<div class="mk-obs-h">Results</div><div class="mk-obs-line">Three of three blood-culture sets positive for Staphylococcus aureus; transthoracic echo shows no vegetation but poor acoustic windows.</div>',
-      options:["Exclude infective endocarditis, as the echo is normal","Repeat the transthoracic echo in six weeks","Stop antibiotics and discharge","Arrange transoesophageal echocardiography","Reassure the patient that the valves are structurally normal"],
+      options:["Exclude infective endocarditis, as the echo is normal","Repeat the transthoracic echo in six weeks","Stop antibiotics and discharge","Arrange transoesophageal echocardiography","Arrange cardiac CT angiography as the next test"],
       correctIndex:3,
       explanation:[
         "A NORMAL echo does NOT exclude IE — TTE misses small, prosthetic-valve or posteriorly-sited vegetations.",
@@ -5255,20 +5255,20 @@ window.MOCK_BANK = {
     { id:"ie-029", type:"mcq",
       question:"A patient with clinical and echocardiographic evidence of endocarditis has three sets of blood cultures, taken before antibiotics, that remain sterile after prolonged incubation. Which investigation is most likely to identify the cause?",
       data:'<div class="mk-obs-h">Results</div><div class="mk-obs-line">Three of three blood-culture sets sterile after prolonged incubation, all taken before any antibiotics.</div>',
-      options:["A fourth set of standard aerobic blood cultures","Repeat transthoracic echocardiography","Serum procalcitonin","Bone marrow aspirate","Serology for Coxiella, Bartonella and Brucella"],
+      options:["A fourth set of standard aerobic blood cultures","Repeat transthoracic echocardiography","16S rRNA PCR on a peripheral blood sample","Bone marrow aspirate","Serology for Coxiella, Bartonella and Brucella"],
       correctIndex:4,
       explanation:[
         "True culture-negative IE (cultures taken BEFORE antibiotics) points to FASTIDIOUS / intracellular organisms that will not grow on standard media — Coxiella burnetii (Q fever), Bartonella, Brucella and HACEK — identified by SEROLOGY (and, where available, PCR or 16S sequencing of resected valve tissue).",
-        "Repeating standard cultures (A) will stay sterile; the other tests do not identify the organism.",
+        "Repeating standard cultures (A) stays sterile. 16S rRNA PCR (C) is a genuine molecular tool but is highest-yield on RESECTED VALVE tissue, not peripheral blood — so serology remains the first-line non-culture test for these fastidious organisms.",
         "Recall from ie-008 that the commonest cause of culture-negative IE overall is PRIOR ANTIBIOTICS — excluded here by the timing."
       ] },
     { id:"ie-030", type:"mcq",
       question:"A 58-year-old woman with subacute infective endocarditis on a background of a bicuspid aortic valve has baseline investigations sent. Which combination of findings would most support the diagnosis?",
-      options:["Microcytic anaemia, low CRP, clear urine","Polycythaemia, low ESR, glycosuria","Neutropenia, low immunoglobulins, ketonuria","Macrocytic anaemia, low rheumatoid factor, proteinuria only","Normocytic anaemia, raised CRP and ESR, microscopic haematuria"],
+      options:["Microcytic anaemia, raised CRP, clear urine","Polycythaemia, raised ESR, glycosuria","Macrocytic anaemia, raised CRP, isolated proteinuria","Normocytic anaemia, normal CRP and ESR, clear urine","Normocytic anaemia, raised CRP and ESR, microscopic haematuria"],
       correctIndex:4,
       explanation:[
         "The typical picture is NORMOCYTIC anaemia (anaemia of chronic disease), RAISED CRP and ESR with leucocytosis, a raised RHEUMATOID FACTOR and immunoglobulins, plus MICROSCOPIC HAEMATURIA (with or without red cell casts) from immune-complex glomerulonephritis.",
-        "The other options invert one or more of the anaemia type, the inflammatory-marker direction, or the urinary finding, and several point to unrelated diagnoses (e.g. glycosuria/ketonuria in diabetes)."
+        "The distractors now also raise CRP/ESR, so the marker direction is no longer the giveaway: discriminate on the anaemia type (microcytic A, polycythaemia B, macrocytic C), the absence of any inflammatory response (D), and the urinary finding — the full IE picture is normocytic anaemia + raised markers + haematuria together."
       ] },
     { id:"ie-031", type:"saq", objective:"ie-blood-cultures",
       question:"A patient with a surgically repaired ventricular septal defect is admitted with three weeks of fever and a new murmur, and infective endocarditis is suspected. (a) Name the single most important investigation and state when it should be taken relative to antibiotics. (b) Which imaging test is first-line, and what is arranged if it is normal but suspicion remains high? (c) What ECG change would signal an aortic root abscess?",
@@ -5331,7 +5331,7 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-037", type:"mcq",
       question:"A patient with native-valve infective endocarditis is started on treatment. Which statement best explains why the antibiotics must be given intravenously, at high dose, and for several weeks?",
-      options:["The avascular vegetation needs high sustained bactericidal drug levels to sterilise it","Oral antibiotics are absolutely contraindicated in any form of cardiac infection","A short bacteriostatic course will reliably eradicate the organisms from the valve","Intravenous access is needed chiefly to monitor the patient's daily fluid balance","High doses are required only to overcome the patient's antibiotic allergy"],
+      options:["The avascular vegetation needs sustained bactericidal levels to sterilise it","Oral absorption is too unreliable to treat any endocarditis","A short bacteriostatic course is sufficient once the patient is afebrile","Intravenous access is needed chiefly to monitor the patient's fluid balance","High doses are chiefly needed to overcome antibiotic resistance"],
       correctIndex:0,
       explanation:[
         "The vegetation is a fibrin-platelet mass with POOR blood supply and a very HIGH, metabolically dormant bacterial density — so BACTERICIDAL drugs at HIGH sustained concentrations for a PROLONGED course (typically 4–6 weeks IV) are needed to penetrate and sterilise it. Bacteriostatic, short or oral courses relapse.",
@@ -5349,11 +5349,11 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-039", type:"mcq",
       question:"A 48-year-old woman with native mitral valve endocarditis grows methicillin-sensitive Staph aureus. She has documented anaphylaxis to penicillin. Which is the most appropriate first-line antibiotic?",
-      options:["Flucloxacillin","Amoxicillin","Vancomycin","Benzylpenicillin","Co-amoxiclav"],
+      options:["Flucloxacillin","Amoxicillin","Vancomycin","Benzylpenicillin","Ceftriaxone"],
       correctIndex:2,
       explanation:[
         "With true penicillin ANAPHYLAXIS, every penicillin (flucloxacillin, amoxicillin, benzylpenicillin, co-amoxiclav) is unsafe — use VANCOMYCIN (a glycopeptide).",
-        "Trap: four of the five options are penicillins; anaphylaxis rules out the ENTIRE class, not just the one drug — the same class-effect logic as ACE-inhibitor angioedema and the equally-teratogenic ARB point. Flucloxacillin would be first-line only if she were NOT allergic (ie-038).",
+        "Trap: three of the five options are penicillins (flucloxacillin, amoxicillin, benzylpenicillin) — anaphylaxis rules out the ENTIRE class (the same class-effect logic as ACE-inhibitor angioedema). Ceftriaxone is a cephalosporin, which carries cross-reactivity risk in true penicillin anaphylaxis and is not the anti-staphylococcal choice anyway. Flucloxacillin would be first-line only if she were NOT allergic (ie-038).",
         "Daptomycin is the standard second-line alternative for staphylococcal IE in penicillin-intolerant patients. Match the substitution to the ALLERGY, not just the organism."
       ] },
     { id:"ie-040", type:"mcq",
@@ -5414,22 +5414,22 @@ window.MOCK_BANK = {
     { id:"ie-046", type:"mcq",
       question:"A patient with mitral valve endocarditis, four days into a six-week antibiotic course, develops acute severe mitral regurgitation with pulmonary oedema. The team asks whether surgery must wait until antibiotics are completed. His observations are shown. What is the correct approach?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>116 bpm</b></span><span>BP <b>96/58 mmHg</b></span><span>RR <b>32/min</b></span><span>SpO2 <b>88% on 15 L O2</b></span><span>Temp <b>37.8 &deg;C</b></span></div>',
-      options:["Wait until the full antibiotic course is completed before any surgery","Wait at least two weeks of antibiotics before operating","Surgery is contraindicated until blood cultures are negative","Proceed to early surgery now, as the haemodynamic indication overrides timing","Surgery should be avoided entirely while on antibiotics"],
+      options:["Wait until the antibiotic course is completed, then operate","Manage medically with diuretics and vasodilators, avoiding surgery","Surgery is contraindicated until blood cultures are negative","Proceed to early surgery now","Delay surgery for two weeks of antibiotics first"],
       correctIndex:3,
       explanation:[
         "With a HARD indication (heart failure, uncontrolled infection, high embolic risk), surgery must NOT be delayed to complete antibiotics — EARLY surgery is life-saving and delay increases mortality. Antibiotics continue through and after the operation.",
-        "The distractors are all versions of the same dangerous instinct — sterilise or complete the course first — which is wrong when the patient is decompensating; operating on infected tissue feels risky but is correct here.",
+        "The distractors are the dangerous instincts: complete or space out the antibiotics first (A, C, E), or try to manage severe acute mitral regurgitation medically (B) — all wrong when the patient is decompensating. Operating on infected tissue feels risky but is correct here.",
         "Neurological timing caveat (relevant to ie-045's two-stroke patient): an ISCHAEMIC stroke generally does NOT preclude early surgery, but INTRACRANIAL HAEMORRHAGE usually warrants delay (commonly around a month), because the anticoagulation needed for cardiopulmonary bypass risks catastrophic extension. This keeps 'don't delay' from being over-generalised."
       ] },
     { id:"ie-047", type:"mcq",
       question:"A 55-year-old man treated for two weeks for left-sided infective endocarditis has persistent swinging fevers with new left upper quadrant pain. Blood cultures are now negative. His results are shown. What is the most likely explanation?",
       data:'<div class="mk-obs-h">Results</div><div class="mk-obs-line">Temperature chart shows a swinging pyrexia peaking at 39.2 &deg;C despite two weeks of treatment; WCC 16.5, CRP 118 mg/L, and three sets of blood cultures are now negative.</div>',
-      options:["Antibiotic-induced drug fever only","Successful treatment; the fever is coincidental","Immune-complex glomerulonephritis","Osler's nodes causing the pain","A splenic abscess"],
+      options:["Antibiotic-induced drug fever only","Successful treatment; the fever is coincidental","Immune-complex glomerulonephritis","A paravalvular root abscess","A splenic abscess"],
       correctIndex:4,
       explanation:[
         "PERSISTENT or recurrent fever despite appropriate antibiotics should prompt a search for a METASTATIC / deep-seated focus — most commonly a SPLENIC ABSCESS (an infected splenic embolus), needing CT and drainage or splenectomy; it will not clear on antibiotics alone.",
         "The now-negative cultures are the key clue: they exclude ongoing bacteraemia and point to a walled-off, sequestered focus — the same avascular/sequestered logic that makes the vegetation itself hard to treat (ie-003).",
-        "This is the EMBOLIC stream (ie-016: left-sided → spleen) declaring itself late. Other causes of persistent fever: uncontrolled valve infection/abscess, drug fever, line infection. The other embolic complication to remember is a ruptured intracranial mycotic aneurysm — sudden severe headache."
+        "This is the EMBOLIC stream (ie-016: left-sided → spleen) declaring itself late. Trap (D): a paravalvular/root abscess also causes persistent fever, but the LUQ pain and tenderness localise this to the SPLEEN — a root abscess would instead threaten the conduction system (ie-014). The other embolic complication to remember is a ruptured intracranial mycotic aneurysm — sudden severe headache."
       ] },
     { id:"ie-048", type:"saq", objective:"ie-surgery-indications",
       question:"State three indications for cardiac surgery in infective endocarditis.",
@@ -5442,7 +5442,7 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-049", type:"mcq", objective:"ie-janeway-osler",
       image:"https://upload.wikimedia.org/wikipedia/commons/6/69/Janeway_lesion.JPG",
-      imageAlt:"Clinical photograph of a palm showing flat, non-tender erythematous and haemorrhagic macules.",
+      imageAlt:"Clinical photograph of a palm showing flat, non-blanching erythematous and haemorrhagic macules.",
       imageCredit:"Warfieldian, CC BY-SA 4.0, via Wikimedia Commons.",
       question:"A 36-year-old man who injects drugs is admitted with Staphylococcus aureus endocarditis. He has developed the flat, painless red lesions on his palms and soles shown here; they do not blanch and are not tender. What are they?",
       options:["Osler's nodes","Splinter haemorrhages","Janeway lesions","Roth spots","Petechiae"],
@@ -5452,7 +5452,7 @@ window.MOCK_BANK = {
         "Trap: Osler's nodes are the mirror image — PAINFUL, raised nodules on the finger/toe PULPS, from immune-complex vasculitis ('Osler = Ouch'). A photograph cannot convey tenderness, so the stem states the lesions are non-tender.",
         "Both are minor Duke criteria (Janeway = vascular; Osler = immunologic). Shares the Janeway-vs-Osler objective with ie-020 and ie-025."
       ] },
-    { id:"ie-050", type:"mcq",
+    { id:"ie-050", type:"mcq", objective:"ie-ivdu-tricuspid",
       image:"https://upload.wikimedia.org/wikipedia/commons/f/fb/Endocarditis_ultrasound.JPG",
       imageAlt:"Echocardiogram with an arrow indicating a mobile echogenic mass attached to a heart valve leaflet.",
       imageCredit:"Daisuke Koya et al., CC BY 2.0, via Wikimedia Commons.",
@@ -5466,12 +5466,12 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-051", type:"mcq", objective:"ie-prophylaxis",
       question:"A 60-year-old man with a prosthetic aortic valve is due to have a dental extraction and asks whether he needs antibiotics beforehand to prevent infective endocarditis. According to current NICE guidance, what is the most appropriate advice?",
-      options:["Antibiotic prophylaxis against IE is not routinely recommended","Give a single dose of oral amoxicillin one hour before the procedure","Give a five-day course of amoxicillin around the procedure","Give intravenous vancomycin at induction","Prophylaxis is needed only for extractions, not other dental work"],
+      options:["Antibiotic prophylaxis against IE is not routinely recommended","Give a single dose of oral amoxicillin one hour before the procedure","No antibiotics are needed because his prosthetic valve is low-risk","Give intravenous vancomycin at induction","Prophylaxis is needed only for extractions, not other dental work"],
       correctIndex:0,
       explanation:[
         "NICE (CG64) does NOT routinely recommend antibiotic prophylaxis against IE for dental or other procedures, even in at-risk groups — a deliberate reversal of older UK practice.",
         "Rationale: cumulative bacteraemia from everyday chewing and tooth-brushing vastly outweighs procedural bacteraemia; prophylaxis has never been shown to prevent IE; and it carries anaphylaxis and antibiotic-resistance harm.",
-        "Currency: the wording was AMENDED in 2015 to 'not routinely recommended' (rather than an absolute bar), permitting individualised decisions for the highest-risk patients after specialist discussion. The distractors are all versions of the OLD practice.",
+        "Currency: the wording was AMENDED in 2015 to 'not routinely recommended' (rather than an absolute bar), permitting individualised decisions for the highest-risk patients after specialist discussion. Trap (C): a prosthetic valve is HIGH-risk, yet prophylaxis is still not routinely recommended — the point is that prophylaxis does not help, not that he is low-risk.",
         "Pairs with ie-052 (shared objective ie-prophylaxis)."
       ] },
     { id:"ie-052", type:"mcq", objective:"ie-prophylaxis",
@@ -5505,7 +5505,7 @@ window.MOCK_BANK = {
       ] },
     { id:"ie-055", type:"mcq", objective:"ie-root-abscess",
       question:"A patient with aortic valve endocarditis has a weekly ECG during treatment. What is the main purpose of this monitoring?",
-      options:["To monitor for new atrial fibrillation","To detect QT-interval prolongation caused by the antibiotics","To confirm that the infection has resolved","To screen for myocardial ischaemia","To detect a lengthening PR interval, signalling root abscess"],
+      options:["To monitor for new atrial fibrillation","To detect QT-interval prolongation caused by the antibiotics","To confirm that the infection has resolved","To screen for myocardial ischaemia","To detect a lengthening PR interval"],
       correctIndex:4,
       explanation:[
         "Serial ECGs screen for a PROLONGING PR interval progressing to new AV block — the red flag for an aortic ROOT ABSCESS (conduction-system invasion), the direct payoff of ie-014.",
