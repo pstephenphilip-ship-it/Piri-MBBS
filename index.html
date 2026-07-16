@@ -7290,15 +7290,29 @@ window.MOCK_BANK = {
     pool=fresh;
     shuffle(pool);
     var n=Math.min(want>0?want:pool.length,pool.length);
-    // Objective de-duplication: never show two questions that share an `objective` tag in one paper.
-    var picked=[], usedObj={};
-    for(var pi=0; pi<pool.length && picked.length<n; pi++){
-      var pq=pool[pi], ob=pq.objective;
-      if(ob && usedObj[ob]) continue;
-      if(ob) usedObj[ob]=1;
-      picked.push(pq);
+    // Stratified selection: round-robin across SYSTEMS so one large pool (e.g. Cardiovascular)
+    // cannot dominate a mixed paper on pool size alone. Each pass takes one eligible question
+    // per system; systems with fewer questions run out first and their slots go to the rest,
+    // giving the most even split the requested length allows.
+    var bySys={}, sysOrder=[];
+    for(var gi=0; gi<pool.length; gi++){ var sk=pool[gi]._sys||'_'; if(!bySys[sk]){ bySys[sk]=[]; sysOrder.push(sk); } bySys[sk].push(pool[gi]); }
+    shuffle(sysOrder);
+    // Objective de-duplication (never two questions sharing an `objective` in one paper) is
+    // applied as we pick.
+    var picked=[], usedObj={}, progress=true;
+    while(picked.length<n && progress){
+      progress=false;
+      for(var si=0; si<sysOrder.length && picked.length<n; si++){
+        var arr=bySys[sysOrder[si]];
+        while(arr.length){
+          var q=arr.shift(), ob=q.objective;
+          if(ob && usedObj[ob]) continue;   // skip if its objective-pair is already in the paper
+          if(ob) usedObj[ob]=1;
+          picked.push(q); progress=true; break;
+        }
+      }
     }
-    // Backfill from the remainder if dedup left the paper short of the requested length (small pools).
+    // Backfill (last resort, ignoring dedup) if a small or heavily-paired pool left it short.
     for(var bi=0; bi<pool.length && picked.length<n; bi++){
       if(picked.indexOf(pool[bi])<0) picked.push(pool[bi]);
     }
