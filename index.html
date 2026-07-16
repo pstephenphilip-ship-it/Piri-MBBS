@@ -611,6 +611,10 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .wc-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#9CA3AF;letter-spacing:.04em;margin:0 0 18px;}
 .wc-notes{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;overflow:hidden;}
 .wc-nhead{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-weight:700;font-size:14px;color:#1E2640;border-bottom:1px solid #E2E6F0;}
+.wc-nactions{display:flex;align-items:center;gap:9px;}
+.wc-nsave{font-size:11px;font-weight:700;color:#fff;background:#00A892;border:none;border-radius:6px;padding:5px 13px;cursor:pointer;transition:background .15s ease;}
+.wc-nsave:hover{background:#009683;}
+.wc-nsave.saved{background:#6B7280;}
 .wc-nclear{font-size:11px;font-weight:600;color:#9CA3AF;background:none;border:none;cursor:pointer;}
 .wc-nclear:hover{color:#DC2626;}
 .wc-ntoolbar{display:flex;gap:4px;padding:8px 12px;border-bottom:1px solid #E2E6F0;flex-wrap:wrap;}
@@ -637,7 +641,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       +'<div class="wc-stat"><div class="n js-stat-q" style="color:#CA8A04">&mdash;</div><div class="l">Questions</div></div>'
       +'<div class="wc-stat"><div class="n js-stat-sys" style="color:#EF5350">&mdash;</div><div class="l">Systems</div></div></div>';
     var hint = opts.hint ? ('<div class="wc-hint">'+opts.hint+'</div>') : '';
-    var notes='<div class="wc-notes"><div class="wc-nhead"><span>&#128221; My Notes &amp; To-Do</span><button class="wc-nclear" type="button" onclick="wcNotesClear(event)">Clear</button></div>'
+    var notes='<div class="wc-notes"><div class="wc-nhead"><span>&#128221; My Notes &amp; To-Do</span><span class="wc-nactions"><button class="wc-nsave" type="button" onclick="wcNotesSaveNow(event)">Save</button><button class="wc-nclear" type="button" onclick="wcNotesClear(event)">Clear</button></span></div>'
       +'<div class="wc-ntoolbar">'
       +'<button class="wc-nbtn" type="button" title="Bold" onmousedown="return wcFmt(event,\'bold\')"><b>B</b></button>'
       +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return wcFmt(event,\'italic\')"><i>I</i></button>'
@@ -645,7 +649,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return wcFmt(event,\'insertUnorderedList\')">&#8226;</button>'
       +'</div>'
       +'<div class="wc-nbody js-notes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="wcNotesSave(this)"></div>'
-      +'<div class="wc-nhint">Saved automatically on this device &mdash; the same list shows on every page.</div></div>';
+      +'<div class="wc-nhint">Saves automatically &mdash; synced to your account across devices when you&rsquo;re signed in.</div></div>';
     return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
       +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+stats+hint+notes+'</div>';
   }
@@ -692,6 +696,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   window.wcNotesSave=function(srcEl){ clearTimeout(nt); nt=setTimeout(function(){ var html=srcEl.innerHTML; try{localStorage.setItem(NKEY,html);}catch(e){} document.querySelectorAll('.js-notes').forEach(function(o){ if(o!==srcEl) o.innerHTML=html; }); },250); };
   window.wcFmt=function(ev,cmd){ ev.preventDefault(); var w=ev.currentTarget.closest('.wc-notes'); var el=w&&w.querySelector('.js-notes'); if(!el)return false; el.focus(); try{document.execCommand(cmd,false,null);}catch(e){} window.wcNotesSave(el); return false; };
   window.wcNotesClear=function(ev){ var w=ev.currentTarget.closest('.wc-notes'); var el=w&&w.querySelector('.js-notes'); if(!el)return; if(el.innerHTML.trim() && !window.confirm('Clear all your notes? This cannot be undone.'))return; el.innerHTML=''; window.wcNotesSave(el); };
+  window.wcNotesSaveNow=function(ev){ var btn=ev.currentTarget, w=btn.closest('.wc-notes'), el=w&&w.querySelector('.js-notes'); if(!el)return; clearTimeout(nt); var html=el.innerHTML; try{localStorage.setItem(NKEY,html);}catch(e){} document.querySelectorAll('.js-notes').forEach(function(o){ if(o!==el) o.innerHTML=html; }); btn.textContent='Saved ✓'; btn.classList.add('saved'); clearTimeout(btn.__t); btn.__t=setTimeout(function(){ btn.textContent='Save'; btn.classList.remove('saved'); },1400); };
 
   function paintWelcome(container, opts){ if(!container)return; container.innerHTML=welcomeHTML(opts); loadNotesInto(container); updateStreakUI(); updateStatsUI(); }
   window.paintWelcome=paintWelcome;
