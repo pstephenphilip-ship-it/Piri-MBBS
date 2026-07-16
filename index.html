@@ -5592,11 +5592,13 @@ window.MOCK_BANK = {
         "Clinical anchor: ejection fraction is the everyday clinical readout of this same relationship (HFrEF versus HFpEF)."
       ] },
     { id:"fcvs-009", type:"mcq",
-      question:"A patient with severe tricuspid regurgitation has abnormal jugular venous pulsations. Which component of the JVP waveform is characteristically exaggerated?",
-      options:["The a wave","The x descent","Giant v waves","The y descent","Cannon a waves"],
+      image:"assets/ecg/jvp_waveform.svg",
+      imageAlt:"A jugular venous pressure waveform with two main positive peaks and a smaller intervening notch; its five deflections are each marked with a number ① to ⑤ (not in left-to-right order).",
+      question:"A patient with severe tricuspid regurgitation has abnormal jugular venous pulsations. On the labelled JVP waveform, which numbered deflection becomes characteristically giant?",
+      options:["Deflection ③","Deflection ⑤","Deflection ②","Deflection ④","Deflection ①"],
       correctIndex:2,
       explanation:[
-        "In tricuspid regurgitation the right ventricle drives blood BACK through the incompetent valve into the atrium during systole → GIANT v waves (often with a pulsatile liver).",
+        "In tricuspid regurgitation the right ventricle drives blood BACK through the incompetent valve into the atrium during systole → GIANT v waves (often with a pulsatile liver). On the trace the v wave is the SECOND main positive peak — here labelled ② (the numbers are scrambled, so you must read the waveform, not assume a→c→v runs 1→2→3).",
         "JVP quick map: absent a = AF; cannon a = complete heart block (fcvs-004); large a = tricuspid stenosis or pulmonary hypertension; giant v = tricuspid regurgitation. The y descent (tricuspid opens → atrial emptying) is ABSENT in cardiac tamponade (a full pericardium prevents early filling) and STEEP in constrictive pericarditis.",
         "Clinical anchor: the JVP reads out right-heart events — arrhythmias, tricuspid disease, and tamponade/constriction all have signatures here."
       ] },
@@ -5833,7 +5835,10 @@ window.MOCK_BANK = {
         "Clinical anchor: right axis deviation → RVH, pulmonary embolism, or left posterior fascicular block."
       ] },
     { id:"fcvs-035", type:"mcq",
-      question:"On standard ECG paper (25 mm/s), a regular rhythm has an R–R interval of 4 large squares. What is the heart rate?",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Normal_ECG_with_12_leads.jpg?width=1000",
+      imageAlt:"A normal 12-lead ECG in sinus rhythm on standard grid paper (25 mm/s, 10 mm/mV) with regular R–R intervals.",
+      imageCredit:"Jmarchn, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"This is a normal 12-lead ECG recorded on standard paper (25 mm/s). Count the large squares between two consecutive R waves and apply the 300-rule: what is the heart rate?",
       options:["50/min","100/min","60/min","150/min","75/min"],
       correctIndex:4,
       explanation:[
