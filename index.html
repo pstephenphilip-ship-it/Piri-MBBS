@@ -496,10 +496,10 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 </head>
 <body>
 <nav class="topnav">
-  <div class="logo"><span class="logo-text">DoctoRise</span></div>
+  <div class="logo" onclick="goHome()" style="cursor:pointer;" title="Home"><span class="logo-text">DoctoRise</span></div>
   <button class="nav-arrow nav-arrow-left" id="navArrowL" type="button" aria-label="Scroll tabs left" onclick="scrollNavTabs(-1)">&#8249;</button>
   <div class="nav-tabs" id="navTabs">
-    <div class="nav-tab active" onclick="switchMainTab('conditions',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15C9 15 3 11 3 7a4 4 0 018 0 4 4 0 018 0c0 4-6 8-6 8z"/><path d="M9 7v3m-1.5-1.5h3"/></svg></span>Medical Conditions</div>
+    <div class="nav-tab" onclick="switchMainTab('conditions',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15C9 15 3 11 3 7a4 4 0 018 0 4 4 0 018 0c0 4-6 8-6 8z"/><path d="M9 7v3m-1.5-1.5h3"/></svg></span>Medical Conditions</div>
     <div class="nav-tab" onclick="switchMainTab('anatomy',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2C6 2 4 4 4 7c0 2 1 3 2 4v3h6v-3c1-1 2-2 2-4 0-3-2-5-5-5z"/><path d="M7 14v1.5a2 2 0 004 0V14"/><path d="M6.5 8C7.5 8 8 8.5 9 9.5 10 8.5 10.5 8 11.5 8"/></svg></span>Anatomy</div>
     <div class="nav-tab" onclick="switchMainTab('histology',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><circle cx="9" cy="9" r="2"/><path d="M9 4v2m0 6v2M4 9h2m6 0h2"/></svg></span>Histology</div>
     <div class="nav-tab" onclick="switchMainTab('signs',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14L6 6l3 5 2-3 2 4 2-6"/></svg></span>Signs & Symptoms</div>
@@ -584,7 +584,114 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   </div>
 </div>
 <div class="app-body">
-<div id="tab-conditions" class="tab-view visible"><div class="system-sidebar"><div class="sidebar-header">Systems</div><div class="search-wrap"><input type="text" class="search-input" id="search-conditions" placeholder="Search conditions..." oninput="handleSearch('conditions',this.value)"></div><div class="system-list" id="syslist-conditions"></div></div><div class="condition-list"><div class="clist-header"><div class="clist-system-name" id="sysname-conditions">Select a system</div><div class="clist-subtitle" id="syscount-conditions"></div></div><div class="condition-items" id="topiclist-conditions"></div></div><div class="note-area" id="notearea-conditions"><div class="note-empty" id="empty-conditions" style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#374151;text-align:center;padding:48px;">
+<style>
+.tab-view.home-view.visible{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.home-inner{max-width:720px;margin:0 auto;padding:44px 24px 64px;box-sizing:border-box;}
+.home-brand{text-align:center;margin-bottom:30px;}
+.home-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
+.home-word{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.home-tag{font-size:14px;color:var(--muted);margin-top:6px;}
+.home-streak{display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:16px;border:1.5px solid rgba(249,115,22,.42);background:linear-gradient(135deg,rgba(249,115,22,.16),rgba(249,115,22,.05));margin-bottom:22px;}
+.home-streak.cold{border-color:var(--border2);background:var(--surface);}
+.hs-flame{font-size:44px;line-height:1;filter:drop-shadow(0 2px 8px rgba(249,115,22,.4));}
+.home-streak.cold .hs-flame{filter:grayscale(1);opacity:.5;}
+.hs-main{flex:1;min-width:0;}
+.hs-num{font-family:var(--mono);font-weight:800;font-size:30px;line-height:1;color:#FB923C;}
+.home-streak.cold .hs-num{color:var(--muted);}
+.hs-unit{font-size:14px;font-weight:600;color:var(--muted);}
+.hs-sub{font-size:13px;color:var(--text);opacity:.82;margin-top:7px;line-height:1.5;}
+.hs-best{text-align:center;padding-left:16px;border-left:1px solid var(--border2);}
+.hs-best-num{font-family:var(--mono);font-weight:800;font-size:22px;color:var(--text);line-height:1;}
+.hs-best-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:4px;}
+.home-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px;}
+.home-stat{background:var(--surface);border:1.5px solid var(--border2);border-radius:12px;padding:16px 10px;text-align:center;}
+.home-stat .n{font-family:var(--mono);font-size:24px;font-weight:800;line-height:1;}
+.home-stat .l{font-size:10.5px;color:var(--muted);margin-top:5px;text-transform:uppercase;letter-spacing:.06em;}
+.home-notes{background:var(--surface);border:1.5px solid var(--border2);border-radius:14px;overflow:hidden;}
+.hn-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-weight:700;font-size:14px;color:var(--text);border-bottom:1px solid var(--border2);}
+.hn-clear{font-size:11px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;}
+.hn-clear:hover{color:var(--danger);}
+.hn-toolbar{display:flex;gap:4px;padding:8px 12px;border-bottom:1px solid var(--border2);flex-wrap:wrap;}
+.hn-btn{min-width:32px;height:30px;padding:0 8px;border:1px solid var(--border2);background:var(--surface2);color:var(--text);border-radius:7px;cursor:pointer;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center;}
+.hn-btn:hover{border-color:var(--accent);color:var(--accent);}
+.hn-body{min-height:150px;max-height:340px;overflow-y:auto;padding:14px 16px;font-size:14px;line-height:1.7;color:var(--text);outline:none;}
+.hn-body:empty:before{content:attr(data-placeholder);color:var(--muted);}
+.hn-body ul{margin:6px 0;padding-left:22px;}
+.hn-body li{margin:2px 0;}
+.hn-hint{padding:9px 16px;font-size:11px;color:var(--muted);border-top:1px solid var(--border2);}
+@media(max-width:560px){.home-stats{grid-template-columns:repeat(2,1fr);}.hs-best{display:none;}.home-inner{padding:28px 16px 56px;}}
+</style>
+<div id="tab-home" class="tab-view home-view visible">
+  <div class="home-inner">
+    <div class="home-brand">
+      <img src="logo.png" alt="DoctoRise">
+      <div class="home-word">DoctoRise</div>
+      <div class="home-tag">Your complete medical reference &mdash; pick up where you left off.</div>
+    </div>
+    <div class="home-streak" id="homeStreak">
+      <div class="hs-flame">&#128293;</div>
+      <div class="hs-main">
+        <div><span class="hs-num" id="hsNum">0</span> <span class="hs-unit">day streak</span></div>
+        <div class="hs-sub" id="hsSub">Study a flashcard or answer a question today to start a streak.</div>
+      </div>
+      <div class="hs-best"><div class="hs-best-num" id="hsBest">0</div><div class="hs-best-lbl">best</div></div>
+    </div>
+    <div class="home-stats">
+      <div class="home-stat"><div class="n" id="home-stat-conditions" style="color:var(--accent)">&mdash;</div><div class="l">Conditions</div></div>
+      <div class="home-stat"><div class="n" id="home-stat-flashcards" style="color:var(--purple)">&mdash;</div><div class="l">Flashcards</div></div>
+      <div class="home-stat"><div class="n" id="home-stat-questions" style="color:var(--gold)">&mdash;</div><div class="l">Questions</div></div>
+      <div class="home-stat"><div class="n" id="home-stat-systems" style="color:var(--danger)">&mdash;</div><div class="l">Systems</div></div>
+    </div>
+    <div class="home-notes">
+      <div class="hn-head"><span>&#128221; My Notes &amp; To-Do</span><button class="hn-clear" onclick="homeNotesClear()">Clear</button></div>
+      <div class="hn-toolbar">
+        <button class="hn-btn" type="button" title="Bold" onmousedown="return homeFmtMD(event,'bold')"><b>B</b></button>
+        <button class="hn-btn" type="button" title="Italic" onmousedown="return homeFmtMD(event,'italic')"><i>I</i></button>
+        <button class="hn-btn" type="button" title="Underline" onmousedown="return homeFmtMD(event,'underline')"><u>U</u></button>
+        <button class="hn-btn" type="button" title="Bullet list" onmousedown="return homeFmtMD(event,'insertUnorderedList')">&#8226;</button>
+      </div>
+      <div class="hn-body" id="homeNotes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="homeNotesSave()"></div>
+      <div class="hn-hint">Saved automatically on this device.</div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  function setTxt(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  window.renderHomeStreak=function(){
+    var s=window.daStreakState?window.daStreakState():{cur:0,best:0,activeToday:false};
+    setTxt('hsNum',s.cur); setTxt('hsBest',s.best);
+    var box=document.getElementById('homeStreak'); if(box) box.classList.toggle('cold',s.cur===0);
+    var sub=document.getElementById('hsSub');
+    if(sub){ sub.textContent = s.cur>0 ? (s.activeToday?('Studied today — your streak is safe. Keep it going! 💪'):('Study today to keep your '+s.cur+'-day streak alive!')) : 'Study a flashcard or answer a question today to start a streak.'; }
+  };
+  var counted=false;
+  window.renderHome=function(){
+    renderHomeStreak();
+    homeNotesLoad();
+    setTxt('home-stat-systems', (typeof CONDITIONS_SYSTEMS!=='undefined')?Object.keys(CONDITIONS_SYSTEMS).length:'—');
+    if(counted) return; counted=true;
+    Promise.all([
+      (window.loadManifest?window.loadManifest():Promise.resolve({systems:[]})),
+      fetch('content/subnav.json').then(function(r){return r.ok?r.json():{};}).catch(function(){return {};})
+    ]).then(function(res){
+      var mf=res[0]||{}, sn=res[1]||{};
+      var tf=0,tq=0;(mf.systems||[]).forEach(function(s){tf+=s.fcards||0;tq+=s.qcards||0;});
+      setTxt('home-stat-flashcards',tf); setTxt('home-stat-questions',tq);
+      if(typeof CONDITIONS_SYSTEMS!=='undefined'){
+        setTxt('home-stat-conditions', Object.keys(CONDITIONS_SYSTEMS).reduce(function(a,sys){var m=CONDITIONS_SYSTEMS[sys];return a+((m.conditions||[]).reduce(function(x,t){var subs=(sn&&sn[sys+'__'+t])||null;return x+((subs&&subs.length)?subs.length:1);},0));},0));
+      }
+    });
+  };
+  var NKEY='piri_home_notes_v1', nloaded=false, nt;
+  window.homeNotesLoad=function(){ if(nloaded)return; var el=document.getElementById('homeNotes'); if(!el)return; try{var v=localStorage.getItem(NKEY); if(v!=null) el.innerHTML=v;}catch(e){} nloaded=true; };
+  window.homeNotesSave=function(){ var el=document.getElementById('homeNotes'); if(!el)return; clearTimeout(nt); nt=setTimeout(function(){try{localStorage.setItem(NKEY,el.innerHTML);}catch(e){}},250); };
+  window.homeFmtMD=function(ev,cmd){ ev.preventDefault(); var el=document.getElementById('homeNotes'); if(!el)return false; el.focus(); try{document.execCommand(cmd,false,null);}catch(e){} homeNotesSave(); return false; };
+  window.homeNotesClear=function(){ var el=document.getElementById('homeNotes'); if(!el)return; if(el.innerHTML.trim() && !window.confirm('Clear all your notes? This cannot be undone.'))return; el.innerHTML=''; homeNotesSave(); };
+  window.goHome=function(skipHash){ if(window.switchMainTab) window.switchMainTab('home', null, skipHash); };
+})();
+</script>
+<div id="tab-conditions" class="tab-view"><div class="system-sidebar"><div class="sidebar-header">Systems</div><div class="search-wrap"><input type="text" class="search-input" id="search-conditions" placeholder="Search conditions..." oninput="handleSearch('conditions',this.value)"></div><div class="system-list" id="syslist-conditions"></div></div><div class="condition-list"><div class="clist-header"><div class="clist-system-name" id="sysname-conditions">Select a system</div><div class="clist-subtitle" id="syscount-conditions"></div></div><div class="condition-items" id="topiclist-conditions"></div></div><div class="note-area" id="notearea-conditions"><div class="note-empty" id="empty-conditions" style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#374151;text-align:center;padding:48px;">
   <img src="logo.png" alt="DoctoRise" style="width:140px;height:140px;object-fit:contain;margin-bottom:12px;">
   <div style="font-family:'JetBrains Mono',monospace;font-size:28px;font-weight:800;letter-spacing:-0.01em;margin-bottom:8px;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">DoctoRise</div>
   <div style="font-size:14px;color:#6B7280;margin-bottom:32px;max-width:360px;line-height:1.7;">Your complete medical reference — click a system on the left to get started.</div>
@@ -7727,12 +7834,13 @@ function updateHash(tab, system, topic, mode) {
 
 function restoreFromHash() {
   var hash = window.location.hash.slice(1);
-  if (!hash) return;
+  if (!hash) { if (window.goHome) window.goHome(true); return; }
   var parts = hash.split('/');
   var tab = parts[0];
   var system = parts[1] ? decodeURIComponent(parts[1]) : null;
   var topic = parts[2] ? decodeURIComponent(parts[2]) : null;
   var mode = parts[3] || 'notes';
+  if (tab === 'home') { if (window.goHome) window.goHome(true); return; }
   if (tab === 'mock') { if (window.openMock) window.openMock(); return; }
   var navEl = document.querySelector('.nav-tab[onclick*="\'' + tab + '\'"]');
   if (!navEl) return;
@@ -7759,7 +7867,7 @@ function switchMainTab(id, el, skipHash) {
   document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('visible'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('visible');
-  el.classList.add('active');
+  if (el && el.classList) el.classList.add('active');
   // Restore the floating buttons when leaving the focused mock view
   if (id !== 'mock') {
     var _mf = document.getElementById('mockFab'); if (_mf) _mf.classList.remove('is-hidden');
@@ -7768,6 +7876,12 @@ function switchMainTab(id, el, skipHash) {
   if (el && el.scrollIntoView) { try { el.scrollIntoView({ inline:'nearest', block:'nearest', behavior:'smooth' }); } catch(e){} }
   if (window.updateNavArrows) setTimeout(window.updateNavArrows, 350);
   if (!skipHash) updateHash(id, null, null, null);
+  if (id === 'home') {
+    var _hf = document.getElementById('mockFab'); if (_hf) _hf.classList.add('is-hidden');
+    var _hr = document.getElementById('daRvTrigger'); if (_hr) _hr.classList.add('is-hidden');
+    if (window.renderHome) window.renderHome();
+    return;
+  }
   if (id === 'mock') { initMock(); return; }
   if (id === 'pharmacology') { initPharma(); return; }
   const st = getState(id);
@@ -7778,7 +7892,7 @@ function initTab(p) {
   const data = getTabData(p);
   renderSysList(p, data);
   const first = Object.keys(data)[0];
-  if (first) selectSystem(p, first);
+  if (first) selectSystem(p, first, true);
 }
 
 
@@ -10266,6 +10380,7 @@ function hideFlyout(p) {
     var s=load(), n=live(s), el=document.getElementById('daStreakNum'), chip=document.getElementById('daStreakChip');
     if(el) el.textContent=n;
     if(chip){ chip.classList.toggle('da-streak-cold', n===0); chip.title = n>0 ? (n+'-day study streak'+(s.best?(' · best '+s.best):'')) : 'Study today to start a streak'; }
+    if(window.renderHomeStreak){ try{ window.renderHomeStreak(); }catch(e){} }
   }
   function pop(){ var c=document.getElementById('daStreakChip'); if(!c) return; c.classList.remove('da-streak-pop'); void c.offsetWidth; c.classList.add('da-streak-pop'); }
   function ping(){
@@ -10284,6 +10399,7 @@ function hideFlyout(p) {
     if(window.daToast){ try{ window.daToast(msg.replace(/\n+/g,'  ')); return; }catch(e){} }
     alert(msg);
   }
+  window.daStreakState=function(){ var s=load(); return {cur:live(s), best:s.best||0, last:s.last||null, today:todayStr(), activeToday:(s.last===todayStr())}; };
   window.daStreakPing=ping;
   window.daStreakInfo=showInfo;
   function boot(){ injectChip(); render(); }
