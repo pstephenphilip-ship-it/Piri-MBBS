@@ -5790,13 +5790,13 @@ window.MOCK_BANK = {
         "Clinical anchor: S1 opens systole and S2 closes it, so a murmur between them is systolic and one after S2 is diastolic — the framework for localising valve lesions."
       ] },
     { id:"fcvs-008", type:"mcq",
-      question:"A left ventricle has an end-diastolic volume of 120 mL and an end-systolic volume of 50 mL. What is the stroke volume?",
-      options:["50 mL","120 mL","42%","70 mL","170 mL"],
+      question:"A patient's left ventricle has an end-diastolic volume of 120 mL and an end-systolic volume of 50 mL, with a heart rate of 75 beats per minute. What is the cardiac output?",
+      options:["9.0 L/min","3.75 L/min","58%","5.25 L/min","4.2 L/min"],
       correctIndex:3,
       explanation:[
-        "Stroke volume = end-diastolic volume − end-systolic volume = 120 − 50 = 70 mL (the WIDTH of the PV loop).",
-        "Ejection fraction would be SV/EDV = 70/120 ≈ 58% (normal ≥50%). Distractors: 50 = ESV, 120 = EDV, 170 = their sum, 42% = the mis-calculated fraction.",
-        "Clinical anchor: ejection fraction is the everyday clinical readout of this same relationship (HFrEF versus HFpEF)."
+        "Two steps. STROKE VOLUME = EDV − ESV = 120 − 50 = 70 mL. Then CARDIAC OUTPUT = SV × heart rate = 70 mL × 75/min = 5250 mL/min = 5.25 L/min.",
+        "Each distractor is a specific error: 9.0 L/min uses EDV × HR (forgetting to subtract ESV); 3.75 L/min uses ESV × HR; 4.2 L/min uses a 'default' rate of 60 instead of the given 75; and 58% is the EJECTION FRACTION (SV/EDV) — the right numbers but the wrong quantity (a cardiac output is a flow, not a percentage).",
+        "Clinical anchor: CO = SV × HR is the master equation (fcvs-049), while EF = SV/EDV (~55–70%) is the separate contractility index that classifies HFrEF versus HFpEF."
       ] },
     { id:"fcvs-009", type:"mcq",
       image:"assets/ecg/jvp_waveform.svg",
@@ -6237,7 +6237,8 @@ window.MOCK_BANK = {
         "Clinical anchor: high-output failure — the heart works hard yet tissues stay underperfused because demand or short-circuiting outstrips supply."
       ] },
     { id:"fcvs-056", type:"mcq",
-      question:"A shocked patient has a low mixed venous oxygen saturation (SvO₂). What does this indicate about the cardiac output?",
+      question:"A 68-year-old man is in cardiogenic shock after a large anterior myocardial infarction; he is cold and clammy. His observations and a central venous sample are shown. What does the low mixed venous oxygen saturation (SvO₂) indicate about his cardiac output?",
+      data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>118 bpm</b></span><span>BP <b>84/58 mmHg</b></span></div><table class="mk-labs"><tr><td>SvO&#8322;</td><td><b>52%</b></td><td>65&ndash;75%</td></tr></table>',
       options:["Cardiac output is higher than normal","SvO₂ has no relationship to the cardiac output","The patient must be hyperventilating","CO is too low, so tissues extract more oxygen","Oxygen consumption has fallen sharply"],
       correctIndex:3,
       explanation:[
@@ -6373,11 +6374,11 @@ window.MOCK_BANK = {
     { id:"fcvs-066", type:"mcq",
       question:"ANP and BNP are released when the cardiac chambers are stretched (volume overload). What do they do, and why is BNP used as a heart-failure marker?",
       options:[
-        "Cause vasoconstriction and retain salt and water",
-        "Stimulate renin and aldosterone release from the kidney",
-        "Raise the heart rate and increase myocardial contractility",
-        "Natriuresis and vasodilation; BNP tracks ventricular stretch",
-        "Retain potassium while driving a net free-water loss"],
+        "Vasoconstriction with salt and water retention; a high BNP marks that congestion",
+        "They stimulate renin and aldosterone; BNP therefore reflects RAAS activation",
+        "They raise heart rate and contractility; BNP marks the sympathetic response",
+        "Natriuresis and vasodilation; BNP is released in proportion to ventricular stretch",
+        "Free-water loss with potassium retention; BNP indicates worsening renal function"],
       correctIndex:3,
       explanation:[
         "The natriuretic peptides — ANP (atrial) and BNP (ventricular) — are the physiological OPPOSITE of RAAS: they promote natriuresis and vasodilation → ↓volume and ↓BP. BNP rises in proportion to VENTRICULAR WALL STRETCH (raised filling pressures), so it is a blood marker of heart failure; a normal BNP makes untreated HF unlikely.",
