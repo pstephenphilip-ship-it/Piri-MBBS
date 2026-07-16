@@ -5512,6 +5512,110 @@ window.MOCK_BANK = {
         "Other treatment monitoring: repeat blood cultures to confirm clearance, CRP/inflammatory-marker trend, repeat echocardiography, and gentamicin/vancomycin levels with renal function.",
         "Trap (B): antibiotic QT monitoring is a genuine concern in other contexts, so eliminating it requires knowing the IE-specific reason for serial ECGs. Tagged with ie-014/ie-018 on the root-abscess objective."
       ] }
+  ],
+  "conditions__CARDIOVASCULAR__Foundations of CVS": [
+    { id:"fcvs-001", type:"mcq",
+      question:"During isovolumetric ventricular contraction, pressure in the left ventricle rises sharply but its volume does not change. Why does the volume stay constant?",
+      options:["The aortic valve is open but ejection has not yet begun","The mitral valve is open, allowing blood to move back and forth","Both the mitral and aortic valves are closed","The ventricle is fully relaxed and not yet contracting","Blood is being ejected slowly into the aorta"],
+      correctIndex:2,
+      explanation:[
+        "During isovolumetric contraction ALL valves are shut, so the ventricle raises pressure with NO change in volume. The phase ends the instant LV pressure exceeds aortic pressure and the aortic valve opens.",
+        "The two isovolumetric phases (contraction and relaxation) bracket ejection and are the conceptual core of the cycle — pressure changes without volume change because there is no route in or out.",
+        "Clinical anchor: this is the pressure the ventricle must generate against afterload — in aortic stenosis the LV must build a far higher isovolumetric pressure to open the valve, which drives the hypertrophy and the pressure gradient."
+      ] },
+    { id:"fcvs-002", type:"mcq",
+      question:"A 68-year-old man with long-standing hypertension and left ventricular hypertrophy has a low-pitched added heart sound just before S1. Which sound is it, and what causes it?",
+      options:["S4 — atrial contraction against a stiff ventricle","S3 — rapid ventricular filling in early diastole","S2 — closure of the aortic and pulmonary valves","An opening snap of the mitral valve","A pericardial friction rub"],
+      correctIndex:0,
+      explanation:[
+        "S4 is a LATE-diastolic (pre-systolic) sound: the atrium contracts against a STIFF, non-compliant ventricle. It is ALWAYS pathological — classically LVH from hypertension or aortic stenosis.",
+        "Contrast S3 (early diastole, rapid filling of a compliant or volume-loaded ventricle — heart failure, or normal in the young).",
+        "Clinical anchor: S4 is the audible signature of the stiff ventricle underlying HFpEF — the same physiology that makes these patients dependent on the atrial kick (fcvs-003)."
+      ] },
+    { id:"fcvs-003", type:"mcq",
+      question:"A patient with a stiff, hypertrophied left ventricle develops fast atrial fibrillation and rapidly decompensates into pulmonary oedema. Loss of which mechanical event most contributes to this?",
+      options:["Isovolumetric relaxation","The atrial kick (atrial systole)","The rapid ejection phase","Closure of the aortic valve","The isovolumetric contraction phase"],
+      correctIndex:1,
+      explanation:[
+        "Atrial systole (the 'atrial kick') contributes the final ~20% of ventricular filling. A stiff, hypertrophied ventricle (HFpEF) fills poorly and DEPENDS on this kick.",
+        "In fast AF the kick is LOST and diastole is SHORTENED, so filling falls sharply and the patient can flash into pulmonary oedema.",
+        "Clinical anchor: this is why new fast AF so often decompensates a stiff ventricle, and why the atrial kick matters far more in HFpEF than in a normal heart."
+      ] },
+    { id:"fcvs-004", type:"mcq",
+      question:"A patient in complete heart block has intermittent large pulsations visible in the neck (cannon a waves). What produces a cannon a wave?",
+      options:["The tricuspid valve leaking during systole","Rapid atrial filling against a closed tricuspid valve","Delayed ventricular repolarisation","The right atrium contracting against a closed tricuspid valve","Loss of atrial contraction, as in atrial fibrillation"],
+      correctIndex:3,
+      explanation:[
+        "A cannon a wave = the right atrium contracting while the tricuspid valve is SHUT (the ventricle is contracting). In complete heart block the atria and ventricles beat independently (AV dissociation), so intermittently they contract together → a giant 'cannon' wave.",
+        "Contrast: ABSENT a waves = AF (no organised atrial contraction); GIANT v waves = tricuspid regurgitation (fcvs-009).",
+        "Clinical anchor: cannon a waves at the bedside point straight to AV dissociation / complete heart block."
+      ] },
+    { id:"fcvs-005", type:"mcq",
+      question:"On a left ventricular pressure-volume loop, what is the effect of an acute rise in afterload (for example a hypertensive surge) on stroke volume?",
+      options:["Stroke volume rises because the ventricle contracts harder","Stroke volume is unchanged, as preload compensates fully","The loop widens and stroke volume increases","Contractility falls but stroke volume is preserved","End-systolic volume rises, so stroke volume falls"],
+      correctIndex:4,
+      explanation:[
+        "With ↑afterload, ejection cannot begin until a HIGHER pressure is reached, so the ventricle stops ejecting sooner → a HIGHER end-systolic volume → a SMALLER stroke volume (for a given preload and contractility). The loop becomes taller and narrower.",
+        "Stroke volume = the WIDTH of the loop (EDV − ESV); afterload cuts the width from the ESV side.",
+        "Clinical anchor: this is why afterload reduction (vasodilators) improves forward stroke volume in acute heart failure and in acute mitral or aortic regurgitation."
+      ] },
+    { id:"fcvs-006", type:"mcq",
+      question:"At which moment in the cardiac cycle does the aortic valve open?",
+      options:["When atrial pressure exceeds ventricular pressure","When left ventricular pressure rises above aortic pressure","When the ventricle begins to relax","At the peak of the T wave","Immediately after the second heart sound"],
+      correctIndex:1,
+      explanation:[
+        "Valves move PASSIVELY: they open the instant the pressure gradient reverses. The aortic valve opens when LV pressure rises just above aortic pressure, ending isovolumetric contraction.",
+        "It CLOSES when LV pressure falls back below aortic pressure — the dicrotic notch and S2 (fcvs-011).",
+        "Clinical anchor: the whole cycle reduces to 'which chamber now has the higher pressure' — the logic that lets you time any murmur relative to S1 and S2."
+      ] },
+    { id:"fcvs-007", type:"mcq",
+      question:"The first heart sound (S1) is produced by which event?",
+      options:["Closure of the mitral and tricuspid valves","Opening of the aortic and pulmonary valves","Closure of the aortic and pulmonary valves","Rapid ventricular filling in early diastole","Atrial contraction in late diastole"],
+      correctIndex:0,
+      explanation:[
+        "S1 ('lub') = closure of the ATRIOVENTRICULAR (mitral + tricuspid) valves at the START of systole. S2 ('dub') = closure of the SEMILUNAR (aortic + pulmonary) valves at the end.",
+        "Heart sounds are valves CLOSING, not opening — which is why murmurs are timed relative to S1 and S2.",
+        "Clinical anchor: S1 opens systole and S2 closes it, so a murmur between them is systolic and one after S2 is diastolic — the framework for localising valve lesions."
+      ] },
+    { id:"fcvs-008", type:"mcq",
+      question:"A left ventricle has an end-diastolic volume of 120 mL and an end-systolic volume of 50 mL. What is the stroke volume?",
+      options:["50 mL","120 mL","42%","70 mL","170 mL"],
+      correctIndex:3,
+      explanation:[
+        "Stroke volume = end-diastolic volume − end-systolic volume = 120 − 50 = 70 mL (the WIDTH of the PV loop).",
+        "Ejection fraction would be SV/EDV = 70/120 ≈ 58% (normal ≥50%). Distractors: 50 = ESV, 120 = EDV, 170 = their sum, 42% = the mis-calculated fraction.",
+        "Clinical anchor: ejection fraction is the everyday clinical readout of this same relationship (HFrEF versus HFpEF)."
+      ] },
+    { id:"fcvs-009", type:"mcq",
+      question:"A patient with severe tricuspid regurgitation has abnormal jugular venous pulsations. Which component of the JVP waveform is characteristically exaggerated?",
+      options:["The a wave","The x descent","Giant v waves","The y descent","Cannon a waves"],
+      correctIndex:2,
+      explanation:[
+        "In tricuspid regurgitation the right ventricle drives blood BACK through the incompetent valve into the atrium during systole → GIANT v waves (often with a pulsatile liver).",
+        "JVP quick map: absent a = AF; cannon a = complete heart block (fcvs-004); large a = tricuspid stenosis or pulmonary hypertension; giant v = tricuspid regurgitation.",
+        "Clinical anchor: the JVP reads out right-heart events — arrhythmias, tricuspid disease, and tamponade/constriction all have signatures here."
+      ] },
+    { id:"fcvs-010", type:"mcq",
+      question:"A 55-year-old man with decompensated heart failure has a low-pitched added sound in early diastole (a gallop). Which sound is this, and what is its mechanism?",
+      options:["S4, from atrial contraction against a stiff ventricle","S2, from semilunar valve closure","An opening snap from mitral stenosis","A pericardial knock","S3, from rapid filling of a compliant, volume-loaded ventricle"],
+      correctIndex:4,
+      explanation:[
+        "S3 is an EARLY-diastolic sound from rapid passive filling striking a COMPLIANT, volume-loaded ventricle. In a 55-year-old with decompensated heart failure it is pathological (a 'gallop'), though it can be normal in children and athletes.",
+        "Contrast S4 (late diastole, STIFF ventricle, always pathological, fcvs-002).",
+        "Clinical anchor: an S3 gallop is a bedside marker of a volume-loaded, failing ventricle and correlates with decompensated heart failure."
+      ] },
+    { id:"fcvs-011", type:"mcq",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Wiggers_Diagram_2.svg?width=900",
+      imageAlt:"Wiggers diagram: overlaid tracings of aortic, left ventricular and atrial pressure, ventricular volume, an ECG and heart sounds on one shared time axis.",
+      imageCredit:"DestinyQx, revised DanielChangMD, SVG by xavax, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"The diagram overlays aortic, ventricular and atrial pressures, ventricular volume, the ECG and heart sounds on one time axis. The second heart sound (S2), at the dicrotic notch on the aortic pressure trace, marks which event?",
+      options:["Closure of the aortic valve","Opening of the aortic valve","Closure of the mitral valve","Onset of atrial contraction","Peak ventricular ejection"],
+      correctIndex:0,
+      explanation:[
+        "The dicrotic notch (incisura) on the aortic pressure trace is the brief pressure rebound as the aortic valve CLOSES — it coincides with S2 and marks the end of ejection and the start of isovolumetric relaxation.",
+        "Reading a Wiggers diagram: every valve event sits where two pressure curves cross. The aortic valve OPENS where LV pressure rises above aortic (fcvs-006); it CLOSES at the dicrotic notch shown here.",
+        "Clinical anchor: S2 timing anchors the systolic/diastolic division used to localise every murmur."
+      ] }
   ]
 };
 </script>
