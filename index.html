@@ -5528,7 +5528,7 @@ window.MOCK_BANK = {
       options:["S4 — atrial contraction against a stiff ventricle","S3 — rapid ventricular filling in early diastole","S2 — closure of the aortic and pulmonary valves","An opening snap of the mitral valve","A pericardial friction rub"],
       correctIndex:0,
       explanation:[
-        "S4 is a LATE-diastolic (pre-systolic) sound: the atrium contracts against a STIFF, non-compliant ventricle. It is ALWAYS pathological — classically LVH from hypertension or aortic stenosis.",
+        "S4 is a LATE-diastolic (pre-systolic) sound: the atrium contracts against a STIFF, non-compliant ventricle. It is almost ALWAYS pathological (LVH from hypertension or aortic stenosis, HFpEF) — though a soft S4 is occasionally heard in otherwise-healthy older adults.",
         "Contrast S3 (early diastole, rapid filling of a compliant or volume-loaded ventricle — heart failure, or normal in the young). Because S4 IS the sound of atrial contraction, it is ABSENT in atrial fibrillation (no organised atrial systole) — a free examinable discriminator.",
         "Clinical anchor: S4 is the audible signature of the stiff ventricle underlying HFpEF — the same physiology that makes these patients dependent on the atrial kick (fcvs-003)."
       ] },
@@ -5833,7 +5833,7 @@ window.MOCK_BANK = {
       correctIndex:4,
       explanation:[
         "At 25 mm/s, one large square = 0.2 s, so five large squares = 1 s. For a regular rhythm, RATE = 300 ÷ (large squares between R waves) = 300 ÷ 4 = 75/min.",
-        "The distractors are each 300 ÷ a wrong square count (6, 3, 2) — every wrong answer is a specific miscount, not filler. For an irregular rhythm, count the QRS complexes on a 10-second strip and multiply by 6.",
+        "The distractors are each 300 ÷ a wrong square count (6, 5, 3, 2 → 50, 60, 100, 150) — every wrong answer is a specific miscount, not filler. For an irregular rhythm, count the QRS complexes on a 10-second strip and multiply by 6.",
         "The other calibration is VERTICAL: 10 mm/mV (1 small square = 0.1 mV) — which is what turns 'tall R waves' into a measurable threshold for LVH (fcvs-032). Clinical anchor: the 300-rule and the 10 mm/mV calibration are the measurement basis for reading rate and voltage."
       ] },
     { id:"fcvs-036", type:"mcq",
@@ -6111,7 +6111,7 @@ window.MOCK_BANK = {
       ] },
     { id:"fcvs-063", type:"mcq",
       image:"assets/ecg/raas_cascade.svg",
-      imageAlt:"A vertical cascade of four boxes — Angiotensinogen, Angiotensin I, Angiotensin II, Aldosterone — linked by three arrows numbered ①, ② and ③ from top to bottom.",
+      imageAlt:"A vertical cascade of four boxes — Angiotensinogen, Angiotensin I, Angiotensin II, Aldosterone — linked by three conversion arrows, each labelled with a number ① to ③ (not in top-to-bottom order).",
       question:"The renin–angiotensin–aldosterone cascade is shown. An ACE inhibitor blocks which numbered conversion step?",
       options:[
         "Step ①",
@@ -6119,11 +6119,11 @@ window.MOCK_BANK = {
         "Step ③",
         "It blocks the angiotensin II receptor instead of a step",
         "It blocks aldosterone acting at the distal nephron"],
-      correctIndex:1,
+      correctIndex:2,
       explanation:[
-        "Angiotensin-converting enzyme (mainly pulmonary endothelium) catalyses the conversion of ANGIOTENSIN I → ANGIOTENSIN II — the middle arrow, Step ②. An ACE inhibitor blocks that step.",
-        "Reading the cascade shows why the RAAS drugs differ by WHERE they act: an ARB blocks the AT-II receptor (option D), spironolactone/eplerenone block aldosterone (option E), and renin inhibitors block Step ① — same axis, different points. (Drug CHOICE is the Hypertension block's job.)",
-        "Clinical anchor: Step ② also generates bradykinin breakdown — inhibiting it lets bradykinin accumulate → the classic ACEi COUGH and angioedema, the pharmacological reason ARBs are the cough-free alternative."
+        "Angiotensin-converting enzyme (mainly pulmonary endothelium) catalyses the conversion of ANGIOTENSIN I → ANGIOTENSIN II — the MIDDLE arrow of the cascade, which the figure labels Step ③. An ACE inhibitor blocks that step. (You have to read the diagram: the numbers are not in cascade order.)",
+        "Reading the cascade shows why the RAAS drugs differ by WHERE they act: an ARB blocks the AT-II receptor (option D), spironolactone/eplerenone block aldosterone (option E), and a direct renin inhibitor blocks the TOP arrow (angiotensinogen → angiotensin I) — same axis, different points. (Drug CHOICE is the Hypertension block's job.)",
+        "Clinical anchor: the ACE step also drives bradykinin breakdown — inhibiting it lets bradykinin accumulate → the classic ACEi COUGH and angioedema, the pharmacological reason ARBs are the cough-free alternative."
       ] },
     { id:"fcvs-064", type:"mcq",
       question:"Through which combination of actions does angiotensin II raise blood pressure?",
@@ -6241,11 +6241,11 @@ window.MOCK_BANK = {
       question:"Arteriolar smooth muscle contracts and the vessel radius halves. Approximately what happens to that arteriole's resistance?",
       options:[
         "It doubles (rises 2-fold)",
-        "It quadruples (rises 4-fold)",
         "It rises about 16-fold",
+        "It quadruples (rises 4-fold)",
         "It halves as the radius halves",
         "Unchanged — length, not radius, sets resistance"],
-      correctIndex:2,
+      correctIndex:1,
       explanation:[
         "By Poiseuille's law, resistance is inversely proportional to the FOURTH power of the radius (R ∝ 1/r⁴). Halving the radius therefore raises resistance by 2⁴ = 16-fold.",
         "This 4th-power dependence is why tiny changes in arteriolar calibre swing flow and pressure enormously — and why the ARTERIOLES (not the capillaries) are the control point for SVR and the target of every vasoconstrictor and vasodilator.",
@@ -6426,7 +6426,7 @@ window.MOCK_BANK = {
     { id:"fcvs-085", type:"mcq",
       question:"Blood normally flows silently (laminar flow). What change converts laminar flow into the turbulence that generates an audible murmur?",
       options:[
-        "A rise in blood viscosity above the normal range",
+        "Low flow velocity, or a rise in blood viscosity",
         "A fall in the velocity of blood flow through a vessel",
         "An increase in the plasma oncotic pressure",
         "High velocity through a narrowing, or low blood viscosity",
