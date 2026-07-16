@@ -8499,9 +8499,10 @@ function _pharmaHydrate(s){
   const sec=PHARMA_SECTIONS[s[2]];
   const sub=sec&&sec.subsections[s[3]];
   const cls=sub&&sub.find(d=>d.drugs===s[1]);
-  return {name:s[0],display_drugs:s[1],drugs:s[1],section:s[2],subsection:s[3],
-    mechanism:cls?cls.mechanism:'',uses:cls?cls.uses:'',
-    side_effects:cls?cls.side_effects:'',drug_class:cls?cls.drug_class:s[3]};
+  // Return the FULL class entry (all fields) merged with location info, so a
+  // search-opened drug shows exactly what the sidebar list would show.
+  if(cls) return Object.assign({}, cls, {name:s[0],display_drugs:s[1],section:s[2],subsection:s[3]});
+  return {name:s[0],display_drugs:s[1],drugs:s[1],section:s[2],subsection:s[3],drug_class:s[3]};
 }
 
 function pharmaSearch(query){
@@ -8518,7 +8519,7 @@ function pharmaSearch(query){
       const el=document.createElement('div'); el.className='pharma-search-result';
       const nh=d.name.replace(new RegExp('('+esc(query)+')','gi'),'<mark>$1</mark>');
       el.innerHTML='<div class="psr-name">'+nh+'</div><div class="psr-meta">'+esc(d.section)+' · '+esc(d.drug_class)+'</div>';
-      el.onclick=()=>{pharmaShowDrug(d);resultsEl.style.display='none';document.getElementById('pharma-search-input').value='';if(d.section)pharmaSelectSection(d.section);};
+      el.onclick=()=>{resultsEl.style.display='none';document.getElementById('pharma-search-input').value='';if(d.section)pharmaSelectSection(d.section);pharmaShowDrug(d);};
       resultsEl.appendChild(el);
     });
     resultsEl.style.display='block';
