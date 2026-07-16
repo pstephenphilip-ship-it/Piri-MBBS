@@ -6436,6 +6436,147 @@ window.MOCK_BANK = {
         "Laminar flow becomes TURBULENT (and audible) above a critical Reynolds number (Re = ρvd/η) — favoured by HIGH velocity (a stenotic or regurgitant jet), a large diameter, and LOW viscosity. A murmur therefore tells you there is turbulence; the Cardiac Cycle block owns WHEN a murmur falls (fcvs-006/007), while this owns WHY it exists.",
         "Option A is a sharper distractor than it looks: raised viscosity SUPPRESSES turbulence — the exact reverse of the answer. It predicts the inversion between fcvs-082 and fcvs-055 — the POLYCYTHAEMIC patient (high viscosity) is LESS likely to have a flow murmur, while the ANAEMIC patient (low viscosity) is MORE likely — the same Poiseuille/Reynolds viscosity term acting in opposite directions.",
         "Option E stipulates a wider lumen that slows the velocity (continuity): at lower velocity the net effect is LESS turbulence. Clinical anchor: a flow murmur (anaemia, pregnancy, fever) versus true valve disease — velocity and viscosity, not just the valve, decide whether you hear anything."
+      ] },
+    { id:"fcvs-086", type:"mcq",
+      question:"At rest the myocardium already extracts about 70–80% of the oxygen delivered to it — far more than most tissues (~25%). What is the main consequence for how the heart meets a rise in oxygen demand?",
+      options:[
+        "Extra demand is met almost entirely by raising coronary flow",
+        "It meets extra demand mainly by extracting more oxygen",
+        "It relies on raising the haemoglobin oxygen content",
+        "It tolerates a stenosis well because extraction can rise",
+        "Demand is met by the Bohr effect out at the tissues"],
+      correctIndex:0,
+      explanation:[
+        "Resting myocardial oxygen extraction is already near-maximal, so the heart has almost NO extraction reserve. Unlike other tissues — which widen their arteriovenous O₂ difference when demand rises — the myocardium must meet extra demand almost entirely by INCREASING CORONARY FLOW (metabolic vasodilation, fcvs-088).",
+        "This is the exact INVERSION of the systemic SvO₂ logic (fcvs-056): the body normally buys time by extracting more, but the heart cannot.",
+        "Clinical anchor: a fixed coronary STENOSIS caps achievable flow, so on exertion demand outstrips the limited supply → angina, relieved by rest."
+      ] },
+    { id:"fcvs-087", type:"mcq",
+      image:"assets/ecg/coronary_flow_cycle.svg",
+      imageAlt:"A trace of left-ventricular coronary flow across one cardiac cycle with the systolic and diastolic phases marked and four points numbered ① to ④; flow is lowest in systole and peaks in early diastole at point ③.",
+      question:"The trace shows left-ventricular coronary blood flow across one cardiac cycle, with four points labelled ① to ④ and the systolic/diastolic phases marked. At which point is LV coronary flow greatest?",
+      options:[
+        "Point ①",
+        "Point ②",
+        "Point ③",
+        "Point ④",
+        "Flow is constant throughout the cardiac cycle"],
+      correctIndex:2,
+      explanation:[
+        "The LV is perfused mainly in DIASTOLE. During systole the contracting muscle compresses its own intramural vessels → LV flow is squeezed to a minimum (briefly even reversed in the subendocardium); when the muscle relaxes in diastole the vessels open and flow SURGES to its peak (point ③). The thin, low-pressure RV is perfused far more evenly across the cycle (fcvs-090 gives the unifying reason).",
+        "Coronary perfusion pressure ≈ aortic DIASTOLIC pressure − LV end-diastolic pressure, so anything that lowers diastolic pressure (aortic regurgitation, fcvs-078) or raises LVEDP compromises LV perfusion.",
+        "Clinical anchor: the SAME equation explains cardiac arrest — chest compressions generate little coronary flow without an aortic diastolic pressure to drive it, which is exactly what adrenaline's α-vasoconstriction restores; and because coronary perfusion pressure takes several compressions to rebuild and collapses instantly on pausing, INTERRUPTIONS to compressions are so costly (cross-link: ALS, als-022)."
+      ] },
+    { id:"fcvs-088", type:"mcq",
+      question:"When myocardial oxygen demand rises (e.g. exercise), coronary blood flow increases to match it. What is the main mechanism of this local increase?",
+      options:[
+        "Sympathetic nerves directly vasodilate the coronary arteries",
+        "Local metabolites (e.g. adenosine) dilate the coronary arterioles",
+        "Circulating adrenaline constricts the coronary arterioles",
+        "The baroreceptor reflex raises the coronary blood flow",
+        "Increased oxygen extraction across the myocardial wall"],
+      correctIndex:1,
+      explanation:[
+        "Coronary flow is matched to demand mainly by METABOLIC (autoregulatory) control: as O₂ demand rises, local ADENOSINE (from ATP breakdown), CO₂, K⁺ and low O₂ dilate the coronary arterioles → flow rises (metabolic hyperaemia). Sympathetic tone is minor and largely overridden.",
+        "This is the flow mechanism that the near-absent extraction reserve (fcvs-086) makes essential.",
+        "Clinical anchor: pharmacological STRESS TESTING uses adenosine/dipyridamole/regadenoson to force maximal coronary vasodilation and unmask a flow-limiting stenosis (which cannot dilate further — and can even suffer 'steal', fcvs-089)."
+      ] },
+    { id:"fcvs-089", type:"mcq",
+      question:"A patient has a significant coronary stenosis but a NORMAL resting coronary flow, yet develops ischaemia on exertion. How is resting flow maintained, and why does exertion cause ischaemia?",
+      options:[
+        "Resting flow is normal because the stenosis does not limit flow",
+        "Exertion drops the coronary perfusion pressure past the stenosis",
+        "The stenosis raises myocardial oxygen extraction at rest",
+        "Arteriolar dilation maintains resting flow but exhausts the reserve",
+        "Distal collateral vessels fail abruptly during the exertion"],
+      correctIndex:3,
+      explanation:[
+        "Distal to a stenosis the arterioles DILATE to keep RESTING flow normal — but this consumes the CORONARY FLOW RESERVE (the ratio of maximal to resting flow). On exertion, when flow must rise several-fold, the already-dilated bed cannot dilate further → flow can't increase → demand outstrips supply → ischaemia.",
+        "CORONARY STEAL follows directly: because the post-stenotic bed is already maximally dilated, a vasodilator (dipyridamole/adenosine) dilates only the HEALTHY beds, diverting flow AWAY from the stenotic territory → it actively provokes ischaemia rather than merely failing to raise flow. This is why dipyridamole is relatively contraindicated in unstable angina.",
+        "Clinical anchor: this is what fractional flow reserve (FFR) and adenosine stress imaging measure — whether a stenosis has meaningfully eaten into the reserve (guiding whether to stent). Distinct from EXTRACTION reserve (fcvs-086): this is VASODILATOR reserve."
+      ] },
+    { id:"fcvs-090", type:"mcq",
+      question:"In myocardial ischaemia the SUBENDOCARDIUM (innermost layer of the LV wall) is affected first and most severely. Why is this layer the most vulnerable?",
+      options:[
+        "It has the highest oxygen content and the lowest oxygen demand",
+        "It is perfused during systole, unlike the rest of the LV wall",
+        "It has the richest collateral blood supply within the wall",
+        "It receives its oxygen directly from the LV cavity blood",
+        "Furthest from epicardial vessels, and compressed most in systole"],
+      correctIndex:4,
+      explanation:[
+        "The subendocardium is fed by vessels penetrating from the EPICARDIUM inward, so it lies at the END of the supply line, and it bears the HIGHEST wall stress and intramural pressure.",
+        "The unifying principle (one idea, three consequences): perfusion is compromised in proportion to INTRAMURAL PRESSURE — which is why the high-pressure LV is diastole-dependent (fcvs-087), the low-pressure RV is not, and the LV SUBENDOCARDIUM, where intramural pressure is highest, is worst off. Furthest from supply + most compressed → first to become ischaemic (compression scales with wall stress, fcvs-083).",
+        "Clinical anchor: why SUBENDOCARDIAL (non-transmural) ischaemia shows as ST DEPRESSION / NSTEMI, and why a transmural infarct spreads endocardium-outward as occlusion persists (the necrosis 'wavefront')."
+      ] },
+    { id:"fcvs-091", type:"mcq",
+      question:"A patient with severe aortic stenosis has exertional angina but entirely normal coronary arteries on angiography. Which combination of mechanisms best explains the angina?",
+      options:[
+        "Higher LV oxygen demand from hypertrophy, with lower coronary supply",
+        "Coronary artery spasm triggered by the stenotic aortic valve",
+        "Reduced myocardial oxygen demand despite a normal supply",
+        "An increased oxygen-extraction reserve in the hypertrophied wall",
+        "A slow heart rate lengthening the diastolic coronary filling time"],
+      correctIndex:0,
+      explanation:[
+        "Severe AS causes angina even with normal coronaries by hitting BOTH sides of the balance. DEMAND rises: LV hypertrophy plus high wall stress ejecting against a fixed obstruction (Laplace, fcvs-083). SUPPLY falls: the thick, high-pressure wall compresses intramural vessels, and the raised LVEDP lowers coronary perfusion pressure (= aortic diastolic − LVEDP, fcvs-087).",
+        "The hypertrophied SUBENDOCARDIUM (fcvs-090) suffers first — the payoff of fcvs-083 and fcvs-087 acting together.",
+        "Clinical anchor: angina in aortic stenosis is a red-flag symptom prompting consideration of valve intervention; AS combined with tachycardia or hypotension can precipitate dangerous ischaemia (cross-link: Valvular Heart Disease)."
+      ] },
+    { id:"fcvs-092", type:"mcq",
+      question:"Why is tachycardia especially dangerous in a patient with a flow-limiting coronary stenosis?",
+      options:[
+        "It lengthens diastole, so myocardial oxygen demand falls too far",
+        "It shortens diastole (less perfusion time) and raises oxygen demand",
+        "It lowers myocardial oxygen demand but lowers the supply more",
+        "It increases the myocardial oxygen extraction reserve markedly",
+        "It dilates the stenosis itself and causes a coronary steal"],
+      correctIndex:1,
+      explanation:[
+        "A faster rate is a DOUBLE HIT on the ischaemic heart: (1) it raises myocardial O₂ DEMAND (rate is a prime determinant), and (2) because diastole shortens disproportionately as rate rises (fcvs-013/049), it cuts the DIASTOLIC PERFUSION time on which LV supply depends (fcvs-087). Demand up, supply-time down.",
+        "Clinical anchor: precisely why β-BLOCKERS relieve angina — slowing the heart lowers demand AND lengthens diastolic filling, tipping the balance both ways at once; conversely an uncontrolled tachyarrhythmia can itself precipitate ischaemia."
+      ] },
+    { id:"fcvs-093", type:"mcq",
+      question:"Myocardial ischaemia is fundamentally a mismatch of oxygen supply and demand. Which of the following is a determinant of myocardial oxygen DEMAND rather than supply?",
+      options:[
+        "Coronary artery patency and the degree of stenosis",
+        "The diastolic perfusion time that is available",
+        "Heart rate, contractility and ventricular wall stress",
+        "The arterial oxygen content of the blood",
+        "The aortic diastolic (coronary perfusion) pressure"],
+      correctIndex:2,
+      explanation:[
+        "The unifying framework. SUPPLY = coronary flow (patency fcvs-089, diastolic time fcvs-087/092, perfusion pressure fcvs-087/091) plus arterial O₂ content (fcvs-086). DEMAND = HEART RATE, CONTRACTILITY and WALL STRESS (afterload/preload — Laplace, fcvs-083). Ischaemia = demand exceeding supply.",
+        "Every anti-anginal is just a term in this equation being moved: β-blockers/ivabradine (↓rate & contractility → ↓demand, + ↑diastolic filling), nitrates (↓preload → ↓demand, + coronary dilation → ↑supply), CCBs (↓afterload/rate), and revascularisation or treating anaemia (↑supply).",
+        "Clinical anchor: read any anti-anginal — or any ischaemic trigger (tachycardia, anaemia, AS, hypotension) — as a shift in one of these terms, so the drug list becomes a consequence rather than a memory task."
+      ] },
+    { id:"fcvs-094", type:"mcq",
+      question:"An inferior STEMI is characteristically complicated by bradycardia and AV block. Which anatomical fact explains the association?",
+      options:[
+        "The LAD supplies the entire cardiac conducting system",
+        "The inferior wall itself contains the sinoatrial node",
+        "Inferior infarcts release more vagolytic mediators",
+        "The right coronary artery usually supplies the SA and AV nodes",
+        "The circumflex supplies both nodes in most people"],
+      correctIndex:3,
+      explanation:[
+        "In most people the RIGHT CORONARY ARTERY supplies both the SA and AV nodes. An inferior MI is usually an RCA occlusion, so nodal ischaemia → sinus bradycardia and AV block (often also vagally mediated — the Bezold-Jarisch reflex).",
+        "The dominance figures are not equally firm: the AV node is RCA-supplied in ~80–90% (right dominance; circumflex in the rest), but the SA node is more variable — roughly RCA in ~55–60% and circumflex in ~40–45%. So the AV-node association is stronger than the SA-node one.",
+        "Clinical anchor: inferior-MI bradyarrhythmias often respond to ATROPINE and resolve with reperfusion — unlike the ominous block of an ANTERIOR (LAD) MI, which reflects extensive His-Purkinje damage and often needs pacing (cross-link: Bradycardia / Heart Block)."
+      ] },
+    { id:"fcvs-095", type:"mcq",
+      question:"A patient is found to have a chronically, totally occluded coronary artery yet has never had a myocardial infarction in that territory. What best explains this?",
+      options:[
+        "The myocardium raised its oxygen extraction to compensate",
+        "A total occlusion can never cause any infarction at all",
+        "That territory had already infarcted without any symptoms",
+        "Coronary flow reserve rises once the vessel occludes",
+        "Gradual occlusion allowed collateral vessels to develop"],
+      correctIndex:4,
+      explanation:[
+        "A SLOWLY progressive occlusion gives time for COLLATERAL vessels (pre-existing anastomotic channels) to enlarge and recruit, supplying the territory from neighbouring arteries — partial protection. A SUDDEN occlusion (plaque rupture/thrombus) gives no time → the territory infarcts. A key reason acute occlusion is far more damaging than chronic stenosis of the same vessel.",
+        "The 'raised oxygen extraction to compensate' option is the trap — it is what every OTHER tissue does, but the heart has almost no extraction reserve (fcvs-086), so it cannot compensate that way.",
+        "Clinical anchor: collaterals explain asymptomatic chronic total occlusions, and why gradual disease is better tolerated than an abrupt event (cross-link: ACS — plaque rupture as the acute event)."
       ] }
   ]
 };
