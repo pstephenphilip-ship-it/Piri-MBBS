@@ -5946,6 +5946,98 @@ window.MOCK_BANK = {
         "Some hearts maintain output only if preload is kept HIGH — they are PRELOAD-DEPENDENT. RIGHT VENTRICULAR INFARCTION is the classic example: the failing RV needs high filling to drive blood through to the left heart, so a venodilator like GTN drops preload and causes profound HYPOTENSION.",
         "The same danger applies in SEVERE AORTIC STENOSIS (fixed outflow; needs preload to fill the stiff LV) and CARDIAC TAMPONADE (filling already limited). In all three, the reflex 'nitrate for chest pain' can be lethal.",
         "Clinical anchor: preload-dependent states (RV infarct, severe AS, tamponade) — where reducing preload collapses cardiac output (ACS/ALS)."
+      ] },
+    { id:"fcvs-048", type:"mcq",
+      question:"Two patients each have a cardiac output of 5 L/min, but one is a large man and the other a small woman. Which measure best allows their cardiac function to be compared?",
+      options:["Cardiac index (CO per unit body surface area)","The stroke volume on its own","The resting heart rate on its own","The left ventricular ejection fraction","The mean arterial blood pressure"],
+      correctIndex:0,
+      explanation:[
+        "CO = SV × HR (resting ≈ 70 mL × 70/min ≈ 5 L/min). But a given CO means different things in a large versus a small body, so the clinical measure is CARDIAC INDEX = CO ÷ body surface area, which normalises for size.",
+        "The other options describe only ONE half of CO (SV or HR) or a different property (EF, MAP).",
+        "Clinical anchor: cardiac index is what is quoted on intensive care and echo reports."
+      ] },
+    { id:"fcvs-049", type:"mcq", objective:"fcvs-hr-co",
+      question:"Raising the heart rate usually raises cardiac output, but in very fast atrial fibrillation (about 180/min) cardiac output can actually FALL. Why?",
+      options:["Stroke volume rises too far at high rates","Diastole shortens, so filling and stroke volume fall","Systole lengthens disproportionately at speed","Afterload falls as the rate increases","The SA node stops firing above 150/min"],
+      correctIndex:1,
+      explanation:[
+        "CO = SV × HR, but the two are not independent. At very high rates DIASTOLE (which shortens far more than systole) leaves too little FILLING TIME → EDV and stroke volume fall → CO can drop despite the fast rate.",
+        "There is an OPTIMAL heart rate; beyond it, lost filling outweighs the extra beats (fcvs-057). This is why fast AF/SVT causes syncope or decompensation and why RATE CONTROL restores output.",
+        "Clinical anchor: the diastolic-filling limit (fcvs-013) applied to whole-heart output — fast tachyarrhythmias drop CO."
+      ] },
+    { id:"fcvs-050", type:"mcq",
+      question:"The heart cannot pump out more blood per minute than returns to it. What does this imply about cardiac output?",
+      options:["Cardiac output is set entirely by the SA node","Cardiac output can rise without limit as HR rises","Venous return caps CO; the two are interdependent","Venous return has no bearing on cardiac output","Cardiac output depends only on the afterload"],
+      correctIndex:2,
+      explanation:[
+        "CO cannot exceed VENOUS RETURN — the heart only pumps out what it receives, and Frank-Starling automatically matches the two (↑venous return → ↑preload → ↑SV).",
+        "So venous return is the often-forgotten driver: HYPOVOLAEMIA or venodilation (↓venous return) lowers CO regardless of a healthy pump, and the venous side is where much of CO regulation actually happens.",
+        "Clinical anchor: why fluid loss and venodilators (GTN) drop CO — the return side, not just the pump. This is the mechanism under the preload-dependent states (RV infarct, severe AS, tamponade; fcvs-047)."
+      ] },
+    { id:"fcvs-051", type:"mcq",
+      question:"The Fick principle is used to measure cardiac output. On what relationship is it based?",
+      options:["CO = mean arterial pressure × systemic vascular resistance","CO = heart rate ÷ stroke volume","CO = oxygen consumption × the arteriovenous oxygen difference","CO = oxygen consumption ÷ the arteriovenous oxygen difference","CO = ejection fraction × end-diastolic volume"],
+      correctIndex:3,
+      explanation:[
+        "The whole body's oxygen consumption (VO₂) must equal the blood flow times the oxygen EXTRACTED per unit blood: VO₂ = CO × (CaO₂ − CvO₂). Rearranged, CO = VO₂ ÷ (CaO₂ − CvO₂) — the FICK principle.",
+        "Trap (C): multiplying instead of dividing inverts the relationship. (A) is BP = CO × SVR rearranged, not Fick; (E) gives stroke volume, not CO.",
+        "Clinical anchor: the classic gold-standard CO measurement (with thermodilution and echo as practical alternatives)."
+      ] },
+    { id:"fcvs-052", type:"mcq",
+      question:"By the Fick principle, oxygen consumption is 250 mL/min, arterial O₂ content 200 mL/L, and mixed venous O₂ content 150 mL/L. What is the cardiac output?",
+      options:["1.25 L/min","1.67 L/min","12.5 L/min","0.5 L/min","5 L/min"],
+      correctIndex:4,
+      explanation:[
+        "CO = VO₂ ÷ (CaO₂ − CvO₂) = 250 ÷ (200 − 150) = 250 ÷ 50 = 5 L/min.",
+        "The distractors are specific errors: 1.25 = 250÷200 (used arterial content, forgot to subtract venous); 1.67 = 250÷150 (used venous); 12.5 = 250×50÷1000 (multiplied by the difference); 0.5 = a units slip.",
+        "Clinical anchor: a widened arteriovenous O₂ difference (a low mixed venous O₂) means a LOW CO with high extraction (fcvs-056)."
+      ] },
+    { id:"fcvs-053", type:"mcq",
+      question:"During strenuous exercise cardiac output can rise four- to six-fold. Which combination of changes achieves this?",
+      options:["↑heart rate and ↑stroke volume, with a fall in SVR","↑heart rate alone, with stroke volume unchanged","↑stroke volume alone, with the heart rate falling","↑systemic vascular resistance and ↑afterload","↓venous return together with ↑afterload"],
+      correctIndex:0,
+      explanation:[
+        "Exercise pulls ALL the levers: ↑HR and ↑SV (from ↑contractility via sympathetic drive AND ↑venous return via the muscle and respiratory pumps). SVR FALLS as exercising muscle vasodilates, so blood pressure rises only modestly despite the huge rise in CO — an application of BP = CO × SVR (developed fully in the Vascular & Haemodynamics subtab).",
+        "This is the integrated CO response — the two halves of CO = SV × HR both increase, supported by the venous return that feeds them.",
+        "Clinical anchor: cardiac reserve (the ability to raise CO on demand) is what heart failure erodes — exertional fatigue and breathlessness."
+      ] },
+    { id:"fcvs-054", type:"mcq",
+      question:"In complete heart block with a ventricular rate of 30/min the patient faints from low cardiac output, even though stroke volume is increased. Why can the increased stroke volume not compensate?",
+      options:["Stroke volume actually falls at very low rates","Stroke volume can rise only so far, so low HR means low CO","The atria stop contracting entirely in this rhythm","Afterload rises steeply as the rate falls","Contractility is abolished in complete heart block"],
+      correctIndex:1,
+      explanation:[
+        "CO = SV × HR. Increased diastolic filling does raise SV at slow rates (more time to fill), but SV has a CEILING (limited by ventricular size and ejection), so it cannot offset a very low rate — CO falls → cerebral hypoperfusion → syncope.",
+        "So BOTH extremes of rate reduce CO: very fast (lost filling, fcvs-049) and very slow (rate too low for SV to compensate) — the optimal-rate idea from both ends (fcvs-057).",
+        "Clinical anchor: why profound bradyarrhythmias cause syncope and need pacing (brady)."
+      ] },
+    { id:"fcvs-055", type:"mcq",
+      question:"Which of the following produces a high-output state (a raised resting cardiac output)?",
+      options:["Cardiogenic shock","Hypovolaemia","Beta-blockade","Aortic stenosis","Severe anaemia"],
+      correctIndex:4,
+      explanation:[
+        "In severe ANAEMIA the blood carries less oxygen per litre, so the heart must pump MORE litres per minute to meet the same oxygen demand → a high-output state (often with a flow murmur).",
+        "Other high-output causes: thyrotoxicosis, pregnancy, early sepsis, large AV fistulae, and beriberi (thiamine deficiency) — all raise demand or lower SVR. The distractors all LOWER CO (cardiogenic pump failure, hypovolaemia, β-blockade, the fixed obstruction of aortic stenosis).",
+        "Clinical anchor: high-output failure — the heart works hard yet tissues stay underperfused because demand or short-circuiting outstrips supply."
+      ] },
+    { id:"fcvs-056", type:"mcq",
+      question:"A shocked patient has a low mixed venous oxygen saturation (SvO₂). What does this indicate about the cardiac output?",
+      options:["Cardiac output is higher than normal","SvO₂ has no relationship to the cardiac output","The patient must be hyperventilating","CO is too low, so tissues extract more oxygen","Oxygen consumption has fallen sharply"],
+      correctIndex:3,
+      explanation:[
+        "By the Fick relationship, if oxygen demand (VO₂) is steady but CO falls, the tissues must EXTRACT more oxygen from each litre of blood → the venous blood returns more desaturated → a LOW mixed venous O₂ saturation (SvO₂).",
+        "So a falling SvO₂ is a marker of INADEQUATE oxygen delivery / low cardiac output (a widened arteriovenous O₂ difference, fcvs-052).",
+        "Forward-link: this is the SYSTEMIC version of a principle the coronary circulation INVERTS — the myocardium already extracts ~70% of delivered O₂ at rest, so it has almost NO extraction reserve, which is why coronary supply must be met by FLOW (not more extraction) and why diastolic perfusion matters so much. Clinical anchor: SvO₂/ScvO₂ gauges whether CO meets demand (shock)."
+      ] },
+    { id:"fcvs-057", type:"mcq", objective:"fcvs-hr-co",
+      image:"assets/ecg/co_hr_curve.svg",
+      imageAlt:"A curve of cardiac output (vertical axis) against heart rate (horizontal axis) with five points labelled 1 to 5; the curve rises to a peak and then declines at the highest rates.",
+      question:"The graph plots cardiac output against heart rate. At which labelled point is cardiac output greatest (the optimal heart rate)?",
+      options:["Point 1","Point 2","Point 3","Point 4","Point 5"],
+      correctIndex:2,
+      explanation:[
+        "Cardiac output rises with heart rate up to an OPTIMAL rate — the PEAK at Point 3 — then FALLS at higher rates because diastole shortens and filling/stroke volume drop (fcvs-049).",
+        "The relationship is an inverted-U, not a straight line: Points 1–2 sit on the rising limb, Point 3 is the optimum, and Points 4–5 are the falling limb where lost filling outweighs the extra beats.",
+        "Clinical anchor: both profound bradycardia (fcvs-054) and very fast AF/SVT (fcvs-049) sit off the peak, giving a lower CO."
       ] }
   ]
 };
