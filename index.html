@@ -10619,10 +10619,10 @@ function hideFlyout(p) {
 <style>
 .drug-link{color:inherit;text-decoration:none;border-bottom:1.5px dotted var(--rn-blue,#3B7DD8);cursor:pointer;border-radius:2px;transition:background .12s ease,border-color .12s ease;}
 .drug-link:hover{background:var(--rn-blue-bg,#EBF2FF);border-bottom-style:solid;}
-.pharma-back-bar{position:sticky;top:0;z-index:20;padding:10px 4px 8px;background:linear-gradient(var(--rn-bg,#F7F8FC) 60%,rgba(247,248,252,0));}
-.pharma-back-btn{display:inline-flex;align-items:center;gap:7px;background:var(--rn-blue,#3B7DD8);color:#fff;border:none;border-radius:999px;padding:8px 15px;font-size:12.5px;font-weight:600;cursor:pointer;box-shadow:0 2px 8px rgba(59,125,216,.3);}
+.pharma-back-bar{position:fixed;left:16px;bottom:20px;z-index:901;padding:0;background:none;pointer-events:none;}
+.pharma-back-btn{display:inline-flex;align-items:center;gap:7px;max-width:min(70vw,320px);background:var(--rn-blue,#3B7DD8);color:#fff;border:none;border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:600;cursor:pointer;pointer-events:auto;box-shadow:0 4px 14px rgba(0,0,0,.2),0 1px 4px rgba(59,125,216,.35);}
 .pharma-back-btn:hover{filter:brightness(1.08);}
-.pharma-back-btn b{font-weight:700;margin-left:1px;}
+.pharma-back-btn b{font-weight:700;margin-left:1px;display:inline-block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom;}
 </style>
 <script>
 /* ===== Notes <-> Pharmacology cross-linking ===== */
