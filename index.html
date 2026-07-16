@@ -5172,6 +5172,34 @@ window.MOCK_BANK = {
         "SPLINTER HAEMORRHAGES are a classic peripheral sign of IE but are NOT part of the modified Duke criteria — a favourite exam discriminator. The other four are all genuine minors: Osler's nodes and Roth spots (IMMUNOLOGICAL phenomena); Janeway lesions and mycotic aneurysm (VASCULAR phenomena).",
         "The formal lists are closed. VASCULAR phenomena = major arterial emboli, septic pulmonary infarcts, mycotic aneurysm, intracranial haemorrhage, conjunctival haemorrhage, and Janeway lesions. IMMUNOLOGICAL phenomena = glomerulonephritis, Osler's nodes, Roth spots, rheumatoid factor. Splinter haemorrhages and petechiae are deliberately on NEITHER list.",
         "Teaching point: do not assume every peripheral stigma of IE is a Duke criterion — splinters are non-specific and commonly just trauma (ie-020, ie-022), which is exactly why they were left out. The MAJOR criteria (echo vegetation; typical positive cultures) are covered in ie-033."
+      ] },
+    { id:"ie-012p", type:"fill", objective:"ie-early-pve",
+      question:"Name the single most likely causative organism in each context.",
+      rows:[
+        "(a) A young man who injects drugs, presenting acutely:  {{0}}",
+        "(b) Subacute endocarditis two weeks after a dental extraction on a rheumatic valve:  {{1}}",
+        "(c) Endocarditis six weeks after prosthetic valve surgery:  {{2}}",
+        "(d) Culture-negative endocarditis in a sheep farmer with lambing exposure:  {{3}}"
+      ],
+      blanks:[
+        {label:"(a) acute / IVDU",accept:["staph aureus","staphylococcus aureus","s aureus","aureus","mssa","mrsa"],answer:"Staphylococcus aureus"},
+        {label:"(b) dental / damaged valve",accept:["strep viridans","streptococcus viridans","viridans","viridans streptococci","strep sanguinis","strep mitis"],answer:"Streptococcus viridans"},
+        {label:"(c) early prosthetic-valve endocarditis",accept:["staph epidermidis","staphylococcus epidermidis","epidermidis","coagulase negative","coagulase-negative","coagulase negative staph","cons"],answer:"Staphylococcus epidermidis (coagulase-negative staph)"},
+        {label:"(d) culture-negative / farm exposure",accept:["coxiella","coxiella burnetii","coxiella burnetti","q fever"],answer:"Coxiella burnetii (Q fever)"}
+      ],
+      explanation:[
+        "The organism-context matched pairs are the highest-yield IE recall: Staph aureus (acute / IVDU / skin & lines), Strep viridans (dental / damaged valve), Staph epidermidis (early PVE, biofilm), Strep gallolyticus (bowel → colonoscopy) and Coxiella (culture-negative / farm).",
+        "This is a whole-map consolidation item that overlaps ie-007 (early PVE), ie-008 (Coxiella), ie-009 (Staph aureus) and ie-011 (viridans). It is tagged to exclude ie-007 under random draw (the closest verbatim leak — part (c)); the remaining overlaps are accepted as legitimate consolidation, since testing the whole map at once is a different task from any single pairing."
+      ] },
+    { id:"ie-051p", type:"mcq",
+      question:"A 60-year-old man with a prosthetic aortic valve is due to have a dental extraction and asks whether he needs antibiotics beforehand to prevent infective endocarditis. Under current NICE guidance he will NOT be given routine antibiotic prophylaxis. What is the most appropriate advice to give instead?",
+      options:["Take daily prophylactic penicillin indefinitely","Maintain good oral hygiene and attend regular dental review","Avoid all dental treatment in future","He is no longer at risk, so no action is needed","Rinse with chlorhexidine mouthwash before brushing each day"],
+      correctIndex:1,
+      explanation:[
+        "NICE (CG64) does NOT routinely recommend antibiotic prophylaxis against IE for dental or other procedures — even in the highest-risk groups. The positive advice INSTEAD is GOOD ORAL HYGIENE and regular dental review, plus educating the patient to seek prompt help for any unexplained fever.",
+        "Rationale: cumulative bacteraemia from everyday chewing and tooth-brushing vastly outweighs procedural bacteraemia; prophylaxis has never been shown to prevent IE; and it carries anaphylaxis and antibiotic-resistance harm. Daily prophylactic penicillin (A) and chlorhexidine mouthwash (E) are not recommended, and avoiding dental care (C) would WORSEN oral health and IE risk.",
+        "Trap (D): a prosthetic valve keeps him in the HIGHEST-risk tier — prophylaxis simply does not help, which is a different claim from 'no longer at risk'. The 2015 amendment softened the wording to 'not routinely recommended', permitting individualised decisions for the highest-risk patients after specialist discussion.",
+        "International contrast: AHA/ESC still recommend prophylaxis for the highest-risk groups (previous IE, prosthetic valve, certain congenital disease) — a UK-specific divergence worth knowing."
       ] }
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
@@ -5286,11 +5314,20 @@ window.MOCK_BANK = {
         "LATE PVE (>2 months, especially beyond a year) behaves like NATIVE-valve IE — community organisms such as Strep viridans (here seeded by dental work) and Staph aureus predominate, rather than the perioperative coagulase-negative staph of EARLY (<2 month) disease. This is the deliberate EXCEPTION to 'prosthetic = Staph epidermidis' (contrast ie-007).",
         "Cutoff caveat: the 2-month line is the classic teaching cutoff; ESC uses 12 months, with a 2–12 month intermediate window that is mixed. This stem uses 14 months — safely late — so the native-type answer is secure. Don't apply a hard '>2 months = native-type' rule to a 6-month case."
       ] },
-    { id:"ie-012", type:"saq", objective:"ie-early-pve",
-      question:"Name the single most likely causative organism in each context: (a) a young man who injects drugs, presenting acutely; (b) subacute endocarditis two weeks after a dental extraction on a rheumatic valve; (c) endocarditis six weeks after prosthetic valve surgery; (d) culture-negative endocarditis in a sheep farmer with lambing exposure.",
-      answer:"(a) Staphylococcus aureus; (b) Streptococcus viridans; (c) Staphylococcus epidermidis (coagulase-negative staph); (d) Coxiella burnetii (Q fever).",
-      accept:["staph aureus","staphylococcus aureus","strep viridans","streptococcus viridans","staph epidermidis","staphylococcus epidermidis","coagulase negative","coagulase-negative","coxiella","coxiella burnetii","q fever"],
-      markPoints:["(a) Staphylococcus aureus","(b) Streptococcus viridans","(c) Staphylococcus epidermidis / coagulase-negative staph","(d) Coxiella burnetii"],
+    { id:"ie-012", type:"fill", objective:"ie-early-pve",
+      question:"Name the single most likely causative organism in each context.",
+      rows:[
+        "(a) A young man who injects drugs, presenting acutely:  {{0}}",
+        "(b) Subacute endocarditis two weeks after a dental extraction on a rheumatic valve:  {{1}}",
+        "(c) Endocarditis six weeks after prosthetic valve surgery:  {{2}}",
+        "(d) Culture-negative endocarditis in a sheep farmer with lambing exposure:  {{3}}"
+      ],
+      blanks:[
+        {label:"(a) acute / IVDU",accept:["staph aureus","staphylococcus aureus","s aureus","aureus","mssa","mrsa"],answer:"Staphylococcus aureus"},
+        {label:"(b) dental / damaged valve",accept:["strep viridans","streptococcus viridans","viridans","viridans streptococci","strep sanguinis","strep mitis"],answer:"Streptococcus viridans"},
+        {label:"(c) early prosthetic-valve endocarditis",accept:["staph epidermidis","staphylococcus epidermidis","epidermidis","coagulase negative","coagulase-negative","coagulase negative staph","cons"],answer:"Staphylococcus epidermidis (coagulase-negative staph)"},
+        {label:"(d) culture-negative / farm exposure",accept:["coxiella","coxiella burnetii","coxiella burnetti","q fever"],answer:"Coxiella burnetii (Q fever)"}
+      ],
       explanation:[
         "The organism-context matched pairs are the highest-yield IE recall: Staph aureus (acute / IVDU / skin & lines), Strep viridans (dental / damaged valve), Staph epidermidis (early PVE, biofilm), Strep gallolyticus (bowel → colonoscopy) and Coxiella (culture-negative / farm).",
         "This is a whole-map consolidation item that overlaps ie-007 (early PVE), ie-008 (Coxiella), ie-009 (Staph aureus) and ie-011 (viridans). It is tagged to exclude ie-007 under random draw (the closest verbatim leak — part (c)); the remaining overlaps are accepted as legitimate consolidation, since testing the whole map at once is a different task from any single pairing."
@@ -5700,25 +5737,15 @@ window.MOCK_BANK = {
         "In someone who injects drugs, with fever and a right-sided murmur, a tricuspid vegetation is the expected finding. TOE is more sensitive than TTE for small or prosthetic-valve vegetations (ie-028).",
         "Distractors are other intracardiac masses: a papillary fibroelastoma and a myxoma are tumours (myxoma classically in the left atrium), and a bland thrombus is sterile — none fits fever plus a new murmur plus this appearance."
       ] },
-    { id:"ie-051", type:"mcq", objective:"ie-prophylaxis",
-      question:"A 60-year-old man with a prosthetic aortic valve is due to have a dental extraction and asks whether he needs antibiotics beforehand to prevent infective endocarditis. According to current NICE guidance, what is the most appropriate advice?",
-      options:["Antibiotic prophylaxis against IE is not routinely recommended","Give a single dose of oral amoxicillin one hour before the procedure","No antibiotics are needed because his prosthetic valve is low-risk","Give intravenous vancomycin at induction","Prophylaxis is needed only for extractions, not other dental work"],
-      correctIndex:0,
-      explanation:[
-        "NICE (CG64) does NOT routinely recommend antibiotic prophylaxis against IE for dental or other procedures, even in at-risk groups — a deliberate reversal of older UK practice.",
-        "Rationale: cumulative bacteraemia from everyday chewing and tooth-brushing vastly outweighs procedural bacteraemia; prophylaxis has never been shown to prevent IE; and it carries anaphylaxis and antibiotic-resistance harm.",
-        "Currency: the wording was AMENDED in 2015 to 'not routinely recommended' (rather than an absolute bar), permitting individualised decisions for the highest-risk patients after specialist discussion. Trap (C): a prosthetic valve is HIGH-risk, yet prophylaxis is still not routinely recommended — the point is that prophylaxis does not help, not that he is low-risk.",
-        "Pairs with ie-052 (shared objective ie-prophylaxis)."
-      ] },
-    { id:"ie-052", type:"mcq", objective:"ie-prophylaxis",
-      question:"A patient with previous infective endocarditis will not receive routine antibiotic prophylaxis before dental work under NICE guidance. Which is the most appropriate advice to give instead?",
+    { id:"ie-051", type:"mcq",
+      question:"A 60-year-old man with a prosthetic aortic valve is due to have a dental extraction and asks whether he needs antibiotics beforehand to prevent infective endocarditis. Under current NICE guidance he will NOT be given routine antibiotic prophylaxis. What is the most appropriate advice to give instead?",
       options:["Take daily prophylactic penicillin indefinitely","Maintain good oral hygiene and attend regular dental review","Avoid all dental treatment in future","He is no longer at risk, so no action is needed","Rinse with chlorhexidine mouthwash before brushing each day"],
       correctIndex:1,
       explanation:[
-        "The positive advice is GOOD ORAL HYGIENE and regular dental review — reducing the everyday bacteraemia that matters most — plus educating at-risk patients to seek prompt help for unexplained fever.",
-        "Trap (D): he remains in the HIGHEST-risk tier (previous IE, ie-001) — prophylaxis simply does not help, which is a different claim from 'no longer at risk'. He still needs the fever-awareness education.",
-        "International contrast: AHA/ESC still recommend prophylaxis for the highest-risk groups (previous IE, prosthetic valve, certain congenital disease), so this is a UK-specific divergence worth knowing. Chlorhexidine is not recommended as IE prophylaxis.",
-        "Pairs with ie-051 (shared objective ie-prophylaxis)."
+        "NICE (CG64) does NOT routinely recommend antibiotic prophylaxis against IE for dental or other procedures — even in the highest-risk groups. The positive advice INSTEAD is GOOD ORAL HYGIENE and regular dental review, plus educating the patient to seek prompt help for any unexplained fever.",
+        "Rationale: cumulative bacteraemia from everyday chewing and tooth-brushing vastly outweighs procedural bacteraemia; prophylaxis has never been shown to prevent IE; and it carries anaphylaxis and antibiotic-resistance harm. Daily prophylactic penicillin (A) and chlorhexidine mouthwash (E) are not recommended, and avoiding dental care (C) would WORSEN oral health and IE risk.",
+        "Trap (D): a prosthetic valve keeps him in the HIGHEST-risk tier — prophylaxis simply does not help, which is a different claim from 'no longer at risk'. The 2015 amendment softened the wording to 'not routinely recommended', permitting individualised decisions for the highest-risk patients after specialist discussion.",
+        "International contrast: AHA/ESC still recommend prophylaxis for the highest-risk groups (previous IE, prosthetic valve, certain congenital disease) — a UK-specific divergence worth knowing."
       ] },
     { id:"ie-053", type:"mcq",
       question:"A patient with suspected native-valve infective endocarditis is acutely septic; blood cultures have just been taken. Which empirical antibiotic regimen should be started immediately, before culture results are available?",
