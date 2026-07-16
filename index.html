@@ -798,6 +798,21 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .mk-opt.mk-opt-struck:hover{background:#EEF0F4;}
 .mk-opt.mk-opt-struck .mk-opt-text{text-decoration:line-through;color:#8A93A6;}
 .mk-opt.mk-opt-struck .mk-opt-letter{text-decoration:line-through;color:#A0A6B4;}
+.mk-mpool{display:flex;flex-direction:column;gap:9px;margin-bottom:16px;}
+.mk-mpool-empty{font-size:13px;color:#8A93A6;font-style:italic;padding:8px 2px;}
+.mk-mopt{display:flex;align-items:center;gap:11px;padding:13px 15px;border:1.5px solid #D8DBE8;border-radius:11px;cursor:pointer;transition:.12s;background:#F8F9FB;}
+.mk-mopt:hover{border-color:#A78BFA;background:#F2EEFE;}
+.mk-mopt-plus{width:24px;height:24px;border-radius:7px;border:1.5px solid #C7CCD8;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1;color:#7C6BB0;background:#FFFFFF;}
+.mk-mopt-text{flex:1;font-size:14px;line-height:1.55;color:#1E2640;}
+.mk-mbox{border:1.5px dashed #C3B8E6;border-radius:12px;background:#F7F4FE;padding:13px 14px;min-height:56px;}
+.mk-mbox-lbl{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#6D5BA6;margin-bottom:10px;}
+.mk-mbox-count{color:#9A93B2;font-weight:600;}
+.mk-mbox-empty{font-size:13px;color:#9891B4;font-style:italic;}
+.mk-mchip{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid #B9A8E8;border-radius:10px;background:#FFFFFF;cursor:pointer;transition:.12s;margin-bottom:8px;}
+.mk-mchip:last-child{margin-bottom:0;}
+.mk-mchip:hover{border-color:#8B6FD6;background:#FBFAFF;}
+.mk-mchip-text{flex:1;font-size:14px;line-height:1.5;color:#241C40;}
+.mk-mchip-x{flex-shrink:0;width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:#8B6FD6;background:#F2EEFE;}
 .mk-qactions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap;}
 .mk-qactions-l{display:flex;gap:10px;}
 .mk-flag-btn{background:#FFFFFF;border:1px solid #D8DBE8;color:#374151;font-size:12.5px;font-weight:600;padding:10px 15px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
@@ -5431,14 +5446,23 @@ window.MOCK_BANK = {
         "The now-negative cultures are the key clue: they exclude ongoing bacteraemia and point to a walled-off, sequestered focus — the same avascular/sequestered logic that makes the vegetation itself hard to treat (ie-003).",
         "This is the EMBOLIC stream (ie-016: left-sided → spleen) declaring itself late. Trap (D): a paravalvular/root abscess also causes persistent fever, but the LUQ pain and tenderness localise this to the SPLEEN — a root abscess would instead threaten the conduction system (ie-014). The other embolic complication to remember is a ruptured intracranial mycotic aneurysm — sudden severe headache."
       ] },
-    { id:"ie-048", type:"saq", objective:"ie-surgery-indications",
-      question:"State three indications for cardiac surgery in infective endocarditis.",
-      answer:"Any three of: heart failure from valve destruction (acute severe regurgitation); uncontrolled infection (aortic root or annular abscess, fungal or resistant organism, persistent bacteraemia despite appropriate antibiotics); prevention of embolism (large >10 mm mobile vegetation, or recurrent emboli despite antibiotics); prosthetic valve dehiscence.",
-      accept:["heart failure","valve destruction","regurgitation","abscess","root abscess","uncontrolled infection","fungal","resistant organism","persistent bacteraemia","recurrent emboli","large vegetation","vegetation >10","10mm","prosthetic dehiscence","dehiscence"],
-      markPoints:["Heart failure / valve destruction","Uncontrolled infection (abscess, fungal/resistant, persistent bacteraemia)","Prevention of embolism (large or recurrent emboli)"],
+    { id:"ie-048", type:"multi", objective:"ie-surgery-indications",
+      boxLabel:"Indications for surgery",
+      question:"A patient with infective endocarditis is being assessed for cardiac surgery. From the options below, select ALL that are recognised indications for surgery and place them in the box.",
+      options:[
+        "Heart failure from severe acute aortic or mitral regurgitation",
+        "Fever that settles within 48 hours of starting antibiotics",
+        "Perivalvular (aortic-root or annular) abscess, or new heart block",
+        "A single small (<5 mm) vegetation with no embolic events",
+        "Persistent bacteraemia despite appropriate antibiotics, or a fungal/resistant organism",
+        "Blood cultures that become negative after 3 days of treatment",
+        "A large mobile vegetation (>10 mm) with a recurrent embolic event on antibiotics",
+        "Uncomplicated right-sided (tricuspid) endocarditis responding to antibiotics"],
+      correct:[0,2,4,6],
       explanation:[
-        "The three surgical categories: HEART FAILURE (from valve destruction), UNCONTROLLED INFECTION (abscess, fungal/resistant organism, persistent bacteraemia, prosthetic dehiscence) and PREVENTION OF EMBOLISM (large mobile or recurrent-embolising vegetation).",
-        "Tagged to exclude ie-043 under random draw (heart failure is the tightest verbatim leak); the fungal (ie-044) and embolic (ie-045) overlaps are accepted as legitimate consolidation."
+        "The three surgical categories (ESC): HEART FAILURE from valve destruction (option 1 — the commonest and most urgent, ie-043); UNCONTROLLED INFECTION (option 3 perivalvular abscess/new heart block, and option 5 persistent bacteraemia or a fungal/resistant organism); and PREVENTION OF EMBOLISM (option 7 — a large mobile vegetation that keeps embolising despite antibiotics).",
+        "Why the others are NOT indications: fever settling within 48 h (option 2) and cultures clearing by day 3 (option 6) mean the infection is being CONTROLLED by antibiotics; a small vegetation with no emboli (option 4) is watched, not operated on; and uncomplicated right-sided/tricuspid IE (option 8) usually responds to antibiotics alone — a key IVDU-endocarditis point (ie-046).",
+        "New heart block (option 3) matters because it signals perivalvular/root abscess extension into the conducting system — a cross-link to the Bradycardia block. Tagged with ie-043 so a single mock won't draw both."
       ] },
     { id:"ie-049", type:"mcq", objective:"ie-janeway-osler",
       image:"https://upload.wikimedia.org/wikipedia/commons/6/69/Janeway_lesion.JPG",
@@ -6604,7 +6628,7 @@ window.MOCK_BANK = {
   function qForTopic(tab,sys,topic){
     var k=tab+'__'+sys+'__'+topic;var arr=bank()[k];
     if(!arr)return[];
-    return arr.filter(function(q){return q&&((q.type==='mcq'&&q.options&&q.options.length>=2&&typeof q.correctIndex==='number')||(q.type==='saq'&&typeof q.answer==='string'&&q.answer));});
+    return arr.filter(function(q){return q&&((q.type==='mcq'&&q.options&&q.options.length>=2&&typeof q.correctIndex==='number')||(q.type==='saq'&&typeof q.answer==='string'&&q.answer)||(q.type==='multi'&&q.options&&q.options.length>=2&&Array.isArray(q.correct)&&q.correct.length>=1));});
   }
   function groups(){
     var out=[];
@@ -6694,8 +6718,10 @@ window.MOCK_BANK = {
   function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
   // ---- grading helpers (MCQ auto-marked; SAQ self-marked in review) ----
-  function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; return a!=null; }
-  function isCorrect(q,i){ if(q&&q.type==='saq') return S.selfMark[i]===true; return S.answers[i]===q.correctIndex; }
+  function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; if(q&&q.type==='multi') return Array.isArray(a)&&a.length>0; return a!=null; }
+  function isCorrect(q,i){ if(q&&q.type==='saq') return S.selfMark[i]===true;
+    if(q&&q.type==='multi'){ var a=S.answers[i], c=q.correct||[]; if(!Array.isArray(a)||a.length!==c.length) return false; for(var k=0;k<c.length;k++){ if(a.indexOf(c[k])<0) return false; } return true; }
+    return S.answers[i]===q.correctIndex; }
   function gradeAll(){try{window.daStreakPing&&window.daStreakPing();}catch(e){}
     var correct=0,bySys={},answeredIds=[];
     S.questions.forEach(function(q,i){
@@ -7175,6 +7201,19 @@ window.MOCK_BANK = {
       label='Your answer';
       body='<textarea class="mk-saq-input" id="mkSaqInput" placeholder="Type your answer here…" oninput="mockSaqInput(this.value)">'+esc(sel||'')+'</textarea>'+
         '<div class="mk-saq-hint">Short-answer question &mdash; you&rsquo;ll self-mark this against the model answer in review.</div>';
+    } else if(q.type==='multi'){
+      label='Select all that apply';
+      var selArr=Array.isArray(sel)?sel:[];
+      var pool=q.options.map(function(o,i){
+        if(selArr.indexOf(i)>=0) return '';
+        return '<div class="mk-mopt" onclick="mockMultiToggle('+i+')"><span class="mk-mopt-plus">+</span><span class="mk-mopt-text">'+esc(o)+'</span></div>';
+      }).join('');
+      var chosen=selArr.map(function(i){
+        return '<div class="mk-mchip" onclick="mockMultiToggle('+i+')"><span class="mk-mchip-text">'+esc(q.options[i])+'</span><span class="mk-mchip-x">&times;</span></div>';
+      }).join('');
+      body='<div class="mk-mpool">'+(pool||'<div class="mk-mpool-empty">All options placed &mdash; tap one below to send it back.</div>')+'</div>'+
+        '<div class="mk-mbox"><div class="mk-mbox-lbl">'+esc(q.boxLabel||'Selected')+' &middot; <span class="mk-mbox-count">'+selArr.length+' selected</span></div>'+
+        (chosen||'<div class="mk-mbox-empty">Tap an option above to place it here.</div>')+'</div>';
     } else {
       label='Select one answer';
       body=q.options.map(function(o,i){
@@ -7220,6 +7259,8 @@ window.MOCK_BANK = {
     var t=el('mkProgTxt'); if(t)t.textContent=answered+' of '+S.questions.length+' answered';
   }
   window.mockSelect=function(i){ S.answers[S.current]=i; if(S.eliminated[S.current])delete S.eliminated[S.current][i]; renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
+  // Multi-select (select-all-that-apply): tap to place an option in the box, tap again to return it.
+  window.mockMultiToggle=function(i){ var a=S.answers[S.current]; if(!Array.isArray(a))a=[]; var p=a.indexOf(i); if(p>=0){a.splice(p,1);}else{a.push(i);} if(a.length){a.sort(function(x,y){return x-y;});S.answers[S.current]=a;}else{delete S.answers[S.current];} renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
   // Cross out / restore an option (elimination technique). Crossing out the
   // currently-selected answer also deselects it.
   window.mockEliminate=function(e,i){ if(e){e.stopPropagation();} var m=S.eliminated[S.current]||(S.eliminated[S.current]={}); if(m[i]){ delete m[i]; } else { m[i]=1; if(S.answers[S.current]===i)delete S.answers[S.current]; } renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
@@ -7360,6 +7401,16 @@ window.MOCK_BANK = {
           '<button class="mk-sm-btn mk-sm-ok'+(mk===true?' active':'')+'" onclick="mockSelfMark('+i+',true)">&#10003; Correct</button>'+
           '<button class="mk-sm-btn mk-sm-bad'+(mk===false?' active':'')+'" onclick="mockSelfMark('+i+',false)">&times; Incorrect</button></div>';
         body=your+model+sm;
+      } else if(q.type==='multi'){
+        var selArr=Array.isArray(sel)?sel:[]; var cset=q.correct||[];
+        body=q.options.map(function(o,oi){
+          var isC=cset.indexOf(oi)>=0, isS=selArr.indexOf(oi)>=0;
+          var cls='mk-rev-opt', marker='';
+          if(isC&&isS){cls+=' mk-correct';marker='<span class="mk-rev-marker" style="color:#1F8B5E">Correct &#10003; you chose it</span>';}
+          else if(isC&&!isS){cls+=' mk-correct';marker='<span class="mk-rev-marker" style="color:#1F8B5E">Correct &mdash; you missed it</span>';}
+          else if(!isC&&isS){cls+=' mk-wrong';marker='<span class="mk-rev-marker" style="color:#E11D48">You chose &mdash; not correct</span>';}
+          return '<div class="'+cls+'"><div class="mk-opt-letter">'+(isS?'&#10003;':'&nbsp;')+'</div><div style="flex:1;">'+esc(o)+'</div>'+marker+'</div>';
+        }).join('');
       } else {
         body=q.options.map(function(o,oi){
           var cls='mk-rev-opt'; var marker='';
@@ -7430,6 +7481,14 @@ window.MOCK_BANK = {
       var mp=(q.markPoints&&q.markPoints.length)?'<ul class="mk-saq-mp">'+q.markPoints.map(function(m){return '<li>'+esc(m)+'</li>';}).join('')+'</ul>':'';
       var acc=(q.accept&&q.accept.length)?'<div class="mk-saq-acc">Also accepted: '+q.accept.map(esc).join(' &middot; ')+'</div>':'';
       body='<div class="mk-saq-box mk-saq-model"><div class="mk-saq-lbl">Model answer</div>'+esc(q.answer)+mp+acc+'</div>';
+    } else if(q.type==='multi'){
+      var cset=q.correct||[];
+      body=q.options.map(function(o,oi){
+        var isC=cset.indexOf(oi)>=0;
+        var cls='mk-rev-opt'+(isC?' mk-correct':'');
+        var marker=isC?'<span class="mk-rev-marker" style="color:#1F8B5E">Indication</span>':'';
+        return '<div class="'+cls+'"><div class="mk-opt-letter">'+(isC?'&#10003;':'&nbsp;')+'</div><div style="flex:1;">'+esc(o)+'</div>'+marker+'</div>';
+      }).join('');
     } else {
       body=q.options.map(function(o,oi){
         var cls='mk-rev-opt'+(oi===q.correctIndex?' mk-correct':'');
