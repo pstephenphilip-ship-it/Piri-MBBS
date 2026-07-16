@@ -5529,7 +5529,7 @@ window.MOCK_BANK = {
       correctIndex:0,
       explanation:[
         "S4 is a LATE-diastolic (pre-systolic) sound: the atrium contracts against a STIFF, non-compliant ventricle. It is ALWAYS pathological — classically LVH from hypertension or aortic stenosis.",
-        "Contrast S3 (early diastole, rapid filling of a compliant or volume-loaded ventricle — heart failure, or normal in the young).",
+        "Contrast S3 (early diastole, rapid filling of a compliant or volume-loaded ventricle — heart failure, or normal in the young). Because S4 IS the sound of atrial contraction, it is ABSENT in atrial fibrillation (no organised atrial systole) — a free examinable discriminator.",
         "Clinical anchor: S4 is the audible signature of the stiff ventricle underlying HFpEF — the same physiology that makes these patients dependent on the atrial kick (fcvs-003)."
       ] },
     { id:"fcvs-003", type:"mcq",
@@ -5543,12 +5543,12 @@ window.MOCK_BANK = {
       ] },
     { id:"fcvs-004", type:"mcq",
       question:"A patient in complete heart block has intermittent large pulsations visible in the neck (cannon a waves). What produces a cannon a wave?",
-      options:["The tricuspid valve leaking during systole","Rapid atrial filling against a closed tricuspid valve","Delayed ventricular repolarisation","The right atrium contracting against a closed tricuspid valve","Loss of atrial contraction, as in atrial fibrillation"],
+      options:["Regular 1:1 retrograde conduction from the ventricles to the atria each beat","Tricuspid regurgitation driving blood back into the right atrium","Loss of organised atrial contraction, as occurs in atrial fibrillation","AV dissociation: the atrium sometimes contracts against a shut tricuspid valve","Delayed ventricular repolarisation on the surface ECG"],
       correctIndex:3,
       explanation:[
-        "A cannon a wave = the right atrium contracting while the tricuspid valve is SHUT (the ventricle is contracting). In complete heart block the atria and ventricles beat independently (AV dissociation), so intermittently they contract together → a giant 'cannon' wave.",
-        "Contrast: ABSENT a waves = AF (no organised atrial contraction); GIANT v waves = tricuspid regurgitation (fcvs-009).",
-        "Clinical anchor: cannon a waves at the bedside point straight to AV dissociation / complete heart block."
+        "A cannon a wave = the right atrium contracting while the tricuspid valve is SHUT. In complete heart block the atria and ventricles beat INDEPENDENTLY (AV dissociation), so they only occasionally coincide — giving INTERMITTENT cannon waves.",
+        "Trap (A): regular 1:1 retrograde conduction (for example a junctional rhythm) also produces cannon waves, but REGULAR ones — the intermittency here is what points to dissociation. Absent a = AF; giant v = tricuspid regurgitation (fcvs-009).",
+        "Clinical anchor: intermittent cannon a waves at the bedside point straight to complete heart block."
       ] },
     { id:"fcvs-005", type:"mcq",
       question:"On a left ventricular pressure-volume loop, what is the effect of an acute rise in afterload (for example a hypertensive surge) on stroke volume?",
@@ -5560,13 +5560,13 @@ window.MOCK_BANK = {
         "Clinical anchor: this is why afterload reduction (vasodilators) improves forward stroke volume in acute heart failure and in acute mitral or aortic regurgitation."
       ] },
     { id:"fcvs-006", type:"mcq",
-      question:"At which moment in the cardiac cycle does the aortic valve open?",
-      options:["When atrial pressure exceeds ventricular pressure","When left ventricular pressure rises above aortic pressure","When the ventricle begins to relax","At the peak of the T wave","Immediately after the second heart sound"],
+      question:"In severe aortic stenosis, the left ventricle must reach a much higher pressure before the aortic valve opens, and ejection through the narrowed valve is prolonged. Which arterial pulse character results?",
+      options:["A collapsing water-hammer pulse, as in aortic regurgitation","A slow-rising, delayed pulse (parvus et tardus)","A bounding, large-volume pulse","Pulsus paradoxus","Pulsus alternans"],
       correctIndex:1,
       explanation:[
-        "Valves move PASSIVELY: they open the instant the pressure gradient reverses. The aortic valve opens when LV pressure rises just above aortic pressure, ending isovolumetric contraction.",
-        "It CLOSES when LV pressure falls back below aortic pressure — the dicrotic notch and S2 (fcvs-011).",
-        "Clinical anchor: the whole cycle reduces to 'which chamber now has the higher pressure' — the logic that lets you time any murmur relative to S1 and S2."
+        "The aortic valve opens PASSIVELY only once LV pressure exceeds aortic pressure. In severe aortic stenosis the LV must build a much higher pressure to force the stenotic valve open, and ejection through the narrow orifice is prolonged → a SLOW-RISING, low-amplitude, delayed pulse (pulsus parvus et tardus).",
+        "Contrast: a collapsing (water-hammer) pulse is AORTIC REGURGITATION; pulsus paradoxus is tamponade or severe asthma; pulsus alternans is severe LV dysfunction.",
+        "Clinical anchor: the slow-rising pulse (with a narrow pulse pressure and a soft or absent S2) is the bedside signature of severe AS — the same 'valve opens when LV pressure exceeds aortic' physiology, now made harder by the stenosis."
       ] },
     { id:"fcvs-007", type:"mcq",
       question:"The first heart sound (S1) is produced by which event?",
@@ -5592,7 +5592,7 @@ window.MOCK_BANK = {
       correctIndex:2,
       explanation:[
         "In tricuspid regurgitation the right ventricle drives blood BACK through the incompetent valve into the atrium during systole → GIANT v waves (often with a pulsatile liver).",
-        "JVP quick map: absent a = AF; cannon a = complete heart block (fcvs-004); large a = tricuspid stenosis or pulmonary hypertension; giant v = tricuspid regurgitation.",
+        "JVP quick map: absent a = AF; cannon a = complete heart block (fcvs-004); large a = tricuspid stenosis or pulmonary hypertension; giant v = tricuspid regurgitation. The y descent (tricuspid opens → atrial emptying) is ABSENT in cardiac tamponade (a full pericardium prevents early filling) and STEEP in constrictive pericarditis.",
         "Clinical anchor: the JVP reads out right-heart events — arrhythmias, tricuspid disease, and tamponade/constriction all have signatures here."
       ] },
     { id:"fcvs-010", type:"mcq",
@@ -5608,13 +5608,40 @@ window.MOCK_BANK = {
       image:"https://commons.wikimedia.org/wiki/Special:FilePath/Wiggers_Diagram_2.svg?width=900",
       imageAlt:"Wiggers diagram: overlaid tracings of aortic, left ventricular and atrial pressure, ventricular volume, an ECG and heart sounds on one shared time axis.",
       imageCredit:"DestinyQx, revised DanielChangMD, SVG by xavax, CC BY-SA 4.0, via Wikimedia Commons.",
-      question:"The diagram overlays aortic, ventricular and atrial pressures, ventricular volume, the ECG and heart sounds on one time axis. The second heart sound (S2), at the dicrotic notch on the aortic pressure trace, marks which event?",
-      options:["Closure of the aortic valve","Opening of the aortic valve","Closure of the mitral valve","Onset of atrial contraction","Peak ventricular ejection"],
+      question:"On this Wiggers diagram, find the point where the left ventricular pressure trace first rises above the aortic pressure trace. Which event occurs there?",
+      options:["The aortic valve opens and ejection begins","The aortic valve closes, producing S2","The mitral valve opens, starting filling","Atrial systole (the atrial kick) begins","Isovolumetric relaxation begins"],
       correctIndex:0,
       explanation:[
-        "The dicrotic notch (incisura) on the aortic pressure trace is the brief pressure rebound as the aortic valve CLOSES — it coincides with S2 and marks the end of ejection and the start of isovolumetric relaxation.",
-        "Reading a Wiggers diagram: every valve event sits where two pressure curves cross. The aortic valve OPENS where LV pressure rises above aortic (fcvs-006); it CLOSES at the dicrotic notch shown here.",
-        "Clinical anchor: S2 timing anchors the systolic/diastolic division used to localise every murmur."
+        "Every valve event on a Wiggers diagram sits where two pressure curves cross. Where LV pressure first rises ABOVE aortic pressure, the aortic valve OPENS and ejection begins (the end of isovolumetric contraction).",
+        "The mirror event is where LV pressure later falls back below aortic pressure — the dicrotic notch, where the aortic valve closes and S2 is heard.",
+        "Clinical anchor: reading pressure crossings is how the diagram encodes every heart sound and the systolic/diastolic landmarks for timing murmurs."
+      ] },
+    { id:"fcvs-012", type:"mcq",
+      question:"Ventricular relaxation is an active, energy-dependent process (calcium is actively pumped back into the sarcoplasmic reticulum). Which consequence follows from relaxation being ATP-dependent?",
+      options:["Relaxation continues normally even when ATP is depleted","Systole always fails before diastole when oxygen supply falls","Diastolic dysfunction appears before systolic dysfunction in ischaemia","The ventricle fills mainly by active suction throughout diastole","Relaxation is entirely passive and unaffected by ischaemia"],
+      correctIndex:2,
+      explanation:[
+        "Relaxation costs ENERGY (ATP-dependent calcium re-uptake), so when oxygen supply falls the ventricle loses the ability to relax before it loses the ability to contract — DIASTOLIC dysfunction precedes SYSTOLIC dysfunction in ischaemia.",
+        "It is also part of why the hypertrophied ventricle relaxes poorly (impaired active relaxation + passive stiffness) — the substrate for HFpEF.",
+        "Clinical anchor: impaired relaxation is an early ischaemic sign and the mechanism behind the stiff-ventricle/HFpEF picture (fcvs-002, fcvs-003)."
+      ] },
+    { id:"fcvs-013", type:"mcq",
+      question:"As heart rate rises, diastole shortens proportionately far more than systole. Which consequence follows most directly?",
+      options:["Systolic ejection time falls faster than diastolic filling time","Cardiac output rises linearly with heart rate without limit","Ventricular filling is unaffected, as most filling is active","Both coronary perfusion and ventricular filling fall at high rates","Myocardial oxygen demand falls as the heart rate rises"],
+      correctIndex:3,
+      explanation:[
+        "Because diastole is preferentially shortened, two diastolic processes suffer at high rates: ventricular FILLING (less time to fill) and SUBENDOCARDIAL CORONARY PERFUSION (the left ventricle is perfused in diastole).",
+        "This one fact reaches a long way: it is why fast AF collapses filling in a stiff ventricle (fcvs-003), why tachycardia precipitates ischaemia in aortic stenosis and angina, and why rate control is therapeutic.",
+        "Clinical anchor: the diastolic-perfusion idea is the bridge into the coronary circulation — tachycardia raises demand while cutting diastolic supply."
+      ] },
+    { id:"fcvs-014", type:"mcq",
+      question:"In left bundle branch block, the second heart sound characteristically shows which splitting pattern?",
+      options:["Fixed splitting that does not vary with respiration","Wide physiological splitting that increases on inspiration","A single, unsplit second heart sound","An early opening snap heard just after S2","Reversed (paradoxical) splitting, because aortic closure is delayed"],
+      correctIndex:4,
+      explanation:[
+        "In LBBB the LEFT ventricle depolarises late, so AORTIC closure (A2) is delayed until AFTER pulmonary closure (P2) — the reverse of normal. This gives REVERSED (paradoxical) splitting: the split is audible in EXPIRATION and NARROWS on inspiration (the opposite of physiological splitting).",
+        "The three patterns: PHYSIOLOGICAL (inspiration → more venous return → delayed P2, so the split widens); FIXED (atrial septal defect — equal filling of both sides regardless of respiration); REVERSED (delayed A2 — LBBB, or severe aortic stenosis).",
+        "Clinical anchor: reversed splitting points to delayed left-ventricular ejection — LBBB or severe AS."
       ] }
   ]
 };
