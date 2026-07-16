@@ -5761,6 +5761,98 @@ window.MOCK_BANK = {
         "Noradrenaline acts on β1 receptors → Gs protein → adenylyl cyclase → ↑cAMP. cAMP binds the HCN channels DIRECTLY (they are cyclic-nucleotide-gated), steepening the funny current (If) and the phase-4 slope → threshold sooner → faster rate (it also enhances Ca²⁺ currents → ↑contractility and ↑AV conduction).",
         "This is the mirror of the vagal effect (fcvs-021): sympathetic STEEPENS phase 4, vagus FLATTENS it — every rate drug pushes one of these two levers.",
         "Clinical anchor: this is the lever BETA-BLOCKERS interrupt (the most-used rate-control drug), and why ivabradine — acting on the same If/phase-4 slope but on the channel itself — is the alternative when a beta-blocker fails or is not tolerated (fcvs-015, chf-021)."
+      ] },
+    { id:"fcvs-028", type:"mcq",
+      question:"A wave of depolarisation moving towards a recording electrode produces an upward deflection. Lead aVR views the heart from the right shoulder. Why is the QRS in aVR normally negative?",
+      options:["Ventricular depolarisation spreads down-and-left, away from aVR","aVR only records electrical activity from the atria","The right ventricle is electrically silent in this lead","aVR is positioned directly over the cardiac apex","Repolarisation, not depolarisation, dominates in aVR"],
+      correctIndex:0,
+      explanation:[
+        "Depolarisation towards an electrode gives a POSITIVE deflection; away gives a negative one. The net ventricular vector points DOWN and to the LEFT (the large LV dominates) — away from aVR, which looks from the right shoulder — so aVR normally shows a NEGATIVE QRS (with inverted P and T).",
+        "A POSITIVE QRS in aVR means the depolarisation vector is genuinely pointing the wrong way → limb-lead reversal or dextrocardia. Do NOT confuse this with ST ELEVATION in aVR (with widespread ST depression), which is a separate REPOLARISATION finding suggesting left-main / proximal-LAD disease — different waveform, different mechanism.",
+        "Clinical anchor: the towards/away rule is the single principle behind every deflection and the whole basis of the cardiac axis (fcvs-033/034)."
+      ] },
+    { id:"fcvs-029", type:"mcq",
+      question:"The QRS (depolarisation) and the T wave (repolarisation) usually deflect in the same direction, despite being opposite processes. Why?",
+      options:["Repolarisation runs the opposite way, so the two reversals cancel","The T wave is produced by atrial repolarisation","Depolarisation and repolarisation are electrically identical","The T wave reflects the plateau (phase 2) of the AP","Repolarisation generates no measurable current"],
+      correctIndex:0,
+      explanation:[
+        "Depolarisation spreads ENDOCARDIUM→EPICARDIUM; repolarisation spreads the OPPOSITE way, EPICARDIUM→ENDOCARDIUM. Opposite charge moving in the opposite direction produces a deflection in the SAME direction — so the QRS and T wave are normally CONCORDANT (both upright).",
+        "A T wave discordant with the QRS flags a repolarisation abnormality — ischaemia, or the expected secondary change in bundle branch block.",
+        "Clinical anchor: concordance is the physiological baseline against which ischaemic and strain T-wave changes are read (ACS)."
+      ] },
+    { id:"fcvs-030", type:"mcq",
+      question:"During the PR segment the ECG returns to the baseline (isoelectric). What does this flat segment represent?",
+      options:["Atrial repolarisation returning to baseline","The AV nodal delay, when too little tissue depolarises to register","Ventricular repolarisation, phase 3","The point at which the ventricles are fully depolarised","Electrical silence because the heart has paused"],
+      correctIndex:1,
+      explanation:[
+        "The impulse is held up in the AV NODE — only a tiny volume of tissue is depolarising, too little to register at the surface, so the segment is flat. The PR INTERVAL (P onset to QRS onset) therefore contains the AV nodal delay.",
+        "That is why AV conduction disease shows as PR changes: first-degree block (long PR), Mobitz I (progressive lengthening then a dropped beat) — the delay made visible.",
+        "Clinical anchor: PR = the AV node on the ECG (heart block, brady)."
+      ] },
+    { id:"fcvs-031", type:"mcq",
+      question:"Atrial repolarisation is not normally visible on the ECG. Why?",
+      options:["The atria do not undergo repolarisation","It is small and buried within the QRS complex","It occurs during the T wave instead","It is the same event as the P wave","It produces the U wave on the ECG"],
+      correctIndex:1,
+      explanation:[
+        "The atrial repolarisation wave (Ta) does occur, but it is SMALL (little atrial muscle) and coincides with the much larger QRS, so it is buried and not normally seen.",
+        "It can surface when exaggerated — e.g. PR-segment depression in pericarditis, or atrial infarction.",
+        "Clinical anchor: why the ECG appears to skip from P to QRS with no visible atrial recovery wave."
+      ] },
+    { id:"fcvs-032", type:"mcq",
+      question:"The QRS complex is much larger in amplitude than the P wave. What is the main reason?",
+      options:["The ventricles depolarise more slowly than the atria","The P wave is partly cancelled by the T wave","The ventricles have far more muscle mass than the atria","Atrial depolarisation moves away from all electrodes","The QRS also includes repolarisation"],
+      correctIndex:2,
+      explanation:[
+        "ECG amplitude reflects the MASS of tissue depolarising. The ventricles have far more muscle than the atria, so the QRS is large and the P wave small.",
+        "It follows that increased muscle mass increases amplitude — the basis of the voltage criteria for LEFT VENTRICULAR HYPERTROPHY (tall R waves), read against the standard 10 mm/mV calibration (fcvs-035).",
+        "Clinical anchor: amplitude ∝ mass → LVH voltage criteria (HTN / valve disease)."
+      ] },
+    { id:"fcvs-033", type:"mcq",
+      question:"The normal cardiac axis lies roughly between −30° and +90° (down-and-to-the-left). Why does the mean QRS vector normally point this way?",
+      options:["Because the sinoatrial node lies in the left atrium","Because ventricular depolarisation begins on the right side","The larger left ventricle dominates the net vector","The right ventricle has more mass than the left","Repolarisation, not depolarisation, sets the axis"],
+      correctIndex:2,
+      explanation:[
+        "The cardiac axis is the mean direction of the ventricular depolarisation vector. Because the LEFT ventricle has by far the greatest muscle mass, the net vector points down and to the LEFT — the normal axis (~−30° to +90°).",
+        "Shifts follow mass and conduction: LEFT axis deviation (LVH, left anterior fascicular block, inferior MI) and RIGHT axis deviation (RVH, PE, left posterior fascicular block).",
+        "Clinical anchor: axis is just the towards/away rule summed over the whole ventricle (fcvs-034)."
+      ] },
+    { id:"fcvs-034", type:"mcq",
+      image:"assets/ecg/axis_two_lead.svg",
+      imageAlt:"Two QRS complexes labelled Lead I and aVF; in lead I the dominant deflection is downward, in aVF it is upward.",
+      question:"The QRS complexes recorded in leads I and aVF are shown. What is the cardiac axis?",
+      options:["Normal axis","Left axis deviation","Extreme (northwest) axis","Right axis deviation","The axis cannot be determined from these leads"],
+      correctIndex:3,
+      explanation:[
+        "Read the axis from two leads: lead I (looks from the left, 0°) and aVF (looks from the feet, +90°). Here lead I is predominantly NEGATIVE and aVF POSITIVE → the mean vector points down and to the RIGHT = RIGHT AXIS DEVIATION.",
+        "The quadrant method: I+ / aVF+ = normal; I+ / aVF− = left axis (then check lead II); I− / aVF+ = right axis; I− / aVF− = extreme (northwest) axis.",
+        "Clinical anchor: right axis deviation → RVH, pulmonary embolism, or left posterior fascicular block."
+      ] },
+    { id:"fcvs-035", type:"mcq",
+      question:"On standard ECG paper (25 mm/s), a regular rhythm has an R–R interval of 4 large squares. What is the heart rate?",
+      options:["50/min","100/min","60/min","150/min","75/min"],
+      correctIndex:4,
+      explanation:[
+        "At 25 mm/s, one large square = 0.2 s, so five large squares = 1 s. For a regular rhythm, RATE = 300 ÷ (large squares between R waves) = 300 ÷ 4 = 75/min.",
+        "The distractors are each 300 ÷ a wrong square count (6, 3, 2) — every wrong answer is a specific miscount, not filler. For an irregular rhythm, count the QRS complexes on a 10-second strip and multiply by 6.",
+        "The other calibration is VERTICAL: 10 mm/mV (1 small square = 0.1 mV) — which is what turns 'tall R waves' into a measurable threshold for LVH (fcvs-032). Clinical anchor: the 300-rule and the 10 mm/mV calibration are the measurement basis for reading rate and voltage."
+      ] },
+    { id:"fcvs-036", type:"mcq",
+      question:"The normal QRS complex is narrow (under 120 ms). Why is ventricular depolarisation completed so quickly?",
+      options:["The His-Purkinje network activates the whole ventricle almost at once","The AV node conducts the impulse very rapidly","The ventricles have less muscle than the atria","Depolarisation spreads myocyte-to-myocyte through the ventricle","The plateau phase shortens ventricular depolarisation"],
+      correctIndex:0,
+      explanation:[
+        "The His-PURKINJE network is a fast-conducting highway that delivers the impulse to the whole ventricular myocardium almost SIMULTANEOUSLY, so depolarisation finishes in under 120 ms — a NARROW QRS.",
+        "When that system is bypassed and the impulse must crawl MYOCYTE-TO-MYOCYTE (distractor D), spread is slow and the QRS BROADENS. Causes: bundle branch block, a ventricular focus or escape, ventricular pacing, and hyperkalaemic conduction slowing.",
+        "Clinical anchor: QRS width is a readout used across the bank — narrow (junctional) versus broad (ventricular) escape (fcvs-019), broad-complex tachycardia, new LBBB, and the hyperkalaemia progression (fcvs-022)."
+      ] },
+    { id:"fcvs-037", type:"mcq",
+      question:"During the ST segment the ECG sits at the isoelectric baseline. What is the reason?",
+      options:["The ventricle is now fully repolarised and back at its resting potential","The whole ventricle is uniformly depolarised, with no potential difference","Atrial repolarisation cancels out the ventricular signal here","The His-Purkinje conducting system is completely refractory","Depolarisation and repolarisation are occurring at the same time"],
+      correctIndex:1,
+      explanation:[
+        "The ST segment coincides with the ventricular PLATEAU (phase 2): the whole ventricle is depolarised UNIFORMLY, so there is no potential difference between regions and nothing to record — the trace sits at baseline.",
+        "It follows that ST DEVIATION requires part of the myocardium to be at a DIFFERENT membrane potential from its neighbours — an INJURY CURRENT. That is the physiological basis of the ST ELEVATION of STEMI (and the ST depression of ischaemia).",
+        "Clinical anchor: this is WHY the ST segment moves at all in ischaemia — the territories and thresholds are the ACS block's job; the mechanism lives here. It completes the walk along the trace: P (fcvs-032), PR (fcvs-030), buried Ta (fcvs-031), QRS width (fcvs-036), ST (here), T (fcvs-029)."
       ] }
   ]
 };
