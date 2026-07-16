@@ -950,6 +950,20 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .mk-fill-input{display:inline-block;width:auto;min-width:64px;max-width:100%;padding:5px 11px;margin:0 3px;border:1.5px solid #B9A8E8;border-radius:8px;background:#FBFAFF;font-family:var(--mono);font-size:14px;color:#241C40;outline:none;vertical-align:baseline;}
 .mk-fill-input:focus{border-color:#8B6FD6;background:#FFFFFF;}
 .mk-fill-blabel{font-family:var(--mono);font-size:11px;color:#8A93A6;margin-bottom:3px;}
+.mk-cat-hint{font-size:13px;color:#8A93A6;margin-bottom:12px;}
+.mk-cat-pool{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px;min-height:20px;}
+.mk-cat-item{display:inline-flex;align-items:center;padding:10px 14px;border:1.5px solid #D8DBE8;border-radius:10px;background:#F8F9FB;cursor:pointer;font-size:13.5px;color:#1E2640;transition:.12s;}
+.mk-cat-item:hover{border-color:#A78BFA;background:#F2EEFE;}
+.mk-cat-item.mk-cat-held{border-color:#8B6FD6;background:#EDE7FC;box-shadow:0 0 0 2px rgba(139,111,214,0.3);}
+.mk-cat-pool-empty{font-size:13px;color:#9891B4;font-style:italic;}
+.mk-cat-buckets{display:flex;flex-direction:column;gap:10px;}
+.mk-cat-bucket{border:1.5px dashed #C3B8E6;border-radius:12px;background:#F7F4FE;padding:11px 13px;cursor:pointer;transition:.12s;}
+.mk-cat-bucket:hover{border-color:#8B6FD6;background:#F2EEFE;}
+.mk-cat-blabel{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:#6D5BA6;margin-bottom:8px;}
+.mk-cat-drop{display:flex;flex-wrap:wrap;gap:8px;min-height:16px;}
+.mk-cat-placed{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1.5px solid #B9A8E8;border-radius:9px;background:#FFFFFF;font-size:13.5px;color:#241C40;cursor:pointer;}
+.mk-cat-placed .mk-cat-x{font-size:15px;color:#8B6FD6;}
+.mk-cat-empty{font-size:12.5px;color:#B4AECB;font-style:italic;}
 .mk-qactions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap;}
 .mk-qactions-l{display:flex;gap:10px;}
 .mk-flag-btn{background:#FFFFFF;border:1px solid #D8DBE8;color:#374151;font-size:12.5px;font-weight:600;padding:10px 15px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
@@ -5256,6 +5270,21 @@ window.MOCK_BANK = {
         "Vegetation DESTROYS the aortic leaflets → acute/worsening AORTIC REGURGITATION (early diastolic murmur, wide pulse pressure) → pulmonary oedema and heart failure. This is the COMMONEST reason IE patients need urgent surgery.",
         "Trap (C vs D): option D is the OTHER facet of local destruction (ie-014), but a perivalvular abscess presents as HEART BLOCK, not this murmur — map the presentation to the facet. Coronary embolism → MI; myocarditis is rare; tamponade gives muffled sounds without a diastolic murmur.",
         "Category to name: this is the same 'acute valve lesion on an UNADAPTED chamber → flash pulmonary oedema' physiology as acute aortic regurgitation in dissection (ad-010, ad-026) and acute mitral regurgitation in acute heart failure. A ventricle given no time to dilate and compensate cannot handle a suddenly-incompetent valve, so the lungs flood — a recurring mechanism worth recognising as a category."
+      ] },
+    { id:"ie-018p", type:"categorize", objective:"ie-root-abscess",
+      question:"Infective endocarditis produces its signs through three consequence streams. Sort each finding into the stream chiefly responsible for it.",
+      buckets:["Local valve destruction","Systemic embolisation","Immune-complex deposition"],
+      items:[
+        {text:"New complete heart block",bucket:0},
+        {text:"A wedge-shaped splenic infarct",bucket:1},
+        {text:"Glomerulonephritis with red cell casts",bucket:2},
+        {text:"Janeway lesion (painless haemorrhagic macule on the sole)",bucket:1}
+      ],
+      explanation:[
+        "The three streams give every IE sign an explanatory home: destruction → murmur / heart failure / heart block; embolisation → stroke / infarcts / Janeway lesions; immune complex → glomerulonephritis / Osler's nodes / Roth spots.",
+        "Teaching point (d): the Janeway lesion is EMBOLIC despite resembling the immune lesions — the forward-hook to Block 4's Janeway-versus-Osler discrimination (Janeway = painless, palms/soles, septic microemboli; Osler = painful, finger/toe pulps, immune complex).",
+        "Currency caveat: the 'Osler = immune / Janeway = embolic' split is the CLASSIC examinable teaching, but the mechanisms are somewhat contested — histology of both has shown mixed embolic and vasculitic features. Answer the classic split (it is what is examined), but treat it as a traditional attribution rather than settled pathology.",
+        "This SAQ consolidates the block. It is tagged to exclude ie-014 under random draw (part (a) names the aortic root abscess verbatim); the looser overlaps with ie-015 (immune GN) and ie-016 (embolisation) are accepted as legitimate whole-map consolidation."
       ] }
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
@@ -5453,11 +5482,15 @@ window.MOCK_BANK = {
         "Trap (C vs D): option D is the OTHER facet of local destruction (ie-014), but a perivalvular abscess presents as HEART BLOCK, not this murmur — map the presentation to the facet. Coronary embolism → MI; myocarditis is rare; tamponade gives muffled sounds without a diastolic murmur.",
         "Category to name: this is the same 'acute valve lesion on an UNADAPTED chamber → flash pulmonary oedema' physiology as acute aortic regurgitation in dissection (ad-010, ad-026) and acute mitral regurgitation in acute heart failure. A ventricle given no time to dilate and compensate cannot handle a suddenly-incompetent valve, so the lungs flood — a recurring mechanism worth recognising as a category."
       ] },
-    { id:"ie-018", type:"saq", objective:"ie-root-abscess",
-      question:"Infective endocarditis produces signs through three consequence streams — local valve destruction, systemic embolisation, and immune-complex deposition. State which stream is chiefly responsible for each: (a) new complete heart block; (b) a wedge-shaped splenic infarct; (c) glomerulonephritis with red cell casts; (d) a painless haemorrhagic macule on the sole (Janeway lesion).",
-      answer:"(a) local valve destruction (aortic root abscess); (b) systemic embolisation; (c) immune-complex deposition; (d) systemic embolisation (septic microemboli).",
-      accept:["local destruction","valve destruction","root abscess","embolisation","embolization","embolism","embolic","immune complex","immune-complex","immune"],
-      markPoints:["(a) local valve destruction","(b) embolisation","(c) immune-complex deposition","(d) embolisation"],
+    { id:"ie-018", type:"categorize", objective:"ie-root-abscess",
+      question:"Infective endocarditis produces its signs through three consequence streams. Sort each finding into the stream chiefly responsible for it.",
+      buckets:["Local valve destruction","Systemic embolisation","Immune-complex deposition"],
+      items:[
+        {text:"New complete heart block",bucket:0},
+        {text:"A wedge-shaped splenic infarct",bucket:1},
+        {text:"Glomerulonephritis with red cell casts",bucket:2},
+        {text:"Janeway lesion (painless haemorrhagic macule on the sole)",bucket:1}
+      ],
       explanation:[
         "The three streams give every IE sign an explanatory home: destruction → murmur / heart failure / heart block; embolisation → stroke / infarcts / Janeway lesions; immune complex → glomerulonephritis / Osler's nodes / Roth spots.",
         "Teaching point (d): the Janeway lesion is EMBOLIC despite resembling the immune lesions — the forward-hook to Block 4's Janeway-versus-Osler discrimination (Janeway = painless, palms/soles, septic microemboli; Osler = painful, finger/toe pulps, immune complex).",
@@ -6933,7 +6966,7 @@ window.MOCK_BANK = {
   function qForTopic(tab,sys,topic){
     var k=tab+'__'+sys+'__'+topic;var arr=bank()[k];
     if(!arr)return[];
-    return arr.filter(function(q){return q&&((q.type==='mcq'&&q.options&&q.options.length>=2&&typeof q.correctIndex==='number')||(q.type==='saq'&&typeof q.answer==='string'&&q.answer)||(q.type==='multi'&&q.options&&q.options.length>=2&&Array.isArray(q.correct)&&q.correct.length>=1)||(q.type==='fill'&&Array.isArray(q.rows)&&Array.isArray(q.blanks)&&q.blanks.length>=1));});
+    return arr.filter(function(q){return q&&((q.type==='mcq'&&q.options&&q.options.length>=2&&typeof q.correctIndex==='number')||(q.type==='saq'&&typeof q.answer==='string'&&q.answer)||(q.type==='multi'&&q.options&&q.options.length>=2&&Array.isArray(q.correct)&&q.correct.length>=1)||(q.type==='fill'&&Array.isArray(q.rows)&&Array.isArray(q.blanks)&&q.blanks.length>=1)||(q.type==='categorize'&&Array.isArray(q.items)&&q.items.length>=1&&Array.isArray(q.buckets)&&q.buckets.length>=2));});
   }
   function groups(){
     var out=[];
@@ -7023,10 +7056,11 @@ window.MOCK_BANK = {
   function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
   // ---- grading helpers (MCQ auto-marked; SAQ self-marked in review) ----
-  function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; if(q&&q.type==='multi') return Array.isArray(a)&&a.length>0; if(q&&q.type==='fill') return Array.isArray(a)&&a.some(function(x){return x&&String(x).trim()!=='';}); return a!=null; }
+  function isAnswered(q,i){ var a=S.answers[i]; if(q&&q.type==='saq') return typeof a==='string'&&a.trim()!==''; if(q&&q.type==='multi') return Array.isArray(a)&&a.length>0; if(q&&q.type==='fill') return Array.isArray(a)&&a.some(function(x){return x&&String(x).trim()!=='';}); if(q&&q.type==='categorize') return Array.isArray(a)&&a.some(function(x){return x>=0;}); return a!=null; }
   function isCorrect(q,i){ if(q&&q.type==='saq') return S.selfMark[i]===true;
     if(q&&q.type==='multi'){ var a=S.answers[i], c=q.correct||[]; if(!Array.isArray(a)||a.length!==c.length) return false; for(var k=0;k<c.length;k++){ if(a.indexOf(c[k])<0) return false; } return true; }
     if(q&&q.type==='fill'){ var fa=S.answers[i], bl=q.blanks||[]; if(!Array.isArray(fa)) return false; for(var b=0;b<bl.length;b++){ var v=fa[b]; if(!v||!String(v).trim()) return false; if(!saqMatch(String(v),bl[b].accept||[])) return false; } return true; }
+    if(q&&q.type==='categorize'){ var ca=S.answers[i]; if(!Array.isArray(ca)) return false; for(var m=0;m<q.items.length;m++){ var want=(q.items[m].bucket==null?-1:q.items[m].bucket); var got=(ca[m]==null?-1:ca[m]); if(got!==want) return false; } return true; }
     return S.answers[i]===q.correctIndex; }
   function gradeAll(){try{window.daStreakPing&&window.daStreakPing();}catch(e){}
     var correct=0,bySys={},answeredIds=[];
@@ -7535,6 +7569,23 @@ window.MOCK_BANK = {
         return '<div class="mk-fill-row">'+out+'</div>';
       }).join('');
       body='<div class="mk-fill">'+rowsHtml+'</div><div class="mk-saq-hint">Fill every blank &mdash; all must be correct for the mark.</div>';
+    } else if(q.type==='categorize'){
+      label='Sort into the correct group';
+      var assign=Array.isArray(sel)?sel:[];
+      var poolItems=q.items.map(function(it,ii){
+        if(assign[ii]>=0) return '';
+        return '<div class="mk-cat-item'+(catHeld===ii?' mk-cat-held':'')+'" onclick="mockCatHold('+ii+')">'+esc(it.text)+'</div>';
+      }).join('');
+      var buckets=q.buckets.map(function(bl,bi){
+        var placed=q.items.map(function(it,ii){
+          if(assign[ii]!==bi) return '';
+          return '<div class="mk-cat-placed" onclick="event.stopPropagation();mockCatReturn('+ii+')">'+esc(it.text)+'<span class="mk-cat-x">&times;</span></div>';
+        }).join('');
+        return '<div class="mk-cat-bucket" onclick="mockCatPlace('+bi+')"><div class="mk-cat-blabel">'+esc(bl)+'</div><div class="mk-cat-drop">'+(placed||'<span class="mk-cat-empty">tap a held item here</span>')+'</div></div>';
+      }).join('');
+      body='<div class="mk-cat-hint">Tap a finding, then tap the group to place it. Tap a placed item to send it back.</div>'+
+        '<div class="mk-cat-pool">'+(poolItems||'<span class="mk-cat-pool-empty">All findings placed.</span>')+'</div>'+
+        '<div class="mk-cat-buckets">'+buckets+'</div>';
     } else {
       label='Select one answer';
       body=q.options.map(function(o,i){
@@ -7584,12 +7635,17 @@ window.MOCK_BANK = {
   window.mockMultiToggle=function(i){ var a=S.answers[S.current]; if(!Array.isArray(a))a=[]; var p=a.indexOf(i); if(p>=0){a.splice(p,1);}else{a.push(i);} if(a.length){a.sort(function(x,y){return x-y;});S.answers[S.current]=a;}else{delete S.answers[S.current];} renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
   // Fill-in-the-blank: update one blank without re-rendering (keeps input focus), like the SAQ textarea.
   window.mockFillInput=function(bi,val){ var q=S.questions[S.current]; var n=(q&&q.blanks)?q.blanks.length:0; var a=S.answers[S.current]; if(!Array.isArray(a)){a=[];for(var k=0;k<n;k++)a.push('');} a[bi]=String(val); var any=a.some(function(x){return x&&String(x).trim()!=='';}); if(any){S.answers[S.current]=a;}else{delete S.answers[S.current];} renderPalette(); updateProg(); saveInProgress(); };
+  // Categorize (sort items into buckets): tap an item to hold it, tap a bucket to place it, tap a placed item to return it.
+  var catHeld=null;
+  window.mockCatHold=function(ii){ catHeld=(catHeld===ii?null:ii); renderQuestion(); };
+  window.mockCatPlace=function(bi){ if(catHeld==null)return; var q=S.questions[S.current],n=q.items.length; var a=S.answers[S.current]; if(!Array.isArray(a)){a=[];for(var k=0;k<n;k++)a.push(-1);} a[catHeld]=bi; S.answers[S.current]=a; catHeld=null; renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
+  window.mockCatReturn=function(ii){ var a=S.answers[S.current]; if(Array.isArray(a)){ a[ii]=-1; if(a.some(function(x){return x>=0;}))S.answers[S.current]=a; else delete S.answers[S.current]; } catHeld=null; renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
   // Cross out / restore an option (elimination technique). Crossing out the
   // currently-selected answer also deselects it.
   window.mockEliminate=function(e,i){ if(e){e.stopPropagation();} var m=S.eliminated[S.current]||(S.eliminated[S.current]={}); if(m[i]){ delete m[i]; } else { m[i]=1; if(S.answers[S.current]===i)delete S.answers[S.current]; } renderQuestion(); renderPalette(); updateProg(); saveInProgress(); };
   window.mockSaqInput=function(v){ v=String(v); if(v.trim()===''){ delete S.answers[S.current]; } else { S.answers[S.current]=v; } renderPalette(); updateProg(); };
-  window.mockNav=function(d){ var n=S.current+d; if(n<0||n>=S.questions.length)return; S.current=n; renderQuestion(); renderPalette(); saveInProgress(); };
-  window.mockGoto=function(i){ S.current=i; renderQuestion(); renderPalette(); saveInProgress(); };
+  window.mockNav=function(d){ var n=S.current+d; if(n<0||n>=S.questions.length)return; catHeld=null; S.current=n; renderQuestion(); renderPalette(); saveInProgress(); };
+  window.mockGoto=function(i){ catHeld=null; S.current=i; renderQuestion(); renderPalette(); saveInProgress(); };
   window.mockFlag=function(){ if(S.flagged[S.current])delete S.flagged[S.current]; else S.flagged[S.current]=1; renderQuestion(); renderPalette(); saveInProgress(); };
 
   // ---- timer ----
@@ -7746,6 +7802,15 @@ window.MOCK_BANK = {
             '<div>Your answer: '+your+'</div>'+
             '<div style="color:#1F8B5E;">Model: '+esc(b.answer||'')+'</div>'+acc+'</div></div>';
         }).join('');
+      } else if(q.type==='categorize'){
+        var ca=Array.isArray(sel)?sel:[];
+        body=q.items.map(function(it,ii){
+          var want=(it.bucket==null?-1:it.bucket), got=(ca[ii]==null?-1:ca[ii]);
+          var okc=(got===want);
+          var yourB=(got>=0&&q.buckets[got])?esc(q.buckets[got]):'(not placed)';
+          var wantB=(want>=0&&q.buckets[want])?esc(q.buckets[want]):'(leave unplaced)';
+          return '<div class="mk-rev-opt'+(okc?' mk-correct':' mk-wrong')+'"><div class="mk-opt-letter">'+(okc?'&#10003;':'&times;')+'</div><div style="flex:1;"><div>'+esc(it.text)+'</div><div style="font-size:12px;color:#8A93A6;">You: '+yourB+' &middot; <span style="color:#1F8B5E;">Correct: '+wantB+'</span></div></div></div>';
+        }).join('');
       } else {
         body=q.options.map(function(o,oi){
           var cls='mk-rev-opt'; var marker='';
@@ -7827,6 +7892,12 @@ window.MOCK_BANK = {
     } else if(q.type==='fill'){
       body=(q.blanks||[]).map(function(b,bi){
         return '<div class="mk-rev-opt mk-correct"><div class="mk-opt-letter">&#10003;</div><div style="flex:1;"><div class="mk-fill-blabel">'+esc(b.label||('Blank '+(bi+1)))+'</div><div style="color:#1F8B5E;">'+esc(b.answer||'')+'</div></div></div>';
+      }).join('');
+    } else if(q.type==='categorize'){
+      body=(q.items||[]).map(function(it){
+        var want=(it.bucket==null?-1:it.bucket);
+        var wantB=(want>=0&&q.buckets[want])?esc(q.buckets[want]):'(unplaced)';
+        return '<div class="mk-rev-opt mk-correct"><div class="mk-opt-letter">&#10003;</div><div style="flex:1;">'+esc(it.text)+' &rarr; <span style="color:#1F8B5E;">'+wantB+'</span></div></div>';
       }).join('');
     } else {
       body=q.options.map(function(o,oi){
