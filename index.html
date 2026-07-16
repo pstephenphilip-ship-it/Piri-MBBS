@@ -5853,6 +5853,99 @@ window.MOCK_BANK = {
         "The ST segment coincides with the ventricular PLATEAU (phase 2): the whole ventricle is depolarised UNIFORMLY, so there is no potential difference between regions and nothing to record — the trace sits at baseline.",
         "It follows that ST DEVIATION requires part of the myocardium to be at a DIFFERENT membrane potential from its neighbours — an INJURY CURRENT. That is the physiological basis of the ST ELEVATION of STEMI (and the ST depression of ischaemia).",
         "Clinical anchor: this is WHY the ST segment moves at all in ischaemia — the territories and thresholds are the ACS block's job; the mechanism lives here. It completes the walk along the trace: P (fcvs-032), PR (fcvs-030), buried Ta (fcvs-031), QRS width (fcvs-036), ST (here), T (fcvs-029)."
+      ] },
+    { id:"fcvs-038", type:"mcq",
+      question:"According to the Frank-Starling mechanism, increasing venous return raises stroke volume. By what immediate mechanism does greater diastolic filling produce a more forceful contraction?",
+      options:["A reflex increase in the heart rate from the stretch","Sympathetic stimulation of the ventricular myocardium","Better actin-myosin overlap from stretching the sarcomere","A fall in the afterload the ventricle ejects against","Reflex vasodilatation of the coronary arteries"],
+      correctIndex:2,
+      explanation:[
+        "It is intrinsic to the muscle: greater filling STRETCHES the sarcomeres nearer their OPTIMAL length, increasing actin-myosin cross-bridge OVERLAP and the myofilaments' CALCIUM SENSITIVITY → a stronger contraction (the length-tension relationship).",
+        "It needs no nerves or hormones — it automatically matches output to venous return beat-to-beat and balances the two ventricles (fcvs-044).",
+        "Clinical anchor: this is the engine behind fluid responsiveness (fcvs-041), the failing-heart curve (fcvs-040), and the whole preload story."
+      ] },
+    { id:"fcvs-039", type:"mcq",
+      question:"Which of the following raises stroke volume specifically by increasing preload?",
+      options:["A fluid bolus that increases venous return","A vasodilator that reduces afterload","Dobutamine, which increases contractility","A rise in systemic vascular resistance","Aortic stenosis"],
+      correctIndex:0,
+      explanation:[
+        "PRELOAD is the end-diastolic stretch (EDV), set by venous return; a FLUID BOLUS raises it → ↑SV by climbing the Starling curve.",
+        "The distractors change the OTHER determinants: a vasodilator reduces AFTERLOAD (B); dobutamine raises CONTRACTILITY (C); raised SVR and aortic stenosis INCREASE afterload (D, E) and reduce SV. Keeping the three apart is the point.",
+        "Clinical anchor: preload determinants — venous return, blood volume, atrial kick, venous tone, posture; estimated (imperfectly) by CVP/JVP (fcvs-046)."
+      ] },
+    { id:"fcvs-040", type:"mcq",
+      question:"A patient with systolic heart failure operates on a depressed (down-and-right-shifted) Starling curve. Why does this predispose to pulmonary congestion?",
+      options:["The failing heart pumps too much blood forwards each beat","The afterload it faces is abnormally low","Its contractility is abnormally increased","High filling pressures are needed, which congest the lungs","Venous return to the heart has been abolished"],
+      correctIndex:3,
+      explanation:[
+        "On a DEPRESSED curve the heart makes less stroke volume for any given preload, so it must sit at a HIGH filling pressure (high EDV) just to achieve adequate output. Those high left-heart pressures transmit BACK into the pulmonary veins → congestion/oedema.",
+        "This is why the failing heart is PRELOAD-DEPENDENT yet prone to congestion — and why DIURETICS (↓preload) relieve it.",
+        "Clinical anchor: the depressed Starling curve is the mechanism of both the low output and the pulmonary oedema of systolic HF (CHF)."
+      ] },
+    { id:"fcvs-041", type:"mcq",
+      question:"A shocked patient is given a fluid bolus. Under what condition will it actually increase stroke volume?",
+      options:["In all patients, regardless of their filling status","Only if the ventricle is already on the plateau","Only if contractility is already maximal","Only if the afterload is high","Only if the ventricle is on the rising part of the curve"],
+      correctIndex:4,
+      explanation:[
+        "A bolus raises preload, but that only becomes more stroke volume on the RISING (steep) part of the curve — where the patient is FLUID-RESPONSIVE.",
+        "On the PLATEAU, extra filling adds little output and instead raises filling pressures → congestion, so fluids stop helping and start harming.",
+        "Currency: many textbooks draw a DESCENDING limb (over-stretch → falling SV), but in the intact heart that is largely a myth — the pericardium and cytoskeleton prevent over-stretch, so the real curve PLATEAUS. A clinical 'descending limb' is usually a different (depressed) curve or a rising afterload.",
+        "Clinical anchor: assessing fluid responsiveness before a bolus is the Starling curve at the bedside (shock)."
+      ] },
+    { id:"fcvs-042", type:"mcq",
+      question:"Why does afterload reduction (an ACE inhibitor or vasodilator) improve stroke volume more in a failing heart than in a normal one?",
+      options:["Vasodilators act mainly by increasing the preload","Vasodilators directly raise the contractility of the myocardium","A failing heart is far more afterload-sensitive","The normal heart cannot eject any blood at all","Afterload has no effect on a normal heart"],
+      correctIndex:2,
+      explanation:[
+        "A NORMAL ventricle ejects well across a range of afterloads, so lowering afterload changes its stroke volume little. A FAILING ventricle sits on the steep, afterload-SENSITIVE part of its function — SV falls sharply as afterload rises and improves markedly when afterload is reduced.",
+        "So afterload reduction (ACE inhibitors, ARBs, other vasodilators) EASES ejection and raises forward stroke volume in heart failure — a cornerstone of HF therapy.",
+        "Clinical anchor: why vasodilators/ACEi help the failing heart (and, acutely, acute mitral or aortic regurgitation) far more than a normal one (CHF, htn)."
+      ] },
+    { id:"fcvs-043", type:"mcq",
+      question:"Dobutamine increases contractility. What is its effect on the Starling curve and on ejection fraction?",
+      options:["It shifts the whole curve down and to the right","It shifts the curve up-and-left (more SV and EF)","It lowers the ejection fraction for a given preload","It has no effect on the shape of the curve","It raises the preload without changing contractility"],
+      correctIndex:1,
+      explanation:[
+        "Raising contractility shifts the curve UP and to the LEFT — more stroke volume and a higher EF for a given preload, with a lower end-systolic volume.",
+        "EF = SV/EDV (~55–70%) is a useful SURROGATE for contractility, but it is LOAD-DEPENDENT and can mislead. Classic example: in severe MITRAL REGURGITATION the ventricle ejects partly into the low-pressure left atrium (low afterload), which FLATTERS the EF — a 'normal' EF there actually signals impaired contractility, which is why the surgical EF thresholds in MR sit higher than you would expect.",
+        "Clinical anchor: inotropes (dobutamine, digoxin) shift up-left; the opposite shift (down-right) is HF, ischaemia, or β-blockade. Reduced EF = HFrEF; preserved EF with poor filling = HFpEF."
+      ] },
+    { id:"fcvs-044", type:"mcq",
+      question:"The Frank-Starling mechanism automatically keeps the two ventricles' outputs matched. How does it achieve this?",
+      options:["The two ventricles share a single common chamber","The SA node adjusts each ventricle's output separately","A nervous reflex equalises their outputs beat-to-beat","If the right pumps more, the left receives more and matches it","The left ventricle always pumps more than the right does"],
+      correctIndex:3,
+      explanation:[
+        "The ventricles are in SERIES. If the RIGHT ventricle transiently pumps more, the LEFT receives more venous return, its EDV rises, it stretches, and by Frank-Starling it pumps MORE to match — automatically, beat-to-beat, with no nervous control.",
+        "This coupling is why LEFT-sided failure backs blood up into the lungs and eventually strains the RIGHT heart.",
+        "Clinical anchor: the intrinsic ventricular balancing that keeps pulmonary and systemic outputs equal (and its failure in congestive HF)."
+      ] },
+    { id:"fcvs-045", type:"mcq",
+      image:"assets/ecg/starling_curves.svg",
+      imageAlt:"Three Frank-Starling curves of stroke volume against preload, labelled 1, 2 and 3; curve 1 rises steeply to a high plateau, curve 2 is intermediate, curve 3 rises shallowly to a low plateau.",
+      question:"Three Frank-Starling curves are shown. Which curve represents a patient receiving dobutamine (an inotrope)?",
+      options:["Curve 2","Curve 3","Any of them, depending on the dose","Dobutamine does not shift the curve","Curve 1"],
+      correctIndex:4,
+      explanation:[
+        "An inotrope like dobutamine RAISES contractility → the Starling curve shifts UP and to the LEFT: more stroke volume (and EF) for any given preload. That is Curve 1.",
+        "Curve 2 is the normal curve; Curve 3 is DOWN-and-right — the depressed curve of heart failure (fcvs-040). Dobutamine's effect is the OPPOSITE shift.",
+        "Clinical anchor: reading the direction of a curve shift — up-left = more contractility (inotropes/sympathetic), down-right = failure/ischaemia/β-blockade."
+      ] },
+    { id:"fcvs-046", type:"mcq",
+      question:"Preload is really the end-diastolic volume (sarcomere stretch), yet at the bedside we measure a pressure (CVP, JVP, PCWP). Why can these pressures mislead?",
+      options:["Pressure always equals volume within the heart","CVP actually measures afterload, not preload","Pressure tracks volume only if compliance stays constant","The JVP reflects arterial rather than venous pressure","Filling pressures are entirely unrelated to preload"],
+      correctIndex:2,
+      explanation:[
+        "Preload is a VOLUME (EDV / sarcomere stretch), but every bedside surrogate — CVP, JVP, PCWP — is a PRESSURE. The two track each other only if ventricular COMPLIANCE is constant, which it often is not: a stiff ventricle sits at a high pressure for a normal volume.",
+        "This one idea explains three things: (1) why CVP is a POOR predictor of fluid responsiveness (fcvs-041) — the number does not tell you where you sit on the curve; (2) why the STIFF ventricle congests at a normal volume — high filling pressure, unremarkable EDV (the HFpEF substrate, fcvs-002/fcvs-003); (3) why calcium-channel-blocker ankle oedema has a NORMAL JVP — a raised capillary pressure with no rise in filling pressure at all (htn-034).",
+        "Clinical anchor: 'filling pressure' is not 'filling volume' — the gap between them is compliance."
+      ] },
+    { id:"fcvs-047", type:"mcq",
+      question:"In which situation is a patient most preload-dependent, so that giving GTN (a nitrate) can cause dangerous hypotension?",
+      options:["Chronic stable hypertension","Mild mitral regurgitation","A normal healthy heart","Right ventricular myocardial infarction","Sinus tachycardia from anxiety"],
+      correctIndex:3,
+      explanation:[
+        "Some hearts maintain output only if preload is kept HIGH — they are PRELOAD-DEPENDENT. RIGHT VENTRICULAR INFARCTION is the classic example: the failing RV needs high filling to drive blood through to the left heart, so a venodilator like GTN drops preload and causes profound HYPOTENSION.",
+        "The same danger applies in SEVERE AORTIC STENOSIS (fixed outflow; needs preload to fill the stiff LV) and CARDIAC TAMPONADE (filling already limited). In all three, the reflex 'nitrate for chest pain' can be lethal.",
+        "Clinical anchor: preload-dependent states (RV infarct, severe AS, tamponade) — where reducing preload collapses cardiac output (ACS/ALS)."
       ] }
   ]
 };
