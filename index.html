@@ -5523,10 +5523,15 @@ window.MOCK_BANK = {
         "The two isovolumetric phases (contraction and relaxation) bracket ejection and are the conceptual core of the cycle — pressure changes without volume change because there is no route in or out.",
         "Clinical anchor: this is the pressure the ventricle must generate against afterload — in aortic stenosis the LV must build a far higher isovolumetric pressure to open the valve, which drives the hypertrophy and the pressure gradient."
       ] },
-    { id:"fcvs-002", type:"mcq",
-      question:"A 68-year-old man with long-standing hypertension and left ventricular hypertrophy has a low-pitched added heart sound just before S1. Which sound is it, and what causes it?",
-      options:["S4 — atrial contraction against a stiff ventricle","S3 — rapid ventricular filling in early diastole","S2 — closure of the aortic and pulmonary valves","An opening snap of the mitral valve","A pericardial friction rub"],
-      correctIndex:0,
+    { id:"fcvs-002", type:"saq",
+      question:"A 68-year-old man with long-standing hypertension and left ventricular hypertrophy has a low-pitched added heart sound just before S1 (late diastole). Name this heart sound.",
+      answer:"S4 (fourth heart sound)",
+      accept:["s4","fourth heart sound","4th heart sound","atrial gallop","s four"],
+      markPoints:[
+        "S4 (fourth heart sound) — a late-diastolic, pre-systolic sound",
+        "Caused by atrial contraction against a stiff, non-compliant ventricle (LVH, aortic stenosis, HFpEF)",
+        "Absent in atrial fibrillation (no organised atrial systole)"
+      ],
       explanation:[
         "S4 is a LATE-diastolic (pre-systolic) sound: the atrium contracts against a STIFF, non-compliant ventricle. It is almost ALWAYS pathological (LVH from hypertension or aortic stenosis, HFpEF) — though a soft S4 is occasionally heard in otherwise-healthy older adults.",
         "Contrast S3 (early diastole, rapid filling of a compliant or volume-loaded ventricle — heart failure, or normal in the young). Because S4 IS the sound of atrial contraction, it is ABSENT in atrial fibrillation (no organised atrial systole) — a free examinable discriminator.",
@@ -6381,15 +6386,15 @@ window.MOCK_BANK = {
         "The 'non-pitting' teaching needs a caveat: EARLY lymphoedema DOES pit (it is simple fluid); it is the ESTABLISHED phase — with dermal fibrosis and fat deposition — that becomes characteristically NON-pitting. This stem is the chronic, years-later case.",
         "Clinical anchor: the fourth Starling-based mechanism (with ↑hydrostatic, ↓oncotic, ↑permeability, fcvs-079/080/084). Non-pitting, unilateral limb oedema after cancer treatment = lymphoedema until proven otherwise — and must be told apart from DVT and venous causes."
       ] },
-    { id:"fcvs-082", type:"mcq",
-      question:"A man with polycythaemia vera (a very high haematocrit) has hypertension and headaches. How does the raised haematocrit add to the vascular resistance?",
-      options:[
-        "It lowers viscosity, so the resistance falls",
-        "Haematocrit has no effect on vascular resistance",
-        "It raises blood viscosity, increasing resistance",
-        "It dilates the arterioles to compensate for flow",
-        "It acts only by increasing the effective vessel length"],
-      correctIndex:2,
+    { id:"fcvs-082", type:"saq",
+      question:"A man with polycythaemia vera has hypertension and headaches from a very high haematocrit. Raising the haematocrit increases vascular resistance chiefly by raising which physical property of the blood?",
+      answer:"Viscosity (blood viscosity)",
+      accept:["viscosity","blood viscosity","increased viscosity","raised viscosity","hyperviscosity"],
+      markPoints:[
+        "Viscosity — a high haematocrit markedly raises whole-blood viscosity",
+        "By Poiseuille's law, resistance rises with viscosity (radius still dominates day-to-day)",
+        "Viscosity falls in anaemia — the basis of the anaemia flow murmur"
+      ],
       explanation:[
         "Poiseuille's law shows resistance rises with VISCOSITY as well as falling with radius⁴. A very high haematocrit markedly raises whole-blood viscosity → ↑SVR, impaired flow and O₂ delivery, and a thrombotic tendency (hyperviscosity).",
         "Radius still dominates minute-to-minute resistance (fcvs-072), but viscosity matters here — and viscosity FALLS in anaemia (a determinant of the anaemia flow murmur, fcvs-055/085).",
@@ -6467,15 +6472,15 @@ window.MOCK_BANK = {
         "Coronary perfusion pressure ≈ aortic DIASTOLIC pressure − LV end-diastolic pressure, so anything that lowers diastolic pressure (aortic regurgitation, fcvs-078) or raises LVEDP compromises LV perfusion.",
         "Clinical anchor: the SAME equation explains cardiac arrest — chest compressions generate little coronary flow without an aortic diastolic pressure to drive it, which is exactly what adrenaline's α-vasoconstriction restores; and because coronary perfusion pressure takes several compressions to rebuild and collapses instantly on pausing, INTERRUPTIONS to compressions are so costly (cross-link: ALS, als-022)."
       ] },
-    { id:"fcvs-088", type:"mcq",
-      question:"When myocardial oxygen demand rises (e.g. exercise), coronary blood flow increases to match it. What is the main mechanism of this local increase?",
-      options:[
-        "Sympathetic nerves directly vasodilate the coronary arteries",
-        "Local metabolites (e.g. adenosine) dilate the coronary arterioles",
-        "Circulating adrenaline constricts the coronary arterioles",
-        "The baroreceptor reflex raises the coronary blood flow",
-        "Increased oxygen extraction across the myocardial wall"],
-      correctIndex:1,
+    { id:"fcvs-088", type:"saq",
+      question:"When myocardial oxygen demand rises, coronary blood flow increases to match it, chiefly by arteriolar vasodilation (metabolic hyperaemia). Name the principal local metabolite that mediates this dilation.",
+      answer:"Adenosine",
+      accept:["adenosine"],
+      markPoints:[
+        "Adenosine (from ATP breakdown) — the principal metabolic vasodilator of the coronary arterioles",
+        "Other contributors: CO₂, K⁺ and low O₂ (metabolic hyperaemia / autoregulation)",
+        "The flow mechanism the near-absent extraction reserve makes essential; the basis of adenosine/dipyridamole stress testing"
+      ],
       explanation:[
         "Coronary flow is matched to demand mainly by METABOLIC (autoregulatory) control: as O₂ demand rises, local ADENOSINE (from ATP breakdown), CO₂, K⁺ and low O₂ dilate the coronary arterioles → flow rises (metabolic hyperaemia). Sympathetic tone is minor and largely overridden.",
         "This is the flow mechanism that the near-absent extraction reserve (fcvs-086) makes essential.",
@@ -6495,15 +6500,15 @@ window.MOCK_BANK = {
         "CORONARY STEAL follows directly: because the post-stenotic bed is already maximally dilated, a vasodilator (dipyridamole/adenosine) dilates only the HEALTHY beds, diverting flow AWAY from the stenotic territory → it actively provokes ischaemia rather than merely failing to raise flow. This is why dipyridamole is relatively contraindicated in unstable angina.",
         "Clinical anchor: this is what fractional flow reserve (FFR) and adenosine stress imaging measure — whether a stenosis has meaningfully eaten into the reserve (guiding whether to stent). Distinct from EXTRACTION reserve (fcvs-086): this is VASODILATOR reserve."
       ] },
-    { id:"fcvs-090", type:"mcq",
-      question:"In myocardial ischaemia the SUBENDOCARDIUM (innermost layer of the LV wall) is affected first and most severely. Why is this layer the most vulnerable?",
-      options:[
-        "It has the highest oxygen content and the lowest oxygen demand",
-        "It is perfused during systole, unlike the rest of the LV wall",
-        "It has the richest collateral blood supply within the wall",
-        "It receives its oxygen directly from the LV cavity blood",
-        "Furthest from epicardial vessels, and compressed most in systole"],
-      correctIndex:4,
+    { id:"fcvs-090", type:"saq",
+      question:"In myocardial ischaemia one layer of the left-ventricular wall is affected first and most severely — it lies furthest from the epicardial coronary vessels and is compressed most during systole. Name this layer.",
+      answer:"Subendocardium (subendocardial layer)",
+      accept:["subendocardium","subendocardial","sub-endocardium","subendocardial layer","subendocardial zone"],
+      markPoints:[
+        "Subendocardium — the innermost layer of the LV wall",
+        "Furthest from the epicardial vessels (end of the supply line) and bears the highest intramural pressure/wall stress",
+        "Basis of subendocardial (non-transmural) ischaemia showing as ST depression / NSTEMI"
+      ],
       explanation:[
         "The subendocardium is fed by vessels penetrating from the EPICARDIUM inward, so it lies at the END of the supply line, and it bears the HIGHEST wall stress and intramural pressure.",
         "The unifying principle (one idea, three consequences): perfusion is compromised in proportion to INTRAMURAL PRESSURE — which is why the high-pressure LV is diastole-dependent (fcvs-087), the low-pressure RV is not, and the LV SUBENDOCARDIUM, where intramural pressure is highest, is worst off. Furthest from supply + most compressed → first to become ischaemic (compression scales with wall stress, fcvs-083).",
@@ -6550,15 +6555,15 @@ window.MOCK_BANK = {
         "Every anti-anginal is just a term in this equation being moved: β-blockers/ivabradine (↓rate & contractility → ↓demand, + ↑diastolic filling), nitrates (↓preload → ↓demand, + coronary dilation → ↑supply), CCBs (↓afterload/rate), and revascularisation or treating anaemia (↑supply).",
         "Clinical anchor: read any anti-anginal — or any ischaemic trigger (tachycardia, anaemia, AS, hypotension) — as a shift in one of these terms, so the drug list becomes a consequence rather than a memory task."
       ] },
-    { id:"fcvs-094", type:"mcq",
-      question:"An inferior STEMI is characteristically complicated by bradycardia and AV block. Which anatomical fact explains the association?",
-      options:[
-        "The LAD supplies the entire cardiac conducting system",
-        "The inferior wall itself contains the sinoatrial node",
-        "Inferior infarcts release more vagolytic mediators",
-        "The right coronary artery usually supplies the SA and AV nodes",
-        "The circumflex supplies both nodes in most people"],
-      correctIndex:3,
+    { id:"fcvs-094", type:"saq",
+      question:"An inferior STEMI is characteristically complicated by bradycardia and AV block, because the infarct-related artery also supplies the SA and AV nodes in most people. Name that artery.",
+      answer:"Right coronary artery (RCA)",
+      accept:["rca","right coronary artery","right coronary","right coronary a"],
+      markPoints:[
+        "Right coronary artery (RCA) — supplies the SA and AV nodes in most (right-dominant) people",
+        "AV node RCA-supplied in ~80–90%; SA node more variable (~55–60% RCA)",
+        "Inferior-MI bradyarrhythmias often respond to atropine and resolve with reperfusion"
+      ],
       explanation:[
         "In most people the RIGHT CORONARY ARTERY supplies both the SA and AV nodes. An inferior MI is usually an RCA occlusion, so nodal ischaemia → sinus bradycardia and AV block (often also vagally mediated — the Bezold-Jarisch reflex).",
         "The dominance figures are not equally firm: the AV node is RCA-supplied in ~80–90% (right dominance; circumflex in the rest), but the SA node is more variable — roughly RCA in ~55–60% and circumflex in ~40–45%. So the AV-node association is stronger than the SA-node one.",
