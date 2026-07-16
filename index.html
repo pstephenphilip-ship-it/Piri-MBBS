@@ -604,11 +604,11 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .wc-best{text-align:center;padding-left:16px;border-left:1px solid #E2E6F0;}
 .wc-best-n{font-family:var(--mono);font-weight:800;font-size:22px;color:#1E2640;line-height:1;}
 .wc-best-l{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#9CA3AF;margin-top:4px;}
-.wc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.wc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
 .wc-stat{background:#fff;border:1.5px solid #E2E6F0;border-radius:12px;padding:16px 10px;text-align:center;}
 .wc-stat .n{font-family:var(--mono);font-size:24px;font-weight:800;line-height:1;}
 .wc-stat .l{font-size:10.5px;color:#9CA3AF;margin-top:5px;text-transform:uppercase;letter-spacing:.06em;}
-.wc-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#9CA3AF;letter-spacing:.04em;margin-top:4px;}
+.wc-hint{text-align:center;font-family:var(--mono);font-size:12px;color:#9CA3AF;letter-spacing:.04em;margin:0 0 18px;}
 .wc-notes{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;overflow:hidden;}
 .wc-nhead{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;font-weight:700;font-size:14px;color:#1E2640;border-bottom:1px solid #E2E6F0;}
 .wc-nclear{font-size:11px;font-weight:600;color:#9CA3AF;background:none;border:none;cursor:pointer;}
@@ -625,7 +625,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 <div id="tab-home" class="tab-view home-view"><div class="wc-host" id="homeHost"></div></div>
 <script>
 (function(){
-  function esc(s){return s;}
   function welcomeHTML(opts){
     opts=opts||{};
     var streak='<div class="wc-streak js-streak"><div class="wc-flame">&#128293;</div>'
@@ -637,19 +636,18 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       +'<div class="wc-stat"><div class="n js-stat-fc" style="color:#8B5CF6">&mdash;</div><div class="l">Flashcards</div></div>'
       +'<div class="wc-stat"><div class="n js-stat-q" style="color:#CA8A04">&mdash;</div><div class="l">Questions</div></div>'
       +'<div class="wc-stat"><div class="n js-stat-sys" style="color:#EF5350">&mdash;</div><div class="l">Systems</div></div></div>';
-    var tail = opts.notes
-      ? ('<div class="wc-notes"><div class="wc-nhead"><span>&#128221; My Notes &amp; To-Do</span><button class="wc-nclear" onclick="homeNotesClear()">Clear</button></div>'
-        +'<div class="wc-ntoolbar">'
-        +'<button class="wc-nbtn" type="button" title="Bold" onmousedown="return homeFmtMD(event,\'bold\')"><b>B</b></button>'
-        +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return homeFmtMD(event,\'italic\')"><i>I</i></button>'
-        +'<button class="wc-nbtn" type="button" title="Underline" onmousedown="return homeFmtMD(event,\'underline\')"><u>U</u></button>'
-        +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return homeFmtMD(event,\'insertUnorderedList\')">&#8226;</button>'
-        +'</div>'
-        +'<div class="wc-nbody" id="homeNotes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="homeNotesSave()"></div>'
-        +'<div class="wc-nhint">Saved automatically on this device.</div></div>')
-      : ('<div class="wc-hint">'+(opts.hint||'&larr; Select a topic to begin')+'</div>');
+    var hint = opts.hint ? ('<div class="wc-hint">'+opts.hint+'</div>') : '';
+    var notes='<div class="wc-notes"><div class="wc-nhead"><span>&#128221; My Notes &amp; To-Do</span><button class="wc-nclear" type="button" onclick="wcNotesClear(event)">Clear</button></div>'
+      +'<div class="wc-ntoolbar">'
+      +'<button class="wc-nbtn" type="button" title="Bold" onmousedown="return wcFmt(event,\'bold\')"><b>B</b></button>'
+      +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return wcFmt(event,\'italic\')"><i>I</i></button>'
+      +'<button class="wc-nbtn" type="button" title="Underline" onmousedown="return wcFmt(event,\'underline\')"><u>U</u></button>'
+      +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return wcFmt(event,\'insertUnorderedList\')">&#8226;</button>'
+      +'</div>'
+      +'<div class="wc-nbody js-notes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="wcNotesSave(this)"></div>'
+      +'<div class="wc-nhint">Saved automatically on this device &mdash; the same list shows on every page.</div></div>';
     return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
-      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+stats+tail+'</div>';
+      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+stats+hint+notes+'</div>';
   }
 
   window.updateStreakUI=function(){
@@ -663,12 +661,10 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   window.renderHomeStreak=window.updateStreakUI;
 
   var STATCACHE=null;
-  function applyStats(o){
-    if(!o)return;
+  function applyStats(o){ if(!o)return;
     document.querySelectorAll('.js-stat-cond').forEach(function(e){e.textContent=o.cond;});
     document.querySelectorAll('.js-stat-fc').forEach(function(e){e.textContent=o.fc;});
-    document.querySelectorAll('.js-stat-q').forEach(function(e){e.textContent=o.q;});
-  }
+    document.querySelectorAll('.js-stat-q').forEach(function(e){e.textContent=o.q;}); }
   function updateStatsUI(){
     var sys=(typeof CONDITIONS_SYSTEMS!=='undefined')?Object.keys(CONDITIONS_SYSTEMS).length:'\u2014';
     document.querySelectorAll('.js-stat-sys').forEach(function(e){e.textContent=sys;});
@@ -688,20 +684,21 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   }
   window.updateStatsUI=updateStatsUI;
 
-  function paintWelcome(container, opts){ if(!container)return; container.innerHTML=welcomeHTML(opts); updateStreakUI(); updateStatsUI(); if(opts&&opts.notes){ nloaded=false; homeNotesLoad(); } }
+  // ---- To-Do / Notes: one saved list, mirrored into every welcome panel ----
+  var NKEY='piri_home_notes_v1', nt;
+  function readNotes(){ try{ var v=localStorage.getItem(NKEY); return v!=null?v:''; }catch(e){ return ''; } }
+  function loadNotesInto(root){ var el=(root||document).querySelector('.js-notes'); if(el) el.innerHTML=readNotes(); }
+  window.wcLoadNotesInto=loadNotesInto;
+  window.wcNotesSave=function(srcEl){ clearTimeout(nt); nt=setTimeout(function(){ var html=srcEl.innerHTML; try{localStorage.setItem(NKEY,html);}catch(e){} document.querySelectorAll('.js-notes').forEach(function(o){ if(o!==srcEl) o.innerHTML=html; }); },250); };
+  window.wcFmt=function(ev,cmd){ ev.preventDefault(); var w=ev.currentTarget.closest('.wc-notes'); var el=w&&w.querySelector('.js-notes'); if(!el)return false; el.focus(); try{document.execCommand(cmd,false,null);}catch(e){} window.wcNotesSave(el); return false; };
+  window.wcNotesClear=function(ev){ var w=ev.currentTarget.closest('.wc-notes'); var el=w&&w.querySelector('.js-notes'); if(!el)return; if(el.innerHTML.trim() && !window.confirm('Clear all your notes? This cannot be undone.'))return; el.innerHTML=''; window.wcNotesSave(el); };
+
+  function paintWelcome(container, opts){ if(!container)return; container.innerHTML=welcomeHTML(opts); loadNotesInto(container); updateStreakUI(); updateStatsUI(); }
   window.paintWelcome=paintWelcome;
 
-  // Notes (single instance, home only)
-  var NKEY='piri_home_notes_v1', nloaded=false, nt;
-  window.homeNotesLoad=function(){ if(nloaded)return; var el=document.getElementById('homeNotes'); if(!el)return; try{var v=localStorage.getItem(NKEY); if(v!=null) el.innerHTML=v;}catch(e){} nloaded=true; };
-  window.homeNotesSave=function(){ var el=document.getElementById('homeNotes'); if(!el)return; clearTimeout(nt); nt=setTimeout(function(){try{localStorage.setItem(NKEY,el.innerHTML);}catch(e){}},250); };
-  window.homeFmtMD=function(ev,cmd){ ev.preventDefault(); var el=document.getElementById('homeNotes'); if(!el)return false; el.focus(); try{document.execCommand(cmd,false,null);}catch(e){} homeNotesSave(); return false; };
-  window.homeNotesClear=function(){ var el=document.getElementById('homeNotes'); if(!el)return; if(el.innerHTML.trim() && !window.confirm('Clear all your notes? This cannot be undone.'))return; el.innerHTML=''; homeNotesSave(); };
-
-  window.renderHome=function(){ paintWelcome(document.getElementById('homeHost'), {notes:true}); };
+  window.renderHome=function(){ paintWelcome(document.getElementById('homeHost'), {}); };
   window.goHome=function(skipHash){ if(window.switchMainTab) window.switchMainTab('home', null, skipHash); };
 
-  // Paint the shared welcome panel into every section's empty/placeholder state
   var SECTION_HINTS={conditions:'&larr; Select a system, then a condition',anatomy:'&larr; Select a topic to open its note',histology:'&larr; Select a topic to open its note',signs:'&larr; Select a topic to open its note',investigations:'&larr; Select a topic to open its note',osce:'&larr; Select a station to begin'};
   window.paintSectionWelcomes=function(){
     Object.keys(SECTION_HINTS).forEach(function(tab){
@@ -709,6 +706,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       if(!el || el.getAttribute('data-wc')) return;
       el.classList.add('wc-host'); el.removeAttribute('style'); el.setAttribute('data-wc','1');
       el.innerHTML=welcomeHTML({hint:SECTION_HINTS[tab]});
+      loadNotesInto(el);
     });
     updateStreakUI(); updateStatsUI();
   };
