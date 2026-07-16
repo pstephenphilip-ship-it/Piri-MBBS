@@ -6002,7 +6002,20 @@ window.MOCK_BANK = {
     pool=fresh;
     shuffle(pool);
     var n=Math.min(want>0?want:pool.length,pool.length);
-    S.questions=pool.slice(0,n);
+    // Objective de-duplication: never show two questions that share an `objective` tag in one paper.
+    var picked=[], usedObj={};
+    for(var pi=0; pi<pool.length && picked.length<n; pi++){
+      var pq=pool[pi], ob=pq.objective;
+      if(ob && usedObj[ob]) continue;
+      if(ob) usedObj[ob]=1;
+      picked.push(pq);
+    }
+    // Backfill from the remainder if dedup left the paper short of the requested length (small pools).
+    for(var bi=0; bi<pool.length && picked.length<n; bi++){
+      if(picked.indexOf(pool[bi])<0) picked.push(pool[bi]);
+    }
+    shuffle(picked);
+    S.questions=picked;
     S.answers={}; S.selfMark={}; S.flagged={}; S.eliminated={}; S.current=0;
     S.limit=n*60; S.startAt=Date.now(); S.timed=(timed!==false); S.elapsed=0;
     S.remaining=S.limit; S.endAt=S.timed?(S.startAt+S.limit*1000):0;
