@@ -7999,17 +7999,27 @@ function hideFlyout(p) {
   // Mirror the whole piri_* localStorage namespace to the user's row.
   var rawSet = window.localStorage.setItem.bind(window.localStorage);
   var rawRemove = window.localStorage.removeItem.bind(window.localStorage);
-  window.localStorage.setItem = function(k,v){ rawSet(k,v); if (user && k && k.indexOf('piri_')===0) scheduleSync(); };
-  window.localStorage.removeItem = function(k){ rawRemove(k); if (user && k && k.indexOf('piri_')===0) scheduleSync(); };
+  // Non-synced flag (no piri_ prefix, so it is never collected/pushed) marking that local
+  // has changes not yet confirmed pushed to the cloud. Survives reload, so a pull can never
+  // clobber a just-made local change (e.g. deleting a saved mock) that has not synced yet.
+  var PENDING_KEY='da_sync_pending';
+  window.localStorage.setItem = function(k,v){ rawSet(k,v); if (user && k && k.indexOf('piri_')===0){ rawSet(PENDING_KEY,'1'); scheduleSync(); } };
+  window.localStorage.removeItem = function(k){ rawRemove(k); if (user && k && k.indexOf('piri_')===0){ rawSet(PENDING_KEY,'1'); scheduleSync(); } };
 
   function collectLocal(){ var o={}; for (var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if (k && k.indexOf('piri_')===0) o[k]=localStorage.getItem(k); } return o; }
   function applyRemote(obj){ if(!obj) return; Object.keys(obj).forEach(function(k){ if (k.indexOf('piri_')===0){ try{ rawSet(k,obj[k]); }catch(e){} } }); }
 
   function badge(t){ var el=document.getElementById('da-sync'); if (el) el.textContent=t||''; }
   function scheduleSync(){ clearTimeout(syncTimer); badge('Saving…'); syncTimer=setTimeout(pushSync,2000); }
-  function pushSync(){ if(!user) return; sb.from('user_progress').upsert({ user_id:user.id, data:collectLocal(), updated_at:new Date().toISOString() }).then(function(r){ badge(r.error?'Sync error':'Synced ✓'); if(r.error) console.warn('sync push',r.error); }); }
-  function pull(){ if(!user) return; badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ location.reload(); } }); }
+  function pushSync(){ if(!user) return; sb.from('user_progress').upsert({ user_id:user.id, data:collectLocal(), updated_at:new Date().toISOString() }).then(function(r){ if(!r.error){ try{ rawRemove(PENDING_KEY); }catch(e){} } badge(r.error?'Sync error':'Synced ✓'); if(r.error) console.warn('sync push',r.error); }); }
+  function pull(){ if(!user) return;
+    // Local has unpushed changes → the device is authoritative; push up instead of pulling
+    // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
+    if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
+    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ location.reload(); } }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
+  // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
+  document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
 
   // Drive sync off the same auth client the login UI uses.
   sb.auth.getSession().then(function(res){ var s=res&&res.data?res.data.session:null; user=s?s.user:null; maybePull(); });
