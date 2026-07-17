@@ -5438,6 +5438,125 @@ window.MOCK_BANK = {
         "This base rate is exactly WHY tendon xanthomata and family history carry such diagnostic weight (lip-021/023): without them, a high LDL is PROBABLY polygenic. His LDL (5.2) is high but not the extreme, xanthomatous, familial picture of FH, nor the mixed pattern of remnant/combined disease.",
         "Clinical anchor: don't reflexively label every high cholesterol 'FH' — assess QRISK and treat the cardiovascular risk (Block 5); reserve the FH label for those meeting criteria."
       ] },
+    { id:"lip-031", type:"categorize", objective:"lip-xanthoma-map",
+      question:"Each xanthoma below points to a particular lipid disorder. Sort each deposit into the disorder it most classically signals.",
+      buckets:["Familial hypercholesterolaemia","Remnant (type III) hyperlipidaemia","Severe hypertriglyceridaemia"],
+      items:[
+        {text:"Tendon xanthomata over the Achilles and knuckle extensors",bucket:0},
+        {text:"Yellow-orange streaks within the palmar creases",bucket:1},
+        {text:"Crops of small yellow papules on the buttocks and extensors",bucket:2},
+        {text:"Corneal arcus appearing before the age of 45",bucket:0}
+      ],
+      explanation:[
+        "Each sign maps to a mechanism: TENDON xanthomata + premature ARCUS reflect the very high LDL of FH (lip-021); PALMAR-CREASE (striae palmaris) xanthomata are near-pathognomonic of REMNANT/type III disease (lip-025); ERUPTIVE xanthomata are the skin marker of chylomicron-level TRIGLYCERIDES and flag pancreatitis risk (lip-037).",
+        "Tuberous xanthoma is deliberately LEFT OUT of this map: it appears in BOTH remnant disease and homozygous FH, so it has no single home — a reminder that not every xanthoma is discriminating.",
+        "Clinical anchor: a xanthoma is a free lipid diagnosis on inspection — read the TYPE and site, then order the profile it predicts (LDL-driven vs mixed vs triglyceride-driven)."
+      ] },
+    { id:"lip-032", type:"mcq", objective:"lip-arcus",
+      question:"A 38-year-old man attends for a new-patient check. On examination there is a white-grey ring at the periphery of each cornea, separated from the limbus by a narrow clear zone. He is well and takes no medication. Which interpretation is correct?",
+      options:[
+        "Kayser-Fleischer ring; request caeruloplasmin and slit-lamp review",
+        "Band keratopathy; send an urgent serum calcium",
+        "Corneal arcus; below 45 it warrants a fasting lipid profile",
+        "A normal age-related change that needs no further tests",
+        "A limbal deposit that confirms FH whatever the patient's age"],
+      correctIndex:2,
+      explanation:[
+        "Corneal arcus is a ring of lipid deposited at the corneal margin, with a characteristic CLEAR zone (the lucid interval of Vogt) between it and the limbus. It is common and meaningless in the elderly, but appearing BEFORE ~45 (arcus juvenilis) it suggests a lipid disorder and should prompt a fasting profile.",
+        "Trap (A): a Kayser-Fleischer ring is BROWNISH-GREEN, sits at the very edge of the cornea in Descemet's membrane (no clear interval), and signals copper deposition in Wilson's disease — a completely different work-up. The colour and the clear-zone are the discriminators.",
+        "Caveat on specificity: premature arcus is LESS specific in people of African descent, in whom it occurs earlier and often without dyslipidaemia — so read it in context rather than as proof of high cholesterol (killing option E).",
+        "Clinical anchor: arcus, xanthelasma and tendon xanthomata are the three eye/skin lipid signs — arcus and xanthelasma are suggestive, tendon xanthomata are the specific one (lip-021/031)."
+      ] },
+    { id:"lip-033", type:"mcq", objective:"lip-xanthelasma",
+      question:"A 45-year-old woman is troubled by soft, flat, yellowish plaques that have developed over the skin at the inner corners of both upper eyelids. She feels otherwise well. What is the most appropriate initial response?",
+      options:[
+        "Check a fasting lipid profile and assess cardiovascular risk",
+        "Reassure that these are benign skin tags needing no tests",
+        "Refer for surgical excision as the definitive management",
+        "Start a topical steroid and review in the skin clinic",
+        "Screen for hypothyroidism as the single underlying cause"],
+      correctIndex:0,
+      explanation:[
+        "These are XANTHELASMATA — lipid-laden plaques at the medial canthi. Around half of people with them have a dyslipidaemia, so the correct first move is a fasting lipid profile plus a formal cardiovascular-risk assessment, NOT reassurance.",
+        "Significance beyond the lipids: xanthelasma is an INDEPENDENT marker of raised cardiovascular and all-cause mortality risk EVEN when the lipid profile is normal — so a normal profile does not make it benign (killing option B). It is a risk flag to act on, not just a cosmetic lesion (options C/D come only after risk is addressed).",
+        "Trap (E): hypothyroidism is one secondary cause of a raised cholesterol (lip-027), but xanthelasma is not a specific pointer to it — check TFTs as part of the panel, not as the sole target.",
+        "Clinical anchor: an eyelid xanthelasma should trigger the same lipid + QRISK work-up as any other lipid sign (lip-036)."
+      ] },
+    { id:"lip-034", type:"mcq", objective:"lip-fasting",
+      question:"A 44-year-old woman attends for a cardiovascular-risk lipid check. She mentions she ate breakfast two hours ago. The healthcare assistant asks whether the sample must be rebooked as a fasting test. What is the best advice?",
+      options:[
+        "Rebook fasting; a non-fasting sample cannot be interpreted",
+        "Proceed; a non-fasting sample is fine for routine assessment",
+        "Rebook fasting; non-fasting falsely lowers the LDL result",
+        "Proceed but disregard the triglyceride value entirely",
+        "Rebook only if she is already taking a statin"],
+      correctIndex:1,
+      explanation:[
+        "For routine CV-risk assessment a NON-FASTING sample is now recommended: total cholesterol, HDL and the derived NON-HDL cholesterol are essentially unaffected by a meal, and non-HDL is the risk metric used (lip-017). Fasting adds little and is a barrier to testing.",
+        "Triglycerides DO rise modestly after eating, so a non-fasting TG is interpreted with that in mind, not discarded (killing option D). A truly fasting sample is reserved for when the TG is very high and you need an accurate value (e.g. suspected chylomicronaemia, lip-037), or for monitoring known hypertriglyceridaemia.",
+        "Trap (C): non-fasting does not falsely LOWER LDL — if anything the calculated LDL becomes unreliable when TG is high (lip-035), the opposite concern.",
+        "Clinical anchor: don't let 'come back fasting' delay risk assessment — measure now, act on non-HDL, and only fast when the triglyceride itself must be pinned down."
+      ] },
+    { id:"lip-035", type:"mcq", objective:"lip-friedewald",
+      question:"A lipid report returns total cholesterol 9.1, HDL 0.9 and triglycerides 6.8 mmol/L, but the LDL-cholesterol line reads 'not calculated'. The registrar asks why the LDL is missing. What is the correct explanation?",
+      options:[
+        "The analyser is faulty; resend the same sample",
+        "LDL can only ever be calculated, never measured",
+        "Fasting was not observed, invalidating every value",
+        "The Friedewald estimate is unreliable at this triglyceride level",
+        "The LDL must be normal since it could not be reported"],
+      correctIndex:3,
+      explanation:[
+        "Most labs derive LDL by the FRIEDEWALD equation (LDL = total &minus; HDL &minus; TG/2.2 in mmol/L). The TG/2.2 term assumes a fixed VLDL:TG ratio that BREAKS DOWN when triglycerides are high — so above ~4.5 mmol/L the equation is invalid and the lab suppresses the LDL rather than report a wrong number.",
+        "The fix is a DIRECTLY MEASURED LDL, or better, use NON-HDL cholesterol (total &minus; HDL = 8.2 here), which needs no calculation and stays valid at any TG (lip-017).",
+        "Currency: newer equations have largely replaced Friedewald on many reports — MARTIN-HOPKINS uses an adjustable (not fixed) TG:VLDL factor, and SAMPSON is validated up to TG ~9 mmol/L — so a 'calculated LDL' on a modern report may not be Friedewald at all.",
+        "Trap (B/E): LDL CAN be measured directly, and a suppressed value means 'uninterpretable', never 'normal'. Clinical anchor: when TG is high, pivot to non-HDL for decisions (lip-034)."
+      ] },
+    { id:"lip-036", type:"mcq", objective:"lip-qrisk",
+      question:"A GP is deciding on statin therapy for several patients. In which of these is calculating a QRISK3 score the correct next step, rather than offering a statin directly?",
+      options:[
+        "A 58-year-old man six months after an ischaemic stroke",
+        "A 46-year-old with heterozygous familial hypercholesterolaemia",
+        "A 60-year-old with chronic kidney disease and an eGFR of 28",
+        "A 45-year-old with type 1 diabetes of twelve years' duration",
+        "A 52-year-old with type 2 diabetes and no vascular disease"],
+      correctIndex:4,
+      explanation:[
+        "QRISK3 estimates 10-year risk for PRIMARY prevention in people not already in a high-risk group. Type 2 diabetes is one of its INPUT variables, so a person with T2DM and no established disease is scored by QRISK3 in the usual way — this is the common exam trap, because many assume T2DM means an automatic statin.",
+        "The other four BYPASS QRISK because they already qualify: established CVD (the post-stroke man) is secondary prevention; FH is treated on the diagnosis; CKD with eGFR <60 qualifies directly; and type 1 diabetes is assessed on its own NICE criteria (age >40, duration >10 years, nephropathy or other risk factors) — the 12-year history here meets them.",
+        "Currency: NG238 (2023) replaced CG181 and softened the old fixed '≥10% = offer a statin' rule into a shared-decision DISCUSSION around that threshold, with atorvastatin 20 mg the usual primary-prevention start.",
+        "Clinical anchor: separate 'who needs a risk score' from 'who is already high risk' — the second group skips the calculator (lip-030, Block 5)."
+      ] },
+    { id:"lip-037", type:"mcq", objective:"lip-eruptive",
+      question:"A 30-year-old man develops crops of small firm yellow papules over his buttocks and the extensor surfaces of his elbows and knees over a few weeks. He drinks heavily and has poorly-controlled diabetes. When blood is drawn the serum looks milky. What do these skin lesions signify, and what is the priority?",
+      options:[
+        "Molluscum contagiosum; no metabolic work-up is needed",
+        "Gouty tophi; check the serum urate level",
+        "Eruptive xanthomata; check triglycerides, pancreatitis risk",
+        "Xanthelasma; the significance is the same wherever they sit",
+        "Tuberous xanthomata; these are specific for familial FH"],
+      correctIndex:2,
+      explanation:[
+        "Crops of eruptive papules on extensor/pressure sites, with LIPAEMIC (milky) serum, are ERUPTIVE XANTHOMATA — the cutaneous marker of very high TRIGLYCERIDES (chylomicronaemia), here driven by alcohol + uncontrolled diabetes on top of a susceptible metabolism.",
+        "The priority is not the skin: a triglyceride in the chylomicronaemia range (often >10 mmol/L) carries a real risk of ACUTE PANCREATITIS, so the urgent step is to measure the TG and act (remove alcohol, control glucose, low-fat diet, fibrate ± insulin) before the pancreas is hit (lip-034, Block 7).",
+        "Discriminators: eruptive lesions come and go with the triglyceride and are NOT the fixed, LDL-driven tendon/tuberous xanthomata of FH (killing option E), nor xanthelasma of the eyelids (option D).",
+        "Clinical anchor: milky serum + eruptive xanthomata = 'check the triglycerides and think pancreatitis', a different axis from the LDL story of most of this topic."
+      ] },
+    { id:"lip-038", type:"mcq", objective:"lip-postmi",
+      question:"A 48-year-old man is on the ward four days after a large STEMI, already on high-intensity atorvastatin. A lipid profile taken today shows LDL-C 2.0 mmol/L. The registrar wonders whether he really needs the high-intensity statin given the 'good' result. How should this value be interpreted?",
+      options:[
+        "The result is reliable; step down to a moderate-intensity statin",
+        "LDL falls after an acute MI, so this under-reads his true level",
+        "This proves the statin is already working after four days",
+        "The low LDL indicates familial hypobetalipoproteinaemia",
+        "Repeat the sample fasting tomorrow to confirm the value"],
+      correctIndex:1,
+      explanation:[
+        "An acute MI triggers an ACUTE-PHASE response that lowers measured LDL within about 24 hours; it troughs around days 3-7 and only returns to the patient's true baseline by ~8 weeks. A day-4 profile therefore UNDER-READS his real LDL — reassuring but misleading.",
+        "Practical rule: capture the lipids WITHIN 24 hours of admission (before the fall), or DEFER a meaningful profile to 8 weeks. A profile drawn in the trough can hide an FH-range baseline or a genuine treatment indication.",
+        "Because the drawn value is artefactually low, it is NOT evidence to down-titrate (option A) and does NOT reflect four days of statin action (a statin's effect on LDL takes weeks; option C). Continue high-intensity therapy — post-ACS this is secondary prevention regardless (lip-036, Block 5) — and recheck at 8-12 weeks.",
+        "Clinical anchor: like a normal early echo not excluding endocarditis or a single troponin, the post-MI lipid is 'the test that lies when you most need it' — know its timing (cross-link: Acute Coronary Syndromes)."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
