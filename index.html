@@ -5174,6 +5174,103 @@ window.MOCK_BANK = {
         "Distractors: (A) papilloedema is a swollen optic disc (grade 4, htn-049); (B) neovascularisation is proliferative DIABETIC retinopathy; (C) a cherry-red spot is central retinal artery occlusion (or a storage disease); (D) drusen are the yellow deposits of age-related macular degeneration."
       ] }
   ],
+  "conditions__CARDIOVASCULAR__Lipid Disorders / Atherosclerosis": [
+    { id:"lip-001", type:"mcq",
+      question:"A 52-year-old man with hypertension, type 2 diabetes and a 30-pack-year smoking history has widespread atherosclerosis. What is the accepted INITIATING event in atherosclerotic plaque formation?",
+      options:["Endothelial dysfunction or injury","Calcium deposition in the arterial media","Thrombus forming on a fully intact endothelium","Smooth-muscle-cell necrosis within the media","Lipid accumulation within the adventitia"],
+      correctIndex:0,
+      explanation:[
+        "The RESPONSE-TO-INJURY model: risk factors — mechanical shear (hypertension), toxins (smoking), hyperglycaemia and oxidised LDL — injure and activate the ENDOTHELIUM → ↑permeability, ↑adhesion molecules, ↓nitric oxide → LDL entry and monocyte recruitment.",
+        "Trap: atherosclerosis is an INTIMAL disease beginning at the endothelium — not medial calcification (a later, secondary change) nor an adventitial process.",
+        "Clinical anchor: one shared initiating mechanism is why the same risk factors drive coronary, cerebral and peripheral arterial disease."
+      ] },
+    { id:"lip-002", type:"mcq",
+      question:"LDL that has entered the intima is chemically modified and drives plaque growth. What happens to it, and how do macrophages respond?",
+      options:["LDL is reduced, and macrophages ignore it entirely","LDL is oxidised and taken up by scavenger receptors, forming foam cells","LDL is taken up only by the regulated LDL receptor, which limits uptake","HDL immediately exports the LDL back into the plasma","LDL crystallises and is cleared by intimal lymphatics"],
+      correctIndex:1,
+      explanation:[
+        "Retained LDL is OXIDISED; macrophages take it up through SCAVENGER receptors, which — unlike the classic LDL receptor — are NOT down-regulated by intracellular cholesterol, so uptake is unchecked → lipid-laden FOAM cells → the fatty streak.",
+        "Trap: this is exactly why foam cells still form even when the regulated LDL receptor is suppressed.",
+        "Clinical anchor: the basis of the oxidised-LDL hypothesis of atherogenesis."
+      ] },
+    { id:"lip-003", type:"mcq",
+      question:"As an atherosclerotic plaque matures, a fibrous cap forms over the lipid core. Which cells and process build this cap?",
+      options:["Smooth-muscle cells migrate in and lay down collagen","Macrophages secrete a mineralised, calcified matrix","Endothelial cells proliferate to roof over the lesion","Adventitial fibroblasts invade through the media","Platelets deposit a permanent fibrin-rich cap"],
+      correctIndex:0,
+      explanation:[
+        "SMOOTH-MUSCLE cells migrate intima-ward, proliferate and synthesise COLLAGEN and matrix, forming the fibrous cap that walls the thrombogenic core off from the lumen. A THICK cap = stable; a THIN cap = vulnerable (lip-004).",
+        "Clinical anchor: statins help stabilise plaques partly by favouring a thicker cap and dampening the inflammation that degrades it."
+      ] },
+    { id:"lip-004", type:"mcq", objective:"lip-plaque",
+      question:"Which combination of features characterises a VULNERABLE (rupture-prone) atherosclerotic plaque?",
+      options:["A thick fibrous cap, a small lipid core and dense collagen","Extensive calcification, little lipid and few macrophages","A thin fibrous cap, a large lipid-rich core and heavy inflammation","Abundant smooth muscle, a thick cap and a small core","A tight stenosis capped by thick, collagen-rich tissue"],
+      correctIndex:2,
+      explanation:[
+        "Vulnerable = a THIN cap + a LARGE lipid/necrotic core + MACROPHAGE inflammation (macrophage MMPs digest the cap). Crucially, vulnerability is INDEPENDENT of stenosis severity — many rupture-prone plaques narrow the lumen only modestly.",
+        "Clinical anchor: why most MIs arise from NON-obstructive plaques that rupture, not the tightest lesion on angiography (the paradox explained by outward remodelling, lip-009; cross-link ACS)."
+      ] },
+    { id:"lip-005", type:"mcq", objective:"lip-plaque",
+      question:"A previously well 58-year-old smoker has an acute myocardial infarction. Angiography shows the culprit lesion had caused only about 40% stenosis. What is the most likely mechanism of his acute event?",
+      options:["Gradual occlusion by a slowly enlarging stable plaque","Coronary vasospasm of an otherwise normal artery","Embolism from a cardiac chamber source","Rupture of a vulnerable plaque and thrombosis on its core","Progressive calcification narrowing the lumen"],
+      correctIndex:3,
+      explanation:[
+        "Acute events are usually RUPTURE of a thin-cap, lipid-rich plaque — often non-obstructive — exposing the thrombogenic NECROTIC CORE (tissue factor, collagen) → a platelet-rich thrombus → acute occlusion.",
+        "The other main mechanism is plaque EROSION (endothelial denudation over an intact cap; lip-010). Trap: the low (40%) stenosis is the point — plaque STABILITY, not stenosis severity, drives events.",
+        "Clinical anchor: why statins/plaque stabilisation beat simply 'fixing the narrowing' (cross-link ACS)."
+      ] },
+    { id:"lip-006", type:"mcq",
+      question:"Atherosclerotic plaques form preferentially at arterial branch points and the outer walls of bifurcations. Why?",
+      options:["High laminar shear stress at these points injures the endothelium","These sites have the thickest arterial media","Turbulence deposits calcium directly onto the wall","Venous drainage is poorest at branch points","Low, oscillatory shear stress there promotes endothelial dysfunction"],
+      correctIndex:4,
+      explanation:[
+        "DISTURBED, LOW / oscillatory shear at bends and branches drives a pro-atherogenic endothelial phenotype (↓nitric oxide, ↑adhesion molecules, ↑permeability). Steady LAMINAR high shear is ATHEROPROTECTIVE.",
+        "Clinical anchor: explains the classic distribution — carotid bifurcation, coronary ostia, infrarenal aorta and the femoral arteries."
+      ] },
+    { id:"lip-007", type:"mcq",
+      question:"Atherosclerosis is regarded as a chronic inflammatory disease. Which statement is correct?",
+      options:["The lesion is pure lipid storage with no immune-cell involvement","Macrophage inflammation drives instability; hs-CRP is a risk marker","hs-CRP is a proven causal target, so lowering CRP itself prevents events","Anti-inflammatory therapy replaces LDL-lowering rather than adding to it","Once LDL is treated, no residual inflammatory risk remains"],
+      correctIndex:1,
+      explanation:[
+        "Macrophages, T-cells and cytokines — with MMP-mediated cap thinning — drive progression and instability. hs-CRP is a RISK MARKER, not a proven causal target (option C is the overreach: lowering CRP itself is not the mechanism).",
+        "Anti-inflammatory therapy ADDS to LDL-lowering to address RESIDUAL inflammatory risk; it does not replace it (D and E are wrong). Option B is the outdated 'cholesterol-in-a-pipe' model.",
+        "Currency: CANTOS proved the CONCEPT — canakinumab (anti-IL-1β) cut events with no LDL change — but it is not used in practice (cost, neutral mortality, fatal infections). COLCHICINE is the practical descendant (LoDoCo2, COLCOT). Clinical anchor: lower LDL AND address residual inflammation."
+      ] },
+    { id:"lip-008", type:"saq",
+      question:"What is the name of the earliest visible lesion of atherosclerosis, present even in children and young adults and consisting of subendothelial foam cells?",
+      answer:"The fatty streak",
+      accept:["fatty streak","fatty streaks","fatty-streak"],
+      markPoints:["Fatty streak — the earliest visible atherosclerotic lesion","Subendothelial lipid-laden foam cells (± T cells); flat, yellow, reversible","Near-universal in youth — atherosclerosis begins decades before events"],
+      explanation:[
+        "The FATTY STREAK is a flat, yellow subendothelial collection of lipid-laden foam cells (± T cells) — reversible and near-universal in youth. It progresses to the fibrofatty plaque (lip-002/003), so atherosclerosis begins decades before any clinical event."
+      ] },
+    { id:"lip-009", type:"mcq",
+      question:"On angiography a coronary lesion causes only about 40% stenosis, yet intravascular ultrasound shows a large, lipid-rich plaque. How can so much plaque produce so little luminal narrowing?",
+      options:["Compensatory vasodilation widens the lumen around the plaque","The plaque is compressible and flattens under arterial pressure","The artery remodels outward, so the lumen is spared until late","Angiography over-reads plaque, so the true stenosis is even less","Lipid-rich plaques are inherently smaller than calcified ones"],
+      correctIndex:2,
+      explanation:[
+        "The GLAGOV phenomenon (positive / outward remodelling): early plaques expand ABLUMINALLY — the vessel enlarges outward — so the lumen is preserved and the plaque grows substantially before it encroaches at all.",
+        "Angiography images only the LUMEN, so it systematically UNDER-reads plaque burden; IVUS and CT coronary angiography reveal disease an angiogram calls 'mild'. Trap: option A is structural outward remodelling, not functional vasodilation.",
+        "Clinical anchor: this is WHY a 40%-stenosis 'non-obstructive' plaque (lip-004/005) can be large and rupture-prone — 'non-obstructive' does not mean 'small', and why plaque-burden imaging beats lumenography."
+      ] },
+    { id:"lip-010", type:"mcq", objective:"lip-plaque",
+      question:"About a third of acute coronary thrombi form on a plaque that has NOT ruptured. What characterises this 'plaque erosion' mechanism?",
+      options:["A thin fibrous cap tears, exposing the large necrotic lipid core","Rupture of the vasa vasorum causing an intraplaque haemorrhage","Dense plaque calcification cracking through the fibrous cap","Endothelial denudation over an intact cap, with little lipid","An entirely intact endothelium with isolated coronary vasospasm"],
+      correctIndex:3,
+      explanation:[
+        "EROSION = superficial ENDOTHELIAL denudation exposing subendothelial matrix (proteoglycans, smooth muscle) with the cap INTACT — the plaque has less lipid, FEWER macrophages and more proteoglycan/SMC than a ruptured one (option A).",
+        "It is commoner in YOUNGER WOMEN and SMOKERS; the thrombus is platelet-rich and often NON-occlusive (tends to NSTEMI over STEMI).",
+        "Clinical anchor: because there is no torn cap to seal, erosion may be more amenable to ANTITHROMBOTIC therapy without stenting (an emerging, imaging-guided strategy) — a decision, not just a label (cross-link ACS)."
+      ] },
+    { id:"lip-011", type:"mcq",
+      question:"How does calcification relate to atherosclerotic plaque stability?",
+      options:["Spotty microcalcification marks stability; dense confluent calcium marks instability","Any calcification, spotty or dense, marks a rupture-prone plaque","Calcification is unrelated to stability but still raises the calcium score","Only non-calcified plaques can ever cause clinical events","Spotty microcalcification marks instability; dense confluent calcium marks stability"],
+      correctIndex:4,
+      explanation:[
+        "The paradox: SPOTTY / MICROcalcification (early, active, near the lipid core) associates with INSTABILITY and rupture, whereas DENSE, CONFLUENT macrocalcification marks a healed, STABILISED plaque.",
+        "Yet the coronary artery CALCIUM (CAC) score predicts risk well — because it tracks total plaque BURDEN across the tree, not the vulnerability of any single lesion. So more calcium = more atherosclerosis = higher risk, even though a heavily calcified individual lesion is the more stable one.",
+        "Clinical anchor: why CAC scoring stratifies cardiovascular risk despite the microcalcification-instability link (cross-link ACS / risk imaging)."
+      ] },
+  ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
       question:"A 58-year-old man is admitted with three weeks of night sweats, fevers and malaise. Four years ago he was treated for infective endocarditis following a dental abscess. He also has a bicuspid aortic valve, type 2 diabetes, and a normal colonoscopy last year for altered bowel habit. His observations are shown. Which factor most strongly predisposes him to a further episode of infective endocarditis?",
