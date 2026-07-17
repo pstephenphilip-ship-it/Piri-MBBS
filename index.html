@@ -5557,6 +5557,198 @@ window.MOCK_BANK = {
         "Because the drawn value is artefactually low, it is NOT evidence to down-titrate (option A) and does NOT reflect four days of statin action (a statin's effect on LDL takes weeks; option C). Continue high-intensity therapy — post-ACS this is secondary prevention regardless (lip-036, Block 5) — and recheck at 8-12 weeks.",
         "Clinical anchor: like a normal early echo not excluding endocarditis or a single troponin, the post-MI lipid is 'the test that lies when you most need it' — know its timing (cross-link: Acute Coronary Syndromes)."
       ] },
+    { id:"lip-039", type:"mcq", objective:"lip-statin-mech",
+      question:"A statin produces most of its LDL-lowering effect through which mechanism?",
+      options:[
+        "Blocking intestinal cholesterol absorption at NPC1L1",
+        "Binding bile acids in the gut lumen to increase their excretion",
+        "Inhibiting PCSK9 so that LDL receptors are recycled",
+        "Activating lipoprotein lipase to clear circulating triglyceride",
+        "Inhibiting HMG-CoA reductase, which up-regulates hepatic LDL receptors"],
+      correctIndex:4,
+      explanation:[
+        "HMG-CoA reductase is the RATE-LIMITING enzyme of hepatic cholesterol synthesis. Inhibiting it lowers intracellular cholesterol, which switches on SREBP-2 and UP-REGULATES LDL receptors on hepatocytes &mdash; and it is that receptor upregulation, clearing LDL from plasma, that does most of the work (not the modest fall in synthesis itself).",
+        "The distractors are OTHER drug classes, previewing Block 6: NPC1L1 blockade = ezetimibe; bile-acid binding = sequestrants (colesevelam); PCSK9 inhibition = the monoclonals/inclisiran; LPL activation = fibrates.",
+        "Clinical anchor: because the mechanism runs through hepatic receptors, statins lose potency where the receptor is absent &mdash; the basis of homozygous FH being statin-poorly-responsive (lip-022)."
+      ] },
+    { id:"lip-040", type:"mcq", objective:"lip-statin-secondary",
+      question:"A 59-year-old man is five days after a STEMI treated by primary PCI. He was not previously on a statin. What is the most appropriate lipid-lowering therapy at discharge?",
+      options:[
+        "Atorvastatin 20 mg daily",
+        "Simvastatin 40 mg daily",
+        "Rosuvastatin 5 mg daily",
+        "Atorvastatin 80 mg daily",
+        "No statin until an 8-week fasting profile"],
+      correctIndex:3,
+      explanation:[
+        "Established cardiovascular disease means SECONDARY prevention: a HIGH-INTENSITY statin, atorvastatin 80 mg (or the highest tolerated), aiming for a &ge;40% fall in non-HDL (lip-046).",
+        "Trap (B): atorvastatin 20 mg is the PRIMARY-prevention dose (lip-041) &mdash; correct drug, wrong indication and dose here. Simvastatin 40 and rosuvastatin 5 are only moderate-intensity.",
+        "Trap (E): don't defer treatment for a lipid level &mdash; the post-MI profile under-reads anyway (lip-038), and secondary prevention is indicated regardless of the number."
+      ] },
+    { id:"lip-041", type:"mcq", objective:"lip-statin-primary",
+      question:"A 56-year-old man has a QRISK3 of 16% and no cardiovascular disease, diabetes, CKD or FH. After a shared-decision discussion he opts to start a statin. Which regimen is recommended?",
+      options:[
+        "Atorvastatin 80 mg daily",
+        "Simvastatin 20 mg daily",
+        "Atorvastatin 20 mg daily",
+        "Rosuvastatin 40 mg daily",
+        "Pravastatin 10 mg daily"],
+      correctIndex:2,
+      explanation:[
+        "For PRIMARY prevention when QRISK3 supports treatment (&ge;10%, now a shared-decision threshold under NG238, lip-036), the recommended start is ATORVASTATIN 20 mg &mdash; a high-intensity dose that is nonetheless the correct primary-prevention step.",
+        "Trap (A): atorvastatin 80 mg is the SECONDARY-prevention dose (lip-040). Simvastatin 20 and pravastatin 10 are too weak (low-intensity); rosuvastatin 40 is more than needed here.",
+        "Clinical anchor: check the response at 3 months and aim for &ge;40% non-HDL reduction (lip-046) before escalating."
+      ] },
+    { id:"lip-042", type:"mcq", objective:"lip-statin-myopathy",
+      question:"A 68-year-old on a statin was started on clarithromycin three days ago and now has severe muscle pain and weakness with dark urine. CK is 12 000 U/L and the creatinine is rising. What is the most appropriate immediate step?",
+      options:[
+        "Stop the statin and check renal function urgently",
+        "Continue and add regular paracetamol",
+        "Halve the dose and recheck CK in three months",
+        "Switch to an alternate-day regimen immediately",
+        "Reassure; this myalgia is expected and harmless"],
+      correctIndex:0,
+      explanation:[
+        "This is RHABDOMYOLYSIS &mdash; CK &gt;10&times; ULN, myoglobinuria (dark urine) and acute kidney injury. STOP the statin, give IV fluids, and monitor renal function and potassium.",
+        "The statin muscle SPECTRUM: myalgia (aches, normal CK) &rarr; myositis (raised CK) &rarr; rhabdomyolysis. Stop the statin for CK &gt;5&times; ULN or intolerable symptoms; mild myalgia with normal CK does not need stopping (lip-050).",
+        "Mechanism of this episode: clarithromycin is a CYP3A4 INHIBITOR and raised the statin level (lip-043) &mdash; the classic drug-interaction trigger for rhabdomyolysis."
+      ] },
+    { id:"lip-043", type:"mcq", objective:"lip-statin-interaction",
+      question:"A 62-year-old taking simvastatin 40 mg is prescribed a course of clarithromycin for a chest infection. What is the safest action regarding the statin?",
+      options:[
+        "Continue both; there is no important interaction",
+        "Withhold the simvastatin during the antibiotic course",
+        "Double the simvastatin to maintain cover",
+        "Increase to simvastatin 80 mg for the week",
+        "Add grapefruit juice to aid its absorption"],
+      correctIndex:1,
+      explanation:[
+        "Simvastatin (and atorvastatin) are CYP3A4 substrates. CYP3A4 INHIBITORS &mdash; macrolides (clarithromycin, erythromycin), azole antifungals, some HIV/HCV antivirals, and GRAPEFRUIT juice &mdash; raise statin levels and precipitate myopathy/rhabdomyolysis (lip-042). Withhold the simvastatin during a short macrolide course.",
+        "Dose caps reinforce the point: simvastatin is capped at 20 mg with amlodipine, diltiazem or verapamil. Grapefruit (option E) is an inhibitor, not an aid.",
+        "Clinical anchor: rosuvastatin and pravastatin are far less CYP3A4-dependent, so they are the pragmatic switch when an interacting drug is unavoidable."
+      ] },
+    { id:"lip-044", type:"mcq", objective:"lip-statin-lft",
+      question:"A 54-year-old is 12 weeks into atorvastatin and feels well. Routine bloods show ALT at 1.8 times the upper limit of normal (baseline was normal). What is the correct action?",
+      options:[
+        "Continue the statin and recheck liver enzymes",
+        "Stop the statin permanently",
+        "Stop and never rechallenge any statin",
+        "Halve the dose and arrange an ultrasound",
+        "Refer urgently to hepatology"],
+      correctIndex:0,
+      explanation:[
+        "A transaminase rise of LESS than 3&times; ULN is common early on and is NOT a reason to stop &mdash; continue and recheck. Reduce or stop only if ALT/AST rises above 3&times; ULN and persists.",
+        "Monitoring schedule: check LFTs at baseline, 3 months and 12 months. Clinically important statin liver injury is rare.",
+        "Trap: reflexive discontinuation (B/C) needlessly removes an effective drug; hepatology referral (E) is disproportionate for an asymptomatic sub-3&times; rise."
+      ] },
+    { id:"lip-045", type:"mcq", objective:"lip-statin-dm",
+      question:"A 60-year-old on atorvastatin for primary prevention has an HbA1c that has drifted from 40 to 44 mmol/mol. He has read that statins cause diabetes and asks to stop. What is the best advice?",
+      options:[
+        "Stop the statin because it has caused diabetes",
+        "The statin cannot affect glucose metabolism at all",
+        "Switch immediately to a fibrate to sidestep this risk",
+        "Halve the dose to abolish the diabetes risk",
+        "The small diabetes risk is outweighed by the vascular benefit"],
+      correctIndex:4,
+      explanation:[
+        "Statins cause a SMALL ABSOLUTE increase in new-onset type 2 diabetes &mdash; greatest at higher doses and in people already near the glycaemic threshold. The cardiovascular benefit clearly OUTWEIGHS this, so continue and reinforce lifestyle rather than stop.",
+        "It is a real effect (so B is wrong) but a modest one that dose reduction does not cleanly 'abolish' (D); switching to a fibrate (C) sacrifices proven event reduction for a weaker agent.",
+        "Clinical anchor: monitor HbA1c, but frame the risk as a reason to double down on diet and activity, not to abandon a drug preventing MI and stroke."
+      ] },
+    { id:"lip-046", type:"saq", objective:"lip-statin-monitor",
+      question:"A patient started on atorvastatin for primary prevention has a non-HDL cholesterol repeated at 3 months. By approximately what percentage should the non-HDL have fallen for the response to be judged adequate?",
+      answer:"A reduction of at least 40% in non-HDL cholesterol.",
+      accept:["40","40%","40 percent","forty percent","at least 40","at least 40%","greater than 40","more than 40",">40","&ge;40","40 percent or more"],
+      markPoints:[
+        "Compare with the pre-treatment BASELINE non-HDL",
+        "Target is a &ge;40% reduction at 3 months",
+        "If not achieved: check adherence and diet, then optimise/up-titrate or add-on therapy"
+      ],
+      explanation:[
+        "NICE sets a &ge;40% reduction in NON-HDL cholesterol at 3 months as the marker of an adequate response. Non-HDL is used because it needs no fasting and captures all atherogenic particles (lip-017/034).",
+        "If the target is missed, work through adherence and lifestyle first, then optimise the dose or add ezetimibe / further agents (Block 6) before concluding the statin has failed."
+      ] },
+    { id:"lip-047", type:"mcq", objective:"lip-statin-pregnancy",
+      question:"A 32-year-old woman with familial hypercholesterolaemia takes atorvastatin and is planning to conceive. What is the correct advice about her statin?",
+      options:[
+        "Continue throughout pregnancy at the same dose",
+        "Switch to rosuvastatin, which is safe in pregnancy",
+        "Continue but only during the third trimester",
+        "Stop the statin before conception",
+        "Halve the dose for the first trimester only"],
+      correctIndex:3,
+      explanation:[
+        "UK guidance: statins are CONTRAINDICATED in pregnancy (cholesterol is essential for fetal steroid and membrane synthesis) &mdash; stop before conception and while breastfeeding. If lipid control is needed, a bile-acid sequestrant is not systemically absorbed and can be used.",
+        "No statin is 'pregnancy-safe' (killing option B) &mdash; the class caution applies to all of them.",
+        "Currency: the FDA REMOVED the blanket pregnancy contraindication in 2021, allowing continuation in selected very-high-risk women, but the BNF and NICE still advise AVOID &mdash; a US-vs-UK divergence, so American sources may state the opposite (same shape as the UK's narrower IE-prophylaxis stance)."
+      ] },
+    { id:"lip-048", type:"mcq", objective:"lip-statin-intolerance",
+      question:"A 58-year-old man on secondary prevention has genuine muscle symptoms on two different statins even at low and alternate-day dosing (symptoms clear when stopped and recur on rechallenge, with a normal CK). His LDL remains high. What is the best next step?",
+      options:[
+        "Restart the same statin at full dose",
+        "Add ezetimibe",
+        "Accept that no further lipid lowering is possible",
+        "Start a fibrate as monotherapy",
+        "Give a bile-acid sequestrant first-line"],
+      correctIndex:1,
+      explanation:[
+        "This stem has already CONFIRMED true intolerance &mdash; a symptom-free interval, recurrence on rechallenge, normal CK, and failure across two statins and reduced-dose regimens. The next step is EZETIMIBE (an NPC1L1 inhibitor, Block 6), the first-line non-statin add-on/alternative.",
+        "If LDL stays above target on ezetimibe, escalate to a PCSK9 inhibitor, bempedoic acid or inclisiran per criteria (Block 6). Giving up (C) leaves a high-risk patient untreated.",
+        "Contrast with lip-050: there the intolerance is NOT yet established, so the answer is to rechallenge, not to switch agent."
+      ] },
+    { id:"lip-049", type:"multi", objective:"lip-statin-intensity",
+      boxLabel:"High-intensity regimens (&ge;40% LDL reduction)",
+      question:"From the list, place ALL the regimens that count as HIGH-INTENSITY (a &ge;40% LDL reduction) into the box.",
+      options:["Atorvastatin 20 mg","Atorvastatin 80 mg","Rosuvastatin 10 mg","Rosuvastatin 40 mg","Simvastatin 40 mg","Simvastatin 20 mg","Pravastatin 40 mg","Atorvastatin 10 mg"],
+      correct:[0,1,2,3],
+      explanation:[
+        "NICE intensity bands by percentage LDL reduction: LOW 20&ndash;30%, MEDIUM 31&ndash;40%, HIGH &gt;40%. HIGH-intensity = atorvastatin 20/40/80 and rosuvastatin 10/20/40.",
+        "The catch worth learning: ATORVASTATIN 20 already clears the high bar (~43%), whereas atorvastatin 10 (~37%) and simvastatin 40 (~37%) are only MEDIUM. Pravastatin 40 (~29%) is the single LOW-intensity item in this pool &mdash; the deliberate near-miss.",
+        "Simvastatin 80 mg is technically high-intensity but MHRA-restricted (myopathy risk), so it is not used in practice.",
+        "Clinical anchor: match the band to the goal &mdash; high-intensity for secondary prevention and FH; the primary-prevention start (atorvastatin 20) is already in the high band (lip-040/041)."
+      ] },
+    { id:"lip-050", type:"mcq", objective:"lip-statin-nocebo",
+      question:"A 55-year-old man started on atorvastatin for primary prevention two weeks ago reports generalised muscle aches. His CK is normal, he takes no interacting drugs, and he is otherwise well. He asks to switch to 'something without side effects'. What is the most appropriate management?",
+      options:[
+        "Switch straight to ezetimibe as he is statin-intolerant",
+        "Stop all lipid-lowering therapy permanently",
+        "Stop the statin, arrange a symptom-free period, then rechallenge",
+        "Continue and add a regular muscle relaxant",
+        "Check CK monthly and take no other action"],
+      correctIndex:2,
+      explanation:[
+        "Blinded n-of-1 trials &mdash; SAMSON and StatinWISE &mdash; found muscle symptoms occurred about as OFTEN on placebo as on statin (a NOCEBO effect). So a single report of myalgia with a normal CK does NOT establish true intolerance.",
+        "The evidence-based path is to CONFIRM: stop, allow a symptom-free interval, then RECHALLENGE (same or a different statin, lower or alternate-day dosing). Only after a proper rechallenge sequence do you label true intolerance and move to ezetimibe (lip-048).",
+        "Trap (A): jumping to ezetimibe abandons the most effective drug on the strength of symptoms that are often not statin-caused. Stop outright only for CK &gt;5&times; ULN or red-flag features (lip-042)."
+      ] },
+    { id:"lip-051", type:"mcq", objective:"lip-statin-ckd",
+      question:"A 64-year-old man with chronic kidney disease (eGFR 34) and no established cardiovascular disease is reviewed for lipid management. Which approach fits NICE guidance?",
+      options:[
+        "Calculate QRISK3 and treat only if it is &ge;10%",
+        "Atorvastatin 80 mg because the eGFR is below 60",
+        "No statin, as statins are nephrotoxic in CKD",
+        "A fibrate, which is preferred in renal disease",
+        "Atorvastatin 20 mg without calculating QRISK3"],
+      correctIndex:4,
+      explanation:[
+        "CKD is an AUTOMATIC statin indication: offer ATORVASTATIN 20 mg for both primary and secondary prevention, with QRISK3 BYPASSED (the same 'already high-risk' logic as lip-036).",
+        "Dose caution: do NOT go above 20 mg with an eGFR &lt;30 without agreeing it with the renal team. Statins are not nephrotoxic (killing option C), and fibrates are not preferred (option D).",
+        "Negative-result limb: statins do NOT reduce cardiovascular events in DIALYSIS patients (the 4D and AURORA trials) &mdash; so you would not START one de novo on dialysis, though established therapy is usually continued. Same 'proven where it counts, not everywhere' shape as the HDL story (lip-014)."
+      ] },
+    { id:"lip-052", type:"mcq", objective:"lip-statin-timing",
+      question:"A patient is prescribed simvastatin 40 mg. When should it be taken, and why?",
+      options:[
+        "In the morning with food to improve its absorption",
+        "Timing does not matter because its half-life is very long",
+        "Only on alternate days, to reduce muscle toxicity",
+        "At night, to cover the overnight peak in cholesterol synthesis",
+        "Split into twice-daily doses for a steadier blood level"],
+      correctIndex:3,
+      explanation:[
+        "Hepatic cholesterol synthesis (HMG-CoA reductase activity, lip-039) PEAKS OVERNIGHT. Simvastatin has a SHORT half-life, so it must be present then &mdash; hence take it at NIGHT.",
+        "This does NOT generalise: atorvastatin and rosuvastatin have LONG half-lives, so their timing is irrelevant (option B is true for them, but the question is about short-acting simvastatin).",
+        "Clinical anchor: a classic 'looks trivial' exam point &mdash; it tests whether you link the dosing instruction back to the drug's half-life and the physiology of overnight synthesis."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
