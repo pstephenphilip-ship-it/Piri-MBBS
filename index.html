@@ -6715,22 +6715,6 @@ window.MOCK_BANK = {
         "This is the exact INVERSION of the systemic SvO₂ logic (fcvs-056): the body normally buys time by extracting more, but the heart cannot.",
         "Clinical anchor: a fixed coronary STENOSIS caps achievable flow, so on exertion demand outstrips the limited supply → angina, relieved by rest."
       ] },
-    { id:"fcvs-087", type:"mcq",
-      image:"assets/ecg/coronary_flow_cycle.svg",
-      imageAlt:"A trace of left-ventricular coronary flow across one cardiac cycle with the systolic and diastolic phases marked and four points numbered ① to ④; flow is lowest in systole and peaks in early diastole at point ③.",
-      question:"The trace shows left-ventricular coronary blood flow across one cardiac cycle, with four points labelled ① to ④ and the systolic/diastolic phases marked. At which point is LV coronary flow greatest?",
-      options:[
-        "Point ①",
-        "Point ②",
-        "Point ③",
-        "Point ④",
-        "Flow is constant throughout the cardiac cycle"],
-      correctIndex:2,
-      explanation:[
-        "The LV is perfused mainly in DIASTOLE. During systole the contracting muscle compresses its own intramural vessels → LV flow is squeezed to a minimum (briefly even reversed in the subendocardium); when the muscle relaxes in diastole the vessels open and flow SURGES to its peak (point ③). The thin, low-pressure RV is perfused far more evenly across the cycle (fcvs-090 gives the unifying reason).",
-        "Coronary perfusion pressure ≈ aortic DIASTOLIC pressure − LV end-diastolic pressure, so anything that lowers diastolic pressure (aortic regurgitation, fcvs-078) or raises LVEDP compromises LV perfusion.",
-        "Clinical anchor: the SAME equation explains cardiac arrest — chest compressions generate little coronary flow without an aortic diastolic pressure to drive it, which is exactly what adrenaline's α-vasoconstriction restores; and because coronary perfusion pressure takes several compressions to rebuild and collapses instantly on pausing, INTERRUPTIONS to compressions are so costly (cross-link: ALS, als-022)."
-      ] },
     { id:"fcvs-088", type:"saq",
       question:"When myocardial oxygen demand rises, coronary blood flow increases to match it, chiefly by arteriolar vasodilation (metabolic hyperaemia). Name the principal local metabolite that mediates this dilation.",
       answer:"Adenosine",
@@ -6770,7 +6754,7 @@ window.MOCK_BANK = {
       ],
       explanation:[
         "The subendocardium is fed by vessels penetrating from the EPICARDIUM inward, so it lies at the END of the supply line, and it bears the HIGHEST wall stress and intramural pressure.",
-        "The unifying principle (one idea, three consequences): perfusion is compromised in proportion to INTRAMURAL PRESSURE — which is why the high-pressure LV is diastole-dependent (fcvs-087), the low-pressure RV is not, and the LV SUBENDOCARDIUM, where intramural pressure is highest, is worst off. Furthest from supply + most compressed → first to become ischaemic (compression scales with wall stress, fcvs-083).",
+        "The unifying principle (one idea, three consequences): perfusion is compromised in proportion to INTRAMURAL PRESSURE — which is why the high-pressure LV is diastole-dependent (perfused mainly in diastole), the low-pressure RV is not, and the LV SUBENDOCARDIUM, where intramural pressure is highest, is worst off. Furthest from supply + most compressed → first to become ischaemic (compression scales with wall stress, fcvs-083).",
         "Clinical anchor: why SUBENDOCARDIAL (non-transmural) ischaemia shows as ST DEPRESSION / NSTEMI, and why a transmural infarct spreads endocardium-outward as occlusion persists (the necrosis 'wavefront')."
       ] },
     { id:"fcvs-091", type:"mcq",
@@ -6783,8 +6767,8 @@ window.MOCK_BANK = {
         "A slow heart rate lengthening the diastolic coronary filling time"],
       correctIndex:0,
       explanation:[
-        "Severe AS causes angina even with normal coronaries by hitting BOTH sides of the balance. DEMAND rises: LV hypertrophy plus high wall stress ejecting against a fixed obstruction (Laplace, fcvs-083). SUPPLY falls: the thick, high-pressure wall compresses intramural vessels, and the raised LVEDP lowers coronary perfusion pressure (= aortic diastolic − LVEDP, fcvs-087).",
-        "The hypertrophied SUBENDOCARDIUM (fcvs-090) suffers first — the payoff of fcvs-083 and fcvs-087 acting together.",
+        "Severe AS causes angina even with normal coronaries by hitting BOTH sides of the balance. DEMAND rises: LV hypertrophy plus high wall stress ejecting against a fixed obstruction (Laplace, fcvs-083). SUPPLY falls: the thick, high-pressure wall compresses intramural vessels, and the raised LVEDP lowers coronary perfusion pressure (= aortic diastolic − LVEDP).",
+        "The hypertrophied SUBENDOCARDIUM (fcvs-090) suffers first — the payoff of the wall-stress (fcvs-083) and diastolic-perfusion principles acting together.",
         "Clinical anchor: angina in aortic stenosis is a red-flag symptom prompting consideration of valve intervention; AS combined with tachycardia or hypotension can precipitate dangerous ischaemia (cross-link: Valvular Heart Disease)."
       ] },
     { id:"fcvs-092", type:"mcq",
@@ -6797,7 +6781,7 @@ window.MOCK_BANK = {
         "It dilates the stenosis itself and causes a coronary steal"],
       correctIndex:1,
       explanation:[
-        "A faster rate is a DOUBLE HIT on the ischaemic heart: (1) it raises myocardial O₂ DEMAND (rate is a prime determinant), and (2) because diastole shortens disproportionately as rate rises (fcvs-013/049), it cuts the DIASTOLIC PERFUSION time on which LV supply depends (fcvs-087). Demand up, supply-time down.",
+        "A faster rate is a DOUBLE HIT on the ischaemic heart: (1) it raises myocardial O₂ DEMAND (rate is a prime determinant), and (2) because diastole shortens disproportionately as rate rises (fcvs-013/049), it cuts the DIASTOLIC PERFUSION time on which LV supply depends (the LV is perfused mainly in diastole). Demand up, supply-time down.",
         "Clinical anchor: precisely why β-BLOCKERS relieve angina — slowing the heart lowers demand AND lengthens diastolic filling, tipping the balance both ways at once; conversely an uncontrolled tachyarrhythmia can itself precipitate ischaemia."
       ] },
     { id:"fcvs-093", type:"mcq",
@@ -6810,7 +6794,7 @@ window.MOCK_BANK = {
         "The aortic diastolic (coronary perfusion) pressure"],
       correctIndex:2,
       explanation:[
-        "The unifying framework. SUPPLY = coronary flow (patency fcvs-089, diastolic time fcvs-087/092, perfusion pressure fcvs-087/091) plus arterial O₂ content (fcvs-086). DEMAND = HEART RATE, CONTRACTILITY and WALL STRESS (afterload/preload — Laplace, fcvs-083). Ischaemia = demand exceeding supply.",
+        "The unifying framework. SUPPLY = coronary flow (patency fcvs-089, diastolic time fcvs-092, perfusion pressure fcvs-091) plus arterial O₂ content (fcvs-086). DEMAND = HEART RATE, CONTRACTILITY and WALL STRESS (afterload/preload — Laplace, fcvs-083). Ischaemia = demand exceeding supply.",
         "Every anti-anginal is just a term in this equation being moved: β-blockers/ivabradine (↓rate & contractility → ↓demand, + ↑diastolic filling), nitrates (↓preload → ↓demand, + coronary dilation → ↑supply), CCBs (↓afterload/rate), and revascularisation or treating anaemia (↑supply).",
         "Clinical anchor: read any anti-anginal — or any ischaemic trigger (tachycardia, anaemia, AS, hypotension) — as a shift in one of these terms, so the drug list becomes a consequence rather than a memory task."
       ] },
