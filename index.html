@@ -228,6 +228,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .highlight{background:rgba(240,180,41,0.25);color:var(--gold);border-radius:2px;}
 :root{--rn-bg:#F7F8FC;--rn-card:#FFFFFF;--rn-border:#E2E6F0;--rn-text:#1E2640;--rn-sub:#1E2640;--rn-muted:#1E2640;--text-muted:#374151;--rn-blue:#3B7DD8;--rn-blue-bg:#EBF2FF;--rn-green:#1F8B5E;--rn-green-bg:#E6F6EF;--rn-red:#C93535;--rn-red-bg:#FDEAEA;--rn-amber:#B86B00;--rn-amber-bg:#FEF5E4;--rn-purple:#6B45B8;--rn-purple-bg:#F0EBFF;--rn-teal:#1A9BA8;--rn-teal-bg:#E3F6F9;--rn-yellow:#8A6C00;--rn-yellow-bg:#FFFBE6;}
 #rich-note-display{background:var(--rn-bg);padding:24px 32px 60px;border-radius:12px;}
+.rich-note-display-generic{background:var(--rn-bg);padding:24px 32px 60px;border-radius:12px;}
 .rich-note abbr[title]{text-decoration:underline dotted var(--rn-blue);cursor:help;white-space:nowrap;}
 #rn-abbr-tip{position:fixed;background:#1E2640;color:#E8EAF0;padding:5px 11px;border-radius:6px;font-size:11.5px;font-style:normal;white-space:nowrap;z-index:9999;pointer-events:none;box-shadow:0 2px 10px rgba(0,0,0,0.3);display:none;max-width:320px;white-space:normal;word-break:break-word;line-height:1.45;}
 #rn-abbr-tip::before{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1E2640;}
@@ -8161,6 +8162,29 @@ function loadNote(p, name) {
       richEl.innerHTML = expandAbbrs(RICH_NOTES_OSCE[richKey]);
     } else {
       let richEl = document.getElementById('rich-note-display-osce');
+      if (richEl) richEl.style.display = 'none';
+      if (container) container.style.display = '';
+      const ta = document.getElementById('freetxt-' + p);
+      if (ta) { ta.value = saved.notes || ''; ta.oninput = () => scheduleAutoSave(p); }
+    }
+  } else if (p === 'anatomy' || p === 'histology' || p === 'signs' || p === 'investigations') {
+    const richKey = (st.activeSystem || '') + '__' + name;
+    const container = document.getElementById('sections-' + p);
+    const dispId = 'rich-note-display-' + p;
+    let richEl = document.getElementById(dispId);
+    if (RICH_NOTES[richKey]) {
+      if (container) container.style.display = 'none';
+      if (!richEl) {
+        richEl = document.createElement('div');
+        richEl.id = dispId;
+        richEl.className = 'rich-note-display-generic';
+        container && container.parentNode && container.parentNode.insertBefore(richEl, container);
+      }
+      richEl.style.display = '';
+      richEl.innerHTML = expandAbbrs(RICH_NOTES[richKey]);
+      const actions = document.querySelector('#notes-panel-' + p + ' .note-actions');
+      if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
+    } else {
       if (richEl) richEl.style.display = 'none';
       if (container) container.style.display = '';
       const ta = document.getElementById('freetxt-' + p);
