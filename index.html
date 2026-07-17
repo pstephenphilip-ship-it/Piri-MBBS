@@ -9220,7 +9220,7 @@ function hideFlyout(p) {
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
-    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ location.reload(); } }); }
+    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ location.reload(); } }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
