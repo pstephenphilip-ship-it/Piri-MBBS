@@ -6225,7 +6225,7 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "CO = SV × HR, but the two are not independent. At very high rates DIASTOLE (which shortens far more than systole) leaves too little FILLING TIME → EDV and stroke volume fall → CO can drop despite the fast rate.",
-        "There is an OPTIMAL heart rate; beyond it, lost filling outweighs the extra beats (fcvs-057). This is why fast AF/SVT causes syncope or decompensation and why RATE CONTROL restores output.",
+        "There is an OPTIMAL heart rate; beyond it, lost filling outweighs the extra beats. This is why fast AF/SVT causes syncope or decompensation and why RATE CONTROL restores output.",
         "Clinical anchor: the diastolic-filling limit (fcvs-013) applied to whole-heart output — fast tachyarrhythmias drop CO."
       ] },
     { id:"fcvs-050", type:"mcq",
@@ -6270,7 +6270,7 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "CO = SV × HR. Increased diastolic filling does raise SV at slow rates (more time to fill), but SV has a CEILING (limited by ventricular size and ejection), so it cannot offset a very low rate — CO falls → cerebral hypoperfusion → syncope.",
-        "So BOTH extremes of rate reduce CO: very fast (lost filling, fcvs-049) and very slow (rate too low for SV to compensate) — the optimal-rate idea from both ends (fcvs-057).",
+        "So BOTH extremes of rate reduce CO: very fast (lost filling, fcvs-049) and very slow (rate too low for SV to compensate) — the optimal-rate idea from both ends.",
         "Clinical anchor: why profound bradyarrhythmias cause syncope and need pacing (brady)."
       ] },
     { id:"fcvs-055", type:"mcq",
@@ -6291,17 +6291,6 @@ window.MOCK_BANK = {
         "By the Fick relationship, if oxygen demand (VO₂) is steady but CO falls, the tissues must EXTRACT more oxygen from each litre of blood → the venous blood returns more desaturated → a LOW mixed venous O₂ saturation (SvO₂).",
         "So a falling SvO₂ is a marker of INADEQUATE oxygen delivery / low cardiac output (a widened arteriovenous O₂ difference, fcvs-052).",
         "Forward-link: this is the SYSTEMIC version of a principle the coronary circulation INVERTS — the myocardium already extracts ~70% of delivered O₂ at rest, so it has almost NO extraction reserve, which is why coronary supply must be met by FLOW (not more extraction) and why diastolic perfusion matters so much. Clinical anchor: SvO₂/ScvO₂ gauges whether CO meets demand (shock)."
-      ] },
-    { id:"fcvs-057", type:"mcq", objective:"fcvs-hr-co",
-      image:"assets/ecg/co_hr_curve.svg",
-      imageAlt:"A curve of cardiac output (vertical axis) against heart rate (horizontal axis) with five points labelled 1 to 5; the curve rises to a peak and then declines at the highest rates.",
-      question:"The graph plots cardiac output against heart rate. At which labelled point is cardiac output greatest (the optimal heart rate)?",
-      options:["Point 1","Point 2","Point 3","Point 4","Point 5"],
-      correctIndex:2,
-      explanation:[
-        "Cardiac output rises with heart rate up to an OPTIMAL rate — the PEAK at Point 3 — then FALLS at higher rates because diastole shortens and filling/stroke volume drop (fcvs-049).",
-        "The relationship is an inverted-U, not a straight line: Points 1–2 sit on the rising limb, Point 3 is the optimum, and Points 4–5 are the falling limb where lost filling outweighs the extra beats.",
-        "Clinical anchor: both profound bradycardia (fcvs-054) and very fast AF/SVT (fcvs-049) sit off the peak, giving a lower CO."
       ] },
     { id:"fcvs-058", type:"mcq",
       question:"On standing, gravity pools blood in the legs and arterial pressure tends to fall. How does the baroreceptor reflex correct this within seconds?",
