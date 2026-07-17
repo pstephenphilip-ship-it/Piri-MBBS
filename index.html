@@ -5749,6 +5749,156 @@ window.MOCK_BANK = {
         "This does NOT generalise: atorvastatin and rosuvastatin have LONG half-lives, so their timing is irrelevant (option B is true for them, but the question is about short-acting simvastatin).",
         "Clinical anchor: a classic 'looks trivial' exam point &mdash; it tests whether you link the dosing instruction back to the drug's half-life and the physiology of overnight synthesis."
       ] },
+    { id:"lip-053", type:"mcq", objective:"lip-ezetimibe",
+      question:"A 62-year-old man is 8 weeks after an acute coronary syndrome, taking atorvastatin 80 mg, which he tolerates well. His non-HDL has fallen by less than 40% and his LDL remains above target. What is the best add-on therapy?",
+      options:[
+        "Fenofibrate",
+        "A bile-acid sequestrant",
+        "Ezetimibe",
+        "A PCSK9 inhibitor",
+        "Double the atorvastatin dose"],
+      correctIndex:2,
+      explanation:[
+        "The first-line add-on when a maximally tolerated statin is insufficient is EZETIMIBE &mdash; it blocks the NPC1L1 transporter at the enterocyte brush border, cutting intestinal and biliary cholesterol absorption for a further ~15&ndash;20% LDL fall.",
+        "IMPROVE-IT proved this matters: adding ezetimibe to a statin post-ACS REDUCED events &mdash; the first demonstration that a NON-statin LDL-lowering drug adds benefit, cementing 'lower LDL is better'.",
+        "Trap (D): a PCSK9 inhibitor comes only AFTER statin + ezetimibe fail defined thresholds (lip-056). Atorvastatin is already at its ceiling (E), and fibrates/sequestrants are the wrong tools for a high LDL."
+      ] },
+    { id:"lip-054", type:"mcq", objective:"lip-sequestrant",
+      question:"A patient on colestyramine for lipid control reports that their other tablets 'don't seem to work', and a routine profile shows the triglycerides have risen. Which statement about bile-acid sequestrants is correct?",
+      options:[
+        "Sequestrants can raise triglycerides and bind other drugs",
+        "They are systemically absorbed and cross the placenta",
+        "They inhibit HMG-CoA reductase in the gut wall",
+        "They lower triglycerides as their main effect",
+        "They improve the absorption of levothyroxine"],
+      correctIndex:0,
+      explanation:[
+        "Bile-acid sequestrants (colestyramine, colesevelam) bind bile acids in the gut; the liver diverts cholesterol into new bile-acid synthesis and UP-REGULATES LDL receptors. But they also RAISE triglycerides (avoid in hypertriglyceridaemia), cause GI upset, malabsorb fat-soluble vitamins, and BIND co-administered drugs (levothyroxine, warfarin, digoxin) &mdash; give those 4 hours apart.",
+        "Because they are NOT systemically absorbed (killing option B), they are one of the few lipid drugs usable in pregnancy (lip-047).",
+        "The class is not uniform: COLESEVELAM has far fewer drug interactions and better GI tolerance than colestyramine, and it lowers glucose as a bonus in type 2 diabetes &mdash; the modern, better-tolerated choice."
+      ] },
+    { id:"lip-055", type:"mcq", objective:"lip-pcsk9-mech",
+      question:"A subcutaneous monoclonal antibody (evolocumab) lowers LDL by about 60% on top of a statin. What is its mechanism of action?",
+      options:[
+        "It inhibits cholesterol absorption at the NPC1L1 transporter",
+        "It silences the LDL-receptor gene in hepatocytes",
+        "It blocks PCSK9, so LDL receptors are recycled not degraded",
+        "It inhibits ATP-citrate lyase upstream in the liver",
+        "It activates PPAR-α to clear circulating triglyceride"],
+      correctIndex:2,
+      explanation:[
+        "PCSK9 normally binds the LDL receptor and marks it for LYSOSOMAL DEGRADATION. Blocking PCSK9 lets the receptor RECYCLE to the cell surface, so far more LDL is cleared.",
+        "It synergises with statins because statins raise BOTH LDL receptors and PCSK9 &mdash; adding a PCSK9 inhibitor removes the counter-regulatory brake. FOURIER (evolocumab) and ODYSSEY (alirocumab) showed cardiovascular event reduction.",
+        "The distractors are the other Block 6 targets: NPC1L1 = ezetimibe, ATP-citrate lyase = bempedoic acid, PPAR-α = fibrates."
+      ] },
+    { id:"lip-056", type:"mcq", objective:"lip-pcsk9-criteria",
+      question:"Which patient is most likely to meet NICE criteria for a PCSK9 inhibitor?",
+      options:[
+        "Newly diagnosed and statin-naïve, with an LDL of 4.0",
+        "On atorvastatin 20 mg alone, not yet titrated up",
+        "Isolated hypertriglyceridaemia with a normal LDL",
+        "Established CVD, LDL high despite maximal statin and ezetimibe",
+        "Statin-tolerant with an LDL already at target"],
+      correctIndex:3,
+      explanation:[
+        "PCSK9 inhibitors are reserved for people whose LDL stays ABOVE a defined threshold DESPITE maximal tolerated statin + ezetimibe. The thresholds vary by risk category (higher for primary prevention/FH, lower for high-risk secondary prevention).",
+        "They are a LATE step, not an early one: the statin-naïve, the under-titrated, and those already at target don't qualify; isolated high triglyceride is the wrong target entirely.",
+        "Clinical anchor: 'maximal tolerated therapy first' is the gate &mdash; the same logic that puts ezetimibe before PCSK9 (lip-053)."
+      ] },
+    { id:"lip-057", type:"mcq", objective:"lip-inclisiran",
+      question:"A secondary-prevention patient struggles to keep up with regular self-injections. Inclisiran is considered. What is it, and how is it given?",
+      options:[
+        "A small interfering RNA against PCSK9, given twice yearly",
+        "A monoclonal antibody given every month",
+        "An oral daily ATP-citrate lyase inhibitor",
+        "A statin given as a depot injection",
+        "An antisense drug directed against apolipoprotein B"],
+      correctIndex:0,
+      explanation:[
+        "Inclisiran is a SMALL INTERFERING RNA (siRNA) that silences hepatic PCSK9 mRNA &mdash; the SAME target as the antibodies (lip-055) reached by a different modality (gene silencing vs protein binding).",
+        "After a loading dose and a 3-month dose it is given just TWICE A YEAR, which is its adherence advantage. NICE (TA733): secondary prevention with LDL &ge;2.6 despite maximal therapy.",
+        "Currency note: its cardiovascular OUTCOME trial (ORION-4) had not reported as of 2026 &mdash; it was recommended on LDL-lowering alone, which is exactly the surrogate-versus-outcomes tension explored in lip-063."
+      ] },
+    { id:"lip-058", type:"mcq", objective:"lip-bempedoic",
+      question:"A high-risk patient with confirmed statin intolerance (myalgia recurring on rechallenge) still has a high LDL on ezetimibe. Which agent is specifically designed to lower LDL while sparing muscle?",
+      options:[
+        "Simvastatin at a low dose",
+        "Gemfibrozil",
+        "Niacin",
+        "A thiazolidinedione",
+        "Bempedoic acid"],
+      correctIndex:4,
+      explanation:[
+        "Bempedoic acid inhibits ATP-CITRATE LYASE, one step UPSTREAM of HMG-CoA reductase in the same cholesterol pathway. Crucially it is a PRODRUG activated in the LIVER but NOT in muscle, so it rarely causes myalgia &mdash; the ideal option after genuine statin intolerance (lip-048/050).",
+        "Caveats: it RAISES uric acid (can precipitate gout) and carries a tendon-rupture caution. CLEAR Outcomes (2023) showed cardiovascular event reduction in statin-intolerant patients &mdash; real outcome data, not just an LDL change (lip-063).",
+        "Trap: re-offering any statin (A) or an unrelated agent (D) misses the point &mdash; the requirement is muscle-sparing LDL lowering."
+      ] },
+    { id:"lip-059", type:"mcq", objective:"lip-fibrate",
+      question:"A patient on a statin for mixed dyslipidaemia has a persistently raised triglyceride, and a fibrate is being considered as an add-on. Which is the key safety and evidence point?",
+      options:[
+        "Fibrates are the strongest LDL-lowering drugs available",
+        "Combining a fibrate with a statin raises the risk of myopathy",
+        "Gemfibrozil is the safest fibrate to pair with a statin",
+        "Fibrates are first-line for isolated high LDL",
+        "Fibrates have no effect on triglycerides"],
+      correctIndex:1,
+      explanation:[
+        "Fibrates (fenofibrate) are PPAR-α agonists &mdash; they up-regulate lipoprotein lipase, so they mainly LOWER TRIGLYCERIDES and modestly raise HDL. Adding one to a statin increases MYOPATHY risk; GEMFIBROZIL is the WORST partner (it inhibits statin glucuronidation) &mdash; use fenofibrate if a combination is unavoidable.",
+        "Evidence: fibrate-on-statin did NOT reduce events overall (ACCORD-Lipid). Its one surviving hope &mdash; the high-TG/low-HDL subgroup &mdash; was then tested head-on by PROMINENT (pemafibrate, 2022) in exactly that enriched population and was NEGATIVE. So it isn't merely unproven; it has FAILED where it should have worked.",
+        "Fibrates keep a genuine role in SEVERE hypertriglyceridaemia to prevent pancreatitis (Block 7), not for cardiovascular event reduction."
+      ] },
+    { id:"lip-060", type:"mcq", objective:"lip-omega3",
+      question:"A high-cardiovascular-risk patient on a statin has a triglyceride of 2.4 mmol/L. Regarding omega-3 therapy, which statement is supported by the evidence?",
+      options:[
+        "Any over-the-counter fish-oil capsule gives the same benefit",
+        "Omega-3 supplements reliably lower LDL cholesterol",
+        "Icosapent ethyl is used for isolated high LDL",
+        "Fish oil should replace the statin in this patient",
+        "Icosapent ethyl (purified EPA) reduces events here"],
+      correctIndex:4,
+      explanation:[
+        "REDUCE-IT showed ICOSAPENT ETHYL (high-dose purified EPA) cut cardiovascular events in statin-treated patients with raised triglycerides. This does NOT extend to over-the-counter mixed EPA/DHA fish oil, and omega-3 does not meaningfully lower LDL.",
+        "Why the field is split: REDUCE-IT used a MINERAL-OIL placebo, which may itself have raised LDL/CRP in the comparator arm and inflated the apparent benefit; STRENGTH (mixed EPA/DHA, corn-oil placebo) was NEUTRAL. So the positive trial is the CONTESTED one &mdash; the honest uncertainty, beyond 'purity and dose'.",
+        "Caveats: icosapent ethyl increases atrial fibrillation and bleeding risk. Clinical anchor: a raised triglyceride on a statin is where this is considered &mdash; not isolated high LDL (option C)."
+      ] },
+    { id:"lip-061", type:"categorize", objective:"lip-drug-target",
+      question:"Sort each lipid-lowering drug under the molecular target through which it acts.",
+      buckets:["HMG-CoA reductase","Cholesterol absorption (NPC1L1)","PCSK9 pathway","ATP-citrate lyase"],
+      items:[
+        {text:"Atorvastatin",bucket:0},
+        {text:"Ezetimibe",bucket:1},
+        {text:"Evolocumab",bucket:2},
+        {text:"Inclisiran",bucket:2},
+        {text:"Bempedoic acid",bucket:3}
+      ],
+      explanation:[
+        "This maps the LDL-PATHWAY drugs onto one axis (fibrates, sequestrants and icosapent act elsewhere and aren't shown &mdash; that is the intended scope).",
+        "Two DIFFERENT modalities hit the SAME target: a monoclonal antibody (evolocumab) and an siRNA (inclisiran) both act on PCSK9 (lip-055/057). Bempedoic acid sits one step UPSTREAM of the statin target, which is why it spares muscle (lip-058).",
+        "Clinical anchor: knowing the target predicts the combination logic &mdash; drugs on different targets stack their LDL-lowering (statin + ezetimibe + PCSK9)."
+      ] },
+    { id:"lip-062", type:"saq", objective:"lip-pcsk9-genetics",
+      question:"In one sentence: what does PCSK9 normally do to the LDL receptor, and what effect does a loss-of-function PCSK9 variant have on a person's LDL and cardiovascular risk?",
+      answer:"PCSK9 promotes LDL-receptor degradation; a loss-of-function variant leaves more receptors, giving lower LDL and lower cardiovascular risk.",
+      accept:["degrad","recycl","lower ldl","low ldl","reduced ldl","lower risk","reduced risk","protect","fewer events","less cardiovascular"],
+      markPoints:[
+        "PCSK9 targets the LDL receptor for degradation",
+        "Loss-of-function &rarr; more receptors &rarr; lower LDL",
+        "Lower lifelong LDL &rarr; reduced cardiovascular risk (gain-of-function causes FH)"
+      ],
+      explanation:[
+        "This is the HUMAN GENETIC PROOF behind the drug class, and the payoff of the PCSK9 symmetry: GAIN-of-function PCSK9 is a cause of FH (high LDL, lip-021); LOSS-of-function carriers have low LDL and are protected from cardiovascular disease.",
+        "A PCSK9 inhibitor pharmacologically REPRODUCES the protective loss-of-function variant &mdash; three facts (the mutation causes disease, the opposite mutation protects, the drug copies the protective one) collapse into one argument that LDL is CAUSAL, not merely associated."
+      ] },
+    { id:"lip-063", type:"multi", objective:"lip-outcomes",
+      boxLabel:"Randomised OUTCOME-trial evidence of reducing events",
+      question:"Place ALL the agents that have randomised OUTCOME-trial evidence of reducing cardiovascular EVENTS into the box.",
+      options:["Ezetimibe","Evolocumab","Icosapent ethyl","Bempedoic acid","Inclisiran","Niacin (nicotinic acid)","Fenofibrate added to a statin"],
+      correct:[0,1,2,3],
+      explanation:[
+        "Proven on OUTCOMES: ezetimibe (IMPROVE-IT), evolocumab (FOURIER), icosapent ethyl (REDUCE-IT), bempedoic acid (CLEAR Outcomes) &mdash; each cut events, not just a lipid number.",
+        "The interesting exclusion is INCLISIRAN: NICE recommended it (TA733) on the LDL-lowering of ORION-9/10/11 &mdash; a SURROGATE &mdash; because the LDL-is-causal argument (lip-062) is strong enough to trust it for this mechanism. Its outcome trial (ORION-4) had not reported as of 2026, so it stays OUT of the proven-events box for now. The real lesson isn't 'surrogates are worthless' but 'WHEN is a surrogate good enough?'",
+        "Settled failures: NIACIN (AIM-HIGH, HPS2-THRIVE &mdash; no benefit and net harm) and FENOFIBRATE added to a statin (ACCORD-Lipid neutral overall; PROMINENT then tested the high-TG/low-HDL hope directly and was also negative, lip-059). They move a lipid number but not outcomes &mdash; demand event data, not surrogates."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
