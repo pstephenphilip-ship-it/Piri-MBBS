@@ -5341,10 +5341,10 @@ window.MOCK_BANK = {
     { id:"lip-020", type:"multi", objective:"lip-apob",
       boxLabel:"ApoB-containing (atherogenic)",
       question:"Atherogenic lipoproteins all carry apolipoprotein B. From the list, place ALL the particles that are ApoB-containing (and therefore atherogenic) into the box.",
-      options:["LDL","HDL","VLDL","Nascent (pre-β) HDL","IDL (remnant particles)","Lipoprotein(a)","Albumin-bound free fatty acids","Chylomicron remnants"],
-      correct:[0,2,4,5,7],
+      options:["LDL","HDL","VLDL","Nascent (pre-β) HDL","IDL (remnant particles)","Lipoprotein(a)"],
+      correct:[0,2,4,5],
       explanation:[
-        "ApoB marks every ATHEROGENIC particle: LDL, VLDL, IDL, chylomicron remnants and Lp(a) each carry one ApoB. HDL and nascent HDL carry ApoA1 (not ApoB); free fatty acids are not lipoproteins at all.",
+        "ApoB marks every ATHEROGENIC particle: LDL, VLDL, IDL and Lp(a) each carry one ApoB (as do chylomicron remnants). HDL and nascent HDL carry ApoA1, not ApoB; free fatty acids are not lipoproteins at all.",
         "Clinical anchor: this is precisely why an ApoB level — or non-HDL cholesterol — counts total atherogenic particle number better than LDL-C alone (lip-016/017)."
       ] },
     { id:"lip-021", type:"mcq",
@@ -5422,8 +5422,8 @@ window.MOCK_BANK = {
     { id:"lip-029", type:"multi", objective:"lip-secondary",
       boxLabel:"Secondary causes of dyslipidaemia",
       question:"From the list, place ALL the recognised SECONDARY causes of a raised (or mixed) lipid profile into the box.",
-      options:["Hypothyroidism","Hyperthyroidism","Nephrotic syndrome","Cholestasis (obstructive jaundice)","Chronic high alcohol intake","Regular vigorous aerobic exercise","Corticosteroid therapy","A vegetarian diet"],
-      correct:[0,2,3,4,6],
+      options:["Hypothyroidism","Hyperthyroidism","Nephrotic syndrome","Chronic high alcohol intake","Regular vigorous aerobic exercise","Corticosteroid therapy"],
+      correct:[0,2,3,5],
       explanation:[
         "Exclude before treating: HYPOthyroidism, NEPHROTIC syndrome, CHOLESTASIS / obstructive jaundice, poorly-controlled DIABETES, chronic ALCOHOL excess (mainly triglycerides), and DRUGS — corticosteroids, thiazides, ciclosporin, some antiretrovirals, retinoids.",
         "The traps go the WRONG way: HYPERthyroidism LOWERS cholesterol (increased LDL-receptor turnover), and exercise / a vegetarian diet tend to IMPROVE the lipid profile.",
@@ -5699,7 +5699,7 @@ window.MOCK_BANK = {
     { id:"lip-049", type:"multi", objective:"lip-statin-intensity",
       boxLabel:"High-intensity regimens (&ge;40% LDL reduction)",
       question:"From the list, place ALL the regimens that count as HIGH-INTENSITY (a &ge;40% LDL reduction) into the box.",
-      options:["Atorvastatin 20 mg","Atorvastatin 80 mg","Rosuvastatin 10 mg","Rosuvastatin 40 mg","Simvastatin 40 mg","Simvastatin 20 mg","Pravastatin 40 mg","Atorvastatin 10 mg"],
+      options:["Atorvastatin 20 mg","Atorvastatin 80 mg","Rosuvastatin 10 mg","Rosuvastatin 40 mg","Simvastatin 40 mg","Pravastatin 40 mg","Atorvastatin 10 mg"],
       correct:[0,1,2,3],
       explanation:[
         "NICE intensity bands by percentage LDL reduction: LOW 20&ndash;30%, MEDIUM 31&ndash;40%, HIGH &gt;40%. HIGH-intensity = atorvastatin 20/40/80 and rosuvastatin 10/20/40.",
@@ -5954,8 +5954,7 @@ window.MOCK_BANK = {
         "Calcium deposits",
         "Microorganisms (bacterial colonies)",
         "Cholesterol and lipid",
-        "A rich network of new blood vessels",
-        "Granulomatous tissue"],
+        "A rich network of new blood vessels"],
       correct:[0,2,4],
       explanation:[
         "A vegetation is essentially PLATELETS + FIBRIN + MICROORGANISMS: organisms colonise a sterile platelet-fibrin thrombus (non-bacterial thrombotic endocarditis) on damaged endocardium and become enmeshed within it.",
@@ -6416,13 +6415,12 @@ window.MOCK_BANK = {
         "Perivalvular (aortic-root or annular) abscess, or new heart block",
         "A single small (<5 mm) vegetation with no embolic events",
         "Persistent bacteraemia despite appropriate antibiotics, or a fungal/resistant organism",
-        "Blood cultures that become negative after 3 days of treatment",
         "A large mobile vegetation (>10 mm) with a recurrent embolic event on antibiotics",
         "Uncomplicated right-sided (tricuspid) endocarditis responding to antibiotics"],
-      correct:[0,2,4,6],
+      correct:[0,2,4,5],
       explanation:[
-        "The three surgical categories (ESC): HEART FAILURE from valve destruction (option 1 — the commonest and most urgent, ie-043); UNCONTROLLED INFECTION (option 3 perivalvular abscess/new heart block, and option 5 persistent bacteraemia or a fungal/resistant organism); and PREVENTION OF EMBOLISM (option 7 — a large mobile vegetation that keeps embolising despite antibiotics).",
-        "Why the others are NOT indications: fever settling within 48 h (option 2) and cultures clearing by day 3 (option 6) mean the infection is being CONTROLLED by antibiotics; a small vegetation with no emboli (option 4) is watched, not operated on; and uncomplicated right-sided/tricuspid IE (option 8) usually responds to antibiotics alone — a key IVDU-endocarditis point (ie-046).",
+        "The three surgical categories (ESC): HEART FAILURE from valve destruction (option 1 — the commonest and most urgent, ie-043); UNCONTROLLED INFECTION (option 3 perivalvular abscess/new heart block, and option 5 persistent bacteraemia or a fungal/resistant organism); and PREVENTION OF EMBOLISM (option 6 — a large mobile vegetation that keeps embolising despite antibiotics).",
+        "Why the others are NOT indications: fever settling within 48 h (option 2) means the infection is being CONTROLLED by antibiotics; a small vegetation with no emboli (option 4) is watched, not operated on; and uncomplicated right-sided/tricuspid IE (option 7) usually responds to antibiotics alone — a key IVDU-endocarditis point (ie-046).",
         "New heart block (option 3) matters because it signals perivalvular/root abscess extension into the conducting system — a cross-link to the Bradycardia block. Tagged with ie-043 so a single mock won't draw both."
       ] },
     { id:"ie-049", type:"mcq", objective:"ie-janeway-osler",
