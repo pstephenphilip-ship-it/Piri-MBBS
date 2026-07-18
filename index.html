@@ -5724,7 +5724,7 @@ window.MOCK_BANK = {
     { id:"lip-051", type:"mcq", objective:"lip-statin-ckd",
       question:"A 64-year-old man with chronic kidney disease (eGFR 34) and no established cardiovascular disease is reviewed for lipid management. Which approach fits NICE guidance?",
       options:[
-        "Calculate QRISK3 and treat only if it is &ge;10%",
+        "Calculate QRISK3 and treat only if it is ≥10%",
         "Atorvastatin 80 mg because the eGFR is below 60",
         "No statin, as statins are nephrotoxic in CKD",
         "A fibrate, which is preferred in renal disease",
@@ -6215,7 +6215,7 @@ window.MOCK_BANK = {
         "Return to training as soon as the symptoms settle",
         "A strict 12-month ban from all competitive sport",
         "Resume as soon as the troponin has normalised",
-        "Avoid competitive, high-intensity exercise for 3&ndash;6 months"],
+        "Avoid competitive, high-intensity exercise for 3–6 months"],
       correctIndex:4,
       explanation:[
         "Myocarditis is a leading cause of SUDDEN CARDIAC DEATH in young athletes, and exertion during ACTIVE inflammation can precipitate ventricular arrhythmia. The safety-critical instruction is to ABSTAIN from competitive/high-intensity exercise for about 3&ndash;6 MONTHS.",
@@ -6268,7 +6268,10 @@ window.MOCK_BANK = {
         "The distractors are the older-patient causes of heart failure. Clinical anchor: 'young adult + new DCM + no ischaemia' should always raise myocarditis (cross-link Chronic Heart Failure)."
       ] },
     { id:"myo-014", type:"mcq", objective:"myo-arrhythmia",
-      question:"A 40-year-old presents with syncope. The ECG shows new complete heart block, the troponin is mildly raised, and there is a history of a recent viral illness. What is the key implication of the conduction disease here?",
+      image:"https://upload.wikimedia.org/wikipedia/commons/2/24/CompleteHeartBlock.jpg",
+      imageAlt:"12-lead ECG in which the P waves and the QRS complexes occur independently of one another, at different rates.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 40-year-old presents with syncope after a recent viral illness, with a mildly raised troponin. The ECG is shown. What is the key implication of this finding?",
       options:[
         "It is a benign finding that needs no further action",
         "It confirms an acute myocardial infarction",
@@ -6277,6 +6280,7 @@ window.MOCK_BANK = {
         "It mandates immediate thrombolysis therapy"],
       correctIndex:3,
       explanation:[
+        "The ECG shows THIRD-DEGREE (complete) AV block &mdash; P waves marching through at their own rate, dissociated from a slower QRS escape rhythm. In a patient with a viral prodrome and a raised troponin, that is new conduction disease complicating myocarditis.",
         "Myocarditis can present with ventricular arrhythmia or CONDUCTION DISEASE. New AV block is a RED FLAG pointing to a specific subtype: GIANT-CELL myocarditis (rapidly progressive VT/AV block), cardiac SARCOIDOSIS, or LYME carditis (Block 4) &mdash; each changing management (immunosuppression, biopsy, pacing).",
         "Why these three cluster: giant-cell, sarcoid and Lyme all INFILTRATE or SCAR the conduction system specifically, whereas ordinary lymphocytic VIRAL myocarditis tends to SPARE it &mdash; so new conduction disease is the clue that you are NOT dealing with simple viral myocarditis.",
         "Cross-link: Lyme carditis in a young patient with complete heart block &rarr; antibiotics plus (usually temporary) pacing (Bradycardias / Heart Block)."
@@ -6284,7 +6288,7 @@ window.MOCK_BANK = {
     { id:"myo-015", type:"mcq", objective:"myo-minoca-ddx",
       question:"Two patients each have chest pain, a raised troponin and unobstructed coronary arteries. Patient A is a 68-year-old woman presenting after sudden bereavement, with apical ballooning of the left ventricle on imaging. Patient B is a 24-year-old man, one week after a viral illness. Which interpretation is correct?",
       options:[
-        "A is takotsubo (stress) cardiomyopathy; B is myocarditis",
+        "A is takotsubo cardiomyopathy; B is myocarditis",
         "Both are takotsubo cardiomyopathy",
         "Both are acute myocarditis",
         "A is myocarditis; B is takotsubo cardiomyopathy",
@@ -6333,7 +6337,8 @@ window.MOCK_BANK = {
         "Only a minority become FULMINANT (myo-009) or progress to dilated cardiomyopathy (myo-005). Most viral cases recover with supportive care; immunosuppression is reserved for specific autoimmune subtypes (Blocks 4/5), not routine viral myocarditis."
       ] },
     { id:"myo-019", type:"mcq", objective:"myo-mri",
-      question:"A 32-year-old with suspected myocarditis (chest pain, a raised troponin and unobstructed coronaries) is haemodynamically stable. What is the most useful next investigation to confirm the diagnosis non-invasively?",
+      question:"A 32-year-old man with chest pain a few days after a viral illness is haemodynamically stable. His presentation, blood results and coronary angiography are shown. What is the most useful next investigation to confirm the diagnosis non-invasively?",
+      data:'<div class="mk-obs-h">Presentation</div><div class="mk-obs-grid"><span>HR <b>88 bpm</b></span><span>BP <b>124/76 mmHg</b></span><span>RR <b>16/min</b></span><span>SpO2 <b>98% RA</b></span><span>Temp <b>37.4 &deg;C</b></span></div><div class="mk-obs-h" style="margin-top:9px">Blood results</div><table class="mk-labs"><tr><td>hs-Troponin T (0 h)</td><td><b>780 ng/L</b></td><td>&lt;14</td></tr><tr><td>hs-Troponin T (3 h)</td><td><b>805 ng/L</b></td><td>&lt;14</td></tr><tr><td>CRP</td><td><b>36 mg/L</b></td><td>&lt;5</td></tr></table><div class="mk-obs-h" style="margin-top:9px">Coronary angiography</div><div class="mk-obs-grid"><span>Result <b>Unobstructed coronaries</b></span></div>',
       options:[
         "Repeat coronary angiography",
         "CT pulmonary angiogram",
@@ -6342,17 +6347,19 @@ window.MOCK_BANK = {
         "Cardiac MRI"],
       correctIndex:4,
       explanation:[
+        "Read the panel first: a raised but PLATEAUED troponin (780 &rarr; 805, not the brisk rise-and-fall of a type 1 MI), a raised CRP and a viral prodrome, with UNOBSTRUCTED coronaries &mdash; the MINOCA picture. The task now is to confirm myocarditis POSITIVELY.",
         "CARDIAC MRI is the key non-invasive test: it images myocardial OEDEMA and inflammation and shows the characteristic NON-ISCHAEMIC late-gadolinium pattern (Lake Louise criteria, myo-020/021).",
         "Echo assesses function but isn't diagnostic (myo-024); angiography has already excluded ACS (myo-026). In a STABLE patient MRI is preferred; endomyocardial biopsy (myo-025) is reserved for when it will change management."
       ] },
-    { id:"myo-020", type:"saq", objective:"myo-lake-louise",
-      question:"Cardiac MRI diagnoses myocarditis using the updated Lake Louise criteria, which pair two types of tissue marker. Name the two, and say what each represents.",
-      answer:"A T2-based marker representing myocardial OEDEMA, PLUS a T1-based marker representing non-ischaemic injury/scar (late gadolinium enhancement, native T1 or ECV) — typically in a subepicardial/mid-wall distribution. The point is the pairing: oedema (T2) AND injury (T1).",
-      accept:["oedema","t2 oedema","oedema on t2","late gadolinium enhancement","lge","subepicardial lge","mid-wall lge","non-ischaemic","hyperaemia","scar","fibrosis"],
-      markPoints:[
-        "A T2-based marker = myocardial OEDEMA",
-        "A T1-based marker = non-ischaemic injury/scar (late gadolinium enhancement / native T1 / ECV)",
-        "The examinable insight is the PAIRING (oedema + injury), not the letters in isolation"
+    { id:"myo-020", type:"fill", objective:"myo-lake-louise",
+      question:"Cardiac MRI diagnoses myocarditis using the updated Lake Louise criteria, which pair two types of tissue marker. Name the two, and say what each represents (one marker per box, in either order).",
+      rows:[
+        "Marker 1 (and what it shows):  {{0}}",
+        "Marker 2 (and what it shows):  {{1}}"
+      ],
+      blanks:[
+        {label:"Marker 1",accept:["t2","oedema","edema","t2 oedema","oedema on t2","t2-weighted","water content","t1","lge","late gadolinium enhancement","native t1","ecv","extracellular volume","injury","non-ischaemic injury","non-ischaemic","fibrosis","scar","hyperaemia"],answer:"T2-based marker = myocardial oedema"},
+        {label:"Marker 2",accept:["t2","oedema","edema","t2 oedema","oedema on t2","t2-weighted","water content","t1","lge","late gadolinium enhancement","native t1","ecv","extracellular volume","injury","non-ischaemic injury","non-ischaemic","fibrosis","scar","hyperaemia"],answer:"T1-based marker = non-ischaemic injury/scar (LGE, native T1 or ECV)"}
       ],
       explanation:[
         "Updated Lake Louise = at least one T2-based marker (OEDEMA) AND at least one T1-based marker (LGE / native T1 / ECV = injury). The LGE is typically SUBEPICARDIAL or MID-WALL, sparing the subendocardium — the opposite of infarction (myo-021).",
@@ -6669,14 +6676,15 @@ window.MOCK_BANK = {
         "The paradox IS the trap here: FULMINANT myocarditis belongs in the GOOD bucket (if the patient survives the acute phase on support, they often recover normal LV function, myo-009/040) &mdash; alongside mild viral disease &mdash; overriding the surface intuition that 'fulminant sounds worst'.",
         "POOR: GIANT-CELL (aggressive, transplant often needed, myo-028), CHECKPOINT-INHIBITOR (high mortality, myo-033), and cases that heal into a DILATED cardiomyopathy (chronic heart failure, myo-005). The prognostic bucket drives how hard you treat."
       ] },
-    { id:"myo-044", type:"saq", objective:"myo-followup",
-      question:"After recovery from acute myocarditis, name two important elements of follow-up or advice.",
-      answer:"Two of: (1) exercise restriction for a defined 3–6 months (arrhythmic sudden-death risk during active inflammation), with graded return guided by recovery; (2) follow-up cardiac imaging (echo/MRI) to detect progression to dilated cardiomyopathy; (3) continue heart-failure therapy while LV function is impaired.",
-      accept:["3-6 months","3 to 6 months","three to six months","exercise restriction for 3-6 months","avoid exercise for 3-6 months","follow-up imaging","repeat echo","repeat mri","monitor for dilated cardiomyopathy","surveillance imaging","continue heart failure therapy","arrhythmia risk","sudden death"],
-      markPoints:[
-        "Exercise restriction for a DEFINED 3–6 months (not just 'rest'), for arrhythmic SCD risk during active inflammation",
-        "Follow-up cardiac imaging (echo/MRI) to detect progression to DCM",
-        "(bonus) Continue guideline HF therapy while LV impairment persists"
+    { id:"myo-044", type:"fill", objective:"myo-followup",
+      question:"After recovery from acute myocarditis, name two important elements of follow-up or advice (one per box, in either order).",
+      rows:[
+        "Element 1:  {{0}}",
+        "Element 2:  {{1}}"
+      ],
+      blanks:[
+        {label:"Element 1",accept:["exercise restriction","restrict exercise","avoid exercise","no exercise","exercise avoidance","avoid sport","restrict sport","no competitive sport","3-6 months","three to six months","follow-up imaging","followup imaging","imaging","repeat echo","repeat mri","echocardiogram","echocardiography","surveillance imaging","monitor lv function","cardiac mri","continue heart failure therapy","heart failure therapy","continue hf therapy","hf therapy","guideline hf therapy"],answer:"Exercise restriction for a defined 3-6 months (arrhythmic SCD risk)"},
+        {label:"Element 2",accept:["exercise restriction","restrict exercise","avoid exercise","no exercise","exercise avoidance","avoid sport","restrict sport","no competitive sport","3-6 months","three to six months","follow-up imaging","followup imaging","imaging","repeat echo","repeat mri","echocardiogram","echocardiography","surveillance imaging","monitor lv function","cardiac mri","continue heart failure therapy","heart failure therapy","continue hf therapy","hf therapy","guideline hf therapy"],answer:"Follow-up cardiac imaging (echo/MRI) to detect progression to DCM"}
       ],
       explanation:[
         "Two pillars of follow-up. EXERCISE RESTRICTION for a defined ~3–6 MONTHS &mdash; because myocarditis is a leading cause of SUDDEN CARDIAC DEATH in young athletes and exertion during ACTIVE inflammation provokes arrhythmia (myo-010) &mdash; with graded return guided by recovery of LV function, resolution of inflammation on MRI and absence of arrhythmia.",
@@ -6899,7 +6907,7 @@ window.MOCK_BANK = {
       question:"A patient with acute pericarditis reports that the chest pain radiates to the ridge of the left trapezius (the top of the shoulder). What best explains this radiation?",
       options:[
         "Cervical nerve root compression",
-        "Phrenic nerve irritation (C3&ndash;C5)",
+        "Phrenic nerve irritation (C3–C5)",
         "Referred cardiac ischaemic pain",
         "A diaphragmatic hernia",
         "Aortic dissection"],
@@ -6911,9 +6919,9 @@ window.MOCK_BANK = {
     { id:"peri-014", type:"mcq", objective:"myo-myopericarditis",
       question:"A patient has classic viral pericarditis (positional pleuritic pain, a rub, widespread saddle ST elevation), but the troponin is clearly raised and echocardiography shows mild left ventricular impairment. What is the best interpretation and next step?",
       options:[
-        "Simple pericarditis &mdash; discharge on an NSAID",
-        "Acute coronary syndrome &mdash; activate the cath lab",
-        "Myopericarditis &mdash; admit and assess LV function",
+        "Simple pericarditis — discharge on an NSAID",
+        "Acute coronary syndrome — activate the cath lab",
+        "Myopericarditis — admit and assess LV function",
         "A raised troponin excludes pericarditis",
         "No cardiac follow-up is needed"],
       correctIndex:2,
@@ -6941,7 +6949,7 @@ window.MOCK_BANK = {
         "Typical pain that fully resolves with an NSAID",
         "Classic ECG changes with normal inflammatory markers",
         "A normal troponin and no effusion on echo",
-        "Fever above 38 &deg;C with a large effusion, a raised troponin and on warfarin"],
+        "Fever above 38 °C with a large effusion, a raised troponin and on warfarin"],
       correctIndex:4,
       explanation:[
         "The ESC major HIGH-RISK features are: fever >38 &deg;C, subacute onset, a large effusion or tamponade, a raised troponin (myopericarditis), immunosuppression, trauma, and oral anticoagulant use (plus failure to respond to NSAIDs). Any one warrants admission. This patient has several.",
@@ -6969,7 +6977,7 @@ window.MOCK_BANK = {
         { text:"Pericardial friction rub", bucket:0 },
         { text:"Widespread ST elevation with PR depression", bucket:0 },
         { text:"New or worsening pericardial effusion", bucket:0 },
-        { text:"Fever above 38 &deg;C", bucket:1 },
+        { text:"Fever above 38 °C", bucket:1 },
         { text:"Raised troponin", bucket:1 },
         { text:"Large effusion or tamponade", bucket:1 }
       ],
