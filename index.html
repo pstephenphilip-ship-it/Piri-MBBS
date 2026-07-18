@@ -5997,15 +5997,15 @@ window.MOCK_BANK = {
         "The others: ApoB-100 is the structural protein and LDL-receptor ligand of VLDL/LDL, ApoA-1 is the structural protein of HDL, ApoE mediates hepatic remnant uptake (ApoE2/E2 &rarr; type III, lip-025).",
         "LPL sits on the CAPILLARY ENDOTHELIUM, anchored by GPIHBP1; HEPARIN releases it into plasma (post-heparin lipolytic activity) &mdash; a physiology fact, but not a treatment for high TG (lip-067)."
       ] },
-    { id:"lip-071", type:"saq", objective:"lip-pseudohyponatraemia",
-      question:"A grossly lipaemic (milky) blood sample from a patient with a triglyceride of 50 mmol/L reports a sodium of 125 mmol/L, yet the patient is clinically euvolaemic and well. In one phrase, what is this sodium result an example of?",
-      answer:"Pseudohyponatraemia &mdash; a lipaemia (spurious) artefact, not true hyponatraemia.",
-      accept:["pseudohyponatr","pseudo-hyponatr","pseudo hyponatr","artefact","artifact","spurious","false low sodium","falsely low sodium","lab artefact","laboratory artefact"],
-      markPoints:[
-        "The sodium is spuriously LOW, not truly low",
-        "Lipid displaces plasma water (indirect ISE / flame photometry)",
-        "A direct ISE / blood gas reads the true (normal) value"
-      ],
+    { id:"lip-071", type:"mcq", objective:"lip-pseudohyponatraemia",
+      question:"A grossly lipaemic (milky) blood sample from a patient with a triglyceride of 50 mmol/L reports a sodium of 125 mmol/L, yet the patient is clinically euvolaemic and well. Which best describes this sodium result?",
+      options:[
+        "Hypovolaemic hyponatraemia",
+        "Pseudohyponatraemia — a spurious lipaemia artefact",
+        "SIADH (euvolaemic hyponatraemia)",
+        "Hypervolaemic (dilutional) hyponatraemia",
+        "Translocational hyponatraemia from hyperglycaemia"],
+      correctIndex:1,
       explanation:[
         "Massive lipaemia displaces plasma WATER, so methods measuring sodium per unit VOLUME of plasma (indirect ion-selective electrode, older flame photometry) report a falsely LOW sodium &mdash; PSEUDOhyponatraemia. The patient is not truly hyponatraemic.",
         "A DIRECT ISE (e.g. on a blood gas analyser) measures sodium ACTIVITY in plasma water and reads normal &mdash; the quick way to confirm the artefact. Lipaemia also interferes with other colorimetric assays. Don't treat the 'low' sodium."
