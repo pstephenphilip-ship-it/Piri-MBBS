@@ -6139,11 +6139,11 @@ window.MOCK_BANK = {
       question:"A proportion of patients who survive acute myocarditis develop a chronic cardiac complication months to years later. What is the most important long-term sequela?",
       options:[
         "Hypertrophic cardiomyopathy",
-        "Dilated cardiomyopathy",
+        "Restrictive cardiomyopathy",
         "Constrictive pericarditis",
         "Aortic stenosis",
-        "Restrictive cardiomyopathy"],
-      correctIndex:1,
+        "Dilated cardiomyopathy"],
+      correctIndex:4,
       explanation:[
         "DILATED CARDIOMYOPATHY: healed myocarditis with fibrosis and chamber dilatation is a leading IDENTIFIABLE cause of DCM &mdash; and hence heart failure &mdash; in young adults.",
         "This is why follow-up imaging matters even after apparent clinical recovery. (Restrictive physiology is more typical of amyloid or eosinophilic endomyocardial disease; constrictive is a pericardial, not myocardial, process.)",
@@ -6675,19 +6675,20 @@ window.MOCK_BANK = {
         "Two pillars of follow-up. EXERCISE RESTRICTION for a defined ~3–6 MONTHS &mdash; because myocarditis is a leading cause of SUDDEN CARDIAC DEATH in young athletes and exertion during ACTIVE inflammation provokes arrhythmia (myo-010) &mdash; with graded return guided by recovery of LV function, resolution of inflammation on MRI and absence of arrhythmia.",
         "FOLLOW-UP IMAGING (echo/MRI) to catch progression to DILATED CARDIOMYOPATHY (myo-005), continuing HF therapy while LV impairment persists (myo-037). The examinable specifics are the DURATION (3–6 months) and the REASON (SCD risk) &mdash; not just 'rest a while'."
       ] },
-    { id:"myo-045", type:"mcq", objective:"myo-ppcm",
-      question:"Two young women present with new heart failure and a dilated cardiomyopathy. Patient A developed symptoms 2 weeks after a flu-like illness. Patient B developed symptoms in the last month of pregnancy. Which interpretation is correct?",
-      options:[
-        "Both are peripartum cardiomyopathy",
-        "Both are acute myocarditis",
-        "A is peripartum cardiomyopathy; B is myocarditis",
-        "Both are takotsubo cardiomyopathy",
-        "A is myocarditis; B is peripartum cardiomyopathy"],
-      correctIndex:4,
+    { id:"myo-045", type:"fill", objective:"myo-ppcm",
+      question:"Two women present postpartum with new heart failure and a dilated, globally hypokinetic left ventricle on echo. Patient A is 3 months postpartum: 10 days ago she had a febrile flu-like illness followed by pleuritic chest pain, and her high-sensitivity troponin is markedly raised. Patient B is 2 weeks postpartum with no preceding illness and a normal troponin; her sister also developed heart failure after her own pregnancy. Give the single most likely diagnosis for each.",
+      rows:[
+        "Patient A:  {{0}}",
+        "Patient B:  {{1}}"
+      ],
+      blanks:[
+        {label:"Patient A (viral prodrome, pleuritic chest pain, raised troponin)",accept:["myocarditis","acute myocarditis","viral myocarditis","peripartum myocarditis","lymphocytic myocarditis"],answer:"Acute (peripartum) myocarditis"},
+        {label:"Patient B (no prodrome, normal troponin, familial peripartum HF)",accept:["peripartum cardiomyopathy","ppcm","postpartum cardiomyopathy"],answer:"Peripartum cardiomyopathy (PPCM)"}
+      ],
       explanation:[
-        "PERIPARTUM CARDIOMYOPATHY (PPCM) is a distinct entity: new systolic heart failure with a dilated, poorly-contracting LV arising in the LAST MONTH of pregnancy or the first ~5 MONTHS POSTPARTUM, with no other identifiable cause.",
-        "It is distinguished from myocarditis by TIMING and CONTEXT (the peripartum window), not by a different-looking heart &mdash; both produce a dilated cardiomyopathy. A's viral prodrome points to myocarditis; B's peripartum timing points to PPCM. (Same discrimination species as takotsubo vs myocarditis, myo-015.)",
-        "PPCM specifics: BROMOCRIPTINE (prolactin suppression) has a role, standard heart-failure therapy applies (pregnancy-safe agents), and the thrombotic risk is high &mdash; often warranting anticoagulation. Cross-links the pregnancy threads in Aortic Dissection, Hypertension and Acute Heart Failure."
+        "PERIPARTUM CARDIOMYOPATHY (PPCM) is new systolic heart failure with a dilated, poorly-contracting LV arising in the LAST MONTH of pregnancy or the first ~5 MONTHS POSTPARTUM, with NO OTHER IDENTIFIABLE CAUSE &mdash; it is a diagnosis of EXCLUSION.",
+        "That exclusion clause is the trap: both women are within the postpartum window, so timing alone cannot separate them &mdash; the tempting error is to label both PPCM. Patient A HAS an identifiable cause (a viral prodrome, pleuritic chest pain and a markedly raised troponin all point to acute peripartum MYOCARDITIS), so PPCM does not apply to her despite the peripartum timing. Patient B has no prodrome, a normal troponin and a familial history of peripartum heart failure: the classic PPCM picture. Both hearts look identical (a dilated cardiomyopathy); the discriminator is cause and context, not appearance (cf. takotsubo vs myocarditis, myo-015).",
+        "PPCM specifics worth knowing: BROMOCRIPTINE (suppresses the cardiotoxic 16-kDa prolactin fragment) has a role, standard pregnancy-safe heart-failure therapy applies, thrombotic risk is high (often warranting anticoagulation), there is a familial predisposition, and recurrence in a future pregnancy &mdash; especially if LV function has not normalised &mdash; is a major risk. Cross-links the pregnancy threads in Aortic Dissection, Hypertension and Acute Heart Failure."
       ] },
     { id:"myo-046", type:"mcq", objective:"myo-trajectory",
       question:"A patient recovering from acute myocarditis with initially reduced left ventricular function is followed up. Which statement best describes the expected trajectory?",
