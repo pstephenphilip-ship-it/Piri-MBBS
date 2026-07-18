@@ -8522,6 +8522,17 @@ window.MOCK_BANK = {
   // ================= SETUP =================
   window.initMock=function(){ if(S.phase==='running'){showScreen('run');return;} if(S.phase==='results'){showScreen('results');return;} renderSetup(); showScreen('setup'); };
 
+  // Cross-tab refresh hook (called by the sync layer on a `storage` event from another tab).
+  // Only re-renders the setup list, and only when it is the visible screen, so an in-progress
+  // or results view is never disturbed. Keeps a stale tab from showing a mock deleted elsewhere.
+  window.mockRefreshFromStorage=function(){
+    try{
+      if(S.phase!=='setup') return;
+      var setup=el('mockSetup');
+      if(setup && setup.style.display!=='none') renderSetup();
+    }catch(e){}
+  };
+
   // Open the Custom Mock full view from the floating button (no nav tab)
   window.openMock=function(){
     document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
@@ -8834,7 +8845,7 @@ window.MOCK_BANK = {
     if(pool.length===0){ alert('The selected topics have no questions yet. Pick topics that show a question count.'); return; }
     var want=parseInt((el('mkNum')||{}).value)||pool.length;
     var sysSet={}; topics.forEach(function(t){sysSet[t.sys]=1;}); var sysN=Object.keys(sysSet).length;
-    var label='Custom mock &middot; '+sysN+' system'+(sysN===1?'':'s');
+    var label='Custom mock · '+sysN+' system'+(sysN===1?'':'s');
     begin(pool,want,label,mockIsTimed());
   };
   function tag(q,tab,sys,topic){ var c=JSON.parse(JSON.stringify(q)); c._tab=tab;c._sys=sys;c._topic=topic; return c; }
@@ -10769,8 +10780,21 @@ function hideFlyout(p) {
   // has changes not yet confirmed pushed to the cloud. Survives reload, so a pull can never
   // clobber a just-made local change (e.g. deleting a saved mock) that has not synced yet.
   var PENDING_KEY='da_sync_pending';
-  window.localStorage.setItem = function(k,v){ rawSet(k,v); if (user && k && k.indexOf('piri_')===0){ rawSet(PENDING_KEY,'1'); scheduleSync(); } };
-  window.localStorage.removeItem = function(k){ rawRemove(k); if (user && k && k.indexOf('piri_')===0){ rawSet(PENDING_KEY,'1'); scheduleSync(); } };
+  var PROJECT_REF='ynkyqovqlfmnpkdsaonu';
+  var rawGet = window.localStorage.getItem.bind(window.localStorage);
+  // Authenticated check that does NOT wait for the async getSession() below. A delete made in
+  // the first moments after load — before `user` is set — must still flag PENDING; otherwise
+  // the subsequent pull() treats local as clean and restores the just-deleted mock from the
+  // stale cloud copy (the "deleted mocks come back" bug). Reads the token Supabase persists
+  // synchronously in localStorage. Anonymous visitors have no valid token → writes stay
+  // unflagged, so logging in still lets the cloud win rather than anon data clobbering it.
+  function tokenAuthed(){
+    try{ var raw=rawGet('sb-'+PROJECT_REF+'-auth-token'); if(!raw) return false; var o=JSON.parse(raw); var s=o&&(o.currentSession||o); if(!s) return false; if(s.expires_at) return (s.expires_at*1000)>Date.now(); return !!s.access_token; }catch(e){ return false; }
+  }
+  function isAuthed(){ return !!user || tokenAuthed(); }
+  function flagPending(k){ if (k && k.indexOf('piri_')===0 && isAuthed()){ rawSet(PENDING_KEY,'1'); scheduleSync(); } }
+  window.localStorage.setItem = function(k,v){ rawSet(k,v); flagPending(k); };
+  window.localStorage.removeItem = function(k){ rawRemove(k); flagPending(k); };
 
   function collectLocal(){ var o={}; for (var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if (k && k.indexOf('piri_')===0) o[k]=localStorage.getItem(k); } return o; }
   function applyRemote(obj){ if(!obj) return; Object.keys(obj).forEach(function(k){ if (k.indexOf('piri_')===0){ try{ rawSet(k,obj[k]); }catch(e){} } }); }
@@ -10786,6 +10810,15 @@ function hideFlyout(p) {
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
+
+  // Cross-tab freshness: localStorage is shared between tabs, but a tab that already rendered
+  // its mock list won't know another tab just deleted an entry. The `storage` event fires only
+  // in the OTHER tabs, so re-render the visible mock setup there — otherwise a stale tab keeps
+  // showing (and can re-save) a mock that was deleted elsewhere.
+  window.addEventListener('storage', function(e){
+    if(!e || !e.key || e.key.indexOf('piri_')!==0) return;
+    try{ if(typeof window.mockRefreshFromStorage==='function') window.mockRefreshFromStorage(); }catch(_){}
+  });
 
   // Drive sync off the same auth client the login UI uses.
   sb.auth.getSession().then(function(res){ var s=res&&res.data?res.data.session:null; user=s?s.user:null; maybePull(); });
