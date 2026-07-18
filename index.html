@@ -6092,6 +6092,117 @@ window.MOCK_BANK = {
         "Trap: statins do NOT block absorption (that is ezetimibe, lip-053); the liver, not adipose, is the main synthetic site."
       ] },
   ],
+  "conditions__CARDIOVASCULAR__Myocarditis": [
+    { id:"myo-001", type:"mcq", objective:"myo-aetiology",
+      question:"A 26-year-old man develops pleuritic chest pain and breathlessness 10 days after a flu-like illness with fever and myalgia. Troponin is raised, the ECG shows widespread saddle-shaped ST changes, and coronary angiography is normal. Cardiac MRI confirms myocarditis. What is the most likely underlying cause?",
+      options:[
+        "Staphylococcus aureus bacteraemia",
+        "Chronic Trypanosoma cruzi infection",
+        "A viral infection (enterovirus/Coxsackie B)",
+        "A giant-cell autoimmune process",
+        "Anthracycline chemotherapy toxicity"],
+      correctIndex:2,
+      explanation:[
+        "In the developed world the commonest cause of myocarditis is VIRAL &mdash; historically enteroviruses (Coxsackie B), and increasingly PARVOVIRUS B19, HHV-6 and SARS-CoV-2. A viral PRODROME (flu-like, URTI or GI illness) days to weeks before the cardiac symptoms is the classic history.",
+        "The others are rarer or context-specific: bacterial myocarditis is uncommon; Trypanosoma cruzi (Chagas) is the leading cause in Latin America (Block 4); giant-cell and drug causes are specific subtypes.",
+        "Clinical anchor: chest pain + raised troponin + UNOBSTRUCTED coronaries + a preceding viral illness should prompt 'myocarditis' &mdash; a key differential of the troponin-positive/normal-coronaries picture (cross-link ACS / MINOCA)."
+      ] },
+    { id:"myo-002", type:"mcq", objective:"myo-phases",
+      question:"Myocarditis classically evolves through phases. In the first few days after a viral trigger, what is the dominant mechanism of myocardial injury?",
+      options:[
+        "Direct viral injury and the innate immune response",
+        "Autoantibodies against cardiac myosin",
+        "Replacement fibrosis and chamber dilatation",
+        "Coronary microvascular thrombosis",
+        "Amyloid deposition in the interstitium"],
+      correctIndex:0,
+      explanation:[
+        "Phase 1 (ACUTE, days): DIRECT VIRAL injury plus the INNATE immune response (cytokines, natural killer cells).",
+        "Phase 2 (SUBACUTE, weeks): the ADAPTIVE/autoimmune response takes over &mdash; T cells and autoantibodies (e.g. anti-myosin) driven by molecular mimicry (myo-003) &mdash; and can persist after the virus is cleared. Phase 3 (CHRONIC): healing with fibrosis, leading to dilated cardiomyopathy in a subset (myo-005).",
+        "Clinical anchor: the phase model explains WHY immunosuppression may help the autoimmune phase but not acute viral injury &mdash; timing and cause matter (Block 5)."
+      ] },
+    { id:"myo-003", type:"mcq", objective:"myo-autoimmune",
+      question:"A patient's myocarditis continues to progress even after the triggering virus has been cleared from the myocardium. Which mechanism best explains the ongoing injury?",
+      options:[
+        "Persistent high-level viral replication",
+        "Progressive coronary atherosclerosis",
+        "A direct toxic effect of circulating troponin",
+        "Ischaemic reperfusion injury",
+        "Molecular mimicry against cardiac self-antigens"],
+      correctIndex:4,
+      explanation:[
+        "MOLECULAR MIMICRY: viral epitopes structurally resemble cardiac self-antigens (notably cardiac MYOSIN), so the antiviral immune response cross-reacts and keeps attacking the myocardium even after the virus is gone.",
+        "This autoimmune phase underlies chronic/relapsing disease and is the rationale for IMMUNOSUPPRESSION in selected virus-negative, autoimmune cases (and for the specific immune subtypes, Block 4).",
+        "Cross-link: the same self-antigen mimicry principle drives rheumatic fever after streptococcal infection."
+      ] },
+    { id:"myo-004", type:"saq", objective:"myo-histology",
+      question:"The histological gold standard for diagnosing myocarditis (the Dallas criteria) requires two findings on endomyocardial biopsy. Name them.",
+      answer:"An inflammatory (typically lymphocytic) infiltrate together with associated myocyte necrosis/degeneration.",
+      accept:["lymphocytic infiltrate","inflammatory infiltrate","inflammatory cell infiltrate","myocyte necrosis","myocyte damage","myocyte degeneration","myocyte injury"],
+      markPoints:[
+        "An inflammatory (typically lymphocytic) infiltrate",
+        "Myocyte necrosis/degeneration not typical of ischaemia"
+      ],
+      explanation:[
+        "Dallas criteria = an INFLAMMATORY INFILTRATE (usually lymphocytic) PLUS MYOCYTE NECROSIS/degeneration not explained by ischaemia.",
+        "Limitations &mdash; SAMPLING ERROR (patchy disease) and interobserver variability &mdash; are why cardiac MRI (Block 3) has become the main non-invasive diagnostic test. The infiltrate TYPE points to a subtype: eosinophils &rarr; eosinophilic myocarditis; multinucleated giant cells &rarr; giant-cell myocarditis (Block 4)."
+      ] },
+    { id:"myo-005", type:"mcq", objective:"myo-dcm",
+      question:"A proportion of patients who survive acute myocarditis develop a chronic cardiac complication months to years later. What is the most important long-term sequela?",
+      options:[
+        "Hypertrophic cardiomyopathy",
+        "Dilated cardiomyopathy",
+        "Constrictive pericarditis",
+        "Aortic stenosis",
+        "Restrictive cardiomyopathy"],
+      correctIndex:1,
+      explanation:[
+        "DILATED CARDIOMYOPATHY: healed myocarditis with fibrosis and chamber dilatation is a leading IDENTIFIABLE cause of DCM &mdash; and hence heart failure &mdash; in young adults.",
+        "This is why follow-up imaging matters even after apparent clinical recovery. (Restrictive physiology is more typical of amyloid or eosinophilic endomyocardial disease; constrictive is a pericardial, not myocardial, process.)"
+      ] },
+    { id:"myo-006", type:"mcq", objective:"myo-drug",
+      question:"A 30-year-old man started on an antipsychotic three weeks ago develops tachycardia, low-grade fever and a raised troponin with new left ventricular impairment. Which drug is the classic cause of this drug-induced myocarditis?",
+      options:[
+        "Haloperidol",
+        "Lithium",
+        "Sertraline",
+        "Clozapine",
+        "Diazepam"],
+      correctIndex:3,
+      explanation:[
+        "CLOZAPINE is the antipsychotic classically associated with myocarditis, usually within the first 6&ndash;8 WEEKS of starting &mdash; which is why troponin, CRP and clinical monitoring are advised after initiation, with the drug stopped if it develops.",
+        "Other toxin/drug causes: ANTHRACYCLINES (dose-dependent cardiotoxicity), immune CHECKPOINT INHIBITORS (high-mortality myocarditis, Block 4) and cocaine.",
+        "Clinical anchor: new cardiac symptoms early after starting clozapine &rarr; check troponin and involve cardiology/psychiatry promptly."
+      ] },
+    { id:"myo-007", type:"mcq", objective:"myo-covid",
+      question:"A medical student asks you to clarify the relationship between SARS-CoV-2 and myocarditis. Which statement is correct?",
+      options:[
+        "Both infection and vaccine cause it; infection's risk is higher",
+        "Only the vaccine, and never the infection, causes it",
+        "Vaccine-associated cases are typically severe and fatal",
+        "It occurs most often in elderly women after infection",
+        "SARS-CoV-2 has no recognised association with myocarditis"],
+      correctIndex:0,
+      explanation:[
+        "SARS-CoV-2 INFECTION can cause myocarditis, and mRNA COVID VACCINES are a recognised RARE cause &mdash; characteristically in YOUNG MALES after the second dose, usually MILD and self-limiting.",
+        "The key counselling point: the risk of myocarditis is HIGHER from the infection than from the vaccine &mdash; so the vaccine's small myocarditis risk is outweighed by the protection it gives against infection-related disease.",
+        "Distractors invert the epidemiology (young males, not elderly women; usually mild, not fatal) or deny a well-established association."
+      ] },
+    { id:"myo-008", type:"categorize", objective:"myo-cause-map",
+      question:"Sort each cause of myocarditis under its category.",
+      buckets:["Viral","Other infective","Immune-mediated","Toxin / drug"],
+      items:[
+        {text:"Coxsackie B / enterovirus",bucket:0},
+        {text:"Parvovirus B19",bucket:0},
+        {text:"Trypanosoma cruzi (Chagas)",bucket:1},
+        {text:"Cardiac sarcoidosis",bucket:2},
+        {text:"Clozapine",bucket:3}
+      ],
+      explanation:[
+        "The four cause families: VIRAL (commonest &mdash; enteroviruses/Coxsackie B, parvovirus B19, HHV-6, SARS-CoV-2); OTHER INFECTIVE (bacterial diphtheria, Borrelia/Lyme, protozoal Trypanosoma cruzi/Chagas); IMMUNE-MEDIATED (giant-cell, sarcoid, eosinophilic, checkpoint-inhibitor, systemic autoimmune); and TOXIN/DRUG (anthracyclines, clozapine, cocaine).",
+        "This map frames Block 4's deep dive into the specific subtypes &mdash; each with its own diagnostic clue and treatment."
+      ] },
+  ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
       question:"A 58-year-old man is admitted with three weeks of night sweats, fevers and malaise. Four years ago he was treated for infective endocarditis following a dental abscess. He also has a bicuspid aortic valve, type 2 diabetes, and a normal colonoscopy last year for altered bowel habit. His observations are shown. Which factor most strongly predisposes him to a further episode of infective endocarditis?",
