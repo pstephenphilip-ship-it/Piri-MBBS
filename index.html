@@ -5271,12 +5271,14 @@ window.MOCK_BANK = {
         "Clinical anchor: why CAC scoring stratifies cardiovascular risk despite the microcalcification-instability link (cross-link ACS / risk imaging)."
       ] },
     { id:"lip-012", type:"mcq",
-      question:"A 60-year-old man with stable angina has fasting lipids: total cholesterol 6.8, HDL 1.1, triglycerides 1.4, LDL-C 5.1 mmol/L. Which fraction is the main driver of his atherosclerotic risk and the primary target of lipid-lowering treatment?",
+      question:"A 60-year-old man with stable angina attends for cardiovascular risk management. His fasting results are shown. Which fraction is the main driver of his atherosclerotic risk and the primary target of lipid-lowering treatment?",
+      data:'<div class="mk-obs-h">Fasting lipid profile</div><table class="mk-labs"><tr><td>Total cholesterol</td><td><b>6.8 mmol/L</b></td><td>&lt;5.0</td></tr><tr><td>HDL cholesterol</td><td><b>1.1 mmol/L</b></td><td>&gt;1.0</td></tr><tr><td>LDL cholesterol</td><td><b>5.1 mmol/L</b></td><td>&lt;3.0</td></tr><tr><td>Triglycerides</td><td><b>1.4 mmol/L</b></td><td>&lt;1.7</td></tr><tr><td>Non-HDL cholesterol</td><td><b>5.7 mmol/L</b></td><td>&lt;4.0</td></tr></table><div class="mk-obs-h" style="margin-top:9px">Other bloods</div><table class="mk-labs"><tr><td>HbA1c</td><td><b>38 mmol/mol</b></td><td>&lt;42</td></tr><tr><td>TSH</td><td><b>2.1 mU/L</b></td><td>0.4&ndash;4.0</td></tr><tr><td>Creatinine</td><td><b>82 &micro;mol/L</b></td><td>60&ndash;110</td></tr><tr><td>ALT</td><td><b>26 U/L</b></td><td>&lt;40</td></tr></table>',
       options:["LDL cholesterol","HDL cholesterol","Triglycerides","Total cholesterol alone","The chylomicron fraction"],
       correctIndex:0,
       explanation:[
-        "LDL is the principal ATHEROGENIC (ApoB-carrying) particle, and his LDL-C of 5.1 is markedly raised — every guideline targets LDL / non-HDL for event reduction.",
-        "HDL is a protective risk MARKER, not a target (lip-013); his triglycerides are normal, so they aren't the issue here.",
+        "LDL is the principal ATHEROGENIC (ApoB-carrying) particle, and his LDL-C of 5.1 is markedly raised (as is the derived non-HDL of 5.7) — every guideline targets LDL / non-HDL for event reduction.",
+        "HDL (1.1) is a protective risk MARKER, not a target (lip-013); his triglycerides (1.4) are normal, so they aren't the issue here.",
+        "The other bloods are deliberately NORMAL — a normal HbA1c, TSH and creatinine exclude a diabetic, hypothyroid or renal SECONDARY cause (lip-027/029), confirming a primary, LDL-driven picture (and the normal ALT is a fit-to-treat baseline before a statin). They are there to test focus, not to change the answer.",
         "Clinical anchor: as secondary prevention (known angina) he needs a HIGH-intensity statin (atorvastatin 80 mg) aiming for a ≥40% fall in non-HDL (Block 5)."
       ] },
     { id:"lip-013", type:"mcq",
