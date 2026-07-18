@@ -6192,7 +6192,8 @@ window.MOCK_BANK = {
         "This map frames Block 4's deep dive into the specific subtypes &mdash; each with its own diagnostic clue and treatment."
       ] },
     { id:"myo-009", type:"mcq", objective:"myo-fulminant",
-      question:"A 34-year-old woman presents with three days of rapidly worsening breathlessness after a viral illness. She is hypotensive, mottled and oliguric with a lactate of 5 mmol/L, and echo shows a globally impaired, non-dilated left ventricle with thickened (oedematous) walls. She needs inotropic support. Which statement about this fulminant myocarditis is correct?",
+      question:"A 34-year-old woman presents with three days of rapidly worsening breathlessness after a viral illness. She is cool and mottled peripherally; her observations and blood results are shown. Echo shows a globally impaired, non-dilated left ventricle with thickened (oedematous) walls, and she needs inotropic support. Which statement about this fulminant myocarditis is correct?",
+      data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>124 bpm</b></span><span>BP <b>82/54 mmHg</b></span><span>RR <b>30/min</b></span><span>SpO2 <b>91% (15L O2)</b></span><span>Temp <b>37.9 &deg;C</b></span><span>Urine <b>8 mL in last 2 h</b></span></div><div class="mk-obs-h" style="margin-top:9px">Blood results</div><table class="mk-labs"><tr><td>Lactate</td><td><b>5.0 mmol/L</b></td><td>0.5&ndash;2.2</td></tr><tr><td>Creatinine</td><td><b>148 &micro;mol/L</b></td><td>45&ndash;84</td></tr><tr><td>hs-Troponin T</td><td><b>2100 ng/L</b></td><td>&lt;14</td></tr></table>',
       options:[
         "It carries a worse long-term prognosis than mild acute myocarditis",
         "Although acutely severe, survivors often recover normal LV function",
@@ -6296,17 +6297,20 @@ window.MOCK_BANK = {
         "Myocarditis is protean: from subclinical (myo-018) through chest pain (myo-011), acute heart failure (myo-013), arrhythmia/conduction disease (myo-014), to sudden cardiac death.",
         "The distractors are CARDIAC but not myocarditis: stable exertional angina is fixed coronary disease, pericardial constriction is a chronic pericardial process, and a fixed valvular murmur is structural valve disease &mdash; none is a presentation of myocarditis."
       ] },
-    { id:"myo-017", type:"saq", objective:"myo-mimics",
-      question:"Acute myocarditis is described as a 'great mimic'. Name three conditions its presentation can be mistaken for.",
-      answer:"Myocardial infarction (ACS), pericarditis, and sepsis / cardiogenic shock (the fulminant picture); it can also mimic new heart failure.",
-      accept:["myocardial infarction","mi","acs","acute coronary syndrome","pericarditis","myopericarditis","sepsis","septic shock","cardiogenic shock","heart failure","dilated cardiomyopathy"],
-      markPoints:[
-        "Myocardial infarction / ACS (myo-011)",
-        "Pericarditis / myopericarditis (myo-012)",
-        "Sepsis or cardiogenic shock — the fulminant picture (myo-009)"
+    { id:"myo-017", type:"fill", objective:"myo-mimics",
+      question:"Acute myocarditis is described as a 'great mimic'. Name three conditions its presentation can be mistaken for (one per box, in any order).",
+      rows:[
+        "Mimic 1:  {{0}}",
+        "Mimic 2:  {{1}}",
+        "Mimic 3:  {{2}}"
+      ],
+      blanks:[
+        {label:"Mimic 1",accept:["myocardial infarction","mi","acs","acute coronary syndrome","stemi","nstemi","minoca","heart attack","pericarditis","myopericarditis","sepsis","septic shock","cardiogenic shock","shock","heart failure","acute heart failure","new heart failure","dilated cardiomyopathy","dcm"],answer:"Myocardial infarction / ACS (chest pain + troponin, unobstructed coronaries)"},
+        {label:"Mimic 2",accept:["myocardial infarction","mi","acs","acute coronary syndrome","stemi","nstemi","minoca","heart attack","pericarditis","myopericarditis","sepsis","septic shock","cardiogenic shock","shock","heart failure","acute heart failure","new heart failure","dilated cardiomyopathy","dcm"],answer:"Pericarditis / myopericarditis"},
+        {label:"Mimic 3",accept:["myocardial infarction","mi","acs","acute coronary syndrome","stemi","nstemi","minoca","heart attack","pericarditis","myopericarditis","sepsis","septic shock","cardiogenic shock","shock","heart failure","acute heart failure","new heart failure","dilated cardiomyopathy","dcm"],answer:"Sepsis or cardiogenic shock (the fulminant picture)"}
       ],
       explanation:[
-        "The classic mimics tie the block together: it looks like an MI (chest pain + troponin + unobstructed coronaries, myo-011), like pericarditis (myo-012), and, when fulminant, like SEPSIS or cardiogenic shock (myo-009). It can also present as new heart failure (myo-013).",
+        "Any three of the classic mimics score. It looks like an MI (chest pain + troponin + unobstructed coronaries, myo-011), like pericarditis (myo-012), and, when fulminant, like SEPSIS or cardiogenic shock (myo-009); it can also present as new heart failure / DCM (myo-013). Each box accepts any of these, so order does not matter.",
         "Recognising the mimicry is what stops myocarditis being mislabelled &mdash; the viral prodrome and the MINOCA context (myo-001/015) are the threads that give it away."
       ] },
     { id:"myo-018", type:"mcq", objective:"myo-subclinical",
