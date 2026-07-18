@@ -6105,7 +6105,7 @@ window.MOCK_BANK = {
       explanation:[
         "In the developed world the commonest cause of myocarditis is VIRAL &mdash; historically enteroviruses (Coxsackie B), and increasingly PARVOVIRUS B19, HHV-6 and SARS-CoV-2. A viral PRODROME (flu-like, URTI or GI illness) days to weeks before the cardiac symptoms is the classic history.",
         "The others are rarer or context-specific: bacterial myocarditis is uncommon; Trypanosoma cruzi (Chagas) is the leading cause in Latin America (Block 4); giant-cell and drug causes are specific subtypes.",
-        "Clinical anchor: chest pain + raised troponin + UNOBSTRUCTED coronaries + a preceding viral illness should prompt 'myocarditis' &mdash; a key differential of the troponin-positive/normal-coronaries picture (cross-link ACS / MINOCA)."
+        "Clinical anchor: chest pain + raised troponin + UNOBSTRUCTED coronaries + a preceding viral illness should prompt 'myocarditis'. Run the MINOCA differential once: MYOCARDITIS, takotsubo, coronary spasm, spontaneous coronary artery dissection (SCAD) and type 2 MI (cross-link ACS)."
       ] },
     { id:"myo-002", type:"mcq", objective:"myo-phases",
       question:"Myocarditis classically evolves through phases. In the first few days after a viral trigger, what is the dominant mechanism of myocardial injury?",
@@ -6137,11 +6137,11 @@ window.MOCK_BANK = {
       ] },
     { id:"myo-004", type:"saq", objective:"myo-histology",
       question:"The histological gold standard for diagnosing myocarditis (the Dallas criteria) requires two findings on endomyocardial biopsy. Name them.",
-      answer:"An inflammatory (typically lymphocytic) infiltrate together with associated myocyte necrosis/degeneration.",
-      accept:["lymphocytic infiltrate","inflammatory infiltrate","inflammatory cell infiltrate","myocyte necrosis","myocyte damage","myocyte degeneration","myocyte injury"],
+      answer:"An inflammatory (typically lymphocytic) infiltrate together with myocyte necrosis/degeneration of a NON-ISCHAEMIC pattern (i.e. not attributable to infarction).",
+      accept:["lymphocytic infiltrate","inflammatory infiltrate","inflammatory cell infiltrate","myocyte necrosis","myocyte damage","myocyte degeneration","myocyte injury","non-ischaemic","non ischaemic","not ischaemic","not due to ischaemia","not ischaemia"],
       markPoints:[
         "An inflammatory (typically lymphocytic) infiltrate",
-        "Myocyte necrosis/degeneration not typical of ischaemia"
+        "Myocyte necrosis/degeneration of a NON-ISCHAEMIC pattern (the feature distinguishing it from infarction)"
       ],
       explanation:[
         "Dallas criteria = an INFLAMMATORY INFILTRATE (usually lymphocytic) PLUS MYOCYTE NECROSIS/degeneration not explained by ischaemia.",
@@ -6158,7 +6158,8 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "DILATED CARDIOMYOPATHY: healed myocarditis with fibrosis and chamber dilatation is a leading IDENTIFIABLE cause of DCM &mdash; and hence heart failure &mdash; in young adults.",
-        "This is why follow-up imaging matters even after apparent clinical recovery. (Restrictive physiology is more typical of amyloid or eosinophilic endomyocardial disease; constrictive is a pericardial, not myocardial, process.)"
+        "This is why follow-up imaging matters even after apparent clinical recovery. (Restrictive physiology is more typical of amyloid or eosinophilic endomyocardial disease; constrictive is a pericardial, not myocardial, process.)",
+        "Cross-link: a young adult with a dilated, poorly-contracting ventricle and NO coronary disease should have myocarditis on the differential &mdash; healed myocarditis is one of the identifiable causes of DCM (Chronic Heart Failure)."
       ] },
     { id:"myo-006", type:"mcq", objective:"myo-drug",
       question:"A 30-year-old man started on an antipsychotic three weeks ago develops tachycardia, low-grade fever and a raised troponin with new left ventricular impairment. Which drug is the classic cause of this drug-induced myocarditis?",
@@ -6201,6 +6202,34 @@ window.MOCK_BANK = {
       explanation:[
         "The four cause families: VIRAL (commonest &mdash; enteroviruses/Coxsackie B, parvovirus B19, HHV-6, SARS-CoV-2); OTHER INFECTIVE (bacterial diphtheria, Borrelia/Lyme, protozoal Trypanosoma cruzi/Chagas); IMMUNE-MEDIATED (giant-cell, sarcoid, eosinophilic, checkpoint-inhibitor, systemic autoimmune); and TOXIN/DRUG (anthracyclines, clozapine, cocaine).",
         "This map frames Block 4's deep dive into the specific subtypes &mdash; each with its own diagnostic clue and treatment."
+      ] },
+    { id:"myo-009", type:"mcq", objective:"myo-fulminant",
+      question:"A 34-year-old woman presents with three days of rapidly worsening breathlessness after a viral illness. She is hypotensive, mottled and oliguric with a lactate of 5 mmol/L, and echo shows a globally impaired, non-dilated left ventricle with thickened (oedematous) walls. She needs inotropic support. Which statement about this fulminant myocarditis is correct?",
+      options:[
+        "It carries a worse long-term prognosis than mild acute myocarditis",
+        "Although acutely severe, survivors often recover normal LV function",
+        "Inotropes and mechanical circulatory support are contraindicated",
+        "It should be managed locally without specialist transfer",
+        "A dilated left ventricle is the expected early finding"],
+      correctIndex:1,
+      explanation:[
+        "Fulminant myocarditis is a DISTINCT-ONSET, acutely very unwell presentation &mdash; cardiogenic shock that can mimic severe sepsis &mdash; typically with a NON-dilated but thick, oedematous, poorly-contracting LV (dilatation takes time to develop, so option E is wrong early).",
+        "The paradox worth knowing: despite looking far worse acutely, fulminant myocarditis has BETTER long-term recovery than mild acute myocarditis IF the patient survives the first days &mdash; the ferocious inflammatory response that nearly kills them also clears the insult, and survivors frequently regain normal LV function (so option A inverts the truth).",
+        "That drives the management: aggressive support with inotropes and EARLY MECHANICAL CIRCULATORY SUPPORT (ECMO/VAD) as a BRIDGE TO RECOVERY, at a centre that offers it (options C/D are wrong). Rapid deterioration or arrhythmia/heart block also makes this the setting where endomyocardial biopsy is indicated &mdash; to catch giant-cell myocarditis (Block 4)."
+      ] },
+    { id:"myo-010", type:"mcq", objective:"myo-exercise",
+      question:"A 20-year-old competitive footballer is recovering well from acute myocarditis and asks when he can return to training. What is the best advice?",
+      options:[
+        "Return to full training immediately",
+        "Exercise freely, as activity speeds myocardial healing",
+        "Impose a permanent lifelong ban from all exercise",
+        "Resume as soon as the troponin normalises",
+        "Avoid competitive, high-intensity exercise for 3&ndash;6 months"],
+      correctIndex:4,
+      explanation:[
+        "Myocarditis is a leading cause of SUDDEN CARDIAC DEATH in young athletes, and exertion during ACTIVE inflammation can precipitate ventricular arrhythmia. The safety-critical instruction is to ABSTAIN from competitive/high-intensity exercise for about 3&ndash;6 MONTHS.",
+        "Return is not time-based alone but GUIDED by recovery: normalised LV function, resolution of oedema/inflammation on cardiac MRI, and absence of arrhythmia on monitoring/exercise testing &mdash; so 'troponin normalised the next day' is far too soon, and a lifelong ban is unnecessary once recovery is confirmed.",
+        "Clinical anchor: this is the counselling counterpart to the vaccine risk&ndash;benefit judgement (myo-007) &mdash; a discrete, examinable instruction that prevents exercise-triggered sudden death."
       ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
