@@ -6334,6 +6334,124 @@ window.MOCK_BANK = {
         "The MAJORITY of cases are MILD or SUBCLINICAL and resolve spontaneously &mdash; some are found only as an incidental late-gadolinium scar on MRI or a transient troponin rise. A viral PRODROME typically PRECEDES the cardiac symptoms by days to weeks (myo-001).",
         "Only a minority become FULMINANT (myo-009) or progress to dilated cardiomyopathy (myo-005). Most viral cases recover with supportive care; immunosuppression is reserved for specific autoimmune subtypes (Blocks 4/5), not routine viral myocarditis."
       ] },
+    { id:"myo-019", type:"mcq", objective:"myo-mri",
+      question:"A 32-year-old with suspected myocarditis (chest pain, a raised troponin and unobstructed coronaries) is haemodynamically stable. What is the most useful next investigation to confirm the diagnosis non-invasively?",
+      options:[
+        "Repeat coronary angiography",
+        "CT pulmonary angiogram",
+        "Exercise tolerance test",
+        "Ambulatory blood pressure monitoring",
+        "Cardiac MRI"],
+      correctIndex:4,
+      explanation:[
+        "CARDIAC MRI is the key non-invasive test: it images myocardial OEDEMA and inflammation and shows the characteristic NON-ISCHAEMIC late-gadolinium pattern (Lake Louise criteria, myo-020/021).",
+        "Echo assesses function but isn't diagnostic (myo-024); angiography has already excluded ACS (myo-026). In a STABLE patient MRI is preferred; endomyocardial biopsy (myo-025) is reserved for when it will change management."
+      ] },
+    { id:"myo-020", type:"saq", objective:"myo-lake-louise",
+      question:"Cardiac MRI diagnoses myocarditis using the updated Lake Louise criteria, which pair two types of tissue marker. Name the two, and say what each represents.",
+      answer:"A T2-based marker representing myocardial OEDEMA, PLUS a T1-based marker representing non-ischaemic injury/scar (late gadolinium enhancement, native T1 or ECV) — typically in a subepicardial/mid-wall distribution. The point is the pairing: oedema (T2) AND injury (T1).",
+      accept:["oedema","t2 oedema","oedema on t2","late gadolinium enhancement","lge","subepicardial lge","mid-wall lge","non-ischaemic","hyperaemia","scar","fibrosis"],
+      markPoints:[
+        "A T2-based marker = myocardial OEDEMA",
+        "A T1-based marker = non-ischaemic injury/scar (late gadolinium enhancement / native T1 / ECV)",
+        "The examinable insight is the PAIRING (oedema + injury), not the letters in isolation"
+      ],
+      explanation:[
+        "Updated Lake Louise = at least one T2-based marker (OEDEMA) AND at least one T1-based marker (LGE / native T1 / ECV = injury). The LGE is typically SUBEPICARDIAL or MID-WALL, sparing the subendocardium — the opposite of infarction (myo-021).",
+        "Unity worth seeing: what makes myocarditis diagnosable &mdash; on biopsy OR MRI &mdash; is INJURY IN A PATTERN ISCHAEMIA CANNOT PRODUCE. Oedema + subepicardial LGE (MRI) and an inflammatory infiltrate + non-ischaemic necrosis (Dallas biopsy, myo-004) are ONE idea seen on two modalities."
+      ] },
+    { id:"myo-021", type:"categorize", objective:"myo-lge-pattern",
+      question:"Sort each cardiac-MRI feature under the pattern it indicates.",
+      buckets:["Ischaemic (infarct) pattern","Non-ischaemic (myocarditis) pattern"],
+      items:[
+        {text:"Subendocardial or transmural LGE",bucket:0},
+        {text:"LGE following a single coronary territory",bucket:0},
+        {text:"Subepicardial LGE",bucket:1},
+        {text:"Mid-wall LGE",bucket:1},
+        {text:"Patchy, non-coronary distribution",bucket:1}
+      ],
+      explanation:[
+        "Infarction begins in the SUBENDOCARDIUM (the most ischaemia-vulnerable layer) and extends outward WITHIN a coronary territory. Myocarditis SPARES the subendocardium &mdash; its LGE is SUBEPICARDIAL or MID-WALL, patchy and NOT confined to a coronary territory.",
+        "This distribution is why MRI separates the two even when both raise troponin (myo-011). Same logic as the Dallas biopsy point (myo-004): injury in a pattern ischaemia simply cannot produce."
+      ] },
+    { id:"myo-022", type:"mcq", objective:"myo-ecg",
+      question:"A young man with myocarditis has widespread ST-segment elevation on his ECG. Which feature most helps distinguish this from an acute STEMI?",
+      options:[
+        "The changes are diffuse, not in a single territory",
+        "Prominent reciprocal ST-segment depression",
+        "An accompanying normal serum troponin",
+        "The presence of pathological Q waves",
+        "An accompanying sinus tachycardia"],
+      correctIndex:0,
+      explanation:[
+        "The myocarditis ECG is NONSPECIFIC &mdash; sinus tachycardia, diffuse ST/T changes, sometimes widespread ST elevation mimicking a STEMI (or the saddle-shaped ST of co-existing pericarditis). The distinguishing feature is that the changes are DIFFUSE / not confined to a single coronary territory, and they lack the territorial pattern and reciprocal changes of STEMI.",
+        "The distractors are either STEMI features (reciprocal depression, pathological Q waves), factually wrong (troponin is raised, not normal), or non-specific and present in both (sinus tachycardia) &mdash; so none is the discriminator. New conduction block is a separate red flag (myo-014)."
+      ] },
+    { id:"myo-023", type:"mcq", objective:"myo-biomarkers",
+      question:"Which statement about the blood tests in suspected myocarditis is correct?",
+      options:[
+        "A normal troponin reliably excludes myocarditis",
+        "Troponin reliably distinguishes myocarditis from MI",
+        "A raised troponin shows myocyte injury but is not specific",
+        "CRP is diagnostic of myocarditis",
+        "BNP is always normal in myocarditis"],
+      correctIndex:2,
+      explanation:[
+        "Troponin rises with myocyte necrosis but is NON-SPECIFIC &mdash; it cannot separate myocarditis from MI (which is why you angiogram to exclude ACS and MRI to make the diagnosis). BNP rises with LV dysfunction; CRP/ESR are often raised but non-specific.",
+        "Bank-wide thread: a NORMAL test does not clear a high-pretest patient &mdash; like a normal TTE not excluding endocarditis, a single troponin not excluding ACS, or a normal chest film not excluding aortic dissection. Here a normal troponin does NOT exclude myocarditis (it can be normal in subacute/chronic disease), so you still image."
+      ] },
+    { id:"myo-024", type:"mcq", objective:"myo-echo",
+      question:"Echocardiography is performed in two patients with myocarditis. Which finding is characteristic of FULMINANT (acute) myocarditis rather than a chronic, burnt-out dilated cardiomyopathy?",
+      options:[
+        "A dilated ventricle with diffusely thinned walls",
+        "A non-dilated ventricle with thick, oedematous walls",
+        "Severe calcific aortic valve stenosis",
+        "Constrictive pericardial thickening",
+        "A structurally normal heart with a bicuspid valve"],
+      correctIndex:1,
+      explanation:[
+        "In FULMINANT myocarditis the ventricle has had no time to dilate: echo shows a NON-DILATED LV with THICKENED, OEDEMATOUS walls and severe global hypokinesia (ties to myo-009).",
+        "Contrast CHRONIC/healed myocarditis, which remodels into a DILATED, THIN-walled dilated cardiomyopathy (myo-005/013). The wall-thickness-and-size signature helps date the process. Echo remains non-specific overall and is not itself diagnostic &mdash; MRI or biopsy is (myo-019/025)."
+      ] },
+    { id:"myo-025", type:"mcq", objective:"myo-biopsy",
+      question:"Endomyocardial biopsy is not routine in myocarditis. In which situation is it most clearly indicated because it will change management?",
+      options:[
+        "A mild, self-limiting viral case",
+        "An incidental subclinical finding",
+        "Deteriorating disease with VT or new heart block",
+        "A stable patient improving on supportive care",
+        "A classic viral prodrome with a mild troponin rise"],
+      correctIndex:2,
+      explanation:[
+        "EMB is the histological GOLD STANDARD (Dallas, myo-004) but limited by SAMPLING ERROR and procedural risk, so it is reserved for when it will CHANGE MANAGEMENT: fulminant/rapidly deteriorating disease, ventricular arrhythmia or new heart block (pointing to GIANT-CELL myocarditis, myo-014), and suspected eosinophilic or sarcoid myocarditis (Block 4).",
+        "Mild, self-limiting viral cases &mdash; the majority &mdash; do not need biopsy; MRI (myo-019) suffices."
+      ] },
+    { id:"myo-026", type:"mcq", objective:"myo-angio",
+      question:"A 45-year-old with chest pain and a raised troponin is being worked up for possible myocarditis. Why is coronary angiography (or CT coronary angiography) usually performed?",
+      options:[
+        "To make the tissue diagnosis of myocarditis",
+        "To measure the degree of myocardial oedema",
+        "To assess for a pericardial effusion",
+        "To guide immunosuppression therapy",
+        "To exclude an acute coronary syndrome (the mimic)"],
+      correctIndex:4,
+      explanation:[
+        "Myocarditis is a troponin-positive patient with UNOBSTRUCTED coronaries &mdash; so angiography (invasive or CT) is done to EXCLUDE ACS, the identical-looking mimic (myo-011), placing the patient in the MINOCA pathway (myo-001).",
+        "It does not diagnose myocarditis (that is MRI or biopsy) and does not assess oedema or effusion. This is the one 'test role' question that earns its place: it defines the MINOCA gateway the whole work-up hinges on."
+      ] },
+    { id:"myo-027", type:"mcq", objective:"myo-serology",
+      question:"Routine viral serology (antibody titres) is generally not recommended in acute myocarditis. What is the best reason?",
+      options:[
+        "Myocarditis is never caused by a virus",
+        "Troponin already provides the viral diagnosis",
+        "Serology results would delay urgent reperfusion therapy",
+        "The virus is often cleared and titres won't change management",
+        "Serology is far too expensive to justify"],
+      correctIndex:3,
+      explanation:[
+        "By the time cardiac symptoms appear the triggering virus is often already CLEARED, so antibody titres rarely identify the culprit &mdash; and, decisively, the result does NOT change management, which is SUPPORTIVE regardless. That is why it is low-yield, not cost or speed.",
+        "Viral PCR on biopsy TISSUE is a different, more specific test used selectively. The high-value investigations remain MRI (diagnosis, myo-019), troponin (injury, myo-023), echo (function, myo-024) and angiography (exclude ACS, myo-026)."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
