@@ -5717,16 +5717,19 @@ window.MOCK_BANK = {
         "If LDL stays above target on ezetimibe, escalate to a PCSK9 inhibitor, bempedoic acid or inclisiran per criteria (Block 6). Giving up (C) leaves a high-risk patient untreated.",
         "Contrast with lip-050: there the intolerance is NOT yet established, so the answer is to rechallenge, not to switch agent."
       ] },
-    { id:"lip-049", type:"multi", objective:"lip-statin-intensity",
-      boxLabel:"High-intensity regimens (&ge;40% LDL reduction)",
-      question:"From the list, place ALL the regimens that count as HIGH-INTENSITY (a &ge;40% LDL reduction) into the box.",
-      options:["Atorvastatin 20 mg","Atorvastatin 80 mg","Rosuvastatin 10 mg","Rosuvastatin 40 mg","Simvastatin 40 mg","Pravastatin 40 mg","Atorvastatin 10 mg"],
-      correct:[0,1,2,3],
+    { id:"lip-049", type:"mcq", objective:"lip-statin-intensity",
+      question:"A 60-year-old man is down-titrated to atorvastatin 20 mg after intolerance of higher doses following his MI. His registrar says he is 'now only on a moderate-intensity statin'. Is that correct?",
+      options:[
+        "No — atorvastatin 20 mg is already a high-intensity dose",
+        "Yes — only atorvastatin 80 mg is high-intensity",
+        "Yes — high-intensity begins only at atorvastatin 40 mg",
+        "Yes — 20 mg of any statin is moderate-intensity",
+        "No — but only rosuvastatin can be high-intensity"],
+      correctIndex:0,
       explanation:[
-        "NICE intensity bands by percentage LDL reduction: LOW 20&ndash;30%, MEDIUM 31&ndash;39%, HIGH &ge;40%. HIGH-intensity = atorvastatin 20/40/80 and rosuvastatin 10/20/40.",
-        "The catch worth learning: ATORVASTATIN 20 already clears the high bar (~43%), whereas atorvastatin 10 (~37%) and simvastatin 40 (~37%) are only MEDIUM. Pravastatin 40 (~29%) is the single LOW-intensity item in this pool &mdash; the deliberate near-miss.",
-        "Simvastatin 80 mg is technically high-intensity but MHRA-restricted (myopathy risk), so it is not used in practice.",
-        "Clinical anchor: match the band to the goal &mdash; high-intensity for secondary prevention and FH; the primary-prevention start (atorvastatin 20) is already in the high band (lip-040/041)."
+        "NICE intensity bands by % LDL reduction: LOW 20&ndash;30%, MEDIUM 31&ndash;39%, HIGH &ge;40%. ATORVASTATIN 20 mg gives ~43% and is already HIGH-intensity &mdash; the common misconception (the registrar's) is that only 80 mg qualifies.",
+        "The full high-intensity set is atorvastatin 20/40/80 and rosuvastatin 10/20/40. The near-misses: atorvastatin 10 mg (~37%) and simvastatin 40 mg (~37%) are only MEDIUM, and pravastatin 40 mg (~29%) is LOW. (Simvastatin 80 mg is technically high but MHRA-restricted for myopathy.)",
+        "Clinical anchor: you can down-titrate WITHIN the high-intensity range (80 &rarr; 40 &rarr; 20 mg) and still keep a post-MI patient on a high-intensity regimen &mdash; don't wrongly relabel 20 mg as moderate (lip-040/041)."
       ] },
     { id:"lip-050", type:"mcq", objective:"lip-statin-nocebo",
       question:"A 55-year-old man started on atorvastatin for primary prevention two weeks ago reports generalised muscle aches. His CK is normal, he takes no interacting drugs, and he is otherwise well. He asks to switch to 'something without side effects'. What is the most appropriate management?",
