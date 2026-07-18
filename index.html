@@ -6123,16 +6123,18 @@ window.MOCK_BANK = {
         "This autoimmune phase underlies chronic/relapsing disease and is the rationale for IMMUNOSUPPRESSION in selected virus-negative, autoimmune cases (and for the specific immune subtypes, Block 4).",
         "Cross-link: the same self-antigen mimicry principle drives rheumatic fever after streptococcal infection."
       ] },
-    { id:"myo-004", type:"saq", objective:"myo-histology",
-      question:"The histological gold standard for diagnosing myocarditis (the Dallas criteria) requires two findings on endomyocardial biopsy. Name them.",
-      answer:"An inflammatory (typically lymphocytic) infiltrate together with myocyte necrosis/degeneration of a NON-ISCHAEMIC pattern (i.e. not attributable to infarction).",
-      accept:["lymphocytic infiltrate","inflammatory infiltrate","inflammatory cell infiltrate","myocyte necrosis","myocyte damage","myocyte degeneration","myocyte injury","non-ischaemic","non ischaemic","not ischaemic","not due to ischaemia","not ischaemia"],
-      markPoints:[
-        "An inflammatory (typically lymphocytic) infiltrate",
-        "Myocyte necrosis/degeneration of a NON-ISCHAEMIC pattern (the feature distinguishing it from infarction)"
+    { id:"myo-004", type:"fill", objective:"myo-histology",
+      question:"The histological gold standard for diagnosing myocarditis (the Dallas criteria) requires two findings on endomyocardial biopsy. Name them (one per box, in either order).",
+      rows:[
+        "Finding 1:  {{0}}",
+        "Finding 2:  {{1}}"
+      ],
+      blanks:[
+        {label:"Finding 1",accept:["inflammatory infiltrate","lymphocytic infiltrate","inflammatory cell infiltrate","inflammatory cells","lymphocytic","inflammation","leucocyte infiltrate","myocyte necrosis","myocyte degeneration","myocyte damage","myocyte injury","myocyte death","necrosis"],answer:"Inflammatory (typically lymphocytic) infiltrate"},
+        {label:"Finding 2",accept:["inflammatory infiltrate","lymphocytic infiltrate","inflammatory cell infiltrate","inflammatory cells","lymphocytic","inflammation","leucocyte infiltrate","myocyte necrosis","myocyte degeneration","myocyte damage","myocyte injury","myocyte death","necrosis"],answer:"Myocyte necrosis/degeneration in a non-ischaemic pattern"}
       ],
       explanation:[
-        "Dallas criteria = an INFLAMMATORY INFILTRATE (usually lymphocytic) PLUS MYOCYTE NECROSIS/degeneration not explained by ischaemia.",
+        "Dallas criteria = an INFLAMMATORY INFILTRATE (usually lymphocytic) PLUS MYOCYTE NECROSIS/degeneration NOT explained by ischaemia. Either finding can go in either box &mdash; both must be present. The non-ischaemic pattern of the myocyte injury is what distinguishes it from infarction.",
         "Limitations &mdash; SAMPLING ERROR (patchy disease) and interobserver variability &mdash; are why cardiac MRI (Block 3) has become the main non-invasive diagnostic test. The infiltrate TYPE points to a subtype: eosinophils &rarr; eosinophilic myocarditis; multinucleated giant cells &rarr; giant-cell myocarditis (Block 4)."
       ] },
     { id:"myo-005", type:"mcq", objective:"myo-dcm",
@@ -6220,8 +6222,11 @@ window.MOCK_BANK = {
         "Return is not time-based alone but GUIDED by recovery: normalised LV function, resolution of oedema/inflammation on cardiac MRI, and absence of arrhythmia on monitoring/exercise testing &mdash; so 'troponin normalised the next day' is far too soon, and a lifelong ban is unnecessary once recovery is confirmed.",
         "Clinical anchor: this is the counselling counterpart to the vaccine risk&ndash;benefit judgement (myo-007) &mdash; a discrete, examinable instruction that prevents exercise-triggered sudden death."
       ] },
-    { id:"myo-011", type:"mcq", objective:"myo-acs-mimic",
-      question:"A 28-year-old man develops central chest pain 5 days after a sore throat and fever. Troponin is 850 ng/L, the ECG shows minor diffuse ST changes, and he has no cardiac risk factors. Emergency coronary angiography shows unobstructed coronaries. What is the most likely diagnosis?",
+    { id:"myo-011", type:"mcq", objective:"myo-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/9/91/PericarditisMyocarditis.jpg",
+      imageAlt:"A 12-lead ECG with ST-segment changes seen across several of the leads.",
+      imageCredit:"James Heilman, MD, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 28-year-old man develops central chest pain 5 days after a sore throat and fever. He has no cardiac risk factors. His troponin is 850 ng/L, his ECG is shown, and emergency coronary angiography shows unobstructed coronaries. What is the most likely diagnosis?",
       options:[
         "Type 1 myocardial infarction (plaque rupture)",
         "Stable angina",
@@ -6249,7 +6254,7 @@ window.MOCK_BANK = {
         "There is a SPECTRUM graded by how much myocardium is involved: pure PERICARDITIS (troponin normal) &rarr; MYOPERICARDITIS (pericarditis-dominant, troponin mildly up) &rarr; PERI-/MYOCARDITIS (myocardium-dominant, higher troponin + LV dysfunction). It matters because myopericarditis inherits the myocarditis FOLLOW-UP and EXERCISE RESTRICTION (myo-010), whereas pure pericarditis does not (cross-link Pericarditis)."
       ] },
     { id:"myo-013", type:"mcq", objective:"myo-hf-presentation",
-      question:"A 25-year-old woman has 3 weeks of progressive breathlessness, orthopnoea and ankle swelling, developing weeks after a viral illness. Echo shows a dilated left ventricle with an ejection fraction of 30% and no valve disease; the coronary arteries are normal. What is the most likely underlying cause of her new heart failure?",
+      question:"A 25-year-old woman has 3 weeks of progressive breathlessness, orthopnoea and ankle swelling, developing weeks after a viral illness. Echo shows a dilated left ventricle (end-diastolic volume 200 mL, end-systolic volume 140 mL) with no valve disease, and the coronary arteries are normal. What is the most likely underlying cause of her new heart failure?",
       options:[
         "Ischaemic (coronary) cardiomyopathy",
         "Hypertrophic cardiomyopathy",
@@ -6258,6 +6263,7 @@ window.MOCK_BANK = {
         "Hypertensive heart disease"],
       correctIndex:2,
       explanation:[
+        "Work the EF first: (EDV &minus; ESV) &divide; EDV = (200 &minus; 140) &divide; 200 = 60/200 = 30% &mdash; a SEVERELY reduced EF (HFrEF), confirming a dilated, poorly-contracting ventricle.",
         "New heart failure in a YOUNG adult with a dilated, poorly-contracting LV, NO ischaemic/valve/hypertensive cause, developing after a viral illness, points to MYOCARDITIS evolving toward dilated cardiomyopathy (myo-005) &mdash; an identifiable and potentially reversible cause.",
         "The distractors are the older-patient causes of heart failure. Clinical anchor: 'young adult + new DCM + no ischaemia' should always raise myocarditis (cross-link Chronic Heart Failure)."
       ] },
@@ -6385,7 +6391,8 @@ window.MOCK_BANK = {
         "The distractors are either STEMI features (reciprocal depression, pathological Q waves), factually wrong (troponin is raised, not normal), or non-specific and present in both (sinus tachycardia) &mdash; so none is the discriminator. New conduction block is a separate red flag (myo-014)."
       ] },
     { id:"myo-023", type:"mcq", objective:"myo-biomarkers",
-      question:"Which statement about the blood tests in suspected myocarditis is correct?",
+      question:"A 26-year-old presents with chest pain a few days after a viral illness; a later coronary angiogram shows unobstructed arteries. Her blood results are shown. Which statement about these blood tests in suspected myocarditis is correct?",
+      data:'<div class="mk-obs-h">Blood results</div><table class="mk-labs"><tr><td>hs-Troponin T</td><td><b>640 ng/L</b></td><td>&lt;14</td></tr><tr><td>CRP</td><td><b>48 mg/L</b></td><td>&lt;5</td></tr><tr><td>NT-proBNP</td><td><b>1200 ng/L</b></td><td>&lt;125</td></tr><tr><td>White cell count</td><td><b>9.4 &times;10&#8313;/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>ESR</td><td><b>44 mm/hr</b></td><td>&lt;20</td></tr></table>',
       options:[
         "A normal troponin makes myocarditis very unlikely",
         "Troponin usually separates myocarditis from an MI",
@@ -6394,7 +6401,7 @@ window.MOCK_BANK = {
         "BNP tends to stay normal in myocarditis"],
       correctIndex:2,
       explanation:[
-        "Troponin rises with myocyte necrosis but is NON-SPECIFIC &mdash; it cannot separate myocarditis from MI (which is why you angiogram to exclude ACS and MRI to make the diagnosis). BNP rises with LV dysfunction; CRP/ESR are often raised but non-specific.",
+        "Here troponin, CRP, NT-proBNP and ESR are ALL raised &mdash; but each only non-specifically. Troponin rises with myocyte necrosis yet cannot separate myocarditis from MI (which is why you angiogram to exclude ACS and MRI to make the diagnosis); NT-proBNP rises with LV dysfunction; CRP/ESR reflect inflammation of any cause. So a raised CRP does not confirm the diagnosis, and the raised NT-proBNP disproves the claim that BNP stays normal.",
         "Bank-wide thread: a NORMAL test does not clear a high-pretest patient &mdash; like a normal TTE not excluding endocarditis, a single troponin not excluding ACS, or a normal chest film not excluding aortic dissection. Here a normal troponin does NOT exclude myocarditis (it can be normal in subacute/chronic disease), so you still image."
       ] },
     { id:"myo-024", type:"mcq", objective:"myo-echo",
