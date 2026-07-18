@@ -6719,6 +6719,150 @@ window.MOCK_BANK = {
         "Management mirrors adults (supportive/intensive care, mechanical support if needed, myo-037/040) but with a lower threshold for rapid deterioration."
       ] },
   ],
+  "conditions__CARDIOVASCULAR__Pericarditis": [
+    { id:"peri-001", type:"mcq", objective:"peri-viral",
+      question:"A 28-year-old man has two days of sharp central chest pain that is worse lying flat and eased by sitting forward, a week after coryzal symptoms. There is a pericardial friction rub, a normal troponin and widespread concave (saddle-shaped) ST elevation with PR depression. What is the most likely cause?",
+      options:[
+        "Viral (or idiopathic) pericarditis",
+        "Bacterial (purulent) pericarditis",
+        "Tuberculous pericarditis",
+        "Uraemic pericarditis",
+        "Malignant pericardial infiltration"],
+      correctIndex:0,
+      explanation:[
+        "In the developed world the great majority of acute pericarditis is VIRAL or IDIOPATHIC &mdash; a young patient, a preceding viral URTI (Coxsackie B, echovirus), positional pleuritic pain, a rub and the classic ECG. It is self-limiting and treated with an NSAID PLUS COLCHICINE (colchicine cuts recurrence).",
+        "The distractors are the specific-context causes tested across this block: purulent (septic/pneumonia, peri-006), tuberculous (endemic/HIV, peri-005), uraemic (renal failure, peri-004) and malignant (known cancer, peri-007) &mdash; none fits a well young man after a cold.",
+        "Cross-link: the normal troponin and diffuse (not territorial) ST elevation with PR depression separate this from STEMI and from myopericarditis (troponin rises when the myocardium is also inflamed) &mdash; the ECG criteria are owned in Block 2."
+      ] },
+    { id:"peri-002", type:"mcq", objective:"peri-early-infarct",
+      question:"A 65-year-old man is three days into recovery from a large anterior STEMI treated with primary PCI. He develops sharp, pleuritic, positional chest pain and a pericardial friction rub. His serial troponin is falling from its peak. What is the most likely diagnosis?",
+      options:[
+        "Re-infarction / stent thrombosis",
+        "Early (peri-infarction) pericarditis",
+        "Dressler's syndrome",
+        "Pulmonary embolism",
+        "Ventricular free-wall rupture"],
+      correctIndex:1,
+      explanation:[
+        "EARLY (peri-infarction) pericarditis appears WITHIN DAYS of a transmural MI, as inflammation over the infarcted, necrotic myocardium: pleuritic/positional pain and a rub, with troponin FALLING from its peak (not re-rising).",
+        "The distractors are the real post-MI chest-pain differential, and the discriminators matter: re-infarction/stent thrombosis re-raises troponin with ischaemic (crushing, non-positional) pain; PE gives pleuritic pain but with hypoxia/tachycardia and no rub; free-wall rupture is the lethal one &mdash; sudden collapse with tamponade physiology (owned in the tamponade block). Dressler's is the SAME injury but WEEKS later (peri-003).",
+        "Management diverges from viral pericarditis: post-MI the treatment is ASPIRIN, not the ibuprofen-plus-colchicine reflex (peri-010) &mdash; other NSAIDs and steroids impair infarct healing."
+      ] },
+    { id:"peri-003", type:"mcq", objective:"peri-dressler",
+      question:"A 60-year-old woman presents four weeks after a myocardial infarction with fever, malaise, pleuritic chest pain, a pericardial rub, a small pericardial effusion and raised CRP and ESR. What is the most likely diagnosis?",
+      options:[
+        "Early (peri-infarction) pericarditis",
+        "Recurrent myocardial infarction",
+        "Dressler's syndrome",
+        "Infective endocarditis",
+        "Community-acquired pneumonia"],
+      correctIndex:2,
+      explanation:[
+        "DRESSLER'S SYNDROME (post-cardiac-injury syndrome) is an AUTOIMMUNE pericarditis arising 2&ndash;6 WEEKS after MI or cardiac surgery: fever, pleuritic pain, a rub, an effusion and raised inflammatory markers. Treat with an NSAID plus colchicine (steroids if refractory).",
+        "TIMING is the discriminator from early peri-infarction pericarditis (days, peri-002): the delay reflects an immune response to myocardial antigens rather than direct inflammation over the infarct. It is now uncommon in the reperfusion era.",
+        "Cross-link: this is the same post-injury autoimmune mechanism family as the SLE serositis of peri-009 &mdash; both sit in the autoimmune bucket of the peri-008 map."
+      ] },
+    { id:"peri-004", type:"mcq", objective:"peri-uraemic",
+      question:"A 55-year-old man with end-stage renal failure who has not yet started dialysis develops pleuritic chest pain and a pericardial friction rub. His blood results are shown. What is the most appropriate management of his pericarditis?",
+      data:'<div class="mk-obs-h">Blood results</div><table class="mk-labs"><tr><td>Urea</td><td><b>41.0 mmol/L</b></td><td>2.5&ndash;7.8</td></tr><tr><td>Creatinine</td><td><b>890 &micro;mol/L</b></td><td>45&ndash;90</td></tr><tr><td>Potassium</td><td><b>6.2 mmol/L</b></td><td>3.5&ndash;5.0</td></tr><tr><td>eGFR</td><td><b>6 mL/min</b></td><td>&gt;90</td></tr></table>',
+      options:[
+        "High-dose ibuprofen alone",
+        "Colchicine alone",
+        "Broad-spectrum IV antibiotics",
+        "Urgent (intensified) dialysis",
+        "Reassurance and discharge"],
+      correctIndex:3,
+      explanation:[
+        "URAEMIC pericarditis complicates advanced renal failure and is itself an INDICATION FOR DIALYSIS &mdash; the mainstay is urgent/intensified dialysis, which usually resolves it, not NSAIDs (renal risk) or steroids.",
+        "The examinable nuance splits by context: pericarditis in a NOT-yet-dialysed patient (this man, very high urea) is uraemic and treated by STARTING/INTENSIFYING dialysis; pericarditis in an already-dialysed patient (‘dialysis pericarditis’) usually reflects UNDER-dialysis and is treated by dialysing MORE. Either way, watch for a large or haemorrhagic effusion &mdash; heparin used during dialysis can worsen bleeding, so heparin-free dialysis is preferred when effusion is present.",
+        "Trap: the hyperkalaemia and pleuritic pain can distract toward an ACS/NSAID reflex &mdash; but the driver here is uraemia, and dialysis treats both. Cross-link Renal (indications for dialysis: the classic AEIOU includes pericarditis)."
+      ] },
+    { id:"peri-005", type:"mcq", objective:"peri-tb",
+      question:"A 40-year-old man from a tuberculosis-endemic region has six weeks of fever, drenching night sweats, weight loss and progressive breathlessness. Echocardiography shows a large pericardial effusion containing fibrinous strands. What is the most likely cause?",
+      options:[
+        "Viral pericarditis",
+        "Uraemic pericarditis",
+        "Dressler's syndrome",
+        "Rheumatic fever",
+        "Tuberculous pericarditis"],
+      correctIndex:4,
+      explanation:[
+        "TUBERCULOUS pericarditis is SUBACUTE, with constitutional symptoms (fever, night sweats, weight loss) and a large EXUDATIVE effusion &mdash; high protein, lymphocyte-predominant, with a raised adenosine deaminase (ADA) &mdash; often with fibrinous strands. It is a major cause worldwide and in HIV.",
+        "Its downstream importance is CONSTRICTION: TB is the classic cause of constrictive pericarditis (the fibrinous, then fibrocalcific, healing) &mdash; the block's most important forward-link (owned in the constriction block).",
+        "Management is anti-tuberculous therapy; adjunctive CORTICOSTEROIDS are debated rather than standard &mdash; the IMPI trial was largely neutral overall, with a possible benefit signal in HIV-negative patients &mdash; so steroids are considered case-by-case, not routine."
+      ] },
+    { id:"peri-006", type:"mcq", objective:"peri-purulent",
+      question:"A critically unwell 50-year-old with pneumococcal pneumonia and sepsis develops muffled heart sounds and a pericardial effusion. Aspirated pericardial fluid is frankly purulent. What is the priority in management?",
+      options:[
+        "Pericardial drainage and IV antibiotics",
+        "Oral NSAID and colchicine alone",
+        "Anti-tuberculous therapy",
+        "Intensified dialysis",
+        "High-dose corticosteroids"],
+      correctIndex:0,
+      explanation:[
+        "PURULENT (bacterial) pericarditis is rare but a medical EMERGENCY with high mortality, usually spreading from pneumonia/empyema, bacteraemia or after cardiac surgery. The priority is URGENT DRAINAGE plus IV antibiotics &mdash; source control of infected fluid.",
+        "The distractors are each the correct treatment for a DIFFERENT cause (NSAID+colchicine for viral, anti-TB for tuberculous, dialysis for uraemic, steroids never as sole therapy) &mdash; the block's point is that management is cause-specific.",
+        "Watch for tamponade (muffled sounds already hint at a significant effusion) and later constriction &mdash; purulent effusions are among the most tamponade-prone."
+      ] },
+    { id:"peri-007", type:"mcq", objective:"peri-malignant",
+      question:"A 68-year-old woman with known metastatic lung cancer develops progressive breathlessness and a large pericardial effusion. What is the most likely cause of the effusion?",
+      options:[
+        "Viral pericarditis",
+        "Malignant pericardial involvement",
+        "Dressler's syndrome",
+        "Uraemic pericarditis",
+        "Rheumatoid pericarditis"],
+      correctIndex:1,
+      explanation:[
+        "MALIGNANT pericardial effusions (lung, breast, lymphoma, melanoma) are often LARGE, HAEMORRHAGIC and TAMPONADE-PRONE; the diagnosis is confirmed on fluid cytology. Management is drainage (± a pericardial window for recurrent effusions) plus treating the cancer.",
+        "Anchor: a known cancer plus a large pericardial effusion is malignant until proven otherwise. The rapid re-accumulation is why a window (rather than one-off drainage) is often needed.",
+        "This is the effusion end of the spectrum that leads into the effusion/tamponade block &mdash; large volume, slow enough to allow the pericardium to stretch, but at constant risk of tipping into tamponade."
+      ] },
+    { id:"peri-008", type:"categorize", objective:"peri-cause-map",
+      question:"Sort each cause of pericarditis into its aetiological family.",
+      buckets:["Infective","Autoimmune / inflammatory","Metabolic (uraemic)","Neoplastic"],
+      items:[
+        { text:"Coxsackievirus infection", bucket:0 },
+        { text:"Tuberculosis", bucket:0 },
+        { text:"Systemic lupus erythematosus", bucket:1 },
+        { text:"Dressler's syndrome", bucket:1 },
+        { text:"Uraemia in end-stage renal failure", bucket:2 },
+        { text:"Metastatic breast carcinoma", bucket:3 }
+      ],
+      explanation:[
+        "The aetiology map is the spine of this block: each family carries a signature context that STEERS MANAGEMENT &mdash; infective splits into self-limiting viral (NSAID+colchicine) vs anti-TB vs urgent-drainage purulent; autoimmune (SLE serositis, Dressler's) is treated with anti-inflammatories ± immunosuppression; uraemic is an indication for dialysis; neoplastic needs drainage/window and oncology.",
+        "Both SLE and Dressler's sit in the autoimmune bucket because both are immune-mediated serositis (peri-003, peri-009). TB sits under infective but is the one that most often ends in CONSTRICTION &mdash; the thread this block hands to the constriction block."
+      ] },
+    { id:"peri-009", type:"mcq", objective:"peri-sle",
+      question:"A 24-year-old woman with a malar rash, small-joint arthralgia and recurrent mouth ulcers develops sharp pleuritic chest pain relieved by sitting forward, with a pericardial friction rub. Blood tests show a positive ANA and low C3 and C4. What is the most likely underlying cause of her pericarditis?",
+      options:[
+        "Viral (idiopathic) pericarditis",
+        "Tuberculous pericarditis",
+        "Systemic lupus erythematosus",
+        "Uraemic pericarditis",
+        "Bacterial (purulent) pericarditis"],
+      correctIndex:2,
+      explanation:[
+        "PERICARDITIS is the COMMONEST cardiac manifestation of SLE and the most frequent form of lupus SEROSITIS &mdash; it can even be the presenting feature. The multisystem picture (malar rash, arthralgia, oral ulcers) with a positive ANA and LOW complement (C3/C4, reflecting active disease) points to lupus.",
+        "It is treated as part of the lupus: NSAIDs/colchicine for mild serositis, corticosteroids ± immunosuppression for more severe or refractory disease &mdash; distinct from the cause-specific treatments of the other options.",
+        "Cross-links: the same autoimmune thread runs through Dressler's (peri-003) and autoimmune/ICI myocarditis; and lupus also causes LIBMAN-SACKS (sterile, non-bacterial) endocarditis (Infective Endocarditis) &mdash; two cardiac faces of the one disease."
+      ] },
+    { id:"peri-010", type:"mcq", objective:"peri-early-infarct",
+      question:"A 68-year-old man develops sharp, positional, pleuritic chest pain and a pericardial friction rub three days after a large STEMI treated with primary PCI; his troponin is falling. He is already taking aspirin. What is the most appropriate treatment for his pericarditis?",
+      options:[
+        "Switch to ibuprofen and colchicine",
+        "Start high-dose prednisolone",
+        "Start indomethacin",
+        "Continue aspirin at anti-inflammatory dose",
+        "Start naproxen"],
+      correctIndex:3,
+      explanation:[
+        "This is early (peri-infarction) pericarditis, and its management REVERSES the usual pericarditis reflex. Viral pericarditis is treated with an NSAID PLUS COLCHICINE, but in the first days-to-weeks after an MI the treatment of choice is ASPIRIN (at an anti-inflammatory dose) &mdash; conveniently the drug he is already on.",
+        "The trap options are the standard pericarditis anti-inflammatories: other NSAIDs (ibuprofen, indomethacin, naproxen) and CORTICOSTEROIDS are AVOIDED post-MI because they impair myocardial (infarct) healing and increase the risk of ventricular FREE-WALL RUPTURE. Steroids also raise recurrence.",
+        "Cross-link: this mirrors the NSAID-context reversal in myocarditis (myo-038: NSAIDs avoided there, first-line in pericarditis) &mdash; except here the reversal happens WITHIN pericarditis, driven by cause (post-MI vs viral). (Colchicine has separate post-MI evidence, COLCOT, but the acute peri-infarction pericarditis mainstay is aspirin; it is the other NSAIDs and steroids that are the wrong reach.)"
+      ] },
+  ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
       question:"A 58-year-old man is admitted with three weeks of night sweats, fevers and malaise. Four years ago he was treated for infective endocarditis following a dental abscess. He also has a bicuspid aortic valve, type 2 diabetes, and a normal colonoscopy last year for altered bowel habit. His observations are shown. Which factor most strongly predisposes him to a further episode of infective endocarditis?",
