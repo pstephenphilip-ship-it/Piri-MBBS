@@ -5243,7 +5243,7 @@ window.MOCK_BANK = {
       explanation:[
         "The FATTY STREAK is a flat, yellow subendothelial collection of lipid-laden foam cells (± T cells) — reversible and near-universal in youth. It progresses to the fibrofatty plaque (lip-002/003), so atherosclerosis begins decades before any clinical event."
       ] },
-    { id:"lip-009", type:"mcq",
+    { id:"lip-009", type:"mcq", objective:"lip-plaque",
       question:"On angiography a coronary lesion causes only about 40% stenosis, yet intravascular ultrasound shows a large, lipid-rich plaque. How can so much plaque produce so little luminal narrowing?",
       options:["Compensatory vasodilation widens the lumen around the plaque","The plaque is compressible and flattens under arterial pressure","The artery remodels outward, so the lumen is spared until late","Angiography over-reads plaque, so the true stenosis is even less","Lipid-rich plaques are inherently smaller than calcified ones"],
       correctIndex:2,
@@ -5288,7 +5288,7 @@ window.MOCK_BANK = {
         "So HDL FUNCTION, not the level, is what matters, and — unlike LDL — it is not a useful drug target.",
         "Clinical anchor: why guidelines do not set an HDL treatment goal or 'treat to raise HDL'."
       ] },
-    { id:"lip-014", type:"mcq",
+    { id:"lip-014", type:"mcq", objective:"lip-fcs-mech",
       question:"A 24-year-old man presents with severe epigastric pain and vomiting. His serum sample is lipaemic (milky), the triglycerides are 48 mmol/L, and he has crops of small yellow papules over his buttocks and elbows. Which deficiency best explains this picture?",
       options:["Hepatic LDL-receptor deficiency","Lipoprotein lipase (or its cofactor ApoC-II)","HMG-CoA reductase deficiency","PCSK9 loss of function","Lecithin-cholesterol acyltransferase (LCAT) deficiency"],
       correctIndex:1,
@@ -5297,7 +5297,7 @@ window.MOCK_BANK = {
         "This is a TRIGLYCERIDE disorder, not a cholesterol one — statins barely touch it.",
         "Clinical anchor: triglycerides >10 mmol/L threaten pancreatitis; manage with a very-low-fat diet and fibrates (Block 7). Trap: PCSK9/LDL-receptor defects raise LDL cholesterol, not triglycerides."
       ] },
-    { id:"lip-015", type:"mcq",
+    { id:"lip-015", type:"mcq", objective:"lip-diabetic-dyslip",
       question:"A 58-year-old man with type 2 diabetes has raised triglycerides, a low HDL, and a calculated LDL-C that looks unremarkable — the typical 'diabetic (atherogenic) dyslipidaemia'. Beyond LDL, which particles chiefly explain the extra atherosclerotic risk of this pattern?",
       options:["HDL particles and their ApoA1","Triglyceride-rich VLDL and their IDL remnants","Chylomicrons carrying newly absorbed dietary fat","Free fatty acids transported bound to albumin","Lipoprotein(a) particles, exclusively"],
       correctIndex:1,
@@ -5305,7 +5305,7 @@ window.MOCK_BANK = {
         "Diabetic dyslipidaemia = high triglycerides + low HDL + small, dense LDL. The extra atherogenicity comes from the ApoB-containing, triglyceride-rich VLDL and their cholesterol-rich REMNANTS (IDL) — atherogenic particles that a normal-looking LDL-C simply does not capture.",
         "Clinical anchor: this is exactly why ApoB and non-HDL cholesterol are the better targets in this group (lip-016/017), and why treating LDL-C alone under-treats the risk."
       ] },
-    { id:"lip-016", type:"mcq",
+    { id:"lip-016", type:"mcq", objective:"lip-diabetic-dyslip",
       question:"A 47-year-old man with type 2 diabetes has fasting lipids: triglycerides 4.8, HDL 0.9, and a calculated LDL-C of 2.1 mmol/L (apparently at target) — yet his measured apolipoprotein B is high. Why does the ApoB reflect his cardiovascular risk better than the LDL-C here?",
       options:["ApoB mainly measures the protective HDL particles","LDL-C always overestimates cardiovascular risk when triglycerides are high","ApoB counts particle number; small dense LDL means LDL-C undercounts it","ApoB and LDL-C always convey identical information","ApoB reflects only the dietary cholesterol intake"],
       correctIndex:2,
@@ -5328,7 +5328,7 @@ window.MOCK_BANK = {
       explanation:[
         "LIPOPROTEIN(a) is an LDL-like particle with apo(a) attached; it is HERITABLE, independently atherogenic AND prothrombotic, and NOT lowered by statins (which may even nudge it up).",
         "Measure it ONCE in premature or familial cardiovascular disease with an unremarkable LDL.",
-        "Clinical anchor: PCSK9 inhibitors lower Lp(a) modestly and emerging siRNA agents (e.g. pelacarsen) lower it substantially in trials (Block 6)."
+        "Clinical anchor: PCSK9 inhibitors lower Lp(a) modestly and the antisense agent pelacarsen (with siRNAs such as olpasiran) lowers it substantially in trials (Block 6)."
       ] },
     { id:"lip-019", type:"mcq",
       question:"A 30-year-old woman has an untreated LDL-C of 9.0 mmol/L, tendon xanthomata over her knuckles, and a father who died of a myocardial infarction at 42. Her underlying defect impairs which normal process, explaining the very high LDL?",
@@ -5344,12 +5344,12 @@ window.MOCK_BANK = {
       options:["LDL","HDL","VLDL","Nascent (pre-β) HDL","IDL (remnant particles)","Lipoprotein(a)"],
       correct:[0,2,4,5],
       explanation:[
-        "ApoB marks every ATHEROGENIC particle: LDL, VLDL, IDL and Lp(a) each carry one ApoB (as do chylomicron remnants). HDL and nascent HDL carry ApoA1, not ApoB; free fatty acids are not lipoproteins at all.",
+        "ApoB marks every ATHEROGENIC particle: LDL, VLDL, IDL and Lp(a) each carry one ApoB (as do chylomicron remnants). HDL and its nascent (pre-β) precursor carry ApoA1, not ApoB, so neither is atherogenic.",
         "Clinical anchor: this is precisely why an ApoB level — or non-HDL cholesterol — counts total atherogenic particle number better than LDL-C alone (lip-016/017)."
       ] },
     { id:"lip-021", type:"mcq",
       image:"https://upload.wikimedia.org/wikipedia/commons/2/2f/Multiple_hand_xanthomas_18_yo_case_report.jpg",
-      imageAlt:"Photograph of both hands showing multiple firm nodular swellings over the finger and knuckle extensor tendons.",
+      imageAlt:"Photograph of both hands showing multiple firm, non-tender nodular swellings over the backs of the fingers and knuckles.",
       imageCredit:"Kumar et al., CC BY 2.0, via Wikimedia Commons.",
       question:"A 35-year-old man is referred after his brother had a myocardial infarction at 40. He feels well, but examination of his hands shows the firm, non-tender deposits pictured. Fasting LDL-C is 6.5 mmol/L; he is a non-smoker, normotensive and non-diabetic. What is the most likely diagnosis?",
       options:["Heterozygous familial hypercholesterolaemia","Polygenic hypercholesterolaemia","Familial combined hyperlipidaemia","Remnant (type III) hyperlipidaemia","Familial hypertriglyceridaemia"],
@@ -5379,16 +5379,16 @@ window.MOCK_BANK = {
       ] },
     { id:"lip-024", type:"mcq",
       question:"A 38-year-old woman is confirmed to have familial hypercholesterolaemia. What is the most important next step for her family?",
-      options:["Reassure relatives and screen only if they develop symptoms","Cascade lipid ± genetic testing of her first-degree relatives","Start all relatives empirically on a statin","Arrange CT coronary angiography for every relative now","No action is needed, as FH is not heritable"],
+      options:["Test her children at 18 and relatives only if symptomatic","Cascade lipid ± genetic testing of her first-degree relatives","Arrange coronary calcium scoring for first-degree relatives","Check relatives' triglycerides as the key screening test","Start all first-degree relatives on a statin at age 40"],
       correctIndex:1,
       explanation:[
         "FH is AUTOSOMAL DOMINANT, so each first-degree relative has a 50% chance of carrying it. CASCADE SCREENING — measuring LDL (and testing for the family's known mutation), extending stepwise to 1st- then 2nd-degree relatives — is the highest-yield way to find affected people BEFORE they have events.",
-        "Waiting for symptoms misses the point of a silent, lifelong condition; empirical statins and universal CT are neither targeted nor evidence-based; FH is clearly heritable.",
+        "The distractors are plausible but wrong: FH screening should start in CHILDHOOD (not waiting for symptoms or age 40); the discriminating analyte is LDL, not triglyceride; and calcium scoring assesses established disease, not carrier status.",
         "Clinical anchor: early detection → early statin → premature CVD prevented. FH remains substantially underdiagnosed, which is why systematic cascade testing matters."
       ] },
     { id:"lip-025", type:"mcq",
       image:"assets/img/palmar_xanthoma.png",
-      imageAlt:"Photograph of a palm showing yellow-orange deposits running along the palmar creases.",
+      imageAlt:"Photograph of a palm showing yellow-orange deposits across the surface of the palm.",
       question:"A 50-year-old man with a raised BMI has both a high cholesterol AND high triglycerides (a mixed picture). Examination of his palms shows the deposits pictured. What is the most likely diagnosis?",
       options:["Familial hypercholesterolaemia","Familial combined hyperlipidaemia","Remnant (type III) hyperlipidaemia","Familial hypertriglyceridaemia","Nephrotic dyslipidaemia"],
       correctIndex:2,
@@ -5459,7 +5459,7 @@ window.MOCK_BANK = {
       ] },
     { id:"lip-032", type:"mcq", objective:"lip-arcus",
       image:"https://upload.wikimedia.org/wikipedia/commons/1/1a/Corneal_arcus.jpg",
-      imageAlt:"Close-up of an eye with a pale ring around the periphery of the cornea.",
+      imageAlt:"Close-up of an eye showing a ring at the margin of the cornea.",
       imageCredit:"A. Montasir, CC BY-SA 4.0, via Wikimedia Commons.",
       question:"A 38-year-old man attends for a new-patient check. His eye shows the appearance pictured at the corneal margin. He is well and takes no medication. Which interpretation is correct?",
       options:[
@@ -5540,7 +5540,7 @@ window.MOCK_BANK = {
       ] },
     { id:"lip-037", type:"mcq", objective:"lip-eruptive",
       image:"assets/img/eruptive_xanthoma.png",
-      imageAlt:"Extensor surfaces of an elbow and a knee showing crops of small yellow-orange papules, several with a reddish base.",
+      imageAlt:"Extensor surfaces of an elbow and a knee showing multiple crops of small raised papules.",
       question:"A 30-year-old man develops the skin lesions pictured over his buttocks and the extensor surfaces of his elbows and knees over a few weeks. He drinks heavily and has poorly-controlled diabetes. When blood is drawn the serum looks milky. What do these skin lesions signify, and what is the priority?",
       options:[
         "Molluscum contagiosum; no metabolic work-up is needed",
@@ -5616,10 +5616,10 @@ window.MOCK_BANK = {
       question:"A 68-year-old on a statin was started on clarithromycin three days ago and now has severe muscle pain and weakness with dark urine. CK is 12 000 U/L and the creatinine is rising. What is the most appropriate immediate step?",
       options:[
         "Stop the statin and check renal function urgently",
-        "Continue and add regular paracetamol",
-        "Halve the dose and recheck CK in three months",
-        "Switch to an alternate-day regimen immediately",
-        "Reassure; this myalgia is expected and harmless"],
+        "Continue the statin and start intravenous fluids",
+        "Halve the dose and recheck the CK in one week",
+        "Stop only the clarithromycin and continue the statin",
+        "Switch immediately to a different statin"],
       correctIndex:0,
       explanation:[
         "This is RHABDOMYOLYSIS &mdash; CK &gt;10&times; ULN, myoglobinuria (dark urine) and acute kidney injury. STOP the statin, give IV fluids, and monitor renal function and potassium.",
@@ -5631,13 +5631,13 @@ window.MOCK_BANK = {
       options:[
         "Continue both; there is no important interaction",
         "Withhold the simvastatin during the antibiotic course",
-        "Double the simvastatin to maintain cover",
-        "Increase to simvastatin 80 mg for the week",
-        "Add grapefruit juice to aid its absorption"],
+        "Halve the simvastatin dose for the course",
+        "Continue the simvastatin but check the CK weekly",
+        "Switch the antibiotic to erythromycin instead"],
       correctIndex:1,
       explanation:[
         "Simvastatin (and atorvastatin) are CYP3A4 substrates. CYP3A4 INHIBITORS &mdash; macrolides (clarithromycin, erythromycin), azole antifungals, some HIV/HCV antivirals, and GRAPEFRUIT juice &mdash; raise statin levels and precipitate myopathy/rhabdomyolysis (lip-042). Withhold the simvastatin during a short macrolide course.",
-        "Dose caps reinforce the point: simvastatin is capped at 20 mg with amlodipine, diltiazem or verapamil. Grapefruit (option E) is an inhibitor, not an aid.",
+        "The wrong options are all under-cautious or misdirected: merely halving the dose or checking CK weekly still leaves a dangerous interaction, and switching to ERYTHROMYCIN is no help &mdash; it is also a CYP3A4 inhibitor. (Simvastatin is likewise capped at 20 mg with amlodipine, diltiazem or verapamil.)",
         "Clinical anchor: rosuvastatin and pravastatin are far less CYP3A4-dependent, so they are the pragmatic switch when an interacting drug is unavoidable."
       ] },
     { id:"lip-044", type:"mcq", objective:"lip-statin-lft",
@@ -5645,14 +5645,14 @@ window.MOCK_BANK = {
       options:[
         "Continue the statin and recheck liver enzymes",
         "Stop the statin permanently",
-        "Stop and never rechallenge any statin",
+        "Recheck in a week and stop if still raised",
         "Halve the dose and arrange an ultrasound",
         "Refer urgently to hepatology"],
       correctIndex:0,
       explanation:[
         "A transaminase rise of LESS than 3&times; ULN is common early on and is NOT a reason to stop &mdash; continue and recheck. Reduce or stop only if ALT/AST rises above 3&times; ULN and persists.",
         "Monitoring schedule: check LFTs at baseline, 3 months and 12 months. Clinically important statin liver injury is rare.",
-        "Trap: reflexive discontinuation (B/C) needlessly removes an effective drug; hepatology referral (E) is disproportionate for an asymptomatic sub-3&times; rise."
+        "Trap: reflexive discontinuation (B) needlessly removes an effective drug; stopping for a sub-3&times; rise (C) is over-cautious, as is halving with an ultrasound (D); hepatology referral (E) is disproportionate for an asymptomatic sub-3&times; rise."
       ] },
     { id:"lip-045", type:"mcq", objective:"lip-statin-dm",
       question:"A 60-year-old on atorvastatin for primary prevention has an HbA1c that has drifted from 40 to 44 mmol/mol. He has read that statins cause diabetes and asks to stop. What is the best advice?",
@@ -5715,7 +5715,7 @@ window.MOCK_BANK = {
       options:["Atorvastatin 20 mg","Atorvastatin 80 mg","Rosuvastatin 10 mg","Rosuvastatin 40 mg","Simvastatin 40 mg","Pravastatin 40 mg","Atorvastatin 10 mg"],
       correct:[0,1,2,3],
       explanation:[
-        "NICE intensity bands by percentage LDL reduction: LOW 20&ndash;30%, MEDIUM 31&ndash;40%, HIGH &gt;40%. HIGH-intensity = atorvastatin 20/40/80 and rosuvastatin 10/20/40.",
+        "NICE intensity bands by percentage LDL reduction: LOW 20&ndash;30%, MEDIUM 31&ndash;39%, HIGH &ge;40%. HIGH-intensity = atorvastatin 20/40/80 and rosuvastatin 10/20/40.",
         "The catch worth learning: ATORVASTATIN 20 already clears the high bar (~43%), whereas atorvastatin 10 (~37%) and simvastatin 40 (~37%) are only MEDIUM. Pravastatin 40 (~29%) is the single LOW-intensity item in this pool &mdash; the deliberate near-miss.",
         "Simvastatin 80 mg is technically high-intensity but MHRA-restricted (myopathy risk), so it is not used in practice.",
         "Clinical anchor: match the band to the goal &mdash; high-intensity for secondary prevention and FH; the primary-prevention start (atorvastatin 20) is already in the high band (lip-040/041)."
@@ -5746,7 +5746,7 @@ window.MOCK_BANK = {
       explanation:[
         "CKD is an AUTOMATIC statin indication: offer ATORVASTATIN 20 mg for both primary and secondary prevention, with QRISK3 BYPASSED (the same 'already high-risk' logic as lip-036).",
         "Dose caution: do NOT go above 20 mg with an eGFR &lt;30 without agreeing it with the renal team. Statins are not nephrotoxic (killing option C), and fibrates are not preferred (option D).",
-        "Negative-result limb: statins do NOT reduce cardiovascular events in DIALYSIS patients (the 4D and AURORA trials) &mdash; so you would not START one de novo on dialysis, though established therapy is usually continued. Same 'proven where it counts, not everywhere' shape as the HDL story (lip-014)."
+        "Negative-result limb: statins do NOT reduce cardiovascular events in DIALYSIS patients (the 4D and AURORA trials) &mdash; so you would not START one de novo on dialysis, though established therapy is usually continued. Same 'proven where it counts, not everywhere' shape as the HDL story (lip-013)."
       ] },
     { id:"lip-052", type:"mcq", objective:"lip-statin-timing",
       question:"A patient is prescribed simvastatin 40 mg. When should it be taken, and why?",
@@ -5807,11 +5807,11 @@ window.MOCK_BANK = {
     { id:"lip-056", type:"mcq", objective:"lip-pcsk9-criteria",
       question:"Which patient is most likely to meet NICE criteria for a PCSK9 inhibitor?",
       options:[
-        "Newly diagnosed and statin-naïve, with an LDL of 4.0",
-        "On atorvastatin 20 mg alone, not yet titrated up",
-        "Isolated hypertriglyceridaemia with a normal LDL",
+        "Statin-naïve with an LDL of 4.0 and no prior therapy",
+        "On atorvastatin 20 mg alone, ezetimibe not yet added",
+        "Mixed dyslipidaemia with a high TG and normal LDL",
         "Established CVD, LDL high despite maximal statin and ezetimibe",
-        "Statin-tolerant with an LDL already at target"],
+        "FH with LDL at target on atorvastatin 80 and ezetimibe"],
       correctIndex:3,
       explanation:[
         "PCSK9 inhibitors are reserved for people whose LDL stays ABOVE a defined threshold DESPITE maximal tolerated statin + ezetimibe. The thresholds vary by risk category (higher for primary prevention/FH, lower for high-risk secondary prevention).",
@@ -5835,16 +5835,16 @@ window.MOCK_BANK = {
     { id:"lip-058", type:"mcq", objective:"lip-bempedoic",
       question:"A high-risk patient with confirmed statin intolerance (myalgia recurring on rechallenge) still has a high LDL on ezetimibe. Which agent is specifically designed to lower LDL while sparing muscle?",
       options:[
-        "Simvastatin at a low dose",
         "Gemfibrozil",
+        "A high-dose statin rechallenge",
         "Niacin",
-        "A thiazolidinedione",
+        "Uptitrating the ezetimibe dose",
         "Bempedoic acid"],
       correctIndex:4,
       explanation:[
         "Bempedoic acid inhibits ATP-CITRATE LYASE, one step UPSTREAM of HMG-CoA reductase in the same cholesterol pathway. Crucially it is a PRODRUG activated in the LIVER but NOT in muscle, so it rarely causes myalgia &mdash; the ideal option after genuine statin intolerance (lip-048/050).",
         "Caveats: it RAISES uric acid (can precipitate gout) and carries a tendon-rupture caution. CLEAR Outcomes (2023) showed cardiovascular event reduction in statin-intolerant patients &mdash; real outcome data, not just an LDL change (lip-063).",
-        "Trap: re-offering any statin (A) or an unrelated agent (D) misses the point &mdash; the requirement is muscle-sparing LDL lowering."
+        "Trap: re-challenging with a statin (B) is self-defeating in true intolerance, uptitrating ezetimibe (D) adds little, and gemfibrozil/niacin (A/C) are the wrong axis (they barely lower LDL) &mdash; the requirement is muscle-sparing LDL lowering."
       ] },
     { id:"lip-059", type:"mcq", objective:"lip-fibrate",
       question:"A patient on a statin for mixed dyslipidaemia has a persistently raised triglyceride, and a fibrate is being considered as an add-on. Which is the key safety and evidence point?",
@@ -5956,16 +5956,16 @@ window.MOCK_BANK = {
     { id:"lip-067", type:"mcq", objective:"lip-hitg-pancreatitis",
       question:"A 44-year-old with known hypertriglyceridaemia is admitted with severe acute pancreatitis; triglyceride is 40 mmol/L and glucose 12. Alongside fluids and analgesia, which is the most appropriate specific measure to lower the triglyceride acutely?",
       options:[
-        "A high-intensity statin such as atorvastatin 80 mg",
-        "An oral bile-acid sequestrant (colestyramine)",
-        "A subcutaneous PCSK9 inhibitor injection",
+        "An intravenous heparin infusion to release LPL",
+        "An oral fibrate started on the same day",
+        "High-dose omega-3 fish-oil capsules",
         "An intravenous insulin infusion, with dextrose cover",
-        "Oral ezetimibe added to the statin"],
+        "Strict oral fat restriction as the only measure"],
       correctIndex:3,
       explanation:[
-        "Acute hypertriglyceridaemic pancreatitis (TG usually &gt;11 mmol/L): lower TG rapidly with an INSULIN infusion &mdash; insulin ACTIVATES LPL, accelerating chylomicron/VLDL clearance &mdash; with dextrose to prevent hypoglycaemia; PLASMAPHERESIS (apheresis) for severe or refractory cases.",
-        "Why not heparin: heparin releases LPL from the endothelium into plasma, so it transiently lowers TG &mdash; but it then DEPLETES LPL stores and TG rebounds, so it is not used as treatment (the heparin&ndash;LPL link is a physiology point, lip-070, not a therapy).",
-        "Once the patient is eating, a FIBRATE &plusmn; omega-3 with fat restriction maintains control. LDL-directed drugs (statin, ezetimibe, PCSK9i, sequestrant) do little for chylomicrons &mdash; the wrong axis (lip-066)."
+        "Acute hypertriglyceridaemic pancreatitis (TG usually &gt;~10 mmol/L): lower TG rapidly with an INSULIN infusion &mdash; insulin ACTIVATES LPL, accelerating chylomicron/VLDL clearance &mdash; with dextrose to prevent hypoglycaemia; PLASMAPHERESIS (apheresis) for severe or refractory cases.",
+        "Why not heparin: heparin releases LPL from the endothelium into plasma, so it transiently lowers TG &mdash; but it then DEPLETES LPL stores and TG rebounds, so it is not the treatment (the heparin&ndash;LPL link is a physiology point, lip-070).",
+        "The other options are on the right axis but too slow for the acute crisis: a FIBRATE &plusmn; omega-3 with fat restriction is maintenance once the patient is eating, not the emergency measure (lip-066)."
       ] },
     { id:"lip-068", type:"mcq", objective:"lip-familial-htg",
       question:"A 48-year-old man has a fasting triglyceride of 8 mmol/L with a near-normal LDL. His father had 'high fats'. Levels worsen markedly with alcohol and weight gain. There are no eruptive xanthomata and he has never had pancreatitis. What is the most likely diagnosis?",
@@ -6025,16 +6025,16 @@ window.MOCK_BANK = {
     { id:"lip-072", type:"mcq", objective:"lip-apoc3",
       question:"A patient with familial chylomicronaemia has recurrent pancreatitis despite a very-low-fat diet, and fibrates have failed. Which newer therapy targets the key INHIBITOR of lipoprotein lipase to lower triglycerides?",
       options:[
-        "A PCSK9 inhibitor (evolocumab)",
-        "A bile-acid sequestrant (colesevelam)",
-        "Ezetimibe at the maximum dose",
+        "A fibrate at the maximum dose",
+        "High-dose omega-3 (icosapent ethyl)",
+        "Intensifying the very-low-fat diet",
         "Apo C-III antisense (e.g. volanesorsen)",
-        "A higher-intensity statin regimen"],
+        "Regular therapeutic plasma exchange"],
       correctIndex:3,
       explanation:[
         "Standard lipid drugs fail in FCS because they need residual LPL. Since APO C-III INHIBITS LPL and remnant clearance, LOWERING ApoC-III lets TG fall even when LPL is poor &mdash; the antisense oligonucleotide VOLANESORSEN, and newer agents (olezarsen; the APOC3-siRNA plozasiran).",
         "Genetic MIRROR of the PCSK9 story (lip-062): people with APOC3 LOSS-of-function have low TG and are cardioprotected &mdash; the drug reproduces the protective variant.",
-        "Currency: volanesorsen causes THROMBOCYTOPENIA (platelet monitoring needed) and has EU authorisation but never gained FDA approval; the newer ApoC-III antisense OLEZARSEN has better platelet safety and was FDA-approved for FCS in late 2024. LDL-directed drugs don't address chylomicronaemia."
+        "Currency: volanesorsen causes THROMBOCYTOPENIA (platelet monitoring needed) and has EU authorisation but never gained FDA approval; the newer ApoC-III antisense OLEZARSEN has better platelet safety and was FDA-approved for FCS in late 2024. The distractors are all TG-directed but none targets the LPL inhibitor: fibrate, omega-3 and diet need residual LPL to work, and plasma exchange is an acute rescue, not the mechanism-specific therapy."
       ] },
     { id:"lip-073", type:"categorize", objective:"lip-pathways",
       question:"Sort each lipoprotein under the transport pathway it belongs to.",
