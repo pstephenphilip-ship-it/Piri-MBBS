@@ -6568,6 +6568,115 @@ window.MOCK_BANK = {
         "The red flags that redirect you toward a specific subtype and toward biopsy (myo-025): recurrent VT and new high-grade AV BLOCK (giant-cell, sarcoid or Lyme &mdash; conduction-system disease, myo-014), RAPID deterioration (fulminant/giant-cell, myo-009/028), and peripheral EOSINOPHILIA (eosinophilic, myo-029).",
         "The distractors describe the benign majority (mild prodrome, incidental troponin, full recovery on supportive care) that do NOT need biopsy."
       ] },
+    { id:"myo-037", type:"mcq", objective:"myo-supportive",
+      question:"A patient recovering from acute myocarditis has persistent left ventricular impairment (ejection fraction 35%) with mild heart-failure symptoms. What is the mainstay of management?",
+      options:[
+        "An urgent endomyocardial biopsy",
+        "Long-term corticosteroids",
+        "HF therapy: ACE inhibitor, beta-blocker, MRA",
+        "Immediate cardiac transplantation work-up",
+        "High-dose NSAIDs"],
+      correctIndex:2,
+      explanation:[
+        "For myocarditis with LV dysfunction/heart failure the mainstay is SUPPORTIVE: standard guideline HFrEF therapy (ACE inhibitor/ARB, beta-blocker, MRA, plus diuretics for congestion), exactly as for heart failure of any cause (cross-link Chronic Heart Failure). Most viral cases recover on this alone.",
+        "Immunosuppression is reserved for specific subtypes (myo-039), NSAIDs are avoided (myo-038), and biopsy/transplant are only for selected cases (myo-025/028)."
+      ] },
+    { id:"myo-038", type:"mcq", objective:"myo-nsaid",
+      question:"A patient with acute myocarditis and mild LV impairment asks whether they can take ibuprofen for the chest discomfort. What is the best advice?",
+      options:[
+        "NSAIDs are first-line and should be encouraged",
+        "NSAIDs cure the underlying inflammation",
+        "Avoid NSAIDs — they may worsen acute myocarditis",
+        "High-dose aspirin is the treatment of choice",
+        "Colchicine is absolutely contraindicated"],
+      correctIndex:2,
+      explanation:[
+        "In ACUTE MYOCARDITIS, NSAIDs are best AVOIDED &mdash; the evidence (largely experimental/observational) suggests they may WORSEN myocardial inflammation and injury, and they aggravate fluid retention in heart failure.",
+        "This is the exact OPPOSITE of acute PERICARDITIS, where NSAIDs + colchicine are FIRST-LINE &mdash; a genuine and dangerous reversal.",
+        "The tension is sharpest in MYOPERICARDITIS (myo-012): the same patient has a PERICARDIAL component that wants NSAIDs and a MYOCARDIAL component that does not &mdash; and it is the myocardial involvement (the raised troponin / LV dysfunction) that tips you toward CAUTION with NSAIDs."
+      ] },
+    { id:"myo-039", type:"mcq", objective:"myo-immunosupp",
+      question:"In which situation is immunosuppression appropriate for myocarditis?",
+      options:[
+        "Routine acute viral myocarditis, supportively",
+        "Any patient with a raised cardiac troponin",
+        "Only once transplantation has occurred",
+        "Never, in any form of the disease",
+        "Giant-cell, sarcoid, eosinophilic or ICI myocarditis"],
+      correctIndex:4,
+      explanation:[
+        "Immunosuppression is reserved for the AUTOIMMUNE/INFILTRATIVE subtypes: GIANT-CELL (ciclosporin + steroids, myo-028), cardiac SARCOID (steroids, myo-030), EOSINOPHILIC (steroids + stop the drug, myo-029) and CHECKPOINT-INHIBITOR (high-dose steroids, myo-033).",
+        "It is NOT used for routine VIRAL myocarditis, managed supportively (myo-037); antivirals and IVIG lack robust evidence and are not routine.",
+        "This is the payoff of the three-phase model (myo-002): you treat the AUTOIMMUNE phase, not the acute VIRAL injury &mdash; timing and cause decide who benefits."
+      ] },
+    { id:"myo-040", type:"mcq", objective:"myo-mcs",
+      question:"A patient with fulminant myocarditis remains in refractory cardiogenic shock despite inotropes. What is the most appropriate escalation?",
+      options:[
+        "Mechanical support (ECMO/VAD) as a bridge to recovery",
+        "Palliation, as recovery is impossible",
+        "Start a beta-blocker for rate control",
+        "Immediate high-dose NSAIDs",
+        "Discharge on oral heart-failure medication"],
+      correctIndex:0,
+      explanation:[
+        "Fulminant myocarditis is the one cardiogenic-shock context where you escalate AGGRESSIVELY to support rather than palliate &mdash; because the substrate is REVERSIBLE. Escalate to MECHANICAL CIRCULATORY SUPPORT (VA-ECMO or a VAD) as a BRIDGE TO RECOVERY (or to transplant).",
+        "This is the paradox in action (myo-009): supported through the acute phase, these patients often regain NORMAL LV function, so they belong at an MCS/transplant centre, not written off.",
+        "(A beta-blocker in decompensated shock would be harmful, and NSAIDs are avoided, myo-038 &mdash; but those are footnotes to the main point: reversible substrate = support, don't give up.)"
+      ] },
+    { id:"myo-041", type:"mcq", objective:"myo-device",
+      question:"A patient with cardiac sarcoidosis has high-grade AV block AND documented ventricular tachycardia. Which device is most appropriate?",
+      options:[
+        "A single-chamber pacemaker",
+        "No device is needed",
+        "An implantable loop recorder only",
+        "An ICD, which also provides pacing",
+        "A pacemaker without a defibrillator"],
+      correctIndex:3,
+      explanation:[
+        "When there is VENTRICULAR TACHYCARDIA or high arrhythmic risk (as in cardiac sarcoidosis and giant-cell), an ICD is favoured over a plain pacemaker &mdash; it treats the sudden-death risk AND paces the conduction disease. A simple PPM would fix the block but leave the VT risk unaddressed.",
+        "Examinable nuance: in cardiac SARCOIDOSIS specifically, guidelines lean toward an ICD even for high-grade AV block WITHOUT documented VT (where a PPM would otherwise suffice) &mdash; the granulomatous scar is a VT substrate independent of the conduction disease, so sarcoid lowers the ICD threshold BELOW 'has VT'. (This stem has documented VT, so the ICD is unambiguous.)",
+        "Cross-link: Bradycardias / Heart Block and ICD indications (myo-030)."
+      ] },
+    { id:"myo-042", type:"mcq", objective:"myo-anticoag",
+      question:"A patient with myocarditis has a severely impaired left ventricle, and echo shows an apical mural thrombus. What is indicated?",
+      options:[
+        "Antiplatelet therapy alone",
+        "Anticoagulation",
+        "Thrombolysis",
+        "No action is needed",
+        "Start an NSAID"],
+      correctIndex:1,
+      explanation:[
+        "Severe LV dysfunction and STASIS predispose to an LV mural THROMBUS and systemic embolism &mdash; an indication for ANTICOAGULATION. The APICAL ANEURYSM of Chagas (myo-031) is a classic thrombus site.",
+        "This is ONE principle, not a myocarditis-specific rule: stasis in a DYSKINETIC/aneurysmal segment &rarr; anticoagulate &mdash; the same logic as an anterior STEMI with apical akinesis and mural thrombus (cross-link Acute Coronary Syndrome). It is not routine in all myocarditis, only when thrombus or very poor LV function is present."
+      ] },
+    { id:"myo-043", type:"categorize", objective:"myo-prognosis",
+      question:"Sort each scenario into its prognostic group.",
+      buckets:["Usually good recovery","Poor / high-risk prognosis"],
+      items:[
+        {text:"Mild viral myocarditis",bucket:0},
+        {text:"Fulminant myocarditis (if it survives the acute phase)",bucket:0},
+        {text:"Giant-cell myocarditis",bucket:1},
+        {text:"Checkpoint-inhibitor myocarditis",bucket:1},
+        {text:"Chronic myocarditis progressing to DCM",bucket:1}
+      ],
+      explanation:[
+        "The paradox IS the trap here: FULMINANT myocarditis belongs in the GOOD bucket (if the patient survives the acute phase on support, they often recover normal LV function, myo-009/040) &mdash; alongside mild viral disease &mdash; overriding the surface intuition that 'fulminant sounds worst'.",
+        "POOR: GIANT-CELL (aggressive, transplant often needed, myo-028), CHECKPOINT-INHIBITOR (high mortality, myo-033), and cases that heal into a DILATED cardiomyopathy (chronic heart failure, myo-005). The prognostic bucket drives how hard you treat."
+      ] },
+    { id:"myo-044", type:"saq", objective:"myo-followup",
+      question:"After recovery from acute myocarditis, name two important elements of follow-up or advice.",
+      answer:"Two of: (1) exercise restriction for a defined 3–6 months (arrhythmic sudden-death risk during active inflammation), with graded return guided by recovery; (2) follow-up cardiac imaging (echo/MRI) to detect progression to dilated cardiomyopathy; (3) continue heart-failure therapy while LV function is impaired.",
+      accept:["3-6 months","3 to 6 months","three to six months","exercise restriction for 3-6 months","avoid exercise for 3-6 months","follow-up imaging","repeat echo","repeat mri","monitor for dilated cardiomyopathy","surveillance imaging","continue heart failure therapy","arrhythmia risk","sudden death"],
+      markPoints:[
+        "Exercise restriction for a DEFINED 3–6 months (not just 'rest'), for arrhythmic SCD risk during active inflammation",
+        "Follow-up cardiac imaging (echo/MRI) to detect progression to DCM",
+        "(bonus) Continue guideline HF therapy while LV impairment persists"
+      ],
+      explanation:[
+        "Two pillars of follow-up. EXERCISE RESTRICTION for a defined ~3–6 MONTHS &mdash; because myocarditis is a leading cause of SUDDEN CARDIAC DEATH in young athletes and exertion during ACTIVE inflammation provokes arrhythmia (myo-010) &mdash; with graded return guided by recovery of LV function, resolution of inflammation on MRI and absence of arrhythmia.",
+        "FOLLOW-UP IMAGING (echo/MRI) to catch progression to DILATED CARDIOMYOPATHY (myo-005), continuing HF therapy while LV impairment persists (myo-037). The examinable specifics are the DURATION (3–6 months) and the REASON (SCD risk) &mdash; not just 'rest a while'."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
