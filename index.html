@@ -12279,7 +12279,7 @@ function hideFlyout(p) {
       if(b) setTimeout(build,30);
     });
     window.addEventListener('resize', function(){ clearTimeout(t); t=setTimeout(function(){ build(); },120); });
-    ['selectTopic','showEmpty','switchMainTab','switchMode'].forEach(function(fn){
+    ['selectTopic','showEmpty','switchMainTab','switchMode','openMock','initPharma','goHome'].forEach(function(fn){
       var orig=window[fn]; if(typeof orig!=='function') return;
       window[fn]=function(){ var r=orig.apply(this,arguments); rebuild(); return r; };
     });
