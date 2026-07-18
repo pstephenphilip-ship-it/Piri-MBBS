@@ -7092,6 +7092,113 @@ window.MOCK_BANK = {
         "The therapy ladder: FIRST-LINE is an NSAID plus colchicine (from the first attack); SECOND-LINE / cause-specific covers context-matched choices (aspirin post-MI) and escalation for refractory recurrence (IL-1 blockade); the AVOID bucket is the steroid reflex &mdash; first-line steroids increase recurrence (peri-020).",
         "Note aspirin sits in two places depending on context: it is a first-line NSAID for idiopathic/viral disease, but it is specifically the CORRECT (second-line-listed) choice post-MI where other NSAIDs are contraindicated &mdash; the same drug, placed by setting."
       ] },
+    { id:"peri-027", type:"mcq", objective:"peri-ecg-stages",
+      question:"Acute pericarditis classically evolves through four ECG stages over days to weeks. Which pattern characterises STAGE 1, in the first days?",
+      options:[
+        "Territorial ST elevation with reciprocal depression",
+        "Widespread deep T-wave inversion",
+        "Pathological Q waves in the affected leads",
+        "Diffuse concave ST elevation with PR depression",
+        "A completely normal ECG"],
+      correctIndex:3,
+      explanation:[
+        "The four stages: STAGE 1 (first days) = widespread CONCAVE ST elevation with PR depression; STAGE 2 = ST segments and PR normalise; STAGE 3 = widespread T-wave INVERSION; STAGE 4 = resolution to normal. The whole sequence can take weeks.",
+        "The diagnostic point is what is ABSENT: no pathological Q waves develop and the changes are diffuse, not territorial &mdash; separating the evolution from a STEMI, whose Q waves and territorial pattern do appear (peri-017). T-wave inversion here is a LATE, expected stage, not an acute ischaemic sign."
+      ] },
+    { id:"peri-028", type:"mcq", objective:"peri-avr",
+      question:"In acute pericarditis the ST elevation is diffuse with PR depression and, as a rule, no reciprocal change. Which finding in lead aVR is the deliberate exception?",
+      options:[
+        "PR elevation and ST depression in aVR",
+        "PR depression, the same as in other leads",
+        "ST elevation, the same as in other leads",
+        "A new pathological Q wave in aVR",
+        "No change at all in lead aVR"],
+      correctIndex:0,
+      explanation:[
+        "aVR is the built-in exception to 'no reciprocal change': it shows PR ELEVATION and ST DEPRESSION &mdash; the reciprocal of the diffuse PR depression and ST elevation elsewhere (V1 often behaves similarly). So 'no reciprocal change' means no TERRITORIAL reciprocal change; aVR is expected to reciprocate.",
+        "This is derivable, not a memorised oddity &mdash; see peri-031: the atrial and ventricular injury currents both point AWAY from aVR, so aVR reciprocates both the PR and the ST changes."
+      ] },
+    { id:"peri-029", type:"mcq", objective:"peri-spodick",
+      question:"In a patient with suspected pericarditis, the ECG shows a down-sloping TP segment (the baseline between the T wave and the next P wave slopes downwards), best seen in lead II and the lateral chest leads. What is this, and what is its use?",
+      options:[
+        "A normal variant of no significance",
+        "A sign of hyperkalaemia",
+        "Diagnostic of a large pericardial effusion",
+        "A feature specific to STEMI",
+        "The Spodick sign, supporting pericarditis over STEMI"],
+      correctIndex:4,
+      explanation:[
+        "The SPODICK SIGN &mdash; a down-sloping TP segment, best in lead II and the lateral chest leads &mdash; favours acute pericarditis over STEMI. It is one of the tie-breakers in the genuinely difficult overlaps (STEMI and benign early repolarisation), alongside PR depression and the V6 ST:T ratio (peri-030).",
+        "It is a supportive sign, not a stand-alone diagnosis: use it with the rest of the picture (diffuse concave ST elevation, PR depression, clinical context)."
+      ] },
+    { id:"peri-030", type:"mcq", objective:"peri-early-repol",
+      question:"A 22-year-old man has concave ST elevation on his ECG, and the difficulty is separating acute pericarditis from benign early repolarisation. Which is the most useful discriminator?",
+      options:[
+        "The presence of concave ST elevation",
+        "An ST:T-wave ratio above 0.25 in lead V6",
+        "Patient age under 40",
+        "The absence of chest pain",
+        "J-point notching alone"],
+      correctIndex:1,
+      explanation:[
+        "This is a harder discrimination than pericarditis-vs-STEMI, because BOTH are concave and BOTH occur in young people &mdash; so concavity, youth and 'no reciprocal change' all fail to separate them. The useful measure is the ST:T-wave amplitude RATIO in lead V6: ST-segment height &divide; T-wave height > 0.25 favours PERICARDITIS.",
+        "Early repolarisation has tall T waves (so the ratio is LOW) and J-point notching; pericarditis also tends to show PR depression and the Spodick sign (peri-029). Trap: 'presence of concave ST elevation' is the feature students think discriminates, but both conditions have it."
+      ] },
+    { id:"peri-031", type:"mcq", objective:"peri-pr-depression",
+      question:"Which is the most specific EARLY ECG sign of acute pericarditis?",
+      options:[
+        "ST-segment elevation",
+        "T-wave inversion",
+        "PR-segment depression",
+        "Sinus tachycardia",
+        "Low QRS voltage"],
+      correctIndex:2,
+      explanation:[
+        "PR-SEGMENT DEPRESSION is an early and relatively specific sign, produced by an ATRIAL sub-epicardial injury current. Diffuse ST elevation and sinus tachycardia are non-specific; T-wave inversion is a later stage; low voltage points to a large effusion (peri-032).",
+        "One mechanism, seen twice: that atrial injury current produces PR DEPRESSION in most leads AND reciprocal PR ELEVATION in aVR (and often V1) &mdash; so peri-028's aVR finding and this sign are the SAME phenomenon, main effect and reciprocal. It is exactly parallel to the ventricular injury current, which gives diffuse ST elevation with reciprocal ST depression in aVR. Both currents point AWAY from aVR."
+      ] },
+    { id:"peri-032", type:"mcq", objective:"peri-alternans",
+      question:"A breathless patient with a large pericardial effusion has an ECG in which the QRS amplitude alternates from beat to beat, on a background of low voltages. What does this most likely indicate?",
+      options:[
+        "An evolving acute myocardial infarction",
+        "Ventricular bigeminy on the rhythm strip",
+        "Underlying atrial fibrillation",
+        "A large pericardial effusion",
+        "A normal healthy-variant ECG"],
+      correctIndex:3,
+      explanation:[
+        "ELECTRICAL ALTERNANS &mdash; a beat-to-beat swing in QRS amplitude &mdash; arises because the heart is SWINGING within a large volume of fluid, so its electrical axis shifts with each beat; combined with LOW VOLTAGE it points to a large pericardial effusion.",
+        "Keep the bridge honest: alternans and low voltage RAISE CONCERN for tamponade but are NOT themselves diagnostic of it &mdash; tamponade is a PHYSIOLOGICAL / ECHO diagnosis, not an ECG one. Same logic as low voltage: the ECG says 'big effusion, go and look with echo', and the echo (diastolic chamber collapse, a swinging heart, IVC plethora) confirms tamponade. This bridges to the tamponade block."
+      ] },
+    { id:"peri-033", type:"mcq", objective:"peri-cmr",
+      question:"When does cardiac MRI add value beyond echocardiography in the assessment of pericarditis?",
+      options:[
+        "Replacing echocardiography as first-line in everyone",
+        "Excluding obstructive coronary artery disease",
+        "Identifying the specific causative virus",
+        "Measuring the ejection fraction and nothing else",
+        "Showing pericardial inflammation and assessing constriction"],
+      correctIndex:4,
+      explanation:[
+        "Cardiac MRI shows pericardial THICKENING, pericardial OEDEMA (T2) and pericardial LATE-GADOLINIUM ENHANCEMENT (active inflammation), and it helps assess CONSTRICTION. It is used when the diagnosis is uncertain, disease is recurrent, or constriction is suspected &mdash; not as a first-line test for everyone, where echo remains first.",
+        "Here CMR is simply THE TOOL that images constriction (including tagging for abnormal septal motion); the septal-bounce / ventricular-interdependence PHYSIOLOGY it demonstrates is owned by the constriction block."
+      ] },
+    { id:"peri-034", type:"categorize", objective:"peri-ix-map",
+      question:"Sort each investigation by whether it is first-line in every patient with acute pericarditis or targeted only when high-risk features suggest a specific cause.",
+      buckets:["First-line in everyone","Targeted only if high-risk / cause suspected"],
+      items:[
+        { text:"ECG", bucket:0 },
+        { text:"Echocardiography", bucket:0 },
+        { text:"Troponin, CRP, FBC and U&E", bucket:0 },
+        { text:"Chest X-ray", bucket:0 },
+        { text:"TB work-up (adenosine deaminase, cultures)", bucket:1 },
+        { text:"Cytology of drained pericardial fluid", bucket:1 },
+        { text:"Autoimmune serology (ANA)", bucket:1 }
+      ],
+      explanation:[
+        "Everyone gets ECG, echo, basic bloods (troponin, CRP, FBC, U&E) and a chest X-ray. The specific-cause tests &mdash; TB work-up, fluid cytology, autoimmune serology &mdash; are reserved for patients with HIGH-RISK features, because those are the ones who warrant hunting for TB, malignancy, bacterial or autoimmune disease.",
+        "This is the SAME low-risk-vs-high-risk fork as the diagnosis block (peri-016), seen from a different angle: once as 'do I admit?', now as 'which tests do I send?'. Reinforcement, not duplication."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
