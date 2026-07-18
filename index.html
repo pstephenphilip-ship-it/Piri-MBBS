@@ -5185,23 +5185,6 @@ window.MOCK_BANK = {
         "Trap: atherosclerosis is an INTIMAL disease beginning at the endothelium — not medial calcification (a later, secondary change) nor an adventitial process.",
         "Clinical anchor: one shared initiating mechanism is why the same risk factors drive coronary, cerebral and peripheral arterial disease."
       ] },
-    { id:"lip-002", type:"mcq",
-      question:"LDL that has entered the intima is chemically modified and drives plaque growth. What happens to it, and how do macrophages respond?",
-      options:["LDL is reduced, and macrophages ignore it entirely","LDL is oxidised and taken up by scavenger receptors, forming foam cells","LDL is taken up only by the regulated LDL receptor, which limits uptake","HDL immediately exports the LDL back into the plasma","LDL crystallises and is cleared by intimal lymphatics"],
-      correctIndex:1,
-      explanation:[
-        "Retained LDL is OXIDISED; macrophages take it up through SCAVENGER receptors, which — unlike the classic LDL receptor — are NOT down-regulated by intracellular cholesterol, so uptake is unchecked → lipid-laden FOAM cells → the fatty streak.",
-        "Trap: this is exactly why foam cells still form even when the regulated LDL receptor is suppressed.",
-        "Clinical anchor: the basis of the oxidised-LDL hypothesis of atherogenesis."
-      ] },
-    { id:"lip-003", type:"mcq",
-      question:"As an atherosclerotic plaque matures, a fibrous cap forms over the lipid core. Which cells and process build this cap?",
-      options:["Smooth-muscle cells migrate in and lay down collagen","Macrophages secrete a mineralised, calcified matrix","Endothelial cells proliferate to roof over the lesion","Adventitial fibroblasts invade through the media","Platelets deposit a permanent fibrin-rich cap"],
-      correctIndex:0,
-      explanation:[
-        "SMOOTH-MUSCLE cells migrate intima-ward, proliferate and synthesise COLLAGEN and matrix, forming the fibrous cap that walls the thrombogenic core off from the lumen. A THICK cap = stable; a THIN cap = vulnerable (lip-004).",
-        "Clinical anchor: statins help stabilise plaques partly by favouring a thicker cap and dampening the inflammation that degrades it."
-      ] },
     { id:"lip-004", type:"mcq", objective:"lip-plaque",
       question:"Which combination of features characterises a VULNERABLE (rupture-prone) atherosclerotic plaque?",
       options:["A thick fibrous cap, a small lipid core and dense collagen","Extensive calcification, little lipid and few macrophages","A thin fibrous cap, a large lipid-rich core and heavy inflammation","Abundant smooth muscle, a thick cap and a small core","A tight stenosis capped by thick, collagen-rich tissue"],
@@ -5219,14 +5202,6 @@ window.MOCK_BANK = {
         "The other main mechanism is plaque EROSION (endothelial denudation over an intact cap; lip-010). Trap: the low (40%) stenosis is the point — plaque STABILITY, not stenosis severity, drives events.",
         "Clinical anchor: why statins/plaque stabilisation beat simply 'fixing the narrowing' (cross-link ACS)."
       ] },
-    { id:"lip-006", type:"mcq",
-      question:"Atherosclerotic plaques form preferentially at arterial branch points and the outer walls of bifurcations. Why?",
-      options:["High laminar shear stress at these points injures the endothelium","These sites have the thickest arterial media","Turbulence deposits calcium directly onto the wall","Venous drainage is poorest at branch points","Low, oscillatory shear stress there promotes endothelial dysfunction"],
-      correctIndex:4,
-      explanation:[
-        "DISTURBED, LOW / oscillatory shear at bends and branches drives a pro-atherogenic endothelial phenotype (↓nitric oxide, ↑adhesion molecules, ↑permeability). Steady LAMINAR high shear is ATHEROPROTECTIVE.",
-        "Clinical anchor: explains the classic distribution — carotid bifurcation, coronary ostia, infrarenal aorta and the femoral arteries."
-      ] },
     { id:"lip-007", type:"mcq",
       question:"A 62-year-old man, 2 years after a myocardial infarction, takes atorvastatin 80 mg; his LDL-C is well controlled at 1.5 mmol/L, yet his hs-CRP is persistently raised at 4 mg/L and he has just had another anginal admission. Which statement best explains the role of inflammation here?",
       options:[
@@ -5240,14 +5215,6 @@ window.MOCK_BANK = {
         "This is the RESIDUAL INFLAMMATORY RISK picture: the LDL is well treated (1.5) yet events recur, and the raised hs-CRP flags ongoing atheromatous inflammation. Macrophages, T cells and cytokines &mdash; with MMP-mediated cap thinning &mdash; drive plaque instability.",
         "hs-CRP is a RISK MARKER, not a proven causal target (killing option C: lowering CRP itself is not the mechanism). Anti-inflammatory therapy ADDS to LDL-lowering to tackle residual risk &mdash; it does not replace the statin (option D), and a treated LDL does not abolish residual risk (option E). Option A is the outdated 'cholesterol-in-a-pipe' model.",
         "Currency: CANTOS proved the CONCEPT &mdash; canakinumab (anti-IL-1&beta;) cut events with no LDL change &mdash; but it isn't used in practice (cost, fatal infections, neutral mortality). Low-dose COLCHICINE is the practical descendant (LoDoCo2, COLCOT). Clinical anchor: in a patient like this, lower LDL AND address the residual inflammation."
-      ] },
-    { id:"lip-008", type:"saq",
-      question:"What is the name of the earliest visible lesion of atherosclerosis, present even in children and young adults and consisting of subendothelial foam cells?",
-      answer:"The fatty streak",
-      accept:["fatty streak","fatty streaks","fatty-streak"],
-      markPoints:["Fatty streak — the earliest visible atherosclerotic lesion","Subendothelial lipid-laden foam cells (± T cells); flat, yellow, reversible","Near-universal in youth — atherosclerosis begins decades before events"],
-      explanation:[
-        "The FATTY STREAK is a flat, yellow subendothelial collection of lipid-laden foam cells (± T cells) — reversible and near-universal in youth. It progresses to the fibrofatty plaque (lip-002/003), so atherosclerosis begins decades before any clinical event."
       ] },
     { id:"lip-009", type:"mcq", objective:"lip-plaque",
       question:"A 56-year-old man presents with an acute MI. An angiogram he had a year earlier reported only a 40% stenosis at the culprit site, yet intravascular ultrasound now shows a large, lipid-rich plaque there. How did so much plaque produce so little luminal narrowing on that earlier angiogram?",
@@ -5319,7 +5286,8 @@ window.MOCK_BANK = {
         "Clinical anchor: this is exactly why ApoB and non-HDL cholesterol are the better targets in this group (lip-016/017), and why treating LDL-C alone under-treats the risk."
       ] },
     { id:"lip-016", type:"mcq", objective:"lip-diabetic-dyslip",
-      question:"A 47-year-old man with type 2 diabetes has fasting lipids: triglycerides 4.8, HDL 0.9, and a calculated LDL-C of 2.1 mmol/L (apparently at target) — yet his measured apolipoprotein B is high. Why does the ApoB reflect his cardiovascular risk better than the LDL-C here?",
+      question:"A 47-year-old man with type 2 diabetes has the fasting results shown. His calculated LDL-C looks at target, yet his apolipoprotein B is high. Why does the ApoB reflect his cardiovascular risk better than the LDL-C here?",
+      data:'<div class="mk-obs-h">Fasting lipid profile</div><table class="mk-labs"><tr><td>Total cholesterol</td><td><b>5.2 mmol/L</b></td><td>&lt;5.0</td></tr><tr><td>Triglycerides</td><td><b>4.8 mmol/L</b></td><td>&lt;1.7</td></tr><tr><td>HDL cholesterol</td><td><b>0.9 mmol/L</b></td><td>&gt;1.0</td></tr><tr><td>LDL-C (calculated)</td><td><b>2.1 mmol/L</b></td><td>&lt;3.0</td></tr><tr><td>Non-HDL cholesterol</td><td><b>4.3 mmol/L</b></td><td>&lt;4.0</td></tr><tr><td>Apolipoprotein B</td><td><b>1.30 g/L</b></td><td>&lt;1.0</td></tr></table><div class="mk-obs-h" style="margin-top:9px">Other</div><table class="mk-labs"><tr><td>HbA1c</td><td><b>64 mmol/mol</b></td><td>&lt;42</td></tr></table>',
       options:["ApoB mainly measures the protective HDL particles","LDL-C always overestimates cardiovascular risk when triglycerides are high","ApoB counts particle number; small dense LDL means LDL-C undercounts it","ApoB and LDL-C always convey identical information","ApoB reflects only the dietary cholesterol intake"],
       correctIndex:2,
       explanation:[
@@ -5490,9 +5458,9 @@ window.MOCK_BANK = {
       ] },
     { id:"lip-033", type:"mcq", objective:"lip-xanthelasma",
       image:"https://upload.wikimedia.org/wikipedia/commons/e/e6/Xanthelasma,_a_feature_of_cholesterol_deposit.jpg",
-      imageAlt:"Close-up of the medial upper eyelid showing soft, raised yellowish plaques.",
+      imageAlt:"Close-up of a face showing soft, raised yellowish skin plaques.",
       imageCredit:"Ahmed Al Montasir, CC BY-SA 4.0, via Wikimedia Commons.",
-      question:"A 45-year-old woman is troubled by the lesions pictured, which have developed at the inner corners of both upper eyelids. She feels otherwise well. What is the most appropriate initial response?",
+      question:"A 60-year-old man is troubled by the lesions pictured, which have developed over recent months. He feels otherwise well. What is the most appropriate initial response?",
       options:[
         "Check a fasting lipid profile and assess cardiovascular risk",
         "Reassure that these are benign skin tags needing no tests",
@@ -5616,10 +5584,10 @@ window.MOCK_BANK = {
       options:[
         "Atorvastatin 80 mg daily",
         "Simvastatin 20 mg daily",
-        "Atorvastatin 20 mg daily",
+        "Pravastatin 10 mg daily",
         "Rosuvastatin 40 mg daily",
-        "Pravastatin 10 mg daily"],
-      correctIndex:2,
+        "Atorvastatin 20 mg daily"],
+      correctIndex:4,
       explanation:[
         "For PRIMARY prevention when QRISK3 supports treatment (&ge;10%, now a shared-decision threshold under NG238, lip-036), the recommended start is ATORVASTATIN 20 mg &mdash; a high-intensity dose that is nonetheless the correct primary-prevention step.",
         "Trap (A): atorvastatin 80 mg is the SECONDARY-prevention dose (lip-040). Simvastatin 20 and pravastatin 10 are too weak (low-intensity); rosuvastatin 40 is more than needed here.",
@@ -5654,7 +5622,8 @@ window.MOCK_BANK = {
         "Clinical anchor: rosuvastatin and pravastatin are far less CYP3A4-dependent, so they are the pragmatic switch when an interacting drug is unavoidable."
       ] },
     { id:"lip-044", type:"mcq", objective:"lip-statin-lft",
-      question:"A 54-year-old is 12 weeks into atorvastatin and feels well. Routine bloods show ALT at 1.8 times the upper limit of normal (baseline was normal). What is the correct action?",
+      question:"A 54-year-old is 12 weeks into atorvastatin and feels well. Baseline liver enzymes were normal; routine bloods are now shown. What is the correct action?",
+      data:'<div class="mk-obs-h">Liver function tests</div><table class="mk-labs"><tr><td>ALT</td><td><b>72 U/L</b></td><td>&lt;40</td></tr><tr><td>ALP</td><td><b>88 U/L</b></td><td>30&ndash;130</td></tr><tr><td>Bilirubin</td><td><b>10 &micro;mol/L</b></td><td>&lt;21</td></tr><tr><td>Albumin</td><td><b>42 g/L</b></td><td>35&ndash;50</td></tr></table>',
       options:[
         "Continue the statin and recheck liver enzymes",
         "Stop the statin permanently",
