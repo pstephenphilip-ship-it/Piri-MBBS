@@ -5214,7 +5214,8 @@ window.MOCK_BANK = {
       explanation:[
         "This is the RESIDUAL INFLAMMATORY RISK picture: the LDL is well treated (1.5) yet events recur, and the raised hs-CRP flags ongoing atheromatous inflammation. Macrophages, T cells and cytokines &mdash; with MMP-mediated cap thinning &mdash; drive plaque instability.",
         "hs-CRP is a RISK MARKER, not a proven causal target (killing option C: lowering CRP itself is not the mechanism). Anti-inflammatory therapy ADDS to LDL-lowering to tackle residual risk &mdash; it does not replace the statin (option D), and a treated LDL does not abolish residual risk (option E). Option A is the outdated 'cholesterol-in-a-pipe' model.",
-        "Currency: CANTOS proved the CONCEPT &mdash; canakinumab (anti-IL-1&beta;) cut events with no LDL change &mdash; but it isn't used in practice (cost, fatal infections, neutral mortality). Low-dose COLCHICINE is the practical descendant (LoDoCo2, COLCOT). Clinical anchor: in a patient like this, lower LDL AND address the residual inflammation."
+        "Currency: CANTOS proved the CONCEPT &mdash; canakinumab (anti-IL-1&beta;) cut events with no LDL change &mdash; but it isn't used in practice (cost, fatal infections, neutral mortality). Low-dose COLCHICINE is the practical descendant (LoDoCo2, COLCOT). Clinical anchor: in a patient like this, lower LDL AND address the residual inflammation.",
+        "One mechanism, two topics: this is the SAME IL-1 / inflammasome axis that drives RECURRENT PERICARDITIS, where anakinra/rilonacept (IL-1 blockade, RHAPSODY) are used for refractory disease (Pericarditis, peri-024). COLCHICINE is the accessible first anti-inflammatory step in BOTH &mdash; atherosclerosis (LoDoCo2/COLCOT) and pericarditis &mdash; so the two 'colchicine helps here' facts are really one idea: IL-1-driven inflammation responds to IL-1 blockade, with colchicine as the practical entry point."
       ] },
     { id:"lip-009", type:"mcq", objective:"lip-plaque",
       question:"A 56-year-old man presents with an acute MI. An angiogram he had a year earlier reported only a 40% stenosis at the culprit site, yet intravascular ultrasound now shows a large, lipid-rich plaque there. How did so much plaque produce so little luminal narrowing on that earlier angiogram?",
@@ -6984,6 +6985,112 @@ window.MOCK_BANK = {
       explanation:[
         "Two separate decisions at first contact. The FOUR CRITERIA (any two) make the DIAGNOSIS; the HIGH-RISK features make it DANGEROUS &mdash; they drive admission AND the hunt for a specific cause (Block 1). Keeping them apart stops the reflex of treating, say, a raised troponin or a big effusion as if it were part of the diagnostic definition.",
         "Note the overlap by design: a new effusion is a diagnostic criterion, but a LARGE effusion (or tamponade) is a high-risk feature &mdash; the same finding read at two thresholds."
+      ] },
+    { id:"peri-019", type:"mcq", objective:"peri-colchicine-first",
+      question:"A 34-year-old man has a first episode of acute viral pericarditis (positional pleuritic pain, a friction rub, the typical ECG) and is low-risk. What is the standard anti-inflammatory treatment?",
+      options:[
+        "An NSAID plus colchicine from the outset",
+        "An NSAID alone, adding colchicine only if it recurs",
+        "Colchicine alone",
+        "A corticosteroid first-line",
+        "Paracetamol alone"],
+      correctIndex:0,
+      explanation:[
+        "The counterintuitive high-yield point: COLCHICINE is added to the NSAID in the FIRST attack &mdash; not held back for recurrent disease. In the ICAP and CORP trials colchicine roughly HALVED recurrence and sped remission, so it belongs in first-line therapy alongside an NSAID (ibuprofen or high-dose aspirin).",
+        "Practical detail: colchicine is dosed by weight with NO loading dose, and needs caution in renal impairment (and interacts with drugs like clarithromycin). Trap: thinking of it as purely a 'recurrence drug' and withholding it first time round &mdash; that is exactly backwards. First-attack colchicine is continued for 3 months (peri-023)."
+      ] },
+    { id:"peri-020", type:"mcq", objective:"peri-steroids-recurrence",
+      question:"A colleague suggests a corticosteroid for a young patient with a first episode of idiopathic pericarditis, reasoning that it will 'settle the inflammation'. Why are corticosteroids generally avoided as first-line treatment?",
+      options:[
+        "They cause immediate rebound tamponade",
+        "They increase the risk of later recurrence",
+        "They are ineffective in pericarditis",
+        "They mask the diagnostic ECG changes",
+        "They cannot be given alongside an NSAID"],
+      correctIndex:1,
+      explanation:[
+        "The other counterintuitive reversal: corticosteroids are SECOND-LINE because they are associated with MORE recurrences &mdash; the opposite of the reflex 'inflammation, so give steroids'. Early steroid use is an independent predictor of recurrent pericarditis.",
+        "They are reserved for a specific cause (autoimmune/connective-tissue disease), for genuine NSAID-plus-colchicine failure, or when NSAIDs are contraindicated &mdash; and then at low-to-moderate dose with a slow taper. The distractors are plausible-sounding wrong reasons: steroids are effective and can be combined with an NSAID, and they do not cause rebound tamponade &mdash; the real problem is recurrence."
+      ] },
+    { id:"peri-021", type:"mcq", objective:"peri-early-infarct",
+      question:"Which statement correctly matches the anti-inflammatory choice to its setting in pericarditis?",
+      options:[
+        "Ibuprofen is preferred for post-infarction pericarditis",
+        "Aspirin is preferred for post-infarction pericarditis",
+        "High-dose steroids are first-line in the days after an MI",
+        "Indomethacin is the drug of choice soon after an MI",
+        "NSAIDs are first-line when myocarditis predominates"],
+      correctIndex:1,
+      explanation:[
+        "NSAID choice is CONTEXT-dependent. After a recent MI, ASPIRIN is preferred (the patient is usually on it anyway) because OTHER NSAIDs and corticosteroids impair infarct healing and raise the risk of ventricular free-wall rupture. For idiopathic/viral disease, ibuprofen or high-dose aspirin (each plus colchicine) is used; where myocarditis PREDOMINATES, NSAIDs are used cautiously or avoided.",
+        "This is the reciprocal of peri-025 (sometimes the NSAID is the wrong reach entirely). It shares the peri-infarction objective with peri-002 and peri-010, so a single mock will draw only one of the peri-infarction items."
+      ] },
+    { id:"peri-022", type:"mcq", objective:"peri-exercise",
+      question:"A recreational runner recovering from acute pericarditis, with no evidence of myocardial involvement, asks when she can exercise again. What is the best advice?",
+      options:[
+        "No exercise restriction is necessary",
+        "Avoid all exercise permanently, for life",
+        "Restrict until symptoms and CRP have settled",
+        "Restrict only if the troponin is raised",
+        "Resume as soon as pain-free for 24 hours"],
+      correctIndex:2,
+      explanation:[
+        "Exercise restriction applies to pericarditis TOO &mdash; not only to the myopericarditis subset &mdash; until symptoms resolve AND inflammatory markers (CRP), the ECG and any effusion normalise, because exertion during active inflammation can flare the disease. (When there is myocardial involvement, the restriction is longer, per athlete return-to-play guidance &mdash; cross-link peri-014 and myo-010.)",
+        "So 'no restriction' and 'resume once briefly pain-free' are both too lax, and 'only if troponin raised' misses that dry pericarditis still warrants a pause; lifelong avoidance is far too strict."
+      ] },
+    { id:"peri-023", type:"mcq", objective:"peri-taper",
+      question:"A patient is recovering from a first episode of acute pericarditis on an NSAID plus colchicine. How should the duration of treatment and tapering be guided?",
+      options:[
+        "A fixed three-day course of both drugs",
+        "Stop both drugs the day the pain settles",
+        "Taper the NSAID once symptoms resolve and CRP normalises",
+        "Continue the NSAID indefinitely for life",
+        "Taper only once the ECG has completely normalised"],
+      correctIndex:2,
+      explanation:[
+        "CRP guides the anti-inflammatory: treat until symptoms resolve AND CRP has normalised, then taper &mdash; an ABRUPT stop while inflammation is still active risks recurrence. The NSAID duration is therefore symptom-and-CRP guided (usually a couple of weeks), with gastroprotection.",
+        "Keep the two durations distinct, because students conflate them: the ESC figures for COLCHICINE are 3 MONTHS for a first attack and 6 MONTHS for a recurrence &mdash; a fixed course that outlasts the shorter, CRP-guided NSAID. It is the specific numbers (3 vs 6 months) that get tested."
+      ] },
+    { id:"peri-024", type:"mcq", objective:"peri-recurrent-il1",
+      question:"A patient has a third recurrence of pericarditis despite good adherence to an NSAID and colchicine, and has become dependent on corticosteroids. What is the most appropriate next step?",
+      options:[
+        "Indefinite high-dose oral corticosteroids",
+        "Stop all anti-inflammatory treatment now",
+        "Immediate surgical pericardiectomy",
+        "An interleukin-1 blocker (anakinra or rilonacept)",
+        "Long-term prophylactic oral antibiotics"],
+      correctIndex:3,
+      explanation:[
+        "Recurrent pericarditis: first ensure ADEQUATE colchicine (6 months) and use low-dose steroids only if needed; for colchicine-resistant, steroid-dependent, refractory disease the next step is IL-1 BLOCKADE &mdash; anakinra or rilonacept (RHAPSODY trial). Pericarditis is an AUTOINFLAMMATORY, IL-1 / inflammasome-driven disease, which is why blocking IL-1 works. Pericardiectomy is a last resort.",
+        "Foreground the unifier: this is the SAME IL-1 axis targeted in ATHEROSCLEROSIS &mdash; canakinumab (anti-IL-1&beta;) in CANTOS, and low-dose COLCHICINE in LoDoCo2/COLCOT (Lipids, lip-007). Colchicine is the accessible first anti-inflammatory step in BOTH diseases, and IL-1 blockade is the escalation in both. Two 'colchicine helps here' facts become ONE mechanism: IL-1-driven inflammation responds to IL-1 blockade."
+      ] },
+    { id:"peri-025", type:"mcq", objective:"peri-purulent",
+      question:"The NSAID-plus-colchicine reflex is not always right. In which patient is that regimen the wrong reach, needing cause-specific treatment instead?",
+      options:[
+        "A first episode of viral pericarditis",
+        "Idiopathic pericarditis with a small pericardial effusion",
+        "Post-viral pericarditis in an otherwise well patient",
+        "Benign early-repolarisation on the ECG",
+        "Purulent pericarditis needing drainage and IV antibiotics"],
+      correctIndex:4,
+      explanation:[
+        "NSAID + colchicine is the treatment for VIRAL/IDIOPATHIC pericarditis. When there is a specific cause, that regimen is the wrong reach: PURULENT needs urgent drainage + IV antibiotics, URAEMIC needs dialysis, TUBERCULOUS needs anti-TB therapy (± adjunctive steroids), and AUTOIMMUNE needs treatment of the underlying disease. Matching treatment to cause is the spine carried from Block 1.",
+        "This is the reciprocal of peri-021 (match the NSAID to the context): here the point is that sometimes no NSAID is the right answer at all. It shares the purulent objective with peri-006, so a single mock will draw only one of the two."
+      ] },
+    { id:"peri-026", type:"categorize", objective:"peri-therapy-map",
+      question:"Sort each therapy by its role in the management of pericarditis.",
+      buckets:["First-line","Second-line / cause-specific","Avoid (the reflex trap)"],
+      items:[
+        { text:"An NSAID (ibuprofen or aspirin)", bucket:0 },
+        { text:"Colchicine, from the first attack", bucket:0 },
+        { text:"Aspirin for post-MI pericarditis", bucket:1 },
+        { text:"An IL-1 blocker for refractory recurrence", bucket:1 },
+        { text:"A corticosteroid first-line for idiopathic disease", bucket:2 },
+        { text:"Routine steroids to 'settle the inflammation'", bucket:2 }
+      ],
+      explanation:[
+        "The therapy ladder: FIRST-LINE is an NSAID plus colchicine (from the first attack); SECOND-LINE / cause-specific covers context-matched choices (aspirin post-MI) and escalation for refractory recurrence (IL-1 blockade); the AVOID bucket is the steroid reflex &mdash; first-line steroids increase recurrence (peri-020).",
+        "Note aspirin sits in two places depending on context: it is a first-line NSAID for idiopathic/viral disease, but it is specifically the CORRECT (second-line-listed) choice post-MI where other NSAIDs are contraindicated &mdash; the same drug, placed by setting."
       ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
