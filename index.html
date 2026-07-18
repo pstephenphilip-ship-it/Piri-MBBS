@@ -5889,18 +5889,19 @@ window.MOCK_BANK = {
         "Two DIFFERENT modalities hit the SAME target: a monoclonal antibody (evolocumab) and an siRNA (inclisiran) both act on PCSK9 (lip-055/057). Bempedoic acid sits one step UPSTREAM of the statin target, which is why it spares muscle (lip-058).",
         "Clinical anchor: knowing the target predicts the combination logic &mdash; drugs on different targets stack their LDL-lowering (statin + ezetimibe + PCSK9)."
       ] },
-    { id:"lip-062", type:"saq", objective:"lip-pcsk9-genetics",
-      question:"In one sentence: what does PCSK9 normally do to the LDL receptor, and what effect does a loss-of-function PCSK9 variant have on a person's LDL and cardiovascular risk?",
-      answer:"PCSK9 promotes LDL-receptor degradation; a loss-of-function variant leaves more receptors, giving lower LDL and lower cardiovascular risk.",
-      accept:["degrad","recycl","lower ldl","low ldl","reduced ldl","lower risk","reduced risk","protect","fewer events","less cardiovascular"],
-      markPoints:[
-        "PCSK9 targets the LDL receptor for degradation",
-        "Loss-of-function &rarr; more receptors &rarr; lower LDL",
-        "Lower lifelong LDL &rarr; reduced cardiovascular risk (gain-of-function causes FH)"
-      ],
+    { id:"lip-062", type:"mcq", objective:"lip-pcsk9-genetics",
+      question:"What does PCSK9 normally do to the LDL receptor, and what effect does a loss-of-function PCSK9 variant have on LDL and cardiovascular risk?",
+      options:[
+        "It promotes LDL-receptor degradation; loss-of-function raises LDL and risk",
+        "It recycles the LDL receptor to the surface; loss-of-function raises LDL",
+        "It promotes LDL-receptor degradation; loss-of-function lowers LDL and risk",
+        "It drives new LDL-receptor synthesis; loss-of-function lowers LDL and risk",
+        "It has no effect on the LDL receptor; loss-of-function is clinically silent"],
+      correctIndex:2,
       explanation:[
-        "This is the HUMAN GENETIC PROOF behind the drug class, and the payoff of the PCSK9 symmetry: GAIN-of-function PCSK9 is a cause of FH (high LDL, lip-021); LOSS-of-function carriers have low LDL and are protected from cardiovascular disease.",
-        "A PCSK9 inhibitor pharmacologically REPRODUCES the protective loss-of-function variant &mdash; three facts (the mutation causes disease, the opposite mutation protects, the drug copies the protective one) collapse into one argument that LDL is CAUSAL, not merely associated."
+        "PCSK9 normally binds the LDL receptor and targets it for DEGRADATION. So a LOSS-of-function variant means fewer receptors are destroyed &rarr; more receptors recycle to the surface &rarr; more LDL is cleared &rarr; LOWER LDL and LOWER cardiovascular risk.",
+        "The trap is the DIRECTION (option A): a variant that RAISES LDL would be a GAIN-of-function mutation &mdash; itself a cause of FH (lip-021) &mdash; the mirror image of the protective loss-of-function state.",
+        "This is the HUMAN GENETIC PROOF behind the drug class: gain-of-function causes disease, loss-of-function protects, and a PCSK9 inhibitor pharmacologically REPRODUCES the protective variant &mdash; three facts that collapse into one argument that LDL is CAUSAL, not merely associated."
       ] },
     { id:"lip-063", type:"multi", objective:"lip-outcomes",
       boxLabel:"Randomised OUTCOME-trial evidence of reducing events",
