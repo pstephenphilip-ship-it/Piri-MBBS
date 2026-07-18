@@ -6293,7 +6293,7 @@ window.MOCK_BANK = {
       explanation:[
         "Phase 1 (ACUTE, days): DIRECT VIRAL injury plus the INNATE immune response (cytokines, natural killer cells).",
         "Phase 2 (SUBACUTE, weeks): the ADAPTIVE/autoimmune response takes over &mdash; T cells and autoantibodies (e.g. anti-myosin) driven by molecular mimicry (myo-003) &mdash; and can persist after the virus is cleared. Phase 3 (CHRONIC): healing with fibrosis, leading to dilated cardiomyopathy in a subset (myo-005).",
-        "Clinical anchor: the phase model explains WHY immunosuppression may help the autoimmune phase but not acute viral injury &mdash; timing and cause matter (Block 5)."
+        "Clinical anchor: the phase model explains WHY immunosuppression helps the SPECIFIC autoimmune/virus-negative subtypes (giant-cell, sarcoid, eosinophilic, ICI) but not acute viral injury or routine post-viral disease &mdash; timing and cause matter (myo-039, Block 5)."
       ] },
     { id:"myo-003", type:"mcq", objective:"myo-autoimmune",
       question:"A patient's myocarditis continues to progress even after the triggering virus has been cleared from the myocardium. Which mechanism best explains the ongoing injury?",
@@ -6338,14 +6338,14 @@ window.MOCK_BANK = {
     { id:"myo-006", type:"mcq", objective:"myo-drug",
       question:"A 30-year-old man started on an antipsychotic three weeks ago develops tachycardia, low-grade fever and a raised troponin with new left ventricular impairment. Which drug is the classic cause of this drug-induced myocarditis?",
       options:[
-        "Haloperidol",
-        "Lithium",
-        "Sertraline",
+        "Olanzapine",
+        "Risperidone",
+        "Quetiapine",
         "Clozapine",
-        "Diazepam"],
+        "Aripiprazole"],
       correctIndex:3,
       explanation:[
-        "CLOZAPINE is the antipsychotic classically associated with myocarditis, usually within the first 6&ndash;8 WEEKS of starting &mdash; which is why troponin, CRP and clinical monitoring are advised after initiation, with the drug stopped if it develops.",
+        "CLOZAPINE is the antipsychotic classically associated with myocarditis (the risk is specific to it, not the class), usually within the first ~4&ndash;6 WEEKS of starting &mdash; most within about 2 months &mdash; which is why troponin, CRP and clinical monitoring are advised after initiation, with the drug stopped if it develops.",
         "Other toxin/drug causes: ANTHRACYCLINES (dose-dependent cardiotoxicity), immune CHECKPOINT INHIBITORS (high-mortality myocarditis, Block 4) and cocaine.",
         "Clinical anchor: new cardiac symptoms early after starting clozapine &rarr; check troponin and involve cardiology/psychiatry promptly."
       ] },
@@ -6354,7 +6354,7 @@ window.MOCK_BANK = {
       options:[
         "Both infection and vaccine cause it; infection's risk is higher",
         "Only the vaccine, and never the infection, causes it",
-        "Vaccine-associated cases are typically severe and fatal",
+        "Both cause it, but the vaccine's risk is higher",
         "It occurs most often in elderly women after infection",
         "SARS-CoV-2 has no recognised association with myocarditis"],
       correctIndex:0,
@@ -6388,16 +6388,16 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "Fulminant myocarditis is a DISTINCT-ONSET, acutely very unwell presentation &mdash; cardiogenic shock that can mimic severe sepsis &mdash; typically with a NON-dilated but thick, oedematous, poorly-contracting LV (dilatation takes time to develop, so option E is wrong early).",
-        "The paradox worth knowing: despite looking far worse acutely, fulminant myocarditis has BETTER long-term recovery than mild acute myocarditis IF the patient survives the first days &mdash; the ferocious inflammatory response that nearly kills them also clears the insult, and survivors frequently regain normal LV function (so option A inverts the truth).",
+        "The paradox worth knowing: despite looking far worse acutely, fulminant myocarditis has BETTER long-term recovery than mild acute myocarditis IF the patient survives the first days &mdash; the ferocious inflammatory response that nearly kills them also clears the insult, and survivors frequently regain normal LV function (so option A inverts the truth). Caveat: this is the classic lymphocytic-myocarditis paradigm, and outcome is AETIOLOGY-dependent &mdash; giant-cell and some non-lymphocytic fulminant disease do badly (which is why giant-cell sits in the poor-prognosis bucket, myo-043).",
         "That drives the management: aggressive support with inotropes and EARLY MECHANICAL CIRCULATORY SUPPORT (ECMO/VAD) as a BRIDGE TO RECOVERY, at a centre that offers it (options C/D are wrong). Rapid deterioration or arrhythmia/heart block also makes this the setting where endomyocardial biopsy is indicated &mdash; to catch giant-cell myocarditis (Block 4)."
       ] },
     { id:"myo-010", type:"mcq", objective:"myo-exercise",
       question:"A 20-year-old competitive footballer is recovering well from acute myocarditis and asks when he can return to training. What is the best advice?",
       options:[
-        "Return to full training immediately",
-        "Exercise freely, as activity speeds myocardial healing",
-        "Impose a permanent lifelong ban from all exercise",
-        "Resume as soon as the troponin normalises",
+        "Restrict for about 2 weeks, then a full return to sport",
+        "Return to training as soon as the symptoms settle",
+        "A strict 12-month ban from all competitive sport",
+        "Resume as soon as the troponin has normalised",
         "Avoid competitive, high-intensity exercise for 3&ndash;6 months"],
       correctIndex:4,
       explanation:[
@@ -6476,8 +6476,8 @@ window.MOCK_BANK = {
     { id:"myo-016", type:"multi", objective:"myo-presentations",
       boxLabel:"Recognised presentations of myocarditis",
       question:"From the list, place ALL the recognised presentations of myocarditis into the box.",
-      options:["Chest pain mimicking MI","Acute heart failure","Ventricular arrhythmia or heart block","Sudden cardiac death","Stable exertional angina","Pericardial constriction","A fixed valvular murmur"],
-      correct:[0,1,2,3],
+      options:["Stable exertional angina","Chest pain mimicking MI","Aortic dissection","Acute heart failure","Ventricular arrhythmia or heart block","Pericardial constriction","Sudden cardiac death"],
+      correct:[1,3,4,6],
       explanation:[
         "Myocarditis is protean: from subclinical (myo-018) through chest pain (myo-011), acute heart failure (myo-013), arrhythmia/conduction disease (myo-014), to sudden cardiac death.",
         "The distractors are CARDIAC but not myocarditis: stable exertional angina is fixed coronary disease, pericardial constriction is a chronic pericardial process, and a fixed valvular murmur is structural valve disease &mdash; none is a presentation of myocarditis."
@@ -6514,7 +6514,7 @@ window.MOCK_BANK = {
         "Repeat coronary angiography",
         "CT pulmonary angiogram",
         "Exercise tolerance test",
-        "Ambulatory blood pressure monitoring",
+        "Transthoracic echocardiography",
         "Cardiac MRI"],
       correctIndex:4,
       explanation:[
@@ -6536,7 +6536,7 @@ window.MOCK_BANK = {
       ] },
     { id:"myo-021", type:"categorize", objective:"myo-lge-pattern",
       image:"assets/img/myocarditis_lge.png",
-      imageAlt:"Cardiac MRI late-gadolinium images showing bright enhancement along the outer rim of the inferolateral left ventricular wall, sparing the inner layer.",
+      imageAlt:"Cardiac MRI late-gadolinium images showing patchy bright enhancement within the wall of the left ventricle.",
       question:"The cardiac MRI above shows one such pattern. Sort each MRI feature under the pattern it indicates.",
       buckets:["Ischaemic (infarct) pattern","Non-ischaemic (myocarditis) pattern"],
       items:[
@@ -6552,7 +6552,7 @@ window.MOCK_BANK = {
       ] },
     { id:"myo-022", type:"mcq", objective:"myo-ecg",
       image:"https://upload.wikimedia.org/wikipedia/commons/9/91/PericarditisMyocarditis.jpg",
-      imageAlt:"A 12-lead ECG showing ST-segment elevation present across multiple leads in more than one territory.",
+      imageAlt:"A 12-lead ECG with ST-segment changes seen across several of the leads.",
       imageCredit:"James Heilman, MD, CC BY-SA 4.0, via Wikimedia Commons.",
       question:"A young man with myocarditis has the ECG shown. Which feature most helps distinguish this from an acute STEMI?",
       options:[
@@ -6569,11 +6569,11 @@ window.MOCK_BANK = {
     { id:"myo-023", type:"mcq", objective:"myo-biomarkers",
       question:"Which statement about the blood tests in suspected myocarditis is correct?",
       options:[
-        "A normal troponin reliably excludes myocarditis",
-        "Troponin reliably distinguishes myocarditis from MI",
+        "A normal troponin makes myocarditis very unlikely",
+        "Troponin usually separates myocarditis from an MI",
         "A raised troponin shows myocyte injury but is not specific",
-        "CRP is diagnostic of myocarditis",
-        "BNP is always normal in myocarditis"],
+        "A raised CRP confirms the diagnosis",
+        "BNP tends to stay normal in myocarditis"],
       correctIndex:2,
       explanation:[
         "Troponin rises with myocyte necrosis but is NON-SPECIFIC &mdash; it cannot separate myocarditis from MI (which is why you angiogram to exclude ACS and MRI to make the diagnosis). BNP rises with LV dysfunction; CRP/ESR are often raised but non-specific.",
@@ -6598,7 +6598,7 @@ window.MOCK_BANK = {
         "A mild, self-limiting viral case",
         "An incidental subclinical finding",
         "Deteriorating disease with VT or new heart block",
-        "A stable patient improving on supportive care",
+        "Fulminant viral shock already recovering on support",
         "A classic viral prodrome with a mild troponin rise"],
       correctIndex:2,
       explanation:[
@@ -6646,17 +6646,18 @@ window.MOCK_BANK = {
         "It is exactly the picture that the conduction-disease red flag (myo-014) and the biopsy indication (myo-025) point toward, and it overlaps the fulminant presentation (myo-009)."
       ] },
     { id:"myo-029", type:"mcq", objective:"myo-eosinophilic",
-      question:"A patient develops myocarditis 3 weeks after starting a new drug, with a florid rash, fever and a markedly raised eosinophil count. Endomyocardial biopsy shows an eosinophil-rich infiltrate. What is the most likely diagnosis and key management step?",
+      question:"A patient develops myocarditis 3 weeks after starting a new drug, with a florid rash, fever and a markedly raised blood count of bilobed granulocytes. Endomyocardial biopsy shows an infiltrate rich in the same cells. What is the most likely diagnosis and key management step?",
       options:[
         "Giant-cell myocarditis — start antiviral therapy",
-        "Eosinophilic hypersensitivity — stop drug and give steroids",
-        "Simple viral myocarditis — supportive care only",
+        "Drug hypersensitivity — stop the drug and give steroids",
+        "Drug hypersensitivity — antihistamine, continue the drug",
         "Lyme carditis — a course of doxycycline",
         "Chagas disease — antiparasitic therapy"],
       correctIndex:1,
       explanation:[
         "EOSINOPHILIC (hypersensitivity) myocarditis &mdash; often a DRUG reaction (part of the DRESS spectrum) or hypereosinophilic syndrome; peripheral EOSINOPHILIA plus an eosinophil-rich biopsy. Management: STOP the culprit drug and give CORTICOSTEROIDS.",
-        "Chronic eosinophilic damage causes LOEFFLER endomyocardial fibrosis &mdash; a restrictive picture. The infiltrate type (eosinophils) is what distinguishes it from giant-cell (myo-028) and lymphocytic viral myocarditis; it is one of the drug-related causes alongside clozapine (myo-006) and checkpoint inhibitors (myo-033)."
+        "Chronic eosinophilic damage causes LOEFFLER endomyocardial fibrosis &mdash; a restrictive picture. The infiltrate type (eosinophils) is what distinguishes it from giant-cell (myo-028) and lymphocytic viral myocarditis; it is one of the drug-related causes alongside clozapine (myo-006) and checkpoint inhibitors (myo-033).",
+        "The trap is the management, not the diagnosis: an antihistamine while CONTINUING the culprit drug is wrong &mdash; you must STOP the drug (the ongoing trigger) and give corticosteroids for the myocardial inflammation."
       ] },
     { id:"myo-030", type:"mcq", objective:"myo-sarcoid",
       question:"A 38-year-old with known pulmonary sarcoidosis presents with syncope. The ECG shows high-grade AV block and cardiac MRI shows patchy mid-wall late gadolinium enhancement. What is the most appropriate next step to confirm cardiac involvement?",
@@ -6665,7 +6666,7 @@ window.MOCK_BANK = {
         "Immediate thrombolysis therapy",
         "Coronary artery bypass grafting",
         "Reassurance and prompt discharge",
-        "Start lifelong oral anticoagulation"],
+        "Repeat cardiac MRI in six months"],
       correctIndex:0,
       explanation:[
         "CARDIAC SARCOIDOSIS &mdash; NON-CASEATING GRANULOMAS infiltrate the myocardium, causing CONDUCTION DISEASE (AV block) and ventricular tachycardia in young-to-middle-aged patients, usually with extracardiac (pulmonary/hilar) sarcoid. Patchy mid-wall LGE is characteristic, and FDG-PET demonstrates ACTIVE inflammation (guiding steroid therapy).",
@@ -6728,8 +6729,8 @@ window.MOCK_BANK = {
       question:"Match each clue to the myocarditis subtype it most points to.",
       buckets:["Giant-cell","Eosinophilic","Cardiac sarcoidosis","Chagas","Lyme"],
       items:[
-        {text:"Multinucleated giant cells on biopsy",bucket:0},
-        {text:"Eosinophilia after a new drug",bucket:1},
+        {text:"Large multinucleate cells + necrosis, no granulomas",bucket:0},
+        {text:"A DRESS-type rash + blood eosinophilia after a drug",bucket:1},
         {text:"Non-caseating granulomas, FDG-PET positive",bucket:2},
         {text:"RBBB + apical aneurysm, Latin-American origin",bucket:3},
         {text:"Erythema migrans + reversible AV block",bucket:4}
@@ -6738,14 +6739,14 @@ window.MOCK_BANK = {
         "Each subtype has a signature clue that CHANGES MANAGEMENT: giant cells &rarr; immunosuppression + transplant (myo-028); drug + eosinophilia &rarr; stop drug + steroids (myo-029); granulomas + PET &rarr; steroids + device (myo-030); RBBB/apical aneurysm/Latin America &rarr; Chagas (myo-031); erythema migrans + reversible block &rarr; antibiotics (myo-032).",
         "That is the whole point of recognising subtypes &mdash; the clue redirects treatment away from 'supportive care for viral myocarditis'."
       ] },
-    { id:"myo-036", type:"multi", objective:"myo-redflags",
+    { id:"myo-036", type:"multi", objective:"myo-biopsy",
       boxLabel:"Red flags for a specific (non-viral) subtype needing biopsy",
       question:"Place ALL the features that should push you away from 'ordinary viral myocarditis' toward a specific subtype needing endomyocardial biopsy.",
-      options:["Recurrent ventricular tachycardia","New high-grade AV block","Rapid haemodynamic deterioration","Peripheral eosinophilia","A mild self-limiting viral prodrome","An incidental subclinical troponin rise","Full recovery on supportive care"],
-      correct:[0,1,2,3],
+      options:["A mild self-limiting viral prodrome","Recurrent ventricular tachycardia","A markedly raised troponin level","New high-grade AV block","Rapid haemodynamic deterioration","An incidental subclinical troponin rise","Peripheral eosinophilia"],
+      correct:[1,3,4,6],
       explanation:[
         "The red flags that redirect you toward a specific subtype and toward biopsy (myo-025): recurrent VT and new high-grade AV BLOCK (giant-cell, sarcoid or Lyme &mdash; conduction-system disease, myo-014), RAPID deterioration (fulminant/giant-cell, myo-009/028), and peripheral EOSINOPHILIA (eosinophilic, myo-029).",
-        "The distractors describe the benign majority (mild prodrome, incidental troponin, full recovery on supportive care) that do NOT need biopsy."
+        "The distractors are the benign majority (mild prodrome, incidental troponin rise) &mdash; and a deliberate trap: a MARKEDLY RAISED TROPONIN sounds alarming but reflects injury severity, not a specific subtype, so it does NOT itself mandate biopsy (myo-023). Magnitude of troponin is not a red flag; arrhythmia, conduction disease, deterioration and eosinophilia are."
       ] },
     { id:"myo-037", type:"mcq", objective:"myo-supportive",
       question:"A patient recovering from acute myocarditis has persistent left ventricular impairment (ejection fraction 35%) with mild heart-failure symptoms. What is the mainstay of management?",
@@ -6777,10 +6778,10 @@ window.MOCK_BANK = {
     { id:"myo-039", type:"mcq", objective:"myo-immunosupp",
       question:"In which situation is immunosuppression appropriate for myocarditis?",
       options:[
-        "Routine acute viral myocarditis, supportively",
-        "Any patient with a raised cardiac troponin",
-        "Only once transplantation has occurred",
-        "Never, in any form of the disease",
+        "Any myopericarditis with a raised troponin",
+        "A first episode of viral myocarditis with reduced EF",
+        "Any case that needs inotropic support",
+        "A patient with new heart-failure symptoms",
         "Giant-cell, sarcoid, eosinophilic or ICI myocarditis"],
       correctIndex:4,
       explanation:[
@@ -6806,7 +6807,7 @@ window.MOCK_BANK = {
       question:"A patient with cardiac sarcoidosis has high-grade AV block AND documented ventricular tachycardia. Which device is most appropriate?",
       options:[
         "A single-chamber pacemaker",
-        "No device is needed",
+        "A CRT pacemaker without a defibrillator",
         "An implantable loop recorder only",
         "An ICD, which also provides pacing",
         "A pacemaker without a defibrillator"],
@@ -6827,14 +6828,14 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "Severe LV dysfunction and STASIS predispose to an LV mural THROMBUS and systemic embolism &mdash; an indication for ANTICOAGULATION. The APICAL ANEURYSM of Chagas (myo-031) is a classic thrombus site.",
-        "This is ONE principle, not a myocarditis-specific rule: stasis in a DYSKINETIC/aneurysmal segment &rarr; anticoagulate &mdash; the same logic as an anterior STEMI with apical akinesis and mural thrombus (cross-link Acute Coronary Syndrome). It is not routine in all myocarditis, only when thrombus or very poor LV function is present."
+        "This is ONE principle, not a myocarditis-specific rule: stasis in a DYSKINETIC/aneurysmal segment &rarr; anticoagulate &mdash; the same logic as an anterior STEMI with apical akinesis and mural thrombus (cross-link Acute Coronary Syndrome). It is not routine in all myocarditis: the indications are a demonstrated thrombus, a dyskinetic/aneurysmal segment or atrial fibrillation &mdash; not a low ejection fraction on its own."
       ] },
     { id:"myo-043", type:"categorize", objective:"myo-prognosis",
       question:"Sort each scenario into its prognostic group.",
       buckets:["Usually good recovery","Poor / high-risk prognosis"],
       items:[
+        {text:"Fulminant lymphocytic myocarditis",bucket:0},
         {text:"Mild viral myocarditis",bucket:0},
-        {text:"Fulminant myocarditis (if it survives the acute phase)",bucket:0},
         {text:"Giant-cell myocarditis",bucket:1},
         {text:"Checkpoint-inhibitor myocarditis",bucket:1},
         {text:"Chronic myocarditis progressing to DCM",bucket:1}
