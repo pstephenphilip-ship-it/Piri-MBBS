@@ -6956,6 +6956,128 @@ window.MOCK_BANK = {
         "The whole drug chart derives from one rule (cmp-008): keep the ventricle FULL and UNHURRIED (beta-blocker, verapamil, disopyramide, fluids) so it obstructs less; never EMPTY or OVER-DRIVE it (GTN, diuretic, dihydropyridine, digoxin), which worsens the gradient.",
         "One rule, both lists &mdash; the same cavity-size/preload logic that explains the dynamic murmur (cmp-003) and the manoeuvres (cmp-008). Excludes the individual drug questions, so a mock will not draw the map alongside them."
       ] },
+    { id:"cmp-017", type:"mcq", objective:"cmp-dcm-def",
+      question:"A patient presents with new heart failure; echo shows a dilated, poorly-contracting left ventricle, and the coronary arteries, valves and blood pressure are all normal. What defines dilated cardiomyopathy?",
+      options:[
+        "A dilated LV with impaired systolic function",
+        "Concentric LVH with a small cavity",
+        "A stiff ventricle with a preserved EF",
+        "Isolated right ventricular dilatation",
+        "A hypertrophied, obstructive septum"],
+      correctIndex:0,
+      explanation:[
+        "DCM = a DILATED left ventricle with impaired SYSTOLIC function (HFrEF), not adequately explained by an ischaemic, valvular, hypertensive or congenital cause. It is the commonest cardiomyopathy presenting AS heart failure.",
+        "It is the phenotypic OPPOSITE of HCM: a big cavity with thin/normal walls and poor contraction, versus HCM's small cavity with thick walls and hypercontraction. The distractors are the other cardiomyopathy phenotypes (HCM, restrictive, ARVC, obstructive)."
+      ] },
+    { id:"cmp-018", type:"mcq", objective:"cmp-dcm-reversible",
+      question:"A 52-year-old man has a newly diagnosed dilated cardiomyopathy. Which of the following is a potentially REVERSIBLE cause worth actively excluding?",
+      options:[
+        "A sarcomeric gene mutation",
+        "Idiopathic interstitial fibrosis",
+        "An old anterior MI scar",
+        "A titin truncating variant",
+        "Persistent uncontrolled tachyarrhythmia"],
+      correctIndex:4,
+      explanation:[
+        "Always hunt the TREATABLE DCM: chronic ALCOHOL, TACHYCARDIA-INDUCED, THYROTOXICOSIS, HAEMOCHROMATOSIS (venesection), cocaine, and nutritional (thiamine/selenium) &mdash; finding one changes the trajectory. This is the THIRD outing of one recurring principle: 'think secondary' in hypertension, 'exclude secondary' in lipids, and now 'hunt reversible' in DCM.",
+        "TACHYCARDIA-INDUCED cardiomyopathy is the most under-diagnosed and the most reversible: persistent AF/flutter/SVT at uncontrolled rates causes a DCM that FULLY recovers with rate or rhythm control &mdash; a genuine 'which came first?' trap, because the arrhythmia gets treated as incidental when it is actually the cause.",
+        "HAEMOCHROMATOSIS is the bridge to the restrictive block: iron infiltration gives a DCM that can evolve to a RESTRICTIVE picture, and venesection is the treatment &mdash; the iron-overload counterpart to the amyloid/infiltrative story (next block)."
+      ] },
+    { id:"cmp-019", type:"mcq", objective:"cmp-dcm-chemo",
+      question:"A woman on trastuzumab for breast cancer, having previously received an anthracycline, develops a falling ejection fraction. Which statement is correct?",
+      options:[
+        "The anthracycline injury is typically reversible",
+        "The trastuzumab injury is usually reversible on stopping",
+        "Neither drug affects the myocardium",
+        "Both injuries are strictly dose-dependent",
+        "Cardiac monitoring during treatment is unnecessary"],
+      correctIndex:1,
+      explanation:[
+        "ANTHRACYCLINES (doxorubicin) cause TYPE I injury &mdash; dose-dependent myocyte DEATH, often IRREVERSIBLE, with cumulative-dose limits. TRASTUZUMAB causes TYPE II injury &mdash; functional and usually REVERSIBLE, often recovering when the drug is stopped. This is the core cardio-oncology distinction.",
+        "Monitoring is baseline plus serial echo with GLOBAL LONGITUDINAL STRAIN (GLS), which detects subclinical dysfunction BEFORE the EF falls &mdash; the same 'early marker beats the crude one' logic as urine ACR before creatinine, or troponin's limits. A falling GLS is the early warning; a falling EF is the late one. Some centres add cardioprotection (dexrazoxane, or HF therapy) during treatment."
+      ] },
+    { id:"cmp-020", type:"mcq", objective:"myo-ppcm",
+      question:"A woman develops new heart failure with a dilated, poorly-contracting left ventricle in the last month of pregnancy, with no other identifiable cause. What is the diagnosis?",
+      options:[
+        "Pre-eclamptic heart failure",
+        "HCM unmasked by pregnancy",
+        "An amniotic-fluid embolism",
+        "Constrictive pericarditis",
+        "Peripartum cardiomyopathy"],
+      correctIndex:4,
+      explanation:[
+        "PERIPARTUM CARDIOMYOPATHY is a dilated cardiomyopathy of the peripartum window and a diagnosis of exclusion (owned from the myocarditis side, myo-045). BROMOCRIPTINE (prolactin suppression) has an adjunctive role alongside pregnancy-safe heart-failure therapy; the thrombotic risk is high, and there is a real recurrence risk in a future pregnancy.",
+        "This tests the same entity as myo-045 from the DCM side, so the two share an objective and a single mock will not draw both."
+      ] },
+    { id:"cmp-021", type:"mcq", objective:"myo-dcm",
+      question:"A previously well young adult is found to have a dilated cardiomyopathy several months after a viral illness, with unobstructed coronary arteries. What is the best-fit underlying mechanism?",
+      options:[
+        "Ischaemic scar from a silent old MI",
+        "Burnt-out sarcomeric HCM",
+        "Hypertensive remodelling",
+        "Healed viral myocarditis becoming DCM",
+        "Chronic alcohol excess"],
+      correctIndex:3,
+      explanation:[
+        "Healed MYOCARDITIS is a leading identifiable cause of DCM in young adults (myo-005) &mdash; the fibrotic aftermath of viral myocyte loss. The anchor: a young adult with a new dilated, poorly-contracting ventricle and no ischaemia should always raise myocarditis.",
+        "This is the DCM-side view of myo-005, so the two share an objective (mock draws one)."
+      ] },
+    { id:"cmp-022", type:"mcq", objective:"cmp-dcm-lmna",
+      question:"A family has autosomal-dominant dilated cardiomyopathy in which affected members develop early conduction disease (heart block) together with ventricular arrhythmia. Which gene is implicated, and what is the management implication?",
+      options:[
+        "MYBPC3, following a benign course",
+        "Titin, with a purely structural effect",
+        "A maternally-inherited mitochondrial variant",
+        "No identifiable genetic basis",
+        "LMNA (lamin A/C), lowering the ICD threshold"],
+      correctIndex:4,
+      explanation:[
+        "LMNA (lamin A/C) DCM combines CONDUCTION disease (heart block, often early) with malignant VENTRICULAR arrhythmia and a poor prognosis &mdash; so the ICD threshold is LOWER than the EF alone would mandate: you implant before the standard EF&le;35% criterion because the arrhythmic risk is GENOTYPE-driven, not EF-driven.",
+        "Draw the parallel: this is the DCM version of the HCM Risk-SCD/ICD decision (cmp-010). 'A young cardiomyopathy with a genotype-driven arrhythmic substrate gets its ICD earlier than the EF says' is ONE principle across HCM, LMNA-DCM and ARVC (Block 5). And note the nuance: TITIN (TTN) truncations are the COMMONEST DCM variant but relatively benign-structural, whereas LMNA is less common but malignant &mdash; commonest is not the same as most dangerous."
+      ] },
+    { id:"cmp-023", type:"mcq", objective:"cmp-dcm-mgmt",
+      question:"A patient with established dilated cardiomyopathy has HFrEF (EF 25%) in sinus rhythm, with left bundle branch block and a QRS of 160 ms. What is the best management framework?",
+      options:[
+        "Avoidance of beta-blockers",
+        "Fluid loading to raise output",
+        "A cardiac myosin inhibitor",
+        "Guideline HFrEF therapy plus CRT/ICD",
+        "Alcohol septal ablation"],
+      correctIndex:3,
+      explanation:[
+        "DCM management IS HFrEF management (cross to Chronic Heart Failure): the FOUR PILLARS (ARNI/ACE-i, beta-blocker, MRA, SGLT2 inhibitor), treat any reversible cause, and add devices. The LBBB with QRS 160 ms (&ge;150) makes this a CRT case specifically (chf-026/027), with an ICD for primary prevention at this EF.",
+        "The only DCM-specific overlays on top of standard HFrEF care are the GENETICS / family screening and the REVERSIBLE-CAUSE hunt (cmp-018) &mdash; everything else is the heart-failure block."
+      ] },
+    { id:"cmp-024", type:"mcq", objective:"cmp-dcm-thrombus",
+      question:"A patient with dilated cardiomyopathy (EF 20%) is found on echo to have a thrombus within the dilated, poorly-contracting left ventricle. What does this add to management?",
+      options:[
+        "No additional treatment beyond standard HF therapy",
+        "A beta-blocker as the only addition",
+        "Anticoagulation for the LV thrombus and embolic risk",
+        "Urgent electrical cardioversion",
+        "A vasodilator to reduce afterload further"],
+      correctIndex:2,
+      explanation:[
+        "A severely dilated, poorly-contracting LV is a STASIS chamber, prone to LV MURAL THROMBUS and systemic (e.g. cerebral) embolism. A documented LV thrombus is a clear indication for ANTICOAGULATION &mdash; the DCM-specific complication on top of HFrEF management.",
+        "Same principle across topics: stasis in a dyskinetic/akinetic chamber warrants anticoagulation &mdash; DCM, the post-anterior-MI apical thrombus, and the Chagas apical aneurysm (the myocarditis anticoagulation question, myo-042). Contrast the pericardial rule, where a large or haemorrhagic effusion is a reason to AVOID anticoagulation (bleeding into the sac) &mdash; the mirror decision."
+      ] },
+    { id:"cmp-025", type:"categorize", objective:"cmp-dcm-causes-map",
+      excludes:["cmp-dcm-reversible"],
+      question:"Sort each cause of a dilated cardiomyopathy by whether it is potentially reversible or fixed/genetic.",
+      buckets:["Reversible / treat the cause","Fixed or genetic"],
+      items:[
+        { text:"Chronic alcohol excess", bucket:0 },
+        { text:"Uncontrolled tachyarrhythmia", bucket:0 },
+        { text:"Thyrotoxicosis", bucket:0 },
+        { text:"Haemochromatosis (iron overload)", bucket:0 },
+        { text:"LMNA (lamin A/C) mutation", bucket:1 },
+        { text:"Titin truncating variant", bucket:1 },
+        { text:"Familial sarcomeric variant", bucket:1 }
+      ],
+      explanation:[
+        "The first job in new DCM is separating REVERSIBLE causes (alcohol, uncontrolled rate, thyroid, iron) from FIXED/GENETIC ones &mdash; because the reversible ones change with treatment (abstinence, rate/rhythm control, carbimazole, venesection). It is the 'hunt the treatable cause' principle as a sorting task.",
+        "Ischaemic scar is excluded up front by angiography &mdash; it is a cardiomyopathy DUE TO coronary disease, not DCM. Excludes the reversible-cause MCQ (cmp-018), so a mock will not draw the map alongside it."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
     { id:"peri-001", type:"mcq", objective:"peri-viral",
