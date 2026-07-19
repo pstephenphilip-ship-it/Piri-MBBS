@@ -7078,6 +7078,116 @@ window.MOCK_BANK = {
         "The first job in new DCM is separating REVERSIBLE causes (alcohol, uncontrolled rate, thyroid, iron) from FIXED/GENETIC ones &mdash; because the reversible ones change with treatment (abstinence, rate/rhythm control, carbimazole, venesection). It is the 'hunt the treatable cause' principle as a sorting task.",
         "Ischaemic scar is excluded up front by angiography &mdash; it is a cardiomyopathy DUE TO coronary disease, not DCM. Excludes the reversible-cause MCQ (cmp-018), so a mock will not draw the map alongside it."
       ] },
+    { id:"cmp-026", type:"mcq", objective:"peri-constr-vs-restr",
+      question:"A patient has right-heart failure with a preserved ejection fraction; echo shows small, non-dilated ventricles, greatly enlarged atria and high filling pressures. What is the phenotype, and what must be actively excluded?",
+      options:[
+        "Restrictive cardiomyopathy (exclude constriction)",
+        "Dilated cardiomyopathy with a large cavity",
+        "Obstructive hypertrophic cardiomyopathy",
+        "Physiological athlete's heart",
+        "Chronic atrial fibrillation in isolation"],
+      correctIndex:0,
+      explanation:[
+        "RESTRICTIVE cardiomyopathy = stiff, non-compliant walls with a PRESERVED EF, SMALL ventricles, BIATRIAL enlargement and high filling pressures. The mandatory exclusion is CONSTRICTIVE PERICARDITIS, because it gives the SAME phenotype but is CURABLE by pericardiectomy (owned in Pericarditis).",
+        "Do not re-derive the discriminators here &mdash; they live in peri-048/049: ventricular interdependence / respiratory discordance, the tissue-Doppler e' pattern (annulus paradoxus/reversus), and pericardial calcification. This question shares their constriction-vs-restriction objective, so a mock draws only one half. The commonest cause of RCM in the developed world is INFILTRATION &mdash; amyloid (cmp-027)."
+      ] },
+    { id:"cmp-027", type:"mcq", objective:"cmp-amyloid-redflags",
+      question:"An elderly man has heart failure with a preserved EF; echo shows thick ventricular walls, but the ECG shows LOW voltages, and he gives a history of bilateral carpal tunnel syndrome. Which finding is the key red flag for cardiac amyloid?",
+      options:[
+        "High ECG voltages matching the thick walls",
+        "Thick walls with LOW ECG voltage (discordance)",
+        "A dilated, thin-walled left ventricle",
+        "A loud ejection systolic murmur at the base",
+        "Isolated right ventricular hypertrophy"],
+      correctIndex:1,
+      explanation:[
+        "The give-away is DISCORDANCE: the walls look THICK but the ECG voltage is LOW &mdash; because the thickening is INFILTRATE, not true myocyte hypertrophy. This is the exact OPPOSITE of hypertensive/HCM LVH, where thick walls give HIGH voltage (Sokolow-Lyon).",
+        "It is the exception that proves the LVH-voltage rule (htn-024, fcvs-032: ECG amplitude is proportional to MYOCARDIAL mass): amyloid adds NON-myocyte mass, so voltage FALLS while the walls thicken &mdash; the one place 'thick wall, low voltage' is the diagnostic answer.",
+        "The rest of the recognition cluster: APICAL SPARING ('cherry on top') on strain imaging, and BILATERAL CARPAL TUNNEL &mdash; which in ATTR wild-type often appears YEARS before the cardiac disease, so it is the historical clue that should prompt suspicion. Macroglossia and periorbital purpura point to AL."
+      ] },
+    { id:"cmp-028", type:"mcq", objective:"cmp-amyloid-types",
+      question:"Cardiac amyloid is confirmed in a patient. Why does distinguishing AL from ATTR matter most?",
+      options:[
+        "Both types are treated with the same TTR stabiliser",
+        "AL is age-related and benign; ATTR is the aggressive one",
+        "AL is a haematological emergency; ATTR a stabiliser decision",
+        "ATTR needs urgent chemotherapy; AL needs only monitoring",
+        "Neither type has any disease-modifying treatment"],
+      correctIndex:2,
+      explanation:[
+        "AL amyloid is clonal LIGHT CHAINS (myeloma-spectrum) &mdash; a HAEMATOLOGICAL EMERGENCY (untreated cardiac AL has a prognosis of months) treated with chemotherapy / daratumumab / autologous transplant. ATTR is TRANSTHYRETIN (wild-type/senile in older men, or hereditary) &mdash; a chronic decision treated with TAFAMIDIS, a TTR stabiliser (ATTR-ACT).",
+        "Get the type right FIRST, because the same drug does nothing for the wrong type. The two are separated by SERUM FREE LIGHT CHAINS + IMMUNOFIXATION (to exclude AL) BEFORE you trust the bone scan (cmp-029)."
+      ] },
+    { id:"cmp-029", type:"mcq", objective:"cmp-amyloid-dx",
+      question:"Which statement about diagnosing and treating cardiac ATTR amyloid is correct?",
+      options:[
+        "A positive bone scan confirms ATTR only once AL is excluded",
+        "Coronary angiography is what confirms the diagnosis",
+        "A rising troponin confirms the amyloid subtype",
+        "Digoxin is the safe first-line treatment here",
+        "Beta-blockers are mandatory and well tolerated"],
+      correctIndex:0,
+      explanation:[
+        "The algorithm is two-step (and examinable because people collapse it into one): a 99mTc-DPD/PYP BONE SCAN at Perugini grade 2&ndash;3 confirms ATTR WITHOUT biopsy &mdash; but ONLY once serum free light chains + immunofixation have EXCLUDED AL, because AL can ALSO take up the tracer. A positive scan without excluding AL is the trap. Congo red (apple-green birefringence) on biopsy settles genuinely uncertain cases.",
+        "Drugs to AVOID: DIGOXIN and CALCIUM BLOCKERS bind amyloid fibrils and become toxic; ACE inhibitors and beta-blockers are poorly tolerated because the stroke volume is FIXED and LOW (the stiff ventricle cannot compensate for a preload/afterload drop); diuretics are used cautiously.",
+        "Amyloid is another FIXED-OUTPUT / preload-dependent state where the reflex HFrEF pillars BACKFIRE &mdash; the restrictive-physiology cousin of the HCM 'don't drop the preload' and tamponade 'don't diurese' traps. Add it to that cluster (HCM, tamponade, RV infarct, aortic stenosis, restrictive amyloid; anchor fcvs-047): always ask 'can this ventricle compensate?' before giving a preload/afterload-lowering drug."
+      ] },
+    { id:"cmp-030", type:"mcq", objective:"myo-sarcoid",
+      question:"A 45-year-old presents with unexplained high-grade AV block and runs of ventricular tachycardia; a chest film shows bilateral hilar lymphadenopathy. What is the most likely cardiac diagnosis?",
+      options:[
+        "Idiopathic complete heart block",
+        "Cardiac sarcoidosis",
+        "Lyme carditis",
+        "Cardiac amyloidosis",
+        "Acute viral myocarditis"],
+      correctIndex:1,
+      explanation:[
+        "A YOUNG or middle-aged patient with UNEXPLAINED heart block or VT should raise CARDIAC SARCOID (granulomas infiltrate the conduction system); the bilateral hilar lymphadenopathy is the systemic clue. Diagnose with cardiac MRI (patchy LGE) / FDG-PET (and look for extracardiac sarcoid); treat with corticosteroids/immunosuppression PLUS a device.",
+        "The device is often an ICD, not just a pacemaker: the granulomatous scar is a VT substrate INDEPENDENT of the conduction disease, so &mdash; like HCM and LMNA-DCM &mdash; the arrhythmic substrate lowers the device threshold below the usual EF criteria (myo-041). This is the same entity as the myocarditis-side sarcoid question (myo-030), so the two share an objective and a mock draws only one; it also cross-links the bradycardia block (heart block in the young)."
+      ] },
+    { id:"cmp-031", type:"mcq", objective:"cmp-haemochromatosis",
+      question:"A patient has a cardiomyopathy with diabetes, bronzed skin and arthropathy; ferritin and transferrin saturation are high. What is the cardiac management?",
+      options:[
+        "Lifelong high-dose corticosteroids",
+        "A transthyretin stabiliser drug",
+        "Venesection (iron removal); T2* MRI",
+        "Urgent surgical pericardiectomy",
+        "No specific cardiac treatment exists"],
+      correctIndex:2,
+      explanation:[
+        "Iron-overload cardiomyopathy (genetic HFE, or transfusional) starts DILATED and can evolve RESTRICTIVE; it is treated by VENESECTION (&plusmn; chelation) &mdash; a genuinely REVERSIBLE cause, which is why it appears in BOTH the reversible-DCM list (cmp-018) and here among the infiltrative/restrictive diseases. T2* cardiac MRI quantifies the myocardial iron.",
+        "The 'bronze diabetes' triad (diabetes, skin pigmentation, arthropathy) is the systemic tell. It is the one infiltrative cardiomyopathy that is genuinely reversible with treatment &mdash; the iron-overload counterpart of the amyloid story."
+      ] },
+    { id:"cmp-032", type:"mcq", objective:"cmp-loffler",
+      question:"A patient with a hypereosinophilic syndrome develops restrictive heart failure, with echocardiographic endomyocardial thickening and an apical thrombus. What is the diagnosis?",
+      options:[
+        "Hypertensive heart disease with LVH",
+        "Severe calcific aortic stenosis",
+        "Constrictive pericarditis from TB",
+        "Loffler eosinophilic endomyocardial disease",
+        "Physiological athlete's heart remodelling"],
+      correctIndex:3,
+      explanation:[
+        "EOSINOPHILIC endomyocardial disease (LOFFLER, in hypereosinophilic syndromes) inflames the endocardium and drives ENDOMYOCARDIAL FIBROSIS &mdash; a restrictive picture, classically with an APICAL THROMBUS and mitral involvement. It cross-links the eosinophilic myocarditis story (myo-029).",
+        "The apical thrombus warrants ANTICOAGULATION &mdash; the SAME stasis-in-a-diseased-chamber logic as DCM, Chagas and the post-MI apical thrombus (myo-042, cmp-024). And note the pair: LOFFLER (temperate, eosinophilia-driven, acute) and TROPICAL endomyocardial fibrosis (its chronic counterpart) are the same endpoint reached from different starts. Treat the eosinophilia and anticoagulate."
+      ] },
+    { id:"cmp-033", type:"categorize", objective:"cmp-infiltrative-map",
+      excludes:["cmp-amyloid-redflags","cmp-amyloid-dx","myo-sarcoid","cmp-haemochromatosis"],
+      question:"Match each signature clue or test to the infiltrative cardiomyopathy it points to.",
+      buckets:["Amyloid","Sarcoid","Haemochromatosis"],
+      items:[
+        { text:"Apical sparing on strain imaging", bucket:0 },
+        { text:"DPD/PYP bone-scan uptake", bucket:0 },
+        { text:"Thick walls with low ECG voltage", bucket:0 },
+        { text:"Unexplained heart block in a young patient", bucket:1 },
+        { text:"FDG-PET uptake in the myocardium", bucket:1 },
+        { text:"The bronze-diabetes triad", bucket:2 },
+        { text:"T2* MRI and venesection", bucket:2 }
+      ],
+      explanation:[
+        "Each infiltrative disease carries a signature CLUE and a signature TEST: amyloid (apical sparing, voltage-mass discordance, DPD/PYP scan), sarcoid (young heart block/VT, FDG-PET), haemochromatosis (bronze diabetes, T2* MRI, reversible by venesection). Matching clue-to-disease-to-test is the diagnostic shortcut.",
+        "Same 'clue to disease to test' house style as the myocarditis subtype map (myo-035) and the pericardial fluid-analysis map (peri-052). Excludes the individual amyloid/sarcoid/haemochromatosis questions, so a mock will not draw the map alongside them."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
     { id:"peri-001", type:"mcq", objective:"peri-viral",
