@@ -7199,6 +7199,113 @@ window.MOCK_BANK = {
         "Everyone gets ECG, echo, basic bloods (troponin, CRP, FBC, U&E) and a chest X-ray. The specific-cause tests &mdash; TB work-up, fluid cytology, autoimmune serology &mdash; are reserved for patients with HIGH-RISK features, because those are the ones who warrant hunting for TB, malignancy, bacterial or autoimmune disease.",
         "This is the SAME low-risk-vs-high-risk fork as the diagnosis block (peri-016), seen from a different angle: once as 'do I admit?', now as 'which tests do I send?'. Reinforcement, not duplication."
       ] },
+    { id:"peri-035", type:"mcq", objective:"peri-tamponade-physiology",
+      question:"Two patients each have a pericardial effusion of similar size on echo, but only one has cardiac tamponade. What most determines whether an effusion causes tamponade?",
+      options:[
+        "The rate of accumulation and pericardial compliance",
+        "Only the absolute volume of fluid present",
+        "A slowly accumulating large effusion always tampons",
+        "Tamponade requires more than one litre of fluid",
+        "An effusion can essentially never cause tamponade"],
+      correctIndex:0,
+      explanation:[
+        "Tamponade occurs when pericardial pressure rises to exceed cardiac filling pressure, so diastolic filling is impaired. Whether that happens depends on the RATE of accumulation and the PERICARDIAL COMPLIANCE, not on volume alone: a rapidly accumulating SMALL effusion (e.g. haemopericardium) tampons on a steep pressure-volume curve, while a slowly accumulating LARGE effusion (e.g. uraemic) may not, because the pericardium stretches to accommodate it.",
+        "This single principle drives the rest of the block: it is why free-wall rupture (peri-041) is lethal despite little fluid, and it maps the effusion-to-risk table (peri-042). It is a direct extension of the pressure-volume idea from the physiology block."
+      ] },
+    { id:"peri-036", type:"mcq", objective:"peri-becks",
+      question:"A patient with a rapidly developing pericardial effusion becomes acutely hypotensive. Which clinical triad is Beck's triad, signalling decompensating cardiac tamponade?",
+      options:[
+        "Hypotension, bradycardia and an irregular pulse",
+        "Raised JVP, a bounding pulse and wide pulse pressure",
+        "Hypotension, a raised JVP and muffled heart sounds",
+        "Fever, a pericardial rub and pleuritic pain",
+        "Hypertension, a raised JVP and clear heart sounds"],
+      correctIndex:2,
+      explanation:[
+        "BECK'S TRIAD = HYPOTENSION + a RAISED JVP + MUFFLED heart sounds &mdash; the picture of an acutely decompensating tamponade (falling output, systemic venous congestion, and the fluid muffling the sounds). It is usually accompanied by tachycardia and pulsus paradoxus (peri-037).",
+        "The distractors mix in signs of other states (wide pulse pressure and a bounding pulse point to a run-off lesion, not tamponade; a rub with pleuritic pain is dry pericarditis). The key pairing to remember is hypotension WITH a raised JVP &mdash; low output but congested, which is what a compressed heart produces."
+      ] },
+    { id:"peri-037", type:"mcq", objective:"peri-pulsus",
+      question:"In a patient with a pericardial effusion the systolic blood pressure falls noticeably during inspiration; the measured values are shown. What is this sign, and what is its mechanism?",
+      data:'<div class="mk-obs-h">Blood pressure</div><div class="mk-obs-grid"><span>Systolic (expiration) <b>120 mmHg</b></span><span>Systolic (inspiration) <b>98 mmHg</b></span></div>',
+      options:[
+        "Pulsus paradoxus, from ventricular interdependence",
+        "A normal physiological inspiratory rise in pressure",
+        "An underlying cardiac arrhythmia",
+        "A specific sign of severe aortic stenosis",
+        "An artefact of the blood-pressure cuff"],
+      correctIndex:0,
+      explanation:[
+        "A >10 mmHg inspiratory fall in systolic pressure (here 22 mmHg) is PULSUS PARADOXUS. With a fixed pericardial volume, the ventricles can no longer expand independently &mdash; VENTRICULAR INTERDEPENDENCE: inspiration augments right-heart filling, which bows the interventricular septum LEFTWARD and reduces LV filling, so LV stroke volume and systolic pressure drop.",
+        "One shared physiology across both complication blocks: that SAME interdependence produces the SEPTAL BOUNCE and the respiratory discordance of CONSTRICTION (the CMR septal-motion hook, peri-033). Tamponade is circumferential fixed-volume compression; constriction is rigid-shell fixed-volume compression; ventricular interdependence &mdash; the ventricles forced to compete for a fixed space &mdash; is the common consequence, showing as pulsus paradoxus in one and the septal bounce/discordance in the other."
+      ] },
+    { id:"peri-038", type:"mcq", objective:"peri-jvp-yd",
+      question:"The jugular venous pressure is examined in a patient with cardiac tamponade. Which waveform is characteristic, and how does it differ from constrictive pericarditis?",
+      options:[
+        "Prominent x and y descents (the M/W pattern)",
+        "An absent a wave with an irregular baseline",
+        "A prominent x descent with an absent y descent",
+        "Cannon a waves occurring intermittently",
+        "A completely normal jugular venous waveform"],
+      correctIndex:2,
+      explanation:[
+        "TAMPONADE ABOLISHES THE y DESCENT: the heart is compressed throughout diastole, so there is no early-diastolic filling &mdash; the y descent disappears, leaving a dominant x descent. CONSTRICTION instead PRESERVES (even sharpens) BOTH x and y (the M/W pattern), because early filling is brief and rapid before it hits the rigid shell.",
+        "That single 'can the heart expand in early diastole?' question gives TWO JVP discriminators: the y descent AND the inspiratory response. It pairs with KUSSMAUL'S SIGN &mdash; a paradoxical inspiratory RISE in JVP &mdash; which is ABSENT in tamponade but PRESENT in constriction. Both discriminators fall out of the same mechanism; the full constriction physiology (Kussmaul, the square-root sign, the septal bounce) is owned by the constriction block."
+      ] },
+    { id:"peri-039", type:"mcq", objective:"peri-echo-tamponade",
+      question:"Echocardiography is performed to confirm cardiac tamponade physiology in a patient with a large effusion. Which finding supports the diagnosis?",
+      options:[
+        "Concentric left ventricular hypertrophy",
+        "Diastolic right-heart collapse with a plethoric IVC",
+        "A severe aortic stenosis pressure gradient",
+        "A regional left ventricular wall-motion abnormality",
+        "A structurally completely normal study"],
+      correctIndex:1,
+      explanation:[
+        "Echo is the confirmatory test for tamponade PHYSIOLOGY: early-diastolic RIGHT VENTRICULAR collapse and late-diastolic RIGHT ATRIAL collapse (the chambers give way as pericardial pressure exceeds their filling pressure), a swinging heart, a dilated non-collapsing (PLETHORIC) IVC, and exaggerated respiratory variation in mitral/tricuspid inflow (the echo correlate of pulsus paradoxus).",
+        "This is the 'echo confirms' half of the pair from peri-032: the ECG (alternans, low voltage) only HINTS at a big effusion; the echo makes the physiological diagnosis of tamponade."
+      ] },
+    { id:"peri-040", type:"mcq", objective:"peri-tamponade-mgmt",
+      question:"A patient with cardiac tamponade is hypotensive with a raised JVP and is haemodynamically compromised. What is the definitive management?",
+      options:[
+        "High-dose intravenous diuretics",
+        "Intravenous beta-blockade",
+        "A large glyceryl trinitrate infusion",
+        "Urgent pericardiocentesis (drainage)",
+        "Colchicine plus a high-dose NSAID"],
+      correctIndex:3,
+      explanation:[
+        "Tamponade is treated by REMOVING THE FLUID &mdash; urgent (echo-guided) PERICARDIOCENTESIS, or a surgical window &mdash; which relieves the compression. Intravenous fluids are only a temporising BRIDGE to raise filling while drainage is arranged; anti-inflammatories treat the pericarditis, not the tamponade.",
+        "The lethal trap: a tamponaded heart is PRELOAD-DEPENDENT, so diuretics and vasodilators (GTN) drop the very preload it relies on and can precipitate arrest &mdash; the same 'do not drop the preload' physiology as RV infarction and severe aortic stenosis (the preload/Starling work in Foundations, fcvs-039). The raised JVP here means TAMPONADE, not fluid overload, so the reflex to diurese is exactly backwards."
+      ] },
+    { id:"peri-041", type:"mcq", objective:"peri-fwr",
+      question:"A patient collapses with hypotension, a raised JVP and tamponade physiology three days after a large transmural anterior myocardial infarction. What is the most likely cause?",
+      options:[
+        "Simple peri-infarction pericarditis",
+        "Dressler's post-cardiac-injury syndrome",
+        "Re-infarction from acute stent thrombosis",
+        "A benign vasovagal faint",
+        "Ventricular free-wall rupture"],
+      correctIndex:4,
+      explanation:[
+        "This is the lethal cause forward-referenced in peri-002: VENTRICULAR FREE-WALL RUPTURE of the necrotic, softened infarct produces acute HAEMOPERICARDIUM and tamponade &mdash; sudden collapse, often with PEA arrest. It is the ONE tamponade where draining the fluid is NOT definitive: pericardiocentesis is only a bridge, and it needs EMERGENCY cardiac surgery (contrast peri-040, where drainage IS the treatment).",
+        "It belongs to the ACS mechanical-complication trio &mdash; free-wall rupture, papillary-muscle rupture and post-infarct VSD (acs-031/032/033) &mdash; the 'days after a transmural MI, sudden deterioration' cluster. A small volume of blood causes catastrophic tamponade because it accumulates so fast (the rate/compliance principle, peri-035)."
+      ] },
+    { id:"peri-042", type:"categorize", objective:"peri-effusion-map",
+      question:"Sort each pericardial effusion by the action it calls for, applying the rate-and-compliance principle.",
+      buckets:["Drain now (compromising / purulent)","High tamponade risk — monitor closely","Low risk — treat the cause"],
+      items:[
+        { text:"Rapid post-procedure haemopericardium with hypotension", bucket:0 },
+        { text:"Purulent (bacterial) effusion", bucket:0 },
+        { text:"Large malignant haemorrhagic effusion", bucket:1 },
+        { text:"A moderate effusion accumulating over a few days", bucket:1 },
+        { text:"Small effusion with first-episode viral pericarditis", bucket:2 },
+        { text:"Large chronic uraemic effusion", bucket:2 }
+      ],
+      explanation:[
+        "Action follows the rate/compliance principle (peri-035), not just size. DRAIN NOW when the effusion is compromising the circulation (a rapid haemopericardium) or when drainage is itself the treatment (purulent, for source control). HIGH-RISK effusions (malignant/haemorrhagic, or anything accumulating quickly) are tamponade-prone and need close monitoring with a low threshold to drain. LOW-RISK effusions (a small viral one, or a large but slowly-formed uraemic one) are managed by treating the CAUSE (dialysis for uraemic).",
+        "The through-line from Block 1: the same causes seen there now sorted by what their effusion physiology demands &mdash; a fast small bleed outranks a big slow effusion every time."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Infective Endocarditis": [
     { id:"ie-001", type:"mcq",
