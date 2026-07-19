@@ -7188,6 +7188,114 @@ window.MOCK_BANK = {
         "Each infiltrative disease carries a signature CLUE and a signature TEST: amyloid (apical sparing, voltage-mass discordance, DPD/PYP scan), sarcoid (young heart block/VT, FDG-PET), haemochromatosis (bronze diabetes, T2* MRI, reversible by venesection). Matching clue-to-disease-to-test is the diagnostic shortcut.",
         "Same 'clue to disease to test' house style as the myocarditis subtype map (myo-035) and the pericardial fluid-analysis map (peri-052). Excludes the individual amyloid/sarcoid/haemochromatosis questions, so a mock will not draw the map alongside them."
       ] },
+    { id:"cmp-034", type:"mcq", objective:"cmp-arvc-genetics",
+      question:"A young athlete with a family history of sudden death has an MRI showing a dilated, poorly-contracting right ventricle with fibrofatty change. What is the underlying basis?",
+      options:[
+        "A sarcomeric (contractile) gene mutation",
+        "An X-linked lysosomal storage defect",
+        "Post-viral right-ventricular myocarditis",
+        "Pulmonary-hypertensive RV pressure strain",
+        "A desmosomal mutation, fibrofatty RV"],
+      correctIndex:4,
+      explanation:[
+        "ARVC arises from DESMOSOMAL (cell-junction) gene mutations (autosomal dominant, variable penetrance) &mdash; leading to FIBROFATTY replacement, predominantly of the RIGHT ventricle, which becomes an arrhythmic substrate for VT and sudden death in the young/athletes.",
+        "ARVC is the RV cardiomyopathy &mdash; the odd one out of the phenotype set: HCM = LV hypertrophy, DCM = LV dilatation, RCM = LV stiffening, ARVC = RV fibrofatty replacement. 'Young SCD + RV disease + LBBB-morphology VT' is the pattern.",
+        "Newer understanding, worth knowing so a left-dominant case does not throw you: ARVC is often BIVENTRICULAR (left-dominant and biventricular forms exist, now grouped broadly as 'arrhythmogenic cardiomyopathy'), so the 'purely RV' teaching is the classic-but-simplified version. Exercise accelerates it (cmp-036)."
+      ] },
+    { id:"cmp-035", type:"mcq", objective:"cmp-arvc-ecg",
+      question:"A patient with suspected ARVC has an ECG showing T-wave inversion in V1-V3 and a small terminal deflection at the very end of the QRS; documented VT has a left bundle branch block morphology. Which is the ARVC hallmark?",
+      options:[
+        "An epsilon wave with V1-V3 T-wave inversion",
+        "A delta wave (pre-excitation)",
+        "Deep, narrow septal Q waves",
+        "Widespread saddle-shaped ST elevation",
+        "A short PR interval in isolation"],
+      correctIndex:0,
+      explanation:[
+        "The ARVC ECG shows T-wave inversion in V1-V3, an EPSILON WAVE (a small terminal notch = delayed RV activation), and VT of LBBB MORPHOLOGY &mdash; because it arises in the RV, it looks like a left-bundle pattern (localise the VT to its chamber by the bundle morphology). The distractors are the signatures of other topics: delta = WPW, septal Q = HCM, saddle ST = pericarditis, short PR = pre-excitation.",
+        "The epsilon wave is SPECIFIC but INSENSITIVE (present in only a minority), so its ABSENCE does not exclude ARVC &mdash; the more consistent features are the V1-V3 T-wave inversion and the LBBB-morphology VT. ARVC is diagnosed by the TASK FORCE CRITERIA (combining ECG, imaging, arrhythmia, family history and genetics) &mdash; no single test, the same multimodal structure as Duke (endocarditis) and Lake Louise (myocarditis)."
+      ] },
+    { id:"cmp-036", type:"mcq", objective:"cmp-arvc-mgmt",
+      question:"A patient with confirmed ARVC has had syncope and non-sustained VT. What are the two management priorities?",
+      options:[
+        "Encourage competitive endurance sport",
+        "A cardiac myosin inhibitor",
+        "Alcohol septal ablation",
+        "Routine lifelong anticoagulation",
+        "Exercise restriction plus an ICD"],
+      correctIndex:4,
+      explanation:[
+        "RESTRICT exercise and implant an ICD. Exercise restriction is THERAPEUTIC, not merely cautionary: endurance/competitive sport ACCELERATES ARVC progression and arrhythmia &mdash; the opposite direction to most conditions, and more absolute than the myocarditis/pericarditis restriction. The ICD covers the high arrhythmic risk.",
+        "This completes the GENOTYPE-DRIVEN ICD triad with HCM (cmp-010) and LMNA-DCM (cmp-022): in all three it is the arrhythmic SUBSTRATE, not the EF, that drives the device &mdash; you implant earlier than the standard EF&le;35% criterion would say. NAXOS disease is the recessive ARVC variant with palmoplantar keratoderma and woolly hair &mdash; desmosomes are in skin too, so the cutaneous tell points to the desmosomal defect."
+      ] },
+    { id:"cmp-037", type:"mcq", objective:"myo-minoca-ddx",
+      question:"A post-menopausal woman develops chest pain and a raised troponin after sudden bereavement; imaging shows apical ballooning of the left ventricle and the coronary arteries are unobstructed. What is the diagnosis?",
+      options:[
+        "Anterior STEMI",
+        "Takotsubo cardiomyopathy",
+        "Acute myocarditis",
+        "Apical HCM",
+        "Prinzmetal (vasospastic) angina"],
+      correctIndex:1,
+      explanation:[
+        "TAKOTSUBO is a catecholamine-mediated STRESS cardiomyopathy: classically a post-menopausal woman after an emotional or physical stressor, with transient APICAL BALLOONING, a troponin rise and UNOBSTRUCTED coronaries (a MINOCA picture), usually recovering fully within weeks.",
+        "This is the same recognition as the takotsubo-vs-myocarditis MINOCA question (myo-015), so the two share an objective and a mock draws only one. Its acute complications are owned in cmp-038."
+      ] },
+    { id:"cmp-038", type:"mcq", objective:"cmp-takotsubo-cx",
+      question:"Takotsubo cardiomyopathy usually recovers fully, but the acute phase carries a dangerous window. Which statement is correct?",
+      options:[
+        "It always requires immediate thrombolysis",
+        "It never causes any acute complications",
+        "A positive coronary angiogram confirms it",
+        "It is permanent and irreversible in all cases",
+        "It can cause dynamic LVOT obstruction and thrombus"],
+      correctIndex:4,
+      explanation:[
+        "The STEMI-mimic tell is that the wall-motion abnormality CROSSES coronary territories (not a single artery) with UNOBSTRUCTED coronaries. But the 'benign, recovers fully' framing hides a dangerous acute window.",
+        "The counterintuitive hook: a hypercontractile BASE with an akinetic APEX can generate DYNAMIC LVOT OBSTRUCTION &mdash; so the reflex of giving INOTROPES for the low EF actually WORSENS it (the HCM preload logic: do not drop the preload or push inotropes). The akinetic apex is also a stasis site for APICAL THROMBUS (anticoagulate), and acute mitral regurgitation and arrhythmia can occur. So takotsubo carries the HCM-preload trap and the DCM/Chagas/post-MI thrombus logic in its acute phase."
+      ] },
+    { id:"cmp-039", type:"mcq", objective:"cmp-lvnc",
+      question:"A patient with heart failure has echocardiography showing prominent left-ventricular trabeculations with deep intertrabecular recesses, giving a 'spongy' myocardium. What is the diagnosis?",
+      options:[
+        "A normal apical anatomical variant",
+        "Constrictive pericarditis from TB",
+        "LV non-compaction cardiomyopathy",
+        "Cardiac amyloid infiltration",
+        "Athlete's heart remodelling"],
+      correctIndex:2,
+      explanation:[
+        "LV NON-COMPACTION (an arrest of the normal compaction of the myocardium in utero) leaves a SPONGY, heavily trabeculated left ventricle with deep recesses. It carries a triad of risks: HEART FAILURE, ARRHYTHMIA and THROMBOEMBOLISM (thrombus forms in the recesses &mdash; anticoagulate if indicated).",
+        "It is a genetic cardiomyopathy, so family screening applies. The recess-thrombus risk is the same stasis logic that runs through the block (cmp-041)."
+      ] },
+    { id:"cmp-040", type:"mcq", objective:"myo-chagas",
+      question:"A patient who grew up in rural Latin America has a cardiomyopathy with right bundle branch block plus left-anterior fascicular block, an apical aneurysm, and a history of megaoesophagus. What is the cause?",
+      options:[
+        "Sarcoidosis",
+        "Amyloidosis",
+        "Ischaemic cardiomyopathy",
+        "Chronic Chagas disease",
+        "Alcoholic cardiomyopathy"],
+      correctIndex:3,
+      explanation:[
+        "CHAGAS disease (Trypanosoma cruzi, endemic to Latin America) causes a chronic cardiomyopathy with a characteristic RBBB + LEFT-ANTERIOR FASCICULAR BLOCK, an APICAL ANEURYSM (a source of thrombus/embolism &mdash; anticoagulate) and VT, together with GI MEGA-syndromes (oesophagus and colon).",
+        "The apical-aneurysm-to-anticoagulation logic again (cmp-024, myo-042). This is the same picture as the myocarditis-side Chagas question (myo-031), so the two share an objective and a mock draws only one."
+      ] },
+    { id:"cmp-041", type:"categorize", objective:"cmp-specific-map",
+      excludes:["cmp-arvc-genetics","cmp-arvc-ecg","cmp-arvc-mgmt","myo-minoca-ddx","cmp-lvnc","myo-chagas"],
+      question:"Match each give-away feature to the specific cardiomyopathy it points to.",
+      buckets:["ARVC","Takotsubo","LV non-compaction","Chagas"],
+      items:[
+        { text:"Epsilon wave with a fibrofatty RV", bucket:0 },
+        { text:"Exercise accelerates the disease", bucket:0 },
+        { text:"Apical ballooning after a stressor", bucket:1 },
+        { text:"Post-menopausal, recovers fully", bucket:1 },
+        { text:"A spongy, trabeculated LV", bucket:2 },
+        { text:"RBBB + LAFB with megacolon", bucket:3 }
+      ],
+      explanation:[
+        "Each 'specific' cardiomyopathy has a single give-away &mdash; matching them is the recognition task, and it excludes the individual questions so a mock does not draw the map alongside them.",
+        "State the unifying rule once: ANY cardiomyopathy with a DILATED, ANEURYSMAL, AKINETIC or TRABECULATED chamber is a STASIS/THROMBUS risk &mdash; LV non-compaction (the recesses), Chagas (the apical aneurysm), takotsubo (the ballooned apex), DCM (the dilated stasis chamber), Loffler (endomyocardial thrombus) and post-MI (apical akinesis) all share stasis &rarr; mural thrombus &rarr; ANTICOAGULATE (following a documented thrombus, or a very poor EF / aneurysm as the risk). It is the counterpart of 'do not anticoagulate the pericardium or an endocarditis vegetation'."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
     { id:"peri-001", type:"mcq", objective:"peri-viral",
