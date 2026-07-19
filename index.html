@@ -7269,7 +7269,10 @@ window.MOCK_BANK = {
         "That single 'can the heart expand in early diastole?' question gives TWO JVP discriminators: the y descent AND the inspiratory response. It pairs with KUSSMAUL'S SIGN &mdash; a paradoxical inspiratory RISE in JVP &mdash; which is ABSENT in tamponade but PRESENT in constriction. Both discriminators fall out of the same mechanism; the full constriction physiology (Kussmaul, the square-root sign, the septal bounce) is owned by the constriction block."
       ] },
     { id:"peri-039", type:"mcq", objective:"peri-echo-tamponade",
-      question:"Echocardiography is performed to confirm cardiac tamponade physiology in a patient with a large effusion. Which finding supports the diagnosis?",
+      video:"https://upload.wikimedia.org/wikipedia/commons/f/f9/UOTW_78_-_Ultrasound_of_the_Week_1.webm",
+      videoAlt:"An echocardiogram showing a large echo-free space surrounding the beating heart.",
+      videoCredit:"Ben Smith, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A hypotensive patient with end-stage renal failure has the echocardiogram shown, which reveals a large pericardial effusion. Which finding on this echo supports cardiac tamponade physiology?",
       options:[
         "Concentric left ventricular hypertrophy",
         "Diastolic right-heart collapse with a plethoric IVC",
@@ -9707,6 +9710,16 @@ window.MOCK_BANK = {
            'onerror="var n=this.parentNode.querySelector(\'.mk-qaud-fail\');if(n)n.style.display=\'block\';">Your browser does not support the audio element.</audio>'+
            '<div class="mk-qaud-fail" style="display:none;color:#b00;font-size:.85em;margin-top:4px">Audio could not be loaded.</div>'+
            (q.audioCredit?'<figcaption class="mk-qcredit">'+esc(q.audioCredit)+'</figcaption>':'')+
+         '</figure>';
+    }
+    if(q.video){
+      h+='<figure class="mk-qfig mk-qvidfig">'+
+           '<video class="mk-qvid" controls preload="metadata" playsinline loop muted style="width:100%;max-width:600px;display:block;margin:0 auto;border:1px solid #D8DBE8;border-radius:10px;background:#0B0B0B" '+
+           'src="'+esc(q.video)+'" '+
+           (q.videoAlt?'aria-label="'+esc(q.videoAlt)+'" ':'')+
+           'onerror="var n=this.parentNode.querySelector(\'.mk-qvid-fail\');if(n)n.style.display=\'block\';">Your browser does not support the video element.</video>'+
+           '<div class="mk-qvid-fail" style="display:none;color:#b00;font-size:.85em;margin-top:4px">Video could not be loaded.</div>'+
+           (q.videoCredit?'<figcaption class="mk-qcredit">'+esc(q.videoCredit)+'</figcaption>':'')+
          '</figure>';
     }
     return h;
