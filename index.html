@@ -6839,6 +6839,7 @@ window.MOCK_BANK = {
         "This is the effusion end of the spectrum that leads into the effusion/tamponade block &mdash; large volume, slow enough to allow the pericardium to stretch, but at constant risk of tipping into tamponade."
       ] },
     { id:"peri-008", type:"categorize", objective:"peri-cause-map",
+      excludes:["peri-viral","peri-early-infarct","peri-dressler","peri-uraemic","peri-tb","peri-purulent","peri-malignant","peri-sle"],
       question:"Sort each cause of pericarditis into its aetiological family.",
       buckets:["Infective","Autoimmune / inflammatory","Metabolic (uraemic)","Neoplastic"],
       items:[
@@ -6856,11 +6857,11 @@ window.MOCK_BANK = {
     { id:"peri-009", type:"mcq", objective:"peri-sle",
       question:"A 24-year-old woman with a malar rash, small-joint arthralgia and recurrent mouth ulcers develops sharp pleuritic chest pain relieved by sitting forward, with a pericardial friction rub. Blood tests show a positive ANA and low C3 and C4. What is the most likely underlying cause of her pericarditis?",
       options:[
-        "Viral (idiopathic) pericarditis",
-        "Tuberculous pericarditis",
+        "A viral (idiopathic) cause",
+        "Tuberculosis",
         "Systemic lupus erythematosus",
-        "Uraemic pericarditis",
-        "Bacterial (purulent) pericarditis"],
+        "Uraemia from renal failure",
+        "A bacterial (purulent) infection"],
       correctIndex:2,
       explanation:[
         "PERICARDITIS is the COMMONEST cardiac manifestation of SLE and the most frequent form of lupus SEROSITIS &mdash; it can even be the presenting feature. The multisystem picture (malar rash, arthralgia, oral ulcers) with a positive ANA and LOW complement (C3/C4, reflecting active disease) points to lupus.",
@@ -6885,10 +6886,10 @@ window.MOCK_BANK = {
       question:"A 30-year-old man has sharp, pleuritic chest pain that is worse lying flat and relieved by sitting forward; on auscultation there is a scratchy pericardial friction rub. No ECG or blood tests have been done yet. Which statement is correct?",
       options:[
         "Acute pericarditis can already be diagnosed clinically",
-        "ECG changes are required before it can be diagnosed",
-        "A raised troponin is required to diagnose it",
-        "A pericardial effusion is required to diagnose it",
-        "All four criteria must be present to diagnose it"],
+        "The ECG would need to show changes before diagnosing it",
+        "A raised troponin would help confirm the diagnosis",
+        "A pericardial effusion on echo would confirm it",
+        "Two criteria are met, but imaging is still needed to confirm"],
       correctIndex:0,
       explanation:[
         "Acute pericarditis is a clinical diagnosis needing ANY TWO of FOUR criteria: (1) pleuritic/positional chest pain, (2) a pericardial friction rub, (3) widespread saddle ST elevation with PR depression, (4) a new or worsening pericardial effusion. This man has criteria 1 AND 2, so the diagnosis is already met &mdash; no ECG, troponin or echo is mandatory to make it.",
@@ -6910,7 +6911,7 @@ window.MOCK_BANK = {
     { id:"peri-013", type:"mcq", objective:"peri-trapezius",
       question:"A patient with acute pericarditis reports that the chest pain radiates to the ridge of the left trapezius (the top of the shoulder). What best explains this radiation?",
       options:[
-        "Cervical nerve root compression",
+        "Cervical nerve root (C6–C7) compression",
         "Phrenic nerve irritation (C3–C5)",
         "Referred cardiac ischaemic pain",
         "A diaphragmatic hernia",
@@ -6949,24 +6950,24 @@ window.MOCK_BANK = {
     { id:"peri-016", type:"mcq", objective:"peri-highrisk",
       question:"Four patients present with acute pericarditis. Which one has high-risk features that warrant inpatient management and a search for a specific cause, rather than outpatient NSAID plus colchicine?",
       options:[
-        "A young, well patient with a small effusion and normal troponin",
-        "Typical pain that fully resolves with an NSAID",
-        "Classic ECG changes with normal inflammatory markers",
-        "A normal troponin and no effusion on echo",
-        "Fever above 38 °C with a large effusion, a raised troponin and on warfarin"],
+        "A well patient with a small effusion, normal troponin and CRP",
+        "Typical positional pain that settles fully on an oral NSAID",
+        "Classic saddle ECG changes with a normal troponin",
+        "A low-grade 37.4 °C temperature with typical pleuritic pain",
+        "Fever above 38 °C with a large pericardial effusion"],
       correctIndex:4,
       explanation:[
-        "The ESC major HIGH-RISK features are: fever >38 &deg;C, subacute onset, a large effusion or tamponade, a raised troponin (myopericarditis), immunosuppression, trauma, and oral anticoagulant use (plus failure to respond to NSAIDs). Any one warrants admission. This patient has several.",
+        "The ESC 2015 risk features split into MAJOR predictors &mdash; fever >38 &deg;C, subacute onset, a large effusion (>20 mm) or tamponade, and failure to respond to NSAIDs after a week &mdash; and MINOR predictors &mdash; a raised troponin (myopericarditis), immunosuppression, trauma and oral anticoagulant use. ANY one major OR minor feature warrants admission; this patient has two MAJOR features (fever >38 &deg;C and a large effusion).",
         "The key framing: high-risk features drive TWO decisions, not one. They mandate ADMISSION, and they are exactly the features that warrant HUNTING FOR A SPECIFIC CAUSE (TB, malignancy, bacterial, autoimmune) rather than assuming viral/idiopathic &mdash; whereas the genuinely low-risk patient gets NSAID + colchicine and NO further aetiological work-up. So the low-vs-high-risk split is also the ‘do I investigate the cause?’ decision (Block 1 aetiology map)."
       ] },
-    { id:"peri-017", type:"mcq", objective:"peri-stemi-ddx",
+    { id:"peri-017", type:"mcq", objective:"peri-acute-ecg",
       image:"https://upload.wikimedia.org/wikipedia/commons/8/85/PericarditisECG.JPG",
       imageAlt:"A 12-lead ECG showing ST-segment elevation in multiple leads.",
       imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
       question:"A patient has chest pain and the ECG is shown; the priority is not to mislabel acute pericarditis as a STEMI (or the reverse). Which feature of this ECG points to pericarditis rather than STEMI?",
       options:[
         "Concave, widespread ST elevation with PR depression",
-        "ST elevation confined to one coronary territory",
+        "Convex (domed) ST elevation confined to one territory",
         "Reciprocal ST depression in the opposite territory",
         "Pathological Q waves in the affected leads",
         "Hyperacute T waves with a rapidly rising troponin"],
@@ -6977,6 +6978,7 @@ window.MOCK_BANK = {
         "The reverse trap is benign EARLY REPOLARISATION, which also gives concave ST elevation: the tie-breakers are the Spodick sign (a down-sloping TP segment in pericarditis) and the ST:T-wave ratio in V6 (>0.25 favours pericarditis) &mdash; the ECG-evolution deep-dive owns those."
       ] },
     { id:"peri-018", type:"categorize", objective:"peri-criteria-map",
+      excludes:["peri-criteria","peri-highrisk"],
       question:"Sort each feature by whether it is a diagnostic criterion for acute pericarditis or a high-risk feature that drives admission and cause work-up.",
       buckets:["Diagnostic criterion (2-of-4)","High-risk feature (admit + investigate cause)"],
       items:[
@@ -7067,7 +7069,7 @@ window.MOCK_BANK = {
         "Long-term prophylactic oral antibiotics"],
       correctIndex:3,
       explanation:[
-        "Recurrent pericarditis: first ensure ADEQUATE colchicine (6 months) and use low-dose steroids only if needed; for colchicine-resistant, steroid-dependent, refractory disease the next step is IL-1 BLOCKADE &mdash; anakinra or rilonacept (RHAPSODY trial). Pericarditis is an AUTOINFLAMMATORY, IL-1 / inflammasome-driven disease, which is why blocking IL-1 works. Pericardiectomy is a last resort.",
+        "Recurrent pericarditis: first ensure ADEQUATE colchicine (6 months) and use low-dose steroids only if needed; for colchicine-resistant, steroid-dependent, refractory disease the next step is IL-1 BLOCKADE &mdash; anakinra or rilonacept (RHAPSODY trial). Pericarditis is an AUTOINFLAMMATORY, IL-1 / inflammasome-driven disease, which is why blocking IL-1 works. Pericardiectomy is a last resort. (Newer guidance increasingly moves IL-1 inhibitors AHEAD of chronic corticosteroids in a clear autoinflammatory phenotype &mdash; recurrent, raised CRP, no serositis of another cause &mdash; to spare steroid dependence.)",
         "Foreground the unifier: this is the SAME IL-1 axis targeted in ATHEROSCLEROSIS &mdash; canakinumab (anti-IL-1&beta;) in CANTOS, and low-dose COLCHICINE in LoDoCo2/COLCOT (Lipids, lip-007). Colchicine is the accessible first anti-inflammatory step in BOTH diseases, and IL-1 blockade is the escalation in both. Two 'colchicine helps here' facts become ONE mechanism: IL-1-driven inflammation responds to IL-1 blockade."
       ] },
     { id:"peri-025", type:"mcq", objective:"peri-purulent",
@@ -7084,6 +7086,7 @@ window.MOCK_BANK = {
         "This is the reciprocal of peri-021 (match the NSAID to the context): here the point is that sometimes no NSAID is the right answer at all. It shares the purulent objective with peri-006, so a single mock will draw only one of the two."
       ] },
     { id:"peri-026", type:"categorize", objective:"peri-therapy-map",
+      excludes:["peri-colchicine-first","peri-steroids-recurrence","peri-early-infarct","peri-recurrent-il1","peri-purulent"],
       question:"Sort each therapy by its role in the management of pericarditis.",
       buckets:["First-line","Second-line / cause-specific","Avoid (the reflex trap)"],
       items:[
@@ -7098,7 +7101,7 @@ window.MOCK_BANK = {
         "The therapy ladder: FIRST-LINE is an NSAID plus colchicine (from the first attack); SECOND-LINE / cause-specific covers context-matched choices (aspirin post-MI) and escalation for refractory recurrence (IL-1 blockade); the AVOID bucket is the steroid reflex &mdash; first-line steroids increase recurrence (peri-020).",
         "Note aspirin sits in two places depending on context: it is a first-line NSAID for idiopathic/viral disease, but it is specifically the CORRECT (second-line-listed) choice post-MI where other NSAIDs are contraindicated &mdash; the same drug, placed by setting."
       ] },
-    { id:"peri-027", type:"mcq", objective:"peri-ecg-stages",
+    { id:"peri-027", type:"mcq", objective:"peri-acute-ecg",
       image:"https://upload.wikimedia.org/wikipedia/commons/f/f4/Acute_pericarditis.jpg",
       imageAlt:"A 12-lead ECG, early in the illness, with ST-segment elevation in many leads.",
       imageCredit:"James Heilman, MD, CC BY-SA 4.0, via Wikimedia Commons.",
@@ -7145,8 +7148,8 @@ window.MOCK_BANK = {
       options:[
         "The presence of concave ST elevation",
         "An ST:T-wave ratio above 0.25 in lead V6",
-        "Patient age under 40",
-        "The absence of chest pain",
+        "Patient age under 40 years",
+        "A corrected QT interval above 500 ms",
         "J-point notching alone"],
       correctIndex:1,
       explanation:[
@@ -7200,6 +7203,7 @@ window.MOCK_BANK = {
         "Here CMR is simply THE TOOL that images constriction (including tagging for abnormal septal motion); the septal-bounce / ventricular-interdependence PHYSIOLOGY it demonstrates is owned by the constriction block."
       ] },
     { id:"peri-034", type:"categorize", objective:"peri-ix-map",
+      excludes:["peri-highrisk","peri-effusion-ix"],
       question:"Sort each investigation by whether it is first-line in every patient with acute pericarditis or targeted only when high-risk features suggest a specific cause.",
       buckets:["First-line in everyone","Targeted only if high-risk / cause suspected"],
       items:[
@@ -7219,10 +7223,10 @@ window.MOCK_BANK = {
       question:"Two patients each have a pericardial effusion of similar size on echo, but only one has cardiac tamponade. What most determines whether an effusion causes tamponade?",
       options:[
         "The rate of accumulation and pericardial compliance",
-        "Only the absolute volume of fluid present",
-        "A slowly accumulating large effusion always tampons",
-        "Tamponade requires more than one litre of fluid",
-        "An effusion can essentially never cause tamponade"],
+        "Mainly the absolute volume, once it exceeds about 500 mL",
+        "A large effusion is more dangerous than a rapidly forming one",
+        "The protein content and viscosity of the fluid",
+        "The position of the effusion around the heart"],
       correctIndex:0,
       explanation:[
         "Tamponade occurs when pericardial pressure rises to exceed cardiac filling pressure, so diastolic filling is impaired. Whether that happens depends on the RATE of accumulation and the PERICARDIAL COMPLIANCE, not on volume alone: a rapidly accumulating SMALL effusion (e.g. haemopericardium) tampons on a steep pressure-volume curve, while a slowly accumulating LARGE effusion (e.g. uraemic) may not, because the pericardium stretches to accommodate it.",
@@ -7311,6 +7315,7 @@ window.MOCK_BANK = {
         "It belongs to the ACS mechanical-complication trio &mdash; free-wall rupture, papillary-muscle rupture and post-infarct VSD (acs-031/032/033) &mdash; the 'days after a transmural MI, sudden deterioration' cluster. A small volume of blood causes catastrophic tamponade because it accumulates so fast (the rate/compliance principle, peri-035)."
       ] },
     { id:"peri-042", type:"categorize", objective:"peri-effusion-map",
+      excludes:["peri-tamponade-physiology","peri-fwr","peri-purulent"],
       question:"Sort each pericardial effusion by the action it calls for, applying the rate-and-compliance principle.",
       buckets:["Drain now (compromising / purulent)","High tamponade risk — monitor closely","Low risk — treat the cause"],
       items:[
@@ -7355,7 +7360,7 @@ window.MOCK_BANK = {
         "It is the SECOND JVP discriminator promised in peri-038 (the first was the y descent): Kussmaul's is PRESENT in constriction but ABSENT in tamponade. Both discriminators fall out of one question &mdash; 'can the heart expand?' &mdash; the rigid shell of constriction cannot take the inspiratory load, while the tamponaded heart simply cannot fill in early diastole."
       ] },
     { id:"peri-045", type:"mcq", objective:"peri-knock",
-      question:"On examining a patient with constrictive pericarditis you hear an added early-diastolic heart sound, and the JVP shows a sharp, prominent y descent. Which pairing is this?",
+      question:"On examining a patient with constrictive pericarditis you hear an added early-diastolic heart sound, and the JVP shows a brisk, deep inward collapse in early diastole. Which pairing is this?",
       options:[
         "A pericardial knock with a preserved, sharp y descent",
         "A third heart sound with an absent y descent",
@@ -7381,7 +7386,7 @@ window.MOCK_BANK = {
         "This is the SAME physiology as tamponade's pulsus paradoxus (peri-037): a fixed volume forcing the ventricles to compete. Tamponade expresses it as an inspiratory BP drop; constriction expresses it as the septal bounce and discordance. One mechanism, two containers."
       ] },
     { id:"peri-047", type:"mcq", objective:"peri-square-root",
-      question:"Cardiac catheterisation in suspected constriction shows the ventricular pressure dipping in early diastole then rising to a plateau, with the end-diastolic pressures equal across all four chambers. What is this pattern?",
+      question:"Cardiac catheterisation in suspected constriction shows the ventricular pressure falling sharply in early diastole and then rising to a level held steady through the rest of diastole, with the end-diastolic pressures equal across all four chambers. What is this pattern?",
       options:[
         "A normal diastolic filling pattern",
         "The dip-and-plateau (square-root) sign",
@@ -7396,11 +7401,11 @@ window.MOCK_BANK = {
     { id:"peri-048", type:"mcq", objective:"peri-constr-vs-restr",
       question:"Constrictive pericarditis and restrictive cardiomyopathy both cause right-heart failure with a preserved ejection fraction and small ventricles. Which finding actually discriminates constriction from restriction?",
       options:[
-        "A raised jugular venous pressure alone",
-        "A preserved left ventricular ejection fraction",
+        "A raised jugular venous pressure",
+        "A preserved left ventricular ejection fraction on echo",
         "Respiratory discordance with a preserved e'",
-        "Small, non-dilated ventricular volumes",
-        "The presence of peripheral oedema and ascites"],
+        "Small ventricular volumes with high filling pressures",
+        "Peripheral oedema, ascites and hepatomegaly"],
       correctIndex:2,
       explanation:[
         "The trap is that raised JVP, preserved EF, small ventricles and oedema are SHARED by both, so none of them discriminates. Only the INTERDEPENDENCE separates them: constriction is PERICARDIAL, so it shows respiratory discordance (septal bounce, respiratory mitral-inflow variation) with pericardial thickening/calcification; restriction is MYOCARDIAL (e.g. amyloid), giving CONCORDANT pressures, no interdependence, a high BNP and myocardial features on MRI.",
@@ -7413,7 +7418,7 @@ window.MOCK_BANK = {
         "A pericardial knock on auscultation",
         "Respiratory discordance on catheterisation",
         "A very high BNP with a reduced mitral e'",
-        "A past history of tuberculous pericarditis"],
+        "Small ventricles with a preserved ejection fraction"],
       correctIndex:3,
       explanation:[
         "Restriction is a MYOCARDIAL disease: the diseased, stiff myocardium gives a markedly RAISED BNP, a REDUCED tissue-Doppler e' (the mirror of constriction's preserved e' &mdash; the myocardium here genuinely cannot relax), myocardial LGE/infiltration on MRI, and a low-voltage ECG with a pseudo-hypertrophic echo (classic in amyloid).",
@@ -7457,7 +7462,7 @@ window.MOCK_BANK = {
         "Purulent (bacterial) pericarditis"],
       correctIndex:1,
       explanation:[
-        "Read pericardial fluid the way you read pleural fluid (Light's-criteria logic): a high-protein, high-LDH EXUDATE that is LYMPHOCYTE-predominant, with a RAISED ADA and negative cytology/culture, is classic TUBERCULOUS pericarditis. The ADA cut-off is the examinable number &mdash; usually >40 U/L, with higher values (62 here) more specific for TB; pericardial ADA is actually MORE useful than pleural ADA (higher sensitivity and specificity for TB pericarditis).",
+        "Read pericardial fluid the way you read pleural fluid (Light's-criteria logic): a high-protein, high-LDH EXUDATE that is LYMPHOCYTE-predominant, with a RAISED ADA and negative cytology/culture, is classic TUBERCULOUS pericarditis. The ADA cut-off is the examinable number &mdash; usually >40 U/L, with higher values (62 here) more specific for TB; pericardial ADA has high diagnostic accuracy for tuberculous pericarditis (comparable to pleural ADA in tuberculous effusions).",
         "The mirror profiles consolidate the aetiology block: MALIGNANT = haemorrhagic exudate with POSITIVE cytology; PURULENT = neutrophil-rich with organisms on Gram stain; URAEMIC = a bland, transudate-like fluid in renal failure; VIRAL = a small serous exudate that rarely needs sampling.",
         "Epistemics thread: a NEGATIVE cytology does NOT exclude a malignant effusion &mdash; a meaningful proportion (mesothelioma especially, and some carcinomas) have negative initial cytology, so negative cytology fails to clear a high-pretest patient the way a positive result confirms one (the same principle as a normal TTE not excluding endocarditis, a single troponin not excluding ACS, or angiography under-reading plaque). It is exactly why RECURRENT malignant effusions go to a pericardial WINDOW &mdash; which yields a tissue BIOPSY, not just fluid &mdash; rather than repeated needle taps."
       ] },
@@ -9619,7 +9624,7 @@ window.MOCK_BANK = {
     // paper (relaxed only by the backfill below if the pool can't otherwise reach the length).
     var foundCap=Math.floor(n*0.05), foundCount=0;
     var isFound=function(q){ return /^Foundations/i.test(q._topic||''); };
-    var picked=[], usedObj={}, progress=true;
+    var picked=[], usedObj={}, blockedObj={}, progress=true;
     while(picked.length<n && progress){
       progress=false;
       for(var si=0; si<sysOrder.length && picked.length<n; si++){
@@ -9627,8 +9632,13 @@ window.MOCK_BANK = {
         while(arr.length){
           var q=arr.shift(), ob=q.objective;
           if(ob && usedObj[ob]) continue;                 // objective-pair already in the paper
+          if(ob && blockedObj[ob]) continue;              // a picked summary-map excludes this objective
+          // A summary/categorize map lists the objectives it consolidates in `excludes`; never draw it
+          // alongside one of its own constituent items (the map would be a cheat-sheet for that item).
+          if(q.excludes){ var _clash=false; for(var _e=0;_e<q.excludes.length;_e++){ if(usedObj[q.excludes[_e]]){_clash=true;break;} } if(_clash) continue; }
           if(isFound(q) && foundCount>=foundCap) continue; // foundations cap reached
           if(ob) usedObj[ob]=1;
+          if(q.excludes){ for(var _b=0;_b<q.excludes.length;_b++) blockedObj[q.excludes[_b]]=1; }
           if(isFound(q)) foundCount++;
           picked.push(q); progress=true; break;
         }
