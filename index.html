@@ -6740,18 +6740,18 @@ window.MOCK_BANK = {
       question:"A 17-year-old is found to have asymmetric septal hypertrophy (18 mm) with structurally normal valves on echo; two young relatives died suddenly. What is the most likely inheritance and basis?",
       options:[
         "Autosomal dominant, a sarcomere-gene mutation",
-        "Autosomal recessive, a metabolic defect",
-        "X-linked recessive inheritance",
-        "Mitochondrial (maternal) inheritance",
-        "Acquired, not inherited"],
+        "Autosomal recessive, a metabolic enzyme defect",
+        "X-linked recessive, a lysosomal storage defect",
+        "Mitochondrial, a maternally-inherited defect",
+        "Acquired, with no inherited basis"],
       correctIndex:0,
       explanation:[
         "HCM is the COMMONEST inherited cardiac condition (~1 in 500), usually AUTOSOMAL DOMINANT with variable penetrance. Most mutations sit in SARCOMERE genes &mdash; MYH7 (&beta;-myosin heavy chain) and MYBPC3 (myosin-binding protein C) account for the majority.",
         "Because it is autosomal dominant, each first-degree relative has a ~50% chance of carrying it &mdash; so the diagnosis triggers CASCADE SCREENING of first-degree relatives (clinical &plusmn; genetic), the SAME dominant-inheritance-to-cascade-screen principle used for familial hypercholesterolaemia (lip-024): find carriers BEFORE the event. The sudden-death risk that makes this urgent is owned in the next block.",
-        "Trap: not every young patient with concentric LVH has sarcomeric HCM &mdash; an X-linked lysosomal mimic, FABRY disease, is treatable (enzyme replacement) and is covered later; the treatable-mimic must not be missed."
+        "Trap: not every young patient with concentric LVH has sarcomeric HCM &mdash; an X-linked lysosomal mimic, FABRY disease, is treatable (enzyme replacement, or the oral chaperone migalastat for amenable variants) and is covered later; the treatable-mimic must not be missed."
       ] },
     { id:"cmp-002", type:"mcq", objective:"cmp-hcm-sam",
-      question:"A patient with HCM has a dynamic outflow murmur; echo shows the anterior mitral leaflet being pulled toward the interventricular septum during systole. What is the mechanism of the outflow obstruction?",
+      question:"A patient with asymmetric septal hypertrophy has a dynamic left-ventricular outflow murmur and associated mitral regurgitation. What is the mechanism of the outflow obstruction?",
       options:[
         "A fixed subaortic membrane obstruction",
         "Systolic anterior motion of the mitral valve",
@@ -6760,7 +6760,7 @@ window.MOCK_BANK = {
         "An obstructing left atrial myxoma"],
       correctIndex:1,
       explanation:[
-        "Asymmetric septal hypertrophy narrows the LV OUTFLOW TRACT; the accelerated flow drags the anterior mitral leaflet into the tract (SYSTOLIC ANTERIOR MOTION, a Venturi effect), producing DYNAMIC obstruction AND mitral regurgitation.",
+        "Asymmetric septal hypertrophy narrows the LV OUTFLOW TRACT; the accelerated flow drags the anterior mitral leaflet into the tract (SYSTOLIC ANTERIOR MOTION, a Venturi/flow-drag effect), producing DYNAMIC obstruction AND mitral regurgitation.",
         "That is why the obstruction is DYNAMIC (it varies with loading, cmp-003) &mdash; unlike the FIXED obstruction of valvular aortic stenosis. The distractors are the fixed/structural obstruction mimics."
       ] },
     { id:"cmp-003", type:"mcq", objective:"cmp-hcm-dynamic",
@@ -6783,7 +6783,7 @@ window.MOCK_BANK = {
         "A previous lateral myocardial infarction",
         "Acute coronary artery occlusion",
         "Ventricular pre-excitation (WPW)",
-        "Septal hypertrophy rather than infarction",
+        "Hypertrophy of the interventricular septum",
         "Left bundle branch block"],
       correctIndex:3,
       explanation:[
@@ -6862,25 +6862,25 @@ window.MOCK_BANK = {
     { id:"cmp-010", type:"mcq", objective:"cmp-hcm-icd",
       question:"A 19-year-old with hypertrophic cardiomyopathy is assessed for a primary-prevention implantable defibrillator. Which feature is a recognised MAJOR sudden-cardiac-death risk factor?",
       options:[
-        "A resting LVOT gradient below 30 mmHg",
-        "Well-controlled essential hypertension",
-        "Sinus bradycardia from athletic training",
-        "Unexplained syncope with massive (≥30 mm) LVH",
-        "Mild lateral T-wave inversion in isolation"],
+        "A resting LVOT gradient of 20 mmHg",
+        "A vasovagal faint with a clear prodrome",
+        "Isolated lateral T-wave inversion",
+        "A family history of sudden cardiac death",
+        "A normal exercise blood-pressure response"],
       correctIndex:3,
       explanation:[
-        "The HCM Risk-SCD MAJOR factors are: a FAMILY HISTORY of SCD, UNEXPLAINED SYNCOPE, MASSIVE LVH (&ge;30 mm), NON-SUSTAINED VT on monitoring, and an ABNORMAL BP RESPONSE to exercise (with extensive LGE as an arbitrator). A high estimated risk warrants a primary-prevention ICD.",
-        "Two nuances: (1) it is a CALCULATED 5-year risk estimate that stratifies into low / intermediate / high with ICD thresholds &mdash; a computed decision, not simply counting factors (though the factors are what is examinable). (2) There is a UK/international divergence like the IE-prophylaxis split: the ESC uses the risk CALCULATOR, whereas the US (AHA/ACC) weights massive LVH, an apical aneurysm and extensive LGE more heavily as standalone indications.",
+        "The HCM Risk-SCD CALCULATOR variables are: age, a FAMILY HISTORY of SCD, UNEXPLAINED SYNCOPE, maximal WALL THICKNESS, LEFT ATRIAL size, maximal LVOT GRADIENT, and NON-SUSTAINED VT. A high estimated 5-year risk warrants a primary-prevention ICD; a family history of SCD is one of the clean major inputs here.",
+        "Two precision points: (1) an ABNORMAL BP RESPONSE to exercise, extensive LGE (&ge;15%), an LVEF &lt;50% and an LV apical aneurysm are ESC-2023 MODIFIERS used to sway intermediate-risk cases &mdash; NOT inputs to the calculator itself. (2) There is a UK/international divergence like the IE-prophylaxis split: the ESC uses the risk CALCULATOR, whereas the US 2024 AHA/ACC guideline weights massive LVH (&ge;30 mm), an apical aneurysm and extensive LGE more heavily as standalone indications.",
         "Cross-link the ICD map: this is the YOUNG, primary-prevention ICD (an inherited arrhythmic substrate) &mdash; distinct from the ischaemic/EF&le;35% ICD of heart failure, the conduction-driven devices of the bradycardia block, and the arrest/secondary-prevention ICD of ALS."
       ] },
     { id:"cmp-011", type:"mcq", objective:"cmp-hcm-firstline",
       question:"A patient with symptomatic obstructive HCM (exertional breathlessness, a 60 mmHg gradient) needs drug therapy. What is the first-line agent?",
       options:[
-        "A beta-blocker (verapamil if intolerant)",
+        "A beta-blocker",
         "An ACE inhibitor",
         "A loop diuretic",
         "A dihydropyridine calcium blocker",
-        "Digoxin"],
+        "Digoxin as a rate-limiter"],
       correctIndex:0,
       explanation:[
         "Slow the rate and keep the ventricle FULL, so it obstructs less: BETA-BLOCKERS are first-line (VERAPAMIL if beta-blockers are not tolerated &mdash; but verapamil is used cautiously and avoided if there is severe obstruction with hypotension, as its vasodilatation can worsen the gradient).",
@@ -6910,7 +6910,7 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "DISOPYRAMIDE (a negatively-inotropic class Ia antiarrhythmic) reduces contractility and systolic anterior motion, lowering the gradient &mdash; added for symptoms refractory to a beta-blocker or verapamil.",
-        "It is usually given WITH a rate-controlling agent, because its ANTICHOLINERGIC (vagolytic) effect can SPEED AV conduction &mdash; a problem if the patient goes into atrial fibrillation, where it could allow a fast ventricular response. The drug ladder: rate-control-and-fill first (cmp-011), then negative inotropy (disopyramide or mavacamten), then septal reduction (cmp-015)."
+        "It is usually given WITH a rate-controlling agent, because its ANTICHOLINERGIC (vagolytic) effect can SPEED AV conduction &mdash; a problem if the patient goes into atrial fibrillation, where it could allow a fast ventricular response. The drug ladder: rate-control-and-fill first (cmp-011), then negative inotropy &mdash; disopyramide, or a cardiac myosin inhibitor (mavacamten/aficamten), now a formal second-line option in the 2024 AHA/ACC guideline &mdash; then septal reduction (cmp-015)."
       ] },
     { id:"cmp-014", type:"mcq", objective:"cmp-hcm-mavacamten",
       question:"A patient with symptomatic obstructive HCM despite standard therapy is started on mavacamten, a newer oral agent that targets the primary molecular defect. What is its mechanism?",
@@ -6923,7 +6923,8 @@ window.MOCK_BANK = {
       correctIndex:2,
       explanation:[
         "MAVACAMTEN is a CARDIAC MYOSIN INHIBITOR: it reduces the excessive actin-myosin cross-bridging that drives the hypercontractility and outflow gradient of HCM (EXPLORER-HCM), improving symptoms and deferring septal-reduction therapy in some patients. It does DELIBERATELY what the disease does pathologically.",
-        "That is exactly why it has a therapeutic WINDOW and is MONITORED (a REMS-style programme): because you are intentionally reducing contractility, there is a small risk of LV systolic dysfunction, so LVEF is followed on serial echo; it is also CYP2C19-metabolised (dose/interaction implications). Too much tips the patient into the opposite problem &mdash; a failing pump."
+        "That is exactly why it has a therapeutic WINDOW and is MONITORED (a REMS-style programme): because you are intentionally reducing contractility, there is a small risk of LV systolic dysfunction, so LVEF is followed on serial echo; it is also CYP2C19-metabolised (dose/interaction implications). Too much tips the patient into the opposite problem &mdash; a failing pump.",
+        "It is no longer the only one in its class: aficamten (SEQUOIA-HCM) is a SECOND cardiac myosin inhibitor now approved for obstructive HCM, with the same class effect and the same echo/monitoring requirement."
       ] },
     { id:"cmp-015", type:"mcq", objective:"cmp-hcm-septal",
       question:"A patient with obstructive HCM has severe symptoms and a 70 mmHg gradient despite optimal drug therapy. What is the definitive treatment?",
@@ -6936,7 +6937,7 @@ window.MOCK_BANK = {
       correctIndex:3,
       explanation:[
         "Drug-refractory obstructive HCM with a gradient &ge;50 mmHg is treated by SEPTAL REDUCTION: surgical MYECTOMY (younger, lower-risk patients &mdash; durable, the gold standard) or ALCOHOL SEPTAL ABLATION (older/comorbid patients &mdash; catheter-based).",
-        "The examinable discrimination is the complication: alcohol ablation deliberately INFARCTS septum right next to the conduction system, so it carries a real risk of HEART BLOCK needing a PACEMAKER (cross-link the bradycardia/pacing block) &mdash; which is why it is not simply 'the less invasive myectomy'. Transplant is reserved for end-stage/burnt-out (often non-obstructive) disease, not this."
+        "The examinable discrimination is the complication: alcohol ablation deliberately INFARCTS septum right next to the conduction system, so it carries a real risk of HEART BLOCK needing a PACEMAKER (cross-link the bradycardia/pacing block) &mdash; which is why it is not simply 'the less invasive myectomy'. (A cardiac myosin inhibitor can defer septal reduction in some patients &mdash; VALOR-HCM.) Transplant is reserved for end-stage/burnt-out (often non-obstructive) disease, not this."
       ] },
     { id:"cmp-016", type:"categorize", objective:"cmp-hcm-drugmap",
       excludes:["cmp-hcm-firstline","cmp-hcm-avoid","cmp-hcm-disopyramide"],
@@ -6957,7 +6958,7 @@ window.MOCK_BANK = {
         "One rule, both lists &mdash; the same cavity-size/preload logic that explains the dynamic murmur (cmp-003) and the manoeuvres (cmp-008). Excludes the individual drug questions, so a mock will not draw the map alongside them."
       ] },
     { id:"cmp-017", type:"mcq", objective:"cmp-dcm-def",
-      question:"A patient presents with new heart failure; echo shows a dilated, poorly-contracting left ventricle, and the coronary arteries, valves and blood pressure are all normal. What defines dilated cardiomyopathy?",
+      question:"A patient presents with new heart failure; the coronary arteries, valves and blood pressure are all normal. Which echocardiographic pattern would define this as dilated cardiomyopathy?",
       options:[
         "A dilated LV with impaired systolic function",
         "Concentric LVH with a small cavity",
@@ -6973,7 +6974,7 @@ window.MOCK_BANK = {
       question:"A 52-year-old man has a newly diagnosed dilated cardiomyopathy. Which of the following is a potentially REVERSIBLE cause worth actively excluding?",
       options:[
         "A sarcomeric gene mutation",
-        "Idiopathic interstitial fibrosis",
+        "Burnt-out, healed myocarditis",
         "An old anterior MI scar",
         "A titin truncating variant",
         "Persistent uncontrolled tachyarrhythmia"],
@@ -6986,11 +6987,11 @@ window.MOCK_BANK = {
     { id:"cmp-019", type:"mcq", objective:"cmp-dcm-chemo",
       question:"A woman on trastuzumab for breast cancer, having previously received an anthracycline, develops a falling ejection fraction. Which statement is correct?",
       options:[
-        "The anthracycline injury is typically reversible",
+        "Anthracycline injury is usually fully reversible",
         "The trastuzumab injury is usually reversible on stopping",
-        "Neither drug affects the myocardium",
-        "Both injuries are strictly dose-dependent",
-        "Cardiac monitoring during treatment is unnecessary"],
+        "Anthracycline injury is dose-independent",
+        "Trastuzumab is the dose-dependent, irreversible one",
+        "Global longitudinal strain adds nothing over EF"],
       correctIndex:1,
       explanation:[
         "ANTHRACYCLINES (doxorubicin) cause TYPE I injury &mdash; dose-dependent myocyte DEATH, often IRREVERSIBLE, with cumulative-dose limits. TRASTUZUMAB causes TYPE II injury &mdash; functional and usually REVERSIBLE, often recovering when the drug is stopped. This is the core cardio-oncology distinction.",
@@ -7025,10 +7026,10 @@ window.MOCK_BANK = {
     { id:"cmp-022", type:"mcq", objective:"cmp-dcm-lmna",
       question:"A family has autosomal-dominant dilated cardiomyopathy in which affected members develop early conduction disease (heart block) together with ventricular arrhythmia. Which gene is implicated, and what is the management implication?",
       options:[
-        "MYBPC3, following a benign course",
-        "Titin, with a purely structural effect",
-        "A maternally-inherited mitochondrial variant",
-        "No identifiable genetic basis",
+        "MYBPC3, needing no device",
+        "Titin, warranting early transplant",
+        "A mitochondrial variant, managed by diet",
+        "No genetic cause, so no family screening",
         "LMNA (lamin A/C), lowering the ICD threshold"],
       correctIndex:4,
       explanation:[
@@ -7062,7 +7063,7 @@ window.MOCK_BANK = {
         "Same principle across topics: stasis in a dyskinetic/akinetic chamber warrants anticoagulation &mdash; DCM, the post-anterior-MI apical thrombus, and the Chagas apical aneurysm (the myocarditis anticoagulation question, myo-042). Contrast the pericardial rule, where a large or haemorrhagic effusion is a reason to AVOID anticoagulation (bleeding into the sac) &mdash; the mirror decision."
       ] },
     { id:"cmp-025", type:"categorize", objective:"cmp-dcm-causes-map",
-      excludes:["cmp-dcm-reversible"],
+      excludes:["cmp-dcm-reversible","cmp-haemochromatosis"],
       question:"Sort each cause of a dilated cardiomyopathy by whether it is potentially reversible or fixed/genetic.",
       buckets:["Reversible / treat the cause","Fixed or genetic"],
       items:[
@@ -7079,9 +7080,9 @@ window.MOCK_BANK = {
         "Ischaemic scar is excluded up front by angiography &mdash; it is a cardiomyopathy DUE TO coronary disease, not DCM. Excludes the reversible-cause MCQ (cmp-018), so a mock will not draw the map alongside it."
       ] },
     { id:"cmp-026", type:"mcq", objective:"peri-constr-vs-restr",
-      question:"A patient has right-heart failure with a preserved ejection fraction; echo shows small, non-dilated ventricles, greatly enlarged atria and high filling pressures. What is the phenotype, and what must be actively excluded?",
+      question:"A patient has right-heart failure with a preserved ejection fraction; echo shows small, non-dilated ventricles, greatly enlarged atria and high filling pressures. What is the most likely phenotype?",
       options:[
-        "Restrictive cardiomyopathy (exclude constriction)",
+        "Restrictive cardiomyopathy",
         "Dilated cardiomyopathy with a large cavity",
         "Obstructive hypertrophic cardiomyopathy",
         "Physiological athlete's heart",
@@ -7092,13 +7093,13 @@ window.MOCK_BANK = {
         "Do not re-derive the discriminators here &mdash; they live in peri-048/049: ventricular interdependence / respiratory discordance, the tissue-Doppler e' pattern (annulus paradoxus/reversus), and pericardial calcification. This question shares their constriction-vs-restriction objective, so a mock draws only one half. The commonest cause of RCM in the developed world is INFILTRATION &mdash; amyloid (cmp-027)."
       ] },
     { id:"cmp-027", type:"mcq", objective:"cmp-amyloid-redflags",
-      question:"An elderly man has heart failure with a preserved EF; echo shows thick ventricular walls, but the ECG shows LOW voltages, and he gives a history of bilateral carpal tunnel syndrome. Which finding is the key red flag for cardiac amyloid?",
+      question:"An elderly man has heart failure with a preserved EF; echo shows thick ventricular walls, and he gives a history of bilateral carpal tunnel syndrome. Which ECG finding would be the key red flag for cardiac amyloid?",
       options:[
-        "High ECG voltages matching the thick walls",
-        "Thick walls with LOW ECG voltage (discordance)",
-        "A dilated, thin-walled left ventricle",
-        "A loud ejection systolic murmur at the base",
-        "Isolated right ventricular hypertrophy"],
+        "High voltages, matching the thick walls",
+        "Low voltages, despite the thick walls",
+        "A short PR interval",
+        "Tall, peaked T waves",
+        "Deep symmetrical precordial T-wave inversion"],
       correctIndex:1,
       explanation:[
         "The give-away is DISCORDANCE: the walls look THICK but the ECG voltage is LOW &mdash; because the thickening is INFILTRATE, not true myocyte hypertrophy. This is the exact OPPOSITE of hypertensive/HCM LVH, where thick walls give HIGH voltage (Sokolow-Lyon).",
@@ -7108,24 +7109,24 @@ window.MOCK_BANK = {
     { id:"cmp-028", type:"mcq", objective:"cmp-amyloid-types",
       question:"Cardiac amyloid is confirmed in a patient. Why does distinguishing AL from ATTR matter most?",
       options:[
-        "Both types are treated with the same TTR stabiliser",
-        "AL is age-related and benign; ATTR is the aggressive one",
-        "AL is a haematological emergency; ATTR a stabiliser decision",
-        "ATTR needs urgent chemotherapy; AL needs only monitoring",
-        "Neither type has any disease-modifying treatment"],
+        "Both types respond to the same TTR stabiliser drug",
+        "AL runs a slow chronic course; ATTR is the acute emergency",
+        "AL is a haematological emergency; ATTR a disease-modifying decision",
+        "ATTR needs urgent chemotherapy; AL needs a TTR stabiliser",
+        "Only supportive care exists for either type"],
       correctIndex:2,
       explanation:[
-        "AL amyloid is clonal LIGHT CHAINS (myeloma-spectrum) &mdash; a HAEMATOLOGICAL EMERGENCY (untreated cardiac AL has a prognosis of months) treated with chemotherapy / daratumumab / autologous transplant. ATTR is TRANSTHYRETIN (wild-type/senile in older men, or hereditary) &mdash; a chronic decision treated with TAFAMIDIS, a TTR stabiliser (ATTR-ACT).",
-        "Get the type right FIRST, because the same drug does nothing for the wrong type. The two are separated by SERUM FREE LIGHT CHAINS + IMMUNOFIXATION (to exclude AL) BEFORE you trust the bone scan (cmp-029)."
+        "AL amyloid is clonal LIGHT CHAINS (myeloma-spectrum) &mdash; a HAEMATOLOGICAL EMERGENCY (untreated cardiac AL has a prognosis of months) treated with chemotherapy / daratumumab / autologous transplant. ATTR is TRANSTHYRETIN (wild-type/senile in older men, or hereditary) &mdash; a chronic, disease-modifying decision.",
+        "The ATTR-CM armamentarium is now several agents: the TTR STABILISERS tafamidis (ATTR-ACT) and acoramidis (ATTRibute-CM), and the RNAi SILENCER vutrisiran (HELIOS-B). (Beware a trap: patisiran and inotersen are for hereditary ATTR POLYNEUROPATHY, not the cardiomyopathy indication.) Get the type right FIRST, because the same drug does nothing for the wrong type &mdash; and the two are separated by SERUM FREE LIGHT CHAINS + IMMUNOFIXATION (to exclude AL) BEFORE you trust the bone scan (cmp-029)."
       ] },
     { id:"cmp-029", type:"mcq", objective:"cmp-amyloid-dx",
       question:"Which statement about diagnosing and treating cardiac ATTR amyloid is correct?",
       options:[
         "A positive bone scan confirms ATTR only once AL is excluded",
-        "Coronary angiography is what confirms the diagnosis",
-        "A rising troponin confirms the amyloid subtype",
-        "Digoxin is the safe first-line treatment here",
-        "Beta-blockers are mandatory and well tolerated"],
+        "Coronary angiography is the confirmatory test",
+        "A rising troponin identifies the amyloid subtype",
+        "Digoxin is a safe, effective first-line agent",
+        "Beta-blockers are well tolerated because output is fixed"],
       correctIndex:0,
       explanation:[
         "The algorithm is two-step (and examinable because people collapse it into one): a 99mTc-DPD/PYP BONE SCAN at Perugini grade 2&ndash;3 confirms ATTR WITHOUT biopsy &mdash; but ONLY once serum free light chains + immunofixation have EXCLUDED AL, because AL can ALSO take up the tracer. A positive scan without excluding AL is the trap. Congo red (apple-green birefringence) on biopsy settles genuinely uncertain cases.",
@@ -7172,7 +7173,7 @@ window.MOCK_BANK = {
         "The apical thrombus warrants ANTICOAGULATION &mdash; the SAME stasis-in-a-diseased-chamber logic as DCM, Chagas and the post-MI apical thrombus (myo-042, cmp-024). And note the pair: LOFFLER (temperate, eosinophilia-driven, acute) and TROPICAL endomyocardial fibrosis (its chronic counterpart) are the same endpoint reached from different starts. Treat the eosinophilia and anticoagulate."
       ] },
     { id:"cmp-033", type:"categorize", objective:"cmp-infiltrative-map",
-      excludes:["cmp-amyloid-redflags","cmp-amyloid-dx","myo-sarcoid","cmp-haemochromatosis"],
+      excludes:["cmp-amyloid-redflags","cmp-amyloid-dx","myo-sarcoid","cmp-haemochromatosis","cmp-thickwall-ddx"],
       question:"Match each signature clue or test to the infiltrative cardiomyopathy it points to.",
       buckets:["Amyloid","Sarcoid","Haemochromatosis"],
       items:[
@@ -7195,7 +7196,7 @@ window.MOCK_BANK = {
         "An X-linked lysosomal storage defect",
         "Post-viral right-ventricular myocarditis",
         "Pulmonary-hypertensive RV pressure strain",
-        "A desmosomal mutation, fibrofatty RV"],
+        "A desmosomal (cell-junction) mutation"],
       correctIndex:4,
       explanation:[
         "ARVC arises from DESMOSOMAL (cell-junction) gene mutations (autosomal dominant, variable penetrance) &mdash; leading to FIBROFATTY replacement, predominantly of the RIGHT ventricle, which becomes an arrhythmic substrate for VT and sudden death in the young/athletes.",
@@ -7203,25 +7204,25 @@ window.MOCK_BANK = {
         "Newer understanding, worth knowing so a left-dominant case does not throw you: ARVC is often BIVENTRICULAR (left-dominant and biventricular forms exist, now grouped broadly as 'arrhythmogenic cardiomyopathy'), so the 'purely RV' teaching is the classic-but-simplified version. Exercise accelerates it (cmp-036)."
       ] },
     { id:"cmp-035", type:"mcq", objective:"cmp-arvc-ecg",
-      question:"A patient with suspected ARVC has an ECG showing T-wave inversion in V1-V3 and a small terminal deflection at the very end of the QRS; documented VT has a left bundle branch block morphology. Which is the ARVC hallmark?",
+      question:"A young patient with suspected ARVC has T-wave inversion in V1-V3 and documented VT of left bundle branch block morphology. Which additional ECG finding is the specific ARVC hallmark?",
       options:[
-        "An epsilon wave with V1-V3 T-wave inversion",
-        "A delta wave (pre-excitation)",
-        "Deep, narrow septal Q waves",
-        "Widespread saddle-shaped ST elevation",
-        "A short PR interval in isolation"],
+        "An epsilon wave",
+        "A delta wave",
+        "Deep septal Q waves",
+        "Saddle-shaped ST elevation",
+        "A short PR interval"],
       correctIndex:0,
       explanation:[
-        "The ARVC ECG shows T-wave inversion in V1-V3, an EPSILON WAVE (a small terminal notch = delayed RV activation), and VT of LBBB MORPHOLOGY &mdash; because it arises in the RV, it looks like a left-bundle pattern (localise the VT to its chamber by the bundle morphology). The distractors are the signatures of other topics: delta = WPW, septal Q = HCM, saddle ST = pericarditis, short PR = pre-excitation.",
-        "The epsilon wave is SPECIFIC but INSENSITIVE (present in only a minority), so its ABSENCE does not exclude ARVC &mdash; the more consistent features are the V1-V3 T-wave inversion and the LBBB-morphology VT. ARVC is diagnosed by the TASK FORCE CRITERIA (combining ECG, imaging, arrhythmia, family history and genetics) &mdash; no single test, the same multimodal structure as Duke (endocarditis) and Lake Louise (myocarditis)."
+        "The specific ARVC hallmark is the EPSILON WAVE &mdash; a small terminal notch at the end of the QRS, from delayed RV activation. It accompanies the T-wave inversion in V1-V3 and the VT of LBBB MORPHOLOGY (arising in the RV, so it looks like a left-bundle pattern &mdash; localise the VT to its chamber by the bundle morphology). The distractors are the signatures of other topics: delta = WPW, septal Q = HCM, saddle ST = pericarditis, short PR = pre-excitation.",
+        "The epsilon wave is SPECIFIC but INSENSITIVE (present in only a minority), so its ABSENCE does not exclude ARVC &mdash; the more consistent features are the V1-V3 T-wave inversion and the LBBB-morphology VT. ARVC is diagnosed by the TASK FORCE CRITERIA (combining ECG, imaging, arrhythmia, family history and genetics) &mdash; no single test, the same multimodal structure as Duke (endocarditis) and Lake Louise (myocarditis). (The 2020 Padua criteria extend these to incorporate CMR tissue characterisation and the left-dominant/biventricular forms.)"
       ] },
     { id:"cmp-036", type:"mcq", objective:"cmp-arvc-mgmt",
       question:"A patient with confirmed ARVC has had syncope and non-sustained VT. What are the two management priorities?",
       options:[
-        "Encourage competitive endurance sport",
-        "A cardiac myosin inhibitor",
-        "Alcohol septal ablation",
-        "Routine lifelong anticoagulation",
+        "Encourage sport and start a myosin inhibitor",
+        "Alcohol septal ablation and a beta-blocker",
+        "Routine anticoagulation and a diuretic",
+        "Reassurance and a return to competition",
         "Exercise restriction plus an ICD"],
       correctIndex:4,
       explanation:[
@@ -7242,13 +7243,13 @@ window.MOCK_BANK = {
         "This is the same recognition as the takotsubo-vs-myocarditis MINOCA question (myo-015), so the two share an objective and a mock draws only one. Its acute complications are owned in cmp-038."
       ] },
     { id:"cmp-038", type:"mcq", objective:"cmp-takotsubo-cx",
-      question:"Takotsubo cardiomyopathy usually recovers fully, but the acute phase carries a dangerous window. Which statement is correct?",
+      question:"Takotsubo cardiomyopathy usually recovers fully, but its acute phase can be dangerous. Which acute complication is recognised?",
       options:[
-        "It always requires immediate thrombolysis",
-        "It never causes any acute complications",
-        "A positive coronary angiogram confirms it",
-        "It is permanent and irreversible in all cases",
-        "It can cause dynamic LVOT obstruction and thrombus"],
+        "Acute aortic dissection",
+        "Papillary muscle rupture from ischaemia",
+        "A new fixed subaortic membrane",
+        "Progression to constrictive pericarditis",
+        "Dynamic LVOT obstruction with apical thrombus"],
       correctIndex:4,
       explanation:[
         "The STEMI-mimic tell is that the wall-motion abnormality CROSSES coronary territories (not a single artery) with UNOBSTRUCTED coronaries. But the 'benign, recovers fully' framing hides a dangerous acute window.",
@@ -7306,14 +7307,15 @@ window.MOCK_BANK = {
         "Physiological athlete's heart"],
       correctIndex:0,
       explanation:[
-        "FABRY disease is an X-linked lysosomal storage disorder (alpha-galactosidase A deficiency) that produces concentric LVH mimicking HCM &mdash; but with SYSTEMIC tells: angiokeratomata, neuropathic pain, cornea verticillata, and renal failure. It is the TREATABLE mimic (enzyme replacement therapy) forward-referenced from cmp-001.",
+        "FABRY disease is an X-linked lysosomal storage disorder (alpha-galactosidase A deficiency) that produces concentric LVH mimicking HCM &mdash; but with SYSTEMIC tells: angiokeratomata, neuropathic pain, cornea verticillata, and renal failure. It is the TREATABLE mimic (enzyme replacement, or the oral chaperone migalastat for amenable GLA variants) forward-referenced from cmp-001.",
         "Fabry is the mimic you catch by looking OUTSIDE the heart &mdash; the cardiac picture alone looks like HCM, so the extracardiac clues (skin, nerves, cornea, kidney) are what make the diagnosis. Missing it means missing a treatable cause of 'HCM'."
       ] },
     { id:"cmp-043", type:"mcq", objective:"cmp-thickwall-ddx",
+      excludes:["cmp-amyloid-redflags"],
       question:"Several conditions produce thick left-ventricular walls. What is the best FIRST-PASS discriminator on the ECG?",
       options:[
-        "The conditions cannot be told apart clinically",
-        "Only HCM produces genuinely thick walls",
+        "The QRS axis: left in amyloid, right in HCM",
+        "The PR interval: short in amyloid, long in HCM",
         "The QT interval is the key separator",
         "Voltage: low in amyloid, high in hypertensive LVH",
         "The resting heart rate distinguishes them"],
@@ -7338,11 +7340,11 @@ window.MOCK_BANK = {
     { id:"cmp-045", type:"mcq", objective:"cmp-exertional-syncope",
       question:"A teenager is referred after an episode of syncope. Which feature is the ominous red flag that mandates urgent cardiac work-up rather than reassurance?",
       options:[
-        "A classic vasovagal faint with a prodrome",
-        "Syncope occurring DURING exertion",
-        "Post-prandial light-headedness",
-        "Situational (cough) syncope",
-        "Simple orthostatic dizziness on standing"],
+        "Syncope after standing in a hot, crowded room",
+        "Syncope occurring during exertion",
+        "Light-headedness after a large meal",
+        "Fainting during a bout of coughing",
+        "Dizziness on standing up quickly"],
       correctIndex:1,
       explanation:[
         "Syncope occurring DURING exertion (not after it) is the RED FLAG: it means the heart failed to keep up under LOAD &mdash; outflow obstruction (HCM, aortic stenosis), an exercise-triggered arrhythmia (ARVC, channelopathy), or ischaemia from an anomalous coronary &mdash; so it is structural/electrical until proven otherwise, and mandates ECG, echo and a family history rather than reassurance.",
@@ -7351,11 +7353,11 @@ window.MOCK_BANK = {
     { id:"cmp-046", type:"mcq", objective:"cmp-cascade-screen",
       question:"A person is diagnosed with hypertrophic cardiomyopathy. What is the correct approach to their first-degree relatives?",
       options:[
-        "No screening is needed",
-        "Screen only if they are symptomatic",
+        "Screen relatives only if a gene variant is found in the patient",
+        "Screen only relatives who are already symptomatic",
         "Cascade-screen the first-degree relatives",
-        "Screen the whole general population",
-        "Screen only the children"],
+        "Screen all relatives with coronary angiography",
+        "Reassure the relatives; no screening is needed"],
       correctIndex:2,
       explanation:[
         "The inherited cardiomyopathies are AUTOSOMAL DOMINANT, so each first-degree relative has a ~50% chance of carrying the variant &mdash; the approach is CASCADE SCREENING (ECG/echo, plus the family's known variant if identified) to find carriers before an event.",
@@ -7364,31 +7366,31 @@ window.MOCK_BANK = {
     { id:"cmp-047", type:"mcq", objective:"cmp-sads",
       question:"A young person dies suddenly; at autopsy the heart is structurally NORMAL and no cause is found. What is the correct conclusion for the family?",
       options:[
-        "Close the case; no cause was found",
-        "Assume an occult drug overdose",
-        "There are no implications for relatives",
+        "Record it as natural causes, with no follow-up",
+        "Refer relatives for coronary angiography",
+        "Screen relatives on echocardiography alone",
         "Suspect a channelopathy; screen the family",
-        "Screen only if a second relative dies"],
+        "Test relatives only if they develop symptoms"],
       correctIndex:3,
       explanation:[
         "A structurally normal heart at autopsy after young sudden death points to a CHANNELOPATHY (long-QT, Brugada, CPVT) &mdash; SUDDEN ARRHYTHMIC DEATH SYNDROME (SADS). It carries family implications: first-degree relatives need cardiological screening, and MOLECULAR AUTOPSY (post-mortem genetics on stored tissue) can identify the variant and direct that screening &mdash; so 'no cause found' is NOT the end for the family.",
         "It is the inherited-arrhythmia MIRROR of the cardiomyopathy cascade: the cardiomyopathies leave a structural substrate you can image, whereas the channelopathies leave a normal heart, so family screening is the only handle. (This is exactly where the channelopathies &mdash; long-QT, Brugada, CPVT &mdash; become the natural next topic.)"
       ] },
     { id:"cmp-048", type:"categorize", objective:"cmp-classification-map",
-      excludes:["cmp-dcm-def","cmp-hcm-echo","peri-constr-vs-restr","cmp-arvc-genetics"],
+      excludes:["cmp-dcm-def","cmp-hcm-echo","peri-constr-vs-restr","cmp-arvc-genetics","cmp-arvc-ecg","myo-dcm"],
       question:"Sort each description into the cardiomyopathy phenotype it defines.",
       buckets:["Dilated","Hypertrophic","Restrictive","Arrhythmogenic"],
       items:[
         { text:"Big cavity, poor systolic function", bucket:0 },
-        { text:"Post-viral or alcohol aetiology", bucket:0 },
+        { text:"Alcohol or thyrotoxic aetiology", bucket:0 },
         { text:"Small cavity, asymmetric septum, SAM", bucket:1 },
         { text:"Stiff walls, preserved EF, big atria", bucket:2 },
         { text:"Amyloid, sarcoid or iron infiltration", bucket:2 },
-        { text:"Fibrofatty RV with an epsilon wave", bucket:3 }
+        { text:"LBBB-morphology VT from a fibrofatty RV", bucket:3 }
       ],
       explanation:[
-        "The four structural phenotypes, each with its defining cavity/wall behaviour: DILATED (big cavity, poor contraction), HYPERTROPHIC (small cavity, thick asymmetric septum, SAM), RESTRICTIVE (stiff walls, preserved EF, big atria &mdash; usually infiltrative) and ARRHYTHMOGENIC (fibrofatty RV, epsilon wave). Takotsubo is the acute, reversible outlier. Placed last, it consolidates the whole topic rather than pre-empting it.",
-        "For completeness: the older WHO/AHA MORPHOLOGICAL scheme (this four-phenotype frame) has been supplemented by newer genotype-aware systems (MOGE(S); the ESC phenotype-plus-genotype approach) &mdash; specialist detail, but the four-phenotype frame is the examinable one. Excludes the phenotype-definition questions so a mock will not draw the map alongside them."
+        "The four structural phenotypes, each with its defining cavity/wall behaviour: DILATED (big cavity, poor contraction), HYPERTROPHIC (small cavity, thick asymmetric septum, SAM), RESTRICTIVE (stiff walls, preserved EF, big atria &mdash; usually infiltrative) and ARRHYTHMOGENIC (fibrofatty RV). Takotsubo is the acute, reversible outlier. Placed last, it consolidates the whole topic rather than pre-empting it.",
+        "For completeness: the older WHO/AHA MORPHOLOGICAL scheme (this four-phenotype frame) has been supplemented by newer genotype-aware systems (MOGE(S)); and the 2023 ESC guideline adds a FIFTH phenotype &mdash; non-dilated left ventricular cardiomyopathy (NDLVC), a hypokinetic or scarred LV without dilatation. Specialist detail, but the four-phenotype frame is the examinable one. Excludes the phenotype-definition questions so a mock will not draw the map alongside them."
       ] },
   ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
