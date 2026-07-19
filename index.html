@@ -7170,7 +7170,11 @@ window.MOCK_BANK = {
         "One mechanism, seen twice: that atrial injury current produces PR DEPRESSION in most leads AND reciprocal PR ELEVATION in aVR (and often V1) &mdash; so peri-028's aVR finding and this sign are the SAME phenomenon, main effect and reciprocal. It is exactly parallel to the ventricular injury current, which gives diffuse ST elevation with reciprocal ST depression in aVR. Both currents point AWAY from aVR."
       ] },
     { id:"peri-032", type:"mcq", objective:"peri-alternans",
-      question:"A breathless patient with a large pericardial effusion has an ECG in which the QRS amplitude alternates from beat to beat, on a background of low voltages. What does this most likely indicate?",
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/7e/Pericardial_effusion_with_tamponade.png",
+      imageAlt:"An ECG in which the QRS complexes alternate in height from beat to beat.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      imageStyle:"width:100%;max-width:600px;aspect-ratio:1275/804;object-fit:cover;object-position:bottom;max-height:none",
+      question:"A breathless patient has the ECG shown, in which the QRS complexes alternate in height from beat to beat on a background of low voltages. What does this most likely indicate?",
       options:[
         "An evolving acute myocardial infarction",
         "Ventricular bigeminy on the rhythm strip",
@@ -7319,7 +7323,10 @@ window.MOCK_BANK = {
         "The through-line from Block 1: the same causes seen there now sorted by what their effusion physiology demands &mdash; a fast small bleed outranks a big slow effusion every time."
       ] },
     { id:"peri-043", type:"mcq", objective:"peri-constriction-def",
-      question:"A patient has progressive right-heart failure (a raised JVP, ascites and peripheral oedema) with a preserved ejection fraction; imaging shows a thickened, partly calcified pericardium. What is the process, and its commonest cause worldwide?",
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/78/ZP_pericarditis_%2B_pericarditis_calcarea_(31).jpg",
+      imageAlt:"A chest radiograph showing a thin curvilinear density running around the border of the heart.",
+      imageCredit:"Jan Šprindrich, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A patient has progressive right-heart failure (a raised JVP, ascites and peripheral oedema) with a preserved ejection fraction, and the chest radiograph is shown. What is the process, and its commonest cause worldwide?",
       options:[
         "Restrictive cardiomyopathy from amyloid",
         "Constrictive pericarditis (usually tuberculous)",
@@ -9687,6 +9694,7 @@ window.MOCK_BANK = {
     if(q.image){
       h+='<figure class="mk-qfig">'+
            '<img class="mk-qimg" src="'+esc(q.image)+'" alt="'+esc(q.imageAlt||'Clinical image')+'" loading="lazy" '+
+           (q.imageStyle?'style="'+esc(q.imageStyle)+'" ':'')+
            'onerror="this.style.display=\'none\';var n=this.parentNode.querySelector(\'.mk-qimg-fail\');if(n)n.style.display=\'block\';">'+
            '<div class="mk-qimg-fail">Image could not be loaded.</div>'+
            (q.imageCredit?'<figcaption class="mk-qcredit">'+esc(q.imageCredit)+'</figcaption>':'')+
