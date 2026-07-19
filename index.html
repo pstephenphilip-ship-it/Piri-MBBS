@@ -6846,6 +6846,116 @@ window.MOCK_BANK = {
         "One rule governs the whole picture: anything that SHRINKS the LV cavity &mdash; reducing PRELOAD (Valsalva, standing, dehydration, venodilators) or AFTERLOAD (arterial vasodilators) &mdash; brings the septum and mitral leaflet together, WORSENS the dynamic obstruction and makes the murmur LOUDER. Anything that FILLS the cavity (squatting, handgrip, leg raise, fluids) RELIEVES it.",
         "This is the mechanistic anchor for management (next block): because emptying the ventricle is dangerous, VASODILATORS, DIURETICS and DEHYDRATION are avoided in obstructive HCM, and treatment aims to slow the heart and keep it full (beta-blockers, verapamil). Shares an objective with cmp-003, so a single mock draws only one."
       ] },
+    { id:"cmp-009", type:"mcq", objective:"cmp-hcm-scd-substrate",
+      question:"Hypertrophic cardiomyopathy is a leading cause of sudden cardiac death in the young. What is the underlying substrate for the fatal arrhythmia?",
+      options:[
+        "Progressive outflow tract obstruction alone",
+        "Coronary atherosclerosis and plaque rupture",
+        "Myocyte disarray and interstitial fibrosis",
+        "Calcification of the conduction system",
+        "Pump failure from a dilated ventricle"],
+      correctIndex:2,
+      explanation:[
+        "The lethal event in HCM is usually VENTRICULAR ARRHYTHMIA (VT/VF), and its substrate is MYOCYTE DISARRAY plus interstitial FIBROSIS &mdash; a disorganised, scarred myocardium that supports re-entry. It is NOT primarily the outflow obstruction (many who die suddenly are only mildly obstructed or non-obstructive).",
+        "This is why FIBROSIS on MRI (late gadolinium enhancement, cmp-007) matters beyond diagnosis &mdash; it images the arrhythmic substrate and feeds risk stratification (cmp-010). The disarray/fibrosis link is the mechanistic reason HCM kills young athletes."
+      ] },
+    { id:"cmp-010", type:"mcq", objective:"cmp-hcm-icd",
+      question:"A 19-year-old with hypertrophic cardiomyopathy is assessed for a primary-prevention implantable defibrillator. Which feature is a recognised MAJOR sudden-cardiac-death risk factor?",
+      options:[
+        "A resting LVOT gradient below 30 mmHg",
+        "Well-controlled essential hypertension",
+        "Sinus bradycardia from athletic training",
+        "Unexplained syncope with massive (≥30 mm) LVH",
+        "Mild lateral T-wave inversion in isolation"],
+      correctIndex:3,
+      explanation:[
+        "The HCM Risk-SCD MAJOR factors are: a FAMILY HISTORY of SCD, UNEXPLAINED SYNCOPE, MASSIVE LVH (&ge;30 mm), NON-SUSTAINED VT on monitoring, and an ABNORMAL BP RESPONSE to exercise (with extensive LGE as an arbitrator). A high estimated risk warrants a primary-prevention ICD.",
+        "Two nuances: (1) it is a CALCULATED 5-year risk estimate that stratifies into low / intermediate / high with ICD thresholds &mdash; a computed decision, not simply counting factors (though the factors are what is examinable). (2) There is a UK/international divergence like the IE-prophylaxis split: the ESC uses the risk CALCULATOR, whereas the US (AHA/ACC) weights massive LVH, an apical aneurysm and extensive LGE more heavily as standalone indications.",
+        "Cross-link the ICD map: this is the YOUNG, primary-prevention ICD (an inherited arrhythmic substrate) &mdash; distinct from the ischaemic/EF&le;35% ICD of heart failure, the conduction-driven devices of the bradycardia block, and the arrest/secondary-prevention ICD of ALS."
+      ] },
+    { id:"cmp-011", type:"mcq", objective:"cmp-hcm-firstline",
+      question:"A patient with symptomatic obstructive HCM (exertional breathlessness, a 60 mmHg gradient) needs drug therapy. What is the first-line agent?",
+      options:[
+        "A beta-blocker (verapamil if intolerant)",
+        "An ACE inhibitor",
+        "A loop diuretic",
+        "A dihydropyridine calcium blocker",
+        "Digoxin"],
+      correctIndex:0,
+      explanation:[
+        "Slow the rate and keep the ventricle FULL, so it obstructs less: BETA-BLOCKERS are first-line (VERAPAMIL if beta-blockers are not tolerated &mdash; but verapamil is used cautiously and avoided if there is severe obstruction with hypotension, as its vasodilatation can worsen the gradient).",
+        "This is the therapeutic payoff of the cavity-size rule (cmp-008): a fuller, slower ventricle has less systolic anterior motion and a smaller gradient. The distractors are all on the AVOID list (cmp-012/016)."
+      ] },
+    { id:"cmp-012", type:"mcq", objective:"cmp-hcm-avoid",
+      question:"A patient with obstructive HCM and chest pain becomes hypotensive after a drug is given on the ward. Which agent is DANGEROUS because it worsens the outflow gradient?",
+      options:[
+        "A beta-blocker",
+        "Verapamil at a low dose",
+        "Disopyramide",
+        "An intravenous fluid bolus",
+        "A vasodilator such as GTN"],
+      correctIndex:4,
+      explanation:[
+        "VASODILATORS (GTN, ACE inhibitors, dihydropyridines), DIURETICS and DIGOXIN are dangerous in obstructive HCM: they empty or over-contract the LV, which WORSENS the SAM/gradient and can precipitate collapse (digoxin's inotropy also worsens SAM). The reflex to give an obstructive-HCM patient with chest pain GTN is the classic error &mdash; it can drop them.",
+        "Name the cluster, because it is ONE principle across FOUR topics: obstructive HCM, cardiac TAMPONADE (peri-040), RIGHT-VENTRICULAR INFARCTION (acs-018/047) and severe AORTIC STENOSIS are all PRELOAD-DEPENDENT states &mdash; a small, obstructed or underfilled ventricle that relies on filling &mdash; where the reflex GTN/diuretic is exactly backwards. The unifying bedside question is always 'is this patient preload-dependent?' (the physiology anchor is fcvs-047); if yes, do not drop the preload."
+      ] },
+    { id:"cmp-013", type:"mcq", objective:"cmp-hcm-disopyramide",
+      question:"A patient with obstructive HCM remains symptomatic on a beta-blocker. Which drug lowers the outflow gradient specifically through its negative inotropic effect?",
+      options:[
+        "Amiodarone",
+        "Disopyramide",
+        "Ivabradine",
+        "Furosemide",
+        "Amlodipine"],
+      correctIndex:1,
+      explanation:[
+        "DISOPYRAMIDE (a negatively-inotropic class Ia antiarrhythmic) reduces contractility and systolic anterior motion, lowering the gradient &mdash; added for symptoms refractory to a beta-blocker or verapamil.",
+        "It is usually given WITH a rate-controlling agent, because its ANTICHOLINERGIC (vagolytic) effect can SPEED AV conduction &mdash; a problem if the patient goes into atrial fibrillation, where it could allow a fast ventricular response. The drug ladder: rate-control-and-fill first (cmp-011), then negative inotropy (disopyramide or mavacamten), then septal reduction (cmp-015)."
+      ] },
+    { id:"cmp-014", type:"mcq", objective:"cmp-hcm-mavacamten",
+      question:"A patient with symptomatic obstructive HCM despite standard therapy is started on mavacamten, a newer oral agent that targets the primary molecular defect. What is its mechanism?",
+      options:[
+        "A sodium-channel blocker",
+        "An SGLT2 inhibitor",
+        "A cardiac myosin inhibitor",
+        "A beta-adrenergic agonist",
+        "An arterial vasodilator"],
+      correctIndex:2,
+      explanation:[
+        "MAVACAMTEN is a CARDIAC MYOSIN INHIBITOR: it reduces the excessive actin-myosin cross-bridging that drives the hypercontractility and outflow gradient of HCM (EXPLORER-HCM), improving symptoms and deferring septal-reduction therapy in some patients. It does DELIBERATELY what the disease does pathologically.",
+        "That is exactly why it has a therapeutic WINDOW and is MONITORED (a REMS-style programme): because you are intentionally reducing contractility, there is a small risk of LV systolic dysfunction, so LVEF is followed on serial echo; it is also CYP2C19-metabolised (dose/interaction implications). Too much tips the patient into the opposite problem &mdash; a failing pump."
+      ] },
+    { id:"cmp-015", type:"mcq", objective:"cmp-hcm-septal",
+      question:"A patient with obstructive HCM has severe symptoms and a 70 mmHg gradient despite optimal drug therapy. What is the definitive treatment?",
+      options:[
+        "Urgent orthotopic heart transplantation",
+        "Isolated mitral valve replacement",
+        "Coronary artery bypass grafting",
+        "Septal myectomy or alcohol ablation",
+        "Surgical pericardiectomy"],
+      correctIndex:3,
+      explanation:[
+        "Drug-refractory obstructive HCM with a gradient &ge;50 mmHg is treated by SEPTAL REDUCTION: surgical MYECTOMY (younger, lower-risk patients &mdash; durable, the gold standard) or ALCOHOL SEPTAL ABLATION (older/comorbid patients &mdash; catheter-based).",
+        "The examinable discrimination is the complication: alcohol ablation deliberately INFARCTS septum right next to the conduction system, so it carries a real risk of HEART BLOCK needing a PACEMAKER (cross-link the bradycardia/pacing block) &mdash; which is why it is not simply 'the less invasive myectomy'. Transplant is reserved for end-stage/burnt-out (often non-obstructive) disease, not this."
+      ] },
+    { id:"cmp-016", type:"categorize", objective:"cmp-hcm-drugmap",
+      excludes:["cmp-hcm-firstline","cmp-hcm-avoid","cmp-hcm-disopyramide"],
+      question:"Sort each drug or intervention by whether it is used or avoided in obstructive hypertrophic cardiomyopathy.",
+      buckets:["Use (keeps the ventricle full / eases obstruction)","Avoid (empties or over-drives the ventricle)"],
+      items:[
+        { text:"Beta-blocker", bucket:0 },
+        { text:"Verapamil", bucket:0 },
+        { text:"Disopyramide", bucket:0 },
+        { text:"Intravenous fluids for hypotension", bucket:0 },
+        { text:"GTN / nitrate", bucket:1 },
+        { text:"Loop diuretic", bucket:1 },
+        { text:"Dihydropyridine (amlodipine)", bucket:1 },
+        { text:"Digoxin", bucket:1 }
+      ],
+      explanation:[
+        "The whole drug chart derives from one rule (cmp-008): keep the ventricle FULL and UNHURRIED (beta-blocker, verapamil, disopyramide, fluids) so it obstructs less; never EMPTY or OVER-DRIVE it (GTN, diuretic, dihydropyridine, digoxin), which worsens the gradient.",
+        "One rule, both lists &mdash; the same cavity-size/preload logic that explains the dynamic murmur (cmp-003) and the manoeuvres (cmp-008). Excludes the individual drug questions, so a mock will not draw the map alongside them."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
     { id:"peri-001", type:"mcq", objective:"peri-viral",
