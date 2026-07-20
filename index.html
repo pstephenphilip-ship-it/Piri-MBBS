@@ -7703,11 +7703,11 @@ window.MOCK_BANK = {
     { id:"cmp-017", type:"mcq", objective:"cmp-dcm-def",
       question:"A patient presents with new heart failure; the coronary arteries, valves and blood pressure are all normal. Which echocardiographic pattern would define this as dilated cardiomyopathy?",
       options:[
-        "A dilated LV with impaired systolic function",
-        "Concentric LVH with a small cavity",
-        "A stiff ventricle with a preserved EF",
-        "Isolated right ventricular dilatation",
-        "A hypertrophied, obstructive septum"],
+        "A large left-ventricular cavity with globally reduced ejection fraction",
+        "Concentric left-ventricular hypertrophy with a small cavity",
+        "A stiff, normal-sized ventricle with a preserved ejection fraction",
+        "Isolated right-ventricular dilatation with a fibro-fatty free wall",
+        "Asymmetric septal hypertrophy with dynamic outflow obstruction"],
       correctIndex:0,
       explanation:[
         "DCM = a DILATED left ventricle with impaired SYSTOLIC function (HFrEF), not adequately explained by an ischaemic, valvular, hypertensive or congenital cause. It is the commonest cardiomyopathy presenting AS heart failure.",
@@ -8317,7 +8317,8 @@ window.MOCK_BANK = {
         "Both SLE and Dressler's sit in the autoimmune bucket because both are immune-mediated serositis (peri-003, peri-009). TB sits under infective but is the one that most often ends in CONSTRICTION &mdash; the thread this block hands to the constriction block."
       ] },
     { id:"peri-009", type:"mcq", objective:"peri-sle",
-      question:"A 24-year-old woman with a malar rash, small-joint arthralgia and recurrent mouth ulcers develops sharp pleuritic chest pain relieved by sitting forward, with a pericardial friction rub. Blood tests show a positive ANA and low C3 and C4. What is the most likely underlying cause of her pericarditis?",
+      question:"A 24-year-old woman with a malar rash, small-joint arthralgia and recurrent mouth ulcers develops sharp pleuritic chest pain relieved by sitting forward, with a pericardial friction rub. Her blood results are shown. What is the most likely underlying cause of her pericarditis?",
+      data:'<div class="mk-obs-h">Blood results</div><table class="mk-labs"><tr><td>Haemoglobin</td><td><b>101 g/L</b></td><td>115&ndash;160</td></tr><tr><td>White cells</td><td><b>3.1</b></td><td>4.0&ndash;11.0</td></tr><tr><td>Lymphocytes</td><td><b>0.7</b></td><td>1.0&ndash;4.0</td></tr><tr><td>Platelets</td><td><b>118</b></td><td>150&ndash;400</td></tr><tr><td>Creatinine</td><td><b>71 µmol/L</b></td><td>45&ndash;90</td></tr><tr><td>ESR</td><td><b>68 mm/hr</b></td><td>&lt;20</td></tr><tr><td>CRP</td><td><b>8 mg/L</b></td><td>&lt;5</td></tr><tr><td>ANA</td><td><b>Positive 1:640</b></td><td>negative</td></tr><tr><td>Anti-dsDNA</td><td><b>Positive</b></td><td>negative</td></tr><tr><td>C3 and C4</td><td><b>Both low</b></td><td>normal</td></tr></table>',
       options:[
         "A viral (idiopathic) cause",
         "Tuberculosis",
@@ -8326,7 +8327,8 @@ window.MOCK_BANK = {
         "A bacterial (purulent) infection"],
       correctIndex:2,
       explanation:[
-        "PERICARDITIS is the COMMONEST cardiac manifestation of SLE and the most frequent form of lupus SEROSITIS &mdash; it can even be the presenting feature. The multisystem picture (malar rash, arthralgia, oral ulcers) with a positive ANA and LOW complement (C3/C4, reflecting active disease) points to lupus.",
+        "PERICARDITIS is the COMMONEST cardiac manifestation of SLE and the most frequent form of lupus SEROSITIS &mdash; it can even be the presenting feature. Interpret the whole panel: the multisystem picture (malar rash, arthralgia, oral ulcers) PLUS a positive ANA, a positive ANTI-dsDNA (specific for SLE) and LOW C3/C4 (complement CONSUMED in active disease) make lupus the answer &mdash; and the CYTOPENIAS (anaemia, leucopenia/lymphopenia, thrombocytopenia) are themselves SLE features. Note the classic ESR-raised / CRP-near-normal dissociation of a lupus flare (a big CRP jump should prompt a hunt for infection or serositis).",
+        "The panel also excludes the mimics: the NORMAL creatinine rules out uraemic pericarditis (D); there is no septic/purulent or TB picture (B, E); and calling it idiopathic/viral (A) ignores a florid autoimmune serology. The lesson is to read the whole results table, not a single line.",
         "It is treated as part of the lupus: NSAIDs/colchicine for mild serositis, corticosteroids Â± immunosuppression for more severe or refractory disease &mdash; distinct from the cause-specific treatments of the other options.",
         "Cross-links: the same autoimmune thread runs through Dressler's (peri-003) and autoimmune/ICI myocarditis; and lupus also causes LIBMAN-SACKS (sterile, non-bacterial) endocarditis (Infective Endocarditis) &mdash; two cardiac faces of the one disease."
       ] },
@@ -8595,15 +8597,16 @@ window.MOCK_BANK = {
     { id:"peri-029", type:"mcq", objective:"peri-spodick",
       question:"In a patient with suspected pericarditis, the ECG shows a down-sloping TP segment (the baseline between the T wave and the next P wave slopes downwards), best seen in lead II and the lateral chest leads. What is this, and what is its use?",
       options:[
-        "A normal variant of no significance",
-        "A sign of hyperkalaemia",
-        "Diagnostic of a large pericardial effusion",
-        "A feature specific to STEMI",
+        "PR-segment depression, the earliest sign of acute pericarditis",
+        "The de Winter pattern, a STEMI-equivalent from LAD occlusion",
+        "The Spodick sign, which instead points towards STEMI",
+        "The Spodick sign, diagnostic of a large pericardial effusion",
         "The Spodick sign, supporting pericarditis over STEMI"],
       correctIndex:4,
       explanation:[
         "The SPODICK SIGN &mdash; a down-sloping TP segment, best in lead II and the lateral chest leads &mdash; favours acute pericarditis over STEMI. It is one of the tie-breakers in the genuinely difficult overlaps (STEMI and benign early repolarisation), alongside PR depression and the V6 ST:T ratio (peri-030).",
-        "It is a supportive sign, not a stand-alone diagnosis: use it with the rest of the picture (diffuse concave ST elevation, PR depression, clinical context)."
+        "It is a supportive sign, not a stand-alone diagnosis: use it with the rest of the picture (diffuse concave ST elevation, PR depression, clinical context).",
+        "Trap: the finding described is the TP-segment down-slope, NOT PR-segment depression (a separate pericarditis sign) or the de Winter pattern (upsloping ST depression with tall T waves = proximal LAD occlusion). And the DIRECTION matters &mdash; the Spodick sign favours PERICARDITIS over STEMI; it does not point to STEMI, nor does it diagnose an effusion (echo's job). Naming the sign is not enough &mdash; you must know what it argues for."
       ] },
     { id:"peri-030", type:"mcq", objective:"peri-early-repol",
       question:"A 22-year-old man has concave ST elevation on his ECG, and the difficulty is separating acute pericarditis from benign early repolarisation. Which is the most useful discriminator?",
