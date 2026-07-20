@@ -7793,7 +7793,8 @@ window.MOCK_BANK = {
         "The only DCM-specific overlays on top of standard HFrEF care are the GENETICS / family screening and the REVERSIBLE-CAUSE hunt (cmp-018) &mdash; everything else is the heart-failure block."
       ] },
     { id:"cmp-024", type:"mcq", objective:"cmp-dcm-thrombus",
-      question:"A patient with dilated cardiomyopathy (EF 20%) is found on echo to have a thrombus within the dilated, poorly-contracting left ventricle. What does this add to management?",
+      question:"A patient with dilated cardiomyopathy is found on echo to have a thrombus within the dilated, poorly-contracting left ventricle; the left-ventricular volumes are shown. Working out the ejection fraction, what does the thrombus add to management?",
+      data:'<div class="mk-obs-h">Echo — left-ventricular volumes</div><table class="mk-labs"><tr><td>End-diastolic volume (EDV)</td><td><b>250 mL</b></td><td>&mdash;</td></tr><tr><td>End-systolic volume (ESV)</td><td><b>200 mL</b></td><td>&mdash;</td></tr><tr><td>Ejection fraction</td><td><b>?</b></td><td>&ge;50% normal</td></tr></table>',
       options:[
         "No additional treatment beyond standard HF therapy",
         "A beta-blocker as the only addition",
@@ -7802,7 +7803,7 @@ window.MOCK_BANK = {
         "A vasodilator to reduce afterload further"],
       correctIndex:2,
       explanation:[
-        "A severely dilated, poorly-contracting LV is a STASIS chamber, prone to LV MURAL THROMBUS and systemic (e.g. cerebral) embolism. A documented LV thrombus is a clear indication for ANTICOAGULATION &mdash; the DCM-specific complication on top of HFrEF management.",
+        "First calculate the ejection fraction: EF = (EDV &minus; ESV) / EDV = (250 &minus; 200) / 250 = 50/250 = 20%. That is SEVERELY reduced (normal &ge;50%), confirming a severely dilated, poorly-contracting LV &mdash; a STASIS chamber, prone to LV MURAL THROMBUS and systemic (e.g. cerebral) embolism. A documented LV thrombus is a clear indication for ANTICOAGULATION &mdash; the DCM-specific complication on top of HFrEF management.",
         "Same principle across topics: stasis in a dyskinetic/akinetic chamber warrants anticoagulation &mdash; DCM, the post-anterior-MI apical thrombus, and the Chagas apical aneurysm (the myocarditis anticoagulation question, myo-042). Contrast the pericardial rule, where a large or haemorrhagic effusion is a reason to AVOID anticoagulation (bleeding into the sac) &mdash; the mirror decision."
       ] },
     { id:"cmp-025", type:"categorize", objective:"cmp-dcm-causes-map",
@@ -7991,7 +7992,7 @@ window.MOCK_BANK = {
         "This is the same recognition as the takotsubo-vs-myocarditis MINOCA question (myo-015), so the two share an objective and a mock draws only one. Its acute complications are owned in cmp-038."
       ] },
     { id:"cmp-038", type:"mcq", objective:"cmp-takotsubo-cx",
-      question:"A 68-year-old woman develops central chest pain and breathlessness within hours of the sudden death of her husband. Her ECG shows anterior ST elevation and troponin is raised, but coronary angiography reveals unobstructed arteries and the left ventricle shows the characteristic apical ballooning. She is expected to recover fully, but which acute complication must be anticipated during the dangerous early phase?",
+      question:"A 70-year-old woman admitted with a severe asthma exacerbation develops chest pain, anterior ST elevation and a raised troponin. Coronary angiography is unobstructed and echo shows apical ballooning with a hypercontractile base — takotsubo (stress) cardiomyopathy. She is expected to recover fully, but which acute complication must be anticipated during the dangerous early phase?",
       options:[
         "Acute aortic dissection",
         "Papillary muscle rupture from ischaemia",
