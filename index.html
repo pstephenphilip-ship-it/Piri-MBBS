@@ -6102,7 +6102,7 @@ window.MOCK_BANK = {
         "Both superficial femoral arteries",
         "The distal aorta and aortic bifurcation",
         "Both popliteal arteries",
-        "The internal iliac arteries only",
+        "The internal iliac arteries",
         "Both anterior tibial arteries"],
       correctIndex:1,
       explanation:[
@@ -6121,7 +6121,7 @@ window.MOCK_BANK = {
       correctIndex:0,
       explanation:[
         "SMOKING is the single strongest risk factor for developing and progressing PAD &mdash; it roughly triples the risk, is dose-related, and is the intervention with the biggest effect on outcomes, which is why smoking cessation is the cornerstone of management (covered in the management block).",
-        "But hold the high-yield pairing: DIABETES is the factor that most changes the whole PAD story even though smoking causes more of the disease. Diabetes is the strongest driver of CRITICAL limb-threatening ischaemia and AMPUTATION specifically; it shifts the distribution to INFRAPOPLITEAL/tibial (below-knee) disease; and the accompanying peripheral neuropathy MASKS claudication, so diabetics present later &mdash; with an ulcer or tissue loss rather than with claudication. The examinable summary is 'smoking causes it, diabetes costs the limb'.",
+        "But hold the high-yield pairing: DIABETES is the factor that most changes the whole PAD story even though smoking causes more of the disease. Diabetes is the strongest driver of chronic limb-threatening ischaemia (CLTI) and AMPUTATION specifically; it shifts the distribution to INFRAPOPLITEAL/tibial (below-knee) disease; and the accompanying peripheral neuropathy MASKS claudication, so diabetics present later &mdash; with an ulcer or tissue loss rather than with claudication. The examinable summary is 'smoking causes it, diabetes costs the limb'.",
         "Cross-link: PAD, coronary disease and carotid/cerebrovascular disease are the same atherosclerotic process in different vascular beds &mdash; a claudicant's leg is a window onto the coronaries, so PAD shares the risk factors and the secondary prevention (statin + antiplatelet) of your lipids/atherosclerosis and ACS work. That shared biology is why finding PAD should trigger global cardiovascular risk management, not just leg-directed treatment.",
         "Trap: hypertension and hypercholesterolaemia are genuine contributors and hyperhomocysteinaemia is an association, but none matches smoking for PAD risk or diabetes for limb loss."
       ] },
@@ -6131,7 +6131,7 @@ window.MOCK_BANK = {
       options:[
         "Normal lower-limb arterial perfusion",
         "Incompressible, medially calcified vessels",
-        "Critical (severe) limb ischaemia",
+        "Critical, limb-threatening ischaemia",
         "Consistent with peripheral arterial disease",
         "Established chronic venous insufficiency"],
       correctIndex:3,
@@ -6145,9 +6145,9 @@ window.MOCK_BANK = {
       data:'<div class="mk-obs-h">Assessment</div><table class="mk-labs"><tr><td>Resting ABPI (right)</td><td><b>1.5</b></td><td>0.9&ndash;1.4 normal</td></tr><tr><td>Ankle waveform</td><td><b>Monophasic, damped</b></td><td>triphasic normal</td></tr><tr><td>HbA1c</td><td><b>84 mmol/mol</b></td><td>&lt;48</td></tr><tr><td>eGFR</td><td><b>32 mL/min</b></td><td>&gt;90</td></tr></table>',
       options:[
         "Small-vessel measurement error — repeat with a larger cuff",
-        "Aortic regurgitation is raising the ankle systolic pressure",
+        "Aortic regurgitation raises the ankle pressure — request an echo",
         "The arteries are healthy — reassure the patient and discharge",
-        "Venous hypertension is falsely inflating the ankle reading",
+        "Venous hypertension inflates the reading — apply compression",
         "Medial calcification falsely elevates ABPI — measure toe pressures"],
       correctIndex:4,
       explanation:[
@@ -6202,8 +6202,8 @@ window.MOCK_BANK = {
       ] },
     { id:"pad-009", type:"mcq", objective:"pad-arterial-ulcer",
       image:"assets/ecg/arterial_ulcer.png",
-      imageAlt:"A small, deep, well-demarcated ulcer with a sharp margin on the skin just above the ankle.",
-      question:"A 74-year-old man with longstanding claudication has the ulcer shown above the ankle. It hurts most at night and when he elevates the leg, and eases when he lets it hang down. The foot is cold and pale, and the dorsalis pedis and posterior tibial pulses are impalpable. Which type of ulcer is this?",
+      imageAlt:"A small, deep, well-demarcated ulcer with a sharp margin over the outer aspect of the ankle.",
+      question:"A 74-year-old man with longstanding claudication has the ulcer shown over the outer ankle (the lateral malleolus). It hurts most at night and when he elevates the leg, and eases when he lets it hang down. The foot is cold and pale, and the dorsalis pedis and posterior tibial pulses are impalpable. Which type of ulcer is this?",
       options:[
         "Venous ulcer",
         "Arterial ulcer",
@@ -6234,7 +6234,7 @@ window.MOCK_BANK = {
         "Trap: site and depth separate the three ulcers &mdash; arterial at distal/pressure points, venous in the gaiter area, neuropathic on the plantar pressure points (pad-011). Basal cell carcinoma (E) is a slow pearly rolled-edge lesion; the history of venous disease and the classic site make a venous ulcer far likelier here.",
         "Cross-link: the venous stigmata belong to chronic venous insufficiency, a topic in its own right; here they appear only as the arterial differential. Their management (compression, once arterial disease is excluded) is the subject of pad-012."
       ] },
-    { id:"pad-011", type:"mcq", objective:"pad-neuropathic-ulcer",
+    { id:"pad-011", type:"mcq", objective:"pad-neuropathic-ulcer", excludes:["pad-neuroischaemic"],
       image:"assets/ecg/neuropathic_ulcer.png",
       imageAlt:"An ulcer on the sole of the foot beneath the great-toe joint, surrounded by a thick rim of hard callus.",
       question:"A 60-year-old man with type 2 diabetes and reduced sensation to the ankles has the painless ulcer shown on the sole of the foot, beneath the great-toe joint and ringed by hard callus. The dorsalis pedis and posterior tibial pulses are both palpable. What best explains this ulcer?",
@@ -6261,7 +6261,7 @@ window.MOCK_BANK = {
         "Skin-patch testing for bandage allergy before compression"],
       correctIndex:0,
       explanation:[
-        "Measure the ABPI FIRST. Graduated compression is the mainstay of venous-ulcer healing, but applied to a leg with unrecognised ARTERIAL disease it can cause pressure necrosis and cost the limb. You need an ABPI of roughly &ge;0.8 (and &lt;1.3) to clear the leg for full compression; below that, compression is reduced or withheld and the patient is referred.",
+        "Measure the ABPI FIRST. Graduated compression is the mainstay of venous-ulcer healing, but applied to a leg with unrecognised ARTERIAL disease it can cause pressure necrosis and cost the limb. You need an ABPI of roughly &ge;0.8 (and &lt;1.3) to clear the leg for full compression; below that, compression is reduced or withheld and the patient is referred. (This &lt;1.3 is a compression-SAFETY ceiling &mdash; distinct from the &gt;1.4 that flags calcified, incompressible vessels in pad-004/005.)",
         "This reframes the ABPI as a test with TWO jobs: it DIAGNOSES and grades PAD (pad-004), and it acts as a SAFETY GATE that clears a venous ulcer for compression. The venous-ulcer patient gets an ABPI not merely to label the ulcer but to make sure compression is safe.",
         "This is the classic 'the reflex treatment for the obvious diagnosis is dangerous if you missed the coexisting one' trap &mdash; the same species as do-NOT-diurese in tamponade, do-NOT-give-GTN in obstructive HCM, and here do-NOT-compress without an ABPI. Each time, the safe move is to check for the coexisting problem before the reflex treatment.",
         "Trap: a mixed arterial-venous ulcer (common in the elderly) looks venous but has arterial disease underneath &mdash; compress it as if purely venous and you can precipitate critical ischaemia. Swab, glucose and D-dimer all miss the point that could lose the limb."
@@ -6310,44 +6310,44 @@ window.MOCK_BANK = {
         "The discriminating pair is the elevation response, and it is the bedside consolidation of the ulcer story: the SAME manoeuvre (elevate the leg) produces pallor in arterial disease and relief in venous disease &mdash; opposite directions, because one is a perfusion problem and the other a pressure problem.",
         "Clinical anchor: this side-by-side is what the ulcer-recognition questions build toward &mdash; read the WHOLE leg, not just the ulcer, because the surrounding signs classify the ulcer as reliably as its own morphology. This map is excluded from co-drawing with pad-009/010 so a paper tests recognition OR consolidation, not both at once."
       ] },
-    { id:"pad-016", type:"mcq", objective:"pad-neuroischaemic",
+    { id:"pad-016", type:"mcq", objective:"pad-neuroischaemic", excludes:["pad-neuropathic-ulcer"],
       question:"A 66-year-old man with type 2 diabetes has a foot ulcer on a plantar pressure point. The foot is also cold with impalpable pulses, and the ABPI is 0.45. How is this ulcer best classified, and what does that change?",
       options:[
-        "Purely neuropathic — simple offloading alone will heal it",
+        "Neuropathic-predominant — total-contact casting should heal it",
         "Neuroischaemic — perfusion must be restored, not just offloaded",
-        "Purely venous — graduated compression bandaging will heal it",
-        "Purely arterial — the coexisting neuropathy is irrelevant here",
-        "Infective only — a course of antibiotics alone will heal it"],
+        "Venous — graduated compression is the mainstay of healing",
+        "Arterial-predominant — revascularise and offloading adds little",
+        "Infective — a course of antibiotics will control it"],
       correctIndex:1,
       explanation:[
-        "This is a NEUROISCHAEMIC ulcer &mdash; neuropathy AND peripheral arterial disease together. The plantar pressure-point site looks neuropathic, but the cold, pulseless foot with an ABPI of 0.45 reveals CRITICAL ischaemia sitting underneath. That changes management fundamentally: OFFLOADING ALONE will not heal an ischaemic foot &mdash; the perfusion must be restored (revascularisation), alongside offloading, debridement, infection control and glycaemic management.",
+        "This is a NEUROISCHAEMIC ulcer &mdash; neuropathy AND peripheral arterial disease together. The plantar pressure-point site looks neuropathic, but the cold, pulseless foot with an ABPI of 0.45 reveals significant ischaemia sitting underneath (0.45 is in the SEVERE band, and with the ulcer this is chronic limb-threatening ischaemia). That changes management fundamentally: OFFLOADING ALONE will not heal an ischaemic foot &mdash; the perfusion must be restored (revascularisation), alongside offloading, debridement, infection control and glycaemic management.",
         "The diabetic foot is USUALLY neuroischaemic rather than purely neuropathic, so make 'check the perfusion every time' the default: the neuropathy MASKS the warning symptoms (the patient never felt the claudication or rest pain that would normally prompt referral), so the ischaemia is silent until you look for it. This is the diabetic-foot version of pad-012's safety gate &mdash; examine and measure before you commit to a management pathway.",
         "Note the double masking that makes the diabetic foot so dangerous, tying the block together: neuropathy masks the SYMPTOMS (pad-003 &mdash; diabetics present late, with tissue loss not claudication), and medial calcification can mask the ABPI by falsely raising it (pad-005) &mdash; here, though, the ABPI is genuinely low, so it is trustworthy and confirms the ischaemia.",
-        "Trap: every 'purely' option is the error &mdash; treating a neuroischaemic ulcer as purely neuropathic (offload only), purely arterial (ignore the pressure/neuropathy) or purely venous (compression, which here could be catastrophic) all miss part of the problem. It is the combination that must be treated."
+        "Trap: each single-label option is the error &mdash; treating a neuroischaemic ulcer as neuropathic-predominant (offload only), arterial-predominant (revascularise but neglect offloading), venous (compression, which here could be catastrophic) or infective (antibiotics) all miss part of the problem. It is the COMBINATION &mdash; restore perfusion AND offload AND control infection &mdash; that must be treated."
       ] },
     { id:"pad-017", type:"mcq", objective:"pad-ali-recognise-heparin",
       question:"A 72-year-old woman with atrial fibrillation develops a suddenly painful, pale, cold, numb right leg over 2 hours. The foot is pulseless and sensation is reduced, but she can still just wiggle her toes. What is the single most appropriate IMMEDIATE step?",
       options:[
-        "Arrange an urgent outpatient duplex scan within 2 weeks",
+        "Arrange urgent CT angiography before starting any treatment",
         "Elevate the leg and apply a warming blanket to the foot",
-        "Start a structured supervised exercise programme",
+        "Give immediate systemic thrombolysis as the first step",
         "Give IV heparin and refer immediately to vascular surgery",
-        "Prescribe oral clopidogrel and review her in clinic"],
+        "Take her straight to theatre for emergency fasciotomy"],
       correctIndex:3,
       explanation:[
         "This is ACUTE limb ischaemia &mdash; sudden onset, an embolic source (AF), and the 6 Ps: Pain, Pallor, Pulselessness, Perishingly cold, Paraesthesia and Paralysis. The immediate move, before any imaging, is systemic anticoagulation with IV HEPARIN plus an urgent vascular referral &mdash; heparin stops the thrombus propagating and protects the collaterals and distal bed while definitive treatment is arranged.",
         "'Heparinise and refer' is the reflex first action, the ALI equivalent of 'give aspirin' in ACS &mdash; the exam favourite 'what do you do FIRST' is treat-and-refer, NOT investigate. Imaging is arranged AFTER, and only if the limb is viable enough to allow the delay (pad-019).",
         "Rank the 6 Ps by urgency because they are not equal: pain/pallor/pulselessness/perishingly-cold establish the DIAGNOSIS, but paraesthesia and paralysis are the LATE, limb-threatening signs &mdash; the nerves and muscles are the most ischaemia-sensitive tissues, so their failure means the limb is already threatened and the clock is nearly out. Here toes still move and sensation is only reduced, so the limb is threatened but salvageable.",
-        "Trap: elevation and warming are exactly wrong &mdash; elevation removes the gravity that was aiding perfusion (the same physiology as ischaemic rest pain, pad-006), and there is no time for exercise, clinic review or a 2-week scan when a limb is acutely ischaemic."
+        "Trap: the other options are right-urgency-wrong-action errors &mdash; thrombolysis and fasciotomy are NOT the first step (heparinise and refer first; thrombolysis is a later, selected option, and fasciotomy is for reperfusion injury AFTER revascularisation, pad-022), and imaging must not delay treatment in a threatened limb. Elevation and warming are actively wrong &mdash; elevation removes the gravity aiding perfusion (the physiology of ischaemic rest pain, pad-006)."
       ] },
     { id:"pad-018", type:"mcq", objective:"pad-ali-embolic-thrombotic",
       question:"Two patients present with acute limb ischaemia. Patient X has atrial fibrillation, no previous leg symptoms and a sudden onset. Patient Y has longstanding claudication and a more gradual acute-on-chronic deterioration. Compared with Patient Y, why is Patient X's limb often MORE severely threatened?",
       options:[
-        "The embolus is physically larger than a thrombus and blocks more vessels",
+        "A larger embolus fragments and blocks several distal branches at once",
         "The healthy artery never developed collaterals, so occlusion is unbuffered",
         "Atrial fibrillation itself lowers cardiac output and limb perfusion",
-        "Thrombotic occlusion characteristically spares the peripheral nerves",
-        "Embolic occlusion characteristically lodges more distally in the foot"],
+        "Thrombotic occlusion tends to spare the peripheral sensory nerves",
+        "Embolic occlusion tends to lodge more distally within the foot"],
       correctIndex:1,
       explanation:[
         "Patient X is EMBOLIC (AF source, sudden, no prior symptoms) and Patient Y is THROMBOTIC (acute-on-chronic on a background of PAD). The counterintuitive point: the thrombotic limb is often LESS severe. Patient Y's chronic stenosis slowly drove COLLATERAL development, which partly protects the limb when it finally occludes; Patient X's previously HEALTHY artery had no reason to build collaterals, so a sudden embolic occlusion is catastrophic &mdash; there is nothing to buffer it.",
@@ -6373,8 +6373,8 @@ window.MOCK_BANK = {
     { id:"pad-020", type:"mcq", objective:"pad-ali-embolic-source",
       question:"A 70-year-old man has an embolic acute limb ischaemia successfully treated with a Fogarty embolectomy. His pulses return. To prevent a further embolus, which investigation is the most important to identify the source?",
       options:[
+        "CT of the aorta to seek a proximal aneurysmal source",
         "Duplex ultrasound of the treated leg arteries",
-        "CT angiogram of the aorta and lower-limb run-off",
         "ECG and echocardiography to find a cardiac source",
         "Ankle-brachial pressure index of both legs",
         "A thrombophilia screen for an inherited clotting defect"],
@@ -6383,7 +6383,7 @@ window.MOCK_BANK = {
         "An arterial embolus almost always comes from the HEART or a proximal aneurysm, so the key source work-up is an ECG (for atrial fibrillation) and ECHOCARDIOGRAPHY (for a left-atrial or ventricular mural thrombus, valve vegetation, or aortic/popliteal aneurysm). Find the source and you prevent the NEXT embolus &mdash; the same logic as removing the embolic source in infective endocarditis.",
         "The cardioembolic source is ONE principle with MANY end-organs: AF-related left-atrial stasis (or a post-MI apical mural thrombus, myo-042) throws clot that can lodge in the BRAIN (stroke), GUT (mesenteric ischaemia), KIDNEY (renal infarct) or LIMB &mdash; the leg is simply one destination. A limb embolus should always prompt 'where did it come from, and is more coming?'",
         "This closes the cross-link to the arrhythmia work: AF &rarr; atrial stasis &rarr; mural thrombus &rarr; systemic embolism is exactly why AF is anticoagulated, and why the same CHA(2)DS(2)-VASc-driven decision that prevents stroke also prevents limb emboli.",
-        "Trap: leg duplex, run-off CT and ABPI (A, B, D) characterise the LIMB and its arteries but do not find the cardiac SOURCE; a thrombophilia screen chases the wrong mechanism when an obvious cardioembolic source (AF) is present."
+        "Trap: leg duplex and ABPI (B, D) characterise the LIMB, not the source. A CT aorta (A) is a legitimate SECOND source to consider &mdash; an aneurysm can embolise (pad-043) &mdash; but the commonest and most important embolic source is the HEART, so ECG + echo for AF and mural thrombus comes first; a thrombophilia screen (E) chases the wrong mechanism when a cardioembolic source is likely."
       ] },
     { id:"pad-021", type:"mcq", objective:"pad-ali-irreversible",
       question:"A patient presents late with acute limb ischaemia. The leg shows fixed, non-blanching mottling of the skin, tense woody-hard calf muscles, and complete paralysis with no sensation; there is no arterial or venous Doppler signal. What is the appropriate management?",
@@ -6472,7 +6472,7 @@ window.MOCK_BANK = {
       explanation:[
         "The secondary-prevention spine of PAD is a single antiplatelet plus a high-intensity statin: NICE recommends CLOPIDOGREL first-line (from the CAPRIE trial, modestly better than aspirin in vascular disease) and ATORVASTATIN 80 mg. This is the SAME secondary-prevention package as after an MI &mdash; because a claudicant's leg is a window on the coronaries (pad-003).",
         "Note the deliberately near-normal cholesterol (4.6): the statin is offered REGARDLESS of the baseline LDL, because PAD is a coronary-risk-equivalent and the statin's job here is plaque stabilisation and cardiovascular risk reduction, not just lipid lowering. As ESTABLISHED cardiovascular disease, PAD warrants high-intensity atorvastatin 80 mg NOT gated by a QRISK score &mdash; the same secondary-prevention arm as post-STEMI (htn-010). The examinable reality is that PAD patients are consistently UNDERTREATED relative to coronary patients of EQUAL risk: a claudicant deserves the same statin, antiplatelet and BP intensity as someone with angina, and too often does not get it. 'A statin alone' (E) misses the antiplatelet; a low-intensity statin (B) under-treats the risk.",
-        "Currency &mdash; the antiplatelet answer is context-dependent. SINGLE antiplatelet (clopidogrel) is right for STABLE claudication, but for HIGH-RISK or POST-REVASCULARISATION PAD the emerging standard is DUAL-PATHWAY inhibition: aspirin PLUS low-dose 'vascular-dose' rivaroxaban 2.5 mg twice daily (COMPASS and VOYAGER-PAD trials), which cuts major adverse limb and cardiovascular events at the cost of some bleeding. Note that is antiplatelet + anticoagulant &mdash; distinct from the dual ANTIPLATELET of option D, which is not standard for stable PAD.",
+        "Currency &mdash; the antiplatelet answer is context-dependent. SINGLE antiplatelet (clopidogrel) is right for STABLE claudication, but for HIGH-RISK or POST-REVASCULARISATION PAD an established, guideline-recommended option (NICE TA607) is DUAL-PATHWAY inhibition: aspirin PLUS low-dose 'vascular-dose' rivaroxaban 2.5 mg twice daily (COMPASS and VOYAGER-PAD trials), which cuts major adverse limb and cardiovascular events at the cost of some bleeding. Note that is antiplatelet + anticoagulant &mdash; distinct from the dual ANTIPLATELET of option D, which is not standard for stable PAD.",
         "Trap: routine DUAL antiplatelet (D) is not standard for stable PAD (bleeding risk without added benefit), warfarin/fibrate (C) is the wrong mechanism, and aspirin is a reasonable alternative only if clopidogrel is not tolerated.",
         "Clinical anchor: the biggest wins remain SMOKING CESSATION and supervised exercise &mdash; the drugs reduce MI/stroke risk (the thing that actually kills PAD patients), while exercise improves the leg symptoms (pad-025/032)."
       ] },
@@ -6483,11 +6483,11 @@ window.MOCK_BANK = {
         "It permanently widens the stenosed arterial segment",
         "It promotes collateral vessels and muscle metabolic adaptation",
         "It lowers the blood pressure enough to reperfuse the leg",
-        "It reverses the arterial wall calcification over time"],
+        "It raises resting limb blood flow by lowering vascular resistance"],
       correctIndex:2,
       explanation:[
         "Supervised exercise improves claudication mainly by promoting COLLATERAL vessel development and by improving the muscle's METABOLIC efficiency (better oxygen extraction, mitochondrial adaptation) and walking economy &mdash; the leg does more work for the same blood supply, and more blood reaches it via collaterals.",
-        "The instruction is counterintuitive &mdash; you deliberately walk INTO the pain. The repeated, controlled ischaemia is the training stimulus that drives collateralisation and adaptation. It does NOT touch the plaque, the calcification or the stenosis itself (options A, B, E) &mdash; those are the domain of medical plaque-stabilisation and of revascularisation.",
+        "The instruction is counterintuitive &mdash; you deliberately walk INTO the pain; the repeated, controlled ischaemia is the training stimulus that drives collateralisation and adaptation. It does NOT dissolve the plaque or widen the stenosis (A, B), nor does it work by lowering systemic blood pressure (D) or by raising RESTING limb flow (E) &mdash; the benefit is exertional (more collateral supply, more efficient muscle), so resting flow is typically unchanged. Plaque stabilisation and stenosis relief are the domain of medical therapy and revascularisation.",
         "Cross-link: this is the therapeutic use of the collateral principle seen throughout the course &mdash; a slowly-developing demand recruits collateral supply, which is why a chronically stenosed (thrombotic) limb is better collateralised and more salvageable than an acutely embolised healthy one (pad-018), and why gradual coronary stenosis recruits collaterals that sudden plaque rupture cannot."
       ] },
     { id:"pad-028", type:"mcq", objective:"pad-mgmt-clti-urgency",
@@ -6517,6 +6517,7 @@ window.MOCK_BANK = {
       explanation:[
         "Short, focal disease is best treated ENDOVASCULAR-first: percutaneous angioplasty, with a stent if needed. It is less invasive with quicker recovery and is preferred for localised lesions. Lesion LENGTH and complexity drive the choice &mdash; the shorter and more focal, the more endovascular; the longer and more diffuse, the more a surgical option is favoured.",
         "Long-segment occlusive disease, or failed endovascular treatment, is treated with surgical BYPASS &mdash; and the conduit matters: an AUTOLOGOUS vein (usually long saphenous) gives better long-term patency than a prosthetic (PTFE/Dacron) graft, especially for below-knee/distal bypasses, so vein is preferred whenever a suitable one is available. That is why 'bypass with a prosthetic graft' (A) is not the first choice for a short lesion and, even when bypass is needed, vein beats prosthetic distally.",
+        "Trial-era nuance (current): the CLTI evidence is now individualised, not a blanket rule. BEST-CLI (2022) showed surgical BYPASS is superior WHEN a good single-segment great saphenous vein is available (consistent with the vein-beats-prosthetic point), while BASIL-2 (2023) favoured a best-ENDOVASCULAR-first strategy for infrapopliteal (below-knee) CLTI &mdash; so the modern answer is vein bypass for the good-vein patient and endovascular-first for many below-knee cases, judged per patient.",
         "Trap: primary amputation (C) is for the unsalvageable limb (pad-030), anticoagulation alone (D) does not revascularise a stenosis, and extensive open endarterectomy (E) is not the first-line for a short SFA lesion that an angioplasty can treat.",
         "Clinical anchor: revascularisation in CLTI is limb salvage &mdash; restore perfusion to heal tissue and relieve rest pain, then continue best medical therapy (pad-026) to protect the heart and the other leg."
       ] },
@@ -6524,29 +6525,29 @@ window.MOCK_BANK = {
       question:"A frail man with diabetes has spreading wet gangrene of the forefoot with systemic sepsis. Imaging shows occluded tibial vessels and the vascular team judge the limb non-reconstructable. What is the most appropriate management?",
       options:[
         "Amputation to control sepsis and remove dead tissue",
-        "A structured supervised exercise programme",
+        "Attempt a distal bypass to the pedal vessels",
         "Long-term antibiotics and dressings alone",
         "Angioplasty of the occluded tibial vessels",
-        "Compression bandaging of the gangrenous foot"],
+        "IV antibiotics with repeated bedside debridement"],
       correctIndex:0,
       explanation:[
         "When a limb is NOT salvageable &mdash; non-reconstructable vessels, uncontrolled infection/sepsis, or intractable rest pain in a limb that cannot be revascularised &mdash; the appropriate management is AMPUTATION. Here the aim is to remove the dead, infected tissue and control the life-threatening sepsis (source control), then rehabilitate.",
         "This contrasts with limb SALVAGE (revascularisation, pad-029), which is the goal whenever the limb is reconstructable. The decision is amputation versus salvage, and it turns on whether perfusion can be restored and the limb made viable and useful &mdash; not on the presence of gangrene alone.",
         "Cross-link: wet gangrene (infected, spreading, with sepsis) is the surgical-emergency form &mdash; the gangrene types (dry, wet, gas) and the diabetic foot are covered in the next block; the point here is that spreading wet gangrene with sepsis in a non-reconstructable limb is a clear amputation indication.",
-        "Trap: exercise, antibiotics-alone, angioplasty of already-occluded vessels, or compression (B&ndash;E) all fail to address a non-salvageable, septic limb &mdash; delay here risks the patient's life, not just the leg."
+        "Trap: the salvage and holding options (B&ndash;E) all fail a non-salvageable, septic limb &mdash; a distal bypass or an angioplasty cannot revascularise non-reconstructable, occluded vessels, and antibiotics with dressings or bedside debridement will not control sepsis in dead tissue. Delay here risks the patient's life, not just the leg."
       ] },
     { id:"pad-031", type:"mcq", objective:"pad-mgmt-pharmacology",
       question:"A man with disabling claudication has completed a supervised exercise programme with limited benefit and has declined revascularisation. According to NICE, which drug may be offered to try to improve his walking distance?",
       options:[
-        "Cilostazol, now recommended as first-line therapy in England",
-        "Lifelong warfarin to improve the walking distance",
-        "Pentoxifylline as a standard vasoactive therapy",
-        "A high-dose loop diuretic to reduce the leg oedema",
-        "Naftidrofuryl oxalate, if exercise and surgery are unsuitable"],
+        "Cilostazol, a phosphodiesterase-3 inhibitor",
+        "Warfarin, titrated to a target INR",
+        "Pentoxifylline, a haemorheological agent",
+        "Furosemide, a high-ceiling loop diuretic",
+        "Naftidrofuryl oxalate, a 5-HT2 antagonist"],
       correctIndex:4,
       explanation:[
         "NICE recommends NAFTIDROFURYL OXALATE (a 5-HT2 receptor antagonist) as the only drug option to improve walking distance, and ONLY when a supervised exercise programme has not led to satisfactory improvement AND the patient does not want, or is unsuitable for, revascularisation. It is reviewed at 3&ndash;6 months and stopped if there is no benefit.",
-        "The key NICE points that make the distractors wrong: CILOSTAZOL (a phosphodiesterase-3 inhibitor) is NOT recommended by NICE for claudication, and PENTOXIFYLLINE is NOT recommended either &mdash; so 'cilostazol first-line' (A) is a classic trap. Note that cilostazol IS the drug that most improves the claudication itself and is used internationally, but NICE does not fund it on cost-effectiveness grounds. Safety point worth carrying: cilostazol is CONTRAINDICATED in heart failure &mdash; it is a PDE3 inhibitor, and the PDE3 class (milrinone, enoximone) INCREASED mortality in heart failure, so the whole class is avoided in HF. Naftidrofuryl is a last-line symptomatic add-on, not a substitute for exercise or risk-factor control.",
+        "The key NICE points that make the distractors wrong: CILOSTAZOL (a phosphodiesterase-3 inhibitor) is NOT recommended by NICE for claudication, and PENTOXIFYLLINE is NOT recommended either &mdash; so picking cilostazol (A) is a classic trap. Note that cilostazol IS the drug that most improves the claudication itself and is used internationally, but NICE does not fund it on cost-effectiveness grounds. Safety point worth carrying: cilostazol is CONTRAINDICATED in heart failure &mdash; it is a PDE3 inhibitor, and the PDE3 class (milrinone, enoximone) INCREASED mortality in heart failure, so the whole class is avoided in HF. Naftidrofuryl is a last-line symptomatic add-on, not a substitute for exercise or risk-factor control.",
         "Warfarin (B) has no role in improving claudication distance and adds bleeding risk; a loop diuretic (D) treats oedema, not arterial claudication. These drugs modify SYMPTOMS at best &mdash; they do nothing for cardiovascular risk, which is why the statin and antiplatelet (pad-026) remain essential regardless.",
         "Clinical anchor: the treatment ladder for claudication is risk-factor control + best medical therapy &rarr; supervised exercise &rarr; (if disabling and refractory) revascularisation, with naftidrofuryl reserved for those who fail exercise and decline or cannot have a procedure."
       ] },
@@ -6601,7 +6602,7 @@ window.MOCK_BANK = {
       question:"A 58-year-old man has severe, rapidly worsening pain in the thigh two days after a heavily contaminated open wound. He is febrile, tachycardic and confused. The affected skin is shown; there is CREPITUS on palpation and a thin, foul, brownish discharge. What is the most likely diagnosis?",
       options:[
         "Gas gangrene (clostridial myonecrosis)",
-        "Necrotising fasciitis without gas formation",
+        "Necrotising fasciitis of the thigh",
         "Severe but uncomplicated cellulitis",
         "Dry gangrene of the thigh",
         "A deep abscess without myonecrosis"],
@@ -6662,16 +6663,16 @@ window.MOCK_BANK = {
     { id:"pad-039", type:"mcq", objective:"pad-diabetic-foot-triad",
       question:"A diabetic foot clinic reviews a 64-year-old man to explain why his feet are at such high risk. Which combination of factors makes the diabetic foot uniquely prone to ulceration, infection and amputation?",
       options:[
-        "Venous hypertension with chronic lymphoedema of the leg",
-        "Arterial disease alone, with fully preserved sensation",
+        "Venous hypertension with chronic lower-limb lymphoedema",
+        "Arterial disease with venous hypertension of the leg",
         "Neuropathy, ischaemia and impaired immunity together",
-        "Neuropathy alone, with normal perfusion and immunity",
-        "Autonomic overactivity causing severe vasoconstriction"],
+        "Neuropathy with autonomic dysfunction but good perfusion",
+        "Impaired immunity with venous insufficiency of the leg"],
       correctIndex:2,
       explanation:[
         "The diabetic foot is dangerous because THREE problems combine: peripheral NEUROPATHY (loss of protective sensation, so trauma and pressure go unnoticed &mdash; and autonomic neuropathy dries the skin and opens arteriovenous shunts), ISCHAEMIA (peripheral arterial disease, often infrapopliteal), and impaired IMMUNITY with poor wound healing under hyperglycaemia. Together they turn a minor injury into a non-healing, infected, limb-threatening ulcer.",
         "This is why every diabetic foot assessment checks BOTH nerves and perfusion &mdash; monofilament and vibration for neuropathy, and pulses/ABPI (or toe pressures) for ischaemia &mdash; because the two coexist as the neuroischaemic foot (pad-016), and the neuropathy masks the warning symptoms of the ischaemia. Annual screening and foot protection aim to catch the at-risk foot before it ulcerates.",
-        "The distractors isolate single mechanisms: venous/lymphoedema (A) is a different problem, and any option with 'alone' (B, D) misses that it is the COMBINATION, not neuropathy or ischaemia by itself, that makes the diabetic foot so prone to catastrophe.",
+        "The distractors are the WRONG combinations: venous + lymphoedema (A), arterial + venous (B), neuropathy + autonomic dysfunction WITHOUT ischaemia (D), and immunity + venous (E) &mdash; each misses that it is specifically NEUROPATHY + ISCHAEMIA + IMPAIRED IMMUNITY together that makes the diabetic foot so prone to catastrophe.",
         "Cross-link: the neuropathic ulcer (pad-011) and the neuroischaemic ulcer (pad-016) are the lesions this triad produces &mdash; painless plantar pressure-point breakdown that must always prompt a perfusion check."
       ] },
     { id:"pad-040", type:"mcq", objective:"pad-charcot",
@@ -6701,7 +6702,7 @@ window.MOCK_BANK = {
       explanation:[
         "Arterial DUPLEX ultrasound is first-line: non-invasive, no ionising radiation, no contrast, and it shows both the site/severity of stenosis (via velocity changes) and the waveform (triphasic &rarr; biphasic &rarr; monophasic with worsening disease). It is the screening and mapping workhorse.",
         "Cross-sectional CT or MR angiography (options C, D) come NEXT, to give the anatomical roadmap when intervention is being planned. Digital subtraction angiography (A) is the invasive 'gold standard' but is now reserved largely for when you intend to TREAT at the same sitting (angioplasty/stent), because it carries the risks of arterial puncture and contrast.",
-        "So the ladder is: duplex first (diagnose and grade) &rarr; CTA/MRA (plan) &rarr; DSA (treat). A plain radiograph (E) has no role beyond incidentally showing vascular calcification. And the contrast choice bites hardest in exactly the PAD patients who are also renally vulnerable: CTA's iodinated contrast risks contrast nephropathy (and can even shower cholesterol emboli, pad-042), while MRA's gadolinium risks nephrogenic systemic fibrosis in severe CKD &mdash; the same diabetic/CKD group whose calcified vessels give a falsely-high ABPI (pad-005). Their arteries AND kidneys both need careful handling (pad-045)."
+        "So the ladder is: duplex first (diagnose and grade) &rarr; CTA/MRA (plan) &rarr; DSA (treat). A plain radiograph (E) has no role beyond incidentally showing vascular calcification. And the contrast choice bites hardest in exactly the PAD patients who are also renally vulnerable: iodinated contrast (CTA or catheter angiography) risks contrast nephropathy, while MRA's gadolinium risks nephrogenic systemic fibrosis in severe CKD (a risk now VERY LOW with modern macrocyclic agents). Note it is the intra-arterial CATHETER step (DSA), not IV CT contrast, that can additionally shower cholesterol emboli by disturbing aortic plaque (pad-042). This is the same diabetic/CKD group whose calcified vessels give a falsely-high ABPI (pad-005) &mdash; arteries AND kidneys both need careful handling (pad-045)."
       ] },
     { id:"pad-042", type:"mcq", objective:"pad-cholesterol-embolism",
       question:"A 72-year-old man develops painful, cyanotic, mottled toes a few days after coronary angiography. His foot pulses remain PALPABLE. He also has new livedo reticularis on the calves, a rising creatinine and blood eosinophilia. What is the most likely diagnosis?",
@@ -6728,7 +6729,7 @@ window.MOCK_BANK = {
         "Popliteal artery entrapment syndrome"],
       correctIndex:2,
       explanation:[
-        "A prominent, easily palpable popliteal pulse in a man with an AAA is a popliteal artery ANEURYSM &mdash; the commonest PERIPHERAL arterial aneurysm. Unlike the aorta, it rarely presents by rupturing; it presents by THROMBOSING or throwing distal EMBOLI, causing acute or acute-on-chronic limb ischaemia (here, the sudden cold foot). The failure mode differs from the aorta by Laplace's law: wall tension rises with RADIUS, so the wide aorta reaches rupture-level wall stress (fcvs-083) while the far narrower popliteal never does &mdash; it clots or sheds emboli instead. So a pulsatile popliteal mass is a LIMB threat (ischaemia), not a bleed threat.",
+        "A prominent, easily palpable popliteal pulse in a man with an AAA is a popliteal artery ANEURYSM &mdash; the commonest PERIPHERAL arterial aneurysm. Unlike the aorta, it rarely presents by rupturing; it presents by THROMBOSING or throwing distal EMBOLI, causing acute or acute-on-chronic limb ischaemia (here, the sudden cold foot). The failure mode differs from the aorta by Laplace's law: wall tension rises with RADIUS, so the wide aorta reaches rupture-level wall stress (fcvs-083) while the far narrower popliteal rarely does &mdash; it clots or sheds emboli instead. So a pulsatile popliteal mass is a LIMB threat (ischaemia), not a bleed threat.",
         "Two associations are examinable: popliteal aneurysms are frequently BILATERAL (examine the other knee), and they are strongly linked to AAA (examine the aorta) &mdash; find one and you look for the others. This makes the popliteal aneurysm one of the embolic SOURCES to hunt when a limb embolises (pad-020), alongside the heart and the aorta.",
         "Trap: the distractors are the other 'lump behind the knee' &mdash; a Baker's cyst (A) is not pulsatile, a femoral pseudoaneurysm (B) is in the groin after puncture, popliteal vein DVT (D) is not a pulsatile mass, and entrapment (E) is a dynamic compression in a young athlete (pad-044), not a pulsatile aneurysm in an elderly arteriopath.",
         "Clinical anchor: an abnormally EASY-to-feel popliteal pulse should raise suspicion of an aneurysm rather than reassure &mdash; confirm on duplex, and repair (the embolic/thrombotic risk, not the size alone, often drives intervention)."
@@ -6752,13 +6753,13 @@ window.MOCK_BANK = {
       options:[
         "CT angiography with a large iodinated contrast load",
         "Digital subtraction angiography with full iodinated contrast",
-        "Several repeated iodinated-contrast studies over some days",
+        "MR angiography with a standard gadolinium contrast dose",
         "Skip imaging and proceed straight to primary amputation",
         "Duplex first, then carbon-dioxide or low-contrast angiography"],
       correctIndex:4,
       explanation:[
         "In advanced CKD the priority is to avoid a nephrotoxic contrast hit: iodinated contrast risks CONTRAST-INDUCED nephropathy, and gadolinium (for MRA) risks nephrogenic systemic fibrosis in severe CKD (lower with modern macrocyclic agents). So the strategy is contrast-SPARING &mdash; duplex ultrasound first (no contrast at all), and if catheter angiography is needed, minimise the contrast, consider CARBON-DIOXIDE angiography (CO2 as the contrast agent, non-nephrotoxic), and ensure good hydration.",
-        "The wrong answers all pour AVOIDABLE contrast through failing kidneys (options A, B, C) &mdash; and jumping to amputation (D) abandons a salvageable limb because of a solvable imaging problem. The point is that renal impairment changes the imaging PLAN, not the goal of limb salvage.",
+        "The wrong answers push AVOIDABLE contrast through failing kidneys &mdash; iodinated for CTA and DSA (A, B), and gadolinium for MRA (C), which carries the nephrogenic-systemic-fibrosis risk in severe CKD (now low with modern macrocyclic agents, but still the less kidney-sparing choice here) &mdash; while jumping to amputation (D) abandons a salvageable limb for a solvable imaging problem. Renal impairment changes the imaging PLAN, not the goal of limb salvage.",
         "Cross-link: this is the same 'the contrast/treatment can harm the kidney' caution seen with iodinated contrast in nephropathy and with the calcified, incompressible vessels of diabetic/CKD patients that also distort the ABPI (pad-005) &mdash; the CKD patient's arteries AND kidneys both need special handling."
       ] },
     { id:"pad-046", type:"fill", objective:"pad-popliteal-synthesis", excludes:["pad-popliteal-aneurysm","pad-popliteal-entrapment"],
@@ -6778,7 +6779,7 @@ window.MOCK_BANK = {
       ] },
     { id:"pad-047", type:"categorize", objective:"pad-triage-map", excludes:["pad-ali-recognise-heparin","pad-neurogenic-vs-vascular","pad-mgmt-clti-urgency","pad-wet-gangrene"],
       question:"Sort each leg presentation by how urgently it needs a vascular surgeon.",
-      buckets:["Emergency — same-day vascular","Routine vascular assessment","Not a primary arterial problem"],
+      buckets:["Urgent — limb or life threatened","Routine vascular assessment","Not a primary arterial problem"],
       items:[
         {text:"Sudden painful, pale, pulseless, cold, paralysed leg",bucket:0},
         {text:"Stable calf claudication after 300 m, unchanged for a year",bucket:1},
@@ -6787,7 +6788,7 @@ window.MOCK_BANK = {
         {text:"Foul, swollen, septic foot with spreading wet gangrene",bucket:0},
         {text:"Aching, heavy legs relieved by elevation, with varicose veins",bucket:2}],
       explanation:[
-        "Three tempos, drawn from the whole topic. EMERGENCY (same-day): acute limb ischaemia (the 6 Ps, here with paralysis = immediately threatened), chronic limb-threatening ischaemia (rest pain + tissue loss + critical ABPI), and spreading wet gangrene with sepsis &mdash; all threaten limb or life within hours to days. ROUTINE: stable, unchanging claudication, managed first with best medical therapy and supervised exercise. NOT PRIMARILY ARTERIAL: neurogenic claudication (postural relief, NORMAL pulses) and chronic venous disease (elevation relief, varicosities).",
+        "Three tempos, drawn from the whole topic. URGENT / LIMB-OR-LIFE-THREATENED: acute limb ischaemia (the 6 Ps, here with paralysis = the true same-hour emergency), chronic limb-threatening ischaemia (rest pain + tissue loss + critical ABPI &mdash; urgent vascular MDT, revascularise within days rather than the same hour), and spreading wet gangrene with sepsis &mdash; all need urgent vascular input, though their exact clocks differ. ROUTINE: stable, unchanging claudication, managed first with best medical therapy and supervised exercise. NOT PRIMARILY ARTERIAL: neurogenic claudication (postural relief, NORMAL pulses) and chronic venous disease (elevation relief, varicosities).",
         "The sorting uses the discriminators built through the topic: PULSES (present argues against a large-vessel arterial emergency), TEMPO (sudden versus stable), REST PAIN/TISSUE LOSS (the limb-threatening line), and the ELEVATION RESPONSE (arterial pain worsens on elevation; venous and neurogenic do not).",
         "Clinical anchor: the triage question is 'is the limb (or life) threatened NOW?' &mdash; pulseless/paralysed, rest pain with tissue loss, or spreading sepsis all mean yes. This map is excluded from co-drawing with the acute-ischaemia, CLTI, neurogenic and wet-gangrene questions it synthesises."
       ] },
