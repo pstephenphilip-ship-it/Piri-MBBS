@@ -14687,6 +14687,14 @@ function hideFlyout(p) {
       new MutationObserver(rebuild).observe(host,{childList:true,subtree:true});
       host.addEventListener('scroll', onScroll, {passive:true});
     }
+    // Hide reliably whenever we LEAVE the Conditions notes view, regardless of how.
+    // build() already hides when #tab-conditions isn't .visible, but it only runs when a
+    // wrapped nav function fires; the mock FAB captures openMock before we wrap it, and
+    // hash navigation bypasses the wrappers. Observing the tab's class (and hashchange)
+    // catches every route into the mock/other tabs so the stale TOC can't linger.
+    var tc=document.getElementById('tab-conditions');
+    if(tc){ new MutationObserver(rebuild).observe(tc,{attributes:true,attributeFilter:['class']}); }
+    window.addEventListener('hashchange', rebuild);
     // Pane (subtab) switches
     document.addEventListener('click', function(e){
       var b=e.target.closest && e.target.closest('.tt-btn');
