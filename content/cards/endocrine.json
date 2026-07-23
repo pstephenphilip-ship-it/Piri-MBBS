@@ -373,7 +373,7 @@
    {
     "id": "hen-pt-fc-006",
     "front": "Describe chief (principal) cells.",
-    "back": "Small cells with a central round nucleus and pale cytoplasm containing PTH secretory granules; they are the main functional cell."
+    "back": "Small cells with a central round nucleus and clear-to-pale cytoplasm (often water-clear from glycogen) containing PTH secretory granules; they are the main functional cell. (Reserve 'eosinophilic/pink' for oxyphils.)"
    },
    {
     "id": "hen-pt-fc-007",
@@ -383,7 +383,7 @@
    {
     "id": "hen-pt-fc-008",
     "front": "How do chief cells sense calcium and adjust PTH?",
-    "back": "Via the calcium-sensing receptor (CaSR): low serum Ca2+ increases PTH secretion and high Ca2+ suppresses it (an inverse relationship)."
+    "back": "Via the calcium-sensing receptor (CaSR, a Gq-coupled GPCR): low serum Ca2+ increases PTH and high Ca2+ suppresses it (inverse relationship). The CaSR is also in the renal thick ascending limb, where high Ca inhibits Ca reabsorption - explaining the low urine calcium of FHH."
    },
    {
     "id": "hen-pt-fc-009",
@@ -433,7 +433,7 @@
    {
     "id": "hen-pt-fc-018",
     "front": "What is secondary hyperparathyroidism?",
-    "back": "Compensatory hyperplasia of all parathyroid glands with raised PTH in response to chronically low calcium — typically from chronic kidney disease or vitamin D deficiency; calcium is low or normal."
+    "back": "Compensatory four-gland hyperplasia with raised PTH driven by low calcitriol, phosphate retention and low calcium - typically chronic kidney disease (or vitamin D deficiency); serum calcium is low or normal."
    },
    {
     "id": "hen-pt-fc-019",
@@ -443,7 +443,7 @@
    {
     "id": "hen-pt-fc-020",
     "front": "What causes hypoparathyroidism and its features?",
-    "back": "Damage/removal of glands (e.g. after thyroidectomy) or agenesis (DiGeorge syndrome); features are hypocalcaemia with tetany, Chvostek's and Trousseau's signs."
+    "back": "Damage/removal of glands (post-thyroidectomy, the commonest cause), autoimmune destruction, or agenesis (DiGeorge, 22q11); features are hypocalcaemia with tetany, Chvostek's and Trousseau's signs and a prolonged QT interval."
    },
    {
     "id": "hen-pt-fc-021",
@@ -453,7 +453,7 @@
    {
     "id": "hen-pt-fc-022",
     "front": "What is familial hypocalciuric hypercalcaemia and why should it not be treated surgically?",
-    "back": "A CaSR loss-of-function mutation causing mild hypercalcaemia with inappropriately low urinary calcium; it is benign and does not respond to parathyroidectomy."
+    "back": "A CaSR loss-of-function mutation (autosomal dominant) causing mild hypercalcaemia with inappropriately low urinary calcium (calcium:creatinine clearance ratio <0.01); it is benign and does not respond to parathyroidectomy."
    },
    {
     "id": "hen-pt-fc-023",
@@ -474,6 +474,31 @@
     "id": "hen-pt-fc-026",
     "front": "Which cell type predominates in a parathyroid adenoma?",
     "back": "Chief cells (a chief-cell adenoma), typically with loss of the intraglandular fat and a rim of compressed normal gland."
+   },
+   {
+    "id": "hen-pt-fc-027",
+    "front": "How is PTH synthesised and which fragment is active?",
+    "back": "It is made as pre-pro-PTH, cleaved to pro-PTH then PTH (84 amino acids); the N-terminal 1-34 fragment carries the biological activity - the basis of the anabolic drug teriparatide."
+   },
+   {
+    "id": "hen-pt-fc-028",
+    "front": "How does hypercalcaemia of malignancy differ from primary hyperparathyroidism biochemically?",
+    "back": "In malignancy (PTHrP from squamous/renal/breast tumours, osteolytic mets, or myeloma), calcium is high and phosphate low but PTH is SUPPRESSED (PTH-independent). In primary hyperparathyroidism PTH is high or inappropriately normal (PTH-dependent)."
+   },
+   {
+    "id": "hen-pt-fc-029",
+    "front": "What is pseudohypoparathyroidism?",
+    "back": "End-organ (renal/bone) resistance to PTH from a Gs-alpha/GNAS defect (Albright hereditary osteodystrophy - short stature, short 4th/5th metacarpals); biochemistry shows low calcium and high phosphate but HIGH PTH - the mirror image of true hypoparathyroidism."
+   },
+   {
+    "id": "hen-pt-fc-030",
+    "front": "What is cinacalcet and when is it used?",
+    "back": "A calcimimetic that allosterically activates the CaSR, lowering PTH; used in primary hyperparathyroidism when surgery is unsuitable, in parathyroid carcinoma, and in secondary/tertiary hyperparathyroidism of CKD."
+   },
+   {
+    "id": "hen-pt-fc-031",
+    "front": "Give the PTH-dependent and PTH-independent causes of hypercalcaemia.",
+    "back": "PTH-dependent (PTH high/normal): primary and tertiary hyperparathyroidism, FHH, lithium. PTH-independent (PTH suppressed): malignancy (PTHrP, bony mets, myeloma), vitamin D toxicity, granulomatous disease (sarcoid), thyrotoxicosis, immobilisation."
    }
   ],
   "histology__ENDOCRINE__Adrenal Gland (cortex/medulla)": [
@@ -1700,6 +1725,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Calcitonin lowers serum calcium by inhibiting osteoclasts — the opposite of PTH — though it is only a minor regulator in adult humans."
+   },
+   {
+    "id": "hen-pt-q-019",
+    "type": "mcq",
+    "question": "A patient with squamous lung cancer has high calcium, low phosphate and a SUPPRESSED PTH. The mechanism is:",
+    "options": [
+     "A parathyroid adenoma",
+     "PTH-related peptide (PTHrP) secretion",
+     "Familial hypocalciuric hypercalcaemia",
+     "Secondary hyperparathyroidism",
+     "Vitamin D deficiency"
+    ],
+    "correctIndex": 1,
+    "explanation": "PTHrP mimics PTH (high Ca, low phosphate) but is not detected by the PTH assay, so measured PTH is suppressed - PTH-independent hypercalcaemia of malignancy. Primary hyperparathyroidism instead has a high or inappropriately normal PTH."
+   },
+   {
+    "id": "hen-pt-q-020",
+    "type": "mcq",
+    "question": "Low calcium, high phosphate but a HIGH PTH, with short 4th/5th metacarpals, indicates:",
+    "options": [
+     "Primary hyperparathyroidism",
+     "Pseudohypoparathyroidism (PTH resistance)",
+     "True (post-surgical) hypoparathyroidism",
+     "Familial hypocalciuric hypercalcaemia",
+     "Secondary hyperparathyroidism"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pseudohypoparathyroidism is end-organ resistance to PTH (GNAS/Gs-alpha defect, Albright hereditary osteodystrophy), so PTH is high yet calcium is low and phosphate high - unlike true hypoparathyroidism, where PTH is low."
    }
   ],
   "histology__ENDOCRINE__Adrenal Gland (cortex/medulla)": [
