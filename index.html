@@ -7376,6 +7376,127 @@ window.MOCK_BANK = {
         "Knowing the exceptions is the exam point: &lsquo;never aspirin in children&rsquo; is the rule, but RHEUMATIC FEVER and KAWASAKI are the named exceptions where it is standard therapy &mdash; both are paediatric inflammatory/vasculitic conditions in which the anti-inflammatory (and, in Kawasaki, antiplatelet) benefit justifies the exception.",
         "Trap: an absolute ban (A) ignores the exceptions; paracetamol is antipyretic but not usefully anti-inflammatory (B); Reye syndrome is real, not a myth (C); and it is ASPIRIN, not ibuprofen, that is linked to Reye (E)."
       ] },
+    { id:"rf-036", type:"mcq", objective:"rf-rhd-latency-recognition",
+      question:"A 45-year-old who grew up overseas presents with 6 months of exertional breathlessness and palpitations. As a child she had several episodes of painful, migratory joint swelling with fevers. On examination there is a rumbling mid-diastolic murmur at the apex. What is the most likely underlying diagnosis?",
+      options:[
+        "Hypertrophic cardiomyopathy",
+        "Chronic rheumatic heart disease with mitral stenosis",
+        "A congenital atrial septal defect",
+        "Ischaemic mitral regurgitation",
+        "Infective endocarditis of the aortic valve"],
+      correctIndex:1,
+      explanation:[
+        "The story is classic chronic RHEUMATIC HEART DISEASE: childhood acute rheumatic fever (migratory arthritis + fevers) followed, years to DECADES later, by valve disease &mdash; here the mid-diastolic apical rumble of MITRAL STENOSIS.",
+        "RHD is the leading cause of acquired valve disease worldwide (rf-008), and the latent gap between childhood rheumatic fever and adult valve disease is the recognisable pattern &mdash; the childhood &lsquo;rheumatism&rsquo; is the clue to hunt for.",
+        "The acute lesion was mitral REGURGITATION (rf-021); over years of recurrent/severe carditis the valve scarred and fused into STENOSIS (rf-041). Acute = leak, chronic = stenosis.",
+        "Trap: HCM (A) gives an ejection systolic murmur, not a diastolic rumble; an ASD (C) is congenital with a fixed split S2; ischaemic MR (D) is a systolic murmur with a cardiac history; and aortic IE (E) is an acute febrile illness with an aortic murmur, not this chronic mitral picture."
+      ] },
+    { id:"rf-037", type:"mcq", objective:"rf-rhd-ms-signs", excludes:["rf-rhd-latency-recognition","rf-rhd-mitral-stenosis"],
+      question:"A patient with chronic rheumatic heart disease has the examination findings shown. Which single valve lesion do they indicate?",
+      data:'<div class="mk-obs-h">Cardiac examination</div><table class="mk-labs"><tr><td>Apex beat</td><td><b>Tapping, not displaced</b></td><td>&mdash;</td></tr><tr><td>First heart sound</td><td><b>Loud S1</b></td><td>&mdash;</td></tr><tr><td>Added sound</td><td><b>Opening snap after S2</b></td><td>&mdash;</td></tr><tr><td>Murmur</td><td><b>Low-pitched mid-diastolic rumble at the apex</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "Mitral regurgitation",
+        "Aortic stenosis",
+        "Aortic regurgitation",
+        "Mitral stenosis",
+        "Tricuspid regurgitation"],
+      correctIndex:3,
+      explanation:[
+        "These are the classic signs of MITRAL STENOSIS: a TAPPING undisplaced apex (a palpable loud S1), a LOUD first heart sound, an OPENING SNAP after S2, and a low-pitched MID-DIASTOLIC rumble at the apex (best heard in the left lateral position on expiration).",
+        "Rheumatic heart disease is by far the commonest cause of mitral stenosis worldwide (rf-041). The opening snap and loud S1 indicate the leaflets are still mobile &mdash; they close and open forcefully despite being stenosed.",
+        "As the stenosis worsens, the gap between S2 and the opening snap SHORTENS (a higher left atrial pressure opens the valve sooner) &mdash; a useful bedside gauge of severity.",
+        "Trap: mitral REGURGITATION (A) is a pansystolic murmur; aortic stenosis (B) an ejection systolic murmur radiating to the carotids; aortic regurgitation (C) an early-diastolic murmur; tricuspid regurgitation (E) a pansystolic murmur at the left sternal edge that increases on inspiration."
+      ] },
+    { id:"rf-038", type:"mcq", objective:"rf-rhd-af-stroke",
+      question:"A 50-year-old with rheumatic mitral stenosis develops an irregularly irregular pulse and then a sudden dense left hemiparesis. Which sequence of events best explains this?",
+      options:[
+        "Aortic arch atheroma embolising directly to the cerebral circulation",
+        "Ventricular fibrillation causing global cerebral hypoperfusion and infarction",
+        "Rupture of an intracranial berry aneurysm driven by systemic hypertension",
+        "A paradoxical venous embolus crossing through a patent foramen ovale",
+        "Left atrial dilatation causing AF, then atrial thrombus and embolic stroke"],
+      correctIndex:4,
+      explanation:[
+        "Mitral stenosis obstructs LEFT ATRIAL emptying, so the LA DILATES. A dilated, high-pressure left atrium is the classic substrate for ATRIAL FIBRILLATION, and stasis in the fibrillating atrium (especially the appendage) forms THROMBUS, which embolises &mdash; here to the brain, causing the stroke.",
+        "This is why mitral stenosis carries a high embolic-stroke risk and why ANTICOAGULATION is central to management (rf-039). The irregularly irregular pulse is the AF; the sudden focal deficit is the embolus.",
+        "It links the valve lesion to its systemic consequences: MS &rarr; LA dilatation &rarr; AF &rarr; thromboembolism, plus pulmonary congestion from the backward pressure (cross-link: Atrial Fibrillation, Stroke / TIA).",
+        "Trap: aortic atheroma, VF, a berry aneurysm or a paradoxical PFO embolus (A, B, C, D) are other stroke mechanisms, but the MS + new AF + LA thrombus pathway is the specific and expected explanation here."
+      ] },
+    { id:"rf-039", type:"mcq", objective:"rf-rhd-anticoagulation", excludes:["rf-rhd-af-stroke"],
+      question:"A patient with rheumatic MITRAL STENOSIS develops atrial fibrillation. Which anticoagulation strategy is appropriate?",
+      options:[
+        "A DOAC (e.g. apixaban), which is now first-line for all atrial fibrillation",
+        "Warfarin, because DOACs are not recommended in rheumatic mitral stenosis",
+        "Aspirin alone, which is sufficient for stroke prevention in this setting",
+        "No anticoagulation is needed, since CHA2DS2-VASc scoring excludes valvular AF",
+        "Clopidogrel, used as an alternative to formal anticoagulation here"],
+      correctIndex:1,
+      explanation:[
+        "Atrial fibrillation with rheumatic MITRAL STENOSIS (or a mechanical valve) is the one AF setting where a DOAC is NOT recommended &mdash; the evidence supports a VITAMIN K ANTAGONIST (WARFARIN) with an INR target. So this patient needs warfarin, not a DOAC.",
+        "This &lsquo;valvular AF&rsquo; exception matters because DOACs are otherwise first-line for most non-valvular AF; rheumatic MS and mechanical valves are the classic carve-outs (cross-link: Anticoagulation, Tachycardia).",
+        "The stakes are high: MS-related AF has a very high embolic risk (rf-038), so effective anticoagulation is essential &mdash; antiplatelet agents are not adequate substitutes.",
+        "Trap: a DOAC (A) is contraindicated in this specific setting; aspirin or clopidogrel alone (C, E) do not provide adequate stroke protection in AF; and withholding anticoagulation because CHA2DS2-VASc &lsquo;excludes&rsquo; valvular AF (D) inverts the logic &mdash; valvular AF bypasses the score precisely because it is automatically high-risk and always warrants anticoagulation."
+      ] },
+    { id:"rf-040", type:"mcq", objective:"rf-rhd-ie-risk",
+      question:"A patient with chronic rheumatic heart disease and a scarred mitral valve is at increased risk of a particular complication if bacteraemia occurs. Which complication?",
+      options:[
+        "Acute pericarditis",
+        "Aortic dissection",
+        "Takotsubo cardiomyopathy",
+        "Infective endocarditis",
+        "Constrictive pericarditis"],
+      correctIndex:3,
+      explanation:[
+        "A scarred, abnormal rheumatic valve provides a surface for bacteria to adhere to during BACTERAEMIA, so chronic rheumatic heart disease raises the risk of INFECTIVE ENDOCARDITIS.",
+        "This is why patients with RHD need good dental and skin hygiene and awareness of endocarditis; any new fever with a changing murmur should prompt blood cultures and echo (cross-link: Infective Endocarditis).",
+        "It compounds the valve problem: endocarditis on an already-damaged rheumatic valve can accelerate destruction and precipitate acute regurgitation and failure.",
+        "Trap: pericarditis, aortic dissection, Takotsubo and constrictive pericarditis (A, B, C, E) are not the specific bacteraemia-related risk that a damaged valve confers &mdash; that risk is endocarditis."
+      ] },
+    { id:"rf-041", type:"mcq", objective:"rf-rhd-mitral-stenosis",
+      question:"Chronic rheumatic heart disease classically produces one particular valve lesion after years of recurrent carditis. Which lesion, and by what mechanism?",
+      options:[
+        "Aortic regurgitation, from dilatation of the aortic root",
+        "Mitral regurgitation, from acute leaflet inflammation",
+        "Mitral stenosis, from commissural fusion and leaflet thickening",
+        "Pulmonary stenosis, from congenital valve maldevelopment",
+        "Tricuspid stenosis, from carcinoid deposition on the valve"],
+      correctIndex:2,
+      explanation:[
+        "The classic chronic lesion is MITRAL STENOSIS. Years of recurrent carditis cause COMMISSURAL FUSION, leaflet thickening and calcification, and chordal shortening &mdash; the orifice narrows (a &lsquo;fish-mouth&rsquo; valve) so it cannot OPEN properly.",
+        "Contrast the acute lesion, mitral REGURGITATION, from inflamed leaflets that cannot close (rf-021). The same disease produces regurgitation acutely (fails to close) and stenosis chronically (fails to open) &mdash; and mixed disease is common.",
+        "RHD is the commonest cause of mitral stenosis worldwide, and the stenosis drives the downstream sequelae: left atrial dilatation, AF and embolic stroke (rf-038), and pulmonary congestion.",
+        "Trap: the aortic and tricuspid options (A, D, E) and acute MR (B) don&rsquo;t fit the classic chronic RHD lesion &mdash; carcinoid causes right-sided lesions, congenital maldevelopment isn&rsquo;t rheumatic, and root dilatation isn&rsquo;t the rheumatic mechanism."
+      ] },
+    { id:"rf-042", type:"mcq", objective:"rf-rhd-valve-management",
+      question:"A patient with chronic rheumatic mitral stenosis has progressive symptoms despite medical therapy, with a significantly narrowed valve. What is the definitive management of the valve lesion?",
+      options:[
+        "Percutaneous balloon valvuloplasty, or surgical valve repair or replacement",
+        "Lifelong high-dose corticosteroids, which gradually reverse the valve stenosis",
+        "A prolonged repeat course of penicillin, which reopens the narrowed valve",
+        "Regular aspirin and an NSAID, which slowly reduce the degree of narrowing",
+        "No mechanical intervention is possible once the stenosis is well established"],
+      correctIndex:0,
+      explanation:[
+        "Established mitral stenosis is a MECHANICAL problem, so its definitive treatment is MECHANICAL: percutaneous balloon MITRAL VALVULOPLASTY (for suitable mobile, non-calcified valves without significant MR), or surgical valve REPAIR or REPLACEMENT.",
+        "Medical therapy (rate control and anticoagulation for AF, rf-039; diuretics for congestion) treats the CONSEQUENCES but cannot reopen a fused valve &mdash; the scarring is irreversible.",
+        "This is the endpoint of the rheumatic-fever story: the immune valve damage that prophylaxis (rf-030) is designed to PREVENT, because once stenosis is fixed only intervention helps.",
+        "Trap: steroids, penicillin and anti-inflammatories (B, C, D) do not reverse established scarring; and it is untrue that nothing can be done (E) &mdash; valvuloplasty or valve surgery is exactly what is offered."
+      ] },
+    { id:"rf-043", type:"mcq", objective:"rf-rhd-valve-hierarchy", excludes:["rf-rhd-mitral-stenosis"],
+      question:"In chronic rheumatic heart disease, the valves are affected in a characteristic order of frequency. Which ranking is correct?",
+      options:[
+        "Pulmonary most, then tricuspid; the left-sided valves are spared",
+        "Tricuspid most, then pulmonary; the mitral valve is rarely affected",
+        "Aortic most, then mitral; the tricuspid valve is never involved",
+        "All four valves are affected roughly equally in rheumatic disease",
+        "Mitral most, then aortic; tricuspid and pulmonary are rarely involved"],
+      correctIndex:4,
+      explanation:[
+        "Rheumatic heart disease affects the valves in order: MITRAL (most common) &rarr; AORTIC (next) &rarr; the tricuspid and pulmonary valves are RARELY involved. The left-sided, higher-pressure valves bear the brunt.",
+        "This is why mitral stenosis is the classic chronic lesion (rf-041) and aortic disease the second commonest; right-sided rheumatic disease is uncommon and usually accompanies left-sided involvement.",
+        "The hierarchy tracks the epidemiology cited earlier (rf-008): RHD is the leading cause of acquired mitral and aortic valve disease worldwide.",
+        "Trap: rankings that put the right-sided valves first, spare the mitral, or claim an equal or never-involved pattern (A, B, C, D) invert the well-established mitral &gt; aortic &gt; right-sided order."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
