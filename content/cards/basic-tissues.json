@@ -1458,7 +1458,7 @@
    {
     "id": "hn-fc-003",
     "front": "How do you recognise a neuron cell body on H&E?",
-    "back": "A large cell with a pale (euchromatic) nucleus, a single prominent nucleolus ('owl-eye'), and basophilic Nissl substance in the cytoplasm."
+    "back": "A large cell with a pale (euchromatic, 'vesicular') nucleus, a single prominent nucleolus, and basophilic Nissl substance ('tigroid') in the cytoplasm."
    },
    {
     "id": "hn-fc-004",
@@ -1502,8 +1502,8 @@
    },
    {
     "id": "hn-fc-012",
-    "front": "Which neuron type is found in the dorsal root ganglion?",
-    "back": "Pseudounipolar sensory neurons."
+    "front": "Name the two neuronal pigments and their significance.",
+    "back": "Lipofuscin — yellow-brown lysosomal 'wear-and-tear' pigment that accumulates with age; neuromelanin — dark pigment in substantia nigra and locus coeruleus neurons, whose loss (nigral pallor) is the gross hallmark of Parkinson's disease."
    },
    {
     "id": "hn-fc-013",
@@ -1513,7 +1513,7 @@
    {
     "id": "hn-fc-014",
     "front": "Which is the most abundant glial cell and what are its key functions?",
-    "back": "The astrocyte — structural/metabolic support, K+ and neurotransmitter buffering, formation of the blood–brain barrier via end-feet, and the glial scar. Marker: GFAP."
+    "back": "The astrocyte — structural/metabolic support, K+ and neurotransmitter buffering, inducing and maintaining the blood–brain barrier via end-feet (the barrier proper is endothelial tight junctions), and the glial scar. Marker: GFAP."
    },
    {
     "id": "hn-fc-015",
@@ -1608,7 +1608,7 @@
    {
     "id": "hn-fc-033",
     "front": "Contrast the demyelinating targets in multiple sclerosis and Guillain–Barré syndrome.",
-    "back": "Multiple sclerosis is CNS demyelination (oligodendrocyte target); Guillain–Barré syndrome is PNS demyelination (Schwann cell/nerve root target)."
+    "back": "Multiple sclerosis is CNS demyelination (oligodendrocyte target); Guillain–Barré is usually PNS demyelination (AIDP; Schwann cell/root target), though an axonal variant (AMAN, anti-GM1, post-Campylobacter) also occurs."
    },
    {
     "id": "hn-fc-034",
@@ -1618,7 +1618,27 @@
    {
     "id": "hn-fc-035",
     "front": "Why do most primary brain tumours arise from glia rather than neurons?",
-    "back": "Mature neurons are post-mitotic and rarely divide, whereas glial cells retain proliferative capacity — hence gliomas (e.g. astrocytoma/glioblastoma) are common."
+    "back": "Mature neurons are post-mitotic and rarely divide, whereas glial cells retain proliferative capacity — so gliomas (astrocytoma/glioblastoma) are the commonest primary MALIGNANT CNS tumours (though metastases and meningiomas are commoner overall)."
+   },
+   {
+    "id": "hn-fc-036",
+    "front": "Distinguish the blood–brain barrier from the blood–CSF barrier.",
+    "back": "Blood–brain barrier = tight-junctioned capillary endothelium (induced/maintained by astrocyte end-feet). Blood–CSF barrier = tight junctions between choroid plexus epithelial cells — the plexus capillaries themselves are fenestrated."
+   },
+   {
+    "id": "hn-fc-037",
+    "front": "Define mesaxon, Schmidt–Lanterman incisures and a Remak bundle.",
+    "back": "Mesaxon = the paired Schwann/oligodendrocyte membrane that spirals to form myelin; Schmidt–Lanterman incisures = pockets of retained Schwann cytoplasm within the myelin sheath; Remak bundle = several unmyelinated axons ensheathed in the troughs of a single Schwann cell."
+   },
+   {
+    "id": "hn-fc-038",
+    "front": "Outline Wallerian degeneration and the PNS regeneration rate.",
+    "back": "After axon transection the distal axon and its myelin fragment (24–72 h) and are cleared by macrophages and Schwann cells; Schwann cells proliferate into bands of Büngner that guide regrowth at ~1 mm/day. CNS axons fail — glial scar plus myelin inhibitors (Nogo, MAG)."
+   },
+   {
+    "id": "hn-fc-039",
+    "front": "What are schwannomas and neurofibromas, and which marker identifies them?",
+    "back": "Benign peripheral nerve-sheath tumours that are S100-positive; a vestibular schwannoma ('acoustic neuroma') arises at the cerebellopontine angle, and these tumours are associated with neurofibromatosis (NF1/NF2)."
    }
   ]
  },
@@ -4371,7 +4391,7 @@
    {
     "id": "hn-q-018",
     "type": "mcq",
-    "question": "Most primary CNS tumours are gliomas rather than neuronal tumours because:",
+    "question": "Most primary MALIGNANT CNS tumours are gliomas rather than neuronal tumours because:",
     "options": [
      "Neurons are more numerous than glia",
      "Glia retain the ability to divide while mature neurons are post-mitotic",
@@ -4380,7 +4400,7 @@
      "Neurons cannot be transformed by mutation"
     ],
     "correctIndex": 1,
-    "explanation": "Mature neurons are largely post-mitotic and rarely give rise to tumours, whereas glial cells retain proliferative capacity, so gliomas (e.g. astrocytoma/glioblastoma) predominate."
+    "explanation": "Mature neurons are largely post-mitotic and rarely give rise to tumours, whereas glia retain proliferative capacity, so gliomas (astrocytoma/glioblastoma) predominate among primary malignant CNS tumours. (Overall, metastases are commonest, and meningioma is the commonest primary tumour.)"
    },
    {
     "id": "hn-q-019",
@@ -4399,16 +4419,72 @@
    {
     "id": "hn-q-020",
     "type": "mcq",
-    "question": "A key structural difference that allows PNS but not CNS axons to regenerate is that PNS fibres possess:",
+    "question": "A transected peripheral nerve regenerates along Schwann-cell (neurilemmal) tubes at approximately what rate?",
     "options": [
-     "Nodes of Ranvier",
-     "A neurilemma with basal lamina",
-     "Voltage-gated Na+ channels",
-     "Nissl substance",
-     "Multipolar morphology"
+     "1 cm per day",
+     "1 mm per day",
+     "1 metre per day",
+     "1 mm per hour",
+     "It cannot regenerate at all"
     ],
     "correctIndex": 1,
-    "explanation": "PNS fibres have a neurilemma (Schwann cell cytoplasm plus basal lamina) that forms a regeneration-guiding tube; CNS fibres lack this and are further inhibited by the glial scar."
+    "explanation": "Regenerating PNS axons advance down the bands of Büngner (Schwann-cell/neurilemmal tubes) at roughly 1 mm/day; CNS axons fail to regenerate due to the glial scar and myelin inhibitors (Nogo, MAG)."
+   },
+   {
+    "id": "hn-q-021",
+    "type": "mcq",
+    "question": "An aged neuron of the substantia nigra contains dark cytoplasmic pigment; its loss is the gross hallmark of Parkinson's disease. This pigment is:",
+    "options": [
+     "Lipofuscin",
+     "Neuromelanin",
+     "Haemosiderin",
+     "Bilirubin",
+     "Melanin from melanocytes"
+    ],
+    "correctIndex": 1,
+    "explanation": "Neuromelanin is the dark pigment of substantia nigra and locus coeruleus neurons; its loss (nigral pallor) is the gross hallmark of Parkinson's disease. Lipofuscin is the yellow-brown age-related 'wear-and-tear' pigment."
+   },
+   {
+    "id": "hn-q-022",
+    "type": "mcq",
+    "question": "A patient dies of encephalitis after a dog bite; brain histology shows eosinophilic cytoplasmic inclusions in hippocampal and Purkinje neurons. These are:",
+    "options": [
+     "Lewy bodies",
+     "Negri bodies",
+     "Neurofibrillary tangles",
+     "Cowdry A inclusions",
+     "Corpora amylacea"
+    ],
+    "correctIndex": 1,
+    "explanation": "Negri bodies are eosinophilic cytoplasmic inclusions of rabies (which reaches the CNS by retrograde axonal transport), classically in hippocampal and Purkinje neurons."
+   },
+   {
+    "id": "hn-q-023",
+    "type": "mcq",
+    "question": "A young woman has recurrent optic neuritis and longitudinally extensive myelitis with antibodies against aquaporin-4 on astrocyte foot processes. The diagnosis is:",
+    "options": [
+     "Multiple sclerosis",
+     "Neuromyelitis optica (Devic disease)",
+     "Guillain–Barré syndrome",
+     "Multiple sclerosis's Uhthoff phenomenon",
+     "Central pontine myelinolysis"
+    ],
+    "correctIndex": 1,
+    "explanation": "Neuromyelitis optica (Devic disease) is driven by anti-aquaporin-4 antibodies targeting astrocyte foot processes — distinct from MS, which targets oligodendrocyte myelin."
+   },
+   {
+    "id": "hn-q-024",
+    "type": "mcq",
+    "question": "Local anaesthetics such as lidocaine block nerve conduction by acting on:",
+    "options": [
+     "Voltage-gated potassium channels",
+     "Voltage-gated sodium channels at the nodes of Ranvier",
+     "Gap junctions",
+     "Acetylcholine receptors",
+     "GABA receptors"
+    ],
+    "correctIndex": 1,
+    "explanation": "Local anaesthetics block voltage-gated Na+ channels (use-dependent), which are concentrated at the nodes of Ranvier, preventing action-potential propagation."
    }
   ]
  }
