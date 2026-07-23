@@ -2868,7 +2868,7 @@
    {
     "id": "hrn-ub-fc-006",
     "front": "What molecules make the urothelial surface impermeable?",
-    "back": "Uroplakins (in the asymmetric unit membrane plaques) plus tight junctions between umbrella cells."
+    "back": "Uroplakins (in the asymmetric unit membrane plaques) and tight junctions between umbrella cells, plus an apical glycosaminoglycan (GAG) layer that resists bacterial and crystal adhesion."
    },
    {
     "id": "hrn-ub-fc-007",
@@ -2908,7 +2908,7 @@
    {
     "id": "hrn-ub-fc-014",
     "front": "What is the trigone and what is its embryological origin?",
-    "back": "A smooth triangular region of the bladder base between the two ureteric orifices and the internal urethral opening, derived from the mesonephric (Wolffian) ducts (mesodermal)."
+    "back": "A smooth (rugae-free) triangular region of the bladder base between the two ureteric orifices and the internal urethral opening. Its origin is debated: traditionally taught as derived from the mesonephric (Wolffian) ducts (mesodermal), but modern lineage-tracing suggests it is largely endodermal, like the rest of the bladder."
    },
    {
     "id": "hrn-ub-fc-015",
@@ -2933,7 +2933,7 @@
    {
     "id": "hrn-ub-fc-019",
     "front": "What is the commonest bladder cancer, its typical presentation and main risk factors?",
-    "back": "Urothelial (transitional cell) carcinoma; painless haematuria; risk factors include smoking and aniline (azo) dye exposure."
+    "back": "Urothelial (transitional cell) carcinoma; painless haematuria; risk factors include smoking, aromatic amines (2-naphthylamine, benzidine - dye/rubber industry) and cyclophosphamide. Prognosis hinges on non-muscle-invasive (Ta/T1/CIS) versus muscle-invasive (>=T2) disease."
    },
    {
     "id": "hrn-ub-fc-020",
@@ -2979,6 +2979,31 @@
     "id": "hrn-ub-fc-028",
     "front": "Which urine-based test screens for high-grade urothelial carcinoma?",
     "back": "Urine cytology (examining exfoliated cells in voided urine)."
+   },
+   {
+    "id": "hrn-ub-fc-029",
+    "front": "Does the urinary tract have a muscularis mucosae, and why does it matter?",
+    "back": "The ureter has none (lamina propria only). The bladder has only a wispy, discontinuous muscularis mucosae - important in staging, because invasion of the true detrusor (muscularis propria, >=T2) mandates far more aggressive treatment than lamina propria (T1) invasion."
+   },
+   {
+    "id": "hrn-ub-fc-030",
+    "front": "How is micturition controlled centrally?",
+    "back": "The pontine micturition centre (Barrington's nucleus) coordinates detrusor contraction with sphincter relaxation. The sacral (S2-4) spinal micturition reflex is normally held under suprapontine inhibition; spinal cord injury releases it, causing detrusor-sphincter dyssynergia / a neurogenic bladder."
+   },
+   {
+    "id": "hrn-ub-fc-031",
+    "front": "Give the spinal levels of the three nerves controlling the bladder.",
+    "back": "Parasympathetic pelvic splanchnic S2-S4 (M3, detrusor contraction); sympathetic hypogastric T11-L2 (beta-3 detrusor relaxation, alpha-1 internal sphincter); somatic pudendal S2-S4 (external urethral sphincter)."
+   },
+   {
+    "id": "hrn-ub-fc-032",
+    "front": "Contrast papillary urothelial carcinoma and flat carcinoma in situ (CIS).",
+    "back": "Papillary tumours are exophytic fronds with a fibrovascular core, usually low-grade and non-invasive (Ta). Flat CIS is a flat, high-grade, cytologically malignant lesion with no papillae; it carries a high risk of progression to muscle-invasive cancer."
+   },
+   {
+    "id": "hrn-ub-fc-033",
+    "front": "Name the three histological types of bladder cancer and their settings.",
+    "back": "Urothelial (transitional cell) carcinoma - commonest, smoking/aromatic amines. Squamous cell carcinoma - chronic irritation, classically Schistosoma haematobium (also long-term catheters/stones). Adenocarcinoma - glandular metaplasia or urachal remnants at the dome."
    }
   ],
   "histology__RENAL__Renal Vasculature": [
@@ -9299,16 +9324,16 @@
    {
     "id": "hrn-ub-q-011",
     "type": "mcq",
-    "question": "The bladder trigone is derived embryologically from the:",
+    "question": "The bladder trigone differs from the rest of the bladder mucosa in that it is:",
     "options": [
-     "Endoderm of the cloaca",
-     "Mesonephric (Wolffian) ducts",
-     "Neural crest",
-     "Notochord",
-     "Ectoderm"
+     "Thrown into rugae when the bladder is empty",
+     "Smooth (flat) even when the bladder is empty",
+     "Lined by simple columnar epithelium",
+     "Devoid of urothelium",
+     "Covered by peritoneum"
     ],
     "correctIndex": 1,
-    "explanation": "The trigone is of mesodermal origin, derived from the incorporated mesonephric ducts; it is smooth (lacks rugae)."
+    "explanation": "The trigone is a smooth, flat triangle between the two ureteric orifices and the internal urethral opening; unlike the rest of the bladder it lacks rugae. (Its embryological origin is debated - traditionally taught as mesonephric-duct/mesodermal, but modern lineage-tracing suggests it is largely endodermal like the rest of the bladder.)"
    },
    {
     "id": "hrn-ub-q-012",
@@ -9407,6 +9432,34 @@
     ],
     "correctIndex": 2,
     "explanation": "Urothelium is a stratified epithelium with characteristic umbrella cells and a variable apparent thickness that depends on the degree of distension."
+   },
+   {
+    "id": "hrn-ub-q-019",
+    "type": "mcq",
+    "question": "The single most important prognostic distinction in bladder cancer, dictating TURBT/BCG versus radical cystectomy, is:",
+    "options": [
+     "Papillary versus flat growth",
+     "Non-muscle-invasive (Ta/T1/CIS) versus muscle-invasive (>=T2) disease",
+     "Grade 1 versus grade 2",
+     "CK7 versus CK20 expression",
+     "Unifocal versus multifocal disease"
+    ],
+    "correctIndex": 1,
+    "explanation": "Whether the tumour invades the muscularis propria (detrusor, >=T2) is the key prognostic/management split: non-muscle-invasive disease is treated with TURBT +/- intravesical BCG, whereas muscle-invasive disease usually needs radical cystectomy or chemoradiation."
+   },
+   {
+    "id": "hrn-ub-q-020",
+    "type": "mcq",
+    "question": "After a complete suprasacral spinal cord injury, loss of suprapontine inhibition of the sacral micturition reflex typically causes:",
+    "options": [
+     "A flaccid, areflexic bladder",
+     "A spastic (reflex) neurogenic bladder with detrusor-sphincter dyssynergia",
+     "Permanent retention with no reflex ever returning",
+     "Loss of all detrusor smooth muscle",
+     "Diabetes insipidus"
+    ],
+    "correctIndex": 1,
+    "explanation": "The sacral (S2-4) micturition reflex is normally inhibited by higher centres via the pontine micturition centre; a suprasacral cord injury releases it, producing a spastic (reflex) neurogenic bladder, often with detrusor-sphincter dyssynergia. A sacral cord/cauda equina lesion instead gives a flaccid, areflexic bladder."
    }
   ],
   "histology__RENAL__Renal Vasculature": [
