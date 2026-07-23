@@ -513,7 +513,7 @@
    {
     "id": "hbl-fc-013",
     "front": "Describe the eosinophil and its role.",
-    "back": "Bilobed nucleus with large red-orange (eosinophilic) granules; acts against parasites and in allergy/type I hypersensitivity."
+    "back": "Bilobed nucleus with large red-orange (eosinophilic) granules; acts against parasites (helminths) and in allergy — driving the late-phase allergic reaction rather than the immediate mast-cell/basophil response."
    },
    {
     "id": "hbl-fc-014",
@@ -588,7 +588,7 @@
    {
     "id": "hbl-fc-028",
     "front": "Classify anaemia by red-cell size, with a cause for each.",
-    "back": "Microcytic (iron deficiency), macrocytic/megaloblastic (B12 or folate deficiency — hypersegmented neutrophils), and normocytic."
+    "back": "By MCV: microcytic (iron deficiency, thalassaemia); macrocytic — megaloblastic (B12/folate deficiency, with hypersegmented neutrophils) or non-megaloblastic (alcohol, liver disease, hypothyroidism, reticulocytosis); and normocytic (chronic disease, acute blood loss, haemolysis, renal failure)."
    },
    {
     "id": "hbl-fc-029",
@@ -618,7 +618,7 @@
    {
     "id": "hbl-fc-204",
     "front": "Which cells make up the granulocytes, and why the alternative name 'polymorphonuclear'?",
-    "back": "Neutrophils, eosinophils and basophils; they are called polymorphonuclear because their nuclei are multilobed."
+    "back": "Neutrophils, eosinophils and basophils; 'polymorphonuclear' refers to their lobed nuclei — the neutrophil is multilobed (2–5 lobes) while eosinophils and basophils are typically bilobed."
    },
    {
     "id": "hbl-fc-205",
@@ -633,12 +633,52 @@
    {
     "id": "hbl-fc-207",
     "front": "What is the buffy coat used for clinically?",
-    "back": "It concentrates white cells and platelets; it can be sampled to look for circulating tumour cells, malaria parasites or for leucocyte studies."
+    "back": "It concentrates white cells and platelets; it can be sampled for circulating tumour/leukaemic cells or blood parasites that lie outside red cells (microfilariae, trypanosomes). Note malaria parasites are intra-erythrocytic and sought on the whole film, not the buffy coat."
    },
    {
     "id": "hbl-fc-208",
     "front": "Which lymphocytes are responsible for antibody production versus cell-mediated immunity?",
     "back": "B lymphocytes (→ plasma cells) make antibodies; T lymphocytes mediate cell-mediated immunity; NK cells provide innate cytotoxicity."
+   },
+   {
+    "id": "hbl-fc-209",
+    "front": "Which full blood count index separates microcytic, normocytic and macrocytic anaemia, and what is its normal range?",
+    "back": "The MCV (mean cell volume), normally ~80–100 fL: <80 microcytic, 80–100 normocytic, >100 macrocytic."
+   },
+   {
+    "id": "hbl-fc-210",
+    "front": "What are Howell–Jolly bodies and what do they indicate?",
+    "back": "Small basophilic nuclear remnants inside red cells; normally removed by the spleen, so their presence indicates hyposplenism or a post-splenectomy state."
+   },
+   {
+    "id": "hbl-fc-211",
+    "front": "Schistocytes (red-cell fragments) on a film suggest what?",
+    "back": "Mechanical red-cell destruction — microangiopathic haemolytic anaemia (DIC, TTP/HUS) or a mechanical heart valve."
+   },
+   {
+    "id": "hbl-fc-212",
+    "front": "What is rouleaux formation and its classic association?",
+    "back": "Red cells stacked like a pile of coins, caused by a high plasma paraprotein/fibrinogen — classically multiple myeloma (and a raised ESR)."
+   },
+   {
+    "id": "hbl-fc-213",
+    "front": "Auer rods and smudge cells each point to which leukaemia?",
+    "back": "Auer rods (needle-like azurophilic inclusions in blasts) → acute myeloid leukaemia (AML); smudge/smear cells (fragile lymphocytes) → chronic lymphocytic leukaemia (CLL)."
+   },
+   {
+    "id": "hbl-fc-214",
+    "front": "How does the reticulocyte count help classify anaemia?",
+    "back": "A high reticulocyte count means the marrow is responding — blood loss or haemolysis; a low/inappropriately normal count means production failure — marrow disease or haematinic (iron/B12/folate) deficiency."
+   },
+   {
+    "id": "hbl-fc-215",
+    "front": "Reed–Sternberg cells and reactive 'atypical' lymphocytes are each seen in what?",
+    "back": "Reed–Sternberg cells (binucleate 'owl-eye' cells) → Hodgkin lymphoma; large atypical/reactive lymphocytes → EBV infectious mononucleosis."
+   },
+   {
+    "id": "hbl-fc-216",
+    "front": "Distinguish reactive thrombocytosis from essential thrombocythaemia.",
+    "back": "Reactive thrombocytosis is a secondary rise (infection, inflammation, iron deficiency, post-splenectomy) with low thrombotic risk; essential thrombocythaemia is a clonal myeloproliferative neoplasm that causes both thrombosis and bleeding."
    }
   ],
   "histology__BASIC TISSUES__Cartilage (hyaline, elastic, fibrocartilage)": [
@@ -2586,6 +2626,76 @@
     ],
     "correctIndex": 1,
     "explanation": "B lymphocytes differentiate into antibody-secreting plasma cells; T lymphocytes mediate cell-mediated immunity and NK cells provide innate cytotoxicity."
+   },
+   {
+    "id": "hbl-q-207",
+    "type": "mcq",
+    "question": "A blood film shows red cells containing small round basophilic nuclear remnants (Howell–Jolly bodies). This indicates:",
+    "options": [
+     "Iron deficiency",
+     "Hyposplenism / post-splenectomy",
+     "Vitamin B12 deficiency",
+     "Acute haemolysis",
+     "Lead poisoning"
+    ],
+    "correctIndex": 1,
+    "explanation": "Howell–Jolly bodies are nuclear remnants normally pitted out by the spleen; seeing them implies hyposplenism or previous splenectomy."
+   },
+   {
+    "id": "hbl-q-208",
+    "type": "mcq",
+    "question": "Numerous red-cell fragments (schistocytes) with thrombocytopenia in a septic patient most suggest:",
+    "options": [
+     "Hereditary spherocytosis",
+     "Disseminated intravascular coagulation (microangiopathic haemolysis)",
+     "Iron-deficiency anaemia",
+     "Megaloblastic anaemia",
+     "Sickle-cell trait"
+    ],
+    "correctIndex": 1,
+    "explanation": "Schistocytes are mechanically sheared red cells seen in microangiopathic haemolytic anaemia — DIC, TTP/HUS or mechanical valves."
+   },
+   {
+    "id": "hbl-q-209",
+    "type": "mcq",
+    "question": "A bone-marrow blast containing a needle-like azurophilic (Auer) rod is diagnostic of:",
+    "options": [
+     "Chronic lymphocytic leukaemia",
+     "Acute myeloid leukaemia",
+     "Hodgkin lymphoma",
+     "Infectious mononucleosis",
+     "Multiple myeloma"
+    ],
+    "correctIndex": 1,
+    "explanation": "Auer rods are crystallised azurophilic granules found in myeloblasts, diagnostic of acute myeloid leukaemia (AML)."
+   },
+   {
+    "id": "hbl-q-210",
+    "type": "mcq",
+    "question": "Marked rouleaux formation on a film, with a very high ESR and back pain, points to:",
+    "options": [
+     "Iron deficiency",
+     "Multiple myeloma (paraproteinaemia)",
+     "Polycythaemia vera",
+     "Hereditary spherocytosis",
+     "Chronic myeloid leukaemia"
+    ],
+    "correctIndex": 1,
+    "explanation": "Rouleaux (coin-stacking) reflects a high plasma paraprotein/fibrinogen, classically multiple myeloma, which also raises the ESR."
+   },
+   {
+    "id": "hbl-q-211",
+    "type": "mcq",
+    "question": "A film from an elderly patient shows a lymphocytosis with many fragile 'smudge' (smear) cells. The likely diagnosis is:",
+    "options": [
+     "Acute myeloid leukaemia",
+     "Chronic lymphocytic leukaemia",
+     "Reactive viral lymphocytosis",
+     "Hodgkin lymphoma",
+     "Myelofibrosis"
+    ],
+    "correctIndex": 1,
+    "explanation": "Smudge/smear cells are fragile lymphocytes ruptured during smearing, characteristic of chronic lymphocytic leukaemia (CLL)."
    }
   ],
   "histology__BASIC TISSUES__Cartilage (hyaline, elastic, fibrocartilage)": [
