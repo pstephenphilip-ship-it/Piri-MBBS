@@ -8862,7 +8862,7 @@
    {
     "id": "hcv-ccs-fc-003",
     "front": "Where is the SA node and what is its role?",
-    "back": "In the wall of the right atrium near the SVC/crista terminalis; it is the pacemaker (~60–100/min), made of small pale fusiform nodal (P) cells with few myofibrils in fibrous stroma."
+    "back": "In the wall of the right atrium near the SVC/crista terminalis; it is the pacemaker (~60–100/min), made of small pale ovoid nodal (P) cells plus spindle-shaped transitional (T) cells with few myofibrils in fibrous stroma."
    },
    {
     "id": "hcv-ccs-fc-004",
@@ -8881,8 +8881,8 @@
    },
    {
     "id": "hcv-ccs-fc-007",
-    "front": "How do you recognise Purkinje fibres on a slide?",
-    "back": "They are larger and paler than working cardiomyocytes, with clear cytoplasm and peripheral myofibrils, sitting just beneath the endocardium (subendocardial)."
+    "front": "Distinguish Mobitz I and Mobitz II second-degree AV block.",
+    "back": "Mobitz I (Wenckebach): progressive PR prolongation until a QRS is dropped — block in the AV node, usually benign and vagally mediated. Mobitz II: constant PR with sudden dropped beats — block infranodal (His-Purkinje), often broad QRS with a high risk of progression to complete block, so it needs a pacemaker."
    },
    {
     "id": "hcv-ccs-fc-008",
@@ -8916,13 +8916,13 @@
    },
    {
     "id": "hcv-ccs-fc-014",
-    "front": "Why is the AV node vulnerable in an inferior myocardial infarction?",
-    "back": "Its blood supply is usually from the right coronary artery, which is typically occluded in inferior MI — hence AV block can complicate inferior MIs."
+    "front": "Why must AV-nodal blocking drugs be avoided in WPW with atrial fibrillation?",
+    "back": "Blocking the AV node (adenosine, verapamil/diltiazem, digoxin, beta-blockers) diverts rapid atrial impulses down the accessory pathway, risking very fast ventricular rates and degeneration to ventricular fibrillation; use flecainide or procainamide, or DC cardioversion if unstable."
    },
    {
     "id": "hcv-ccs-fc-201",
     "front": "What ion current underlies the SA node's spontaneous depolarisation?",
-    "back": "The 'funny' current (If), a slow inward Na+ (and Ca2+) current that produces the unstable, gradually rising pacemaker potential."
+    "back": "The 'funny' current (If), a slow inward mixed Na+/K+ cation current through HCN channels activated on hyperpolarisation, which produces the unstable, gradually rising phase-4 pacemaker potential. (The nodal upstroke itself is L-type Ca2+, not fast Na+.)"
    },
    {
     "id": "hcv-ccs-fc-202",
@@ -8932,7 +8932,7 @@
    {
     "id": "hcv-ccs-fc-203",
     "front": "Why is the internodal conduction faster than ordinary atrial muscle?",
-    "back": "Preferential pathways of specialised fibres conduct the impulse from SA to AV node more rapidly than plain atrial myocardium."
+    "back": "Preferential atrial conduction (via fibre orientation — discrete anatomical internodal tracts are debated) carries the impulse from the SA to the AV node faster than ordinary atrial muscle; Bachmann's bundle carries it to the left atrium."
    },
    {
     "id": "hcv-ccs-fc-204",
@@ -8941,13 +8941,13 @@
    },
    {
     "id": "hcv-ccs-fc-205",
-    "front": "What is an escape rhythm?",
-    "back": "When a higher pacemaker fails, a lower one (AV junction ~40–60/min or ventricle ~20–40/min) spontaneously takes over to maintain a heartbeat."
+    "front": "Rank conduction velocity through the parts of the conducting system.",
+    "back": "Purkinje fibres/His bundle are fastest (~2–4 m/s), then atrial and ventricular muscle, and the AV node is slowest (~0.05 m/s) — the source of the physiological AV delay. This velocity order is separate from the pacemaker-rate hierarchy."
    },
    {
     "id": "hcv-ccs-fc-206",
     "front": "Which artery usually supplies the SA and AV nodes?",
-    "back": "In most people the right coronary artery (SA nodal and AV nodal branches), so inferior MIs can cause nodal dysfunction/block."
+    "back": "The SA nodal artery arises from the RCA in ~60% and the left circumflex in ~40%; the AV nodal artery arises from the RCA in ~90% (right-dominant hearts) — so inferior (RCA) MIs classically cause AV nodal block."
    },
    {
     "id": "hcv-ccs-fc-207",
@@ -29632,7 +29632,7 @@
    {
     "id": "hcv-ccs-q-203",
     "type": "mcq",
-    "question": "Which cells are small, pale and fusiform with very few myofibrils?",
+    "question": "Which cells are small, pale and ovoid with very few myofibrils, specialised for impulse generation?",
     "options": [
      "Purkinje fibres",
      "SA/AV nodal (P) cells",
@@ -29674,16 +29674,44 @@
    {
     "id": "hcv-ccs-q-206",
     "type": "mcq",
-    "question": "If the SA node fails, an AV junctional escape rhythm typically maintains a rate of about:",
+    "question": "Unlike a ventricular myocyte, the upstroke of the SA-node action potential is generated mainly by:",
     "options": [
-     "100/min",
-     "40–60/min",
-     "150/min",
-     "10/min",
-     "0/min"
+     "Fast voltage-gated Na+ channels",
+     "L-type (slow) Ca2+ channels",
+     "Chloride channels",
+     "The Na+/K+ ATPase",
+     "Rapid K+ efflux"
     ],
     "correctIndex": 1,
-    "explanation": "The AV junction escapes at roughly 40–60/min; a ventricular (His–Purkinje) escape is slower still (~20–40/min). This pacemaker hierarchy provides backup rhythms."
+    "explanation": "Nodal cells lack functional fast Na+ channels; their slow upstroke is carried by L-type Ca2+ channels, which is why they conduct slowly and are sensitive to calcium-channel blockers. Phase-4 automaticity is driven by the funny current (If, HCN channels)."
+   },
+   {
+    "id": "hcv-ccs-q-207",
+    "type": "mcq",
+    "question": "The PR interval on the ECG corresponds chiefly to conduction delay in the:",
+    "options": [
+     "SA node",
+     "AV node",
+     "Bundle branches",
+     "Purkinje network",
+     "Ventricular myocardium"
+    ],
+    "correctIndex": 1,
+    "explanation": "The PR segment reflects the slow conduction (delay) through the AV node; the P wave is atrial depolarisation and the QRS is His-Purkinje/ventricular activation."
+   },
+   {
+    "id": "hcv-ccs-q-208",
+    "type": "mcq",
+    "question": "Mobitz type II second-degree AV block usually reflects disease in the:",
+    "options": [
+     "AV node",
+     "His-Purkinje (infranodal) system",
+     "SA node",
+     "Atrial myocardium",
+     "Coronary sinus"
+    ],
+    "correctIndex": 1,
+    "explanation": "Mobitz II block is infranodal (His-Purkinje), often with a broad QRS and a high risk of progression to complete heart block — a pacemaker indication; Mobitz I (Wenckebach) is AV-nodal and usually benign."
    }
   ],
   "histology__CARDIOVASCULAR__Heart Wall (endocardium, myocardium, pericardium)": [
