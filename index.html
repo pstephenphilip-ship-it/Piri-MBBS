@@ -6834,6 +6834,130 @@ window.MOCK_BANK = {
         "Trap: chronic venous insufficiency, cellulitis and superficial thrombophlebitis (C, D, E) are not this acute, tense, cyanotic, limb-threatening picture &mdash; the massive swelling plus cyanosis after an iliofemoral DVT is the specific combination that defines phlegmasia."
       ] },
   ],
+  "conditions__CARDIOVASCULAR__Rheumatic Fever / Rheumatic Heart Disease": [
+    { id:"rf-001", type:"mcq", objective:"rf-classic-dx",
+      question:"An 11-year-old boy has a 3-day history of a hot, swollen, exquisitely tender right knee; a few days earlier it was his left ankle that was affected. He is febrile, and a soft blowing murmur is now heard at the apex. Three weeks ago he had a sore throat. A throat swab today is negative, but his anti-streptolysin O (ASO) titre is high and rising on paired samples. What is the most likely diagnosis?",
+      options:[
+        "Reactive arthritis",
+        "Juvenile idiopathic arthritis",
+        "Acute rheumatic fever",
+        "Septic arthritis of the knee",
+        "Henoch-Schönlein purpura"],
+      correctIndex:2,
+      explanation:[
+        "This meets the Jones criteria: a MIGRATORY polyarthritis (the pain moved from ankle to knee) plus CARDITIS (a new apical murmur of mitral regurgitation) are two MAJOR criteria, and there is evidence of a preceding group A strep infection (rising ASO titre). Two major criteria with proof of recent strep = acute rheumatic fever.",
+        "Don&rsquo;t be thrown by the NEGATIVE throat swab. Rheumatic fever appears 2&ndash;4 weeks AFTER the sore throat, by which time the organism has usually cleared and the swab is negative &mdash; the rising ASO / anti-DNase B titre is the reliable footprint of the recent infection (rf-013).",
+        "The flitting, large-joint arthritis that leaves no damage is the commonest feature but is not specific on its own; it is the company it keeps &mdash; the carditis, the strep evidence, the age &mdash; that makes the diagnosis (rf-002).",
+        "Trap: reactive arthritis and JIA (A, B) don&rsquo;t follow a strep throat or cause this murmur; septic arthritis (D) is a single hot joint that does NOT flit and needs urgent aspiration (rf-007); HSP (E) gives a palpable purpuric rash and abdominal pain, not a migratory arthritis with carditis."
+      ] },
+    { id:"rf-002", type:"mcq", objective:"rf-migratory-arthritis",
+      question:"An 11-year-old with a recent sore throat has the joint findings shown over 10 days. Each joint is hot and very tender for 1 to 3 days, then settles completely as the next becomes involved, and aspirin produces a dramatic response. No joint is left deformed. Which feature does this illustrate?",
+      data:'<div class="mk-obs-h">Affected joint over time</div><table class="mk-labs"><tr><td>Day 1&ndash;2</td><td><b>Both knees</b></td><td>hot, swollen</td></tr><tr><td>Day 3&ndash;4</td><td><b>Right ankle</b></td><td>knees settled</td></tr><tr><td>Day 5&ndash;6</td><td><b>Left wrist</b></td><td>ankle settled</td></tr><tr><td>Day 7&ndash;8</td><td><b>Right elbow</b></td><td>wrist settled</td></tr></table>',
+      options:[
+        "A migratory polyarthritis, the commonest major feature",
+        "An additive symmetrical polyarthritis typical of JIA",
+        "A monoarthritis requiring urgent joint aspiration",
+        "A chronic erosive arthritis causing permanent deformity",
+        "A non-inflammatory arthralgia counting as a minor criterion"],
+      correctIndex:0,
+      explanation:[
+        "This is the classic MIGRATORY (&ldquo;flitting&rdquo;) polyarthritis of acute rheumatic fever: it affects the LARGE joints, moves from one to the next over days, each settling without residual damage, and it responds dramatically to aspirin/NSAIDs. It is the commonest major Jones criterion.",
+        "Because it leaves no deformity and is so aspirin-responsive, it is a clue rather than a cause of long-term harm &mdash; only CARDITIS produces lasting damage (rf-021). Note the contrast with ARTHRALGIA (joint pain WITHOUT swelling), which is only a MINOR criterion (rf-016).",
+        "The migratory pattern separates rheumatic fever from the ADDITIVE, symmetrical, persistent small-joint arthritis of JIA or rheumatoid disease, which accumulates joints rather than flitting between them.",
+        "Trap: a single hot joint that does NOT move (C) should raise septic arthritis and be aspirated (rf-007); erosive deforming arthritis (D) is not rheumatic fever; and calling swelling-free joint pain a major criterion (E) confuses arthritis (major) with arthralgia (minor)."
+      ] },
+    { id:"rf-003", type:"mcq", objective:"rf-preceding-pharyngitis",
+      question:"Acute rheumatic fever characteristically follows one site of group A streptococcal infection, whereas post-streptococcal glomerulonephritis can follow another. Rheumatic fever follows streptococcal infection at which site?",
+      options:[
+        "Skin, as in impetigo",
+        "The urinary tract",
+        "The gastrointestinal tract",
+        "The throat (pharyngitis)",
+        "Either skin or throat equally"],
+      correctIndex:3,
+      explanation:[
+        "Acute rheumatic fever follows group A streptococcal PHARYNGITIS (&ldquo;strep throat&rdquo;) &mdash; NOT streptococcal skin infection. This is a classic exam discriminator.",
+        "Post-streptococcal glomerulonephritis, by contrast, can follow EITHER a throat OR a skin (impetigo) infection. So &ldquo;strep throat &rarr; rheumatic fever&rdquo; but &ldquo;strep throat OR skin &rarr; glomerulonephritis&rdquo; (cross-link: Glomerulonephritis).",
+        "This is why prompt treatment of streptococcal pharyngitis with penicillin prevents rheumatic fever, and why the history to hunt for is a SORE THROAT a few weeks earlier (rf-001).",
+        "Trap: impetigo or other skin infection (A, E) does not cause rheumatic fever; urinary and gut infection (B, C) are not the group A strep pharyngitis that triggers it."
+      ] },
+    { id:"rf-004", type:"mcq", objective:"rf-latency", excludes:["rf-strep-evidence"],
+      question:"A 10-year-old is diagnosed with acute rheumatic fever. His mother recalls a sore throat, but that was about three weeks ago and he seemed to get over it. His throat swab today is negative. Why does rheumatic fever typically appear 2 to 4 weeks after the sore throat, with a negative swab by the time it presents?",
+      options:[
+        "Streptococci lie dormant in cardiac tissue and reactivate weeks after the throat clears",
+        "It is a delayed autoimmune reaction, so it lags the infection and the swab is usually negative",
+        "Antibiotics taken for the sore throat postpone the illness by several weeks in most children",
+        "Streptococcal exotoxin is released slowly from a persistent tonsillar abscess over some weeks",
+        "The organism has migrated from the throat to seed the heart valves directly by then"],
+      correctIndex:1,
+      explanation:[
+        "Rheumatic fever is a POST-INFECTIOUS immune phenomenon, not an ongoing infection. Antibodies raised against the streptococcus cross-react with host tissue (molecular mimicry, rf-005), and this response takes 2&ndash;4 weeks to build &mdash; hence the lag, and hence the throat swab is usually negative by the time symptoms appear.",
+        "This is exactly why the diagnosis leans on RISING antibody titres (ASO, anti-DNase B) rather than the swab: the titres are the durable fingerprint of a strep infection that has already resolved (rf-013).",
+        "The same logic shapes management: you still give penicillin to clear any residual organism and to begin secondary prophylaxis (rf-030), but the acute illness itself is immune-driven, so anti-inflammatories treat the arthritis and carditis.",
+        "Trap: dormant bacteria, a delayed drug effect, a tonsillar abscess or direct valve seeding (A, C, D, E) all imply ONGOING infection &mdash; but the swab-negative, weeks-later picture is the signature of an immune-mediated, post-infectious process."
+      ] },
+    { id:"rf-005", type:"mcq", objective:"rf-molecular-mimicry",
+      question:"In acute rheumatic fever the heart, joints, brain and skin are all attacked even though the streptococcus is confined to the throat. Which immunological mechanism best explains this multisystem damage?",
+      options:[
+        "Direct bacterial invasion of each organ by Streptococcus pyogenes",
+        "Deposition of streptococcal antigen-antibody immune complexes in tissues",
+        "An IgE-mediated type I hypersensitivity to streptococcal antigen",
+        "A pre-formed streptococcal exotoxin acting as a superantigen",
+        "Antibodies against streptococcal M protein cross-reacting with host tissue"],
+      correctIndex:4,
+      explanation:[
+        "The mechanism is MOLECULAR MIMICRY: antibodies (and T cells) raised against the streptococcal M PROTEIN cross-react with structurally similar HUMAN antigens in the heart valves, joints, basal ganglia and skin. This is a TYPE II hypersensitivity reaction.",
+        "Because the target is shared self-antigen rather than the organism itself, the damage is widespread and continues after the strep has gone &mdash; explaining the multisystem &ldquo;JONES&rdquo; features and the post-infectious timing (rf-004).",
+        "In the heart this cross-reactive attack is a PANCARDITIS and, with recurrences, scars the valves into chronic rheumatic heart disease (rf-021, rf-041) &mdash; the reason secondary prophylaxis matters so much.",
+        "Trap: immune-complex deposition (B) is the mechanism of post-streptococcal glomerulonephritis, not rheumatic fever; direct invasion (A), IgE / type I (C) and a superantigen exotoxin (D) don&rsquo;t fit the cross-reactive, multisystem, post-infectious picture."
+      ] },
+    { id:"rf-006", type:"mcq", objective:"rf-aschoff",
+      question:"A child who died of severe rheumatic carditis undergoes autopsy. Histology of the myocardium shows granulomatous nodules containing plump macrophages with wavy, ribbon-like (\"caterpillar\") nuclei. What is this pathognomonic finding?",
+      options:[
+        "Libman-Sacks non-bacterial vegetations",
+        "A caseating tuberculous granuloma",
+        "Aschoff bodies with Anitschkow cells",
+        "Amyloid deposits with apple-green birefringence",
+        "Councilman (apoptotic hepatocyte) bodies"],
+      correctIndex:2,
+      explanation:[
+        "The pathognomonic histological lesion of rheumatic carditis is the ASCHOFF BODY: a granulomatous nodule in the myocardium containing ANITSCHKOW cells &mdash; macrophages whose wavy chromatin gives a &ldquo;caterpillar&rdquo; appearance. Their presence confirms rheumatic carditis.",
+        "This reflects the immune-mediated PANCARDITIS &mdash; the cross-reactive attack (rf-005) inflames all three cardiac layers, and it is the myocardial and valvular involvement that leaves lasting damage.",
+        "Aschoff bodies pair conceptually with the clinical carditis: the histology you would never see in life, matched to the murmur and prolonged PR you WILL see (rf-021, rf-025).",
+        "Trap: Libman-Sacks vegetations (A) are the sterile valve lesions of SLE; caseating granulomas (B) are tuberculosis; amyloid (D) and Councilman bodies (E, apoptotic hepatocytes in viral hepatitis / yellow fever) belong to entirely different diseases."
+      ] },
+    { id:"rf-007", type:"mcq", objective:"rf-differential-septic", excludes:["rf-migratory-arthritis"],
+      question:"A 12-year-old has a single hot, swollen, extremely painful right knee and will not weight-bear. His observations and bloods are shown, and the joint has NOT moved to any other site. He had a sore throat a month ago. What is the most important immediate step?",
+      data:'<div class="mk-obs-h">Observations &amp; bloods</div><table class="mk-labs"><tr><td>Temperature</td><td><b>39.1&deg;C</b></td><td>36.0&ndash;37.5</td></tr><tr><td>Heart rate</td><td><b>124 bpm</b></td><td>60&ndash;100</td></tr><tr><td>CRP</td><td><b>210 mg/L</b></td><td>&lt;5</td></tr><tr><td>Affected joint</td><td><b>Right knee only</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "Aspirate the joint urgently to exclude septic arthritis",
+        "Diagnose rheumatic fever and start high-dose aspirin",
+        "Start secondary penicillin prophylaxis and discharge",
+        "Reassure that this is migratory arthritis and review in a week",
+        "Request an ASO titre and await the result before acting"],
+      correctIndex:0,
+      explanation:[
+        "A single hot joint that does NOT flit, with high fever and a very high CRP, is SEPTIC ARTHRITIS until proven otherwise &mdash; it must be ASPIRATED urgently (Gram stain, culture, cell count) and covered with antibiotics. Missing it risks rapid joint destruction and sepsis.",
+        "The teaching point is that rheumatic fever&rsquo;s arthritis is MIGRATORY and polyarticular (rf-002); a fixed MONOarthritis does not fit and should not be labelled rheumatic fever just because there was a sore throat weeks ago.",
+        "Even the Jones framework guards against this: in the 2015 revision, monoarthritis only counts in HIGH-RISK populations, and only once septic arthritis and other causes have been excluded (rf-018).",
+        "Trap: starting aspirin, prophylaxis, reassurance or simply waiting for an ASO result (B, C, D, E) all delay the one action that protects the joint &mdash; you aspirate FIRST and ask questions later."
+      ] },
+    { id:"rf-008", type:"mcq", objective:"rf-epidemiology",
+      question:"A medical student is told that although acute rheumatic fever is now rare in the UK, it remains a major global health problem. Which single statement about rheumatic fever and rheumatic heart disease is correct?",
+      options:[
+        "It is mainly a disease of adults over 50 living in high-income countries",
+        "It follows a streptococcal skin infection more often than a throat infection",
+        "After a single treated attack there is essentially no risk of any further attack",
+        "It chiefly affects children aged 5–15 and is a top global cause of acquired heart disease",
+        "It damages the tricuspid valve far more often than the mitral valve"],
+      correctIndex:3,
+      explanation:[
+        "Rheumatic fever chiefly affects CHILDREN aged 5&ndash;15. Though now rare in the UK, rheumatic heart disease remains a LEADING cause of acquired heart disease worldwide, concentrated in low-income settings with overcrowding and limited access to treat strep throat.",
+        "It follows strep PHARYNGITIS, not skin infection (rf-003), and recurrence is a real and important risk &mdash; each attack can worsen valve damage, which is why long-term secondary prophylaxis is given (rf-030, rf-032).",
+        "The valve most often scarred is the MITRAL valve (classically mitral stenosis), then the aortic; the tricuspid and pulmonary valves are rarely involved (rf-041, rf-043).",
+        "Trap: options describing an elderly high-income disease, a skin-infection trigger, no recurrence risk, or tricuspid-predominant damage (A, B, C, E) each invert a core epidemiological fact."
+      ] },
+  ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
       question:"A 26-year-old man develops pleuritic chest pain and breathlessness 10 days after a flu-like illness with fever and myalgia. Troponin is raised, the ECG shows widespread saddle-shaped ST changes, and coronary angiography is normal. Cardiac MRI confirms myocarditis. What is the most likely underlying cause?",
