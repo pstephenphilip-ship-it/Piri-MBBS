@@ -1216,7 +1216,7 @@
    {
     "id": "hgi-panc-fc-015",
     "front": "What proportion and location of islet cells are beta cells, and what do they secrete?",
-    "back": "About 70% of islet cells, located centrally; they secrete insulin (lowers blood glucose)."
+    "back": "About 70% of islet cells in the classic (rodent) central-core model; human islets are more intermingled (beta ~50-70%). Beta cells secrete insulin, which lowers blood glucose."
    },
    {
     "id": "hgi-panc-fc-016",
@@ -1251,7 +1251,7 @@
    {
     "id": "hgi-panc-fc-022",
     "front": "What are the histological features of acute pancreatitis?",
-    "back": "Enzymatic autodigestion with fat necrosis and saponification (calcium soaps); clinically raised amylase and lipase."
+    "back": "Enzymatic autodigestion with fat necrosis and saponification (calcium soaps). Lipase is the preferred marker (more specific and sensitive, staying elevated longer than amylase); the enzyme level does NOT predict severity."
    },
    {
     "id": "hgi-panc-fc-023",
@@ -1271,7 +1271,7 @@
    {
     "id": "hgi-panc-fc-026",
     "front": "Describe pancreatic ductal adenocarcinoma.",
-    "back": "Usually arises in the head, is densely desmoplastic, raises CA19-9, causes painless obstructive jaundice (Courvoisier), and has a poor prognosis."
+    "back": "Usually arises in the head, is densely desmoplastic, driven by KRAS/TP53/SMAD4, raises CA19-9, and causes painless obstructive jaundice (Courvoisier sign = palpable non-tender gallbladder); poor prognosis."
    },
    {
     "id": "hgi-panc-fc-027",
@@ -1302,6 +1302,51 @@
     "id": "hgi-panc-fc-032",
     "front": "What activates trypsinogen prematurely within the gland in pancreatitis?",
     "back": "Loss of the normal safeguards allows intracellular activation (e.g. by cathepsin B or bile reflux), triggering the autodigestive cascade."
+   },
+   {
+    "id": "hgi-panc-fc-033",
+    "front": "How do the two pancreatic buds form the adult gland, and what anomalies arise?",
+    "back": "The ventral bud rotates dorsally to form the head/uncinate process (PP-cell rich) and the main duct; the dorsal bud forms the body and tail. Failed fusion -> pancreas divisum; a ring of ventral tissue encircling the duodenum -> annular pancreas (duodenal obstruction)."
+   },
+   {
+    "id": "hgi-panc-fc-034",
+    "front": "How is insulin synthesised, and how is C-peptide used clinically?",
+    "back": "Preproinsulin -> proinsulin -> cleaved to insulin + C-peptide (secreted in equimolar amounts). C-peptide is HIGH in insulinoma/endogenous hyperinsulinism but LOW with exogenous (injected) insulin - distinguishing the two causes of hypoglycaemia."
+   },
+   {
+    "id": "hgi-panc-fc-035",
+    "front": "How does the beta cell sense glucose and trigger insulin release?",
+    "back": "Glucose enters via GLUT2 and is phosphorylated by glucokinase (the glucose sensor); rising ATP closes the ATP-sensitive K+ channel -> depolarisation -> Ca2+ influx -> insulin exocytosis. Sulfonylureas close the same K-ATP channel."
+   },
+   {
+    "id": "hgi-panc-fc-036",
+    "front": "What are the incretins and the incretin effect?",
+    "back": "GLP-1 (L cells) and GIP (K cells), released after oral glucose, potentiate insulin secretion - so oral glucose releases more insulin than intravenous glucose. This is the basis of GLP-1 agonists and DPP-4 inhibitors."
+   },
+   {
+    "id": "hgi-panc-fc-037",
+    "front": "Name key complications of acute pancreatitis.",
+    "back": "Pancreatic pseudocyst (a fluid collection walled by granulation/fibrous tissue with NO epithelial lining), infected necrosis/abscess, hypocalcaemia (calcium consumed in saponification), ARDS, DIC and shock; severity is scored by Glasgow/Ranson criteria."
+   },
+   {
+    "id": "hgi-panc-fc-038",
+    "front": "What are the precursor lesions and driver mutations of pancreatic ductal adenocarcinoma?",
+    "back": "Precursors: PanIN (microscopic) and IPMN (grossly cystic, mucinous). Stepwise mutations: KRAS (~90%) -> CDKN2A/p16 -> TP53 and SMAD4. Smoking and chronic pancreatitis are key risks; Trousseau migratory thrombophlebitis is a paraneoplastic clue."
+   },
+   {
+    "id": "hgi-panc-fc-039",
+    "front": "What is Whipple's triad, and how does insulinoma differ from exogenous insulin?",
+    "back": "Whipple's triad: (1) symptoms of hypoglycaemia, (2) documented low plasma glucose, (3) relief with glucose. An insulinoma gives high insulin AND high C-peptide, whereas injected (exogenous) insulin gives high insulin with LOW C-peptide."
+   },
+   {
+    "id": "hgi-panc-fc-040",
+    "front": "How is pancreatic exocrine insufficiency diagnosed and treated?",
+    "back": "Low faecal elastase-1 confirms it; managed with pancreatic enzyme replacement therapy (PERT, e.g. Creon) taken with meals plus fat-soluble vitamin (A, D, E, K) supplementation. In cystic fibrosis a CFTR mutation (e.g. deltaF508) drives the thick secretions."
+   },
+   {
+    "id": "hgi-panc-fc-041",
+    "front": "Name diabetes subtypes beyond classic type 1 and type 2.",
+    "back": "LADA (slow autoimmune adult diabetes, GAD-antibody positive), MODY (autosomal dominant, young, non-obese - e.g. HNF1A or glucokinase), and type 3c / pancreatogenic diabetes (from chronic pancreatitis, cystic fibrosis or pancreatic resection)."
    }
   ],
   "histology__GASTROINTESTINAL__Salivary Glands": [
@@ -3608,6 +3653,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Thick secretions block the pancreatic ducts, leading to acinar atrophy and exocrine insufficiency in cystic fibrosis."
+   },
+   {
+    "id": "hgi-panc-q-021",
+    "type": "mcq",
+    "question": "Sulfonylureas stimulate insulin secretion mainly by:",
+    "options": [
+     "Activating GLUT2 transporters",
+     "Closing the beta-cell ATP-sensitive K+ channel",
+     "Blocking glucagon release",
+     "Inhibiting DPP-4",
+     "Stimulating incretin receptors"
+    ],
+    "correctIndex": 1,
+    "explanation": "Glucose enters the beta cell via GLUT2 and is phosphorylated by glucokinase; the resulting ATP closes the K-ATP channel, depolarising the cell and triggering Ca2+-dependent insulin release. Sulfonylureas close this same channel directly."
+   },
+   {
+    "id": "hgi-panc-q-022",
+    "type": "mcq",
+    "question": "A patient has hypoglycaemia with a HIGH plasma insulin but a LOW C-peptide. This indicates:",
+    "options": [
+     "Insulinoma",
+     "Exogenous (injected) insulin",
+     "Sulfonylurea overdose",
+     "Type 2 diabetes",
+     "Glucagonoma"
+    ],
+    "correctIndex": 1,
+    "explanation": "Endogenous insulin is co-secreted with C-peptide in equimolar amounts, so an insulinoma or a sulfonylurea gives high insulin AND high C-peptide; exogenous injected insulin raises insulin but leaves C-peptide low."
    }
   ],
   "histology__GASTROINTESTINAL__Salivary Glands": [
