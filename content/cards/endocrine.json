@@ -707,17 +707,17 @@
    {
     "id": "hen-isl-fc-008",
     "front": "Outline the steps of glucose-stimulated insulin secretion.",
-    "back": "Glucose enters the beta cell via GLUT2 and is metabolised, raising ATP; ATP closes the K-ATP channel, depolarising the membrane; voltage-gated Ca2+ channels open; Ca2+ influx triggers exocytosis of insulin granules."
+    "back": "Glucose enters the beta cell via GLUT2 and is phosphorylated by glucokinase (the rate-limiting glucose sensor), driving glycolysis and raising ATP; ATP closes the K-ATP channel (Kir6.2 pore + SUR1), depolarising the membrane; voltage-gated L-type Ca2+ channels open; Ca2+ influx triggers exocytosis of insulin granules. Incretins (GLP-1/GIP) amplify this."
    },
    {
     "id": "hen-isl-fc-009",
     "front": "How do sulfonylureas stimulate insulin release?",
-    "back": "They close the K-ATP channel directly, depolarising the beta cell and triggering insulin secretion independent of glucose."
+    "back": "They bind the SUR1 subunit of the beta-cell K-ATP channel, closing it directly, so the cell depolarises and secretes insulin independent of glucose (risking hypoglycaemia)."
    },
    {
     "id": "hen-isl-fc-010",
     "front": "What is C-peptide and why is it useful?",
-    "back": "A fragment cleaved from proinsulin and co-secreted with insulin in equimolar amounts; measuring it reflects endogenous insulin production (and distinguishes it from injected insulin)."
+    "back": "Insulin is made as preproinsulin -> proinsulin -> insulin (A+B chains) + C-peptide, cleaved and co-secreted in equimolar amounts; measuring C-peptide reflects endogenous insulin production (low with injected insulin). Insulin acts via a receptor tyrosine kinase."
    },
    {
     "id": "hen-isl-fc-011",
@@ -752,7 +752,7 @@
    {
     "id": "hen-isl-fc-017",
     "front": "What are the histological features of type 1 diabetes in the islets?",
-    "back": "Autoimmune T-cell-mediated destruction of beta cells with lymphocytic 'insulitis', leading to absolute insulin deficiency."
+    "back": "Autoimmune T-cell-mediated destruction of beta cells with lymphocytic 'insulitis', HLA-DR3/DR4 associated and marked by GAD65, IA-2 and ZnT8 autoantibodies, causing absolute insulin deficiency and DKA-proneness."
    },
    {
     "id": "hen-isl-fc-018",
@@ -808,6 +808,41 @@
     "id": "hen-isl-fc-028",
     "front": "What triggers glucagon release physiologically?",
     "back": "A fall in blood glucose (fasting/hypoglycaemia), as well as amino acids and sympathetic stimulation."
+   },
+   {
+    "id": "hen-isl-fc-029",
+    "front": "Why is glucokinase, not GLUT2, the beta-cell glucose sensor?",
+    "back": "GLUT2 is high-capacity/low-affinity, so intracellular glucose simply equilibrates with blood; glucokinase (hexokinase IV, high Km) is the rate-limiting step that makes ATP production track blood glucose. Inactivating glucokinase mutations cause MODY2; activating mutations cause congenital hyperinsulinism."
+   },
+   {
+    "id": "hen-isl-fc-030",
+    "front": "What is the incretin effect?",
+    "back": "GLP-1 (from L cells) and GIP (from K cells), released after an oral meal, amplify glucose-stimulated insulin secretion - so oral glucose releases more insulin than the same IV load. This underpins GLP-1 receptor agonists and DPP-4 inhibitors."
+   },
+   {
+    "id": "hen-isl-fc-031",
+    "front": "What is MODY and its two commonest forms?",
+    "back": "Maturity-onset diabetes of the young: autosomal dominant, in young non-obese patients without autoantibodies or ketosis. HNF1A (MODY3) is sulfonylurea-sensitive; glucokinase (MODY2) causes mild, stable, often untreated hyperglycaemia."
+   },
+   {
+    "id": "hen-isl-fc-032",
+    "front": "Name the counter-regulatory (hyperglycaemic) hormones that oppose insulin.",
+    "back": "Glucagon (fast, dominant), adrenaline/catecholamines, cortisol and growth hormone - they raise glucose via glycogenolysis, gluconeogenesis and reduced peripheral uptake (e.g. the 'dawn phenomenon')."
+   },
+   {
+    "id": "hen-isl-fc-033",
+    "front": "Contrast DKA and HHS.",
+    "back": "DKA (type 1): absolute insulin deficiency -> hyperglycaemia, ketoacidosis and a raised anion gap. HHS (type 2): relative insulin sufficiency suppresses ketogenesis, giving marked hyperglycaemia and hyperosmolarity with little ketosis. Both are hyperglycaemic emergencies."
+   },
+   {
+    "id": "hen-isl-fc-034",
+    "front": "List the vascular complications of diabetes and the main drug classes.",
+    "back": "Microvascular: retinopathy, nephropathy, neuropathy. Macrovascular: ischaemic heart disease, stroke, peripheral vascular disease. Drugs: metformin (first-line), sulfonylureas, SGLT2 inhibitors, GLP-1 agonists, DPP-4 inhibitors, thiazolidinediones, and insulin."
+   },
+   {
+    "id": "hen-isl-fc-035",
+    "front": "How are pancreatic neuroendocrine tumours graded?",
+    "back": "By Ki-67 proliferation index and mitotic count into G1 (<3%), G2 (3-20%) and G3 (>20%); they are chromogranin/synaptophysin positive and may be functional (insulinoma etc.) or non-functional."
    }
   ],
   "histology__ENDOCRINE__Pineal Gland": [
@@ -2314,6 +2349,34 @@
     ],
     "correctIndex": 1,
     "explanation": "A VIPoma (vasoactive intestinal peptide tumour) causes the WDHA/Verner-Morrison syndrome of watery diarrhoea, hypokalaemia and achlorhydria."
+   },
+   {
+    "id": "hen-isl-q-019",
+    "type": "mcq",
+    "question": "The rate-limiting glucose sensor of the pancreatic beta cell is:",
+    "options": [
+     "GLUT2",
+     "Glucokinase (hexokinase IV)",
+     "The K-ATP channel",
+     "Sulfonylurea receptor 1 (SUR1)",
+     "The L-type calcium channel"
+    ],
+    "correctIndex": 1,
+    "explanation": "GLUT2 lets intracellular glucose equilibrate with blood, but glucokinase (high-Km hexokinase IV) is the rate-limiting step that makes ATP - and thus insulin secretion - track blood glucose. MODY2 is a glucokinase mutation."
+   },
+   {
+    "id": "hen-isl-q-020",
+    "type": "mcq",
+    "question": "A non-obese teenager has mild stable hyperglycaemia, a strong autosomal-dominant family history, and no islet autoantibodies. The likely diagnosis is:",
+    "options": [
+     "Type 1 diabetes",
+     "MODY (maturity-onset diabetes of the young)",
+     "Type 2 diabetes",
+     "Insulinoma",
+     "Diabetic ketoacidosis"
+    ],
+    "correctIndex": 1,
+    "explanation": "MODY is autosomal-dominant diabetes of the young without autoantibodies or ketosis; glucokinase (MODY2) causes mild stable hyperglycaemia and HNF1A (MODY3) is sulfonylurea-sensitive."
    }
   ],
   "histology__ENDOCRINE__Pineal Gland": [
