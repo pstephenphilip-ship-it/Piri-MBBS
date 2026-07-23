@@ -7031,7 +7031,7 @@ window.MOCK_BANK = {
         "A positive antinuclear antibody (ANA)"],
       correctIndex:3,
       explanation:[
-        "Evidence of preceding strep is REQUIRED for the Jones diagnosis, and the most reliable evidence is a RISING (typically four-fold) antibody titre on PAIRED samples &mdash; here ASO rising from 200 to 800. Anti-DNase B is the complementary titre and rises slightly later.",
+        "Evidence of preceding strep is REQUIRED for the Jones diagnosis, and the most reliable evidence is a RISING (typically four-fold) antibody titre on PAIRED samples &mdash; here ASO rising from 200 to 800. Anti-DNase B is the complementary titre and rises slightly later; measuring BOTH ASO and anti-DNase B improves sensitivity, because a single antibody misses some cases (and anti-DNase B is the more reliable marker after a skin infection).",
         "The swab is often negative by presentation because rheumatic fever is post-infectious and appears 2&ndash;4 weeks after the sore throat (rf-004), by which time the organism has cleared &mdash; so a negative swab does NOT exclude the trigger.",
         "A SINGLE titre is weaker evidence than a rising one: a lone high value can reflect a past infection or a healthy carrier state, whereas a documented RISE (or fall) ties the illness to a recent infection.",
         "Trap: CRP (C) is a non-specific inflammatory marker (itself a minor criterion, not strep-specific); ANA (E) points to lupus; and a single titre or the negative swab (A, B) cannot do the job that paired, rising titres do."
@@ -7044,7 +7044,7 @@ window.MOCK_BANK = {
       explanation:[
         "The MINOR criteria are FEVER, ARTHRALGIA (joint pain without swelling), a RAISED ESR/CRP, and a PROLONGED PR interval on ECG &mdash; the non-specific, supportive features.",
         "Carditis and erythema marginatum are MAJOR criteria (disease-defining features), not minor &mdash; that is the distinction being tested (rf-010).",
-        "Two overlaps to watch: ARTHRALGIA is the minor counterpart of the major migratory ARTHRITIS (count one or the other, rf-016); and a PROLONGED PR is a minor criterion even though it is a sign of carditis &mdash; you cannot count the PR as minor AND the carditis as major from the same finding (rf-025)."
+        "Two overlaps to watch: ARTHRALGIA is the minor counterpart of the major migratory ARTHRITIS (count one or the other, rf-016); and a PROLONGED PR is a minor criterion even though it is a sign of carditis &mdash; you cannot count the PR as minor AND the carditis as major from the same finding (rf-025). The principle is NO DOUBLE-COUNTING: the SAME joint involvement, or the SAME cardiac involvement, cannot fill both a major and a minor slot."
       ] },
     { id:"rf-015", type:"fill", objective:"rf-fill-threshold", excludes:["rf-jones-rule"],
       question:"Complete the diagnostic rule for a FIRST episode of acute rheumatic fever (Jones criteria).",
@@ -7090,7 +7090,7 @@ window.MOCK_BANK = {
       explanation:[
         "In a patient with ESTABLISHED rheumatic heart disease, a RECURRENCE has a lower bar: THREE minor criteria (with evidence of preceding strep) can be enough, even without any major criterion &mdash; the prior disease raises the pre-test probability.",
         "Here fever + arthralgia + raised CRP = three minor criteria, plus a rising ASO = strep evidence, in someone with known RHD &mdash; sufficient for a recurrent attack.",
-        "Recognising recurrence matters because each attack worsens valve damage, and it should trigger a review of secondary prophylaxis (was he compliant? rf-030/rf-032) alongside treating the acute episode.",
+        "This recurrence rule is the whole RATIONALE for years of secondary prophylaxis: the disease RECURS, each recurrence is diagnosable on minimal criteria (3 minor + strep), and each attack adds valve damage &mdash; so you keep these highest-stakes patients on regular penicillin to prevent the very recurrences the lower bar is designed to catch (rf-030/rf-032). Any recurrence should also prompt a check of prophylaxis compliance.",
         "Trap: insisting on two majors every time, that RF cannot recur, or that minors never count (A, B, E) all miss the special recurrence rule; and new echo damage (D) is not a prerequisite for the diagnosis."
       ] },
     { id:"rf-018", type:"mcq", objective:"rf-2015-revision",
@@ -7104,7 +7104,8 @@ window.MOCK_BANK = {
       correctIndex:1,
       explanation:[
         "The 2015 revision recognised that in HIGH-BURDEN (moderate/high-risk) populations rheumatic fever is common and presentations subtler, so the threshold is LOWERED: MONOarthritis or POLYARTHRALGIA can count as a major criterion, and lower fever (&ge;38.0&deg;C) and ESR cut-offs apply.",
-        "The logic is to avoid MISSING cases where disease is prevalent, while keeping the bar HIGHER in low-risk populations to avoid over-diagnosis. The revision also formally endorsed ECHOCARDIOGRAPHIC (subclinical) carditis as evidence of carditis (rf-023).",
+        "The 2015 revision did TWO things. First, for EVERYONE it added ECHOCARDIOGRAPHIC (subclinical) carditis as a major criterion &mdash; echo-detected valvulitis WITHOUT an audible murmur now counts, arguably the single biggest practical change, because echo finds carditis the stethoscope misses (rf-023). Second, ONLY for high-risk populations, it relaxed the arthritis/fever/ESR thresholds (this question).",
+        "Risk is stratified by disease burden: LOW-risk = ARF incidence &le;2 per 100,000 school-age children or RHD prevalence &le;1 per 1000 (e.g. the UK / US, which keep the stricter classic criteria); higher-burden populations use the relaxed thresholds. The point is to avoid MISSING cases where disease is prevalent while avoiding OVER-diagnosis where it is rare.",
         "This is exactly why, in a LOW-risk child, a single fixed hot joint should NOT be forced into a rheumatic-fever diagnosis &mdash; monoarthritis only counts in high-risk groups, and only after excluding septic arthritis (rf-007).",
         "Trap: the revision did NOT abolish the criteria, mandate two majors, remove the strep requirement, or reject echo carditis (A, C, D, E) &mdash; it RISK-STRATIFIED them, loosening the arthritis and minor thresholds where disease is common."
       ] },
