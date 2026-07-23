@@ -859,7 +859,7 @@
    {
     "id": "hen-pin-fc-003",
     "front": "What is the embryological origin of the pineal gland?",
-    "back": "Neuroectoderm; its pinealocytes are modified neurons."
+    "back": "Neuroectoderm; its pinealocytes are modified photoreceptor-like neurons (expressing S-antigen/arrestin, a retinal marker). The gland lacks a blood-brain barrier."
    },
    {
     "id": "hen-pin-fc-004",
@@ -879,7 +879,7 @@
    {
     "id": "hen-pin-fc-007",
     "front": "From what precursor is melatonin synthesised?",
-    "back": "Serotonin (serotonin to N-acetylserotonin to melatonin)."
+    "back": "Serotonin: tryptophan -> serotonin -> (AANAT, arylalkylamine N-acetyltransferase - the rate-limiting, light-suppressed enzyme) -> N-acetylserotonin -> (HIOMT/ASMT) -> melatonin."
    },
    {
     "id": "hen-pin-fc-008",
@@ -889,7 +889,7 @@
    {
     "id": "hen-pin-fc-009",
     "front": "Trace the pathway by which light controls melatonin secretion.",
-    "back": "Light is sensed by the retina and travels via the retinohypothalamic tract to the suprachiasmatic nucleus (master clock), which relays via the sympathetic nervous system through the superior cervical ganglion to the pinealocytes; darkness increases sympathetic drive and melatonin."
+    "back": "Light is sensed by melanopsin-containing intrinsically photosensitive retinal ganglion cells (ipRGCs) and travels via the retinohypothalamic tract to the suprachiasmatic nucleus (master clock), then the paraventricular nucleus, the spinal intermediolateral column, and the superior cervical ganglion, whose noradrenaline acts on beta-receptors of pinealocytes; darkness increases this sympathetic drive and melatonin."
    },
    {
     "id": "hen-pin-fc-010",
@@ -924,12 +924,12 @@
    {
     "id": "hen-pin-fc-016",
     "front": "What is the commonest tumour of the pineal region?",
-    "back": "A germinoma."
+    "back": "A germinoma - the commonest pineal-region tumour, occurring in young males, radiosensitive, and often secreting beta-hCG and/or AFP (CSF/serum markers). Pineocytoma and pineoblastoma (a PNET of children) arise from pinealocytes; pineal cysts are common benign incidental findings."
    },
    {
     "id": "hen-pin-fc-017",
     "front": "What is Parinaud syndrome and how does it relate to the pineal?",
-    "back": "A dorsal midbrain syndrome (upward-gaze palsy, light-near dissociation) caused by a pineal region mass compressing the tectal plate."
+    "back": "A dorsal midbrain (pretectal) syndrome from a pineal-region mass: vertical (up) gaze palsy, light-near dissociation of the pupils, convergence-retraction nystagmus and lid retraction (Collier sign)."
    },
    {
     "id": "hen-pin-fc-018",
@@ -965,6 +965,21 @@
     "id": "hen-pin-fc-024",
     "front": "What is the functional significance of the pineal converting a neural input into a hormone?",
     "back": "It acts as a neuroendocrine transducer, turning environmental light-dark information (neural) into a circulating hormonal signal (melatonin) that synchronises body rhythms."
+   },
+   {
+    "id": "hen-pin-fc-025",
+    "front": "Which receptors does melatonin act on, and what melatonin-agonist drugs exist?",
+    "back": "Melatonin acts on MT1 and MT2 G-protein-coupled receptors. Melatonin-receptor agonist drugs include ramelteon (MT1/MT2) and agomelatine (also a 5-HT2C antagonist antidepressant), used for insomnia and circadian sleep disorders."
+   },
+   {
+    "id": "hen-pin-fc-026",
+    "front": "Which retinal cells and pigment detect light for circadian entrainment?",
+    "back": "Intrinsically photosensitive retinal ganglion cells (ipRGCs) containing the pigment melanopsin; they project via the retinohypothalamic tract to the suprachiasmatic nucleus, independent of the rod/cone image-forming pathway."
+   },
+   {
+    "id": "hen-pin-fc-027",
+    "front": "How does an hCG-secreting pineal germinoma cause precocious puberty?",
+    "back": "Its beta-hCG structurally resembles LH and cross-reacts with the LH receptor, stimulating gonadal (testicular) testosterone production - causing precocious puberty, classically in boys."
    }
   ]
  },
@@ -2603,6 +2618,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Age-related pineal (corpora arenacea) calcification is a midline marker; displacement suggests a space-occupying lesion."
+   },
+   {
+    "id": "hen-pin-q-017",
+    "type": "mcq",
+    "question": "The rate-limiting, light-suppressed enzyme of melatonin synthesis is:",
+    "options": [
+     "Tryptophan hydroxylase",
+     "Arylalkylamine N-acetyltransferase (AANAT)",
+     "Monoamine oxidase",
+     "Tyrosine hydroxylase",
+     "HIOMT alone"
+    ],
+    "correctIndex": 1,
+    "explanation": "AANAT (arylalkylamine N-acetyltransferase) converts serotonin to N-acetylserotonin and is the rate-limiting, light-suppressed step; its activity rises in darkness, driving the nocturnal melatonin peak."
+   },
+   {
+    "id": "hen-pin-q-018",
+    "type": "mcq",
+    "question": "Circadian light information reaches the suprachiasmatic nucleus from the retina via:",
+    "options": [
+     "Rods and cones through the optic radiations",
+     "Melanopsin-containing intrinsically photosensitive retinal ganglion cells (ipRGCs)",
+     "The trigeminal nerve",
+     "The vagus nerve",
+     "The olfactory tract"
+    ],
+    "correctIndex": 1,
+    "explanation": "Melanopsin-expressing ipRGCs project via the retinohypothalamic tract to the SCN, providing non-image-forming light input that entrains the circadian clock - distinct from the rod/cone visual pathway."
    }
   ]
  }
