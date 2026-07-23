@@ -1171,7 +1171,7 @@
    {
     "id": "hre-pr-fc-008",
     "front": "Which stains confirm the presence/absence of basal cells?",
-    "back": "p63 and high-molecular-weight cytokeratin (HMWCK) — positive in benign basal cells, absent in invasive carcinoma."
+    "back": "p63 and high-molecular-weight cytokeratin/CK5-6 (HMWCK) stain basal cells — positive in benign glands, negative in invasive carcinoma; carcinoma is conversely AMACR (P504S) positive (the diagnostic triple stain)."
    },
    {
     "id": "hre-pr-fc-009",
@@ -1226,7 +1226,7 @@
    {
     "id": "hre-pr-fc-019",
     "front": "What hormone drives BPH and how is this exploited in treatment?",
-    "back": "Dihydrotestosterone (DHT); 5-alpha-reductase inhibitors block its formation, and alpha-blockers relax prostatic smooth muscle."
+    "back": "Dihydrotestosterone (DHT), made from testosterone by 5-alpha-reductase type 2; finasteride (a 5-alpha-reductase inhibitor) blocks its formation and tamsulosin (an alpha-blocker) relaxes prostatic smooth muscle (TURP for refractory cases)."
    },
    {
     "id": "hre-pr-fc-020",
@@ -1241,7 +1241,7 @@
    {
     "id": "hre-pr-fc-022",
     "front": "What is Gleason grading based on?",
-    "back": "The architectural (glandular) pattern of the tumour; the two most common patterns are summed to give the Gleason score."
+    "back": "The architectural (glandular) pattern; on biopsy the score = the primary pattern + the highest-grade pattern present, now condensed into ISUP Grade Groups 1–5."
    },
    {
     "id": "hre-pr-fc-023",
@@ -1292,6 +1292,54 @@
     "id": "hre-pr-fc-032",
     "front": "What effect does the fibromuscular stroma have during ejaculation?",
     "back": "Its smooth muscle contracts to expel the stored prostatic secretion into the prostatic urethra."
+   },
+   {
+    "id": "hre-pr-fc-033",
+    "type": "flashcard",
+    "front": "What is high-grade prostatic intraepithelial neoplasia (PIN)?",
+    "back": "The precursor lesion of prostatic adenocarcinoma: neoplastic luminal cells within pre-existing ducts/acini that still retain a patchy (discontinuous) basal cell layer."
+   },
+   {
+    "id": "hre-pr-fc-034",
+    "type": "flashcard",
+    "front": "Are prostatic basal cells true myoepithelial cells?",
+    "back": "No — unlike the contractile myoepithelium of the breast and salivary glands they are not myoepithelium, although they share basal markers such as p63 and HMWCK."
+   },
+   {
+    "id": "hre-pr-fc-035",
+    "type": "flashcard",
+    "front": "What is the verumontanum?",
+    "back": "A midline ridge (seminal colliculus) in the prostatic urethra where the two ejaculatory ducts and the prostatic utricle (a Müllerian remnant) open."
+   },
+   {
+    "id": "hre-pr-fc-036",
+    "type": "flashcard",
+    "front": "Name the three clinical types of prostatitis.",
+    "back": "Acute bacterial prostatitis (usually E. coli), chronic bacterial prostatitis, and chronic pelvic pain syndrome (the commonest form, non-bacterial)."
+   },
+   {
+    "id": "hre-pr-fc-037",
+    "type": "flashcard",
+    "front": "How is advanced/metastatic prostate cancer treated?",
+    "back": "Androgen-deprivation therapy — GnRH agonists (e.g. leuprolide; watch for the initial testosterone flare) or antagonists, and anti-androgens; PSMA PET aids staging."
+   },
+   {
+    "id": "hre-pr-fc-038",
+    "type": "flashcard",
+    "front": "Is benign prostatic hyperplasia a premalignant condition?",
+    "back": "No — BPH arises in the transitional zone and does not progress to carcinoma (which arises in the peripheral zone); the two are independent."
+   },
+   {
+    "id": "hre-pr-fc-039",
+    "type": "flashcard",
+    "front": "What is the anterior fibromuscular stroma?",
+    "back": "A non-glandular anterior region of smooth muscle and fibrous tissue in which carcinoma essentially never arises."
+   },
+   {
+    "id": "hre-pr-fc-040",
+    "type": "flashcard",
+    "front": "What does a low free:total PSA ratio suggest?",
+    "back": "A higher likelihood of prostate cancer (cancer lowers the free PSA fraction), helping stratify risk when the total PSA is only mildly raised."
    }
   ],
   "histology__REPRODUCTIVE__Cervix": [
@@ -3598,6 +3646,90 @@
     ],
     "correctIndex": 1,
     "explanation": "Corpora amylacea are benign, age-related luminal concretions and do not signify malignancy."
+   },
+   {
+    "id": "hre-pr-q-021",
+    "type": "mcq",
+    "question": "Which immunostain is positive in prostatic adenocarcinoma but negative in benign glands?",
+    "options": [
+     "p63",
+     "AMACR (P504S)",
+     "HMWCK",
+     "CK5/6",
+     "Chromogranin"
+    ],
+    "correctIndex": 1,
+    "explanation": "AMACR (P504S) is positive in prostatic carcinoma; the basal markers p63 and HMWCK/CK5-6 are positive in benign glands and lost in carcinoma."
+   },
+   {
+    "id": "hre-pr-q-022",
+    "type": "mcq",
+    "question": "The recognised precursor lesion of prostatic adenocarcinoma is:",
+    "options": [
+     "Benign prostatic hyperplasia",
+     "High-grade prostatic intraepithelial neoplasia (PIN)",
+     "Corpora amylacea",
+     "Prostatitis",
+     "Squamous metaplasia"
+    ],
+    "correctIndex": 1,
+    "explanation": "High-grade PIN — neoplastic luminal cells with a patchy basal layer — is the precursor of invasive adenocarcinoma; BPH is not premalignant."
+   },
+   {
+    "id": "hre-pr-q-023",
+    "type": "mcq",
+    "question": "In the ISUP system, Grade Group 2 corresponds to a Gleason score of:",
+    "options": [
+     "3+3 = 6",
+     "3+4 = 7",
+     "4+3 = 7",
+     "4+4 = 8",
+     "4+5 = 9"
+    ],
+    "correctIndex": 1,
+    "explanation": "Grade Group 2 = Gleason 3+4=7 (predominantly well-formed glands); GG3 = 4+3=7, GG1 = ≤6, GG4 = 8, GG5 = 9–10."
+   },
+   {
+    "id": "hre-pr-q-024",
+    "type": "mcq",
+    "question": "Testosterone is converted to the more potent DHT within the prostate by:",
+    "options": [
+     "Aromatase",
+     "5-alpha-reductase type 2",
+     "17-hydroxylase",
+     "3-beta-hydroxysteroid dehydrogenase",
+     "Luteinising hormone"
+    ],
+    "correctIndex": 1,
+    "explanation": "5-alpha-reductase type 2 converts testosterone to DHT; finasteride inhibits it, shrinking DHT-driven BPH."
+   },
+   {
+    "id": "hre-pr-q-025",
+    "type": "mcq",
+    "question": "A man started on a GnRH agonist (leuprolide) for metastatic prostate cancer may initially experience:",
+    "options": [
+     "Immediate cure",
+     "A transient testosterone flare that can worsen symptoms",
+     "Permanent sterility as the only effect",
+     "Hypercalcaemia in all cases",
+     "Acute retention caused by PSA"
+    ],
+    "correctIndex": 1,
+    "explanation": "GnRH agonists first stimulate then down-regulate the pituitary, causing an initial testosterone flare before androgen deprivation; anti-androgen cover is given to prevent flare."
+   },
+   {
+    "id": "hre-pr-q-026",
+    "type": "mcq",
+    "question": "Carcinoma essentially never arises in which region of the prostate?",
+    "options": [
+     "Peripheral zone",
+     "Central zone",
+     "Transitional zone",
+     "Anterior fibromuscular stroma",
+     "Periurethral zone"
+    ],
+    "correctIndex": 3,
+    "explanation": "The anterior fibromuscular stroma is non-glandular (smooth muscle and fibrous tissue), so carcinoma essentially does not arise there; most cancers arise in the peripheral zone."
    }
   ],
   "histology__REPRODUCTIVE__Cervix": [
