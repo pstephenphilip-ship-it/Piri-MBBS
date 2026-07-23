@@ -6957,6 +6957,157 @@ window.MOCK_BANK = {
         "The valve most often scarred is the MITRAL valve (classically mitral stenosis), then the aortic; the tricuspid and pulmonary valves are rarely involved (rf-041, rf-043).",
         "Trap: options describing an elderly high-income disease, a skin-infection trigger, no recurrence risk, or tricuspid-predominant damage (A, B, C, E) each invert a core epidemiological fact."
       ] },
+    { id:"rf-009", type:"mcq", objective:"rf-jones-rule",
+      question:"A student is asked to state the diagnostic threshold for a FIRST episode of acute rheumatic fever. Which single combination is sufficient to make the diagnosis?",
+      options:[
+        "Two major criteria alone, without any evidence of strep",
+        "One major plus one minor, with evidence of strep",
+        "Three minor criteria PLUS evidence of preceding strep",
+        "Evidence of preceding strep alone, with a suggestive history",
+        "Two major criteria PLUS evidence of preceding strep"],
+      correctIndex:4,
+      explanation:[
+        "The rule for a FIRST episode is TWO major criteria, OR ONE major plus TWO minor &mdash; and in EVERY case there must ALSO be evidence of a preceding group A streptococcal infection. So two major criteria WITH strep evidence (E) is sufficient.",
+        "The strep-evidence requirement is the part most often forgotten: without it, even two major criteria do not clinch the diagnosis (rf-013). The classic evidence is a rising ASO / anti-DNase B titre rather than the (usually negative) swab (rf-004).",
+        "The one recognised exception is Sydenham chorea, which is so delayed that it can be diagnostic on its own even without other criteria or documented strep (rf-020).",
+        "Trap: two majors WITHOUT strep evidence (A), one major + one minor (B), three minor criteria (C, which is the lower-threshold RECURRENCE rule, not first-episode, rf-017), or strep evidence alone (D) are each insufficient for a first episode."
+      ] },
+    { id:"rf-010", type:"categorize", objective:"rf-jones-categorize",
+      question:"Sort each feature of acute rheumatic fever into its correct place in the Jones framework.",
+      buckets:["Major Jones criterion","Minor Jones criterion","Evidence of preceding strep"],
+      items:[
+        {text:"Migratory polyarthritis",bucket:0},
+        {text:"Carditis with a new murmur",bucket:0},
+        {text:"Sydenham chorea",bucket:0},
+        {text:"Erythema marginatum",bucket:0},
+        {text:"Fever",bucket:1},
+        {text:"Arthralgia (joint pain without swelling)",bucket:1},
+        {text:"Prolonged PR interval on ECG",bucket:1},
+        {text:"Rising anti-streptolysin O titre",bucket:2}
+      ],
+      explanation:[
+        "The five MAJOR criteria are the JONES mnemonic: J = Joints (migratory polyarthritis), O (&hearts;) = Carditis, N = Nodules (subcutaneous), E = Erythema marginatum, S = Sydenham chorea. The MINOR criteria are fever, arthralgia, raised ESR/CRP and a prolonged PR interval.",
+        "Kept SEPARATE is the evidence of preceding strep (rising ASO / anti-DNase B titres, or a positive culture) &mdash; this is REQUIRED in addition to the criteria, not one of them (rf-013).",
+        "Watch the arthritis/arthralgia split: migratory POLYARTHRITIS (with swelling) is MAJOR, but ARTHRALGIA (pain without swelling) is only MINOR &mdash; and you can never count the same joint finding as both (rf-016). Likewise a prolonged PR is a minor criterion even though it reflects carditis."
+      ] },
+    { id:"rf-011", type:"mcq", objective:"rf-jones-nearmiss",
+      question:"An 8-year-old, three weeks after a sore throat, has a new murmur of mitral regurgitation and a fever of 38.5. His ASO titre is rising. He has no other features. Does he meet the Jones criteria for a first episode of acute rheumatic fever?",
+      options:[
+        "Yes, because two separate major criteria are clearly present here",
+        "Yes, one major plus one minor with strep evidence is enough for diagnosis",
+        "No, carditis cannot be counted at all until echocardiography confirms it",
+        "No, one major plus one minor falls short of the required threshold",
+        "Yes, strep evidence plus any single major criterion is fully diagnostic"],
+      correctIndex:3,
+      explanation:[
+        "The threshold for a first episode is TWO major, OR ONE major plus TWO minor &mdash; plus strep evidence in every case. Here there is ONE major (carditis) and only ONE minor (fever), so the criteria are NOT met, despite the rising ASO and the suggestive story.",
+        "This is the near-miss trap: it is tempting to diagnose on a compelling history, but the counting must be done properly. You would hunt for a SECOND minor (arthralgia, raised ESR/CRP, prolonged PR, rf-016) &mdash; find one and the '1 major + 2 minor' arm is satisfied.",
+        "Practically you treat as SUSPECTED and reassess: repeat ESR/CRP, check the ECG for a prolonged PR, and re-examine. But on the numbers AS GIVEN, criteria are unmet.",
+        "Trap: counting one major as enough (A, E), accepting 1 major + 1 minor (B), or invoking a rule that carditis needs echo confirmation to count at all (C) all misstate the criteria &mdash; carditis is a clinical major criterion, and the arithmetic decides."
+      ] },
+    { id:"rf-012", type:"mcq", objective:"rf-jones-meets", excludes:["rf-jones-nearmiss"],
+      question:"A 10-year-old, two weeks after a culture-confirmed strep throat, has a migratory polyarthritis, a fever of 39, and an ESR of 68 mm/hr. There is no carditis, chorea, rash or nodules. Applying the Jones criteria, what is the correct conclusion?",
+      options:[
+        "Criteria are not met: arthritis alone is never diagnostic",
+        "Criteria are not met: two major criteria are always required",
+        "Criteria are met, but only because the ESR counts as a major criterion",
+        "Cannot decide until an ASO titre is added to the culture result",
+        "Criteria are met: one major plus two minor with strep evidence"],
+      correctIndex:4,
+      explanation:[
+        "Count carefully: migratory POLYARTHRITIS is ONE major criterion; fever and a raised ESR are TWO minor criteria; and there is evidence of preceding strep (positive culture). One major + two minor + strep = the Jones criteria ARE met.",
+        "This is the mirror image of the near-miss (rf-011): the SAME arithmetic decides both, and here the second minor (raised ESR) carries the diagnosis over the line.",
+        "The arthritis is counted ONCE, as a major &mdash; you could not also count 'arthralgia' as a minor for the same joints (rf-016). And the ESR is a MINOR criterion, never a major (killing option C).",
+        "Trap: claiming arthritis is never diagnostic or that two majors are always mandatory (A, B) misreads the '1 major + 2 minor' arm; and you already have strep evidence by culture, so you needn't wait for an ASO (D)."
+      ] },
+    { id:"rf-013", type:"mcq", objective:"rf-strep-evidence",
+      question:"A child is assessed for possible acute rheumatic fever. The serology and swab results are shown. Which finding gives the most reliable evidence of the preceding group A streptococcal infection?",
+      data:'<div class="mk-obs-h">Streptococcal investigations</div><table class="mk-labs"><tr><td>Throat swab (culture)</td><td><b>Negative</b></td><td>&mdash;</td></tr><tr><td>ASO titre &mdash; day 1</td><td><b>200 IU/mL</b></td><td>&mdash;</td></tr><tr><td>ASO titre &mdash; day 14</td><td><b>800 IU/mL</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "The negative throat swab, which excludes strep infection",
+        "A single ASO titre, whatever the absolute value",
+        "A raised CRP, which confirms streptococcal infection",
+        "The four-fold RISE in ASO titre between paired samples",
+        "A positive antinuclear antibody (ANA)"],
+      correctIndex:3,
+      explanation:[
+        "Evidence of preceding strep is REQUIRED for the Jones diagnosis, and the most reliable evidence is a RISING (typically four-fold) antibody titre on PAIRED samples &mdash; here ASO rising from 200 to 800. Anti-DNase B is the complementary titre and rises slightly later.",
+        "The swab is often negative by presentation because rheumatic fever is post-infectious and appears 2&ndash;4 weeks after the sore throat (rf-004), by which time the organism has cleared &mdash; so a negative swab does NOT exclude the trigger.",
+        "A SINGLE titre is weaker evidence than a rising one: a lone high value can reflect a past infection or a healthy carrier state, whereas a documented RISE (or fall) ties the illness to a recent infection.",
+        "Trap: CRP (C) is a non-specific inflammatory marker (itself a minor criterion, not strep-specific); ANA (E) points to lupus; and a single titre or the negative swab (A, B) cannot do the job that paired, rising titres do."
+      ] },
+    { id:"rf-014", type:"multi", objective:"rf-minor-set", excludes:["rf-jones-categorize"],
+      boxLabel:"Minor Jones criteria",
+      question:"The Jones criteria separate MAJOR from MINOR features. From the list, place ALL of the MINOR criteria into the box.",
+      options:["Fever","Carditis","Arthralgia","Raised ESR or CRP","Erythema marginatum","Prolonged PR interval"],
+      correct:[0,2,3,5],
+      explanation:[
+        "The MINOR criteria are FEVER, ARTHRALGIA (joint pain without swelling), a RAISED ESR/CRP, and a PROLONGED PR interval on ECG &mdash; the non-specific, supportive features.",
+        "Carditis and erythema marginatum are MAJOR criteria (disease-defining features), not minor &mdash; that is the distinction being tested (rf-010).",
+        "Two overlaps to watch: ARTHRALGIA is the minor counterpart of the major migratory ARTHRITIS (count one or the other, rf-016); and a PROLONGED PR is a minor criterion even though it is a sign of carditis &mdash; you cannot count the PR as minor AND the carditis as major from the same finding (rf-025)."
+      ] },
+    { id:"rf-015", type:"fill", objective:"rf-fill-threshold", excludes:["rf-jones-rule"],
+      question:"Complete the diagnostic rule for a FIRST episode of acute rheumatic fever (Jones criteria).",
+      rows:[
+        "A first episode needs {{0}} major criteria, OR {{1}} major plus {{2}} minor criteria,",
+        "PLUS evidence of a preceding {{3}} infection."
+      ],
+      blanks:[
+        {label:"major (alone)",accept:["2","two"],answer:"2 (two)"},
+        {label:"major (combined)",accept:["1","one"],answer:"1 (one)"},
+        {label:"minor (combined)",accept:["2","two"],answer:"2 (two)"},
+        {label:"infection",accept:["group a strep","strep","streptococcal","group a streptococcal","gas","streptococcus","strep throat","streptococcal pharyngitis","group a streptococcus","group a beta-haemolytic strep"],answer:"group A streptococcal"}
+      ],
+      explanation:[
+        "The rule for a FIRST episode: TWO major criteria, OR ONE major plus TWO minor &mdash; and in EVERY case there must be evidence of a preceding GROUP A STREPTOCOCCAL infection (rising ASO / anti-DNase B, or a positive culture).",
+        "The strep-evidence requirement is the part students forget: without it, even two major criteria are not enough (rf-009). The exception is Sydenham chorea, which can be so delayed that it may be diagnostic on its own (rf-020).",
+        "For a RECURRENT attack in someone with known rheumatic heart disease the bar is lower &mdash; THREE minor criteria (with strep evidence) can suffice, because the prior disease raises the pre-test probability (rf-017)."
+      ] },
+    { id:"rf-016", type:"mcq", objective:"rf-arthralgia-minor",
+      question:"In the Jones criteria, joint involvement can be counted as EITHER a major OR a minor criterion, but never both for the same patient. Which statement correctly distinguishes them?",
+      options:[
+        "Arthralgia without swelling is the major criterion; migratory polyarthritis is minor",
+        "Migratory polyarthritis with joint swelling is major; arthralgia (pain only) is minor",
+        "Both migratory polyarthritis and simple arthralgia are counted as major criteria",
+        "Both migratory polyarthritis and simple arthralgia are counted as minor criteria",
+        "Joint symptoms of any kind are not part of the Jones criteria at all"],
+      correctIndex:1,
+      explanation:[
+        "The distinction is SWELLING: migratory POLYARTHRITIS (hot, swollen joints) is a MAJOR criterion; ARTHRALGIA (joint PAIN without objective swelling) is only a MINOR criterion.",
+        "You count joint involvement ONCE: if the arthritis is major, you cannot ALSO count arthralgia as a minor in the same patient &mdash; that would double-count the same system to inflate the score.",
+        "This matters at the threshold: getting the arthritis/arthralgia call right can be the difference between '1 major + 2 minor' (diagnostic, rf-012) and a near-miss (rf-011).",
+        "Trap: swapping the two (A), calling both major or both minor (C, D), or excluding joints entirely (E) each misstate a distinction the examiners specifically test."
+      ] },
+    { id:"rf-017", type:"mcq", objective:"rf-recurrence-jones",
+      question:"A 16-year-old with established rheumatic heart disease (previous carditis, known mitral stenosis) presents with fever, arthralgia and a raised CRP after a sore throat, with a rising ASO. He has no major criteria this time. Can a recurrent attack of rheumatic fever be diagnosed?",
+      options:[
+        "No, a recurrent attack still requires two full major criteria on every occasion",
+        "No, rheumatic fever essentially cannot recur once valve disease is established",
+        "Yes, in established RHD a recurrence can rest on three minor criteria with strep evidence",
+        "Yes, but only if echocardiography demonstrates brand-new valvular damage",
+        "No, minor criteria alone can never contribute to diagnosing rheumatic fever"],
+      correctIndex:2,
+      explanation:[
+        "In a patient with ESTABLISHED rheumatic heart disease, a RECURRENCE has a lower bar: THREE minor criteria (with evidence of preceding strep) can be enough, even without any major criterion &mdash; the prior disease raises the pre-test probability.",
+        "Here fever + arthralgia + raised CRP = three minor criteria, plus a rising ASO = strep evidence, in someone with known RHD &mdash; sufficient for a recurrent attack.",
+        "Recognising recurrence matters because each attack worsens valve damage, and it should trigger a review of secondary prophylaxis (was he compliant? rf-030/rf-032) alongside treating the acute episode.",
+        "Trap: insisting on two majors every time, that RF cannot recur, or that minors never count (A, B, E) all miss the special recurrence rule; and new echo damage (D) is not a prerequisite for the diagnosis."
+      ] },
+    { id:"rf-018", type:"mcq", objective:"rf-2015-revision",
+      question:"The 2015 revision of the Jones criteria stratified them by population risk. In a MODERATE-to-HIGH-risk population, which change applies compared with low-risk populations?",
+      options:[
+        "The formal criteria are abolished, and diagnosis rests on streptococcal evidence alone",
+        "Monoarthritis or polyarthralgia may count as major, with lower fever and ESR thresholds",
+        "Two major criteria become mandatory in every case, removing the minor-criterion pathway",
+        "Echocardiographic (subclinical) carditis is no longer accepted as evidence of carditis",
+        "Evidence of a preceding streptococcal infection is no longer required for diagnosis"],
+      correctIndex:1,
+      explanation:[
+        "The 2015 revision recognised that in HIGH-BURDEN (moderate/high-risk) populations rheumatic fever is common and presentations subtler, so the threshold is LOWERED: MONOarthritis or POLYARTHRALGIA can count as a major criterion, and lower fever (&ge;38.0&deg;C) and ESR cut-offs apply.",
+        "The logic is to avoid MISSING cases where disease is prevalent, while keeping the bar HIGHER in low-risk populations to avoid over-diagnosis. The revision also formally endorsed ECHOCARDIOGRAPHIC (subclinical) carditis as evidence of carditis (rf-023).",
+        "This is exactly why, in a LOW-risk child, a single fixed hot joint should NOT be forced into a rheumatic-fever diagnosis &mdash; monoarthritis only counts in high-risk groups, and only after excluding septic arthritis (rf-007).",
+        "Trap: the revision did NOT abolish the criteria, mandate two majors, remove the strep requirement, or reject echo carditis (A, C, D, E) &mdash; it RISK-STRATIFIED them, loosening the arthritis and minor thresholds where disease is common."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
