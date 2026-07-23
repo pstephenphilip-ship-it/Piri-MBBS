@@ -2342,12 +2342,12 @@
    {
     "id": "hrn-glom-fc-010",
     "front": "What is the composition of the GBM and what does it provide?",
-    "back": "A thick fused basement membrane of type IV collagen, laminin and heparan sulfate proteoglycans; it provides the main size and (negative) charge barrier."
+    "back": "A thick fused basement membrane of type IV collagen (alpha-3/4/5), laminin and heparan sulfate proteoglycans; it contributes size and (negative) charge selectivity, working with the endothelial glycocalyx and the podocyte slit diaphragm (the main size sieve)."
    },
    {
     "id": "hrn-glom-fc-011",
     "front": "Which GBM component provides the negative charge barrier, and what does it repel?",
-    "back": "Heparan sulfate proteoglycans; their negative charge repels anionic proteins such as albumin."
+    "back": "Heparan sulfate proteoglycans in the GBM (together with the endothelial glycocalyx); their negative charge repels anionic proteins such as albumin."
    },
    {
     "id": "hrn-glom-fc-012",
@@ -2422,7 +2422,7 @@
    {
     "id": "hrn-glom-fc-026",
     "front": "What are the features of IgA nephropathy?",
-    "back": "The commonest glomerulonephritis; mesangial IgA deposits with mesangial proliferation, presenting with haematuria (often synpharyngitic)."
+    "back": "The commonest primary glomerulonephritis; mesangial IgA deposits with mesangial proliferation; haematuria 1-2 days after a URTI (synpharyngitic, versus the 1-3 week latency of post-streptococcal GN). Henoch-Schonlein purpura (IgA vasculitis) is the systemic form."
    },
    {
     "id": "hrn-glom-fc-027",
@@ -2432,7 +2432,7 @@
    {
     "id": "hrn-glom-fc-028",
     "front": "What is the defect in Alport syndrome and its GBM appearance?",
-    "back": "A type IV collagen (alpha-3/4/5) defect causing a split/basketweave GBM; associated with haematuria, sensorineural deafness and eye abnormalities."
+    "back": "A type IV collagen defect, most commonly X-linked (COL4A5, alpha-5 chain; autosomal forms affect alpha-3/alpha-4), causing a split/basketweave GBM with haematuria, sensorineural deafness and eye abnormalities."
    },
    {
     "id": "hrn-glom-fc-029",
@@ -2443,6 +2443,46 @@
     "id": "hrn-glom-fc-030",
     "front": "Which slit-diaphragm gene mutations cause congenital nephrotic syndrome?",
     "back": "Mutations in NPHS1 (nephrin) and NPHS2 (podocin)."
+   },
+   {
+    "id": "hrn-glom-fc-031",
+    "front": "What is the net filtration pressure at the glomerulus and its components?",
+    "back": "NFP = glomerular capillary hydrostatic pressure (~45-50 mmHg, the only force favouring filtration) minus Bowman's space hydrostatic pressure (~10) minus glomerular capillary oncotic pressure (~25-30) = about +10 mmHg. GFR = Kf x NFP."
+   },
+   {
+    "id": "hrn-glom-fc-032",
+    "front": "How do afferent/efferent arteriolar tone, ACE inhibitors and NSAIDs affect GFR?",
+    "back": "Afferent constriction lowers GFR; efferent constriction (angiotensin II) raises glomerular pressure and GFR. ACE inhibitors/ARBs dilate the efferent arteriole, lowering glomerular pressure and GFR (renoprotective; dangerous in bilateral renal artery stenosis). NSAIDs block prostaglandin-mediated afferent dilation, lowering GFR in volume depletion."
+   },
+   {
+    "id": "hrn-glom-fc-033",
+    "front": "What is FSGS and its associations?",
+    "back": "Focal segmental glomerulosclerosis - segmental scarring of some (focal) glomeruli with foot-process effacement; the commonest primary nephrotic syndrome in adults (especially Black patients, APOL1). Secondary to HIV (collapsing variant), heroin, obesity and reduced nephron mass; often steroid-resistant."
+   },
+   {
+    "id": "hrn-glom-fc-034",
+    "front": "Give the features of post-streptococcal glomerulonephritis.",
+    "back": "A nephritic illness 1-3 weeks after group A strep pharyngitis or impetigo; cola-coloured urine, hypertension, oedema; subepithelial 'humps' on EM, starry-sky granular IF (IgG/C3), transiently low C3; usually self-limiting in children."
+   },
+   {
+    "id": "hrn-glom-fc-035",
+    "front": "What are the three IF patterns of crescentic (RPGN) GN, and where do crescents come from?",
+    "back": "Linear (anti-GBM/Goodpasture), granular (immune-complex, e.g. lupus/PSGN), and pauci-immune (ANCA-associated - GPA/PR3, MPA/MPO). Crescents form from proliferating parietal epithelial cells plus macrophages after GBM rupture."
+   },
+   {
+    "id": "hrn-glom-fc-036",
+    "front": "Distinguish selective and non-selective proteinuria.",
+    "back": "Selective = mainly albumin (charge barrier lost, size intact) - typical of minimal change disease. Non-selective = albumin plus larger proteins (structural GBM damage) - FSGS and membranous."
+   },
+   {
+    "id": "hrn-glom-fc-037",
+    "front": "Give the defining features of nephrotic and nephritic syndromes.",
+    "back": "Nephrotic: proteinuria >3.5 g/day, hypoalbuminaemia, oedema, hyperlipidaemia (plus thrombosis and infection risk). Nephritic: haematuria with red-cell casts, hypertension, oliguria and only mild-moderate proteinuria."
+   },
+   {
+    "id": "hrn-glom-fc-038",
+    "front": "Which glomerulonephritides lower serum complement?",
+    "back": "Low C3: post-streptococcal GN, MPGN / C3 glomerulopathy, infective endocarditis-related GN; low C3 AND C4: lupus nephritis. Normal complement: IgA nephropathy, anti-GBM, ANCA vasculitis."
    }
   ],
   "histology__RENAL__Tubules (PCT, loop of Henle, DCT, CD)": [
@@ -8311,7 +8351,7 @@
    {
     "id": "hrn-glom-q-012",
     "type": "mcq",
-    "question": "The commonest glomerulonephritis worldwide, with mesangial IgA deposits and haematuria, is:",
+    "question": "The commonest primary glomerulonephritis worldwide, with mesangial IgA deposits and haematuria, is:",
     "options": [
      "Membranous nephropathy",
      "IgA nephropathy",
@@ -8320,7 +8360,7 @@
      "Anti-GBM disease"
     ],
     "correctIndex": 1,
-    "explanation": "IgA nephropathy is the commonest GN, characterised by mesangial IgA deposition and episodic haematuria (often with upper respiratory infection)."
+    "explanation": "IgA nephropathy is the commonest primary GN, characterised by mesangial IgA deposition and episodic haematuria (often 1-2 days after an upper respiratory infection)."
    },
    {
     "id": "hrn-glom-q-013",
@@ -8353,7 +8393,7 @@
    {
     "id": "hrn-glom-q-015",
     "type": "mcq",
-    "question": "Which layer is the principal size-and-charge barrier of glomerular filtration?",
+    "question": "Much of the filtration barrier's negative (charge) selectivity comes from heparan sulfate in the:",
     "options": [
      "Fenestrated endothelium",
      "Glomerular basement membrane",
@@ -8362,7 +8402,7 @@
      "Tubular basement membrane"
     ],
     "correctIndex": 1,
-    "explanation": "The GBM (type IV collagen, laminin, heparan sulfate) is the main size- and charge-selective barrier, with endothelium and slit diaphragm contributing."
+    "explanation": "Heparan sulfate proteoglycans in the GBM (with the endothelial glycocalyx) provide much of the charge barrier; size selectivity is shared, with the podocyte slit diaphragm the major size sieve."
    },
    {
     "id": "hrn-glom-q-016",
@@ -8433,6 +8473,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Nephritic syndrome arises from endothelial/mesangial inflammation with GBM breaks allowing red cells into the urine; podocyte/charge injury gives the nephrotic picture."
+   },
+   {
+    "id": "hrn-glom-q-021",
+    "type": "mcq",
+    "question": "An ACE inhibitor acutely lowers GFR mainly by:",
+    "options": [
+     "Constricting the afferent arteriole",
+     "Dilating the efferent arteriole and reducing glomerular hydrostatic pressure",
+     "Blocking the podocyte slit diaphragm",
+     "Increasing plasma oncotic pressure",
+     "Expanding the mesangium"
+    ],
+    "correctIndex": 1,
+    "explanation": "Angiotensin II preferentially constricts the efferent arteriole; ACE inhibitors/ARBs dilate it, lowering glomerular capillary pressure and GFR - renoprotective long-term but hazardous in bilateral renal artery stenosis."
+   },
+   {
+    "id": "hrn-glom-q-022",
+    "type": "mcq",
+    "question": "The commonest cause of primary nephrotic syndrome in adults, showing segmental scarring of some glomeruli with HIV and obesity associations, is:",
+    "options": [
+     "Minimal change disease",
+     "Focal segmental glomerulosclerosis (FSGS)",
+     "Membranous nephropathy",
+     "IgA nephropathy",
+     "Post-streptococcal GN"
+    ],
+    "correctIndex": 1,
+    "explanation": "FSGS shows focal, segmental glomerulosclerosis with foot-process effacement; it is the commonest primary adult nephrotic syndrome (esp. Black patients, APOL1) and is associated with HIV, heroin, obesity and reduced nephron mass."
    }
   ],
   "histology__RENAL__Tubules (PCT, loop of Henle, DCT, CD)": [
