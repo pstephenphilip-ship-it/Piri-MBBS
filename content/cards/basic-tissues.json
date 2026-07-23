@@ -897,7 +897,7 @@
    {
     "id": "hct-fc-022",
     "front": "Which connective-tissue disorders are due to a collagen problem?",
-    "back": "Ehlers–Danlos syndrome (defective collagen → hypermobile joints, fragile stretchy skin) and scurvy (vitamin C deficiency → failed collagen cross-linking)."
+    "back": "Ehlers–Danlos syndrome (defective collagen → hypermobile joints, fragile stretchy skin), scurvy (vitamin C deficiency → impaired proline/lysine hydroxylation → unstable collagen), and osteogenesis imperfecta (type I collagen → brittle bones, blue sclerae)."
    },
    {
     "id": "hct-fc-023",
@@ -947,7 +947,22 @@
    {
     "id": "hct-fc-208",
     "front": "What is granulation tissue?",
-    "back": "The new connective tissue of healing wounds — proliferating fibroblasts, new capillaries and inflammatory cells."
+    "back": "The new connective tissue of healing wounds — proliferating fibroblasts, new capillaries and inflammatory cells; its matrix is initially type III collagen, remodelled to stronger type I during maturation."
+   },
+   {
+    "id": "hct-fc-209",
+    "front": "Which collagen type predominates in bone/skin/tendon, cartilage, reticular tissue, and basement membrane?",
+    "back": "Type I = bone, skin, tendon, ligament (most abundant); Type II = cartilage (and vitreous/nucleus pulposus); Type III = reticular fibres (organ stroma, granulation tissue); Type IV = basement membrane."
+   },
+   {
+    "id": "hct-fc-210",
+    "front": "What is osteogenesis imperfecta?",
+    "back": "A defect of type I collagen (COL1A1/COL1A2) causing brittle bones with recurrent fractures, blue sclerae, hearing loss and dentinogenesis imperfecta."
+   },
+   {
+    "id": "hct-fc-211",
+    "front": "What are the mucopolysaccharidoses (e.g. Hurler, Hunter)?",
+    "back": "Inherited lysosomal enzyme deficiencies causing accumulation of glycosaminoglycans (GAGs) in connective tissue — coarse facies, organomegaly, skeletal dysostosis and (in some) intellectual disability."
    }
   ],
   "histology__BASIC TISSUES__Epithelium (types, junctions, polarity)": [
@@ -3027,7 +3042,7 @@
    {
     "id": "hct-q-012",
     "type": "mcq",
-    "question": "Poor wound healing and bleeding gums due to failed collagen cross-linking indicate a deficiency of:",
+    "question": "Poor wound healing, perifollicular haemorrhage and bleeding gums due to defective collagen synthesis indicate a deficiency of:",
     "options": [
      "Vitamin D",
      "Vitamin C (scurvy)",
@@ -3036,7 +3051,7 @@
      "Calcium"
     ],
     "correctIndex": 1,
-    "explanation": "Vitamin C is a cofactor for prolyl/lysyl hydroxylase in collagen synthesis; deficiency (scurvy) impairs collagen cross-linking, causing poor healing and bleeding gums."
+    "explanation": "Vitamin C is a cofactor for prolyl/lysyl hydroxylase; deficiency (scurvy) impairs hydroxylation of proline/lysine, so the collagen triple helix cannot stabilise — causing poor healing and bleeding gums. (Cross-linking failure is instead the copper/lysyl-oxidase story.)"
    },
    {
     "id": "hct-q-013",
@@ -3083,16 +3098,16 @@
    {
     "id": "hct-q-201",
     "type": "mcq",
-    "question": "Which connective-tissue cell releases histamine in allergic reactions and stains metachromatically with toluidine blue?",
+    "question": "Which two mediators are stored in the cytoplasmic granules of mast cells?",
     "options": [
-     "Fibroblast",
-     "Mast cell",
-     "Plasma cell",
-     "Macrophage",
-     "Adipocyte"
+     "Histamine and heparin",
+     "Serotonin and dopamine",
+     "Collagen and elastin",
+     "Insulin and glucagon",
+     "IgE and IgG"
     ],
-    "correctIndex": 1,
-    "explanation": "Mast cells store histamine and heparin in granules that show metachromasia with toluidine blue; their degranulation drives allergy and anaphylaxis."
+    "correctIndex": 0,
+    "explanation": "Mast-cell granules store histamine (vasoactive) and heparin (anticoagulant); surface IgE cross-linking triggers degranulation in type I hypersensitivity."
    },
    {
     "id": "hct-q-202",
@@ -3163,6 +3178,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Granulation tissue is the vascular, fibroblast-rich repair tissue of healing wounds; excess collagen later can form a keloid."
+   },
+   {
+    "id": "hct-q-207",
+    "type": "mcq",
+    "question": "Which collagen type is the principal fibre of hyaline cartilage?",
+    "options": [
+     "Type I",
+     "Type II",
+     "Type III",
+     "Type IV",
+     "Type V"
+    ],
+    "correctIndex": 1,
+    "explanation": "Hyaline (and elastic) cartilage is built on type II collagen; type I predominates in bone/tendon, III in reticular tissue, IV in basement membrane."
+   },
+   {
+    "id": "hct-q-208",
+    "type": "mcq",
+    "question": "A child with recurrent long-bone fractures and blue sclerae has a defect in:",
+    "options": [
+     "Type II collagen",
+     "Type I collagen",
+     "Fibrillin-1",
+     "Type IV collagen",
+     "Elastin"
+    ],
+    "correctIndex": 1,
+    "explanation": "Osteogenesis imperfecta is a type I collagen defect (COL1A1/2) giving brittle bones and blue sclerae; fibrillin-1 defects cause Marfan syndrome."
    }
   ],
   "histology__BASIC TISSUES__Epithelium (types, junctions, polarity)": [
