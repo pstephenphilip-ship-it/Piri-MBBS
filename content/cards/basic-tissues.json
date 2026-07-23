@@ -1386,12 +1386,12 @@
    {
     "id": "hm-fc-029",
     "front": "Contrast Type I and Type II skeletal muscle fibres.",
-    "back": "Type I = slow, oxidative, red (myoglobin/mitochondria rich, fatigue-resistant, postural). Type II = fast, glycolytic, pale (rapid powerful bursts, fatigue quickly). Shown with myosin ATPase histochemistry."
+    "back": "Type I = slow, oxidative, red (myoglobin/mitochondria-rich, fatigue-resistant, postural). Type II = fast, pale — IIa is intermediate (fatigue-resistant, oxidative-glycolytic) while IIx/IIb are glycolytic and fatigue quickly. Shown with myosin ATPase (and NADH-TR/SDH) histochemistry."
    },
    {
     "id": "hm-fc-030",
     "front": "Which immunohistochemical markers identify muscle, and which is lost in Duchenne?",
-    "back": "Desmin marks all muscle; α-smooth-muscle actin (SMA) marks smooth muscle; myogenin/MyoD/myoglobin mark skeletal; dystrophin is absent in Duchenne muscular dystrophy."
+    "back": "Desmin marks all muscle; α-smooth-muscle actin (SMA) marks smooth muscle; MyoD/myogenin (nuclear) mark skeletal muscle/rhabdomyosarcoma (myoglobin is a weaker, less specific marker); dystrophin is absent in Duchenne muscular dystrophy."
    },
    {
     "id": "hm-fc-031",
@@ -1412,6 +1412,36 @@
     "id": "hm-fc-034",
     "front": "What is rhabdomyosarcoma and how is it identified?",
     "back": "A malignant skeletal-muscle tumour, most common in children; positive for desmin and myogenin (and myoglobin)."
+   },
+   {
+    "id": "hm-fc-035",
+    "front": "How does excitation–contraction coupling differ mechanistically between skeletal and cardiac muscle?",
+    "back": "Skeletal: the T-tubule voltage sensor (DHPR / L-type channel) is MECHANICALLY linked to RyR1 on the SR, so depolarisation physically opens RyR1 — needing little extracellular Ca2+. Cardiac: Ca2+ entering through DHPR triggers Ca2+-induced Ca2+ release via RyR2 — extracellular Ca2+ is required."
+   },
+   {
+    "id": "hm-fc-036",
+    "front": "What are titin and nebulin?",
+    "back": "Titin is the largest protein in the body — an elastic Z-line-to-M-line spring giving passive tension and keeping the thick filament centred; nebulin is an inextensible thin-filament 'ruler' that sets actin filament length."
+   },
+   {
+    "id": "hm-fc-037",
+    "front": "Outline the cross-bridge cycle and explain rigor mortis.",
+    "back": "ATP binds myosin → head detaches from actin → ATP hydrolysis cocks the head → head binds actin → power stroke (Pi then ADP released) → rigor state until new ATP binds. In rigor mortis, ATP is depleted after death so myosin stays locked to actin, causing stiffness (onset ~2–6 h)."
+   },
+   {
+    "id": "hm-fc-038",
+    "front": "What is malignant hyperthermia and how is it treated?",
+    "back": "An autosomal-dominant RYR1 (ryanodine receptor) defect in which volatile anaesthetics or suxamethonium trigger uncontrolled SR Ca2+ release → muscle rigidity, hyperthermia, rising EtCO2, tachycardia and rhabdomyolysis; treated by stopping the trigger, cooling and dantrolene (blocks RyR1)."
+   },
+   {
+    "id": "hm-fc-039",
+    "front": "Contrast myasthenia gravis with Lambert–Eaton myasthenic syndrome.",
+    "back": "Myasthenia gravis: post-synaptic anti-nicotinic-AChR antibodies (associated with thymoma), fatigable weakness that worsens with use, decrement on repetitive nerve stimulation. Lambert–Eaton: pre-synaptic anti-VGCC antibodies (paraneoplastic, small-cell lung cancer), weakness that improves with use, increment on repetitive stimulation."
+   },
+   {
+    "id": "hm-fc-040",
+    "front": "Give the key clinical features of Duchenne muscular dystrophy.",
+    "back": "X-linked recessive (dystrophin gene, Xp21) affecting boys from ~3–5 yr: proximal weakness with Gower's sign, calf pseudohypertrophy, markedly raised CK, and death from dilated cardiomyopathy/respiratory failure. Becker is a milder, in-frame variant with reduced (not absent) dystrophin."
    }
   ],
   "histology__BASIC TISSUES__Nervous Tissue (neurons, glia, synapses)": [
@@ -3799,10 +3829,10 @@
      "H zone",
      "Sarcomere length",
      "A band",
-     "Distance between Z lines"
+     "The thick–thin filament overlap zone"
     ],
     "correctIndex": 3,
-    "explanation": "The A band equals the length of the thick (myosin) filaments, which do not shorten; only the I band and H zone narrow as filaments slide, so the A band width is constant."
+    "explanation": "The A band equals the length of the thick (myosin) filaments, which do not shorten, so its width is constant. The I band, H zone and sarcomere length all shorten, and the thick–thin overlap zone widens."
    },
    {
     "id": "hm-q-004",
@@ -4017,7 +4047,7 @@
    {
     "id": "hm-q-019",
     "type": "mcq",
-    "question": "The pregnant uterus enlarges enormously. Which growth mechanisms are available to its smooth muscle that are NOT available to cardiac muscle?",
+    "question": "The pregnant uterus enlarges enormously. By which growth mechanisms can its smooth muscle enlarge — mechanisms cardiac muscle largely cannot use?",
     "options": [
      "Hypertrophy only",
      "Hyperplasia only",
@@ -4026,7 +4056,7 @@
      "Neither — it only stretches passively"
     ],
     "correctIndex": 2,
-    "explanation": "Smooth muscle can undergo both hypertrophy and hyperplasia. Cardiac (and skeletal) muscle enlarges by hypertrophy only, as its cells cannot readily divide."
+    "explanation": "Smooth muscle can enlarge by both hypertrophy AND hyperplasia (the pregnant uterus does both). Cardiac (and skeletal) muscle enlarges essentially by hypertrophy only, as its cells cannot readily divide — so it is hyperplasia that smooth muscle adds."
    },
    {
     "id": "hm-q-020",
@@ -4041,6 +4071,62 @@
     ],
     "correctIndex": 3,
     "explanation": "The Z line (Z disc) anchors thin filaments and contains α-actinin; it defines the sarcomere boundary. The M line anchors thick filaments at the centre."
+   },
+   {
+    "id": "hm-q-021",
+    "type": "mcq",
+    "question": "Minutes after induction with a volatile anaesthetic and suxamethonium, a patient develops masseter rigidity, a rising end-tidal CO2 and hyperthermia. The definitive drug is:",
+    "options": [
+     "Atropine",
+     "Dantrolene",
+     "Adrenaline",
+     "Neostigmine",
+     "Propofol"
+    ],
+    "correctIndex": 1,
+    "explanation": "Malignant hyperthermia (RYR1 mutation) causes uncontrolled SR Ca2+ release triggered by volatile anaesthetics/suxamethonium; dantrolene blocks the ryanodine receptor and is the specific treatment, alongside stopping the trigger and cooling."
+   },
+   {
+    "id": "hm-q-022",
+    "type": "mcq",
+    "question": "A patient with proximal leg weakness that IMPROVES with repeated effort, reduced reflexes and a small-cell lung cancer has antibodies against:",
+    "options": [
+     "Postsynaptic nicotinic ACh receptors",
+     "Presynaptic voltage-gated calcium channels",
+     "Voltage-gated sodium channels",
+     "Dystrophin",
+     "Ryanodine receptor RyR1"
+    ],
+    "correctIndex": 1,
+    "explanation": "Lambert–Eaton myasthenic syndrome is a paraneoplastic (small-cell lung cancer) disorder with antibodies to presynaptic voltage-gated calcium channels; strength increments with use. Myasthenia gravis instead has postsynaptic anti-nAChR antibodies and fatigues."
+   },
+   {
+    "id": "hm-q-023",
+    "type": "mcq",
+    "question": "A 4-year-old boy pushes on his thighs to stand up (Gower's sign), has enlarged calves and a very high creatine kinase. The inheritance pattern is:",
+    "options": [
+     "Autosomal dominant",
+     "X-linked recessive",
+     "Autosomal recessive",
+     "Mitochondrial",
+     "Sporadic only"
+    ],
+    "correctIndex": 1,
+    "explanation": "Duchenne muscular dystrophy is X-linked recessive (dystrophin gene at Xp21), affecting boys with Gower's sign, calf pseudohypertrophy and markedly raised CK."
+   },
+   {
+    "id": "hm-q-024",
+    "type": "mcq",
+    "question": "Skeletal-muscle excitation–contraction coupling, unlike cardiac, is characterised by:",
+    "options": [
+     "Dependence on extracellular Ca2+ influx",
+     "Mechanical DHPR–RyR1 coupling that needs little extracellular Ca2+",
+     "Use of calmodulin instead of troponin",
+     "Absence of a T-tubule system",
+     "Ca2+-induced Ca2+ release via RyR2"
+    ],
+    "correctIndex": 1,
+    "explanation": "In skeletal muscle the T-tubule DHPR voltage sensor is mechanically linked to RyR1, releasing SR Ca2+ with little need for extracellular Ca2+; cardiac muscle relies on Ca2+-induced Ca2+ release (RyR2) requiring extracellular Ca2+."
    }
   ],
   "histology__BASIC TISSUES__Nervous Tissue (neurons, glia, synapses)": [
