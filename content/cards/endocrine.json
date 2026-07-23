@@ -201,12 +201,12 @@
    {
     "id": "hen-thy-fc-007",
     "front": "Outline thyroid hormone synthesis.",
-    "back": "Iodide is trapped by NIS; thyroid peroxidase (TPO) oxidises it and iodinates tyrosines on thyroglobulin in the colloid (organification); coupling of MIT/DIT forms T3 and T4; the cell endocytoses colloid and lysosomes release T3/T4 into the blood."
+    "back": "Iodide is trapped by basolateral NIS (Na/I symporter), moves across the apex into colloid via pendrin, and thyroid peroxidase (TPO) with H2O2 organifies it onto thyroglobulin tyrosines; coupling gives MIT+DIT->T3 and DIT+DIT->T4; the cell endocytoses colloid and lysosomes release T3/T4. Peripheral deiodinases (D1/D2) convert T4 to active T3."
    },
    {
     "id": "hen-thy-fc-008",
     "front": "Which enzyme carries out organification and coupling, and why is it clinically important?",
-    "back": "Thyroid peroxidase (TPO); it is the target of antithyroid drugs (carbimazole/propylthiouracil) and of anti-TPO autoantibodies in Hashimoto thyroiditis."
+    "back": "Thyroid peroxidase (TPO), which uses H2O2 to organify iodide and couple iodotyrosines; it is the target of antithyroid drugs (carbimazole -> methimazole; PTU also blocks peripheral D1 and is preferred in the 1st trimester and thyroid storm) and of anti-TPO autoantibodies in Hashimoto."
    },
    {
     "id": "hen-thy-fc-009",
@@ -216,7 +216,7 @@
    {
     "id": "hen-thy-fc-010",
     "front": "What is the embryological origin and function of C cells?",
-    "back": "They are neural-crest derived and secrete calcitonin, which lowers serum calcium by inhibiting osteoclasts (a minor role in humans)."
+    "back": "They are neural-crest cells that migrate via the ultimobranchial body (4th pharyngeal pouch) and secrete calcitonin, which lowers serum calcium by inhibiting osteoclasts (a minor role in adult humans)."
    },
    {
     "id": "hen-thy-fc-011",
@@ -291,7 +291,7 @@
    {
     "id": "hen-thy-fc-025",
     "front": "What is De Quervain (subacute granulomatous) thyroiditis?",
-    "back": "A painful, often post-viral thyroiditis with granulomatous inflammation and multinucleate giant cells around damaged follicles, causing transient hyperthyroidism then recovery."
+    "back": "A painful, tender, often post-viral granulomatous thyroiditis with multinucleate giant cells around damaged follicles; a raised ESR and low radioiodine uptake, with a classic triphasic course - thyrotoxic (hormone leak) -> hypothyroid -> euthyroid recovery."
    },
    {
     "id": "hen-thy-fc-026",
@@ -307,6 +307,41 @@
     "id": "hen-thy-fc-028",
     "front": "Which lymph-node/vascular routes do papillary and follicular carcinomas favour?",
     "back": "Papillary carcinoma spreads via lymphatics (regional nodes); follicular carcinoma spreads haematogenously (bone, lung)."
+   },
+   {
+    "id": "hen-thy-fc-029",
+    "front": "What is Pendred syndrome?",
+    "back": "An autosomal recessive defect of pendrin (the apical iodide/chloride transporter), causing dyshormonogenetic goitre with sensorineural deafness."
+   },
+   {
+    "id": "hen-thy-fc-030",
+    "front": "How is thyroid hormone carried in blood, and what happens in pregnancy?",
+    "back": "Over 99% is protein-bound (thyroxine-binding globulin > transthyretin > albumin); only free hormone is active. Oestrogen/pregnancy raises TBG, so total T4 rises but free T4 stays normal."
+   },
+   {
+    "id": "hen-thy-fc-031",
+    "front": "What are the main actions of thyroid hormone?",
+    "back": "Increases basal metabolic rate and thermogenesis, up-regulates beta-adrenergic sensitivity (tachycardia), and is essential for fetal/neonatal CNS myelination and skeletal maturation - deficiency at birth causes cretinism."
+   },
+   {
+    "id": "hen-thy-fc-032",
+    "front": "What causes congenital hypothyroidism and why screen for it?",
+    "back": "Thyroid dysgenesis/agenesis, dyshormonogenesis or iodine deficiency; untreated it causes cretinism (intellectual disability, short stature, deafness). It is detected on the newborn heel-prick screen and treated promptly with levothyroxine."
+   },
+   {
+    "id": "hen-thy-fc-033",
+    "front": "How is thyroid storm managed?",
+    "back": "A beta-blocker (propranolol) for symptoms and to block T4->T3, PTU to block synthesis, then iodine given at least an hour after PTU (Wolff-Chaikoff, avoiding substrate fuelling), plus corticosteroids; and treat the precipitant (infection, surgery, iodine load)."
+   },
+   {
+    "id": "hen-thy-fc-034",
+    "front": "What is sick euthyroid (non-thyroidal illness) syndrome?",
+    "back": "In serious illness or starvation, reduced D1 and increased D3 activity lower T3 (and sometimes T4) with a normal/low TSH and raised reverse T3; it reflects adaptation, needs no thyroxine, and resolves as the illness recovers."
+   },
+   {
+    "id": "hen-thy-fc-035",
+    "front": "Match the thyroid cancers to their driver mutations.",
+    "back": "Papillary - BRAF V600E and RET/PTC rearrangements. Follicular - RAS and PAX8-PPARgamma. Medullary - RET (germline in MEN2A/2B, somatic in sporadic). Anaplastic - TP53."
    }
   ],
   "histology__ENDOCRINE__Parathyroid Glands": [
@@ -1383,6 +1418,34 @@
     ],
     "correctIndex": 1,
     "explanation": "C cells lie within the follicular basement membrane adjacent to follicular cells but do not reach the colloid."
+   },
+   {
+    "id": "hen-thy-q-019",
+    "type": "mcq",
+    "question": "A child has goitre and sensorineural deafness from a defect in the apical iodide transporter. This is:",
+    "options": [
+     "Wolff-Chaikoff effect",
+     "Pendred syndrome",
+     "Jod-Basedow effect",
+     "DiGeorge syndrome",
+     "Hashimoto thyroiditis"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pendred syndrome is an autosomal recessive defect of pendrin (the apical iodide/chloride transporter), causing dyshormonogenetic goitre with sensorineural deafness."
+   },
+   {
+    "id": "hen-thy-q-020",
+    "type": "mcq",
+    "question": "Propylthiouracil is preferred over carbimazole in which situation, and why?",
+    "options": [
+     "Long-term maintenance, because it is safer",
+     "The first trimester of pregnancy and thyroid storm, because it also blocks peripheral T4-to-T3 conversion",
+     "Children, because it is a prodrug",
+     "Nodular goitre, to trigger Jod-Basedow",
+     "Sick euthyroid, to raise T3"
+    ],
+    "correctIndex": 1,
+    "explanation": "PTU is preferred in the first trimester (carbimazole is more teratogenic) and in thyroid storm because, besides blocking TPO, it inhibits peripheral D1 deiodinase (T4->T3); carbimazole/methimazole are preferred otherwise (PTU carries hepatotoxicity risk)."
    }
   ],
   "histology__ENDOCRINE__Parathyroid Glands": [
