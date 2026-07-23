@@ -530,7 +530,7 @@
    {
     "id": "hen-adr-fc-006",
     "front": "What controls the zona glomerulosa, and why can't it make cortisol?",
-    "back": "It is controlled by angiotensin II and potassium (not ACTH), and it lacks 17-hydroxylase, so it cannot make cortisol or androgens — only aldosterone."
+    "back": "It is controlled by angiotensin II and potassium (not ACTH), and uniquely expresses aldosterone synthase (CYP11B2) to make aldosterone; it lacks 17-hydroxylase (CYP17), so it cannot make cortisol or androgens."
    },
    {
     "id": "hen-adr-fc-007",
@@ -595,12 +595,12 @@
    {
     "id": "hen-adr-fc-019",
     "front": "What is Conn syndrome and its biochemistry?",
-    "back": "Primary hyperaldosteronism (usually a zona glomerulosa adenoma) causing hypertension with hypokalaemia and suppressed renin."
+    "back": "Primary hyperaldosteronism causing hypertension with hypokalaemia and suppressed renin (high aldosterone:renin ratio). It may be a unilateral aldosterone-producing adenoma (classic Conn's, surgical) or bilateral idiopathic hyperplasia (commoner overall, treated medically with spironolactone/eplerenone)."
    },
    {
     "id": "hen-adr-fc-020",
     "front": "What is congenital adrenal hyperplasia due to 21-hydroxylase deficiency?",
-    "back": "An enzyme block that reduces cortisol and aldosterone while shunting precursors to androgens, causing salt-wasting and virilisation/ambiguous genitalia; ACTH rises and the adrenals hyperplase."
+    "back": "A block (commonest 21-hydroxylase, ~90%) that reduces cortisol and aldosterone and shunts precursors to androgens; 17-hydroxyprogesterone (17-OHP) is raised. The classic form causes salt-wasting and virilisation; 11-beta- and 17-hydroxylase forms instead cause hypertension. ACTH rises and the adrenals hyperplase."
    },
    {
     "id": "hen-adr-fc-021",
@@ -615,12 +615,12 @@
    {
     "id": "hen-adr-fc-023",
     "front": "What is a phaeochromocytoma and its typical presentation?",
-    "back": "A catecholamine-secreting tumour of the adrenal medulla causing episodic hypertension, headache, sweating and palpitations; it follows the 'rule of 10s' and is associated with MEN 2."
+    "back": "A catecholamine-secreting medullary tumour causing episodic hypertension, headache, sweating and palpitations; diagnosed by plasma/urinary metanephrines and MIBG scintigraphy. Manage with alpha-blockade (phenoxybenzamine) BEFORE beta-blockade to avoid an unopposed-alpha crisis. 'Rule of 10s'; associated with MEN2, VHL, NF1 and SDH mutations."
    },
    {
     "id": "hen-adr-fc-024",
     "front": "What is neuroblastoma?",
-    "back": "A malignant tumour of neural-crest/sympathetic (often adrenal medullary) tissue in young children, composed of small round blue cells with Homer-Wright rosettes and raised urinary catecholamine metabolites."
+    "back": "A malignant neural-crest/sympathetic tumour (often adrenal medulla) of young children, composed of small round blue cells with Homer-Wright rosettes and raised urinary HVA/VMA. MYCN (N-myc) amplification predicts poor prognosis; it can spontaneously regress or mature into a benign ganglioneuroma."
    },
    {
     "id": "hen-adr-fc-025",
@@ -641,6 +641,31 @@
     "id": "hen-adr-fc-028",
     "front": "Which adrenal region gives rise to steroid syndromes versus catecholamine tumours?",
     "back": "The cortex gives steroid disorders (Cushing, Conn, CAH, Addison); the medulla gives catecholamine tumours (phaeochromocytoma, neuroblastoma)."
+   },
+   {
+    "id": "hen-adr-fc-029",
+    "front": "Outline adrenal steroidogenesis and how ACTH drives it.",
+    "back": "All steroids derive from cholesterol; ACTH binds MC2R (Gs/cAMP) and upregulates StAR, the rate-limiting importer of cholesterol into mitochondria to form pregnenolone. Branching hydroxylases (17/21/11) then direct synthesis toward mineralocorticoids, glucocorticoids or androgens."
+   },
+   {
+    "id": "hen-adr-fc-030",
+    "front": "How does the dexamethasone suppression test localise Cushing syndrome?",
+    "back": "Low-dose dexamethasone fails to suppress cortisol in any Cushing's. High-dose suppresses a pituitary source (Cushing disease) but NOT ectopic ACTH or adrenal tumours. ACTH is high in ACTH-dependent causes and suppressed in adrenal (ACTH-independent) causes."
+   },
+   {
+    "id": "hen-adr-fc-031",
+    "front": "What is the fetal adrenal zone?",
+    "back": "A large provisional cortical zone that produces DHEA-S (a placental oestrogen precursor) in fetal life and involutes after birth, leaving the definitive three-zoned cortex; the medulla forms late as neural-crest cells migrate centrally."
+   },
+   {
+    "id": "hen-adr-fc-032",
+    "front": "Why is right adrenalectomy technically more hazardous?",
+    "back": "The right adrenal (central) vein is short and drains directly into the IVC, so it is easily avulsed - risking major IVC haemorrhage. The left adrenal vein is longer and drains into the left renal vein."
+   },
+   {
+    "id": "hen-adr-fc-033",
+    "front": "How is adrenocortical carcinoma distinguished from a cortical adenoma?",
+    "back": "By the Weiss criteria (>=3 of: high mitotic rate, atypical mitoses, venous/capsular/sinusoidal invasion, necrosis, <25% clear cells, diffuse architecture, high nuclear grade). Carcinomas are large, often functional (Cushing +/- virilisation) with a poor prognosis."
    }
   ],
   "histology__ENDOCRINE__Pancreatic Islets of Langerhans": [
@@ -2007,6 +2032,34 @@
     ],
     "correctIndex": 1,
     "explanation": "The medulla behaves like a sympathetic ganglion: preganglionic sympathetic fibres synapse directly on chromaffin cells (using acetylcholine), which then release catecholamines."
+   },
+   {
+    "id": "hen-adr-q-019",
+    "type": "mcq",
+    "question": "Before surgery for a phaeochromocytoma, blood pressure must be controlled with:",
+    "options": [
+     "Beta-blockade first, then alpha-blockade",
+     "Alpha-blockade (phenoxybenzamine) first, then beta-blockade",
+     "Beta-blockade alone",
+     "An ACE inhibitor alone",
+     "No preparation is needed"
+    ],
+    "correctIndex": 1,
+    "explanation": "Alpha-blockade must precede beta-blockade; giving a beta-blocker first leaves alpha-mediated vasoconstriction unopposed, precipitating a hypertensive crisis. Diagnosis is by plasma/urinary metanephrines."
+   },
+   {
+    "id": "hen-adr-q-020",
+    "type": "mcq",
+    "question": "In the high-dose dexamethasone suppression test, cortisol suppresses in which cause of Cushing's?",
+    "options": [
+     "Ectopic ACTH (small-cell lung cancer)",
+     "A pituitary corticotroph adenoma (Cushing disease)",
+     "An adrenal cortical adenoma",
+     "An adrenal carcinoma",
+     "Exogenous steroids"
+    ],
+    "correctIndex": 1,
+    "explanation": "High-dose dexamethasone suppresses cortisol from a pituitary source (Cushing disease), which retains some feedback sensitivity, but does not suppress ectopic ACTH or autonomous adrenal tumours."
    }
   ],
   "histology__ENDOCRINE__Pancreatic Islets of Langerhans": [
