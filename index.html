@@ -7498,6 +7498,85 @@ window.MOCK_BANK = {
         "The hierarchy tracks the epidemiology cited earlier (rf-008): RHD is the leading cause of acquired mitral and aortic valve disease worldwide.",
         "Trap: rankings that put the right-sided valves first, spare the mitral, or claim an equal or never-involved pattern (A, B, C, D) invert the well-established mitral &gt; aortic &gt; right-sided order."
       ] },
+    { id:"rf-044", type:"multi", objective:"rf-synthesis-true",
+      boxLabel:"True of acute rheumatic fever",
+      question:"From the list, select ALL the statements that are TRUE of acute rheumatic fever.",
+      options:[
+        "It follows a group A streptococcal throat infection",
+        "Carditis is the only manifestation with lasting sequelae",
+        "The arthritis is typically migratory and non-deforming",
+        "It is caused by direct bacterial infection of the heart valves",
+        "Diagnosis needs evidence of preceding strep plus the Jones criteria",
+        "The throat swab is usually positive at the time of presentation"],
+      correct:[0,1,2,4],
+      explanation:[
+        "TRUE: rheumatic fever follows group A strep PHARYNGITIS (rf-003); CARDITIS is the only manifestation leaving lasting damage (rf-019); the arthritis is MIGRATORY and non-deforming (rf-002); and diagnosis needs preceding-strep evidence PLUS the Jones criteria (rf-009).",
+        "FALSE: it is NOT a direct bacterial infection of the valves &mdash; it is an immune-mediated, post-infectious process (molecular mimicry, rf-005). Direct valve infection is INFECTIVE ENDOCARDITIS, a different disease.",
+        "FALSE: the throat swab is usually NEGATIVE by presentation, because the illness appears 2&ndash;4 weeks after the sore throat once the organism has cleared &mdash; which is why rising ANTIBODY titres, not the swab, give the strep evidence (rf-004, rf-013).",
+        "Together these capture the essence: a post-infectious immune reaction to strep throat, diagnosed by Jones criteria plus strep evidence, in which the carditis is the part that matters long-term."
+      ] },
+    { id:"rf-045", type:"mcq", objective:"rf-primary-vs-secondary-prevention",
+      question:"Public-health control of rheumatic fever distinguishes PRIMARY from SECONDARY prevention. Which pairing is correct?",
+      options:[
+        "Primary is long-term penicillin after an attack; secondary is treating the acute sore throat",
+        "Primary is valve replacement surgery; secondary is anticoagulation for atrial fibrillation",
+        "Primary is prompt antibiotic treatment of strep throat; secondary is long-term penicillin prophylaxis",
+        "Primary is echocardiographic population screening; secondary is treating established heart failure",
+        "Primary and secondary prevention both simply mean giving high-dose aspirin"],
+      correctIndex:2,
+      explanation:[
+        "PRIMARY prevention = stopping a FIRST attack by promptly treating group A strep PHARYNGITIS with antibiotics (penicillin) so rheumatic fever never develops. SECONDARY prevention = after an attack, long-term penicillin PROPHYLAXIS to prevent RECURRENCE (rf-030).",
+        "The distinction maps onto the timeline: primary acts at the sore-throat stage (before any rheumatic fever); secondary acts after the diagnosis (to protect the heart from further attacks, rf-032).",
+        "Both rest on the same fact &mdash; that rheumatic fever is triggered by strep and that penicillin prevents it &mdash; but act at different points: prevent the trigger (primary) vs prevent the recurrence (secondary).",
+        "Trap: swapping the two (A), or substituting valve surgery, anticoagulation, echo screening or aspirin for the antibiotic strategies (B, D, E), confuses prevention of the DISEASE with treatment of its COMPLICATIONS."
+      ] },
+    { id:"rf-046", type:"categorize", objective:"rf-acute-vs-chronic",
+      question:"Sort each feature into whether it belongs to ACUTE rheumatic fever or to chronic RHEUMATIC HEART DISEASE.",
+      buckets:["Acute rheumatic fever","Chronic rheumatic heart disease"],
+      items:[
+        {text:"Migratory polyarthritis",bucket:0},
+        {text:"Sydenham chorea",bucket:0},
+        {text:"Erythema marginatum",bucket:0},
+        {text:"Carey Coombs murmur (active valvulitis)",bucket:0},
+        {text:"Mitral stenosis with an opening snap",bucket:1},
+        {text:"Atrial fibrillation with embolic stroke",bucket:1},
+        {text:"Left atrial dilatation from chronic valve obstruction",bucket:1}
+      ],
+      explanation:[
+        "ACUTE rheumatic fever features are the Jones manifestations of the active illness: migratory polyarthritis (rf-002), Sydenham chorea (rf-020), erythema marginatum (rf-024) and the Carey Coombs murmur of ACTIVE valvulitis (rf-022).",
+        "CHRONIC rheumatic heart disease features are the late sequelae of scarred valves: mitral STENOSIS with its opening snap (rf-037/041), atrial fibrillation with embolic stroke (rf-038), and left atrial dilatation from chronic obstruction.",
+        "The dividing line is time and mechanism: acute = active immune inflammation (weeks); chronic = fixed structural valve damage (years to decades). Carey Coombs (acute, transient) versus the mitral-stenosis murmur (chronic, fixed) is the classic contrast."
+      ] },
+    { id:"rf-047", type:"mcq", objective:"rf-capstone-priority",
+      question:"A 9-year-old is diagnosed with acute rheumatic fever WITH carditis. Considering the whole course of the disease, which single statement best captures the priority of long-term management?",
+      options:[
+        "Long-term penicillin prophylaxis, to prevent recurrences that damage the valves",
+        "Lifelong high-dose aspirin, to stop the migratory arthritis from ever returning",
+        "Annual echocardiography by itself, with no need for any antibiotic prophylaxis",
+        "No long-term follow-up at all, provided the acute episode fully resolves",
+        "Immediate mitral valve replacement, arranged now to pre-empt future stenosis"],
+      correctIndex:0,
+      explanation:[
+        "The long-term priority is SECONDARY PENICILLIN PROPHYLAXIS (rf-030). Rheumatic fever is a transient illness whose ONE lasting harm is valve damage from carditis (rf-019); each RECURRENCE adds to that damage (rf-017), so preventing recurrence is what protects the heart.",
+        "This child had CARDITIS, so the prophylaxis duration falls in the longer tiers &mdash; and if residual valve disease persists, potentially to age 40 or beyond (rf-032).",
+        "The other elements have their place but are not the long-term PRIORITY: acute anti-inflammatories treat the arthritis (rf-031), echo monitors the valves (rf-023), and valve intervention is reserved for established severe lesions (rf-042) &mdash; not pre-emptive surgery.",
+        "Trap: aspirin doesn&rsquo;t prevent recurrence (B); echo monitors but doesn&rsquo;t protect (C); no follow-up abandons the child to recurrences (D); and pre-emptive valve replacement (E) is never done before a lesion warrants it."
+      ] },
+    { id:"rf-048", type:"mcq", objective:"rf-capstone-discharge",
+      question:"A 14-year-old refugee has a 2-week migratory polyarthritis, a new pansystolic apical murmur and a fever; ASO is markedly raised and echo shows mitral regurgitation. He is started on penicillin and aspirin. Which action is MOST important to arrange before discharge?",
+      options:[
+        "Arrange a single repeat ASO titre to be checked in one year's time",
+        "Continue lifelong daily high-dose aspirin at the current treatment dose",
+        "Organise genetic testing of the whole family for rheumatic fever risk",
+        "Book an exercise tolerance test in order to grade the migratory arthritis",
+        "Set up regular long-term penicillin prophylaxis with cardiology follow-up"],
+      correctIndex:4,
+      explanation:[
+        "This is acute rheumatic fever with CARDITIS (migratory arthritis + a new MR murmur + echo valvulitis + raised ASO = two majors plus strep evidence). The most important thing to secure before discharge is SECONDARY PROPHYLAXIS: regular long-term penicillin, with reliable cardiology follow-up (rf-030/rf-032).",
+        "Because he had carditis with valve involvement, he is in the highest-risk group for damaging recurrences (rf-017), and adherence is often the weak link &mdash; so a concrete recall/injection plan matters more than any one-off test.",
+        "The acute treatment (penicillin to clear strep, aspirin for the arthritis) is already under way; the long-term protection of the heart is what must not be missed at discharge &mdash; it is the intervention that changes his prognosis.",
+        "Trap: a one-off ASO (A) adds nothing; lifelong aspirin (B) doesn&rsquo;t prevent recurrence; rheumatic fever is not a single-gene disorder, so family genetic testing (C) is irrelevant; and an exercise test to &lsquo;grade arthritis&rsquo; (D) is pointless &mdash; none protect the valves the way prophylaxis does."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
