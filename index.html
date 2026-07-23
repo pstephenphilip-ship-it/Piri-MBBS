@@ -7239,6 +7239,142 @@ window.MOCK_BANK = {
         "They are uncommon and, like erythema marginatum (rf-024), appear later in the illness; together the skin signs are highly specific but insensitive.",
         "Trap: gouty tophi (A) are urate deposits; rheumatoid nodules (C) occur in seropositive RA; Osler nodes (D) are the painful pulp lesions of infective endocarditis; Heberden nodes (E) are the DIP osteophytes of osteoarthritis &mdash; different nodules, different diseases."
       ] },
+    { id:"rf-027", type:"mcq", objective:"rf-bloods-panel",
+      question:"A child with suspected rheumatic fever has the blood results shown. Which single interpretation is correct?",
+      data:'<div class="mk-obs-h">Blood results</div><table class="mk-labs"><tr><td>ESR</td><td><b>74 mm/hr</b></td><td>&lt;15</td></tr><tr><td>CRP</td><td><b>96 mg/L</b></td><td>&lt;5</td></tr><tr><td>White cell count</td><td><b>14.2 &times;10&sup9;/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>ASO titre</td><td><b>Rising on paired samples</b></td><td>&mdash;</td></tr><tr><td>Haemoglobin</td><td><b>128 g/L</b></td><td>115&ndash;155</td></tr><tr><td>Antinuclear antibody</td><td><b>Negative</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "The raised ESR and CRP by themselves confirm the diagnosis of rheumatic fever",
+        "The normal haemoglobin makes acute rheumatic fever very unlikely here",
+        "The raised ESR and CRP are minor criteria: non-specific inflammation, not diagnostic",
+        "The negative antinuclear antibody effectively rules out rheumatic fever",
+        "The raised white cell count counts as a major Jones criterion in itself"],
+      correctIndex:2,
+      explanation:[
+        "The raised ESR and CRP are ACUTE-PHASE markers &mdash; they are MINOR Jones criteria (rf-014): supportive evidence of inflammation, but NON-SPECIFIC and not diagnostic on their own. Many illnesses raise them.",
+        "The rising ASO is the piece that matters most here: it is the required evidence of preceding strep (rf-013). The leukocytosis is a further non-specific marker, NOT a criterion in its own right.",
+        "Read the &lsquo;normal&rsquo; results too: a normal haemoglobin and a negative ANA do not exclude rheumatic fever &mdash; they mainly help exclude MIMICS (e.g. ANA-positive lupus). Absence of anaemia is irrelevant to the diagnosis.",
+        "Trap: treating raised markers or a high WCC as CONFIRMATORY or MAJOR (A, E), or using a normal Hb / negative ANA to EXCLUDE the disease (B, D), all misread a non-specific acute-phase response."
+      ] },
+    { id:"rf-028", type:"mcq", objective:"rf-cxr",
+      question:"A child with severe rheumatic carditis is breathless. A chest X-ray is performed. Which finding would you expect if the carditis has caused heart failure?",
+      options:[
+        "Cardiomegaly with pulmonary congestion/oedema",
+        "A boot-shaped heart with reduced pulmonary markings",
+        "A widened mediastinum from aortic dissection",
+        "Hyperinflated lung fields with flattened diaphragms",
+        "A globular heart with clear lungs and no congestion"],
+      correctIndex:0,
+      explanation:[
+        "In rheumatic carditis complicated by heart failure, the chest X-ray shows CARDIOMEGALY (an enlarged cardiac silhouette from dilatation and/or effusion) and PULMONARY CONGESTION or frank oedema (upper-lobe diversion, Kerley B lines, effusions).",
+        "The X-ray may be NORMAL in milder carditis &mdash; it is a marker of severity/failure, not a diagnostic test for rheumatic fever. Echo is the test that detects the carditis itself (rf-023).",
+        "Cardiomegaly here can reflect myocardial dilatation, significant valve regurgitation, or a pericardial effusion &mdash; all parts of the pancarditis (rf-019).",
+        "Trap: a boot-shaped heart (B) is tetralogy of Fallot; a widened mediastinum (C) is aortic dissection; hyperinflation (D) is obstructive airway disease; and a globular heart with CLEAR lungs (E) suggests a pericardial effusion without failure, not the congested picture of decompensated carditis."
+      ] },
+    { id:"rf-029", type:"mcq", objective:"rf-eradicate-strep",
+      question:"A child is diagnosed with acute rheumatic fever. As part of management, any residual streptococcal infection must be eradicated. Which is the standard antibiotic choice?",
+      options:[
+        "A three-day course of oral azithromycin, used here as the standard first line",
+        "Intravenous vancomycin given for a fortnight to cover resistant organisms",
+        "A single IM dose of benzathine benzylpenicillin, or 10 days of oral penicillin V",
+        "No antibiotic at all, since the streptococcal infection has already cleared",
+        "A topical antiseptic gargle, sufficient to clear residual throat carriage"],
+      correctIndex:2,
+      explanation:[
+        "Even though rheumatic fever is post-infectious, you still ERADICATE any residual group A strep: a SINGLE intramuscular dose of BENZATHINE BENZYLPENICILLIN, or a 10-day course of oral PENICILLIN V. A MACROLIDE (e.g. azithromycin, erythromycin) is used if penicillin-allergic.",
+        "This clears the organism and, importantly, is the FIRST dose of the secondary-prophylaxis strategy that then continues long-term (rf-030) to prevent recurrence.",
+        "It does NOT treat the acute illness itself &mdash; the arthritis and carditis are immune-mediated and need anti-inflammatories (rf-031) or steroids (rf-033); the antibiotic addresses the strep, not the immune damage (rf-004).",
+        "Trap: azithromycin is a fallback for penicillin allergy, not routine first line (A); vancomycin (B) is unnecessary; doing nothing (D) forgoes eradication and prophylaxis; and a topical agent (E) cannot reliably clear pharyngeal strep."
+      ] },
+    { id:"rf-030", type:"mcq", objective:"rf-secondary-prophylaxis",
+      question:"After recovering from acute rheumatic fever, a child is to start SECONDARY prophylaxis. What does this involve, and why?",
+      options:[
+        "Regular long-acting IM benzathine penicillin, given to prevent recurrent attacks",
+        "A short antibiotic course taken only if throat symptoms happen to return",
+        "Lifelong daily low-dose aspirin, taken to protect the heart valves",
+        "Annual influenza and pneumococcal vaccination, with no antibiotics",
+        "No ongoing treatment at all once the acute episode has fully resolved"],
+      correctIndex:0,
+      explanation:[
+        "Secondary prophylaxis is REGULAR long-acting penicillin &mdash; intramuscular BENZATHINE penicillin every 3&ndash;4 weeks (or twice-daily oral penicillin V) &mdash; to prevent further group A strep infections and therefore RECURRENT attacks of rheumatic fever.",
+        "The rationale is that recurrence is common and each attack ADDS valve damage (rf-017); prophylaxis is the single most important intervention for preventing progression to severe chronic rheumatic heart disease.",
+        "IM benzathine every 3&ndash;4 weeks is preferred where adherence to daily tablets is uncertain &mdash; a single missed strep infection can trigger a damaging recurrence, so reliable cover matters. Duration depends on carditis/valve status (rf-032).",
+        "Trap: treating only when symptoms return (B), relying on aspirin (C, which treats inflammation, not strep), vaccination alone (D), or stopping altogether (E) all leave the child unprotected against the recurrences that destroy valves."
+      ] },
+    { id:"rf-031", type:"mcq", objective:"rf-aspirin-nsaid",
+      question:"A child with acute rheumatic fever has a painful migratory arthritis and fever, with no heart failure. Which treatment best addresses the arthritis and fever?",
+      options:[
+        "Intravenous immunoglobulin",
+        "A single dose of adrenaline",
+        "Long-term methotrexate",
+        "Allopurinol",
+        "High-dose aspirin or an NSAID"],
+      correctIndex:4,
+      explanation:[
+        "The arthritis and fever of rheumatic fever respond dramatically to ANTI-INFLAMMATORIES: high-dose ASPIRIN or an NSAID. The joint response is often rapid and near-complete (rf-002).",
+        "Rheumatic fever is one of the FEW settings (with Kawasaki disease) where aspirin is deliberately given to a CHILD despite the usual Reye&rsquo;s-syndrome caution (rf-035).",
+        "Anti-inflammatories treat the immune-mediated inflammation; they are given ALONGSIDE penicillin (which clears the strep, rf-029). SEVERE carditis with heart failure is escalated to corticosteroids (rf-033).",
+        "Trap: IVIG, adrenaline, methotrexate and allopurinol (A, B, C, D) have no role in the acute arthritis of rheumatic fever &mdash; allopurinol is for gout, methotrexate for chronic inflammatory arthritis, adrenaline for anaphylaxis."
+      ] },
+    { id:"rf-032", type:"mcq", objective:"rf-prophylaxis-duration",
+      question:"A 14-year-old had acute rheumatic fever WITH carditis and has persistent mitral regurgitation on echo. For how long should secondary penicillin prophylaxis continue?",
+      options:[
+        "5 years, or until the age of 21, whichever of the two is longer",
+        "10 years, or until the age of 21, whichever of the two is longer",
+        "10 years, or until the age of 40, whichever is longer (sometimes lifelong)",
+        "Only until the joint and cardiac symptoms have fully settled, then stop",
+        "For six months following the acute episode, then discontinue entirely"],
+      correctIndex:2,
+      explanation:[
+        "Duration is stratified by CARDITIS and residual VALVE disease. This patient had carditis WITH persistent valve disease (mitral regurgitation), so prophylaxis continues for 10 YEARS or until age 40, whichever is longer &mdash; and sometimes LIFELONG.",
+        "The tiers: ARF WITHOUT carditis &rarr; 5 years or to age 21; carditis but NO residual valve disease &rarr; 10 years or to age 21; carditis WITH persistent valve disease &rarr; 10 years or to age 40 (whichever longer), sometimes lifelong.",
+        "The logic is risk-based: the more valve damage already present, the more a recurrence would cost (rf-017), so the highest-risk group gets the longest cover. Recurrence risk is also highest in youth and falls with age.",
+        "Trap: the shorter durations (A, B) apply to no-carditis or no-residual-disease cases; stopping at symptom resolution or after 6 months (D, E) abandons protection during the years of highest recurrence risk."
+      ] },
+    { id:"rf-033", type:"mcq", objective:"rf-steroids-carditis",
+      question:"A child with acute rheumatic fever develops SEVERE carditis with heart failure that is not controlled by anti-inflammatories. Which additional treatment is indicated?",
+      options:[
+        "Corticosteroids (e.g. oral prednisolone)",
+        "High-dose aspirin alone, at a higher dose",
+        "Immediate valve replacement surgery",
+        "Broad-spectrum intravenous antibiotics",
+        "Digoxin as the definitive treatment"],
+      correctIndex:0,
+      explanation:[
+        "SEVERE rheumatic carditis with heart failure is escalated to CORTICOSTEROIDS (e.g. prednisolone) to suppress the intense immune-mediated inflammation, alongside standard heart-failure treatment (diuretics, etc.).",
+        "Steroids are reserved for SEVERE carditis/failure; mild disease is managed with aspirin/NSAIDs (rf-031). The threshold to escalate reflects that carditis is the manifestation that threatens the heart (rf-019).",
+        "This is acute immune suppression, not a cure for the valve damage: established valve lesions still need long-term follow-up and, in chronic RHD, eventual repair/replacement (rf-042).",
+        "Trap: simply raising the aspirin dose (B) will not control severe carditis; acute valve surgery (C) is not the first response to acute carditis; antibiotics (D) treat strep, not the immune carditis; digoxin (E) is an adjunct for failure/AF, not the definitive anti-inflammatory treatment."
+      ] },
+    { id:"rf-034", type:"mcq", objective:"rf-chorea-mgmt",
+      question:"A child with Sydenham chorea has movements severe enough to interfere with feeding and walking. In addition to secondary penicillin prophylaxis, which approach is appropriate for the chorea itself?",
+      options:[
+        "Lifelong levodopa, as the chorea is due to dopamine deficiency in the brain",
+        "Supportive care, with valproate or carbamazepine reserved for disabling movements",
+        "Deep brain stimulation of the basal ganglia, offered as the first-line option",
+        "Urgent neurosurgical decompression to relieve pressure on the basal ganglia",
+        "High-dose aspirin, which reliably and rapidly resolves the choreiform movements"],
+      correctIndex:1,
+      explanation:[
+        "Sydenham chorea is SELF-LIMITING, so management is largely SUPPORTIVE (a calm environment, protection from injury). If the movements are DISABLING, an agent such as valproate or carbamazepine (sometimes an antidopaminergic) is used.",
+        "Regardless of how the chorea is managed, the rheumatic-fever diagnosis still mandates secondary penicillin PROPHYLAXIS (rf-030) &mdash; the chorea is a manifestation of rheumatic fever, and recurrence must be prevented.",
+        "The self-limiting course (weeks to months) means aggressive intervention is rarely needed; the emphasis is symptom control and safety while it resolves (rf-020).",
+        "Trap: levodopa, deep-brain stimulation and neurosurgery (A, C, D) are for other movement disorders and have no place here; and aspirin (E) treats the arthritis, not the chorea."
+      ] },
+    { id:"rf-035", type:"mcq", objective:"rf-reye-exception",
+      question:"A junior doctor is reluctant to prescribe aspirin for a child with acute rheumatic fever, citing the risk of Reye syndrome. What is the correct position?",
+      options:[
+        "Aspirin must never be given to any child under any circumstances whatsoever",
+        "Paracetamol is equally anti-inflammatory and should simply replace the aspirin",
+        "Aspirin is entirely safe in children, and Reye syndrome is essentially a myth",
+        "Rheumatic fever and Kawasaki disease are the exceptions where children do get aspirin",
+        "It is ibuprofen, not aspirin, that causes Reye syndrome in this age group"],
+      correctIndex:3,
+      explanation:[
+        "The caution is generally right &mdash; aspirin is usually AVOIDED in children because of REYE SYNDROME (encephalopathy + liver failure, linked to aspirin in febrile viral illness). But rheumatic fever is one of the FEW DELIBERATE EXCEPTIONS, along with KAWASAKI disease.",
+        "In rheumatic fever the anti-inflammatory benefit for the arthritis/carditis outweighs the small Reye risk, so high-dose aspirin IS used (rf-031) &mdash; with awareness of the risk.",
+        "Knowing the exceptions is the exam point: &lsquo;never aspirin in children&rsquo; is the rule, but RHEUMATIC FEVER and KAWASAKI are the named exceptions where it is standard therapy.",
+        "Trap: an absolute ban (A) ignores the exceptions; paracetamol is antipyretic but not usefully anti-inflammatory (B); Reye syndrome is real, not a myth (C); and it is ASPIRIN, not ibuprofen, that is linked to Reye (E)."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
