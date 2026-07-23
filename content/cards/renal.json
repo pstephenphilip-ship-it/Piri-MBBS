@@ -2686,7 +2686,7 @@
    {
     "id": "hrn-jga-fc-004",
     "front": "What is the macula densa and what does it sense?",
-    "back": "A focal patch of modified distal-tubule epithelial cells (tall, crowded nuclei) that sense the luminal NaCl (chloride) concentration delivered to the distal tubule."
+    "back": "A focal patch of modified epithelial cells at the end of the thick ascending limb (TAL-DCT junction; tall crowded nuclei) that senses luminal chloride via the apical NKCC2 cotransporter - the same transporter blocked by loop diuretics."
    },
    {
     "id": "hrn-jga-fc-005",
@@ -2726,7 +2726,7 @@
    {
     "id": "hrn-jga-fc-012",
     "front": "List the main actions of angiotensin II.",
-    "back": "Systemic vasoconstriction, stimulation of aldosterone (Na/water retention) and ADH, stimulation of thirst, increased proximal tubular Na+ reabsorption, and preferential efferent arteriolar constriction."
+    "back": "Via the AT1 receptor: systemic vasoconstriction, aldosterone (Na/water retention) and ADH release, thirst, increased proximal Na+ reabsorption, preferential efferent constriction, central sympathetic facilitation and cardiac/vascular remodelling. Renin is the rate-limiting step of the cascade."
    },
    {
     "id": "hrn-jga-fc-013",
@@ -2751,7 +2751,7 @@
    {
     "id": "hrn-jga-fc-017",
     "front": "What mediator does the macula densa use to constrict the afferent arteriole when NaCl is high?",
-    "back": "Adenosine (ATP-derived)."
+    "back": "Adenosine (from ATP), acting on afferent-arteriole A1 receptors to constrict it and lower GFR."
    },
    {
     "id": "hrn-jga-fc-018",
@@ -2806,7 +2806,37 @@
    {
     "id": "hrn-jga-fc-028",
     "front": "Which nephron structure loops back to contact its own glomerulus, and why is this important?",
-    "back": "The early distal convoluted tubule returns to the vascular pole as the macula densa, letting the nephron sense its own distal salt delivery and adjust filtration and renin."
+    "back": "The end of the thick ascending limb returns to the vascular pole as the macula densa, letting the nephron sense its own distal chloride delivery (via NKCC2) and adjust filtration and renin."
+   },
+   {
+    "id": "hrn-jga-fc-029",
+    "front": "Why do ACE inhibitors cause a dry cough and angioedema, and why do ARBs not?",
+    "back": "ACE (kininase II) degrades bradykinin, so ACE inhibitors raise bradykinin, causing a dry cough (~10-20%) and occasional angioedema. ARBs block the AT1 receptor directly without raising bradykinin, so cause much less cough - the standard switch when ACEi cough develops."
+   },
+   {
+    "id": "hrn-jga-fc-030",
+    "front": "What is the second messenger for renin release, and what is the 'calcium paradox'?",
+    "back": "beta-1 stimulation raises cAMP (Gs/adenylyl cyclase), which STIMULATES renin. Unusually for a secretory cell, a rise in intracellular calcium INHIBITS renin release (the calcium paradox) - so falling afferent pressure (less Ca2+ entry) increases renin."
+   },
+   {
+    "id": "hrn-jga-fc-031",
+    "front": "By which two mechanisms is renal blood flow autoregulated, and over what pressure range?",
+    "back": "The fast myogenic response (afferent smooth-muscle stretch triggers constriction) and the slower tubuloglomerular feedback; together they keep RBF and GFR roughly constant over a mean arterial pressure of about 80-180 mmHg."
+   },
+   {
+    "id": "hrn-jga-fc-032",
+    "front": "How do SGLT2 inhibitors protect the kidney via tubuloglomerular feedback?",
+    "back": "By blocking proximal Na+/glucose reabsorption they increase NaCl delivery to the macula densa; tubuloglomerular feedback then constricts the afferent arteriole, lowering intraglomerular (hyperfiltration) pressure - slowing progression of diabetic and chronic kidney disease."
+   },
+   {
+    "id": "hrn-jga-fc-033",
+    "front": "How does the macula densa stimulate renin when luminal NaCl is low?",
+    "back": "Low NaCl at the macula densa activates COX-2 to produce PGE2, and reduces adenosine; both stimulate renin release from adjacent JG cells (and dilate the afferent arteriole). NSAIDs blunt this response."
+   },
+   {
+    "id": "hrn-jga-fc-034",
+    "front": "How does the aldosterone-to-renin ratio distinguish causes of secondary hypertension?",
+    "back": "Primary hyperaldosteronism (Conn's): aldosterone high, renin suppressed -> HIGH ARR. Renovascular hypertension and reninoma: high renin driving high aldosterone -> low/normal ARR. This separates primary from renin-driven (secondary) aldosterone excess."
    }
   ],
   "histology__RENAL__Ureter & Bladder": [
@@ -8880,10 +8910,11 @@
      "Fall in renal perfusion pressure",
      "Decreased NaCl at the macula densa",
      "Sympathetic beta-1 stimulation",
-     "Increased NaCl delivery to the distal tubule"
+     "Increased NaCl delivery to the distal tubule",
+     "Haemorrhage / volume depletion"
     ],
     "correctIndex": 3,
-    "explanation": "Increased distal NaCl delivery suppresses renin. Renin is stimulated by low perfusion, low macula-densa NaCl and sympathetic beta-1 activity."
+    "explanation": "Increased distal NaCl delivery SUPPRESSES renin. Renin is stimulated by low perfusion (baroreceptor), low macula-densa NaCl, sympathetic beta-1 activity and volume depletion."
    },
    {
     "id": "hrn-jga-q-004",
@@ -9094,6 +9125,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Stenosis lowers perfusion to the affected kidney, stimulating renin release and RAAS-mediated hypertension."
+   },
+   {
+    "id": "hrn-jga-q-019",
+    "type": "mcq",
+    "question": "A patient develops a persistent dry cough on an ACE inhibitor. The mechanism, and the best alternative drug, are:",
+    "options": [
+     "Excess angiotensin II; switch to a beta-blocker",
+     "Accumulation of bradykinin; switch to an ARB",
+     "Low aldosterone; switch to a thiazide",
+     "Efferent dilation; switch to an NSAID",
+     "Renin excess; switch to a loop diuretic"
+    ],
+    "correctIndex": 1,
+    "explanation": "ACE (kininase II) normally degrades bradykinin; ACE inhibitors raise it, causing cough and angioedema. An ARB blocks the AT1 receptor without raising bradykinin, so it is the usual substitute."
+   },
+   {
+    "id": "hrn-jga-q-020",
+    "type": "mcq",
+    "question": "SGLT2 inhibitors are renoprotective partly because increasing NaCl delivery to the macula densa causes:",
+    "options": [
+     "Afferent dilation and hyperfiltration",
+     "Tubuloglomerular-feedback afferent constriction, lowering intraglomerular pressure",
+     "Efferent constriction",
+     "Increased renin and GFR",
+     "Loss of autoregulation"
+    ],
+    "correctIndex": 1,
+    "explanation": "By blocking proximal Na/glucose reabsorption, SGLT2 inhibitors raise macula densa NaCl; tubuloglomerular feedback then constricts the afferent arteriole, reducing glomerular hyperfiltration pressure and slowing CKD progression."
    }
   ],
   "histology__RENAL__Ureter & Bladder": [
