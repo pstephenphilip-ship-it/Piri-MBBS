@@ -436,7 +436,7 @@
    {
     "id": "hss-sweat-fc-001",
     "front": "What are the two types of sweat gland?",
-    "back": "Eccrine (merocrine) sweat glands and apocrine sweat glands."
+    "back": "Eccrine (merocrine) and apocrine sweat glands (plus a hybrid apo-eccrine type in the axilla)."
    },
    {
     "id": "hss-sweat-fc-002",
@@ -526,7 +526,7 @@
    {
     "id": "hss-sweat-fc-019",
     "front": "How does the sweat test diagnose cystic fibrosis?",
-    "back": "In CF the defective CFTR channel prevents chloride (and sodium) reabsorption in the sweat duct, so sweat chloride is abnormally high."
+    "back": "Normally duct CFTR reabsorbs luminal Cl⁻ (Na⁺ follows via ENaC); in CF this fails, so both sweat Cl⁻ and Na⁺ are high. Pilocarpine iontophoresis is used; sweat chloride ≥60 mmol/L is diagnostic (30–59 intermediate)."
    },
    {
     "id": "hss-sweat-fc-020",
@@ -546,12 +546,12 @@
    {
     "id": "hss-sweat-fc-023",
     "front": "What is hidradenitis suppurativa?",
-    "back": "A chronic inflammatory disease of apocrine-gland-bearing skin (axillae, groin) with occlusion, painful nodules, sinus tracts and scarring."
+    "back": "A chronic follicular-occlusion inflammatory disease of intertriginous apocrine-gland-bearing skin (axillae, groin) with painful nodules, sinus tracts and scarring; apocrine involvement is secondary (part of the follicular occlusion tetrad)."
    },
    {
     "id": "hss-sweat-fc-024",
     "front": "What is miliaria?",
-    "back": "'Heat rash' caused by blockage of eccrine sweat ducts, trapping sweat and producing an itchy vesicular rash."
+    "back": "'Heat rash' from eccrine duct obstruction: miliaria crystallina (superficial, clear, non-itchy vesicles), rubra (itchy 'prickly heat'), and profunda (deep, flesh-coloured papules)."
    },
    {
     "id": "hss-sweat-fc-025",
@@ -592,6 +592,60 @@
     "id": "hss-sweat-fc-032",
     "front": "Why are eccrine glands important in a hot environment or fever?",
     "back": "Their evaporative sweat is the body's main mechanism for dissipating heat and lowering core temperature."
+   },
+   {
+    "id": "hss-sweat-fc-033",
+    "type": "flashcard",
+    "front": "Why is the \"apocrine\" sweat gland a misnomer?",
+    "back": "Ultrastructurally these glands secrete largely by merocrine exocytosis, not by decapitation; the true apocrine (decapitation) gland is the lactating mammary gland."
+   },
+   {
+    "id": "hss-sweat-fc-034",
+    "type": "flashcard",
+    "front": "Outline the two-step model of eccrine sweat formation.",
+    "back": "Clear cells secrete an isotonic primary fluid; the water-impermeable duct then reabsorbs Na+ (via ENaC) and Cl- (via CFTR) faster than water, giving hypotonic final sweat. Aldosterone increases duct Na+ reabsorption with heat acclimatisation."
+   },
+   {
+    "id": "hss-sweat-fc-035",
+    "type": "flashcard",
+    "front": "What antimicrobial substances are found in eccrine sweat?",
+    "back": "Dermcidin (constitutively secreted), cathelicidin (LL-37), lysozyme and secretory IgA — giving sweat an innate-immune barrier role, alongside urea, lactate and ammonia."
+   },
+   {
+    "id": "hss-sweat-fc-036",
+    "type": "flashcard",
+    "front": "What are apo-eccrine glands?",
+    "back": "A hybrid third gland type in the axilla that opens onto the skin surface like eccrine but has a large secretory coil; high output, implicated in axillary hyperhidrosis."
+   },
+   {
+    "id": "hss-sweat-fc-037",
+    "type": "flashcard",
+    "front": "What is Frey (auriculotemporal) syndrome?",
+    "back": "Gustatory sweating/flushing over the cheek after parotid surgery, from aberrant regeneration of parasympathetic secretomotor fibres to cutaneous sweat glands; diagnosed with the Minor starch-iodine test, treated with botulinum toxin."
+   },
+   {
+    "id": "hss-sweat-fc-038",
+    "type": "flashcard",
+    "front": "Distinguish primary and secondary hyperhidrosis.",
+    "back": "Primary/idiopathic focal — symmetrical palmar/plantar/axillary, childhood onset, stops during sleep; secondary/generalised — nocturnal or whole-body, from thyrotoxicosis, phaeochromocytoma, malignancy, menopause or drugs."
+   },
+   {
+    "id": "hss-sweat-fc-039",
+    "type": "flashcard",
+    "front": "Name some benign sweat gland tumours and their origin.",
+    "back": "Eccrine: syringoma (small periorbital papules), poroma, cylindroma (\"turban tumour\"); apocrine/mixed: hidradenoma (hidradenoma papilliferum of the vulva)."
+   },
+   {
+    "id": "hss-sweat-fc-040",
+    "type": "flashcard",
+    "front": "How does the eccrine duct wall appear, and what identifies myoepithelial cells?",
+    "back": "Two layers of cuboidal cells (basal + luminal) with an eosinophilic PAS-positive luminal cuticle; the peripheral myoepithelial cells are contractile and p63/SMA/calponin positive."
+   },
+   {
+    "id": "hss-sweat-fc-041",
+    "type": "flashcard",
+    "front": "Why can partial-thickness burns re-epithelialise without grafting?",
+    "back": "Sweat glands (and hair follicles) harbour epithelial stem/progenitor cells that migrate out to re-epithelialise the epidermis when the surface is lost but the adnexa are spared."
    }
   ],
   "histology__SKIN & SPECIAL SENSES__Eye (retina, cornea, lens)": [
@@ -2298,6 +2352,118 @@
     ],
     "correctIndex": 1,
     "explanation": "Apocrine glands open into the hair follicle, whereas eccrine glands open onto the skin surface."
+   },
+   {
+    "id": "hss-sweat-q-021",
+    "type": "mcq",
+    "question": "Despite its name, the human axillary apocrine sweat gland secretes mainly by:",
+    "options": [
+     "True apocrine (decapitation)",
+     "Merocrine exocytosis",
+     "Holocrine",
+     "Endocrine",
+     "Cytocrine"
+    ],
+    "correctIndex": 1,
+    "explanation": "Human \"apocrine\" sweat glands actually secrete largely by merocrine exocytosis; the name is a historical/ultrastructural misnomer."
+   },
+   {
+    "id": "hss-sweat-q-022",
+    "type": "mcq",
+    "question": "The true example of apocrine (decapitation) secretion is the:",
+    "options": [
+     "Eccrine sweat gland",
+     "Lactating mammary gland",
+     "Sebaceous gland",
+     "Parotid gland",
+     "Thyroid gland"
+    ],
+    "correctIndex": 1,
+    "explanation": "The lactating mammary gland is the classic decapitation-apocrine gland, releasing membrane-bound apical lipid droplets."
+   },
+   {
+    "id": "hss-sweat-q-023",
+    "type": "mcq",
+    "question": "The primary secretion produced by the eccrine secretory coil is:",
+    "options": [
+     "Hypotonic",
+     "Isotonic",
+     "Hypertonic",
+     "Protein-rich",
+     "Strongly acidic"
+    ],
+    "correctIndex": 1,
+    "explanation": "Clear cells make an isotonic, plasma-like primary secretion; the duct then reabsorbs NaCl to make the final sweat hypotonic."
+   },
+   {
+    "id": "hss-sweat-q-024",
+    "type": "mcq",
+    "question": "In the normal eccrine duct, chloride is reabsorbed through:",
+    "options": [
+     "ENaC",
+     "CFTR",
+     "Aquaporin channels",
+     "Only the Na-K-2Cl cotransporter",
+     "Voltage-gated Na channels"
+    ],
+    "correctIndex": 1,
+    "explanation": "CFTR reabsorbs Cl⁻ from the duct lumen (Na⁺ via ENaC); loss of CFTR in cystic fibrosis raises sweat chloride."
+   },
+   {
+    "id": "hss-sweat-q-025",
+    "type": "mcq",
+    "question": "The diagnostic sweat chloride threshold for cystic fibrosis (pilocarpine iontophoresis) is about:",
+    "options": [
+     "≥20 mmol/L",
+     "≥60 mmol/L",
+     "≥100 mmol/L",
+     "≥10 mmol/L",
+     "≥40 mmol/L"
+    ],
+    "correctIndex": 1,
+    "explanation": "Sweat chloride ≥60 mmol/L is diagnostic of CF; 30–59 mmol/L is intermediate and <30 mmol/L normal."
+   },
+   {
+    "id": "hss-sweat-q-026",
+    "type": "mcq",
+    "question": "Gustatory facial sweating after parotid surgery (auriculotemporal nerve) is called:",
+    "options": [
+     "Fox-Fordyce disease",
+     "Frey syndrome",
+     "Bromhidrosis",
+     "Miliaria rubra",
+     "Hidradenitis suppurativa"
+    ],
+    "correctIndex": 1,
+    "explanation": "Frey syndrome is gustatory sweating from misdirected parasympathetic auriculotemporal fibres reinnervating cutaneous sweat glands."
+   },
+   {
+    "id": "hss-sweat-q-027",
+    "type": "mcq",
+    "question": "The constitutively secreted antimicrobial peptide of eccrine sweat is:",
+    "options": [
+     "Human defensin-6",
+     "Dermcidin",
+     "Insulin",
+     "Mucin",
+     "Trichohyalin"
+    ],
+    "correctIndex": 1,
+    "explanation": "Dermcidin is an eccrine-specific, constitutively secreted antimicrobial peptide contributing to skin innate immunity."
+   },
+   {
+    "id": "hss-sweat-q-028",
+    "type": "mcq",
+    "question": "Which benign eccrine sweat gland tumour presents as small periorbital papules?",
+    "options": [
+     "Cylindroma",
+     "Syringoma",
+     "Hidradenoma papilliferum",
+     "Sebaceous adenoma",
+     "Pilomatricoma"
+    ],
+    "correctIndex": 1,
+    "explanation": "Syringoma is a benign eccrine ductal tumour typically seen as small papules around the eyes; cylindroma is the scalp \"turban tumour\"."
    }
   ],
   "histology__SKIN & SPECIAL SENSES__Eye (retina, cornea, lens)": [
