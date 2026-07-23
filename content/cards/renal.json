@@ -2514,7 +2514,7 @@
    {
     "id": "hrn-tub-fc-006",
     "front": "Which tubular segment is most vulnerable to ischaemia and toxins?",
-    "back": "The proximal convoluted tubule (and the thick ascending limb), the sites injured in acute tubular necrosis."
+    "back": "The proximal straight tubule (S3/pars recta) and the medullary thick ascending limb in the hypoxic outer medulla - the sites injured in acute tubular necrosis."
    },
    {
     "id": "hrn-tub-fc-007",
@@ -2554,7 +2554,7 @@
    {
     "id": "hrn-tub-fc-014",
     "front": "How does the DCT handle calcium?",
-    "back": "It reabsorbs calcium under the control of parathyroid hormone (PTH)."
+    "back": "It reabsorbs calcium transcellularly via apical TRPV5 under parathyroid hormone control, and is the main site of magnesium reabsorption (via TRPM6) - so DCT injury/Gitelman causes hypomagnesaemia."
    },
    {
     "id": "hrn-tub-fc-015",
@@ -2579,7 +2579,7 @@
    {
     "id": "hrn-tub-fc-019",
     "front": "How does ADH concentrate the urine?",
-    "back": "It inserts aquaporin-2 channels into the apical membrane of collecting-duct principal cells, allowing water to be reabsorbed down the medullary osmotic gradient."
+    "back": "ADH binds the V2 receptor on principal cells (Gs -> cAMP), inserting aquaporin-2 channels into the apical membrane so water is reabsorbed down the medullary osmotic gradient."
    },
    {
     "id": "hrn-tub-fc-020",
@@ -2624,7 +2624,7 @@
    {
     "id": "hrn-tub-fc-028",
     "front": "Which part of the distal tubule forms part of the juxtaglomerular apparatus?",
-    "back": "The macula densa — the initial DCT segment where it contacts the vascular pole of its parent glomerulus, sensing tubular NaCl."
+    "back": "The macula densa - a plaque at the end of the thick ascending limb (at the TAL-DCT transition) that abuts the vascular pole of its own glomerulus and senses tubular NaCl."
    },
    {
     "id": "hrn-tub-fc-029",
@@ -2635,6 +2635,36 @@
     "id": "hrn-tub-fc-030",
     "front": "Which transporter mediates glucose reabsorption in the PCT, and what is its clinical relevance?",
     "back": "SGLT2 (and SGLT1) reabsorb filtered glucose; SGLT2 inhibitors (gliflozins) block this to cause glucosuria in diabetes."
+   },
+   {
+    "id": "hrn-tub-fc-031",
+    "front": "How does the thick ascending limb drive calcium/magnesium reabsorption, and why do loop diuretics cause hypercalciuria?",
+    "back": "ROMK recycles K+ back into the lumen, creating a lumen-positive transepithelial voltage that drives paracellular Ca2+ and Mg2+ reabsorption (via claudin-16/19). Loop diuretics block NKCC2, abolishing this voltage, so calcium excretion rises (hypercalciuria) - the basis for loop diuretics in hypercalcaemia."
+   },
+   {
+    "id": "hrn-tub-fc-032",
+    "front": "How does urea contribute to the medullary concentration gradient?",
+    "back": "ADH upregulates urea transporters (UT-A1/UT-A3) in the inner medullary collecting duct, letting urea recycle into the interstitium; it contributes roughly half of the medullary hyperosmolality that concentrates urine."
+   },
+   {
+    "id": "hrn-tub-fc-033",
+    "front": "Contrast the three main renal tubular acidoses.",
+    "back": "Type 1 (distal): failed H+ secretion by alpha-intercalated cells - hypokalaemic, urine pH >5.5, calcium stones. Type 2 (proximal): impaired HCO3- reabsorption (Fanconi) - hypokalaemic. Type 4: hypoaldosteronism/aldosterone resistance - HYPERkalaemic (the distinguishing feature)."
+   },
+   {
+    "id": "hrn-tub-fc-034",
+    "front": "List acquired causes of nephrogenic diabetes insipidus.",
+    "back": "Lithium (commonest; interferes with V2/AQP2), hypercalcaemia and hypokalaemia; plus inherited V2-receptor (X-linked) or aquaporin-2 mutations. The kidney cannot respond to ADH, giving dilute urine unresponsive to desmopressin."
+   },
+   {
+    "id": "hrn-tub-fc-035",
+    "front": "What is aldosterone escape?",
+    "back": "In chronic mineralocorticoid excess, initial Na+/water retention raises blood pressure, triggering pressure natriuresis and ANP release that restore sodium balance (so no oedema) - but potassium wasting and metabolic alkalosis persist, as in primary hyperaldosteronism (hypertension + hypokalaemia without oedema)."
+   },
+   {
+    "id": "hrn-tub-fc-036",
+    "front": "What are the features and treatment of SIADH?",
+    "back": "Excess ADH -> inappropriately concentrated urine and water retention -> euvolaemic (dilutional) hyponatraemia with low serum osmolality; causes include small-cell lung cancer, CNS/lung disease and drugs. Treat with fluid restriction and, if needed, vaptans (V2 antagonists) or demeclocycline."
    }
   ],
   "histology__RENAL__Juxtaglomerular Apparatus": [
@@ -8692,13 +8722,13 @@
     "question": "Which segment contributes the macula densa of the juxtaglomerular apparatus?",
     "options": [
      "PCT",
-     "Early distal convoluted tubule",
+     "Terminal thick ascending limb (at the TAL-DCT junction)",
      "Thin descending limb",
      "Collecting duct",
      "Efferent arteriole"
     ],
     "correctIndex": 1,
-    "explanation": "The initial DCT contacts the vascular pole of its own glomerulus as the macula densa, sensing tubular NaCl."
+    "explanation": "The macula densa is a specialised plaque at the end of the thick ascending limb, where it abuts the vascular pole of its own glomerulus and senses tubular NaCl (older texts loosely call it early distal tubule)."
    },
    {
     "id": "hrn-tub-q-015",
@@ -8783,6 +8813,34 @@
     ],
     "correctIndex": 1,
     "explanation": "Type 1 (distal) RTA reflects failure of H+ secretion by alpha-intercalated cells of the collecting duct."
+   },
+   {
+    "id": "hrn-tub-q-021",
+    "type": "mcq",
+    "question": "Which renal tubular acidosis is characteristically HYPERkalaemic?",
+    "options": [
+     "Type 1 (distal)",
+     "Type 2 (proximal)",
+     "Type 4 (hypoaldosteronism)",
+     "Both type 1 and type 2",
+     "None - all are hypokalaemic"
+    ],
+    "correctIndex": 2,
+    "explanation": "Type 4 RTA results from hypoaldosteronism or aldosterone resistance, impairing distal Na+/K+ exchange and causing a hyperkalaemic metabolic acidosis; types 1 and 2 are hypokalaemic."
+   },
+   {
+    "id": "hrn-tub-q-022",
+    "type": "mcq",
+    "question": "Loop diuretics cause hypercalciuria because blocking NKCC2 in the thick ascending limb:",
+    "options": [
+     "Directly blocks a calcium pump",
+     "Abolishes the lumen-positive voltage that drives paracellular Ca2+ reabsorption",
+     "Stimulates PTH release",
+     "Opens TRPV5 channels",
+     "Acidifies the urine"
+    ],
+    "correctIndex": 1,
+    "explanation": "NKCC2 activity, with ROMK recycling K+ into the lumen, generates a lumen-positive voltage that drives paracellular Ca2+/Mg2+ reabsorption; loop diuretics abolish it, raising calcium excretion (useful in hypercalcaemia). Thiazides, acting distally, instead cause hypocalciuria."
    }
   ],
   "histology__RENAL__Juxtaglomerular Apparatus": [
