@@ -4130,7 +4130,7 @@
    },
    {
     "id": "ie_fc_08",
-    "front": "Which organism causes prosthetic valve IE within 2 months of surgery (perioperative)?",
+    "front": "Which organism causes early prosthetic valve IE (within 1 year of surgery, perioperative)?",
     "back": "Staph epidermidis (coagulase-negative staphylococcus)."
    },
    {
@@ -4146,7 +4146,7 @@
    {
     "id": "ie_fc_11",
     "front": "What are the causes of culture-negative IE?",
-    "back": "HACEK organisms, Coxiella burnetii (Q fever), Bartonella, Brucella, and prior antibiotics."
+    "back": "Coxiella burnetii (Q fever), Bartonella, Brucella, Tropheryma whipplei, and prior antibiotics. (HACEK grow on modern cultures and are not truly culture-negative.)"
    },
    {
     "id": "ie_fc_12",
@@ -4229,11 +4229,6 @@
     "back": "3 sets from different sites, taken before antibiotics. ≥2 sets positive with a typical organism is a major Duke criterion; persistent bacteraemia is characteristic."
    },
    {
-    "id": "ie_fc_28",
-    "front": "How many blood culture sets are taken in IE, and what makes them a major Duke criterion?",
-    "back": "3 sets from different sites before antibiotics; ≥2 sets positive with a typical organism meets a major Duke criterion."
-   },
-   {
     "id": "ie_fc_29",
     "front": "What is the role of TTE vs TOE in IE, and which is more sensitive?",
     "back": "TTE first (less sensitive). TOE if TTE is negative but suspicion is high, or for a prosthetic valve, poor window, or complications. A normal echo does NOT exclude IE — do TOE if clinical suspicion is strong."
@@ -4270,8 +4265,8 @@
    },
    {
     "id": "ie_fc_36",
-    "front": "What does the 'BE TIMER' mnemonic cover for the Duke MINOR criteria?",
-    "back": "Bacteriological evidence not meeting major, Echo findings not meeting major, Temperature (fever >38°C), Immune phenomena (GN, Osler's, Roth spots, +RF), Microvascular/vascular phenomena (Janeway, infarcts), Echo minor, and a Risk factor / predisposing condition."
+    "front": "What are the 5 MINOR criteria of the modified Duke criteria for IE?",
+    "back": "Predisposition (predisposing cardiac condition or IVDU); Fever ≥38°C; Vascular phenomena (Janeway lesions, septic/arterial emboli, mycotic aneurysm, conjunctival/intracranial haemorrhage); Immunologic phenomena (Osler's nodes, Roth spots, glomerulonephritis, +RF); Microbiological evidence not meeting a major criterion. There is NO echo minor criterion — echo counts only as a major criterion."
    },
    {
     "id": "ie_fc_37",
@@ -4311,7 +4306,7 @@
    {
     "id": "ie_fc_44",
     "front": "List the indications for surgery in IE.",
-    "back": "Severe HF (acute aortic/mitral regurgitation with haemodynamic compromise), valve destruction (leaflet perforation, fistula), aortic root/annulus abscess (especially if causing AV block), recurrent systemic emboli despite antibiotics (especially vegetations >10mm), resistant organisms (fungi, highly resistant bacteria), prosthetic valve dehiscence or persistent bacteraemia despite treatment, and worsening renal failure from immune complex disease."
+    "back": "Severe HF (acute aortic/mitral regurgitation with haemodynamic compromise), valve destruction (leaflet perforation, fistula), aortic root/annulus abscess (especially if causing AV block), recurrent systemic emboli despite antibiotics (especially vegetations >10mm), resistant organisms (fungi, highly resistant bacteria), prosthetic valve dehiscence or persistent bacteraemia despite treatment."
    },
    {
     "id": "ie_fc_45",
@@ -4319,29 +4314,9 @@
     "back": "Fungi and highly resistant bacteria."
    },
    {
-    "id": "ie_fc_46",
-    "front": "Exam pearl: what does the 'Osler's = Ouch' / 'Janeway = painless' distinction encode?",
-    "back": "Osler's nodes are painful, on the finger/toe pulps, from immune complex vasculitis. Janeway lesions are painless, on the palms/soles, from embolic micro-infarcts."
-   },
-   {
-    "id": "ie_fc_47",
-    "front": "Exam pearl: what does Strep bovis IE mandate, and why?",
-    "back": "Always send for colonoscopy to exclude colorectal carcinoma ('bovis = bowel')."
-   },
-   {
-    "id": "ie_fc_48",
-    "front": "Exam pearl: what does Staph epidermidis IE classically indicate?",
-    "back": "Prosthetic valve IE within the first 2 months (perioperative contamination)."
-   },
-   {
     "id": "ie_fc_49",
     "front": "Exam pearl: what is the IVDU → IE pattern and its imaging finding?",
     "back": "IVDU → tricuspid / right-sided IE → septic pulmonary emboli → cavitating lung lesions on CXR."
-   },
-   {
-    "id": "ie_fc_50",
-    "front": "Exam pearl: what does a new AV block on ECG in IE mean?",
-    "back": "An aortic root abscess until proven otherwise — warranting urgent surgical review."
    }
   ],
   "conditions__CARDIOVASCULAR__Abdominal Aortic Aneurysm": [
@@ -16369,21 +16344,6 @@
     "explanation": "Fungal IE and infection with highly resistant bacteria are difficult to clear with antibiotics alone and are indications for surgery."
    },
    {
-    "id": "ie_q31",
-    "type": "mcq",
-    "question": "A 35-year-old intravenous drug user presents with fever, night sweats, and a new pansystolic murmur at the left sternal edge. Blood cultures grow Staphylococcus aureus. Which valve is most commonly affected in IVDU-related endocarditis?",
-    "options": [
-     "Mitral valve",
-     "Tricuspid valve (right-sided)",
-     "Aortic valve",
-     "Pulmonary valve",
-     "Multiple valves equally"
-    ],
-    "correctIndex": 1,
-    "answer": "Tricuspid valve (right-sided)",
-    "explanation": "IVDU endocarditis classically affects the tricuspid valve — bacteria injected directly into venous circulation seed the right heart. Right-sided IE causes septic pulmonary emboli (cavitating lung lesions on CXR)."
-   },
-   {
     "id": "ie_q32",
     "type": "mcq",
     "question": "What are the Duke criteria used for in infective endocarditis?",
@@ -16444,51 +16404,6 @@
     "explanation": "Embolic complications of IE occur in ~30% — cerebral emboli cause ischaemic stroke. Left-sided IE (aortic/mitral) causes systemic emboli; right-sided causes pulmonary emboli. Embolic stroke = IE until proven otherwise in appropriate context."
    },
    {
-    "id": "ie_q36",
-    "type": "mcq",
-    "question": "What are Osler's nodes and Janeway lesions?",
-    "options": [
-     "Osler's nodes = painless macules; Janeway lesions = painful nodules, with the pain and morphology of the two lesions swapped around from the truth",
-     "Osler's nodes = painful nodules on fingertips (immune complex); Janeway lesions = painless haemorrhagic macules on palms/soles (embolic)",
-     "Both are embolic phenomena, seeding septic material from the valve vegetation into the skin of the palms, soles and finger pulps alike",
-     "Both are immune-complex phenomena, arising from deposition of antibody complexes in the small vessels of the fingers, toes, palms and soles",
-     "Both occur on the very same site, appearing together on the palms and soles with an identical painful, embolic character and shared timing"
-    ],
-    "correctIndex": 1,
-    "answer": "Osler's nodes = painful nodules on fingertips (immune complex); Janeway lesions = painless haemorrhagic macules on palms/soles (embolic)",
-    "explanation": "Classic IE peripheral stigmata: Osler = painful fingers/toes (immune-mediated); Janeway = painless haemorrhagic macules on palms/soles (embolic). Roth spots = retinal haemorrhages. Splinter haemorrhages = subungual."
-   },
-   {
-    "id": "ie_q37",
-    "type": "mcq",
-    "question": "What empirical antibiotic regimen is used for native valve IE?",
-    "options": [
-     "Ciprofloxacin monotherapy, chosen for its broad Gram-negative activity",
-     "Metronidazole alone, targeting the anaerobic organisms presumed to cause it",
-     "Oral co-amoxiclav alone, relying on its broad Gram-positive and negative cover",
-     "Amoxicillin + gentamicin (or flucloxacillin + gentamicin if Staph suspected)",
-     "Vancomycin alone, as a single agent covering resistant staphylococci"
-    ],
-    "correctIndex": 3,
-    "answer": "Amoxicillin + gentamicin (or flucloxacillin + gentamicin if Staph suspected)",
-    "explanation": "Native valve IE empirical therapy: amoxicillin + gentamicin (covers streptococci and enterococci); add flucloxacillin if Staphylococcus aureus suspected. Vancomycin if penicillin allergy or MRSA."
-   },
-   {
-    "id": "ie_q38",
-    "type": "mcq",
-    "question": "Which of the following is an indication for surgery in IE?",
-    "options": [
-     "Elevated ESR",
-     "Low-grade fever",
-     "Positive blood cultures alone",
-     "Splinter haemorrhages",
-     "Heart failure from valvular destruction"
-    ],
-    "correctIndex": 4,
-    "answer": "Heart failure from valvular destruction",
-    "explanation": "Surgical indications in IE: heart failure from valve regurgitation/destruction; uncontrolled infection (perivalvular abscess, fistula, persistent bacteraemia); embolic events with large vegetation >10 mm; prosthetic valve IE."
-   },
-   {
     "id": "ie_q39",
     "type": "mcq",
     "question": "A patient with a mechanical aortic valve develops fever and bacteraemia with Staph epidermidis. What is the most appropriate initial investigation?",
@@ -16502,21 +16417,6 @@
     "correctIndex": 2,
     "answer": "TOE (transoesophageal echocardiography)",
     "explanation": "Prosthetic valve endocarditis requires TOE — TTE has poor sensitivity for prosthetic valves due to acoustic shadowing. TOE can visualise perivalvular abscesses and dehiscence which are critical for management decisions."
-   },
-   {
-    "id": "ie_q40",
-    "type": "mcq",
-    "question": "EXAM PEARL: How many sets of blood cultures should be taken in IE and why?",
-    "options": [
-     "3 sets from different sites before antibiotics — maximises sensitivity (~98%)",
-     "A single set is sufficient, since one sample reliably captures the bacteraemia",
-     "Culture only when the patient is febrile at the exact moment of sampling",
-     "Take the cultures after 24 hours of antibiotics once levels are steady",
-     "Two sets drawn from the same site moments apart are adequate for diagnosis"
-    ],
-    "correctIndex": 0,
-    "answer": "3 sets from different sites before antibiotics — maximises sensitivity (~98%)",
-    "explanation": "Three sets of blood cultures (aerobic + anaerobic) from separate sites at different times = optimal sensitivity before starting antibiotics. Cultures positive in >90% of IE cases if taken correctly."
    }
   ],
   "conditions__CARDIOVASCULAR__Abdominal Aortic Aneurysm": [
