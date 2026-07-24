@@ -5306,7 +5306,7 @@
    {
     "id": "lipid_fc_04",
     "front": "What is the goal of secondary prevention, and what is the regimen?",
-    "back": "Post-CVD event (MI, stroke, PVD) — prevent recurrence. Atorvastatin 80 mg + the 4 A's, regardless of baseline cholesterol."
+    "back": "Post-CVD event — prevent recurrence. Atorvastatin 80 mg for all established CVD; the 4 A's (aspirin, 2nd antiplatelet, ACEi, β-blocker) apply after MI, whereas ischaemic stroke/TIA use clopidogrel-based therapy."
    },
    {
     "id": "lipid_fc_05",
@@ -5384,11 +5384,6 @@
     "back": "Atorvastatin 20 mg if >40 years, OR diabetes >10 years, OR nephropathy; no QRISK calculation needed."
    },
    {
-    "id": "lipid_fc_20",
-    "front": "When and what statin is started for secondary prevention, and what accompanies it?",
-    "back": "After any CVD event (MI, stroke, TIA, PVD): start atorvastatin 80 mg + the 4 A's, regardless of baseline cholesterol level."
-   },
-   {
     "id": "lipid_fc_21",
     "front": "In the secondary prevention 4 A's, what does the first A (atorvastatin) involve?",
     "back": "Atorvastatin 80 mg — high-intensity statin nocte; target ≥40% reduction in non-HDL. (Note: 20 mg in primary prevention.)"
@@ -5401,7 +5396,7 @@
    {
     "id": "lipid_fc_23",
     "front": "In the 4 A's, why is atenolol / a beta-blocker used?",
-    "back": "Bisoprolol or atenolol — rate control, reduce cardiac remodelling post-MI, reduce sudden death risk."
+    "back": "Bisoprolol preferred (atenolol less favoured) — reduce cardiac remodelling post-MI, reduce sudden death risk."
    },
    {
     "id": "lipid_fc_24",
@@ -5416,7 +5411,7 @@
    {
     "id": "lipid_fc_26",
     "front": "What is the mechanism of statins, and why are they taken at night?",
-    "back": "Inhibit HMG-CoA reductase → reduced hepatic cholesterol synthesis → upregulate LDL receptors → reduced LDL. Taken at night because hepatic cholesterol synthesis peaks nocturnally."
+    "back": "Inhibit HMG-CoA reductase → reduced hepatic cholesterol synthesis → upregulate LDL receptors → reduced LDL. Short-acting statins (simvastatin) are taken at night as synthesis peaks nocturnally; atorvastatin/rosuvastatin are long-acting and can be taken any time."
    },
    {
     "id": "lipid_fc_27",
@@ -5426,7 +5421,7 @@
    {
     "id": "lipid_fc_28",
     "front": "What baseline bloods are checked before starting a statin?",
-    "back": "Fasting lipids, LFTs, CK, TFTs, HbA1c — to establish a baseline before starting."
+    "back": "Fasting lipids, LFTs, TFTs, HbA1c (and CK only if muscle symptoms) — to establish a baseline before starting."
    },
    {
     "id": "lipid_fc_29",
@@ -5439,14 +5434,9 @@
     "back": "LFTs. A mild transaminase rise is acceptable; >3× ULN → stop."
    },
    {
-    "id": "lipid_fc_31",
-    "front": "What is checked if a patient on a statin develops muscle pain, and what level signals rhabdomyolysis?",
-    "back": "Check CK. CK >5× ULN = rhabdomyolysis → stop immediately."
-   },
-   {
     "id": "lipid_fc_32",
     "front": "Describe the myopathy → rhabdomyolysis side effect of statins, including the emergency sign.",
-    "back": "Muscle pain/weakness → check CK. CK >5× ULN = rhabdomyolysis → stop statin. Dark urine (myoglobinuria) = emergency."
+    "back": "Muscle pain/weakness → check CK. CK >5× ULN → stop the statin and recheck. Rhabdomyolysis (CK >10× ULN) → dark urine (myoglobinuria) = emergency."
    },
    {
     "id": "lipid_fc_33",
@@ -5491,12 +5481,7 @@
    {
     "id": "lipid_fc_41",
     "front": "Outline the management of familial hypercholesterolaemia.",
-    "back": "Urgent specialist referral; genetic testing; high-intensity statin (atorvastatin 80 mg); add ezetimibe if target not met; PCSK9 inhibitor for refractory cases; cascade screening — test all first-degree relatives."
-   },
-   {
-    "id": "lipid_fc_42",
-    "front": "What is cascade screening in familial hypercholesterolaemia?",
-    "back": "Testing all first-degree relatives."
+    "back": "Urgent specialist referral; genetic testing; high-intensity statin (atorvastatin 80 mg); add ezetimibe if target not met; PCSK9 inhibitor for refractory cases; cascade screening — test first- and second-degree relatives."
    }
   ],
   "conditions__CARDIOVASCULAR__Gangrene": [
@@ -19838,7 +19823,7 @@
    {
     "id": "lipid_q06",
     "type": "mcq",
-    "question": "Which comorbidity is listed as increasing atherosclerosis risk through raised metabolic risk?",
+    "question": "Which of the following is listed as increasing metabolic / atherosclerosis risk?",
     "options": [
      "Asthma",
      "Migraine",
@@ -20078,7 +20063,7 @@
    {
     "id": "lipid_q22",
     "type": "mcq",
-    "question": "A patient on a statin develops muscle pain. Which CK level indicates rhabdomyolysis and the need to stop immediately?",
+    "question": "A patient on a statin develops muscle pain. Which CK level mandates stopping the statin and re-checking?",
     "options": [
      "CK >1× ULN",
      "CK >5× ULN",
@@ -20286,36 +20271,6 @@
     "explanation": "High-intensity statins (atorvastatin 40–80 mg or rosuvastatin 20–40 mg) are first-line for high CV risk — aim for ≥50% LDL reduction. Low-intensity statins are insufficient for high-risk individuals."
    },
    {
-    "id": "lipid_q36",
-    "type": "mcq",
-    "question": "What is the mechanism of action of ezetimibe?",
-    "options": [
-     "Fibrate-like PPARα activation lowering circulating triglyceride-rich lipoproteins",
-     "HMG-CoA reductase inhibition reducing hepatic cholesterol synthesis and raising LDL uptake",
-     "PCSK9 inhibition preventing LDL receptor degradation and boosting hepatic LDL clearance",
-     "Bile acid sequestration interrupting the enterohepatic circulation of bile salts",
-     "Inhibits cholesterol absorption at the intestinal brush border (NPC1L1 transporter)"
-    ],
-    "correctIndex": 4,
-    "answer": "Inhibits cholesterol absorption at the intestinal brush border (NPC1L1 transporter)",
-    "explanation": "Ezetimibe blocks NPC1L1 transporter at the intestinal brush border — reduces cholesterol absorption by ~50%, lowers LDL by ~15–20%. Used as add-on to statin or if statin-intolerant."
-   },
-   {
-    "id": "lipid_q37",
-    "type": "mcq",
-    "question": "What class of drug is most effective for reducing triglycerides?",
-    "options": [
-     "Beta-blockers",
-     "Statins",
-     "Ezetimibe",
-     "PCSK9 inhibitors",
-     "Fibrates (e.g. fenofibrate)"
-    ],
-    "correctIndex": 4,
-    "answer": "Fibrates (e.g. fenofibrate)",
-    "explanation": "Fibrates (PPARα agonists) reduce triglycerides by 30–50% and modestly raise HDL — used for hypertriglyceridaemia (TG >10 mmol/L = pancreatitis risk) and mixed hyperlipidaemia. Statins mainly lower LDL."
-   },
-   {
     "id": "lipid_q38",
     "type": "mcq",
     "question": "Which inherited lipid disorder causes tendon xanthomata and premature coronary artery disease in young adulthood?",
@@ -20329,21 +20284,6 @@
     "correctIndex": 3,
     "answer": "Familial hypercholesterolaemia (FH)",
     "explanation": "FH = LDL receptor mutation — severely elevated LDL, tendon xanthomata (Achilles, extensor tendons), corneal arcus, xanthelasma, premature CAD. Autosomal dominant. Treat with high-intensity statin ± PCSK9 inhibitor."
-   },
-   {
-    "id": "lipid_q39",
-    "type": "mcq",
-    "question": "What is the mechanism of PCSK9 inhibitors (e.g. evolocumab)?",
-    "options": [
-     "Activate the PPARα receptor to lower serum triglyceride levels",
-     "Inhibit hepatic HMG-CoA reductase to reduce cholesterol synthesis",
-     "Block intestinal cholesterol absorption at the NPC1L1 transporter",
-     "Increase biliary bile acid secretion into the intestinal lumen",
-     "Prevent PCSK9 from degrading LDL receptors — increasing LDL clearance"
-    ],
-    "correctIndex": 4,
-    "answer": "Prevent PCSK9 from degrading LDL receptors — increasing LDL clearance",
-    "explanation": "PCSK9 normally degrades LDL receptors. PCSK9 inhibitors (evolocumab, alirocumab) block this — more LDL receptors remain on hepatocytes, clearing LDL by 50–70%. Used for FH or statin-intolerant high-risk patients."
    },
    {
     "id": "lipid_q40",
