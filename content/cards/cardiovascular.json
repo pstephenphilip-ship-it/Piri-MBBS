@@ -2214,16 +2214,6 @@
     "back": "Shockable: 1 shock → CPR for 2 minutes. Non-shockable: CPR for 2 minutes + adrenaline as soon as possible."
    },
    {
-    "id": "arrest_fc_12",
-    "front": "How does the timing of adrenaline differ between shockable and non-shockable arrests?",
-    "back": "Shockable: adrenaline is given after the 3rd shock. Non-shockable: adrenaline is given immediately."
-   },
-   {
-    "id": "arrest_fc_13",
-    "front": "When is amiodarone given in shockable arrest, and is it used in non-shockable arrest?",
-    "back": "Shockable: amiodarone 300 mg after the 3rd shock, then 150 mg after the 5th shock. Non-shockable: amiodarone is never given."
-   },
-   {
     "id": "arrest_fc_14",
     "front": "What is the main outcome driver in shockable vs non-shockable arrest?",
     "back": "Shockable: early defibrillation. Non-shockable: finding and fixing the reversible cause."
@@ -2376,7 +2366,7 @@
    {
     "id": "arrest_fc_44",
     "front": "What capnography finding is a poor prognostic marker in cardiac arrest?",
-    "back": "A persistently very low ETCO₂ (<1.0 kPa after 20 minutes of ALS) is a marker of poor prognosis."
+    "back": "A persistently very low ETCO₂ (<1.3 kPa / ~10 mmHg after 20 minutes of ALS) is a marker of poor prognosis — used only as one part of a multimodal assessment, never alone."
    },
    {
     "id": "arrest_fc_45",
@@ -2411,17 +2401,12 @@
    {
     "id": "arrest_fc_51",
     "front": "How are hypoglycaemia and hypomagnesaemia treated in the metabolic 'H' of cardiac arrest?",
-    "back": "Hypoglycaemia: 50% dextrose IV. Hypomagnesaemia: magnesium. (Calcium chloride is for hyperkalaemia; sodium bicarbonate for severe acidosis or TCA overdose.)"
+    "back": "Hypoglycaemia: 10% glucose IV. Hypomagnesaemia: magnesium. (Calcium chloride is for hyperkalaemia; sodium bicarbonate for severe acidosis or TCA overdose.)"
    },
    {
     "id": "arrest_fc_52",
     "front": "How is HYPOTHERMIA recognised and treated in cardiac arrest?",
     "back": "Recognise: cold patient, core temp <30°C, J-waves (Osborn waves) on ECG, drowning/exposure. Treat: warm IV fluids, external warming (warm blankets, warmed humidified O₂), and ECMO for deep hypothermia."
-   },
-   {
-    "id": "arrest_fc_53",
-    "front": "What is the 'not dead until warm and dead' rule in hypothermic arrest?",
-    "back": "Do not stop CPR until the core temperature is >35°C — hypothermia is protective, so resuscitation continues until the patient is rewarmed."
    },
    {
     "id": "arrest_fc_54",
@@ -2469,11 +2454,6 @@
     "back": "Organophosphates → atropine; opioids → naloxone; local anaesthetic toxicity → 20% lipid emulsion; digoxin → digoxin-specific antibody fragments. Activated charcoal only if alert and within 1 hour."
    },
    {
-    "id": "arrest_fc_63",
-    "front": "What can POCUS distinguish and identify during the arrest pulse-check window?",
-    "back": "Cardiac motion (fine VF vs true asystole), a pericardial effusion, a flat IVC (hypovolaemia), and pleural fluid — all requiring <10 seconds at the pulse check."
-   },
-   {
     "id": "arrest_fc_64",
     "front": "When is UNSYNCHRONISED defibrillation used, and why is no synchronisation possible?",
     "back": "For VF / pulseless VT. There are no organised R waves to synchronise to, so the device delivers the shock immediately on the button press."
@@ -2501,7 +2481,7 @@
    {
     "id": "arrest_fc_69",
     "front": "What energies are used for synchronised cardioversion in AF vs flutter/SVT?",
-    "back": "AF: 70–120 J biphasic. Flutter/SVT: 50–100 J biphasic."
+    "back": "AF: 120–150 J biphasic. Flutter/SVT: 70–120 J biphasic."
    },
    {
     "id": "arrest_fc_70",
@@ -18552,21 +18532,6 @@
     "explanation": "A shockable rhythm gets one shock then 2 minutes of CPR; a non-shockable rhythm gets immediate CPR with adrenaline as soon as possible."
    },
    {
-    "id": "arrest_q11",
-    "type": "mcq",
-    "question": "How does the timing of the first adrenaline dose differ between shockable and non-shockable arrest?",
-    "options": [
-     "Both immediately",
-     "Shockable: after the 3rd shock; non-shockable: immediately",
-     "Shockable: immediately; non-shockable: after the 3rd shock",
-     "Both after the 3rd shock",
-     "Adrenaline is not used in either"
-    ],
-    "correctIndex": 1,
-    "answer": "Shockable: after the 3rd shock; non-shockable: immediately",
-    "explanation": "In shockable arrest adrenaline is given after the 3rd shock; in non-shockable arrest it is given immediately."
-   },
-   {
     "id": "arrest_q12",
     "type": "mcq",
     "question": "In which arrest arm is amiodarone used, and what is the regimen?",
@@ -18777,21 +18742,6 @@
     "explanation": "Both arms loop back to a rhythm check every 2 minutes until ROSC or a decision to stop."
    },
    {
-    "id": "arrest_q26",
-    "type": "mcq",
-    "question": "Which statement correctly summarises the amiodarone timing across the two arrest arms?",
-    "options": [
-     "Shockable: 300 mg after the 3rd shock and 150 mg after the 5th; non-shockable: never",
-     "Amiodarone 300 mg IV is given immediately in both the shockable and non-shockable arms",
-     "Shockable: amiodarone is never used; non-shockable: 300 mg IV given immediately on access",
-     "Both arms: amiodarone 150 mg IV bolus given only after the 5th shock has been delivered",
-     "Amiodarone 150 mg IV is repeated every 3–5 minutes throughout both arms of the arrest"
-    ],
-    "correctIndex": 0,
-    "answer": "Shockable: 300 mg after the 3rd shock and 150 mg after the 5th; non-shockable: never",
-    "explanation": "Amiodarone is shockable-arm only: 300 mg after the 3rd shock and 150 mg after the 5th shock; it is never given in non-shockable arrest."
-   },
-   {
     "id": "arrest_q27",
     "type": "mcq",
     "question": "A thrombolytic is given during cardiac arrest for suspected PE. How does this change CPR duration?",
@@ -18805,21 +18755,6 @@
     "correctIndex": 2,
     "answer": "Continue CPR for 60–90 minutes after administration",
     "explanation": "If a thrombolytic is given for suspected PE, CPR should continue for 60–90 minutes afterwards to allow the drug time to work."
-   },
-   {
-    "id": "arrest_q28",
-    "type": "mcq",
-    "question": "Which statement about adrenaline 1 mg timing across the two arms is correct?",
-    "options": [
-     "Both arms: adrenaline 1 mg IV first given after the 3rd shock, then repeated every 3–5 min",
-     "Adrenaline is not used at all in the shockable arm; it is reserved for non-shockable rhythms",
-     "Both arms: adrenaline 1 mg IV immediately on access, then repeated every 3–5 minutes after",
-     "Shockable: adrenaline immediately on access; non-shockable: only after the 3rd cycle of CPR",
-     "Shockable: after the 3rd shock then every 3–5 min; non-shockable: immediately then every 3–5 min"
-    ],
-    "correctIndex": 4,
-    "answer": "Shockable: after the 3rd shock then every 3–5 min; non-shockable: immediately then every 3–5 min",
-    "explanation": "Adrenaline is given after the 3rd shock in the shockable arm and immediately in the non-shockable arm, then every 3–5 minutes thereafter in both."
    },
    {
     "id": "arrest_q29",
@@ -19000,36 +18935,6 @@
     "correctIndex": 0,
     "answer": "Persistently very low ETCO₂ (<1.0 kPa after 20 minutes of ALS)",
     "explanation": "A persistently very low ETCO₂ (<1.0 kPa after 20 minutes of ALS) is a marker of poor prognosis."
-   },
-   {
-    "id": "arrest_q41",
-    "type": "mcq",
-    "question": "What can point-of-care ultrasound (POCUS) identify during the pulse-check window in cardiac arrest?",
-    "options": [
-     "Pericardial effusion/tamponade, cardiac motion (organised vs fine VF), IVC filling, and pneumothorax — without interrupting CPR beyond the pulse-check window",
-     "Only the heart rate — POCUS can count the ventricular rate during the pulse check but reveals nothing about wall motion, filling, or any structural cause of the arrest",
-     "The serum potassium level — POCUS directly measures electrolytes at the bedside, so hyperkalaemia as a reversible cause is confirmed without waiting for any blood gas",
-     "The exact coronary anatomy — POCUS visualises the coronary arteries and any occlusive thrombus in real time, guiding the decision to go straight to emergency angiography",
-     "Nothing useful during arrest — cardiac motion cannot be assessed while CPR is ongoing, so ultrasound only wastes time and needlessly prolongs the pulse-check pause each cycle"
-    ],
-    "correctIndex": 0,
-    "answer": "Pericardial effusion/tamponade, cardiac motion (organised vs fine VF), IVC filling, and pneumothorax — without interrupting CPR beyond the pulse-check window",
-    "explanation": "POCUS can identify a pericardial effusion/tamponade, assess cardiac motion (organised vs fine VF), evaluate IVC filling (hypovolaemia), and detect pneumothorax, all within the pulse-check window."
-   },
-   {
-    "id": "arrest_q42",
-    "type": "mcq",
-    "question": "Why are the 4Hs and 4Ts so central to managing non-shockable arrest?",
-    "options": [
-     "They form a checklist for selecting the correct biphasic shock energy in joules and when to escalate to the device maximum",
-     "They become relevant only during post-ROSC intensive care, once a spontaneous circulation has already been restored",
-     "Non-shockable rhythms are won by finding and fixing the reversible cause — drugs alone will not restart the heart",
-     "Identifying and correcting them removes the need for chest compressions, as fixing the cause alone is enough to restart the heart",
-     "They apply solely to shockable rhythms such as VF and pulseless VT, guiding defibrillation rather than non-shockable arrest"
-    ],
-    "correctIndex": 2,
-    "answer": "Non-shockable rhythms are won by finding and fixing the reversible cause — drugs alone will not restart the heart",
-    "explanation": "Non-shockable arrests are won by reversing the underlying cause; drugs alone will not restart the heart, and in shockable rhythms failure to find the cause leads to re-arrest after ROSC."
    },
    {
     "id": "arrest_q43",
@@ -19261,7 +19166,7 @@
     "type": "mcq",
     "question": "What are the cardioversion energies for AF versus atrial flutter/SVT?",
     "options": [
-     "AF 70–120 J biphasic; flutter/SVT 50–100 J",
+     "AF 120–150 J biphasic; flutter/SVT 70–120 J",
      "AF at 50 J; atrial flutter and SVT at 70 J",
      "AF at 200 J; atrial flutter and SVT at 150 J",
      "Both AF and flutter/SVT at 120–150 J biphasic",
@@ -19269,7 +19174,7 @@
     ],
     "correctIndex": 0,
     "answer": "AF 70–120 J biphasic; flutter/SVT 50–100 J",
-    "explanation": "Synchronised cardioversion uses 70–120 J biphasic for AF and 50–100 J for flutter/SVT."
+    "explanation": "Synchronised cardioversion (RCUK) uses 120–150 J biphasic for AF and 70–120 J for atrial flutter/SVT."
    },
    {
     "id": "arrest_q59",
@@ -19375,21 +19280,6 @@
     "correctIndex": 1,
     "answer": "ROSC achieved, all reversible causes excluded, prolonged ALS without ROSC (>20–30 min in most cases), and team-leader consensus",
     "explanation": "CPR is stopped when ROSC is achieved, or when reversible causes are excluded after prolonged ALS without ROSC (>20–30 min in most cases) with team-leader consensus."
-   },
-   {
-    "id": "arrest_q66",
-    "type": "mcq",
-    "question": "What is the hypothermic-arrest exception to the usual rules for stopping CPR?",
-    "options": [
-     "Stop resuscitation earlier than normal, as the cold heart will not respond to any further efforts",
-     "Stop after 20 minutes regardless of the low core temperature, as with any normothermic arrest",
-     "Stop CPR as soon as the rhythm becomes asystole, since this confirms death in the cold patient",
-     "Defibrillate up to 10 times and then stop if no shock has restored a perfusing rhythm",
-     "Continue until core temperature is >35°C or ECMO is available — 'not dead until warm and dead'"
-    ],
-    "correctIndex": 4,
-    "answer": "Continue until core temperature is >35°C or ECMO is available — 'not dead until warm and dead'",
-    "explanation": "In hypothermic arrest, continue CPR until the core temperature is >35°C or ECMO is available — 'not dead until warm and dead'."
    },
    {
     "id": "arrest_q67",
