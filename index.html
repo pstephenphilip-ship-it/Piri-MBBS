@@ -8407,6 +8407,135 @@ window.MOCK_BANK = {
         "The four falses fail for DIFFERENT reasons: flutter / AF / atrial tachycardia (node a BYSTANDER &rarr; reveals, not terminates); sinus (PHYSIOLOGICAL &rarr; slows transiently, not terminates); and VT (BELOW the node &rarr; NO effect at all). That last point is high-yield: because adenosine does nothing to VT, giving it to a STABLE regular broad-complex tachy can be a diagnostic manoeuvre &mdash; if it terminates, it was SVT; if nothing happens, it is VT (which you still manage as VT).",
         "Rule of thumb: adenosine terminates the two &lsquo;true SVTs&rsquo; where the node is in the circuit, and is otherwise diagnostic or inappropriate &mdash; the terminate / reveal / avoid distinction of the master principle (tac-005)."
       ] },
+    { id:"tac-049", type:"mcq", objective:"tac-vt-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/c/c4/Electrocardiogram_of_Ventricular_Tachycardia.png",
+      imageAlt:"A regular broad-complex tachycardia in which every QRS complex has the same wide, abnormal shape.",
+      imageCredit:"Ksheka, CC BY-SA 2.5, via Wikimedia Commons.",
+      question:"A 68-year-old with a previous myocardial infarction has palpitations and light-headedness. The ECG shows a regular, broad-complex tachycardia at 160 bpm in which every QRS has the same abnormal, wide morphology. The strip is shown. What is the most likely diagnosis?",
+      options:[
+        "Monomorphic ventricular tachycardia",
+        "AVNRT conducting with rate-related aberrancy",
+        "Atrial fibrillation with a rapid ventricular response",
+        "Sinus tachycardia with a bundle branch block",
+        "Atrial flutter with a fixed 2:1 AV block"],
+      correctIndex:0,
+      explanation:[
+        "A REGULAR, BROAD-complex tachycardia in which every QRS is the SAME wide morphology is MONOMORPHIC VENTRICULAR TACHYCARDIA &mdash; and a history of PRIOR MI makes VT overwhelmingly likely (the infarct scar is the re-entry substrate, tac-051).",
+        "The golden rule: any regular broad-complex tachycardia is VT UNTIL PROVEN OTHERWISE (tac-055). Monomorphic VT arises from a single stable re-entry circuit, usually around old scar; the uniform QRS shape reflects that single circuit.",
+        "Diagnostic features that confirm VT (AV dissociation, capture and fusion beats, concordance) are worth hunting for (tac-050) &mdash; but in a patient with structural heart disease you treat as VT regardless.",
+        "Trap: AVNRT with aberrancy (B) and the other supraventricular rhythms (C, D, E) are far less likely in this context and would be a dangerous default &mdash; treating SVT as VT is safe, treating VT as SVT can be fatal."
+      ] },
+    { id:"tac-050", type:"mcq", objective:"tac-vt-features",
+      image:"https://upload.wikimedia.org/wikipedia/commons/d/d2/E309_%28CardioNetworks_ECGpedia%29.jpg",
+      imageAlt:"A broad-complex tachycardia with occasional independent P waves visible at a slower, unrelated rate.",
+      imageCredit:"Michael Rosengarten, McGill / CardioNetworks ECGpedia, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A broad-complex tachycardia strip is examined for features that would confirm ventricular tachycardia. Independent P waves are seen marching through the QRS complexes at their own, slower rate. What is this finding, and what does it indicate?",
+      options:[
+        "A delta wave, indicating pre-excitation",
+        "Electrical alternans, indicating tamponade",
+        "AV dissociation, which is diagnostic of VT",
+        "A normal finding of no significance",
+        "U waves, indicating hypokalaemia"],
+      correctIndex:2,
+      explanation:[
+        "Independent P waves marching through at a slower, unrelated rate is AV DISSOCIATION: the atria and ventricles beat independently because the ventricular focus (VT) drives the ventricles while the sinus node still paces the atria. It is essentially DIAGNOSTIC of VT.",
+        "The other pathognomonic VT signs are CAPTURE beats (an occasional narrow QRS as a sinus impulse briefly captures the ventricles) and FUSION beats (a hybrid QRS as sinus and ventricular impulses collide). All three prove a ventricular origin.",
+        "Supportive (not diagnostic) features include a very broad QRS (&gt;140 ms), an extreme / north-west axis, and concordance across the precordial leads (tac-055). Any of these makes VT more likely.",
+        "Trap: a delta wave (A) is WPW, electrical alternans (B) is tamponade, and U waves (E) are hypokalaemia &mdash; none is AV dissociation; and independent marching P waves are certainly not &lsquo;of no significance&rsquo; (D)."
+      ] },
+    { id:"tac-051", type:"mcq", objective:"tac-vt-probability",
+      question:"A patient with a regular broad-complex tachycardia is haemodynamically stable and chatting comfortably. His only history is a myocardial infarction 5 years ago. A colleague argues that because he looks well, this is probably SVT. Why is this reasoning dangerous?",
+      options:[
+        "Prior MI makes VT overwhelmingly likely, and stability does not exclude VT",
+        "Because the patient will inevitably deteriorate within a few minutes",
+        "Because SVT is intrinsically more dangerous to the patient than VT",
+        "Because a broad QRS complex always means the patient is unstable",
+        "Because supraventricular tachycardia never occurs after a prior MI"],
+      correctIndex:0,
+      explanation:[
+        "Two facts make the &lsquo;looks well, so it&rsquo;s SVT&rsquo; reasoning dangerous. First, STRUCTURAL heart disease &mdash; especially PRIOR MI &mdash; raises the pre-test probability of VT above 95% (the scar is the re-entry substrate). Second, haemodynamic STABILITY does NOT exclude VT: patients can be in sustained VT and look completely well.",
+        "So a well-looking patient with a broad-complex tachycardia and a cardiac history is VT until proven otherwise. Misreading it as SVT and giving verapamil can be fatal (tac-055).",
+        "This is why the history (IHD, prior MI, heart failure, cardiomyopathy) is one of the strongest discriminators &mdash; it shifts the odds decisively toward VT before you even analyse the QRS morphology (tac-050).",
+        "Trap: the danger is not imminent deterioration (B) or that SVT is worse (C); a broad complex does not equal instability (D); and SVT CAN occur after MI (E) &mdash; the point is that VT is far more likely and stability is falsely reassuring."
+      ] },
+    { id:"tac-052", type:"mcq", objective:"tac-vt-management",
+      question:"A 70-year-old with ischaemic heart disease has sustained monomorphic ventricular tachycardia. He is alert, with a blood pressure of 118/74 mmHg and no chest pain. What is the most appropriate treatment?",
+      options:[
+        "IV verapamil to slow the broad-complex rhythm",
+        "IV adenosine 6 mg as a rapid diagnostic bolus",
+        "IV amiodarone, and correct potassium and magnesium",
+        "Immediate unsynchronised defibrillation of the patient",
+        "Oral bisoprolol, with discharge and outpatient follow-up"],
+      correctIndex:2,
+      explanation:[
+        "For STABLE sustained VT, first-line (UK) is IV AMIODARONE (300 mg over 20&ndash;60 min, then a maintenance infusion), alongside correcting ELECTROLYTES (potassium and magnesium). Prepare for synchronised cardioversion if drug therapy fails.",
+        "If the patient becomes UNSTABLE (hypotension, syncope, ischaemia, heart failure), treat with immediate SYNCHRONISED DC cardioversion (sedate if conscious). If PULSELESS, treat as cardiac arrest with UNsynchronised defibrillation and CPR (cross-link: Cardiac Arrest / Advanced Life Support (ALS)).",
+        "Note the sync-vs-unsync distinction: VT WITH a pulse is SYNCHRONISED; pulseless VT / VF is UNsynchronised (tac-063).",
+        "Trap: verapamil (A) is dangerous in VT; adenosine (B) will not treat VT (it does nothing, so it is sometimes used diagnostically, tac-048); UNsynchronised shock (D) is for pulseless VT/VF, not a stable patient with a pulse; and discharge on bisoprolol (E) is unsafe."
+      ] },
+    { id:"tac-053", type:"mcq", objective:"tac-svt-aberrancy",
+      question:"A patient has a regular broad-complex tachycardia. An old 12-lead ECG shows the identical broad QRS morphology (a typical right bundle branch block) present in sinus rhythm, and there is no structural heart disease. Which is most likely, and how should adenosine be used?",
+      options:[
+        "Definite VT, in which adenosine is strictly contraindicated",
+        "SVT with aberrancy; adenosine only when confident it is not VT",
+        "Torsades de pointes, for which magnesium is indicated",
+        "Pre-excited atrial fibrillation, for which flecainide is used",
+        "It cannot be determined at all, and needs no treatment"],
+      correctIndex:1,
+      explanation:[
+        "A broad-complex tachycardia whose QRS is IDENTICAL to a KNOWN bundle branch block in sinus rhythm, in a patient with NO structural heart disease, is most likely SVT with ABERRANCY (a supraventricular rhythm conducted through a fixed BBB). Adenosine can be used &mdash; diagnostically and therapeutically &mdash; but ONLY when you are confident it is not VT.",
+        "The reassuring features here are: a CLASSIC (not atypical) BBB morphology, the SAME morphology on a prior ECG, no structural heart disease, haemodynamic stability, and a prior SVT history. When ALL point to SVT, aberrancy is likely.",
+        "But the safe default remains: when in doubt, TREAT AS VT (tac-055). Adenosine is only reasonable here because the whole picture is convincingly supraventricular; a single doubt tips you back to VT management.",
+        "Trap: this is not definite VT with adenosine contraindicated (A) given the convincing SVT picture; it is not torsades (C, which is polymorphic/irregular) or pre-excited AF (D, irregular); and a broad-complex tachycardia always needs treatment (E)."
+      ] },
+    { id:"tac-054", type:"mcq", objective:"tac-antidromic-avrt",
+      question:"A patient with known Wolff-Parkinson-White develops a regular BROAD-complex tachycardia (antidromic AVRT). Which drug is appropriate, and which must be avoided?",
+      options:[
+        "Give verapamil, and specifically avoid using procainamide",
+        "Give adenosine, and specifically avoid using flecainide",
+        "Give digoxin, and avoid any attempt at DC cardioversion",
+        "Give procainamide or flecainide; avoid AV-nodal blockers",
+        "Give a beta-blocker, and avoid electrical cardioversion"],
+      correctIndex:3,
+      explanation:[
+        "Antidromic AVRT conducts DOWN the accessory pathway, so the ventricles are pre-excited (broad QRS). The safe drugs SLOW the accessory PATHWAY: PROCAINAMIDE or FLECAINIDE (or DC cardioversion if unstable). AV-NODAL blockers must be AVOIDED.",
+        "The reason is the WPW danger: blocking the AV node (adenosine, verapamil, diltiazem, digoxin, beta-blockers) can push more conduction down the accessory pathway &mdash; and if AF supervenes, this risks a life-threatening pre-excited AF / VF (tac-057).",
+        "This is a broad-complex tachycardia that is actually SVT (a VT mimic) &mdash; but because it is pre-excited, the treatment targets the pathway, not the node (the same principle as pre-excited AF, tac-040).",
+        "Trap: verapamil, adenosine, digoxin and beta-blockers (A, B, C, E) are all AV-nodal blockers to AVOID in pre-excited WPW rhythms &mdash; the pathway-slowing drugs (procainamide / flecainide) or cardioversion are correct."
+      ] },
+    { id:"tac-055", type:"categorize", objective:"tac-vt-svt-discriminators",
+      question:"Sort each feature by whether it favours ventricular tachycardia or SVT with aberrancy in a regular broad-complex tachycardia.",
+      buckets:["Favours VT","Favours SVT with aberrancy"],
+      items:[
+        {text:"AV dissociation",bucket:0},
+        {text:"Capture or fusion beats",bucket:0},
+        {text:"Concordance across the precordial leads",bucket:0},
+        {text:"Known ischaemic heart disease / prior MI",bucket:0},
+        {text:"QRS identical to a prior ECG with bundle branch block",bucket:1},
+        {text:"Termination with adenosine",bucket:1},
+        {text:"Classic RBBB or LBBB morphology",bucket:1},
+        {text:"Young patient with no structural heart disease",bucket:1}
+      ],
+      explanation:[
+        "FAVOURS VT: AV DISSOCIATION, CAPTURE and FUSION beats (the three near-pathognomonic signs), CONCORDANCE across the precordial leads, and any STRUCTURAL heart disease / prior MI (which alone pushes VT above 95%, tac-051).",
+        "FAVOURS SVT WITH ABERRANCY: a CLASSIC (typical) RBBB / LBBB morphology, a QRS IDENTICAL to a prior ECG showing that BBB, TERMINATION with adenosine, and a YOUNG patient with no structural heart disease.",
+        "The overriding safety rule stands above the checklist: when the features conflict or you are unsure, TREAT AS VT. Treating SVT as VT is always safe; treating VT as SVT can be fatal (tac-008)."
+      ] },
+    { id:"tac-056", type:"mcq", objective:"tac-broad-capstone",
+      question:"A 62-year-old with heart failure has a regular broad-complex tachycardia at 180 bpm and a blood pressure of 104/70 mmHg. There is no old ECG available. He is alert. What is the safest management approach?",
+      options:[
+        "Give IV verapamil in an attempt to slow the rhythm",
+        "Give IV adenosine as the definitive treatment here",
+        "Assume SVT with aberrancy and give a beta-blocker",
+        "Discharge with outpatient monitoring, since he is stable",
+        "Treat as VT: amiodarone, correct electrolytes, ready to cardiovert"],
+      correctIndex:4,
+      explanation:[
+        "A regular broad-complex tachycardia in a patient with STRUCTURAL heart disease (heart failure), with no old ECG for comparison, is VT until proven otherwise &mdash; treat as VT: IV AMIODARONE, correct potassium/magnesium, and be ready for synchronised DC cardioversion if he deteriorates or the drug fails.",
+        "He is currently stable (BP 104/70, alert), so there is time for a drug approach &mdash; but stability does NOT downgrade the diagnosis (tac-051). If he becomes unstable, cardiovert immediately.",
+        "This capstone pulls the block together: broad + regular + structural heart disease &rarr; VT; the safe default is to treat as VT; verapamil is dangerous and adenosine does not treat VT (tac-055).",
+        "Trap: verapamil (A) is dangerous in VT; adenosine (B) does not treat VT; assuming aberrancy and beta-blocking (C) is the fatal error; and discharging a broad-complex tachycardia (D) misses a lethal arrhythmia."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
