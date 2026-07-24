@@ -8661,6 +8661,113 @@ window.MOCK_BANK = {
         "From the quadrant, the master principle (tac-005) gives the drug logic: is the AV node in the circuit (terminate), a bystander (rate-control), being bypassed (endanger), or is it sinus (treat the cause)? The whole topic reduces to this sequence.",
         "Trap: starting with P-waves, QT, rate or regularity (A, B, D, E) skips the two things that must come first &mdash; is the patient STABLE, and is the QRS NARROW or BROAD? Stability and width lead everything else."
       ] },
+    { id:"tac-065", type:"mcq", objective:"tac-pvc-benign",
+      question:"A 30-year-old with a structurally normal heart has occasional palpitations he describes as his heart skipping a beat, or a thump in the chest. His ECG shows occasional early, broad QRS complexes with no preceding P wave, each followed by a compensatory pause. His examination, echocardiogram and exercise test are all normal. What is the most appropriate management?",
+      options:[
+        "Start long-term oral amiodarone to suppress them",
+        "Refer urgently for an implantable cardioverter-defibrillator",
+        "Start lifelong anticoagulation to prevent stroke",
+        "Reassurance, plus reducing caffeine, alcohol and stress",
+        "Arrange immediate synchronised DC cardioversion"],
+      correctIndex:3,
+      explanation:[
+        "These are VENTRICULAR ECTOPICS (premature ventricular complexes, PVCs): early, BROAD QRS complexes with NO preceding P wave, typically followed by a compensatory pause. The patient FEELS the pause or the forceful post-ectopic beat as a &lsquo;skip&rsquo; or a thump.",
+        "In a STRUCTURALLY NORMAL heart with a normal echo and exercise test, occasional PVCs are BENIGN. Management is REASSURANCE and lifestyle measures &mdash; reduce caffeine, alcohol, nicotine and stress; a beta-blocker only if symptoms are troublesome.",
+        "Atrial ectopics (PACs) are the supraventricular equivalent &mdash; early NARROW complexes with an abnormal P wave &mdash; and are likewise usually benign (tac-068).",
+        "Trap: amiodarone, an ICD, anticoagulation or cardioversion (A, B, C, E) are all inappropriate over-treatment for benign ectopy in a normal heart &mdash; but note the RED FLAGS that would change this (tac-066)."
+      ] },
+    { id:"tac-066", type:"mcq", objective:"tac-pvc-redflags", excludes:["tac-pvc-benign"],
+      question:"A patient with frequent ventricular ectopics is being assessed. Which feature would prompt further cardiac investigation rather than simple reassurance?",
+      options:[
+        "Ectopics that reliably disappear during exertion",
+        "Rare, isolated ectopics in an otherwise well patient",
+        "Ectopics increasing on exertion, with syncope or a family history",
+        "A single ectopic seen on an otherwise routine ECG",
+        "Palpitations that occur only after strong coffee or alcohol"],
+      correctIndex:2,
+      explanation:[
+        "The RED FLAGS that turn benign ectopy into something to investigate: ectopics that INCREASE (rather than suppress) with exertion, associated SYNCOPE, a FAMILY HISTORY of sudden cardiac death, very FREQUENT ectopics or RUNS of them, and any structural heart disease or abnormal ECG.",
+        "These raise concern for an underlying cardiomyopathy or channelopathy (where PVCs can herald dangerous ventricular arrhythmia), or for PVC-INDUCED cardiomyopathy from a very high burden (tac-067). Workup includes an echo, a 24-hour Holter (to quantify the burden), and an exercise test.",
+        "Reassuringly, benign ectopics typically SUPPRESS with exercise (the faster sinus rate overdrives them) and occur in a normal heart &mdash; the opposite pattern to the red-flag ones.",
+        "Trap: ectopics that disappear on exertion, rare isolated ectopics, a single ectopic, or purely caffeine-related palpitations (A, B, D, E) are all reassuring &mdash; it is the exertional worsening, syncope and family history that mandate workup."
+      ] },
+    { id:"tac-067", type:"mcq", objective:"tac-pvc-cardiomyopathy",
+      question:"A 45-year-old with very frequent ventricular ectopics has the investigations shown. He has become breathless on exertion. What is the most likely explanation, and the key management principle?",
+      data:'<div class="mk-obs-h">Investigations</div><table class="mk-labs"><tr><td>24-hour Holter &mdash; PVC burden</td><td><b>25%</b></td><td>&lt;1</td></tr><tr><td>Echo &mdash; LVEF</td><td><b>38%</b></td><td>&gt;55</td></tr><tr><td>Echo 2 years ago &mdash; LVEF</td><td><b>60%</b></td><td>&gt;55</td></tr><tr><td>Coronary angiogram</td><td><b>Normal</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "Ischaemic cardiomyopathy, to be treated with revascularisation",
+        "An entirely incidental finding for which no action is needed",
+        "Irreversible dilated cardiomyopathy; list the patient for transplant",
+        "Athlete's heart; simply reassure and encourage more exercise",
+        "PVC-induced cardiomyopathy; suppressing the ectopics can reverse it"],
+      correctIndex:4,
+      explanation:[
+        "A very high PVC BURDEN (here 25% on Holter; risk rises above ~10&ndash;20%) with a newly REDUCED LVEF (60% &rarr; 38%) and NORMAL coronaries is PVC-INDUCED CARDIOMYOPATHY: the relentless ectopy causes a tachycardia-mediated / dyssynchrony cardiomyopathy. Crucially it is REVERSIBLE.",
+        "The management principle is to SUPPRESS the ectopics &mdash; catheter ABLATION of the PVC focus (often curative) or antiarrhythmic drugs (a beta-blocker, or flecainide in a structurally normal heart) &mdash; after which LV function typically RECOVERS.",
+        "This is one of the REVERSIBLE causes of a dilated cardiomyopathy: find and remove the driver and the ventricle recovers (cross-link: Cardiomyopathies) &mdash; the same logic as treating the thyroid in thyrotoxic AF or rate-controlling a tachycardiomyopathy (tac-012).",
+        "Trap: normal coronaries exclude an ischaemic cause (A); a 25% burden with a falling EF is NOT incidental (B); it is REVERSIBLE, not transplant-bound (C); and this is not athlete&rsquo;s heart (D) &mdash; the high PVC burden is the culprit and the target."
+      ] },
+    { id:"tac-068", type:"mcq", objective:"tac-pac",
+      question:"A 40-year-old with palpitations has an ECG showing occasional EARLY beats, each with an abnormally shaped P wave and a NARROW QRS, after which the rhythm resumes. What are these, and what is their significance?",
+      options:[
+        "Ventricular ectopics, which are essentially always dangerous",
+        "Atrial ectopics (PACs); usually benign but can trigger AF/SVT",
+        "Complete (third-degree) heart block on the tracing",
+        "Delta waves indicating ventricular pre-excitation",
+        "Simple sinus arrhythmia, purely a normal variant"],
+      correctIndex:1,
+      explanation:[
+        "These are ATRIAL ECTOPICS / premature atrial complexes (PACs): EARLY beats with an ABNORMAL (non-sinus) P-wave morphology and a NARROW QRS (they conduct normally through the His-Purkinje system). They are the atrial counterpart of ventricular ectopics.",
+        "They are USUALLY BENIGN and need only reassurance &mdash; but frequent PACs can be the TRIGGER that initiates atrial fibrillation or a re-entrant SVT (a PAC finding the AV node&rsquo;s fast pathway refractory is the classic initiator of AVNRT, tac-033).",
+        "So PACs sit alongside PVCs (tac-065) as common, mostly-benign extra beats &mdash; narrow (PAC, supraventricular) versus broad (PVC, ventricular), the same width logic as everything else in the topic (tac-001).",
+        "Trap: ventricular ectopics are broad, not narrow, and not &lsquo;always dangerous&rsquo; (A); this is not heart block (C), a delta wave (D), or merely respiratory sinus arrhythmia (E) &mdash; an early abnormal P with a narrow QRS is a PAC."
+      ] },
+    { id:"tac-069", type:"mcq", objective:"tac-junctional",
+      question:"An ECG shows a regular NARROW-complex rhythm at about 110 bpm. There are no P waves before the QRS complexes; instead an inverted P wave is seen immediately after each QRS in the inferior leads. What is the origin of this rhythm?",
+      options:[
+        "Junctional (AV nodal) in origin",
+        "Sinus node in origin",
+        "An accessory pathway (pre-excitation)",
+        "Ventricular in origin",
+        "Multiple atrial foci"],
+      correctIndex:0,
+      explanation:[
+        "This is a JUNCTIONAL rhythm (arising from the AV node / His region). Because the impulse originates AT the junction, it activates the atria RETROGRADELY &mdash; giving an INVERTED P wave in the inferior leads that is ABSENT before, buried in, or just AFTER the QRS. The QRS is NARROW (normal His-Purkinje conduction below the junction).",
+        "At ~110 bpm this is an ACCELERATED junctional rhythm / junctional tachycardia (enhanced automaticity of the junction), as opposed to a junctional ESCAPE rhythm (40&ndash;60, the safety net when the sinus node fails).",
+        "It differs from AVNRT (a re-entry circuit) even though both are narrow with P waves near the QRS &mdash; junctional tachycardia is an AUTOMATIC focus (gradual warm-up, not the abrupt on-off of AVNRT, tac-033) and does not reliably terminate with adenosine.",
+        "Trap: a sinus origin (B) gives an upright P BEFORE each QRS; pre-excitation (C) gives a delta wave; a ventricular origin (D) gives a BROAD QRS; and multiple atrial foci (E) is MAT (irregular, multiform P) &mdash; a retrograde/absent P with a narrow QRS is junctional."
+      ] },
+    { id:"tac-070", type:"mcq", objective:"tac-ist",
+      question:"A 28-year-old woman has months of palpitations. Her resting heart rate is persistently 105 to 115 bpm with a normal P-wave morphology, and it rises excessively with minimal exertion. Extensive investigation (bloods, TFTs, echo) is normal, and there is no infection, anaemia, pain or dehydration. What is the most likely diagnosis?",
+      options:[
+        "Focal atrial tachycardia from an ectopic focus",
+        "AVNRT, a paroxysmal re-entrant tachycardia",
+        "Occult thyrotoxicosis despite the normal TFTs",
+        "Anxiety disorder with entirely normal sinus rhythm",
+        "Inappropriate sinus tachycardia"],
+      correctIndex:4,
+      explanation:[
+        "INAPPROPRIATE SINUS TACHYCARDIA (IST): a persistently elevated resting SINUS rate (normal P morphology) that is out of proportion to any physiological demand, with an exaggerated response to minimal exertion &mdash; and NO identifiable cause after a normal workup. It is commonest in YOUNG WOMEN.",
+        "The distinction from ordinary sinus tachycardia (tac-045) is that here there is NO precipitant to treat &mdash; the problem IS the autonomic dysregulation itself, so the &lsquo;treat the cause&rsquo; rule cannot apply because there is no external cause.",
+        "Management is symptomatic: lifestyle measures, and rate control with a beta-blocker or IVABRADINE (which slows the sinus node directly); ablation is a last resort. First, exclude the treatable mimics (thyroid, anaemia, drugs, phaeochromocytoma).",
+        "Trap: atrial tachycardia (A) has an abnormal P; AVNRT (B) is paroxysmal and abrupt; the normal TFTs argue against thyrotoxicosis (C); and this is not simply anxiety (D) &mdash; a persistent, inappropriate SINUS tachycardia with a normal workup is IST."
+      ] },
+    { id:"tac-071", type:"mcq", objective:"tac-pots", excludes:["tac-ist"],
+      question:"A 24-year-old woman has light-headedness, palpitations and fatigue on standing. Her lying and standing observations are shown. There is no drop in blood pressure. What is the most likely diagnosis?",
+      data:'<div class="mk-obs-h">Lying and standing observations</div><table class="mk-labs"><tr><td>Supine heart rate</td><td><b>72 bpm</b></td><td>&mdash;</td></tr><tr><td>Supine BP</td><td><b>118/76 mmHg</b></td><td>&mdash;</td></tr><tr><td>Standing heart rate (after 5 min)</td><td><b>118 bpm</b></td><td>&mdash;</td></tr><tr><td>Standing BP</td><td><b>116/74 mmHg</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "Orthostatic (postural) hypotension on standing",
+        "Vasovagal (reflex) syncope on standing up",
+        "Postural orthostatic tachycardia syndrome (POTS)",
+        "An Addisonian (adrenal) crisis presenting acutely",
+        "Sinus tachycardia purely due to dehydration"],
+      correctIndex:2,
+      explanation:[
+        "The observations show a HEART-RATE RISE of 46 bpm on standing (72 &rarr; 118) with NO fall in blood pressure &mdash; POSTURAL ORTHOSTATIC TACHYCARDIA SYNDROME (POTS): a sustained rise of &ge;30 bpm (&ge;40 in adolescents) within 10 minutes of standing, WITHOUT orthostatic hypotension, plus symptoms of orthostatic intolerance.",
+        "POTS is a disorder of autonomic regulation, commonest in YOUNG WOMEN, confirmed on a tilt-table (or active stand) test. It is the &lsquo;postural&rsquo; cousin of inappropriate sinus tachycardia (tac-070).",
+        "The key discriminator is the BP: POTS has tachycardia WITHOUT hypotension, whereas orthostatic HYPOtension is defined by a BP DROP (&ge;20 systolic / &ge;10 diastolic). Management: increase fluid and salt intake, compression garments, and a beta-blocker or ivabradine if needed.",
+        "Trap: orthostatic hypotension (A) requires a BP DROP (absent here); vasovagal syncope (B) is a transient reflex faint, not a sustained postural tachycardia; an Addisonian crisis (D) causes hypotension; and there is nothing to suggest dehydration (E) &mdash; the &ge;30 bpm rise with a stable BP is POTS."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
