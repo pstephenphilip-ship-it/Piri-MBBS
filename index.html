@@ -7791,7 +7791,7 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/3/36/ECG_Atrial_Fibrillation.svg",
       imageAlt:"An ECG with irregularly irregular QRS complexes, no P waves, and a chaotic wavering baseline.",
       imageCredit:"Ewingdo, vectorised by Marnanel, CC BY-SA 4.0, via Wikimedia Commons.",
-      question:"A 72-year-old with palpitations has the ECG shown. What is the rhythm?",
+      question:"A 72-year-old attends the emergency department with a 4-hour history of palpitations and mild breathlessness. His pulse is irregularly irregular at around 130 bpm and his blood pressure is 128/78 mmHg. He has no chest pain. The 12-lead ECG is shown. What is the rhythm?",
       options:[
         "Atrial flutter",
         "Sinus tachycardia",
@@ -7806,22 +7806,23 @@ window.MOCK_BANK = {
         "Trap: flutter, sinus tachycardia, VT and MAT (A, B, D, E) each have identifiable atrial activity or a broad QRS &mdash; the irregularly-irregular, P-wave-less, narrow-complex pattern is AF."
       ] },
     { id:"tac-010", type:"mcq", objective:"tac-af-causes",
-      question:"A previously well 55-year-old presents with new atrial fibrillation, weight loss, tremor and heat intolerance. Beyond rate control, which investigation is essential?",
+      question:"A 58-year-old woman attends with a 2-week history of palpitations and feeling constantly wired and on edge. Her pulse is irregularly irregular, she has a fine tremor, and she has lost 4 kg without trying. An ECG shows atrial fibrillation. Her observations and bloods are shown. What is the most likely precipitant of her AF?",
+      data:'<div class="mk-obs-h">Observations &amp; bloods</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>122 bpm, irregular</b></td><td>60&ndash;100</td></tr><tr><td>TSH</td><td><b>&lt;0.01 mU/L</b></td><td>0.3&ndash;4.2</td></tr><tr><td>Free T4</td><td><b>32 pmol/L</b></td><td>9&ndash;25</td></tr><tr><td>Potassium</td><td><b>4.2 mmol/L</b></td><td>3.5&ndash;5.3</td></tr><tr><td>Haemoglobin</td><td><b>134 g/L</b></td><td>115&ndash;165</td></tr><tr><td>CRP</td><td><b>3 mg/L</b></td><td>&lt;5</td></tr></table>',
       options:[
-        "Thyroid function tests",
-        "A CT pulmonary angiogram",
-        "A short Synacthen test",
-        "Serum ferritin",
-        "24-hour urinary catecholamines"],
+        "Hyperthyroidism",
+        "Iron-deficiency anaemia",
+        "Underlying sepsis",
+        "Hypokalaemia",
+        "Pulmonary embolism"],
       correctIndex:0,
       explanation:[
-        "New AF with weight loss, tremor and heat intolerance is THYROTOXICOSIS until proven otherwise &mdash; so THYROID FUNCTION TESTS are essential. Hyperthyroidism is a classic, reversible cause of AF, and you always check TFTs in new AF (cross-link: Hyperthyroidism).",
-        "Treating the thyroid often restores sinus rhythm, and beta-blockers help both the rate and the thyrotoxic symptoms &mdash; so finding the cause changes management, not just the rate.",
-        "The causes of AF are broad (mnemonic SMITH: Sepsis/Surgery/Sleep apnoea, Mitral valve disease, IHD/Inflammation/Idiopathic, Thyroid, Hypertension), plus alcohol (&lsquo;holiday heart&rsquo;), PE, COPD and obesity &mdash; a new-AF workup screens for the treatable ones.",
-        "Trap: a CTPA, Synacthen test, ferritin or urinary catecholamines (B, C, D, E) chase other diagnoses &mdash; the thyrotoxic features here point squarely at the thyroid."
+        "The suppressed TSH (&lt;0.01) with a raised free T4 is biochemical THYROTOXICOSIS &mdash; and with the weight loss, tremor and palpitations it is the precipitant of her AF. Hyperthyroidism is a classic, reversible cause, which is why you ALWAYS check TFTs in new AF (cross-link: Hyperthyroidism).",
+        "Reading the REST of the panel excludes the other common precipitants offered: the normal haemoglobin argues against anaemia, the normal CRP against sepsis, and the normal potassium against a hypokalaemia-driven arrhythmia.",
+        "Treating the thyroid often restores sinus rhythm, and a beta-blocker helps both the ventricular rate and the thyrotoxic symptoms &mdash; so identifying the cause changes management. The broader causes follow SMITH (Sepsis/Surgery/Sleep apnoea, Mitral disease, IHD/Inflammation/Idiopathic, Thyroid, Hypertension) plus alcohol, PE, COPD and obesity.",
+        "Trap: anaemia, sepsis and hypokalaemia (B, C, D) are all genuine AF triggers but are excluded by the normal results here; and although PE (E) can cause AF, nothing in the picture suggests it &mdash; the one abnormal result on the panel is the thyroid."
       ] },
     { id:"tac-011", type:"mcq", objective:"tac-af-classification",
-      question:"A patient has had continuous atrial fibrillation for 5 months, and cardioversion is still being considered. How is this AF best classified?",
+      question:"A 67-year-old man has had palpitations that began about 5 months ago and have been present continuously since, documented in AF on serial ECGs and a recent Holter monitor. He has never spontaneously reverted to sinus rhythm, and the cardiology team are planning elective DC cardioversion. How is his AF best classified?",
       options:[
         "Paroxysmal AF",
         "Lone AF",
@@ -7836,7 +7837,7 @@ window.MOCK_BANK = {
         "Trap: paroxysmal (A) is self-terminating (this has not terminated in 5 months); permanent (C) means rhythm control has been abandoned (it is still being considered here); lone AF (B) describes AF with no identifiable cause; and valvular AF (E) is a separate anticoagulation category (mitral stenosis / mechanical valve, tac-021)."
       ] },
     { id:"tac-012", type:"mcq", objective:"tac-af-consequences",
-      question:"Why does atrial fibrillation both reduce cardiac output and markedly raise the risk of stroke?",
+      question:"A 78-year-old woman with newly diagnosed atrial fibrillation asks why she has been started on both a rate-controlling drug and an anticoagulant. Which single statement best explains the two main harms of AF that these two treatments address?",
       options:[
         "The ventricular rate is always far too slow to maintain output or brain perfusion",
         "Loss of coordinated atrial contraction cuts output and lets thrombus form in the left atrium",
@@ -7851,7 +7852,8 @@ window.MOCK_BANK = {
         "Trap: the ventricular rate in AF is usually FAST, not slow (A); the fibrillating atria barely contract at all rather than too forcefully (C); AF does not erode valves (D); and there is no accessory-pathway clot conduit (E) &mdash; the mechanism is lost atrial kick plus appendage stasis."
       ] },
     { id:"tac-013", type:"mcq", objective:"tac-af-rate-firstline",
-      question:"A 68-year-old with atrial fibrillation at 140 bpm is haemodynamically stable, with no heart failure. Which is the first-line rate-controlling agent?",
+      question:"A 68-year-old man attends with a 6-hour history of palpitations but no chest pain and no breathlessness at rest. His pulse is irregularly irregular, and an ECG confirms atrial fibrillation. He has no history of heart failure or asthma. His observations are shown. Which is the most appropriate first-line agent for rate control?",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>140 bpm, irregular</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>132/80 mmHg</b></td><td>&ge;90 systolic</td></tr><tr><td>SpO2 (air)</td><td><b>98%</b></td><td>&ge;96</td></tr><tr><td>Temperature</td><td><b>36.8&deg;C</b></td><td>36.0&ndash;37.5</td></tr></table>',
       options:[
         "A beta-blocker such as bisoprolol",
         "IV adenosine",
@@ -7866,7 +7868,7 @@ window.MOCK_BANK = {
         "Trap: adenosine (B) only transiently blocks the node and does not control AF; amiodarone and flecainide (C, E) are rhythm-control drugs, not first-line rate control; and digoxin (D) is reserved for sedentary or heart-failure patients, not first-line in an active adult (tac-015)."
       ] },
     { id:"tac-014", type:"mcq", objective:"tac-af-rate-hf",
-      question:"A patient with atrial fibrillation and heart failure with reduced ejection fraction (LVEF 30%) needs rate control. Which agent should be AVOIDED?",
+      question:"A 74-year-old man with atrial fibrillation and a ventricular rate of 120 bpm has known heart failure &mdash; a recent echocardiogram showed an LVEF of 30% &mdash; and takes ramipril and furosemide. You are selecting a rate-controlling agent. Which agent should be AVOIDED in this patient?",
       options:[
         "Bisoprolol, started at a low dose",
         "Digoxin, especially if sedentary",
@@ -7881,34 +7883,34 @@ window.MOCK_BANK = {
         "Trap: bisoprolol / beta-blockers (A, C, D) and digoxin (B) are all appropriate in AF with HFrEF; it is the rate-limiting CCBs (E) that are contraindicated, because of their negative inotropy."
       ] },
     { id:"tac-015", type:"mcq", objective:"tac-af-digoxin",
-      question:"For which patient with atrial fibrillation is digoxin the most appropriate rate-control choice?",
+      question:"An 84-year-old woman who is largely housebound has atrial fibrillation with heart failure. Her resting ventricular rate is 105 bpm despite a low-dose beta-blocker, which she tolerates poorly (fatigue and postural dizziness). Which additional agent is the most appropriate to control her rate?",
       options:[
-        "A young, physically active athlete with paroxysmal AF",
-        "A patient with Wolff-Parkinson-White syndrome",
-        "A sedentary elderly patient with AF and heart failure",
-        "A patient who needs rapid IV rhythm conversion",
-        "A marathon runner needing rate control on exertion"],
+        "Verapamil",
+        "Flecainide",
+        "Digoxin",
+        "Amiodarone for long-term rate control",
+        "Adenosine"],
       correctIndex:2,
       explanation:[
-        "DIGOXIN is best suited to SEDENTARY and/or HEART-FAILURE patients with AF: it controls the RESTING ventricular rate via increased vagal tone, and is a positive inotrope useful in HF. A sedentary elderly patient with AF and HF is the classic indication.",
-        "Its weakness is EXERTIONAL rate control: sympathetic drive overrides the vagal effect, so digoxin controls rate poorly on exertion &mdash; which is why it is a poor choice for active patients (a beta-blocker suits them, tac-013).",
-        "Digoxin has a narrow therapeutic index and is itself a recognised cause of arrhythmia in toxicity (classically atrial tachycardia with block) &mdash; so levels and renal function matter.",
-        "Trap: for an athlete or marathon runner (A, E) digoxin will not control the exertional rate; in WPW (B) AV-nodal blockers including digoxin are dangerous (the pre-excited-AF trap, tac-008); and digoxin does not achieve rapid rhythm conversion (D)."
+        "DIGOXIN is the best choice here: she is HOUSEBOUND (sedentary) with HEART FAILURE and AF, and tolerates a beta-blocker poorly. Digoxin controls the RESTING rate via increased vagal tone and is a mild positive inotrope useful in HF &mdash; its classic niche.",
+        "Its weakness is EXERTIONAL rate control (sympathetic drive overrides the vagal effect), which is why it suits SEDENTARY patients but not active ones &mdash; and here her housebound status makes that weakness irrelevant.",
+        "Digoxin has a narrow therapeutic index and is itself a recognised cause of arrhythmia in toxicity (classically atrial tachycardia with block), so monitor levels and renal function.",
+        "Trap: verapamil (A) is a negative inotrope contraindicated in her HFrEF (tac-014); flecainide (B) is contraindicated with structural heart disease; amiodarone (D) is not used for chronic rate control because of its toxicity; and adenosine (E) only transiently blocks the node and does nothing for established AF."
       ] },
     { id:"tac-016", type:"mcq", objective:"tac-af-target",
-      question:"A stable patient with permanent atrial fibrillation is started on rate control. What is the initial resting heart-rate target?",
+      question:"A 70-year-old man with permanent atrial fibrillation has been established on bisoprolol. He feels well, with no palpitations, breathlessness or dizziness. In clinic his resting heart rate is 96 bpm (irregularly irregular). His GP asks whether the dose needs increasing. What is the appropriate rate target, and how should you advise?",
       options:[
-        "Below 60 bpm in all patients",
-        "Below 150 bpm is adequate",
-        "Exactly 100 bpm",
-        "Below 110 bpm, lenient; stricter only if symptomatic",
-        "Restore sinus rhythm; rate targets do not apply"],
+        "A target below 60 bpm; his dose should be increased to reach it",
+        "A target below 150 bpm, so he is already comfortably within range",
+        "A target of exactly 100 bpm, so the dose needs fine adjustment",
+        "A lenient target below 110 bpm, which he already meets while asymptomatic",
+        "No rate target applies; he should be referred for urgent cardioversion"],
       correctIndex:3,
       explanation:[
-        "The initial target is a LENIENT one: a resting heart rate &lt;110 bpm. A stricter target (&lt;80 bpm at rest) is reserved for patients who remain SYMPTOMATIC at the lenient rate, or who develop tachycardia-mediated cardiomyopathy.",
-        "Lenient control is used because trials showed no benefit from strict control for most patients, and strict control risks more drug side-effects and bradycardia &mdash; so you titrate to symptoms, not to an arbitrary low number.",
-        "This applies to a rate-control strategy (permanent AF, or AF where rhythm control is not pursued); staying symptomatic despite adequate rate control is a trigger to consider rhythm control (tac-013).",
-        "Trap: &lt;60 in everyone (A) risks bradycardia; &lt;150 (B) is not controlled; exactly 100 (C) is an arbitrary target; and &lsquo;restore sinus rhythm&rsquo; (E) is a rhythm-control strategy, not the rate target being asked about."
+        "The initial target is LENIENT: a resting heart rate &lt;110 bpm. At 96 bpm and completely asymptomatic, he already MEETS the target &mdash; there is no need to increase the dose and risk bradycardia or fatigue.",
+        "A stricter target (&lt;80 bpm at rest) is reserved for patients who remain SYMPTOMATIC at the lenient rate, or who develop tachycardia-mediated cardiomyopathy. Lenient control is used because trials showed no benefit from strict control for most patients.",
+        "The principle is to titrate to SYMPTOMS, not to an arbitrary low number; persistent symptoms despite adequate rate control would instead prompt consideration of rhythm control (tac-013).",
+        "Trap: chasing &lt;60 (A) risks bradycardia; &lt;150 (B) is not adequate control; exactly 100 (C) is arbitrary; and urgent cardioversion (E) is not indicated in an asymptomatic, rate-controlled patient with permanent AF."
       ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
