@@ -8537,6 +8537,130 @@ window.MOCK_BANK = {
         "This capstone pulls the block together: broad + regular + structural heart disease &rarr; VT; the safe default is to treat as VT; verapamil is dangerous and adenosine does not treat VT (tac-055). The reason the default is VT is the ASYMMETRIC cost of the two errors: mislabelling VT as SVT and giving verapamil &rarr; collapse or death; mislabelling SVT as VT and giving amiodarone &rarr; the patient is fine. When you cannot be sure, you choose the error that cannot kill.",
         "Trap: verapamil (A) is dangerous in VT; adenosine (B) does not treat VT; assuming aberrancy and beta-blocking (C) is the fatal error; and discharging a broad-complex tachycardia (D) misses a lethal arrhythmia."
       ] },
+    { id:"tac-057", type:"mcq", objective:"tac-preexcited-af",
+      image:"assets/img/preexcited_af.png",
+      imageAlt:"A very fast, broad, irregular tachycardia in which the width and shape of the QRS complexes vary from beat to beat.",
+      imageCredit:"Illustrative ECG.",
+      question:"A 22-year-old with known Wolff-Parkinson-White presents with sudden palpitations and dizziness. The ECG shows a very fast (ventricular rate ~220 bpm), BROAD, IRREGULAR tachycardia in which the QRS width and shape VARY from beat to beat. The strip is shown. What is the diagnosis?",
+      options:[
+        "Monomorphic ventricular tachycardia",
+        "Pre-excited atrial fibrillation (WPW + AF)",
+        "Ventricular fibrillation",
+        "AVNRT with aberrancy",
+        "Atrial flutter with 2:1 block"],
+      correctIndex:1,
+      explanation:[
+        "This is PRE-EXCITED AF (WPW + AF) &mdash; the &lsquo;FBI&rsquo; trap: Fast, Broad, Irregular, with the QRS width VARYING beat-to-beat. In WPW the chaotic atrial impulses of AF conduct DOWN the accessory pathway (which lacks the AV node&rsquo;s protective rate-limiting), so the ventricles are bombarded at near-atrial rates (often &gt;200 bpm).",
+        "The varying QRS width is the giveaway: each beat conducts via the accessory pathway, the AV node, or a FUSION of both, so the morphology changes beat to beat &mdash; distinguishing it from monomorphic VT (regular, uniform) and AF-with-BBB (fixed BBB shape, slower, tac-062).",
+        "It can degenerate to VF and is immediately life-threatening. It is the &lsquo;endanger&rsquo; arm of the master principle (tac-005) &mdash; the rhythm where AV-nodal blockade kills (tac-058).",
+        "Trap: monomorphic VT (A) is regular and uniform; VF (C) has no organised QRS at all; AVNRT with aberrancy (D) is regular; and 2:1 flutter (E) is regular &mdash; the fast, broad, IRREGULAR, varying-width pattern in a WPW patient is pre-excited AF."
+      ] },
+    { id:"tac-058", type:"mcq", objective:"tac-preexcited-af-mgmt",
+      question:"A patient in pre-excited atrial fibrillation (WPW + AF) is currently stable. Which drug must be AVOIDED, and what is an appropriate treatment?",
+      options:[
+        "Give adenosine, since it is generally the safest option here",
+        "Give verapamil, in order to slow the ventricular rate",
+        "Give digoxin, to control the fast ventricular response",
+        "Avoid AV-nodal blockers; use flecainide, procainamide or DC",
+        "Give a beta-blocker, as the appropriate first-line agent"],
+      correctIndex:3,
+      explanation:[
+        "In pre-excited AF you must NEVER give AV-NODAL BLOCKERS &mdash; adenosine, verapamil, diltiazem, beta-blockers or DIGOXIN. Blocking the AV node removes its protective gating, so even MORE atrial impulses race down the accessory pathway &mdash; accelerating the ventricular rate and precipitating VF.",
+        "The safe treatments SLOW THE ACCESSORY PATHWAY: FLECAINIDE or PROCAINAMIDE (amiodarone in some guidance), and SYNCHRONISED DC CARDIOVERSION if unstable (or at any time). Definitive treatment is later accessory-pathway ablation (tac-040).",
+        "This is the lethal &lsquo;endanger&rsquo; arm of the AV-node principle (tac-005): the node is being BYPASSED, so blocking it is not merely useless but actively dangerous.",
+        "Trap: adenosine, verapamil, digoxin and a beta-blocker (A, B, C, E) are ALL AV-nodal blockers and ALL contraindicated here &mdash; the answer is to avoid them and use a pathway-slowing drug or cardioversion."
+      ] },
+    { id:"tac-059", type:"mcq", objective:"tac-torsades-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Torsades_de_Pointes_TdP.png",
+      imageAlt:"An irregular broad-complex tachycardia whose QRS complexes twist around the baseline, waxing and waning in amplitude.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A patient on several QT-prolonging medications collapses. The monitor shows an irregular, broad-complex tachycardia in which the QRS complexes appear to twist around the baseline, their amplitude waxing and waning. The preceding sinus beats had a long QT interval. The strip is shown. What is the rhythm?",
+      options:[
+        "Monomorphic ventricular tachycardia from an old scar",
+        "Atrial fibrillation with a rapid ventricular response",
+        "Ventricular fibrillation requiring immediate defibrillation",
+        "Pre-excited atrial fibrillation from an accessory pathway",
+        "Torsades de pointes (polymorphic VT)"],
+      correctIndex:4,
+      explanation:[
+        "This is TORSADES DE POINTES: polymorphic VT in which the QRS complexes continuously TWIST around the baseline, amplitude waxing and waning over 5&ndash;20 beats. The diagnostic clue is a PROLONGED QT on the preceding sinus beats.",
+        "Torsades = polymorphic VT on a background of LONG QT (congenital, or acquired from drugs or electrolytes). Prolonged repolarisation allows early after-depolarisations to trigger the arrhythmia. It is often self-terminating but can degenerate to VF.",
+        "Recognising the long QT is what separates it from ordinary polymorphic VT and directs treatment to MAGNESIUM and removing the cause (tac-060).",
+        "Trap: monomorphic VT (A) has a uniform QRS; AF (B) is narrow unless aberrant; VF (C) has no organised complexes; and pre-excited AF (D) is fast/broad/irregular but does not twist on a long-QT background &mdash; the twisting morphology after a long QT is torsades."
+      ] },
+    { id:"tac-060", type:"mcq", objective:"tac-torsades-mgmt",
+      question:"A patient has recurrent, self-terminating runs of torsades de pointes. Their serum magnesium is reported as normal. What is the first-line treatment?",
+      options:[
+        "IV magnesium sulphate, even though the serum level is normal",
+        "IV amiodarone, given as a slow loading infusion",
+        "IV adenosine, as a rapid diagnostic and therapeutic bolus",
+        "Oral bisoprolol, titrated up over the following days",
+        "IV calcium gluconate, to stabilise the myocardium"],
+      correctIndex:0,
+      explanation:[
+        "First-line for torsades is IV MAGNESIUM SULPHATE (2 g over 10 min) &mdash; and crucially it works EVEN WHEN the serum magnesium is NORMAL, because it stabilises the cardiac membrane. Do NOT wait for a low level before giving it.",
+        "Alongside: correct potassium (aim &gt;4.5 mmol/L) and other electrolytes, STOP all QT-prolonging drugs, and treat the cause. Recurrent/refractory torsades may need OVERDRIVE PACING (or isoprenaline) to shorten the QT; an ICD for congenital long-QT.",
+        "AMIODARONE is AVOIDED &mdash; it prolongs the QT and would worsen torsades. This is a key distinction from monomorphic VT (where amiodarone is first-line, tac-052).",
+        "Trap: amiodarone (B) prolongs QT and is contraindicated; adenosine (C) is for AV-node-dependent SVT; bisoprolol (D) is not the acute treatment (though beta-blockers have a role in congenital LQTS); and calcium (E) is for hyperkalaemia/hypocalcaemia, not torsades &mdash; magnesium is the answer."
+      ] },
+    { id:"tac-061", type:"multi", objective:"tac-longqt-causes",
+      boxLabel:"Prolongs QT / can cause torsades",
+      question:"From the list, select ALL the factors that PROLONG the QT interval and can precipitate torsades de pointes.",
+      options:["Hypokalaemia","Hyperkalaemia","Sotalol","Macrolide antibiotics (e.g. clarithromycin)","Hypomagnesaemia","Bisoprolol"],
+      correct:[0,2,3,4],
+      explanation:[
+        "QT-prolonging factors that precipitate torsades: ELECTROLYTES &mdash; HYPOkalaemia (the commonest), HYPOmagnesaemia and hypocalcaemia; and DRUGS &mdash; sotalol, amiodarone, class Ia agents, MACROLIDES (erythromycin, clarithromycin), some antipsychotics (haloperidol), citalopram/TCAs, ondansetron and antimalarials.",
+        "Note the electrolyte direction: it is LOW potassium and LOW magnesium (not high) that prolong the QT &mdash; hyperkalaemia does the opposite to the ECG (peaked T waves, not a long QT).",
+        "SOTALOL is the trap beta-blocker: it has class III action and PROLONGS the QT (causing torsades), unlike other beta-blockers such as bisoprolol, which are QT-neutral and are actually protective in congenital long-QT syndrome (tac-060)."
+      ] },
+    { id:"tac-062", type:"mcq", objective:"tac-af-bbb",
+      image:"assets/img/af_lbbb_aberrancy.png",
+      imageAlt:"An irregular broad-complex tachycardia in which every QRS has the same fixed wide, bundle-branch-block shape.",
+      imageCredit:"Illustrative ECG.",
+      question:"An irregular broad-complex tachycardia is seen at ~150 bpm. Every QRS has the SAME fixed left bundle branch block morphology, and the patient has known LBBB on a prior ECG. The strip is shown. How is this best classified and managed?",
+      options:[
+        "Pre-excited AF; give urgent intravenous flecainide",
+        "AF with bundle branch block; manage it as ordinary AF",
+        "Monomorphic VT; give intravenous amiodarone now",
+        "Torsades de pointes; give intravenous magnesium",
+        "AVNRT with aberrancy; give a rapid adenosine bolus"],
+      correctIndex:1,
+      explanation:[
+        "An irregular broad-complex tachycardia with a FIXED bundle branch block morphology (identical to the patient&rsquo;s known LBBB), at a rate under ~180, is AF WITH BBB &mdash; just ordinary AF made broad by the aberrant conduction. Manage it as AF: rate control and anticoagulation per CHA2DS2-VASc (tac-013, tac-018).",
+        "The key contrast is with PRE-EXCITED AF: that is FASTER (often &gt;200 bpm) with a VARYING QRS width beat-to-beat, whereas AF+BBB is slower with a FIXED BBB shape and an intact AV node still rate-limiting (tac-057).",
+        "So AF+BBB is the &lsquo;less scary&rsquo; broad-irregular rhythm &mdash; the AV node still gates conduction, so AV-nodal blockers are SAFE here (unlike pre-excited AF). If ever in genuine doubt, though, treat as pre-excited AF.",
+        "Trap: pre-excited AF (A) is faster with varying QRS width; monomorphic VT (C) is regular; torsades (D) twists on a long QT; and AVNRT (E) is regular and narrow &mdash; a fixed BBB on irregular AF is AF with aberrancy."
+      ] },
+    { id:"tac-063", type:"mcq", objective:"tac-sync-unsync",
+      question:"Which statement correctly distinguishes SYNCHRONISED cardioversion from UNSYNCHRONISED defibrillation?",
+      options:[
+        "Synchronised shock is the correct choice for ventricular fibrillation itself",
+        "Unsynchronised shock is the correct choice for a stable, alert patient in SVT",
+        "There is essentially no meaningful clinical difference between the two modes",
+        "Synchronised for a pulse-present rhythm; unsynchronised for pulseless VT / VF",
+        "Unsynchronised shock is always the safer of the two available options"],
+      correctIndex:3,
+      explanation:[
+        "SYNCHRONISED cardioversion times the shock to the R wave, AVOIDING the vulnerable T-wave period &mdash; it is used for a PERFUSING (pulse-present) tachyarrhythmia: unstable VT WITH a pulse, AF, atrial flutter, or SVT. UNSYNCHRONISED defibrillation delivers the shock immediately, used for PULSELESS VT and VF (and polymorphic VT / torsades, where syncing is unreliable).",
+        "The reason: shocking ON the T wave (the vulnerable period) can induce VF, so for an organised rhythm with a pulse you SYNC. In VF/pulseless VT there is no organised R wave to sync to and the patient is arrested, so you defibrillate immediately.",
+        "This is the peri-arrest link (tac-003, tac-052): an unstable but PERFUSING tachyarrhythmia &rarr; synchronised DC; PULSELESS &rarr; the arrest algorithm with unsynchronised defibrillation (cross-link: Cardiac Arrest / Advanced Life Support (ALS)).",
+        "Trap: you do NOT synchronise for VF (A, there is no R wave); unsynchronised shock is not for a stable SVT (B, that gets vagal/adenosine first); the modes ARE different (C); and unsynchronised is not &lsquo;always safer&rsquo; (E) &mdash; on a perfusing rhythm it risks inducing VF."
+      ] },
+    { id:"tac-064", type:"mcq", objective:"tac-algorithm-synthesis",
+      question:"A doctor is handed the ECG of a tachycardia and asked to work through it systematically. In what ORDER should the assessment proceed?",
+      options:[
+        "P-wave morphology, then rate, then axis",
+        "QT interval, then rate, then P waves",
+        "Stability first, then QRS width, then regularity",
+        "Rate first, then anticoagulation, then cause",
+        "Regularity first, then P waves, then stability"],
+      correctIndex:2,
+      explanation:[
+        "The fixed order is: (1) ASSESS STABILITY &mdash; an unstable patient is cardioverted immediately regardless of rhythm (tac-003); (2) measure QRS WIDTH &mdash; narrow (supraventricular) vs broad (VT until proven otherwise, tac-001); (3) assess REGULARITY &mdash; then read the P-waves in a narrow rhythm or hunt for VT features in a broad one.",
+        "This is the Resuscitation Council algorithm distilled: treat the PATIENT (stability) before the RHYTHM, then let width and regularity place the rhythm in one of the four quadrants (tac-007).",
+        "From the quadrant, the master principle (tac-005) gives the drug logic: is the AV node in the circuit (terminate), a bystander (rate-control), being bypassed (endanger), or is it sinus (treat the cause)? The whole topic reduces to this sequence.",
+        "Trap: starting with P-waves, QT, rate or regularity (A, B, D, E) skips the two things that must come first &mdash; is the patient STABLE, and is the QRS NARROW or BROAD? Stability and width lead everything else."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
