@@ -3759,7 +3759,7 @@
    {
     "id": "htn_fc_03",
     "front": "What are the clinic BP and ABPM/HBPM thresholds for Stage 1 hypertension, and when is it treated?",
-    "back": "Clinic ≥140/90, ABPM/HBPM ≥135/85. Treat if <80 yrs with end-organ damage, CV risk >10%, or T2DM/CKD."
+    "back": "Clinic ≥140/90, ABPM/HBPM ≥135/85. Treat if <80 yrs with end-organ damage, CV risk ≥10%, or T2DM/CKD."
    },
    {
     "id": "htn_fc_04",
@@ -3769,7 +3769,7 @@
    {
     "id": "htn_fc_05",
     "front": "What defines Stage 3 / Severe hypertension, and what is the action?",
-    "back": "Clinic ≥180/120. Same-day assessment for end-organ damage; if present → hypertensive emergency."
+    "back": "Clinic systolic ≥180 or diastolic ≥120. Same-day assessment for end-organ damage; if present → hypertensive emergency."
    },
    {
     "id": "htn_fc_06",
@@ -3869,7 +3869,7 @@
    {
     "id": "htn_fc_25",
     "front": "On fundoscopy, how does a normal optic disc differ from papilloedema, and what does papilloedema indicate?",
-    "back": "Normal optic disc has a sharp disc margin; papilloedema has a blurred disc margin. It indicates severely raised ICP from a hypertensive emergency — grade IV Keith-Wagener retinopathy."
+    "back": "Normal optic disc has a sharp disc margin; papilloedema has a blurred disc margin. Here it indicates malignant/accelerated hypertension (grade IV Keith-Wagener retinopathy) — it may coexist with hypertensive encephalopathy but is not primarily a raised-ICP sign."
    },
    {
     "id": "htn_fc_26",
@@ -3954,7 +3954,7 @@
    {
     "id": "htn_fc_42",
     "front": "Class A — ACEi: give examples, key side effects, and key contraindications/cautions.",
-    "back": "Examples: ramipril, lisinopril, perindopril. Side effects: dry cough (10–15%), hyperkalaemia, angioedema (rare but serious), 1st-dose hypotension, raised Cr. CI/caution: bilateral RAS, pregnancy, aortic stenosis; caution in CKD (acceptable if Cr rise <30%); monitor U&E."
+    "back": "Examples: ramipril, lisinopril, perindopril. Side effects: dry cough (10–15%), hyperkalaemia, angioedema (rare but serious), 1st-dose hypotension, raised Cr. Absolute CI: bilateral RAS, pregnancy. Caution: aortic stenosis, and CKD (acceptable if Cr rise <30%); monitor U&E."
    },
    {
     "id": "htn_fc_43",
@@ -4004,7 +4004,7 @@
    {
     "id": "htn_fc_52",
     "front": "What is the clinic BP target for patients with CKD / Diabetes / CVD?",
-    "back": "<130/80."
+    "back": "<140/90 generally. Tighten to <130/80 only in CKD with ACR ≥70, or diabetes with kidney/eye/cerebrovascular damage."
    },
    {
     "id": "htn_fc_53",
@@ -15307,14 +15307,14 @@
     "question": "When should Stage 1 hypertension be treated?",
     "options": [
      "Always, regardless of other factors",
-     "If <80 yrs with end-organ damage, CV risk >10%, or T2DM/CKD",
+     "If <80 yrs with end-organ damage, CV risk ≥10%, or T2DM/CKD",
      "Only if >80 yrs",
      "Only in pregnancy",
      "Never — it is observed"
     ],
     "correctIndex": 1,
     "answer": "If <80 yrs with end-organ damage, CV risk >10%, or T2DM/CKD",
-    "explanation": "Stage 1 is treated if the patient is <80 yrs with end-organ damage, CV risk >10%, or T2DM/CKD; Stage 2 is treated regardless of other factors."
+    "explanation": "Stage 1 is treated if the patient is <80 yrs with end-organ damage, CV risk ≥10%, or T2DM/CKD; Stage 2 is treated regardless of other factors."
    },
    {
     "id": "htn_q05",
@@ -15531,7 +15531,7 @@
     "type": "mcq",
     "question": "How is QRISK3 used in hypertension management?",
     "options": [
-     "Calculate 10-year CV risk; if >10% offer atorvastatin 20 mg; statin regardless if established CVD",
+     "Calculate 10-year CV risk; if ≥10% offer atorvastatin 20 mg; statin regardless if established CVD",
      "Confirm the diagnosis of secondary hypertension and identify the underlying cause of raised BP",
      "Grade the severity of hypertensive retinopathy from the fundoscopic examination findings",
      "Set the individual patient's target blood pressure according to their calculated risk score",
@@ -15539,7 +15539,7 @@
     ],
     "correctIndex": 0,
     "answer": "Calculate 10-year CV risk; if >10% offer atorvastatin 20 mg; statin regardless if established CVD",
-    "explanation": "QRISK3 calculates 10-year CV risk; if >10% offer atorvastatin 20 mg (primary prevention), and give a statin regardless of score if CVD is established."
+    "explanation": "QRISK3 calculates 10-year CV risk; if ≥10% offer atorvastatin 20 mg (primary prevention), and give a statin regardless of score if CVD is established."
    },
    {
     "id": "htn_q20",
@@ -15662,21 +15662,6 @@
     "explanation": "Non-pharmacological measures at all stages: salt restriction (<6g/day), DASH diet, aerobic exercise ≥150 min/week, weight loss, limit alcohol, stop smoking."
    },
    {
-    "id": "htn_q28",
-    "type": "mcq",
-    "question": "Which side effect is characteristic of ACEi but not ARBs, and what is the explanation?",
-    "options": [
-     "Ankle oedema — from peripheral arteriolar vasodilation, as also seen with CCBs",
-     "Gynaecomastia — an anti-androgen effect on breast tissue, as with spironolactone",
-     "Gout flares — driven by a rise in serum urate from reduced renal excretion",
-     "Dry cough (10–15%) — bradykinin accumulation; switch to ARB which has no cough",
-     "Reflex tachycardia — a baroreceptor response to rapid arteriolar vasodilation"
-    ],
-    "correctIndex": 3,
-    "answer": "Dry cough (10–15%) — bradykinin accumulation; switch to ARB which has no cough",
-    "explanation": "ACEi cause a dry cough in 10–15% from bradykinin accumulation; switching to an ARB (same mechanism, no bradykinin accumulation) avoids the cough."
-   },
-   {
     "id": "htn_q29",
     "type": "mcq",
     "question": "Why are ACEi (and ARBs) contraindicated in bilateral renal artery stenosis?",
@@ -15769,7 +15754,7 @@
    {
     "id": "htn_q35",
     "type": "mcq",
-    "question": "What is the clinic BP target for a patient with CKD, diabetes or CVD?",
+    "question": "What is the tighter clinic BP target reserved for CKD with ACR ≥70 (or diabetes with end-organ damage)?",
     "options": [
      "<150/90",
      "<140/90",
