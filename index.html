@@ -7661,6 +7661,132 @@ window.MOCK_BANK = {
         "Trap: the injection is not about superior efficacy (A); stopping altogether (B) removes protection; aspirin (C) neither clears strep nor prevents recurrence; and oral penicillin V IS a valid alternative &mdash; it is not macrolide-only (E)."
       ] },
   ],
+  "conditions__CARDIOVASCULAR__Tachycardia": [
+    { id:"tac-001", type:"mcq", objective:"tac-approach-qrs",
+      question:"A patient has a regular tachycardia at 160 bpm on the monitor. After confirming they are stable, what is the single most important first step in classifying the rhythm from the ECG?",
+      options:[
+        "Measure the QRS duration (narrow versus broad)",
+        "Measure the corrected QT interval",
+        "Count the number of P waves per QRS complex",
+        "Assess the ST segments for ischaemia",
+        "Calculate the frontal-plane electrical axis"],
+      correctIndex:0,
+      explanation:[
+        "The first and most important step is to measure the QRS DURATION. A NARROW QRS (&lt;120 ms) means the ventricles are activated normally through the His-Purkinje system &mdash; a SUPRAVENTRICULAR origin. A BROAD QRS (&ge;120 ms) means abnormal ventricular spread &mdash; think VT, aberrancy or pre-excitation.",
+        "Width comes BEFORE reading P-waves or regularity because it splits the whole differential in two and flags the dangerous rhythms: a broad-complex tachycardia is VT until proven otherwise (tac-008).",
+        "Only once you know the width do you assess REGULARITY, then read the P-waves (in a narrow rhythm) or hunt for VT features (in a broad one) &mdash; the ordered framework that names every tachycardia.",
+        "Trap: the QT (B), P-wave counting (C), ST segments (D) and axis (E) all have their place, but none is the FIRST fork &mdash; QRS width is the master branch that determines everything downstream, including which drugs are safe."
+      ] },
+    { id:"tac-002", type:"mcq", objective:"tac-narrow-supraventricular",
+      question:"An ECG shows a regular tachycardia with a narrow QRS complex (100 ms). What does the narrow QRS tell you about the origin of the rhythm?",
+      options:[
+        "It is ventricular in origin, arising below the His bundle",
+        "It is supraventricular; the ventricles depolarise normally via His-Purkinje",
+        "It confirms ventricular tachycardia conducting with aberrancy",
+        "It indicates a pre-excited rhythm conducting down an accessory pathway",
+        "It is essentially diagnostic of torsades de pointes in this setting"],
+      correctIndex:1,
+      explanation:[
+        "A NARROW QRS (&lt;120 ms) GUARANTEES a supraventricular origin: the impulse reaches the ventricles through the normal His-Purkinje system, so they depolarise rapidly and synchronously, producing the narrow complex. The rhythm arises at or above the AV node.",
+        "This is why &lsquo;narrow = safer&rsquo;: you are dealing with an SVT (sinus, AVNRT, AVRT, atrial tachycardia, flutter or AF), not a ventricular arrhythmia. The next steps are REGULARITY, then the P-waves (tac-001).",
+        "The converse is the danger: a BROAD QRS means the His-Purkinje shortcut was bypassed (VT, aberrancy or pre-excitation), and must be treated as VT until proven otherwise (tac-008).",
+        "Trap: a narrow complex cannot be VT, aberrantly-conducted VT, a pre-excited accessory-pathway rhythm or torsades (A, C, D, E) &mdash; all of those WIDEN the QRS. A narrow QRS excludes them by definition."
+      ] },
+    { id:"tac-003", type:"mcq", objective:"tac-stability-unstable",
+      question:"A 68-year-old has a broad-complex tachycardia. The observations are shown. What is the most appropriate immediate management?",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>190 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>78/50 mmHg</b></td><td>&ge;90 systolic</td></tr><tr><td>GCS</td><td><b>13 (drowsy)</b></td><td>15</td></tr><tr><td>Symptoms</td><td><b>Ischaemic chest pain</b></td><td>&mdash;</td></tr></table>',
+      options:[
+        "IV adenosine 6 mg rapid bolus",
+        "IV verapamil",
+        "Immediate synchronised DC cardioversion",
+        "Oral bisoprolol and observe",
+        "Wait for a 12-lead to identify the rhythm first"],
+      correctIndex:2,
+      explanation:[
+        "This patient is HAEMODYNAMICALLY UNSTABLE: hypotension (78/50), reduced consciousness (GCS 13) and ischaemic chest pain are life-threatening features. Instability OVERRIDES rhythm diagnosis &mdash; give IMMEDIATE SYNCHRONISED DC CARDIOVERSION (sedate if conscious), up to 3 attempts, then amiodarone 300 mg IV if needed.",
+        "You do NOT delay to name the rhythm or try drugs: adenosine, verapamil or a beta-blocker (A, B, D) waste time and can worsen an unstable patient &mdash; and verapamil to a broad-complex rhythm is dangerous (tac-008).",
+        "The four markers of instability are SHOCK (SBP &lt;90), SYNCOPE / reduced consciousness, myocardial ISCHAEMIA, and severe HEART FAILURE (pulmonary oedema). Any one mandates cardioversion (tac-004).",
+        "Trap: waiting for a 12-lead (E) or starting oral/IV rate control (D, plus drugs A and B) all delay the definitive treatment &mdash; an unstable tachycardia is electrically cardioverted, not pharmacologically managed."
+      ] },
+    { id:"tac-004", type:"mcq", objective:"tac-instability-definition",
+      question:"Which single feature in a patient with a tachycardia constitutes haemodynamic INSTABILITY, mandating cardioversion?",
+      options:[
+        "Palpitations and associated anxiety",
+        "A heart rate of 165 bpm",
+        "Mild breathlessness on exertion",
+        "Syncope with a systolic BP of 82 mmHg",
+        "A subjective sensation of the heart racing"],
+      correctIndex:3,
+      explanation:[
+        "Instability means END-ORGAN compromise or haemodynamic collapse: SHOCK (SBP &lt;90), SYNCOPE / reduced consciousness, myocardial ISCHAEMIA (ischaemic chest pain), or severe HEART FAILURE (pulmonary oedema). Syncope with a systolic BP of 82 clearly qualifies.",
+        "The threshold matters because instability triggers immediate synchronised DC cardioversion regardless of the rhythm (tac-003) &mdash; so over- or under-calling it changes management.",
+        "Crucially, palpitations, anxiety, a fast rate per se, and mild breathlessness do NOT constitute instability &mdash; many stable SVTs run at 160&ndash;200 bpm in fully compensated patients who have time for vagal manoeuvres and drugs.",
+        "Trap: palpitations, a racing sensation, a rate of 165, or mild exertional breathlessness (A, B, C, E) are symptoms of the tachycardia, not signs of end-organ compromise &mdash; only the syncope with hypotension (D) is true instability."
+      ] },
+    { id:"tac-005", type:"mcq", objective:"tac-avnode-principle",
+      question:"The most useful conceptual question in a STABLE tachycardia is whether the AV node is part of the circuit. What does the answer determine?",
+      options:[
+        "Whether the patient will ultimately require long-term oral anticoagulation",
+        "Whether the QRS complex should be classified as narrow or as broad",
+        "The exact CHA2DS2-VASc score and thus the stroke-prevention strategy",
+        "Whether the underlying rhythm is sinus tachycardia or a true arrhythmia",
+        "Whether AV-nodal blockers will terminate it, rate-control it, or endanger the patient"],
+      correctIndex:4,
+      explanation:[
+        "Asking &lsquo;is the AV node IN the circuit?&rsquo; tells you what AV-nodal blockers (adenosine, beta-blockers, verapamil, diltiazem) will do. If the node is part of a re-entry loop (AVNRT, orthodromic AVRT), blocking it TERMINATES the rhythm. If the node merely conducts but does not sustain the circuit (AF, flutter, atrial tachycardia), blocking it only SLOWS the rate. If the node is bypassed or the rhythm ventricular (pre-excited AF, VT), blocking it is useless or DANGEROUS.",
+        "So the three-way answer maps to the three managements: TERMINATE (node in circuit), RATE-CONTROL (node a bystander), or TREAT THE CAUSE / avoid nodal blockers (sinus; or the dangerous pre-excited/VT rhythms).",
+        "The safe shortcut: narrow + regular + no pre-excitation &rarr; AV-node-dependent &rarr; adenosine is safe and likely terminates; any broad-complex rhythm &rarr; treat as VT and never give verapamil (tac-008).",
+        "Trap: anticoagulation, QRS width, the CHA2DS2-VASc score, and sinus-versus-arrhythmia (A, B, C, D) are all separate questions &mdash; the AV-node-in-circuit question specifically governs whether nodal-blocking DRUGS help or harm."
+      ] },
+    { id:"tac-006", type:"mcq", objective:"tac-150-flutter",
+      question:"A regular narrow-complex tachycardia is seen at almost exactly 150 bpm, with no clearly visible P waves. Which diagnosis should be assumed until proven otherwise, and how can it be confirmed?",
+      options:[
+        "Sinus tachycardia, confirmed by giving a rapid intravenous fluid bolus",
+        "Atrial flutter with 2:1 block, confirmed by adenosine unmasking flutter waves",
+        "Ventricular tachycardia, confirmed by an immediate dose of IV amiodarone",
+        "Atrial fibrillation, confirmed by the irregularly irregular ventricular response",
+        "Torsades de pointes, confirmed by giving intravenous magnesium sulphate"],
+      correctIndex:1,
+      explanation:[
+        "Any regular narrow tachycardia at almost exactly 150 bpm is ATRIAL FLUTTER with 2:1 block until proven otherwise: the atrial rate is ~300 and a fixed 2:1 AV block halves it to ~150. The flutter waves are often hidden in the T waves.",
+        "ADENOSINE is the confirmatory tool: it transiently increases AV block, so the ventricular rate falls and the sawtooth flutter waves (best in II, III, aVF) become visible. Adenosine DIAGNOSES flutter but does not terminate it (the AV node is a bystander, tac-005).",
+        "This is the &lsquo;150 bpm trap&rsquo;: mislabelling 2:1 flutter as another SVT is common because the flutter waves are buried &mdash; the rate near 150 should always prompt you to look for (or unmask) them.",
+        "Trap: sinus tachycardia rarely sits exactly at 150 with no visible P waves (A); a narrow QRS is not VT or torsades (C, E); and AF would be IRREGULAR, not regular (D) &mdash; the regular-narrow-at-150 pattern points to flutter."
+      ] },
+    { id:"tac-007", type:"categorize", objective:"tac-quadrants-categorize",
+      question:"Sort each tachycardia into its place in the width / regularity framework.",
+      buckets:["Narrow & regular","Narrow & irregular","Broad & regular","Broad & irregular"],
+      items:[
+        {text:"AVNRT",bucket:0},
+        {text:"Sinus tachycardia",bucket:0},
+        {text:"Atrial fibrillation",bucket:1},
+        {text:"Multifocal atrial tachycardia",bucket:1},
+        {text:"Monomorphic ventricular tachycardia",bucket:2},
+        {text:"Antidromic AVRT (WPW)",bucket:2},
+        {text:"Torsades de pointes",bucket:3},
+        {text:"Pre-excited AF (WPW + AF)",bucket:3}
+      ],
+      explanation:[
+        "The framework splits every tachycardia by QRS WIDTH, then REGULARITY. NARROW & REGULAR: AVNRT, AVRT, atrial tachycardia, fixed 2:1 flutter, sinus. NARROW & IRREGULAR: AF, variable-block flutter, MAT.",
+        "BROAD & REGULAR: VT (the default), SVT with aberrancy, antidromic AVRT. BROAD & IRREGULAR: pre-excited AF, polymorphic VT / torsades, and AF with BBB &mdash; the danger quadrant.",
+        "Placing a rhythm in its quadrant immediately narrows the differential and flags the safe versus dangerous drugs: any BROAD quadrant is treated as VT until proven otherwise, and the broad-irregular quadrant must never receive blind AV-nodal blockers (tac-008)."
+      ] },
+    { id:"tac-008", type:"mcq", objective:"tac-broad-vt-safety",
+      question:"A 70-year-old with a previous myocardial infarction has a regular BROAD-complex tachycardia at 170 bpm and is currently stable. A colleague suggests IV verapamil. What is the correct approach?",
+      options:[
+        "Give verapamil, since a stable patient makes SVT with aberrancy most likely",
+        "Give adenosine 6 mg rapidly as the first-line termination attempt here",
+        "Give oral bisoprolol and simply reassess the patient in about an hour",
+        "Reassure and discharge, since the patient is currently haemodynamically stable",
+        "Treat as VT: avoid verapamil, and use amiodarone if a drug is needed"],
+      correctIndex:4,
+      explanation:[
+        "A regular broad-complex tachycardia is VENTRICULAR TACHYCARDIA until proven otherwise &mdash; and a history of PRIOR MI pushes the probability of VT above 95% (the infarct scar is the re-entry substrate). Treat as VT: if stable, IV AMIODARONE; if unstable, synchronised DC.",
+        "VERAPAMIL (and diltiazem) must NEVER be given blind to a broad-complex tachycardia: if it is VT, the negative inotropy and vasodilatation can precipitate haemodynamic collapse and arrest. Treating SVT as VT is always safe; treating VT as SVT can be fatal.",
+        "Haemodynamic stability does NOT rule out VT &mdash; patients can be in sustained VT and look well, which is the common trap behind giving a nodal blocker (tac-004).",
+        "Trap: assuming SVT-with-aberrancy and giving verapamil or adenosine (A, B) is the dangerous error; a beta-blocker (C) is likewise wrong for an undiagnosed broad complex; and discharging a broad-complex tachycardia because the patient &lsquo;looks stable&rsquo; (D) misses a life-threatening arrhythmia."
+      ] },
+  ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
       question:"A 26-year-old man develops pleuritic chest pain and breathlessness 10 days after a flu-like illness with fever and myalgia. Troponin is raised, the ECG shows widespread saddle-shaped ST changes, and coronary angiography is normal. Cardiac MRI confirms myocarditis. What is the most likely underlying cause?",
