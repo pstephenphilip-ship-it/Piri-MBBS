@@ -8286,6 +8286,125 @@ window.MOCK_BANK = {
         "So digoxin and verapamil are wrong not merely because they are less definitive &mdash; they are potentially DANGEROUS in WPW. Ablation removes the pathway and the danger. A WPW patient who develops AF therefore needs the ACCESSORY PATHWAY addressed, NOT the node: acutely, a drug that slows the pathway (procainamide or flecainide, or DC cardioversion if unstable), never an AV-nodal blocker &mdash; and definitively, ablation.",
         "Trap: digoxin and verapamil (A, B) are AV-nodal blockers to avoid in WPW; a pacemaker (D) does not treat an accessory-pathway tachycardia; and anticoagulation (E) is not the issue &mdash; ablation is curative."
       ] },
+    { id:"tac-041", type:"mcq", objective:"tac-atrial-tachy",
+      question:"A 60-year-old has a regular narrow-complex tachycardia at 170 bpm. The onset showed a gradual warm-up (the rate accelerated over several beats), and the P waves before each QRS are abnormally shaped but differ from the sinus P wave. What is the most likely diagnosis?",
+      options:[
+        "AVNRT",
+        "Sinus tachycardia",
+        "Focal atrial tachycardia",
+        "Atrial fibrillation",
+        "Ventricular tachycardia"],
+      correctIndex:2,
+      explanation:[
+        "This is FOCAL ATRIAL TACHYCARDIA: an ectopic atrial focus firing faster than the sinus node (100&ndash;250 bpm, regular). Two clues point to it &mdash; a WARM-UP onset (the rate accelerates gradually, unlike the abrupt on-off of AVNRT) and an ABNORMAL P-wave morphology that DIFFERS from the sinus P in the same lead (because the focus is not the sinus node).",
+        "The AV node is a BYSTANDER (it conducts but is not part of the circuit), so the PR interval is normal or long, and ADENOSINE typically REVEALS the atrial activity but does NOT terminate the rhythm (tac-043).",
+        "Causes include structural heart disease, alcohol, hypoxia and DIGOXIN TOXICITY (classically atrial tachycardia WITH block, tac-042) &mdash; so a new atrial tachycardia should prompt a review of digoxin.",
+        "Trap: AVNRT (A) has abrupt onset and buried P waves; sinus tachycardia (B) has a NORMAL P morphology; AF (D) is irregular; and VT (E) is broad &mdash; the warm-up onset with an abnormal-but-organised P wave is atrial tachycardia."
+      ] },
+    { id:"tac-042", type:"mcq", objective:"tac-atrial-tachy-digoxin",
+      question:"An elderly patient on digoxin for heart failure develops a regular atrial tachycardia with intermittent AV block on the ECG. His digoxin level is at the upper limit of normal. What is the most appropriate action?",
+      options:[
+        "Withhold the digoxin and check for toxicity and electrolyte disturbance",
+        "Increase the digoxin dose in order to control the ventricular rate",
+        "Give IV adenosine as a bolus to terminate the tachycardia now",
+        "Start amiodarone while continuing the current digoxin dose",
+        "Arrange immediate synchronised DC cardioversion for the patient"],
+      correctIndex:0,
+      explanation:[
+        "ATRIAL TACHYCARDIA WITH BLOCK is the classic arrhythmia of DIGOXIN TOXICITY: digoxin both increases atrial automaticity (driving the tachycardia) and enhances vagal tone at the AV node (causing the block). WITHHOLD the digoxin, check the level, and correct electrolytes &mdash; especially HYPOKALAEMIA, which worsens toxicity.",
+        "Increasing the dose (B) would worsen toxicity; and cardioversion (E) is relatively contraindicated in digoxin toxicity (risk of provoking dangerous ventricular arrhythmias in a digoxin-loaded, hypokalaemic myocardium).",
+        "Severe digoxin toxicity (arrhythmia, hyperkalaemia, haemodynamic compromise) is treated with DIGOXIN-SPECIFIC ANTIBODY FRAGMENTS (DigiFab) (cross-link: Drug Overdose & Toxicology).",
+        "Trap: adenosine (C) will not cure an automatic atrial tachycardia; amiodarone while continuing digoxin (D) ignores the cause; and DC cardioversion (E) is hazardous in digoxin toxicity &mdash; the fix is to stop the digoxin and correct electrolytes."
+      ] },
+    { id:"tac-043", type:"mcq", objective:"tac-adenosine-reveals",
+      question:"A regular narrow-complex tachycardia is given adenosine: the ventricular rate transiently slows, revealing ongoing abnormal P waves, and then the tachycardia resumes unchanged. What does this response indicate?",
+      options:[
+        "AVNRT, which the adenosine has successfully terminated",
+        "An atrial tachycardia or flutter, where the node is a bystander",
+        "Ventricular tachycardia arising below the His bundle",
+        "That the adenosine dose given was simply too low",
+        "Sinus tachycardia responding to the vagal effect"],
+      correctIndex:1,
+      explanation:[
+        "If adenosine transiently slows the ventricular rate and UNMASKS ongoing atrial activity (P waves or flutter waves) but the tachycardia then RESUMES, the AV node is a BYSTANDER &mdash; this is an ATRIAL TACHYCARDIA or atrial FLUTTER, not an AV-node-dependent SVT.",
+        "Contrast AVNRT / orthodromic AVRT, where the node is IN the circuit: adenosine TERMINATES them and sinus rhythm returns (tac-039). So the response to adenosine is itself DIAGNOSTIC &mdash; it either cures (node in circuit) or reveals (node a bystander).",
+        "This is why adenosine is both therapeutic and diagnostic: the SAME transient AV block cures a re-entrant SVT but merely exposes the atrial activity of flutter / atrial tachycardia (tac-006, tac-035).",
+        "Trap: adenosine did not cure AVNRT (A, the rhythm resumed); it is narrow, so not VT (C); the dose was adequate to block the node transiently (D); and sinus tachycardia would slow and gradually return, not show abnormal P waves (E)."
+      ] },
+    { id:"tac-044", type:"mcq", objective:"tac-sinus-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/8/81/Sinustachycaria_%28CardioNetworks_ECGpedia%29.png",
+      imageAlt:"A regular narrow-complex tachycardia with a normal upright P wave of identical shape before every QRS complex.",
+      imageCredit:"CardioNetworks: Drj / ECGpedia, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A febrile, dehydrated patient has a regular narrow-complex tachycardia at 120 bpm. The ECG shows a normal, upright P wave of identical morphology before every QRS, with a normal PR interval; the rate rose and settled gradually. The strip is shown. What is the rhythm?",
+      options:[
+        "AVNRT",
+        "Atrial flutter",
+        "Focal atrial tachycardia",
+        "Atrial fibrillation",
+        "Sinus tachycardia"],
+      correctIndex:4,
+      explanation:[
+        "A NORMAL upright P wave of IDENTICAL morphology before every QRS, a normal PR interval, and a GRADUAL onset/offset that varies with activity = SINUS TACHYCARDIA. It is a physiologically APPROPRIATE response, not a primary arrhythmia.",
+        "Here the fever and dehydration are the drivers &mdash; sinus tachycardia is always a RESPONSE to something (tac-045). The rate rarely exceeds ~150&ndash;160 in adults, unlike the re-entrant SVTs which can reach 200+.",
+        "The key contrast with atrial tachycardia is the P-wave MORPHOLOGY: sinus tachycardia has a NORMAL sinus P; atrial tachycardia has an abnormal, ectopic P (tac-041). And the gradual ramp differs from the abrupt on-off of AVNRT.",
+        "Trap: AVNRT (A) is abrupt with buried P waves; flutter (B) has sawtooth waves; atrial tachycardia (C) has an abnormal P; AF (D) is irregular with no P waves &mdash; a normal P before every QRS is sinus."
+      ] },
+    { id:"tac-045", type:"mcq", objective:"tac-sinus-treat-cause",
+      question:"A patient has a persistent sinus tachycardia at 125 bpm. What is the correct management principle?",
+      options:[
+        "Give IV adenosine as a bolus to terminate the tachycardia",
+        "Give a beta-blocker to lower the rate before any investigation",
+        "Arrange immediate synchronised DC cardioversion for the patient",
+        "Identify and treat the underlying cause: sepsis, pain, hypovolaemia",
+        "Reassure and discharge the patient without further investigation"],
+      correctIndex:3,
+      explanation:[
+        "Sinus tachycardia is ALWAYS a response to an underlying driver, so management is to IDENTIFY and TREAT THE CAUSE &mdash; not to rate-block the number. The causes follow PIRATES: Pain/PE, Infection, Respiratory failure/hypoxia, Anaemia/Anxiety, Thyrotoxicosis/Tamponade, Exercise/Electrolytes, Shock/Stimulants.",
+        "Rate-blocking a compensatory sinus tachycardia can be DANGEROUS: in hypovolaemia or sepsis the fast rate is maintaining cardiac output, and slowing it can precipitate collapse (tac-046).",
+        "Beta-blockers or CCBs are used symptomatically only in specific contexts (e.g. thyrotoxicosis, inappropriate sinus tachycardia) and only AFTER the cause is established.",
+        "Trap: adenosine (A), a reflex beta-blocker (B), or cardioversion (C) all treat the number rather than the cause; and reassurance without investigation (E) misses the driver &mdash; find and fix the cause."
+      ] },
+    { id:"tac-046", type:"mcq", objective:"tac-sinus-compensatory",
+      question:"A young man is tachycardic at 130 bpm (sinus rhythm) after a motorbike crash, with a blood pressure of 92/64 mmHg. A colleague suggests a beta-blocker to slow the heart rate. What is the correct action?",
+      options:[
+        "Give the beta-blocker in order to control the heart rate",
+        "Give IV adenosine as a bolus to terminate the rhythm",
+        "Arrange urgent synchronised DC cardioversion for him",
+        "Reassure him, as this tachycardia needs no action",
+        "Do not beta-block; treat occult haemorrhage (fluids/blood)"],
+      correctIndex:4,
+      explanation:[
+        "This is a COMPENSATORY sinus tachycardia from OCCULT HAEMORRHAGE (post-trauma, borderline BP): the fast heart rate is maintaining cardiac output in the face of blood loss. You must NOT beta-block it &mdash; slowing the rate removes the compensation and can precipitate cardiovascular collapse.",
+        "The correct action is to treat the CAUSE: resuscitate (IV fluids / blood) and identify and control the source of bleeding. The tachycardia is an early warning sign of shock, often before the blood pressure falls.",
+        "This is the sharp end of &lsquo;never rate-block a sinus tachycardia without knowing the cause&rsquo; (tac-045) &mdash; here the tachycardia is the patient&rsquo;s lifeline.",
+        "Trap: a beta-blocker (A), adenosine (B) or cardioversion (C) all attack a physiological compensation; reassurance (D) misses evolving haemorrhagic shock &mdash; the answer is to resuscitate and find the bleeding."
+      ] },
+    { id:"tac-047", type:"categorize", objective:"tac-triad-categorize",
+      question:"Sort each stable tachycardia by how AV-nodal manoeuvres or drugs are best used in it.",
+      buckets:["Terminate (AV node in circuit)","Rate-control (AV node a bystander)","Treat the cause (physiological)"],
+      items:[
+        {text:"AVNRT",bucket:0},
+        {text:"Orthodromic AVRT",bucket:0},
+        {text:"Atrial fibrillation",bucket:1},
+        {text:"Atrial flutter",bucket:1},
+        {text:"Atrial tachycardia",bucket:1},
+        {text:"Sinus tachycardia",bucket:2}
+      ],
+      explanation:[
+        "TERMINATE (AV node IN the circuit): AVNRT and orthodromic AVRT &mdash; vagal manoeuvres / adenosine break the re-entry loop and restore sinus rhythm (tac-039).",
+        "RATE-CONTROL (AV node a BYSTANDER): AF, atrial flutter and atrial tachycardia &mdash; blocking the node slows the ventricular response (and adenosine transiently unmasks the atrial activity) but does NOT terminate the rhythm (tac-043).",
+        "TREAT THE CAUSE (physiological): SINUS tachycardia &mdash; an appropriate response to a driver (PIRATES), so you find and fix the cause rather than rate-block it (tac-045). This three-way split is the master principle (tac-005) made into a sorting task."
+      ] },
+    { id:"tac-048", type:"multi", objective:"tac-adenosine-terminates-multi",
+      boxLabel:"Adenosine is likely to TERMINATE",
+      question:"From the list, select ALL the tachycardias in which a dose of adenosine is likely to TERMINATE the arrhythmia (rather than merely slow it, reveal it, or do harm).",
+      options:["AVNRT","Orthodromic AVRT","Atrial flutter","Atrial fibrillation","Sinus tachycardia","Monomorphic VT"],
+      correct:[0,1],
+      explanation:[
+        "Adenosine TERMINATES the AV-node-dependent re-entrant SVTs &mdash; AVNRT and orthodromic AVRT &mdash; because the AV node is an essential part of the circuit, so transiently blocking it breaks the loop (tac-039).",
+        "It does NOT terminate atrial flutter, AF or atrial tachycardia (the node is a bystander &mdash; adenosine only reveals the atrial activity, tac-043); it does not treat sinus tachycardia (a physiological response); and it should NOT be relied upon in VT (a broad-complex rhythm &mdash; treat as VT).",
+        "Rule of thumb: adenosine terminates the two &lsquo;true SVTs&rsquo; where the node is in the circuit, and is otherwise diagnostic or inappropriate &mdash; the terminate / reveal / avoid distinction of the master principle (tac-005)."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
