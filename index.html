@@ -8160,6 +8160,132 @@ window.MOCK_BANK = {
         "This is a key CONTRAST: AF and flutter share equivalent stroke risk and the same CHA2DS2-VASc thresholds (tac-018, tac-027), whereas MAT stands apart. The anticoagulation map across the irregular narrow rhythms: AF &rarr; anticoagulate; atrial FLUTTER &rarr; anticoagulate (equivalent risk); MAT &rarr; treat the cause, do NOT routinely anticoagulate.",
         "Trap: applying CHA2DS2-VASc or blanket warfarin (A, B), giving aspirin (C, which has no role anyway, tac-019), or a rate-based rule (E) all misapply AF logic to MAT &mdash; MAT does not need routine anticoagulation."
       ] },
+    { id:"tac-033", type:"mcq", objective:"tac-avnrt-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/d/dd/ECG_AVNRT_181_bpm.jpg",
+      imageAlt:"A regular narrow-complex tachycardia at about 180 bpm; a small extra deflection distorts the terminal part of each QRS complex.",
+      imageCredit:"Ewingdo, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 24-year-old woman has a sudden onset of rapid, regular palpitations that began abruptly while she was sitting. She is stable. Her ECG is shown: a regular narrow-complex tachycardia at 180 bpm with no clearly visible P waves before the QRS. What is the most likely diagnosis?",
+      options:[
+        "Sinus tachycardia",
+        "Atrial fibrillation",
+        "Ventricular tachycardia",
+        "AVNRT",
+        "Atrial flutter with 2:1 block"],
+      correctIndex:3,
+      explanation:[
+        "This is AVNRT (AV-nodal re-entrant tachycardia): the commonest paroxysmal SVT, typically in a YOUNG adult (more often a woman), with ABRUPT onset and offset (an &lsquo;on-off switch&rsquo;). It is a regular narrow-complex tachycardia, usually 140&ndash;280 bpm.",
+        "The ECG signature is P waves BURIED in or just after the QRS (atria and ventricles activated near-simultaneously), giving a PSEUDO-R&prime; in V1 or a pseudo-S in the inferior leads, with a very short RP interval. There are no distinct P waves in front of the QRS.",
+        "Mechanistically it is a re-entry loop within the AV node (a slow and a fast pathway), so the AV node IS in the circuit &mdash; vagal manoeuvres or adenosine will TERMINATE it (tac-034, tac-039).",
+        "Trap: sinus tachycardia (A) has a normal P before every QRS; AF (B) is irregular; VT (C) is broad; and 2:1 flutter (E) usually sits at ~150 with hidden sawtooth waves &mdash; the abrupt-onset, pseudo-R&prime;, regular-narrow pattern at 180 is AVNRT."
+      ] },
+    { id:"tac-034", type:"mcq", objective:"tac-svt-vagal",
+      question:"A stable 24-year-old with a regular narrow-complex tachycardia (likely AVNRT) is being treated in the emergency department. What is the appropriate first-line intervention?",
+      options:[
+        "Vagal manoeuvres (a modified Valsalva)",
+        "IV amiodarone",
+        "Immediate DC cardioversion",
+        "IV verapamil straight away",
+        "Oral bisoprolol and discharge"],
+      correctIndex:0,
+      explanation:[
+        "For a stable, regular narrow-complex SVT, FIRST-LINE is VAGAL MANOEUVRES &mdash; a MODIFIED VALSALVA (blow against resistance, then lie back with the legs raised) or carotid sinus massage. These raise vagal tone, transiently block the AV node, and terminate ~25% of AVNRT episodes.",
+        "If vagal manoeuvres fail, the next step is ADENOSINE (6 &rarr; 12 &rarr; 18 mg, tac-035); if that fails, verapamil or a beta-blocker; and synchronised DC cardioversion if the patient becomes unstable.",
+        "This whole ladder works because the AV node is IN the re-entry circuit (tac-039) &mdash; anything that blocks the node breaks the loop and restores sinus rhythm.",
+        "Trap: amiodarone and DC cardioversion (B, C) are not first-line for a STABLE SVT; verapamil (D) is a later step, not first; and oral bisoprolol with discharge (E) neither terminates the acute episode nor is safe without treating it."
+      ] },
+    { id:"tac-035", type:"mcq", objective:"tac-adenosine",
+      question:"Vagal manoeuvres have failed to terminate a stable patient's AVNRT, so you give adenosine. Which statement about adenosine is correct?",
+      options:[
+        "Give it as a 300 mg intravenous infusion over about twenty minutes",
+        "Give 6, then 12, then 18 mg by rapid IV bolus, warning of brief flushing",
+        "It works mainly by increasing myocardial contractility and heart rate",
+        "It must be injected slowly, over roughly ten minutes, to be effective",
+        "It has a long half-life of several hours, so its effects are prolonged"],
+      correctIndex:1,
+      explanation:[
+        "Adenosine is given as a RAPID IV BOLUS (into a large proximal vein, with an immediate saline flush): 6 mg, then 12 mg, then 18 mg if needed. It transiently BLOCKS the AV node for a few seconds, breaking the re-entry circuit of AVNRT/AVRT and restoring sinus rhythm.",
+        "It has a VERY SHORT half-life (~10 seconds), so it must be given fast to reach the heart before it is metabolised &mdash; and its unpleasant effects (flushing, chest tightness, a sense of impending doom, a brief pause) last only seconds. Warn the patient first.",
+        "Its transient AV block is also DIAGNOSTIC in atrial flutter/tachycardia, unmasking the atrial activity without terminating them (tac-006) &mdash; the same drug, different role depending on whether the node is in the circuit.",
+        "Trap: adenosine is NOT a slow infusion or a 300 mg dose (A, D); it does not increase contractility (C); and its half-life is seconds, not hours (E) &mdash; the whole point is a rapid bolus with fleeting effects."
+      ] },
+    { id:"tac-036", type:"mcq", objective:"tac-adenosine-ci",
+      question:"Before giving adenosine to a patient with a regular narrow-complex SVT, which coexisting condition is the most important contraindication to check for?",
+      options:[
+        "Asthma",
+        "Hypertension",
+        "Type 2 diabetes",
+        "Hypothyroidism",
+        "Osteoarthritis"],
+      correctIndex:0,
+      explanation:[
+        "ADENOSINE can precipitate BRONCHOSPASM, so ASTHMA (and, to a degree, severe COPD) is a key contraindication &mdash; always ask before giving it. In an asthmatic, use verapamil or a beta-blocker instead (once VT is excluded).",
+        "Other cautions: high-degree AV block or sick sinus syndrome (without a pacemaker), patients on DIPYRIDAMOLE (which potentiates adenosine), and after cardiac transplant (denervated hearts are hypersensitive) &mdash; use reduced doses or an alternative.",
+        "The bronchospasm risk reflects adenosine&rsquo;s action on airway receptors; it is transient but can be dangerous in a brittle asthmatic, hence the check.",
+        "Trap: hypertension, diabetes, hypothyroidism and osteoarthritis (B, C, D, E) are not contraindications to adenosine &mdash; it is ASTHMA / bronchospasm that matters."
+      ] },
+    { id:"tac-037", type:"mcq", objective:"tac-wpw-recognition",
+      image:"https://upload.wikimedia.org/wikipedia/commons/2/29/WPW2012.jpg",
+      imageAlt:"A sinus-rhythm ECG with a short PR interval and a slurred, gradual upstroke at the start of each QRS complex.",
+      imageCredit:"James Heilman MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 20-year-old with occasional palpitations has the resting ECG (in sinus rhythm) shown. It shows a short PR interval and a slurred upstroke to the QRS. What does this indicate?",
+      options:[
+        "First-degree AV block from delayed AV-nodal conduction",
+        "Left bundle branch block from His-Purkinje disease",
+        "A normal variant of no clinical significance at all",
+        "Evidence of a previous myocardial infarction (old Q waves)",
+        "Ventricular pre-excitation (Wolff-Parkinson-White)"],
+      correctIndex:4,
+      explanation:[
+        "A SHORT PR interval (&lt;120 ms) with a DELTA WAVE (a slurred, gradual QRS upstroke) is VENTRICULAR PRE-EXCITATION &mdash; the WOLFF-PARKINSON-WHITE pattern. An accessory pathway (the bundle of Kent) conducts from atrium to ventricle BYPASSING the AV node, so part of the ventricle is activated EARLY (the delta wave) and the PR is short.",
+        "WPW is the substrate for AVRT: the accessory pathway plus the AV node form a re-entry loop. The narrow-QRS (orthodromic) form is the common SVT (tac-038); the broad-QRS (antidromic) form and pre-excited AF are the dangerous ones.",
+        "&lsquo;WPW pattern&rsquo; (the ECG) plus a symptomatic arrhythmia = WPW SYNDROME. Definitive treatment of symptomatic WPW is accessory-pathway ABLATION (tac-040).",
+        "Trap: first-degree AV block (A) LENGTHENS the PR; LBBB (B) has a broad QRS without a short PR/delta; this is not a normal variant (C) or old MI (D) &mdash; the short PR plus delta wave is pre-excitation."
+      ] },
+    { id:"tac-038", type:"mcq", objective:"tac-avrt-orthodromic", excludes:["tac-wpw-recognition"],
+      question:"A patient with Wolff-Parkinson-White develops a regular NARROW-complex tachycardia (orthodromic AVRT). Which best describes the re-entry circuit?",
+      options:[
+        "Antegrade down the accessory pathway, then retrograde up the AV node itself",
+        "Antegrade down the AV node/His-Purkinje, retrograde up the accessory pathway",
+        "A small re-entry loop confined entirely within the AV node itself",
+        "A single automatic ectopic focus firing within the ventricular muscle",
+        "Chaotic simultaneous conduction down both pathways at the same time"],
+      correctIndex:1,
+      explanation:[
+        "ORTHODROMIC AVRT (the common ~95% form) conducts ANTEGRADE down the AV node and His-Purkinje &mdash; so the ventricles are activated NORMALLY, giving a NARROW QRS &mdash; then RETROGRADE up the accessory pathway back to the atria, completing the loop. The P wave falls AFTER the QRS.",
+        "Because the AV node is in the circuit, it looks and behaves like an ordinary SVT and is terminated the same way (vagal &rarr; adenosine, tac-034). &lsquo;Ortho&rsquo; = the correct direction (down the AV node).",
+        "The ANTIDROMIC form (~5%) goes the OTHER way &mdash; down the accessory pathway into ventricular muscle &mdash; giving a BROAD QRS that mimics VT (antidromic AVRT, covered in the Regular Broad block).",
+        "Trap: down-the-pathway-first (A) is antidromic AVRT (broad); a loop within the node (C) is AVNRT; a ventricular focus (D) is VT; and chaotic dual conduction (E) is the pre-excited-AF picture &mdash; orthodromic AVRT is down-node-up-pathway, narrow."
+      ] },
+    { id:"tac-039", type:"mcq", objective:"tac-avnode-dependent",
+      question:"Both AVNRT and orthodromic AVRT are reliably terminated by vagal manoeuvres or adenosine. What is the shared reason?",
+      options:[
+        "They both originate from a focus within the ventricular muscle",
+        "They are both fundamentally irregular, chaotic rhythms",
+        "They both produce a characteristically broad QRS complex",
+        "The AV node is part of the re-entry circuit, so blocking it breaks the loop",
+        "They both mandate long-term oral anticoagulation for stroke risk"],
+      correctIndex:3,
+      explanation:[
+        "In both AVNRT and orthodromic AVRT the AV NODE is an ESSENTIAL part of the re-entry circuit. Transiently blocking the node &mdash; with vagal manoeuvres or adenosine &mdash; interrupts the loop and TERMINATES the rhythm. These are the &lsquo;AV-node-dependent&rsquo; SVTs.",
+        "This is the payoff of the master principle (tac-005): if the node is IN the circuit, block it to TERMINATE; if it is only a bystander (AF, flutter, atrial tachycardia), blocking it merely rate-controls or unmasks the atrial activity.",
+        "It also explains why they present as regular, narrow, abrupt-onset SVTs and respond so reliably to adenosine &mdash; the diagnostic-and-therapeutic overlap (tac-035).",
+        "Trap: they are narrow (not broad, C), regular (not irregular, B), supraventricular (not ventricular, A), and do NOT routinely need anticoagulation (E) &mdash; the shared feature is the AV node being IN the circuit."
+      ] },
+    { id:"tac-040", type:"mcq", objective:"tac-wpw-management", excludes:["tac-wpw-recognition"],
+      question:"A young patient with symptomatic Wolff-Parkinson-White syndrome (documented AVRT, plus a delta wave in sinus rhythm) is referred for definitive management. What is the treatment of choice?",
+      options:[
+        "Lifelong regular digoxin to control the rate",
+        "Lifelong verapamil taken to suppress episodes",
+        "Radiofrequency ablation of the accessory pathway",
+        "A permanent pacemaker to override the pathway",
+        "Long-term oral anticoagulation with a DOAC"],
+      correctIndex:2,
+      explanation:[
+        "The definitive treatment of symptomatic WPW is RADIOFREQUENCY CATHETER ABLATION of the ACCESSORY PATHWAY &mdash; it is curative and abolishes both the AVRT and the risk of pre-excited AF. It is the treatment of choice in symptomatic WPW.",
+        "Long-term, AV-NODAL BLOCKERS (digoxin, verapamil, and to an extent beta-blockers) are AVOIDED in WPW: if the patient develops AF, blocking the node forces conduction down the accessory pathway and can precipitate a life-threatening PRE-EXCITED AF / VF (the WPW+AF trap, covered in the Irregular Broad block).",
+        "So digoxin and verapamil are wrong not merely because they are less definitive &mdash; they are potentially DANGEROUS in WPW. Ablation removes the pathway and the danger.",
+        "Trap: digoxin and verapamil (A, B) are AV-nodal blockers to avoid in WPW; a pacemaker (D) does not treat an accessory-pathway tachycardia; and anticoagulation (E) is not the issue &mdash; ablation is curative."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
