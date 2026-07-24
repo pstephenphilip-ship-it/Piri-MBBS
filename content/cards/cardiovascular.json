@@ -174,7 +174,7 @@
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Conduction-System-and-Action-Potentials__0004",
     "front": "What is the role of the SA node?",
-    "back": "The pacemaker (in the right atrium) — fastest intrinsic rate (~60-100/min) → sets heart rate."
+    "back": "The pacemaker (in the right atrium) — fastest intrinsic rate (~100/min, slowed to a resting 60-100/min by vagal tone) → sets heart rate."
    },
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Conduction-System-and-Action-Potentials__0005",
@@ -239,7 +239,7 @@
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Conduction-System-and-Action-Potentials__0017",
     "front": "In the pacemaker cell (slow-response) AP, what happens in phase 4 and which current is responsible?",
-    "back": "Phase 4 — spontaneous depolarisation (pacemaker potential): slow drift up to threshold → automaticity; 'funny' current (If) Na⁺ in + Ca²⁺."
+    "back": "Phase 4 — spontaneous depolarisation (pacemaker potential): slow drift up to threshold → automaticity; 'funny' current (If) = inward Na⁺ via HCN channels (Na⁺/K⁺). Ca²⁺ (T-/L-type) contributes to late phase 4, separate from If."
    },
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Conduction-System-and-Action-Potentials__0018",
@@ -717,11 +717,6 @@
     "back": "Inadequate CO and/or perfusion: ↓CO (cardiogenic — pump; hypovolaemic — ↓preload) or ↓SVR with maldistribution (septic/distributive)."
    },
    {
-    "id": "piri_fc__conditions__CARDIOVASCULAR__Cardiac-Output__0024",
-    "front": "How do fast AF/SVT reduce cardiac output?",
-    "back": "↓filling time → ↓SV → ↓CO → syncope/decompensation (why rate control matters)."
-   },
-   {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Cardiac-Output__0025",
     "front": "How do bradyarrhythmias reduce cardiac output?",
     "back": "Very low HR → ↓CO despite ↑SV compensation → syncope."
@@ -1079,7 +1074,7 @@
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0005",
     "front": "What does the left coronary → circumflex supply, and what infarct territory does it correspond to?",
-    "back": "Supplies the lateral + posterior LV; infarct territory is lateral MI (I, aVL, V5-V6)."
+    "back": "Supplies the lateral LV wall (the posterior wall is usually RCA/PDA in right-dominant hearts, ~80%); infarct territory is lateral MI (I, aVL, V5-V6)."
    },
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0006",
@@ -1172,29 +1167,9 @@
     "back": "Gradual stenosis can stimulate collaterals (partial protection); sudden occlusion gives no time for this → why acute occlusion is so damaging."
    },
    {
-    "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0024",
-    "front": "In coronary-physiology terms, why does stable angina cause exertional pain?",
-    "back": "Stenosis limits the flow increase needed on exertion (no extraction reserve) → demand > supply → exertional pain."
-   },
-   {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0025",
     "front": "Why do β-blockers help angina (coronary-physiology explanation)?",
     "back": "↓HR → ↓demand and longer diastole → ↑coronary filling."
-   },
-   {
-    "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0026",
-    "front": "Why does tachycardia worsen ischaemia (coronary-physiology explanation)?",
-    "back": "Shortens diastole → ↓LV perfusion + ↑demand."
-   },
-   {
-    "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0027",
-    "front": "Why does an inferior MI lead to heart block?",
-    "back": "The RCA supplies the SA/AV nodes."
-   },
-   {
-    "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0028",
-    "front": "Why is the subendocardium the site of subendocardial ischaemia?",
-    "back": "It is the most vulnerable region (furthest from supply, highest wall stress)."
    },
    {
     "id": "piri_fc__conditions__CARDIOVASCULAR__Coronary-Circulation__0029",
@@ -9865,10 +9840,10 @@
      "A transient K⁺ efflux that repolarises the cell and slowly carries it up to threshold",
      "A rapid Na⁺-driven upstroke through fast sodium channels reaching threshold at once",
      "A prolonged Ca²⁺ plateau that holds the cell depolarised until threshold is reached",
-     "The slow drift up to threshold via the 'funny' current (If: Na⁺ in + Ca²⁺)"
+     "The slow drift up to threshold via the 'funny' current (If: inward Na⁺ via HCN channels)"
     ],
     "correctIndex": 4,
-    "explanation": "Phase 4 in pacemaker cells is spontaneous depolarisation — a slow drift up to threshold driven by the 'funny' current (If: Na⁺ in + Ca²⁺) — creating automaticity."
+    "explanation": "Phase 4 in pacemaker cells is spontaneous depolarisation — a slow drift up to threshold driven by the 'funny' current (If: inward Na⁺ via HCN channels, carried by Na⁺/K⁺) — creating automaticity."
    },
    {
     "id": "piri_q__conditions__CARDIOVASCULAR__Conduction-System-and-Action-Potentials__0013",
@@ -10879,20 +10854,6 @@
     "explanation": "Shock is inadequate CO and/or perfusion: reduced CO (cardiogenic from pump failure, hypovolaemic from reduced preload) or reduced SVR with maldistribution (septic/distributive)."
    },
    {
-    "id": "piri_q__conditions__CARDIOVASCULAR__Cardiac-Output__0017",
-    "type": "mcq",
-    "question": "A patient in fast AF becomes syncopal. In cardiac-output terms, why does this happen, and what does it justify?",
-    "options": [
-     "↑filling time → ↑SV → ↑CO, so perfusion improves; this justifies reassurance and doing nothing",
-     "↑afterload → ↑CO overwhelming the ventricle → syncope, which justifies urgent vasodilator therapy",
-     "↓filling time → ↓SV → ↓CO → syncope/decompensation, which is why rate control matters",
-     "↓SVR → ↑CO with peripheral pooling → syncope, which justifies giving intravenous fluids alone",
-     "↑contractility paradoxically → ↓CO → syncope, which justifies starting positive inotropes"
-    ],
-    "correctIndex": 2,
-    "explanation": "In fast AF/SVT, reduced filling time lowers SV and CO, causing syncope/decompensation — which is why rate control matters."
-   },
-   {
     "id": "piri_q__conditions__CARDIOVASCULAR__Cardiac-Output__0018",
     "type": "mcq",
     "question": "Why can a very slow bradyarrhythmia cause syncope despite increased stroke volume?",
@@ -11885,20 +11846,6 @@
     ],
     "correctIndex": 3,
     "explanation": "Gradual stenosis can stimulate collateral circulation for partial protection, whereas sudden occlusion gives no time for collaterals to form — which is why acute occlusion is so damaging."
-   },
-   {
-    "id": "piri_q__conditions__CARDIOVASCULAR__Coronary-Circulation__0021",
-    "type": "mcq",
-    "question": "How does GTN relieve angina, in coronary-physiology terms?",
-    "options": [
-     "Arterial constriction ↑afterload, cutting myocardial oxygen demand",
-     "↑HR → ↑coronary filling time → improved myocardial oxygen supply",
-     "Venodilation ↓preload (↓demand) + coronary dilation (↑supply)",
-     "↑contractility → ↑stroke work → ↑coronary oxygen supply to the wall",
-     "It blocks the AV node, slowing conduction and reducing cardiac work"
-    ],
-    "correctIndex": 2,
-    "explanation": "GTN causes venodilation that reduces preload (lowering demand) and dilates the coronaries (raising supply)."
    },
    {
     "id": "piri_q__conditions__CARDIOVASCULAR__Coronary-Circulation__0022",
