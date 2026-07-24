@@ -7912,6 +7912,127 @@ window.MOCK_BANK = {
         "The principle is to titrate to SYMPTOMS, not to an arbitrary low number; persistent symptoms despite adequate rate control would instead prompt consideration of rhythm control (tac-013).",
         "Trap: chasing &lt;60 (A) risks bradycardia; &lt;150 (B) is not adequate control; exactly 100 (C) is arbitrary; and urgent cardioversion (E) is not indicated in an asymptomatic, rate-controlled patient with permanent AF."
       ] },
+    { id:"tac-017", type:"mcq", objective:"tac-af-doac",
+      question:"A 70-year-old man with non-valvular atrial fibrillation and a CHA2DS2-VASc score of 3 needs anticoagulation for stroke prevention. He has normal renal function and no valve disease. Which is the most appropriate first-line anticoagulant?",
+      options:[
+        "A DOAC such as apixaban",
+        "Warfarin with an INR target of 2 to 3",
+        "Aspirin 75 mg once daily",
+        "Long-term low-molecular-weight heparin",
+        "Clopidogrel 75 mg once daily"],
+      correctIndex:0,
+      explanation:[
+        "For NON-VALVULAR AF, a DOAC (apixaban, rivaroxaban, edoxaban or dabigatran) is FIRST-LINE for stroke prevention &mdash; at least as effective as warfarin, with less intracranial bleeding and no INR monitoring.",
+        "Warfarin is now reserved for situations where DOACs are not licensed or effective: VALVULAR AF (moderate-to-severe mitral stenosis or a mechanical valve, tac-021), and severe renal impairment where DOAC dosing is limited.",
+        "The DOAC and dose depend on renal function, weight, age and interactions &mdash; apixaban is often favoured with renal impairment or higher bleeding risk (cross-link: Anticoagulation).",
+        "Trap: aspirin and clopidogrel (C, E) are NOT adequate for AF stroke prevention (tac-019); long-term LMWH (D) is impractical; and warfarin (B) is not first-line for non-valvular AF now that DOACs are available."
+      ] },
+    { id:"tac-018", type:"mcq", objective:"tac-chadsvasc",
+      question:"A 76-year-old woman with newly diagnosed non-valvular atrial fibrillation is assessed for stroke prevention. Her risk factors are shown. What is her CHA2DS2-VASc score, and what does it indicate?",
+      data:'<div class="mk-obs-h">CHA2DS2-VASc risk factors</div><table class="mk-labs"><tr><td>Age</td><td><b>76 years</b></td><td>&ge;75 scores 2</td></tr><tr><td>Sex</td><td><b>Female</b></td><td>1</td></tr><tr><td>Hypertension</td><td><b>Yes (treated)</b></td><td>1</td></tr><tr><td>Type 2 diabetes</td><td><b>Yes</b></td><td>1</td></tr><tr><td>Prior stroke / TIA</td><td><b>No</b></td><td>0</td></tr><tr><td>Heart failure</td><td><b>No</b></td><td>0</td></tr><tr><td>Vascular disease</td><td><b>No</b></td><td>0</td></tr></table>',
+      options:[
+        "Score 3; no anticoagulation is needed",
+        "Score 2; aspirin is sufficient here",
+        "Score 5; offer anticoagulation (a DOAC)",
+        "Score 5; but anticoagulation is not indicated in women",
+        "Score 1; anticoagulation is optional"],
+      correctIndex:2,
+      explanation:[
+        "Add the points: AGE &ge;75 = 2, FEMALE = 1, HYPERTENSION = 1, DIABETES = 1 &mdash; total CHA2DS2-VASc = 5. A score of 5 is high, and anticoagulation is clearly indicated (net benefit outweighs bleeding risk).",
+        "The thresholds: anticoagulate if &ge;2 in men or &ge;3 in women; consider it at 1 (men) / 2 (women); at 0 (men) or 1 (women, i.e. sex alone) the risk is too low to justify anticoagulation. First-line is a DOAC in non-valvular AF (tac-017).",
+        "CHA2DS2-VASc = Congestive HF, Hypertension, Age &ge;75 (2 points), Diabetes, prior Stroke/TIA (2 points), Vascular disease, Age 65&ndash;74, Sex (female). The two 2-point items are age &ge;75 and prior stroke.",
+        "Trap: the score is 5, not 3, 2 or 1 (A, B, E miscount); aspirin is NOT adequate for AF stroke prevention (B, tac-019); and female sex is a risk MODIFIER, not a reason to withhold anticoagulation (D) &mdash; a woman with other risk factors is anticoagulated."
+      ] },
+    { id:"tac-019", type:"mcq", objective:"tac-af-aspirin",
+      question:"A 68-year-old with atrial fibrillation and a CHA2DS2-VASc score of 3 is taking only aspirin 75 mg for stroke prevention, prescribed some years ago. What is the correct advice?",
+      options:[
+        "Continue aspirin; it is adequate for AF stroke prevention",
+        "Add clopidogrel to the aspirin for dual protection",
+        "Increase the aspirin dose to 300 mg daily",
+        "Stop the aspirin and start an anticoagulant such as a DOAC",
+        "No treatment is needed at this score"],
+      correctIndex:3,
+      explanation:[
+        "ASPIRIN has NO meaningful role in stroke prevention for AF: it is far less effective than anticoagulation and carries a similar bleeding risk. This patient (CHA2DS2-VASc 3) needs a proper ANTICOAGULANT &mdash; stop the aspirin and start a DOAC.",
+        "This is a common legacy prescription: older guidance offered aspirin, but current guidance is explicit that aspirin should NOT be used for AF thromboprophylaxis. Anticoagulation (DOAC first-line, tac-017) is the standard.",
+        "Antiplatelets prevent ARTERIAL atherothrombotic events; the AF stroke mechanism is a stasis-formed left-atrial THROMBUS (a red, fibrin-rich clot) that requires ANTICOAGULATION, not antiplatelet therapy (tac-012).",
+        "Trap: continuing or increasing aspirin, or adding clopidogrel (A, B, C), all leave the patient inadequately protected while still bleeding; and &lsquo;no treatment&rsquo; (E) ignores a score that clearly warrants anticoagulation."
+      ] },
+    { id:"tac-020", type:"mcq", objective:"tac-cardioversion-timing",
+      question:"A 60-year-old presents with atrial fibrillation that he is certain began more than 3 days ago. He is stable and elective cardioversion is planned. He is not yet anticoagulated. What is the safest approach?",
+      options:[
+        "Cardiovert immediately, then simply start anticoagulation afterwards",
+        "Give a single dose of aspirin and then cardiovert him today",
+        "Cardiovert now, since no anticoagulation is needed while he feels well",
+        "Rate-control only, as cardioversion is absolutely contraindicated beyond 48 hours",
+        "Anticoagulate for at least 3 weeks, or do a TOE to exclude thrombus, before cardioverting"],
+      correctIndex:4,
+      explanation:[
+        "AF of MORE than 48 hours (or unknown onset) must NOT be cardioverted without addressing thrombus first. Either ANTICOAGULATE for &ge;3 weeks beforehand, OR perform a transoesophageal echo (TOE) to exclude a left-atrial appendage thrombus &mdash; then cardiovert, and anticoagulate for &ge;4 weeks afterwards (longer if CHA2DS2-VASc warrants).",
+        "The danger is that restoring organised atrial contraction can DISLODGE a stasis-formed appendage thrombus and cause a stroke &mdash; the &lsquo;normalisation&rsquo; embolism. The 48-hour rule exists because thrombus can form within ~48 hours of AF onset.",
+        "If AF is confidently &lt;48 hours (or the patient is already anticoagulated &ge;3 weeks), cardioversion can proceed without the wait. UNSTABLE patients are cardioverted immediately regardless, because the risk of waiting outweighs the embolic risk (tac-003).",
+        "Trap: cardioverting now without cover (A, C) risks a thromboembolic stroke; aspirin (B) is not adequate peri-cardioversion anticoagulation; and cardioversion is not absolutely contraindicated beyond 48h (D) &mdash; it just needs the anticoagulation/TOE precautions."
+      ] },
+    { id:"tac-021", type:"mcq", objective:"tac-valvular-af",
+      question:"A 55-year-old woman with atrial fibrillation has moderate-to-severe rheumatic mitral stenosis on echocardiography. Which anticoagulant is appropriate?",
+      options:[
+        "A DOAC such as apixaban, exactly as for most non-valvular AF",
+        "Aspirin alone, which is adequate stroke prevention here",
+        "Warfarin (a vitamin K antagonist), because DOACs are contraindicated",
+        "No anticoagulation, as her stroke risk is actually low",
+        "Indefinite low-molecular-weight heparin injections instead"],
+      correctIndex:2,
+      explanation:[
+        "This is VALVULAR AF (AF with moderate-to-severe mitral stenosis or a mechanical heart valve), the one AF setting where DOACs are CONTRAINDICATED &mdash; the evidence supports a VITAMIN K ANTAGONIST (WARFARIN) with an INR target (cross-link: Rheumatic Fever / Rheumatic Heart Disease, rf-039).",
+        "All OTHER AF is &lsquo;non-valvular&rsquo; &mdash; including AF with most other valve lesions or a bioprosthetic valve &mdash; and gets a DOAC first-line (tac-017). &lsquo;Valvular&rsquo; here means specifically rheumatic MS and mechanical valves.",
+        "Rheumatic mitral stenosis both causes the AF (left atrial dilatation) and carries a very high embolic risk, so effective anticoagulation is essential (cross-link: Valvular Heart Disease).",
+        "Trap: a DOAC (A) is contraindicated in this specific setting; aspirin or no treatment (B, D) leave a high-risk patient unprotected; and long-term LMWH (E) is impractical &mdash; warfarin is the answer."
+      ] },
+    { id:"tac-022", type:"mcq", objective:"tac-bleeding-risk",
+      question:"A 79-year-old with atrial fibrillation and a CHA2DS2-VASc score of 4 also has a raised bleeding risk: a previous GI bleed and current regular NSAID use. How should this best influence the anticoagulation decision?",
+      options:[
+        "Withhold anticoagulation, since the bleeding risk clearly outweighs the stroke risk",
+        "Prescribe aspirin instead, since it is a distinctly safer alternative here",
+        "Give a half-dose DOAC, which is standard for anyone at raised bleeding risk",
+        "Assess bleeding risk, correct reversible factors such as the NSAID, then anticoagulate",
+        "Delay any anticoagulation for twelve months and then review the decision"],
+      correctIndex:3,
+      explanation:[
+        "Bleeding risk should be ASSESSED (ORBIT, or HAS-BLED) but a high score is NOT a reason to withhold anticoagulation on its own. It flags REVERSIBLE risk factors to correct &mdash; here, stop the NSAID (and review alcohol, blood pressure and any antiplatelets) &mdash; then anticoagulate.",
+        "The stroke risk (CHA2DS2-VASc 4) is high and the net benefit of anticoagulation usually still favours treating; withholding it exposes the patient to a preventable, often disabling, stroke.",
+        "ORBIT scores Older age, Reduced haemoglobin/anaemia, Bleeding history, Irregular (labile) INR on warfarin, and Treatment with antiplatelets/NSAIDs &mdash; several of which (the NSAID, anaemia) are MODIFIABLE.",
+        "Trap: withholding anticoagulation or substituting aspirin (A, B) leave a high-stroke-risk patient unprotected; blanket half-dosing (C) under-treats; and a 12-month delay (E) is arbitrary &mdash; the correct move is to modify the reversible bleeding risks and treat."
+      ] },
+    { id:"tac-023", type:"mcq", objective:"tac-rate-vs-rhythm",
+      question:"A 48-year-old with new symptomatic atrial fibrillation remains breathless and palpitant despite good rate control, and has no structural heart disease. Which strategy is most appropriate?",
+      options:[
+        "Accept permanent AF and simply continue with rate control alone",
+        "Pursue rhythm control: cardioversion, then an antiarrhythmic or ablation",
+        "Stop all antiarrhythmic treatment and review him again in a year",
+        "Add a second rate-limiting drug and take no other action for now",
+        "Start aspirin for symptom control and offer firm reassurance"],
+      correctIndex:1,
+      explanation:[
+        "A YOUNG, SYMPTOMATIC patient who remains symptomatic DESPITE adequate rate control is a strong candidate for RHYTHM control: restore and maintain sinus rhythm by cardioversion, then a maintenance antiarrhythmic (or catheter ablation).",
+        "Rhythm control is favoured for younger patients, first/new-onset AF, a reversible precipitant, persistent symptoms despite rate control, and heart failure (where recent trials support it). Rate control suits older, less symptomatic patients.",
+        "With no structural heart disease, FLECAINIDE is a suitable antiarrhythmic (a &lsquo;pill-in-the-pocket&rsquo; option in selected patients); catheter (pulmonary vein) ablation is effective for drug-refractory or highly symptomatic AF (tac-024).",
+        "Trap: accepting permanent AF or just adding rate drugs (A, D) ignore his ongoing symptoms; stopping treatment (C) or aspirin-and-reassure (E) abandon both rate and stroke management."
+      ] },
+    { id:"tac-024", type:"mcq", objective:"tac-pharm-cardioversion",
+      question:"A haemodynamically stable patient with recent-onset atrial fibrillation and no structural heart disease is to undergo pharmacological cardioversion. Which agent is most appropriate?",
+      options:[
+        "Flecainide",
+        "Digoxin",
+        "Adenosine",
+        "Verapamil",
+        "Bisoprolol"],
+      correctIndex:0,
+      explanation:[
+        "For pharmacological cardioversion of AF in a structurally NORMAL heart, FLECAINIDE (a class Ic agent) is the drug of choice. If there IS structural heart disease or HF, AMIODARONE is used instead (flecainide is proarrhythmic in structural disease).",
+        "This mirrors the rhythm-control drug rule throughout: flecainide for structurally normal hearts, amiodarone when there is structural disease &mdash; the same split as maintenance therapy (tac-023).",
+        "Electrical (synchronised DC) cardioversion is the alternative and is more effective; either way, the 48-hour anticoagulation / TOE precautions apply (tac-020).",
+        "Trap: digoxin, adenosine, verapamil and a beta-blocker (B, C, D, E) are rate-controlling or SVT-terminating drugs &mdash; they do NOT chemically cardiovert AF to sinus rhythm; only an antiarrhythmic (flecainide / amiodarone) does."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
