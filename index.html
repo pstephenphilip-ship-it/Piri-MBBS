@@ -8034,6 +8034,132 @@ window.MOCK_BANK = {
         "Electrical (synchronised DC) cardioversion is the alternative and is more effective; either way, the 48-hour anticoagulation / TOE precautions apply (tac-020).",
         "Trap: digoxin, adenosine, verapamil and a beta-blocker (B, C, D, E) are rate-controlling or SVT-terminating drugs &mdash; they do NOT chemically cardiovert AF to sinus rhythm; only an antiarrhythmic (flecainide / amiodarone) does."
       ] },
+    { id:"tac-025", type:"mcq", objective:"tac-flutter-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/9/99/E192_%28CardioNetworks_ECGpedia%29.jpg",
+      imageAlt:"A rhythm strip with a continuous undulating sawtooth baseline and an irregular ventricular response.",
+      imageCredit:"Michael Rosengarten, McGill / CardioNetworks ECGpedia, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 66-year-old with palpitations has the rhythm strip shown. The ventricular response is irregular, and the baseline shows a continuous, uniform undulation at about 300 per minute (best seen inferiorly). What is the most likely diagnosis?",
+      options:[
+        "Atrial fibrillation",
+        "Multifocal atrial tachycardia",
+        "Sinus tachycardia with ectopics",
+        "Ventricular tachycardia",
+        "Atrial flutter with variable block"],
+      correctIndex:4,
+      explanation:[
+        "The continuous SAWTOOTH baseline at ~300/min (best in II, III, aVF) is ATRIAL FLUTTER. The ventricular response is IRREGULAR here because the AV block VARIES (2:1 alternating with higher ratios) &mdash; variable-block flutter. There is no isoelectric baseline between the flutter waves.",
+        "Flutter is a MACRO re-entry circuit in the right atrium (around the tricuspid annulus), so the atrial rate is remarkably constant at ~300. The ventricular rate depends on the AV conduction ratio: a fixed 2:1 gives a regular ~150 (tac-006); variable block gives the irregular response on this strip.",
+        "It is distinguished from AF (chaotic fibrillatory baseline, NO organised atrial waves) and from MAT (discrete P waves of &ge;3 morphologies) by the ORGANISED, uniform sawtooth (tac-031).",
+        "Trap: AF (A) has no organised atrial activity; MAT (B) has distinct multiform P waves; this is not sinus with ectopics (C) or VT (D, which is broad) &mdash; the uniform sawtooth at 300 is flutter."
+      ] },
+    { id:"tac-026", type:"mcq", objective:"tac-flutter-ablation",
+      question:"A patient has typical atrial flutter that keeps recurring despite rate control. The cardiologist recommends a curative catheter ablation. Which anatomical target does the ablation address?",
+      options:[
+        "The pulmonary vein ostia, as in atrial fibrillation ablation",
+        "The cavotricuspid isthmus, between the tricuspid valve and the IVC",
+        "The slow pathway of the AV node, as in AVNRT ablation",
+        "The accessory pathway (bundle of Kent), as in WPW ablation",
+        "The sinoatrial node, to slow the atrial rate directly"],
+      correctIndex:1,
+      explanation:[
+        "Typical atrial flutter is a macro re-entry circuit that circulates around the tricuspid annulus, and its critical slow zone is the CAVOTRICUSPID ISTHMUS (CTI) &mdash; the tissue between the tricuspid valve and the inferior vena cava. Ablating the CTI breaks the circuit and is CURATIVE in ~95% of typical flutter.",
+        "CTI ablation is first-line for recurrent or persistent typical flutter because it is so effective and low-risk &mdash; more definitively curative than for most other SVTs.",
+        "The other targets belong to other arrhythmias: pulmonary-vein isolation for AF, slow-pathway modification for AVNRT, accessory-pathway ablation for WPW/AVRT &mdash; each ablation is matched to that rhythm&rsquo;s circuit.",
+        "Trap: the pulmonary veins (A) are the AF target; the AV node slow pathway (C) is AVNRT; the bundle of Kent (D) is WPW; and ablating the SA node (E) is not how flutter is treated &mdash; the CTI is the flutter target."
+      ] },
+    { id:"tac-027", type:"mcq", objective:"tac-flutter-management",
+      question:"A 70-year-old with persistent atrial flutter and hypertension is stable. Regarding stroke prevention and cardioversion, which statement is correct?",
+      options:[
+        "Flutter carries essentially no stroke risk, so no anticoagulation is needed",
+        "Anticoagulation for flutter follows a completely different scoring system",
+        "Anticoagulate by CHA2DS2-VASc as for AF; it cardioverts at lower energy",
+        "Atrial flutter cannot be electrically cardioverted at all in practice",
+        "Aspirin is the appropriate stroke prevention for atrial flutter"],
+      correctIndex:2,
+      explanation:[
+        "Atrial flutter carries a STROKE RISK equivalent to AF, so the SAME CHA2DS2-VASc thresholds apply (tac-018) &mdash; anticoagulate exactly as you would for AF. Flutter is not a &lsquo;safer&rsquo; rhythm for stroke.",
+        "Flutter often responds to synchronised DC cardioversion at LOWER energy than AF (50&ndash;100 J), and the same &lt;48h / &ge;3-week anticoagulation-before-cardioversion rules apply (tac-020).",
+        "Rate control uses the same agents as AF (beta-blockers, CCBs, digoxin) but is often HARDER to achieve pharmacologically in flutter &mdash; another reason CTI ablation (tac-026) is favoured for recurrent flutter.",
+        "Trap: flutter does NOT lack stroke risk (A), does not use a different score (B), CAN be cardioverted (D, in fact easily), and is not adequately covered by aspirin (E, tac-019) &mdash; treat its thromboembolic risk exactly like AF."
+      ] },
+    { id:"tac-028", type:"mcq", objective:"tac-mat-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/4/4d/Multifocal_atrial_tachycardia_-_MAT.png",
+      imageAlt:"An irregular narrow-complex rhythm in which the P waves before the QRS complexes vary in shape from beat to beat.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 74-year-old with severe COPD is tachycardic at 130 bpm. The ECG shows an irregular narrow-complex rhythm; on close inspection the P waves vary in shape from beat to beat and the PR intervals vary. The rhythm strip is shown. What is the diagnosis?",
+      options:[
+        "Atrial fibrillation",
+        "Atrial flutter",
+        "Sinus tachycardia",
+        "AVNRT",
+        "Multifocal atrial tachycardia"],
+      correctIndex:4,
+      explanation:[
+        "MULTIFOCAL ATRIAL TACHYCARDIA: an irregular narrow-complex tachycardia (&gt;100 bpm) with &ge;3 DISTINCT P-wave morphologies in the same lead and VARYING PR intervals. It reflects multiple ectopic atrial foci firing chaotically (enhanced automaticity, NOT re-entry).",
+        "The classic setting is SEVERE COPD (as here), plus hypoxia, hypomagnesaemia, theophylline toxicity and sepsis (tac-029). It is a marker of a sick, often hypoxic, patient.",
+        "The key discriminator from AF is that MAT has IDENTIFIABLE (if multiform) P waves, whereas AF has NO organised P waves at all (tac-031) &mdash; look carefully before labelling an irregular narrow tachycardia as AF.",
+        "Trap: AF (A) has no P waves; flutter (B) has uniform sawtooth waves; sinus tachycardia (C) has one uniform P morphology; and AVNRT (D) is regular &mdash; multiple P-wave morphologies with an irregular rhythm define MAT."
+      ] },
+    { id:"tac-029", type:"mcq", objective:"tac-mat-causes",
+      question:"A patient is diagnosed with multifocal atrial tachycardia. Which underlying problem is the most common precipitant?",
+      options:[
+        "Longstanding poorly-controlled primary hyperthyroidism",
+        "Chronic obstructive pulmonary disease, with hypoxia",
+        "Symptomatic hypercalcaemia of any cause",
+        "Severe chronic iron-deficiency anaemia",
+        "Essential (primary) systemic hypertension"],
+      correctIndex:1,
+      explanation:[
+        "The commonest precipitant of MAT is CHRONIC OBSTRUCTIVE PULMONARY DISEASE, usually with HYPOXIA (and often pulmonary hypertension). In practice MAT is an arrhythmia of the sick, hypoxic, decompensated respiratory patient.",
+        "Other recognised causes: HYPOMAGNESAEMIA and hypokalaemia, THEOPHYLLINE toxicity, sepsis and pulmonary hypertension &mdash; several are the very things you correct as treatment (tac-030).",
+        "This is why management is directed at the CAUSE (oxygen, optimise COPD, correct Mg/K) rather than at the rhythm itself &mdash; cardioversion does not work, as there is no single re-entry circuit.",
+        "Trap: thyrotoxicosis (A) and anaemia (D) drive sinus tachycardia or AF; hypertension (E) causes AF; and it is HYPOmagnesaemia, not hypercalcaemia (C), that precipitates MAT &mdash; the dominant association is COPD / hypoxia."
+      ] },
+    { id:"tac-030", type:"mcq", objective:"tac-mat-management",
+      question:"A patient with multifocal atrial tachycardia due to an infective exacerbation of COPD is tachycardic at 135 bpm. Which management approach is most appropriate?",
+      options:[
+        "Treat the cause (oxygen, correct Mg/K); a CCB if rate control is needed",
+        "Arrange immediate synchronised DC cardioversion to restore sinus rhythm",
+        "Give IV adenosine as a bolus to terminate the arrhythmia promptly",
+        "Start a non-selective beta-blocker such as propranolol as first-line",
+        "Commence long-term anticoagulation exactly as you would for AF"],
+      correctIndex:0,
+      explanation:[
+        "MAT is driven by an underlying problem, so treatment is TREAT THE CAUSE: oxygen for hypoxia, optimise the COPD, and correct MAGNESIUM and potassium. If rate control is needed, a rate-limiting CALCIUM-CHANNEL BLOCKER (verapamil or diltiazem) is preferred.",
+        "You do NOT cardiovert MAT: there is no single re-entry circuit (multiple ectopic foci), so DC shock and adenosine are INEFFECTIVE &mdash; the opposite of AF/flutter management.",
+        "Beta-blockers are relatively AVOIDED because most patients have bronchospastic COPD; a CCB rate-controls without the bronchoconstriction risk. MAT also does NOT need routine anticoagulation (tac-032).",
+        "Trap: cardioversion and adenosine (B, C) do not work on a multifocal automatic rhythm; a non-selective beta-blocker (D) risks bronchospasm in COPD; and routine anticoagulation as for AF (E) is not indicated in MAT."
+      ] },
+    { id:"tac-031", type:"mcq", objective:"tac-af-vs-mat",
+      question:"On an irregular narrow-complex tachycardia, which single feature best distinguishes multifocal atrial tachycardia from atrial fibrillation?",
+      options:[
+        "MAT is a regular rhythm, whereas AF is irregularly irregular",
+        "MAT has a broad QRS complex, whereas AF has a narrow one",
+        "MAT has identifiable multiform P waves; AF has no organised P waves",
+        "MAT is always considerably faster, above 200 bpm",
+        "AF shows sawtooth flutter waves, whereas MAT does not"],
+      correctIndex:2,
+      explanation:[
+        "The key discriminator is the P WAVES: MAT has IDENTIFIABLE P waves (&ge;3 different morphologies in the same lead, with varying PR intervals), whereas AF has NO organised P waves at all &mdash; just a chaotic fibrillatory baseline.",
+        "Both are IRREGULAR narrow-complex rhythms, which is exactly why MAT is commonly MISLABELLED as AF &mdash; the classic exam trap. Look carefully for the discrete, if varied, P waves before calling it AF.",
+        "The distinction matters for management: AF gets rate control AND anticoagulation (CHA2DS2-VASc); MAT gets treat-the-cause, a CCB, and NO routine anticoagulation (tac-030, tac-032).",
+        "Trap: both are irregular (A) and narrow (B); MAT is not defined by a rate &gt;200 (D); and sawtooth waves are FLUTTER, not AF (E) &mdash; it is the presence versus absence of organised P waves that separates MAT from AF."
+      ] },
+    { id:"tac-032", type:"mcq", objective:"tac-mat-anticoag",
+      question:"A patient has multifocal atrial tachycardia secondary to a COPD exacerbation. Regarding thromboembolic prophylaxis, what is the correct approach?",
+      options:[
+        "Anticoagulate strictly by CHA2DS2-VASc, exactly as you would for AF",
+        "Give lifelong warfarin regardless of the calculated stroke score",
+        "Give aspirin as routine thromboembolic prophylaxis for MAT",
+        "MAT does not warrant routine anticoagulation, unlike AF or flutter",
+        "Anticoagulate only if the ventricular rate exceeds 150 bpm"],
+      correctIndex:3,
+      explanation:[
+        "MAT does NOT carry the same thromboembolic risk as AF or atrial flutter, and does NOT warrant routine anticoagulation. It is not a sustained, organised atrial arrhythmia with appendage stasis in the same way &mdash; so CHA2DS2-VASc-based anticoagulation is not applied to MAT itself.",
+        "Management centres on the underlying cause (COPD / hypoxia, Mg/K) and rate control with a CCB (tac-030); the priority is the sick chest, not stroke prophylaxis.",
+        "This is a key CONTRAST: AF and flutter share equivalent stroke risk and the same CHA2DS2-VASc thresholds (tac-018, tac-027), whereas MAT stands apart.",
+        "Trap: applying CHA2DS2-VASc or blanket warfarin (A, B), giving aspirin (C, which has no role anyway, tac-019), or a rate-based rule (E) all misapply AF logic to MAT &mdash; MAT does not need routine anticoagulation."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
     { id:"myo-001", type:"mcq", objective:"myo-aetiology",
