@@ -2005,17 +2005,12 @@
    {
     "id": "ahf_fc_10",
     "front": "Which bloods are sent in acute heart failure, and what is each looking for?",
-    "back": "FBC (anaemia), U&E (renal function), BNP/NT-proBNP, troponin, D-dimer, and CRP/cultures (sepsis)."
+    "back": "FBC (anaemia), U&E (renal function), BNP/NT-proBNP, troponin, and CRP/cultures (sepsis). D-dimer only if PE is clinically suspected (not routine)."
    },
    {
     "id": "ahf_fc_11",
     "front": "What is the role of an arterial blood gas (ABG) in acute heart failure?",
     "back": "To assess the degree of hypoxia and hypercapnia, guiding the need for NIV or intubation."
-   },
-   {
-    "id": "ahf_fc_12",
-    "front": "What are the chest X-ray features of acute heart failure (pulmonary oedema)?",
-    "back": "Alveolar oedema, Kerley B lines, cardiomegaly, upper lobe diversion (cephalisation), and pleural effusion."
    },
    {
     "id": "ahf_fc_13",
@@ -2040,7 +2035,7 @@
    {
     "id": "ahf_fc_17",
     "front": "What is the oxygen target in AHF, and what is added if it is not achieved on oxygen alone?",
-    "back": "Target SpO₂ ≥94%. Add CPAP/NIV if not achieving this on oxygen alone."
+    "back": "Give oxygen only if hypoxic, targeting SpO₂ 94–98% (88–92% if at risk of CO₂ retention). Escalate to CPAP/NIV if refractory."
    },
    {
     "id": "ahf_fc_18",
@@ -2064,8 +2059,8 @@
    },
    {
     "id": "ahf_fc_22",
-    "front": "In the BP-stratified approach to AHF, what is the strategy when SBP is 85–100 mmHg?",
-    "back": "Vasodilator ± inotrope: lower-dose GTN + dobutamine (inotrope), or a PDEI if there is a poor response."
+    "front": "In the BP-stratified approach to AHF, what is the strategy when SBP is 90–100 mmHg?",
+    "back": "Inotrope-led with cautious vasodilator: dobutamine, adding low-dose GTN only under continuous BP monitoring (or a PDE inhibitor if poor response)."
    },
    {
     "id": "ahf_fc_23",
@@ -13681,11 +13676,11 @@
      "It prevents aspiration of gastric contents only, protecting the airway during treatment",
      "It raises systemic blood pressure by increasing peripheral vascular resistance and afterload",
      "It reduces the heart's cardiac output demand to almost zero by resting the myocardium",
-     "Gravity moves fluid to the lung bases, clearing the upper/mid zones for gas exchange"
+     "It reduces venous return (preload) and improves diaphragmatic mechanics, easing the work of breathing"
     ],
     "correctIndex": 4,
     "answer": "Gravity moves fluid to the lung bases, clearing the upper/mid zones for gas exchange",
-    "explanation": "Sitting up lets gravity redistribute fluid to the lung bases, freeing the upper and mid zones for gas exchange."
+    "explanation": "Sitting up reduces venous return (preload) and lets the diaphragm move more freely, improving respiratory mechanics and gas exchange."
    },
    {
     "id": "ahf_q12",
@@ -13740,12 +13735,12 @@
      "Inotrope/vasopressor ± mechanical support",
      "Beta-blockade",
      "Aggressive IV fluid resuscitation",
-     "Vasodilator-led (IV GTN/nitroprusside/BNP)",
+     "Vasodilator (IV GTN, with close BP monitoring)",
      "Watchful waiting"
     ],
     "correctIndex": 3,
     "answer": "Vasodilator-led (IV GTN/nitroprusside/BNP)",
-    "explanation": "With SBP >100 mmHg the approach is vasodilator-led (IV GTN, nitroprusside or BNP) to reduce afterload, plus CPAP/NIV for respiratory failure."
+    "explanation": "With SBP >100 mmHg a vasodilator (IV GTN) may be added to reduce afterload — only with close BP monitoring and not routinely (reserve for hypertension/ischaemia/severe oedema) — plus CPAP/NIV for respiratory failure; the cornerstone remains the IV loop diuretic."
    },
    {
     "id": "ahf_q16",
@@ -14056,7 +14051,7 @@
      "50 mL/hour",
      ">2 mL/kg/hour",
      "No specific target needed",
-     "0.5–1 mL/kg/hour or 200–400 mL in first hour"
+     "200–400 mL of urine in the first hour"
     ],
     "correctIndex": 4,
     "answer": "0.5–1 mL/kg/hour or 200–400 mL in first hour",
@@ -14078,24 +14073,9 @@
     "explanation": "STEMI + cardiogenic shock = emergency primary PCI — reperfusing the culprit vessel is the only intervention that reduces mortality. Door-to-balloon time is critical."
    },
    {
-    "id": "ahf_q38",
-    "type": "mcq",
-    "question": "Which medication is contraindicated in acute HF with cardiogenic shock?",
-    "options": [
-     "Loop diuretics such as furosemide",
-     "Beta-blockers (e.g. bisoprolol)",
-     "IV nitrates like GTN infusion",
-     "Dobutamine inotrope infusion",
-     "Supplemental oxygen therapy"
-    ],
-    "correctIndex": 1,
-    "answer": "Beta-blockers (e.g. bisoprolol)",
-    "explanation": "Beta-blockers reduce cardiac output by negative inotropic/chronotropic effects — absolutely contraindicated in cardiogenic shock. They should be withheld until the patient is stabilised."
-   },
-   {
     "id": "ahf_q39",
     "type": "mcq",
-    "question": "What ECG finding in AHF points to a reversible mechanical cause requiring urgent treatment?",
+    "question": "What ECG finding in AHF points to a reversible ischaemic cause requiring urgent treatment?",
     "options": [
      "Right bundle branch block conduction pattern",
      "Sinus tachycardia with a rapid regular rate",
