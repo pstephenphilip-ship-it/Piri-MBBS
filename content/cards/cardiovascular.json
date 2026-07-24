@@ -1883,7 +1883,7 @@
    {
     "id": "chf_fc_29",
     "front": "What is the role of an ACEi/ARB in HFrEF, and what must be monitored?",
-    "back": "E.g. ramipril (or losartan if cough). Inhibits angiotensin II, increases bradykinin → vasodilation, reduces RAAS-driven remodelling, with a mortality benefit. Monitor potassium and renal function."
+    "back": "E.g. ramipril (ACEi) — inhibits ACE, so angiotensin II falls and bradykinin rises (vasodilation, but also the dry cough). Losartan (ARB) blocks the AT1 receptor directly without raising bradykinin (no cough). Both reduce RAAS-driven remodelling with a mortality benefit. Monitor potassium and renal function."
    },
    {
     "id": "chf_fc_30",
@@ -1903,7 +1903,7 @@
    {
     "id": "chf_fc_33",
     "front": "What is the mechanism of SGLT2 inhibitors in heart failure, and what makes them unique?",
-    "back": "Dapagliflozin/empagliflozin reduce glucose reabsorption → osmotic diuresis and cardioprotection. They are the only class with evidence in HFpEF, and are given regardless of diabetes status."
+    "back": "Dapagliflozin/empagliflozin reduce glucose reabsorption → osmotic diuresis and cardioprotection. They have the strongest outcome evidence in HFpEF (reduce HF hospitalisation), and are given regardless of diabetes status."
    },
    {
     "id": "chf_fc_34",
@@ -1918,7 +1918,7 @@
    {
     "id": "chf_fc_36",
     "front": "What are the criteria for adding ivabradine in HFrEF, and its mechanism?",
-    "back": "Sinus rhythm >75 bpm + EF ≤35% on maximal beta-blocker. It blocks the If (funny) current in the SA node → reduces heart rate without affecting contractility or BP."
+    "back": "Sinus rhythm ≥75 bpm + EF ≤35% on maximal beta-blocker. It blocks the If (funny) current in the SA node → reduces heart rate without affecting contractility or BP."
    },
    {
     "id": "chf_fc_37",
@@ -1933,7 +1933,7 @@
    {
     "id": "chf_fc_39",
     "front": "What are the indications for an ICD in heart failure (primary and secondary prevention)?",
-    "back": "Secondary prevention: EF ≤35% + previous VT/VF. Primary prevention: EF ≤35% on optimal therapy ≥3 months. It continuously monitors rhythm and shocks VF/VT back to sinus."
+    "back": "Secondary prevention: prior cardiac arrest / sustained VT / VF — regardless of EF. Primary prevention: EF ≤35% on optimal therapy ≥3 months. It continuously monitors rhythm and shocks VF/VT back to sinus."
    },
    {
     "id": "chf_fc_40",
@@ -13216,21 +13216,6 @@
     "explanation": "MRAs block aldosterone, reducing potassium loss — so the key risk is hyperkalaemia. Monitor potassium and renal function (especially when combined with an ACEi)."
    },
    {
-    "id": "chf_q23",
-    "type": "mcq",
-    "question": "Which feature makes SGLT2 inhibitors distinctive among heart failure drug classes?",
-    "options": [
-     "They are the only class with evidence in HFpEF, given regardless of diabetes status",
-     "They are the only heart failure class shown to reduce all-cause mortality outright",
-     "They can only be used in patients with established type 2 diabetes mellitus",
-     "They replace loop diuretics entirely and are sufficient for decongestion alone",
-     "They are contraindicated in HFrEF due to a risk of worsening systolic function"
-    ],
-    "correctIndex": 0,
-    "answer": "They are the only class with evidence in HFpEF, given regardless of diabetes status",
-    "explanation": "SGLT2 inhibitors (dapagliflozin/empagliflozin) are the only class with evidence in HFpEF and are given regardless of diabetes status; they act via osmotic diuresis and cardioprotection."
-   },
-   {
     "id": "chf_q24",
     "type": "mcq",
     "question": "What is the key exam point about loop diuretics (furosemide) in chronic heart failure?",
@@ -13378,7 +13363,7 @@
     ],
     "correctIndex": 3,
     "answer": "ACE inhibitors (e.g. ramipril) — reduce mortality by ~25%",
-    "explanation": "ACE inhibitors are first-line in all HFrEF (EF <40%) regardless of symptoms. They reduce mortality ~25% (CONSENSUS, SOLVD trials). ARBs (e.g. candesartan) if ACE inhibitor intolerant. ARNI (sacubitril/valsartan) is superior to ACE inhibitor if tolerated."
+    "explanation": "ACE inhibitors are first-line in all HFrEF (EF ≤40%) regardless of symptoms. They reduce mortality ~25% (CONSENSUS, SOLVD trials). ARBs (e.g. candesartan) if ACE inhibitor intolerant. ARNI (sacubitril/valsartan) is superior to ACE inhibitor if tolerated."
    },
    {
     "id": "chf_q34",
@@ -13426,36 +13411,6 @@
     "explanation": "SGLT2 inhibitors (dapagliflozin — DAPA-HF; empagliflozin — EMPEROR-Reduced/Preserved) reduce CV death and HF hospitalisation in both HFrEF and HFpEF regardless of diabetes. Now standard of care in HF alongside ACEI/ARNI, beta-blocker, MRA."
    },
    {
-    "id": "chf_q37",
-    "type": "mcq",
-    "question": "What is the 'fantastic four' of HFrEF disease-modifying therapy?",
-    "options": [
-     "Digoxin + diuretic + ACE-I + aspirin",
-     "ACE-I/ARB/ARNI + beta-blocker + MRA + SGLT2 inhibitor",
-     "Beta-blocker + diuretic + statin + ACE-I",
-     "ACE-I + CCB + MRA + diuretic",
-     "Diuretic + nitrate + hydralazine + digoxin"
-    ],
-    "correctIndex": 1,
-    "answer": "ACE-I/ARB/ARNI + beta-blocker + MRA + SGLT2 inhibitor",
-    "explanation": "Current HFrEF 'fantastic four' (quadruple therapy): ARNI (or ACE-I/ARB) + beta-blocker (bisoprolol/carvedilol) + mineralocorticoid receptor antagonist (spironolactone/eplerenone) + SGLT2 inhibitor. All four have independent mortality/morbidity benefit."
-   },
-   {
-    "id": "chf_q38",
-    "type": "mcq",
-    "question": "What is cardiac resynchronisation therapy (CRT) used for in HFrEF?",
-    "options": [
-     "Used as an outright alternative to guideline drug therapy rather than alongside it in HFrEF",
-     "Indicated in all heart failure patients regardless of QRS duration or morphology on the ECG",
-     "Used only to treat arrhythmias such as ventricular tachycardia, not to improve synchrony",
-     "Wide QRS (>130 ms, LBBB morphology) with EF <35% — improves synchrony, symptoms, and mortality",
-     "Reserved for HFpEF only, where a preserved ejection fraction responds best to resynchronisation"
-    ],
-    "correctIndex": 3,
-    "answer": "Wide QRS (>130 ms, LBBB morphology) with EF <35% — improves synchrony, symptoms, and mortality",
-    "explanation": "CRT (biventricular pacing) resynchronises RV and LV contraction in patients with bundle branch block (QRS >130 ms, LBBB). NICE criteria: EF ≤35%, QRS >130 ms on optimal medical therapy. Reduces mortality ~36%, improves exercise tolerance and symptoms."
-   },
-   {
     "id": "chf_q39",
     "type": "mcq",
     "question": "A 72-year-old man with HFrEF has EF 28% on optimal medical therapy. He had a VT arrest 3 months ago. What device therapy is indicated?",
@@ -13478,12 +13433,12 @@
      "NT-proBNP is only useful in acute heart failure and has no role in the diagnosis or monitoring of chronic HF",
      "A normal NT-proBNP value is above 500 ng/L, and levels below this effectively exclude any possibility of heart failure",
      "An NT-proBNP above 50 ng/L is diagnostic of heart failure and warrants immediate initiation of drug treatment",
-     "NT-proBNP >125 ng/L supports HF diagnosis; >2000 ng/L suggests decompensated HF — use to guide diagnosis and monitor treatment",
+     "NT-proBNP 400–2000 ng/L supports referral for echo (within 6 weeks); >2000 ng/L warrants urgent (2-week) assessment — use to guide diagnosis and monitor treatment",
      "NT-proBNP elevation is entirely non-specific and adds nothing useful to the assessment of suspected heart failure"
     ],
     "correctIndex": 3,
     "answer": "NT-proBNP >125 ng/L supports HF diagnosis; >2000 ng/L suggests decompensated HF — use to guide diagnosis and monitor treatment",
-    "explanation": "NT-proBNP (or BNP) is the biomarker for heart failure. NT-proBNP >125 ng/L (BNP >35 ng/L) supports HF diagnosis. >2000 ng/L indicates high acuity. Values fall with treatment. NICE: use to rule out HF in new dyspnoea — very high sensitivity means low values reliably exclude HF."
+    "explanation": "NT-proBNP (or BNP) is the heart-failure biomarker. NICE: <400 ng/L makes HF unlikely; 400–2000 ng/L → echo within 6 weeks; >2000 ng/L → urgent echo within 2 weeks. Values fall with treatment; low values reliably exclude HF."
    }
   ],
   "conditions__CARDIOVASCULAR__Acute Heart Failure": [
