@@ -4792,7 +4792,7 @@
    {
     "id": "brady_fc_03",
     "front": "What are the features of a block at the SA node level?",
-    "back": "Sinus bradycardia and sick sinus syndrome. Escape ~60 bpm, narrow QRS, and atropine works."
+    "back": "Sinus bradycardia and sick sinus syndrome. The SA node fires slowly (not a true escape); narrow QRS, and atropine works."
    },
    {
     "id": "brady_fc_04",
@@ -4802,7 +4802,7 @@
    {
     "id": "brady_fc_05",
     "front": "What are the features of an infranodal (His-Purkinje) block?",
-    "back": "Mobitz II and complete heart block (CHB) with a broad escape. Ventricular escape <40 bpm, broad QRS, and atropine is INEFFECTIVE — the patient must be paced."
+    "back": "Mobitz II and infranodal complete heart block (CHB) with a broad escape. Ventricular escape <40 bpm, broad QRS, and atropine is INEFFECTIVE — the patient must be paced."
    },
    {
     "id": "brady_fc_06",
@@ -4817,7 +4817,7 @@
    {
     "id": "brady_fc_08",
     "front": "How does QRS width relate to the level of a bradycardic block?",
-    "back": "Higher blocks (SA node, AV node) preserve a narrow QRS because the His-Purkinje system still conducts normally; infranodal blocks produce a broad QRS as the escape arises below the His-Purkinje system."
+    "back": "Higher blocks (SA node, AV node) preserve a narrow QRS because the His-Purkinje system still conducts normally; infranodal blocks produce a broad QRS as the escape arises distal to the block, within ventricular/distal Purkinje tissue."
    },
    {
     "id": "brady_fc_09",
@@ -4907,7 +4907,7 @@
    {
     "id": "brady_fc_26",
     "front": "Describe Mobitz II second-degree AV block and its key risks.",
-    "back": "A fixed PR interval with a sudden dropped QRS (no warning). It is INFRANODAL with a broad QRS, carries a HIGH risk of progression to complete heart block, and requires a pacemaker."
+    "back": "A fixed PR interval with a sudden dropped QRS (no warning). It is INFRANODAL, usually with a broad QRS (may be narrow if the block is within the His bundle), carries a HIGH risk of progression to complete heart block, and requires a pacemaker."
    },
    {
     "id": "brady_fc_27",
@@ -4962,7 +4962,7 @@
    {
     "id": "brady_fc_37",
     "front": "Describe the features of a NARROW escape (His bundle) in complete heart block.",
-    "back": "Rate 50–60 bpm, narrow QRS (<120 ms), a reliable pacemaker, often from inferior MI / a reversible cause, may respond to IV atropine acutely — but still usually needs permanent pacing."
+    "back": "Rate 40–60 bpm, narrow QRS (<120 ms), a reliable pacemaker, often from inferior MI / a reversible cause, may respond to IV atropine acutely — but still usually needs permanent pacing."
    },
    {
     "id": "brady_fc_38",
@@ -4986,28 +4986,23 @@
    },
    {
     "id": "brady_fc_42",
-    "front": "What does the WiLLiAM mnemonic describe for LBBB?",
-    "back": "LBBB = WiLLiAM: a W in V1 (deep QS or rS wave) and an M in V5/V6 and I (broad notched R wave)."
+    "front": "What does the WiLLiaM mnemonic describe for LBBB?",
+    "back": "LBBB = WiLLiaM: a W in V1 (deep QS or rS wave) and an M in V5/V6 and I (broad notched R wave)."
    },
    {
     "id": "brady_fc_43",
     "front": "What are the additional features and significance of LBBB?",
-    "back": "QRS >120 ms with left axis deviation. It is always pathological — causes include aortic stenosis, hypertension, IHD and cardiomyopathy. New LBBB with chest pain is a STEMI equivalent → primary PCI."
+    "back": "QRS >120 ms with left axis deviation. It is always pathological — causes include aortic stenosis, hypertension, IHD and cardiomyopathy. New/presumed-new LBBB with ongoing ischaemic symptoms is treated as a STEMI equivalent → primary PCI."
    },
    {
     "id": "brady_fc_44",
-    "front": "What does the MoRRoW mnemonic describe for RBBB?",
-    "back": "RBBB = MoRRoW: an M in V1 (RSR' pattern, 'rabbit ears') and a W in V5/V6 and I (broad slurred S wave)."
+    "front": "What does the MaRRoW mnemonic describe for RBBB?",
+    "back": "RBBB = MaRRoW: an M in V1 (RSR' pattern, 'rabbit ears') and a W in V5/V6 and I (broad slurred S wave)."
    },
    {
     "id": "brady_fc_45",
     "front": "What are the additional features and causes of RBBB?",
     "back": "QRS >120 ms with an rSR' ('M') pattern in V1 and a normal cardiac axis (right axis deviation suggests an additional left posterior fascicular block or RVH). Can be a normal variant in young people; other causes include PE (acute RV strain), RVH and congenital heart disease."
-   },
-   {
-    "id": "brady_fc_46",
-    "front": "What is the clinical significance of a new LBBB with chest pain?",
-    "back": "It is treated as a STEMI equivalent, warranting the primary PCI (PPCI) pathway."
    },
    {
     "id": "brady_fc_47",
@@ -5088,11 +5083,6 @@
     "id": "brady_fc_62",
     "front": "Compare the prognosis and escape rhythm of complete heart block in anterior MI vs inferior MI.",
     "back": "Anterior MI + CHB = His-Purkinje level, broad QRS, unreliable escape 30–40 bpm → urgent pacing; worse prognosis. Inferior MI + AV block = AV nodal level, narrow QRS, usually transient, often responds to atropine and resolves with reperfusion; less alarming than anterior."
-   },
-   {
-    "id": "brady_fc_63",
-    "front": "Why does complete heart block complicating an anterior MI carry a worse prognosis than with an inferior MI?",
-    "back": "Anterior MI damages the His-Purkinje system, giving a broad-QRS, unreliable escape (30–40 bpm) that needs urgent pacing. Inferior MI affects the AV node, giving a narrow-QRS, usually transient block that often responds to atropine and resolves with reperfusion."
    }
   ],
   "conditions__CARDIOVASCULAR__Myocarditis": [
@@ -18112,7 +18102,7 @@
    {
     "id": "brady_q31",
     "type": "mcq",
-    "question": "Using the WiLLiAM mnemonic, which morphology indicates LBBB?",
+    "question": "Using the WiLLiaM mnemonic, which morphology indicates LBBB?",
     "options": [
      "M in V1, W in V6",
      "W in V1 (deep QS/rS), M in V5/V6",
@@ -18122,7 +18112,7 @@
     ],
     "correctIndex": 1,
     "answer": "W in V1 (deep QS/rS), M in V5/V6",
-    "explanation": "LBBB = WiLLiAM: a W in V1 (deep QS or rS) and an M in V5/V6 (broad notched R), with QRS >120 ms and left axis deviation."
+    "explanation": "LBBB = WiLLiaM: a W in V1 (deep QS or rS) and an M in V5/V6 (broad notched R), with QRS >120 ms and left axis deviation."
    },
    {
     "id": "brady_q32",
@@ -18142,7 +18132,7 @@
    {
     "id": "brady_q33",
     "type": "mcq",
-    "question": "Using the MoRRoW mnemonic, which morphology indicates RBBB, and what is its significance?",
+    "question": "Using the MaRRoW mnemonic, which morphology indicates RBBB, and what is its significance?",
     "options": [
      "W in V1 and M in V6 (the opposite pattern); always pathological and requiring a pacemaker",
      "Sawtooth flutter waves in V1 indicating underlying atrial flutter with the block",
@@ -18152,7 +18142,7 @@
     ],
     "correctIndex": 4,
     "answer": "M in V1 (RSR' 'rabbit ears'), W in V5/V6; can be a normal variant in young people",
-    "explanation": "RBBB = MoRRoW: an M in V1 (RSR') and a W in V5/V6 (broad slurred S). It can be a normal variant in young people; other causes include PE (acute RV strain), RVH and congenital heart disease."
+    "explanation": "RBBB = MaRRoW: an M in V1 (RSR') and a W in V5/V6 (broad slurred S). It can be a normal variant in young people; other causes include PE (acute RV strain), RVH and congenital heart disease."
    },
    {
     "id": "brady_q34",
@@ -18333,21 +18323,6 @@
     "correctIndex": 2,
     "answer": "VVI paces/senses the ventricle only; DDD paces both atrium and ventricle, maintaining AV synchrony (atrial kick)",
     "explanation": "VVI paces and senses the ventricle only; DDD paces both atrium and ventricle, preserving AV synchrony (the atrial kick) — important in impaired LV function."
-   },
-   {
-    "id": "brady_q46",
-    "type": "mcq",
-    "question": "Why is a permanent pacemaker indicated in Mobitz II regardless of symptoms?",
-    "options": [
-     "It carries a high risk of progression to complete heart block",
-     "It always precipitates immediate cardiac arrest within minutes",
-     "Atropine permanently cures the underlying conduction defect",
-     "It is a benign normal variant needing only routine monitoring",
-     "It occurs only in young endurance athletes and is benign"
-    ],
-    "correctIndex": 0,
-    "answer": "It carries a high risk of progression to complete heart block",
-    "explanation": "Mobitz II (fixed PR then sudden dropped beat) has a high risk of progressing to CHB, so a permanent pacemaker is indicated even when asymptomatic."
    },
    {
     "id": "brady_q47",
