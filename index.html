@@ -8311,7 +8311,7 @@ window.MOCK_BANK = {
         "Arrange immediate synchronised DC cardioversion for the patient"],
       correctIndex:0,
       explanation:[
-        "ATRIAL TACHYCARDIA WITH BLOCK is the classic arrhythmia of DIGOXIN TOXICITY: digoxin both increases atrial automaticity (driving the tachycardia) and enhances vagal tone at the AV node (causing the block). WITHHOLD the digoxin, check the level, and correct electrolytes &mdash; especially HYPOKALAEMIA, which worsens toxicity.",
+        "ATRIAL TACHYCARDIA WITH BLOCK (classically called &lsquo;PAT with block&rsquo; &mdash; paroxysmal atrial tachycardia with 2:1 or variable AV block) is the classic arrhythmia of DIGOXIN TOXICITY: digoxin both increases atrial automaticity (driving the tachycardia) and enhances vagal tone at the AV node (causing the block), so the combination is its fingerprint. WITHHOLD the digoxin, check the level, and correct electrolytes &mdash; especially HYPOKALAEMIA, which worsens toxicity.",
         "Increasing the dose (B) would worsen toxicity; and cardioversion (E) is relatively contraindicated in digoxin toxicity (risk of provoking dangerous ventricular arrhythmias in a digoxin-loaded, hypokalaemic myocardium).",
         "Severe digoxin toxicity (arrhythmia, hyperkalaemia, haemodynamic compromise) is treated with DIGOXIN-SPECIFIC ANTIBODY FRAGMENTS (DigiFab) (cross-link: Drug Overdose & Toxicology).",
         "Trap: adenosine (C) will not cure an automatic atrial tachycardia; amiodarone while continuing digoxin (D) ignores the cause; and DC cardioversion (E) is hazardous in digoxin toxicity &mdash; the fix is to stop the digoxin and correct electrolytes."
@@ -8375,7 +8375,7 @@ window.MOCK_BANK = {
       correctIndex:4,
       explanation:[
         "This is a COMPENSATORY sinus tachycardia from OCCULT HAEMORRHAGE (post-trauma, borderline BP): the fast heart rate is maintaining cardiac output in the face of blood loss. You must NOT beta-block it &mdash; slowing the rate removes the compensation and can precipitate cardiovascular collapse.",
-        "The correct action is to treat the CAUSE: resuscitate (IV fluids / blood) and identify and control the source of bleeding. The tachycardia is an early warning sign of shock, often before the blood pressure falls.",
+        "The correct action is to treat the CAUSE: resuscitate (IV fluids / blood) and identify and control the source of bleeding. This is COMPENSATED haemorrhagic shock: tachycardia and vasoconstriction hold the blood pressure up until roughly 30% of blood volume is lost, so a normal or borderline BP is falsely reassuring &mdash; the tachycardia is an EARLY sign that precedes hypotension, and it is doing the work of keeping him alive (cross-link: Shock (types), Foundations of CVS).",
         "This is the sharp end of &lsquo;never rate-block a sinus tachycardia without knowing the cause&rsquo; (tac-045) &mdash; here the tachycardia is the patient&rsquo;s lifeline.",
         "Trap: a beta-blocker (A), adenosine (B) or cardioversion (C) all attack a physiological compensation; reassurance (D) misses evolving haemorrhagic shock &mdash; the answer is to resuscitate and find the bleeding."
       ] },
@@ -8393,7 +8393,8 @@ window.MOCK_BANK = {
       explanation:[
         "TERMINATE (AV node IN the circuit): AVNRT and orthodromic AVRT &mdash; vagal manoeuvres / adenosine break the re-entry loop and restore sinus rhythm (tac-039).",
         "RATE-CONTROL (AV node a BYSTANDER): AF, atrial flutter and atrial tachycardia &mdash; blocking the node slows the ventricular response (and adenosine transiently unmasks the atrial activity) but does NOT terminate the rhythm (tac-043).",
-        "TREAT THE CAUSE (physiological): SINUS tachycardia &mdash; an appropriate response to a driver (PIRATES), so you find and fix the cause rather than rate-block it (tac-045). This three-way split is the master principle (tac-005) made into a sorting task."
+        "TREAT THE CAUSE (physiological): SINUS tachycardia &mdash; an appropriate response to a driver (PIRATES), so you find and fix the cause rather than rate-block it (tac-045). This three-way split is the master principle (tac-005) made into a sorting task.",
+        "Note this triad is THREE of the FOUR arms of tac-005 &mdash; the fourth, ENDANGER (pre-excited AF in WPW, where AV-nodal blockade forces conduction down the accessory pathway and can cause VF), sits in the broad-irregular quadrant and is owned by the broad-complex blocks."
       ] },
     { id:"tac-048", type:"multi", objective:"tac-adenosine-terminates-multi",
       boxLabel:"Adenosine is likely to TERMINATE",
@@ -8403,6 +8404,7 @@ window.MOCK_BANK = {
       explanation:[
         "Adenosine TERMINATES the AV-node-dependent re-entrant SVTs &mdash; AVNRT and orthodromic AVRT &mdash; because the AV node is an essential part of the circuit, so transiently blocking it breaks the loop (tac-039).",
         "It does NOT terminate atrial flutter, AF or atrial tachycardia (the node is a bystander &mdash; adenosine only reveals the atrial activity, tac-043); it does not treat sinus tachycardia (a physiological response); and it should NOT be relied upon in VT (a broad-complex rhythm &mdash; treat as VT).",
+        "The four falses fail for DIFFERENT reasons: flutter / AF / atrial tachycardia (node a BYSTANDER &rarr; reveals, not terminates); sinus (PHYSIOLOGICAL &rarr; slows transiently, not terminates); and VT (BELOW the node &rarr; NO effect at all). That last point is high-yield: because adenosine does nothing to VT, giving it to a STABLE regular broad-complex tachy can be a diagnostic manoeuvre &mdash; if it terminates, it was SVT; if nothing happens, it is VT (which you still manage as VT).",
         "Rule of thumb: adenosine terminates the two &lsquo;true SVTs&rsquo; where the node is in the circuit, and is otherwise diagnostic or inappropriate &mdash; the terminate / reveal / avoid distinction of the master principle (tac-005)."
       ] },
   ],
