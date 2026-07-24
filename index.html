@@ -7939,7 +7939,7 @@ window.MOCK_BANK = {
       correctIndex:2,
       explanation:[
         "Add the points: AGE &ge;75 = 2, FEMALE = 1, HYPERTENSION = 1, DIABETES = 1 &mdash; total CHA2DS2-VASc = 5. A score of 5 is high, and anticoagulation is clearly indicated (net benefit outweighs bleeding risk).",
-        "The thresholds: anticoagulate if &ge;2 in men or &ge;3 in women; consider it at 1 (men) / 2 (women); at 0 (men) or 1 (women, i.e. sex alone) the risk is too low to justify anticoagulation. First-line is a DOAC in non-valvular AF (tac-017).",
+        "The thresholds: anticoagulate if &ge;2 in men or &ge;3 in women; consider it at 1 (men) / 2 (women); at 0 (men) or 1 (women, i.e. sex alone) the risk is too low to justify anticoagulation &mdash; because female sex MODIFIES the risk from other factors rather than being an independent indication, some newer guidance uses CHA2DS2-VA, dropping the sex point entirely. First-line is a DOAC in non-valvular AF (tac-017).",
         "CHA2DS2-VASc = Congestive HF, Hypertension, Age &ge;75 (2 points), Diabetes, prior Stroke/TIA (2 points), Vascular disease, Age 65&ndash;74, Sex (female). The two 2-point items are age &ge;75 and prior stroke.",
         "Trap: the score is 5, not 3, 2 or 1 (A, B, E miscount); aspirin is NOT adequate for AF stroke prevention (B, tac-019); and female sex is a risk MODIFIER, not a reason to withhold anticoagulation (D) &mdash; a woman with other risk factors is anticoagulated."
       ] },
@@ -7954,8 +7954,8 @@ window.MOCK_BANK = {
       correctIndex:3,
       explanation:[
         "ASPIRIN has NO meaningful role in stroke prevention for AF: it is far less effective than anticoagulation and carries a similar bleeding risk. This patient (CHA2DS2-VASc 3) needs a proper ANTICOAGULANT &mdash; stop the aspirin and start a DOAC.",
-        "This is a common legacy prescription: older guidance offered aspirin, but current guidance is explicit that aspirin should NOT be used for AF thromboprophylaxis. Anticoagulation (DOAC first-line, tac-017) is the standard.",
-        "Antiplatelets prevent ARTERIAL atherothrombotic events; the AF stroke mechanism is a stasis-formed left-atrial THROMBUS (a red, fibrin-rich clot) that requires ANTICOAGULATION, not antiplatelet therapy (tac-012).",
+        "This is a common legacy prescription: older guidance offered aspirin, but current guidance is explicit that aspirin should NOT be used for AF thromboprophylaxis &mdash; NICE explicitly REMOVED it as an option. This is the same deprescribing-of-outdated-practice pattern as aspirin no longer being used for primary CVD prevention. Anticoagulation (DOAC first-line, tac-017) is the standard.",
+        "Antiplatelets prevent ARTERIAL atherothrombotic events (a platelet-rich, high-shear clot); the AF stroke mechanism is a stasis-formed left-atrial THROMBUS (a low-flow, fibrin-rich clot) that requires ANTICOAGULATION, not antiplatelet therapy (tac-012) &mdash; the same &lsquo;which clot, which drug&rsquo; logic across the bank: anticoagulant for a low-flow / stasis clot, antiplatelet for a high-shear arterial one.",
         "Trap: continuing or increasing aspirin, or adding clopidogrel (A, B, C), all leave the patient inadequately protected while still bleeding; and &lsquo;no treatment&rsquo; (E) ignores a score that clearly warrants anticoagulation."
       ] },
     { id:"tac-020", type:"mcq", objective:"tac-cardioversion-timing",
@@ -7970,10 +7970,11 @@ window.MOCK_BANK = {
       explanation:[
         "AF of MORE than 48 hours (or unknown onset) must NOT be cardioverted without addressing thrombus first. Either ANTICOAGULATE for &ge;3 weeks beforehand, OR perform a transoesophageal echo (TOE) to exclude a left-atrial appendage thrombus &mdash; then cardiovert, and anticoagulate for &ge;4 weeks afterwards (longer if CHA2DS2-VASc warrants).",
         "The danger is that restoring organised atrial contraction can DISLODGE a stasis-formed appendage thrombus and cause a stroke &mdash; the &lsquo;normalisation&rsquo; embolism. The 48-hour rule exists because thrombus can form within ~48 hours of AF onset.",
-        "If AF is confidently &lt;48 hours (or the patient is already anticoagulated &ge;3 weeks), cardioversion can proceed without the wait. UNSTABLE patients are cardioverted immediately regardless, because the risk of waiting outweighs the embolic risk (tac-003).",
+        "Post-cardioversion, anticoagulation continues for at least 4 weeks (longer per CHA2DS2-VASc) because of ATRIAL STUNNING: mechanical atrial function LAGS the electrical recovery, so stasis and thrombus risk persist even after sinus rhythm returns. This is the general principle that RESTORING FUNCTION can dislodge a stasis thrombus &mdash; the same logic as anticoagulating a recovering-EF ventricle with an apical thrombus.",
+        "If AF is confidently &lt;48 hours (or the patient is already anticoagulated &ge;3 weeks), cardioversion can proceed without the 3-week wait (you still anticoagulate around and after it) &mdash; because a thrombus has not had time to form. UNSTABLE patients are cardioverted immediately regardless, because the risk of waiting outweighs the embolic risk (tac-003).",
         "Trap: cardioverting now without cover (A, C) risks a thromboembolic stroke; aspirin (B) is not adequate peri-cardioversion anticoagulation; and cardioversion is not absolutely contraindicated beyond 48h (D) &mdash; it just needs the anticoagulation/TOE precautions."
       ] },
-    { id:"tac-021", type:"mcq", objective:"tac-valvular-af",
+    { id:"tac-021", type:"mcq", objective:"tac-valvular-af", excludes:["rf-rhd-anticoagulation"],
       question:"A 55-year-old woman with atrial fibrillation has moderate-to-severe rheumatic mitral stenosis on echocardiography. Which anticoagulant is appropriate?",
       options:[
         "A DOAC such as apixaban, exactly as for most non-valvular AF",
@@ -7984,7 +7985,7 @@ window.MOCK_BANK = {
       correctIndex:2,
       explanation:[
         "This is VALVULAR AF (AF with moderate-to-severe mitral stenosis or a mechanical heart valve), the one AF setting where DOACs are CONTRAINDICATED &mdash; the evidence supports a VITAMIN K ANTAGONIST (WARFARIN) with an INR target (cross-link: Rheumatic Fever / Rheumatic Heart Disease, rf-039).",
-        "All OTHER AF is &lsquo;non-valvular&rsquo; &mdash; including AF with most other valve lesions or a bioprosthetic valve &mdash; and gets a DOAC first-line (tac-017). &lsquo;Valvular&rsquo; here means specifically rheumatic MS and mechanical valves.",
+        "All OTHER AF is &lsquo;non-valvular&rsquo; &mdash; including AF with most other valve lesions (mild MR, a bioprosthetic or repaired valve) &mdash; and gets a DOAC first-line (tac-017). &lsquo;Valvular&rsquo; here means specifically rheumatic MS and mechanical valves, which is why the term &lsquo;valvular AF&rsquo; is being replaced by the more precise &lsquo;AF with mitral stenosis or a mechanical valve&rsquo;. The common error is assuming any valve lesion mandates warfarin.",
         "Rheumatic mitral stenosis both causes the AF (left atrial dilatation) and carries a very high embolic risk, so effective anticoagulation is essential (cross-link: Valvular Heart Disease).",
         "Trap: a DOAC (A) is contraindicated in this specific setting; aspirin or no treatment (B, D) leave a high-risk patient unprotected; and long-term LMWH (E) is impractical &mdash; warfarin is the answer."
       ] },
@@ -8028,7 +8029,7 @@ window.MOCK_BANK = {
         "Bisoprolol"],
       correctIndex:0,
       explanation:[
-        "For pharmacological cardioversion of AF in a structurally NORMAL heart, FLECAINIDE (a class Ic agent) is the drug of choice. If there IS structural heart disease or HF, AMIODARONE is used instead (flecainide is proarrhythmic in structural disease).",
+        "For pharmacological cardioversion of AF in a structurally NORMAL heart, FLECAINIDE (a class Ic agent) is the drug of choice. If there IS structural heart disease or HF, AMIODARONE is used instead &mdash; flecainide is PROARRHYTHMIC in structural/ischaemic hearts (the CAST-trial lesson: class Ic agents increased mortality post-MI). Flecainide is also the &lsquo;pill-in-the-pocket&rsquo; option for paroxysmal AF, but ONLY in structurally-normal-heart patients.",
         "This mirrors the rhythm-control drug rule throughout: flecainide for structurally normal hearts, amiodarone when there is structural disease &mdash; the same split as maintenance therapy (tac-023).",
         "Electrical (synchronised DC) cardioversion is the alternative and is more effective; either way, the 48-hour anticoagulation / TOE precautions apply (tac-020).",
         "Trap: digoxin, adenosine, verapamil and a beta-blocker (B, C, D, E) are rate-controlling or SVT-terminating drugs &mdash; they do NOT chemically cardiovert AF to sinus rhythm; only an antiarrhythmic (flecainide / amiodarone) does."
