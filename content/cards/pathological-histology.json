@@ -478,12 +478,12 @@
    {
     "id": "hph-death-fc-007",
     "front": "Describe the intrinsic (mitochondrial) apoptosis pathway.",
-    "back": "Triggered by DNA damage or growth-factor withdrawal; regulated by the BCL2 family; cytochrome c release activates APAF-1 and caspase 9."
+    "back": "Triggered by DNA damage/growth-factor withdrawal. The BCL2-family balance (anti-apoptotic BCL2/BCL-XL/MCL1 vs pro-apoptotic BAX/BAK and BH3-only proteins) determines MOMP; BAX/BAK oligomers release cytochrome c, which forms the apoptosome with APAF-1 and procaspase-9, activating caspase 9."
    },
    {
     "id": "hph-death-fc-008",
     "front": "Describe the extrinsic (death-receptor) apoptosis pathway.",
-    "back": "Ligand binding to death receptors (Fas/FasL or TNF receptor) activates caspase 8."
+    "back": "Ligand binding to death receptors (Fas/FasL, TNF-R) recruits FADD to form the DISC, activating caspase 8; caspase 8 also cleaves BID to tBID, cross-linking to the intrinsic (mitochondrial) pathway."
    },
    {
     "id": "hph-death-fc-009",
@@ -533,17 +533,17 @@
    {
     "id": "hph-death-fc-018",
     "front": "What is fibrinoid necrosis and where is it seen?",
-    "back": "Deposition of immune complexes and fibrin in vessel walls, seen in malignant hypertension and vasculitis."
+    "back": "Deposition of fibrin and plasma proteins in vessel walls, appearing bright-pink (eosinophilic) on H&E; immune-complex-driven in some vasculitides (e.g. PAN) but from plasma insudation in malignant hypertension/pre-eclampsia."
    },
    {
     "id": "hph-death-fc-019",
     "front": "Distinguish dry and wet gangrene.",
-    "back": "Dry gangrene is coagulative necrosis from ischaemia; wet gangrene is liquefactive necrosis complicated by bacterial infection."
+    "back": "Gangrene is a clinical term, not a distinct mechanism: dry gangrene is coagulative necrosis from ischaemia; wet gangrene adds bacterial infection (liquefactive); gas gangrene is Clostridium infection."
    },
    {
     "id": "hph-death-fc-020",
     "front": "What are Councilman bodies?",
-    "back": "Apoptotic hepatocytes seen as eosinophilic globules, characteristic of viral hepatitis."
+    "back": "Apoptotic hepatocytes seen as eosinophilic globules (also called acidophil bodies), characteristic of viral hepatitis and yellow fever."
    },
    {
     "id": "hph-death-fc-021",
@@ -603,7 +603,73 @@
    {
     "id": "hph-death-fc-032",
     "front": "What newer regulated forms of cell death exist beyond classical apoptosis?",
-    "back": "Necroptosis, pyroptosis and ferroptosis — regulated but often inflammatory forms of programmed necrosis."
+    "back": "Necroptosis (RIPK1/RIPK3 → MLKL, caspase-independent), pyroptosis (inflammasome → caspase-1 → gasdermin-D pores + IL-1β/IL-18) and ferroptosis (iron-dependent lipid peroxidation, GPX4 failure) — regulated, often inflammatory forms of necrosis."
+   },
+   {
+    "id": "hph-death-fc-033",
+    "type": "flashcard",
+    "front": "What is MOMP and why is it central to intrinsic apoptosis?",
+    "back": "Mitochondrial outer-membrane permeabilisation — caused by BAX/BAK oligomers under BH3-only pressure and opposed by BCL2/BCL-XL — releasing cytochrome c to trigger apoptosome/caspase-9 activation; it is the point of no return in intrinsic apoptosis."
+   },
+   {
+    "id": "hph-death-fc-034",
+    "type": "flashcard",
+    "front": "What is the apoptosome?",
+    "back": "The wheel-like complex of cytochrome c + APAF-1 + procaspase-9 that assembles in the cytosol during intrinsic apoptosis to activate caspase 9."
+   },
+   {
+    "id": "hph-death-fc-035",
+    "type": "flashcard",
+    "front": "How does caspase 8 link the extrinsic to the intrinsic pathway?",
+    "back": "Caspase 8 cleaves BID to truncated tBID, which activates BAX/BAK to cause MOMP, amplifying the death signal through the mitochondria."
+   },
+   {
+    "id": "hph-death-fc-036",
+    "type": "flashcard",
+    "front": "What is the significance of phosphatidylserine externalisation?",
+    "back": "Apoptotic cells flip phosphatidylserine to the outer membrane leaflet as an \"eat-me\" signal for macrophage engulfment; it is detected experimentally by annexin V binding."
+   },
+   {
+    "id": "hph-death-fc-037",
+    "type": "flashcard",
+    "front": "What marks the transition from reversible to irreversible cell injury?",
+    "back": "Opening of the mitochondrial permeability transition pore (MPTP), severe plasma-membrane damage, and massive cytosolic calcium influx."
+   },
+   {
+    "id": "hph-death-fc-038",
+    "type": "flashcard",
+    "front": "Describe necroptosis.",
+    "back": "A regulated, caspase-independent necrosis driven by RIPK1/RIPK3 phosphorylating MLKL, which forms plasma-membrane pores; it is pro-inflammatory (e.g. when caspase-8 is inhibited)."
+   },
+   {
+    "id": "hph-death-fc-039",
+    "type": "flashcard",
+    "front": "Describe pyroptosis.",
+    "back": "An inflammatory regulated cell death: inflammasome activation of caspase-1 cleaves gasdermin-D (forming membrane pores) and matures IL-1β/IL-18."
+   },
+   {
+    "id": "hph-death-fc-040",
+    "type": "flashcard",
+    "front": "Describe ferroptosis.",
+    "back": "An iron-dependent regulated necrosis from unchecked lipid peroxidation when the glutathione/GPX4 antioxidant defence fails."
+   },
+   {
+    "id": "hph-death-fc-041",
+    "type": "flashcard",
+    "front": "What is oncosis?",
+    "back": "The pre-lethal cell swelling (from ion-pump failure) that precedes necrosis — the counterpart to the shrinkage seen in apoptosis."
+   },
+   {
+    "id": "hph-death-fc-042",
+    "type": "flashcard",
+    "front": "What is autophagy in the context of cell death?",
+    "back": "Lysosomal self-digestion of the cell's own organelles; usually cytoprotective (recycling under stress/starvation) but occasionally acting as a death mechanism."
+   },
+   {
+    "id": "hph-death-fc-043",
+    "type": "flashcard",
+    "front": "How does free-radical (ROS) injury damage cells?",
+    "back": "Reactive oxygen species (superoxide, H2O2, hydroxyl radical) cause membrane lipid peroxidation, protein oxidation and DNA damage; prominent in ischaemia-reperfusion injury and radiation."
    }
   ],
   "histology__PATHOLOGICAL HISTOLOGY__Neoplasia (benign vs malignant features)": [
@@ -2514,6 +2580,132 @@
     ],
     "correctIndex": 1,
     "explanation": "Insufficient apoptosis allows survival of abnormal/self-reactive cells, contributing to cancer and autoimmunity."
+   },
+   {
+    "id": "hph-death-q-021",
+    "type": "mcq",
+    "question": "Mitochondrial outer-membrane permeabilisation (MOMP) in intrinsic apoptosis is executed by:",
+    "options": [
+     "BCL2 and BCL-XL",
+     "BAX and BAK",
+     "Caspase 8",
+     "Fas ligand",
+     "p53 acting alone"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pro-apoptotic BAX/BAK oligomerise to permeabilise the mitochondrial outer membrane (MOMP), releasing cytochrome c; BCL2/BCL-XL oppose this."
+   },
+   {
+    "id": "hph-death-q-022",
+    "type": "mcq",
+    "question": "Caspase 8 links the extrinsic to the intrinsic pathway by cleaving:",
+    "options": [
+     "APAF-1",
+     "BID to tBID",
+     "Cytochrome c",
+     "p53",
+     "Gasdermin-D"
+    ],
+    "correctIndex": 1,
+    "explanation": "Caspase 8 cleaves BID to tBID, which activates BAX/BAK and MOMP, connecting death-receptor signalling to the mitochondrial pathway."
+   },
+   {
+    "id": "hph-death-q-023",
+    "type": "mcq",
+    "question": "The \"eat-me\" signal flipped to the outer membrane of apoptotic cells is:",
+    "options": [
+     "Cardiolipin",
+     "Phosphatidylserine",
+     "Cholesterol",
+     "Sphingomyelin",
+     "Fas ligand"
+    ],
+    "correctIndex": 1,
+    "explanation": "Phosphatidylserine externalisation flags apoptotic cells for phagocytosis and is the basis of annexin V detection."
+   },
+   {
+    "id": "hph-death-q-024",
+    "type": "mcq",
+    "question": "The transition to irreversible cell injury is marked by:",
+    "options": [
+     "Reversible cell swelling",
+     "Mitochondrial permeability transition pore opening",
+     "Ribosomal detachment",
+     "Glycogen depletion",
+     "Fatty change"
+    ],
+    "correctIndex": 1,
+    "explanation": "MPTP opening (with severe membrane damage and calcium overload) marks the irreversible point of cell injury."
+   },
+   {
+    "id": "hph-death-q-025",
+    "type": "mcq",
+    "question": "Necroptosis is executed by which pore-forming effector?",
+    "options": [
+     "Gasdermin-D",
+     "MLKL",
+     "GPX4",
+     "Caspase-3",
+     "BAX"
+    ],
+    "correctIndex": 1,
+    "explanation": "RIPK1/RIPK3 phosphorylate MLKL, which oligomerises and forms plasma-membrane pores in necroptosis."
+   },
+   {
+    "id": "hph-death-q-026",
+    "type": "mcq",
+    "question": "Pyroptosis is driven by inflammasome activation of:",
+    "options": [
+     "Caspase-9",
+     "Caspase-1 cleaving gasdermin-D",
+     "RIPK3",
+     "GPX4",
+     "APAF-1"
+    ],
+    "correctIndex": 1,
+    "explanation": "Inflammasomes activate caspase-1, which cleaves gasdermin-D (pore formation) and matures IL-1β/IL-18 — pyroptosis."
+   },
+   {
+    "id": "hph-death-q-027",
+    "type": "mcq",
+    "question": "Ferroptosis results from:",
+    "options": [
+     "Gasdermin-D pores",
+     "Iron-dependent lipid peroxidation with GPX4 failure",
+     "RIPK1/RIPK3 signalling",
+     "Caspase-8 activation",
+     "MOMP"
+    ],
+    "correctIndex": 1,
+    "explanation": "Ferroptosis is iron-dependent lipid peroxidation that overwhelms the glutathione/GPX4 antioxidant system."
+   },
+   {
+    "id": "hph-death-q-028",
+    "type": "mcq",
+    "question": "Which is the classic EXCEPTION to ischaemic tissue undergoing coagulative necrosis?",
+    "options": [
+     "Heart",
+     "Brain (liquefactive)",
+     "Kidney",
+     "Spleen",
+     "Adrenal gland"
+    ],
+    "correctIndex": 1,
+    "explanation": "The brain (CNS) undergoes liquefactive necrosis after ischaemia due to its high lipid content and lack of supportive stroma."
+   },
+   {
+    "id": "hph-death-q-029",
+    "type": "mcq",
+    "question": "Ischaemia-reperfusion injury is caused predominantly by:",
+    "options": [
+     "Immune complexes",
+     "Reactive oxygen species (free radicals) and calcium overload",
+     "Apoptosis acting alone",
+     "Bacterial exotoxins",
+     "Gasdermin pores"
+    ],
+    "correctIndex": 1,
+    "explanation": "Reperfusion floods ischaemic tissue with oxygen, generating ROS that (with calcium overload and MPTP opening) drive predominantly necrotic injury."
    }
   ],
   "histology__PATHOLOGICAL HISTOLOGY__Neoplasia (benign vs malignant features)": [
