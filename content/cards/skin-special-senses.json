@@ -1368,17 +1368,17 @@
    {
     "id": "hss-taste-fc-011",
     "front": "What does the type I taste cell do?",
-    "back": "It is the most numerous, glial-like supporting cell, also implicated in salt sensing and housekeeping."
+    "back": "The most numerous, glial-like supporting cell: it takes up glutamate (GLAST), clears extracellular ATP (NTPDase2) and buffers K+; it has a proposed (debated) role in amiloride-sensitive (ENaC) salt transduction."
    },
    {
     "id": "hss-taste-fc-012",
     "front": "What does the type II taste cell detect and how?",
-    "back": "Sweet, bitter and umami tastants, via G-protein-coupled receptors (T1R/T2R); it releases ATP rather than using a classic synapse."
+    "back": "Sweet, bitter and umami tastants, via G-protein-coupled receptors (T1R/T2R) coupled to the taste G-protein gustducin; it releases ATP as a transmitter through CALHM1 channels rather than using a classic synapse."
    },
    {
     "id": "hss-taste-fc-013",
     "front": "What does the type III taste cell detect and how does it signal?",
-    "back": "Sour taste; it forms a true synapse with the gustatory sensory nerve."
+    "back": "Sour taste — sensed via the OTOP1 proton channel (these cells express PKD2L1) — and it forms a true (vesicular) synapse with the gustatory sensory nerve."
    },
    {
     "id": "hss-taste-fc-014",
@@ -1393,7 +1393,7 @@
    {
     "id": "hss-taste-fc-016",
     "front": "How are salty and sour tastes transduced?",
-    "back": "Salty via sodium (Na+) ion channels and sour via hydrogen ions (H+); sweet, bitter and umami use GPCRs."
+    "back": "Salty via the amiloride-sensitive ENaC Na+ channel and sour via protons through the OTOP1 channel; sweet, bitter and umami use GPCRs coupled to gustducin."
    },
    {
     "id": "hss-taste-fc-017",
@@ -1413,7 +1413,7 @@
    {
     "id": "hss-taste-fc-020",
     "front": "Where do all taste afferents first synapse centrally?",
-    "back": "In the nucleus of the solitary tract (nucleus solitarius) in the medulla, then relay to the thalamus and gustatory cortex."
+    "back": "In the rostral nucleus of the solitary tract (medulla), then relay to the IPSILATERAL VPM of the thalamus and on to the gustatory cortex (insula/frontal operculum)."
    },
    {
     "id": "hss-taste-fc-021",
@@ -1474,6 +1474,48 @@
     "id": "hss-taste-fc-032",
     "front": "What secretes lingual lipase in the mouth?",
     "back": "Von Ebner's glands (serous glands of the circumvallate papilla trenches)."
+   },
+   {
+    "id": "hss-taste-fc-033",
+    "type": "flashcard",
+    "front": "What channel mediates sour taste transduction?",
+    "back": "OTOP1, a proton (H+) channel in the PKD2L1-expressing type III taste cells."
+   },
+   {
+    "id": "hss-taste-fc-034",
+    "type": "flashcard",
+    "front": "What is gustducin?",
+    "back": "The taste-specific heterotrimeric G-protein that couples the T1R/T2R GPCRs of type II cells to the intracellular cascade for sweet, bitter and umami."
+   },
+   {
+    "id": "hss-taste-fc-035",
+    "type": "flashcard",
+    "front": "How do type II taste cells release their transmitter without a classic synapse?",
+    "back": "Depolarisation opens the voltage-gated, non-vesicular CALHM1/CALHM3 channel, releasing ATP that excites the adjacent afferent nerve fibre."
+   },
+   {
+    "id": "hss-taste-fc-036",
+    "type": "flashcard",
+    "front": "Which channel senses appetitive (low) salt?",
+    "back": "The amiloride-sensitive epithelial sodium channel (ENaC), allowing Na+ influx; high-salt aversion additionally recruits bitter/sour pathways."
+   },
+   {
+    "id": "hss-taste-fc-037",
+    "type": "flashcard",
+    "front": "Name the sensory ganglia housing the first-order taste neurons.",
+    "back": "Geniculate ganglion (CN VII), petrosal/inferior ganglion (CN IX), and nodose/inferior ganglion (CN X)."
+   },
+   {
+    "id": "hss-taste-fc-038",
+    "type": "flashcard",
+    "front": "Is central taste projection ipsilateral or contralateral?",
+    "back": "Ipsilateral — the nucleus of the solitary tract projects to the ipsilateral VPM of the thalamus and then the ipsilateral gustatory cortex (insula/frontal operculum)."
+   },
+   {
+    "id": "hss-taste-fc-039",
+    "type": "flashcard",
+    "front": "Which molecular marker identifies sour-sensing type III taste cells?",
+    "back": "PKD2L1 (with OTOP1 as the functional proton channel)."
    }
   ]
  },
@@ -3860,7 +3902,7 @@
    {
     "id": "hss-taste-q-001",
     "type": "mcq",
-    "question": "Taste buds are found on all of the following papillae EXCEPT:",
+    "question": "Taste buds are found on all of the following EXCEPT:",
     "options": [
      "Fungiform",
      "Circumvallate",
@@ -3880,7 +3922,7 @@
      "Filiform",
      "Circumvallate",
      "Foliate",
-     "Vallate"
+     "Lingual tonsil"
     ],
     "correctIndex": 1,
     "explanation": "Filiform papillae are the most numerous, keratinised, and provide a rough surface but have no taste buds."
@@ -3936,7 +3978,7 @@
      "Type II",
      "Type III",
      "Basal cell",
-     "Sustentacular cell"
+     "Merkel cell"
     ],
     "correctIndex": 2,
     "explanation": "Type III (presynaptic) cells detect sour and synapse with the gustatory afferent."
@@ -4136,6 +4178,104 @@
     ],
     "correctIndex": 1,
     "explanation": "Umami (savoury) taste is triggered by glutamate and sensed by type II cells via GPCRs."
+   },
+   {
+    "id": "hss-taste-q-021",
+    "type": "mcq",
+    "question": "Sour taste is transduced by protons acting through the:",
+    "options": [
+     "ENaC channel",
+     "OTOP1 proton channel",
+     "T1R GPCR",
+     "CALHM1 channel",
+     "Piezo2 channel"
+    ],
+    "correctIndex": 1,
+    "explanation": "OTOP1 is the proton channel in PKD2L1-expressing type III cells that transduces sour taste."
+   },
+   {
+    "id": "hss-taste-q-022",
+    "type": "mcq",
+    "question": "The taste-specific G-protein coupling sweet, bitter and umami receptors is:",
+    "options": [
+     "Transducin",
+     "Gustducin",
+     "Golf",
+     "Gs only",
+     "Rhodopsin"
+    ],
+    "correctIndex": 1,
+    "explanation": "Gustducin is the taste-specific G-protein coupling T1R/T2R receptors in type II cells to the transduction cascade."
+   },
+   {
+    "id": "hss-taste-q-023",
+    "type": "mcq",
+    "question": "Type II taste cells signal to the afferent nerve by releasing ATP through:",
+    "options": [
+     "A classic vesicular synapse",
+     "The CALHM1 channel",
+     "ENaC",
+     "Gap junctions to the neuron",
+     "OTOP1"
+    ],
+    "correctIndex": 1,
+    "explanation": "Type II cells lack classic synapses; they release ATP through the voltage-gated CALHM1/CALHM3 channel to excite the afferent."
+   },
+   {
+    "id": "hss-taste-q-024",
+    "type": "mcq",
+    "question": "Appetitive (low) salt taste is sensed via the amiloride-sensitive:",
+    "options": [
+     "OTOP1 channel",
+     "ENaC sodium channel",
+     "T2R receptor",
+     "CALHM1 channel",
+     "Voltage-gated Ca2+ channel"
+    ],
+    "correctIndex": 1,
+    "explanation": "The epithelial sodium channel (ENaC) mediates appetitive salt taste and is blocked by amiloride."
+   },
+   {
+    "id": "hss-taste-q-025",
+    "type": "mcq",
+    "question": "The first-order sensory neurons for taste from the anterior two-thirds of the tongue lie in the:",
+    "options": [
+     "Trigeminal ganglion",
+     "Geniculate ganglion",
+     "Petrosal ganglion",
+     "Nodose ganglion",
+     "Nucleus solitarius"
+    ],
+    "correctIndex": 1,
+    "explanation": "The chorda tympani (CN VII) taste fibres have their cell bodies in the geniculate ganglion."
+   },
+   {
+    "id": "hss-taste-q-026",
+    "type": "mcq",
+    "question": "Central taste information projects to the:",
+    "options": [
+     "Contralateral gustatory cortex",
+     "Ipsilateral VPM of the thalamus, then the gustatory cortex",
+     "Cerebellum",
+     "Olfactory bulb",
+     "Contralateral VPL of the thalamus"
+    ],
+    "correctIndex": 1,
+    "explanation": "Taste is relayed ipsilaterally: NST → ipsilateral VPM thalamus → gustatory cortex (insula/frontal operculum)."
+   },
+   {
+    "id": "hss-taste-q-027",
+    "type": "mcq",
+    "question": "The molecular marker of sour-sensing (type III) taste cells is:",
+    "options": [
+     "T1R2",
+     "PKD2L1",
+     "Gustducin",
+     "GLAST",
+     "Amiloride"
+    ],
+    "correctIndex": 1,
+    "explanation": "PKD2L1 marks the type III sour-sensing cells, which use the OTOP1 proton channel."
    }
   ]
  }
