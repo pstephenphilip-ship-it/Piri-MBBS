@@ -3382,10 +3382,10 @@ window.MOCK_BANK = {
       options:[
         "Mitral stenosis",
         "Pulmonary stenosis",
-        "Aortic regurgitation",
+        "Ventricular septal defect",
         "Tricuspid regurgitation",
-        "Ventricular septal defect"],
-      correctIndex:2,
+        "Aortic regurgitation"],
+      correctIndex:4,
       explanation:[
         "Dilatation of the root (ANNULOAORTIC ECTASIA) stretches the valve annulus and pulls the cusps apart, so they no longer coapt &rarr; AORTIC REGURGITATION &mdash; and this happens even with structurally NORMAL leaflets. The AR is a GEOMETRY problem (the root dilating), not the valve itself failing.",
         "This is the key teaching that drives the whole surgical logic later: you operate on the ROOT DIAMETER, because a dilating root will cause AR (and predisposes to dissection) regardless of how normal the cusps look. It is why bicuspid-valve and Marfan patients are followed by AORTIC IMAGING, not just serial assessment of valve function &mdash; the aorta is the threat, and the AR is simply the marker that root geometry is failing.",
@@ -3530,7 +3530,8 @@ window.MOCK_BANK = {
         "Traps: (A) an aortic complication does not unmake the GCA diagnosis &mdash; it confirms the large-vessel reach; (C) this is vasculitic, not infective (contrast the febrile, culture-positive mycotic aneurysm, taa-014); (B/E) a 4.6 cm ascending aorta is neither incidental nor normal. Cross-links: Vasculitis; Block 5 (surveillance)."
       ] },
     { id:"taa-013", type:"mcq", objective:"taa-syphilitic",
-      question:"A 60-year-old man has an aneurysm of the ascending aorta and arch. Imaging shows linear calcification of the ascending aortic wall; he has a wide pulse pressure and an early diastolic murmur. Serology shows a positive TPPA and a positive RPR. Which process underlies his aneurysm?",
+      data:'<div class="mk-obs-h">Syphilis serology</div><table class="mk-labs"><tr><td>TPPA</td><td><b>Positive</b></td><td>Negative</td></tr><tr><td>RPR</td><td><b>Positive, titre 1:32</b></td><td>Negative</td></tr></table>',
+      question:"A 60-year-old man has an aneurysm of the ascending aorta and arch. Imaging shows linear calcification of the ascending aortic wall; he has a wide pulse pressure and an early diastolic murmur. His syphilis serology is shown. Which process underlies his aneurysm?",
       options:[
         "Syphilitic aortitis",
         "Degenerative atherosclerosis",
@@ -3785,10 +3786,10 @@ window.MOCK_BANK = {
     { id:"taa-030", type:"mcq", objective:"taa-zscore-indexing",
       question:"A short-statured 16-year-old with Marfan syndrome has an aortic root of 3.8 cm. An adult aneurysm cutoff would call this normal, yet the specialist is concerned. Why?",
       options:[
-        "Absolute diameter is the only measure that ever matters",
+        "Absolute diameter is the measure that matters most here",
         "A 3.8 cm root is dangerous in every patient regardless of size",
         "Root diameter is irrelevant before adulthood",
-        "Only symptoms, never diameter, guide management here",
+        "Symptoms, not diameter, should guide management here",
         "Indexed to her body size (Z-score), the root is markedly dilated"],
       correctIndex:4,
       explanation:[
@@ -3872,10 +3873,10 @@ window.MOCK_BANK = {
     { id:"taa-036", type:"mcq", objective:"taa-female-bsa-threshold",
       question:"A woman of small body-surface-area has an ascending aortic aneurysm at a diameter just below the standard 5.5 cm operative threshold. Why might her surgeon consider operating earlier than in a large man?",
       options:[
-        "Women always tolerate larger aneurysms perfectly safely",
+        "Women tend to tolerate larger aneurysms before rupture",
         "Women and small-BSA patients rupture at smaller diameters",
-        "Body size has no bearing at all on rupture risk",
-        "Aneurysms essentially never rupture below 5.5 cm",
+        "Body size has little bearing on rupture risk",
+        "A fixed 5.5 cm threshold applies equally to everyone",
         "Only men develop thoracic aortic aneurysms"],
       correctIndex:1,
       explanation:[
@@ -3884,7 +3885,8 @@ window.MOCK_BANK = {
         "Traps invert the point: (A/D) a fixed 5.5 cm applied to everyone under-protects small women; (C/E) body size and sex clearly matter. Cross-links: taa-030 (Z-score); Block 7 (indexed thresholds)."
       ] },
     { id:"taa-037", type:"mcq", objective:"taa-riskfactors-diabetes-paradox",
-      question:"A 62-year-old man with a 5.0 cm descending thoracic aneurysm has several habits and comorbidities. Which factor most increases his risk of aneurysm growth and rupture?",
+      data:'<div class="mk-obs-h">Background</div><table class="mk-labs"><tr><td>Smoking</td><td><b>Current, 30/day</b></td><td>Non-smoker</td></tr><tr><td>Type 2 diabetes</td><td><b>HbA1c 46 mmol/mol</b></td><td>Well controlled</td></tr><tr><td>Exercise</td><td><b>30-minute daily walk</b></td><td>&mdash;</td></tr><tr><td>Lipids</td><td><b>On a statin</b></td><td>&mdash;</td></tr><tr><td>BMI</td><td><b>23 kg/m²</b></td><td>18.5&ndash;24.9</td></tr></table>',
+      question:"A 62-year-old man with a 5.0 cm descending thoracic aortic aneurysm has the background shown. Which factor most increases his risk of aneurysm growth and rupture?",
       options:[
         "Well-controlled type 2 diabetes",
         "A daily 30-minute walk",
@@ -3916,10 +3918,10 @@ window.MOCK_BANK = {
       options:[
         "By dissolving the atherosclerotic plaque in the wall",
         "By reducing the aortic radius directly",
-        "By lowering the pressure component of aortic wall stress",
+        "By increasing the heart rate to offload the aorta",
         "By thickening the aortic media",
-        "By increasing the heart rate to offload the aorta"],
-      correctIndex:2,
+        "By lowering the pressure component of aortic wall stress"],
+      correctIndex:4,
       explanation:[
         "Straight from Laplace (taa-034): wall stress &prop; PRESSURE &times; radius. You cannot easily change the radius without surgery, but lowering BP lowers the PRESSURE term &rarr; less wall stress &rarr; slower growth and lower rupture risk. It is not generic &lsquo;hypertension is bad&rsquo; &mdash; it is specifically shrinking the pressure term of the equation.",
         "The BETA-BLOCKER nuance is the sophisticated bit: beta-blockers cut not just the pressure but dP/dt &mdash; the RATE of pressure rise, the SHEAR/impulse on the wall. That is the SAME aortic-wall-protective mechanism as the beta-blocker-FIRST principle in acute dissection: reduce dP/dt, not just absolute pressure (which is why it must be a beta-blocker &mdash; rate + contractility &rarr; dP/dt).",
@@ -3960,7 +3962,8 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/b/ba/CTRupturedTA.PNG",
       imageAlt:"Axial CT of the chest showing a dilated aorta (black arrow) with a large volume of high-attenuation fluid filling the adjacent pleural space (white arrow).",
       imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
-      question:"A 74-year-old man with a known 6.5 cm descending thoracic aortic aneurysm suddenly collapses with severe back pain. He is pale, clammy, tachycardic and hypotensive. The CT performed after initial resuscitation is shown. What has most likely happened?",
+      data:'<div class="mk-obs-h">Observations on arrival</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>128 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>78/50 mmHg</b></td><td>&mdash;</td></tr><tr><td>Respiratory rate</td><td><b>28/min</b></td><td>12&ndash;20</td></tr></table>',
+      question:"A 74-year-old man with a known 6.5 cm descending thoracic aortic aneurysm suddenly collapses with severe back pain. He is pale and clammy, with the observations shown, and the CT performed after initial resuscitation is shown. What has most likely happened?",
       options:[
         "A simple faint (vasovagal syncope)",
         "An anxiety attack",
@@ -4108,7 +4111,8 @@ window.MOCK_BANK = {
         "The TGF-&beta; pathway also ties Marfan to LOEYS-DIETZ (a TGF-&beta;-RECEPTOR disease), which is why the two overlap and why TGF-&beta; blockade is rational in both. Cross-links: taa-017 (FBN1 &rarr; TGF-&beta;); taa-020 (Loeys-Dietz)."
       ] },
     { id:"taa-052", type:"mcq", objective:"taa-fluoroquinolone-avoid",
-      question:"A woman with Marfan syndrome and a dilated aortic root develops a urinary tract infection. Which antibiotic class is best avoided because of its association with aortic aneurysm and dissection?",
+      data:'<div class="mk-obs-h">Urinalysis</div><table class="mk-labs"><tr><td>Leucocytes</td><td><b>Positive (++)</b></td><td>Negative</td></tr><tr><td>Nitrites</td><td><b>Positive</b></td><td>Negative</td></tr><tr><td>Temperature</td><td><b>37.8 °C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A woman with Marfan syndrome and a dilated aortic root has dysuria and the urinalysis shown, consistent with a urinary tract infection. Which antibiotic class is best avoided because of its association with aortic aneurysm and dissection?",
       options:[
         "Penicillins",
         "Nitrofurantoin",
@@ -4226,10 +4230,10 @@ window.MOCK_BANK = {
       options:[
         "Valve-sparing (David) root replacement",
         "Isolated aortic valve replacement",
-        "Bentall procedure (composite valve-graft)",
+        "TEVAR of the ascending aorta",
         "Coronary artery bypass grafting",
-        "TEVAR of the ascending aorta"],
-      correctIndex:2,
+        "Bentall procedure (composite valve-graft)"],
+      correctIndex:4,
       explanation:[
         "The BENTALL procedure uses a composite graft carrying a PROSTHETIC valve to replace the diseased valve AND the aneurysmal root/ascending aorta, with the CORONARY OSTIA reimplanted into the graft as &lsquo;buttons&rsquo;.",
         "The valve decision follows WHY the valve leaks: here the leaflets are intrinsically diseased (calcified, degenerate = STRUCTURAL AR), so they must be REPLACED &mdash; unlike the geometric, root-driven AR with normal leaflets that can be spared (David, taa-059). Diseased valve &rarr; Bentall; healthy valve &rarr; valve-sparing.",
