@@ -30,4 +30,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Pin Wrangler 4: the action's bundled 3.90.0 can't deploy an
+          # assets-only site (no Worker entry-point) and errors "Missing entry-point".
+          wranglerVersion: "4"
           command: deploy
