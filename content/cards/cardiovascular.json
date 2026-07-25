@@ -2733,7 +2733,7 @@
    {
     "id": "tachy_fc_36",
     "front": "In the stable narrow-complex IRREGULAR pathway (probable AF), how is rate controlled and when is anticoagulation considered?",
-    "back": "Control rate with a beta-blocker; consider digoxin or amiodarone if there is evidence of heart failure. Anticoagulate if the duration is >48 hours."
+    "back": "Control rate with a beta-blocker; consider digoxin or amiodarone if there is evidence of heart failure. Cardiovert only if onset clearly <48h, otherwise anticoagulate/TOE first; long-term anticoagulation is decided by CHA₂DS₂-VASc, not duration."
    },
    {
     "id": "tachy_fc_37",
@@ -2978,7 +2978,7 @@
    {
     "id": "tachy_fc_85",
     "front": "What is the long-term/recurrent management of AVNRT?",
-    "back": "Flecainide or a beta-blocker for prevention; slow-pathway catheter ablation is curative (>95% success, low risk of AV block)."
+    "back": "Beta-blocker or a rate-limiting CCB (diltiazem/verapamil) first-line for prevention; flecainide second-line (structurally normal heart only); slow-pathway catheter ablation is curative (>95% success, low risk of AV block)."
    },
    {
     "id": "tachy_fc_86",
@@ -3193,7 +3193,7 @@
    {
     "id": "tachy_fc_128",
     "front": "Why are AV nodal blockers dangerous in antidromic AVRT / pre-excited WPW?",
-    "back": "Nodal blockers (adenosine, verapamil, beta-blockers) block retrograde AV conduction, which may force all conduction antegrade down the accessory pathway → risk of VF. Use flecainide or procainamide instead (or DC cardioversion)."
+    "back": "Nodal blockers (adenosine, verapamil, beta-blockers) would terminate a pure antidromic AVRT, but are avoided: if the rhythm is (or degenerates into) pre-excited AF, blocking the AV node lets impulses conduct unopposed down the accessory pathway → very fast rates → VF. Use flecainide or procainamide instead (or DC cardioversion)."
    },
    {
     "id": "tachy_fc_129",
@@ -20889,7 +20889,7 @@
      "It cannot be electrically cardioverted, because the accessory pathway keeps conducting despite a synchronised DC shock",
      "It is completely resistant to every antiarrhythmic drug and to electrical therapy, so no intervention restores perfusion",
      "It occurs exclusively in patients with underlying structural heart disease, never in those with a normal heart",
-     "It can produce a broad, irregular tachycardia that mimics VF; giving AV nodal blockers can precipitate VF"
+     "It can produce a broad, irregular tachycardia that mimics VT and can degenerate into VF; giving AV nodal blockers can precipitate VF"
     ],
     "correctIndex": 4,
     "answer": "It can produce a broad, irregular tachycardia that mimics VF; giving AV nodal blockers can precipitate VF",
@@ -20984,21 +20984,6 @@
     "correctIndex": 3,
     "answer": "AV dissociation, capture beats, fusion beats, concordance",
     "explanation": "AV dissociation, capture beats, fusion beats and concordance (all V leads deflecting the same direction) all favour VT."
-   },
-   {
-    "id": "tachy_q12",
-    "type": "mcq",
-    "question": "Regardless of the rhythm diagnosis, what does haemodynamic instability in a tachycardia mandate?",
-    "options": [
-     "Immediate IV adenosine given as a rapid 6 mg bolus to break the rhythm",
-     "Vagal manoeuvres such as the modified Valsalva or carotid sinus massage",
-     "Immediate synchronised DC cardioversion (or defibrillation for pulseless VT/VF)",
-     "Oral beta-blockade with bisoprolol to gradually slow the ventricular rate",
-     "Watchful waiting with continuous monitoring until the rhythm is identified"
-    ],
-    "correctIndex": 2,
-    "answer": "Immediate synchronised DC cardioversion (or defibrillation for pulseless VT/VF)",
-    "explanation": "The stability override: instability = immediate synchronised DC cardioversion. Do not delay to identify the rhythm."
    },
    {
     "id": "tachy_q13",
@@ -21663,7 +21648,7 @@
    {
     "id": "tachy_q57",
     "type": "mcq",
-    "question": "In a WPW patient in sinus rhythm with orthodromic AVRT, what should be avoided long-term, and why?",
+    "question": "In a WPW patient (delta wave in sinus rhythm) who develops orthodromic AVRT, what should be avoided long-term, and why?",
     "options": [
      "Beta-blockers, because they cause bronchospasm",
      "Statins, because of myopathy",
@@ -22025,7 +22010,7 @@
     "type": "mcq",
     "question": "Why are AV nodal blockers dangerous in antidromic AVRT / pre-excited WPW?",
     "options": [
-     "They block retrograde AV conduction and may force all conduction antegrade down the accessory pathway → risk of VF",
+     "They would terminate a pure antidromic AVRT, but risk VF if the rhythm is (or becomes) pre-excited AF conducting rapidly down the accessory pathway",
      "They markedly prolong the QT interval and trigger polymorphic torsades de pointes by blocking cardiac potassium channels",
      "They cause only profound sinus bradycardia and prolonged asystole from excessive AV nodal suppression, with no other harm",
      "They are simply pharmacologically ineffective at the accessory pathway and carry no real danger whatsoever to the patient",
@@ -22033,7 +22018,7 @@
     ],
     "correctIndex": 0,
     "answer": "They block retrograde AV conduction and may force all conduction antegrade down the accessory pathway → risk of VF",
-    "explanation": "Nodal blockers (adenosine, verapamil, beta-blockers) block retrograde AV conduction, potentially forcing all conduction down the accessory pathway and risking VF. Use flecainide or procainamide (or DC cardioversion)."
+    "explanation": "In pre-excited AF the AV node is the protective 'brake'; blocking it (adenosine, verapamil, beta-blockers) lets impulses conduct unopposed down the accessory pathway → very fast ventricular rates → VF. (In a pure antidromic AVRT a nodal blocker would actually terminate it, but the rhythm cannot always be assumed pure.)"
    },
    {
     "id": "tachy_q82",
