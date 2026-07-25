@@ -1,0 +1,33 @@
+name: Deploy to Cloudflare
+
+# Auto-deploys the site to Cloudflare on every push to main.
+# Required repository secret: CLOUDFLARE_API_TOKEN
+# Optional repository secret: CLOUDFLARE_ACCOUNT_ID (only if the token is not
+# already scoped to a single account, or the account has multiple).
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+# Never run two deploys at once; if a newer push arrives, cancel the older run.
+concurrency:
+  group: cloudflare-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy with Wrangler
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
