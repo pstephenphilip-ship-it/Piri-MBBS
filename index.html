@@ -3831,6 +3831,121 @@ window.MOCK_BANK = {
         "The MODALITY &rarr; ROLE map: CTA (whole-aorta sizing, surgical planning, fast acute-syndrome assessment), MRI/MRA (radiation-free serial surveillance, avoiding cumulative radiation in the young), TTE (first-line root surveillance at the sinuses of Valsalva) and TOE (high-detail intra-operative valve/arch imaging).",
         "The choice follows the same CONTEXT AXES as the whole topic: ACUTE (suspected dissection/rupture) &rarr; CTA (fast, whole-aorta) or TOE (bedside/unstable); CHRONIC surveillance &rarr; TTE for the root plus MRA (radiation-free) for the young, CTA for the older/infrequent. Imaging follows the clinical question.",
         "And the measurement DISCIPLINE (same modality/technique/landmark, Z-score in the small, growth rate as well as absolute size) is what makes the numbers trustworthy &mdash; imaging produces the diameter, growth rate, AR severity and Z-score that the threshold block (Block 7) then acts on. Cross-link: Aortic Dissection (acute-syndrome imaging)."
+      ] },
+    { id:"taa-034", type:"mcq", objective:"taa-laplace-mechanism",
+      question:"A patient asks why a larger aortic aneurysm is more dangerous than a smaller one at the same blood pressure. Which principle best explains the increased wall stress in the larger aneurysm?",
+      options:[
+        "Poiseuille's law: flow depends on the fourth power of the radius",
+        "Ohm's law: pressure equals flow times resistance",
+        "Laplace's law: wall tension rises with both radius and pressure",
+        "Starling's law: stroke volume rises with preload",
+        "Bernoulli's principle: pressure falls as velocity rises"],
+      correctIndex:2,
+      explanation:[
+        "LAPLACE'S LAW is the spine of the whole topic: wall stress &prop; PRESSURE &times; RADIUS. As an aneurysm dilates, the RADIUS rises &rarr; wall tension rises &rarr; the wall stretches and weakens &rarr; it dilates further. That POSITIVE-FEEDBACK vicious cycle (radius &uarr; &rarr; tension &uarr; &rarr; wall weakens &rarr; radius &uarr;) is why risk ACCELERATES with size and why diameter is the dominant rupture predictor (taa-035).",
+        "It also frames the two management LEVERS. You cannot easily change the RADIUS without surgery &mdash; so the radius factors (size, growth rate, body size, connective-tissue disease) set the THRESHOLD at which you operate. But you CAN lower the PRESSURE term with antihypertensives/beta-blockers (taa-039), reducing wall stress and slowing progression. Surgery addresses the radius; medical therapy addresses the pressure.",
+        "This is the payoff of the Laplace physiology planted in the foundations (fcvs-083): it now explains BOTH the thresholds (why bigger is dangerous) and the medical management (why BP control helps). Distractors are real physical laws for the wrong problem (flow, resistance, preload, velocity)."
+      ] },
+    { id:"taa-035", type:"mcq", objective:"taa-risk-diameter-curve",
+      question:"Two patients have degenerative ascending aortic aneurysms: one measures 4.5 cm and the other 6.5 cm. How does the annual risk of rupture or dissection compare?",
+      options:[
+        "It is roughly the same at both diameters",
+        "It is higher in the 4.5 cm aneurysm",
+        "It is negligible at both diameters",
+        "It is determined by age, not by diameter",
+        "It is far higher in the 6.5 cm aneurysm"],
+      correctIndex:4,
+      explanation:[
+        "Rupture/dissection risk rises STEEPLY and NON-LINEARLY with diameter &mdash; low at 4&ndash;5 cm, then jumping markedly above ~6 cm (ascending). It is a CLIFF, not a slope, and Laplace explains the acceleration (each increment of dilation raises the stress more, taa-034).",
+        "This is exactly why THRESHOLDS exist and where they sit. The ~5.5 cm ascending threshold is placed BELOW the steep part of the curve DELIBERATELY: you operate ELECTIVELY before the cliff, with a safety margin, because once the aorta is in the high-risk zone the elective-repair window is closing.",
+        "The practical corollary: a &lsquo;watch it a bit longer&rsquo; delay near the threshold is dangerous precisely because the curve is steep there. Cross-link: Block 7 (the specific numbers sit where risk starts climbing)."
+      ] },
+    { id:"taa-036", type:"mcq", objective:"taa-female-bsa-threshold",
+      question:"A woman of small body-surface-area has an ascending aortic aneurysm at a diameter just below the standard 5.5 cm operative threshold. Why might her surgeon consider operating earlier than in a large man?",
+      options:[
+        "Women always tolerate larger aneurysms perfectly safely",
+        "Women and small-BSA patients rupture at smaller diameters",
+        "Body size has no bearing at all on rupture risk",
+        "Aneurysms essentially never rupture below 5.5 cm",
+        "Only men develop thoracic aortic aneurysms"],
+      correctIndex:1,
+      explanation:[
+        "Rupture relates to diameter INDEXED to body size, so women and small-BSA patients rupture at smaller ABSOLUTE diameters. A 5.5 cm aorta is a bigger RELATIVE aneurysm in a small woman than in a large man &mdash; so she reaches the same risk at a smaller number, and guidelines allow a LOWER threshold (BSA-indexed, or around 5.0 cm) in small patients.",
+        "The threshold is therefore BODY-SIZE-DEPENDENT, not a universal 5.5 cm &mdash; the SAME logic as using Z-scores for diagnosis in the young/small (taa-030). Absolute cutoffs systematically UNDER-treat small patients.",
+        "Traps invert the point: (A/D) a fixed 5.5 cm applied to everyone under-protects small women; (C/E) body size and sex clearly matter. Cross-links: taa-030 (Z-score); Block 7 (indexed thresholds)."
+      ] },
+    { id:"taa-037", type:"mcq", objective:"taa-riskfactors-diabetes-paradox",
+      question:"A 62-year-old man with a 5.0 cm descending thoracic aneurysm has several habits and comorbidities. Which factor most increases his risk of aneurysm growth and rupture?",
+      options:[
+        "Well-controlled type 2 diabetes",
+        "A daily 30-minute walk",
+        "Taking a statin",
+        "Continued cigarette smoking",
+        "A normal body mass index"],
+      correctIndex:3,
+      explanation:[
+        "SMOKING is among the STRONGEST modifiable drivers of aneurysm growth and rupture (with HYPERTENSION); connective-tissue disease and female/small body size also raise risk. Statin, exercise and a normal BMI are protective or neutral.",
+        "The counter-intuitive trap is DIABETES. Diabetes is associated with SLOWER aneurysm growth &mdash; a genuine, well-documented NEGATIVE association (thought to involve glycation/matrix stiffening of the wall and the medications). So it is NOT a risk factor here.",
+        "This inverts the usual &lsquo;diabetes worsens vascular disease&rsquo; expectation: diabetes makes OCCLUSIVE/atherosclerotic disease WORSE but ANEURYSMAL disease SLOWER &mdash; a real, examinable paradox. Cross-link: AAA (the same diabetes-is-protective finding is well established there)."
+      ] },
+    { id:"taa-038", type:"mcq", objective:"taa-surveillance-interval",
+      question:"A 4.2 cm degenerative ascending aortic aneurysm is found incidentally in an asymptomatic man. What is the most appropriate surveillance approach?",
+      options:[
+        "Interval imaging, more often as it enlarges",
+        "Immediate surgical repair of the aneurysm now",
+        "No further aortic imaging is ever required",
+        "Repeat imaging only once he becomes symptomatic",
+        "Daily chest radiographs from now on"],
+      correctIndex:0,
+      explanation:[
+        "A SUB-THRESHOLD aneurysm is SURVEILLED, not operated. The imaging INTERVAL scales with size and growth: a small (~4 cm) aorta is re-scanned less often, a near-threshold aorta more often (e.g. 6-monthly), and any rapid growth prompts closer follow-up.",
+        "Trap (D): waiting for SYMPTOMS is wrong &mdash; surveillance exists PRECISELY because the aneurysm is silent (taa-040), so you image on a SCHEDULE, not on symptoms. (B) over-treats a sub-threshold aorta; (C/E) are the two useless extremes.",
+        "Clinical anchor: sub-threshold &rarr; scheduled interval imaging that tightens as the aorta grows. Cross-link: taa-031 (rapid growth shortens the interval and can itself trigger surgery)."
+      ] },
+    { id:"taa-039", type:"mcq", objective:"taa-bp-wall-stress",
+      question:"In a patient under surveillance for a thoracic aortic aneurysm, how does good blood-pressure control reduce the risk of growth and rupture?",
+      options:[
+        "By dissolving the atherosclerotic plaque in the wall",
+        "By reducing the aortic radius directly",
+        "By lowering the pressure component of aortic wall stress",
+        "By thickening the aortic media",
+        "By increasing the heart rate to offload the aorta"],
+      correctIndex:2,
+      explanation:[
+        "Straight from Laplace (taa-034): wall stress &prop; PRESSURE &times; radius. You cannot easily change the radius without surgery, but lowering BP lowers the PRESSURE term &rarr; less wall stress &rarr; slower growth and lower rupture risk. It is not generic &lsquo;hypertension is bad&rsquo; &mdash; it is specifically shrinking the pressure term of the equation.",
+        "The BETA-BLOCKER nuance is the sophisticated bit: beta-blockers cut not just the pressure but dP/dt &mdash; the RATE of pressure rise, the SHEAR/impulse on the wall. That is the SAME aortic-wall-protective mechanism as the beta-blocker-FIRST principle in acute dissection: reduce dP/dt, not just absolute pressure (which is why it must be a beta-blocker &mdash; rate + contractility &rarr; dP/dt).",
+        "Note it SLOWS progression &mdash; it does not shrink the aneurysm or reverse the wall change. Cross-links: taa-034 (Laplace); Aortic Dissection (beta-blocker-first, reduce dP/dt)."
+      ] },
+    { id:"taa-040", type:"mcq", objective:"taa-silent-elective",
+      question:"A patient asks why he needs regular scans for an aneurysm that is causing him no symptoms at all. What is the best explanation?",
+      options:[
+        "Symptoms always appear well before any danger arises",
+        "They stay silent until they dissect or rupture, so we act first",
+        "The scans are needed to treat his current symptoms",
+        "Monitored aneurysms usually resolve on their own",
+        "Surveillance is only for legal documentation"],
+      correctIndex:1,
+      explanation:[
+        "Thoracic aneurysms are typically SILENT until the catastrophic event &mdash; the asymptomatic large aneurysm is exactly the one that ruptures (taa-001). There are no symptoms to wait for, so you image on a schedule.",
+        "The punchline is the MORTALITY difference: surveillance catches the aneurysm crossing into the high-risk zone so you can operate ELECTIVELY (low mortality), instead of EMERGENTLY after rupture (high mortality). Surveillance CONVERTS an emergency into an elective operation &mdash; and that difference is the ENTIRE justification for scanning an asymptomatic person.",
+        "Traps: (A) inverts the natural history; (C) there are no symptoms to treat; (D) aneurysms do not regress; (E) trivialises it. Cross-links: taa-001 (silent, incidental); Block 8 (elective vs emergency repair)."
+      ] },
+    { id:"taa-041", type:"categorize", objective:"taa-riskfactor-map",
+      question:"Sort each factor by its effect on the risk of thoracic aortic aneurysm growth and rupture.",
+      buckets:["Increases rupture risk","Reduces rupture risk"],
+      items:[
+        {text:"Continued cigarette smoking",bucket:0},
+        {text:"Uncontrolled hypertension",bucket:0},
+        {text:"A connective-tissue disorder such as Marfan",bucket:0},
+        {text:"Female sex or small body-surface-area",bucket:0},
+        {text:"Good blood-pressure control",bucket:1},
+        {text:"Stopping smoking",bucket:1},
+        {text:"Reducing the rate of pressure rise with a beta-blocker",bucket:1}
+      ],
+      explanation:[
+        "The risk-factor map separates the MODIFIABLE drivers you ACT on (smoking, hypertension &mdash; and dP/dt via a beta-blocker) from the NON-MODIFIABLE risk markers (connective-tissue disease, female/small body size). The reduce-it column IS the medical management: smoking cessation, BP control and dP/dt reduction.",
+        "This is the TWO-LEVER strategy from Laplace made concrete: MODIFY the pressure term (BP control, beta-blocker/dP/dt), and ADJUST the surgical threshold for the radius factors you cannot change (small body size and connective-tissue disease lower the threshold rather than being modifiable, taa-036).",
+        "DIABETES is deliberately absent from BOTH columns: it is a paradoxical NEGATIVE association (slower aneurysm growth, taa-037), neither a risk factor to fear nor a lever you pull. Cross-link: Block 7 (medical management + thresholds)."
       ] }
   ],
   "conditions__CARDIOVASCULAR__Aortic Dissection": [
