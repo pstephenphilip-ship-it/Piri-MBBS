@@ -11635,6 +11635,123 @@ window.MOCK_BANK = {
         "INTERVENE when the patient is SYMPTOMATIC (including symptoms UNMASKED on exercise, vhd-031), or asymptomatic with a red flag: LV DYSFUNCTION (EF &lt;50%), VERY severe stenosis, or ALREADY undergoing cardiac surgery. WATCHFUL WAITING (serial echo) is for asymptomatic severe AS with preserved EF and a normal exercise test, and for non-severe AS.",
         "The unifying trigger is the LV: you intervene when it signals it cannot cope &mdash; symptomatic, objectively exercise-limited, or already failing &mdash; because the whole aim is to replace the valve BEFORE the LV is irreversibly damaged.",
         "And this is the WHOLE of AS management, because there is no medical disease-modifier (vhd-030): the only questions are WHEN to intervene (this map) and HOW (SAVR vs TAVI, vhd-027; with balloon valvuloplasty as a bridge, vhd-029). Cross-links: vhd-025/026/031."
+      ] },
+    { id:"vhd-033", type:"mcq", objective:"vhd-ar-recognition",
+      audio:"assets/audio/ar_murmur.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"A 45-year-old man with a bicuspid aortic valve has the murmur recorded at the left sternal edge (audio). He has a collapsing pulse, a wide pulse pressure and a prominent, displaced apex beat. What is the diagnosis?",
+      options:[
+        "Aortic stenosis",
+        "Mitral stenosis",
+        "Aortic regurgitation",
+        "Mitral regurgitation",
+        "Tricuspid regurgitation"],
+      correctIndex:2,
+      explanation:[
+        "An early diastolic murmur at the left sternal edge PLUS a COLLAPSING (water-hammer) pulse, a WIDE pulse pressure and a displaced, hyperdynamic apex (the volume-loaded, dilated LV) is CHRONIC AORTIC REGURGITATION.",
+        "AR is the MIRROR of aortic stenosis at every level: VOLUME overload (dilated eccentric LV, displaced apex) not pressure overload; a WIDE pulse pressure and collapsing pulse not a narrow pulse pressure and slow-rising pulse; a DIASTOLIC murmur not a systolic one. Understand one and you get the other by inversion.",
+        "Cross-links: vhd-003 (the early diastolic murmur); vhd-038 (the wide pulse pressure); taa-045 (root dilatation &rarr; AR)."
+      ] },
+    { id:"vhd-034", type:"mcq", objective:"vhd-acute-ar-emergency",
+      question:"A patient with infective endocarditis suddenly develops severe breathlessness and pulmonary oedema. A soft, short early diastolic murmur is heard, with a tachycardia but only a mildly widened pulse pressure. What has happened, and what does it require?",
+      options:[
+        "Chronic compensated aortic regurgitation; routine follow-up",
+        "Mitral stenosis; rate control",
+        "Aortic stenosis; watchful waiting",
+        "A benign flow murmur; reassurance",
+        "Acute severe aortic regurgitation; emergency valve surgery"],
+      correctIndex:4,
+      explanation:[
+        "ACUTE severe AR (a leaflet destroyed by endocarditis, or a dissection tearing into the root) hits a NON-DILATED LV that has had no time to adapt &rarr; the regurgitant volume slams into a stiff normal-sized ventricle &rarr; LVEDP spikes &rarr; FLASH PULMONARY OEDEMA and tachycardia. It is a surgical EMERGENCY.",
+        "The exam paradox: acute AR looks LESS dramatic than chronic AR. The murmur is SOFT and SHORT (aortic and LV diastolic pressures equalise fast) and the classic WIDE pulse pressure is ABSENT (no time to build the large compensatory stroke volume) &mdash; so the signs are quiet exactly when the patient is dying. A soft diastolic murmur in a crashing endocarditis or dissection patient is ACUTE SEVERE AR until proven otherwise.",
+        "Contrast chronic AR: years of compensation, a dilated LV, dramatic peripheral signs, a wide pulse pressure, and outpatient follow-up (vhd-033). Cross-links: Infective Endocarditis (leaflet destruction); Aortic Dissection (root extension, ad-010)."
+      ] },
+    { id:"vhd-035", type:"categorize", objective:"vhd-ar-eponyms",
+      question:"Match each peripheral sign of aortic regurgitation to its eponym.",
+      buckets:["Corrigan's / water-hammer","Quincke's sign","de Musset's sign","Duroziez's sign"],
+      items:[
+        {text:"Visible forceful carotid pulsation in the neck",bucket:0},
+        {text:"A rapidly rising and collapsing water-hammer pulse",bucket:0},
+        {text:"Pulsation of the nail-bed capillaries",bucket:1},
+        {text:"Alternating flushing and blanching of the nail bed",bucket:1},
+        {text:"Head bobbing in time with the pulse",bucket:2},
+        {text:"A to-and-fro murmur over the compressed femoral artery",bucket:3}
+      ],
+      explanation:[
+        "Every peripheral sign of AR comes from ONE thing: a large stroke volume plus rapid diastolic RUNOFF gives a WIDE pulse pressure and a forceful, COLLAPSING pulse &mdash; and that collapsing pulsation is then seen wherever there is a pulsatile structure to watch.",
+        "So the eponyms are ONE haemodynamic state seen in different body parts: the carotid (CORRIGAN'S / water-hammer), the nail bed (QUINCKE'S), the head (DE MUSSET'S), the femoral (DUROZIEZ'S to-and-fro, and TRAUBE'S pistol-shots), and the uvula (M&Uuml;LLER'S). You do not memorise six facts &mdash; you recognise one wide-pulse-pressure state in six places.",
+        "Cross-links: vhd-038 (why the pulse pressure is wide); Foundations of CVS (pulse-pressure physiology, fcvs-077)."
+      ] },
+    { id:"vhd-036", type:"mcq", objective:"vhd-austin-flint",
+      question:"A patient with severe aortic regurgitation has a low-pitched mid-diastolic rumble at the apex, but there is no opening snap and the first heart sound is normal. What is this murmur, and how is it distinguished from mitral stenosis?",
+      options:[
+        "Carey Coombs murmur of acute rheumatic carditis",
+        "Graham Steell murmur of pulmonary regurgitation",
+        "Mitral stenosis needing balloon valvuloplasty",
+        "Austin Flint murmur; there is no opening snap or loud S1",
+        "A normal third heart sound gallop"],
+      correctIndex:3,
+      explanation:[
+        "The AUSTIN FLINT murmur is an apical mid-diastolic rumble in severe AR: the regurgitant jet strikes the ANTERIOR MITRAL LEAFLET, causing functional mitral inflow obstruction &mdash; a &lsquo;physiological MS&rsquo;.",
+        "It MIMICS true mitral stenosis, but the added sounds distinguish them: true MS has an OPENING SNAP and a LOUD S1 (the diseased mitral valve, vhd-006), whereas Austin Flint has NEITHER &mdash; because the mitral valve itself is NORMAL, just being hit by the AR jet. Rumble WITHOUT snap/loud S1 = Austin Flint; rumble WITH them = true MS.",
+        "Cross-links: vhd-006 (the MS opening snap); Rheumatic Heart Disease (Carey Coombs murmur, rf-022 &mdash; another apical diastolic murmur, distinguished by the active-carditis context)."
+      ] },
+    { id:"vhd-037", type:"mcq", objective:"vhd-ar-cause-root",
+      question:"A tall young man with a high-arched palate and long fingers has chronic aortic regurgitation. Echo shows a dilated aortic root with structurally normal-looking leaflets. What is the mechanism of his AR?",
+      options:[
+        "Calcific degeneration of the valve leaflets",
+        "Aortic root dilatation stretching the annulus",
+        "Rheumatic scarring of the valve cusps",
+        "Infective destruction of a leaflet by endocarditis",
+        "A congenitally bicuspid aortic valve"],
+      correctIndex:1,
+      explanation:[
+        "In Marfan or another aortopathy, the AR is GEOMETRIC: the dilated root stretches the annulus so the STRUCTURALLY NORMAL cusps can no longer coapt &mdash; the SAME root&rarr;AR mechanism as thoracic aortic aneurysm (taa-003/045).",
+        "The cause determines the OPERATION. Geometric AR (normal leaflets, root-driven) is fixed by ROOT surgery, keeping the patient's own valve where possible (valve-sparing / David root replacement, taa-059) &mdash; fix the root geometry and the normal valve becomes competent again. LEAFLET causes (bicuspid, rheumatic, calcific, infective) instead need valve REPLACEMENT (Bentall if the root is also aneurysmal, taa-060).",
+        "So this is the taa David-versus-Bentall decision seen from the valve side. Cross-links: taa-003/045 (root &rarr; AR); taa-059/060 (valve-sparing vs composite graft)."
+      ] },
+    { id:"vhd-038", type:"mcq", objective:"vhd-ar-pulse-pressure",
+      question:"Chronic aortic regurgitation gives a low diastolic blood pressure. Why?",
+      options:[
+        "Blood runs backward through the incompetent valve in diastole",
+        "The stenosed aortic valve is fixed and cannot open",
+        "Cardiac output falls markedly in this condition",
+        "Systemic peripheral resistance is markedly raised",
+        "The heart rate slows considerably during diastole"],
+      correctIndex:0,
+      explanation:[
+        "The low diastolic pressure comes from DIASTOLIC RUNOFF: in diastole, instead of the aortic valve holding the column of blood, some of it regurgitates BACKWARD through the incompetent valve into the LV, so aortic diastolic pressure falls.",
+        "Combine that low diastolic with a HIGH systolic (from the large compensatory stroke volume the dilated LV ejects) and you get a WIDE PULSE PRESSURE &rarr; the collapsing (water-hammer) pulse and every one of the eponymous signs (vhd-035).",
+        "It is the same pulse-pressure physiology as fcvs-077, here driven by diastolic runoff rather than arterial stiffening. Cross-links: vhd-035 (the signs); Foundations of CVS (fcvs-077)."
+      ] },
+    { id:"vhd-039", type:"mcq", objective:"vhd-ar-thresholds",
+      data:'<div class="mk-obs-h">Echocardiogram &mdash; left ventricle</div><table class="mk-labs"><tr><td>LV end-systolic diameter</td><td><b>52 mm</b></td><td>surgery if &gt;50</td></tr><tr><td>Ejection fraction</td><td><b>48%</b></td><td>surgery if &le;50</td></tr><tr><td>Aortic regurgitation</td><td><b>Severe</b></td><td>&mdash;</td></tr></table>',
+      question:"An asymptomatic patient with severe chronic aortic regurgitation has the echocardiogram findings shown. What is the most appropriate management?",
+      options:[
+        "Continue annual review",
+        "Start a diuretic and review",
+        "Reassure, no action needed",
+        "Repeat echo in 5 years",
+        "Aortic valve surgery"],
+      correctIndex:4,
+      explanation:[
+        "Even asymptomatic, severe AR warrants surgery once the LV DECOMPENSATES: EF &le;50% OR LV dilatation (LV end-systolic diameter &gt;50 mm, or &gt;25 mm/m&sup2;). Both thresholds are crossed here, so this patient needs valve surgery.",
+        "The principle is OPERATE BEFORE THE LV IS IRREVERSIBLY DILATED: a chronically volume-overloaded LV that dilates too far will NOT recover after surgery. AR is trickier than AS because the LV silently TOLERATES the volume overload for years &mdash; the patient stays asymptomatic while the ventricle slowly decompensates &mdash; so you rely on the ECHO NUMBERS (LVESD, EF) to catch it BEFORE symptoms and before irreversibility.",
+        "Symptomatic severe AR &rarr; surgery regardless; root involvement &rarr; root replacement. Cross-links: taa-045 (root&rarr;AR&rarr;LV-overload natural history); vhd-026 (the AS analogue trigger)."
+      ] },
+    { id:"vhd-040", type:"mcq", objective:"vhd-ar-afterload",
+      question:"In contrast to aortic stenosis, why can afterload-reducing vasodilators be beneficial in chronic aortic regurgitation?",
+      options:[
+        "Vasodilators chemically repair the aortic valve",
+        "They convert the regurgitation into a stenosis",
+        "Lowering afterload reduces the regurgitant fraction",
+        "Afterload reduction is dangerous in all valve disease",
+        "They have no effect at all on the regurgitation"],
+      correctIndex:2,
+      explanation:[
+        "In AR, LOWERING afterload reduces the pressure gradient driving blood BACKWARD through the incompetent valve &rarr; a smaller regurgitant fraction and more forward output. It is the OPPOSITE of AS, where dropping afterload is dangerous because the fixed forward obstruction cannot compensate (vhd-023).",
+        "So the AFTERLOAD lever cuts both ways, and it maps to the lesion mechanism: AS is a FORWARD OBSTRUCTION (drop afterload &rarr; BP falls with no compensatory output &rarr; collapse), AR is a BACKWARD LEAK (drop afterload &rarr; less backward gradient &rarr; less regurgitation). It is the therapeutic version of handgrip WORSENING AR (&uarr;afterload &rarr; more backward flow, vhd-012).",
+        "Acute-AR nuance: afterload reduction plus inotropes can BRIDGE to emergency surgery &mdash; but AVOID an intra-aortic balloon pump, because its DIASTOLIC augmentation drives yet more blood backward through the incompetent valve and WORSENS the AR. Cross-links: vhd-023 (AS, the opposite); vhd-012 (handgrip)."
       ] }
   ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
