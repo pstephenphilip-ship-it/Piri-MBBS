@@ -11162,6 +11162,133 @@ window.MOCK_BANK = {
         "ARVC remains the firmer exception, because EXERCISE ACCELERATES the disease (cmp-036), so restriction there is stricter than for most other cardiomyopathies. The blanket-ban era has given way to nuanced, expert-led counselling."
       ] },
   ],
+  "conditions__CARDIOVASCULAR__Valvular Heart Disease": [
+    { id:"vhd-001", type:"mcq", objective:"vhd-timing-pansystolic",
+      audio:"assets/audio/09_apex_holo_sys_mur_supine_bell.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"Listen to the murmur recorded at the cardiac apex. It is heard at constant intensity from S1 right up to S2. How is its timing best described?",
+      options:[
+        "Pansystolic (holosystolic)",
+        "Ejection systolic (mid-systolic)",
+        "Early diastolic",
+        "Mid-diastolic",
+        "Continuous"],
+      correctIndex:0,
+      explanation:[
+        "A murmur of UNIFORM intensity that merges with both S1 and S2 is PANSYSTOLIC (holosystolic) &mdash; the signature of a regurgitant leak present throughout systole: MITRAL REGURGITATION, TRICUSPID REGURGITATION and VSD.",
+        "The shape is mechanistic (fcvs-006/007): a regurgitant leak is driven by a roughly CONSTANT pressure gradient across the whole of systole (LV pressure hugely exceeds LA pressure the entire time), so the murmur is a PLATEAU. Contrast the crescendo-decrescendo of an ejection murmur (vhd-002), where the gradient rises and falls with flow.",
+        "This is why TIMING comes FIRST in the systematic read: it splits the differential (systolic vs diastolic, plateau vs diamond) before you even localise the murmur. Cross-links: vhd-005 (MR); Foundations of CVS (murmur genesis, fcvs-006)."
+      ] },
+    { id:"vhd-002", type:"mcq", objective:"vhd-ejection-systolic",
+      audio:"assets/audio/esm.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"This murmur at the aortic area begins after S1, rises to a peak in mid-systole, then fades before S2 (crescendo-decrescendo). What type of murmur is it, and its classic causes?",
+      options:[
+        "Pansystolic — mitral regurgitation",
+        "Ejection systolic — aortic or pulmonary stenosis",
+        "Early diastolic — aortic regurgitation",
+        "Mid-diastolic — mitral stenosis",
+        "Continuous — patent ductus arteriosus"],
+      correctIndex:1,
+      explanation:[
+        "A crescendo-decrescendo DIAMOND with a gap before S2 is an EJECTION SYSTOLIC murmur &mdash; the signature of OUTFLOW OBSTRUCTION: aortic stenosis, pulmonary stenosis and HOCM.",
+        "The shape FOLLOWS THE GRADIENT over time (fcvs-006/007): in obstruction the gradient is FLOW-DEPENDENT, rising as ejection accelerates and falling as it wanes, so the murmur swells then fades &mdash; and it must END before S2 because flow (and therefore the gradient) stops when the valve closes. That terminal gap is what separates it from the plateau of a pansystolic murmur (vhd-001).",
+        "So shape tells you the MECHANISM before you have localised anything: a regurgitant leak has a constant driving pressure (plateau); an obstruction has a flow-dependent gradient (diamond). Cross-links: Aortic Stenosis (Block 3); Cardiomyopathies (HOCM murmur)."
+      ] },
+    { id:"vhd-003", type:"mcq", objective:"vhd-early-diastolic-ar",
+      audio:"assets/audio/16_aortic_early_dias_mur_sitting_bell.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"A soft, high-pitched murmur is heard at the left sternal edge immediately after S2, fading through diastole, and is loudest with the patient sitting forward in held expiration. What is it?",
+      options:[
+        "Mid-diastolic rumble of mitral stenosis",
+        "Pansystolic murmur of mitral regurgitation",
+        "Early diastolic murmur of aortic regurgitation",
+        "Ejection systolic murmur of aortic stenosis",
+        "Continuous machinery murmur of a PDA"],
+      correctIndex:2,
+      explanation:[
+        "High-pitched, EARLY DIASTOLIC, decrescendo, at the left sternal edge, loudest SITTING FORWARD in EXPIRATION = AORTIC REGURGITATION.",
+        "The DECRESCENDO shape is mechanistic: the regurgitant gradient is HIGHEST right after S2 (when aortic pressure most exceeds LV pressure) and DECAYS through diastole as the two pressures equalise &mdash; so the murmur is loudest at the start and fades. It is high-pitched because the gradient is high, so you listen with the DIAPHRAGM.",
+        "Contrast the MITRAL STENOSIS rumble: LOW-pitched, MID-diastolic, at the apex, with the BELL, in the left lateral position (vhd-006/007). Cross-links: Aortic Regurgitation (Block 5); Aortic Dissection (acute AR, ad-010)."
+      ] },
+    { id:"vhd-004", type:"categorize", objective:"vhd-auscultation-areas",
+      question:"Match each valve lesion's murmur to the chest area where it is best heard.",
+      buckets:["Aortic area (2nd right space)","Pulmonary area (2nd left space)","Lower left sternal edge","Cardiac apex"],
+      items:[
+        {text:"Aortic stenosis ejection murmur",bucket:0},
+        {text:"Pulmonary stenosis ejection murmur",bucket:1},
+        {text:"Tricuspid regurgitation pansystolic murmur",bucket:2},
+        {text:"Aortic regurgitation early diastolic murmur",bucket:2},
+        {text:"Mitral regurgitation pansystolic murmur",bucket:3},
+        {text:"Mitral stenosis mid-diastolic rumble",bucket:3}
+      ],
+      explanation:[
+        "The four classic areas: AORTIC (2nd right intercostal space), PULMONARY (2nd left), TRICUSPID/lower left sternal edge, and the APEX (mitral). The map places each valve's murmur where it is loudest.",
+        "Two subtleties trip people up. The APEX hosts TWO different murmurs &mdash; the SYSTOLIC pansystolic of MR and the DIASTOLIC rumble of MS &mdash; so TIMING disambiguates them at the same site. And aortic REGURGITATION is heard best at the LOWER LEFT STERNAL EDGE (Erb's point), NOT the aortic area &mdash; a classic exam trap.",
+        "So site narrows the differential but does not finish it: timing (vhd-001/002/003) and radiation (vhd-005) do the rest. Cross-link: vhd-005 (radiation)."
+      ] },
+    { id:"vhd-005", type:"mcq", objective:"vhd-radiation-jet",
+      question:"A pansystolic murmur is loudest at the apex and radiates to the axilla. Which lesion does the radiation point to?",
+      options:[
+        "Aortic stenosis",
+        "Tricuspid regurgitation",
+        "Mitral stenosis",
+        "Mitral regurgitation",
+        "Pulmonary stenosis"],
+      correctIndex:3,
+      explanation:[
+        "Apex + PANSYSTOLIC + radiation to the AXILLA = MITRAL REGURGITATION. Aortic stenosis, the other common systolic murmur, radiates instead to the CAROTIDS.",
+        "Radiation FOLLOWS THE JET DIRECTION, which is the mechanistic reason it localises: the MR regurgitant jet is directed BACKWARD and laterally toward the left atrium and lateral chest wall &rarr; the AXILLA; the AS ejection jet is directed FORWARD and up the aorta toward the neck &rarr; the CAROTIDS.",
+        "So radiation is the discriminator that separates the two systolic murmurs which would otherwise overlap: same timing, opposite jet directions. Cross-links: Mitral Regurgitation (Block 7); Aortic Stenosis (Block 3)."
+      ] },
+    { id:"vhd-006", type:"mcq", objective:"vhd-opening-snap",
+      audio:"assets/audio/13_apex_os__dias_mur_lld_bell.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"At the apex, in addition to S1 and S2, there is a high-pitched sound early in diastole followed by a low rumbling murmur. What is the added sound?",
+      options:[
+        "Mid-systolic click of mitral valve prolapse",
+        "Ejection click of a bicuspid aortic valve",
+        "Third heart sound (S3)",
+        "Fourth heart sound (S4)",
+        "Opening snap of mitral stenosis"],
+      correctIndex:4,
+      explanation:[
+        "A high-pitched sound just after S2, followed by a mid-diastolic rumble, is the OPENING SNAP of MITRAL STENOSIS &mdash; the pliable stenotic valve snapping open under high left-atrial pressure.",
+        "Two payoffs. First, the snap means the valve is still MOBILE/pliable &mdash; exactly the valve suited to BALLOON VALVULOPLASTY; as it calcifies and stiffens the snap (and the loud S1) DISAPPEARS and it needs replacement (rf-042). Second, the A2-OS INTERVAL is a severity gauge: it SHORTENS as MS worsens, because a higher LA pressure opens the valve SOONER after S2 (rf-037).",
+        "Distinguish the other added sounds: the MID-SYSTOLIC CLICK is systolic (MVP), the EJECTION CLICK is early-systolic (bicuspid aortic valve), and S3/S4 are gallops. Cross-links: Mitral Stenosis (Block 6); Rheumatic Heart Disease (rf-037/042)."
+      ] },
+    { id:"vhd-007", type:"mcq", objective:"vhd-manoeuvre-pitch",
+      question:"Which bedside manoeuvre best brings out the mid-diastolic rumble of mitral stenosis?",
+      options:[
+        "Left lateral position, bell, in expiration",
+        "Sitting forward in full expiration",
+        "Standing up suddenly",
+        "Valsalva strain",
+        "Deep inspiration"],
+      correctIndex:0,
+      explanation:[
+        "The MS rumble is LOW-pitched, so you use the BELL, at the APEX, with the patient rolled into the LEFT LATERAL position (bringing the apex against the chest wall), and listen in held EXPIRATION.",
+        "The manoeuvre logic is derivable: match the STETHOSCOPE to the pitch (BELL for low-pitched MS/S3/S4; DIAPHRAGM for high-pitched AR), and match the POSITION to the chamber (left lateral brings the apex/mitral valve closer; sitting forward brings the aortic root closer for AR). And RILE for the SIDE: Right-sided murmurs are louder on Inspiration (increased venous return), Left-sided on Expiration.",
+        "So (B) is the AR manoeuvre, and inspiration (E) accentuates RIGHT-sided murmurs, not MS. Cross-links: vhd-003 (AR positioning); Block 2 (dynamic manoeuvres)."
+      ] },
+    { id:"vhd-008", type:"mcq", objective:"vhd-phonocardiogram",
+      image:"assets/phono/holosystolic-murmur.png",
+      imageAlt:"Phonocardiogram tracing showing S1 and S2 with a band of murmur of uniform amplitude filling the whole interval between them.",
+      imageCredit:"Phonocardiogram schematic.",
+      question:"The phonocardiogram shown records the heart sounds and a murmur. Which lesion does the pattern represent?",
+      options:[
+        "Aortic stenosis (ejection systolic)",
+        "Mitral regurgitation (pansystolic)",
+        "Aortic regurgitation (early diastolic)",
+        "Mitral stenosis (mid-diastolic)",
+        "Normal S1 and S2 only"],
+      correctIndex:1,
+      explanation:[
+        "A murmur band filling ALL of systole (S1 to S2) at UNIFORM amplitude is PANSYSTOLIC &mdash; mitral (or tricuspid) regurgitation, or a VSD. An ejection murmur would be a diamond that stops before S2; AR would sit in diastole after S2; MS would be a low rumble in mid-diastole.",
+        "The phonocardiogram reads the SAME features as auscultation &mdash; find S1 and S2, then read the murmur's TIMING, SHAPE and position relative to them. It is not a separate skill; it is the murmur read made VISUAL, reinforcing the timing-first discipline.",
+        "The unifying principle of the whole block: every murmur feature is a READOUT of the haemodynamics &mdash; TIMING = when the gradient exists, SHAPE = how it changes, SITE = which valve, RADIATION = jet direction, ADDED SOUNDS = valve mobility, MANOEUVRES = pitch and chamber. So the read is DERIVABLE, not memorised, and the same six-step approach works for any murmur. Cross-link: Foundations of CVS (fcvs-007)."
+      ] }
+  ],
   "conditions__CARDIOVASCULAR__Pericarditis": [
     { id:"peri-001", type:"mcq", objective:"peri-viral",
       image:"https://upload.wikimedia.org/wikipedia/commons/7/7e/Pericarditis10.JPG",
