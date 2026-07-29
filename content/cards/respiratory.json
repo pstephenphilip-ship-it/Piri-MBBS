@@ -688,7 +688,7 @@
    {
     "id": "occ_fc_04",
     "front": "What is the medico-legal status of all occupational lung diseases?",
-    "back": "They are all compensable industrial diseases (Industrial Injuries Disablement Benefit)."
+    "back": "Most are compensable industrial diseases (IIDB) — isolated pleural plaques are the exception (not compensable)."
    },
    {
     "id": "occ_fc_05",
@@ -813,17 +813,17 @@
    {
     "id": "occ_fc_29",
     "front": "What is the medico-legal classification of all occupational lung diseases, and what should be documented?",
-    "back": "All are compensable industrial diseases (IIDB). Document occupational history carefully."
+    "back": "Most are compensable industrial diseases (IIDB) — isolated pleural plaques are the exception (not compensable). Document occupational history carefully."
    },
    {
     "id": "occ_fc_30",
     "front": "What is the latency, chemotherapy, and prognosis of mesothelioma?",
-    "back": "Latency ~45 years; pemetrexed + cisplatin chemotherapy; poor prognosis (~12 months median)."
+    "back": "Latency ~45 years; pemetrexed + cisplatin chemotherapy (or nivolumab + ipilimumab immunotherapy, NICE first-line in unresectable disease); poor prognosis (~12 months median)."
    },
    {
     "id": "occ_fc_31",
     "front": "What chemotherapy regimen is used for mesothelioma?",
-    "back": "Pemetrexed + cisplatin."
+    "back": "Pemetrexed + cisplatin (or nivolumab + ipilimumab immunotherapy — NICE first-line in unresectable disease)."
    },
    {
     "id": "occ_fc_32",
@@ -887,8 +887,8 @@
    },
    {
     "id": "occ_fc_44",
-    "front": "What is the pathognomonic CXR signature of silicosis?",
-    "back": "Egg-shell calcification of hilar lymph nodes; also upper-zone small round nodules that may progress to PMF-like confluent masses."
+    "front": "What is the characteristic CXR signature of silicosis?",
+    "back": "Egg-shell calcification of hilar lymph nodes (characteristic, not pathognomonic — also seen in sarcoidosis); also upper-zone small round nodules that may progress to PMF-like confluent masses."
    },
    {
     "id": "occ_fc_45",
@@ -1023,17 +1023,22 @@
    {
     "id": "occ_fc_71",
     "front": "Are antifibrotics established for asbestosis?",
-    "back": "No — unlike IPF, antifibrotics are not established for asbestosis."
+    "back": "Not routinely — unlike IPF; but nintedanib may be considered if a progressive fibrosing ILD phenotype develops."
    },
    {
     "id": "occ_fc_72",
     "front": "How is mesothelioma managed?",
-    "back": "Pemetrexed + cisplatin (chemotherapy); surgery in highly selected cases; palliative MDT; O₂; analgesia. Poor prognosis (~12 months median survival)."
+    "back": "Pemetrexed + cisplatin (chemotherapy) or nivolumab + ipilimumab immunotherapy (NICE first-line, unresectable); surgery in highly selected cases; palliative MDT; O₂; analgesia. Poor prognosis (~12 months median survival)."
    },
    {
     "id": "occ_fc_73",
     "front": "What is the most important intervention for anyone with asbestos exposure, and why?",
     "back": "Smoking cessation — it reduces the multiplicative lung cancer risk substantially."
+   },
+   {
+    "id": "occ_fc_74",
+    "front": "What is Caplan syndrome?",
+    "back": "Rheumatoid arthritis + pneumoconiosis (coal worker’s or silicosis) → multiple well-defined peripheral pulmonary nodules."
    }
   ],
   "conditions__RESPIRATORY__Pleural Effusion": [
@@ -2701,8 +2706,8 @@
    },
    {
     "id": "asthma_fc_44",
-    "front": "What is Step 2 (regular preventer therapy) of the asthma ladder?",
-    "back": "Low-dose ICS daily (beclometasone) + SABA or MART reliever. Consider LTRA if ICS not tolerated or as add-on."
+    "front": "What is Step 2 (low-dose MART) of the asthma ladder?",
+    "back": "Low-dose MART (maintenance + reliever ICS/formoterol, e.g. beclometasone/formoterol). Consider LTRA as add-on."
    },
    {
     "id": "asthma_fc_45",
@@ -4880,7 +4885,7 @@
    {
     "id": "lung_fc_28",
     "front": "What syndrome results from a tumour at the superior sulcus (apex), and what are its features?",
-    "back": "Pancoast tumour — Horner's syndrome (ptosis, miosis, anhidrosis — sympathetic chain) + brachial plexus (arm/hand weakness + pain) + RLN hoarseness."
+    "back": "Pancoast tumour — Horner's syndrome (ptosis, miosis, anhidrosis — sympathetic chain) + brachial plexus (arm/hand weakness + pain)."
    },
    {
     "id": "lung_fc_29",
@@ -5070,7 +5075,7 @@
    {
     "id": "lung_fc_66",
     "front": "What targeted therapies are used in mutation-positive advanced NSCLC?",
-    "back": "EGFR inhibitors (gefitinib, erlotinib) and ALK inhibitors (crizotinib)."
+    "back": "EGFR inhibitors (osimertinib first-line; also gefitinib/erlotinib) and ALK inhibitors (alectinib first-line; crizotinib)."
    },
    {
     "id": "lung_fc_67",
@@ -5210,7 +5215,7 @@
    {
     "id": "lung_fc_94",
     "front": "What is the adenocarcinoma exam tip regarding EGFR mutation?",
-    "back": "Look for EGFR mutation in non-smokers / Asian women → targeted therapy with gefitinib/erlotinib."
+    "back": "Look for EGFR mutation in non-smokers / Asian women → targeted therapy with an EGFR TKI (osimertinib first-line; also gefitinib/erlotinib)."
    }
   ],
   "conditions__RESPIRATORY__Cystic Fibrosis": [
@@ -8550,17 +8555,17 @@
    {
     "id": "asthma_q44",
     "type": "mcq",
-    "question": "What is Step 2 (regular preventer therapy) of the asthma ladder?",
+    "question": "What is Step 2 (low-dose MART) of the asthma ladder?",
     "options": [
      "High-dose ICS + LABA",
-     "Low-dose ICS daily (beclometasone) + SABA or MART reliever; consider LTRA if ICS not tolerated or as add-on",
+     "Low-dose MART (maintenance + reliever ICS/formoterol); consider LTRA as add-on",
      "LAMA monotherapy",
      "Biologics",
      "Oral steroids"
     ],
     "correctIndex": 1,
-    "answer": "Low-dose ICS daily (beclometasone) + SABA or MART reliever; consider LTRA if ICS not tolerated or as add-on",
-    "explanation": "Step 2 is low-dose daily ICS (beclometasone) with a SABA or MART reliever, considering an LTRA if ICS is not tolerated or as an add-on."
+    "answer": "Low-dose MART (maintenance + reliever ICS/formoterol); consider LTRA as add-on",
+    "explanation": "Under NG245 (2024), Step 2 is low-dose MART (maintenance + reliever ICS/formoterol), considering an LTRA as an add-on."
    },
    {
     "id": "asthma_q45",
@@ -14913,14 +14918,14 @@
     "question": "A tumour at the superior sulcus (apex) causes which syndrome and features?",
     "options": [
      "SVC obstruction with facial plethora",
-     "Pancoast tumour — Horner's syndrome + brachial plexus involvement + RLN hoarseness",
+     "Pancoast tumour — Horner's syndrome + brachial plexus involvement",
      "Diaphragm palsy with elevated hemidiaphragm",
      "Dysphagia from oesophageal compression",
      "SIADH with hyponatraemia"
     ],
     "correctIndex": 1,
-    "answer": "Pancoast tumour — Horner's syndrome + brachial plexus involvement + RLN hoarseness",
-    "explanation": "An apex (superior sulcus) tumour causes a Pancoast tumour: Horner's syndrome (ptosis, miosis, anhidrosis) + brachial plexus (arm/hand weakness + pain) + RLN hoarseness."
+    "answer": "Pancoast tumour — Horner's syndrome + brachial plexus involvement",
+    "explanation": "An apex (superior sulcus) tumour causes a Pancoast tumour: Horner's syndrome (ptosis, miosis, anhidrosis) + brachial plexus (arm/hand weakness + pain). (RLN hoarseness is from mediastinal disease, not Pancoast.)"
    },
    {
     "id": "lung_q28",
@@ -15453,14 +15458,14 @@
     "question": "What targeted therapies are used in mutation-positive advanced NSCLC?",
     "options": [
      "Pembrolizumab and nivolumab",
-     "EGFR inhibitors (gefitinib, erlotinib) and ALK inhibitors (crizotinib)",
+     "EGFR inhibitors (osimertinib first-line; also gefitinib/erlotinib) and ALK inhibitors (alectinib first-line; crizotinib)",
      "Cisplatin and etoposide",
      "Dexamethasone and bisphosphonates",
      "Pemetrexed and carboplatin"
     ],
     "correctIndex": 1,
-    "answer": "EGFR inhibitors (gefitinib, erlotinib) and ALK inhibitors (crizotinib)",
-    "explanation": "Targeted therapy: EGFR inhibitors (gefitinib, erlotinib) and ALK inhibitors (crizotinib)."
+    "answer": "EGFR inhibitors (osimertinib first-line; also gefitinib/erlotinib) and ALK inhibitors (alectinib first-line; crizotinib)",
+    "explanation": "Targeted therapy: EGFR inhibitors (osimertinib first-line; also gefitinib/erlotinib) and ALK inhibitors (alectinib first-line; crizotinib)."
    },
    {
     "id": "lung_q64",
@@ -15843,14 +15848,14 @@
     "question": "What is the adenocarcinoma exam tip regarding EGFR mutation?",
     "options": [
      "Look for EGFR in smokers → cisplatin",
-     "Look for EGFR mutation in non-smokers / Asian women → targeted therapy with gefitinib/erlotinib",
+     "Look for EGFR mutation in non-smokers / Asian women → targeted therapy with an EGFR TKI (osimertinib first-line; also gefitinib/erlotinib)",
      "EGFR mutation indicates SCLC → etoposide",
      "EGFR mutation means surgery is contraindicated",
      "EGFR mutation is found in squamous cell only"
     ],
     "correctIndex": 1,
-    "answer": "Look for EGFR mutation in non-smokers / Asian women → targeted therapy with gefitinib/erlotinib",
-    "explanation": "Adenocarcinoma tip: look for EGFR mutation in non-smokers / Asian women → targeted therapy with gefitinib/erlotinib."
+    "answer": "Look for EGFR mutation in non-smokers / Asian women → targeted therapy with an EGFR TKI (osimertinib first-line; also gefitinib/erlotinib)",
+    "explanation": "Adenocarcinoma tip: look for EGFR mutation in non-smokers / Asian women → targeted therapy with an EGFR TKI (osimertinib first-line; also gefitinib/erlotinib)."
    }
   ],
   "conditions__RESPIRATORY__Cystic Fibrosis": [
@@ -20802,7 +20807,7 @@
     ],
     "correctIndex": 1,
     "answer": "Compensable industrial diseases (Industrial Injuries Disablement Benefit)",
-    "explanation": "All are compensable industrial diseases (Industrial Injuries Disablement Benefit)."
+    "explanation": "Most are compensable industrial diseases (IIDB); isolated pleural plaques are the exception and are not compensable."
    },
    {
     "id": "occ_q05",
@@ -21102,7 +21107,7 @@
     ],
     "correctIndex": 1,
     "answer": "Pemetrexed + cisplatin; poor prognosis (~12 months median)",
-    "explanation": "Mesothelioma: latency ~45 years; pemetrexed + cisplatin chemotherapy; poor prognosis (~12 months median)."
+    "explanation": "Mesothelioma: latency ~45 years; pemetrexed + cisplatin chemotherapy (or nivolumab + ipilimumab immunotherapy, NICE first-line in unresectable disease); poor prognosis (~12 months median)."
    },
    {
     "id": "occ_q25",
@@ -21272,7 +21277,7 @@
    {
     "id": "occ_q36",
     "type": "mcq",
-    "question": "What is the pathognomonic CXR signature of silicosis?",
+    "question": "What is the characteristic CXR signature of silicosis?",
     "options": [
      "PMF masses",
      "Egg-shell calcification of hilar lymph nodes",
@@ -21282,7 +21287,7 @@
     ],
     "correctIndex": 1,
     "answer": "Egg-shell calcification of hilar lymph nodes",
-    "explanation": "Egg-shell calcification of hilar lymph nodes is pathognomonic; there are also upper-zone small round nodules that may progress to PMF-like confluent masses."
+    "explanation": "Egg-shell calcification of hilar lymph nodes is characteristic (not pathognomonic — also seen in sarcoidosis); there are also upper-zone small round nodules that may progress to PMF-like confluent masses."
    },
    {
     "id": "occ_q37",
@@ -21642,7 +21647,7 @@
     ],
     "correctIndex": 1,
     "answer": "No — unlike IPF, antifibrotics are not established for asbestosis",
-    "explanation": "Unlike IPF, antifibrotics are not established for asbestosis."
+    "explanation": "Not used routinely (unlike IPF), but nintedanib may be considered if a progressive fibrosing ILD phenotype develops."
    },
    {
     "id": "occ_q61",
@@ -21657,7 +21662,7 @@
     ],
     "correctIndex": 1,
     "answer": "Pemetrexed + cisplatin (chemotherapy); surgery in highly selected cases; palliative MDT, O₂, analgesia; poor prognosis (~12 months median survival)",
-    "explanation": "Mesothelioma management: pemetrexed + cisplatin chemotherapy; surgery in highly selected cases; palliative MDT, O₂, analgesia; poor prognosis (~12 months median survival)."
+    "explanation": "Mesothelioma management: pemetrexed + cisplatin chemotherapy or nivolumab + ipilimumab immunotherapy (NICE first-line, unresectable); surgery in highly selected cases; palliative MDT, O₂, analgesia; poor prognosis (~12 months median survival)."
    },
    {
     "id": "occ_q62",
