@@ -11166,7 +11166,7 @@ window.MOCK_BANK = {
     { id:"vhd-001", type:"mcq", objective:"vhd-timing-pansystolic",
       audio:"assets/audio/09_apex_holo_sys_mur_supine_bell.mp3",
       audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
-      question:"A 71-year-old woman with a dilated cardiomyopathy is reviewed for worsening breathlessness. Listen to the murmur recorded at her cardiac apex: it is heard at constant intensity from S1 right up to S2. How is its timing best described?",
+      question:"A 71-year-old woman with a dilated cardiomyopathy is reviewed for worsening breathlessness. Listen to the murmur recorded at her cardiac apex. How is its timing best described?",
       options:[
         "Pansystolic (holosystolic)",
         "Ejection systolic (mid-systolic)",
@@ -11213,7 +11213,7 @@ window.MOCK_BANK = {
       ] },
     { id:"vhd-004", type:"categorize", objective:"vhd-auscultation-areas",
       question:"Match each valve lesion's murmur to the chest area where it is best heard.",
-      buckets:["Aortic area (2nd right space)","Pulmonary area (2nd left space)","Lower left sternal edge","Cardiac apex"],
+      buckets:["Aortic area (2nd right space)","Pulmonary area (2nd left space)","Left sternal edge","Cardiac apex"],
       items:[
         {text:"Aortic stenosis ejection murmur",bucket:0},
         {text:"Pulmonary stenosis ejection murmur",bucket:1},
@@ -11224,7 +11224,7 @@ window.MOCK_BANK = {
       ],
       explanation:[
         "The four classic areas: AORTIC (2nd right intercostal space), PULMONARY (2nd left), TRICUSPID/lower left sternal edge, and the APEX (mitral). The map places each valve's murmur where it is loudest.",
-        "Two subtleties trip people up. The APEX hosts TWO different murmurs &mdash; the SYSTOLIC pansystolic of MR and the DIASTOLIC rumble of MS &mdash; so TIMING disambiguates them at the same site. And aortic REGURGITATION is heard best at the LOWER LEFT STERNAL EDGE (Erb's point), NOT the aortic area &mdash; a classic exam trap.",
+        "Two subtleties trip people up. The APEX hosts TWO different murmurs &mdash; the SYSTOLIC pansystolic of MR and the DIASTOLIC rumble of MS &mdash; so TIMING disambiguates them at the same site. And aortic REGURGITATION is heard best at the LEFT STERNAL EDGE (Erb's point, 3rd left space) &mdash; higher than the lower-sternal-edge tricuspid area, and NOT at the aortic area &mdash; a classic exam trap.",
         "So site narrows the differential but does not finish it: timing (vhd-001/002/003) and radiation (vhd-005) do the rest. Cross-link: vhd-005 (radiation)."
       ] },
     { id:"vhd-005", type:"mcq", objective:"vhd-radiation-jet",
@@ -11292,10 +11292,10 @@ window.MOCK_BANK = {
       question:"You perform a Valsalva manoeuvre on a patient during cardiac auscultation. During the strain phase, venous return to the heart falls. What happens to most murmurs, and which two are the exception?",
       options:[
         "Most soften; HOCM and mitral valve prolapse get louder",
-        "Every murmur gets louder during the strain phase",
+        "Murmurs tend to get louder during the strain phase",
         "Diastolic murmurs soften but systolic ones persist",
         "The murmur of aortic stenosis gets louder",
-        "Valsalva makes little difference to any murmur"],
+        "Valsalva changes murmur intensity only minimally"],
       correctIndex:0,
       explanation:[
         "Valsalva strain &darr; venous return &rarr; &darr; preload &rarr; less flow across the valves &rarr; MOST murmurs get SOFTER. The two EXCEPTIONS are HOCM and MITRAL VALVE PROLAPSE, which get LOUDER.",
@@ -11452,9 +11452,9 @@ window.MOCK_BANK = {
         "The exertional-syncope MECHANISM is the fixed-output physiology: on exertion the periphery vasodilates, but the fixed valve cannot augment cardiac output to match &rarr; cerebral hypoperfusion &rarr; syncope &mdash; the SAME physiology that makes vasodilators dangerous (vhd-023). Cross-links: vhd-021/022 (severity); Block 4 (thresholds)."
       ] },
     { id:"vhd-020", type:"mcq", objective:"vhd-as-echo-severity",
-      data:'<div class="mk-obs-h">Echocardiogram &mdash; aortic valve</div><table class="mk-labs"><tr><td>Aortic valve area</td><td><b>0.8 cm²</b></td><td>severe &lt;1.0</td></tr><tr><td>Mean gradient</td><td><b>48 mmHg</b></td><td>severe &gt;40</td></tr><tr><td>Peak jet velocity</td><td><b>4.5 m/s</b></td><td>severe &gt;4.0</td></tr></table>',
+      data:'<div class="mk-obs-h">Echocardiogram &mdash; aortic valve</div><table class="mk-labs"><tr><td>Aortic valve area</td><td><b>0.8 cm&sup2;</b></td><td>severe &lt;1.0</td></tr><tr><td>Mean gradient</td><td><b>48 mmHg</b></td><td>severe &gt;40</td></tr><tr><td>Peak jet velocity</td><td><b>4.5 m/s</b></td><td>severe &gt;4.0</td></tr></table>',
       video:"https://upload.wikimedia.org/wikipedia/commons/7/7c/Severe_aortic_valve_stenosis_E00277_%28CardioNetworks_ECHOpedia%29.webm",
-      videoAlt:"An apical five-chamber echocardiogram loop showing a heavily thickened aortic valve with severely restricted leaflet opening and turbulent mosaic colour flow across it in systole.",
+      videoAlt:"An apical five-chamber echocardiogram loop showing a thickened aortic valve with restricted leaflet opening and turbulent mosaic colour flow across it in systole.",
       videoCredit:"CardioNetworks / ECHOpedia, CC BY-SA 3.0, via Wikimedia Commons.",
       question:"A 77-year-old man with exertional angina and breathlessness has the echocardiogram measurements shown. How is the stenosis best classified?",
       options:[
@@ -11484,7 +11484,7 @@ window.MOCK_BANK = {
         "This is the bedside twin of the low-flow low-gradient echo trap (vhd-022): the failing LV makes the AS look milder than it is &mdash; softer murmur at the bedside, lower gradient on echo. Grade by the obstruction signs, confirm on echo. Distractors: early-peaking = mild; collapsing pulse = AR. Cross-links: vhd-017; vhd-022."
       ] },
     { id:"vhd-022", type:"mcq", objective:"vhd-as-low-flow-low-gradient",
-      data:'<div class="mk-obs-h">Echocardiogram &mdash; aortic valve</div><table class="mk-labs"><tr><td>Aortic valve area</td><td><b>0.8 cm²</b></td><td>severe &lt;1.0</td></tr><tr><td>Mean gradient</td><td><b>25 mmHg</b></td><td>severe &gt;40</td></tr><tr><td>Peak jet velocity</td><td><b>3.1 m/s</b></td><td>&mdash;</td></tr><tr><td>Ejection fraction</td><td><b>30%</b></td><td>50&ndash;70</td></tr><tr><td>Stroke volume index</td><td><b>28 mL/m²</b></td><td>low (&lt;35)</td></tr></table>',
+      data:'<div class="mk-obs-h">Echocardiogram &mdash; aortic valve</div><table class="mk-labs"><tr><td>Aortic valve area</td><td><b>0.8 cm&sup2;</b></td><td>severe &lt;1.0</td></tr><tr><td>Mean gradient</td><td><b>25 mmHg</b></td><td>severe &gt;40</td></tr><tr><td>Peak jet velocity</td><td><b>3.1 m/s</b></td><td>&mdash;</td></tr><tr><td>Ejection fraction</td><td><b>30%</b></td><td>50&ndash;70</td></tr><tr><td>Stroke volume index</td><td><b>28 mL/m&sup2;</b></td><td>low (&lt;35)</td></tr></table>',
       question:"A 74-year-old man with hypertension, type 2 diabetes and known aortic stenosis presents with exertional syncope and NYHA III breathlessness. His echocardiogram is shown. Which investigation clarifies whether the stenosis is truly severe?",
       options:[
         "Exercise treadmill test",
@@ -11828,7 +11828,7 @@ window.MOCK_BANK = {
         "This exact carve-out is tested from three angles &mdash; here (valve disease), in tachyarrhythmias (tac-021) and in rheumatic fever (rf-039). Cross-links: Tachycardia (tac-021); Rheumatic Heart Disease (rf-039); Anticoagulation."
       ] },
     { id:"vhd-045", type:"mcq", objective:"vhd-ms-graham-steell",
-      question:"A 58-year-old woman with long-standing rheumatic mitral stenosis develops a loud P2, a right ventricular heave, and a new early diastolic murmur at the left sternal edge. What does this early diastolic murmur most likely represent?",
+      question:"A 58-year-old woman with long-standing rheumatic mitral stenosis develops a loud P2, a right ventricular heave, and a new early diastolic murmur at the left sternal edge; her pulse is normal in volume with a normal pulse pressure and no collapsing character. What does this early diastolic murmur most likely represent?",
       options:[
         "Aortic regurgitation from a dilated aortic root",
         "Graham Steell murmur of pulmonary regurgitation",
@@ -11842,7 +11842,7 @@ window.MOCK_BANK = {
         "Cross-links: vhd-005 (murmur localisation); Block 9 (right-sided and pulmonary disease)."
       ] },
     { id:"vhd-046", type:"mcq", objective:"vhd-ms-valvuloplasty",
-      data:'<div class="mk-obs-h">Echocardiogram &mdash; mitral valve</div><table class="mk-labs"><tr><td>Mitral valve area</td><td><b>1.0 cm²</b></td><td>severe &lt;1.5</td></tr><tr><td>Valve morphology</td><td><b>Pliable, non-calcified (low Wilkins score)</b></td><td>&mdash;</td></tr><tr><td>Left atrial thrombus</td><td><b>None</b></td><td>&mdash;</td></tr><tr><td>Mitral regurgitation</td><td><b>Trivial</b></td><td>&mdash;</td></tr></table>',
+      data:'<div class="mk-obs-h">Echocardiogram &mdash; mitral valve</div><table class="mk-labs"><tr><td>Mitral valve area</td><td><b>1.0 cm&sup2;</b></td><td>severe &lt;1.5</td></tr><tr><td>Valve morphology</td><td><b>Pliable, non-calcified (low Wilkins score)</b></td><td>&mdash;</td></tr><tr><td>Left atrial thrombus</td><td><b>None</b></td><td>&mdash;</td></tr><tr><td>Mitral regurgitation</td><td><b>Trivial</b></td><td>&mdash;</td></tr></table>',
       video:"https://upload.wikimedia.org/wikipedia/commons/b/b7/Severe_mitral_valve_stenosis_E00612_%28CardioNetworks_ECHOpedia%29.webm",
       videoAlt:"An apical echocardiogram loop showing a thickened mitral valve with restricted diastolic leaflet opening and high-velocity turbulent mosaic colour flow through the narrowed orifice into the left ventricle.",
       videoCredit:"CardioNetworks / ECHOpedia, CC BY-SA 3.0, via Wikimedia Commons.",
@@ -11911,11 +11911,11 @@ window.MOCK_BANK = {
         "The leaflets are torn by infective endocarditis",
         "Rheumatic scarring has fused the commissures",
         "A papillary muscle has acutely ruptured",
-        "Myxomatous degeneration has thickened the leaflets",
+        "Left atrial dilatation has stretched the mitral annulus",
         "LV dilatation tethers structurally normal leaflets"],
       correctIndex:4,
       explanation:[
-        "This is SECONDARY (FUNCTIONAL) MR: the valve is structurally NORMAL, but LV dilatation and remodelling DISPLACE the papillary muscles, TETHERING the leaflets so they cannot coapt. The valve is an innocent bystander pulled apart by a failing/dilating LV.",
+        "This is VENTRICULAR SECONDARY (FUNCTIONAL) MR: the valve is structurally NORMAL, but LV dilatation and remodelling DISPLACE the papillary muscles, TETHERING the leaflets so they cannot coapt. The valve is an innocent bystander pulled apart by a failing/dilating LV. (Annular stretch from a dilated LEFT ATRIUM &mdash; atrial functional MR &mdash; is the other normal-leaflet mechanism, but it is driven by LA/AF disease, not the EF-30% dilated LV that dominates here.)",
         "So secondary MR is really a VENTRICULAR disease, not a valve disease &mdash; which is why fixing the valve alone does not solve it (the sick LV remains). You treat the LV: guideline-directed heart-failure therapy, revascularisation, CRT (vhd-054).",
         "Contrast PRIMARY (organic) MR, where the valve APPARATUS itself is diseased (prolapse, ruptured chordae/papillary, endocarditis, rheumatic). Cross-links: vhd-054 (management); vhd-056 (the fork); Chronic Heart Failure."
       ] },
@@ -11937,9 +11937,9 @@ window.MOCK_BANK = {
         "Like acute AR, the murmur can be SOFT (LV and LA pressures equalise fast), so a quiet murmur does NOT reassure &mdash; &lsquo;quiet + catastrophic&rsquo; (vhd-034). Emergency surgery, often with an IABP bridge (vhd-055). Cross-links: Acute Coronary Syndrome (mechanical complications); vhd-055."
       ] },
     { id:"vhd-052", type:"mcq", objective:"vhd-mr-ef-threshold",
-      data:'<div class="mk-obs-h">Echocardiogram &mdash; mitral regurgitation</div><table class="mk-labs"><tr><td>MR severity</td><td><b>Severe (EROA 0.45 cm²)</b></td><td>severe &ge;0.40</td></tr><tr><td>Ejection fraction</td><td><b>58%</b></td><td>surgery if &le;60</td></tr><tr><td>LV end-systolic diameter</td><td><b>41 mm</b></td><td>surgery if &ge;40</td></tr></table>',
+      data:'<div class="mk-obs-h">Echocardiogram &mdash; mitral regurgitation</div><table class="mk-labs"><tr><td>MR severity</td><td><b>Severe (EROA 0.45 cm&sup2;)</b></td><td>severe &ge;0.40</td></tr><tr><td>Ejection fraction</td><td><b>58%</b></td><td>surgery if &le;60</td></tr><tr><td>LV end-systolic diameter</td><td><b>41 mm</b></td><td>surgery if &ge;40</td></tr></table>',
       video:"https://upload.wikimedia.org/wikipedia/commons/c/cd/Preoperative-scallop-by-scallop-assessment-of-mitral-prolapse-using-2D-transthoracic-1476-7120-8-1-S3.ogv",
-      videoAlt:"An apical four-chamber echocardiogram loop showing a myxomatous mitral leaflet prolapsing into the left atrium in systole, with a severe regurgitant colour-Doppler jet passing back into a non-dilated left ventricle.",
+      videoAlt:"An apical four-chamber echocardiogram loop showing a myxomatous mitral leaflet prolapsing into the left atrium in systole, with a severe regurgitant colour-Doppler jet passing back into the left atrium.",
       videoCredit:"Minardi et al., Cardiovascular Ultrasound 2010, CC BY 2.0, via Wikimedia Commons.",
       question:"A 59-year-old man with severe primary (degenerative) mitral regurgitation reports no symptoms, but his surveillance echocardiogram is shown. Why is this ejection fraction concerning enough to consider surgery?",
       options:[
@@ -11958,9 +11958,9 @@ window.MOCK_BANK = {
       question:"A 58-year-old woman with severe primary mitral regurgitation from degenerative valve prolapse, now symptomatic, is referred for surgery. Which is generally preferred, and why?",
       options:[
         "Mitral repair: durable, avoids anticoagulation",
-        "Mechanical valve replacement in every case",
-        "Bioprosthetic valve replacement in every case",
-        "No surgery is ever of benefit here",
+        "Mechanical replacement for its long-term durability",
+        "Bioprosthetic replacement to avoid anticoagulation",
+        "Medical therapy, deferring surgery until the EF falls",
         "Replacement of the aortic valve instead"],
       correctIndex:0,
       explanation:[
@@ -12094,10 +12094,10 @@ window.MOCK_BANK = {
         "Immediate surgical mitral valve repair",
         "Long-term oral anticoagulation therapy",
         "A beta-blocker taken for the rest of her life",
-        "Annual cardiac catheterisation from now on"],
+        "Reassurance, but with routine annual echocardiography"],
       correctIndex:0,
       explanation:[
-        "Isolated MVP with NO MR, normal LV function and no symptoms is BENIGN &mdash; the commonest valve abnormality, usually an incidental click. The management is REASSURANCE, with no routine follow-up, no anticoagulation and no lifelong beta-blocker (beta-blockers are used only for symptomatic palpitations).",
+        "Isolated MVP with NO MR, normal LV function and no symptoms is BENIGN &mdash; the commonest valve abnormality, usually an incidental click. The management is REASSURANCE, with no routine follow-up, no anticoagulation and no lifelong beta-blocker (beta-blockers are used only for symptomatic palpitations). It does NOT warrant scheduled annual echocardiography either &mdash; re-image only if symptoms or signs (a new/louder murmur) appear.",
         "Over-investigating or over-treating the benign majority (surveillance, anticoagulation, activity restriction) is a real HARM, given how common MVP is &mdash; so the skill is RISK STRATIFICATION, not blanket follow-up.",
         "Surveillance/intervention is reserved for the minority with significant MR, thickened leaflets, LV dilatation, or arrhythmic features (vhd-064). Cross-link: vhd-064 (benign vs significant)."
       ] },
@@ -12152,10 +12152,10 @@ window.MOCK_BANK = {
         "Infective endocarditis of the valve (primary)",
         "Carcinoid plaque on the leaflets (primary)",
         "RV and annular dilatation (functional, common)",
-        "Ebstein anomaly (congenital)"],
+        "Trivial physiological regurgitation (normal valve)"],
       correctIndex:3,
       explanation:[
-        "This is FUNCTIONAL (SECONDARY) tricuspid regurgitation: the leaflets are structurally NORMAL, but RIGHT VENTRICULAR and tricuspid ANNULAR dilatation (here driven by the pulmonary hypertension of long-standing mitral stenosis) pull the leaflets apart so they cannot coapt. It is BY FAR the commonest cause of TR.",
+        "This is FUNCTIONAL (SECONDARY) tricuspid regurgitation: the leaflets are structurally NORMAL, but RIGHT VENTRICULAR and tricuspid ANNULAR dilatation (here driven by the pulmonary hypertension of long-standing mitral stenosis) pull the leaflets apart so they cannot coapt. It is BY FAR the commonest cause of SIGNIFICANT TR &mdash; distinct from the TRIVIAL physiological TR found on many normal echoes, which needs no action; here the pulmonary-hypertension signs and severity mark it as pathological.",
         "It is the exact MIRROR of secondary MR (vhd-050) &mdash; a structurally normal valve failing because its ventricle and annulus have dilated &mdash; and it sits at the END of the MS cascade (vhd-048): MS &rarr; pulmonary hypertension &rarr; RV dilatation &rarr; functional TR &rarr; right heart failure. So functional TR is often a marker of how far the LEFT-sided/pulmonary disease has propagated. Treat the CAUSE (the left-sided lesion, the pulmonary hypertension) and the TR often improves as the RV is unloaded.",
         "PRIMARY (organic) TR is much rarer: infective endocarditis (classically INJECTING DRUG USERS, right-sided vegetations), carcinoid, rheumatic disease, Ebstein anomaly, or a pacemaker lead. Cross-links: vhd-050 (secondary MR mirror); vhd-048 (the MS cascade); vhd-072."
       ] },
@@ -12174,9 +12174,9 @@ window.MOCK_BANK = {
         "The systemic features fit: FLUSHING and DIARRHOEA from the same mediators, confirmed by raised urinary 5-HIAA (a serotonin metabolite). Cross-link: Endocrine (neuroendocrine tumours)."
       ] },
     { id:"vhd-068", type:"mcq", objective:"vhd-pulmonary-stenosis",
-      audio:"assets/audio/23_pulm_eject_sys_mur__single_s2__eject_click_supine_diaph.mp3",
+      audio:"assets/audio/22_pulm_split_s2__eject_sys_mur_supine_diaph.mp3",
       audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
-      question:"A 22-year-old man is found to have a murmur at a routine check. The murmur recorded at his upper left sternal edge (audio) is ejection systolic, preceded by an ejection click, with a widely split second heart sound. What is the diagnosis?",
+      question:"A 22-year-old man is found to have a murmur at a routine check. The murmur recorded at his upper left sternal edge (audio) is ejection systolic, with a widely split second heart sound. What is the diagnosis?",
       options:[
         "Pulmonary stenosis",
         "Aortic stenosis",
@@ -12185,7 +12185,7 @@ window.MOCK_BANK = {
         "Tricuspid stenosis"],
       correctIndex:0,
       explanation:[
-        "An EJECTION SYSTOLIC murmur at the PULMONARY area (upper left sternal edge) with an EJECTION CLICK and a widely split S2 is PULMONARY STENOSIS &mdash; the right-sided MIRROR of aortic stenosis: an ejection (diamond) murmur of outflow obstruction (vhd-002), but from the pulmonary valve.",
+        "An EJECTION SYSTOLIC murmur at the PULMONARY area (upper left sternal edge) with a widely split S2 is PULMONARY STENOSIS &mdash; the right-sided MIRROR of aortic stenosis: an ejection (diamond) murmur of outflow obstruction (vhd-002), but from the pulmonary valve. A pulmonary EJECTION CLICK, when present, adds to the picture.",
         "The differences from AS are the recognition points: PS is usually CONGENITAL (isolated, or part of tetralogy of Fallot or Noonan syndrome), unlike AS's acquired/degenerative causes; the ejection CLICK is the stenotic pulmonary valve opening; severe PS gives a longer, later-peaking murmur, a right ventricular heave and eventually RV failure.",
         "Being right-sided, the murmur is LOUDER ON INSPIRATION (RILE, vhd-014). Cross-links: vhd-002 (ejection systolic shape); vhd-014 (RILE); Paediatrics (congenital heart disease)."
       ] },
@@ -12218,9 +12218,9 @@ window.MOCK_BANK = {
         "So a SYSTOLIC giant wave = regurgitation, a PRESYSTOLIC giant wave = stenosis. Do not confuse either with CANNON A WAVES &mdash; a different sign, from the atrium contracting against a CLOSED tricuspid valve in complete heart block or AV dissociation. Cross-links: vhd-065 (TR signs); Bradycardias / Heart Block (cannon waves)."
       ] },
     { id:"vhd-071", type:"mcq", objective:"vhd-multivalve",
-      question:"A 45-year-old woman who had rheumatic fever in childhood has both a mid-diastolic rumble at the apex and an early diastolic murmur at the left sternal edge. What does this combination most likely represent?",
+      question:"A 45-year-old woman who had rheumatic fever in childhood has a mid-diastolic rumble at the apex — preceded by a loud first heart sound and an opening snap — together with an early diastolic murmur at the left sternal edge. What does this combination most likely represent?",
       options:[
-        "A single isolated mitral valve lesion in isolation",
+        "A single isolated mitral valve lesion",
         "An innocent physiological flow murmur only",
         "Constrictive pericardial disease as the sole cause",
         "Mixed rheumatic disease (MS plus AR)",
@@ -12381,7 +12381,7 @@ window.MOCK_BANK = {
       ] },
     { id:"vhd-082", type:"mcq", objective:"vhd-la-enlargement",
       image:"assets/ecg/lae_p_mitrale_ecg.png",
-      imageAlt:"A two-lead ECG rhythm strip. In lead II each QRS is preceded by a broad, notched (bifid) P wave; in lead V1 the P wave is biphasic with a deep, wide terminal negative component.",
+      imageAlt:"A two-lead ECG rhythm strip (leads II and V1) in which each QRS is preceded by a broad, notched (bifid) P wave.",
       imageCredit:"DoctoRise illustration.",
       question:"A 49-year-old woman with rheumatic mitral valve disease has a chest X-ray showing a double right heart border and splaying of the carina, and an ECG (lead II and V1) showing a broad, bifid ('M-shaped') P wave. What do these indicate?",
       options:[
@@ -12407,7 +12407,7 @@ window.MOCK_BANK = {
       correctIndex:3,
       explanation:[
         "The thresholds differ because each lesion FOOLS the EF to a different degree, according to how much it UNLOADS the LV. In MITRAL REGURGITATION the LV has a low-pressure ESCAPE ROUTE &mdash; it unloads part of the stroke volume BACKWARD into the LA &mdash; so the EF is FLATTERED MOST. A healthy MR ventricle should be SUPRANORMAL, so an &lsquo;only normal&rsquo; EF of ~60% already means it is failing (vhd-052) &rarr; the STRICTEST threshold.",
-        "AORTIC REGURGITATION also volume-loads and unloads the LV (into the aorta in diastole), flattering the EF SOMEWHAT &rarr; an intermediate threshold (EF &le;50% plus LVESD &gt;50 mm, vhd-039). AORTIC STENOSIS is a PRESSURE load with NO unloading, so its EF reads more truthfully (EF &lt;50%, vhd-026).",
+        "AORTIC REGURGITATION also volume-loads and unloads the LV (into the aorta in diastole), flattering the EF SOMEWHAT &rarr; an intermediate threshold (EF &le;50% plus LVESD &gt;50 mm, vhd-039). AORTIC STENOSIS is a PRESSURE load with NO unloading, so its EF reads more truthfully (EF &lt;50%, vhd-026). (These EF cut-offs follow ESC 2021; AHA/ACC 2020 sets the AR trigger slightly higher at &le;55%.)",
         "The unifying rule: the MORE a lesion UNLOADS the LV (MR most, AR intermediate, AS least), the more the EF over-reads function, so the STRICTER the EF threshold must be &mdash; all deriving from one aim, &lsquo;operate before the LV is irreversibly damaged&rsquo;. The three numbers are not memorised; they are reasoned from the mechanism. Cross-links: vhd-052 (MR); vhd-039 (AR); vhd-026 (AS)."
       ] },
     { id:"vhd-084", type:"mcq", objective:"vhd-acute-regurg-synthesis",
@@ -12496,7 +12496,7 @@ window.MOCK_BANK = {
       explanation:[
         "When two valve lesions coexist, each DISTORTS the severity assessment of the other, so you must grade them TOGETHER, not separately. Here the MITRAL REGURGITATION is a low-pressure ESCAPE ROUTE: some stroke volume leaks backward into the LA, so LESS crosses the aortic valve &rarr; lower transaortic FLOW and gradient &rarr; the AS is UNDER-graded (it looks milder than it is).",
         "It is the same failing-LV-fools-the-numbers principle (vhd-081) applied to lesion INTERACTION: the gradient is flow-dependent, the MR steals flow, so the aortic GRADIENT reads low while the flow-INDEPENDENT valve AREA still shows severe AS. When they conflict, trust the flow-independent measure and account for the MR.",
-        "The general rules for combined lesions: a DOWNSTREAM stenosis raises the gradient across an UPSTREAM one; a REGURGITATION unloads the ventricle and flatters everything downstream. And &lsquo;which do you fix&rsquo; turns on which lesion dominates and how each responds to fixing the other &mdash; correcting the AS raises LV pressure and can WORSEN the MR. Cross-links: vhd-081 (flow-dependence); vhd-020 (AS grading); vhd-052 (MR unloading)."
+        "The general rules for combined lesions: a DOWNSTREAM stenosis raises the gradient across an UPSTREAM one; a REGURGITATION unloads the ventricle and flatters everything downstream. And &lsquo;which do you fix&rsquo; turns on which lesion dominates and how each responds to fixing the other &mdash; relieving the AS LOWERS LV systolic pressure, which cuts the transmitral regurgitant gradient, so coexisting FUNCTIONAL MR often IMPROVES after AVR (which is why moderate secondary MR is frequently left alone at operation and reassessed). Cross-links: vhd-081 (flow-dependence); vhd-020 (AS grading); vhd-052 (MR unloading)."
       ] },
     { id:"vhd-090", type:"mcq", objective:"vhd-aortic-sclerosis",
       question:"A 78-year-old woman has an ejection systolic murmur at the aortic area, but a normal-volume, normal-character pulse, a normal second heart sound, and an echo showing thickened aortic valve leaflets with a peak velocity of 2.0 m/s. What is the diagnosis, and its significance?",
