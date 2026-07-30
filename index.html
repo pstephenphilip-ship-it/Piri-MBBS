@@ -8108,6 +8108,92 @@ window.MOCK_BANK = {
         "So it is a RED FLAG to optimise VENOUS MANAGEMENT and PROTECT the skin BEFORE it breaks down &mdash; the top of the ladder, alongside lipodermatosclerosis (vv-015), both pre-ulcer states.",
         "Distractors: it is NOT resolution, NOT benign, NOT arterial-specific, and NOT malignant. Cross-links: vv-015 (the other pre-ulcer flag); vv-017 (the ladder); Block 7 (the venous ulcer it precedes)."
       ] },
+    { id:"vv-019", type:"mcq", objective:"vv-svt",
+      question:"A 58-year-old woman with varicose veins has a 3-day history of a tender, red, firm cord running along a varicosity in the calf. She is systemically well and the rest of the leg is not swollen. What is the diagnosis?",
+      options:[
+        "Superficial thrombophlebitis",
+        "Deep vein thrombosis",
+        "Cellulitis of the lower leg",
+        "A ruptured Baker's cyst",
+        "Necrotising fasciitis"],
+      correctIndex:0,
+      explanation:[
+        "SUPERFICIAL THROMBOPHLEBITIS (SVT) is a thrombosed, inflamed SUPERFICIAL vein: a TENDER, red, PALPABLE CORD along the course of a varicosity, systemically WELL, with NO whole-leg swelling.",
+        "The distractors are the differential: DVT gives WHOLE-LEG swelling and pain (not a superficial cord); CELLULITIS is diffuse, spreading erythema &plusmn; systemic upset; a BAKER&rsquo;S CYST is posterior knee/calf; NECROTISING FASCIITIS has severe pain, systemic toxicity and crepitus.",
+        "Ordinary SVT &rarr; NSAIDs, COMPRESSION and MOBILISATION. But watch the RED FLAG: SVT that is EXTENSIVE or ASCENDING toward the SFJ needs duplex (vv-022) &mdash; location decides whether it is trivial or a pre-DVT. Cross-links: vv-022 (the propagation red flag); vv-015 (cellulitis mimic)."
+      ] },
+    { id:"vv-020", type:"mcq", objective:"vv-bleeding-varix",
+      question:"An 82-year-old man knocks his shin against the bed frame and a varicose vein starts bleeding briskly, spraying blood. He is sitting upright in a chair. What is the immediate management?",
+      options:[
+        "Sit him upright and apply a tourniquet to the thigh",
+        "Lie him flat, elevate the leg, and apply direct pressure",
+        "Apply a heat pack over the bleeding point",
+        "Give tranexamic acid and observe without pressure",
+        "Take him straight to theatre for emergency ligation"],
+      correctIndex:1,
+      explanation:[
+        "Bleeding from a varix can be BRISK &mdash; a THIN-WALLED vein at HIGH VENOUS PRESSURE. First aid: LIE THE PATIENT FLAT + ELEVATE the leg ABOVE THE HEART (this DROPS venous pressure) + DIRECT PRESSURE &mdash; and it stops quickly.",
+        "TRAP (counterintuitive): keeping the patient SITTING or STANDING keeps venous pressure HIGH and the bleeding CONTINUES &mdash; a genuine and common panic error (the instinct is to sit a bleeding patient up). A tourniquet and heat are wrong; TXA without pressure is inadequate.",
+        "It is a VENOUS (gravity-dependent) bleed, controlled by DROPPING venous pressure (elevation) &mdash; the same pressure logic as symptom relief on elevation (vv-013). Once controlled, treat the UNDERLYING incompetence to prevent recurrence. Cross-links: vv-013 (elevation drops venous pressure); Block 6 (definitive treatment)."
+      ] },
+    { id:"vv-021", type:"mcq", objective:"vv-saphena-varix", excludes:["vv-024"],
+      question:"A 70-year-old woman has a soft lump in the left groin with a cough impulse. It disappears when she lies down, reappears on standing, has a bluish tinge, and she has varicose veins in that leg. What is the lump most likely to be?",
+      options:[
+        "Femoral hernia",
+        "Inguinal hernia",
+        "Saphena varix",
+        "An enlarged inguinal lymph node",
+        "A femoral artery aneurysm"],
+      correctIndex:2,
+      explanation:[
+        "A SAPHENA VARIX is a dilatation of the GSV AT THE SFJ: a soft groin lump with a COUGH IMPULSE that EMPTIES (disappears) ON LYING, often BLUISH, with leg varicosities; tapping distal varicosities transmits a FLUID THRILL to it (Cruveilhier sign).",
+        "Both a saphena varix AND a femoral hernia give a COUGH IMPULSE near the groin &mdash; the discriminators are that the varix EMPTIES ON LYING and has the bluish tinge / fluid thrill, whereas a hernia is FIRMER and may NOT disappear.",
+        "The other groin-lump distractors: a LYMPH NODE has no cough impulse; a FEMORAL ARTERY ANEURYSM is PULSATILE/expansile. Getting this wrong is dangerous (vv-024). Cross-links: vv-024 (the danger); the groin-lump differential (hernia/node/aneurysm/varix)."
+      ] },
+    { id:"vv-022", type:"mcq", objective:"vv-svt-propagation",
+      question:"A 60-year-old man has superficial thrombophlebitis of the great saphenous vein that has extended to within a few centimetres of the saphenofemoral junction. Why does this change management?",
+      options:[
+        "It confirms the thrombophlebitis is purely cosmetic",
+        "It means antibiotics are now mandatory",
+        "It indicates the varicose veins have resolved",
+        "It may extend into the deep veins, risking DVT",
+        "It proves there is coexisting arterial disease"],
+      correctIndex:3,
+      explanation:[
+        "SVT is usually benign, but LOCATION DETERMINES RISK: when it is EXTENSIVE or ASCENDING toward the SFJ/SPJ it can PROPAGATE into the DEEP veins &rarr; DVT/PE. A superficial clot a centimetre from the junction is effectively a PRE-DVT.",
+        "So proximity to the junction is the RED FLAG: DUPLEX to map the extent and exclude DVT, and a course of ANTICOAGULATION for extensive or near-junction SVT.",
+        "The management FORKS on location: ordinary SVT away from the junction &rarr; NSAIDs, compression, mobilisation (vv-019); ascending/near-junction or extensive SVT &rarr; duplex + anticoagulation. Cross-links: vv-019 (recognition); DVT (the deep-system extension)."
+      ] },
+    { id:"vv-023", type:"categorize", objective:"vv-complication-fork",
+      question:"Sort each presentation by whether it is a complication of varicose veins or a separate diagnosis to exclude.",
+      buckets:["Complication of varicose veins","A separate diagnosis to exclude"],
+      items:[
+        {text:"Superficial thrombophlebitis",bucket:0},
+        {text:"Bleeding from a varix",bucket:0},
+        {text:"Venous leg ulcer",bucket:0},
+        {text:"Deep vein thrombosis with whole-leg swelling",bucket:1},
+        {text:"Femoral hernia in the groin",bucket:1},
+        {text:"Acute cellulitis (hot, red, systemic upset)",bucket:1}
+      ],
+      explanation:[
+        "The recognised COMPLICATIONS of varicose veins are SUPERFICIAL THROMBOPHLEBITIS, BLEEDING and VENOUS ULCERATION (plus the progressive skin changes of CVI).",
+        "The &lsquo;separate&rsquo; items are the dangerous MIMICS to EXCLUDE: DVT (whole-leg swelling &mdash; a different, dangerous diagnosis, though SVT can PROPAGATE to it, vv-022); a FEMORAL HERNIA (the groin-lump mimic of a saphena varix, vv-021/024); CELLULITIS (the acute mimic of lipodermatosclerosis, vv-015).",
+        "So reading the presentation sorts &lsquo;a complication of the known varicose veins&rsquo; from &lsquo;a separate diagnosis I must not miss&rsquo; &mdash; and the must-not-miss ones are exactly the dangerous look-alikes. Cross-links: vv-015 (cellulitis); vv-021 (hernia); vv-019/022 (SVT)."
+      ] },
+    { id:"vv-024", type:"mcq", objective:"vv-saphena-varix-danger", excludes:["vv-021"],
+      question:"A soft groin lump with a cough impulse, in a patient with varicose veins, is assumed to be a femoral hernia and incised. Torrential bleeding follows. What was the lump?",
+      options:[
+        "A strangulated femoral hernia",
+        "An inguinal lymph node",
+        "A psoas abscess",
+        "A femoral artery aneurysm",
+        "A saphena varix"],
+      correctIndex:4,
+      explanation:[
+        "The lump was a SAPHENA VARIX &mdash; a dilated GSV at the SFJ. Because it is a VEIN, incising it (mistaking it for a hernia) causes TORRENTIAL VENOUS HAEMORRHAGE.",
+        "This is why the saphena-varix-vs-femoral-hernia distinction (vv-021) is a SAFETY POINT, not trivia: the cough impulse is SHARED, but the varix EMPTIES ON LYING and has the bluish tinge / fluid thrill (Cruveilhier sign) &mdash; the features that stop you cutting into a vein.",
+        "Distractors: a strangulated hernia bleeds far less dramatically; a lymph node or abscess would not gush; a femoral artery aneurysm is PULSATILE and would be recognised first. Cross-links: vv-021 (the recognition it depends on)."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Rheumatic Fever / Rheumatic Heart Disease": [
     { id:"rf-001", type:"mcq", objective:"rf-classic-dx",
