@@ -18944,7 +18944,18 @@ function hideFlyout(p) {
 /* ===== On-this-page section navigator ===== */
 (function(){
   var MIN_SECTIONS=2, TOC_W=212, GAP_NEEDED=TOC_W+34, TOP_OFFSET=64;
-  var toc=null, secs=[], scroller=null, rafPending=false;
+  var toc=null, secs=[], scroller=null, rafPending=false, curCfg=null;
+  var NT_TABS=[
+    {tab:'tab-conditions', rich:'rich-note-display', na:'notearea-conditions', panel:'notes-panel-conditions'},
+    {tab:'tab-signs', rich:'rich-note-display-signs', na:'notearea-signs', panel:'notes-panel-signs'},
+    {tab:'tab-anatomy', rich:'rich-note-display-anatomy', na:'notearea-anatomy', panel:'notes-panel-anatomy'},
+    {tab:'tab-histology', rich:'rich-note-display-histology', na:'notearea-histology', panel:'notes-panel-histology'},
+    {tab:'tab-investigations', rich:'rich-note-display-investigations', na:'notearea-investigations', panel:'notes-panel-investigations'}
+  ];
+  function ntActiveCfg(){
+    for(var i=0;i<NT_TABS.length;i++){ var t=document.getElementById(NT_TABS[i].tab); if(t && t.classList.contains('visible')) return NT_TABS[i]; }
+    return null;
+  }
 
   function getScroller(el){
     var e=el;
@@ -18972,9 +18983,10 @@ function hideFlyout(p) {
   function clean(s){ return (s||'').replace(/\s+/g,' ').trim(); }
 
   function build(){
-    var tab=document.getElementById('tab-conditions');
-    if(!tab || !tab.classList.contains('visible')){ hide(); return; }
-    var richEl=document.getElementById('rich-note-display');
+    var cfg=ntActiveCfg();
+    if(!cfg){ hide(); return; }
+    curCfg=cfg;
+    var richEl=document.getElementById(cfg.rich);
     if(!richEl || !richEl.offsetParent){ hide(); return; }
     var scope=activeScope(richEl);
     var titles=scope.querySelectorAll('.rn-section-title');
@@ -18995,9 +19007,9 @@ function hideFlyout(p) {
 
   function place(){
     if(!toc) return;
-    var na=document.getElementById('notearea-conditions'); if(!na){ hide(); return; }
+    var na=document.getElementById((curCfg&&curCfg.na)||'notearea-conditions'); if(!na){ hide(); return; }
     var r=na.getBoundingClientRect();
-    var richEl=document.getElementById('rich-note-display');
+    var richEl=document.getElementById((curCfg&&curCfg.rich)||'rich-note-display');
     var rn=richEl && (richEl.querySelector('.rich-note')||richEl);
     var contentRight = rn ? rn.getBoundingClientRect().right : (r.left+960);
     var gap = r.right - contentRight;
@@ -19027,18 +19039,22 @@ function hideFlyout(p) {
   function onScroll(){ if(rafPending) return; rafPending=true; requestAnimationFrame(function(){ rafPending=false; spy(); }); }
 
   function boot(){
-    var host=document.getElementById('notes-panel-conditions');
-    if(host){
-      new MutationObserver(rebuild).observe(host,{childList:true,subtree:true});
-      host.addEventListener('scroll', onScroll, {passive:true});
-    }
+    NT_TABS.forEach(function(cfg){
+      var host=document.getElementById(cfg.panel);
+      if(host){
+        new MutationObserver(rebuild).observe(host,{childList:true,subtree:true});
+        host.addEventListener('scroll', onScroll, {passive:true});
+      }
+    });
     // Hide reliably whenever we LEAVE the Conditions notes view, regardless of how.
     // build() already hides when #tab-conditions isn't .visible, but it only runs when a
     // wrapped nav function fires; the mock FAB captures openMock before we wrap it, and
     // hash navigation bypasses the wrappers. Observing the tab's class (and hashchange)
     // catches every route into the mock/other tabs so the stale TOC can't linger.
-    var tc=document.getElementById('tab-conditions');
-    if(tc){ new MutationObserver(rebuild).observe(tc,{attributes:true,attributeFilter:['class']}); }
+    NT_TABS.forEach(function(cfg){
+      var tc=document.getElementById(cfg.tab);
+      if(tc){ new MutationObserver(rebuild).observe(tc,{attributes:true,attributeFilter:['class']}); }
+    });
     window.addEventListener('hashchange', rebuild);
     // Pane (subtab) switches
     document.addEventListener('click', function(e){
