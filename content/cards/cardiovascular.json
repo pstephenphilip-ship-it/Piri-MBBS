@@ -9243,9 +9243,14 @@
     "back": "It is a <b>clinical</b> diagnosis (sudden dyspnoea, hyper-resonance, absent breath sounds, tracheal deviation, shock) — immediate needle/finger decompression; do NOT wait for a CXR."
    },
    {
-    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0009",
-    "front": "What is Boerhaave syndrome, and what is Mackler's triad?",
-    "back": "Spontaneous full-thickness oesophageal rupture after forceful vomiting. Mackler's triad = vomiting + chest pain + subcutaneous emphysema."
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0009a",
+    "front": "What is Boerhaave syndrome?",
+    "back": "Spontaneous full-thickness oesophageal rupture caused by forceful vomiting/retching (classically after an alcohol binge). The oesophagus has no serosa, so contents leak into the mediastinum → mediastinitis and sepsis."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0009b",
+    "front": "What is Mackler's triad (oesophageal rupture)?",
+    "back": "Vomiting + chest pain + subcutaneous emphysema."
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0010",
@@ -9333,11 +9338,6 @@
     "back": "Myocarditis (confirm with cardiac MRI)."
    },
    {
-    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0027",
-    "front": "Which single bedside measurement best flags aortic dissection?",
-    "back": "Blood pressure in BOTH arms (a difference >20 mmHg or a pulse deficit)."
-   },
-   {
     "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0028",
     "front": "Dermatomal burning chest pain preceding a vesicular rash suggests?",
     "back": "Herpes zoster (shingles)."
@@ -9361,6 +9361,51 @@
     "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__0032",
     "front": "Free air/pneumomediastinum on CXR with surgical emphysema after vomiting — diagnosis?",
     "back": "Oesophageal rupture (Boerhaave)."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1001",
+    "front": "Why can a myocardial infarction be missed in diabetics, the elderly and women?",
+    "back": "They often have an <b>atypical or silent</b> presentation — epigastric pain, breathlessness, nausea, fatigue, syncope or collapse rather than classic chest pain. A normal pain history does not exclude ACS."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1002",
+    "front": "Which common, benign cause of chest pain is a diagnosis of exclusion?",
+    "back": "<b>Anxiety / panic disorder</b> — situational pain with palpitations, hyperventilation and paraesthesiae; diagnose only after excluding ACS, PE and other serious causes."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1003",
+    "front": "Match the STEMI territory to the ECG leads and culprit artery.",
+    "back": "<b>Inferior</b> — II, III, aVF (RCA); <b>Anterior</b> — V1–V4 (LAD); <b>Lateral</b> — I, aVL, V5–V6 (circumflex)."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1004",
+    "front": "An inferior STEMI (II, III, aVF) with hypotension — what should you suspect, and why does it matter?",
+    "back": "<b>Right-ventricular infarction</b>. The RV is preload-dependent, so nitrates can cause profound hypotension — give fluids and use nitrates with caution (confirm with right-sided lead V4R)."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1005",
+    "front": "ST depression with a tall R wave in V1–V3 — what diagnosis must you consider?",
+    "back": "<b>Posterior STEMI</b> — confirm with posterior leads V7–V9; easily mistaken for an NSTEMI."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1006",
+    "front": "Is new LBBB still treated as an automatic STEMI-equivalent?",
+    "back": "No. It is no longer an automatic criterion for primary PCI; with an ischaemic presentation, assess using the (Smith-modified) <b>Sgarbossa criteria</b>."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1007",
+    "front": "Does relief of chest pain with GTN confirm a cardiac cause?",
+    "back": "No — <b>oesophageal spasm</b> also eases with GTN, so relief alone does not confirm angina."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1008",
+    "front": "Young patient with chest pain, agitation, dilated pupils and tachycardia — what cause should you consider?",
+    "back": "<b>Cocaine-induced coronary vasospasm</b> (can cause true MI). Avoid beta-blockers acutely; treat with benzodiazepines ± nitrates."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Chest-Pain__1009",
+    "front": "A patient with sickle-cell disease develops chest pain, fever, hypoxia and a new pulmonary infiltrate — diagnosis?",
+    "back": "<b>Acute chest syndrome</b> — a medical emergency needing oxygen, analgesia, antibiotics and often exchange transfusion."
    }
   ]
  },
@@ -30043,13 +30088,13 @@
     "question": "A 58-year-old man has 45 minutes of crushing central chest pain. ECG shows 3 mm ST elevation in V1–V4. He can reach a primary-PCI centre within 90 minutes. What is the most appropriate immediate reperfusion strategy?",
     "options": [
      "Primary percutaneous coronary intervention (PCI)",
-     "Fibrinolysis (thrombolysis) in preference to PCI",
+     "Immediate fibrinolysis (thrombolysis)",
      "High-dose aspirin alone and admit",
      "Exercise ECG to confirm ischaemia",
      "CT coronary angiography"
     ],
     "correctIndex": 0,
-    "explanation": "Anterior <b>STEMI</b> (ST elevation ± new LBBB = total coronary occlusion). Primary PCI is first-line reperfusion when it can be delivered within 120 minutes of the time fibrinolysis could otherwise be given — here 90 minutes, so PCI. Fibrinolysis is the fallback only if timely PCI is unavailable. An exercise test is dangerous in acute STEMI."
+    "explanation": "Anterior <b>STEMI</b> (ST-segment elevation indicating acute total coronary occlusion; new LBBB with an ischaemic presentation is assessed with Sgarbossa criteria, not treated as an automatic STEMI-equivalent). Primary PCI is first-line reperfusion when it can be delivered within 120 minutes of the time fibrinolysis could otherwise be given — here 90 minutes, so PCI. Fibrinolysis is the fallback only if timely PCI is unavailable. An exercise test is dangerous in acute STEMI."
    },
    {
     "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__0003",
@@ -30063,7 +30108,7 @@
      "Pericarditis"
     ],
     "correctIndex": 0,
-    "explanation": "Partial (non-occlusive) coronary thrombus causing myocardial necrosis gives a <b>troponin rise with ST depression / T-wave inversion but no ST elevation</b> = NSTEMI. Unstable angina has the same ECG picture but a NORMAL troponin. STEMI requires ST elevation or new LBBB. This is the NSTEMI vs UA distinction from the ACS note."
+    "explanation": "Partial (non-occlusive) coronary thrombus causing myocardial necrosis gives a <b>troponin rise with ST depression / T-wave inversion but no ST elevation</b> = NSTEMI. Unstable angina has the same ECG picture but a NORMAL troponin. STEMI requires ST-segment elevation (new LBBB is no longer an automatic STEMI-equivalent — assess with Sgarbossa criteria). This is the NSTEMI vs UA distinction from the ACS note."
    },
    {
     "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__0004",
@@ -30180,16 +30225,16 @@
    {
     "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__0012",
     "type": "mcq",
-    "question": "A patient with suspected ACS also has a possible history of tearing pain radiating to the back. Why is it essential to exclude aortic dissection before starting treatment?",
+    "question": "A 64-year-old with central chest pain also describes an episode of tearing pain radiating to the back. BP is 182/96 mmHg in the right arm and 150/80 mmHg in the left. What is the most appropriate immediate step?",
     "options": [
-     "Antiplatelets/anticoagulation or thrombolysis can cause catastrophic bleeding if it is a dissection",
-     "Dissection makes aspirin ineffective",
-     "Troponin is always normal in dissection",
-     "Beta-blockers are contraindicated in ACS",
-     "GTN worsens dissection pain"
+     "Arrange CT aortography before giving any anticoagulation",
+     "Give aspirin, clopidogrel and treatment-dose LMWH now",
+     "Thrombolyse for a presumed STEMI",
+     "Start a heparin infusion and repeat the troponin",
+     "Give GTN and admit for serial ECGs"
     ],
     "correctIndex": 0,
-    "explanation": "Giving <b>antiplatelet, anticoagulant or thrombolytic therapy to a patient who actually has an aortic dissection can be fatal</b> (extension/rupture, haemopericardium). This is the anchoring trap — always check BP in both arms and consider dissection before committing to the ACS pathway."
+    "explanation": "The inter-arm systolic BP difference (>20 mmHg) and tearing/interscapular pain point to <b>aortic dissection</b>. Antiplatelets, anticoagulation or thrombolysis (B–D) can be fatal if it is a dissection, so imaging (CT aortography) must come first. GTN with serial ECGs (E) neither confirms nor excludes it. This is the anchoring trap — check both-arm BP and image before committing to the ACS pathway."
    },
    {
     "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__0013",
@@ -30236,16 +30281,16 @@
    {
     "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__0016",
     "type": "mcq",
-    "question": "A 30-year-old attends with chest pain that is fully reproducible on palpation of the costochondral junctions. Observations are normal. What is the safest interpretation?",
+    "question": "A 30-year-old has chest pain that is fully reproducible on palpation of the costochondral junctions; observations are normal. What is the most appropriate management?",
     "options": [
-     "Reproducible tenderness suggests a musculoskeletal cause but does not by itself exclude ACS",
-     "Reproducible tenderness reliably excludes cardiac causes",
-     "Troponin is unnecessary in any patient with chest-wall tenderness",
-     "This confirms costochondritis, so no ECG is needed",
-     "Reproducible pain excludes pulmonary embolism"
+     "Record an ECG and use clinical judgement, as reproducible tenderness does not exclude ACS",
+     "Diagnose costochondritis and discharge without an ECG",
+     "Reassure and treat with oral NSAIDs alone",
+     "Arrange urgent outpatient CT coronary angiography",
+     "Refer routinely to rheumatology"
     ],
     "correctIndex": 0,
-    "explanation": "Reproducible chest-wall tenderness raises the probability of a <b>musculoskeletal cause (e.g. costochondritis)</b> but does <b>not exclude</b> ACS or other serious causes — a proportion of MIs have reproducible tenderness. Use clinical judgement; obtain an ECG when there is any doubt."
+    "explanation": "Reproducible chest-wall tenderness raises the probability of a <b>musculoskeletal</b> cause but does not exclude ACS or other serious pathology, so an ECG and clinical assessment remain appropriate before attributing the pain to the chest wall (B, C). CTCA and rheumatology referral (D, E) are not the immediate step."
    },
    {
     "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__0017",
@@ -30274,6 +30319,62 @@
     ],
     "correctIndex": 0,
     "explanation": "A <b>dermatomal, burning pain that precedes a vesicular rash</b> in the same distribution is <b>herpes zoster</b> (reactivation of varicella-zoster virus). The pain can predate the rash by days and mimic other causes of chest pain until the rash appears."
+   },
+   {
+    "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__1001",
+    "type": "mcq",
+    "question": "A 78-year-old woman with type 2 diabetes presents with 2 hours of breathlessness, nausea and epigastric discomfort but no chest pain. ECG shows new lateral ST depression and troponin is elevated. What is the most likely diagnosis?",
+    "options": [
+     "Non-ST-elevation myocardial infarction (atypical presentation)",
+     "Gastro-oesophageal reflux disease",
+     "Acute pancreatitis",
+     "Panic attack",
+     "Musculoskeletal chest pain"
+    ],
+    "correctIndex": 0,
+    "explanation": "Diabetics, the elderly and women frequently have <b>atypical or silent MI</b> — breathless, nauseated or epigastric presentations without classic chest pain. Dynamic ischaemic ECG changes plus a troponin rise indicate NSTEMI. A normal pain story does not exclude ACS."
+   },
+   {
+    "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__1002",
+    "type": "mcq",
+    "question": "A 60-year-old man has an inferior STEMI (ST elevation in II, III and aVF). He becomes profoundly hypotensive shortly after a dose of GTN. What is the most likely explanation?",
+    "options": [
+     "Right-ventricular infarction (preload-dependent, nitrate-sensitive)",
+     "Anaphylaxis to GTN",
+     "Left-ventricular free-wall rupture",
+     "Extension into aortic dissection",
+     "Re-infarction of the anterior wall"
+    ],
+    "correctIndex": 0,
+    "explanation": "Inferior MIs (RCA territory) often involve the <b>right ventricle</b>. The RV is preload-dependent, so nitrates — which drop preload — can precipitate profound hypotension. Suspect RV infarction (confirm with right-sided lead V4R), give fluids and use nitrates cautiously."
+   },
+   {
+    "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__1003",
+    "type": "mcq",
+    "question": "A 24-year-old has recurrent episodes of sharp left-sided chest pain with palpitations, perioral tingling and breathlessness during stressful situations. ECG, troponin and examination are normal. What is the most appropriate conclusion?",
+    "options": [
+     "Anxiety/panic-related chest pain — but a diagnosis of exclusion once serious causes are ruled out",
+     "Definite costochondritis needing no follow-up",
+     "Stable angina",
+     "Pulmonary embolism",
+     "Chest pain in the young never needs investigation"
+    ],
+    "correctIndex": 0,
+    "explanation": "Situational chest pain with hyperventilation and paraesthesiae suggests <b>anxiety/panic</b> — a common benign cause but a <b>diagnosis of exclusion</b>. Here ACS (normal ECG/troponin) and other serious causes have been considered. Absolute statements (E) are wrong; angina/PE are not supported by the picture."
+   },
+   {
+    "id": "piri_q__signs__CARDIOVASCULAR__Chest-Pain__1004",
+    "type": "mcq",
+    "question": "A 52-year-old smoker with hypertension describes burning retrosternal pain after meals, worse lying flat and partially relieved by antacids. What is the most appropriate next step?",
+    "options": [
+     "Perform an ECG and assess for ACS before attributing the pain to reflux",
+     "Prescribe a proton-pump inhibitor and discharge without an ECG",
+     "Arrange urgent OGD as the first investigation",
+     "Reassure the patient that antacid relief confirms GORD",
+     "Start empirical H. pylori eradication"
+    ],
+    "correctIndex": 0,
+    "explanation": "Reflux-type features and antacid relief do <b>not</b> exclude ACS — cardiac and oesophageal pain overlap and this patient has cardiac risk factors. An ECG (± troponin) to exclude ACS comes first; antacid relief is not confirmatory (D). OGD, PPI and H. pylori therapy are not the immediate priority."
    }
   ]
  }
