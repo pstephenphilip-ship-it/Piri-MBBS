@@ -8368,6 +8368,101 @@ window.MOCK_BANK = {
         "MANAGE IN PRIMARY CARE / reassure: ASYMPTOMATIC or purely COSMETIC varicose veins and thread veins (telangiectasia) &mdash; not routinely funded on cosmetic grounds.",
         "So the referral triggers are DISEASE &mdash; SYMPTOMS, SKIN CHANGES, SVT or ULCER &mdash; NOT cosmesis alone. The further up the CVI ladder, the more it warrants referral. Cross-links: vv-032 (what follows referral)."
       ] },
+    { id:"vv-037", type:"mcq", objective:"vv-venous-ulcer",
+      image:"assets/ecg/venous_ulcer.png",
+      imageAlt:"A large, shallow ulcer with irregular margins on the inner lower leg above the ankle.",
+      imageCredit:"Via Wikimedia Commons.",
+      question:"A 71-year-old woman with varicose veins and haemosiderin staining has a large, shallow, irregular, exudative ulcer just above the medial malleolus (shown). It is only mildly painful and feels better when she elevates the leg. Foot pulses are present. What type of ulcer is this?",
+      options:[
+        "Venous ulcer",
+        "Arterial ulcer",
+        "Neuropathic ulcer",
+        "Pyoderma gangrenosum",
+        "Marjolin ulcer (SCC)"],
+      correctIndex:0,
+      explanation:[
+        "VENOUS ULCER &mdash; GAITER area (above the MEDIAL malleolus), LARGE, SHALLOW, irregular, EXUDATIVE, with surrounding CVI skin changes (haemosiderin, eczema, lipodermatosclerosis); LESS painful and BETTER on ELEVATION; foot pulses PRESENT, ABPI &ge;0.8. It is the COMMONEST leg ulcer.",
+        "Distractors: ARTERIAL (punched-out, painful, pressure points, pulseless); NEUROPATHIC (painless, plantar, callus).",
+        "The important non-common differentials: PYODERMA GANGRENOSUM (violaceous, UNDERMINED edge, rapidly progressive &mdash; treat with IMMUNOSUPPRESSION, do NOT debride, as trauma worsens it via PATHERGY); and a MARJOLIN ULCER (squamous cell carcinoma arising in a CHRONIC ulcer &mdash; suspect if a long-standing ulcer CHANGES or heaps up &rarr; biopsy). Cross-links: vv-038 (arterial contrast); vv-014/015 (skin changes)."
+      ] },
+    { id:"vv-038", type:"mcq", objective:"vv-arterial-ulcer",
+      image:"assets/ecg/arterial_ulcer.png",
+      imageAlt:"A small, deep, sharply demarcated ulcer over the outer ankle.",
+      imageCredit:"Via Wikimedia Commons.",
+      question:"A 68-year-old man who smokes and has claudication has a small, deep, sharply demarcated 'punched-out' ulcer over the lateral malleolus (shown). It is very painful, worse at night and on elevation, and better when he hangs it out of bed. The foot is cold with absent pulses. What type of ulcer is this?",
+      options:[
+        "Venous ulcer",
+        "Arterial ulcer",
+        "Neuropathic ulcer",
+        "Venous eczema",
+        "Superficial thrombophlebitis"],
+      correctIndex:1,
+      explanation:[
+        "ARTERIAL ULCER &mdash; SMALL, DEEP, &lsquo;PUNCHED-OUT&rsquo;, DRY, at PRESSURE POINTS / toes / heel / LATERAL malleolus; VERY PAINFUL, WORSE on elevation and BETTER on DEPENDENCY (gravity aids the poor inflow); COLD, hairless, PALE foot with ABSENT pulses and reduced ABPI (&lt;0.8).",
+        "The management is the OPPOSITE of venous: do NOT compress &mdash; assess for REVASCULARISATION.",
+        "The elevation response is the quick bedside split (vv-039): arterial pain WORSENS on elevation, venous pain EASES. Cross-links: vv-037 (venous contrast); vv-039 (elevation test); Peripheral Arterial Disease (arterial ulcers, ABPI)."
+      ] },
+    { id:"vv-039", type:"mcq", objective:"vv-ulcer-elevation",
+      question:"Two patients each have a leg ulcer. One says the pain is relieved by elevating the leg; the other says the pain is worse on elevation and eases when the leg hangs down. What do these opposite responses indicate?",
+      options:[
+        "Elevation-relieved = arterial; elevation-worsened = venous",
+        "Both are venous ulcers",
+        "Elevation-relieved = venous; elevation-worsened = arterial",
+        "Both are arterial ulcers",
+        "Elevation makes no difference to either"],
+      correctIndex:2,
+      explanation:[
+        "The ELEVATION TEST splits them: VENOUS pain is RELIEVED by ELEVATION (it drains the congested veins, DROPPING venous pressure); ARTERIAL pain is WORSE on elevation and BETTER on DEPENDENCY (hanging the leg uses GRAVITY to improve the poor arterial inflow &mdash; the &lsquo;hang the foot out of bed&rsquo; story, vv-013).",
+        "One manoeuvre, OPPOSITE responses, because the two diseases have opposite pressure problems: venous = TOO MUCH venous pressure (elevation helps), arterial = TOO LITTLE arterial pressure (dependency helps).",
+        "So elevation-relieved = VENOUS; elevation-worsened = ARTERIAL. Cross-links: vv-013 (the venous&ndash;arterial symptom fork); vv-037/038."
+      ] },
+    { id:"vv-040", type:"categorize", objective:"vv-ulcer-fork",
+      question:"Sort each feature by whether it is typical of a venous or an arterial ulcer.",
+      buckets:["Venous ulcer","Arterial ulcer"],
+      items:[
+        {text:"Gaiter area, above the medial malleolus",bucket:0},
+        {text:"Large, shallow, irregular, exudative",bucket:0},
+        {text:"Surrounding haemosiderin and lipodermatosclerosis",bucket:0},
+        {text:"Small, deep, 'punched-out', dry",bucket:1},
+        {text:"Toes, heel and pressure points",bucket:1},
+        {text:"Cold, pale foot with absent pulses",bucket:1}
+      ],
+      explanation:[
+        "The discriminator: VENOUS = gaiter / medial malleolus, large/shallow/irregular/EXUDATIVE, surrounding CVI skin changes (haemosiderin, lipodermatosclerosis), less painful/better on elevation, ABPI &ge;0.8.",
+        "ARTERIAL = pressure points / lateral malleolus / toes, small/deep/PUNCHED-OUT/dry, COLD pale foot with ABSENT pulses, very painful/worse on elevation, ABPI &lt;0.8.",
+        "The MANAGEMENT FORK follows the type: venous &rarr; COMPRESSION (after ABPI); arterial &rarr; REVASCULARISE, do NOT compress &mdash; and the ABPI grades it when the ulcer is MIXED (vv-042). Cross-links: vv-028 (ABPI decides compression); vv-042 (mixed ulcer)."
+      ] },
+    { id:"vv-041", type:"mcq", objective:"vv-neuropathic-ulcer",
+      image:"assets/ecg/neuropathic_ulcer.png",
+      imageAlt:"A deep ulcer surrounded by thick callus under the sole of the forefoot.",
+      imageCredit:"Via Wikimedia Commons.",
+      question:"A 60-year-old man with type 2 diabetes and peripheral neuropathy has a painless, deep ulcer under the head of the first metatarsal (a plantar pressure point), surrounded by callus (shown). Foot pulses are present. What type of ulcer is this?",
+      options:[
+        "Venous ulcer",
+        "Arterial ulcer",
+        "Pyoderma gangrenosum",
+        "Neuropathic ulcer",
+        "A malignant (Marjolin) ulcer"],
+      correctIndex:3,
+      explanation:[
+        "NEUROPATHIC ULCER &mdash; over PLANTAR PRESSURE POINTS (metatarsal heads, heel), PAINLESS (sensory loss), surrounded by CALLUS, classically in DIABETES; pulses often PRESENT (unless coexisting PAD &rarr; a NEUROISCHAEMIC ulcer). The PAINLESSNESS + pressure-point site + callus is the giveaway.",
+        "Distractors: VENOUS (gaiter, exudative); ARTERIAL (painful, punched-out, ABSENT pulses).",
+        "Diabetics often have MIXED NEUROISCHAEMIC ulcers &mdash; always check the PULSES/ABPI. Cross-links: vv-040 (the fork); Peripheral Arterial Disease / diabetic foot."
+      ] },
+    { id:"vv-042", type:"mcq", objective:"vv-mixed-ulcer",
+      question:"A patient with a gaiter-area ulcer and signs of venous disease is found to have an ABPI of 0.6. How does this change management?",
+      options:[
+        "Apply full high compression as for a venous ulcer",
+        "Compression is completely safe and unrestricted",
+        "No ABPI or vascular assessment is needed",
+        "The ulcer must be purely venous",
+        "Likely mixed — use reduced, supervised compression"],
+      correctIndex:4,
+      explanation:[
+        "An ABPI of 0.6 (&lt;0.8) signals COEXISTING ARTERIAL DISEASE &rarr; a MIXED (arterial-venous) ulcer. FULL compression is UNSAFE (risks ischaemic damage), but the venous component still needs support: use REDUCED/MODIFIED compression under SPECIALIST supervision; if ABPI &lt;0.5, AVOID compression and prioritise REVASCULARISATION.",
+        "So the ABPI GRADES the compression, turning the safety gate into a DIAL: &ge;0.8 FULL compression, 0.5&ndash;0.8 REDUCED/supervised (mixed), &lt;0.5 NONE (revascularise).",
+        "This is the nuanced form of the vv-028 gate: the number does not just say yes/no, it TITRATES the compression to the arterial supply &mdash; because real legs are often MIXED, not purely venous or arterial. Cross-links: vv-028 (the binary gate); vv-040 (the discriminator)."
+      ] },
   ],
   "conditions__CARDIOVASCULAR__Rheumatic Fever / Rheumatic Heart Disease": [
     { id:"rf-001", type:"mcq", objective:"rf-classic-dx",
