@@ -16986,36 +16986,84 @@ initTab('conditions');
     if(sb&&!sb.classList.contains('open')) annotToggle(p);
   };
 
+  // Build a whitespace-collapsed string of the panel's text plus a map from each
+  // character to its (textNode, offset). Text already inside a highlight mark is
+  // skipped so a second annotation never nests inside the first.
+  function annotTextMap(panel){
+    var walker=document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null, false);
+    var norm='', map=[], lastSpace=true, n;
+    while(n=walker.nextNode()){
+      if(!n.nodeValue) continue;
+      if(n.parentElement && n.parentElement.closest && n.parentElement.closest('.annot-highlight')) continue;
+      var v=n.nodeValue;
+      for(var i=0;i<v.length;i++){
+        var c=v[i];
+        if(c===' '||c==='\t'||c==='\n'||c==='\r'||c==='\f'||c===' '){
+          if(lastSpace) continue;
+          norm+=' '; map.push({node:n, off:i}); lastSpace=true;
+        } else {
+          norm+=c; map.push({node:n, off:i}); lastSpace=false;
+        }
+      }
+    }
+    return { norm:norm, map:map };
+  }
+  function annotNormTarget(t){ return (t||'').replace(/[\s ]+/g,' ').trim(); }
+
+  function annotMakeMark(a, text, p){
+    var mark=document.createElement('mark');
+    mark.className='annot-highlight'; mark.textContent=text; mark.title=a.note||'';
+    mark.style.background=hlBg(a.color);
+    mark.style.borderBottom=(a.note&&a.note.trim())?('2px solid '+hlBorder(a.color)):'none';
+    mark.dataset.panel=p; mark.dataset.annotId=a.id;
+    mark.onclick=function(e){ if(e){ e.stopPropagation(); } window.daShowNote(p, a.id, this); };
+    return mark;
+  }
+  // Wrap a single text node's [s,e) slice in a mark, preserving the surrounding text
+  function annotWrapSegment(node, s, e, a, p){
+    if(e<=s) return;
+    var v=node.nodeValue, par=node.parentNode; if(!par) return;
+    var before=v.substring(0,s), mid=v.substring(s,e), after=v.substring(e);
+    var frag=document.createDocumentFragment();
+    if(before) frag.appendChild(document.createTextNode(before));
+    frag.appendChild(annotMakeMark(a, mid, p));
+    if(after) frag.appendChild(document.createTextNode(after));
+    par.replaceChild(frag, node);
+  }
+  // Highlight the first occurrence of a.selectedText, even when it spans several
+  // text nodes / inline elements. Emits one mark per spanned text node.
+  function annotHighlightOne(panel, a, p){
+    var target=annotNormTarget(a.selectedText);
+    if(!target) return;
+    var tm=annotTextMap(panel);
+    var idx=tm.norm.indexOf(target);
+    if(idx<0) return;
+    var startInfo=tm.map[idx], endInfo=tm.map[idx+target.length-1];
+    if(!startInfo||!endInfo) return;
+    var startNode=startInfo.node, startOff=startInfo.off;
+    var endNode=endInfo.node, endOff=endInfo.off+1;
+    // Static ordered list of text nodes (we mutate the DOM as we wrap)
+    var list=[], w=document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null, false), x;
+    while(x=w.nextNode()) list.push(x);
+    var inside=false;
+    for(var i=0;i<list.length;i++){
+      var node=list[i];
+      if(node===startNode && node===endNode){ annotWrapSegment(node, startOff, endOff, a, p); break; }
+      if(node===startNode){ inside=true; annotWrapSegment(node, startOff, node.nodeValue.length, a, p); continue; }
+      if(node===endNode){ annotWrapSegment(node, 0, endOff, a, p); break; }
+      if(inside){ annotWrapSegment(node, 0, node.nodeValue.length, a, p); }
+    }
+  }
+
   function applyHighlights(p, annots){
     var panel=getContentPanel(p);
-    if(panel) panel.querySelectorAll('.annot-highlight').forEach(function(el){
+    if(!panel) return;
+    panel.querySelectorAll('.annot-highlight').forEach(function(el){
       el.parentNode.replaceChild(document.createTextNode(el.textContent),el);
     });
-    if(!panel||!annots.length) return;
-    annots.forEach(function(a){
-      if(!a.selectedText) return;
-      var walker=document.createTreeWalker(panel,NodeFilter.SHOW_TEXT,null,false);
-      var node;
-      while(node=walker.nextNode()){
-        if(node.parentElement.classList.contains('annot-highlight')) continue;
-        var idx=node.nodeValue.indexOf(a.selectedText);
-        if(idx<0) continue;
-        var mark=document.createElement('mark');
-        mark.className='annot-highlight'; mark.textContent=a.selectedText; mark.title=a.note||'';
-        mark.style.background=hlBg(a.color);
-        mark.style.borderBottom=(a.note&&a.note.trim())?('2px solid '+hlBorder(a.color)):'none';
-        mark.dataset.panel=p; mark.dataset.annotId=a.id;
-        mark.onclick=(function(pid,aid){
-          return function(e){ if(e){ e.stopPropagation(); } window.daShowNote(pid, aid, this); };
-        })(p,a.id);
-        var par=node.parentNode;
-        par.insertBefore(document.createTextNode(node.nodeValue.substring(0,idx)),node);
-        par.insertBefore(mark,node);
-        par.insertBefore(document.createTextNode(node.nodeValue.substring(idx+a.selectedText.length)),node);
-        par.removeChild(node);
-        break;
-      }
-    });
+    panel.normalize();
+    if(!annots.length) return;
+    annots.forEach(function(a){ if(a.selectedText) annotHighlightOne(panel, a, p); });
   }
 
   function annotSetMeta(p, count, subText){
