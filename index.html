@@ -7965,7 +7965,7 @@ window.MOCK_BANK = {
       options:[
         "It suggests the varicose veins are unlikely to need treatment",
         "It means endothermal ablation should be done urgently",
-        "The superficial veins are vital collaterals and must not be removed",
+        "It means the superficial veins are essential collaterals to protect",
         "It points to coexisting arterial disease needing an ABPI",
         "It indicates anticoagulation should be started"],
       correctIndex:2,
@@ -8072,7 +8072,7 @@ window.MOCK_BANK = {
       image:"https://commons.wikimedia.org/wiki/Special:FilePath/Stasis_dermatitis_(Gravitational_eczema).jpg?width=520",
       imageAlt:"Red, scaly, inflamed skin over the lower leg.",
       imageCredit:"Cardiologist61, public domain, via Wikimedia Commons.",
-      question:"A 59-year-old man with varicose veins has had itchy, red, scaly venous (stasis) eczema over both gaiter areas for months (shown). It has recently become more inflamed and itchy despite regular topical creams and dressings. What is the most likely explanation for the deterioration?",
+      question:"A 59-year-old man with varicose veins has had itchy, red, scaly venous (stasis) eczema over both gaiter areas for months (shown). It has recently become more inflamed and itchy (but not painful, purulent or systemically unwell) despite regular topical creams and dressings. What is the most likely explanation for the deterioration?",
       options:[
         "Secondary bacterial infection of the eczema",
         "A coexisting fungal (tinea) infection",
@@ -8132,7 +8132,7 @@ window.MOCK_BANK = {
     { id:"vv-020", type:"mcq", objective:"vv-bleeding-varix",
       question:"An 82-year-old man knocks his shin against the bed frame and a varicose vein starts bleeding briskly, spraying blood. He is sitting upright in a chair. What is the immediate management?",
       options:[
-        "Apply a tourniquet above the bleeding point",
+        "Apply a proximal tourniquet and pack the wound firmly",
         "Lie him flat, elevate the leg, and apply direct pressure",
         "Apply a heat pack over the bleeding point",
         "Give tranexamic acid and observe without pressure",
@@ -8293,20 +8293,20 @@ window.MOCK_BANK = {
       question:"A 48-year-old woman with mild, symptomatic varicose veins and aching legs, but no skin changes or ulcer, asks what she can do herself. What is the appropriate first-line conservative management?",
       options:[
         "Weight loss, exercise, elevation and compression stockings",
-        "Compression stockings alone, with no lifestyle change",
-        "Leg elevation alone, without any compression",
+        "Strict bed rest with the legs kept dependent",
+        "Immediate sclerotherapy of all the visible veins",
         "Referral for surgical stripping of the veins",
         "Lifelong oral anticoagulation therapy"],
       correctIndex:0,
       explanation:[
         "First-line CONSERVATIVE care = LIFESTYLE (weight loss, regular EXERCISE/WALKING to work the calf pump, leg ELEVATION, avoid prolonged standing) + GRADUATED COMPRESSION STOCKINGS (for those declining or unfit for intervention, and after procedures) &mdash; but EXCLUDE ARTERIAL DISEASE with ABPI BEFORE any compression (vv-028).",
-        "WALKING is key, not rest: it drives the CALF PUMP (vv-002), the engine of venous return, so exercise helps and immobility worsens &mdash; which is why &lsquo;stockings alone&rsquo; or &lsquo;elevation alone&rsquo; without the lifestyle change is incomplete.",
-        "The conservative measures follow the three-pillar physiology: work the PUMP (walk, exercise), DROP the pressure (elevate, avoid standing), reduce the LOAD (weight loss), and SUPPORT the veins (stockings). Stockings or elevation ALONE are incomplete; surgery and anticoagulation are not first-line. Cross-links: vv-028 (ABPI first); vv-002 (calf pump)."
+        "WALKING is key, not rest: it drives the CALF PUMP (vv-002), the engine of venous return, so exercise helps and BED REST worsens; and keeping the leg DEPENDENT RAISES venous pressure (you ELEVATE to drop it).",
+        "The conservative measures follow the three-pillar physiology: work the PUMP (walk, exercise), DROP the pressure (elevate, avoid standing), reduce the LOAD (weight loss), and SUPPORT the veins (stockings). Bed rest with dependency, sclerotherapy, surgery and anticoagulation are all wrong first steps. Cross-links: vv-028 (ABPI first); vv-002 (calf pump)."
       ] },
     { id:"vv-032", type:"mcq", objective:"vv-endothermal",
       data:'<div class="mk-obs-h">Venous duplex ultrasound</div><table class="mk-labs"><tr><td>Great saphenous vein</td><td><b>Reflux 3.2 s</b></td><td>incompetent (&gt;0.5 s)</td></tr><tr><td>Saphenofemoral junction</td><td><b>Incompetent</b></td><td>&mdash;</td></tr><tr><td>Deep veins</td><td><b>Patent, competent</b></td><td>&mdash;</td></tr></table>',
       image:"https://upload.wikimedia.org/wikipedia/commons/d/dc/B-flow_ultrasonography_of_venous_reflux.gif",
-      imageAlt:"A B-flow duplex ultrasound loop of a lower-limb superficial vein: blood flows one way on compression and flows backward across the valve on release.",
+      imageAlt:"A B-flow ultrasound loop of a lower-limb superficial vein: blood flows one way on compression and flows backward across the valve on release.",
       imageCredit:"Mikael Häggström, via Wikimedia Commons.",
       question:"A 55-year-old man with symptomatic varicose veins has failed conservative measures; his venous duplex study is shown. He is referred for intervention. According to NICE, what is the first-line interventional treatment?",
       options:[
@@ -8414,18 +8414,18 @@ window.MOCK_BANK = {
         "The elevation response is the quick bedside split (vv-039): arterial pain WORSENS on elevation, venous pain EASES. Cross-links: vv-037 (venous contrast); vv-039 (elevation test); Peripheral Arterial Disease (arterial ulcers, ABPI)."
       ] },
     { id:"vv-039", type:"mcq", objective:"vv-ulcer-elevation",
-      question:"A 70-year-old woman and a 66-year-old man each have a leg ulcer. The woman's pain is relieved by elevating the leg; the man's is worse on elevation and eases when he hangs the leg out of bed. What do these opposite responses indicate?",
+      question:"A 66-year-old man with a leg ulcer finds the pain is worse when he elevates the leg and eases when he lets it hang out of bed. What does this response indicate?",
       options:[
-        "Elevation-relieved = arterial; elevation-worsened = venous",
-        "Both are venous ulcers",
-        "Elevation-relieved = venous; elevation-worsened = arterial",
-        "Both are arterial ulcers",
-        "Elevation makes no difference to either"],
+        "A venous ulcer, since venous pain eases with elevation",
+        "A neuropathic ulcer, which is typically painless",
+        "An arterial ulcer — dependency aids the poor inflow",
+        "An infected ulcer needing urgent antibiotics",
+        "Position has no diagnostic value for ulcers"],
       correctIndex:2,
       explanation:[
-        "The ELEVATION TEST splits them: VENOUS pain is RELIEVED by ELEVATION (it drains the congested veins, DROPPING venous pressure); ARTERIAL pain is WORSE on elevation and BETTER on DEPENDENCY (hanging the leg uses GRAVITY to improve the poor arterial inflow &mdash; the &lsquo;hang the foot out of bed&rsquo; story, vv-013).",
-        "One manoeuvre, OPPOSITE responses, because the two diseases have opposite pressure problems: venous = TOO MUCH venous pressure (elevation helps), arterial = TOO LITTLE arterial pressure (dependency helps).",
-        "So elevation-relieved = VENOUS; elevation-worsened = ARTERIAL. Cross-links: vv-013 (the venous&ndash;arterial symptom fork); vv-037/038."
+        "The ELEVATION response splits ulcer types: this man&rsquo;s pain WORSENS on elevation and EASES on DEPENDENCY (hanging the leg down) &mdash; the ARTERIAL pattern, because gravity improves the poor arterial inflow (the &lsquo;hang the foot out of bed&rsquo; story, vv-013). VENOUS pain does the OPPOSITE: it eases on ELEVATION (which drains the congested veins).",
+        "One manoeuvre, OPPOSITE responses, because the two diseases have opposite pressure problems: arterial = TOO LITTLE arterial pressure (dependency helps), venous = TOO MUCH venous pressure (elevation helps).",
+        "Distractors: a NEUROPATHIC ulcer is typically PAINLESS; position IS genuinely diagnostic here. So elevation-worsened / dependency-relieved = ARTERIAL. Cross-links: vv-013 (the venous&ndash;arterial symptom fork); vv-037/038."
       ] },
     { id:"vv-040", type:"categorize", objective:"vv-ulcer-fork",
       question:"Sort each feature by whether it is typical of a venous or an arterial ulcer.",
