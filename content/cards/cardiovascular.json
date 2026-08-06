@@ -11200,7 +11200,7 @@
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0010",
     "front": "What blood tests are used to work up lipid stigmata?",
-    "back": "A <b>fasting lipid profile</b> (total, LDL, HDL, triglycerides) plus a screen for <b>secondary causes</b> &mdash; <b>TFTs, glucose / HbA1c, renal function and LFTs</b>."
+    "back": "A <b>non-fasting lipid profile</b> (total, LDL, HDL, triglycerides &mdash; <b>fasting is only needed when triglycerides are the concern</b>), plus a screen for <b>secondary causes</b>: <b>TFTs, glucose / HbA1c, renal function and LFTs</b>."
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0011",
@@ -11209,8 +11209,8 @@
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0012",
-    "front": "How does age reframe the interpretation of corneal arcus?",
-    "back": "Arcus <b>under 45</b> is <b>pathological</b> and warrants a lipid profile; arcus in the <b>elderly (arcus senilis)</b> is a <b>benign, age-related</b> finding needing no action."
+    "front": "How is cardiovascular risk managed in familial hypercholesterolaemia?",
+    "back": "<b>Do not use QRISK</b> &mdash; FH patients are treated as <b>high-risk by default</b> with a <b>high-intensity statin (atorvastatin)</b>, aiming for a <b>&ge;50% reduction in LDL / non-HDL cholesterol</b>; add ezetimibe or a PCSK9 inhibitor if targets are not met."
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0013",
@@ -11224,8 +11224,8 @@
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0015",
-    "front": "Can xanthelasma occur with normal lipids, and does it still matter?",
-    "back": "<b>Yes</b> &mdash; xanthelasma can occur with normal serum lipids, but it still carries a <b>modest independent risk of cardiovascular disease</b>, so cardiovascular risk assessment is still warranted."
+    "front": "Which cholesterol thresholds support a diagnosis of familial hypercholesterolaemia (Simon Broome)?",
+    "back": "In adults, a <b>total cholesterol &gt;7.5&nbsp;mmol/L</b> or <b>LDL &gt;4.9&nbsp;mmol/L</b>, together with <b>tendon xanthomata</b> (in the patient or a first/second-degree relative) or DNA evidence, or a family history of premature coronary disease."
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0016",
@@ -11234,13 +11234,23 @@
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0017",
-    "front": "A patient has thickened Achilles tendons and a family history of a father who had a myocardial infarction at 40. What must you suspect?",
-    "back": "<b>Familial hypercholesterolaemia</b> &mdash; tendon xanthomata with premature coronary disease in a first-degree relative &mdash; requiring diagnosis, high-intensity lipid lowering and family cascade screening."
+    "front": "How is predominant or severe hypertriglyceridaemia managed?",
+    "back": "Correct <b>secondary factors</b> (alcohol, poor glycaemic control, drugs) and treat with a <b>fibrate</b> (± high-dose <b>omega-3</b>); very high triglycerides need <b>urgent lowering</b> to prevent <b>acute pancreatitis</b>."
    },
    {
     "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0018",
     "front": "Which lipid stigmata should trigger urgent (rather than routine) action, and why?",
     "back": "<b>Eruptive xanthomata</b> (severe hypertriglyceridaemia &rarr; pancreatitis risk) and <b>tendon xanthomata</b> (familial hypercholesterolaemia &rarr; very high LDL, premature CAD, family screening)."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0019",
+    "front": "What are tuberous xanthomata and lipaemia retinalis?",
+    "back": "<b>Tuberous xanthomata</b> are firm yellow nodules over the <b>elbows and knees</b> (remnant / type III and severe hypercholesterolaemia). <b>Lipaemia retinalis</b> is a <b>creamy-white appearance of the retinal vessels</b> in very severe hypertriglyceridaemia."
+   },
+   {
+    "id": "piri_fc__signs__CARDIOVASCULAR__Lipid-Stigmata__0020",
+    "front": "What monitoring is required when starting a statin?",
+    "back": "Check <b>baseline LFTs</b> (repeat at ~3 and 12 months) and ask about <b>muscle symptoms</b>; measure <b>creatine kinase</b> if there is unexplained myalgia. Persistent transaminases &gt;3&times; ULN or a marked CK rise prompt review."
    }
   ]
  },
@@ -35298,10 +35308,24 @@
      "Tendon xanthomata",
      "Corneal arcus",
      "Xanthelasma",
-     "Achilles tendon thickening"
+     "Palmar crease xanthomata"
     ],
     "correctIndex": 0,
     "explanation": "<b>Eruptive xanthomata</b> reflect high <b>triglycerides</b>. Tendon xanthomata, corneal arcus and xanthelasma reflect elevated <b>cholesterol / LDL</b>."
+   },
+   {
+    "id": "piri_q__signs__CARDIOVASCULAR__Lipid-Stigmata__0013",
+    "type": "mcq",
+    "question": "A 40-year-old man is diagnosed with familial hypercholesterolaemia. How should his cardiovascular risk be managed?",
+    "options": [
+     "Calculate QRISK and treat only if it exceeds 10%",
+     "Lifestyle advice alone for 12 months",
+     "A fibrate as first-line therapy",
+     "No treatment until he develops symptoms",
+     "Treat as high-risk with atorvastatin, ignoring QRISK"
+    ],
+    "correctIndex": 4,
+    "explanation": "Familial hypercholesterolaemia confers lifelong high risk, so <b>QRISK is not used</b>; patients are treated as high-risk with a <b>high-intensity statin (atorvastatin)</b> aiming for a &ge;50% LDL reduction, adding ezetimibe / PCSK9 inhibitors as needed. Fibrates target hypertriglyceridaemia, not FH."
    }
   ]
  }
