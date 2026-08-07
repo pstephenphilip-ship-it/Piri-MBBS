@@ -1832,7 +1832,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Acute-Abdomen__0018",
     "front": "Which acute-abdomen conditions are usually managed CONSERVATIVELY first?",
-    "back": "<b>Acute pancreatitis, uncomplicated diverticulitis, uncomplicated cholecystitis (interval surgery), and simple (non-strangulated) adhesional obstruction</b> &mdash; managed medically with close review for deterioration."
+    "back": "<b>Acute pancreatitis, uncomplicated diverticulitis, and simple (non-strangulated) adhesional obstruction</b> are managed medically with close review. <b>Acute cholecystitis</b> is resuscitated then treated with <b>early (same-admission) laparoscopic cholecystectomy</b> &mdash; not delayed &lsquo;interval&rsquo; surgery."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Acute-Abdomen__0019",
@@ -1906,13 +1906,23 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Acute-Abdomen__0033",
-    "front": "What immediate steps follow recognising a rigid, shocked, silent abdomen?",
-    "back": "<b>Resuscitate</b> (ABCDE, O2, IV access, fluids, analgesia, bloods incl. lactate &amp; crossmatch), <b>NBM + NG</b>, <b>IV antibiotics</b>, and <b>call the surgical registrar immediately</b> &mdash; before the scan."
+    "front": "In haemorrhagic shock (e.g. ruptured AAA or ruptured ectopic), what is the correct resuscitation strategy?",
+    "back": "<b>Permissive (hypotensive) resuscitation</b> &mdash; give <b>blood in preference to crystalloid</b> and aim for a <b>palpable radial pulse / just-adequate perfusion rather than a normal blood pressure</b> until the bleeding is surgically controlled. Over-aggressive fluid dislodges clot and worsens haemorrhage."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Acute-Abdomen__0034",
     "front": "What is a 'damage-control' approach in an unstable surgical abdomen?",
     "back": "When the patient is too unstable for a long operation, the surgeon does a <b>rapid, limited procedure</b> (control bleeding and contamination), stabilises the patient in ICU, then returns for definitive surgery later."
+   },
+   {
+    "id": "piri_fc__signs__GASTROINTESTINAL__Acute-Abdomen__0035",
+    "front": "How does large-bowel obstruction differ from small-bowel obstruction in urgency, and what is a closed loop?",
+    "back": "<b>LBO</b> (commonly obstructing <b>colorectal cancer</b> or <b>sigmoid volvulus</b>) is more dangerous when the <b>ileocaecal valve is competent</b> &mdash; a <b>closed loop</b> forms, caecal pressure rises and the <b>caecum can perforate</b>. Sigmoid volvulus shows a <b>&lsquo;coffee-bean&rsquo; sign</b> and is often decompressed endoscopically; a competent-valve closed loop needs early surgery."
+   },
+   {
+    "id": "piri_fc__signs__GASTROINTESTINAL__Acute-Abdomen__0036",
+    "front": "Why examine the external genitalia in a boy or young man with lower abdominal pain?",
+    "back": "<b>Testicular torsion</b> can present as lower-abdominal / iliac-fossa pain (referred via T10) and is a <b>time-critical, can&rsquo;t-miss</b> emergency &mdash; the testis must be untwisted within about <b>6 hours</b>. Always examine the scrotum, just as you examine every hernial orifice."
    }
   ]
  },
@@ -4713,11 +4723,11 @@
     "type": "mcq",
     "question": "A shocked patient has a rigid abdomen and an erect CXR shows free air under the diaphragm. What is the immediate priority?",
     "options": [
-     "Arrange an outpatient CT scan and wait",
+     "Book a semi-urgent CT for the morning",
      "Resuscitate and call surgery",
-     "Give oral fluids and observe at home",
-     "Discharge the patient with analgesia",
-     "Start a laxative and reassess later"
+     "Full CT series before any resuscitation",
+     "Await all bloods before acting",
+     "Give oral fluids and reassess in 6 hours"
     ],
     "correctIndex": 1,
     "explanation": "<b>Free air under the diaphragm with peritonitis</b> means a <b>perforated viscus</b> &mdash; resuscitate (NBM, IV, fluids, antibiotics) and refer for emergency surgery."
@@ -4741,11 +4751,11 @@
     "type": "mcq",
     "question": "An 80-year-old with AF has severe abdominal pain but only mild tenderness on examination, and a lactate of 6.5. What is the most likely diagnosis?",
     "options": [
-     "Constipation",
+     "Acute pancreatitis",
      "Gastroenteritis",
      "Biliary colic",
      "Mesenteric ischaemia",
-     "IBS"
+     "Constipation"
     ],
     "correctIndex": 3,
     "explanation": "<b>Pain out of proportion to signs, AF and a high lactate</b> is <b>mesenteric ischaemia</b> &mdash; easily missed and rapidly fatal; needs urgent CT angiography and surgery."
@@ -4851,16 +4861,16 @@
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Acute-Abdomen__0012",
     "type": "mcq",
-    "question": "In a haemodynamically unstable patient with clear peritonitis, what is the correct sequencing of care?",
+    "question": "A patient has large-bowel obstruction from a sigmoid cancer; the caecum is dilated to 11 cm and the ileocaecal valve is competent. Why is this particularly urgent?",
     "options": [
-     "CT scan before any treatment at all",
-     "Resuscitate then straight to theatre",
-     "Discharge and review in the clinic",
-     "Await all blood results first",
-     "Oral antibiotics and observe at home"
+     "It will always resolve spontaneously",
+     "A closed loop risks caecal perforation",
+     "It is a purely medical problem",
+     "Obstruction never causes perforation",
+     "It can safely wait several days"
     ],
     "correctIndex": 1,
-    "explanation": "In the <b>unstable, clearly peritonitic patient</b>, resuscitation and surgery take priority &mdash; do not delay theatre for confirmatory imaging."
+    "explanation": "A <b>competent ileocaecal valve</b> creates a <b>closed loop</b> in large-bowel obstruction &mdash; caecal pressure rises (Laplace&rsquo;s law) and the <b>caecum can perforate</b>. This needs urgent decompression / surgery, unlike a slowly-managed simple SBO."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Acute-Abdomen__0013",
@@ -4910,10 +4920,10 @@
     "question": "Which examination step is essential in an acute abdomen presenting with obstruction?",
     "options": [
      "Examine all hernial orifices",
-     "Fundoscopy",
-     "Otoscopy",
-     "A detailed neurological exam only",
-     "Peak flow"
+     "Auscultating the lung bases only",
+     "Testing for shifting dullness only",
+     "Measuring the patient's BMI",
+     "Checking capillary refill only"
     ],
     "correctIndex": 0,
     "explanation": "An <b>irreducible, tender hernia</b> is a common and easily missed cause of obstruction &mdash; always examine the <b>hernial orifices</b> and old scars."
@@ -4921,7 +4931,7 @@
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Acute-Abdomen__0017",
     "type": "mcq",
-    "question": "A still, silent, tense abdomen with absent bowel sounds most likely reflects what?",
+    "question": "In established peritonitis, what causes the abdomen to become silent with absent bowel sounds?",
     "options": [
      "Vigorous normal peristalsis",
      "A paralytic ileus",
@@ -4930,7 +4940,7 @@
      "Swallowed air (aerophagia)"
     ],
     "correctIndex": 1,
-    "explanation": "<b>Absent bowel sounds with a tense, still abdomen</b> indicate a <b>paralytic ileus from peritonitis</b> &mdash; the inflamed gut stops contracting."
+    "explanation": "The inflamed gut <b>stops contracting</b>, producing a <b>paralytic ileus</b> &mdash; hence a tense, still, silent abdomen with absent bowel sounds in peritonitis."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Acute-Abdomen__0018",
@@ -4983,7 +4993,7 @@
      "Plain abdominal film",
      "Barium follow-through",
      "MRI small bowel",
-     "A DEXA scan"
+     "An erect CXR alone"
     ],
     "correctIndex": 0,
     "explanation": "<b>CT abdomen/pelvis</b> is the workhorse &mdash; it identifies perforation, obstruction, ischaemia, collections and aneurysm; but it must not delay theatre in the unstable patient."
