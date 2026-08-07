@@ -9815,12 +9815,12 @@
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0007",
     "front": "What is the STOP-BANG questionnaire?",
-    "back": "A screening tool for OSA risk: <b>S</b>noring, <b>T</b>iredness, <b>O</b>bserved apnoeas, <b>P</b>ressure (hypertension), <b>B</b>MI &gt;35, <b>A</b>ge &gt;50, <b>N</b>eck &gt;40 cm, <b>G</b>ender male &mdash; a higher score means higher risk."
+    "back": "A screening tool for OSA risk: <b>S</b>noring, <b>T</b>iredness, <b>O</b>bserved apnoeas, <b>P</b>ressure (hypertension), <b>B</b>MI &gt;35, <b>A</b>ge &gt;50, <b>N</b>eck &gt;40 cm, <b>G</b>ender male. <b>Score 0&ndash;2 low, 3&ndash;4 intermediate, &ge;5 high risk</b> of moderate&ndash;severe OSA."
    },
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0008",
     "front": "How is OSA confirmed and its severity graded?",
-    "back": "A <b>sleep study</b> (polysomnography or home oximetry) giving the <b>apnoea&ndash;hypopnoea index (AHI)</b>: <b>&ge;5 with symptoms</b> = OSA, <b>&ge;15</b> moderate, <b>&ge;30</b> severe."
+    "back": "A <b>sleep study</b> (polysomnography or home oximetry) giving the <b>apnoea&ndash;hypopnoea index (AHI)</b>: <b>&ge;5 with symptoms = OSA</b> &mdash; <b>5&ndash;15 mild</b>, <b>&ge;15 moderate</b>, <b>&ge;30 severe</b>."
    },
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0009",
@@ -9880,7 +9880,7 @@
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0020",
     "front": "What bedside measurements are most relevant when assessing for OSA?",
-    "back": "<b>BMI and neck circumference</b> (&gt;40 cm / 17 inches raises risk), the <b>oropharynx / tonsils (Mallampati score)</b>, the jaw (retrognathia) and the <b>blood pressure</b>."
+    "back": "<b>BMI and neck circumference</b> (&gt;40 cm raises risk), the <b>oropharynx / tonsils (Mallampati score)</b>, the jaw (retrognathia) and the <b>blood pressure</b>."
    },
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0021",
@@ -9905,7 +9905,7 @@
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0025",
     "front": "What is the apnoea-hypopnoea index (AHI)?",
-    "back": "The <b>number of apnoeas plus hypopnoeas per hour of sleep</b> &mdash; the key severity measure from a sleep study (&ge;5 with symptoms = OSA; &ge;15 moderate; &ge;30 severe)."
+    "back": "The <b>number of apnoeas plus hypopnoeas per hour of sleep</b> (per hour of recording on home oximetry) &mdash; the key severity measure from a sleep study; a higher AHI means more severe OSA."
    },
    {
     "id": "piri_fc__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0026",
@@ -32264,16 +32264,16 @@
    {
     "id": "piri_q__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0009",
     "type": "mcq",
-    "question": "Which of the following is the strongest modifiable risk factor for OSA?",
+    "question": "Which of the following is the strongest MODIFIABLE risk factor for OSA?",
     "options": [
-     "Tall stature",
-     "Female sex",
-     "Low blood pressure",
+     "Male sex",
+     "Increasing age",
+     "Retrognathia",
      "Obesity",
-     "A high fibre diet"
+     "A large neck circumference"
     ],
     "correctIndex": 3,
-    "explanation": "<b>Obesity</b> is the strongest modifiable risk factor for OSA; weight loss can substantially reduce the AHI. Male sex and a large neck circumference also raise risk."
+    "explanation": "<b>Obesity</b> is the strongest <b>modifiable</b> risk factor for OSA &mdash; weight loss substantially reduces the AHI. Male sex, increasing age and retrognathia raise risk but are <b>not modifiable</b>; neck circumference largely reflects obesity."
    },
    {
     "id": "piri_q__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0010",
@@ -32351,13 +32351,13 @@
     "question": "Untreated OSA independently increases the risk of which cardiovascular condition?",
     "options": [
      "Aortic stenosis",
-     "Mitral prolapse",
+     "Mitral valve prolapse",
      "Pericarditis",
-     "Acute aortic dissection",
-     "Atrial fibrillation, stroke"
+     "Aortic dissection",
+     "Atrial fibrillation"
     ],
     "correctIndex": 4,
-    "explanation": "OSA independently raises the risk of <b>hypertension, atrial fibrillation, stroke and ischaemic heart disease</b> through recurrent hypoxia and sympathetic activation."
+    "explanation": "OSA independently raises the risk of <b>hypertension, atrial fibrillation, stroke and ischaemic heart disease</b> through recurrent hypoxia and sympathetic activation. The other options are unrelated to OSA."
    },
    {
     "id": "piri_q__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0016",
@@ -32390,16 +32390,16 @@
    {
     "id": "piri_q__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0018",
     "type": "mcq",
-    "question": "Which of the following is NOT a typical feature of obstructive sleep apnoea?",
+    "question": "A patient with severe OSA stays excessively sleepy despite good adherence to optimised CPAP, with other causes excluded. What is an appropriate next step?",
     "options": [
-     "Loud snoring",
-     "Excessive daytime sleepiness",
-     "Absent respiratory effort",
-     "Morning headache",
-     "Witnessed apnoeas"
+     "Stop CPAP",
+     "Increase evening alcohol",
+     "Add modafinil (a wakefulness agent)",
+     "Start nocturnal home oxygen alone",
+     "Take no further action"
     ],
     "correctIndex": 2,
-    "explanation": "<b>Absent respiratory effort defines CENTRAL apnoea</b>, not obstructive. In OSA, effort continues against a collapsed airway; snoring, witnessed apnoeas, sleepiness and morning headache are all typical."
+    "explanation": "When sleepiness <b>persists despite adherent, optimised CPAP</b> and other causes are excluded, a <b>wakefulness-promoting agent (modafinil / solriamfetol)</b> may be added (NICE) &mdash; it is an adjunct, not a first-line substitute for CPAP."
    },
    {
     "id": "piri_q__signs__RESPIRATORY__Snoring-Witnessed-Apnoeas-OSA__0019",
