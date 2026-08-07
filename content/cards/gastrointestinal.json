@@ -2951,7 +2951,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0002",
     "front": "What is melaena, and why is it black and tarry?",
-    "back": "<b>Melaena</b> is <b>black, tarry, sticky, offensive stool</b> &mdash; blood that has been <b>digested during transit</b> from an <b>upper-GI</b> bleed. It takes ~50 mL of blood to produce it and signifies bleeding proximal to the mid-gut."
+    "back": "<b>Melaena</b> is <b>black, tarry, sticky, offensive stool</b> &mdash; blood that has been <b>digested during transit</b> from an <b>upper-GI</b> bleed. It takes ~50 mL of blood to produce it and signifies bleeding from an <b>upper-GI (or occasionally proximal small-bowel)</b> source."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0003",
@@ -3011,7 +3011,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0014",
     "front": "What is the Glasgow-Blatchford score used for?",
-    "back": "A <b>pre-endoscopy</b> risk score using <b>urea, haemoglobin, systolic BP, pulse, melaena, syncope, and liver / cardiac disease</b>. It identifies risk / need for intervention; a <b>score of 0&ndash;1</b> may allow safe <b>outpatient</b> management."
+    "back": "A <b>pre-endoscopy</b> risk score using <b>urea, haemoglobin, systolic BP, pulse, melaena, syncope, and liver / cardiac disease</b>. It identifies risk / need for intervention; a <b>score of 0</b> (some units use &le;1) may allow safe <b>outpatient</b> management."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0015",
@@ -3080,8 +3080,8 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0028",
-    "front": "What does coffee-ground vomiting specifically suggest about a bleed?",
-    "back": "That blood has been in the stomach <b>long enough to be altered by acid</b> &mdash; usually a <b>slower or self-limited</b> upper-GI bleed, rather than brisk active haemorrhage (which is fresh red). It still warrants assessment."
+    "front": "Is tranexamic acid recommended in acute GI bleeding?",
+    "back": "<b>No.</b> Although it is an antifibrinolytic, the large <b>HALT-IT trial</b> found <b>no benefit and a possible increase in venous thromboembolism</b> &mdash; so <b>tranexamic acid is not recommended</b> for GI bleeding."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0029",
@@ -3105,8 +3105,8 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0033",
-    "front": "Why should you examine for stigmata of chronic liver disease in any GI bleed?",
-    "back": "Because finding them <b>shifts the diagnosis toward varices</b> and mandates <b>terlipressin + antibiotics + banding</b> rather than the non-variceal (PPI + haemostasis) pathway &mdash; the two are managed very differently."
+    "front": "What are the blood-product transfusion thresholds in GI bleeding (NICE)?",
+    "back": "Give <b>platelets</b> if <b>actively bleeding with a platelet count &lt;50&times;10&#8317;/L</b>; <b>FFP</b> if <b>fibrinogen &lt;1.5 g/L or PT/APTT &gt;1.5&times; normal</b>; <b>prothrombin complex concentrate</b> to reverse warfarin. <b>Do NOT give platelets</b> to a patient who is not actively bleeding and is haemodynamically stable."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Haematemesis-Melaena__0034",
@@ -7884,7 +7884,7 @@
      "Wells score"
     ],
     "correctIndex": 3,
-    "explanation": "The <b>Glasgow-Blatchford score</b> is the <b>pre-endoscopy</b> tool (a score of 0&ndash;1 may allow outpatient management); the full Rockall is calculated after endoscopy."
+    "explanation": "The <b>Glasgow-Blatchford score</b> is the <b>pre-endoscopy</b> tool (a score of 0, some units &le;1, may allow outpatient management); the full Rockall is calculated after endoscopy."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Haematemesis-Melaena__0005",
@@ -7949,7 +7949,7 @@
     "options": [
      "Above 100 g/L",
      "Above 120 g/L",
-     "No transfusion is ever needed",
+     "A liberal strategy targeting Hb 90-110 g/L",
      "Around 70-90 g/L (restrictive)",
      "Only transfuse if Hb below 50"
     ],
@@ -7962,9 +7962,9 @@
     "question": "A patient on warfarin has a major upper-GI bleed with an INR of 6. How should the anticoagulation be managed?",
     "options": [
      "Continue warfarin",
-     "Give aspirin instead",
+     "Vitamin K alone (no PCC)",
      "Simply observe the INR",
-     "Give more warfarin",
+     "FFP alone",
      "Stop and reverse warfarin"
     ],
     "correctIndex": 4,
@@ -7991,9 +7991,9 @@
     "options": [
      "A second dose of oral PPI",
      "Balloon tamponade then TIPS",
-     "Immediate discharge",
+     "Repeat adrenaline injection",
      "Tranexamic acid alone",
-     "Watchful waiting"
+     "Urgent TIPS without a tamponade bridge"
     ],
     "correctIndex": 1,
     "explanation": "<b>Balloon tamponade</b> temporises an uncontrolled variceal bleed as a <b>bridge to TIPS</b> (portosystemic shunt)."
@@ -8007,7 +8007,7 @@
      "An upper-GI bleed",
      "Pseudomelaena",
      "A lower-GI bleed",
-     "Haemoptysis"
+     "A small-bowel bleed"
     ],
     "correctIndex": 2,
     "explanation": "<b>Black stool from iron / bismuth with negative occult blood</b> is <b>pseudomelaena</b> &mdash; not a true GI bleed; true melaena is tarry, sticky and offensive."
@@ -8091,7 +8091,7 @@
      "As always a lower-GI bleed",
      "As pseudomelaena",
      "As an upper-GI bleed",
-     "As haemoptysis"
+     "As always due to iron tablets"
     ],
     "correctIndex": 3,
     "explanation": "<b>Melaena signifies an upper-GI (or proximal small-bowel) bleed</b> even without haematemesis &mdash; resuscitate and investigate as a significant bleed."
@@ -8099,16 +8099,16 @@
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Haematemesis-Melaena__0020",
     "type": "mcq",
-    "question": "What is the recommended timing of endoscopy for a stabilised patient with an upper-GI bleed?",
+    "question": "A patient with ongoing melaena and instability has an OGD that finds no bleeding source. What is the next step?",
     "options": [
-     "Within 1 hour always",
-     "Within 1 week",
-     "Only if rebleeding",
-     "Never, treat medically",
-     "Within 24 hours"
+     "Discharge with oral iron",
+     "Repeat the same OGD in a week",
+     "Reassurance only",
+     "Start regular NSAIDs",
+     "CT / mesenteric angiography"
     ],
     "correctIndex": 4,
-    "explanation": "Endoscopy is recommended <b>within 24 hours</b> for most upper-GI bleeds (immediately after resuscitation if unstable); it is both diagnostic and therapeutic."
+    "explanation": "With <b>continued bleeding and a negative OGD</b>, proceed to <b>CT / mesenteric angiography</b> (with possible embolisation) to localise the source; also reconsider a lower-GI / small-bowel source."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Haematemesis-Melaena__0021",
