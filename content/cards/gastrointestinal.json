@@ -3477,7 +3477,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0003",
     "front": "Which drugs most commonly cause constipation?",
-    "back": "<b>Opioids</b> (the classic), <b>iron</b>, <b>anticholinergics</b> (antimuscarinics, tricyclics, antipsychotics), <b>calcium-channel blockers</b> (verapamil), <b>calcium / aluminium antacids</b>, ondansetron and diuretics. Always review the drug chart."
+    "back": "<b>Opioids</b> (the classic), <b>iron</b>, <b>anticholinergics</b> (antimuscarinics, tricyclics, antipsychotics), <b>calcium-channel blockers</b> (verapamil), <b>calcium / aluminium antacids</b> and ondansetron (diuretics only indirectly, via dehydration / hypokalaemia). Always review the drug chart."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0004",
@@ -3517,7 +3517,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0011",
     "front": "How do osmotic laxatives work, and give examples.",
-    "back": "They <b>draw water into the bowel lumen</b>, softening stool and increasing frequency. Examples: <b>macrogol (polyethylene glycol), lactulose</b> and phosphate enemas. Macrogol is often first-line for chronic constipation."
+    "back": "They <b>draw water into the bowel lumen</b>, softening stool and increasing frequency. Examples: <b>macrogol (polyethylene glycol), lactulose</b> and phosphate enemas. Macrogol is the usual <b>first-line osmotic</b> (added when a bulk-forming laxative is insufficient)."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0012",
@@ -3586,8 +3586,8 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0025",
-    "front": "When should constipation prompt colonoscopy?",
-    "back": "When there are <b>red flags</b> &mdash; new-onset change &ge;60, PR bleeding, weight loss, iron-deficiency anaemia, or a mass (or a positive FIT) &mdash; to exclude <b>colorectal cancer</b>."
+    "front": "How do softener (surfactant) laxatives such as docusate work?",
+    "back": "<b>Docusate</b> is a <b>surfactant stool softener</b> (with weak stimulant action) that lets water penetrate the stool. It is <b>relatively weak</b> &mdash; used as an <b>adjunct</b> or in <b>faecal impaction</b> rather than as a sole first-line agent."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0026",
@@ -3628,6 +3628,11 @@
     "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0033",
     "front": "Why are older / immobile patients particularly prone to constipation and impaction?",
     "back": "<b>Reduced mobility and fluid / fibre intake, multiple constipating drugs, comorbidity (e.g. Parkinson&rsquo;s, hypothyroidism) and reduced rectal sensation</b> combine &mdash; making constipation and <b>faecal impaction with overflow</b> common; a PR is essential."
+   },
+   {
+    "id": "piri_fc__signs__GASTROINTESTINAL__Constipation__0034",
+    "front": "What is a caution with long-term stimulant laxative use?",
+    "back": "Prolonged use of <b>anthraquinone stimulants (e.g. senna)</b> can cause <b>melanosis coli</b> (benign brown-black colonic pigmentation, reversible on stopping). Use stimulants <b>intermittently / short-term</b> where possible and avoid long-term dependence."
    }
   ]
  },
@@ -9374,10 +9379,10 @@
     "type": "mcq",
     "question": "Which examination is essential in every patient presenting with constipation?",
     "options": [
-     "Fundoscopy",
-     "Otoscopy",
-     "Peak flow",
-     "A cardiac examination only",
+     "Abdominal palpation without a PR",
+     "Proctoscopy as the first exam",
+     "Colonoscopy in every patient",
+     "Urinalysis",
      "A digital rectal (PR) exam"
     ],
     "correctIndex": 4,
@@ -9406,7 +9411,7 @@
      "Prucalopride",
      "A phosphate enema daily",
      "Loperamide",
-     "Codeine"
+     "Linaclotide"
     ],
     "correctIndex": 1,
     "explanation": "<b>Prucalopride</b> (a selective 5-HT&#8324; agonist / prokinetic) is used for chronic constipation refractory to at least two laxatives from different classes."
@@ -9420,7 +9425,7 @@
      "Hypernatraemia",
      "Hypokalaemia",
      "Hyperphosphataemia",
-     "Hypermagnesaemia"
+     "Hyponatraemia"
     ],
     "correctIndex": 2,
     "explanation": "<b>Hypokalaemia</b> impairs smooth-muscle contraction, slowing the gut and, if severe, causing <b>ileus</b>; correct potassium and address the cause."
