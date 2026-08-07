@@ -3138,7 +3138,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0004",
     "front": "What is the FIT (faecal immunochemical test) and how is it used?",
-    "back": "A stool test detecting <b>human haemoglobin</b>. It is used to <b>triage referral</b> for suspected colorectal cancer &mdash; a <b>positive FIT</b> (at or above the lab threshold) prompts an <b>urgent (2-week-wait) colonoscopy</b>."
+    "back": "A stool test detecting <b>human haemoglobin</b>. It triages referral for suspected colorectal cancer &mdash; a <b>positive FIT (&ge;10 &micro;g Hb/g faeces)</b> prompts an <b>urgent (2-week-wait) colonoscopy</b>. Crucially, a <b>negative FIT does NOT exclude cancer</b> &mdash; still refer if there is a mass, unexplained iron-deficiency anaemia or persistent concern."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0005",
@@ -3147,8 +3147,8 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0006",
-    "front": "What is the gold-standard investigation for a change of bowel habit with red flags?",
-    "back": "<b>Colonoscopy</b> &mdash; it visualises the whole colon and allows <b>biopsy</b> of any lesion. <b>CT colonography</b> is an alternative if colonoscopy is unsuitable; flexible sigmoidoscopy examines the distal colon."
+    "front": "What are the NICE NG12 two-week-wait thresholds for suspected colorectal cancer?",
+    "back": "Refer urgently for: <b>&ge;40 with abdominal pain + weight loss</b>; <b>&ge;50 with unexplained rectal bleeding</b>; <b>&ge;60 with iron-deficiency anaemia OR a change to looser / more frequent stool</b>; a <b>rectal or abdominal mass</b> at any age; and use <b>FIT</b> to support referral in others who fall short of these."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0007",
@@ -3158,7 +3158,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0008",
     "front": "What red flags make IBS unsafe to diagnose without investigation?",
-    "back": "<b>Age &ge;50 (or &ge;60), rectal bleeding, weight loss, iron-deficiency anaemia, a mass, nocturnal symptoms, or a family history of bowel cancer / IBD</b> &mdash; these mandate investigation before attributing symptoms to IBS."
+    "back": "<b>Age &ge;60 with a change in bowel habit (or &ge;50 with rectal bleeding), weight loss, iron-deficiency anaemia, a mass, nocturnal symptoms, or a family history of bowel cancer / IBD</b> &mdash; these mandate investigation before attributing symptoms to IBS."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0009",
@@ -3243,7 +3243,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0025",
     "front": "Why must a first presentation of 'IBS' in an older patient be treated with caution?",
-    "back": "Because <b>colorectal cancer becomes far more likely with age</b> &mdash; a new change of bowel habit over ~50&ndash;60 needs <b>investigation (FIT / colonoscopy) before</b> a functional label; IBS usually presents in younger adults."
+    "back": "Because <b>colorectal cancer becomes far more likely with age</b> &mdash; a new change of bowel habit <b>over 60</b> (or with any red flag) needs <b>investigation (FIT / colonoscopy) before</b> a functional label; IBS usually presents in younger adults."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0026",
@@ -3252,8 +3252,8 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0027",
-    "front": "How does the age of the patient steer the assessment?",
-    "back": "In the <b>young</b> with no red flags, functional and inflammatory causes (IBS, IBD, coeliac) predominate. In the <b>older</b> patient, a new persistent change is <b>colorectal cancer until excluded</b> &mdash; the threshold to scope falls with age."
+    "front": "What is microscopic colitis?",
+    "back": "A cause of <b>chronic watery (non-bloody) diarrhoea</b>, typically in <b>older women</b>, associated with <b>NSAIDs / PPIs and autoimmune disease</b>. The <b>colonoscopy looks normal</b> &mdash; the diagnosis is made on <b>biopsy</b>; treated by stopping culprit drugs &plusmn; budesonide."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0028",
@@ -8305,21 +8305,21 @@
      "Repeat review in 6 months"
     ],
     "correctIndex": 0,
-    "explanation": "A <b>persistent change to looser stool with weight loss and iron-deficiency anaemia in an older patient</b> is a colorectal-cancer red flag &mdash; refer for <b>colonoscopy</b> via the suspected-cancer (2-week-wait) pathway."
+    "explanation": "A <b>persistent change to looser stool with weight loss and iron-deficiency anaemia in an older patient</b> is a colorectal-cancer red flag &mdash; refer via the suspected-cancer (2-week-wait) pathway for <b>colonoscopy</b> (FIT supports the referral, but such red flags warrant referral regardless of the FIT result)."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0002",
     "type": "mcq",
-    "question": "Which stool test best distinguishes inflammatory bowel disease from irritable bowel syndrome?",
+    "question": "A 24-year-old with altered bowel habit has a normal faecal calprotectin and coeliac serology, and no red flags. What is the most appropriate next step?",
     "options": [
-     "Faecal immunochemical test (FIT)",
-     "Faecal calprotectin",
-     "Stool culture",
-     "Faecal elastase",
-     "A C. difficile toxin test"
+     "Urgent colonoscopy",
+     "A positive diagnosis of IBS",
+     "Empirical antibiotics",
+     "A strict gluten-free diet",
+     "Monthly repeat calprotectin"
     ],
     "correctIndex": 1,
-    "explanation": "<b>Faecal calprotectin</b> marks bowel inflammation &mdash; raised in IBD, normal in IBS; it helps decide who needs colonoscopy."
+    "explanation": "With <b>no red flags, a normal calprotectin (IBD unlikely) and negative coeliac serology</b>, this is <b>IBS</b> &mdash; make a positive diagnosis with lifestyle measures and safety-netting rather than colonoscopy."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Change-in-Bowel-Habit__0003",
@@ -8466,11 +8466,11 @@
     "type": "mcq",
     "question": "What is tenesmus, and what does it suggest?",
     "options": [
-     "Difficulty initiating swallowing",
+     "Straining before defecation",
      "The passage of excess flatus",
      "A feeling of incomplete evacuation",
-     "Painless obstructive jaundice",
-     "Early satiety after meals"
+     "Pain on passing stool",
+     "Bloating after meals"
     ],
     "correctIndex": 2,
     "explanation": "<b>Tenesmus</b> is a persistent feeling of incomplete evacuation &mdash; a localising red flag for <b>rectal pathology (cancer, proctitis / IBD)</b>."
@@ -8536,11 +8536,11 @@
     "type": "mcq",
     "question": "Which examination must be performed in every patient presenting with a change in bowel habit?",
     "options": [
-     "Fundoscopy",
-     "Otoscopy",
+     "An abdominal exam without a PR",
+     "A full blood count only",
      "A digital rectal (PR) examination",
-     "Peak flow",
-     "A cardiac auscultation only"
+     "An abdominal X-ray first",
+     "Observe and rebook"
     ],
     "correctIndex": 2,
     "explanation": "A <b>digital rectal examination</b> is essential &mdash; to detect a rectal mass, blood, or a loaded rectum; combined with abdominal examination."
