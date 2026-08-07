@@ -3305,7 +3305,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0004",
     "front": "How does a fasting test distinguish secretory from osmotic diarrhoea?",
-    "back": "<b>Secretory</b> diarrhoea <b>persists despite fasting</b> (large-volume, watery). <b>Osmotic</b> diarrhoea <b>stops when the patient stops eating</b> the offending solute (e.g. lactose, osmotic laxatives)."
+    "back": "<b>Secretory</b> diarrhoea <b>persists despite fasting</b> (large-volume, watery &mdash; the prototype is <b>cholera</b>, &lsquo;rice-water&rsquo; stool). <b>Osmotic</b> diarrhoea <b>stops when the patient stops eating</b> the offending solute (e.g. lactose, osmotic laxatives)."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0005",
@@ -3355,7 +3355,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0014",
     "front": "Which infective causes classically produce BLOODY diarrhoea (dysentery)?",
-    "back": "<b>Campylobacter, Shigella, Salmonella, E.&nbsp;coli O157, Entamoeba histolytica</b>, and C.&nbsp;difficile &mdash; invasive / cytotoxic organisms. Bloody diarrhoea also raises <b>IBD and ischaemic colitis</b>."
+    "back": "<b>Campylobacter, Shigella, E.&nbsp;coli O157 and Entamoeba histolytica</b> (Salmonella can also be bloody) &mdash; invasive / cytotoxic organisms. Bloody diarrhoea also raises <b>IBD and ischaemic colitis</b>."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0015",
@@ -3410,12 +3410,12 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0025",
     "front": "How is chronic diarrhoea from IBS characterised?",
-    "back": "<b>Chronic diarrhoea (or alternating habit) with pain relieved by defecation and bloating</b>, <b>no red flags, and normal investigations</b> (normal calprotectin, negative coeliac serology). It is a <b>positive diagnosis of exclusion</b>."
+    "back": "<b>Chronic diarrhoea (or alternating habit) with pain relieved by defecation and bloating</b>, <b>no red flags, and normal investigations</b> (normal calprotectin, negative coeliac serology). It is a <b>positive clinical diagnosis</b> made after excluding red flags &mdash; not merely a diagnosis of exclusion."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0026",
     "front": "Which stool investigations are used in diarrhoea?",
-    "back": "<b>Stool culture</b> (bacteria), <b>C.&nbsp;difficile toxin</b>, <b>ova, cysts &amp; parasites</b> (Giardia / amoebae), <b>faecal calprotectin</b> (IBD vs IBS) and <b>FIT</b> (occult blood / cancer) &mdash; chosen by the picture."
+    "back": "<b>Stool culture</b> (bacteria), <b>C.&nbsp;difficile toxin</b>, <b>ova, cysts &amp; parasites</b> (Giardia / amoebae), <b>faecal calprotectin</b> (IBD vs IBS), <b>faecal elastase</b> (pancreatic exocrine insufficiency) and <b>FIT</b> (occult blood / cancer) &mdash; chosen by the picture."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0027",
@@ -3456,6 +3456,11 @@
     "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0034",
     "front": "What simple public-health advice reduces spread of infective diarrhoea?",
     "back": "<b>Meticulous hand hygiene</b>, and <b>staying off work / school until 48 hours after the last episode</b> (longer / specific rules for food handlers, healthcare workers and certain organisms). Avoid preparing food for others."
+   },
+   {
+    "id": "piri_fc__signs__GASTROINTESTINAL__Diarrhoea__0035",
+    "front": "What is enteric (typhoid) fever and how does it present?",
+    "back": "Systemic infection with <b>Salmonella typhi / paratyphi</b> in a returning traveller &mdash; <b>fever, relative bradycardia, abdominal pain, rose spots</b>, and <b>constipation early then diarrhoea later</b>. It is <b>notifiable</b>; diagnosed on <b>blood culture</b> and treated with antibiotics (ceftriaxone / azithromycin)."
    }
   ]
  },
@@ -8755,8 +8760,8 @@
      "Give antibiotics promptly",
      "Avoid antibiotics/loperamide",
      "Start loperamide alone",
-     "Give a laxative",
-     "Restrict all fluids"
+     "Prophylactic antibiotics for contacts",
+     "Plasma exchange first-line"
     ],
     "correctIndex": 1,
     "explanation": "This is <b>E.&nbsp;coli O157 &rarr; haemolytic-uraemic syndrome</b>; <b>antibiotics and antimotility agents increase toxin release / HUS risk</b> &mdash; manage supportively."
@@ -8848,16 +8853,16 @@
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Diarrhoea__0009",
     "type": "mcq",
-    "question": "What is the first-line rehydration for a child or adult with mild-to-moderate dehydration from diarrhoea?",
+    "question": "A patient with diarrhoea has reduced skin turgor, tachycardia, hypotension and drowsiness. What is the appropriate rehydration?",
     "options": [
-     "IV 0.9% saline",
-     "A fizzy drink",
-     "Loperamide",
-     "Oral rehydration salts",
-     "Withhold all fluids"
+     "Oral rehydration salts at home",
+     "Small sips of water only",
+     "Loperamide then discharge",
+     "IV fluid resuscitation",
+     "A caffeinated drink"
     ],
     "correctIndex": 3,
-    "explanation": "<b>Oral rehydration salts</b> (glucose-electrolyte solution using sodium-glucose co-transport) are first-line for mild-moderate dehydration; IV fluids are for severe / shocked patients."
+    "explanation": "This is <b>severe dehydration / shock</b> &mdash; give <b>IV fluid resuscitation</b>; oral rehydration salts are adequate only for mild-moderate dehydration."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Diarrhoea__0010",
@@ -8876,16 +8881,16 @@
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Diarrhoea__0011",
     "type": "mcq",
-    "question": "A patient's diarrhoea stops completely whenever they fast. Which mechanism does this indicate?",
+    "question": "A patient has diarrhoea and bloating only after dairy, which resolves when they avoid it. What is the mechanism?",
     "options": [
-     "Osmotic",
-     "Secretory",
-     "Inflammatory",
-     "Infective",
-     "Motility"
+     "Osmotic (lactose)",
+     "Secretory diarrhoea",
+     "Inflammatory diarrhoea",
+     "Invasive infection",
+     "Motility disorder"
     ],
     "correctIndex": 0,
-    "explanation": "Diarrhoea that <b>stops with fasting</b> is <b>osmotic</b> (an unabsorbed solute such as lactose or an osmotic laxative draws water into the gut)."
+    "explanation": "<b>Diarrhoea after lactose that stops on avoidance</b> is <b>osmotic</b> &mdash; unabsorbed lactose draws water into the gut; osmotic diarrhoea characteristically stops with fasting / removing the solute."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Diarrhoea__0012",
@@ -8910,7 +8915,7 @@
      "A child with mild viral diarrhoea",
      "A septic patient with confirmed Shigella",
      "A traveller with 1 day of loose stool",
-     "Anyone with diarrhoea"
+     "A frail elderly patient with mild diarrhoea"
     ],
     "correctIndex": 2,
     "explanation": "<b>Severe / systemic bacterial infection (e.g. septic, confirmed Shigella)</b> warrants antibiotics; most acute diarrhoea is self-limiting and needs only fluids."
@@ -8946,16 +8951,16 @@
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Diarrhoea__0016",
     "type": "mcq",
-    "question": "Which complication of E. coli O157 infection should be monitored for?",
+    "question": "A traveller returns with fever, relative bradycardia, abdominal pain, rose spots and constipation followed by diarrhoea. What is the likely diagnosis?",
     "options": [
-     "Haemolytic-uraemic syndrome",
-     "Guillain-Barré syndrome",
-     "Reactive arthritis",
-     "Toxic shock syndrome",
-     "Rheumatic fever"
+     "Enteric fever (typhoid)",
+     "Giardiasis",
+     "Cholera",
+     "Norovirus gastroenteritis",
+     "C. difficile colitis"
     ],
     "correctIndex": 0,
-    "explanation": "<b>E.&nbsp;coli O157</b> (Shiga toxin) can cause <b>haemolytic-uraemic syndrome</b> (haemolysis, thrombocytopenia, AKI), especially in children."
+    "explanation": "<b>Fever with relative bradycardia, rose spots and early constipation then diarrhoea in a returning traveller</b> is <b>enteric (typhoid) fever</b> (Salmonella typhi) &mdash; notifiable, diagnosed on blood culture."
    },
    {
     "id": "piri_q__signs__GASTROINTESTINAL__Diarrhoea__0017",
@@ -8997,7 +9002,7 @@
      "C. difficile colitis"
     ],
     "correctIndex": 3,
-    "explanation": "<b>Chronic diarrhoea with pain relieved by defecation, normal tests and no red flags</b> is <b>IBS</b> &mdash; a positive diagnosis of exclusion."
+    "explanation": "<b>Chronic diarrhoea with pain relieved by defecation, normal tests and no red flags</b> is <b>IBS</b> &mdash; a positive clinical diagnosis after excluding red flags."
    }
   ]
  }
