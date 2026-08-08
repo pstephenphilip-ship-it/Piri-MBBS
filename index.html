@@ -15748,6 +15748,7 @@ window.MOCK_BANK = {
 
   // Open the Custom Mock full view from the floating button (no nav tab)
   window.openMock=function(){
+    if(typeof window.__mockAllowed==='function' && !window.__mockAllowed()){ if(window.__showMockLock) window.__showMockLock(); return; }
     document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
     document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
     var tm=document.getElementById('tab-mock'); if(tm) tm.classList.add('visible');
@@ -18529,25 +18530,58 @@ function hideFlyout(p) {
   }
   window.__authed = readStoredAuthed();
 
+  // ---- Free-account daily unlocks (day-pass): up to 3 locked topics per day ----
+  var DP_LIMIT = 3;
+  function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+  function dpUser(){ try{ var raw=localStorage.getItem('sb-'+PROJECT_REF+'-auth-token'); if(raw){ var o=JSON.parse(raw); var s=o&&(o.currentSession||o); var u=s&&s.user; if(u&&u.id) return u.id.slice(0,12); } }catch(e){} return 'acct'; }
+  function dpStoreKey(){ return 'da-daypass-'+dpUser()+'-'+todayStr(); }
+  function dpGet(){ try{ return JSON.parse(localStorage.getItem(dpStoreKey())||'[]'); }catch(e){ return []; } }
+  function dpSave(a){ try{ localStorage.setItem(dpStoreKey(), JSON.stringify(a)); }catch(e){} }
+  function tkey(p,s,t){ return p+'|'+(s||'')+'|'+t; }
+  function dpHas(p,s,t){ return dpGet().indexOf(tkey(p,s,t))>-1; }
+  function dpRemaining(){ return Math.max(0, DP_LIMIT - dpGet().length); }
+  function dpConsume(p,s,t){ var a=dpGet(), k=tkey(p,s,t); if(a.indexOf(k)>-1) return true; if(a.length>=DP_LIMIT) return false; a.push(k); dpSave(a); return true; }
+  window.__dpRemaining = dpRemaining;
+
+  function isFreeAllow(p, system, topic){
+    if (FREE_SYSTEMS[p] && system && FREE_SYSTEMS[p][system]) return true;
+    if (FREE_TOPICS[p] && system && FREE_TOPICS[p][system] && FREE_TOPICS[p][system][topic]) return true;
+    return false;
+  }
   function isUnlocked(p, system, topic){
-    if (window.__authed) return true;         // any signed-in account unlocks everything
-    if (!topic) return true;                  // browsing the system list itself is allowed
-    if (FREE_SYSTEMS[p]) return !!(system && FREE_SYSTEMS[p][system]);
-    if (FREE_TOPICS[p])  return !!(system && FREE_TOPICS[p][system] && FREE_TOPICS[p][system][topic]);
-    return false;                             // everything else is locked for signed-out visitors
+    if (!topic) return true;                                       // browsing the system list is allowed
+    if (isFreeAllow(p, system, topic)) return true;                // always-free allowlist
+    if (window.__authed && dpHas(p, system, topic)) return true;   // unlocked with a day-pass today
+    return false;                                                  // otherwise locked
   }
   window.__isUnlocked = isUnlocked;
 
   function paywallHTML(){
     return '<div class="da-lock"><div class="da-lock-icon">🔒</div>'
       + '<div class="da-lock-title">This topic is locked</div>'
-      + '<div class="da-lock-sub">Create a free account to unlock all notes, flashcards and MCQs across every system &amp; tab.</div>'
+      + '<div class="da-lock-sub">Create a <strong>free account</strong> to unlock up to <strong>3 locked topics a day</strong> &mdash; notes, flashcards &amp; MCQs.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
       + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button></div>'
       + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
   }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+  function dayPassHTML(name, remaining){
+    return '<div class="da-lock"><div class="da-lock-icon">🔓</div>'
+      + '<div class="da-lock-title">Unlock this topic for today?</div>'
+      + '<div class="da-lock-sub">Opens <strong>'+esc(name)+'</strong> &mdash; notes, flashcards &amp; MCQs &mdash; for the rest of today. You have <strong>'+remaining+' of '+DP_LIMIT+'</strong> daily unlocks left.</div>'
+      + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpUnlock&&window.__dpUnlock()">Use 1 daily unlock</button>'
+      + '<button class="da-lock-btn" onclick="window.__dpCancel&&window.__dpCancel()">Not now</button></div>'
+      + '<div class="da-lock-foot">Daily unlocks reset each day. Unlimited access is coming with membership.</div></div>';
+  }
+  function limitHTML(){
+    return '<div class="da-lock"><div class="da-lock-icon">⏳</div>'
+      + '<div class="da-lock-title">Daily limit reached</div>'
+      + '<div class="da-lock-sub">You&rsquo;ve used all <strong>'+DP_LIMIT+'</strong> of today&rsquo;s free topic unlocks. They reset tomorrow &mdash; or unlock everything with membership (coming soon).</div>'
+      + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpCancel&&window.__dpCancel()">OK</button></div>'
+      + '<div class="da-lock-foot">Topics you already unlocked today stay open.</div></div>';
+  }
   function hidePaywall(p){ var el=document.getElementById('da-paywall-'+p); if(el) el.style.display='none'; }
-  function showLocked(p, name, skipHash){
+  function renderWall(p, name, html, skipHash){
     var st = getState(p); st.activeTopic = name;
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){ el.classList.toggle('active', el.dataset.topic===name); });
     var empty=document.getElementById('empty-'+p); if(empty) empty.style.display='none';
@@ -18557,37 +18591,74 @@ function hideFlyout(p) {
     if(panel){ panel.classList.add('visible'); panel.style.position='relative'; }
     var pw=document.getElementById('da-paywall-'+p);
     if(!pw){ pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap'; if(panel) panel.appendChild(pw); }
-    pw.innerHTML=paywallHTML(); pw.style.display='flex';
+    pw.innerHTML=html; pw.style.display='flex';
     if(!skipHash && typeof updateHash==='function') updateHash(p, st.activeSystem, name, 'notes');
+  }
+  function showLocked(p, name, skipHash){ renderWall(p, name, paywallHTML(), skipHash); }
+  function clearMini(p, name){
+    document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
+      if(el.dataset.topic===name){ el.classList.remove('da-locked-item'); var m=el.querySelector('.da-lock-mini'); if(m) m.remove(); }
+    });
+  }
+  // Gate a topic for the current tier; runs `proceed` when the visitor may view it.
+  function gateTopic(p, name, skipHash, proceed){
+    var st = getState(p), sys = st.activeSystem;
+    if (isUnlocked(p, sys, name)){ proceed(); return; }
+    if (window.__authed){
+      if (dpRemaining() > 0){
+        window.__dpUnlock = function(){ window.__dpUnlock=null; window.__dpCancel=null; dpConsume(p, sys, name); clearMini(p, name); hidePaywall(p); proceed(); };
+        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; hidePaywall(p); };
+        renderWall(p, name, dayPassHTML(name, dpRemaining()), skipHash);
+      } else {
+        window.__dpCancel = function(){ window.__dpCancel=null; hidePaywall(p); };
+        renderWall(p, name, limitHTML(), skipHash);
+      }
+    } else {
+      showLocked(p, name, skipHash);
+    }
   }
 
   var _selectTopic = window.selectTopic;
   window.selectTopic = function(p, name, skipHash){
     hidePaywall(p);
-    var st = getState(p);
-    if (isUnlocked(p, st.activeSystem, name)) return _selectTopic.call(this, p, name, skipHash);
-    showLocked(p, name, skipHash);
+    var self=this;
+    gateTopic(p, name, skipHash, function(){ _selectTopic.call(self, p, name, skipHash); });
   };
   var _switchMode = window.switchMode;
   window.switchMode = function(p, mode, el, skipHash){
     var st = getState(p);
-    if (!isUnlocked(p, st.activeSystem, st.activeTopic)){ showLocked(p, st.activeTopic, skipHash); return; }
-    return _switchMode.apply(this, arguments);
+    if (isUnlocked(p, st.activeSystem, st.activeTopic)) return _switchMode.apply(this, arguments);
+    var self=this, args=arguments, topic=st.activeTopic;
+    gateTopic(p, topic, skipHash, function(){ _selectTopic.call(self, p, topic, true); _switchMode.apply(self, args); });
   };
   var _renderTopicList = window.renderTopicList;
   if (typeof _renderTopicList === 'function'){
     window.renderTopicList = function(p, topics, filter){
       _renderTopicList.call(this, p, topics, filter);
-      if (window.__authed) return;
       var st = getState(p);
       document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
-        if (!isUnlocked(p, st.activeSystem, el.dataset.topic)){
-          el.classList.add('da-locked-item');
-          if(!el.querySelector('.da-lock-mini')){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); }
-        }
+        var locked = !isUnlocked(p, st.activeSystem, el.dataset.topic);
+        el.classList.toggle('da-locked-item', locked);
+        var mini = el.querySelector('.da-lock-mini');
+        if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
+        else if(mini){ mini.remove(); }
       });
     };
   }
+
+  // ---- Mock exam: locked for everyone until a paid membership exists ----
+  window.__mockAllowed = function(){ return !!window.__paidMock; };
+  window.__showMockLock = function(){
+    var id='da-mock-lock', ex=document.getElementById(id);
+    if(ex){ ex.style.display='flex'; return; }
+    var o=document.createElement('div'); o.id=id; o.className='da-lock-wrap';
+    o.style.position='fixed'; o.style.inset='0'; o.style.zIndex='2000';
+    o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
+      +'<div class="da-lock-title">Mock exams are a premium feature</div>'
+      +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; is coming with membership.</div>'
+      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Got it</button></div></div>';
+    document.body.appendChild(o);
+  };
 
   var prevAuthed = window.__authed;
   function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; location.reload(); } }); }catch(e){} }
