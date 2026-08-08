@@ -18530,6 +18530,10 @@ function hideFlyout(p) {
     }catch(e){ return false; }
   }
   window.__authed = readStoredAuthed();
+  // Full-access members (paid membership OR a comp/automatic membership set on the
+  // account's Supabase profile). Cached so the gate resolves synchronously on load;
+  // the accounts layer refreshes this from the profile and reloads if it changed.
+  window.__member = (function(){ try{ return window.__authed && localStorage.getItem('da-member')==='1'; }catch(e){ return false; } })();
 
   // ---- Free-account daily unlocks (day-pass): up to 3 locked topics per day ----
   var DP_LIMIT = 3;
@@ -18550,6 +18554,7 @@ function hideFlyout(p) {
     return false;
   }
   function isUnlocked(p, system, topic){
+    if (window.__member) return true;                              // full-access member (paid or comp)
     if (!topic) return true;                                       // browsing the system list is allowed
     if (isFreeAllow(p, system, topic)) return true;                // always-free allowlist
     if (window.__authed && dpHas(p, system, topic)) return true;   // unlocked with a day-pass today
@@ -18648,7 +18653,7 @@ function hideFlyout(p) {
   }
 
   // ---- Mock exam: locked for everyone until a paid membership exists ----
-  window.__mockAllowed = function(){ return !!window.__paidMock; };
+  window.__mockAllowed = function(){ return !!(window.__member || window.__paidMock); };
   window.__showMockLock = function(){
     var id='da-mock-lock', ex=document.getElementById(id);
     if(ex){ ex.style.display='flex'; return; }
@@ -18842,8 +18847,19 @@ function hideFlyout(p) {
   ready(function(){
     injectSignupFields(); injectMenuExtras(); window.setAuthMode('signin');
     if(!sb) return;
-    sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyDisplay(); setTimeout(applyDisplay,500); }); });
-    sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyDisplay(); setTimeout(applyDisplay,500); }); else { profile=null; } });
+    // Full-access membership: true if the profile is flagged (is_member=true, or a
+    // `membership` value other than 'free'). Comp/automatic memberships are just this
+    // flag set manually in Supabase; a future payment webhook sets it for paid users.
+    function applyMembership(){
+      var isMember = !!(profile && (profile.is_member===true || (profile.membership && String(profile.membership).toLowerCase()!=='free')));
+      var was; try{ was = localStorage.getItem('da-member')==='1'; }catch(e){ was=false; }
+      try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
+      window.__member = isMember;
+      if(isMember!==was){ try{ location.reload(); }catch(e){} }
+    }
+    function clearMembership(){ try{ localStorage.setItem('da-member','0'); }catch(e){} window.__member=false; }
+    sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); }); else { clearMembership(); } });
+    sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); }); else { profile=null; clearMembership(); } });
   });
 })();
 </script>
