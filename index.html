@@ -18221,9 +18221,19 @@ function hideFlyout(p) {
 </style>
 <script>
 (function(){
-  var FREE_N_OTHER = 2;
-  var FREE_CONDITIONS = { 'CARDIOVASCULAR': { 'Foundations of CVS':1, 'Acute Coronary Syndrome':1 } };
-  var FREE_SECTIONS = { 'osce': { 'CARDIOVASCULAR':1, 'RESPIRATORY':1, 'ABDOMINAL':1 } };
+  // ===== Free tier for signed-out visitors (explicit allowlist; everything else locked) =====
+  // Per-topic free lists (topic must match the tab's topic name exactly)
+  var FREE_TOPICS = {
+    'conditions': { 'CARDIOVASCULAR': { 'Foundations of CVS':1, 'Abdominal Aortic Aneurysm':1, 'Acute Coronary Syndrome':1, 'Acute Heart Failure':1, 'Aortic Dissection':1 } },
+    'signs':      { 'CARDIOVASCULAR': { 'Abnormal Apex Beat':1, 'Abnormal Pulse':1, 'Chest Pain':1, 'Janeway Lesions':1, 'Leg Pain':1 } }
+  };
+  // Whole-system free lists (every topic in the named system is free)
+  var FREE_SYSTEMS = {
+    'anatomy':   { 'UPPER LIMB':1 },
+    'histology': { 'BASIC TISSUES':1 },
+    'osce':      { 'CARDIOVASCULAR':1, 'RESPIRATORY':1, 'ABDOMINAL':1 }
+  };
+  // (Calculators & Pharmacology are outside this gate and remain freely accessible.)
   var PROJECT_REF = 'ynkyqovqlfmnpkdsaonu';
 
   function readStoredAuthed(){
@@ -18239,27 +18249,11 @@ function hideFlyout(p) {
   window.__authed = readStoredAuthed();
 
   function isUnlocked(p, system, topic){
-    if (window.__authed) return true;
-    if (!topic) return true;
-    if (p === 'conditions') return !!(system && FREE_CONDITIONS[system] && FREE_CONDITIONS[system][topic]);
-    // Merged OSCE tab: exam categories use the FREE_SECTIONS whitelist (below),
-    // but communication categories keep the generic first-N-free preview.
-    if (p === 'osce' && system && !(FREE_SECTIONS.osce && FREE_SECTIONS.osce[system])
-        && typeof TAB_OSCE_EXAM !== 'undefined' && !TAB_OSCE_EXAM[system]) {
-      try{
-        var cd = (typeof getTabData==='function') ? getTabData(p) : {};
-        var csd = cd[system] || {}; var clist = csd.conditions || csd.topics || [];
-        var cidx = clist.indexOf(topic);
-        return cidx > -1 && cidx < FREE_N_OTHER;
-      }catch(e){ return false; }
-    }
-    if (FREE_SECTIONS[p]) return !!(system && FREE_SECTIONS[p][system]);
-    try{
-      var data = (typeof getTabData==='function') ? getTabData(p) : {};
-      var sd = data[system] || {}; var list = sd.conditions || sd.topics || [];
-      var idx = list.indexOf(topic);
-      return idx > -1 && idx < FREE_N_OTHER;
-    }catch(e){ return false; }
+    if (window.__authed) return true;         // any signed-in account unlocks everything
+    if (!topic) return true;                  // browsing the system list itself is allowed
+    if (FREE_SYSTEMS[p]) return !!(system && FREE_SYSTEMS[p][system]);
+    if (FREE_TOPICS[p])  return !!(system && FREE_TOPICS[p][system] && FREE_TOPICS[p][system][topic]);
+    return false;                             // everything else is locked for signed-out visitors
   }
   window.__isUnlocked = isUnlocked;
 
@@ -18269,7 +18263,7 @@ function hideFlyout(p) {
       + '<div class="da-lock-sub">Create a free account to unlock all notes, flashcards and MCQs across every system &amp; tab.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
       + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button></div>'
-      + '<div class="da-lock-foot">Free preview: Cardiovascular &rarr; Foundations of CVS &amp; Acute Coronary Syndrome</div></div>';
+      + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
   }
   function hidePaywall(p){ var el=document.getElementById('da-paywall-'+p); if(el) el.style.display='none'; }
   function showLocked(p, name, skipHash){
