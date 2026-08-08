@@ -4878,7 +4878,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0002",
     "front": "How is ascites detected on examination?",
-    "back": "<b>Shifting dullness</b> (flank dullness that moves centrally as the patient rolls) and, in tense ascites, a <b>fluid thrill</b>; the classic pattern is <b>flank dullness with central resonance</b> (gas-filled bowel floats up). Ultrasound confirms even small volumes."
+    "back": "<b>Shifting dullness</b>: percuss to dullness in the flank, then <b>roll the patient onto the opposite side</b> &mdash; the previously dull flank becomes <b>resonant</b> as fluid redistributes. Add a <b>fluid thrill</b> in tense ascites (flank dullness, central resonance). Ultrasound confirms even small volumes."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0003",
@@ -4897,8 +4897,8 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0006",
-    "front": "Why has the SAAG replaced the older transudate/exudate (protein) classification?",
-    "back": "Because it more reliably identifies <b>portal hypertension</b>. The old protein cut-off misclassifies <b>cardiac ascites</b>, which is protein-rich (looks &lsquo;exudative&rsquo;) yet is a high-SAAG portal-hypertensive picture."
+    "front": "How is ascites graded (EASL)?",
+    "back": "<b>Grade 1</b>: mild, detectable only on <b>ultrasound</b>; <b>Grade 2</b>: moderate, symmetrical distension; <b>Grade 3</b>: large / <b>tense</b> ascites. Grade guides management &mdash; tense (grade 3) ascites needs therapeutic paracentesis."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0007",
@@ -4923,12 +4923,12 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0011",
     "front": "How is uncomplicated cirrhotic ascites managed?",
-    "back": "<b>Salt restriction</b> and <b>diuretics &mdash; spironolactone first-line, &plusmn; furosemide</b>; treat the underlying liver disease and avoid nephrotoxins / NSAIDs. Fluid restriction is added only for significant hyponatraemia."
+    "back": "<b>Moderate sodium restriction</b> (no-added-salt, ~80&ndash;120&nbsp;mmol/day) and <b>diuretics &mdash; spironolactone first-line, &plusmn; furosemide</b>; treat the underlying liver disease (including <b>alcohol cessation</b>) and avoid nephrotoxins / NSAIDs. Fluid restriction is added only for significant hyponatraemia (Na &lt;125)."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0012",
     "front": "How is tense or refractory cirrhotic ascites managed?",
-    "back": "<b>Large-volume paracentesis with albumin cover (for taps &gt;5&nbsp;L, ~8&nbsp;g per litre removed)</b>; <b>refractory ascites</b> (diuretic-resistant or -intractable) may need repeated LVP, a <b>TIPS</b>, or <b>liver transplantation</b>."
+    "back": "<b>Large-volume paracentesis with albumin cover (for taps &gt;5&nbsp;L, ~8&nbsp;g per litre removed)</b>. <b>Refractory ascites</b> &mdash; no response to (or early recurrence despite) maximal diuretics + salt restriction, or diuretic-intractable due to complications &mdash; may need repeated LVP, a <b>TIPS</b>, or <b>liver transplantation</b>."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0013",
@@ -4948,7 +4948,7 @@
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0016",
     "front": "How does malignant ascites present and how is it confirmed?",
-    "back": "<b>A low SAAG with weight loss</b> and often a known or occult primary (ovarian, GI, breast, peritoneal); confirmed by <b>positive cytology</b> on the ascitic fluid. Managed with therapeutic paracentesis and treatment of the cancer."
+    "back": "<b>A low SAAG with weight loss</b> from <b>peritoneal carcinomatosis</b> (ovarian, GI, breast); confirmed by <b>positive cytology</b> (note: ascites from <b>massive hepatic metastases / HCC is high-SAAG</b>). Palliate recurrent malignant ascites with therapeutic paracentesis or a <b>tunnelled indwelling peritoneal drain</b>, plus cancer treatment."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0017",
@@ -5007,13 +5007,18 @@
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0028",
-    "front": "Why must new ascites always be tapped, even if cirrhosis seems obvious?",
-    "back": "To <b>calculate the SAAG</b> (confirm the mechanism), to <b>exclude SBP</b> (neutrophils &ge;250) and to <b>exclude malignancy</b> (cytology) &mdash; the tap changes management and cannot be inferred clinically."
+    "front": "What are the key complications of a TIPS (transjugular intrahepatic portosystemic shunt)?",
+    "back": "It relieves refractory ascites / variceal bleeding by lowering portal pressure, but commonly precipitates <b>hepatic encephalopathy</b> (~30&ndash;50%) and can worsen <b>cardiac failure</b>; it is <b>contraindicated in severe encephalopathy or heart failure</b>."
    },
    {
     "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0029",
-    "front": "What is the significance of a serum-ascites albumin gradient in distinguishing causes at the bedside?",
-    "back": "It reliably separates <b>portal-hypertensive (high-SAAG: cirrhosis, cardiac, Budd-Chiari)</b> from <b>non-portal (low-SAAG: malignancy, TB, pancreatic, nephrotic)</b> causes &mdash; the single most useful ascitic-fluid test."
+    "front": "What is the units pitfall when calculating the SAAG?",
+    "back": "<b>SAAG 11&nbsp;g/L = 1.1&nbsp;g/dL</b> &mdash; the threshold is the same value in different units. Always subtract <b>ascitic from serum</b> albumin (not the reverse), and keep both samples in the same units, or the portal / non-portal classification flips."
+   },
+   {
+    "id": "piri_fc__signs__GASTROINTESTINAL__Ascites__0030",
+    "front": "What are the caveats around non-selective beta-blockers and vasoconstrictors in advanced ascites?",
+    "back": "In <b>refractory ascites, SBP or hypotension</b>, <b>non-selective beta-blockers may be harmful</b> (the &lsquo;window hypothesis&rsquo;) and are often reduced / stopped. In <b>hepatorenal syndrome</b>, splanchnic vasoconstrictors &mdash; <b>terlipressin (+ albumin)</b>, or midodrine (&plusmn; octreotide) / noradrenaline &mdash; support renal perfusion."
    }
   ]
  },
@@ -12894,7 +12899,7 @@
      "Spironolactone",
      "Bendroflumethiazide",
      "Indapamide",
-     "Mannitol"
+     "Amiloride"
     ],
     "correctIndex": 1,
     "explanation": "<b>Spironolactone</b> (an aldosterone antagonist) is first-line for cirrhotic ascites, with <b>furosemide</b> added if needed; salt restriction is also key."
@@ -13072,14 +13077,14 @@
     "type": "mcq",
     "question": "Which is a recognised complication of long-standing ascites?",
     "options": [
-     "Chronic Barrett's oesophagus",
+     "Portal-vein thrombosis",
+     "Chronic gastric outlet obstruction",
      "Achalasia",
-     "Coeliac disease",
-     "Diverticulosis",
+     "Pancreatic pseudocyst",
      "Spontaneous bacterial peritonitis"
     ],
     "correctIndex": 4,
-    "explanation": "<b>Spontaneous bacterial peritonitis</b> (and hepatorenal syndrome, hyponatraemia, hernias and hepatic hydrothorax) are recognised complications of ascites."
+    "explanation": "<b>Spontaneous bacterial peritonitis</b> (and hepatorenal syndrome, hyponatraemia, umbilical hernia and hepatic hydrothorax) are recognised complications of ascites."
    }
   ]
  }
