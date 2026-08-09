@@ -18493,7 +18493,7 @@ function hideFlyout(p) {
 
 <!-- ===== Freemium gating for anonymous visitors ===== -->
 <style>
-.da-lock-wrap{position:absolute;inset:0;z-index:10;background:var(--bg,#F7F8FB);display:flex;align-items:flex-start;justify-content:center;overflow:auto;}
+.da-lock-wrap{position:fixed;inset:0;z-index:2000;background:var(--bg,#F7F8FB);display:flex;align-items:center;justify-content:center;overflow:auto;}
 .da-lock{max-width:460px;margin:56px 20px;text-align:center;background:var(--surface,#fff);border:1px solid var(--border2,#E2E6F0);border-radius:16px;padding:38px 30px;box-shadow:0 10px 40px rgba(0,0,0,.12);}
 .da-lock-icon{font-size:42px;margin-bottom:12px;}
 .da-lock-title{font-size:20px;font-weight:800;color:var(--text,#1E2640);margin-bottom:8px;}
@@ -18599,7 +18599,7 @@ function hideFlyout(p) {
     var panel=document.getElementById('notes-panel-'+p);
     if(panel){ panel.classList.add('visible'); panel.style.position='relative'; }
     var pw=document.getElementById('da-paywall-'+p);
-    if(!pw){ pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap'; if(panel) panel.appendChild(pw); }
+    if(!pw){ pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap'; document.body.appendChild(pw); }
     pw.innerHTML=html; pw.style.display='flex';
     if(!skipHash && typeof updateHash==='function') updateHash(p, st.activeSystem, name, 'notes');
   }
