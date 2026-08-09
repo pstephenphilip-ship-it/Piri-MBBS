@@ -2150,7 +2150,7 @@
    {
     "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0001",
     "front": "What is a fasciculation?",
-    "back": "A brief, <b>spontaneous twitch of a single motor unit</b> &mdash; a visible flicker under the skin <b>at rest</b> that does <b>not move the joint</b>. It reflects <b>lower-motor-neuron (LMN) irritability</b>."
+    "back": "A brief, <b>spontaneous twitch of a single motor unit</b> &mdash; a visible flicker under the skin <b>at rest</b> that does <b>not move the joint</b>. It usually reflects <b>lower-motor-neuron (LMN) irritability</b> (anterior horn / axon), and is also generated at the <b>neuromuscular junction</b> by anticholinesterases and suxamethonium."
    },
    {
     "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0002",
@@ -2224,8 +2224,8 @@
    },
    {
     "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0016",
-    "front": "Why can fasciculations reassure rather than alarm when the rest of the exam is normal?",
-    "back": "Isolated fasciculations with <b>normal power, bulk and reflexes</b> are overwhelmingly a <b>benign fasciculation syndrome</b>; the malignant cause (MND) essentially always brings <b>weakness and wasting</b> too."
+    "front": "How common are benign fasciculations in healthy people?",
+    "back": "<b>Very common</b> &mdash; most healthy adults experience occasional fasciculations, especially of the <b>eyelid or calf</b> and after <b>caffeine, exercise, stress or tiredness</b>. With a normal exam they need no investigation."
    },
    {
     "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0017",
@@ -2236,6 +2236,21 @@
     "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0018",
     "front": "Which suxamethonium effect involves fasciculations?",
     "back": "Suxamethonium (a <b>depolarising</b> blocker) causes transient <b>fasciculations</b> at induction before paralysis, and is associated with post-operative <b>myalgia</b>."
+   },
+   {
+    "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0019",
+    "front": "Do neuromuscular-junction disorders (e.g. myasthenia gravis) or myopathies cause fasciculations?",
+    "back": "<b>No</b> &mdash; fasciculations are a marker of <b>LMN / denervation</b>. Pure <b>NMJ disease (myasthenia)</b> and most <b>myopathies</b> cause fatigable or proximal weakness <b>without</b> fasciculations."
+   },
+   {
+    "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0020",
+    "front": "How is tetany distinguished from fasciculation?",
+    "back": "<b>Tetany</b> is <b>sustained muscle spasm</b> (carpopedal spasm, peri-oral tingling, positive Chvostek / Trousseau) from <b>hypocalcaemia / hypomagnesaemia</b> &mdash; not a brief single-motor-unit <b>flicker</b>."
+   },
+   {
+    "id": "piri_fc__signs__NEUROLOGICAL__Fasciculations__0021",
+    "front": "What is cramp-fasciculation syndrome and how does it relate to Isaac's syndrome?",
+    "back": "<b>Cramps + fasciculations</b> with a <b>normal or near-normal EMG</b> &mdash; the <b>benign end</b> of the peripheral-nerve-hyperexcitability spectrum, of which <b>Isaac&rsquo;s (neuromyotonia)</b>, with neuromyotonic discharges and anti-VGKC/CASPR2 antibodies, is the severe end."
    }
   ]
  },
@@ -7195,7 +7210,7 @@
      "Electromyography (EMG)",
      "A plain skull X-ray",
      "An EEG",
-     "A muscle ultrasound only",
+     "Serum vitamin B12 alone",
      "A lumbar puncture"
     ],
     "correctIndex": 0,
@@ -7236,8 +7251,8 @@
     "options": [
      "A fasciculation always moves the joint",
      "A fasciculation does not move the joint",
-     "Myoclonus is only seen on EMG",
-     "Myoclonus is a single fibre discharge",
+     "Myoclonus is confined to one motor unit",
+     "Myoclonus never involves the limbs",
      "They are the same thing"
     ],
     "correctIndex": 1,
@@ -7316,16 +7331,16 @@
    {
     "id": "piri_q__signs__NEUROLOGICAL__Fasciculations__0015",
     "type": "mcq",
-    "question": "Isolated fasciculations with a completely normal neurological examination and normal EMG most likely represent what, and what is the management?",
+    "question": "A patient reassured about benign fasciculations returns with new limb weakness and visible wasting. What does this change require?",
     "options": [
-     "Early MND — start riluzole",
-     "A radiculopathy — MRI spine",
-     "Thyrotoxicosis — carbimazole",
-     "Benign fasciculations — reassurance",
-     "Organophosphate poisoning — atropine"
+     "Continued reassurance and discharge",
+     "A trial of reducing caffeine",
+     "Starting a beta-blocker",
+     "Reassess urgently for MND",
+     "No change in management"
     ],
     "correctIndex": 3,
-    "explanation": "A normal exam and EMG make this a <b>benign fasciculation syndrome</b> &mdash; the correct management is <b>reassurance</b>."
+    "explanation": "New <b>weakness and wasting</b> converts a benign picture into a red flag &mdash; reassess urgently for <b>motor neurone disease</b> (EMG + neurology)."
    }
   ]
  }
