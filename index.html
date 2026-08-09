@@ -7431,7 +7431,7 @@ window.MOCK_BANK = {
       ] },
     { id:"pad-023", type:"categorize", objective:"pad-ali-emb-thromb-map", excludes:["pad-ali-embolic-thrombotic"],
       question:"Sort each feature by whether it points to an embolic or a thrombotic cause of acute limb ischaemia.",
-      buckets:["Suggests embolic occlusion","Suggests thrombotic (acute-on-chronic) occlusion"],
+      buckets:["Suggests embolic occlusion","Suggests thrombotic occlusion"],
       items:[
         {text:"Sudden onset in a patient with atrial fibrillation",bucket:0},
         {text:"A background of longstanding intermittent claudication",bucket:1},
@@ -7537,8 +7537,9 @@ window.MOCK_BANK = {
         "Clinical anchor: revascularisation in CLTI is limb salvage &mdash; restore perfusion to heal tissue and relieve rest pain, then continue best medical therapy (pad-026) to protect the heart and the other leg."
       ] },
     { id:"pad-030", type:"mcq", objective:"pad-mgmt-amputation", excludes:["pad-wet-gangrene"],
-      image:"assets/ecg/wet_gangrene.png",
+      image:"assets/img/pad-030.png",
       imageAlt:"A swollen foot with moist, blistered, dusky and blackened toes and surrounding red discolouration.",
+      imageCredit:"Via Wikimedia Commons.",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>Temp <b>38.9&deg;C</b></span><span>HR <b>118 bpm</b></span><span>BP <b>92/54 mmHg</b></span><span>RR <b>24/min</b></span><span>SpO2 <b>95% RA</b></span></div><div class="mk-obs-h" style="margin-top:9px">Bloods</div><table class="mk-labs"><tr><td>White cells</td><td><b>19.2</b></td><td>4.0&ndash;11.0</td></tr><tr><td>CRP</td><td><b>210 mg/L</b></td><td>&lt;5</td></tr><tr><td>Lactate</td><td><b>3.4 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>HbA1c</td><td><b>86 mmol/mol</b></td><td>&lt;42</td></tr><tr><td>Glucose</td><td><b>14.2 mmol/L</b></td><td>4.0&ndash;7.8</td></tr><tr><td>Creatinine</td><td><b>148 &micro;mol/L</b></td><td>60&ndash;110</td></tr></table>',
       question:"A frail 74-year-old man has a spreading, foul-smelling gangrene of the forefoot (shown). Imaging shows occluded tibial vessels and the vascular team judge the limb non-reconstructable. His observations and blood results are shown. What is the most appropriate management?",
       options:[
@@ -7619,8 +7620,9 @@ window.MOCK_BANK = {
         "Clinical anchor: the message to the patient is stark and simple &mdash; stop ALL tobacco completely or lose fingers and toes. It is the clearest 'the treatment is behavioural, not pharmacological' example in vascular medicine."
       ] },
     { id:"pad-035", type:"mcq", objective:"pad-gas-gangrene",
-      image:"assets/ecg/gas_gangrene.png",
+      image:"assets/img/pad-035.png",
       imageAlt:"A swollen, dusky purple limb with tense haemorrhagic blisters, in an intensive-care setting.",
+      imageCredit:"Via Wikimedia Commons.",
       question:"A 58-year-old man has severe, rapidly worsening pain in the thigh two days after a heavily contaminated open wound. He is febrile, tachycardic and confused. The affected skin is shown; there is CREPITUS on palpation and a thin, foul, brownish discharge. What is the most likely diagnosis?",
       options:[
         "Gas gangrene (clostridial myonecrosis)",
@@ -7636,8 +7638,9 @@ window.MOCK_BANK = {
         "Trap: the shared features with wet gangrene and necrotising fasciitis are deliberate &mdash; the unifying action for any spreading, crepitant, toxic soft-tissue infection is urgent surgical debridement and broad-spectrum antibiotics, and the diabetic/immunocompromised are at highest risk."
       ] },
     { id:"pad-036", type:"mcq", objective:"pad-wet-gangrene", excludes:["pad-mgmt-amputation"],
-      image:"assets/ecg/wet_gangrene.png",
+      image:"assets/img/pad-036.png",
       imageAlt:"A swollen foot with moist, blistered, dusky and blackened toes and surrounding red discolouration.",
+      imageCredit:"Via Wikimedia Commons.",
       question:"A 68-year-old man with diabetes has the foot shown: it is swollen, dusky, moist and blistered, with a foul smell and surrounding spreading redness. His observations and blood results are shown. How is this gangrene best classified?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>Temp <b>38.7&deg;C</b></span><span>HR <b>104 bpm</b></span><span>BP <b>118/72 mmHg</b></span><span>RR <b>20/min</b></span></div><div class="mk-obs-h" style="margin-top:9px">Bloods</div><table class="mk-labs"><tr><td>White cells</td><td><b>18.1</b></td><td>4.0&ndash;11.0</td></tr><tr><td>Neutrophils</td><td><b>15.6</b></td><td>2.0&ndash;7.5</td></tr><tr><td>CRP</td><td><b>190 mg/L</b></td><td>&lt;5</td></tr></table>',
       options:[
@@ -7673,7 +7676,7 @@ window.MOCK_BANK = {
       ] },
     { id:"pad-038", type:"categorize", objective:"pad-gangrene-map", excludes:["pad-gas-gangrene","pad-wet-gangrene","pad-dry-gangrene"],
       question:"Sort each feature into the type of gangrene it most classically describes.",
-      buckets:["Dry gangrene","Wet (infected) gangrene","Gas gangrene"],
+      buckets:["Dry gangrene","Wet gangrene","Gas gangrene"],
       items:[
         {text:"Black, mummified toe with a clear line of demarcation",bucket:0},
         {text:"Swollen, moist, foul-smelling foot with spreading sepsis",bucket:1},
