@@ -17642,17 +17642,17 @@ initTab('conditions');
       var v=n.nodeValue;
       for(var i=0;i<v.length;i++){
         var c=v[i];
-        if(c===' '||c==='\t'||c==='\n'||c==='\r'||c==='\f'||c===' '){
-          if(lastSpace) continue;
-          norm+=' '; map.push({node:n, off:i}); lastSpace=true;
-        } else {
-          norm+=c; map.push({node:n, off:i}); lastSpace=false;
-        }
+        // Skip ALL whitespace when building the match string. sel.toString()
+        // injects whitespace at block boundaries (bullet->bullet, para->para)
+        // that the minified DOM has no text node for, so collapsing (rather than
+        // dropping) whitespace made cross-block selections fail to re-match.
+        if(/\s/.test(c)){ continue; }
+        norm+=c; map.push({node:n, off:i});
       }
     }
     return { norm:norm, map:map };
   }
-  function annotNormTarget(t){ return (t||'').replace(/[\s ]+/g,' ').trim(); }
+  function annotNormTarget(t){ return (t||'').replace(/\s+/g,'').trim(); }
 
   function annotMakeMark(a, text, p){
     var mark=document.createElement('mark');
