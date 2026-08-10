@@ -18992,6 +18992,129 @@ function hideFlyout(p) {
 })();
 </script>
 
+<!-- ===== Email verification + single trusted device (2-step auth) ===== -->
+<script>
+(function(){
+  var sb = window.__sb; if(!sb) return;
+  var AUTH2FA = true;                 // master switch for the device/email verification flow
+  function $(id){ return document.getElementById(id); }
+  function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded',fn); }
+
+  // Stable per-browser device id
+  function deviceId(){
+    try{
+      var k='da-device-id', v=localStorage.getItem(k);
+      if(!v){ v=(window.crypto&&crypto.randomUUID)?crypto.randomUUID():(Date.now()+'-'+Math.random().toString(36).slice(2)); localStorage.setItem(k,v); }
+      return v;
+    }catch(e){ return 'dev'; }
+  }
+  // Claim this device as the account's single trusted device (kicks the previous one)
+  function claimDevice(){
+    return sb.auth.getUser().then(function(r){
+      var u=r&&r.data?r.data.user:null; if(!u) return null;
+      return sb.from('profiles').update({ trusted_device: deviceId(), trusted_device_at: new Date().toISOString() }).eq('id', u.id);
+    }).catch(function(){ return null; });
+  }
+
+  // ---- verification overlay (shared by signup-confirm and new-device sign-in) ----
+  var vEmail=null, vType='email', vAfter=null;
+  function buildOverlay(){
+    if($('dv-overlay')) return;
+    var ov=document.createElement('div'); ov.id='dv-overlay'; ov.className='auth-overlay';
+    ov.innerHTML='<div class="auth-card">'
+      +'<div class="auth-logo"><span class="logo-text">DoctoRise</span></div>'
+      +'<div class="auth-sub" id="dv-sub"></div>'
+      +'<div class="auth-msg" id="dv-msg"></div>'
+      +'<div class="auth-field"><label for="dv-code">6-digit code</label><input id="dv-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456"></div>'
+      +'<button class="auth-submit" id="dv-verify">Verify</button>'
+      +'<div class="auth-toggle">Didn’t get it? <a id="dv-resend">Resend code</a></div>'
+      +'<div class="auth-toggle" style="margin-top:6px"><a id="dv-signout">Cancel / use a different account</a></div>'
+      +'</div>';
+    document.body.appendChild(ov);
+    $('dv-verify').onclick=doVerify;
+    $('dv-resend').onclick=doResend;
+    $('dv-signout').onclick=function(){ window.__mfaPending=false; sb.auth.signOut().then(function(){ location.reload(); }); };
+    $('dv-code').addEventListener('keydown',function(e){ if(e.key==='Enter') doVerify(); });
+  }
+  function openOverlay(email, type, sub, after){
+    buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ location.reload(); };
+    window.__mfaPending=true;
+    $('dv-sub').innerHTML=sub||('Enter the 6-digit code we emailed to <span style="color:var(--text)">'+email+'</span>');
+    $('dv-code').value=''; var m=$('dv-msg'); if(m) m.className='auth-msg';
+    $('dv-overlay').classList.add('open');
+    setTimeout(function(){ var c=$('dv-code'); if(c) c.focus(); },60);
+  }
+  function vmsg(t,k){ var m=$('dv-msg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
+  function doVerify(){
+    var code=($('dv-code').value||'').trim();
+    if(!/^\d{6}$/.test(code)){ vmsg('Enter the 6-digit code from your email.'); return; }
+    var btn=$('dv-verify'), r0=btn.textContent; btn.disabled=true; btn.textContent='Verifying…';
+    sb.auth.verifyOtp({ email:vEmail, token:code, type:vType }).then(function(r){
+      if(r.error){ vmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
+      vmsg('Verified — one moment…','ok');
+      claimDevice().then(function(){ window.__mfaPending=false; setTimeout(vAfter, 500); });
+    }).catch(function(e){ vmsg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
+  }
+  function doResend(){
+    if(!vEmail) return; vmsg('Sending a new code…','ok');
+    var p=(vType==='signup') ? sb.auth.resend({ type:'signup', email:vEmail })
+                             : sb.auth.signInWithOtp({ email:vEmail, options:{ shouldCreateUser:false } });
+    p.then(function(r){ vmsg(r.error?r.error.message:'New code sent — check your email.', r.error?'err':'ok'); });
+  }
+
+  // Only email a fresh device code at most once every 90s (avoid spamming on reloads)
+  function sentRecently(email){
+    try{ var t=+sessionStorage.getItem('dv-sent-'+email)||0; if(Date.now()-t<90000) return true; sessionStorage.setItem('dv-sent-'+email, ''+Date.now()); }catch(e){}
+    return false;
+  }
+
+  // ---- override auth submit: signup gets a code step; sign-in is delegated (device gate runs on reload) ----
+  ready(function(){
+    var _orig = window.handleAuthSubmit;
+    window.handleAuthSubmit = function(e){
+      if(!AUTH2FA) return _orig ? _orig(e) : false;
+      var mode = window.__authMode || 'signin';
+      if(mode!=='signup') return _orig ? _orig(e) : false;   // sign-in: default flow; device check happens after reload
+      if(e&&e.preventDefault) e.preventDefault();
+      var email=($('authEmail').value||'').trim(), password=$('authPassword').value||'';
+      function amsg(t,k){ var m=$('authMsg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
+      if(!email||!password){ amsg('Enter your email and password.'); return false; }
+      var btn=$('authSubmitBtn'), r0=btn.textContent; btn.disabled=true; btn.textContent='Creating account…';
+      sb.auth.signUp({ email:email, password:password }).then(function(res){
+        btn.disabled=false; btn.textContent=r0;
+        if(res.error){ amsg(res.error.message,'err'); return; }
+        if(res.data && res.data.session){                       // email confirmation OFF: straight in
+          claimDevice().then(function(){ location.reload(); });
+        } else {                                                // confirmation ON: verify the emailed code
+          if(typeof closeAuthModal==='function') closeAuthModal();
+          openOverlay(email,'signup','Check your email — we sent a 6-digit code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
+        }
+      }).catch(function(err){ btn.disabled=false; btn.textContent=r0; amsg((err&&err.message)||'Network error.','err'); });
+      return false;
+    };
+  });
+
+  // ---- on-load device gate: any authenticated load on a non-trusted device must re-verify ----
+  function enforceDevice(){
+    if(!AUTH2FA) return;
+    sb.auth.getSession().then(function(r){
+      var s=r&&r.data?r.data.session:null, u=s?s.user:null; if(!u) return;
+      sb.from('profiles').select('trusted_device').eq('id',u.id).maybeSingle().then(function(pr){
+        if(!pr || pr.error) return;                              // column missing / error -> fail open (never lock out)
+        var trusted = pr.data ? pr.data.trusted_device : null;
+        if(trusted && trusted===deviceId()) return;              // this is the trusted device -> fine
+        // new device, or the trusted slot was taken by another device -> require an email code
+        window.__mfaPending=true;
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the 6-digit code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ location.reload(); }); }
+        if(sentRecently(u.email)) { show(); return; }
+        sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
+      }).catch(function(){});
+    }).catch(function(){});
+  }
+  ready(function(){ setTimeout(enforceDevice, 300); });
+})();
+</script>
+
 <!-- ===== Accounts: Settings panel (account / appearance / membership) ===== -->
 <style>
 .da-set-card{max-width:480px;}
