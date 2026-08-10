@@ -20171,6 +20171,9 @@ function hideFlyout(p) {
 
   function place(){
     if(!toc) return;
+    // The "My Notes" drawer/sidebar is an in-flow panel with no z-index, so the
+    // fixed ToC (z-index:9) would paint on top of it. Hide the ToC while it's open.
+    if(document.querySelector('.annot-drawer.open, .annot-sidebar.open')){ hide(); return; }
     var na=document.getElementById((curCfg&&curCfg.na)||'notearea-conditions'); if(!na){ hide(); return; }
     var r=na.getBoundingClientRect();
     var richEl=document.getElementById((curCfg&&curCfg.rich)||'rich-note-display');
@@ -20230,6 +20233,9 @@ function hideFlyout(p) {
       var orig=window[fn]; if(typeof orig!=='function') return;
       window[fn]=function(){ var r=orig.apply(this,arguments); rebuild(); return r; };
     });
+    // Re-evaluate when the "My Notes" drawer toggles: hide the ToC immediately on
+    // open (guard in place()), and re-show it after the 0.2s close animation settles.
+    (function(){ var o=window.annotToggle; if(typeof o==='function'){ window.annotToggle=function(){ var r=o.apply(this,arguments); build(); setTimeout(build,240); return r; }; } })();
     rebuild();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
