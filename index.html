@@ -19025,7 +19025,7 @@ function hideFlyout(p) {
       +'<div class="auth-logo"><span class="logo-text">DoctoRise</span></div>'
       +'<div class="auth-sub" id="dv-sub"></div>'
       +'<div class="auth-msg" id="dv-msg"></div>'
-      +'<div class="auth-field"><label for="dv-code">6-digit code</label><input id="dv-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456"></div>'
+      +'<div class="auth-field"><label for="dv-code">Verification code</label><input id="dv-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="Enter the code"></div>'
       +'<button class="auth-submit" id="dv-verify">Verify</button>'
       +'<div class="auth-toggle">Didn’t get it? <a id="dv-resend">Resend code</a></div>'
       +'<div class="auth-toggle" style="margin-top:6px"><a id="dv-signout">Cancel / use a different account</a></div>'
@@ -19039,7 +19039,7 @@ function hideFlyout(p) {
   function openOverlay(email, type, sub, after){
     buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ location.reload(); };
     window.__mfaPending=true;
-    $('dv-sub').innerHTML=sub||('Enter the 6-digit code we emailed to <span style="color:var(--text)">'+email+'</span>');
+    $('dv-sub').innerHTML=sub||('Enter the code we emailed to <span style="color:var(--text)">'+email+'</span>');
     $('dv-code').value=''; var m=$('dv-msg'); if(m) m.className='auth-msg';
     $('dv-overlay').classList.add('open');
     setTimeout(function(){ var c=$('dv-code'); if(c) c.focus(); },60);
@@ -19047,7 +19047,7 @@ function hideFlyout(p) {
   function vmsg(t,k){ var m=$('dv-msg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
   function doVerify(){
     var code=($('dv-code').value||'').trim();
-    if(!/^\d{6}$/.test(code)){ vmsg('Enter the 6-digit code from your email.'); return; }
+    if(!/^\d{4,10}$/.test(code)){ vmsg('Enter the numeric code from your email.'); return; }
     var btn=$('dv-verify'), r0=btn.textContent; btn.disabled=true; btn.textContent='Verifying…';
     sb.auth.verifyOtp({ email:vEmail, token:code, type:vType }).then(function(r){
       if(r.error){ vmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
@@ -19087,7 +19087,7 @@ function hideFlyout(p) {
           claimDevice().then(function(){ location.reload(); });
         } else {                                                // confirmation ON: verify the emailed code
           if(typeof closeAuthModal==='function') closeAuthModal();
-          openOverlay(email,'signup','Check your email — we sent a 6-digit code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
+          openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
         }
       }).catch(function(err){ btn.disabled=false; btn.textContent=r0; amsg((err&&err.message)||'Network error.','err'); });
       return false;
@@ -19105,7 +19105,7 @@ function hideFlyout(p) {
         if(trusted && trusted===deviceId()) return;              // this is the trusted device -> fine
         // new device, or the trusted slot was taken by another device -> require an email code
         window.__mfaPending=true;
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the 6-digit code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ location.reload(); }); }
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ location.reload(); }); }
         if(sentRecently(u.email)) { show(); return; }
         sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
