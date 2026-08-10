@@ -19011,7 +19011,13 @@ function hideFlyout(p) {
   // Mark that this device just passed a verification (so the on-load gate doesn't re-prompt
   // in the brief window before the server claim settles — e.g. right after signup).
   function markVerified(){ try{ sessionStorage.setItem('da-verified-at', ''+Date.now()); }catch(e){} }
-  function justVerified(){ try{ return (Date.now()-(+sessionStorage.getItem('da-verified-at')||0)) < 20000; }catch(e){ return false; } }
+  function justVerified(){ try{ return (Date.now()-(+sessionStorage.getItem('da-verified-at')||0)) < 90000; }catch(e){ return false; } }
+  // Remember locally that THIS device is the trusted one for this account. Used only to
+  // avoid re-emailing a code while the server write propagates / if it was momentarily
+  // slow to stick. It never overrides a server value that names a *different* device, so
+  // account-sharing is still caught (a takeover sets the server value to the other device).
+  function localTrust(uid){ try{ return localStorage.getItem('da-trust:'+uid); }catch(e){ return null; } }
+  function setLocalTrust(uid){ try{ if(uid) localStorage.setItem('da-trust:'+uid, deviceId()); }catch(e){} }
   // Claim this device as the account's single trusted device (kicks the previous one).
   // Retries: on a fresh signup the profiles row may still be being created, so an update
   // can affect 0 rows — keep trying briefly until it sticks.
@@ -19020,13 +19026,15 @@ function hideFlyout(p) {
     return sb.auth.getUser().then(function(r){
       var u=r&&r.data?r.data.user:null; if(!u) return null;
       return sb.from('profiles').update({ trusted_device: deviceId(), trusted_device_at: new Date().toISOString() }).eq('id', u.id).select('id').then(function(res){
-        if((!res || !res.data || !res.data.length) && attempt<6){
+        if(res && res.data && res.data.length){ setLocalTrust(u.id); return res; }
+        if(attempt<8){
           return new Promise(function(rs){ setTimeout(rs, 400); }).then(function(){ return claimDevice(attempt+1); });
         }
+        if(res && res.error){ try{ console.warn('[DoctoRise] could not save trusted device:', res.error.message); }catch(e){} }
         return res;
       });
     }).catch(function(){
-      if(attempt<6){ return new Promise(function(rs){ setTimeout(rs, 400); }).then(function(){ return claimDevice(attempt+1); }); }
+      if(attempt<8){ return new Promise(function(rs){ setTimeout(rs, 400); }).then(function(){ return claimDevice(attempt+1); }); }
       return null;
     });
   }
@@ -19085,6 +19093,7 @@ function hideFlyout(p) {
   }
 
   // ---- override auth submit: signup gets a code step; sign-in is delegated (device gate runs on reload) ----
+  var UNAME_RE = /^[a-zA-Z0-9_]{3,20}$/;
   ready(function(){
     var _orig = window.handleAuthSubmit;
     window.handleAuthSubmit = function(e){
@@ -19095,18 +19104,37 @@ function hideFlyout(p) {
       var email=($('authEmail').value||'').trim(), password=$('authPassword').value||'';
       function amsg(t,k){ var m=$('authMsg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
       if(!email||!password){ amsg('Enter your email and password.'); return false; }
+      // Capture the chosen username + optional profile fields so ensureProfile() can
+      // create the row with them after the account is confirmed.
+      var unameEl=$('da-username'), username=unameEl?(unameEl.value||'').trim():'';
+      if(unameEl && !UNAME_RE.test(username)){ amsg('Username must be 3–20 letters, numbers or underscores.'); return false; }
+      var pdata={ username:username||null,
+                  full_name:($('da-fullname')&&$('da-fullname').value.trim())||null,
+                  university:($('da-university')&&$('da-university').value.trim())||null,
+                  study_year:($('da-year')&&$('da-year').value)||null,
+                  country:($('da-country')&&$('da-country').value.trim())||null };
       var btn=$('authSubmitBtn'), r0=btn.textContent; btn.disabled=true; btn.textContent='Creating account…';
-      sb.auth.signUp({ email:email, password:password }).then(function(res){
-        btn.disabled=false; btn.textContent=r0;
-        if(res.error){ amsg(res.error.message,'err'); return; }
-        if(res.data && res.data.session){                       // email confirmation OFF: straight in
-          markVerified();
-          claimDevice().then(function(){ location.reload(); });
-        } else {                                                // confirmation ON: verify the emailed code
-          if(typeof closeAuthModal==='function') closeAuthModal();
-          openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
-        }
-      }).catch(function(err){ btn.disabled=false; btn.textContent=r0; amsg((err&&err.message)||'Network error.','err'); });
+      function afterCheck(){
+        try{ localStorage.setItem('da_pending_profile', JSON.stringify(pdata)); }catch(e){}
+        return sb.auth.signUp({ email:email, password:password }).then(function(res){
+          btn.disabled=false; btn.textContent=r0;
+          if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} amsg(res.error.message,'err'); return; }
+          if(res.data && res.data.session){                     // email confirmation OFF: straight in
+            markVerified();
+            claimDevice().then(function(){ location.reload(); });
+          } else {                                              // confirmation ON: verify the emailed code
+            if(typeof closeAuthModal==='function') closeAuthModal();
+            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
+          }
+        });
+      }
+      // Reject a taken username up-front (best effort — ignore if the RPC is unavailable).
+      if(username){
+        sb.rpc('is_username_available',{u:username}).then(function(av){
+          if(!av.error && av.data===false){ amsg('That username is taken. Try another.'); btn.disabled=false; btn.textContent=r0; return; }
+          afterCheck();
+        }).catch(function(){ afterCheck(); });
+      } else { afterCheck(); }
       return false;
     };
   });
@@ -19114,14 +19142,20 @@ function hideFlyout(p) {
   // ---- on-load device gate: any authenticated load on a non-trusted device must re-verify ----
   function enforceDevice(){
     if(!AUTH2FA) return;
-    if(justVerified()) return;   // just completed signup/sign-in verification here — don't re-prompt while the server claim settles
     sb.auth.getSession().then(function(r){
       var s=r&&r.data?r.data.session:null, u=s?s.user:null; if(!u) return;
       sb.from('profiles').select('trusted_device').eq('id',u.id).maybeSingle().then(function(pr){
         if(!pr || pr.error) return;                              // column missing / error -> fail open (never lock out)
-        var trusted = pr.data ? pr.data.trusted_device : null;
-        if(trusted && trusted===deviceId()) return;              // this is the trusted device -> fine
-        // new device, or the trusted slot was taken by another device -> require an email code
+        var me = deviceId();
+        var trusted = pr.data ? (pr.data.trusted_device||'') : '';
+        if(trusted === me){ setLocalTrust(u.id); return; }       // this IS the trusted device -> nothing to do
+        if(!trusted){
+          // No device on record yet (fresh signup, or the claim hasn't landed). If we just
+          // verified here — or we already know this device is ours — claim it silently.
+          if(justVerified() || localTrust(u.id)===me){ claimDevice(); return; }
+        }
+        // A *different* device holds the trusted slot (account used elsewhere), or an
+        // unclaimed account on a device we've never verified -> require an email code.
         window.__mfaPending=true;
         function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ location.reload(); }); }
         if(sentRecently(u.email)) { show(); return; }
