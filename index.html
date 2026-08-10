@@ -17642,17 +17642,17 @@ initTab('conditions');
       var v=n.nodeValue;
       for(var i=0;i<v.length;i++){
         var c=v[i];
-        if(c===' '||c==='\t'||c==='\n'||c==='\r'||c==='\f'||c===' '){
-          if(lastSpace) continue;
-          norm+=' '; map.push({node:n, off:i}); lastSpace=true;
-        } else {
-          norm+=c; map.push({node:n, off:i}); lastSpace=false;
-        }
+        // Skip ALL whitespace when building the match string. sel.toString()
+        // injects whitespace at block boundaries (bullet->bullet, para->para)
+        // that the minified DOM has no text node for, so collapsing (rather than
+        // dropping) whitespace made cross-block selections fail to re-match.
+        if(/\s/.test(c)){ continue; }
+        norm+=c; map.push({node:n, off:i});
       }
     }
     return { norm:norm, map:map };
   }
-  function annotNormTarget(t){ return (t||'').replace(/[\s ]+/g,' ').trim(); }
+  function annotNormTarget(t){ return (t||'').replace(/\s+/g,'').trim(); }
 
   function annotMakeMark(a, text, p){
     var mark=document.createElement('mark');
@@ -20171,6 +20171,9 @@ function hideFlyout(p) {
 
   function place(){
     if(!toc) return;
+    // The "My Notes" drawer/sidebar is an in-flow panel with no z-index, so the
+    // fixed ToC (z-index:9) would paint on top of it. Hide the ToC while it's open.
+    if(document.querySelector('.annot-drawer.open, .annot-sidebar.open')){ hide(); return; }
     var na=document.getElementById((curCfg&&curCfg.na)||'notearea-conditions'); if(!na){ hide(); return; }
     var r=na.getBoundingClientRect();
     var richEl=document.getElementById((curCfg&&curCfg.rich)||'rich-note-display');
@@ -20230,6 +20233,9 @@ function hideFlyout(p) {
       var orig=window[fn]; if(typeof orig!=='function') return;
       window[fn]=function(){ var r=orig.apply(this,arguments); rebuild(); return r; };
     });
+    // Re-evaluate when the "My Notes" drawer toggles: hide the ToC immediately on
+    // open (guard in place()), and re-show it after the 0.2s close animation settles.
+    (function(){ var o=window.annotToggle; if(typeof o==='function'){ window.annotToggle=function(){ var r=o.apply(this,arguments); build(); setTimeout(build,240); return r; }; } })();
     rebuild();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
