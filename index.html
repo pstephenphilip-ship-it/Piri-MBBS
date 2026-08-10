@@ -19008,12 +19008,27 @@ function hideFlyout(p) {
       return v;
     }catch(e){ return 'dev'; }
   }
-  // Claim this device as the account's single trusted device (kicks the previous one)
-  function claimDevice(){
+  // Mark that this device just passed a verification (so the on-load gate doesn't re-prompt
+  // in the brief window before the server claim settles — e.g. right after signup).
+  function markVerified(){ try{ sessionStorage.setItem('da-verified-at', ''+Date.now()); }catch(e){} }
+  function justVerified(){ try{ return (Date.now()-(+sessionStorage.getItem('da-verified-at')||0)) < 20000; }catch(e){ return false; } }
+  // Claim this device as the account's single trusted device (kicks the previous one).
+  // Retries: on a fresh signup the profiles row may still be being created, so an update
+  // can affect 0 rows — keep trying briefly until it sticks.
+  function claimDevice(attempt){
+    attempt = attempt||0;
     return sb.auth.getUser().then(function(r){
       var u=r&&r.data?r.data.user:null; if(!u) return null;
-      return sb.from('profiles').update({ trusted_device: deviceId(), trusted_device_at: new Date().toISOString() }).eq('id', u.id);
-    }).catch(function(){ return null; });
+      return sb.from('profiles').update({ trusted_device: deviceId(), trusted_device_at: new Date().toISOString() }).eq('id', u.id).select('id').then(function(res){
+        if((!res || !res.data || !res.data.length) && attempt<6){
+          return new Promise(function(rs){ setTimeout(rs, 400); }).then(function(){ return claimDevice(attempt+1); });
+        }
+        return res;
+      });
+    }).catch(function(){
+      if(attempt<6){ return new Promise(function(rs){ setTimeout(rs, 400); }).then(function(){ return claimDevice(attempt+1); }); }
+      return null;
+    });
   }
 
   // ---- verification overlay (shared by signup-confirm and new-device sign-in) ----
@@ -19052,6 +19067,7 @@ function hideFlyout(p) {
     sb.auth.verifyOtp({ email:vEmail, token:code, type:vType }).then(function(r){
       if(r.error){ vmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
       vmsg('Verified — one moment…','ok');
+      markVerified();
       claimDevice().then(function(){ window.__mfaPending=false; setTimeout(vAfter, 500); });
     }).catch(function(e){ vmsg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
   }
@@ -19084,6 +19100,7 @@ function hideFlyout(p) {
         btn.disabled=false; btn.textContent=r0;
         if(res.error){ amsg(res.error.message,'err'); return; }
         if(res.data && res.data.session){                       // email confirmation OFF: straight in
+          markVerified();
           claimDevice().then(function(){ location.reload(); });
         } else {                                                // confirmation ON: verify the emailed code
           if(typeof closeAuthModal==='function') closeAuthModal();
@@ -19097,6 +19114,7 @@ function hideFlyout(p) {
   // ---- on-load device gate: any authenticated load on a non-trusted device must re-verify ----
   function enforceDevice(){
     if(!AUTH2FA) return;
+    if(justVerified()) return;   // just completed signup/sign-in verification here — don't re-prompt while the server claim settles
     sb.auth.getSession().then(function(r){
       var s=r&&r.data?r.data.session:null, u=s?s.user:null; if(!u) return;
       sb.from('profiles').select('trusted_device').eq('id',u.id).maybeSingle().then(function(pr){
