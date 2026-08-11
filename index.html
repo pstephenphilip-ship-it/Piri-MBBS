@@ -18595,17 +18595,26 @@ function hideFlyout(p) {
   // the accounts layer refreshes this from the profile and reloads if it changed.
   window.__member = (function(){ try{ return window.__authed && localStorage.getItem('da-member')==='1'; }catch(e){ return false; } })();
 
-  // ---- Free-account daily unlocks (day-pass): up to 3 locked topics per day ----
+  // ---- Free-account daily unlocks (day-pass): up to 3 locked topics per rolling 24h ----
+  // Each unlock is stamped with the time it was used and expires exactly 24h later, so an
+  // unlocked topic goes back to being restricted 24 hours after it was opened.
   var DP_LIMIT = 3;
-  function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+  var DP_WINDOW = 24*60*60*1000;   // 24 hours in ms
   function dpUser(){ try{ var raw=localStorage.getItem('sb-'+PROJECT_REF+'-auth-token'); if(raw){ var o=JSON.parse(raw); var s=o&&(o.currentSession||o); var u=s&&s.user; if(u&&u.id) return u.id.slice(0,12); } }catch(e){} return 'acct'; }
-  function dpStoreKey(){ return 'da-daypass-'+dpUser()+'-'+todayStr(); }
-  function dpGet(){ try{ return JSON.parse(localStorage.getItem(dpStoreKey())||'[]'); }catch(e){ return []; } }
-  function dpSave(a){ try{ localStorage.setItem(dpStoreKey(), JSON.stringify(a)); }catch(e){} }
+  function dpStoreKey(){ return 'da-daypass-'+dpUser(); }
+  function dpRaw(){ try{ var a=JSON.parse(localStorage.getItem(dpStoreKey())||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
+  function dpWrite(a){ try{ localStorage.setItem(dpStoreKey(), JSON.stringify(a)); }catch(e){} }
+  // Return only the still-valid (unexpired) unlocks, pruning anything past 24h as we go.
+  function dpGet(){
+    var now=Date.now(), a=dpRaw();
+    var keep=a.filter(function(e){ return e && typeof e.t==='number' && (now-e.t) < DP_WINDOW; });
+    if(keep.length!==a.length) dpWrite(keep);
+    return keep;
+  }
   function tkey(p,s,t){ return p+'|'+(s||'')+'|'+t; }
-  function dpHas(p,s,t){ return dpGet().indexOf(tkey(p,s,t))>-1; }
+  function dpHas(p,s,t){ var k=tkey(p,s,t); return dpGet().some(function(e){ return e.k===k; }); }
   function dpRemaining(){ return Math.max(0, DP_LIMIT - dpGet().length); }
-  function dpConsume(p,s,t){ var a=dpGet(), k=tkey(p,s,t); if(a.indexOf(k)>-1) return true; if(a.length>=DP_LIMIT) return false; a.push(k); dpSave(a); return true; }
+  function dpConsume(p,s,t){ var a=dpGet(), k=tkey(p,s,t); if(a.some(function(e){ return e.k===k; })) return true; if(a.length>=DP_LIMIT) return false; a.push({ k:k, t:Date.now() }); dpWrite(a); return true; }
   window.__dpRemaining = dpRemaining;
 
   function isFreeAllow(p, system, topic){
@@ -18633,16 +18642,16 @@ function hideFlyout(p) {
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
   function dayPassHTML(name, remaining){
     return '<div class="da-lock"><div class="da-lock-icon">🔓</div>'
-      + '<div class="da-lock-title">Unlock this topic for today?</div>'
-      + '<div class="da-lock-sub">Opens <strong>'+esc(name)+'</strong> &mdash; notes, flashcards &amp; MCQs &mdash; for the rest of today. You have <strong>'+remaining+' of '+DP_LIMIT+'</strong> daily unlocks left.</div>'
-      + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpUnlock&&window.__dpUnlock()">Use 1 daily unlock</button>'
+      + '<div class="da-lock-title">Unlock this topic for 24 hours?</div>'
+      + '<div class="da-lock-sub">Opens the notes for <strong>'+esc(name)+'</strong> for the next <strong>24 hours</strong>, then it locks again. You have <strong>'+remaining+' of '+DP_LIMIT+'</strong> unlocks left.</div>'
+      + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpUnlock&&window.__dpUnlock()">Use 1 unlock</button>'
       + '<button class="da-lock-btn" onclick="window.__dpCancel&&window.__dpCancel()">Not now</button></div>'
-      + '<div class="da-lock-foot">Daily unlocks reset each day. Unlimited access is coming with membership.</div></div>';
+      + '<div class="da-lock-foot">Up to '+DP_LIMIT+' topics in any 24 hours &mdash; each frees up 24h after you use it. Unlimited access is coming with membership.</div></div>';
   }
   function limitHTML(){
     return '<div class="da-lock"><div class="da-lock-icon">⏳</div>'
-      + '<div class="da-lock-title">Daily limit reached</div>'
-      + '<div class="da-lock-sub">You&rsquo;ve used all <strong>'+DP_LIMIT+'</strong> of today&rsquo;s free topic unlocks. They reset tomorrow &mdash; or unlock everything with membership (coming soon).</div>'
+      + '<div class="da-lock-title">Unlock limit reached</div>'
+      + '<div class="da-lock-sub">You&rsquo;ve used all <strong>'+DP_LIMIT+'</strong> of your topic unlocks. Each one frees up again <strong>24 hours</strong> after you used it &mdash; or unlock everything with membership (coming soon).</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpCancel&&window.__dpCancel()">OK</button></div>'
       + '<div class="da-lock-foot">Topics you already unlocked today stay open.</div></div>';
   }
