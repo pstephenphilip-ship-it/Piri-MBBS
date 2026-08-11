@@ -584,6 +584,63 @@
     "front": "What is the danger of very high triglycerides (>10 mmol/L)?",
     "back": "<b>Acute pancreatitis.</b> Treat with a <b>fibrate</b> and lifestyle change, and look for secondary causes (alcohol, diabetes, obesity, hypothyroidism)."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Endocrine": [
+   {
+    "id": "tft_fc_01",
+    "front": "Why is TSH the first-line thyroid test, and how is it interpreted?",
+    "back": "TSH is the <b>most sensitive</b> marker of thyroid status (log-inverse relationship with T4). Interpret it <b>together with free T4</b>."
+   },
+   {
+    "id": "tft_fc_02",
+    "front": "Give the TFT patterns for hyperthyroidism, hypothyroidism and their subclinical forms.",
+    "back": "<b>↓TSH + ↑fT4</b> = primary hyperthyroid; <b>↑TSH + ↓fT4</b> = primary hypothyroid; <b>↑TSH + normal fT4</b> = subclinical hypothyroid; <b>↓TSH + normal fT4</b> = subclinical hyperthyroid."
+   },
+   {
+    "id": "tft_fc_03",
+    "front": "Which thyroid antibodies are useful, and in what conditions?",
+    "back": "<b>TPO antibodies</b> — Hashimoto's and Graves'. <b>TSH-receptor antibodies (TRAb)</b> — Graves' disease."
+   },
+   {
+    "id": "tft_fc_04",
+    "front": "What is sick euthyroid syndrome, and its implication for testing?",
+    "back": "Abnormal TFTs during <b>non-thyroidal (acute) illness</b>. <b>Don't test</b> thyroid function in acute illness — repeat once the patient has recovered."
+   },
+   {
+    "id": "tft_fc_05",
+    "front": "How does central (secondary) hypothyroidism present biochemically, and why is it a trap?",
+    "back": "A <b>low free T4</b> with an <b>inappropriately normal or low TSH</b> (pituitary/hypothalamic disease). Relying on TSH alone would miss it — check fT4."
+   },
+   {
+    "id": "tft_fc_06",
+    "front": "Name the two thyroid emergencies.",
+    "back": "<b>Thyroid storm</b> (severe thyrotoxicosis: fever, tachyarrhythmia, agitation) and <b>myxoedema coma</b> (severe hypothyroidism: hypothermia, reduced GCS)."
+   },
+   {
+    "id": "sht_fc_01",
+    "front": "Who should be screened for secondary (endocrine) hypertension?",
+    "back": "The <b>young</b> (&lt;40), <b>resistant</b> (≥3 drugs), <b>severe/accelerated</b> hypertensive, those with <b>hypokalaemia</b>, or with suggestive clinical features."
+   },
+   {
+    "id": "sht_fc_02",
+    "front": "Which test screens for primary hyperaldosteronism (Conn's), and what is the classic picture?",
+    "back": "The <b>aldosterone:renin ratio (ARR)</b> — a raised ratio. Classic: hypertension with <b>hypokalaemia</b> and alkalosis (though often normokalaemic)."
+   },
+   {
+    "id": "sht_fc_03",
+    "front": "Which test screens for phaeochromocytoma, and what are the symptoms?",
+    "back": "<b>Plasma or 24-hour urine metanephrines</b>. Symptoms: episodic <b>headache, sweating, palpitations</b> with paroxysmal hypertension."
+   },
+   {
+    "id": "sht_fc_04",
+    "front": "How is Cushing's syndrome screened for biochemically?",
+    "back": "<b>Overnight (1 mg) dexamethasone suppression test</b>, <b>late-night salivary cortisol</b>, or <b>24-hour urinary free cortisol</b> — failure to suppress suggests Cushing's."
+   },
+   {
+    "id": "sht_fc_05",
+    "front": "What is the critical drug-safety rule in phaeochromocytoma?",
+    "back": "<b>Alpha-blockade before beta-blockade</b> — giving a beta-blocker first leaves unopposed alpha stimulation and can precipitate a hypertensive crisis."
+   }
   ]
  },
  "q": {
@@ -1570,6 +1627,98 @@
     "correctIndex": 1,
     "answer": "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
     "explanation": "A very high cholesterol with tendon xanthomata and premature family CVD is familial hypercholesterolaemia — needs specialist care, high-intensity statin and cascade screening of first-degree relatives."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Endocrine": [
+   {
+    "id": "tft_q01",
+    "type": "mcq",
+    "question": "A patient has TSH 12 mU/L (high) with a low free T4. What is the diagnosis?",
+    "options": [
+     "Primary hyperthyroidism",
+     "Primary hypothyroidism",
+     "Subclinical hyperthyroidism",
+     "Central hypothyroidism",
+     "Sick euthyroid"
+    ],
+    "correctIndex": 1,
+    "answer": "Primary hypothyroidism",
+    "explanation": "A raised TSH with a low free T4 is primary hypothyroidism (the pituitary drives TSH up in response to low thyroid output), most commonly Hashimoto's."
+   },
+   {
+    "id": "tft_q02",
+    "type": "mcq",
+    "question": "An acutely unwell ICU patient has a low TSH and low T3/T4 during their illness. What is the most appropriate action?",
+    "options": [
+     "Start levothyroxine",
+     "Recognise likely sick euthyroid syndrome and re-test after recovery",
+     "Start carbimazole",
+     "Diagnose central hypothyroidism",
+     "Give IV T3 urgently"
+    ],
+    "correctIndex": 1,
+    "answer": "Recognise likely sick euthyroid syndrome and re-test after recovery",
+    "explanation": "Non-thyroidal illness distorts TFTs (sick euthyroid). Thyroid function should not be tested/treated during acute illness — repeat once the patient recovers."
+   },
+   {
+    "id": "tft_q03",
+    "type": "mcq",
+    "question": "A patient with a pituitary tumour has a low free T4 but an inappropriately normal TSH. What does this indicate?",
+    "options": [
+     "Primary hypothyroidism",
+     "Central (secondary) hypothyroidism",
+     "Subclinical hypothyroidism",
+     "Hyperthyroidism",
+     "Normal thyroid function"
+    ],
+    "correctIndex": 1,
+    "answer": "Central (secondary) hypothyroidism",
+    "explanation": "In central hypothyroidism the diseased pituitary fails to raise TSH despite a low T4, so the TSH is inappropriately normal/low — do not rely on TSH alone."
+   },
+   {
+    "id": "sht_q01",
+    "type": "mcq",
+    "question": "A 34-year-old with resistant hypertension and a potassium of 3.0 mmol/L is being screened for a secondary cause. Which test is most appropriate first?",
+    "options": [
+     "24-hour urinary metanephrines",
+     "Aldosterone:renin ratio",
+     "Overnight dexamethasone suppression test",
+     "Renal ultrasound",
+     "Thyroid function tests"
+    ],
+    "correctIndex": 1,
+    "answer": "Aldosterone:renin ratio",
+    "explanation": "Young, resistant hypertension with hypokalaemia strongly suggests primary hyperaldosteronism (Conn's) — screen with the aldosterone:renin ratio."
+   },
+   {
+    "id": "sht_q02",
+    "type": "mcq",
+    "question": "A patient has paroxysms of severe headache, sweating and palpitations with episodic hypertensive spikes. Which screening test is indicated?",
+    "options": [
+     "Aldosterone:renin ratio",
+     "Plasma or urinary metanephrines",
+     "Dexamethasone suppression test",
+     "Serum ACE",
+     "Renin alone"
+    ],
+    "correctIndex": 1,
+    "answer": "Plasma or urinary metanephrines",
+    "explanation": "Episodic headache, sweating and palpitations with paroxysmal hypertension is the classic triad of phaeochromocytoma — screen with plasma/urinary metanephrines."
+   },
+   {
+    "id": "sht_q03",
+    "type": "mcq",
+    "question": "A patient with a confirmed phaeochromocytoma needs blood-pressure control before surgery. What is the correct sequence of drugs?",
+    "options": [
+     "Beta-blocker first, then alpha-blocker",
+     "Alpha-blocker first, then beta-blocker",
+     "Beta-blocker alone",
+     "ACE inhibitor first",
+     "Diuretic first"
+    ],
+    "correctIndex": 1,
+    "answer": "Alpha-blocker first, then beta-blocker",
+    "explanation": "Alpha-blockade (e.g. phenoxybenzamine) must precede beta-blockade; starting a beta-blocker first leaves unopposed alpha vasoconstriction and risks a hypertensive crisis."
    }
   ]
  }
