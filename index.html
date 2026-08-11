@@ -18596,26 +18596,59 @@ function hideFlyout(p) {
   window.__member = (function(){ try{ return window.__authed && localStorage.getItem('da-member')==='1'; }catch(e){ return false; } })();
 
   // ---- Free-account daily unlocks (day-pass): up to 3 locked topics per rolling 24h ----
-  // Each unlock is stamped with the time it was used and expires exactly 24h later, so an
-  // unlocked topic goes back to being restricted 24 hours after it was opened.
+  // SERVER-AUTHORITATIVE: the count lives in Supabase (daily_unlocks table) and the cap is
+  // enforced by the consume_unlock() RPC, so it can't be reset by clearing localStorage or
+  // switching browser/device. The in-memory cache below is filled from the server on load
+  // and used for the (synchronous) lock checks; it fails CLOSED until the server responds.
   var DP_LIMIT = 3;
   var DP_WINDOW = 24*60*60*1000;   // 24 hours in ms
-  function dpUser(){ try{ var raw=localStorage.getItem('sb-'+PROJECT_REF+'-auth-token'); if(raw){ var o=JSON.parse(raw); var s=o&&(o.currentSession||o); var u=s&&s.user; if(u&&u.id) return u.id.slice(0,12); } }catch(e){} return 'acct'; }
-  function dpStoreKey(){ return 'da-daypass-'+dpUser(); }
-  function dpRaw(){ try{ var a=JSON.parse(localStorage.getItem(dpStoreKey())||'[]'); return Array.isArray(a)?a:[]; }catch(e){ return []; } }
-  function dpWrite(a){ try{ localStorage.setItem(dpStoreKey(), JSON.stringify(a)); }catch(e){} }
-  // Return only the still-valid (unexpired) unlocks, pruning anything past 24h as we go.
-  function dpGet(){
-    var now=Date.now(), a=dpRaw();
-    var keep=a.filter(function(e){ return e && typeof e.t==='number' && (now-e.t) < DP_WINDOW; });
-    if(keep.length!==a.length) dpWrite(keep);
-    return keep;
-  }
+  var _dpServer = [];              // [{k, t}] active unlocks sourced from the server
+  var _dpLoaded = false;
+  var _dpReadyResolve, _dpReady = new Promise(function(res){ _dpReadyResolve = res; });
+  function dpMarkReady(){ _dpLoaded = true; try{ _dpReadyResolve(); }catch(e){} }
   function tkey(p,s,t){ return p+'|'+(s||'')+'|'+t; }
-  function dpHas(p,s,t){ var k=tkey(p,s,t); return dpGet().some(function(e){ return e.k===k; }); }
-  function dpRemaining(){ return Math.max(0, DP_LIMIT - dpGet().length); }
-  function dpConsume(p,s,t){ var a=dpGet(), k=tkey(p,s,t); if(a.some(function(e){ return e.k===k; })) return true; if(a.length>=DP_LIMIT) return false; a.push({ k:k, t:Date.now() }); dpWrite(a); return true; }
+  function dpActive(){ var now=Date.now(); return _dpServer.filter(function(e){ return e && typeof e.t==='number' && (now-e.t) < DP_WINDOW; }); }
+  function dpHas(p,s,t){ var k=tkey(p,s,t); return dpActive().some(function(e){ return e.k===k; }); }
+  function dpRemaining(){ return Math.max(0, DP_LIMIT - dpActive().length); }
+  // Pull this account's active unlocks from the server into the cache, then refresh lock UI.
+  function dpLoadServer(){
+    var sb=window.__sb;
+    if(!sb || !window.__authed){ _dpServer=[]; dpMarkReady(); return Promise.resolve(); }
+    var since=new Date(Date.now()-DP_WINDOW).toISOString();
+    return sb.from('daily_unlocks').select('topic_key,unlocked_at').gt('unlocked_at', since).then(function(r){
+      if(r.error){ try{ console.warn('[DoctoRise] load unlocks:', r.error.message); }catch(e){} }
+      else { _dpServer=(r.data||[]).map(function(row){ return { k:row.topic_key, t:Date.parse(row.unlocked_at) }; }); }
+      dpMarkReady();
+      if(window.__refreshLocks) window.__refreshLocks();
+    }).catch(function(){ dpMarkReady(); });
+  }
+  window.__dpReload = dpLoadServer;
+  // Spend one unlock via the server RPC (enforces the cap). Resolves true only if granted.
+  function dpConsume(p,s,t){
+    var sb=window.__sb, k=tkey(p,s,t);
+    if(!sb) return Promise.resolve(false);
+    return sb.rpc('consume_unlock', { p_topic_key:k }).then(function(r){
+      if(r.error){ try{ console.warn('[DoctoRise] consume_unlock:', r.error.message); }catch(e){} return false; }
+      var d=r.data||{};
+      if(d.ok){ if(!_dpServer.some(function(e){ return e.k===k; })) _dpServer.push({ k:k, t:Date.now() }); return true; }
+      return false;
+    }).catch(function(){ return false; });
+  }
   window.__dpRemaining = dpRemaining;
+  // Re-apply lock styling to whatever topic lists are currently on screen.
+  window.__refreshLocks = function(){
+    ['conditions','anatomy','histology','signs','osce','investigations'].forEach(function(p){
+      var list=document.getElementById('topiclist-'+p); if(!list) return;
+      var st; try{ st=getState(p); }catch(e){ return; }
+      list.querySelectorAll('.condition-item').forEach(function(el){
+        var locked=!isUnlocked(p, st.activeSystem, el.dataset.topic);
+        el.classList.toggle('da-locked-item', locked);
+        var mini=el.querySelector('.da-lock-mini');
+        if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
+        else if(mini){ mini.remove(); }
+      });
+    });
+  };
 
   function isFreeAllow(p, system, topic){
     if (FREE_SYSTEMS[p] && system && FREE_SYSTEMS[p][system]) return true;
@@ -18679,9 +18712,23 @@ function hideFlyout(p) {
   function gateTopic(p, name, skipHash, proceed){
     var st = getState(p), sys = st.activeSystem;
     if (isUnlocked(p, sys, name)){ proceed(); return; }
+    // Signed in but the server-side unlock list hasn't loaded yet (e.g. deep-link on first
+    // paint): wait for it, then decide — so a valid unlock isn't briefly shown as locked.
+    if (window.__authed && !_dpLoaded){
+      renderWall(p, name, '<div class="da-lock"><div class="da-lock-icon">⏳</div><div class="da-lock-title">Checking your access…</div></div>', skipHash);
+      _dpReady.then(function(){ hidePaywall(p); gateTopic(p, name, skipHash, proceed); });
+      return;
+    }
     if (window.__authed){
       if (dpRemaining() > 0){
-        window.__dpUnlock = function(){ window.__dpUnlock=null; window.__dpCancel=null; dpConsume(p, sys, name); clearMini(p, name); hidePaywall(p); proceed(); };
+        window.__dpUnlock = function(){
+          var btn=document.querySelector('#da-paywall-'+p+' .da-lock-btn.primary'); if(btn){ btn.disabled=true; btn.textContent='Unlocking…'; }
+          dpConsume(p, sys, name).then(function(ok){
+            window.__dpUnlock=null; window.__dpCancel=null;
+            if(ok){ clearMini(p, name); hidePaywall(p); proceed(); }
+            else { renderWall(p, name, limitHTML(), skipHash); }   // server said no slot left
+          });
+        };
         window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; hidePaywall(p); };
         renderWall(p, name, dayPassHTML(name, dpRemaining()), skipHash);
       } else {
@@ -18802,6 +18849,12 @@ function hideFlyout(p) {
   function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; location.reload(); } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
+  // Load this account's server-side day-pass unlocks once the session is restored.
+  (function initDayPass(){
+    function go(){ var sb=window.__sb; if(!sb) return; sb.auth.getSession().then(function(){ if(window.__dpReload) window.__dpReload(); }).catch(function(){}); }
+    if(window.__sb) go();
+    else { var m=0, iv2=setInterval(function(){ if(window.__sb){ clearInterval(iv2); go(); } if(++m>40) clearInterval(iv2); }, 100); }
+  })();
 })();
 </script>
 
