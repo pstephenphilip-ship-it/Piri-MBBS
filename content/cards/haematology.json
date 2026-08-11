@@ -5458,6 +5458,46 @@
     "id": "tx_fc_15",
     "front": "Why must vitamin K be given alongside PCC for warfarin reversal?",
     "back": "<b>Factor VII</b> has a short half-life — without vitamin K to resynthesise factors, the <b>INR rebounds</b> as the PCC factors wear off."
+   },
+   {
+    "id": "tx_fc_16",
+    "front": "What is the universal first step in ANY suspected transfusion reaction?",
+    "back": "<b>STOP the transfusion.</b> Keep the line open with saline, re-check patient ID vs the unit, assess ABC, and inform the lab. Only mild febrile / minor allergic reactions may be cautiously restarted."
+   },
+   {
+    "id": "tx_fc_17",
+    "front": "Features and cause of an ACUTE haemolytic transfusion reaction, and its workup?",
+    "back": "<b>ABO incompatibility (wrong blood — human error).</b> Fever, <b>loin/back pain</b>, hypotension, <b>dark urine</b> within minutes. STOP, check ID + bag, send <b>DAT + repeat group & crossmatch</b> and a haemolysis screen; supportive care."
+   },
+   {
+    "id": "tx_fc_18",
+    "front": "Which transfusion reaction is caused by IgA deficiency, and how is it managed?",
+    "back": "<b>Anaphylaxis</b> — IgA-deficient patients with anti-IgA antibodies. Hypotension, bronchospasm, angioedema. STOP, <b>IM adrenaline</b>, ABC, IV fluids."
+   },
+   {
+    "id": "tx_fc_19",
+    "front": "Distinguish a febrile non-haemolytic reaction from a minor allergic reaction.",
+    "back": "<b>Febrile non-haemolytic:</b> anti-leucocyte antibodies/cytokines → fever/rigors; slow/stop + <b>paracetamol</b>. <b>Minor allergic:</b> donor plasma proteins → urticaria/itch; stop + <b>antihistamine</b>. Both may restart if settled."
+   },
+   {
+    "id": "tx_fc_20",
+    "front": "Compare TRALI and TACO — mechanism, blood pressure, and management.",
+    "back": "<b>TRALI</b>: immune capillary leak, <b>HYPOtension</b>, non-cardiogenic oedema → O₂ + supportive, <b>NO diuretics</b>. <b>TACO</b>: circulatory overload, <b>HYPERtension</b> + raised JVP → <b>furosemide</b> + O₂, sit up. (TACO is the commonest cause of transfusion-related death.)"
+   },
+   {
+    "id": "tx_fc_21",
+    "front": "Which reaction should you suspect with high fever, rigors and shock soon after starting a platelet transfusion?",
+    "back": "<b>Bacterial contamination / sepsis</b> — platelets are stored warm. STOP, take <b>cultures (patient + unit)</b>, give broad-spectrum antibiotics and resuscitate."
+   },
+   {
+    "id": "tx_fc_22",
+    "front": "What is a DELAYED haemolytic transfusion reaction?",
+    "back": "An <b>anamnestic alloantibody response</b> in a previously sensitised patient — a <b>falling Hb, jaundice and a positive DAT days to ~2 weeks</b> after transfusion. Supportive; identify the antibody for future crossmatching."
+   },
+   {
+    "id": "tx_fc_23",
+    "front": "What laboratory workup is sent for a suspected haemolytic/severe transfusion reaction?",
+    "back": "<b>Return the unit + giving set</b>; send a <b>DAT</b> and <b>repeat group & crossmatch</b>, a <b>haemolysis screen</b> (FBC, LDH, haptoglobin, bilirubin, U&E, coagulation, urinalysis), and <b>blood cultures</b> if febrile."
    }
   ]
  },
@@ -19148,6 +19188,66 @@
     "correctIndex": 1,
     "answer": "20–24°C with agitation, because cold storage causes aggregation and clearance",
     "explanation": "Platelets are stored at 20–24°C with gentle agitation. Refrigeration causes them to aggregate and be cleared rapidly, so they are NOT stored cold (unlike red cells at 4°C)."
+   },
+   {
+    "id": "tx_q09",
+    "type": "mcq",
+    "question": "Minutes into a red cell transfusion a patient develops fever, loin pain, hypotension and dark urine. What is the diagnosis and immediate action?",
+    "options": [
+     "Febrile non-haemolytic reaction — give paracetamol and continue",
+     "Acute haemolytic (ABO-incompatible) reaction — STOP, check ID, send DAT and re-crossmatch",
+     "TACO — give furosemide",
+     "Minor allergic reaction — give an antihistamine",
+     "TRALI — give diuretics"
+    ],
+    "correctIndex": 1,
+    "answer": "Acute haemolytic (ABO-incompatible) reaction — STOP, check ID, send DAT and re-crossmatch",
+    "explanation": "Fever, loin/back pain, hypotension and haemoglobinuria within minutes indicate an acute ABO-incompatible haemolytic reaction (usually a misidentification error). Stop immediately, recheck identity and the bag, and send a DAT with repeat group & crossmatch."
+   },
+   {
+    "id": "tx_q10",
+    "type": "mcq",
+    "question": "A patient develops sudden hypotension, bronchospasm and angioedema shortly after starting a transfusion. Which underlying deficiency classically predisposes to this?",
+    "options": [
+     "G6PD deficiency",
+     "IgA deficiency (with anti-IgA antibodies)",
+     "Factor VIII deficiency",
+     "Protein C deficiency",
+     "Vitamin K deficiency"
+    ],
+    "correctIndex": 1,
+    "answer": "IgA deficiency (with anti-IgA antibodies)",
+    "explanation": "Anaphylaxis to blood products classically occurs in IgA-deficient patients who have anti-IgA antibodies reacting with donor IgA. Management: stop, IM adrenaline, ABC, fluids."
+   },
+   {
+    "id": "tx_q11",
+    "type": "mcq",
+    "question": "Within 6 hours of a transfusion a patient develops hypoxia and bilateral pulmonary oedema with HYPOTENSION and fever. What is the diagnosis and management?",
+    "options": [
+     "TACO — give furosemide",
+     "TRALI — supportive oxygen, do NOT give diuretics",
+     "Acute haemolytic reaction — re-crossmatch",
+     "Anaphylaxis — IM adrenaline",
+     "Febrile reaction — paracetamol"
+    ],
+    "correctIndex": 1,
+    "answer": "TRALI — supportive oxygen, do NOT give diuretics",
+    "explanation": "Non-cardiogenic pulmonary oedema with HYPOTENSION during/within 6 h of transfusion is TRALI (immune capillary leak). Treat with oxygen and supportive care; diuretics are not indicated (the patient is not fluid-overloaded)."
+   },
+   {
+    "id": "tx_q12",
+    "type": "mcq",
+    "question": "An elderly patient with heart failure develops pulmonary oedema, HYPERTENSION and a raised JVP during a transfusion. What is the diagnosis and management?",
+    "options": [
+     "TRALI — no diuretics",
+     "TACO (circulatory overload) — slow/stop, furosemide, oxygen, sit upright",
+     "Acute haemolytic reaction — DAT",
+     "Bacterial sepsis — antibiotics",
+     "Anaphylaxis — adrenaline"
+    ],
+    "correctIndex": 1,
+    "answer": "TACO (circulatory overload) — slow/stop, furosemide, oxygen, sit upright",
+    "explanation": "Cardiogenic pulmonary oedema with HYPERTENSION and raised JVP is transfusion-associated circulatory overload (TACO) — the commonest cause of transfusion-related death. Slow/stop the transfusion and diurese."
    }
   ]
  }
