@@ -5254,6 +5254,36 @@
     "id": "coag_fc_19",
     "front": "Why must you know whether your lab reports FEU or DDU?",
     "back": "Results are reported as <b>fibrinogen-equivalent units (FEU)</b> or <b>D-dimer units (DDU)</b>, and the <b>cutoffs differ</b> — always check the local reference range."
+   },
+   {
+    "id": "coag_fc_20",
+    "front": "What is heparin-induced thrombocytopenia (HIT)?",
+    "back": "Antibodies against <b>PF4–heparin complexes</b> activate platelets, causing a <b>falling platelet count</b> and <b>paradoxical thrombosis</b> — bleeding is <b>not</b> typical."
+   },
+   {
+    "id": "coag_fc_21",
+    "front": "When does HIT typically occur after starting heparin?",
+    "back": "Typically <b>day 5–10</b> — or <b>≤1 day</b> if there was heparin exposure in the previous ~30 days (pre-formed antibodies)."
+   },
+   {
+    "id": "coag_fc_22",
+    "front": "What are the four components of the 4T score?",
+    "back": "<b>T</b>hrombocytopenia, <b>T</b>iming, <b>T</b>hrombosis, o<b>T</b>her cause — each scored 0–2 (max 8)."
+   },
+   {
+    "id": "coag_fc_23",
+    "front": "What do the 4T score bands mean?",
+    "back": "<b>0–3 = low</b> (high negative predictive value — HIT effectively excluded, don't test); <b>4–5 = intermediate</b>; <b>6–8 = high</b> → send anti-PF4."
+   },
+   {
+    "id": "coag_fc_24",
+    "front": "How is HIT confirmed on laboratory testing?",
+    "back": "An intermediate/high 4T score → <b>anti-PF4 antibody</b> immunoassay (sensitive, non-specific), then <b>confirm</b> with a <b>functional assay</b> (serotonin release assay / HIPA)."
+   },
+   {
+    "id": "coag_fc_25",
+    "front": "What is the management of suspected HIT?",
+    "back": "<b>Stop all heparin</b> (including flushes and LMWH) and start a <b>non-heparin anticoagulant</b> (argatroban, danaparoid, fondaparinux). <b>Do NOT transfuse platelets</b>, and <b>do NOT start warfarin until platelets recover</b> — early warfarin risks <b>venous limb gangrene</b>."
    }
   ]
  },
@@ -18610,6 +18640,66 @@
     "correctIndex": 2,
     "answer": "It is a rule-out test — a positive result only prompts further imaging",
     "explanation": "D-dimer is non-specific (raised by infection, surgery, pregnancy, malignancy, DIC, etc.), so a positive result never confirms VTE — it only mandates imaging. Its power is the negative result in a low/intermediate-probability patient."
+   },
+   {
+    "id": "coag_q10",
+    "type": "mcq",
+    "question": "A patient on unfractionated heparin for 7 days has a platelet fall from 250 to 90 ×10⁹/L and a new DVT. What is the most appropriate immediate management?",
+    "options": [
+     "Continue heparin and transfuse platelets",
+     "Stop all heparin and start a non-heparin anticoagulant (e.g. argatroban)",
+     "Stop heparin and start warfarin",
+     "Switch from unfractionated heparin to LMWH",
+     "Give a platelet transfusion and observe"
+    ],
+    "correctIndex": 1,
+    "answer": "Stop all heparin and start a non-heparin anticoagulant (e.g. argatroban)",
+    "explanation": "This is HIT (thrombocytopenia + new thrombosis, day 5–10). Stop ALL heparin (including LMWH and flushes) and anticoagulate with a non-heparin agent (argatroban, danaparoid or fondaparinux). Switching to LMWH is inadequate — cross-reactivity occurs."
+   },
+   {
+    "id": "coag_q11",
+    "type": "mcq",
+    "question": "In confirmed heparin-induced thrombocytopenia, which action is contraindicated?",
+    "options": [
+     "Starting argatroban",
+     "Starting warfarin while the platelet count is still low",
+     "Sending anti-PF4 antibodies",
+     "Stopping heparin flushes",
+     "Starting danaparoid"
+    ],
+    "correctIndex": 1,
+    "answer": "Starting warfarin while the platelet count is still low",
+    "explanation": "Warfarin must be withheld until the platelet count recovers — starting it early, in the prothrombotic state of HIT, can precipitate venous limb gangrene / skin necrosis. Platelet transfusions are also avoided."
+   },
+   {
+    "id": "coag_q12",
+    "type": "mcq",
+    "question": "A patient has a 4T score of 2. What does this indicate about the probability of HIT?",
+    "options": [
+     "High probability — send anti-PF4 and a functional assay",
+     "Low probability — HIT is effectively excluded and testing is not needed",
+     "Intermediate probability — send anti-PF4",
+     "Diagnostic of HIT",
+     "The score cannot be interpreted without the anti-PF4 result"
+    ],
+    "correctIndex": 1,
+    "answer": "Low probability — HIT is effectively excluded and testing is not needed",
+    "explanation": "A 4T score of ≤3 is low probability with a high negative predictive value, so HIT is effectively excluded and anti-PF4 testing is not required — look for another cause of the thrombocytopenia."
+   },
+   {
+    "id": "coag_q13",
+    "type": "mcq",
+    "question": "A patient with an intermediate 4T score has a positive anti-PF4 antibody immunoassay. What is the appropriate next step to confirm HIT?",
+    "options": [
+     "The immunoassay alone confirms HIT",
+     "A functional assay (e.g. serotonin release assay)",
+     "Repeat the platelet count in 1 week",
+     "A bone marrow biopsy",
+     "No further testing — start warfarin"
+    ],
+    "correctIndex": 1,
+    "answer": "A functional assay (e.g. serotonin release assay)",
+    "explanation": "The anti-PF4 immunoassay is sensitive but not specific (many positives are not clinically significant). A functional assay (serotonin release assay / HIPA) confirms pathogenic, platelet-activating antibodies."
    }
   ]
  }
