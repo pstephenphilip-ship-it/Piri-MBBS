@@ -279,6 +279,51 @@
     "id": "lems_fc_05",
     "front": "What must be actively excluded in a patient with LEMS?",
     "back": "<b>Small-cell lung cancer</b> — LEMS may precede the cancer by months to years, so screen (CT chest ± PET) and re-screen if initially negative."
+   },
+   {
+    "id": "nmo_fc_01",
+    "front": "What is the defining antibody of neuromyelitis optica spectrum disorder (NMOSD), and what does it target?",
+    "back": "<b>Anti-aquaporin-4 (AQP4-IgG)</b> — it targets the <b>astrocyte water channel</b>. Anti-MOG defines a related but distinct entity (MOG-antibody disease)."
+   },
+   {
+    "id": "nmo_fc_02",
+    "front": "What are the hallmark clinical features of NMOSD?",
+    "back": "<b>Optic neuritis</b> (often severe/bilateral), <b>longitudinally extensive transverse myelitis</b> (≥3 vertebral segments), and area postrema syndrome (intractable hiccups/vomiting)."
+   },
+   {
+    "id": "nmo_fc_03",
+    "front": "How does NMOSD differ from multiple sclerosis on CSF and imaging?",
+    "back": "NMO has <b>longitudinally extensive</b> cord lesions and CSF <b>oligoclonal bands usually NEGATIVE</b>; MS has shorter cord lesions, typical brain lesions, and <b>positive</b> oligoclonal bands."
+   },
+   {
+    "id": "nmo_fc_04",
+    "front": "Why is it important to distinguish NMOSD from MS before treatment?",
+    "back": "Several <b>MS disease-modifying drugs</b> (e.g. interferon, natalizumab) can <b>worsen NMO</b>. NMO is treated with steroids/plasma exchange acutely and immunosuppression (rituximab and NMOSD-specific biologics) for prevention."
+   },
+   {
+    "id": "nmo_fc_05",
+    "front": "How is an acute NMOSD relapse treated?",
+    "back": "<b>High-dose corticosteroids</b> and <b>plasma exchange</b>; long-term relapse prevention uses immunosuppression (rituximab, eculizumab, satralizumab, inebilizumab) — not MS drugs."
+   },
+   {
+    "id": "mfs_fc_01",
+    "front": "What antibody and clinical triad define Miller Fisher syndrome?",
+    "back": "<b>Anti-GQ1b</b> antibodies; the triad is <b>ophthalmoplegia, ataxia and areflexia</b>. It is a variant of Guillain-Barré syndrome."
+   },
+   {
+    "id": "mfs_fc_02",
+    "front": "What infection classically precedes Miller Fisher syndrome / GBS?",
+    "back": "<b>Campylobacter jejuni</b> (also CMV, EBV) — a post-infectious immune-mediated neuropathy."
+   },
+   {
+    "id": "mfs_fc_03",
+    "front": "What is the characteristic CSF finding in GBS / Miller Fisher syndrome?",
+    "back": "<b>Albuminocytological dissociation</b> — a raised CSF protein with a <b>normal cell count</b>."
+   },
+   {
+    "id": "mfs_fc_04",
+    "front": "How is Guillain-Barré syndrome (including Miller Fisher) managed and monitored?",
+    "back": "<b>IVIG or plasma exchange</b>, with supportive care; monitor <b>FVC</b> (respiratory failure) and autonomic function. Miller Fisher generally has a good prognosis."
    }
   ]
  },
@@ -782,6 +827,96 @@
     "correctIndex": 1,
     "answer": "Screen and periodically re-screen for small-cell lung cancer, as LEMS can precede it",
     "explanation": "LEMS can predate a detectable small-cell lung cancer by months to years, so ongoing surveillance is warranted even if the initial screen is negative."
+   },
+   {
+    "id": "nmo_q01",
+    "type": "mcq",
+    "question": "A patient has severe bilateral optic neuritis and a spinal MRI showing a cord lesion spanning 4 vertebral segments. AQP4-IgG is positive and CSF oligoclonal bands are negative. What is the diagnosis?",
+    "options": [
+     "Multiple sclerosis",
+     "Neuromyelitis optica spectrum disorder (NMOSD)",
+     "Guillain-Barré syndrome",
+     "Miller Fisher syndrome",
+     "Myasthenia gravis"
+    ],
+    "correctIndex": 1,
+    "answer": "Neuromyelitis optica spectrum disorder (NMOSD)",
+    "explanation": "Longitudinally extensive transverse myelitis with severe optic neuritis, positive AQP4-IgG and negative oligoclonal bands is NMOSD, not MS."
+   },
+   {
+    "id": "nmo_q02",
+    "type": "mcq",
+    "question": "A patient with newly diagnosed AQP4-positive NMOSD is about to be started on interferon-beta by mistake. Why is this a problem?",
+    "options": [
+     "It is the correct treatment",
+     "MS disease-modifying drugs such as interferon can worsen NMO",
+     "It causes hyperkalaemia",
+     "It is only for Miller Fisher syndrome",
+     "It has no effect"
+    ],
+    "correctIndex": 1,
+    "answer": "MS disease-modifying drugs such as interferon can worsen NMO",
+    "explanation": "NMOSD must be distinguished from MS because several MS therapies (interferon, natalizumab, fingolimod) can worsen NMO. Treatment is immunosuppression, not MS DMTs."
+   },
+   {
+    "id": "nmo_q03",
+    "type": "mcq",
+    "question": "Which CSF finding helps distinguish NMOSD from multiple sclerosis?",
+    "options": [
+     "Oligoclonal bands are usually POSITIVE in NMO",
+     "Oligoclonal bands are usually NEGATIVE in NMO (positive in MS)",
+     "Raised protein with normal cells",
+     "Low glucose",
+     "Xanthochromia"
+    ],
+    "correctIndex": 1,
+    "answer": "Oligoclonal bands are usually NEGATIVE in NMO (positive in MS)",
+    "explanation": "CSF oligoclonal bands are typically absent in NMOSD but present in the majority of MS cases — a useful discriminator alongside AQP4-IgG."
+   },
+   {
+    "id": "mfs_q01",
+    "type": "mcq",
+    "question": "Two weeks after a diarrhoeal illness, a patient develops double vision, an unsteady gait and absent reflexes, without limb weakness. Which antibody is associated?",
+    "options": [
+     "Anti-AChR",
+     "Anti-GQ1b",
+     "Anti-VGCC",
+     "Aquaporin-4",
+     "Anti-dsDNA"
+    ],
+    "correctIndex": 1,
+    "answer": "Anti-GQ1b",
+    "explanation": "Ophthalmoplegia, ataxia and areflexia after a (often Campylobacter) infection is Miller Fisher syndrome, associated with anti-GQ1b antibodies."
+   },
+   {
+    "id": "mfs_q02",
+    "type": "mcq",
+    "question": "A patient with Guillain-Barré syndrome has ascending weakness. Which parameter best guides the need for ventilatory support?",
+    "options": [
+     "Oxygen saturation",
+     "Serial forced vital capacity (FVC)",
+     "Peak flow",
+     "Respiratory rate alone",
+     "Temperature"
+    ],
+    "correctIndex": 1,
+    "answer": "Serial forced vital capacity (FVC)",
+    "explanation": "Serial FVC is the key monitor in GBS because oxygen saturation falls late; a declining FVC signals impending respiratory failure and the need for ICU/ventilation."
+   },
+   {
+    "id": "mfs_q03",
+    "type": "mcq",
+    "question": "A lumbar puncture in suspected GBS shows a raised protein with a normal white cell count. What is this pattern called?",
+    "options": [
+     "Pleocytosis",
+     "Albuminocytological dissociation",
+     "Xanthochromia",
+     "Hypoglycorrhachia",
+     "A traumatic tap"
+    ],
+    "correctIndex": 1,
+    "answer": "Albuminocytological dissociation",
+    "explanation": "Raised CSF protein with a normal cell count (albuminocytological dissociation) is the classic finding in GBS and its Miller Fisher variant."
    }
   ]
  }
