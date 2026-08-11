@@ -18756,10 +18756,40 @@ function hideFlyout(p) {
   function derive(email){ return ((email||'user').split('@')[0].replace(/[^a-zA-Z0-9_]/g,'').slice(0,16))||'user'; }
   function ensureProfile(user){
     if(!user) return Promise.resolve(null);
+    var pend={}; try{ pend=JSON.parse(localStorage.getItem('da_pending_profile')||'{}')||{}; }catch(e){}
+    var hasPend = !!(pend && (pend.username||pend.full_name||pend.university||pend.study_year||pend.country));
     return sb.from('profiles').select('*').eq('id',user.id).maybeSingle().then(function(r){
-      if(r.error){ console.warn('profile fetch',r.error); return null; }
-      if(r.data){ profile=r.data; try{localStorage.removeItem('da_pending_profile');}catch(e){} return profile; }
-      var pend={}; try{ pend=JSON.parse(localStorage.getItem('da_pending_profile')||'{}')||{}; }catch(e){}
+      if(r.error){ console.warn('profile fetch',r.error); }
+      var existing = (r && r.data) ? r.data : null;
+      if(existing){
+        // A row already exists (commonly auto-created by a DB trigger on signup with blank
+        // fields). Fill in anything still empty from the pending signup data so the user's
+        // name / university / year / country / username actually persist.
+        if(hasPend){
+          var patch={};
+          if(pend.full_name  && !existing.full_name)  patch.full_name=pend.full_name;
+          if(pend.university && !existing.university) patch.university=pend.university;
+          if(pend.study_year && !existing.study_year) patch.study_year=pend.study_year;
+          if(pend.country    && !existing.country)    patch.country=pend.country;
+          var wantUser = pend.username && pend.username!==existing.username;
+          function applyPatch(withUser){
+            var p={}; for(var k in patch) p[k]=patch[k]; if(withUser) p.username=pend.username;
+            if(!Object.keys(p).length){ profile=existing; try{localStorage.removeItem('da_pending_profile');}catch(e){} return Promise.resolve(profile); }
+            return sb.from('profiles').update(p).eq('id',user.id).select('*').maybeSingle().then(function(u){
+              if(u && u.error){
+                if(withUser && /duplicate|unique/i.test(u.error.message||'')) return applyPatch(false); // username taken -> save the rest
+                console.warn('profile update',u.error); profile=existing; return profile;
+              }
+              profile=(u&&u.data)?u.data:Object.assign({},existing,p);
+              try{localStorage.removeItem('da_pending_profile');}catch(e){}
+              return profile;
+            });
+          }
+          return applyPatch(!!wantUser);
+        }
+        profile=existing; try{localStorage.removeItem('da_pending_profile');}catch(e){} return profile;
+      }
+      // No row yet -> create it with the pending data.
       var base=(pend.username)||derive(user.email);
       function tryInsert(uname, attempt){
         var row={ id:user.id, username:uname, full_name:pend.full_name||null, university:pend.university||null, study_year:pend.study_year||null, country:pend.country||null };
