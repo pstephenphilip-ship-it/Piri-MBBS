@@ -849,6 +849,56 @@
     "id": "lac_fc_05",
     "front": "What drug classically causes a type B lactic acidosis, especially in renal impairment?",
     "back": "<b>Metformin</b> — metformin-associated lactic acidosis, particularly when it accumulates in AKI/CKD."
+   },
+   {
+    "id": "ref_fc_01",
+    "front": "What is the mechanism of refeeding syndrome?",
+    "back": "Reintroducing <b>carbohydrate</b> to a starved patient causes an <b>insulin surge</b> → cells take up <b>phosphate, potassium and magnesium</b> → plasma levels fall sharply. <b>Hypophosphataemia</b> is the hallmark."
+   },
+   {
+    "id": "ref_fc_02",
+    "front": "Why is hypophosphataemia in refeeding dangerous?",
+    "back": "It causes <b>cardiac arrhythmias</b>, cardiac/respiratory failure, rhabdomyolysis and seizures — refeeding syndrome can be <b>fatal</b>."
+   },
+   {
+    "id": "ref_fc_03",
+    "front": "Who is at high risk of refeeding syndrome (NICE)?",
+    "back": "Little/no intake <b>&gt;5 days</b>, <b>BMI &lt;16</b>, unintentional weight loss <b>&gt;15%</b>, low baseline K/PO₄/Mg, and alcohol/drug misuse or chemotherapy."
+   },
+   {
+    "id": "ref_fc_04",
+    "front": "How is refeeding syndrome prevented and managed?",
+    "back": "Check <b>phosphate, potassium, magnesium</b> before and daily; <b>start feeding slowly</b> (~10 kcal/kg/day) and increase gradually; <b>replace electrolytes</b> and give <b>thiamine (Pabrinex)</b> before/with feeding."
+   },
+   {
+    "id": "ref_fc_05",
+    "front": "Why is thiamine given before refeeding?",
+    "back": "Carbohydrate load in a thiamine-depleted patient can precipitate <b>Wernicke's encephalopathy</b> — so thiamine/B vitamins are given before or with feeding."
+   },
+   {
+    "id": "dem_fc_01",
+    "front": "What blood tests make up a 'dementia screen' for reversible causes?",
+    "back": "<b>TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose/HbA1c, CRP</b> — plus <b>HIV and syphilis serology</b> in at-risk patients."
+   },
+   {
+    "id": "dem_fc_02",
+    "front": "Name reversible/treatable contributors to cognitive decline the screen looks for.",
+    "back": "<b>Hypothyroidism</b>, <b>hypercalcaemia</b>, <b>B12/folate deficiency</b>, and treatable infections (<b>HIV, neurosyphilis</b>) — plus medication effects and alcohol."
+   },
+   {
+    "id": "dem_fc_03",
+    "front": "Which two conditions mimic dementia and must be excluded?",
+    "back": "<b>Delirium</b> (acute, fluctuating, often with an underlying cause) and <b>depression</b> ('pseudodementia')."
+   },
+   {
+    "id": "dem_fc_04",
+    "front": "What is the triad of normal-pressure hydrocephalus, and why does it matter?",
+    "back": "<b>Dementia, gait apraxia and urinary incontinence</b> ('wet, wobbly, wacky') — a <b>reversible</b> cause treatable with a shunt."
+   },
+   {
+    "id": "dem_fc_05",
+    "front": "What features of dementia warrant urgent/further investigation?",
+    "back": "<b>Rapid progression</b>, <b>young onset</b>, or <b>focal neurology</b> — consider CJD, autoimmune encephalitis, or a structural lesion (imaging with CT/MRI)."
    }
   ]
  },
@@ -2292,6 +2342,96 @@
     "correctIndex": 1,
     "answer": "Good response — lactate clearance is a favourable prognostic sign",
     "explanation": "A falling lactate (lactate clearance) with treatment indicates improving perfusion and is associated with better outcomes; a persistent or rising lactate is ominous."
+   },
+   {
+    "id": "ref_q01",
+    "type": "mcq",
+    "question": "A severely malnourished patient (BMI 14) is started on full-rate nasogastric feeding. Two days later they develop a low phosphate, low potassium, low magnesium and an arrhythmia. What has happened?",
+    "options": [
+     "Sepsis",
+     "Refeeding syndrome",
+     "Diabetic ketoacidosis",
+     "Dehydration",
+     "Hypercalcaemia"
+    ],
+    "correctIndex": 1,
+    "answer": "Refeeding syndrome",
+    "explanation": "Reintroducing feed too quickly in a high-risk malnourished patient drives an insulin-mediated intracellular shift of phosphate, potassium and magnesium — refeeding syndrome, with hypophosphataemia causing arrhythmia."
+   },
+   {
+    "id": "ref_q02",
+    "type": "mcq",
+    "question": "Which patient is at highest risk of refeeding syndrome?",
+    "options": [
+     "BMI 24, eating normally",
+     "BMI 15 with negligible intake for a week and a history of alcohol excess",
+     "A well post-operative patient on day 1",
+     "Someone with a mild cold",
+     "A patient with a normal potassium eating regularly"
+    ],
+    "correctIndex": 1,
+    "answer": "BMI 15 with negligible intake for a week and a history of alcohol excess",
+    "explanation": "A very low BMI, prolonged minimal intake and alcohol excess are all NICE high-risk criteria for refeeding syndrome."
+   },
+   {
+    "id": "ref_q03",
+    "type": "mcq",
+    "question": "Before starting nutritional support in a high-risk malnourished patient, which treatment must be given to prevent Wernicke's encephalopathy?",
+    "options": [
+     "High-dose glucose",
+     "Thiamine (± B vitamins)",
+     "A statin",
+     "Antibiotics",
+     "Insulin"
+    ],
+    "correctIndex": 1,
+    "answer": "Thiamine (± B vitamins)",
+    "explanation": "Thiamine must be given before/with feeding: a carbohydrate load in a thiamine-deficient patient can precipitate Wernicke's encephalopathy."
+   },
+   {
+    "id": "dem_q01",
+    "type": "mcq",
+    "question": "A 72-year-old is referred with gradual cognitive decline. Which set of blood tests is most appropriate to exclude reversible causes?",
+    "options": [
+     "Troponin and D-dimer",
+     "TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose (± HIV/syphilis)",
+     "Amylase and lipase",
+     "PSA and CA19-9",
+     "Serum ACE only"
+    ],
+    "correctIndex": 1,
+    "answer": "TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose (± HIV/syphilis)",
+    "explanation": "A dementia screen looks for reversible contributors — hypothyroidism, hypercalcaemia, B12/folate deficiency, metabolic derangement and treatable infections (HIV/neurosyphilis)."
+   },
+   {
+    "id": "dem_q02",
+    "type": "mcq",
+    "question": "An older patient has cognitive decline, an unsteady 'magnetic' gait and urinary incontinence. What potentially reversible diagnosis should be considered?",
+    "options": [
+     "Alzheimer's disease",
+     "Normal-pressure hydrocephalus",
+     "Vascular dementia",
+     "Lewy body dementia",
+     "Delirium"
+    ],
+    "correctIndex": 1,
+    "answer": "Normal-pressure hydrocephalus",
+    "explanation": "The triad of dementia, gait apraxia and urinary incontinence suggests normal-pressure hydrocephalus, which can improve with CSF shunting — a reversible cause not to miss."
+   },
+   {
+    "id": "dem_q03",
+    "type": "mcq",
+    "question": "An 80-year-old develops confusion over 2 days that fluctuates and worsens at night, with reduced attention, shortly after a urinary tract infection. What is the most likely diagnosis?",
+    "options": [
+     "Alzheimer's dementia",
+     "Delirium",
+     "Depression",
+     "Normal-pressure hydrocephalus",
+     "Vascular dementia"
+    ],
+    "correctIndex": 1,
+    "answer": "Delirium",
+    "explanation": "An acute, fluctuating disturbance of attention and cognition with an identifiable trigger (UTI) is delirium — not dementia. It must be excluded before diagnosing a dementia."
    }
   ]
  }
