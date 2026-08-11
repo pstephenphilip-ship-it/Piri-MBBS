@@ -18637,6 +18637,11 @@ function hideFlyout(p) {
   };
   var _switchMode = window.switchMode;
   window.switchMode = function(p, mode, el, skipHash){
+    // Flashcards & MCQs are a premium feature: non-members can SEE the tabs but not open them.
+    if ((mode==='flashcards' || mode==='questions') && !window.__member){
+      if (window.__showStudyLock) window.__showStudyLock(mode);
+      return;
+    }
     var st = getState(p);
     if (isUnlocked(p, st.activeSystem, st.activeTopic)) return _switchMode.apply(this, arguments);
     var self=this, args=arguments, topic=st.activeTopic;
@@ -18656,6 +18661,38 @@ function hideFlyout(p) {
       });
     };
   }
+
+  // ---- Flashcards & MCQs: premium feature — visible but locked for non-members ----
+  window.__showStudyLock = function(mode){
+    var label = (mode==='questions') ? 'MCQ practice questions' : 'Flashcards';
+    var id='da-study-lock', ex=document.getElementById(id);
+    if(ex){
+      var t=ex.querySelector('.da-lock-title'); if(t) t.textContent=label+' are a premium feature';
+      var s=ex.querySelector('.da-lock-sub'); if(s) s.innerHTML='Interactive '+ (mode==='questions'?'practice questions':'flashcards') +' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.';
+      ex.style.display='flex'; return;
+    }
+    var o=document.createElement('div'); o.id=id; o.className='da-lock-wrap';
+    o.style.position='fixed'; o.style.inset='0'; o.style.zIndex='2000';
+    o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
+      +'<div class="da-lock-title">'+label+' are a premium feature</div>'
+      +'<div class="da-lock-sub">Interactive '+(mode==='questions'?'practice questions':'flashcards')+' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.</div>'
+      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Got it</button></div>'
+      +'<div class="da-lock-foot">Notes stay free on the topics available to you.</div></div>';
+    document.body.appendChild(o);
+  };
+  // Show a small lock on the Flashcards / Questions tabs so non-members can see they're premium.
+  function decorateStudyTabs(){
+    try{
+      var lock = !window.__member;
+      document.querySelectorAll('.mode-tab.fc-tab, .mode-tab.q-tab').forEach(function(t){
+        var has = t.querySelector('.da-tab-lock');
+        if(lock){ if(!has){ var s=document.createElement('span'); s.className='da-tab-lock'; s.textContent='🔒'; s.style.cssText='margin-left:5px;font-size:10px;opacity:.7;'; t.appendChild(s); } }
+        else if(has){ has.remove(); }
+      });
+    }catch(e){}
+  }
+  window.__decorateStudyTabs = decorateStudyTabs;
+  if(document.readyState!=='loading') decorateStudyTabs(); else document.addEventListener('DOMContentLoaded', decorateStudyTabs);
 
   // ---- Mock exam: locked for everyone until a paid membership exists ----
   window.__mockAllowed = function(){ return !!(window.__member || window.__paidMock); };
@@ -19885,7 +19922,10 @@ function hideFlyout(p) {
     overlay.addEventListener('mousedown', function(e){ if(e.target===overlay) close(); });
     document.addEventListener('keydown', function(e){ if(overlay.classList.contains('open') && e.key==='Escape') close(); });
   }
-  function open(){ if(!overlay) build(); overlay.classList.add('open'); session=null; renderSummary(); }
+  function open(){
+    if(!window.__member){ if(window.__showStudyLock) window.__showStudyLock('flashcards'); return; }  // flashcard review is premium
+    if(!overlay) build(); overlay.classList.add('open'); session=null; renderSummary();
+  }
   function close(){ if(overlay) overlay.classList.remove('open'); session=null; refreshBadge(); }
 
   async function renderSummary(){
