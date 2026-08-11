@@ -177,6 +177,56 @@
     "id": "b51_fc_04",
     "front": "Where is Behçet's disease most prevalent, and how is major-organ disease treated?",
     "back": "Along the <b>Silk Road</b> (Turkey, Middle East, East Asia). Mucocutaneous disease → <b>colchicine</b>; major-organ involvement → <b>corticosteroids and immunosuppression</b> (azathioprine, biologics)."
+   },
+   {
+    "id": "hla_fc_01",
+    "front": "Give the classic HLA class I disease associations.",
+    "back": "<b>B27</b> → ankylosing spondylitis/spondyloarthropathies; <b>B51</b> → Behçet's; <b>A3</b> → haemochromatosis; <b>Cw6</b> → psoriasis."
+   },
+   {
+    "id": "hla_fc_02",
+    "front": "What diseases are associated with HLA-DR3 and HLA-DR4?",
+    "back": "<b>DR3</b>: SLE, Sjögren's, Graves', autoimmune hepatitis, coeliac, Addison's, T1DM. <b>DR4</b>: rheumatoid arthritis, T1DM. <b>DR3 + DR4 together</b> → highest T1DM risk."
+   },
+   {
+    "id": "hla_fc_03",
+    "front": "What is the clinical value of HLA-DQ2/DQ8 testing in coeliac disease?",
+    "back": "Coeliac is almost always DQ2 or DQ8 positive, so the test has a <b>high negative predictive value</b> — a <b>negative DQ2/DQ8 makes coeliac very unlikely</b> (used to exclude, not confirm)."
+   },
+   {
+    "id": "hla_fc_04",
+    "front": "Which diseases are linked to HLA-DR2/DR15?",
+    "back": "<b>Goodpasture's disease</b>, <b>narcolepsy</b>, <b>multiple sclerosis</b> and SLE. Narcolepsy's DQB1*06:02 is the strongest known HLA–disease association."
+   },
+   {
+    "id": "hla_fc_05",
+    "front": "Why should most HLA associations be treated as supportive rather than diagnostic?",
+    "back": "The alleles are <b>common in the general population</b> and only modestly raise risk — the notable clinically useful exception is the high NPV of <b>DQ2/DQ8</b> for coeliac disease."
+   },
+   {
+    "id": "trx_fc_01",
+    "front": "What is matched between donor and recipient in transplantation?",
+    "back": "<b>ABO</b> compatibility and <b>HLA-A, -B and -DR</b> (the most important loci) — better HLA matching means less rejection and longer graft survival."
+   },
+   {
+    "id": "trx_fc_02",
+    "front": "What does the transplant cross-match detect, and what does a positive result mean?",
+    "back": "It detects <b>preformed recipient antibodies against donor HLA</b> (from prior transfusion, pregnancy or transplant). A <b>POSITIVE cross-match is a contraindication</b> — it predicts <b>hyperacute rejection</b>."
+   },
+   {
+    "id": "trx_fc_03",
+    "front": "Compare hyperacute, acute and chronic graft rejection.",
+    "back": "<b>Hyperacute</b> (mins–hrs): preformed ABO/HLA antibodies → thrombosis; <b>prevented</b> by cross-match. <b>Acute</b> (weeks): T-cell ± antibody-mediated → treat with immunosuppression. <b>Chronic</b> (months–years): fibrosis/vascular change."
+   },
+   {
+    "id": "trx_fc_04",
+    "front": "What is the panel reactive antibody (PRA)?",
+    "back": "The <b>% of the population the recipient has HLA antibodies against</b> — a <b>high PRA means highly sensitised</b> and harder to find a compatible donor."
+   },
+   {
+    "id": "trx_fc_05",
+    "front": "Which transplant carries a graft-versus-host risk, and how does immunosuppression trade off?",
+    "back": "<b>Bone-marrow/stem-cell transplant</b> (and non-irradiated cellular blood in the immunocompromised) risks <b>GVHD</b>. Maintenance immunosuppression prevents rejection but over-suppression risks <b>opportunistic infection and malignancy</b>."
    }
   ]
  },
@@ -498,6 +548,96 @@
     "correctIndex": 1,
     "answer": "Posterior/panuveitis",
     "explanation": "Behçet's posterior or panuveitis can rapidly threaten sight and, along with neuro-Behçet's and large-vessel disease, requires urgent specialist assessment and immunosuppression."
+   },
+   {
+    "id": "hla_q01",
+    "type": "mcq",
+    "question": "Which HLA allele is classically associated with hereditary haemochromatosis?",
+    "options": [
+     "HLA-B27",
+     "HLA-A3",
+     "HLA-DR4",
+     "HLA-DQ2",
+     "HLA-Cw6"
+    ],
+    "correctIndex": 1,
+    "answer": "HLA-A3",
+    "explanation": "HLA-A3 is the classic association with hereditary haemochromatosis (linked to the HFE gene). B27 → spondyloarthropathy; DR4 → RA; DQ2 → coeliac; Cw6 → psoriasis."
+   },
+   {
+    "id": "hla_q02",
+    "type": "mcq",
+    "question": "A patient with suspected coeliac disease has a negative HLA-DQ2 and HLA-DQ8. How does this help?",
+    "options": [
+     "It confirms coeliac disease",
+     "It makes coeliac disease very unlikely (high negative predictive value)",
+     "It has no diagnostic value",
+     "It confirms dermatitis herpetiformis",
+     "It indicates the patient must avoid gluten"
+    ],
+    "correctIndex": 1,
+    "answer": "It makes coeliac disease very unlikely (high negative predictive value)",
+    "explanation": "Coeliac disease is almost universally DQ2/DQ8 positive, so a negative result has a high NPV and effectively excludes it — the test's main clinical use."
+   },
+   {
+    "id": "hla_q03",
+    "type": "mcq",
+    "question": "Which HLA combination confers the highest risk of type 1 diabetes?",
+    "options": [
+     "HLA-B27 alone",
+     "HLA-DR3 and HLA-DR4 together",
+     "HLA-Cw6",
+     "HLA-A3",
+     "HLA-B51"
+    ],
+    "correctIndex": 1,
+    "answer": "HLA-DR3 and HLA-DR4 together",
+    "explanation": "Co-inheritance of HLA-DR3 and DR4 confers the highest genetic risk of type 1 diabetes."
+   },
+   {
+    "id": "trx_q01",
+    "type": "mcq",
+    "question": "Minutes after a kidney transplant is reperfused, the graft becomes mottled and thromboses. What type of rejection is this and what causes it?",
+    "options": [
+     "Acute cellular rejection — T cells",
+     "Hyperacute rejection — preformed anti-donor (ABO/HLA) antibodies",
+     "Chronic rejection — fibrosis",
+     "Graft-versus-host disease",
+     "Drug toxicity"
+    ],
+    "correctIndex": 1,
+    "answer": "Hyperacute rejection — preformed anti-donor (ABO/HLA) antibodies",
+    "explanation": "Hyperacute rejection occurs within minutes-hours due to preformed antibodies against donor ABO/HLA antigens, causing thrombosis. It is prevented by the pre-transplant cross-match, not treated."
+   },
+   {
+    "id": "trx_q02",
+    "type": "mcq",
+    "question": "A prospective transplant recipient has a POSITIVE cross-match against a potential donor. What does this indicate?",
+    "options": [
+     "The donor is ideal",
+     "This donor is contraindicated — high risk of hyperacute rejection",
+     "Only ABO needs checking",
+     "The recipient needs no immunosuppression",
+     "The graft will last longest"
+    ],
+    "correctIndex": 1,
+    "answer": "This donor is contraindicated — high risk of hyperacute rejection",
+    "explanation": "A positive cross-match means the recipient has preformed antibodies against that donor's HLA — transplanting would risk hyperacute rejection, so the donor is avoided."
+   },
+   {
+    "id": "trx_q03",
+    "type": "mcq",
+    "question": "A transplant candidate has a very high panel reactive antibody (PRA). What does this imply?",
+    "options": [
+     "They are easy to match",
+     "They are highly sensitised and harder to find a compatible donor",
+     "They need no cross-match",
+     "They have graft-versus-host disease",
+     "They cannot form antibodies"
+    ],
+    "correctIndex": 1,
+    "answer": "They are highly sensitised and harder to find a compatible donor",
+    "explanation": "A high PRA means the recipient has HLA antibodies against a large proportion of the population (from prior sensitising events), making a negative cross-match harder to achieve."
    }
   ]
  }
