@@ -18945,18 +18945,37 @@ function hideFlyout(p) {
           });
         }).catch(function(e){ pmsgR((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
       }
-      d.firstChild.onclick=function(){
-        var email=($('authEmail').value||'').trim(), m=$('authMsg');
-        function msg(t,k){ if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
-        if(!email){ msg('Enter your email above first, then click Forgot password.'); return; }
-        var lnk=d.firstChild, lt=lnk.textContent; lnk.textContent='Sending code…';
+      // Step 1: a dedicated "enter your email" screen (no password field).
+      function pmsgQ(t,k){ var mm=$('da-pwq-msg'); if(mm){ mm.textContent=t; mm.className='auth-msg show '+(k||'err'); } }
+      function buildPwReq(){
+        if($('da-pwreq-overlay')) return;
+        var ov=document.createElement('div'); ov.className='auth-overlay'; ov.id='da-pwreq-overlay';
+        ov.innerHTML='<div class="auth-card">'+
+          '<div class="auth-logo"><span class="logo-text">DoctoRise</span></div>'+
+          '<div class="auth-sub">Reset your password</div>'+
+          '<div class="auth-msg" id="da-pwq-msg"></div>'+
+          '<div style="font-size:12.5px;color:var(--muted,#6B7280);margin:-2px 0 14px;line-height:1.5;">Enter your account email and we’ll send you a verification code.</div>'+
+          '<div class="auth-field"><label for="da-pwq-email">Email</label><input id="da-pwq-email" type="email" autocomplete="email" placeholder="you@example.com"></div>'+
+          '<button class="auth-submit" id="da-pwq-send">Send code</button>'+
+          '<div class="auth-toggle" style="margin-top:12px"><a id="da-pwq-back">Back to sign in</a></div></div>';
+        document.body.appendChild(ov);
+        $('da-pwq-send').onclick=sendPwReq;
+        $('da-pwq-back').onclick=function(){ var o=$('da-pwreq-overlay'); if(o) o.classList.remove('open'); if(window.openAuthModal) window.openAuthModal('signin'); };
+        $('da-pwq-email').addEventListener('keydown',function(e){ if(e.key==='Enter') sendPwReq(); });
+      }
+      function openPwReq(prefill){ buildPwReq(); var e=$('da-pwq-email'); if(e) e.value=prefill||''; var mm=$('da-pwq-msg'); if(mm) mm.className='auth-msg'; if(typeof closeAuthModal==='function') closeAuthModal(); $('da-pwreq-overlay').classList.add('open'); setTimeout(function(){ var c=$('da-pwq-email'); if(c) c.focus(); },60); }
+      function sendPwReq(){
+        var email=($('da-pwq-email').value||'').trim();
+        if(!email || email.indexOf('@')<1){ pmsgQ('Enter a valid email address.'); return; }
+        var btn=$('da-pwq-send'), r0=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
         sb.auth.resetPasswordForEmail(email).then(function(r){
-          lnk.textContent=lt;
-          if(r.error){ msg(r.error.message); return; }
-          msg('Code sent — check your email.','ok');
+          btn.disabled=false; btn.textContent=r0;
+          if(r.error){ pmsgQ(r.error.message); return; }
+          var o=$('da-pwreq-overlay'); if(o) o.classList.remove('open');
           openPwReset(email);
-        }).catch(function(e){ lnk.textContent=lt; msg((e&&e.message)||'Could not send code.'); });
-      };
+        }).catch(function(e){ btn.disabled=false; btn.textContent=r0; pmsgQ((e&&e.message)||'Could not send code.'); });
+      }
+      d.firstChild.onclick=function(){ openPwReq(((($('authEmail')||{}).value)||'').trim()); };
       var _sm=window.setAuthMode;
       window.setAuthMode=function(mode){ if(typeof _sm==='function') _sm(mode); var fl=$('da-forgot-link'); if(fl) fl.style.display=(mode==='signup')?'none':''; };
       window.setAuthMode(window.__authMode||'signin');
