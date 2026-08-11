@@ -18905,17 +18905,63 @@ function hideFlyout(p) {
       var d=document.createElement('div'); d.id='da-forgot-link'; d.style.cssText='text-align:right;margin:-4px 0 12px;font-size:12px;';
       d.innerHTML='<a style="color:var(--accent,#00C2A8);cursor:pointer">Forgot password?</a>';
       form.insertBefore(d, sub);
+      // Code-based password reset (no link): email a recovery code, verify it, set a new password.
+      var pwrEmail=null;
+      function pmsgR(t,k){ var mm=$('da-pwr-msg'); if(mm){ mm.textContent=t; mm.className='auth-msg show '+(k||'err'); } }
+      function buildPwReset(){
+        if($('da-pwreset-overlay')) return;
+        var ov=document.createElement('div'); ov.className='auth-overlay'; ov.id='da-pwreset-overlay';
+        ov.innerHTML='<div class="auth-card">'+
+          '<div class="auth-logo"><span class="logo-text">DoctoRise</span></div>'+
+          '<div class="auth-sub" id="da-pwr-sub">Enter the code we emailed you, then choose a new password.</div>'+
+          '<div class="auth-msg" id="da-pwr-msg"></div>'+
+          '<div class="auth-field"><label for="da-pwr-code">Verification code</label><input id="da-pwr-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="Enter the code"></div>'+
+          '<div class="auth-field"><label for="da-pwr-new">New password</label><input id="da-pwr-new" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
+          '<div class="auth-field"><label for="da-pwr-conf">Confirm new password</label><input id="da-pwr-conf" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
+          '<button class="auth-submit" id="da-pwr-save">Reset password</button>'+
+          '<div class="auth-toggle">Didn’t get it? <a id="da-pwr-resend">Resend code</a></div>'+
+          '<div class="auth-toggle" style="margin-top:6px"><a id="da-pwr-cancel">Cancel</a></div></div>';
+        document.body.appendChild(ov);
+        $('da-pwr-save').onclick=doPwReset;
+        $('da-pwr-resend').onclick=function(){ if(!pwrEmail) return; pmsgR('Sending a new code…','ok'); sb.auth.resetPasswordForEmail(pwrEmail).then(function(r){ pmsgR(r.error?r.error.message:'New code sent — check your email.', r.error?'err':'ok'); }); };
+        $('da-pwr-cancel').onclick=function(){ window.__mfaPending=false; var o=$('da-pwreset-overlay'); if(o) o.classList.remove('open'); };
+        $('da-pwr-conf').addEventListener('keydown',function(e){ if(e.key==='Enter') doPwReset(); });
+      }
+      function openPwReset(email){ buildPwReset(); pwrEmail=email; window.__mfaPending=true; if(typeof closeAuthModal==='function') closeAuthModal(); $('da-pwr-code').value=''; $('da-pwr-new').value=''; $('da-pwr-conf').value=''; var mm=$('da-pwr-msg'); if(mm) mm.className='auth-msg'; $('da-pwreset-overlay').classList.add('open'); setTimeout(function(){ var c=$('da-pwr-code'); if(c) c.focus(); },60); }
+      function doPwReset(){
+        var code=($('da-pwr-code').value||'').trim(), a=$('da-pwr-new').value, b=$('da-pwr-conf').value;
+        if(!/^\d{4,10}$/.test(code)){ pmsgR('Enter the numeric code from your email.'); return; }
+        if((a||'').length<6){ pmsgR('Password must be at least 6 characters.'); return; }
+        if(a!==b){ pmsgR('Passwords do not match.'); return; }
+        var btn=$('da-pwr-save'), r0=btn.textContent; btn.disabled=true; btn.textContent='Resetting…';
+        sb.auth.verifyOtp({ email:pwrEmail, token:code, type:'recovery' }).then(function(r){
+          if(r.error){ pmsgR(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
+          return sb.auth.updateUser({ password:a }).then(function(u){
+            if(u.error){ pmsgR(u.error.message); btn.disabled=false; btn.textContent=r0; return; }
+            pmsgR('Password updated — signing you in…','ok');
+            if(window.__markVerified) window.__markVerified();
+            var claim = window.__claimDevice ? window.__claimDevice() : Promise.resolve();
+            Promise.resolve(claim).then(function(){ window.__mfaPending=false; setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} location.reload(); }, 900); });
+          });
+        }).catch(function(e){ pmsgR((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
+      }
       d.firstChild.onclick=function(){
         var email=($('authEmail').value||'').trim(), m=$('authMsg');
         function msg(t,k){ if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
         if(!email){ msg('Enter your email above first, then click Forgot password.'); return; }
-        sb.auth.resetPasswordForEmail(email,{redirectTo:location.origin}).then(function(r){ msg(r.error?r.error.message:'Reset link sent — check your email.', r.error?'err':'ok'); });
+        var lnk=d.firstChild, lt=lnk.textContent; lnk.textContent='Sending code…';
+        sb.auth.resetPasswordForEmail(email).then(function(r){
+          lnk.textContent=lt;
+          if(r.error){ msg(r.error.message); return; }
+          msg('Code sent — check your email.','ok');
+          openPwReset(email);
+        }).catch(function(e){ lnk.textContent=lt; msg((e&&e.message)||'Could not send code.'); });
       };
       var _sm=window.setAuthMode;
       window.setAuthMode=function(mode){ if(typeof _sm==='function') _sm(mode); var fl=$('da-forgot-link'); if(fl) fl.style.display=(mode==='signup')?'none':''; };
       window.setAuthMode(window.__authMode||'signin');
     }
-    sb.auth.onAuthStateChange(function(ev){ if(ev==='PASSWORD_RECOVERY'){ buildRecovery(); var o=$('da-recover-overlay'); if(o) o.classList.add('open'); } });
+    sb.auth.onAuthStateChange(function(ev){ if(ev==='PASSWORD_RECOVERY' && !window.__mfaPending){ buildRecovery(); var o=$('da-recover-overlay'); if(o) o.classList.add('open'); } });
   });
 })();
 </script>
@@ -19038,6 +19084,9 @@ function hideFlyout(p) {
       return null;
     });
   }
+  // Expose so the password-reset flow can trust this device after a code-based reset.
+  window.__markVerified = markVerified;
+  window.__claimDevice = claimDevice;
 
   // ---- verification overlay (shared by signup-confirm and new-device sign-in) ----
   var vEmail=null, vType='email', vAfter=null;
