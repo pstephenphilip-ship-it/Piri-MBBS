@@ -106,6 +106,43 @@
     "front": "What is the bone profile of primary hyperparathyroidism?",
     "back": "<b>↑Ca · ↓PO₄ · ↑PTH</b> (± raised ALP if there is bone disease / osteitis fibrosa cystica)."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Renal & Electrolytes": [
+   {
+    "id": "ue_fc_01",
+    "front": "What does the U&E measure and what does it assess?",
+    "back": "<b>Sodium, potassium, urea, creatinine</b> (± bicarbonate). It assesses <b>renal function, hydration, electrolyte</b> and <b>acid–base</b> status."
+   },
+   {
+    "id": "ue_fc_02",
+    "front": "Serum sodium is primarily a marker of what?",
+    "back": "<b>Water balance</b>, not salt content — hypo/hypernatraemia usually reflect too much or too little <b>water</b> relative to sodium."
+   },
+   {
+    "id": "ue_fc_03",
+    "front": "What does a raised urea:creatinine ratio (urea up out of proportion) suggest?",
+    "back": "A <b>pre-renal</b> picture — <b>dehydration/hypovolaemia</b> — or an <b>upper GI bleed</b> (absorbed blood protein raises urea)."
+   },
+   {
+    "id": "ue_fc_04",
+    "front": "Why can creatinine be misleading as a marker of renal function?",
+    "back": "It depends on <b>muscle mass</b> — it can be <b>falsely low</b> in the frail, elderly or cachectic (masking poor GFR) and higher in muscular people."
+   },
+   {
+    "id": "ue_fc_05",
+    "front": "List common causes of hyperkalaemia and its ECG changes.",
+    "back": "AKI/CKD, <b>K⁺-sparing diuretics, ACEi/ARB</b>, Addison's, acidosis, or a <b>haemolysed sample</b>. ECG: <b>tall tented T waves</b> → flattened P → <b>widened QRS</b> → sine wave."
+   },
+   {
+    "id": "ue_fc_06",
+    "front": "Outline the emergency management of severe hyperkalaemia.",
+    "back": "<b>IV calcium gluconate</b> (cardioprotection — does not lower K⁺), then <b>insulin + dextrose</b> and <b>nebulised salbutamol</b> to shift K⁺ into cells; treat the cause (± potassium binder / dialysis)."
+   },
+   {
+    "id": "ue_fc_07",
+    "front": "Give causes of hypokalaemia and its ECG changes.",
+    "back": "GI loss (vomiting/diarrhoea), <b>diuretics</b>, <b>Conn's</b> syndrome, alkalosis. ECG: <b>flat T waves and U waves</b>."
+   }
   ]
  },
  "q": {
@@ -289,6 +326,68 @@
     "correctIndex": 2,
     "answer": "Multiple myeloma",
     "explanation": "Hypercalcaemia, anaemia and renal impairment with bone pain but a NORMAL ALP points to myeloma — its lytic lesions are osteoclastic with no osteoblastic (ALP) response. Send serum/urine electrophoresis and free light chains."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Renal & Electrolytes": [
+   {
+    "id": "ue_q01",
+    "type": "mcq",
+    "question": "A dehydrated patient has urea 18 mmol/L with a creatinine of 95 µmol/L (only mildly raised). What does this urea:creatinine pattern indicate?",
+    "options": [
+     "Intrinsic renal failure",
+     "A pre-renal picture (e.g. dehydration or an upper GI bleed)",
+     "Post-renal obstruction",
+     "Liver failure",
+     "Rhabdomyolysis"
+    ],
+    "correctIndex": 1,
+    "answer": "A pre-renal picture (e.g. dehydration or an upper GI bleed)",
+    "explanation": "Urea rising disproportionately to creatinine gives a high urea:creatinine ratio — a pre-renal pattern from dehydration/hypovolaemia, or an upper GI bleed where absorbed protein raises the urea."
+   },
+   {
+    "id": "ue_q02",
+    "type": "mcq",
+    "question": "A patient has a potassium of 6.9 mmol/L with tall tented T waves on the ECG. What is the FIRST drug to give?",
+    "options": [
+     "Insulin with dextrose",
+     "IV calcium gluconate",
+     "Nebulised salbutamol",
+     "Oral calcium resonium",
+     "IV furosemide"
+    ],
+    "correctIndex": 1,
+    "answer": "IV calcium gluconate",
+    "explanation": "With ECG changes, IV calcium gluconate is given first to stabilise the myocardium (cardioprotection). It does not lower potassium — insulin/dextrose and salbutamol are then used to shift K⁺ into cells."
+   },
+   {
+    "id": "ue_q03",
+    "type": "mcq",
+    "question": "A well patient's routine bloods show K⁺ 6.5 mmol/L, but the sample was noted to be haemolysed and there are no ECG changes or clinical features. What is the most appropriate action?",
+    "options": [
+     "Treat immediately with calcium gluconate",
+     "Repeat the sample (pseudohyperkalaemia from haemolysis is likely)",
+     "Start insulin-dextrose",
+     "Arrange urgent dialysis",
+     "Give calcium resonium and discharge"
+    ],
+    "correctIndex": 1,
+    "answer": "Repeat the sample (pseudohyperkalaemia from haemolysis is likely)",
+    "explanation": "Haemolysis releases intracellular potassium and falsely raises the result. In a well patient with no ECG changes, repeat the sample — but never delay treating a genuinely high potassium with ECG changes."
+   },
+   {
+    "id": "ue_q04",
+    "type": "mcq",
+    "question": "Which finding is characteristic of hypokalaemia on the ECG?",
+    "options": [
+     "Tall tented T waves",
+     "U waves and flattened T waves",
+     "Widened QRS",
+     "Peaked P waves",
+     "Short QT interval"
+    ],
+    "correctIndex": 1,
+    "answer": "U waves and flattened T waves",
+    "explanation": "Hypokalaemia flattens the T waves and produces U waves (and can prolong the QT). Tall tented T waves and a widened QRS are features of hyperkalaemia."
    }
   ]
  }
