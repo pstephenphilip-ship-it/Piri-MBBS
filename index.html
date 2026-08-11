@@ -592,6 +592,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       <div class="auth-field">
         <label for="authPassword">Password</label>
         <input type="password" id="authPassword" autocomplete="current-password" placeholder="••••••••" minlength="6" required>
+        <div id="authPwReq" style="display:none;font-size:11.5px;line-height:1.7;color:var(--muted,#6B7280);margin-top:7px;">
+          <div id="pwReqBar" style="height:5px;border-radius:3px;background:var(--border2,#E2E6F0);overflow:hidden;margin-bottom:8px;"><div id="pwReqBarFill" style="height:100%;width:0;background:#EF4444;transition:width .2s,background .2s;"></div></div>
+          <div data-req="len">• At least 8 characters</div>
+          <div data-req="case">• Upper &amp; lower-case letters</div>
+          <div data-req="num">• At least one number</div>
+        </div>
       </div>
       <button type="submit" class="auth-submit" id="authSubmitBtn">Sign in</button>
     </form>
@@ -18788,7 +18794,36 @@ function hideFlyout(p) {
     if(typeof _setAuthMode==='function') _setAuthMode(mode);
     var su=$('da-su-fields'); if(su) su.style.display=(mode==='signup')?'':'none';
     var hint=$('authEmailHint'); if(hint) hint.style.display=(mode==='signup')?'':'none';
+    var pwr=$('authPwReq'); if(pwr) pwr.style.display=(mode==='signup')?'':'none';
   };
+
+  // ---- password strength (enforced on sign-up) ----
+  window.__pwStrength=function(pw){
+    pw=pw||'';
+    var len=pw.length>=8, lower=/[a-z]/.test(pw), upper=/[A-Z]/.test(pw), num=/[0-9]/.test(pw), sym=/[^A-Za-z0-9]/.test(pw);
+    var cases=lower&&upper;
+    var ok = len && cases && num;                 // minimum bar: 8+ chars, upper+lower, a number
+    var score = (pw.length>=8?1:0)+(pw.length>=12?1:0)+(cases?1:0)+(num?1:0)+(sym?1:0);  // 0..5
+    var msg='';
+    if(!len) msg='Password must be at least 8 characters.';
+    else if(!cases) msg='Use both upper- and lower-case letters.';
+    else if(!num) msg='Add at least one number.';
+    return { ok:ok, msg:msg, score:score, req:{len:len,case:cases,num:num,sym:sym} };
+  };
+  (function wirePwMeter(){
+    function upd(){
+      var el=$('authPassword'); if(!el) return;
+      var r=window.__pwStrength(el.value||'');
+      ['len','case','num'].forEach(function(k){
+        var row=document.querySelector('#authPwReq [data-req="'+k+'"]'); if(!row) return;
+        var good=r.req[k]; row.style.color=good?'#16A34A':'var(--muted,#6B7280)';
+        row.firstChild&&(row.textContent = (good?'✓ ':'• ')+row.textContent.replace(/^[✓•]\s*/,''));
+      });
+      var fill=$('pwReqBarFill'); if(fill){ var pct=Math.min(100, r.score*20); fill.style.width=pct+'%'; fill.style.background = r.score>=4?'#16A34A':(r.score>=3?'#F59E0B':'#EF4444'); }
+    }
+    function attach(){ var el=$('authPassword'); if(el && !el.__pwWired){ el.__pwWired=1; el.addEventListener('input', upd); } }
+    if(document.readyState!=='loading') attach(); else document.addEventListener('DOMContentLoaded', attach);
+  })();
 
   function aMsg(t,k){ var m=$('authMsg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
   function aClear(){ var m=$('authMsg'); if(m) m.className='auth-msg'; }
@@ -19277,6 +19312,9 @@ function hideFlyout(p) {
       // create the row with them after the account is confirmed.
       var unameEl=$('da-username'), username=unameEl?(unameEl.value||'').trim():'';
       if(unameEl && !UNAME_RE.test(username)){ amsg('Username must be 3–20 letters, numbers or underscores.'); return false; }
+      // Require a strong password on sign-up.
+      var pwChk=window.__pwStrength?window.__pwStrength(password):{ok:password.length>=8};
+      if(!pwChk.ok){ amsg(pwChk.msg||'Please choose a stronger password.'); var pe=$('authPassword'); if(pe) pe.focus(); return false; }
       var pdata={ username:username||null,
                   full_name:($('da-fullname')&&$('da-fullname').value.trim())||null,
                   university:($('da-university')&&$('da-university').value.trim())||null,
