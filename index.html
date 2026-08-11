@@ -17986,8 +17986,11 @@ function calcRenderCases(id){
   cases.forEach(function(c,ci){
     var card=document.createElement('div'); card.className='calc-case'+(ci===0?' open':'');
     var head=document.createElement('div'); head.className='calc-case-head';
+    head.setAttribute('role','button'); head.setAttribute('tabindex','0'); head.setAttribute('aria-expanded', ci===0?'true':'false');
     head.innerHTML='<span class="calc-case-num">'+(ci+1)+'</span><span class="calc-case-title">'+c.title+'</span><span class="calc-case-chev">▶</span>';
-    head.addEventListener('click',function(){ card.classList.toggle('open'); });
+    function toggleCase(){ var open=card.classList.toggle('open'); head.setAttribute('aria-expanded', open?'true':'false'); }
+    head.addEventListener('click',toggleCase);
+    head.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleCase(); } });
     card.appendChild(head);
     var body=document.createElement('div'); body.className='calc-case-body';
     var stem=document.createElement('div'); stem.className='calc-case-stem'; stem.innerHTML=c.stem; body.appendChild(stem);
