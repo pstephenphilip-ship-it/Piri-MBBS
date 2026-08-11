@@ -18600,16 +18600,22 @@ function hideFlyout(p) {
   // enforced by the consume_unlock() RPC, so it can't be reset by clearing localStorage or
   // switching browser/device. The in-memory cache below is filled from the server on load
   // and used for the (synchronous) lock checks; it fails CLOSED until the server responds.
-  var DP_LIMIT = 3;
+  var DP_TOTAL = 6;                // up to 6 topic unlocks per rolling 24h...
+  var DP_PER_TAB = 3;              // ...but no more than 3 from any one section (tab)
   var DP_WINDOW = 24*60*60*1000;   // 24 hours in ms
+  var SECTION_NAME = { conditions:'Medical Conditions', anatomy:'Anatomy', histology:'Histology', signs:'Signs & Symptoms', osce:'OSCE', investigations:'Investigations', pharmacology:'Pharmacology' };
   var _dpServer = [];              // [{k, t}] active unlocks sourced from the server
   var _dpLoaded = false;
   var _dpReadyResolve, _dpReady = new Promise(function(res){ _dpReadyResolve = res; });
   function dpMarkReady(){ _dpLoaded = true; try{ _dpReadyResolve(); }catch(e){} }
   function tkey(p,s,t){ return p+'|'+(s||'')+'|'+t; }
+  function tabOf(k){ return String(k||'').split('|')[0]; }
   function dpActive(){ var now=Date.now(); return _dpServer.filter(function(e){ return e && typeof e.t==='number' && (now-e.t) < DP_WINDOW; }); }
   function dpHas(p,s,t){ var k=tkey(p,s,t); return dpActive().some(function(e){ return e.k===k; }); }
-  function dpRemaining(){ return Math.max(0, DP_LIMIT - dpActive().length); }
+  function dpCountTab(p){ return dpActive().filter(function(e){ return tabOf(e.k)===p; }).length; }
+  function dpRemainingTotal(){ return Math.max(0, DP_TOTAL - dpActive().length); }
+  function dpRemainingTab(p){ return Math.max(0, DP_PER_TAB - dpCountTab(p)); }
+  function dpCanUnlock(p){ return dpRemainingTotal() > 0 && dpRemainingTab(p) > 0; }
   // Pull this account's active unlocks from the server into the cache, then refresh lock UI.
   function dpLoadServer(){
     var sb=window.__sb;
@@ -18634,7 +18640,7 @@ function hideFlyout(p) {
       return false;
     }).catch(function(){ return false; });
   }
-  window.__dpRemaining = dpRemaining;
+  window.__dpRemaining = dpRemainingTotal;
   // Re-apply lock styling to whatever topic lists are currently on screen.
   window.__refreshLocks = function(){
     ['conditions','anatomy','histology','signs','osce','investigations'].forEach(function(p){
@@ -18673,20 +18679,27 @@ function hideFlyout(p) {
       + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
   }
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
-  function dayPassHTML(name, remaining){
+  function dayPassHTML(name, p){
+    var sec = SECTION_NAME[p] || 'this section';
     return '<div class="da-lock"><div class="da-lock-icon">🔓</div>'
       + '<div class="da-lock-title">Unlock this topic for 24 hours?</div>'
-      + '<div class="da-lock-sub">Opens the notes for <strong>'+esc(name)+'</strong> for the next <strong>24 hours</strong>, then it locks again. You have <strong>'+remaining+' of '+DP_LIMIT+'</strong> unlocks left.</div>'
+      + '<div class="da-lock-sub">Opens the notes for <strong>'+esc(name)+'</strong> for the next <strong>24 hours</strong>, then it locks again. You have <strong>'+dpRemainingTotal()+' of '+DP_TOTAL+'</strong> daily unlocks left &mdash; <strong>'+dpRemainingTab(p)+' of '+DP_PER_TAB+'</strong> in '+esc(sec)+'.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpUnlock&&window.__dpUnlock()">Use 1 unlock</button>'
       + '<button class="da-lock-btn" onclick="window.__dpCancel&&window.__dpCancel()">Not now</button></div>'
-      + '<div class="da-lock-foot">Up to '+DP_LIMIT+' topics in any 24 hours &mdash; each frees up 24h after you use it. Unlimited access is coming with membership.</div></div>';
+      + '<div class="da-lock-foot">Up to '+DP_TOTAL+' topics per 24 hours, max '+DP_PER_TAB+' from any one section &mdash; each frees up 24h after you use it. Unlimited access is coming with membership.</div></div>';
   }
-  function limitHTML(){
+  function limitHTML(p){
+    var tabFull = p && dpRemainingTab(p)===0 && dpRemainingTotal()>0;
+    var sec = SECTION_NAME[p] || 'this section';
+    var title = tabFull ? 'Section limit reached' : 'Daily limit reached';
+    var sub = tabFull
+      ? 'You&rsquo;ve used all <strong>'+DP_PER_TAB+'</strong> unlocks for <strong>'+esc(sec)+'</strong> in the last 24 hours. You can still unlock topics in other sections (up to <strong>'+DP_TOTAL+'</strong>/day total) &mdash; or unlock everything with membership.'
+      : 'You&rsquo;ve used all <strong>'+DP_TOTAL+'</strong> of your daily unlocks. Each one frees up again <strong>24 hours</strong> after you used it &mdash; or unlock everything with membership (coming soon).';
     return '<div class="da-lock"><div class="da-lock-icon">⏳</div>'
-      + '<div class="da-lock-title">Unlock limit reached</div>'
-      + '<div class="da-lock-sub">You&rsquo;ve used all <strong>'+DP_LIMIT+'</strong> of your topic unlocks. Each one frees up again <strong>24 hours</strong> after you used it &mdash; or unlock everything with membership (coming soon).</div>'
+      + '<div class="da-lock-title">'+title+'</div>'
+      + '<div class="da-lock-sub">'+sub+'</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpCancel&&window.__dpCancel()">OK</button></div>'
-      + '<div class="da-lock-foot">Topics you already unlocked today stay open.</div></div>';
+      + '<div class="da-lock-foot">Topics you already unlocked stay open for their 24 hours.</div></div>';
   }
   function hidePaywall(p){ var el=document.getElementById('da-paywall-'+p); if(el) el.style.display='none'; }
   function renderWall(p, name, html, skipHash){
@@ -18720,20 +18733,20 @@ function hideFlyout(p) {
       return;
     }
     if (window.__authed){
-      if (dpRemaining() > 0){
+      if (dpCanUnlock(p)){
         window.__dpUnlock = function(){
           var btn=document.querySelector('#da-paywall-'+p+' .da-lock-btn.primary'); if(btn){ btn.disabled=true; btn.textContent='Unlocking…'; }
           dpConsume(p, sys, name).then(function(ok){
             window.__dpUnlock=null; window.__dpCancel=null;
             if(ok){ clearMini(p, name); hidePaywall(p); proceed(); }
-            else { renderWall(p, name, limitHTML(), skipHash); }   // server said no slot left
+            else { dpLoadServer().then(function(){ renderWall(p, name, limitHTML(p), skipHash); }); }   // server said no slot left
           });
         };
         window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; hidePaywall(p); };
-        renderWall(p, name, dayPassHTML(name, dpRemaining()), skipHash);
+        renderWall(p, name, dayPassHTML(name, p), skipHash);
       } else {
         window.__dpCancel = function(){ window.__dpCancel=null; hidePaywall(p); };
-        renderWall(p, name, limitHTML(), skipHash);
+        renderWall(p, name, limitHTML(p), skipHash);
       }
     } else {
       showLocked(p, name, skipHash);
