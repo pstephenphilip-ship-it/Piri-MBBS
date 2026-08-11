@@ -5223,47 +5223,7 @@
    {
     "id": "coag_fc_13",
     "front": "Why must a coagulation sample be filled exactly to the line?",
-    "back": "It is a <b>citrate</b> tube — the <b>citrate:plasma ratio</b> matters. Under- or over-filling (or a heparinised line) gives false results."
-   },
-   {
-    "id": "coag_fc_14",
-    "front": "What is a D-dimer, and what is its main clinical value?",
-    "back": "A <b>fibrin degradation product</b> marking active clot turnover. Its value is the <b>negative</b> result — a <b>rule-out</b> test for VTE (high sensitivity/NPV)."
-   },
-   {
-    "id": "coag_fc_15",
-    "front": "How should a D-dimer be used with pre-test probability for VTE?",
-    "back": "<b>Low/intermediate</b> probability → D-dimer (negative excludes, positive → image). <b>High</b> probability → image directly; a normal D-dimer <b>cannot</b> rule out VTE."
-   },
-   {
-    "id": "coag_fc_16",
-    "front": "What is the age-adjusted D-dimer cutoff and why use it?",
-    "back": "For age &gt;50: <b>age × 10 µg/L (FEU)</b>. It improves <b>specificity</b> in older patients without losing sensitivity."
-   },
-   {
-    "id": "coag_fc_17",
-    "front": "Name several non-VTE causes of a raised D-dimer.",
-    "back": "Infection/sepsis, surgery/trauma, pregnancy, malignancy, liver disease, inflammation, increasing age and <b>DIC</b> — hence it only rules out, never rules in."
-   },
-   {
-    "id": "coag_fc_18",
-    "front": "What is heparin-induced thrombocytopenia (HIT), and when does it occur?",
-    "back": "Antibodies against <b>PF4–heparin complexes</b> activate platelets → <b>falling platelets + paradoxical thrombosis</b>, typically <b>5–10 days</b> after starting heparin."
-   },
-   {
-    "id": "coag_fc_19",
-    "front": "What are the four components of the 4T score for HIT?",
-    "back": "<b>T</b>hrombocytopenia (&gt;50% fall, nadir ≥20), <b>T</b>iming (day 5–10), <b>T</b>hrombosis (new), o<b>T</b>her cause (none). Each 0–2; bands: 0–3 low, 4–5 intermediate, 6–8 high."
-   },
-   {
-    "id": "coag_fc_20",
-    "front": "How is HIT confirmed on testing?",
-    "back": "Intermediate/high 4T score → <b>anti-PF4 antibodies</b> (sensitive immunoassay), then confirm with a <b>functional assay</b> (serotonin release / HIPA). A low score excludes it."
-   },
-   {
-    "id": "coag_fc_21",
-    "front": "What is the management of suspected HIT?",
-    "back": "<b>Stop all heparin</b> (incl. flushes/LMWH), start a <b>non-heparin anticoagulant</b> (argatroban, danaparoid, fondaparinux). <b>No platelet transfusions</b>; <b>no warfarin until platelets recover</b> (venous limb gangrene risk)."
+    "back": "It is a <b>citrate</b> tube — the <b>citrate:plasma ratio</b> matters. Under- or over-filling (or sampling from a heparinised line) gives false results."
    }
   ]
  },
@@ -18483,6 +18443,83 @@
     "correctIndex": 1,
     "answer": "It can fuel further microthrombi and worsen ischaemia",
     "explanation": "In TTP, giving platelets can worsen the microvascular thrombosis and end-organ damage. They are avoided unless there is life-threatening bleeding; the definitive treatment is urgent plasma exchange."
+   }
+  ],
+  "investigations__HAEMATOLOGY__Coagulation & Thrombosis": [
+   {
+    "id": "coag_q01",
+    "type": "mcq",
+    "question": "A 19-year-old man with recurrent haemarthroses has a prolonged APTT with a normal PT, normal platelets and normal fibrinogen. What is the most likely diagnosis?",
+    "options": [
+     "Disseminated intravascular coagulation",
+     "Haemophilia A",
+     "Warfarin therapy",
+     "Vitamin K deficiency",
+     "Liver failure"
+    ],
+    "correctIndex": 1,
+    "answer": "Haemophilia A",
+    "explanation": "An isolated prolonged APTT (normal PT) with a bleeding history points to an intrinsic-pathway factor deficiency — factor VIII (haemophilia A) or IX (haemophilia B). DIC, vitamin K deficiency, warfarin and liver failure would also prolong the PT (and often derange platelets/fibrinogen)."
+   },
+   {
+    "id": "coag_q02",
+    "type": "mcq",
+    "question": "A patient has a prolonged APTT that does NOT correct when mixed 1:1 with normal plasma. What does this indicate?",
+    "options": [
+     "Factor VIII deficiency",
+     "Von Willebrand disease",
+     "A circulating inhibitor (e.g. lupus anticoagulant)",
+     "Vitamin K deficiency",
+     "Warfarin effect"
+    ],
+    "correctIndex": 2,
+    "answer": "A circulating inhibitor (e.g. lupus anticoagulant)",
+    "explanation": "Correction on mixing = a factor deficiency (replaced by normal plasma). Failure to correct = an inhibitor (lupus anticoagulant or a specific factor inhibitor), which also acts on the added normal factors."
+   },
+   {
+    "id": "coag_q03",
+    "type": "mcq",
+    "question": "A septic patient has a prolonged PT and APTT, platelets 40 ×10⁹/L, fibrinogen 0.8 g/L and a markedly raised D-dimer. What is the diagnosis?",
+    "options": [
+     "Immune thrombocytopenia",
+     "Haemophilia B",
+     "Lupus anticoagulant",
+     "Disseminated intravascular coagulation (DIC)",
+     "Vitamin K deficiency"
+    ],
+    "correctIndex": 3,
+    "answer": "Disseminated intravascular coagulation (DIC)",
+    "explanation": "Prolonged PT and APTT with consumption of platelets and fibrinogen plus a high D-dimer is the classic consumptive coagulopathy of DIC — treat the underlying cause with supportive blood products."
+   },
+   {
+    "id": "coag_q04",
+    "type": "mcq",
+    "question": "A patient on rivaroxaban has a normal APTT. Which statement is correct?",
+    "options": [
+     "The normal APTT reliably excludes a significant drug level",
+     "The INR should be used to monitor rivaroxaban",
+     "DOAC effect is best assessed with a drug-specific anti-Xa assay",
+     "The thrombin time is the monitoring test of choice",
+     "No laboratory test can measure any DOAC effect"
+    ],
+    "correctIndex": 2,
+    "answer": "DOAC effect is best assessed with a drug-specific anti-Xa assay",
+    "explanation": "DOACs prolong the PT/APTT only variably, so a normal screen does not exclude a clinically important level. Apixaban/rivaroxaban are measured with a calibrated anti-Xa assay (dabigatran with a dilute thrombin time/ecarin assay)."
+   },
+   {
+    "id": "coag_q05",
+    "type": "mcq",
+    "question": "Which factor's short half-life best explains why the PT/INR rises first with warfarin or early vitamin K deficiency?",
+    "options": [
+     "Factor II",
+     "Factor V",
+     "Factor VII",
+     "Factor IX",
+     "Factor X"
+    ],
+    "correctIndex": 2,
+    "answer": "Factor VII",
+    "explanation": "Factor VII (extrinsic pathway) has the shortest half-life of the coagulation factors, so its activity falls first — prolonging the PT/INR before the APTT is affected."
    }
   ]
  }
