@@ -5382,6 +5382,43 @@
     "front": "Circulating blasts are TdT⁺, CD19⁺, CD10⁺ and CD3⁻. What is the diagnosis?",
     "back": "<b>B-cell acute lymphoblastic leukaemia (B-ALL)</b> — immature (TdT⁺) B-lineage (CD19⁺/CD10⁺) blasts."
    }
+  ],
+  "investigations__HAEMATOLOGY__Transfusion": [
+   {
+    "id": "tx_fc_01",
+    "front": "What does a Group & Save (G&S) involve?",
+    "back": "<b>ABO & RhD grouping</b> of the patient's red cells and an <b>antibody screen</b> (an <b>indirect antiglobulin test</b>) for atypical red-cell alloantibodies; the sample is held ready."
+   },
+   {
+    "id": "tx_fc_02",
+    "front": "How long is a Group & Save sample valid, and why?",
+    "back": "If transfused or pregnant in the last 3 months, it is valid only <b>72&nbsp;h</b> — because new alloantibodies can appear."
+   },
+   {
+    "id": "tx_fc_03",
+    "front": "What does the antibody screen detect, and how does it differ from the DAT?",
+    "back": "The screen (an <b>indirect</b> antiglobulin test) detects alloantibodies <b>in the patient's serum</b>. The <b>DAT (direct</b> Coombs) detects antibody already bound <b>on</b> the patient's red cells."
+   },
+   {
+    "id": "tx_fc_04",
+    "front": "What are the universal donors for red cells and for plasma?",
+    "back": "<b>Red cells:</b> O RhD-negative = universal donor (AB = universal recipient). <b>Plasma / FFP:</b> AB = universal donor (no anti-A or anti-B)."
+   },
+   {
+    "id": "tx_fc_05",
+    "front": "When can an electronic (computer) crossmatch be used, and how fast is it?",
+    "back": "When the group is known and the <b>antibody screen is negative</b> — units are issued in <b>minutes</b>. If antibodies are present, a <b>full serological crossmatch</b> (~45 min) is needed."
+   },
+   {
+    "id": "tx_fc_06",
+    "front": "What blood is given in a life-threatening emergency before grouping is complete?",
+    "back": "<b>O RhD-negative</b> (universal donor). Switch to <b>group-specific</b> once grouped, then fully crossmatched blood when available."
+   },
+   {
+    "id": "tx_fc_07",
+    "front": "What is the single greatest risk in transfusion, and how is it prevented?",
+    "back": "<b>Patient misidentification</b> ('wrong blood in tube') causing fatal <b>ABO-incompatible</b> transfusion. Prevent it with positive bedside ID and correct labelling at sampling <b>and</b> administration."
+   }
   ]
  },
  "q": {
@@ -18949,6 +18986,68 @@
     "correctIndex": 1,
     "answer": "Paroxysmal nocturnal haemoglobinuria (PNH)",
     "explanation": "PNH is confirmed by flow cytometry showing loss of GPI-anchored CD55/CD59 (FLAER assay) — reflecting the acquired PIGA mutation."
+   }
+  ],
+  "investigations__HAEMATOLOGY__Transfusion": [
+   {
+    "id": "tx_q01",
+    "type": "mcq",
+    "question": "A patient needs a transfusion. Their blood group is known and the antibody screen is negative. Which is the most appropriate compatibility method?",
+    "options": [
+     "Full serological crossmatch (~45 min)",
+     "Electronic (computer) crossmatch",
+     "Give O-negative uncrossmatched blood",
+     "No compatibility testing is required",
+     "Direct antiglobulin test"
+    ],
+    "correctIndex": 1,
+    "answer": "Electronic (computer) crossmatch",
+    "explanation": "With a known group and a negative antibody screen, an electronic crossmatch allows units to be issued rapidly. A full serological crossmatch is reserved for patients with atypical antibodies or a relevant history."
+   },
+   {
+    "id": "tx_q02",
+    "type": "mcq",
+    "question": "A patient is exsanguinating and blood is needed immediately, before their group is known. What should be given?",
+    "options": [
+     "AB RhD-positive red cells",
+     "O RhD-negative red cells",
+     "Group-specific uncrossmatched blood",
+     "FFP only",
+     "Wait for a full crossmatch"
+    ],
+    "correctIndex": 1,
+    "answer": "O RhD-negative red cells",
+    "explanation": "O RhD-negative is the universal red-cell donor and is given in an emergency when there is no time to group. Switch to group-specific once the group is known, and crossmatched blood when available."
+   },
+   {
+    "id": "tx_q03",
+    "type": "mcq",
+    "question": "Which blood group is the universal donor for plasma (FFP)?",
+    "options": [
+     "O",
+     "A",
+     "B",
+     "AB",
+     "O RhD-negative"
+    ],
+    "correctIndex": 3,
+    "answer": "AB",
+    "explanation": "AB plasma contains neither anti-A nor anti-B, so it is the universal FFP donor — the mirror image of red cells, where O RhD-negative is the universal donor."
+   },
+   {
+    "id": "tx_q04",
+    "type": "mcq",
+    "question": "What is the most common cause of a fatal ABO-incompatible haemolytic transfusion reaction?",
+    "options": [
+     "An undetected alloantibody",
+     "Patient misidentification ('wrong blood in tube')",
+     "Bacterial contamination of the unit",
+     "An error in the antibody screen",
+     "Delayed crossmatching"
+    ],
+    "correctIndex": 1,
+    "answer": "Patient misidentification ('wrong blood in tube')",
+    "explanation": "Fatal ABO-incompatible transfusions are overwhelmingly due to human identification errors at sampling or administration — not laboratory failures. Positive patient ID and correct labelling at every step are the key safeguards."
    }
   ]
  }
