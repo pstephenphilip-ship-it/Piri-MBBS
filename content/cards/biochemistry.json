@@ -533,6 +533,56 @@
     "id": "hstn_fc_05",
     "front": "With high-sensitivity troponin, how are unstable angina and NSTEMI distinguished?",
     "back": "<b>Unstable angina</b> = ischaemic symptoms with a <b>normal</b> troponin (no rise); a <b>troponin rise/fall</b> reclassifies it as <b>NSTEMI</b>."
+   },
+   {
+    "id": "bnp_fc_01",
+    "front": "What triggers BNP/NT-proBNP release, and what is their main clinical value?",
+    "back": "Release from ventricular myocardium in response to <b>wall stretch/stress</b>. Their main value is as a <b>rule-out</b> test for heart failure — a normal level makes HF unlikely (high NPV)."
+   },
+   {
+    "id": "bnp_fc_02",
+    "front": "Give the NICE NT-proBNP thresholds for suspected (chronic) heart failure.",
+    "back": "<b>&lt;400 ng/L</b> → HF unlikely; <b>400–2000</b> → echo within <b>6 weeks</b>; <b>&gt;2000</b> → urgent referral + echo within <b>2 weeks</b> (worse prognosis)."
+   },
+   {
+    "id": "bnp_fc_03",
+    "front": "What non-heart-failure factors raise BNP/NT-proBNP?",
+    "back": "Older <b>age</b>, <b>AF</b>, <b>renal impairment</b> (reduced clearance), PE, sepsis, LVH and valve disease — so a raised level is non-specific."
+   },
+   {
+    "id": "bnp_fc_04",
+    "front": "What effect does obesity have on BNP, and why does it matter?",
+    "back": "Obesity <b>lowers</b> BNP — a 'normal' level can be falsely reassuring in an obese patient (including HFpEF); interpret with caution."
+   },
+   {
+    "id": "bnp_fc_05",
+    "front": "How does sacubitril/valsartan (ARNI) affect natriuretic peptides?",
+    "back": "Neprilysin inhibition blocks BNP breakdown, so <b>BNP rises</b>; NT-proBNP is not a neprilysin substrate, so <b>monitor with NT-proBNP</b> in patients on an ARNI."
+   },
+   {
+    "id": "lip_fc_01",
+    "front": "What is the modern treatment target in the lipid profile, and is fasting required?",
+    "back": "<b>Non-HDL cholesterol</b> (total − HDL) — it captures all atherogenic particles. <b>Fasting is not required</b> for most lipid samples."
+   },
+   {
+    "id": "lip_fc_02",
+    "front": "What is the primary-prevention statin rule based on CV risk?",
+    "back": "A <b>QRISK3 ≥10%</b> (10-year CV risk) → offer <b>atorvastatin 20 mg</b>. (Also treat qualifying type 1 diabetes and CKD.)"
+   },
+   {
+    "id": "lip_fc_03",
+    "front": "What is the secondary-prevention statin regimen and target?",
+    "back": "Established CVD → <b>atorvastatin 80 mg</b> (high-intensity); aim for a <b>≥40% reduction in non-HDL cholesterol</b>, rechecked at 3 months (add ezetimibe ± PCSK9 inhibitor if not met)."
+   },
+   {
+    "id": "lip_fc_04",
+    "front": "What features suggest familial hypercholesterolaemia?",
+    "back": "Very high LDL/total cholesterol, <b>tendon xanthomata</b>, and a family history of <b>premature cardiovascular disease</b> → specialist referral and <b>cascade screening</b> of relatives."
+   },
+   {
+    "id": "lip_fc_05",
+    "front": "What is the danger of very high triglycerides (>10 mmol/L)?",
+    "back": "<b>Acute pancreatitis.</b> Treat with a <b>fibrate</b> and lifestyle change, and look for secondary causes (alcohol, diabetes, obesity, hypothyroidism)."
    }
   ]
  },
@@ -1430,6 +1480,96 @@
     "correctIndex": 1,
     "answer": "Unstable angina",
     "explanation": "Ischaemic symptoms with a normal troponin (no rise) is unstable angina; a troponin rise/fall would reclassify it as NSTEMI."
+   },
+   {
+    "id": "bnp_q01",
+    "type": "mcq",
+    "question": "A breathless patient has a normal NT-proBNP (well below the rule-out threshold) and is not on heart-failure treatment. What does this indicate?",
+    "options": [
+     "Heart failure is confirmed",
+     "Heart failure is unlikely — look for another cause",
+     "An urgent echo is mandatory",
+     "They need a diuretic",
+     "The test is unreliable"
+    ],
+    "correctIndex": 1,
+    "answer": "Heart failure is unlikely — look for another cause",
+    "explanation": "BNP/NT-proBNP have a high negative predictive value; a normal level in an untreated patient effectively excludes heart failure, so an alternative cause of breathlessness should be sought."
+   },
+   {
+    "id": "bnp_q02",
+    "type": "mcq",
+    "question": "A patient with suspected new heart failure has an NT-proBNP of 2600 ng/L. According to NICE, what is the appropriate action?",
+    "options": [
+     "Reassure — HF unlikely",
+     "Urgent referral for echocardiography within 2 weeks",
+     "Routine echo within 6 weeks",
+     "Repeat the NT-proBNP in 3 months",
+     "No further action"
+    ],
+    "correctIndex": 1,
+    "answer": "Urgent referral for echocardiography within 2 weeks",
+    "explanation": "An NT-proBNP >2000 ng/L warrants urgent specialist referral and echocardiography within 2 weeks; such high levels also carry a worse prognosis."
+   },
+   {
+    "id": "bnp_q03",
+    "type": "mcq",
+    "question": "A patient established on sacubitril/valsartan for heart failure has a rising BNP. Which natriuretic peptide should be used to monitor them, and why?",
+    "options": [
+     "BNP — it is unaffected by the drug",
+     "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
+     "CK-MB",
+     "Troponin",
+     "Neither is useful"
+    ],
+    "correctIndex": 1,
+    "answer": "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
+    "explanation": "Sacubitril inhibits neprilysin, which normally degrades BNP, so BNP rises artefactually. NT-proBNP is not a neprilysin substrate and remains the reliable marker to monitor."
+   },
+   {
+    "id": "lip_q01",
+    "type": "mcq",
+    "question": "A 58-year-old with no established cardiovascular disease has a QRISK3 of 16%. What is the appropriate lipid-lowering step?",
+    "options": [
+     "No statin needed",
+     "Offer atorvastatin 20 mg (primary prevention)",
+     "Atorvastatin 80 mg",
+     "A fibrate",
+     "Ezetimibe alone"
+    ],
+    "correctIndex": 1,
+    "answer": "Offer atorvastatin 20 mg (primary prevention)",
+    "explanation": "A QRISK3 ≥10% warrants primary-prevention atorvastatin 20 mg, alongside lifestyle advice."
+   },
+   {
+    "id": "lip_q02",
+    "type": "mcq",
+    "question": "A patient 6 weeks post-myocardial infarction needs lipid management. What is the recommended statin intensity?",
+    "options": [
+     "Atorvastatin 20 mg",
+     "Atorvastatin 80 mg (high-intensity secondary prevention)",
+     "A fibrate",
+     "No statin",
+     "Ezetimibe alone"
+    ],
+    "correctIndex": 1,
+    "answer": "Atorvastatin 80 mg (high-intensity secondary prevention)",
+    "explanation": "Established CVD warrants high-intensity secondary prevention with atorvastatin 80 mg, aiming for a ≥40% reduction in non-HDL cholesterol."
+   },
+   {
+    "id": "lip_q03",
+    "type": "mcq",
+    "question": "A 30-year-old with a total cholesterol of 9.5 mmol/L has tendon xanthomata and a father who had an MI at 44. What should be suspected and done?",
+    "options": [
+     "Normal variant — reassure",
+     "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
+     "Secondary hypertriglyceridaemia",
+     "Start a fibrate only",
+     "No family screening needed"
+    ],
+    "correctIndex": 1,
+    "answer": "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
+    "explanation": "A very high cholesterol with tendon xanthomata and premature family CVD is familial hypercholesterolaemia — needs specialist care, high-intensity statin and cascade screening of first-degree relatives."
    }
   ]
  }
