@@ -5285,6 +5285,43 @@
     "front": "What is the management of suspected HIT?",
     "back": "<b>Stop all heparin</b> (including flushes and LMWH) and start a <b>non-heparin anticoagulant</b> (argatroban, danaparoid, fondaparinux). <b>Do NOT transfuse platelets</b>, and <b>do NOT start warfarin until platelets recover</b> — early warfarin risks <b>venous limb gangrene</b>."
    }
+  ],
+  "investigations__HAEMATOLOGY__Inflammation & Marrow": [
+   {
+    "id": "infm_fc_01",
+    "front": "What is CRP and how do its kinetics differ from the ESR?",
+    "back": "<b>C-reactive protein</b> — an acute-phase protein made by the <b>liver</b>. Rises within <b>6–8&nbsp;h</b>, peaks ~48&nbsp;h, and <b>falls fast</b> when the stimulus resolves (responsive/dynamic)."
+   },
+   {
+    "id": "infm_fc_02",
+    "front": "What does the ESR measure and what drives it?",
+    "back": "How fast red cells <b>sediment</b> — an <b>indirect</b> measure driven by <b>fibrinogen and immunoglobulins</b>. It rises and falls <b>slowly</b> (days–weeks)."
+   },
+   {
+    "id": "infm_fc_03",
+    "front": "How do CRP and ESR typically behave in bacterial vs viral infection?",
+    "back": "<b>Bacterial</b>: CRP <b>↑↑↑</b>, ESR ↑. <b>Viral</b>: CRP usually normal/mild, ESR variable. CRP is generally preferred for <b>tracking acute infection</b>."
+   },
+   {
+    "id": "infm_fc_04",
+    "front": "Besides infection/inflammation, what else raises the ESR (but not the CRP)?",
+    "back": "<b>Anaemia, pregnancy, older age, myeloma (paraproteins)</b> and female sex — these raise the ESR independent of an acute-phase response."
+   },
+   {
+    "id": "infm_fc_05",
+    "front": "What is the classic differential for a very high ESR (>100)?",
+    "back": "The triad: <b>malignancy</b> (especially <b>myeloma</b>), <b>giant cell arteritis / PMR</b>, and <b>serious infection</b> (TB, endocarditis, deep abscess)."
+   },
+   {
+    "id": "infm_fc_06",
+    "front": "What does a high ESR with a normal CRP classically suggest?",
+    "back": "<b>SLE</b> — and also <b>myeloma</b> (paraprotein raises the ESR but not the CRP). A high CRP with a normal ESR suggests a very acute event (CRP rises first)."
+   },
+   {
+    "id": "infm_fc_07",
+    "front": "In suspected giant cell arteritis, how should a raised ESR/CRP influence management?",
+    "back": "It <b>supports</b> the diagnosis but you must <b>not delay high-dose steroids</b> for the result or temporal-artery biopsy — untreated GCA threatens <b>sight</b>."
+   }
   ]
  },
  "q": {
@@ -18700,6 +18737,68 @@
     "correctIndex": 1,
     "answer": "A functional assay (e.g. serotonin release assay)",
     "explanation": "The anti-PF4 immunoassay is sensitive but not specific (many positives are not clinically significant). A functional assay (serotonin release assay / HIPA) confirms pathogenic, platelet-activating antibodies."
+   }
+  ],
+  "investigations__HAEMATOLOGY__Inflammation & Marrow": [
+   {
+    "id": "infm_q01",
+    "type": "mcq",
+    "question": "A 28-year-old woman has arthralgia, a photosensitive rash and fatigue. Her ESR is markedly raised but her CRP is normal. Which diagnosis does this pattern classically suggest?",
+    "options": [
+     "Bacterial endocarditis",
+     "Systemic lupus erythematosus (SLE)",
+     "Acute appendicitis",
+     "Rheumatoid arthritis flare",
+     "Deep abscess"
+    ],
+    "correctIndex": 1,
+    "answer": "Systemic lupus erythematosus (SLE)",
+    "explanation": "A high ESR with a normal (or only mildly raised) CRP is the classic discordance of SLE. Myeloma can also raise the ESR without the CRP. A markedly raised CRP would instead point to infection or another acute inflammatory process."
+   },
+   {
+    "id": "infm_q02",
+    "type": "mcq",
+    "question": "A 74-year-old presents with a new temporal headache, jaw claudication and transient visual loss. ESR is 95 mm/h. What is the most appropriate immediate action?",
+    "options": [
+     "Await the temporal-artery biopsy before treating",
+     "Start high-dose corticosteroids immediately",
+     "Repeat the ESR in 48 hours",
+     "Arrange an urgent CT head and review",
+     "Prescribe high-dose NSAIDs"
+    ],
+    "correctIndex": 1,
+    "answer": "Start high-dose corticosteroids immediately",
+    "explanation": "This is giant cell arteritis. A raised ESR/CRP supports it, but treatment must not be delayed for the biopsy or further tests — untreated GCA can cause irreversible sight loss. Start high-dose steroids at once."
+   },
+   {
+    "id": "infm_q03",
+    "type": "mcq",
+    "question": "Which statement about CRP and ESR kinetics is correct?",
+    "options": [
+     "The ESR rises and falls faster than the CRP",
+     "The CRP rises within hours and falls quickly, making it better for tracking acute infection",
+     "Both markers are specific for bacterial infection",
+     "A normal CRP excludes any inflammatory process",
+     "The ESR is a direct measure of C-reactive protein"
+    ],
+    "correctIndex": 1,
+    "answer": "The CRP rises within hours and falls quickly, making it better for tracking acute infection",
+    "explanation": "CRP is a hepatic acute-phase protein that rises within 6–8 h and falls fast, so it is dynamic and useful for monitoring. The ESR changes slowly over days–weeks. Both are non-specific."
+   },
+   {
+    "id": "infm_q04",
+    "type": "mcq",
+    "question": "Which of the following is NOT part of the classic differential for an ESR greater than 100 mm/h?",
+    "options": [
+     "Multiple myeloma",
+     "Giant cell arteritis / polymyalgia rheumatica",
+     "Tuberculosis or infective endocarditis",
+     "Iron-deficiency anaemia alone",
+     "Metastatic malignancy"
+    ],
+    "correctIndex": 3,
+    "answer": "Iron-deficiency anaemia alone",
+    "explanation": "The classic >100 triad is malignancy (esp. myeloma), GCA/PMR and serious infection. Anaemia can modestly raise the ESR but is not a cause of an ESR >100 on its own."
    }
   ]
  }
