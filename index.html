@@ -17382,6 +17382,7 @@ initTab('conditions');
   var ALL_PANELS = NOTE_PANELS.concat(['pharmacology']);
   var _pendingText = '';
   var _activePanel = '';
+  var _barText = '';
 
   function annotKey(p, sys, topic){ return 'piri_annot__'+p+'__'+(sys||'')+'__'+topic; }
   function sbId(p){ return 'annot-sb-'+p; }
@@ -17475,30 +17476,71 @@ initTab('conditions');
     return document.getElementById('notes-panel-'+p);
   }
 
+  // ---- Cross-browser selection handling (mouse, touch, pen, keyboard) ----
+  var _selDocInit = false, _selTimer = null, _mouseDown = false;
+  function scheduleEval(){ if(_selTimer) clearTimeout(_selTimer); _selTimer = setTimeout(evaluateSelection, 10); }
+  function panelForSelection(range){
+    var c = range.commonAncestorContainer;
+    var el = (c && c.nodeType === 1) ? c : (c && c.parentElement);
+    return (el && el.closest) ? el.closest('[data-annot-panel]') : null;
+  }
+  function evaluateSelection(){
+    // Don't fight the note popup while it's open.
+    if(document.getElementById('annot-popup-el')) return;
+    var sel = window.getSelection();
+    if(!sel || sel.rangeCount === 0 || sel.isCollapsed || !sel.toString().trim()){ removeTip(); return; }
+    var range; try{ range = sel.getRangeAt(0); }catch(e){ removeTip(); return; }
+    var panelEl = panelForSelection(range);
+    if(!panelEl){ removeTip(); return; }
+    var rect = range.getBoundingClientRect();
+    if(!rect || (!rect.width && !rect.height)){ removeTip(); return; }
+    _pendingText = sel.toString().trim();
+    _activePanel = panelEl.getAttribute('data-annot-panel');
+    showTip(rect.left + rect.width/2, rect.top);
+  }
+  function ensureSelDocHandlers(){
+    if(_selDocInit) return; _selDocInit = true;
+    // Track mouse-drag so we don't flicker the bar mid-drag (mouseup finalises it).
+    document.addEventListener('mousedown', function(){ _mouseDown = true; }, true);
+    document.addEventListener('mouseup',   function(){ _mouseDown = false; }, true);
+    // selectionchange makes highlighting work for TOUCH and keyboard selection,
+    // where a panel 'mouseup' never fires (the root cause of it "not showing" on some browsers).
+    document.addEventListener('selectionchange', function(){ if(!_mouseDown) scheduleEval(); });
+    // Dismiss a stale toolbar when tapping/clicking away or scrolling — stale bars were
+    // intercepting clicks, which is why notes needed several taps.
+    document.addEventListener('pointerdown', function(e){
+      var bar = document.getElementById('annot-tip-el');
+      if(bar && !bar.contains(e.target)) removeTip();
+    }, true);
+    window.addEventListener('scroll', function(){ removeTip(); }, true);
+    window.addEventListener('resize', function(){ removeTip(); });
+  }
   function setupPanel(p){
     var panel = getContentPanel(p);
     if(!panel || panel._annotReady) return;
     panel._annotReady = true;
-    panel.addEventListener('mouseup', function(e){
-      if(e.target.closest('.annot-overlay')||e.target.closest('.annot-fab')||e.target.closest('#annot-popup-el')||e.target.closest('#annot-tip-el')) return;
-      setTimeout(function(){
-        var sel = window.getSelection();
-        if(!sel||sel.isCollapsed||!sel.toString().trim()){ removeTip(); return; }
-        var range = sel.getRangeAt(0);
-        if(!panel.contains(range.commonAncestorContainer)){ removeTip(); return; }
-        var rect = range.getBoundingClientRect();
-        _pendingText = sel.toString().trim();
-        _activePanel = p;
-        showTip(rect.left+rect.width/2, rect.top);
-      }, 10);
-    });
+    panel.setAttribute('data-annot-panel', p);
+    panel.addEventListener('mouseup', scheduleEval);
+    panel.addEventListener('touchend', scheduleEval);
+    ensureSelDocHandlers();
   }
 
   function showTip(cx,cy){
+    // If the bar is already up for the same selection, just reposition it (avoids flicker
+    // when selectionchange fires repeatedly, e.g. dragging touch handles).
+    var existing = document.getElementById('annot-tip-el');
+    if(existing && _barText === _pendingText){
+      existing.style.left = Math.min(Math.max(cx,80), window.innerWidth-80)+'px';
+      existing.style.top = (cy-46)+'px';
+      return;
+    }
     removeTip();
+    _barText = _pendingText;
     var bar = document.createElement('div');
     bar.id = 'annot-tip-el';
     bar.className = 'annot-bar';
+    // Pressing anywhere on the bar must not clear the text selection (mouse); click still fires.
+    bar.addEventListener('mousedown', function(e){ e.preventDefault(); });
     // Colour swatches — one click = highlight the selection in that colour (no note)
     ANNOT_COLORS.forEach(function(c){
       var sw = document.createElement('button');
@@ -17524,7 +17566,7 @@ initTab('conditions');
     bar.style.top = (cy-46)+'px';
     document.body.appendChild(bar);
   }
-  function removeTip(){ var el=document.getElementById('annot-tip-el'); if(el) el.remove(); }
+  function removeTip(){ _barText=''; var el=document.getElementById('annot-tip-el'); if(el) el.remove(); }
 
   // Highlight-only annotation (no note) in the chosen colour
   window.annotHighlightOnly = function(color){
