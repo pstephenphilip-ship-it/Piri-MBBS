@@ -258,6 +258,68 @@
     "front": "A patient has a hot, swollen joint and a raised urate. What must be excluded before assuming gout?",
     "back": "<b>Septic arthritis</b> — always <b>aspirate</b> the joint for crystals AND Gram stain/culture; a raised urate does not confirm gout, and a normal one does not exclude it."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Liver & Pancreas": [
+   {
+    "id": "lft_fc_01",
+    "front": "Which LFT enzymes indicate hepatocellular vs cholestatic disease?",
+    "back": "<b>Hepatocellular:</b> ALT & AST (ALT more liver-specific). <b>Cholestatic:</b> ALP & GGT. A hepatocellular pattern has ALT/AST rise > ALP; a cholestatic pattern has ALP/GGT rise > ALT."
+   },
+   {
+    "id": "lft_fc_02",
+    "front": "How do you tell whether a raised ALP is from liver or bone?",
+    "back": "Check the <b>GGT</b>: a raised GGT points to a <b>hepatic/cholestatic</b> source; a normal GGT suggests a <b>bony</b> source of the ALP."
+   },
+   {
+    "id": "lft_fc_03",
+    "front": "What AST:ALT ratio suggests alcoholic liver disease?",
+    "back": "An <b>AST:ALT ratio &gt;2</b> is suggestive of <b>alcohol</b> (AST is disproportionately raised)."
+   },
+   {
+    "id": "lft_fc_04",
+    "front": "Distinguish unconjugated from conjugated hyperbilirubinaemia.",
+    "back": "<b>Unconjugated</b> (pre-hepatic) — haemolysis or Gilbert's; not water-soluble, so <b>no bilirubinuria</b>. <b>Conjugated</b> — hepatic/post-hepatic; obstructive causes <b>dark urine and pale stools</b>."
+   },
+   {
+    "id": "lft_fc_05",
+    "front": "What is Gilbert's syndrome and its biochemical signature?",
+    "back": "A benign inherited defect of bilirubin conjugation → an <b>isolated raised unconjugated bilirubin</b> with otherwise <b>normal LFTs</b>, worse with fasting or intercurrent illness. No treatment needed."
+   },
+   {
+    "id": "lft_fc_06",
+    "front": "Which LFT components reflect the liver's synthetic function?",
+    "back": "<b>Albumin</b> (falls in chronic disease) and the <b>PT/INR</b> (prolongs in acute or severe injury) — the standard enzymes (ALT/ALP) reflect damage, not function."
+   },
+   {
+    "id": "lft_fc_07",
+    "front": "What defines acute liver failure and what is the commonest UK cause?",
+    "back": "<b>Jaundice + coagulopathy (INR ≥1.5) + encephalopathy</b>. The commonest UK cause is <b>paracetamol overdose</b> — treat with N-acetylcysteine and discuss with a liver unit."
+   },
+   {
+    "id": "amy_fc_01",
+    "front": "How do amylase and lipase compare in diagnosing acute pancreatitis?",
+    "back": "<b>Lipase</b> is more <b>sensitive and specific</b> and stays raised <b>longer</b> (better for late presentation). <b>Amylase</b> rises early but falls within 24–48 h and is less specific. Either <b>&gt;3× ULN</b> supports the diagnosis."
+   },
+   {
+    "id": "amy_fc_02",
+    "front": "What are the diagnostic criteria for acute pancreatitis?",
+    "back": "<b>Two of three</b>: (1) characteristic epigastric pain radiating to the back, (2) amylase/lipase <b>&gt;3× upper limit</b>, (3) characteristic <b>CT</b> findings."
+   },
+   {
+    "id": "amy_fc_03",
+    "front": "Does the height of the amylase reflect the severity of pancreatitis?",
+    "back": "<b>No.</b> The enzyme level does not correlate with severity — use a validated score (<b>Glasgow / APACHE II</b>) and <b>CRP</b> instead."
+   },
+   {
+    "id": "amy_fc_04",
+    "front": "Give non-pancreatic causes of a raised amylase.",
+    "back": "Bowel <b>perforation or ischaemia</b>, ectopic pregnancy, DKA, <b>parotitis</b> (salivary), macroamylasaemia and renal failure. In late/alcoholic/hypertriglyceridaemic pancreatitis, amylase may be normal — use lipase."
+   },
+   {
+    "id": "amy_fc_05",
+    "front": "What are the two commonest causes of acute pancreatitis, and the mnemonic?",
+    "back": "<b>Gallstones and alcohol</b>. Mnemonic <b>GET SMASHED</b> (Gallstones, Ethanol, Trauma, Steroids, Mumps, Autoimmune, Scorpion, Hypertriglyceridaemia/Hypercalcaemia, ERCP, Drugs)."
+   }
   ]
  },
  "q": {
@@ -683,6 +745,113 @@
     "correctIndex": 1,
     "answer": "Aspirate the joint for crystals AND Gram stain/culture to exclude septic arthritis",
     "explanation": "A hot, swollen joint with fever is septic arthritis until proven otherwise. A raised urate does not confirm gout — joint aspiration for crystals and microbiology is essential before assuming a crystal arthropathy."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Liver & Pancreas": [
+   {
+    "id": "lft_q01",
+    "type": "mcq",
+    "question": "A patient with a long alcohol history has AST 210, ALT 95, ALP 120, GGT very high. What pattern is this and what does the enzyme ratio suggest?",
+    "options": [
+     "Cholestatic pattern — likely gallstones",
+     "Hepatocellular pattern with AST:ALT >2 — suggestive of alcoholic liver disease",
+     "Isolated synthetic dysfunction",
+     "Normal LFTs",
+     "Pre-hepatic jaundice"
+    ],
+    "correctIndex": 1,
+    "answer": "Hepatocellular pattern with AST:ALT >2 — suggestive of alcoholic liver disease",
+    "explanation": "ALT/AST rise predominates over ALP (hepatocellular), and an AST:ALT ratio >2 is characteristic of alcoholic liver disease."
+   },
+   {
+    "id": "lft_q02",
+    "type": "mcq",
+    "question": "A jaundiced patient has ALP 640, GGT 480, ALT 70, with dark urine and pale stools. What pattern and category is this?",
+    "options": [
+     "Hepatocellular — viral hepatitis",
+     "Cholestatic (obstructive) — e.g. gallstones or tumour",
+     "Pre-hepatic — haemolysis",
+     "Gilbert's syndrome",
+     "Synthetic failure"
+    ],
+    "correctIndex": 1,
+    "answer": "Cholestatic (obstructive) — e.g. gallstones or tumour",
+    "explanation": "A marked ALP/GGT rise out of proportion to ALT, with dark urine and pale stools, is an obstructive cholestatic picture (conjugated hyperbilirubinaemia)."
+   },
+   {
+    "id": "lft_q03",
+    "type": "mcq",
+    "question": "A well 22-year-old has an isolated raised bilirubin (mostly unconjugated) with normal ALT, ALP and a normal blood film; it rises when he is unwell or fasting. What is the diagnosis?",
+    "options": [
+     "Haemolytic anaemia",
+     "Gilbert's syndrome",
+     "Viral hepatitis",
+     "Biliary obstruction",
+     "Cirrhosis"
+    ],
+    "correctIndex": 1,
+    "answer": "Gilbert's syndrome",
+    "explanation": "An isolated unconjugated hyperbilirubinaemia with normal LFTs and no haemolysis, exacerbated by fasting/illness, is Gilbert's syndrome — benign and needs no treatment."
+   },
+   {
+    "id": "lft_q04",
+    "type": "mcq",
+    "question": "A patient with a paracetamol overdose becomes jaundiced with an INR of 2.4 and new confusion. What does this indicate?",
+    "options": [
+     "Chronic stable liver disease",
+     "Acute liver failure — discuss urgently with a liver unit",
+     "Gilbert's syndrome",
+     "Simple cholestasis",
+     "Pre-hepatic jaundice"
+    ],
+    "correctIndex": 1,
+    "answer": "Acute liver failure — discuss urgently with a liver unit",
+    "explanation": "Jaundice with coagulopathy (INR ≥1.5) and encephalopathy defines acute liver failure. Paracetamol is the commonest UK cause; give N-acetylcysteine and involve a liver/transplant unit early."
+   },
+   {
+    "id": "amy_q01",
+    "type": "mcq",
+    "question": "A patient presents 3 days after the onset of severe epigastric pain. Amylase is normal. What is the best next test to assess for pancreatitis?",
+    "options": [
+     "Repeat the amylase",
+     "Serum lipase",
+     "Serum ALT",
+     "Serum urate",
+     "Blood film"
+    ],
+    "correctIndex": 1,
+    "answer": "Serum lipase",
+    "explanation": "Amylase falls within 24–48 h, so it can be normal in a late presentation. Lipase stays elevated longer and is more sensitive/specific — the better test here."
+   },
+   {
+    "id": "amy_q02",
+    "type": "mcq",
+    "question": "A patient has confirmed acute pancreatitis with an amylase of 2000 U/L. How should severity be assessed?",
+    "options": [
+     "By the absolute amylase level",
+     "With a validated score (Glasgow/APACHE II) and CRP — the amylase does not reflect severity",
+     "By the lipase level",
+     "By the AST:ALT ratio",
+     "Severity cannot be assessed"
+    ],
+    "correctIndex": 1,
+    "answer": "With a validated score (Glasgow/APACHE II) and CRP — the amylase does not reflect severity",
+    "explanation": "The magnitude of the amylase rise does not correlate with severity. Use a validated scoring system and CRP to stratify risk."
+   },
+   {
+    "id": "amy_q03",
+    "type": "mcq",
+    "question": "A patient has a very high amylase but a CT abdomen shows a perforated duodenal ulcer and a normal pancreas. What does this illustrate?",
+    "options": [
+     "Amylase is specific to the pancreas",
+     "A raised amylase is non-specific and occurs in other intra-abdominal pathology (e.g. perforation)",
+     "The CT must be wrong",
+     "This confirms pancreatitis",
+     "Amylase is more specific than lipase"
+    ],
+    "correctIndex": 1,
+    "answer": "A raised amylase is non-specific and occurs in other intra-abdominal pathology (e.g. perforation)",
+    "explanation": "Amylase is not pancreas-specific — bowel perforation/ischaemia, ectopic pregnancy, DKA and parotitis can all raise it. Correlate with the clinical picture and imaging."
    }
   ]
  }
