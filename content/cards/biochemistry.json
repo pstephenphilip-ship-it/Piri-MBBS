@@ -1,0 +1,105 @@
+{
+ "fc": {
+  "investigations__BIOCHEMISTRY__Bone & Calcium": [
+   {
+    "id": "bcp_fc_01",
+    "front": "What four analytes make up the bone profile?",
+    "back": "<b>Calcium, phosphate, alkaline phosphatase (ALP)</b> and <b>albumin</b> — the first-line panel for calcium and metabolic bone disorders."
+   },
+   {
+    "id": "bcp_fc_02",
+    "front": "What is the corrected calcium formula and why is it needed?",
+    "back": "<b>Corrected Ca (mmol/L) = measured Ca + 0.02 × (40 − albumin&nbsp;g/L)</b>. About half of calcium is albumin-bound, so a <b>low albumin lowers the total</b> without changing the active <b>ionised</b> level — correcting avoids missing true hypercalcaemia."
+   },
+   {
+    "id": "bcp_fc_03",
+    "front": "A raised ALP could be bony or hepatic — how do you tell them apart?",
+    "back": "Check the <b>GGT</b>: a raised GGT points to a <b>hepatic / cholestatic</b> source; a normal GGT points to a <b>bony</b> source (Paget's, osteomalacia, bone mets, healing fracture). Bone-specific ALP can also be measured."
+   },
+   {
+    "id": "bcp_fc_04",
+    "front": "Besides bone and liver disease, when is ALP physiologically raised?",
+    "back": "In <b>growth</b> (children/adolescents) and <b>pregnancy</b> (placental ALP) — so an isolated raised ALP is not always pathological."
+   },
+   {
+    "id": "bcp_fc_05",
+    "front": "How does phosphate typically behave relative to calcium in PTH-driven disorders?",
+    "back": "PTH <b>lowers phosphate</b> (and raises calcium), so phosphate often moves <b>opposite</b> to calcium — e.g. primary hyperparathyroidism gives ↑Ca with ↓PO₄."
+   },
+   {
+    "id": "bcp_fc_06",
+    "front": "What are the typical adult reference ranges for the bone profile?",
+    "back": "Adjusted <b>calcium 2.20–2.60 mmol/L</b>, <b>phosphate 0.8–1.5 mmol/L</b>, <b>ALP 30–130 U/L</b>, <b>albumin 35–50 g/L</b> (check local lab)."
+   },
+   {
+    "id": "bcp_fc_07",
+    "front": "When should ionised calcium be measured directly rather than corrected?",
+    "back": "When accuracy is critical or albumin correction is unreliable — e.g. <b>critical illness, acid–base disturbance, or massive transfusion</b> (citrate binds calcium)."
+   }
+  ]
+ },
+ "q": {
+  "investigations__BIOCHEMISTRY__Bone & Calcium": [
+   {
+    "id": "bcp_q01",
+    "type": "mcq",
+    "question": "A patient has a total calcium of 2.10 mmol/L (ref 2.20–2.60) and an albumin of 28 g/L. What is the corrected calcium and interpretation?",
+    "options": [
+     "2.10 mmol/L — hypocalcaemia",
+     "2.34 mmol/L — normal (the low total was due to low albumin)",
+     "1.86 mmol/L — severe hypocalcaemia",
+     "2.60 mmol/L — hypercalcaemia",
+     "Cannot be calculated"
+    ],
+    "correctIndex": 1,
+    "answer": "2.34 mmol/L — normal (the low total was due to low albumin)",
+    "explanation": "Corrected Ca = 2.10 + 0.02 × (40 − 28) = 2.10 + 0.24 = 2.34 mmol/L, which is within the normal range. The low total calcium simply reflected hypoalbuminaemia — always correct before diagnosing hypocalcaemia."
+   },
+   {
+    "id": "bcp_q02",
+    "type": "mcq",
+    "question": "A 68-year-old with bone pain has an isolated raised ALP; calcium, phosphate and GGT are all normal. What does the normal GGT indicate about the source of the ALP?",
+    "options": [
+     "A hepatic/cholestatic source",
+     "A bony source (e.g. Paget's disease or osteomalacia)",
+     "A haemolysed sample",
+     "Normal physiology only",
+     "A renal source"
+    ],
+    "correctIndex": 1,
+    "answer": "A bony source (e.g. Paget's disease or osteomalacia)",
+    "explanation": "A normal GGT alongside a raised ALP points away from the liver and towards a bony source. In an older patient with bone pain and an isolated raised ALP, Paget's disease is a classic cause."
+   },
+   {
+    "id": "bcp_q03",
+    "type": "mcq",
+    "question": "A patient has a corrected calcium of 3.2 mmol/L with confusion and dehydration. What is the immediate management priority?",
+    "options": [
+     "Oral calcium supplements",
+     "IV 0.9% saline rehydration",
+     "IV calcium gluconate",
+     "Vitamin D replacement",
+     "Reassurance and repeat in a week"
+    ],
+    "correctIndex": 1,
+    "answer": "IV 0.9% saline rehydration",
+    "explanation": "Corrected calcium >3.0 mmol/L with symptoms is a hypercalcaemic emergency. The first step is aggressive IV saline rehydration; then treat the cause (commonly malignancy or primary hyperparathyroidism), with bisphosphonates as needed."
+   },
+   {
+    "id": "bcp_q04",
+    "type": "mcq",
+    "question": "Which statement about albumin in the bone profile is correct?",
+    "options": [
+     "A high albumin causes true hypocalcaemia",
+     "A low albumin lowers the total calcium but not the ionised (active) calcium",
+     "Albumin does not affect calcium measurement",
+     "Albumin binds phosphate, not calcium",
+     "A low albumin raises the corrected calcium falsely"
+    ],
+    "correctIndex": 1,
+    "answer": "A low albumin lowers the total calcium but not the ionised (active) calcium",
+    "explanation": "About half of serum calcium is albumin-bound. A low albumin reduces the measured total calcium while the physiologically active ionised fraction is unchanged — hence the need to correct for albumin."
+   }
+  ]
+ }
+}
