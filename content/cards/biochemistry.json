@@ -400,6 +400,83 @@
     "front": "What biochemical clues suggest Wilson's disease presenting as acute liver failure?",
     "back": "A <b>low ALP</b>, a <b>Coombs-negative haemolytic anaemia</b> and a high bilirubin (a <b>low ALP:bilirubin ratio</b>) — a rapidly fatal presentation needing urgent transplant."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Diabetes & Glucose": [
+   {
+    "id": "dm_fc_01",
+    "front": "What does HbA1c reflect, and what is its diagnostic threshold for diabetes?",
+    "back": "Average glycaemia over <b>~8–12 weeks</b> (red-cell lifespan); no fasting needed. <b>≥48 mmol/mol (6.5%)</b> diagnoses diabetes."
+   },
+   {
+    "id": "dm_fc_02",
+    "front": "List the glucose-based diagnostic thresholds for diabetes.",
+    "back": "<b>Fasting glucose ≥7.0 mmol/L</b>; <b>2-h OGTT or random ≥11.1 mmol/L</b> (random requires symptoms)."
+   },
+   {
+    "id": "dm_fc_03",
+    "front": "How many abnormal tests are needed to diagnose diabetes?",
+    "back": "If <b>symptomatic</b>, <b>one</b> abnormal result suffices. If <b>asymptomatic</b>, you need <b>two</b> abnormal results (repeat to confirm)."
+   },
+   {
+    "id": "dm_fc_04",
+    "front": "Define prediabetes by HbA1c and glucose.",
+    "back": "<b>HbA1c 42–47 mmol/mol</b>; <b>impaired fasting glucose 6.1–6.9</b>; <b>impaired glucose tolerance</b> (2-h 7.8–11.0 on OGTT)."
+   },
+   {
+    "id": "dm_fc_05",
+    "front": "How often is HbA1c checked for monitoring, and what is a typical target?",
+    "back": "Every <b>3–6 months</b>; individualised targets around <b>48–58 mmol/mol</b>, with capillary glucose/CGM for day-to-day control."
+   },
+   {
+    "id": "hba_fc_01",
+    "front": "In which conditions is HbA1c falsely LOW?",
+    "back": "Those that <b>shorten red-cell lifespan / raise turnover</b>: haemolysis, recent blood loss or transfusion, <b>pregnancy</b>, reticulocytosis, splenomegaly."
+   },
+   {
+    "id": "hba_fc_02",
+    "front": "In which conditions is HbA1c falsely HIGH?",
+    "back": "Those that <b>lengthen red-cell lifespan</b>: untreated <b>iron, B12 or folate deficiency</b> anaemia, and splenectomy."
+   },
+   {
+    "id": "hba_fc_03",
+    "front": "When should HbA1c NOT be used to diagnose diabetes at all?",
+    "back": "In <b>pregnancy</b>, <b>suspected type 1</b> (rapid onset/children), acute illness, pancreatic damage, steroids, and <b>haemoglobinopathies</b> (HbS/HbC interfere) — use glucose criteria instead."
+   },
+   {
+    "id": "hba_fc_04",
+    "front": "What alternative test reflects shorter-term glycaemic control when HbA1c is unreliable?",
+    "back": "<b>Fructosamine</b> (glycated albumin), which reflects the previous <b>~2–3 weeks</b>."
+   },
+   {
+    "id": "hba_fc_05",
+    "front": "How does iron-deficiency anaemia affect the HbA1c?",
+    "back": "It <b>raises</b> the HbA1c (longer red-cell lifespan) — potentially overestimating control or overdiagnosing diabetes; recheck after treating the anaemia or use glucose."
+   },
+   {
+    "id": "cpep_fc_01",
+    "front": "What does C-peptide indicate, and how does it differ between diabetes types?",
+    "back": "It is co-secreted 1:1 with insulin → a marker of <b>endogenous insulin</b>. <b>Low/undetectable</b> in type 1 (beta-cell failure); <b>preserved/high</b> in type 2 or MODY."
+   },
+   {
+    "id": "cpep_fc_02",
+    "front": "What do positive GAD or IA-2 antibodies indicate?",
+    "back": "<b>Autoimmune (type 1) diabetes</b> — or <b>LADA</b> (latent autoimmune diabetes in adults) when it presents in an adult initially labelled type 2."
+   },
+   {
+    "id": "cpep_fc_03",
+    "front": "What features suggest MODY, and how is it confirmed?",
+    "back": "<b>Young</b> onset, strong <b>family history</b>, <b>preserved C-peptide</b> and <b>negative</b> autoantibodies → confirm with <b>genetic testing</b>."
+   },
+   {
+    "id": "cpep_fc_04",
+    "front": "In a hypoglycaemia work-up, how do insulin and C-peptide distinguish the cause?",
+    "back": "<b>High insulin + high C-peptide</b> = <b>endogenous</b> (insulinoma or sulfonylurea). <b>High insulin + low C-peptide</b> = <b>exogenous insulin</b> administration."
+   },
+   {
+    "id": "cpep_fc_05",
+    "front": "What is LADA?",
+    "back": "<b>Latent Autoimmune Diabetes in Adults</b> — a slowly-progressive autoimmune (antibody-positive) diabetes that presents in adulthood and is often initially misdiagnosed as type 2."
+   }
   ]
  },
  "q": {
@@ -1067,6 +1144,143 @@
     "correctIndex": 1,
     "answer": "Wilson's disease",
     "explanation": "Acute liver failure with Coombs-negative haemolysis and a low ALP (low ALP:bilirubin ratio) is the classic fulminant presentation of Wilson's disease — rapidly fatal without transplantation."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Diabetes & Glucose": [
+   {
+    "id": "dm_q01",
+    "type": "mcq",
+    "question": "An asymptomatic patient has an HbA1c of 50 mmol/mol on a routine screen. What is the correct next step?",
+    "options": [
+     "Diagnose diabetes now",
+     "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
+     "Ignore it — it is normal",
+     "Diagnose prediabetes",
+     "Start insulin"
+    ],
+    "correctIndex": 1,
+    "answer": "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
+    "explanation": "HbA1c ≥48 is in the diabetes range, but in an asymptomatic person a single result must be confirmed with a second abnormal test before diagnosing diabetes."
+   },
+   {
+    "id": "dm_q02",
+    "type": "mcq",
+    "question": "Which of the following meets a diagnostic threshold for diabetes?",
+    "options": [
+     "Fasting glucose 6.5 mmol/L",
+     "HbA1c 45 mmol/mol",
+     "2-hour OGTT glucose 11.5 mmol/L",
+     "Random glucose 9.0 mmol/L without symptoms",
+     "HbA1c 44 mmol/mol"
+    ],
+    "correctIndex": 2,
+    "answer": "2-hour OGTT glucose 11.5 mmol/L",
+    "explanation": "A 2-hour OGTT (or random) glucose ≥11.1 mmol/L meets the threshold. Fasting 6.5 and HbA1c 44–45 are in the prediabetes range; random 9.0 is below threshold."
+   },
+   {
+    "id": "dm_q03",
+    "type": "mcq",
+    "question": "A patient has an HbA1c of 44 mmol/mol and a fasting glucose of 6.5 mmol/L. How is this best classified?",
+    "options": [
+     "Normal",
+     "Prediabetes / high risk",
+     "Diabetes",
+     "Type 1 diabetes",
+     "Requires no follow-up"
+    ],
+    "correctIndex": 1,
+    "answer": "Prediabetes / high risk",
+    "explanation": "HbA1c 42–47 and impaired fasting glucose 6.1–6.9 both indicate prediabetes (high risk) — warranting lifestyle intervention and monitoring."
+   },
+   {
+    "id": "hba_q01",
+    "type": "mcq",
+    "question": "A patient with untreated iron-deficiency anaemia has an HbA1c of 49 mmol/mol but normal fasting glucose. How should the HbA1c be interpreted?",
+    "options": [
+     "It confirms diabetes",
+     "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
+     "It is falsely low",
+     "It is unaffected by anaemia",
+     "Repeat only the HbA1c"
+    ],
+    "correctIndex": 1,
+    "answer": "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
+    "explanation": "Untreated iron/B12/folate deficiency prolongs red-cell survival and raises HbA1c. Diagnose using fasting glucose/OGTT, or repeat HbA1c after treating the anaemia."
+   },
+   {
+    "id": "hba_q02",
+    "type": "mcq",
+    "question": "Which is the recommended method to diagnose diabetes in pregnancy?",
+    "options": [
+     "HbA1c",
+     "An oral glucose tolerance test (glucose-based criteria)",
+     "Fructosamine",
+     "Random capillary glucose alone",
+     "C-peptide"
+    ],
+    "correctIndex": 1,
+    "answer": "An oral glucose tolerance test (glucose-based criteria)",
+    "explanation": "HbA1c is unreliable in pregnancy (altered red-cell turnover), so gestational and pregnancy diabetes are diagnosed with glucose-based criteria (OGTT)."
+   },
+   {
+    "id": "hba_q03",
+    "type": "mcq",
+    "question": "A patient with a haemolytic anaemia has a low HbA1c despite documented hyperglycaemia. Why?",
+    "options": [
+     "Haemolysis raises HbA1c",
+     "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
+     "HbA1c is unaffected",
+     "The glucose meter is faulty",
+     "Splenectomy effect"
+    ],
+    "correctIndex": 1,
+    "answer": "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
+    "explanation": "A shortened red-cell lifespan gives less time for glycation, so HbA1c underestimates glycaemia in haemolysis — use glucose or fructosamine."
+   },
+   {
+    "id": "cpep_q01",
+    "type": "mcq",
+    "question": "A lean 35-year-old diagnosed with 'type 2 diabetes' responds poorly to metformin and is ketosis-prone. GAD antibodies are positive and C-peptide is low. What is the diagnosis?",
+    "options": [
+     "Classic type 2 diabetes",
+     "Autoimmune diabetes (LADA / type 1)",
+     "MODY",
+     "Secondary diabetes from steroids",
+     "Gestational diabetes"
+    ],
+    "correctIndex": 1,
+    "answer": "Autoimmune diabetes (LADA / type 1)",
+    "explanation": "Positive GAD antibodies with a low C-peptide indicate autoimmune beta-cell destruction — LADA (adult-onset autoimmune diabetes). These patients need insulin."
+   },
+   {
+    "id": "cpep_q02",
+    "type": "mcq",
+    "question": "During a spontaneous hypoglycaemic episode, a patient has high insulin AND high C-peptide. What does this suggest?",
+    "options": [
+     "Exogenous (injected) insulin",
+     "Endogenous hyperinsulinism — insulinoma or a sulfonylurea",
+     "Type 1 diabetes",
+     "Normal physiology",
+     "Adrenal insufficiency"
+    ],
+    "correctIndex": 1,
+    "answer": "Endogenous hyperinsulinism — insulinoma or a sulfonylurea",
+    "explanation": "A high C-peptide indicates the insulin is endogenous — an insulinoma or sulfonylurea (send a sulfonylurea screen). Exogenous insulin gives high insulin with a suppressed/low C-peptide."
+   },
+   {
+    "id": "cpep_q03",
+    "type": "mcq",
+    "question": "A young patient with a strong family history of diabetes across generations is antibody-negative with a well-preserved C-peptide and mild stable hyperglycaemia. What should be considered?",
+    "options": [
+     "Type 1 diabetes",
+     "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
+     "Insulinoma",
+     "LADA",
+     "Exogenous insulin use"
+    ],
+    "correctIndex": 1,
+    "answer": "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
+    "explanation": "Young-onset, strongly familial diabetes with preserved C-peptide and negative autoantibodies suggests MODY, a monogenic diabetes confirmed by genetic testing (and often managed differently, e.g. sulfonylureas)."
    }
   ]
  }
