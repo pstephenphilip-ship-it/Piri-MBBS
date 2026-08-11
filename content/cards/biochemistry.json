@@ -477,6 +477,63 @@
     "front": "What is LADA?",
     "back": "<b>Latent Autoimmune Diabetes in Adults</b> — a slowly-progressive autoimmune (antibody-positive) diabetes that presents in adulthood and is often initially misdiagnosed as type 2."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Cardiac Markers": [
+   {
+    "id": "trop_fc_01",
+    "front": "What are the kinetics of cardiac troponin after myocardial injury?",
+    "back": "Rises at <b>3–6 h</b>, peaks at <b>12–24 h</b>, and stays elevated for <b>days</b>. High-sensitivity assays detect very small, early rises."
+   },
+   {
+    "id": "trop_fc_02",
+    "front": "How is myocardial infarction defined (4th Universal Definition)?",
+    "back": "A <b>rise and/or fall</b> of troponin with at least one value <b>&gt;99th percentile</b>, <b>PLUS evidence of ischaemia</b> (symptoms, ischaemic ECG changes, or imaging). Troponin alone = injury, not MI."
+   },
+   {
+    "id": "trop_fc_03",
+    "front": "Give non-ACS causes of a raised troponin.",
+    "back": "<b>Type 2 MI</b> (supply-demand: sepsis, tachyarrhythmia, anaemia, hypotension), <b>PE</b>, heart failure, myocarditis, <b>CKD</b> (reduced clearance), post-cardiac-arrest, aortic dissection."
+   },
+   {
+    "id": "trop_fc_04",
+    "front": "What distinguishes type 1 from type 2 MI?",
+    "back": "<b>Type 1</b> = an <b>atherothrombotic</b> (plaque rupture) coronary event. <b>Type 2</b> = a <b>supply–demand mismatch</b> (e.g. sepsis, tachyarrhythmia, anaemia, hypotension) without acute plaque rupture."
+   },
+   {
+    "id": "trop_fc_05",
+    "front": "Why is a single static raised troponin interpreted differently from a dynamic one?",
+    "back": "A <b>dynamic rise/fall</b> on serial testing suggests <b>acute</b> injury (e.g. MI); a <b>static</b> elevation without ischaemia is often <b>chronic</b> (CKD, structural heart disease)."
+   },
+   {
+    "id": "trop_fc_06",
+    "front": "What is the role of CK-MB now that troponin is standard?",
+    "back": "Largely superseded (less specific — also skeletal muscle), but CK-MB <b>falls faster</b>, so it can help detect <b>re-infarction</b> shortly after an index MI."
+   },
+   {
+    "id": "hstn_fc_01",
+    "front": "How do the ESC 0/1-hour (and 0/3-hour) hs-troponin pathways triage chest pain?",
+    "back": "Using a <b>baseline</b> troponin plus the <b>delta (change)</b>: very low/no change → <b>rule out</b>; high or a significant rise → <b>rule in</b>; in-between → <b>observe and repeat at 3 h</b>."
+   },
+   {
+    "id": "hstn_fc_02",
+    "front": "Why does the delta (change) matter as much as the absolute troponin value?",
+    "back": "A <b>dynamic rise/fall</b> indicates <b>acute</b> myocardial injury; a stable elevation may be chronic. In chronically elevated patients (CKD) you rely on the <b>delta</b>, not the absolute level."
+   },
+   {
+    "id": "hstn_fc_03",
+    "front": "What must accompany hs-troponin interpretation in a chest-pain pathway?",
+    "back": "The <b>ECG</b> and a <b>clinical risk score</b> (e.g. HEART). Thresholds are <b>assay-specific</b> (hs-cTnT ≠ cTnI) and the 99th percentile is <b>sex-specific</b>."
+   },
+   {
+    "id": "hstn_fc_04",
+    "front": "What is the pitfall of a single troponin in very early presentation?",
+    "back": "Within <b>~1–2 h of pain onset</b> troponin may not yet have risen, so a single low value can miss an MI — <b>repeat</b> the troponin."
+   },
+   {
+    "id": "hstn_fc_05",
+    "front": "With high-sensitivity troponin, how are unstable angina and NSTEMI distinguished?",
+    "back": "<b>Unstable angina</b> = ischaemic symptoms with a <b>normal</b> troponin (no rise); a <b>troponin rise/fall</b> reclassifies it as <b>NSTEMI</b>."
+   }
   ]
  },
  "q": {
@@ -1281,6 +1338,98 @@
     "correctIndex": 1,
     "answer": "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
     "explanation": "Young-onset, strongly familial diabetes with preserved C-peptide and negative autoantibodies suggests MODY, a monogenic diabetes confirmed by genetic testing (and often managed differently, e.g. sulfonylureas)."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Cardiac Markers": [
+   {
+    "id": "trop_q01",
+    "type": "mcq",
+    "question": "A septic patient with a fast AF and anaemia has a mildly raised troponin but no chest pain and a non-ischaemic ECG. How is this best interpreted?",
+    "options": [
+     "Type 1 (atherothrombotic) MI",
+     "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
+     "Definitely a STEMI",
+     "A laboratory error",
+     "Unstable angina"
+    ],
+    "correctIndex": 1,
+    "answer": "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
+    "explanation": "Troponin marks injury, not necessarily a plaque event. In sepsis with tachyarrhythmia and anaemia, a raised troponin usually reflects supply-demand mismatch (type 2) — treat the underlying illness rather than as a type 1 MI."
+   },
+   {
+    "id": "trop_q02",
+    "type": "mcq",
+    "question": "A patient has ST elevation in leads II, III and aVF with ongoing chest pain. The first troponin is still normal. What should happen?",
+    "options": [
+     "Wait for a positive troponin before acting",
+     "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG",
+     "Discharge as troponin is normal",
+     "Repeat troponin at 6 hours and review",
+     "Start treatment only if CK-MB rises"
+    ],
+    "correctIndex": 1,
+    "answer": "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG",
+    "explanation": "STEMI is an ECG diagnosis and troponin may not yet have risen. Do not delay reperfusion waiting for biomarkers."
+   },
+   {
+    "id": "trop_q03",
+    "type": "mcq",
+    "question": "A stable dialysis patient has a persistently raised troponin that does not change on serial testing, with no symptoms or ECG changes. What does this most likely represent?",
+    "options": [
+     "Acute MI",
+     "Chronic troponin elevation (reduced clearance / structural heart disease)",
+     "Unstable angina",
+     "Pulmonary embolism",
+     "Aortic dissection"
+    ],
+    "correctIndex": 1,
+    "answer": "Chronic troponin elevation (reduced clearance / structural heart disease)",
+    "explanation": "A static (non-dynamic) troponin without ischaemic features in CKD reflects chronic elevation. Acute MI requires a rise/fall pattern plus evidence of ischaemia."
+   },
+   {
+    "id": "hstn_q01",
+    "type": "mcq",
+    "question": "A patient presents 45 minutes after the onset of chest pain with a single low hs-troponin and a non-diagnostic ECG. What is the safest next step?",
+    "options": [
+     "Rule out MI and discharge immediately",
+     "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
+     "Diagnose STEMI",
+     "Start thrombolysis",
+     "Ignore the troponin"
+    ],
+    "correctIndex": 1,
+    "answer": "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
+    "explanation": "Very early after pain onset troponin may not have risen. A single low value cannot rule out MI in this window — repeat per a validated pathway and interpret with the ECG and risk score."
+   },
+   {
+    "id": "hstn_q02",
+    "type": "mcq",
+    "question": "When can a rapid hs-troponin pathway be used to rule OUT myocardial infarction?",
+    "options": [
+     "In any patient regardless of ECG",
+     "Only with a low-risk clinical assessment AND a non-ischaemic ECG",
+     "Whenever the first troponin is normal",
+     "In patients with ongoing severe chest pain",
+     "Only if CK-MB is also sent"
+    ],
+    "correctIndex": 1,
+    "answer": "Only with a low-risk clinical assessment AND a non-ischaemic ECG",
+    "explanation": "Rapid rule-out is valid only alongside a low-risk clinical picture and a non-ischaemic ECG. It must never be used to rule out MI in high-risk patients or those with ongoing pain, and STEMI is treated on the ECG."
+   },
+   {
+    "id": "hstn_q03",
+    "type": "mcq",
+    "question": "A patient with ischaemic-sounding chest pain has entirely normal serial hs-troponins and a non-ischaemic ECG. How is this best classified?",
+    "options": [
+     "NSTEMI",
+     "Unstable angina",
+     "STEMI",
+     "Type 2 MI",
+     "Myocarditis"
+    ],
+    "correctIndex": 1,
+    "answer": "Unstable angina",
+    "explanation": "Ischaemic symptoms with a normal troponin (no rise) is unstable angina; a troponin rise/fall would reclassify it as NSTEMI."
    }
   ]
  }
