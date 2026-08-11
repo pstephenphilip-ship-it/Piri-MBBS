@@ -18801,18 +18801,22 @@ function hideFlyout(p) {
 
   // ---- Flashcards & MCQs: premium feature — visible but locked for non-members ----
   window.__showStudyLock = function(mode){
-    var label = (mode==='questions') ? 'MCQ practice questions' : 'Flashcards';
+    var label = (mode==='questions') ? 'MCQ practice questions' : (mode==='review') ? 'Spaced-repetition review' : 'Flashcards';
+    var noun  = (mode==='questions') ? 'practice questions' : (mode==='review') ? 'review sessions' : 'flashcards';
+    var sub = 'Interactive '+noun+' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.';
     var id='da-study-lock', ex=document.getElementById(id);
     if(ex){
       var t=ex.querySelector('.da-lock-title'); if(t) t.textContent=label+' are a premium feature';
-      var s=ex.querySelector('.da-lock-sub'); if(s) s.innerHTML='Interactive '+ (mode==='questions'?'practice questions':'flashcards') +' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.';
+      var s=ex.querySelector('.da-lock-sub'); if(s) s.innerHTML=sub;
       ex.style.display='flex'; return;
     }
-    var o=document.createElement('div'); o.id=id; o.className='da-lock-wrap';
-    o.style.position='fixed'; o.style.inset='0'; o.style.zIndex='2000';
-    o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
+    // Frosted modal (semi-transparent, blurred backdrop) — not an opaque full-page takeover.
+    var o=document.createElement('div'); o.id=id;
+    o.style.cssText='position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(6,12,20,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);';
+    o.onclick=function(e){ if(e.target===o) o.style.display='none'; };
+    o.innerHTML='<div class="da-lock" style="margin:0;"><div class="da-lock-icon">🔒</div>'
       +'<div class="da-lock-title">'+label+' are a premium feature</div>'
-      +'<div class="da-lock-sub">Interactive '+(mode==='questions'?'practice questions':'flashcards')+' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.</div>'
+      +'<div class="da-lock-sub">'+sub+'</div>'
       +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Got it</button></div>'
       +'<div class="da-lock-foot">Notes stay free on the topics available to you.</div></div>';
     document.body.appendChild(o);
@@ -20078,12 +20082,12 @@ function hideFlyout(p) {
     var b=document.createElement('button'); b.id='daRvTrigger'; b.className='da-rv-fab'; b.title='Spaced-repetition review (cards due today)';
     b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a6 6 0 0110-4.5L15 6"/><path d="M15 3v3h-3"/><path d="M15 9a6 6 0 01-10 4.5L3 12"/><path d="M3 15v-3h3"/></svg><span class="da-rv-label">Review</span><span class="da-rv-badge zero" id="daRvBadge">0</span>';
     b.addEventListener('click', open);
-    if(!window.__member) b.style.display='none';   // flashcard review is premium — hide for non-members
+    if(!window.__member){ b.title='Spaced-repetition review (premium)'; b.classList.add('da-rv-locked'); }  // visible but locked for non-members
     document.body.appendChild(b);
     badgeEl=document.getElementById('daRvBadge');
     refreshBadge();
   }
-  function refreshBadge(){ if(!badgeEl) badgeEl=document.getElementById('daRvBadge'); if(!badgeEl) return; var n=dueCount(); badgeEl.textContent=n>99?'99+':n; badgeEl.classList.toggle('zero', n===0); if(window.updateHomeActions) window.updateHomeActions(); }
+  function refreshBadge(){ if(!badgeEl) badgeEl=document.getElementById('daRvBadge'); if(!badgeEl) return; if(!window.__member){ badgeEl.textContent='🔒'; badgeEl.classList.remove('zero'); } else { var n=dueCount(); badgeEl.textContent=n>99?'99+':n; badgeEl.classList.toggle('zero', n===0); } if(window.updateHomeActions) window.updateHomeActions(); }
   window.daSrsRefresh=refreshBadge;
   window.daSrsDue=dueCount;
   window.daSrsOpen=function(){ open(); };
@@ -20100,7 +20104,7 @@ function hideFlyout(p) {
     document.addEventListener('keydown', function(e){ if(overlay.classList.contains('open') && e.key==='Escape') close(); });
   }
   function open(){
-    if(!window.__member){ if(window.__showStudyLock) window.__showStudyLock('flashcards'); return; }  // flashcard review is premium
+    if(!window.__member){ if(window.__showStudyLock) window.__showStudyLock('review'); return; }  // flashcard review is premium
     if(!overlay) build(); overlay.classList.add('open'); session=null; renderSummary();
   }
   function close(){ if(overlay) overlay.classList.remove('open'); session=null; refreshBadge(); }
