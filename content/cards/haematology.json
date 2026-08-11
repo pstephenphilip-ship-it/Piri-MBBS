@@ -5224,6 +5224,36 @@
     "id": "coag_fc_13",
     "front": "Why must a coagulation sample be filled exactly to the line?",
     "back": "It is a <b>citrate</b> tube — the <b>citrate:plasma ratio</b> matters. Under- or over-filling (or sampling from a heparinised line) gives false results."
+   },
+   {
+    "id": "coag_fc_14",
+    "front": "What is a D-dimer and what does it indicate?",
+    "back": "A <b>fibrin degradation product</b> released when cross-linked fibrin is broken down — a marker of <b>active clot turnover</b>, not of any specific site."
+   },
+   {
+    "id": "coag_fc_15",
+    "front": "What is the main clinical value of the D-dimer?",
+    "back": "Its <b>negative</b> result. With a <b>low/intermediate pre-test probability</b>, a normal D-dimer effectively <b>rules out VTE</b> (high sensitivity / negative predictive value). It is a rule-out, not a rule-in, test."
+   },
+   {
+    "id": "coag_fc_16",
+    "front": "How should the D-dimer be combined with pre-test probability for VTE?",
+    "back": "Assess probability first (e.g. <b>Wells score</b>). <b>Low/intermediate</b> → D-dimer (negative excludes; positive → image). <b>High</b> → image directly; a normal D-dimer <b>cannot</b> exclude VTE."
+   },
+   {
+    "id": "coag_fc_17",
+    "front": "What is the age-adjusted D-dimer cutoff, and why use it?",
+    "back": "For age &gt;50: <b>age × 10 µg/L (FEU)</b>. It improves <b>specificity</b> in older patients (fewer needless scans) without losing sensitivity."
+   },
+   {
+    "id": "coag_fc_18",
+    "front": "Give several non-VTE causes of a raised D-dimer.",
+    "back": "Infection/sepsis, surgery/trauma, <b>pregnancy</b>, malignancy, liver disease, inflammation, increasing age and <b>DIC</b>. Because so many raise it, a positive result only prompts imaging."
+   },
+   {
+    "id": "coag_fc_19",
+    "front": "Why must you know whether your lab reports FEU or DDU?",
+    "back": "Results are reported as <b>fibrinogen-equivalent units (FEU)</b> or <b>D-dimer units (DDU)</b>, and the <b>cutoffs differ</b> — always check the local reference range."
    }
   ]
  },
@@ -18520,6 +18550,66 @@
     "correctIndex": 2,
     "answer": "Factor VII",
     "explanation": "Factor VII (extrinsic pathway) has the shortest half-life of the coagulation factors, so its activity falls first — prolonging the PT/INR before the APTT is affected."
+   },
+   {
+    "id": "coag_q06",
+    "type": "mcq",
+    "question": "A 30-year-old with pleuritic chest pain has a LOW Wells score for PE and a NEGATIVE D-dimer. What is the most appropriate next step?",
+    "options": [
+     "Arrange a CTPA",
+     "VTE is excluded — no imaging needed",
+     "Start treatment-dose anticoagulation",
+     "Repeat the D-dimer in 24 hours",
+     "Arrange a leg Doppler ultrasound"
+    ],
+    "correctIndex": 1,
+    "answer": "VTE is excluded — no imaging needed",
+    "explanation": "With a low (or intermediate) pre-test probability, a negative D-dimer has a high negative predictive value and effectively rules out VTE — imaging is not required."
+   },
+   {
+    "id": "coag_q07",
+    "type": "mcq",
+    "question": "A patient has a HIGH clinical probability of PE. The D-dimer returns normal. What should you do?",
+    "options": [
+     "Reassure and discharge — PE is excluded",
+     "Proceed to imaging (e.g. CTPA) regardless of the D-dimer",
+     "Repeat the D-dimer with an age-adjusted cutoff",
+     "Start an oral anticoagulant and review",
+     "Rely on the negative D-dimer to withhold imaging"
+    ],
+    "correctIndex": 1,
+    "answer": "Proceed to imaging (e.g. CTPA) regardless of the D-dimer",
+    "explanation": "In a high pre-test probability patient the D-dimer must NOT be used to rule out VTE — a normal result cannot exclude it. Image directly."
+   },
+   {
+    "id": "coag_q08",
+    "type": "mcq",
+    "question": "A 76-year-old with an intermediate Wells score has a D-dimer of 600 µg/L (FEU); the standard cutoff is 500. What does the age-adjusted cutoff imply?",
+    "options": [
+     "The result is positive — arrange imaging",
+     "The age-adjusted cutoff is 760, so the result is negative and VTE is effectively excluded",
+     "The age-adjusted cutoff does not apply over 75",
+     "Anticoagulation should be started empirically",
+     "The D-dimer should be repeated"
+    ],
+    "correctIndex": 1,
+    "answer": "The age-adjusted cutoff is 760, so the result is negative and VTE is effectively excluded",
+    "explanation": "Age-adjusted cutoff = age × 10 = 760 µg/L FEU. A D-dimer of 600 is below this, so with a low/intermediate probability VTE is effectively excluded — avoiding an unnecessary scan."
+   },
+   {
+    "id": "coag_q09",
+    "type": "mcq",
+    "question": "Which statement about the D-dimer is correct?",
+    "options": [
+     "A raised D-dimer confirms venous thromboembolism",
+     "It is a rule-in test for PE",
+     "It is a rule-out test — a positive result only prompts further imaging",
+     "A normal D-dimer excludes VTE regardless of pre-test probability",
+     "It is specific to venous thromboembolism"
+    ],
+    "correctIndex": 2,
+    "answer": "It is a rule-out test — a positive result only prompts further imaging",
+    "explanation": "D-dimer is non-specific (raised by infection, surgery, pregnancy, malignancy, DIC, etc.), so a positive result never confirms VTE — it only mandates imaging. Its power is the negative result in a low/intermediate-probability patient."
    }
   ]
  }
