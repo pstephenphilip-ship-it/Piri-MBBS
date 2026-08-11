@@ -798,6 +798,58 @@
     "front": "What must NOT be done to a suspicious testicular mass, and what is done instead?",
     "back": "Do <b>NOT biopsy</b> the testis (risk of tumour seeding). Perform a <b>radical inguinal orchidectomy</b> (diagnostic and therapeutic) after ultrasound and markers."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Sepsis, Metabolic & Screens": [
+   {
+    "id": "crp_fc_01",
+    "front": "How do CRP and procalcitonin differ as inflammatory markers?",
+    "back": "<b>CRP</b> is a sensitive but <b>non-specific</b> acute-phase protein (rises in any inflammation). <b>Procalcitonin</b> is more <b>specific for bacterial</b> infection/sepsis and rises faster."
+   },
+   {
+    "id": "crp_fc_02",
+    "front": "What is procalcitonin mainly used for clinically?",
+    "back": "To help <b>distinguish bacterial from viral</b> infection and to guide <b>antibiotic stewardship</b> — PCT-guided stopping safely shortens antibiotic courses."
+   },
+   {
+    "id": "crp_fc_03",
+    "front": "Give non-infective causes of a raised CRP.",
+    "back": "Surgery, myocardial infarction, trauma, <b>malignancy</b> and <b>autoimmune disease</b> — CRP is not specific to infection."
+   },
+   {
+    "id": "crp_fc_04",
+    "front": "In whom might a normal CRP be falsely reassuring?",
+    "back": "The <b>immunosuppressed and elderly</b> can mount a <b>blunted CRP</b> response, so a normal level does not exclude serious infection."
+   },
+   {
+    "id": "crp_fc_05",
+    "front": "Should you wait for CRP/procalcitonin before treating suspected sepsis?",
+    "back": "<b>No.</b> Sepsis is a <b>clinical</b> diagnosis — deliver the <b>Sepsis 6</b> within 1 hour; the markers support and trend but do not diagnose it."
+   },
+   {
+    "id": "lac_fc_01",
+    "front": "What does a raised lactate indicate, and what are the key thresholds?",
+    "back": "<b>Tissue hypoperfusion / anaerobic metabolism.</b> <b>&gt;2 mmol/L</b> is abnormal; <b>&gt;4 mmol/L</b> is severe (a marker of shock and worse prognosis)."
+   },
+   {
+    "id": "lac_fc_02",
+    "front": "Distinguish type A from type B lactic acidosis with examples.",
+    "back": "<b>Type A (hypoxic):</b> inadequate O₂ delivery — sepsis, shock, cardiac arrest, bowel/limb ischaemia. <b>Type B (non-hypoxic):</b> liver failure, <b>metformin</b>, DKA, <b>thiamine deficiency</b>, malignancy, seizures, salbutamol, alcohol."
+   },
+   {
+    "id": "lac_fc_03",
+    "front": "How is lactate used in sepsis, and what does clearance signify?",
+    "back": "It is part of the <b>Sepsis 6</b>; a lactate >2 (especially >4) signals severity → aggressive fluids. <b>Lactate clearance</b> (a falling level) is a good prognostic sign; persistent/rising lactate is ominous."
+   },
+   {
+    "id": "lac_fc_04",
+    "front": "What sampling factors can falsely raise a lactate?",
+    "back": "A <b>tourniquet</b>, delayed sample processing, and using a venous rather than arterial sample (venous is acceptable for screening but arterial is more accurate)."
+   },
+   {
+    "id": "lac_fc_05",
+    "front": "What drug classically causes a type B lactic acidosis, especially in renal impairment?",
+    "back": "<b>Metformin</b> — metformin-associated lactic acidosis, particularly when it accumulates in AKI/CKD."
+   }
   ]
  },
  "q": {
@@ -2148,6 +2200,98 @@
     "correctIndex": 1,
     "answer": "Residual or metastatic disease",
     "explanation": "Tumour markers should fall predictably by their half-lives after orchidectomy (β-hCG ~24–36 h). Failure to fall appropriately indicates residual or metastatic disease requiring further treatment."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Sepsis, Metabolic & Screens": [
+   {
+    "id": "crp_q01",
+    "type": "mcq",
+    "question": "A patient with an acute febrile illness has a moderately raised CRP. The team want to know if it is bacterial to decide on antibiotics. Which test best helps distinguish bacterial from viral infection?",
+    "options": [
+     "A higher CRP threshold",
+     "Procalcitonin",
+     "ESR",
+     "Serum ACE",
+     "Lactate"
+    ],
+    "correctIndex": 1,
+    "answer": "Procalcitonin",
+    "explanation": "Procalcitonin rises more specifically with bacterial infection than CRP, and can help distinguish bacterial from viral illness and guide antibiotic decisions/duration."
+   },
+   {
+    "id": "crp_q02",
+    "type": "mcq",
+    "question": "A patient meets clinical criteria for sepsis but their CRP has come back normal. What is the correct action?",
+    "options": [
+     "Withhold antibiotics as CRP is normal",
+     "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted",
+     "Wait 24 hours and repeat CRP",
+     "Discharge the patient",
+     "Only give fluids"
+    ],
+    "correctIndex": 1,
+    "answer": "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted",
+    "explanation": "CRP lags and can be normal early or blunted (elderly/immunosuppressed). Suspected sepsis is treated clinically with the Sepsis 6 — do not wait for markers."
+   },
+   {
+    "id": "crp_q03",
+    "type": "mcq",
+    "question": "Two days after major abdominal surgery a patient has a raised CRP but no clinical signs of infection. How should this be interpreted?",
+    "options": [
+     "It confirms a surgical-site infection",
+     "CRP rises after surgery/tissue injury and is non-specific — interpret with the clinical picture and trend",
+     "It excludes infection",
+     "It is a laboratory error",
+     "Start broad-spectrum antibiotics immediately"
+    ],
+    "correctIndex": 1,
+    "answer": "CRP rises after surgery/tissue injury and is non-specific — interpret with the clinical picture and trend",
+    "explanation": "Surgery and tissue injury raise CRP without infection. A single value is non-specific; the trend and clinical assessment matter."
+   },
+   {
+    "id": "lac_q01",
+    "type": "mcq",
+    "question": "A septic, hypotensive patient has a lactate of 5.2 mmol/L. What does this indicate and what is the priority?",
+    "options": [
+     "Mild illness — observe",
+     "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
+     "A benign finding",
+     "A type B cause needing no fluids",
+     "Chronic elevation"
+    ],
+    "correctIndex": 1,
+    "answer": "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
+    "explanation": "A lactate >4 mmol/L in an unwell patient signals significant tissue hypoperfusion (type A). It is part of the Sepsis 6 and mandates aggressive resuscitation and escalation."
+   },
+   {
+    "id": "lac_q02",
+    "type": "mcq",
+    "question": "A patient on metformin with an AKI develops a high lactate and metabolic acidosis but is well perfused and not septic. What type of lactic acidosis is this?",
+    "options": [
+     "Type A (hypoxic)",
+     "Type B (non-hypoxic) — metformin accumulation",
+     "Neither",
+     "Respiratory acidosis",
+     "A spurious result"
+    ],
+    "correctIndex": 1,
+    "answer": "Type B (non-hypoxic) — metformin accumulation",
+    "explanation": "Metformin causes a type B lactic acidosis (impaired lactate metabolism), especially when it accumulates in renal impairment, without tissue hypoperfusion."
+   },
+   {
+    "id": "lac_q03",
+    "type": "mcq",
+    "question": "During resuscitation of a septic patient, serial lactates fall from 5.0 to 2.2 mmol/L. What does this trend indicate?",
+    "options": [
+     "Worsening prognosis",
+     "Good response — lactate clearance is a favourable prognostic sign",
+     "Type B lactic acidosis",
+     "The need to stop fluids",
+     "A laboratory error"
+    ],
+    "correctIndex": 1,
+    "answer": "Good response — lactate clearance is a favourable prognostic sign",
+    "explanation": "A falling lactate (lactate clearance) with treatment indicates improving perfusion and is associated with better outcomes; a persistent or rising lactate is ominous."
    }
   ]
  }
