@@ -142,6 +142,66 @@
     "id": "ue_fc_07",
     "front": "Give causes of hypokalaemia and its ECG changes.",
     "back": "GI loss (vomiting/diarrhoea), <b>diuretics</b>, <b>Conn's</b> syndrome, alkalosis. ECG: <b>flat T waves and U waves</b>."
+   },
+   {
+    "id": "egfr_fc_01",
+    "front": "How is eGFR estimated, and how is it reported?",
+    "back": "From <b>creatinine</b> with age and sex (<b>CKD-EPI</b>, race-free equation), reported <b>per 1.73 m²</b>."
+   },
+   {
+    "id": "egfr_fc_02",
+    "front": "In which situations is eGFR unreliable?",
+    "back": "In <b>AKI</b> (creatinine not in steady state), extremes of <b>muscle mass</b>, <b>pregnancy</b> and acute illness — follow the creatinine trend instead."
+   },
+   {
+    "id": "egfr_fc_03",
+    "front": "What defines chronic kidney disease (CKD)?",
+    "back": "GFR <b>&lt;60</b> <b>or</b> markers of kidney damage (<b>ACR ≥3</b>, haematuria, structural/histological abnormality) persisting for <b>≥3 months</b>."
+   },
+   {
+    "id": "egfr_fc_04",
+    "front": "How is CKD staged, and what do the G and A categories mean?",
+    "back": "By <b>GFR (G1–G5</b>: ≥90, 60–89, 45–59, 30–44, 15–29, &lt;15) and <b>albuminuria (A1–A3</b>: ACR &lt;3, 3–30, &gt;30 mg/mmol). Higher G+A = greater risk."
+   },
+   {
+    "id": "egfr_fc_05",
+    "front": "What is the preferred test for albuminuria in CKD?",
+    "back": "The <b>urine albumin:creatinine ratio (ACR)</b> — more sensitive and standardised than protein:creatinine ratio for early kidney damage."
+   },
+   {
+    "id": "egfr_fc_06",
+    "front": "Give key criteria for nephrology referral in CKD.",
+    "back": "eGFR <b>&lt;30</b> (G4–5), <b>ACR ≥70</b>, ACR ≥30 <b>with haematuria</b>, a <b>rapid decline</b> in eGFR, or suspected genetic/rare cause."
+   },
+   {
+    "id": "aki_fc_01",
+    "front": "State the KDIGO criteria for diagnosing AKI (any one).",
+    "back": "Creatinine <b>rise ≥26 µmol/L within 48 h</b>, <b>or</b> creatinine <b>≥1.5× baseline</b> within 7 days, <b>or</b> urine output <b>&lt;0.5 mL/kg/h for ≥6 h</b>."
+   },
+   {
+    "id": "aki_fc_02",
+    "front": "How is AKI staged 1–3 by creatinine?",
+    "back": "<b>Stage 1:</b> 1.5–1.9× baseline (or ≥26 rise). <b>Stage 2:</b> 2.0–2.9×. <b>Stage 3:</b> ≥3× (or ≥354 µmol/L) or need for RRT."
+   },
+   {
+    "id": "aki_fc_03",
+    "front": "Give the three categories of AKI cause with examples.",
+    "back": "<b>Pre-renal</b> (commonest): hypovolaemia, sepsis, hypotension, NSAIDs/ACEi. <b>Intrinsic</b>: ATN, glomerulonephritis, interstitial nephritis, vasculitis. <b>Post-renal</b>: obstruction (stones, prostate, tumour)."
+   },
+   {
+    "id": "aki_fc_04",
+    "front": "What are the key management principles of AKI?",
+    "back": "Restore <b>volume</b> and treat the cause (esp. sepsis); <b>stop nephrotoxics</b> (NSAIDs, ACEi/ARB, gentamicin, contrast); <b>catheterise/ultrasound</b> to exclude obstruction; monitor K⁺, fluids and acid–base."
+   },
+   {
+    "id": "aki_fc_05",
+    "front": "What are the indications for urgent dialysis in AKI?",
+    "back": "<b>AEIOU</b> refractory to medical therapy: <b>A</b>cidosis (severe), <b>E</b>lectrolytes (refractory hyperkalaemia), <b>I</b>ntoxication, <b>O</b>verload (pulmonary oedema), <b>U</b>raemia (encephalopathy/pericarditis)."
+   },
+   {
+    "id": "aki_fc_06",
+    "front": "Which single investigation must not be missed in AKI to exclude a post-renal cause?",
+    "back": "A <b>renal tract ultrasound</b> — to exclude <b>obstruction</b> (hydronephrosis), which is reversible with catheterisation/nephrostomy."
    }
   ]
  },
@@ -388,6 +448,96 @@
     "correctIndex": 1,
     "answer": "U waves and flattened T waves",
     "explanation": "Hypokalaemia flattens the T waves and produces U waves (and can prolong the QT). Tall tented T waves and a widened QRS are features of hyperkalaemia."
+   },
+   {
+    "id": "egfr_q01",
+    "type": "mcq",
+    "question": "An acutely septic, hypotensive patient has an eGFR reported as 22 mL/min/1.73m². Their creatinine was normal last month. How should this eGFR be interpreted?",
+    "options": [
+     "They have established CKD stage G4",
+     "eGFR is invalid here — this is likely AKI, as creatinine is not in steady state",
+     "They need immediate dialysis based on the eGFR",
+     "The eGFR confirms end-stage kidney disease",
+     "Repeat the eGFR in 3 months to stage CKD"
+    ],
+    "correctIndex": 1,
+    "answer": "eGFR is invalid here — this is likely AKI, as creatinine is not in steady state",
+    "explanation": "eGFR assumes a steady-state creatinine. In acute illness with a rising creatinine it is invalid and this picture represents AKI, not CKD. Follow the creatinine trend and treat the acute cause."
+   },
+   {
+    "id": "egfr_q02",
+    "type": "mcq",
+    "question": "A patient has a stable eGFR of 40 mL/min/1.73m² and an ACR of 45 mg/mmol confirmed over 4 months. How is this classified?",
+    "options": [
+     "G2 A1",
+     "G3b A3",
+     "G4 A2",
+     "G3a A1",
+     "Not CKD"
+    ],
+    "correctIndex": 1,
+    "answer": "G3b A3",
+    "explanation": "An eGFR of 40 falls in G3b (30–44) and an ACR >30 is A3. Persisting >3 months, this is CKD stage G3b A3 — a high-risk category warranting referral."
+   },
+   {
+    "id": "egfr_q03",
+    "type": "mcq",
+    "question": "Which is the minimum duration of abnormality required to diagnose chronic (rather than acute) kidney disease?",
+    "options": [
+     "48 hours",
+     "7 days",
+     "1 month",
+     "3 months",
+     "1 year"
+    ],
+    "correctIndex": 3,
+    "answer": "3 months",
+    "explanation": "CKD requires a reduced GFR or markers of kidney damage present for at least 3 months, distinguishing it from acute kidney injury."
+   },
+   {
+    "id": "aki_q01",
+    "type": "mcq",
+    "question": "A patient's creatinine rises from 90 to 120 µmol/L over 36 hours. Does this meet the KDIGO definition of AKI?",
+    "options": [
+     "No — the rise is too small",
+     "Yes — a rise of ≥26 µmol/L within 48 hours meets the definition",
+     "Only if urine output is also low",
+     "No — you need a 3-fold rise",
+     "Only if it persists 3 months"
+    ],
+    "correctIndex": 1,
+    "answer": "Yes — a rise of ≥26 µmol/L within 48 hours meets the definition",
+    "explanation": "A creatinine rise of ≥26 µmol/L within 48 h (here 30) meets KDIGO stage 1 AKI, independent of urine output."
+   },
+   {
+    "id": "aki_q02",
+    "type": "mcq",
+    "question": "An oliguric AKI patient has a potassium of 7.2 mmol/L that is not responding to medical therapy, with a severe metabolic acidosis. What is the appropriate escalation?",
+    "options": [
+     "More IV fluids",
+     "Urgent renal replacement therapy (dialysis)",
+     "Repeat the potassium in 6 hours",
+     "Start an ACE inhibitor",
+     "Give a further dose of oral calcium resonium and wait"
+    ],
+    "correctIndex": 1,
+    "answer": "Urgent renal replacement therapy (dialysis)",
+    "explanation": "Refractory hyperkalaemia and severe acidosis (two of the AEIOU indications) not responding to medical management require urgent dialysis."
+   },
+   {
+    "id": "aki_q03",
+    "type": "mcq",
+    "question": "An elderly man with AKI has a palpable bladder and no urine output. What is the most important immediate investigation/action?",
+    "options": [
+     "Renal biopsy",
+     "Catheterise and arrange a renal tract ultrasound to exclude obstruction",
+     "Start high-dose furosemide",
+     "Give nephrotoxic contrast CT",
+     "Start dialysis immediately"
+    ],
+    "correctIndex": 1,
+    "answer": "Catheterise and arrange a renal tract ultrasound to exclude obstruction",
+    "explanation": "A palpable bladder with anuria suggests post-renal (obstructive) AKI. Catheterisation may be immediately therapeutic, and ultrasound confirms/excludes obstruction (hydronephrosis) — a reversible cause."
    }
   ]
  }
