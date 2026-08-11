@@ -105,6 +105,31 @@
     "id": "aps_fc_05",
     "front": "How is antiphospholipid syndrome managed?",
     "back": "<b>Thrombosis</b> → lifelong anticoagulation with <b>warfarin</b> (DOACs less effective, especially triple-positive). <b>Pregnancy</b> → <b>aspirin + LMWH</b>."
+   },
+   {
+    "id": "comp_fc_01",
+    "front": "What do C3, C4 and CH50 assess?",
+    "back": "<b>C3 and C4</b> are individual components consumed in immune-complex disease. <b>CH50</b> (total haemolytic complement) tests the whole <b>classical pathway</b> — a very low/absent CH50 screens for a component deficiency."
+   },
+   {
+    "id": "comp_fc_02",
+    "front": "What does a low C3 AND C4 indicate?",
+    "back": "<b>Consumption</b> via the classical/immune-complex pathway — classically <b>active SLE</b> (complement tracks disease activity and lupus nephritis). Also cryoglobulinaemia, MPGN, endocarditis."
+   },
+   {
+    "id": "comp_fc_03",
+    "front": "What does a low C3 with a NORMAL C4 suggest?",
+    "back": "<b>Alternative-pathway</b> activation — classically <b>post-streptococcal glomerulonephritis</b> (or a C3 nephritic factor in MPGN)."
+   },
+   {
+    "id": "comp_fc_04",
+    "front": "Which complement finding points to hereditary angioedema, and how is it confirmed?",
+    "back": "A persistently <b>low C4</b> is the screening clue to <b>C1-inhibitor deficiency</b>; confirm with a <b>C1-inhibitor level and function</b>."
+   },
+   {
+    "id": "comp_fc_05",
+    "front": "How do early-classical vs terminal complement deficiencies present?",
+    "back": "<b>Early classical (C1, C2, C4)</b> deficiency → an <b>SLE-like</b> disease (poor immune-complex clearance). <b>Terminal (C5–9/MAC)</b> deficiency → <b>recurrent Neisseria (meningococcal)</b> infection."
    }
   ]
  },
@@ -289,6 +314,51 @@
     "correctIndex": 1,
     "answer": "A prolonged APTT (lupus anticoagulant) despite a prothrombotic tendency",
     "explanation": "The lupus anticoagulant prolongs the APTT in vitro but causes clotting in vivo — a classic paradox; it does not correct on mixing with normal plasma."
+   },
+   {
+    "id": "comp_q01",
+    "type": "mcq",
+    "question": "A patient with SLE presents with a flare of nephritis. Which complement pattern is expected and what does it reflect?",
+    "options": [
+     "High C3 and C4 — inactive disease",
+     "Low C3 and C4 — complement consumption tracking disease activity",
+     "Normal complement always",
+     "Low C3 with normal C4 — post-streptococcal GN",
+     "Isolated low CH50 only"
+    ],
+    "correctIndex": 1,
+    "answer": "Low C3 and C4 — complement consumption tracking disease activity",
+    "explanation": "Active SLE consumes complement via the classical/immune-complex pathway, lowering C3 and C4; the levels fall with flares (especially nephritis) and recover with treatment."
+   },
+   {
+    "id": "comp_q02",
+    "type": "mcq",
+    "question": "A young adult has had two episodes of meningococcal meningitis. Which immune abnormality should be investigated?",
+    "options": [
+     "Early classical complement deficiency",
+     "A terminal complement (C5-9/MAC) deficiency",
+     "IgA deficiency",
+     "Neutropenia only",
+     "Anti-CCP positivity"
+    ],
+    "correctIndex": 1,
+    "answer": "A terminal complement (C5-9/MAC) deficiency",
+    "explanation": "Recurrent Neisseria (meningococcal) infections are the hallmark of terminal complement deficiency — screen with CH50 and vaccinate against meningococcus."
+   },
+   {
+    "id": "comp_q03",
+    "type": "mcq",
+    "question": "A patient has recurrent episodes of facial and airway swelling WITHOUT urticaria that do not respond to adrenaline or antihistamines; C4 is persistently low. What is the diagnosis and treatment?",
+    "options": [
+     "Anaphylaxis — give more adrenaline",
+     "Hereditary angioedema (C1-inhibitor deficiency) — give C1-inhibitor concentrate",
+     "Idiopathic urticaria — antihistamines",
+     "SLE — steroids",
+     "Post-streptococcal GN"
+    ],
+    "correctIndex": 1,
+    "answer": "Hereditary angioedema (C1-inhibitor deficiency) — give C1-inhibitor concentrate",
+    "explanation": "Angioedema without urticaria, unresponsive to adrenaline/antihistamines, with a low C4, is hereditary angioedema. It is treated with C1-inhibitor concentrate (or bradykinin-targeted agents), not the anaphylaxis pathway."
    }
   ]
  }
