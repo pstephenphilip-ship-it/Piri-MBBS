@@ -325,6 +325,58 @@
     "front": "How is Guillain-Barré syndrome (including Miller Fisher) managed and monitored?",
     "back": "<b>IVIG or plasma exchange</b>, with supportive care; monitor <b>FVC</b> (respiratory failure) and autonomic function. Miller Fisher generally has a good prognosis."
    }
+  ],
+  "investigations__IMMUNOLOGY / SEROLOGY__Renal & Post-infectious": [
+   {
+    "id": "gbm_fc_01",
+    "front": "What is the target of anti-GBM antibodies, and what disease do they cause?",
+    "back": "<b>Type IV collagen (α3 chain)</b> in the glomerular and alveolar basement membranes → <b>Goodpasture's (anti-GBM) disease</b>: rapidly progressive glomerulonephritis + pulmonary haemorrhage."
+   },
+   {
+    "id": "gbm_fc_02",
+    "front": "What does renal biopsy immunofluorescence show in anti-GBM disease?",
+    "back": "Smooth <b>LINEAR IgG</b> deposition along the GBM (contrast with granular deposits in immune-complex GN)."
+   },
+   {
+    "id": "gbm_fc_03",
+    "front": "What is the classic clinical syndrome of Goodpasture's disease?",
+    "back": "A <b>pulmonary-renal syndrome</b>: rapidly progressive (crescentic) glomerulonephritis with haematuria/AKI, plus <b>pulmonary haemorrhage</b> (haemoptysis, worse in smokers)."
+   },
+   {
+    "id": "gbm_fc_04",
+    "front": "What additional antibody should be checked in anti-GBM disease and why?",
+    "back": "<b>ANCA</b> — around 30% are <b>double-positive</b> (anti-GBM + ANCA), which affects prognosis and management."
+   },
+   {
+    "id": "gbm_fc_05",
+    "front": "How is anti-GBM disease treated, and why urgently?",
+    "back": "<b>Urgent plasma exchange</b> (removes antibody) plus <b>immunosuppression</b> (steroids + cyclophosphamide). Renal recovery is poor once oligoanuric/dialysis-dependent, so treat early."
+   },
+   {
+    "id": "pla_fc_01",
+    "front": "What does anti-PLA2R indicate, and how common is it?",
+    "back": "It is the marker of <b>primary membranous nephropathy</b> (the commonest cause of adult nephrotic syndrome), positive in ~<b>70–80%</b> of primary cases (anti-THSD7A in a smaller subset)."
+   },
+   {
+    "id": "pla_fc_02",
+    "front": "What are the biopsy findings and secondary causes of membranous nephropathy?",
+    "back": "Biopsy: <b>subepithelial immune deposits</b> ('spike and dome', thickened GBM). Secondary causes: <b>malignancy</b>, SLE (class V), <b>hepatitis B</b>, and drugs (gold, penicillamine, NSAIDs)."
+   },
+   {
+    "id": "pla_fc_03",
+    "front": "How is anti-PLA2R used clinically?",
+    "back": "A <b>positive</b> result supports primary MN and is used to <b>monitor disease activity/response and predict relapse</b>; a <b>negative</b> result should prompt a search for a <b>secondary cause</b> (including malignancy)."
+   },
+   {
+    "id": "pla_fc_04",
+    "front": "Why is nephrotic syndrome (especially membranous) prothrombotic?",
+    "back": "Urinary loss of <b>antithrombin III</b> (and other factors) creates a hypercoagulable state → high risk of <b>VTE and renal vein thrombosis</b>; consider anticoagulation in high-risk patients."
+   },
+   {
+    "id": "pla_fc_05",
+    "front": "What is the first-line immunosuppressive approach for high-risk primary membranous nephropathy?",
+    "back": "<b>Rituximab</b> is now the preferred first-line immunosuppressant (KDIGO), alongside supportive care (ACEi/ARB, diuretics, statin); treat any secondary cause."
+   }
   ]
  },
  "q": {
@@ -917,6 +969,98 @@
     "correctIndex": 1,
     "answer": "Albuminocytological dissociation",
     "explanation": "Raised CSF protein with a normal cell count (albuminocytological dissociation) is the classic finding in GBS and its Miller Fisher variant."
+   }
+  ],
+  "investigations__IMMUNOLOGY / SEROLOGY__Renal & Post-infectious": [
+   {
+    "id": "gbm_q01",
+    "type": "mcq",
+    "question": "A young smoker presents with haemoptysis, AKI and haematuria. Renal biopsy shows crescentic GN with LINEAR IgG on immunofluorescence. What is the diagnosis?",
+    "options": [
+     "ANCA-associated vasculitis",
+     "Anti-GBM (Goodpasture's) disease",
+     "Post-streptococcal glomerulonephritis",
+     "Membranous nephropathy",
+     "Minimal change disease"
+    ],
+    "correctIndex": 1,
+    "answer": "Anti-GBM (Goodpasture's) disease",
+    "explanation": "A pulmonary-renal syndrome with crescentic GN and linear IgG deposition is anti-GBM disease (Goodpasture's), targeting type IV collagen."
+   },
+   {
+    "id": "gbm_q02",
+    "type": "mcq",
+    "question": "A patient with confirmed anti-GBM disease and rising creatinine needs treatment. What is the key urgent intervention?",
+    "options": [
+     "Oral prednisolone alone",
+     "Plasma exchange plus immunosuppression",
+     "A DOAC",
+     "ACE inhibitor monotherapy",
+     "Watchful waiting"
+    ],
+    "correctIndex": 1,
+    "answer": "Plasma exchange plus immunosuppression",
+    "explanation": "Anti-GBM disease is treated urgently with plasma exchange (to remove circulating antibody) plus steroids and cyclophosphamide; delay worsens renal outcome."
+   },
+   {
+    "id": "gbm_q03",
+    "type": "mcq",
+    "question": "Which immunofluorescence pattern distinguishes anti-GBM disease from immune-complex glomerulonephritis?",
+    "options": [
+     "Granular IgG",
+     "Linear IgG along the GBM",
+     "Pauci-immune (no deposits)",
+     "IgA mesangial deposits",
+     "No staining"
+    ],
+    "correctIndex": 1,
+    "answer": "Linear IgG along the GBM",
+    "explanation": "Anti-GBM disease shows smooth linear IgG along the basement membrane; immune-complex GN (e.g. lupus, post-strep) shows granular deposits, and ANCA vasculitis is pauci-immune."
+   },
+   {
+    "id": "pla_q01",
+    "type": "mcq",
+    "question": "A 50-year-old presents with nephrotic-range proteinuria; biopsy shows a thickened GBM with subepithelial deposits and anti-PLA2R is positive. What is the diagnosis?",
+    "options": [
+     "Minimal change disease",
+     "Primary membranous nephropathy",
+     "Post-streptococcal GN",
+     "Anti-GBM disease",
+     "IgA nephropathy"
+    ],
+    "correctIndex": 1,
+    "answer": "Primary membranous nephropathy",
+    "explanation": "Subepithelial 'spike and dome' deposits with a positive anti-PLA2R indicate primary membranous nephropathy, the commonest cause of adult nephrotic syndrome."
+   },
+   {
+    "id": "pla_q02",
+    "type": "mcq",
+    "question": "An older adult with membranous nephropathy is anti-PLA2R NEGATIVE. What does this prompt?",
+    "options": [
+     "Reassurance — it is always primary",
+     "An active search for a secondary cause (e.g. malignancy, hepatitis B, SLE, drugs)",
+     "Immediate dialysis",
+     "No further action",
+     "A diagnosis of minimal change disease"
+    ],
+    "correctIndex": 1,
+    "answer": "An active search for a secondary cause (e.g. malignancy, hepatitis B, SLE, drugs)",
+    "explanation": "A negative anti-PLA2R makes primary MN less likely, so secondary causes should be actively sought — particularly malignancy in older patients."
+   },
+   {
+    "id": "pla_q03",
+    "type": "mcq",
+    "question": "A patient with membranous nephropathy develops acute flank pain, haematuria and worsening renal function. What complication should be suspected?",
+    "options": [
+     "Renal vein thrombosis",
+     "Pyelonephritis",
+     "Renal stone",
+     "Bladder cancer",
+     "Acute tubular necrosis"
+    ],
+    "correctIndex": 0,
+    "answer": "Renal vein thrombosis",
+    "explanation": "Nephrotic syndrome (especially membranous) is highly thrombogenic due to loss of antithrombin III; renal vein thrombosis presents with flank pain, haematuria and declining function."
    }
   ]
  }
