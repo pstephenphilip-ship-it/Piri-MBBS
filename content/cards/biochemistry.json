@@ -691,6 +691,58 @@
     "front": "What drug interferes with serum ACE measurement?",
     "back": "<b>ACE inhibitors</b> lower the serum ACE level (they inhibit the enzyme being measured)."
    }
+  ],
+  "investigations__BIOCHEMISTRY__Tumour Markers": [
+   {
+    "id": "tm_fc_01",
+    "front": "What is the golden rule for using tumour markers?",
+    "back": "They are for <b>monitoring treatment response and detecting recurrence</b> in a <b>known</b> cancer — <b>not</b> for screening asymptomatic people or diagnosing cancer (poor sensitivity/specificity)."
+   },
+   {
+    "id": "tm_fc_02",
+    "front": "Which cancers raise CA19-9, and what benign conditions also raise it?",
+    "back": "<b>Pancreatic and biliary (cholangiocarcinoma)</b> cancers. Also raised (benign) in <b>obstructive jaundice/cholestasis</b>, pancreatitis and cirrhosis — recheck after biliary drainage."
+   },
+   {
+    "id": "tm_fc_03",
+    "front": "Why can CA19-9 be falsely normal in some patients?",
+    "back": "About <b>5–10%</b> of people are <b>Lewis-antigen-negative</b> and do not secrete CA19-9, so it stays normal even with disease."
+   },
+   {
+    "id": "tm_fc_04",
+    "front": "What cancer is CEA used to monitor, and what is its role?",
+    "back": "<b>Colorectal cancer</b> — to <b>monitor for recurrence after resection</b>, not to screen or diagnose. It is non-specific (also raised by smoking, IBD, pancreatitis)."
+   },
+   {
+    "id": "tm_fc_05",
+    "front": "What is used for bowel-cancer screening, if not CEA?",
+    "back": "<b>FIT (faecal immunochemical test)</b> and <b>colonoscopy</b> — CEA is not a screening test."
+   },
+   {
+    "id": "afp_fc_01",
+    "front": "What is AFP used for in liver disease, and what is the surveillance protocol?",
+    "back": "It is raised in <b>hepatocellular carcinoma</b>. HCC surveillance in <b>cirrhosis / chronic hepatitis B</b> is <b>6-monthly ultrasound ± AFP</b> — ultrasound is the mainstay (AFP alone lacks sensitivity)."
+   },
+   {
+    "id": "afp_fc_02",
+    "front": "Besides HCC, what raises AFP?",
+    "back": "<b>Non-seminomatous germ-cell (yolk-sac) tumours</b>, <b>pregnancy</b> (physiological; also a fetal screening marker), and active hepatitis/liver regeneration (modest)."
+   },
+   {
+    "id": "afp_fc_03",
+    "front": "How is a raised AFP interpreted in a cirrhotic patient?",
+    "back": "A <b>markedly raised or rising AFP with a liver lesion</b> → <b>HCC</b> (classic contrast CT/MRI may be diagnostic without biopsy). Modest rises are non-specific — use the trend + imaging."
+   },
+   {
+    "id": "afp_fc_04",
+    "front": "Does a raised AFP occur in pure seminoma?",
+    "back": "<b>No.</b> A raised AFP indicates a <b>non-seminomatous</b> element (yolk-sac/embryonal); <b>pure seminoma does not raise AFP</b> — a key discriminator."
+   },
+   {
+    "id": "afp_fc_05",
+    "front": "Why does HCC surveillance matter in cirrhosis?",
+    "back": "Structured surveillance <b>detects HCC early</b> when it is still curable — improving survival in this high-risk group."
+   }
   ]
  },
  "q": {
@@ -1859,6 +1911,98 @@
     "correctIndex": 1,
     "answer": "It will fall (ACE inhibitors lower serum ACE)",
     "explanation": "ACE inhibitors inhibit the very enzyme being measured, lowering the serum ACE and confounding its use as an activity marker."
+   }
+  ],
+  "investigations__BIOCHEMISTRY__Tumour Markers": [
+   {
+    "id": "tm_q01",
+    "type": "mcq",
+    "question": "A patient who had a colorectal cancer resected 1 year ago now has a steadily rising CEA. What does this most likely indicate?",
+    "options": [
+     "A false positive from smoking",
+     "Disease recurrence — confirm with imaging",
+     "A normal finding",
+     "That CEA should be used to screen relatives",
+     "Pancreatic cancer"
+    ],
+    "correctIndex": 1,
+    "answer": "Disease recurrence — confirm with imaging",
+    "explanation": "A rising CEA trend after curative resection suggests recurrence and should prompt restaging imaging. CEA is a monitoring tool, not a screening/diagnostic test."
+   },
+   {
+    "id": "tm_q02",
+    "type": "mcq",
+    "question": "A patient with obstructive jaundice from a gallstone has a markedly raised CA19-9. What is the correct interpretation?",
+    "options": [
+     "This confirms pancreatic cancer",
+     "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic",
+     "It excludes malignancy",
+     "Start chemotherapy",
+     "Screen the family"
+    ],
+    "correctIndex": 1,
+    "answer": "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic",
+    "explanation": "Obstructive jaundice/cholestasis raises CA19-9 independent of malignancy. Interpret it cautiously and repeat after relieving the obstruction; it cannot diagnose cancer on its own."
+   },
+   {
+    "id": "tm_q03",
+    "type": "mcq",
+    "question": "Why is CA19-9 unreliable as a universal marker even in confirmed pancreatic cancer?",
+    "options": [
+     "It is only raised in early disease",
+     "Around 5-10% of people are Lewis-antigen-negative and do not secrete it",
+     "It is specific only to colorectal cancer",
+     "It is affected by ACE inhibitors",
+     "It is only raised in pregnancy"
+    ],
+    "correctIndex": 1,
+    "answer": "Around 5-10% of people are Lewis-antigen-negative and do not secrete it",
+    "explanation": "Lewis-antigen-negative individuals cannot produce CA19-9, so it may be normal despite significant disease — limiting its use in that subgroup."
+   },
+   {
+    "id": "afp_q01",
+    "type": "mcq",
+    "question": "A patient with known cirrhosis on surveillance has a rising AFP and a new 3 cm arterially-enhancing liver lesion. What is the diagnosis until proven otherwise?",
+    "options": [
+     "A benign regenerative nodule",
+     "Hepatocellular carcinoma — urgent imaging and MDT referral",
+     "A simple cyst",
+     "Metastasis from colorectal cancer",
+     "Cholangiocarcinoma"
+    ],
+    "correctIndex": 1,
+    "answer": "Hepatocellular carcinoma — urgent imaging and MDT referral",
+    "explanation": "A rising AFP with a new arterially-enhancing lesion in a cirrhotic liver is HCC until proven otherwise; classic imaging can be diagnostic without biopsy. Refer urgently to the MDT."
+   },
+   {
+    "id": "afp_q02",
+    "type": "mcq",
+    "question": "What is the recommended HCC surveillance strategy in a patient with cirrhosis?",
+    "options": [
+     "Annual CT scan",
+     "6-monthly ultrasound (± AFP)",
+     "AFP alone every 3 months",
+     "No surveillance needed",
+     "MRI only when symptomatic"
+    ],
+    "correctIndex": 1,
+    "answer": "6-monthly ultrasound (± AFP)",
+    "explanation": "HCC surveillance in cirrhosis/chronic hepatitis B is 6-monthly ultrasound, sometimes with AFP. Ultrasound is the mainstay because AFP alone has limited sensitivity."
+   },
+   {
+    "id": "afp_q03",
+    "type": "mcq",
+    "question": "A young man with a testicular mass has a raised AFP. What does this tell you about the tumour type?",
+    "options": [
+     "It is a pure seminoma",
+     "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
+     "It is benign",
+     "It must be lymphoma",
+     "AFP is irrelevant to testicular tumours"
+    ],
+    "correctIndex": 1,
+    "answer": "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
+    "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue (yolk-sac/embryonal). Pure seminomas do not produce AFP, so its elevation changes classification and management."
    }
   ]
  }
