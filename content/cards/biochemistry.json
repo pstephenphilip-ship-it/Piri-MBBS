@@ -742,6 +742,61 @@
     "id": "afp_fc_05",
     "front": "Why does HCC surveillance matter in cirrhosis?",
     "back": "Structured surveillance <b>detects HCC early</b> when it is still curable — improving survival in this high-risk group."
+   },
+   {
+    "id": "psa_fc_01",
+    "front": "Besides prostate cancer, what raises PSA?",
+    "back": "<b>BPH</b>, prostatitis/<b>UTI</b>, urinary retention, catheterisation, <b>DRE</b>, ejaculation, and vigorous exercise/cycling — PSA is organ-specific, not cancer-specific."
+   },
+   {
+    "id": "psa_fc_02",
+    "front": "What practical timing rules apply to PSA testing?",
+    "back": "Check PSA <b>before</b> a DRE, and <b>defer</b> testing after a recent UTI, ejaculation or catheterisation (all transiently raise it)."
+   },
+   {
+    "id": "psa_fc_03",
+    "front": "How does the free:total PSA ratio help?",
+    "back": "Cancer binds more PSA, so a <b>LOW free:total ratio</b> favours <b>malignancy</b>; a high ratio favours benign BPH."
+   },
+   {
+    "id": "psa_fc_04",
+    "front": "What do PSA density and PSA velocity indicate?",
+    "back": "<b>PSA density</b> = PSA ÷ prostate volume (higher favours cancer). <b>PSA velocity</b> = rate of rise / doubling time (a rapid rise favours cancer)."
+   },
+   {
+    "id": "psa_fc_05",
+    "front": "What is the current pathway for a raised PSA?",
+    "back": "Refer (2-week wait) → <b>multiparametric MRI</b> then <b>targeted biopsy</b>. Screening is controversial (no national programme) — a shared, informed decision."
+   },
+   {
+    "id": "psa_fc_06",
+    "front": "What does a rising PSA after prostate cancer treatment indicate?",
+    "back": "<b>Recurrence.</b> After radical prostatectomy the PSA should be <b>undetectable</b>, so any detectable/rising value signals recurrence."
+   },
+   {
+    "id": "tst_fc_01",
+    "front": "Which three markers are used for testicular germ-cell tumours, and what does each reflect?",
+    "back": "<b>AFP</b> (non-seminomatous / yolk-sac), <b>β-hCG</b> (trophoblastic — choriocarcinoma, some seminomas), and <b>LDH</b> (tumour bulk/turnover, for staging/prognosis)."
+   },
+   {
+    "id": "tst_fc_02",
+    "front": "What is the key discriminator that AFP provides in testicular tumours?",
+    "back": "A <b>raised AFP means NON-seminomatous</b> disease — even if the histology looks like seminoma, an elevated AFP means it is managed as a <b>non-seminomatous germ-cell tumour (NSGCT)</b>. Pure seminoma does NOT raise AFP."
+   },
+   {
+    "id": "tst_fc_03",
+    "front": "What can a very high β-hCG cause clinically?",
+    "back": "<b>Gynaecomastia</b> (and rarely thyrotoxicosis, via cross-reactivity of hCG with the TSH receptor). β-hCG is high in choriocarcinoma and ~15–20% of seminomas."
+   },
+   {
+    "id": "tst_fc_04",
+    "front": "How are testicular tumour markers used in staging and monitoring?",
+    "back": "Measured <b>before and after orchidectomy</b>; post-orchidectomy levels define the <b>S category</b> of TNM staging. Half-lives (<b>AFP ~5–7 days, β-hCG ~24–36 h</b>) are tracked — failure to fall suggests residual/metastatic disease."
+   },
+   {
+    "id": "tst_fc_05",
+    "front": "What must NOT be done to a suspicious testicular mass, and what is done instead?",
+    "back": "Do <b>NOT biopsy</b> the testis (risk of tumour seeding). Perform a <b>radical inguinal orchidectomy</b> (diagnostic and therapeutic) after ultrasound and markers."
    }
   ]
  },
@@ -2003,6 +2058,96 @@
     "correctIndex": 1,
     "answer": "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
     "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue (yolk-sac/embryonal). Pure seminomas do not produce AFP, so its elevation changes classification and management."
+   },
+   {
+    "id": "psa_q01",
+    "type": "mcq",
+    "question": "A man attends for a PSA test. He had a UTI last week and a urinary catheter inserted 2 days ago. What is the most appropriate action?",
+    "options": [
+     "Take the PSA now and act on the result",
+     "Defer the PSA — recent UTI and catheterisation transiently raise it",
+     "Proceed straight to biopsy",
+     "Start antibiotics indefinitely",
+     "Reassure that PSA is unaffected"
+    ],
+    "correctIndex": 1,
+    "answer": "Defer the PSA — recent UTI and catheterisation transiently raise it",
+    "explanation": "UTI, catheterisation, ejaculation and DRE all transiently raise PSA. Defer testing until these have resolved to avoid a falsely elevated result and unnecessary referral."
+   },
+   {
+    "id": "psa_q02",
+    "type": "mcq",
+    "question": "Two years after radical prostatectomy, a patient's PSA becomes detectable and is steadily rising. What does this indicate?",
+    "options": [
+     "Normal recovery",
+     "Biochemical recurrence of prostate cancer",
+     "BPH",
+     "Prostatitis",
+     "A laboratory error"
+    ],
+    "correctIndex": 1,
+    "answer": "Biochemical recurrence of prostate cancer",
+    "explanation": "After radical prostatectomy PSA should be undetectable; a detectable and rising PSA indicates biochemical recurrence and warrants restaging."
+   },
+   {
+    "id": "psa_q03",
+    "type": "mcq",
+    "question": "Which PSA-derived measure specifically favours cancer over benign prostatic hyperplasia?",
+    "options": [
+     "A HIGH free:total PSA ratio",
+     "A LOW free:total PSA ratio",
+     "A low PSA density",
+     "A slow PSA velocity",
+     "A normal DRE"
+    ],
+    "correctIndex": 1,
+    "answer": "A LOW free:total PSA ratio",
+    "explanation": "Prostate cancer binds more PSA, lowering the free fraction, so a low free:total ratio favours malignancy. High PSA density and velocity also favour cancer."
+   },
+   {
+    "id": "tst_q01",
+    "type": "mcq",
+    "question": "A young man has a testicular germ-cell tumour with a clearly raised AFP. What does this tell you about classification and management?",
+    "options": [
+     "It is a pure seminoma — treat as such",
+     "It is (or contains) a non-seminomatous element — manage as NSGCT",
+     "AFP is irrelevant here",
+     "It is benign",
+     "It is a lymphoma"
+    ],
+    "correctIndex": 1,
+    "answer": "It is (or contains) a non-seminomatous element — manage as NSGCT",
+    "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue; pure seminoma never raises AFP. Even 'seminoma' histology with a raised AFP is treated as a non-seminomatous germ-cell tumour."
+   },
+   {
+    "id": "tst_q02",
+    "type": "mcq",
+    "question": "A 28-year-old has a hard, painless testicular lump. Ultrasound suggests a tumour. What is the correct next step regarding tissue diagnosis?",
+    "options": [
+     "Percutaneous biopsy of the testis",
+     "Radical inguinal orchidectomy (do not biopsy the testis)",
+     "Trans-scrotal biopsy",
+     "Watchful waiting",
+     "Aspiration cytology"
+    ],
+    "correctIndex": 1,
+    "answer": "Radical inguinal orchidectomy (do not biopsy the testis)",
+    "explanation": "A testicular mass is treated as cancer until proven otherwise; the testis is not biopsied (seeding risk). Diagnosis and treatment are by radical inguinal orchidectomy, with markers taken before and after."
+   },
+   {
+    "id": "tst_q03",
+    "type": "mcq",
+    "question": "After orchidectomy for a germ-cell tumour, the β-hCG fails to fall in line with its expected half-life. What does this suggest?",
+    "options": [
+     "Complete cure",
+     "Residual or metastatic disease",
+     "A laboratory artefact only",
+     "Pure seminoma",
+     "Normal post-operative recovery"
+    ],
+    "correctIndex": 1,
+    "answer": "Residual or metastatic disease",
+    "explanation": "Tumour markers should fall predictably by their half-lives after orchidectomy (β-hCG ~24–36 h). Failure to fall appropriately indicates residual or metastatic disease requiring further treatment."
    }
   ]
  }
