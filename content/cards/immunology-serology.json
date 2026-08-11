@@ -794,6 +794,56 @@
 "id": "viral_fc_06",
 "front": "Contrast the acute versus past-infection serology in EBV and CMV.",
 "back": "EBV: VCA IgM = acute; VCA IgG and EBNA IgG = past/immunity (screen with heterophile Monospot/Paul-Bunnell). CMV: IgM = acute, IgG = past. CMV causes heterophile-negative glandular fever and is dangerous in pregnancy, transplant and immunocompromise."
+},
+{
+"id": "tb_fc_01",
+"front": "What type of immune response do the Mantoux test and IGRA detect?",
+"back": "A cell-mediated, type IV (delayed-type) T-cell response to Mycobacterium tuberculosis antigens. They detect TB infection (usually latent TB) and cannot distinguish latent from active disease."
+},
+{
+"id": "tb_fc_02",
+"front": "In the Mantoux test, what is measured, and at what time?",
+"back": "The diameter of induration (the palpable raised firm area) — NOT erythema — measured transversely at 48-72 hours after intradermal injection of tuberculin PPD."
+},
+{
+"id": "tb_fc_03",
+"front": "Why is IGRA not confounded by prior BCG vaccination, whereas Mantoux is?",
+"back": "IGRA uses M. tuberculosis-specific antigens ESAT-6 and CFP-10, which are absent from the BCG strain (and most non-tuberculous mycobacteria). BCG therefore does not produce a positive IGRA, while it commonly causes a false-positive Mantoux."
+},
+{
+"id": "tb_fc_04",
+"front": "List causes of a false-negative Mantoux test.",
+"back": "Immunosuppression, HIV, very young age, and miliary or overwhelming TB (anergy). Any state impairing the cell-mediated response can blunt the reaction."
+},
+{
+"id": "tb_fc_05",
+"front": "A well, asymptomatic patient has a positive IGRA. What does this mean and what is the next step?",
+"back": "It indicates latent TB infection. Manage by excluding active disease (clinical review, CXR) and considering chemoprophylaxis (e.g. isoniazid + rifampicin). A positive test alone does not diagnose active TB."
+},
+{
+"id": "bull_fc_01",
+"front": "Which antibody target defines pemphigus vulgaris, and what level does the skin split at?",
+"back": "Antibodies against desmoglein 3 (± desmoglein 1) at desmosomes, causing loss of keratinocyte adhesion (acantholysis) and an INTRA-epidermal split. Clinically: flaccid blisters, painful erosions, prominent mucosal involvement, positive Nikolsky sign."
+},
+{
+"id": "bull_fc_02",
+"front": "Which antigens are targeted in bullous pemphigoid, and where do they sit?",
+"back": "BP180 (BPAG2) and BP230 (BPAG1) — hemidesmosome proteins at the dermo-epidermal junction/basement membrane. Antibodies cause a SUB-epidermal split → tense blisters in the elderly, mucosa usually spared, negative Nikolsky. Anti-BP180 correlates best with disease activity."
+},
+{
+"id": "bull_fc_03",
+"front": "Contrast the direct immunofluorescence (DIF) patterns of pemphigus vs pemphigoid.",
+"back": "Pemphigus: intercellular IgG in a 'chicken-wire'/fishnet pattern between keratinocytes. Pemphigoid: linear IgG and C3 deposited along the basement membrane. DIF on perilesional skin is the gold-standard diagnostic test."
+},
+{
+"id": "bull_fc_04",
+"front": "What is the Nikolsky sign and how does it differ between pemphigus and pemphigoid?",
+"back": "Lateral pressure/shear on skin causes the epidermis to slough. POSITIVE in pemphigus (weak intra-epidermal adhesion from acantholysis); NEGATIVE in bullous pemphigoid (split is sub-epidermal, so the epidermis stays intact)."
+},
+{
+"id": "bull_fc_05",
+"front": "What are serum anti-Dsg and anti-BP ELISA antibodies used for beyond diagnosis?",
+"back": "They confirm the target antigen (anti-Dsg1/3 in pemphigus, anti-BP180/BP230 in pemphigoid) and are used to MONITOR disease activity and predict relapse — anti-Dsg3 and anti-BP180 titres in particular track disease severity."
 }
 ]
 },
@@ -2207,6 +2257,96 @@
 "correctIndex": 2,
 "answer": "CMV IgM positive",
 "explanation": "A glandular-fever picture that is heterophile (Monospot) negative is classically caused by CMV, which produces a mononucleosis-like illness. Acute CMV is confirmed by CMV IgM positivity. EBV VCA IgG with EBNA IgG indicates past EBV infection/immunity rather than acute illness (and would not explain a Monospot-negative acute presentation as the answer sought). HBsAg and anti-HAV IgG relate to hepatitis, not this syndrome."
+},
+{
+"id": "tb_q01",
+"type": "mcq",
+"question": "A 34-year-old nurse who received BCG vaccination as a child undergoes pre-employment TB screening. Her Mantoux test shows 12 mm of induration, but she is asymptomatic with a normal chest X-ray. Which test would best clarify whether this reflects genuine TB infection rather than her prior BCG?",
+"options": [
+"Repeat Mantoux test in 6 weeks",
+"Sputum acid-fast bacilli smear",
+"Interferon-gamma release assay (IGRA)",
+"Serum M. tuberculosis IgG antibody",
+"Bronchoalveolar lavage for culture"
+],
+"correctIndex": 2,
+"answer": "Interferon-gamma release assay (IGRA)",
+"explanation": "IGRA uses TB-specific antigens (ESAT-6, CFP-10) that are absent from BCG, so it is not confounded by prior vaccination. A positive Mantoux in a BCG-vaccinated person is often a false positive; IGRA distinguishes true infection. Sputum smear and BAL are for active disease (she is well with a normal CXR), and serology is not used for TB diagnosis."
+},
+{
+"id": "tb_q02",
+"type": "mcq",
+"question": "A 52-year-old man with a productive cough, weight loss and night sweats has a chest X-ray showing an upper-lobe cavity. His IGRA is negative. He is not known to be immunosuppressed. What is the most appropriate next step?",
+"options": [
+"Reassure and discharge as active TB is excluded by the negative IGRA",
+"Start latent TB chemoprophylaxis with isoniazid",
+"Send sputum for smear, culture and nucleic acid amplification testing",
+"Repeat the IGRA in 8 weeks before any further action",
+"Commence a course of broad-spectrum antibiotics and review in 6 weeks"
+],
+"correctIndex": 2,
+"answer": "Send sputum for smear, culture and nucleic acid amplification testing",
+"explanation": "A negative IGRA does NOT exclude active TB — false negatives occur, and IGRA is a test of infection, not of disease. This clinical and radiological picture is highly suggestive of active pulmonary TB, so microbiological confirmation via sputum smear, culture and NAAT is essential. Chemoprophylaxis is for latent (asymptomatic) TB, not active disease."
+},
+{
+"id": "tb_q03",
+"type": "mcq",
+"question": "Which statement about the Mantoux test is correct?",
+"options": [
+"Erythema, not induration, is measured to interpret the result",
+"A single fixed cut-off of 15 mm applies to all patients regardless of risk",
+"The result is read immediately after injection",
+"Induration is measured at 48-72 hours and interpreted against risk-stratified thresholds",
+"A positive result confirms active pulmonary tuberculosis"
+],
+"correctIndex": 3,
+"answer": "Induration is measured at 48-72 hours and interpreted against risk-stratified thresholds",
+"explanation": "The Mantoux is read by measuring induration (not erythema) at 48-72 hours, with thresholds (e.g. ≥5, ≥10, ≥15 mm) varying by risk group and immune status. A positive result indicates TB infection, usually latent, and cannot confirm active disease on its own."
+},
+{
+"id": "bull_q01",
+"type": "mcq",
+"question": "A 55-year-old woman has a 2-month history of painful mouth erosions followed by flaccid skin blisters that rupture easily, leaving raw areas. Gentle lateral pressure on normal-looking skin causes the epidermis to shear away. Which autoantibody is most likely responsible?",
+"options": [
+"Anti-BP180 (BPAG2)",
+"Anti-desmoglein 3",
+"Anti-tissue transglutaminase",
+"Anti-BP230 (BPAG1)",
+"Anti-collagen VII"
+],
+"correctIndex": 1,
+"answer": "Anti-desmoglein 3",
+"explanation": "Painful mucosal erosions, flaccid easily-ruptured blisters and a positive Nikolsky sign are classic for pemphigus vulgaris, driven by antibodies to desmoglein 3 (± Dsg1) at desmosomes, producing an intra-epidermal acantholytic split. Anti-BP180/BP230 cause bullous pemphigoid (tense blisters, negative Nikolsky). Anti-tTG is coeliac/dermatitis herpetiformis; anti-collagen VII is epidermolysis bullosa acquisita."
+},
+{
+"id": "bull_q02",
+"type": "mcq",
+"question": "An 80-year-old man has tense, itchy blisters on erythematous and urticarial skin of the trunk and limbs; the mouth is spared and Nikolsky sign is negative. Direct immunofluorescence of perilesional skin is most likely to show which pattern?",
+"options": [
+"Intercellular IgG in a chicken-wire pattern",
+"Granular IgA in the dermal papillae",
+"Linear IgG and C3 along the basement membrane",
+"IgG deposition around dermal blood vessels",
+"Negative immunofluorescence"
+],
+"correctIndex": 2,
+"answer": "Linear IgG and C3 along the basement membrane",
+"explanation": "Tense blisters in an elderly patient with mucosal sparing and a negative Nikolsky sign indicate bullous pemphigoid. DIF shows linear IgG and C3 along the basement membrane (antibodies to BP180/BP230). Intercellular chicken-wire IgG is pemphigus; granular IgA in dermal papillae is dermatitis herpetiformis."
+},
+{
+"id": "bull_q03",
+"type": "mcq",
+"question": "When investigating a suspected autoimmune blistering disease, which single investigation is regarded as the gold-standard diagnostic test?",
+"options": [
+"Serum anti-desmoglein ELISA",
+"H&E histology of a blister showing the level of split",
+"Direct immunofluorescence on perilesional skin",
+"Indirect immunofluorescence on monkey oesophagus",
+"Bacterial swab of the blister fluid"
+],
+"correctIndex": 2,
+"answer": "Direct immunofluorescence on perilesional skin",
+"explanation": "DIF on perilesional (not blister-centre) skin is the gold standard: it localises immune deposits (intercellular chicken-wire IgG in pemphigus; linear IgG/C3 at the basement membrane in pemphigoid). Histology shows the level of split and ELISA confirms the antigen and monitors activity, but neither is the definitive confirmatory test; indirect IF is an adjunct."
 }
 ]
 }
