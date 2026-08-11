@@ -18506,6 +18506,12 @@ function hideFlyout(p) {
 .da-lock-foot{font-size:11.5px;color:var(--muted2,#9CA3AF);margin-top:20px;line-height:1.5;}
 .da-locked-item{opacity:.62;}
 .da-lock-mini{margin-left:6px;font-size:11px;opacity:.7;}
+/* Frosted lock for premium study modes: blur the panel, float a small card over it */
+.da-study-blur{position:absolute;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:24px;pointer-events:none;}
+.da-study-blur-card{pointer-events:auto;max-width:430px;text-align:center;background:var(--surface,#fff);border:1px solid var(--border2,#E2E6F0);border-radius:16px;padding:30px 28px;box-shadow:0 12px 44px rgba(0,0,0,.20);}
+.da-study-blur-title{font-size:18px;font-weight:800;color:var(--text,#1E2640);margin-bottom:9px;}
+.da-study-blur-sub{font-size:13px;color:var(--muted,#6B7280);line-height:1.6;}
+.mode-panel.da-blurred{filter:blur(6px);pointer-events:none;user-select:none;}
 </style>
 <script>
 (function(){
@@ -18633,20 +18639,46 @@ function hideFlyout(p) {
   var _selectTopic = window.selectTopic;
   window.selectTopic = function(p, name, skipHash){
     hidePaywall(p);
+    if(window.__clearStudyBlur) window.__clearStudyBlur(p);
     var self=this;
     gateTopic(p, name, skipHash, function(){ _selectTopic.call(self, p, name, skipHash); });
   };
+  // Frosted lock for premium study modes: blur the rendered panel, float a small card over it.
+  function clearStudyBlur(p){
+    var ov=document.getElementById('da-study-blur-'+p); if(ov) ov.style.display='none';
+    document.querySelectorAll('#notearea-'+p+' .mode-panel.da-blurred').forEach(function(panel){ panel.classList.remove('da-blurred'); panel.removeAttribute('aria-hidden'); });
+  }
+  window.__clearStudyBlur = clearStudyBlur;
+  function applyStudyBlur(p, mode){
+    var area=document.getElementById('notearea-'+p); if(!area) return;
+    var panel=document.getElementById(mode+'-panel-'+p);
+    if(panel){ panel.classList.add('da-blurred'); panel.setAttribute('aria-hidden','true'); }
+    try{ if(getComputedStyle(area).position==='static') area.style.position='relative'; }catch(e){}
+    var label=(mode==='questions')?'MCQ practice questions':'Flashcards';
+    var sub=(mode==='questions')?'practice questions':'flashcards';
+    var ov=document.getElementById('da-study-blur-'+p);
+    if(!ov){ ov=document.createElement('div'); ov.id='da-study-blur-'+p; ov.className='da-study-blur'; area.appendChild(ov); }
+    ov.innerHTML='<div class="da-study-blur-card"><div style="font-size:38px;margin-bottom:10px;">🔒</div>'
+      +'<div class="da-study-blur-title">'+label+' are a premium feature</div>'
+      +'<div class="da-study-blur-sub">Interactive '+sub+' aren’t part of the free tier — full access is coming with membership.<br>Notes stay free on the topics available to you.</div></div>';
+    ov.style.display='flex';
+  }
+
   var _switchMode = window.switchMode;
   window.switchMode = function(p, mode, el, skipHash){
-    // Flashcards & MCQs are a premium feature: non-members can SEE the tabs but not open them.
-    if ((mode==='flashcards' || mode==='questions') && !window.__member){
-      if (window.__showStudyLock) window.__showStudyLock(mode);
+    clearStudyBlur(p);
+    var premium = (mode==='flashcards' || mode==='questions') && !window.__member;
+    var st = getState(p);
+    // Topic-level gate still applies (a fully locked topic shows the normal paywall for any mode).
+    if (!isUnlocked(p, st.activeSystem, st.activeTopic)){
+      var self=this, args=arguments, topic=st.activeTopic;
+      gateTopic(p, topic, skipHash, function(){ _selectTopic.call(self, p, topic, true); _switchMode.apply(self, args); });
       return;
     }
-    var st = getState(p);
-    if (isUnlocked(p, st.activeSystem, st.activeTopic)) return _switchMode.apply(this, arguments);
-    var self=this, args=arguments, topic=st.activeTopic;
-    gateTopic(p, topic, skipHash, function(){ _selectTopic.call(self, p, topic, true); _switchMode.apply(self, args); });
+    // Render the panel, then (for non-members on premium modes) blur it and float the lock card.
+    var ret = _switchMode.apply(this, arguments);
+    if (premium){ Promise.resolve(ret).then(function(){ applyStudyBlur(p, mode); }).catch(function(){ applyStudyBlur(p, mode); }); }
+    return ret;
   };
   var _renderTopicList = window.renderTopicList;
   if (typeof _renderTopicList === 'function'){
@@ -19904,6 +19936,7 @@ function hideFlyout(p) {
     var b=document.createElement('button'); b.id='daRvTrigger'; b.className='da-rv-fab'; b.title='Spaced-repetition review (cards due today)';
     b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a6 6 0 0110-4.5L15 6"/><path d="M15 3v3h-3"/><path d="M15 9a6 6 0 01-10 4.5L3 12"/><path d="M3 15v-3h3"/></svg><span class="da-rv-label">Review</span><span class="da-rv-badge zero" id="daRvBadge">0</span>';
     b.addEventListener('click', open);
+    if(!window.__member) b.style.display='none';   // flashcard review is premium — hide for non-members
     document.body.appendChild(b);
     badgeEl=document.getElementById('daRvBadge');
     refreshBadge();
