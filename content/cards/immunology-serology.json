@@ -228,6 +228,58 @@
     "front": "Which transplant carries a graft-versus-host risk, and how does immunosuppression trade off?",
     "back": "<b>Bone-marrow/stem-cell transplant</b> (and non-irradiated cellular blood in the immunocompromised) risks <b>GVHD</b>. Maintenance immunosuppression prevents rejection but over-suppression risks <b>opportunistic infection and malignancy</b>."
    }
+  ],
+  "investigations__IMMUNOLOGY / SEROLOGY__Neuro-immunology": [
+   {
+    "id": "mg_fc_01",
+    "front": "Which antibodies are tested in myasthenia gravis, and how common is each?",
+    "back": "<b>Anti-AChR</b> (acetylcholine receptor) — positive in ~<b>85%</b> of generalised MG (main test). <b>Anti-MuSK</b> in many AChR-negative cases; a minority are seronegative."
+   },
+   {
+    "id": "mg_fc_02",
+    "front": "What is the hallmark clinical feature of myasthenia gravis?",
+    "back": "<b>Fatigable weakness</b> worse with activity / towards the end of the day — ptosis, diplopia, bulbar (dysphagia/dysarthria), proximal limb and respiratory weakness."
+   },
+   {
+    "id": "mg_fc_03",
+    "front": "Which investigations support a diagnosis of MG (besides antibodies)?",
+    "back": "<b>Repetitive nerve stimulation</b> (decremental response), <b>single-fibre EMG</b> (most sensitive), the <b>ice-pack test</b>, and <b>CT chest</b> for a thymoma."
+   },
+   {
+    "id": "mg_fc_04",
+    "front": "How is myasthenia gravis managed, including a crisis?",
+    "back": "<b>Pyridostigmine</b> (symptomatic) + <b>immunosuppression</b> (steroids, azathioprine) ± <b>thymectomy</b>. <b>Myasthenic crisis</b> (respiratory failure) → monitor FVC, ICU, <b>IVIG or plasma exchange</b>."
+   },
+   {
+    "id": "mg_fc_05",
+    "front": "Which drugs can worsen myasthenia gravis?",
+    "back": "<b>Aminoglycosides</b>, macrolides, <b>beta-blockers</b> (and others) — avoid, as they can precipitate a crisis."
+   },
+   {
+    "id": "lems_fc_01",
+    "front": "What antibody and cancer are associated with Lambert-Eaton myasthenic syndrome?",
+    "back": "<b>Anti-VGCC (P/Q-type voltage-gated calcium channel)</b> antibodies — reducing presynaptic ACh release. ~50–60% are paraneoplastic, associated with <b>small-cell lung cancer</b>."
+   },
+   {
+    "id": "lems_fc_02",
+    "front": "How does LEMS weakness differ from myasthenia gravis?",
+    "back": "LEMS causes <b>proximal (leg) weakness that IMPROVES with repeated use</b> (post-tetanic potentiation) and reflexes that <b>return after exercise</b> — the opposite of MG's fatigability; ocular/bulbar signs are less prominent."
+   },
+   {
+    "id": "lems_fc_03",
+    "front": "What autonomic features occur in LEMS?",
+    "back": "<b>Dry mouth</b>, constipation and impotence — reflecting reduced autonomic cholinergic transmission."
+   },
+   {
+    "id": "lems_fc_04",
+    "front": "What does repetitive nerve stimulation show in LEMS?",
+    "back": "An <b>INCREMENTAL</b> response at high frequency (or after exercise) — the opposite of the <b>decrement</b> seen in myasthenia gravis."
+   },
+   {
+    "id": "lems_fc_05",
+    "front": "What must be actively excluded in a patient with LEMS?",
+    "back": "<b>Small-cell lung cancer</b> — LEMS may precede the cancer by months to years, so screen (CT chest ± PET) and re-screen if initially negative."
+   }
   ]
  },
  "q": {
@@ -638,6 +690,98 @@
     "correctIndex": 1,
     "answer": "They are highly sensitised and harder to find a compatible donor",
     "explanation": "A high PRA means the recipient has HLA antibodies against a large proportion of the population (from prior sensitising events), making a negative cross-match harder to achieve."
+   }
+  ],
+  "investigations__IMMUNOLOGY / SEROLOGY__Neuro-immunology": [
+   {
+    "id": "mg_q01",
+    "type": "mcq",
+    "question": "A woman has drooping eyelids and double vision that worsen through the day and after reading. Anti-AChR antibodies are positive. What is the diagnosis?",
+    "options": [
+     "Lambert-Eaton myasthenic syndrome",
+     "Myasthenia gravis",
+     "Multiple sclerosis",
+     "Guillain-Barré syndrome",
+     "Miller Fisher syndrome"
+    ],
+    "correctIndex": 1,
+    "answer": "Myasthenia gravis",
+    "explanation": "Fatigable ptosis and diplopia worsening with activity, with positive anti-AChR antibodies, is myasthenia gravis (postsynaptic NMJ disorder)."
+   },
+   {
+    "id": "mg_q02",
+    "type": "mcq",
+    "question": "A myasthenic patient becomes increasingly breathless with a falling forced vital capacity and bulbar weakness. What is the priority management?",
+    "options": [
+     "Increase oral pyridostigmine only",
+     "Monitor FVC, involve ICU, and give IVIG or plasma exchange",
+     "Start a beta-blocker",
+     "Reassure and discharge",
+     "Give an aminoglycoside for possible infection"
+    ],
+    "correctIndex": 1,
+    "answer": "Monitor FVC, involve ICU, and give IVIG or plasma exchange",
+    "explanation": "This is a myasthenic crisis with respiratory failure — monitor FVC, escalate to critical care and treat with IVIG or plasma exchange; avoid drugs that worsen MG."
+   },
+   {
+    "id": "mg_q03",
+    "type": "mcq",
+    "question": "A patient has clinical myasthenia gravis but anti-AChR antibodies are negative. Which antibody should be tested next?",
+    "options": [
+     "Anti-VGCC",
+     "Anti-MuSK",
+     "Anti-GQ1b",
+     "Aquaporin-4",
+     "Anti-dsDNA"
+    ],
+    "correctIndex": 1,
+    "answer": "Anti-MuSK",
+    "explanation": "In AChR-negative myasthenia, anti-MuSK antibodies are the next test; MuSK-positive disease is often bulbar/respiratory-predominant."
+   },
+   {
+    "id": "lems_q01",
+    "type": "mcq",
+    "question": "A 62-year-old smoker has proximal leg weakness that briefly improves after exercise, a dry mouth, and absent knee reflexes that return after sustained contraction. Which antibody and diagnosis?",
+    "options": [
+     "Anti-AChR — myasthenia gravis",
+     "Anti-VGCC — Lambert-Eaton myasthenic syndrome",
+     "Aquaporin-4 — neuromyelitis optica",
+     "Anti-GQ1b — Miller Fisher syndrome",
+     "Anti-dsDNA — SLE"
+    ],
+    "correctIndex": 1,
+    "answer": "Anti-VGCC — Lambert-Eaton myasthenic syndrome",
+    "explanation": "Proximal weakness that improves with use, autonomic features and post-exercise return of reflexes in a smoker is LEMS (anti-VGCC), often paraneoplastic to small-cell lung cancer."
+   },
+   {
+    "id": "lems_q02",
+    "type": "mcq",
+    "question": "Repetitive nerve stimulation in a patient shows an INCREMENTAL response at high frequency. Which condition does this indicate?",
+    "options": [
+     "Myasthenia gravis",
+     "Lambert-Eaton myasthenic syndrome",
+     "Guillain-Barré syndrome",
+     "Multiple sclerosis",
+     "Motor neurone disease"
+    ],
+    "correctIndex": 1,
+    "answer": "Lambert-Eaton myasthenic syndrome",
+    "explanation": "An incremental RNS response is characteristic of LEMS (presynaptic), whereas myasthenia gravis shows a decremental response."
+   },
+   {
+    "id": "lems_q03",
+    "type": "mcq",
+    "question": "A patient is newly diagnosed with LEMS but initial imaging shows no malignancy. What is the appropriate approach?",
+    "options": [
+     "Reassure — no cancer risk",
+     "Screen and periodically re-screen for small-cell lung cancer, as LEMS can precede it",
+     "Start chemotherapy empirically",
+     "Only treat symptoms and never re-image",
+     "Test for aquaporin-4 antibodies"
+    ],
+    "correctIndex": 1,
+    "answer": "Screen and periodically re-screen for small-cell lung cancer, as LEMS can precede it",
+    "explanation": "LEMS can predate a detectable small-cell lung cancer by months to years, so ongoing surveillance is warranted even if the initial screen is negative."
    }
   ]
  }
