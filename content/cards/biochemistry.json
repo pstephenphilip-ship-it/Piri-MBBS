@@ -640,6 +640,56 @@
     "id": "sht_fc_05",
     "front": "What is the critical drug-safety rule in phaeochromocytoma?",
     "back": "<b>Alpha-blockade before beta-blockade</b> — giving a beta-blocker first leaves unopposed alpha stimulation and can precipitate a hypertensive crisis."
+   },
+   {
+    "id": "igf_fc_01",
+    "front": "Why is IGF-1, not a random growth hormone, used to screen for acromegaly?",
+    "back": "GH secretion is <b>pulsatile</b> (varies widely), so a random GH is unreliable. <b>IGF-1</b> (liver-derived, GH-driven) is <b>stable</b> and integrates GH over time — the screening test."
+   },
+   {
+    "id": "igf_fc_02",
+    "front": "How is acromegaly confirmed after a raised IGF-1?",
+    "back": "An <b>oral glucose tolerance test with GH measurement</b>: glucose normally <b>suppresses</b> GH, but in acromegaly GH <b>fails to suppress</b>. Then a <b>pituitary MRI</b> to find the adenoma."
+   },
+   {
+    "id": "igf_fc_03",
+    "front": "List clinical features that should prompt testing for acromegaly.",
+    "back": "Acral enlargement (hands/feet), <b>jaw prognathism</b> and coarse features, sweating, headaches, <b>bitemporal hemianopia</b>, carpal tunnel, and complications (diabetes, hypertension, OSA, colon polyps)."
+   },
+   {
+    "id": "igf_fc_04",
+    "front": "What is the first-line treatment for acromegaly, and the medical options?",
+    "back": "<b>Trans-sphenoidal surgery</b> is first-line. Medical options: somatostatin analogues (<b>octreotide/lanreotide</b>), the GH-receptor antagonist <b>pegvisomant</b>, and cabergoline. Monitor with IGF-1."
+   },
+   {
+    "id": "igf_fc_05",
+    "front": "In which physiological states is IGF-1 normally elevated?",
+    "back": "<b>Puberty/adolescence</b> and <b>pregnancy</b> — interpret IGF-1 against age- and sex-specific reference ranges."
+   },
+   {
+    "id": "ace_fc_01",
+    "front": "What is serum ACE and its role in sarcoidosis?",
+    "back": "An enzyme produced by the <b>epithelioid cells of granulomas</b>. In sarcoidosis it is a <b>supportive, non-diagnostic</b> marker — mainly used to <b>monitor disease activity</b>."
+   },
+   {
+    "id": "ace_fc_02",
+    "front": "Why can serum ACE neither diagnose nor exclude sarcoidosis?",
+    "back": "It is raised in only <b>~60%</b> (so a normal level doesn't exclude it) and is <b>non-specific</b> — also raised in TB, leprosy, histoplasmosis, hyperthyroidism, diabetes and silicosis."
+   },
+   {
+    "id": "ace_fc_03",
+    "front": "How is sarcoidosis actually diagnosed?",
+    "back": "<b>Clinically + radiologically + histologically</b> — classically <b>non-caseating granulomas</b> on biopsy, with a CXR showing <b>bilateral hilar lymphadenopathy</b>."
+   },
+   {
+    "id": "ace_fc_04",
+    "front": "What causes hypercalcaemia in sarcoidosis?",
+    "back": "<b>Macrophages in granulomas produce 1,25-(OH)₂ vitamin D</b> (active vitamin D), increasing gut calcium absorption. Hypercalciuria is even more common than hypercalcaemia."
+   },
+   {
+    "id": "ace_fc_05",
+    "front": "What drug interferes with serum ACE measurement?",
+    "back": "<b>ACE inhibitors</b> lower the serum ACE level (they inhibit the enzyme being measured)."
    }
   ]
  },
@@ -1719,6 +1769,96 @@
     "correctIndex": 1,
     "answer": "Alpha-blocker first, then beta-blocker",
     "explanation": "Alpha-blockade (e.g. phenoxybenzamine) must precede beta-blockade; starting a beta-blocker first leaves unopposed alpha vasoconstriction and risks a hypertensive crisis."
+   },
+   {
+    "id": "igf_q01",
+    "type": "mcq",
+    "question": "A patient has enlarging hands, coarsening facial features and headaches. What is the best initial screening test for acromegaly?",
+    "options": [
+     "A single random growth hormone level",
+     "Serum IGF-1",
+     "Pituitary MRI first",
+     "Random cortisol",
+     "Serum ACE"
+    ],
+    "correctIndex": 1,
+    "answer": "Serum IGF-1",
+    "explanation": "GH is pulsatile so a random level is unreliable. IGF-1 is a stable, integrated marker of GH activity and is the screening test for acromegaly."
+   },
+   {
+    "id": "igf_q02",
+    "type": "mcq",
+    "question": "A patient with a raised IGF-1 undergoes an oral glucose tolerance test. Which result confirms acromegaly?",
+    "options": [
+     "GH suppresses normally",
+     "GH fails to suppress (paradoxical non-suppression)",
+     "Glucose falls below 3 mmol/L",
+     "IGF-1 falls to normal",
+     "Cortisol fails to suppress"
+    ],
+    "correctIndex": 1,
+    "answer": "GH fails to suppress (paradoxical non-suppression)",
+    "explanation": "Glucose normally suppresses GH; in acromegaly GH fails to suppress during the OGTT, confirming the diagnosis. Pituitary MRI then localises the adenoma."
+   },
+   {
+    "id": "igf_q03",
+    "type": "mcq",
+    "question": "An acromegaly patient develops difficulty seeing to the sides. Which visual field defect and mechanism is most likely?",
+    "options": [
+     "Homonymous hemianopia — occipital stroke",
+     "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
+     "Central scotoma — optic neuritis",
+     "Tunnel vision — retinitis pigmentosa",
+     "Monocular blindness — retinal detachment"
+    ],
+    "correctIndex": 1,
+    "answer": "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
+    "explanation": "A pituitary macroadenoma compresses the optic chiasm, classically producing a bitemporal hemianopia — an indication for urgent assessment."
+   },
+   {
+    "id": "ace_q01",
+    "type": "mcq",
+    "question": "A patient with suspected sarcoidosis has a NORMAL serum ACE. What does this mean?",
+    "options": [
+     "Sarcoidosis is excluded",
+     "It does not exclude sarcoidosis — ACE is only raised in ~60% and is non-diagnostic",
+     "It confirms sarcoidosis",
+     "ACE inhibitors must be the cause",
+     "No further work-up is needed"
+    ],
+    "correctIndex": 1,
+    "answer": "It does not exclude sarcoidosis — ACE is only raised in ~60% and is non-diagnostic",
+    "explanation": "Serum ACE has limited sensitivity and specificity. A normal level cannot exclude sarcoidosis; diagnosis rests on clinical, radiological and histological findings (non-caseating granulomas)."
+   },
+   {
+    "id": "ace_q02",
+    "type": "mcq",
+    "question": "A patient with sarcoidosis develops hypercalcaemia. What is the mechanism?",
+    "options": [
+     "Excess PTH secretion",
+     "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
+     "Bony metastases",
+     "Low albumin",
+     "Thiazide use"
+    ],
+    "correctIndex": 1,
+    "answer": "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
+    "explanation": "In sarcoidosis, activated macrophages convert vitamin D to its active 1,25 form independent of PTH, increasing gut calcium absorption and causing hypercalcaemia (and, more commonly, hypercalciuria)."
+   },
+   {
+    "id": "ace_q03",
+    "type": "mcq",
+    "question": "A patient being monitored with serum ACE for sarcoidosis is started on an ACE inhibitor for hypertension. How will this affect the serum ACE result?",
+    "options": [
+     "It will rise",
+     "It will fall (ACE inhibitors lower serum ACE)",
+     "No effect",
+     "It becomes diagnostic",
+     "It causes a false positive"
+    ],
+    "correctIndex": 1,
+    "answer": "It will fall (ACE inhibitors lower serum ACE)",
+    "explanation": "ACE inhibitors inhibit the very enzyme being measured, lowering the serum ACE and confounding its use as an activity marker."
    }
   ]
  }
