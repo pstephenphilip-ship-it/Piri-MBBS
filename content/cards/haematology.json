@@ -5418,6 +5418,46 @@
     "id": "tx_fc_07",
     "front": "What is the single greatest risk in transfusion, and how is it prevented?",
     "back": "<b>Patient misidentification</b> ('wrong blood in tube') causing fatal <b>ABO-incompatible</b> transfusion. Prevent it with positive bedside ID and correct labelling at sampling <b>and</b> administration."
+   },
+   {
+    "id": "tx_fc_08",
+    "front": "What is the modern (restrictive) red cell transfusion strategy?",
+    "back": "Transfuse to the <b>lowest safe threshold</b>, <b>one unit at a time</b>, then reassess. Restrictive thresholds give fewer reactions, less overload and <b>better outcomes</b> than liberal transfusion."
+   },
+   {
+    "id": "tx_fc_09",
+    "front": "What are the red cell (Hb) transfusion thresholds and targets?",
+    "back": "<b>Non-ACS:</b> transfuse if Hb <b>&lt;70 g/L</b> → target <b>70–90</b>. <b>ACS:</b> transfuse if Hb <b>&lt;80 g/L</b> → target <b>80–100</b>."
+   },
+   {
+    "id": "tx_fc_10",
+    "front": "When is FFP indicated, and what does it contain?",
+    "back": "<b>Clotting factor deficiency with bleeding</b> — e.g. PT/APTT <b>&gt;1.5×</b> normal. Contains <b>all clotting factors</b>; large volume, so avoid in fluid overload."
+   },
+   {
+    "id": "tx_fc_11",
+    "front": "When is cryoprecipitate used, and what does it contain?",
+    "back": "For a <b>low fibrinogen (&lt;1.5 g/L)</b> — DIC, liver failure, massive transfusion. Concentrated <b>fibrinogen, factor VIII, vWF and factor XIII</b>."
+   },
+   {
+    "id": "tx_fc_12",
+    "front": "Give the platelet transfusion facts: prophylactic threshold, storage, and effect of one dose.",
+    "back": "Prophylactic if <b>&lt;10 ×10⁹/L</b> (or with bleeding). Stored at <b>20–24°C</b> (<b>not cold</b> — cold aggregates them). One dose raises the count ~<b>20–30</b>. Higher targets before procedures (<b>&gt;50</b> surgery, <b>&gt;100</b> neurosurgery/eye)."
+   },
+   {
+    "id": "tx_fc_13",
+    "front": "What is PCC used for, what does it contain, and what must accompany it?",
+    "back": "<b>Emergency warfarin reversal</b> (major bleed, ICH, emergency surgery). Contains factors <b>II, VII, IX, X</b>; reversal <b>&lt;1&nbsp;h</b>. Always give <b>with IV vitamin K</b>."
+   },
+   {
+    "id": "tx_fc_14",
+    "front": "Outline the steps of warfarin reversal in a major bleed.",
+    "back": "1) <b>Stop warfarin</b>. 2) <b>IV vitamin K</b> (always). 3) <b>PCC</b> for major bleed/ICH (reversal <1&nbsp;h, give with vit K). 4) <b>FFP</b> only if PCC unavailable."
+   },
+   {
+    "id": "tx_fc_15",
+    "front": "Why must vitamin K be given alongside PCC for warfarin reversal?",
+    "back": "<b>Factor VII</b> has a short half-life — without vitamin K to resynthesise factors, the <b>INR rebounds</b> as the PCC factors wear off."
    }
   ]
  },
@@ -19048,6 +19088,66 @@
     "correctIndex": 1,
     "answer": "Patient misidentification ('wrong blood in tube')",
     "explanation": "Fatal ABO-incompatible transfusions are overwhelmingly due to human identification errors at sampling or administration — not laboratory failures. Positive patient ID and correct labelling at every step are the key safeguards."
+   },
+   {
+    "id": "tx_q05",
+    "type": "mcq",
+    "question": "A haemodynamically stable patient with no cardiac history has a haemoglobin of 68 g/L. According to a restrictive strategy, what is appropriate?",
+    "options": [
+     "Do not transfuse until Hb <60",
+     "Transfuse one unit of red cells, then reassess",
+     "Transfuse two units immediately",
+     "Transfuse to a target of 120 g/L",
+     "Give FFP instead"
+    ],
+    "correctIndex": 1,
+    "answer": "Transfuse one unit of red cells, then reassess",
+    "explanation": "The non-ACS threshold is Hb <70 g/L with a target of 70–90. Transfuse a single unit and reassess Hb and symptoms — restrictive, one unit at a time."
+   },
+   {
+    "id": "tx_q06",
+    "type": "mcq",
+    "question": "A patient on warfarin (INR 7.5) presents with an intracranial haemorrhage. What is the most appropriate reversal?",
+    "options": [
+     "Oral vitamin K alone",
+     "IV vitamin K plus prothrombin complex concentrate (PCC)",
+     "FFP alone",
+     "Stop warfarin and observe",
+     "Platelet transfusion"
+    ],
+    "correctIndex": 1,
+    "answer": "IV vitamin K plus prothrombin complex concentrate (PCC)",
+    "explanation": "Major/life-threatening bleeding on warfarin is reversed with PCC (rapid, <1 h) given together with IV vitamin K (to prevent INR rebound once the PCC factors wear off). FFP is only used if PCC is unavailable."
+   },
+   {
+    "id": "tx_q07",
+    "type": "mcq",
+    "question": "A patient with DIC is bleeding and has a fibrinogen of 0.8 g/L. Which product most specifically corrects this?",
+    "options": [
+     "Packed red cells",
+     "Cryoprecipitate",
+     "Platelets",
+     "Prothrombin complex concentrate",
+     "Vitamin K"
+    ],
+    "correctIndex": 1,
+    "answer": "Cryoprecipitate",
+    "explanation": "Cryoprecipitate is concentrated fibrinogen (plus factor VIII, vWF, factor XIII) and is indicated for a low fibrinogen (<1.5 g/L), as in DIC, liver failure or massive transfusion."
+   },
+   {
+    "id": "tx_q08",
+    "type": "mcq",
+    "question": "At what temperature are platelets stored, and why?",
+    "options": [
+     "4°C, to prolong shelf life",
+     "20–24°C with agitation, because cold storage causes aggregation and clearance",
+     "−30°C, frozen like FFP",
+     "37°C, to preserve function",
+     "Room temperature without agitation"
+    ],
+    "correctIndex": 1,
+    "answer": "20–24°C with agitation, because cold storage causes aggregation and clearance",
+    "explanation": "Platelets are stored at 20–24°C with gentle agitation. Refrigeration causes them to aggregate and be cleared rapidly, so they are NOT stored cold (unlike red cells at 4°C)."
    }
   ]
  }
