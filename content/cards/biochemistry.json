@@ -35,6 +35,41 @@
     "id": "bcp_fc_07",
     "front": "When should ionised calcium be measured directly rather than corrected?",
     "back": "When accuracy is critical or albumin correction is unreliable — e.g. <b>critical illness, acid–base disturbance, or massive transfusion</b> (citrate binds calcium)."
+   },
+   {
+    "id": "bcp_fc_08",
+    "front": "Why must PTH always be interpreted relative to the calcium?",
+    "back": "PTH is only meaningful in context: a 'normal' PTH is <b>inappropriate</b> if the calcium is high (should be suppressed) or low (should be raised). Read the pair together."
+   },
+   {
+    "id": "bcp_fc_09",
+    "front": "↑ Calcium with a raised or inappropriately normal PTH — what is the diagnosis?",
+    "back": "<b>Primary hyperparathyroidism</b> (PTH failing to suppress). Also consider tertiary hyperPTH and <b>familial hypocalciuric hypercalcaemia (FHH)</b>."
+   },
+   {
+    "id": "bcp_fc_10",
+    "front": "↑ Calcium with a suppressed (low) PTH — what is the likely cause?",
+    "back": "<b>Malignancy</b> — PTHrP secretion or bone metastases — where the PTH is appropriately suppressed. Also vitamin D excess and granulomatous disease (sarcoidosis)."
+   },
+   {
+    "id": "bcp_fc_11",
+    "front": "↓ Calcium with a raised PTH — what does this represent?",
+    "back": "<b>Secondary hyperparathyroidism</b> — an appropriate PTH response to <b>vitamin D deficiency</b> or <b>CKD</b>."
+   },
+   {
+    "id": "bcp_fc_12",
+    "front": "↓ Calcium with a low or inappropriately normal PTH — what is the diagnosis?",
+    "back": "<b>Hypoparathyroidism</b> (commonly post-surgical, or autoimmune). Also consider severe <b>hypomagnesaemia</b> (functional hypoparathyroidism)."
+   },
+   {
+    "id": "bcp_fc_13",
+    "front": "How does FHH differ from primary hyperparathyroidism, and why does it matter?",
+    "back": "Both give ↑Ca with ↑/normal PTH, but <b>FHH has a LOW urine calcium</b> (low calcium:creatinine clearance ratio). It is benign — recognising it <b>avoids unnecessary parathyroid surgery</b>."
+   },
+   {
+    "id": "bcp_fc_14",
+    "front": "Why can hypocalcaemia be refractory to calcium replacement?",
+    "back": "Severe <b>hypomagnesaemia</b> causes functional hypoparathyroidism — the calcium will not correct until the <b>magnesium is replaced</b>."
    }
   ]
  },
@@ -99,6 +134,66 @@
     "correctIndex": 1,
     "answer": "A low albumin lowers the total calcium but not the ionised (active) calcium",
     "explanation": "About half of serum calcium is albumin-bound. A low albumin reduces the measured total calcium while the physiologically active ionised fraction is unchanged — hence the need to correct for albumin."
+   },
+   {
+    "id": "bcp_q05",
+    "type": "mcq",
+    "question": "An asymptomatic 60-year-old has a corrected calcium of 2.85 mmol/L with a PTH at the upper end of normal and a low phosphate. What is the most likely diagnosis?",
+    "options": [
+     "Malignancy",
+     "Primary hyperparathyroidism",
+     "Vitamin D deficiency",
+     "Hypoparathyroidism",
+     "Secondary hyperparathyroidism"
+    ],
+    "correctIndex": 1,
+    "answer": "Primary hyperparathyroidism",
+    "explanation": "Hypercalcaemia with a PTH that is not suppressed (inappropriately normal or high) is primary hyperparathyroidism — the commonest cause of hypercalcaemia in ambulant outpatients. The low phosphate fits PTH excess."
+   },
+   {
+    "id": "bcp_q06",
+    "type": "mcq",
+    "question": "A patient with known metastatic breast cancer has a corrected calcium of 3.1 mmol/L. Which PTH result would you expect, and what is the mechanism?",
+    "options": [
+     "High PTH — primary hyperparathyroidism",
+     "Suppressed (low) PTH — PTHrP / bone metastases",
+     "Normal PTH — vitamin D deficiency",
+     "High PTH — secondary hyperparathyroidism",
+     "Undetectable calcium"
+    ],
+    "correctIndex": 1,
+    "answer": "Suppressed (low) PTH — PTHrP / bone metastases",
+    "explanation": "Hypercalcaemia of malignancy is PTH-independent (PTHrP secretion or osteolytic mets), so the parathyroid glands appropriately suppress and the PTH is low."
+   },
+   {
+    "id": "bcp_q07",
+    "type": "mcq",
+    "question": "A patient has mild hypercalcaemia with an inappropriately normal PTH, but a 24-hour urine shows a LOW urinary calcium (low calcium:creatinine clearance ratio). What is the diagnosis and key implication?",
+    "options": [
+     "Primary hyperparathyroidism — refer for parathyroidectomy",
+     "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery",
+     "Malignancy — arrange imaging",
+     "Vitamin D toxicity — stop supplements",
+     "Hypoparathyroidism — give calcium"
+    ],
+    "correctIndex": 1,
+    "answer": "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery",
+    "explanation": "FHH mimics primary hyperparathyroidism biochemically but has low urinary calcium excretion. It is benign, so distinguishing it prevents an unnecessary parathyroidectomy."
+   },
+   {
+    "id": "bcp_q08",
+    "type": "mcq",
+    "question": "A post-thyroidectomy patient has persistent hypocalcaemia despite IV calcium. Which additional electrolyte must be checked and corrected?",
+    "options": [
+     "Sodium",
+     "Potassium",
+     "Magnesium",
+     "Chloride",
+     "Bicarbonate"
+    ],
+    "correctIndex": 2,
+    "answer": "Magnesium",
+    "explanation": "Severe hypomagnesaemia causes functional hypoparathyroidism and impairs PTH action, so hypocalcaemia is refractory until the magnesium is replaced."
    }
   ]
  }
