@@ -587,6 +587,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       <div class="auth-field">
         <label for="authEmail">Email</label>
         <input type="email" id="authEmail" autocomplete="email" placeholder="you@example.com" required>
+        <div id="authEmailHint" style="display:none;font-size:11.5px;line-height:1.5;color:var(--muted,#6B7280);margin-top:7px;padding:8px 10px;background:rgba(0,194,168,.08);border:1px solid rgba(0,194,168,.25);border-radius:8px;">💡 Use a <strong>personal email</strong> (Gmail, Outlook, etc.) — university servers often block our verification code.</div>
       </div>
       <div class="auth-field">
         <label for="authPassword">Password</label>
@@ -18754,6 +18755,7 @@ function hideFlyout(p) {
     window.__authMode=mode;
     if(typeof _setAuthMode==='function') _setAuthMode(mode);
     var su=$('da-su-fields'); if(su) su.style.display=(mode==='signup')?'':'none';
+    var hint=$('authEmailHint'); if(hint) hint.style.display=(mode==='signup')?'':'none';
   };
 
   function aMsg(t,k){ var m=$('authMsg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
