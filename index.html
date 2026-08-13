@@ -22265,7 +22265,7 @@ function hideFlyout(p) {
     // the app is safe to ship at any point during setup.
     currency:      "£",
     functionsBase: "https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
-    portalEnabled: false, // set true once the billing-portal function is deployed
+    portalEnabled: true, // billing-portal function deployed + Stripe Customer Portal activated
     plans: [
       { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
         billedNote:"Billed £8.99 each month",
