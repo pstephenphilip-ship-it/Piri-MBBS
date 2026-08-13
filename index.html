@@ -9109,7 +9109,9 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/f/f6/Estenosis_Pulmonar.JPG",
       imageAlt:"A PA chest radiograph showing a straightened left heart border with a prominent bulge just below the pulmonary trunk.",
       imageCredit:"SCiardullo, CC BY-SA 3.0, via Wikimedia Commons.",
-      question:"A 45-year-old who grew up overseas presents with 6 months of exertional breathlessness and palpitations. As a child she had several episodes of painful, migratory joint swelling with fevers. On examination there is a rumbling mid-diastolic murmur at the apex, and her chest X-ray is shown. What is the most likely underlying diagnosis?",
+      audio:"assets/audio/13_apex_os__dias_mur_lld_bell.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"A 45-year-old woman who grew up overseas presents with 6 months of exertional breathlessness and palpitations. As a child she had several episodes of painful, migratory joint swelling with fevers. On auscultation there is a murmur (audio), and her chest X-ray is shown. What is the most likely underlying diagnosis?",
       options:[
         "Hypertrophic cardiomyopathy",
         "Chronic rheumatic heart disease with mitral stenosis",
@@ -9324,7 +9326,8 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/5/52/Lupusfoto.jpg",
       imageAlt:"A red rash across both cheeks and the bridge of the nose, sparing the skin folds beside the nose.",
       imageCredit:"Doktorinternet, CC BY-SA 3.0, via Wikimedia Commons.",
-      question:"A 20-year-old woman has a 6-week history of a symmetrical polyarthritis of the hands, fatigue and the facial rash shown. She has a pericardial rub, and her ESR is high. ANA is strongly positive and anti-dsDNA is raised; a recent ASO is negative. What is the most likely diagnosis?",
+      data:'<div class="mk-obs-h">Blood results</div><table class="mk-labs"><tr><td>ESR</td><td><b>High</b></td><td>&mdash;</td></tr><tr><td>ANA</td><td><b>Strongly positive</b></td><td>negative</td></tr><tr><td>Anti-dsDNA antibody</td><td><b>Raised</b></td><td>negative</td></tr><tr><td>ASO titre</td><td><b>Not raised</b></td><td>&mdash;</td></tr></table>',
+      question:"A 20-year-old woman has a 6-week history of a symmetrical polyarthritis of the hands, fatigue and the facial rash shown. She has a pericardial rub; her blood results are shown. What is the most likely diagnosis?",
       options:[
         "Acute rheumatic fever",
         "Rheumatoid arthritis",
@@ -21221,9 +21224,21 @@ function hideFlyout(p) {
   // trigger persists its state first, so the reloaded page is stable and no
   // further reload is requested.
   window.__scheduleReload = window.__scheduleReload || function(){
-    if(window.__reloadScheduled) return;
+    // Anti-loop guard: auto-reload at most once every few seconds ACROSS loads.
+    // If some state keeps requesting a reload on each fresh load (e.g. a sync
+    // diff that never settles), this breaks the cycle after the first reload so
+    // the page stops flashing. sessionStorage persists across reloads in the tab.
+    try{
+      var now = Date.now();
+      var last = parseInt(sessionStorage.getItem('da-reload-ts')||'0', 10);
+      if(now - last < 6000) return;   // reloaded very recently -> don't loop
+    }catch(e){}
+    if(window.__reloadScheduled) return;   // only one per page life
     window.__reloadScheduled = true;
-    setTimeout(function(){ try{ location.reload(); }catch(e){} }, 500);
+    setTimeout(function(){
+      try{ sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+      try{ location.reload(); }catch(e){}
+    }, 500);
   };
   // Full-access members (paid membership OR a comp/automatic membership set on the
   // account's Supabase profile). Cached so the gate resolves synchronously on load;
@@ -22250,7 +22265,7 @@ function hideFlyout(p) {
     // the app is safe to ship at any point during setup.
     currency:      "£",
     functionsBase: "https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
-    portalEnabled: false, // set true once the billing-portal function is deployed
+    portalEnabled: true, // billing-portal function deployed + Stripe Customer Portal activated
     plans: [
       { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
         billedNote:"Billed £8.99 each month",
