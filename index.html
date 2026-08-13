@@ -21221,9 +21221,21 @@ function hideFlyout(p) {
   // trigger persists its state first, so the reloaded page is stable and no
   // further reload is requested.
   window.__scheduleReload = window.__scheduleReload || function(){
-    if(window.__reloadScheduled) return;
+    // Anti-loop guard: auto-reload at most once every few seconds ACROSS loads.
+    // If some state keeps requesting a reload on each fresh load (e.g. a sync
+    // diff that never settles), this breaks the cycle after the first reload so
+    // the page stops flashing. sessionStorage persists across reloads in the tab.
+    try{
+      var now = Date.now();
+      var last = parseInt(sessionStorage.getItem('da-reload-ts')||'0', 10);
+      if(now - last < 6000) return;   // reloaded very recently -> don't loop
+    }catch(e){}
+    if(window.__reloadScheduled) return;   // only one per page life
     window.__reloadScheduled = true;
-    setTimeout(function(){ try{ location.reload(); }catch(e){} }, 500);
+    setTimeout(function(){
+      try{ sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+      try{ location.reload(); }catch(e){}
+    }, 500);
   };
   // Full-access members (paid membership OR a comp/automatic membership set on the
   // account's Supabase profile). Cached so the gate resolves synchronously on load;
