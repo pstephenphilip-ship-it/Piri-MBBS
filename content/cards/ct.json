@@ -557,6 +557,83 @@
         "front": "A high-risk patient invited for lung screening reports haemoptysis and weight loss. What is the correct action?",
         "back": "They are now symptomatic, so screening is inappropriate — refer via the urgent 2-week-wait symptomatic cancer pathway, not the routine asymptomatic screening programme."
       }
+    ],
+    "investigations__CT__Cardiac & Aorta": [
+      {
+        "id": "ct_ca_ctca_fc_01",
+        "front": "What is the NICE first-line investigation for stable chest pain of suspected coronary origin?",
+        "back": "CT coronary angiography (CTCA). Offer it for typical or atypical angina, or for non-anginal chest pain with an abnormal resting ECG (e.g. Q waves)."
+      },
+      {
+        "id": "ct_ca_ctca_fc_02",
+        "front": "What is the main diagnostic strength of a normal CTCA?",
+        "back": "A very high negative predictive value — a normal CTCA effectively excludes significant obstructive coronary artery disease (it is best at ruling out CAD)."
+      },
+      {
+        "id": "ct_ca_ctca_fc_03",
+        "front": "Beyond luminal stenosis, what else can CTCA assess?",
+        "back": "The vessel wall — it characterises both calcified and non-calcified (soft) plaque, and can be combined with a coronary artery calcium score for risk stratification."
+      },
+      {
+        "id": "ct_ca_ctca_fc_04",
+        "front": "What practical preparation is needed for a diagnostic CTCA?",
+        "back": "A slow, regular heart rate (beta-blockers often given, target ~<60-65 bpm) with a reliable breath-hold; IV iodinated contrast (check renal function/allergy); GTN may be given to dilate the coronaries."
+      },
+      {
+        "id": "ct_ca_ctca_fc_05",
+        "front": "Is CTCA the appropriate primary test for suspected acute coronary syndrome?",
+        "back": "No. ACS is investigated with ECG and troponin via the ACS pathway (primary PCI for STEMI). CTCA is for STABLE chest pain, not acute presentations."
+      },
+      {
+        "id": "ct_ca_calcium_fc_01",
+        "front": "What is the coronary artery calcium (CAC) score and how is it acquired?",
+        "back": "A non-contrast, ECG-gated CT that quantifies calcified atherosclerotic plaque in the coronary arteries using the Agatston score. It is low-dose and reflects total atherosclerotic plaque burden."
+      },
+      {
+        "id": "ct_ca_calcium_fc_02",
+        "front": "State the Agatston score risk bands.",
+        "back": "0 = no calcified plaque (very low event risk); 1–99 = mild; 100–399 = moderate; ≥400 = extensive calcification / high risk."
+      },
+      {
+        "id": "ct_ca_calcium_fc_03",
+        "front": "What is the significance of a calcium score of 0?",
+        "back": "No identifiable calcified plaque, indicating very low risk of a coronary event — it has a strong negative predictive value for events."
+      },
+      {
+        "id": "ct_ca_calcium_fc_04",
+        "front": "What are the main clinical uses of coronary calcium scoring?",
+        "back": "Reported alongside/derived from CTCA in stable chest pain assessment, and to refine cardiovascular risk in selected asymptomatic/intermediate-risk people to guide statin decisions when risk is uncertain."
+      },
+      {
+        "id": "ct_ca_calcium_fc_05",
+        "front": "What is the key limitation of the calcium score?",
+        "back": "It detects calcified plaque only. Soft (non-calcified) plaque can cause stenosis with a low/zero score, and a high score does not prove obstructive stenosis — lumen assessment needs CTCA or functional testing. It is not a test for acute chest pain."
+      },
+      {
+        "id": "ct_ca_aorta_fc_01",
+        "front": "What is the definitive investigation for acute aortic syndromes and aortic aneurysm?",
+        "back": "CT angiography of the aorta (CT aortogram) — arterial-phase IV contrast. It diagnoses dissection, aneurysm ± rupture, traumatic aortic injury, intramural haematoma and penetrating aortic ulcer."
+      },
+      {
+        "id": "ct_ca_aorta_fc_02",
+        "front": "Describe the Stanford classification of aortic dissection and its management.",
+        "back": "Type A involves the ascending aorta (± arch/descending) and is a surgical emergency (risk of tamponade, aortic regurgitation, coronary/cerebral malperfusion). Type B is descending only (distal to left subclavian) and is usually managed medically with strict BP/HR control (e.g. IV labetalol) unless complicated."
+      },
+      {
+        "id": "ct_ca_aorta_fc_03",
+        "front": "What are the CT features of an aortic dissection?",
+        "back": "An intimal flap separating a true lumen from a false lumen; the false lumen arises from an intimal tear and typically fills/opacifies more slowly than the true lumen."
+      },
+      {
+        "id": "ct_ca_aorta_fc_04",
+        "front": "When should an unstable patient with a suspected ruptured AAA NOT have a CT aortogram?",
+        "back": "When they are haemodynamically unstable with a known/suspected ruptured AAA — they go straight to theatre. Do not delay for imaging. Only a stable patient gets an urgent CT aortogram to confirm and plan (EVAR vs open)."
+      },
+      {
+        "id": "ct_ca_aorta_fc_05",
+        "front": "Define AAA, the threshold for elective repair, and the UK screening programme.",
+        "back": "AAA = infrarenal aorta ≥3 cm. Elective repair usually considered around 5.5 cm, or if rapidly growing/symptomatic. UK screening: a one-off abdominal ultrasound for men at age 65."
+      }
     ]
   },
   "q": {
@@ -1571,6 +1648,143 @@
         "correctIndex": 1,
         "answer": "Refer via the urgent 2-week-wait symptomatic cancer pathway",
         "explanation": "She now has red-flag symptoms of possible lung cancer (haemoptysis, weight loss). Screening is for asymptomatic people; symptomatic patients must be referred on the urgent suspected-cancer (2-week-wait) pathway for prompt investigation, not left to routine screening intervals."
+      }
+    ],
+    "investigations__CT__Cardiac & Aorta": [
+      {
+        "id": "ct_ca_ctca_q01",
+        "type": "mcq",
+        "question": "A 58-year-old man reports a 3-month history of central chest tightness that comes on when walking uphill and settles within a few minutes of resting. He has no chest pain at rest. His resting ECG is normal. According to current NICE guidance, what is the most appropriate first-line investigation?",
+        "options": [
+          "Exercise tolerance (treadmill) ECG",
+          "CT coronary angiography (CTCA)",
+          "Invasive coronary angiography",
+          "Myocardial perfusion (stress) SPECT",
+          "High-sensitivity troponin"
+        ],
+        "correctIndex": 1,
+        "answer": "CT coronary angiography (CTCA)",
+        "explanation": "This is stable exertional chest pain with features of typical/atypical angina. Updated NICE CG95 guidance makes CTCA the first-line investigation for stable chest pain of suspected coronary origin. Exercise ECG is no longer recommended as the first-line anatomical test, invasive angiography is reserved for cases where non-invasive testing is inconclusive or high-risk, functional imaging follows CTCA if obstructive disease is uncertain, and troponin is for suspected ACS, not stable chest pain."
+      },
+      {
+        "id": "ct_ca_ctca_q02",
+        "type": "mcq",
+        "question": "A 62-year-old woman with atypical exertional chest pain undergoes CTCA, which is reported as showing no coronary plaque and normal coronary arteries. Which statement best reflects the clinical value of this result?",
+        "options": [
+          "It confirms she has significant obstructive coronary artery disease",
+          "It effectively excludes significant obstructive coronary artery disease",
+          "It cannot comment on non-calcified plaque",
+          "It mandates invasive coronary angiography for confirmation",
+          "It has poor negative predictive value so must be repeated"
+        ],
+        "correctIndex": 1,
+        "answer": "It effectively excludes significant obstructive coronary artery disease",
+        "explanation": "CTCA has a very high negative predictive value, so a normal scan effectively rules out significant obstructive CAD and further cardiac testing is generally unnecessary. CTCA visualises both calcified and non-calcified plaque, so it does comment on soft plaque, and a normal result does not require confirmation by invasive angiography."
+      },
+      {
+        "id": "ct_ca_ctca_q03",
+        "type": "mcq",
+        "question": "A 55-year-old man presents to the emergency department with 40 minutes of severe crushing central chest pain radiating to the left arm, associated with sweating and nausea, that started at rest. What is the most appropriate immediate investigation pathway?",
+        "options": [
+          "Urgent CT coronary angiography",
+          "12-lead ECG and troponin, following the ACS pathway",
+          "Outpatient exercise tolerance test",
+          "Coronary artery calcium score",
+          "Reassure and arrange elective CTCA in clinic"
+        ],
+        "correctIndex": 1,
+        "answer": "12-lead ECG and troponin, following the ACS pathway",
+        "explanation": "This is an acute presentation suggestive of acute coronary syndrome, not stable chest pain. The correct pathway is immediate 12-lead ECG and troponin, with primary PCI for a STEMI. CTCA is a first-line test for STABLE chest pain and is not the primary investigation in suspected ACS; an elective/outpatient approach or calcium score would be unsafe in this acute setting."
+      },
+      {
+        "id": "ct_ca_calcium_q01",
+        "type": "mcq",
+        "question": "A 54-year-old asymptomatic man with a family history of early coronary disease has an uncertain calculated cardiovascular risk. His GP arranges a coronary artery calcium score, which returns an Agatston score of 0. What does this most appropriately indicate?",
+        "options": [
+          "He has obstructive coronary artery disease requiring angiography",
+          "He is at very low risk of a coronary event over the coming years",
+          "He definitely has no soft (non-calcified) plaque",
+          "He requires urgent troponin measurement",
+          "He should start dual antiplatelet therapy immediately"
+        ],
+        "correctIndex": 1,
+        "answer": "He is at very low risk of a coronary event over the coming years",
+        "explanation": "An Agatston score of 0 means no identifiable calcified plaque and carries a strong negative predictive value, indicating a very low risk of coronary events. It does not exclude soft plaque, and no acute or antiplatelet treatment is indicated in an asymptomatic patient."
+      },
+      {
+        "id": "ct_ca_calcium_q02",
+        "type": "mcq",
+        "question": "A 62-year-old woman is investigated for stable exertional chest pain. Her coronary artery calcium score is ≥400 (extensive calcification). Which statement best reflects the interpretation of this result?",
+        "options": [
+          "A high calcium score confirms a flow-limiting coronary stenosis",
+          "The score alone diagnoses acute coronary syndrome",
+          "She has a high atherosclerotic burden but obstruction should be assessed with CTCA or functional testing",
+          "Statin therapy should be stopped as the disease is fixed",
+          "The finding excludes the need for any further cardiac assessment"
+        ],
+        "correctIndex": 2,
+        "answer": "She has a high atherosclerotic burden but obstruction should be assessed with CTCA or functional testing",
+        "explanation": "A score ≥400 signifies extensive calcification and high risk, but calcium burden does not prove obstructive stenosis. Assessment of flow limitation requires CTCA (contrast, showing the lumen and soft plaque) or functional testing, alongside aggressive risk-factor and statin management."
+      },
+      {
+        "id": "ct_ca_calcium_q03",
+        "type": "mcq",
+        "question": "A 58-year-old man presents to the emergency department with acute, ongoing central chest pain and sweating. Which is the most appropriate immediate approach?",
+        "options": [
+          "Arrange a non-contrast coronary calcium score to guide management",
+          "Follow the ACS pathway with ECG and serial troponin",
+          "Reassure and discharge if a previous calcium score was 0",
+          "Perform calcium scoring before any blood tests",
+          "Start a statin and review in clinic in six weeks"
+        ],
+        "correctIndex": 1,
+        "answer": "Follow the ACS pathway with ECG and serial troponin",
+        "explanation": "A calcium score is a risk/burden marker, not a test for acute chest pain. Acute cardiac chest pain must be managed via the ACS pathway with ECG and troponin. A previous score of 0 does not exclude acute coronary syndrome and must not delay assessment."
+      },
+      {
+        "id": "ct_ca_aorta_q01",
+        "type": "mcq",
+        "question": "A 62-year-old hypertensive man presents with sudden severe tearing chest pain radiating to his back. His BP is 178/96 in the right arm and 132/74 in the left arm, and CXR shows a widened mediastinum. He is haemodynamically stable. What is the most appropriate next investigation?",
+        "options": [
+          "Transthoracic echocardiography",
+          "CT angiography of the aorta (CT aortogram)",
+          "D-dimer",
+          "Coronary angiography",
+          "Ventilation-perfusion scan"
+        ],
+        "correctIndex": 1,
+        "answer": "CT angiography of the aorta (CT aortogram)",
+        "explanation": "Tearing pain, an inter-arm BP differential and a wide mediastinum strongly suggest aortic dissection. In a stable patient, CT aortogram is the definitive test — it demonstrates the intimal flap and false lumen and defines Stanford type to guide management. Echo may help but is not definitive for the whole aorta; D-dimer cannot exclude it reliably; coronary angiography and V/Q address other diagnoses."
+      },
+      {
+        "id": "ct_ca_aorta_q02",
+        "type": "mcq",
+        "question": "A CT aortogram in a 58-year-old woman with Marfan syndrome shows an intimal flap involving the ascending aorta and extending into the arch. She is in severe pain with a new early diastolic murmur. What is the most appropriate management?",
+        "options": [
+          "IV labetalol and medical management alone",
+          "Urgent cardiothoracic surgical repair",
+          "Discharge with outpatient follow-up",
+          "Thrombolysis",
+          "Oral bisoprolol and repeat CT in 6 weeks"
+        ],
+        "correctIndex": 1,
+        "answer": "Urgent cardiothoracic surgical repair",
+        "explanation": "Ascending aortic involvement makes this a Stanford Type A dissection, which is a surgical emergency (risk of tamponade, aortic regurgitation — hence the diastolic murmur — and malperfusion). It requires urgent cardiothoracic surgery. BP control is supportive but is not sufficient alone; thrombolysis would be dangerous."
+      },
+      {
+        "id": "ct_ca_aorta_q03",
+        "type": "mcq",
+        "question": "A 74-year-old man collapses with sudden severe abdominal and back pain. He has a pulsatile abdominal mass, is pale and sweaty, with BP 78/44 and HR 122. He has a known 6 cm AAA. What is the most appropriate immediate action?",
+        "options": [
+          "Urgent CT aortogram before any intervention",
+          "Immediate transfer to theatre for surgery",
+          "Abdominal ultrasound in the emergency department",
+          "IV labetalol to lower blood pressure",
+          "CT of the head to exclude other causes"
+        ],
+        "correctIndex": 1,
+        "answer": "Immediate transfer to theatre for surgery",
+        "explanation": "This is a ruptured AAA in a haemodynamically unstable patient — pain, pulsatile mass and hypotension. He must go straight to theatre; imaging must not delay definitive surgery. CT aortogram is reserved for the stable patient to plan EVAR vs open repair. Aggressive BP lowering could worsen perfusion, and permissive hypotension is preferred pre-operatively."
       }
     ]
   }
