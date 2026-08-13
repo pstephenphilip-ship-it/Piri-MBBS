@@ -22232,11 +22232,14 @@ function hideFlyout(p) {
     portalEnabled: false, // set true once the billing-portal function is deployed
     plans: [
       { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
-        billedNote:"Billed £8.99 each month",       paymentLink:"", priceId:"" },
+        billedNote:"Billed £8.99 each month",
+        paymentLink:"https://buy.stripe.com/test_fZu8wR5X02hg1aigvHfnO02", priceId:"price_1U3uvGQTJPtbsLrNB4U5URdK" },
       { key:"quarterly", label:"3 months", amount:20.00, period:"3 months", perMonth:6.67,
-        billedNote:"Billed £20 every 3 months",     paymentLink:"", priceId:"", tag:"Save ~26%" },
+        billedNote:"Billed £20 every 3 months", tag:"Save ~26%",
+        paymentLink:"https://buy.stripe.com/test_aFa28tclo6xw5qygvHfnO01", priceId:"price_1U3ux2QTJPtbsLrNMj37ox4Q" },
       { key:"yearly",    label:"Yearly",   amount:60.00, period:"year",     perMonth:5.00,
-        billedNote:"Billed £60 every 12 months",    paymentLink:"", priceId:"", tag:"Best value · Save ~44%", highlight:true }
+        billedNote:"Billed £60 every 12 months", tag:"Best value · Save ~44%", highlight:true,
+        paymentLink:"https://buy.stripe.com/test_5kQ28tetw8FE9GOdjvfnO00", priceId:"price_1U3ux2QTJPtbsLrNHHPK5d7W" }
     ]
   };
   var cfg=window.__PIRI_BILLING;
@@ -22275,7 +22278,21 @@ function hideFlyout(p) {
   function plans(){ return cfg.plans || []; }
   function planByKey(k){ return plans().filter(function(p){ return p.key===k; })[0] || null; }
   function planByPriceId(pid){ return plans().filter(function(p){ return p.priceId && p.priceId===pid; })[0] || null; }
-  function livePlans(){ return plans().filter(function(p){ return !!p.paymentLink; }); }
+  function isTestLink(u){ return /\/test_/.test(u||''); }
+  // Test Payment Links (buy.stripe.com/test_...) are only exposed when the
+  // owner opts in with ?billing=test (sticky on that device) — so real
+  // visitors never see a test checkout in production. Live links always show.
+  function billingTestOn(){
+    try{
+      if(/[?&]billing=test\b/.test(location.search)){ localStorage.setItem('da-billing-test','1'); return true; }
+      if(/[?&]billing=off\b/.test(location.search)){ localStorage.removeItem('da-billing-test'); return false; }
+      return localStorage.getItem('da-billing-test')==='1';
+    }catch(e){ return false; }
+  }
+  function livePlans(){
+    var test = billingTestOn();
+    return plans().filter(function(p){ return p.paymentLink && (test || !isTestLink(p.paymentLink)); });
+  }
   function money(n){ return (cfg.currency||'£') + Number(n).toFixed(2); }
 
   function startCheckout(planKey){
