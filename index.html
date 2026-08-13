@@ -22203,6 +22203,19 @@ function hideFlyout(p) {
 </script>
 
 <!-- ===== Membership / Stripe billing ===== -->
+<style>
+.da-plan-lead{font-size:12.5px;color:var(--muted,#6B7280);margin:12px 0 14px;line-height:1.55;}
+.da-plan-grid{display:flex;flex-direction:column;gap:12px;}
+.da-plan{position:relative;border:1px solid var(--border,#1c2030);background:var(--surface2,#1a1e2c);border-radius:12px;padding:16px 16px 14px;}
+.da-plan-best{border-color:var(--accent,#00C2A8);box-shadow:0 0 0 1px var(--accent,#00C2A8);}
+.da-plan-tag{position:absolute;top:-10px;right:14px;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);color:#04121a;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:.2px;white-space:nowrap;}
+.da-plan-name{font-size:13px;font-weight:700;color:var(--text,#E8EAF0);}
+.da-plan-price{font-size:24px;font-weight:800;color:var(--text,#E8EAF0);margin-top:3px;line-height:1.1;}
+.da-plan-per{font-size:13px;font-weight:600;color:var(--muted,#6B7280);}
+.da-plan-permo{font-size:12px;font-weight:700;color:var(--accent,#00C2A8);margin-top:3px;}
+.da-plan-note{font-size:11.5px;color:var(--muted,#6B7280);margin-top:4px;}
+.da-plan-btn{margin-top:12px;}
+</style>
 <script>
 (function(){
   // --- Configuration -------------------------------------------------------
@@ -22210,10 +22223,21 @@ function hideFlyout(p) {
   // deploying the Supabase functions (see STRIPE_SETUP.md). While blank, the
   // panel shows a friendly "coming soon" state and nothing else changes.
   window.__PIRI_BILLING = window.__PIRI_BILLING || {
-    paymentLink:  "",  // e.g. "https://buy.stripe.com/xxxxxxxx"  (empty = not live yet)
-    priceLabel:   "Premium",
-    functionsBase:"https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
-    portalEnabled:false // set true once the billing-portal function is deployed
+    // Fill in each plan's Stripe Payment Link (and priceId) AFTER creating the
+    // three recurring prices in Stripe — see STRIPE_SETUP.md. While every
+    // paymentLink is blank the panel shows a friendly "coming soon" state, so
+    // the app is safe to ship at any point during setup.
+    currency:      "£",
+    functionsBase: "https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
+    portalEnabled: false, // set true once the billing-portal function is deployed
+    plans: [
+      { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
+        billedNote:"Billed £8.99 each month",       paymentLink:"", priceId:"" },
+      { key:"quarterly", label:"3 months", amount:20.00, period:"3 months", perMonth:6.67,
+        billedNote:"Billed £20 every 3 months",     paymentLink:"", priceId:"", tag:"Save ~26%" },
+      { key:"yearly",    label:"Yearly",   amount:60.00, period:"year",     perMonth:5.00,
+        billedNote:"Billed £60 every 12 months",    paymentLink:"", priceId:"", tag:"Best value · Save ~44%", highlight:true }
+    ]
   };
   var cfg=window.__PIRI_BILLING;
   var sb=window.__sb;
@@ -22248,10 +22272,17 @@ function hideFlyout(p) {
   window.__loadMembership = loadMembership;
 
   // --- Actions -------------------------------------------------------------
-  function startCheckout(){
-    if(!cfg.paymentLink || !_user) return;
-    var url = cfg.paymentLink
-      + (cfg.paymentLink.indexOf('?')>-1?'&':'?')
+  function plans(){ return cfg.plans || []; }
+  function planByKey(k){ return plans().filter(function(p){ return p.key===k; })[0] || null; }
+  function planByPriceId(pid){ return plans().filter(function(p){ return p.priceId && p.priceId===pid; })[0] || null; }
+  function livePlans(){ return plans().filter(function(p){ return !!p.paymentLink; }); }
+  function money(n){ return (cfg.currency||'£') + Number(n).toFixed(2); }
+
+  function startCheckout(planKey){
+    var plan = planByKey(planKey);
+    if(!plan || !plan.paymentLink || !_user) return;
+    var url = plan.paymentLink
+      + (plan.paymentLink.indexOf('?')>-1?'&':'?')
       + 'client_reference_id=' + encodeURIComponent(_user.id)
       + '&prefilled_email=' + encodeURIComponent(_user.email||'');
     window.location.href = url;
@@ -22271,9 +22302,23 @@ function hideFlyout(p) {
   // --- Panel rendering -----------------------------------------------------
   function fmtDate(iso){ if(!iso) return ''; try{ var d=new Date(iso); return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); }catch(e){ return ''; } }
 
+  function memberPlanLabel(){
+    var pid = window.__membership && window.__membership.plan;
+    var p = pid ? planByPriceId(pid) : null;
+    return p ? p.label : 'Premium';
+  }
+  function planCardHTML(p){
+    return '<div class="da-plan'+(p.highlight?' da-plan-best':'')+'">'+
+      (p.tag ? '<div class="da-plan-tag">'+p.tag+'</div>' : '')+
+      '<div class="da-plan-name">'+p.label+'</div>'+
+      '<div class="da-plan-price">'+money(p.amount)+'<span class="da-plan-per"> / '+p.period+'</span></div>'+
+      '<div class="da-plan-permo">'+money(p.perMonth)+' / month</div>'+
+      '<div class="da-plan-note">'+p.billedNote+'</div>'+
+      '<button class="auth-submit da-plan-btn" data-plan="'+p.key+'">Choose '+p.label+'</button>'+
+    '</div>';
+  }
   function renderMembershipBody(){
     var body=$('da-membership-body'); if(!body) return;
-    var configured = !!cfg.paymentLink;
 
     // Signed out.
     if(!_user){
@@ -22284,7 +22329,7 @@ function hideFlyout(p) {
     // Active member.
     if(window.__isMember()){
       var until=fmtDate(window.__membership.current_period_end);
-      body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">'+ (cfg.priceLabel||'Premium') +'</span></div>'+
+      body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">'+ memberPlanLabel() +'</span></div>'+
         (until?('<div class="da-set-row"><div>Renews / ends<div class="da-set-muted">'+until+'</div></div></div>'):'')+
         (cfg.portalEnabled
           ? '<button class="auth-submit" id="da-portal-btn" style="margin-top:16px;">Manage subscription</button>'
@@ -22293,11 +22338,13 @@ function hideFlyout(p) {
       return;
     }
     // Signed in, not a member.
-    if(configured){
+    var live = livePlans();
+    if(live.length){
       body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
-        '<div class="da-set-muted" style="margin:12px 0 4px;">Unlock everything with '+ (cfg.priceLabel||'Premium') +'.</div>'+
-        '<button class="auth-submit" id="da-upgrade-btn" style="margin-top:12px;">Upgrade</button>';
-      var ub=$('da-upgrade-btn'); if(ub) ub.onclick=startCheckout;
+        '<div class="da-plan-lead">Unlock flashcards, MCQs, spaced-repetition review and calculator case practice. Choose a plan:</div>'+
+        '<div class="da-plan-grid">'+ live.map(planCardHTML).join('') +'</div>'+
+        '<div class="da-set-muted" style="margin-top:12px;">Secure checkout by Stripe · cancel anytime.</div>';
+      body.querySelectorAll('.da-plan-btn').forEach(function(b){ b.onclick=function(){ startCheckout(b.getAttribute('data-plan')); }; });
     } else {
       body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
         '<div class="da-set-row"><div>Manage subscription</div><span class="da-soon">Soon</span></div>'+
