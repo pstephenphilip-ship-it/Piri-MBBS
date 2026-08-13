@@ -21737,12 +21737,21 @@ function hideFlyout(p) {
     // `membership` value other than 'free'). Comp/automatic memberships are just this
     // flag set manually in Supabase; a future payment webhook sets it for paid users.
     function applyMembership(){
-      var isMember = !!(profile && (profile.is_member===true || (profile.membership && String(profile.membership).toLowerCase()!=='free')));
+      var profileFlag = !!(profile && (profile.is_member===true || (profile.membership && String(profile.membership).toLowerCase()!=='free')));
+      // Paid members come through Stripe -> the `memberships` table -> __isMember().
+      // Comp/manual members are flagged on the profile. Either grants access.
+      var stripeActive = !!(window.__isMember && window.__isMember());
+      var isMember = profileFlag || stripeActive;
       var was; try{ was = localStorage.getItem('da-member')==='1'; }catch(e){ was=false; }
+      // Don't DROP access before the Stripe membership has finished loading — the
+      // paid flag lives in a separate table loaded asynchronously, so downgrading
+      // on the profile alone would cause a reload loop right after checkout.
+      if(!isMember && was && !window.__membershipLoaded){ window.__member=true; return; }
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
       if(isMember!==was){ try{ location.reload(); }catch(e){} }
     }
+    window.__applyMembership = applyMembership;
     function clearMembership(){ try{ localStorage.setItem('da-member','0'); }catch(e){} window.__member=false; }
     sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); }); else { clearMembership(); } });
     sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); }); else { profile=null; clearMembership(); } });
@@ -22255,12 +22264,18 @@ function hideFlyout(p) {
   var _user=null;
   function currentUser(){ return _user; }
 
+  // Once the Stripe membership has loaded, re-sync the content gate (window.__member)
+  // so a paid membership in the `memberships` table actually unlocks the app.
+  function bridgeMembership(){
+    window.__membershipLoaded = true;
+    if(window.__applyMembership) window.__applyMembership();
+  }
   function loadMembership(){
-    if(!sb){ window.__membership=null; return Promise.resolve(); }
+    if(!sb){ window.__membership=null; bridgeMembership(); return Promise.resolve(); }
     return sb.auth.getSession().then(function(res){
       var s=res&&res.data?res.data.session:null;
       _user = s?s.user:null;
-      if(!_user){ window.__membership=null; refreshPanel(); return; }
+      if(!_user){ window.__membership=null; bridgeMembership(); refreshPanel(); return; }
       // memberships table may not exist yet -> treat any error as "free".
       return sb.from('memberships').select('status,plan,current_period_end').eq('user_id',_user.id).maybeSingle()
         .then(function(r){
@@ -22269,8 +22284,8 @@ function hideFlyout(p) {
           window.__membership = active ? { active:true, plan:row.plan||null, current_period_end:row.current_period_end||null } : null;
         })
         .catch(function(){ window.__membership=null; })
-        .then(refreshPanel);
-    }).catch(function(){ window.__membership=null; });
+        .then(function(){ bridgeMembership(); refreshPanel(); });
+    }).catch(function(){ window.__membership=null; bridgeMembership(); });
   }
   window.__loadMembership = loadMembership;
 
