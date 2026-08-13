@@ -112,6 +112,18 @@ window.__PIRI_BILLING = {
   point during setup. You can also go live with only some plans filled in; only
   plans that have a `paymentLink` are shown.
 
+### Test links vs live links (safety gate)
+
+A **test** Payment Link (`https://buy.stripe.com/test_…`) is only shown when you
+opt in by visiting the site with **`?billing=test`** on the URL once (it then
+sticks on that device via localStorage; clear it with `?billing=off`). Real
+visitors never see a test checkout in production. **Live** links
+(`https://buy.stripe.com/…`, no `test_`) are shown to everyone normally.
+
+So the flow is: paste your **test** links now → test on the real site with
+`?billing=test` → once verified, replace them with the **live** links, which go
+live for all users automatically.
+
 **Give me the three Payment Link URLs (and Price IDs) and I'll plug them in + verify the flow.**
 
 ---
