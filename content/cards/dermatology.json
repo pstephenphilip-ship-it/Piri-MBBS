@@ -5202,6 +5202,56 @@
 "id": "breslow_fc_05",
 "front": "Besides Breslow thickness, name key features reported on a melanoma histology report.",
 "back": "Ulceration, mitotic rate, excision margins, lymphovascular and perineural invasion, microsatellites, regression, and histological subtype (e.g. superficial spreading, nodular). Clark level is now largely superseded by Breslow. Sentinel lymph node biopsy is considered for intermediate-thickness disease (Breslow >0.8–1 mm)."
+},
+{
+"id": "slnb_fc_01",
+"front": "What is the purpose of sentinel lymph node biopsy (SLNB) in melanoma?",
+"back": "It is a STAGING/prognostic procedure that samples the first lymph node(s) draining the primary melanoma to detect subclinical (micro-)metastasis. It is not primarily therapeutic — a positive result upstages disease, refines prognosis and guides surveillance/adjuvant therapy."
+},
+{
+"id": "slnb_fc_02",
+"front": "How is the sentinel node localised during SLNB?",
+"back": "Triple technique: technetium-99m radiolabelled colloid injected around the primary with pre-operative lymphoscintigraphy, plus intra-operative patent blue dye and a hand-held gamma probe. The 'hot and blue' node(s) are excised for histology."
+},
+{
+"id": "slnb_fc_03",
+"front": "Which melanoma patients are offered SLNB?",
+"back": "Clinically and radiologically NODE-NEGATIVE patients with intermediate-thickness melanoma (Breslow >0.8–1.0 mm), or thinner melanomas with adverse features such as ulceration or high mitotic rate. It is NOT offered when nodes are clinically palpable or biopsy-proven."
+},
+{
+"id": "slnb_fc_04",
+"front": "After a positive SLNB, is immediate completion lymph node dissection required?",
+"back": "No — since MSLT-II, routine immediate completion dissection is no longer recommended. Active nodal ultrasound surveillance is preferred, with therapeutic dissection reserved for nodal progression. A positive SLNB also guides adjuvant immunotherapy / BRAF-MEK targeted therapy."
+},
+{
+"id": "slnb_fc_05",
+"front": "In which other common cancer is the sentinel node principle used for staging?",
+"back": "Breast cancer — sentinel lymph node biopsy of the axilla is used to stage the clinically node-negative axilla, using the same tracer/blue-dye principle."
+},
+{
+"id": "abpi_fc_01",
+"front": "What does ABPI measure and how is it calculated?",
+"back": "The Ankle-Brachial Pressure Index = highest ankle systolic pressure divided by highest brachial (arm) systolic pressure, measured with a sphygmomanometer and a hand-held Doppler probe."
+},
+{
+"id": "abpi_fc_02",
+"front": "Why must ABPI be measured before compression bandaging a leg ulcer?",
+"back": "To exclude significant peripheral arterial disease. Applying compression to an ischaemic/arterial limb can cause tissue necrosis."
+},
+{
+"id": "abpi_fc_03",
+"front": "What ABPI value is the practical threshold for safe high compression, and what does a value below it mean?",
+"back": "ABPI >=0.8 (no other contraindication) is suitable for full high compression. ABPI <0.8 indicates an arterial component - obtain vascular input before any compression; mixed ulcers need specialist-guided reduced compression."
+},
+{
+"id": "abpi_fc_04",
+"front": "An ABPI of >1.3 in a diabetic patient - how do you interpret it?",
+"back": "Falsely elevated due to calcified, incompressible arteries (also seen in CKD). The result is unreliable - do not assume the limb is safe. Consider toe pressures/TBPI or duplex and seek vascular assessment."
+},
+{
+"id": "abpi_fc_05",
+"front": "What ABPI value signals critical limb ischaemia and requires urgent referral?",
+"back": "ABPI <0.5 = severe PAD / critical limb ischaemia. Do NOT apply compression; arrange urgent vascular referral."
 }
 ]
 },
@@ -16768,6 +16818,96 @@
 "correctIndex": 2,
 "answer": "1–2 cm",
 "explanation": "WLE margins are guided by Breslow thickness (approximate values): melanoma in situ ~0.5 cm, <1 mm ~1 cm, 1–2 mm ~1–2 cm, and >2 mm ~2 cm. A 1.6 mm melanoma therefore warrants an approximate 1–2 cm margin. No further excision would leave inadequate clearance, 0.5 cm is for in situ disease, and 4 cm or amputation are excessive."
+},
+{
+"id": "slnb_q01",
+"type": "mcq",
+"question": "A 52-year-old man has a melanoma excised from his back. Histology shows a Breslow thickness of 1.6 mm with no ulceration. Examination of the regional nodal basins is normal and nodal ultrasound is negative. What is the main purpose of offering him a sentinel lymph node biopsy?",
+"options": [
+"To surgically clear all involved nodes and improve overall survival",
+"To stage the disease by detecting subclinical nodal micrometastasis",
+"To obtain tissue to confirm the primary diagnosis of melanoma",
+"To directly treat established palpable nodal metastases",
+"To screen for distant visceral metastases"
+],
+"correctIndex": 1,
+"answer": "To stage the disease by detecting subclinical nodal micrometastasis",
+"explanation": "SLNB is a staging/prognostic procedure in clinically node-negative intermediate-thickness melanoma (Breslow >0.8–1.0 mm). It samples the first draining node to detect micrometastasis and refine prognosis; it is not itself therapeutic, does not establish the primary diagnosis (that is the excisional biopsy), and does not detect distant disease."
+},
+{
+"id": "slnb_q02",
+"type": "mcq",
+"question": "A patient with a newly diagnosed melanoma is due to have a sentinel lymph node biopsy. Which combination of methods is used to localise the sentinel node?",
+"options": [
+"Contrast-enhanced CT plus fine-needle aspiration",
+"Technetium-99m colloid with lymphoscintigraphy, patent blue dye and a gamma probe",
+"Whole-body PET-CT followed by open node dissection",
+"Palpation alone with excision of the largest node",
+"MRI lymphangiography and methylene blue tattoo"
+],
+"correctIndex": 1,
+"answer": "Technetium-99m colloid with lymphoscintigraphy, patent blue dye and a gamma probe",
+"explanation": "The sentinel node is localised using a radiolabelled tracer (technetium-99m colloid) with pre-operative lymphoscintigraphy, intra-operative patent blue dye, and an intra-operative hand-held gamma probe. The 'hot and blue' node(s) are then excised for histology."
+},
+{
+"id": "slnb_q03",
+"type": "mcq",
+"question": "A 60-year-old woman with a previously excised melanoma is found to have a firm, palpable, biopsy-proven metastatic lymph node in the ipsilateral groin. What is the most appropriate next step?",
+"options": [
+"Sentinel lymph node biopsy at the primary site",
+"Cross-sectional staging imaging and therapeutic lymph node dissection",
+"Repeat wide local excision of the scar only",
+"Lymphoscintigraphy with blue dye mapping",
+"Reassurance and routine clinical follow-up"
+],
+"correctIndex": 1,
+"answer": "Cross-sectional staging imaging and therapeutic lymph node dissection",
+"explanation": "SLNB is only for clinically and radiologically node-negative patients. Clinically palpable or biopsy-proven nodal disease is beyond the remit of SLNB — the patient needs staging imaging (CT/PET) and a therapeutic lymph node dissection, with consideration of systemic/adjuvant therapy."
+},
+{
+"id": "abpi_q01",
+"type": "mcq",
+"question": "A 68-year-old woman has a shallow, exudative ulcer over the medial malleolus with surrounding haemosiderin staining, consistent with a venous ulcer. Before starting treatment, which investigation is essential?",
+"options": [
+"Immediate application of four-layer compression bandaging",
+"Ankle-brachial pressure index (ABPI) with a hand-held Doppler",
+"Punch biopsy of the ulcer edge",
+"Plain radiograph of the ankle",
+"Random blood glucose only"
+],
+"correctIndex": 1,
+"answer": "Ankle-brachial pressure index (ABPI) with a hand-held Doppler",
+"explanation": "ABPI must be measured before compression to exclude significant PAD, because compressing an ischaemic limb can cause necrosis. Compression should not be applied until arterial disease is excluded (ABPI >=0.8)."
+},
+{
+"id": "abpi_q02",
+"type": "mcq",
+"question": "A patient with a venous-appearing leg ulcer has an ABPI of 0.6. What is the most appropriate management regarding compression?",
+"options": [
+"Apply full high compression immediately",
+"Withhold compression and obtain vascular input before any compression",
+"Apply compression only at night",
+"Double the compression to overcome the arterial disease",
+"Reassure and discharge with no follow-up"
+],
+"correctIndex": 1,
+"answer": "Withhold compression and obtain vascular input before any compression",
+"explanation": "ABPI <0.8 indicates a significant arterial component. Full high compression is unsafe; the patient needs vascular assessment, and any compression (reduced/modified) should only be under specialist guidance."
+},
+{
+"id": "abpi_q03",
+"type": "mcq",
+"question": "A 72-year-old man with type 2 diabetes and CKD has a leg ulcer and an ABPI of 1.4. Which statement is correct?",
+"options": [
+"The high value confirms the limb is well perfused and safe for compression",
+"The value is likely falsely elevated by calcified vessels and is unreliable",
+"This confirms severe arterial disease requiring amputation",
+"Compression should be applied at maximal pressure",
+"The Doppler machine is faulty and no further action is needed"
+],
+"correctIndex": 1,
+"answer": "The value is likely falsely elevated by calcified vessels and is unreliable",
+"explanation": "In diabetes and CKD, arterial calcification makes vessels incompressible, giving a falsely high ABPI (>1.3). The result cannot be trusted to indicate a safe limb; consider toe pressures/TBPI or duplex and seek vascular assessment."
 }
 ]
 }
