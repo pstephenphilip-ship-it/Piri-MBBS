@@ -22,14 +22,30 @@ This creates `public.memberships` with row-level security so a user can read
 **only their own** row and can **never** write it — only the webhook (service
 role) can grant membership.
 
-## 2. Stripe product + Payment Link
+## 2. Stripe product + three prices + three Payment Links
 
-1. Stripe Dashboard → **Product catalog** → add a product (e.g. "DoctoRise
-   Premium"), with a **recurring price** (monthly and/or yearly).
-2. **Payment Links** → create a link for that price.
-   - Under **After payment**, set a confirmation/redirect back to
-     `https://doctorise.co.uk` (or your domain).
-3. Copy the link URL — looks like `https://buy.stripe.com/xxxxxxxx`.
+Create **one product** ("DoctoRise Premium") with **three recurring prices**,
+then a Payment Link for each. All prices are GBP (£).
+
+| Plan      | Amount  | Billing period          | Works out as |
+|-----------|---------|-------------------------|--------------|
+| Monthly   | £8.99   | every **1 month**       | £8.99/mo     |
+| 3 months  | £20.00  | every **3 months**      | ≈£6.67/mo    |
+| Yearly    | £60.00  | every **12 months**     | £5.00/mo     |
+
+1. Stripe Dashboard → **Product catalog** → add product "DoctoRise Premium".
+2. Add **three recurring prices** to that product:
+   - £8.99 / month
+   - £20.00 every 3 months (set the billing period to "3 months")
+   - £60.00 / year
+3. For **each** price, copy its **Price ID** (`price_...`) — you'll paste these
+   into the config so the app shows the right plan name.
+4. **Payment Links** → create one link **per price** (three links total).
+   - Under **After payment**, redirect back to `https://doctorise.co.uk`.
+5. Copy the three link URLs — each looks like `https://buy.stripe.com/xxxxxxxx`.
+
+> The `stripe-webhook` function records whichever price the customer bought, so
+> it needs **no changes** for multiple tiers — it works for any number of prices.
 
 ## 3. Deploy the functions
 
@@ -65,29 +81,45 @@ provided automatically to Edge Functions.
 
 ## 5. Turn it on in the app
 
-Edit the config block in `index.html` (search for `__PIRI_BILLING`):
+Edit the config block in `index.html` (search for `__PIRI_BILLING`). Paste each
+plan's **Payment Link** into `paymentLink` and its **Price ID** into `priceId`:
 
 ```js
 window.__PIRI_BILLING = {
-  paymentLink:  "https://buy.stripe.com/xxxxxxxx",  // from step 2
-  priceLabel:   "Premium",
-  functionsBase:"https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
-  portalEnabled:true   // true only if you deployed billing-portal in step 3
+  currency:      "£",
+  functionsBase: "https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
+  portalEnabled: true,   // true only if you deployed billing-portal in step 3
+  plans: [
+    { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
+      billedNote:"Billed £8.99 each month",
+      paymentLink:"https://buy.stripe.com/AAAA",  priceId:"price_monthly_id" },
+    { key:"quarterly", label:"3 months", amount:20.00, period:"3 months", perMonth:6.67,
+      billedNote:"Billed £20 every 3 months", tag:"Save ~26%",
+      paymentLink:"https://buy.stripe.com/BBBB",  priceId:"price_quarterly_id" },
+    { key:"yearly",    label:"Yearly",   amount:60.00, period:"year",     perMonth:5.00,
+      billedNote:"Billed £60 every 12 months", tag:"Best value · Save ~44%", highlight:true,
+      paymentLink:"https://buy.stripe.com/CCCC",  priceId:"price_yearly_id" }
+  ]
 };
 ```
 
-Until `paymentLink` is filled in, the Membership panel just shows
-"Premium plans & billing are coming soon." — so the app is safe to ship at any
-point during setup.
+- `paymentLink` — where the "Choose <plan>" button sends the user (required for
+  a plan to appear). `priceId` — used to display the correct plan name on an
+  active member's panel (optional but recommended).
+- The **Membership** tab in Settings shows the three pricing cards to signed-in
+  non-members. Until **every** `paymentLink` is blank the panel just shows
+  "Premium plans & billing are coming soon." — so the app is safe to ship at any
+  point during setup. You can also go live with only some plans filled in; only
+  plans that have a `paymentLink` are shown.
 
-**Give me the Payment Link URL and I'll plug it in + verify the flow.**
+**Give me the three Payment Link URLs (and Price IDs) and I'll plug them in + verify the flow.**
 
 ---
 
 ## How it flows
 
-1. Signed-in user clicks **Upgrade** → sent to the Payment Link with their
-   Supabase user id as `client_reference_id`.
+1. Signed-in user picks a plan (**Monthly / 3 months / Yearly**) → sent to that
+   plan's Payment Link with their Supabase user id as `client_reference_id`.
 2. They pay on Stripe's hosted page.
 3. Stripe calls `stripe-webhook` → it upserts their `memberships` row to
    `status = active`.
