@@ -21143,7 +21143,7 @@ function hideFlyout(p) {
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
-    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ location.reload(); } }); }
+    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})(); } }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
@@ -21214,6 +21214,17 @@ function hideFlyout(p) {
     }catch(e){ return false; }
   }
   window.__authed = readStoredAuthed();
+  // Coalesce the several independent "reload after login" triggers (auth-state
+  // change, membership resolution, progress sync) into a SINGLE delayed reload,
+  // so signing in doesn't flash the page multiple times. The short delay lets
+  // auth + profile + membership + sync all settle before the one reload; each
+  // trigger persists its state first, so the reloaded page is stable and no
+  // further reload is requested.
+  window.__scheduleReload = window.__scheduleReload || function(){
+    if(window.__reloadScheduled) return;
+    window.__reloadScheduled = true;
+    setTimeout(function(){ try{ location.reload(); }catch(e){} }, 500);
+  };
   // Full-access members (paid membership OR a comp/automatic membership set on the
   // account's Supabase profile). Cached so the gate resolves synchronously on load;
   // the accounts layer refreshes this from the profile and reloads if it changed.
@@ -21488,7 +21499,7 @@ function hideFlyout(p) {
   };
 
   var prevAuthed = window.__authed;
-  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; location.reload(); } }); }catch(e){} }
+  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload(); } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
   // Load this account's server-side day-pass unlocks once the session is restored.
@@ -21750,7 +21761,7 @@ function hideFlyout(p) {
       if(!isMember && was && !window.__membershipLoaded){ window.__member=true; return; }
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
-      if(isMember!==was){ try{ location.reload(); }catch(e){} }
+      if(isMember!==was){ window.__scheduleReload(); }
     }
     window.__applyMembership = applyMembership;
     function clearMembership(){ try{ localStorage.setItem('da-member','0'); }catch(e){} window.__member=false; }
