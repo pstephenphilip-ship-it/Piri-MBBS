@@ -17755,7 +17755,11 @@ initTab('conditions');
     var norm='', map=[], lastSpace=true, n;
     while(n=walker.nextNode()){
       if(!n.nodeValue) continue;
-      if(n.parentElement && n.parentElement.closest && n.parentElement.closest('.annot-highlight')) continue;
+      // Skip CSS/JS text inside <style>/<script> — otherwise a word that also
+      // appears in the note's inline stylesheet matches there first and the
+      // highlight <mark> gets wrapped inside <style> (0×0, never rendered).
+      // Also skip already-highlighted text. (Mirrors the drug-linker's SKIP_ELEM.)
+      if(n.parentElement && n.parentElement.closest && n.parentElement.closest('style,script,.annot-highlight')) continue;
       var v=n.nodeValue;
       for(var i=0;i<v.length;i++){
         var c=v[i];
