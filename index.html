@@ -20452,7 +20452,7 @@ function calcRenderCases(id){
     var ov=cardEl.querySelector('.calc-cases-lockover');
     if(!ov){
       ov=document.createElement('div'); ov.className='calc-cases-lockover';
-      ov.innerHTML='<div class="calc-cases-lockcard"><div style="font-size:30px">🔒</div><div class="calc-cases-locktitle">Case practice is a premium feature</div><div class="calc-cases-locksub">Work through case-based calculation practice with membership. The calculator itself stays free.</div></div>';
+      ov.innerHTML='<div class="calc-cases-lockcard"><div style="font-size:30px">🔒</div><div class="calc-cases-locktitle">Case practice is a premium feature</div><div class="calc-cases-locksub">Work through case-based calculation practice with membership. The calculator itself stays free.</div><div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
       ov.addEventListener('click',function(e){ if(e.target===ov){ ov.style.display='none'; host.classList.remove('calc-cases-blurred'); } });
       cardEl.appendChild(ov);
     }
@@ -21401,7 +21401,8 @@ function hideFlyout(p) {
     if(!ov){ ov=document.createElement('div'); ov.id='da-study-blur-'+p; ov.className='da-study-blur'; area.appendChild(ov); }
     ov.innerHTML='<div class="da-study-blur-card"><div style="font-size:38px;margin-bottom:10px;">🔒</div>'
       +'<div class="da-study-blur-title">'+label+' are a premium feature</div>'
-      +'<div class="da-study-blur-sub">Interactive '+sub+' aren’t part of the free tier — full access is coming with membership.<br>Notes stay free on the topics available to you.</div></div>';
+      +'<div class="da-study-blur-sub">Interactive '+sub+' aren’t part of the free tier — full access is coming with membership.<br>Notes stay free on the topics available to you.</div>'
+      +'<div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
     ov.style.display='flex';
   }
 
@@ -21454,7 +21455,7 @@ function hideFlyout(p) {
     o.innerHTML='<div class="da-lock" style="margin:0;"><div class="da-lock-icon">🔒</div>'
       +'<div class="da-lock-title">'+label+' are a premium feature</div>'
       +'<div class="da-lock-sub">'+sub+'</div>'
-      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Got it</button></div>'
+      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Not now</button></div>'
       +'<div class="da-lock-foot">Notes stay free on the topics available to you.</div></div>';
     document.body.appendChild(o);
   };
@@ -21482,7 +21483,7 @@ function hideFlyout(p) {
     o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
       +'<div class="da-lock-title">Mock exams are a premium feature</div>'
       +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; is coming with membership.</div>'
-      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Got it</button></div></div>';
+      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Not now</button></div></div>';
     document.body.appendChild(o);
   };
 
@@ -22242,13 +22243,13 @@ function hideFlyout(p) {
     plans: [
       { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
         billedNote:"Billed £8.99 each month",
-        paymentLink:"https://buy.stripe.com/test_fZu8wR5X02hg1aigvHfnO02", priceId:"price_1U3uvGQTJPtbsLrNB4U5URdK" },
+        paymentLink:"https://buy.stripe.com/00wdRaem8ghf5ZJgTbaMU00", priceId:"price_1U3zzXKYP48oXmxAfJbKutkx" },
       { key:"quarterly", label:"3 months", amount:20.00, period:"3 months", perMonth:6.67,
         billedNote:"Billed £20 every 3 months", tag:"Save ~26%",
-        paymentLink:"https://buy.stripe.com/test_aFa28tclo6xw5qygvHfnO01", priceId:"price_1U3ux2QTJPtbsLrNMj37ox4Q" },
+        paymentLink:"https://buy.stripe.com/9B68wQ1zm2qp2NxauNaMU01", priceId:"price_1U3zzxKYP48oXmxA0zYPLIlb" },
       { key:"yearly",    label:"Yearly",   amount:60.00, period:"year",     perMonth:5.00,
         billedNote:"Billed £60 every 12 months", tag:"Best value · Save ~44%", highlight:true,
-        paymentLink:"https://buy.stripe.com/test_5kQ28tetw8FE9GOdjvfnO00", priceId:"price_1U3ux2QTJPtbsLrNHHPK5d7W" }
+        paymentLink:"https://buy.stripe.com/9B6eVe1zm6GF4VFauNaMU02", priceId:"price_1U400GKYP48oXmxAXPlzstij" }
     ]
   };
   var cfg=window.__PIRI_BILLING;
@@ -22391,6 +22392,15 @@ function hideFlyout(p) {
     if(typeof _openSettings==='function') _openSettings.apply(this, arguments);
     renderMembershipBody();
     loadMembership();
+  };
+
+  // Open Settings straight to the Membership pane (the pricing cards). Used by
+  // the "Upgrade" buttons on every premium lock screen.
+  window.__openMembership = function(){
+    if(window.__openSettings) window.__openSettings();
+    var ov=document.getElementById('da-settings-overlay'); if(!ov) return;
+    ov.querySelectorAll('.da-set-tab').forEach(function(x){ x.classList.toggle('active', x.getAttribute('data-pane')==='membership'); });
+    ov.querySelectorAll('.da-set-pane').forEach(function(p){ p.classList.toggle('active', p.id==='da-pane-membership'); });
   };
 
   // Keep status fresh as auth changes.
