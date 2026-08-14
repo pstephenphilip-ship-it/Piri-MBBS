@@ -21354,10 +21354,12 @@ function hideFlyout(p) {
     if (e) e.stopPropagation();
     var menu = $('accountMenu');
     if (menu) menu.classList.toggle('open');
+    if (window.__syncMemFab) window.__syncMemFab();   // hide/show the Get Membership button so it doesn't overlap the menu
   };
   function closeAccountMenu(){
     var menu = $('accountMenu');
     if (menu) menu.classList.remove('open');
+    if (window.__syncMemFab) window.__syncMemFab();
   }
   document.addEventListener('click', function(e){
     var menu = $('accountMenu');
@@ -21988,7 +21990,7 @@ function hideFlyout(p) {
     var sub=$('da-menu-email'); if(sub){ if(currentUser){ sub.textContent=currentUser.email||''; sub.style.display=''; } else sub.style.display='none'; }
   }
 
-  function closeMenuSafe(){ var m=$('accountMenu'); if(m) m.classList.remove('open'); }
+  function closeMenuSafe(){ var m=$('accountMenu'); if(m) m.classList.remove('open'); if(window.__syncMemFab) window.__syncMemFab(); }
   function injectMenuExtras(){
     var menu=$('accountMenu'); if(!menu||$('da-edit-profile-btn')) return;
     var head=menu.querySelector('.account-menu-head');
@@ -23799,7 +23801,14 @@ function hideFlyout(p) {
 <!-- ===== Membership CTA button (top-right, non-members only) ===== -->
 <script>
 (function(){
-  function sync(){ var b=document.getElementById('daMemFab'); if(b) b.classList.toggle('is-hidden', !!window.__member); }
+  function sync(){
+    var b=document.getElementById('daMemFab'); if(!b) return;
+    // Hide for members, and also while the account dropdown is open (the menu opens right under
+    // the profile, exactly where this button sits, so they'd otherwise overlap).
+    var menu=document.getElementById('accountMenu');
+    var menuOpen=!!(menu && menu.classList.contains('open'));
+    b.classList.toggle('is-hidden', !!window.__member || menuOpen);
+  }
   window.__syncMemFab = sync;
   function make(){
     if(document.getElementById('daMemFab')) return;
