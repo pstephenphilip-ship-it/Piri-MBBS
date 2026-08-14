@@ -23911,7 +23911,14 @@ function hideFlyout(p) {
   /* Colourful feature cards (2-up) */
   .da-ab-features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .da-ab-feat{border-radius:12px;padding:15px;}
-  .da-ab-feat-ic{font-size:22px;margin-bottom:7px;}
+  .da-ab-feat-ic{line-height:0;margin-bottom:9px;}
+.da-ab-feat-ic svg{width:24px;height:24px;}
+.da-ab-feat.t1 .da-ab-feat-ic{color:#0FA894;}
+.da-ab-feat.t2 .da-ab-feat-ic{color:#3B7DD8;}
+.da-ab-feat.t3 .da-ab-feat-ic{color:#1F8B5E;}
+.da-ab-feat.t4 .da-ab-feat-ic{color:#D68A00;}
+.da-ab-feat.t5 .da-ab-feat-ic{color:#8B5CF6;}
+.da-ab-feat.t6 .da-ab-feat-ic{color:#E11D74;}
   .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:3px;}
   .da-ab-feat p{font-size:12.5px;line-height:1.5;color:#5B6472;margin:0;}
   .da-ab-feat.t1{background:#E7F8F4;} .da-ab-feat.t2{background:#E9F1FE;} .da-ab-feat.t3{background:#EAF7EE;}
@@ -23931,7 +23938,8 @@ function hideFlyout(p) {
   .da-ab-foot a{color:#0B8A79;cursor:pointer;text-decoration:none;font-weight:700;}
   .da-ct-methods{display:flex;flex-direction:column;gap:10px;margin:16px 0 22px;}
   .da-ct-method{display:flex;align-items:center;gap:12px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:14px 16px;}
-  .da-ct-method .da-ct-ic{font-size:20px;flex-shrink:0;}
+  .da-ct-method .da-ct-ic{flex-shrink:0;line-height:0;color:#0EA5E9;}
+.da-ct-ic svg{width:22px;height:22px;}
   .da-ct-method b{display:block;font-size:13px;color:#1E2640;}
   .da-ct-method span{font-size:12.5px;color:#6B7280;}
   .da-ct-method a{color:#0B8A79;text-decoration:none;font-size:12.5px;}
@@ -23981,12 +23989,12 @@ function hideFlyout(p) {
     <section class="da-ab-sec">
       <h3>What we offer</h3>
       <div class="da-ab-features">
-        <div class="da-ab-feat t1"><div class="da-ab-feat-ic">📘</div><b>All-in-one notes</b><p>Every specialty, one library.</p></div>
-        <div class="da-ab-feat t2"><div class="da-ab-feat-ic">🎴</div><b>Flashcards</b><p>Active recall that sticks.</p></div>
-        <div class="da-ab-feat t3"><div class="da-ab-feat-ic">✅</div><b>Exam-style MCQs</b><p>Pitched at real exam level.</p></div>
-        <div class="da-ab-feat t4"><div class="da-ab-feat-ic">⏱️</div><b>Custom mock exams</b><p>Timed papers, your way.</p></div>
-        <div class="da-ab-feat t5"><div class="da-ab-feat-ic">✏️</div><b>Highlight &amp; annotate</b><p>Make the notes yours.</p></div>
-        <div class="da-ab-feat t6"><div class="da-ab-feat-ic">🧮</div><b>Calculators</b><p>With built-in case practice.</p></div>
+        <div class="da-ab-feat t1"><div class="da-ab-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><b>All-in-one notes</b><p>Every specialty, one library.</p></div>
+        <div class="da-ab-feat t2"><div class="da-ab-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="12" height="16" x="8" y="4" rx="2"/><path d="M4 8v10a2 2 0 0 0 2 2h8"/></svg></div><b>Flashcards</b><p>Active recall that sticks.</p></div>
+        <div class="da-ab-feat t3"><div class="da-ab-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><b>Exam-style MCQs</b><p>Pitched at real exam level.</p></div>
+        <div class="da-ab-feat t4"><div class="da-ab-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg></div><b>Custom mock exams</b><p>Timed papers, your way.</p></div>
+        <div class="da-ab-feat t5"><div class="da-ab-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg></div><b>Highlight &amp; annotate</b><p>Make the notes yours.</p></div>
+        <div class="da-ab-feat t6"><div class="da-ab-feat-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg></div><b>Calculators</b><p>With built-in case practice.</p></div>
       </div>
     </section>
 
@@ -24024,8 +24032,8 @@ function hideFlyout(p) {
 
     <!-- EDIT: contact methods (change the email + handles) -->
     <div class="da-ct-methods">
-      <div class="da-ct-method"><span class="da-ct-ic">✉️</span><div><b>Email</b><a href="mailto:doctorise22@gmail.com">doctorise22@gmail.com</a></div></div>
-      <div class="da-ct-method"><span class="da-ct-ic">📸</span><div><b>Instagram</b><a href="https://www.instagram.com/docto_rise/" target="_blank" rel="noopener">@docto_rise</a></div></div>
+      <div class="da-ct-method"><span class="da-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><div><b>Email</b><a href="mailto:doctorise22@gmail.com">doctorise22@gmail.com</a></div></div>
+      <div class="da-ct-method"><span class="da-ct-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></span><div><b>Instagram</b><a href="https://www.instagram.com/docto_rise/" target="_blank" rel="noopener">@docto_rise</a></div></div>
     </div>
 
     <!-- Simple message form — opens the visitor's email app addressed to you. Change the address in daContactSend(). -->
