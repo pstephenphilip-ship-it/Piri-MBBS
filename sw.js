@@ -1,6 +1,6 @@
 /* DoctoRise service worker — offline shell + on-demand content caching.
    Bump VERSION to force a clean cache refresh on the next visit. */
-const VERSION = 'v314';
+const VERSION = 'v316';
 const SHELL_CACHE = 'doctorise-shell-' + VERSION;
 const CONTENT_CACHE = 'doctorise-content-' + VERSION;
 
@@ -38,14 +38,15 @@ self.addEventListener('fetch', function (e) {
   // Never touch cross-origin (Supabase auth/sync, Stripe, Google Fonts, etc.)
   if (url.origin !== self.location.origin) return;
 
-  // Navigations: network-first, fall back to the cached shell when offline.
+  // Navigations: network-first, fall back to the install-precached shell when offline.
+  // IMPORTANT: do NOT re-cache the navigation response at runtime. A reload that aborts the
+  // fetch mid-stream (common on Safari with the app's own reloads) could otherwise store a
+  // TRUNCATED index.html as the shell — which then renders as an unstyled, half-broken page
+  // on the next refresh. The clean shell is precached atomically on install and refreshed on
+  // each version bump; online navigations always get fresh HTML straight from the network.
   if (req.mode === 'navigate') {
     e.respondWith(
-      fetch(req).then(function (r) {
-        var cp = r.clone();
-        caches.open(SHELL_CACHE).then(function (c) { c.put('/index.html', cp); });
-        return r;
-      }).catch(function () {
+      fetch(req).catch(function () {
         return caches.match('/index.html').then(function (r) { return r || caches.match('/'); });
       })
     );

@@ -15907,6 +15907,7 @@ window.MOCK_BANK = {
 
   // Open the Custom Mock full view from the floating button (no nav tab)
   window.openMock=function(){
+    if(window.__hideInfoPages) window.__hideInfoPages();
     if(typeof window.__mockAllowed==='function' && !window.__mockAllowed()){ if(window.__showMockLock) window.__showMockLock(); return; }
     document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
     document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
@@ -16208,11 +16209,14 @@ window.MOCK_BANK = {
   }
 
   // ================= START =================
+  function mockGateOk(){ if(typeof window.__mockAllowed==='function' && !window.__mockAllowed()){ if(window.__showMockLock) window.__showMockLock(); return false; } return true; }
   window.mockStartDefault=function(){
+    if(!mockGateOk()) return;
     var pool=[]; groups().forEach(function(g){ if(g.tab==='conditions'){ g.topics.forEach(function(t){ qForTopic(g.tab,g.system,t).forEach(function(q){ pool.push(tag(q,g.tab,g.system,t)); }); }); } });
     begin(pool,120,'Default mock',true);
   };
   window.mockStartCustom=function(){
+    if(!mockGateOk()) return;
     var topics=selectedTopicList(); if(topics.length===0)return;
     var pool=[]; topics.forEach(function(t){ qForTopic(t.tab,t.sys,t.topic).forEach(function(q){ pool.push(tag(q,t.tab,t.sys,t.topic)); }); });
     if(pool.length===0){ alert('The selected topics have no questions yet. Pick topics that show a question count.'); return; }
@@ -16224,6 +16228,7 @@ window.MOCK_BANK = {
   function tag(q,tab,sys,topic){ var c=JSON.parse(JSON.stringify(q)); c._tab=tab;c._sys=sys;c._topic=topic; return c; }
 
   function begin(pool,want,label,timed){
+    if(!mockGateOk()) return;   // single choke-point: full mocks are members-only (the free trial bypasses begin)
     if(!pool.length){ alert('No questions available for this selection.'); return; }
     // Drop questions already answered in previous mocks (until reset)
     var used=loadUsed();
@@ -16277,10 +16282,153 @@ window.MOCK_BANK = {
     clearInProgress();
     buildRunner(); startTimer(); showScreen('run');
   }
+  // ===== Free trial: a fixed 10-question Cardiovascular taster for non-members =====
+  // Media-rich sampler (ECG, chest X-ray, echocardiogram, heart-sound audio, a clinical
+  // photo) plus 5 written questions, two of which carry investigation results. Every
+  // question has id:null so it never counts toward the "used" bank, bookmarks, or the
+  // members-only pool, and the taster can be retaken as many times as the user likes.
+  var FREE_TRIAL_QS=[
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Acute coronary syndrome",
+      question:"A 58-year-old man presents with 40 minutes of crushing central chest pain radiating to the left arm, with nausea and sweating. His 12-lead ECG is shown. What is the most appropriate immediate management?",
+      image:"assets/ecg/lateral_stemi.png", imageAlt:"Twelve-lead ECG showing ST elevation.",
+      options:["Primary percutaneous coronary intervention (PCI)","High-dose aspirin, then discharge with an outpatient cardiology appointment","Analgesia alone, as reperfusion is not indicated","Urgent CT coronary angiogram before any intervention","A beta-blocker, then repeat the ECG in 6 hours"],
+      correctIndex:0,
+      explanation:[
+        "Primary PCI — the ECG shows ST elevation (an acute STEMI), so the priority is immediate reperfusion. Give aspirin 300 mg plus a second antiplatelet and activate the cath lab; primary PCI within 120 minutes of first medical contact is the treatment of choice.",
+        "Discharge — an acute STEMI is a time-critical emergency; any delay causes irreversible myocardial loss.",
+        "Analgesia alone — reperfusion, not just symptom control, is what saves myocardium.",
+        "CT coronary angiogram — has no role in an acute STEMI and only delays reperfusion.",
+        "Beta-blocker and wait — 'wait and repeat' is dangerous with diagnostic ST elevation and ongoing pain."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Pericardial disease",
+      question:"A 55-year-old woman presents with progressive breathlessness. She is hypotensive with muffled heart sounds and a raised JVP. Her chest X-ray is shown. What is the most likely explanation for the cardiac silhouette?",
+      image:"assets/ecg/pericardial_effusion_cxr.png", imageAlt:"Chest X-ray showing an enlarged, globular cardiac silhouette.",
+      options:["A large pericardial effusion","A left ventricular aneurysm","Dilated cardiomyopathy from long-standing hypertension","A tension pneumothorax","Bilateral pleural effusions"],
+      correctIndex:0,
+      explanation:[
+        "Large pericardial effusion — an enlarged, globular ('water-bottle') cardiac silhouette with clear lung fields, together with hypotension, muffled heart sounds and a raised JVP (Beck's triad), points to a pericardial effusion causing tamponade. Urgent echocardiography with a view to pericardiocentesis is needed.",
+        "LV aneurysm — causes a focal bulge, not a smooth globular enlargement, and would not give Beck's triad.",
+        "Dilated cardiomyopathy — enlarges the heart but does not produce this acute tamponade picture.",
+        "Tension pneumothorax — causes tracheal deviation and a hyperlucent hemithorax, not a globular heart.",
+        "Pleural effusions — blunt the costophrenic angles rather than enlarging the cardiac shadow."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Infective endocarditis",
+      question:"A 34-year-old man who injects drugs presents with fever, malaise and a new pansystolic murmur. His transthoracic echocardiogram is shown. What is the most likely diagnosis?",
+      image:"assets/ecg/ie_echo_vegetation.png", imageAlt:"Transthoracic echocardiogram showing a valvular vegetation.",
+      options:["Infective endocarditis","An atrial myxoma","Rheumatic mitral stenosis","A left atrial thrombus","Papillary muscle rupture"],
+      correctIndex:0,
+      explanation:[
+        "Infective endocarditis — the echo shows a valvular vegetation. In a person who injects drugs with fever and a new murmur this is IE until proven otherwise, and right-sided (tricuspid) disease is characteristic in this group. Take three sets of blood cultures and apply the modified Duke criteria; Staphylococcus aureus is the commonest organism.",
+        "Atrial myxoma — a mobile mass, but it typically arises in the left atrium on a stalk and is not linked to fever and injecting drug use.",
+        "Rheumatic mitral stenosis — thickens the valve and causes a diastolic murmur, without a discrete vegetation or acute sepsis.",
+        "LA thrombus — usually seen with AF or mitral stenosis, not a febrile illness with a new regurgitant murmur.",
+        "Papillary muscle rupture — a mechanical complication of MI, not this subacute febrile presentation."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Valvular heart disease",
+      question:"A 72-year-old man reports exertional chest tightness and one episode of syncope. He has a slow-rising carotid pulse and a narrow pulse pressure. Listen to the murmur recorded at the right upper sternal edge. What is the most likely diagnosis?",
+      audio:"assets/audio/esm.mp3", audioCredit:"Auscultation recording — right upper sternal edge.",
+      options:["Aortic stenosis","Mitral regurgitation","Aortic regurgitation","Mitral stenosis","A benign flow murmur"],
+      correctIndex:0,
+      explanation:[
+        "Aortic stenosis — an ejection (crescendo-decrescendo) systolic murmur loudest at the right upper sternal edge and radiating to the carotids, with a slow-rising pulse, narrow pulse pressure and the triad of angina, syncope and breathlessness, is classic for severe AS. Confirm with echocardiography.",
+        "Mitral regurgitation — a pansystolic murmur at the apex radiating to the axilla, not an ejection murmur with a slow-rising pulse.",
+        "Aortic regurgitation — an early diastolic murmur with a collapsing (not slow-rising) pulse and a wide pulse pressure.",
+        "Mitral stenosis — a mid-diastolic murmur with an opening snap, best heard at the apex in the left lateral position.",
+        "Benign flow murmur — would not cause syncope, a slow-rising pulse or a narrow pulse pressure."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Cardiovascular risk / hyperlipidaemia",
+      question:"A 46-year-old man attends for a cardiovascular risk assessment. The appearance shown is noted around his eyes. It is most strongly associated with which of the following?",
+      image:"assets/ecg/xanthelasma.webp", imageAlt:"Yellow plaques on the medial eyelids.",
+      options:["Hypercholesterolaemia","Hyperthyroidism","Iron overload","Chronic kidney disease","Long-standing hypertension"],
+      correctIndex:0,
+      explanation:[
+        "Hypercholesterolaemia — these are xanthelasmata: soft yellow cholesterol-laden plaques on the medial eyelids. They reflect deranged lipids and, alongside tendon xanthomata and corneal arcus, can indicate familial hypercholesterolaemia. Check a fasting lipid profile and formally assess cardiovascular risk.",
+        "Hyperthyroidism — causes lid retraction and, in Graves' disease, periorbital swelling, not cholesterol plaques.",
+        "Iron overload — haemochromatosis causes skin bronzing, not eyelid xanthelasmata.",
+        "Chronic kidney disease — associated with pallor and uraemic signs rather than xanthelasmata.",
+        "Hypertension — is largely asymptomatic and does not produce eyelid plaques."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Acute coronary syndrome",
+      question:"A 63-year-old woman presents with 3 hours of central chest pain and is pain-free on arrival. Her ECG shows deep T-wave inversion in the lateral leads but no ST elevation. Her blood results are shown. What is the most likely diagnosis?",
+      data:"<div class=\"mk-obs-h\">Blood results</div><div class=\"mk-obs-grid\"><span>hs-Troponin T (0h) <b>210 ng/L</b></span><span>hs-Troponin T (3h) <b>340 ng/L</b></span><span>Reference <b>&lt;14 ng/L</b></span><span>Hb <b>134 g/L</b></span><span>eGFR <b>78</b></span><span>K&#8314; <b>4.2 mmol/L</b></span></div>",
+      options:["Non-ST-elevation myocardial infarction (NSTEMI)","ST-elevation myocardial infarction (STEMI)","Unstable angina","Stable angina","Acute pericarditis"],
+      correctIndex:0,
+      explanation:[
+        "NSTEMI — ischaemic chest pain with a raised and dynamic troponin but no ST elevation defines an NSTEMI. Manage with aspirin, a second antiplatelet and fondaparinux, and risk-stratify (e.g. GRACE) to time inpatient coronary angiography.",
+        "STEMI — excluded here because there is no ST-segment elevation on the ECG.",
+        "Unstable angina — the same clinical picture but with a normal troponin; the raised troponin makes this an infarct.",
+        "Stable angina — is predictable, exertional and relieved by rest, with a normal troponin.",
+        "Acute pericarditis — causes pleuritic pain with saddle-shaped ST elevation and PR depression, not an isolated troponin rise with T-wave inversion."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Heart failure",
+      question:"A 68-year-old woman presents acutely breathless and unable to lie flat. She has a raised JVP, bibasal crackles and pitting oedema; her chest X-ray shows pulmonary oedema. Her results are shown. What is the most appropriate initial pharmacological management?",
+      data:"<div class=\"mk-obs-h\">Results</div><div class=\"mk-obs-grid\"><span>NT-proBNP <b>4200 pg/mL</b></span><span>Reference <b>&lt;400 pg/mL</b></span><span>SpO&#8322; <b>90% on air</b></span><span>BP <b>158/94 mmHg</b></span><span>HR <b>104 bpm</b></span><span>eGFR <b>62</b></span></div>",
+      options:["Intravenous furosemide","An intravenous fluid bolus","An intravenous beta-blocker to slow the heart","Up-titration of oral bisoprolol","Broad-spectrum intravenous antibiotics"],
+      correctIndex:0,
+      explanation:[
+        "IV furosemide — the picture is acute decompensated heart failure with pulmonary oedema (markedly raised NT-proBNP, orthopnoea, raised JVP, crackles). Sit the patient up, give oxygen if hypoxic and an IV loop diuretic to offload fluid; add nitrates if hypertensive.",
+        "IV fluids — would worsen pulmonary congestion in a fluid-overloaded patient.",
+        "IV beta-blocker — is contraindicated in acute decompensation and can precipitate cardiogenic shock.",
+        "Up-titrating bisoprolol — beta-blockers improve chronic HF prognosis but are not the acute treatment and should not be increased during decompensation.",
+        "Antibiotics — there is no evidence of infection here; this is cardiogenic pulmonary oedema."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Atrial fibrillation",
+      question:"A 74-year-old man is found to have atrial fibrillation. He has hypertension and type 2 diabetes. What is the most appropriate treatment to reduce his risk of stroke?",
+      options:["A direct oral anticoagulant (e.g. apixaban)","Aspirin 75 mg daily","Clopidogrel 75 mg daily","No antithrombotic treatment is required","Aspirin plus dipyridamole"],
+      correctIndex:0,
+      explanation:[
+        "DOAC — his CHA₂DS₂-VASc score is at least 4 (age 65-74, hypertension, diabetes, male), so anticoagulation is indicated. A DOAC is first-line over warfarin in non-valvular AF; assess bleeding risk (e.g. ORBIT) but do not withhold anticoagulation on that basis alone.",
+        "Aspirin — is not effective stroke prevention in AF and is no longer recommended for this indication.",
+        "Clopidogrel — antiplatelets are inferior to anticoagulation for AF-related stroke prevention.",
+        "No treatment — would leave a high-risk patient unprotected.",
+        "Aspirin plus dipyridamole — is used in ischaemic stroke secondary prevention, not for AF."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Hypertension",
+      question:"A 60-year-old man of African-Caribbean origin is diagnosed with hypertension after ambulatory monitoring averages 154/96 mmHg. He has no diabetes. Which is the most appropriate first-line antihypertensive?",
+      options:["A calcium-channel blocker (e.g. amlodipine)","An ACE inhibitor (e.g. ramipril)","An angiotensin-receptor blocker (e.g. losartan)","A thiazide-like diuretic","A beta-blocker (e.g. atenolol)"],
+      correctIndex:0,
+      explanation:[
+        "Calcium-channel blocker — NICE recommends a CCB first-line for patients of Black African or African-Caribbean family origin (any age) and for patients aged 55 or over. ACE inhibitors and ARBs are less effective as initial monotherapy in these groups.",
+        "ACE inhibitor — first-line for patients under 55 who are not of Black African/Caribbean origin, not for this patient.",
+        "ARB — if renin-angiotensin blockade were needed, an ARB would be preferred over an ACE inhibitor in Black African/Caribbean patients, but a CCB is the correct first step.",
+        "Thiazide-like diuretic — is a step-2 or alternative option, not routine first-line here.",
+        "Beta-blocker — is not a first-line antihypertensive except in specific situations."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Stable angina",
+      question:"A 59-year-old man describes central chest tightness on walking uphill that settles within a few minutes of rest. Investigations confirm stable angina. In addition to a GTN spray and secondary prevention, what is the most appropriate first-line treatment to control his symptoms?",
+      options:["A beta-blocker or a calcium-channel blocker","A long-acting nitrate such as isosorbide mononitrate","Nicorandil","Ivabradine","Immediate coronary artery bypass grafting"],
+      correctIndex:0,
+      explanation:[
+        "Beta-blocker or CCB — NICE recommends either a beta-blocker or a rate-limiting calcium-channel blocker first-line to control angina; if one is not tolerated, switch to the other, and combine them if needed. All patients also get a short-acting nitrate (GTN) plus secondary prevention (aspirin, a statin, and an ACE inhibitor if indicated).",
+        "Long-acting nitrate — a second-line option added when a beta-blocker or CCB is insufficient or not tolerated.",
+        "Nicorandil — a later-line anti-anginal, not first-line.",
+        "Ivabradine — reserved for specific cases and not first-line monotherapy for angina.",
+        "CABG — revascularisation is considered when symptoms persist despite optimal medical therapy or for prognostic indications, not as the first symptomatic step."
+      ] }
+  ];
+  // Launch the taster from the mock lock overlay (bypasses the members-only gate for these 10 Qs only).
+  window.mockStartFreeTrial=function(){
+    try{ var lk=document.getElementById('da-mock-lock'); if(lk) lk.style.display='none'; }catch(e){}
+    // Bring the mock tab to the front — the trial is launched from the lock, not the nav bar.
+    document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
+    document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+    var tm=document.getElementById('tab-mock'); if(tm) tm.classList.add('visible');
+    try{ if(typeof updateHash==='function') updateHash('mock',null,null,null); }catch(e){}
+    var mf=document.getElementById('mockFab'); if(mf) mf.classList.add('is-hidden');
+    var rv=document.getElementById('daRvTrigger'); if(rv) rv.classList.add('is-hidden');
+    S.questions=JSON.parse(JSON.stringify(FREE_TRIAL_QS));   // deep-copy so every re-take starts clean
+    S.answers={}; S.selfMark={}; S.flagged={}; S.eliminated={}; S.current=0;
+    S.limit=600; S.startAt=Date.now(); S.timed=true; S.elapsed=0;
+    S.remaining=600; S.endAt=S.startAt+600*1000;             // 10-minute timer
+    S.phase='running'; S.label='Free trial · Cardiovascular'; S.freeTrial=true;
+    clearInProgress();
+    buildRunner(); startTimer(); showScreen('run');
+  };
   function mockIsTimed(){ var c=el('mkTimedToggle'); return c?!!c.checked:true; }
   // Resume a saved in-progress mock. Timed papers pause the clock while away
   // (remaining is frozen on save and the countdown restarts from there).
   window.mockResume=function(){
+    if(!mockGateOk()) return;
     var snap=loadInProgress(); if(!snap||!snap.questions){ renderSetup(); return; }
     var qs=[]; for(var i=0;i<snap.questions.length;i++){ var q=resolveRef(snap.questions[i]); if(!q){ qs=null; break; } qs.push(q); }
     if(!qs||qs.length!==snap.questions.length){ alert('Sorry — this saved mock could not be restored (the question bank may have changed since you saved). It has been cleared.'); clearInProgress(); renderSetup(); return; }
@@ -16294,7 +16442,11 @@ window.MOCK_BANK = {
   // Save current progress and return to the setup screen to finish later.
   window.mockSaveExit=function(){
     if(S.phase!=='running')return;
-    stopTimer(); saveInProgress();
+    stopTimer();
+    // A non-member can only be in a (free-trial) mock; don't expose the members-only
+    // setup screen — stop the run and show the membership lock instead.
+    if(!mockGateOk()){ S.phase='setup'; return; }
+    saveInProgress();
     S.phase='setup'; renderSetup(); showScreen('setup');
   };
   window.mockDiscardInProgress=function(){ if(window.confirm('Discard your unfinished mock? This cannot be undone.')){ clearInProgress(); renderSetup(); } };
@@ -16576,7 +16728,10 @@ window.MOCK_BANK = {
       '</div>';
   }
   window.mockToggleBd=function(i){ var n=el('mkbd'+i); if(n)n.classList.toggle('mk-open'); };
-  window.mockNewMock=function(){ S.phase='setup'; renderSetup(); showScreen('setup'); };
+  // "New mock" from the results screen. Members go to the full setup screen; a non-member
+  // (only ever here via the free trial) is funnelled to the membership lock, which still
+  // offers "Try for free" to retake the taster — never the full customiser.
+  window.mockNewMock=function(){ if(!mockGateOk()) return; S.phase='setup'; renderSetup(); showScreen('setup'); };
 
   // ================= REVIEW =================
   window.mockReviewQs=function(){ S.revFilter='all'; renderReview(); showScreen('results'); };
@@ -16779,12 +16934,15 @@ function ensureSystemLoaded(systemName){
     var slug=__slugMap[systemName]||__slugify(systemName);
     if(!slug) return;
     return Promise.all([
-      fetch(CONTENT_BASE+'notes/'+slug+'.json').then(function(r){return r.ok?r.json():null;})
+      // A non-200 here must THROW (not resolve to null) so the outer .catch clears the memo
+      // and the load is retried later. Resolving null would cache an empty "loaded" state for
+      // the whole session, leaving every topic in this system with a blank notes card.
+      fetch(CONTENT_BASE+'notes/'+slug+'.json').then(function(r){ if(!r.ok) throw new Error('notes HTTP '+r.status); return r.json(); })
         .then(function(d){ if(d) Object.assign(RICH_NOTES,d); }),
       fetch(CONTENT_BASE+'cards/'+slug+'.json').then(function(r){return r.ok?r.json():null;})
         .then(function(d){ if(d){ Object.assign(PRESET_FC,d.fc||{}); Object.assign(PRESET_Q,d.q||{}); } })
     ]);
-  }).catch(function(){ delete __ensure[systemName]; });
+  }).catch(function(){ delete __ensure[systemName]; });   // failed load is retryable, never memoized as done
   return __ensure[systemName];
 }
 window.ensureSystemLoaded=ensureSystemLoaded;
@@ -16844,12 +17002,15 @@ function updateHash(tab, system, topic, mode) {
 
 function restoreFromHash() {
   var hash = window.location.hash.slice(1);
-  if (!hash) { if (window.goHome) window.goHome(true); return; }
+  if (!hash) { if (window.__hideInfoPages) window.__hideInfoPages(); if (window.goHome) window.goHome(true); return; }
   var parts = hash.split('/');
   var tab = parts[0];
   var system = parts[1] ? decodeURIComponent(parts[1]) : null;
   var topic = parts[2] ? decodeURIComponent(parts[2]) : null;
   var mode = parts[3] || 'notes';
+  // Standalone info pages (About Us / Contact) — each is its own route.
+  if (tab === 'about' || tab === 'contact') { if (window.__showInfoPage) window.__showInfoPage(tab); return; }
+  if (window.__hideInfoPages) window.__hideInfoPages();
   if (tab === 'home') { if (window.goHome) window.goHome(true); return; }
   if (tab === 'mock') { if (window.openMock) window.openMock(); return; }
   var navEl = document.querySelector('.nav-tab[onclick*="\'' + tab + '\'"]');
@@ -16874,6 +17035,7 @@ window.addEventListener('hashchange', restoreFromHash);
 document.addEventListener('DOMContentLoaded', restoreFromHash);
 
 function switchMainTab(id, el, skipHash) {
+  if (window.__hideInfoPages) window.__hideInfoPages();
   document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('visible'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('visible');
@@ -17033,6 +17195,22 @@ async function switchMode(p, mode, el, skipHash) {
   if (!skipHash) { const st = getState(p); updateHash(p, st.activeSystem, st.activeTopic, mode); }
 }
 
+// Self-heal a blank notes card: if a topic's rich note is missing (a transient content-fetch
+// failure or a race after a reload), re-run the system content load ONCE and re-render if the
+// note arrives and the user is still on that topic. One-shot per key so it can never loop.
+var __noteHealTried = {};
+function __maybeHealNote(p, name, richKey, store){
+  if (!richKey || __noteHealTried[richKey]) return;
+  __noteHealTried[richKey] = 1;
+  try {
+    var sys = (getState(p).activeSystem) || '';
+    if (!sys || typeof ensureSystemLoaded !== 'function') return;
+    ensureSystemLoaded(sys).then(function(){
+      var bank = store || RICH_NOTES;
+      if (bank[richKey] && getState(p).activeTopic === name) loadNote(p, name);
+    }).catch(function(){});
+  } catch(e){}
+}
 function loadNote(p, name) {
   const st = getState(p);
   const bc = document.getElementById('breadcrumb-' + p);
@@ -17080,6 +17258,7 @@ function loadNote(p, name) {
       const actions = document.querySelector('#notes-panel-conditions .note-actions');
       if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
     } else {
+      __maybeHealNote(p, name, richKey);   // content may not have loaded yet — retry & re-render
       let richEl = document.getElementById('rich-note-display');
       if (richEl) richEl.style.display = 'none';
       if (container) container.style.display = '';
@@ -17128,6 +17307,7 @@ function loadNote(p, name) {
       const actions = document.querySelector('#notes-panel-' + p + ' .note-actions');
       if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
     } else {
+      __maybeHealNote(p, name, richKey);   // content may not have loaded yet — retry & re-render
       if (richEl) richEl.style.display = 'none';
       if (container) container.style.display = '';
       const ta = document.getElementById('freetxt-' + p);
@@ -17181,7 +17361,13 @@ const ABBR_MAP={"AION":"anterior ischaemic optic neuropathy","PR3":"proteinase 3
 function expandAbbrs(html){
   function escRx(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
   const keys=Object.keys(ABBR_MAP).sort((a,b)=>b.length-a.length);
-  const pattern=new RegExp('(?<![\\w\\-])('+keys.map(escRx).join('|')+')(?![\\w\\-])','g');
+  // Word-boundary match around each abbreviation. The precise form uses a lookbehind, which
+  // throws a SyntaxError in Safari <16.4 / iOS Safari <16.4 — so fall back to \b there (a hair
+  // less precise on hyphen-adjacent text) rather than letting the note fail to render.
+  const __body='('+keys.map(escRx).join('|')+')';
+  let pattern;
+  try { pattern=new RegExp('(?<![\\w\\-])'+__body+'(?![\\w\\-])','g'); }
+  catch(e){ pattern=new RegExp('\\b'+__body+'(?![\\w\\-])','g'); }
   return html.replace(/>([^<]+)</g,(_,txt)=>{
     const replaced=txt.replace(pattern,(m)=>{
       const full=ABBR_MAP[m];
@@ -21238,10 +21424,12 @@ function hideFlyout(p) {
     if (e) e.stopPropagation();
     var menu = $('accountMenu');
     if (menu) menu.classList.toggle('open');
+    if (window.__syncMemFab) window.__syncMemFab();   // hide/show the Get Membership button so it doesn't overlap the menu
   };
   function closeAccountMenu(){
     var menu = $('accountMenu');
     if (menu) menu.classList.remove('open');
+    if (window.__syncMemFab) window.__syncMemFab();
   }
   document.addEventListener('click', function(e){
     var menu = $('accountMenu');
@@ -21308,7 +21496,7 @@ function hideFlyout(p) {
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
-    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})(); } }); }
+    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})('authsync'); } }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
@@ -21340,6 +21528,7 @@ function hideFlyout(p) {
 .da-lock-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 .da-lock-btn{cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface2,#EEF1F6);color:var(--text,#374151);border-radius:9px;padding:11px 20px;font-size:13.5px;font-weight:700;font-family:inherit;}
 .da-lock-btn.primary{border:none;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);}
+.da-lock-btn.trial{border:none;color:#3A2A00;background:linear-gradient(135deg,#FBBF24 0%,#F0B429 100%);}
 .da-lock-foot{font-size:11.5px;color:var(--muted2,#9CA3AF);margin-top:20px;line-height:1.5;}
 .da-locked-item{opacity:.62;}
 .da-lock-mini{margin-left:6px;font-size:11px;opacity:.7;}
@@ -21385,22 +21574,41 @@ function hideFlyout(p) {
   // auth + profile + membership + sync all settle before the one reload; each
   // trigger persists its state first, so the reloaded page is stable and no
   // further reload is requested.
-  window.__scheduleReload = window.__scheduleReload || function(){
-    // Anti-loop guard: auto-reload at most once every few seconds ACROSS loads.
-    // If some state keeps requesting a reload on each fresh load (e.g. a sync
-    // diff that never settles), this breaks the cycle after the first reload so
-    // the page stops flashing. sessionStorage persists across reloads in the tab.
+  window.__scheduleReload = window.__scheduleReload || function(reason, immediate){
+    // Hard anti-loop guard. The app reloads to apply auth / membership / sync state; if any of
+    // those never "settles", a purely time-based guard still reloads forever (e.g. every 6s).
+    // So the real protection is structural and CANNOT be bypassed:
+    //   1) Per-REASON once-per-session: each distinct trigger (auth, sync, membership) reloads
+    //      at most once per tab session.
+    //   2) A global session cap as a backstop for anything that slips through.
+    // sessionStorage persists across reloads within the tab and resets when the tab/app closes.
     try{
-      var now = Date.now();
-      var last = parseInt(sessionStorage.getItem('da-reload-ts')||'0', 10);
-      if(now - last < 6000) return;   // reloaded very recently -> don't loop
+      if(reason && sessionStorage.getItem('da-rl-'+reason)) return;                  // this reason already reloaded
+      if(parseInt(sessionStorage.getItem('da-reload-count')||'0',10) >= 3) return;    // never more than 3 auto-reloads/session
+      if(!immediate){
+        var now = Date.now(), last = parseInt(sessionStorage.getItem('da-reload-ts')||'0',10);
+        if(now - last < 6000) return;   // soft smoothing: not two reloads within 6s (skipped for membership transitions)
+      }
     }catch(e){}
     if(window.__reloadScheduled) return;   // only one per page life
     window.__reloadScheduled = true;
     setTimeout(function(){
-      try{ sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+      try{
+        if(reason) sessionStorage.setItem('da-rl-'+reason, '1');
+        sessionStorage.setItem('da-reload-ts', String(Date.now()));
+        var c = parseInt(sessionStorage.getItem('da-reload-count')||'0',10);
+        sessionStorage.setItem('da-reload-count', String(c+1));
+      }catch(e){}
       try{ location.reload(); }catch(e){}
     }, 500);
+  };
+  // A deliberate, user-initiated reload (after verifying a login/device code, a password
+  // reset, etc.). It counts as the ONE post-login settle reload: mark the shared 'authsync'
+  // reason done first, so the freshly loaded page's auth/sync settle doesn't reload AGAIN on
+  // top of it. Membership transitions keep their own separate reason (post-payment unlock).
+  window.__authReload = window.__authReload || function(){
+    try{ sessionStorage.setItem('da-rl-authsync','1'); sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+    try{ location.reload(); }catch(e){}
   };
   // Full-access members (paid membership OR a comp/automatic membership set on the
   // account's Supabase profile). Cached so the gate resolves synchronously on load;
@@ -21514,6 +21722,18 @@ function hideFlyout(p) {
       + '<div class="da-lock-foot">Topics you already unlocked stay open for their 24 hours.</div></div>';
   }
   function hidePaywall(p){ var el=document.getElementById('da-paywall-'+p); if(el) el.style.display='none'; }
+  // Dismissing a paywall ("Not now" / "OK") returns the visitor to the page they were on,
+  // rather than leaving them on the empty locked-topic template that renders behind the lock.
+  function dismissWall(p){
+    hidePaywall(p);
+    var prev = window.__preSelectHash;
+    if(prev && prev !== window.location.hash){
+      window.location.hash = prev;                       // router restores that view (hashchange -> restoreFromHash)
+    } else {
+      try{ if(typeof updateHash==='function') updateHash('home'); }catch(e){}
+      if(window.goHome) window.goHome(true);              // no prior view (e.g. a deep-link) -> Home
+    }
+  }
   function renderWall(p, name, html, skipHash){
     var st = getState(p); st.activeTopic = name;
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){ el.classList.toggle('active', el.dataset.topic===name); });
@@ -21554,10 +21774,10 @@ function hideFlyout(p) {
             else { dpLoadServer().then(function(){ renderWall(p, name, limitHTML(p), skipHash); }); }   // server said no slot left
           });
         };
-        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; hidePaywall(p); };
+        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; dismissWall(p); };
         renderWall(p, name, dayPassHTML(name, p), skipHash);
       } else {
-        window.__dpCancel = function(){ window.__dpCancel=null; hidePaywall(p); };
+        window.__dpCancel = function(){ window.__dpCancel=null; dismissWall(p); };
         renderWall(p, name, limitHTML(p), skipHash);
       }
     } else {
@@ -21569,6 +21789,9 @@ function hideFlyout(p) {
   window.selectTopic = function(p, name, skipHash){
     hidePaywall(p);
     if(window.__clearStudyBlur) window.__clearStudyBlur(p);
+    // Remember where we were BEFORE this (real, user-initiated) selection, so dismissing a
+    // paywall can return there instead of stranding the user on the blank locked template.
+    if(!skipHash){ try{ window.__preSelectHash = window.location.hash; }catch(e){} }
     var self=this;
     gateTopic(p, name, skipHash, function(){ _selectTopic.call(self, p, name, skipHash); });
   };
@@ -21670,13 +21893,13 @@ function hideFlyout(p) {
     o.style.position='fixed'; o.style.inset='0'; o.style.zIndex='2000';
     o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
       +'<div class="da-lock-title">Mock exams are a premium feature</div>'
-      +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; is coming with membership.</div>'
-      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Not now</button></div></div>';
+      +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; comes with membership. Want a taste first? Try a free 10-question cardiovascular paper.</div>'
+      +'<div class="da-lock-actions"><button class="da-lock-btn trial" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.mockStartFreeTrial)window.mockStartFreeTrial();">Try for free</button><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Not now</button></div></div>';
     document.body.appendChild(o);
   };
 
   var prevAuthed = window.__authed;
-  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload(); } }); }catch(e){} }
+  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('authsync'); } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
   // Load this account's server-side day-pass unlocks once the session is restored.
@@ -21852,7 +22075,7 @@ function hideFlyout(p) {
     var sub=$('da-menu-email'); if(sub){ if(currentUser){ sub.textContent=currentUser.email||''; sub.style.display=''; } else sub.style.display='none'; }
   }
 
-  function closeMenuSafe(){ var m=$('accountMenu'); if(m) m.classList.remove('open'); }
+  function closeMenuSafe(){ var m=$('accountMenu'); if(m) m.classList.remove('open'); if(window.__syncMemFab) window.__syncMemFab(); }
   function injectMenuExtras(){
     var menu=$('accountMenu'); if(!menu||$('da-edit-profile-btn')) return;
     var head=menu.querySelector('.account-menu-head');
@@ -21939,19 +22162,16 @@ function hideFlyout(p) {
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
       if(isMember && !was){
-        // Membership just ACTIVATED: clear the anti-loop rate-limit stamp so the
-        // unlock reload can't be suppressed — otherwise lock icons rendered while
-        // free would linger even though access is granted. (One-time: da-member is
-        // persisted to '1' above, so the reloaded page won't re-trigger this.)
-        try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){}
-        window.__scheduleReload();
+        // Membership just ACTIVATED. Reload once to clear any lock UI rendered while free.
+        // `immediate` skips the 6s smoothing so it isn't swallowed right after a sync reload,
+        // but the once-per-reason + session cap still make a loop impossible; da-member is
+        // persisted to '1' above so the reloaded page won't re-enter this branch.
+        window.__scheduleReload('member-on', true);
       } else if(!isMember && was){
-        // Membership ENDED while on a (now inaccessible) premium page — drop the
-        // topic hash so the forced reload lands on Home, and re-render as a free
-        // user. Clear the rate-limit stamp so the redirect can't be suppressed.
-        try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){}
+        // Membership ENDED while on a (now inaccessible) premium page — drop the topic hash so
+        // the forced reload lands on Home, and re-render as a free user. Reloads at most once.
         try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
-        window.__scheduleReload();
+        window.__scheduleReload('member-off', true);
       }
     }
     window.__applyMembership = applyMembership;
@@ -21987,7 +22207,7 @@ function hideFlyout(p) {
       var btn=$('da-rec-save'), r0=btn.textContent; btn.disabled=true; btn.textContent='Saving…';
       sb.auth.updateUser({password:a}).then(function(r){
         if(r.error){ msg(r.error.message); btn.disabled=false; btn.textContent=r0; }
-        else { msg('Password updated — signing you in…','ok'); setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} location.reload(); }, 1200); }
+        else { msg('Password updated — signing you in…','ok'); setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} (window.__authReload||function(){location.reload();})(); }, 1200); }
       }).catch(function(e){ msg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
     };
   }
@@ -22034,7 +22254,7 @@ function hideFlyout(p) {
             pmsgR('Password updated — signing you in…','ok');
             if(window.__markVerified) window.__markVerified();
             var claim = window.__claimDevice ? window.__claimDevice() : Promise.resolve();
-            Promise.resolve(claim).then(function(){ window.__mfaPending=false; setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} location.reload(); }, 900); });
+            Promise.resolve(claim).then(function(){ window.__mfaPending=false; setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} (window.__authReload||function(){location.reload();})(); }, 900); });
           });
         }).catch(function(e){ pmsgR((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
       }
@@ -22116,7 +22336,7 @@ function hideFlyout(p) {
     sb.auth.verifyOtp({ email:mfaEmail, token:code, type:'email' }).then(function(r){
       if(r.error){ mmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
       mmsg('Verified — signing you in…','ok'); window.__mfaPending=false;
-      setTimeout(function(){ location.reload(); }, 600);
+      setTimeout(function(){ (window.__authReload||function(){location.reload();})(); }, 600);
     }).catch(function(e){ mmsg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
   }
   function resend(){
@@ -22221,7 +22441,7 @@ function hideFlyout(p) {
     $('dv-code').addEventListener('keydown',function(e){ if(e.key==='Enter') doVerify(); });
   }
   function openOverlay(email, type, sub, after){
-    buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ location.reload(); };
+    buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ (window.__authReload||function(){location.reload();})(); };
     window.__mfaPending=true;
     $('dv-sub').innerHTML=sub||('Enter the code we emailed to <span style="color:var(--text)">'+email+'</span>');
     $('dv-code').value=''; var m=$('dv-msg'); if(m) m.className='auth-msg';
@@ -22285,10 +22505,10 @@ function hideFlyout(p) {
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} amsg(res.error.message,'err'); return; }
           if(res.data && res.data.session){                     // email confirmation OFF: straight in
             markVerified();
-            claimDevice().then(function(){ location.reload(); });
+            claimDevice().then(function(){ (window.__authReload||function(){location.reload();})(); });
           } else {                                              // confirmation ON: verify the emailed code
             if(typeof closeAuthModal==='function') closeAuthModal();
-            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
+            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ (window.__authReload||function(){location.reload();})(); });
           }
         });
       }
@@ -22321,7 +22541,7 @@ function hideFlyout(p) {
         // A *different* device holds the trusted slot (account used elsewhere), or an
         // unclaimed account on a device we've never verified -> require an email code.
         window.__mfaPending=true;
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ location.reload(); }); }
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ (window.__authReload||function(){location.reload();})(); }); }
         if(sentRecently(u.email)) { show(); return; }
         sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
@@ -22409,7 +22629,7 @@ function hideFlyout(p) {
     var gearIcon='<svg viewBox="0 0 18 18" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="2.5"/><path d="M9 2.5v2M9 13.5v2M2.5 9h2M13.5 9h2M4.4 4.4l1.4 1.4M12.2 12.2l1.4 1.4M13.6 4.4l-1.4 1.4M5.8 12.2l-1.4 1.4"/></svg>';
     var prof=$('da-edit-profile-btn'); if(prof){ prof.innerHTML=personIcon+' Profile'; }
     var setBtn=$('da-change-pw-btn');
-    if(setBtn){ setBtn.innerHTML=gearIcon+' Settings'; setBtn.onclick=function(){ menu.classList.remove('open'); window.__openSettings(); }; }
+    if(setBtn){ setBtn.innerHTML=gearIcon+' Settings'; setBtn.onclick=function(){ menu.classList.remove('open'); if(window.__syncMemFab)window.__syncMemFab(); window.__openSettings(); }; }
   });
 })();
 </script>
@@ -23666,7 +23886,14 @@ function hideFlyout(p) {
 <!-- ===== Membership CTA button (top-right, non-members only) ===== -->
 <script>
 (function(){
-  function sync(){ var b=document.getElementById('daMemFab'); if(b) b.classList.toggle('is-hidden', !!window.__member); }
+  function sync(){
+    var b=document.getElementById('daMemFab'); if(!b) return;
+    // Hide for members, and also while the account dropdown is open (the menu opens right under
+    // the profile, exactly where this button sits, so they'd otherwise overlap).
+    var menu=document.getElementById('accountMenu');
+    var menuOpen=!!(menu && menu.classList.contains('open'));
+    b.classList.toggle('is-hidden', !!window.__member || menuOpen);
+  }
   window.__syncMemFab = sync;
   function make(){
     if(document.getElementById('daMemFab')) return;
@@ -23678,6 +23905,241 @@ function hideFlyout(p) {
     sync();
   }
   if(document.readyState!=='loading') make(); else document.addEventListener('DOMContentLoaded', make);
+})();
+</script>
+
+<!-- =====================================================================
+     ABOUT US + CONTACT
+     Two account-menu sections (between Profile and Settings).
+
+     >>> HOW TO EDIT <<<
+     Everything below is plain HTML. Just replace the text inside the
+     [ square-bracket placeholders ] with your real content. Add or remove
+     team members / feature cards / value rows by copy-pasting a block.
+     Search this file for "ABOUT US + CONTACT" to find it again.
+     ===================================================================== -->
+<style>
+  /* Full-page view — its own #about / #contact URL (not a popup), with a Back bar.
+     Light palette to match the rest of the content area (white cards on light grey). */
+  /* Side margins carry a very low-key dot "wallpaper"; the centred white sheet covers the middle. */
+  /* Sits BELOW the app headbar (its top is measured in JS to handle the mobile wrap), and under
+     the nav's z-index so the headbar + its menus stay usable. */
+  .da-page{position:fixed;top:52px;left:0;right:0;bottom:0;z-index:8;background-color:#E4E7EE;background-image:radial-gradient(rgba(30,38,64,.055) 1px, transparent 1.6px);background-size:22px 22px;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
+  .da-page.open{display:block;}
+  /* Hide the floating action buttons while an info page (About/Contact) is open. */
+  body.da-info-open #daMemFab,body.da-info-open #mockFab,body.da-info-open #daRvTrigger{display:none!important;}
+  .da-page::-webkit-scrollbar{width:9px;}
+  .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
+  /* Centred white "sheet" so the tinted page shows as side margins on either side. */
+  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 72px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
+  /* Placeholder text — swap these out. Styled so they're easy to spot while editing. */
+  .da-ph{color:#8A93A6;font-style:italic;}
+  .da-ab-hero{text-align:center;padding-bottom:16px;border-bottom:1px solid #E2E6F0;margin-bottom:22px;}
+  .da-ab-logo-img{width:96px;height:96px;object-fit:contain;display:block;margin:0 auto 10px;}
+  .da-ab-logo{font-family:var(--mono,monospace);font-size:30px;font-weight:800;letter-spacing:-0.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .da-ab-tagline{font-size:14px;color:#6B7280;margin-top:6px;}
+  .da-ab-lead{font-size:14.5px;line-height:1.7;color:#1E2640;margin:0 0 6px;}
+  .da-ab-sec{margin-top:26px;}
+  .da-ab-sec h3{font-size:15px;font-weight:800;color:#0B8A79;margin:0 0 12px;letter-spacing:.01em;}
+  .da-ab-sec p{font-size:13.5px;line-height:1.7;color:#374151;margin:0 0 10px;}
+  .da-ab-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+  .da-ab-stats>div{flex:1 1 120px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px 12px;text-align:center;}
+  .da-ab-stats b{display:block;font-size:22px;color:#1E2640;font-family:var(--mono,monospace);}
+  .da-ab-stats span{font-size:11.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;}
+  .da-ab-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .da-ab-feat{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:15px;}
+  .da-ab-feat-ic{font-size:22px;margin-bottom:6px;}
+  .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:4px;}
+  .da-ab-feat p{font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;}
+  .da-ab-team{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .da-ab-member{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px;text-align:center;}
+  .da-ab-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#00C2A8,#0EA5E9);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;font-size:20px;overflow:hidden;}
+  .da-ab-avatar img{width:100%;height:100%;object-fit:cover;}
+  .da-ab-member b{display:block;font-size:14px;color:#1E2640;}
+  .da-ab-member .da-ab-role{font-size:12px;color:#0B8A79;margin:2px 0 8px;}
+  .da-ab-member p{font-size:12px;line-height:1.55;color:#6B7280;margin:0;}
+  .da-ab-values{list-style:none;margin:0;padding:0;}
+  .da-ab-values li{font-size:13.5px;line-height:1.6;color:#374151;padding:9px 0;border-bottom:1px solid #E2E6F0;}
+  .da-ab-values li b{color:#1E2640;}
+  .da-ab-values li:last-child{border-bottom:none;}
+  .da-ab-foot{margin-top:26px;padding-top:16px;border-top:1px solid #E2E6F0;font-size:12.5px;color:#6B7280;text-align:center;}
+  .da-ab-foot a{color:#0B8A79;cursor:pointer;text-decoration:none;font-weight:600;}
+  .da-ct-methods{display:flex;flex-direction:column;gap:10px;margin:16px 0 22px;}
+  .da-ct-method{display:flex;align-items:center;gap:12px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:14px 16px;}
+  .da-ct-method .da-ct-ic{font-size:20px;flex-shrink:0;}
+  .da-ct-method b{display:block;font-size:13px;color:#1E2640;}
+  .da-ct-method span{font-size:12.5px;color:#6B7280;}
+  .da-ct-method a{color:#0B8A79;text-decoration:none;font-size:12.5px;}
+  /* Light form fields on the Contact page (the shared .auth-field styling is dark-themed) */
+  .da-page .auth-sub{color:#1E2640;}
+  .da-page .auth-field label{color:#6B7280;}
+  .da-page .auth-field input,.da-page .auth-field textarea{background:#FFFFFF;border:1px solid #D8DAE5;color:#1E2640;}
+  .da-page .auth-field input::placeholder,.da-page .auth-field textarea::placeholder{color:#9AA3B2;}
+  @media (max-width:560px){ .da-ab-features,.da-ab-team{grid-template-columns:1fr;} .da-info-card{padding:26px 20px 40px;} }
+  /* Low-key dot wallpaper across the app's light content backdrops (study notes, mock, calculators,
+     home). Shows only in blank space — content cards/sheets sit on top and cover it. Placed after
+     the base rules so it layers a dot image over their existing #F0F2F5 / #F7F8FC colour. */
+  .note-area,#tab-mock,#tab-calculator,.wc-host{
+    background-image:radial-gradient(rgba(30,38,64,.045) 1px, transparent 1.6px);
+    background-size:22px 22px;
+  }
+</style>
+
+<!-- ===================== ABOUT US PAGE ===================== -->
+<div class="da-page" id="da-about-page">
+  <div class="da-info-card">
+
+    <!-- EDIT: brand name + tagline -->
+    <div class="da-ab-hero">
+      <img class="da-ab-logo-img" src="logo.png" alt="DoctoRise logo">
+      <div class="da-ab-logo">DoctoRise</div>
+      <div class="da-ab-tagline"><span class="da-ph">[ Your one-line tagline — e.g. “Master medicine, one system at a time.” ]</span></div>
+    </div>
+
+    <!-- EDIT: opening paragraph -->
+    <p class="da-ab-lead"><span class="da-ph">[ Write a warm 2–3 sentence intro here. Who are you, what is DoctoRise, and who is it for? ]</span></p>
+
+    <!-- EDIT: mission -->
+    <section class="da-ab-sec">
+      <h3>Our mission</h3>
+      <p><span class="da-ph">[ Your mission statement — what change you want to make for medical students. ]</span></p>
+    </section>
+
+    <!-- EDIT: story -->
+    <section class="da-ab-sec">
+      <h3>Our story</h3>
+      <p><span class="da-ph">[ How DoctoRise started — the problem you saw, the moment you decided to build it. ]</span></p>
+      <p><span class="da-ph">[ Where it is today and where it’s headed. ]</span></p>
+    </section>
+
+    <!-- EDIT: headline numbers -->
+    <div class="da-ab-stats">
+      <div><b>[ 59 ]</b><span>[ label ]</span></div>
+      <div><b>[ 10k+ ]</b><span>[ label ]</span></div>
+      <div><b>[ 40+ ]</b><span>[ label ]</span></div>
+    </div>
+
+    <!-- EDIT: feature cards (copy a .da-ab-feat block to add more) -->
+    <section class="da-ab-sec">
+      <h3>What we offer</h3>
+      <div class="da-ab-features">
+        <div class="da-ab-feat"><div class="da-ab-feat-ic">📘</div><b>[ Feature title ]</b><p>[ Short description of this feature. ]</p></div>
+        <div class="da-ab-feat"><div class="da-ab-feat-ic">🧠</div><b>[ Feature title ]</b><p>[ Short description of this feature. ]</p></div>
+        <div class="da-ab-feat"><div class="da-ab-feat-ic">🧮</div><b>[ Feature title ]</b><p>[ Short description of this feature. ]</p></div>
+        <div class="da-ab-feat"><div class="da-ab-feat-ic">📝</div><b>[ Feature title ]</b><p>[ Short description of this feature. ]</p></div>
+      </div>
+    </section>
+
+    <!-- EDIT: team (copy a .da-ab-member block to add more; swap the avatar letter for an <img src="…"> if you like) -->
+    <section class="da-ab-sec">
+      <h3>Meet the team</h3>
+      <div class="da-ab-team">
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
+      </div>
+    </section>
+
+    <!-- EDIT: values (copy a <li> to add more) -->
+    <section class="da-ab-sec">
+      <h3>Our values</h3>
+      <ul class="da-ab-values">
+        <li><b>[ Value ]</b> — <span class="da-ph">[ what it means to you ]</span></li>
+        <li><b>[ Value ]</b> — <span class="da-ph">[ what it means to you ]</span></li>
+        <li><b>[ Value ]</b> — <span class="da-ph">[ what it means to you ]</span></li>
+      </ul>
+    </section>
+
+    <!-- EDIT: closing line -->
+    <div class="da-ab-foot"><span class="da-ph">[ A closing line — thanks for reading, join us, etc. ]</span> &middot; <a onclick="if(window.__openContact)window.__openContact();">Get in touch</a></div>
+  </div>
+</div>
+
+<!-- ===================== CONTACT PAGE ===================== -->
+<div class="da-page" id="da-contact-page">
+  <div class="da-info-card" style="max-width:520px;">
+    <div class="auth-sub" style="font-weight:800;font-size:18px;color:#1E2640;margin-bottom:4px;">Contact us</div>
+    <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 4px;"><span class="da-ph">[ A line inviting people to reach out — questions, feedback, partnerships. ]</span></p>
+
+    <!-- EDIT: contact methods (change the email + handles) -->
+    <div class="da-ct-methods">
+      <div class="da-ct-method"><span class="da-ct-ic">✉️</span><div><b>Email</b><a href="mailto:hello@doctorise.co.uk">hello@doctorise.co.uk</a></div></div>
+      <div class="da-ct-method"><span class="da-ct-ic">📸</span><div><b>Instagram</b><span>[ @yourhandle ]</span></div></div>
+      <div class="da-ct-method"><span class="da-ct-ic">💬</span><div><b>[ Other channel ]</b><span>[ handle / link ]</span></div></div>
+    </div>
+
+    <!-- Simple message form — opens the visitor's email app addressed to you. Change the address in daContactSend(). -->
+    <div class="auth-field"><label>Your name</label><input id="da-ct-name" type="text" placeholder="Name"></div>
+    <div class="auth-field"><label>Your email</label><input id="da-ct-email" type="email" placeholder="you@example.com"></div>
+    <div class="auth-field"><label>Message</label><textarea id="da-ct-msg" rows="4" style="width:100%;background:#FFFFFF;border:1px solid #D8DAE5;border-radius:8px;color:#1E2640;font-family:var(--sans,inherit);font-size:13.5px;padding:10px 12px;outline:none;resize:vertical;" placeholder="How can we help?"></textarea></div>
+    <button class="auth-submit" onclick="window.daContactSend&&window.daContactSend()">Send message</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  // These are full pages with their own #about / #contact URLs, so the browser Back button
+  // works. Opening pushes a history entry (via updateHash); Back/forward and deep links are
+  // handled by restoreFromHash, which calls __showInfoPage / __hideInfoPages.
+  var openedInSession=false;
+  function positionBelowHeadbar(){
+    var nav=document.querySelector('.topnav'); var h=nav?nav.offsetHeight:52;
+    ['da-about-page','da-contact-page'].forEach(function(id){ var p=document.getElementById(id); if(p) p.style.top=h+'px'; });
+  }
+  function show(which){
+    var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
+    if(a) a.classList.toggle('open', which==='about');
+    if(c) c.classList.toggle('open', which==='contact');
+    // Flag on <body>; CSS then hides the floating buttons (Get Membership / Custom Mock / Review)
+    // while an info page is open. Doing it in CSS is robust even when those buttons are created
+    // AFTER this runs (e.g. on a deep-link straight to #contact).
+    document.body.classList.toggle('da-info-open', !!which);
+    if(which){ positionBelowHeadbar(); var pg=document.getElementById('da-'+which+'-page'); if(pg) pg.scrollTop=0; }
+  }
+  window.addEventListener('resize', function(){
+    var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
+    if((a&&a.classList.contains('open'))||(c&&c.classList.contains('open'))) positionBelowHeadbar();
+  });
+  window.__showInfoPage = function(which){ show(which); };
+  window.__hideInfoPages = function(){ show(null); };
+  window.__openAbout   = function(){ openedInSession=true; if(window.updateHash) updateHash('about');   else location.hash='about';   show('about'); };
+  window.__openContact = function(){ openedInSession=true; if(window.updateHash) updateHash('contact'); else location.hash='contact'; show('contact'); };
+  window.__closeInfoPage = function(){
+    // Prefer real Back navigation (returns wherever they were). If they deep-linked straight
+    // here (no in-app history), drop them on Home instead of leaving the site.
+    if(openedInSession && window.history.length>1){ history.back(); }
+    else { show(null); if(window.updateHash) updateHash('home'); if(window.goHome) window.goHome(true); }
+  };
+
+  // Contact form -> opens the visitor's email client addressed to you. CHANGE this address:
+  var CONTACT_EMAIL = 'hello@doctorise.co.uk';
+  window.daContactSend = function(){
+    var name=(document.getElementById('da-ct-name')||{}).value||'';
+    var from=(document.getElementById('da-ct-email')||{}).value||'';
+    var body=(document.getElementById('da-ct-msg')||{}).value||'';
+    var subject='DoctoRise enquiry'+(name?(' from '+name):'');
+    var full=body+(from?('\n\nReply to: '+from):'')+(name?('\nName: '+name):'');
+    try{ window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(full); }catch(e){}
+  };
+  // Escape acts like the Back button when an info page is open.
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page'); if((a&&a.classList.contains('open'))||(c&&c.classList.contains('open'))) window.__closeInfoPage(); } });
+
+  // Insert "About Us" and "Contact" into the account menu, between Profile and Settings.
+  function insertLinks(){
+    var menu=document.getElementById('accountMenu'); if(!menu) return false;
+    var setBtn=document.getElementById('da-change-pw-btn');   // this is the "Settings" button
+    if(!setBtn) return false;
+    if(document.getElementById('da-about-btn')) return true;  // already added
+    var infoIcon='<svg viewBox="0 0 18 18" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="7"/><path d="M9 8.3v4M9 5.7h.01"/></svg>';
+    var mailIcon='<svg viewBox="0 0 18 18" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><rect x="2.5" y="4" width="13" height="10" rx="1.5"/><path d="M3 5l6 4.4L15 5"/></svg>';
+    function amk(id,label,svg,fn){ var b=document.createElement('button'); b.id=id; b.innerHTML=svg+' '+label; b.onclick=fn; return b; }
+    menu.insertBefore(amk('da-about-btn','About Us',infoIcon,function(){ menu.classList.remove('open'); if(window.__syncMemFab)window.__syncMemFab(); window.__openAbout(); }), setBtn);
+    menu.insertBefore(amk('da-contact-btn','Contact',mailIcon,function(){ menu.classList.remove('open'); if(window.__syncMemFab)window.__syncMemFab(); window.__openContact(); }), setBtn);
+    return true;
+  }
+  // The Settings button is injected after auth resolves, so poll briefly until it exists.
+  var tries=0, iv=setInterval(function(){ if(insertLinks() || ++tries>80) clearInterval(iv); }, 100);
 })();
 </script>
 </body>
