@@ -23890,7 +23890,7 @@ function hideFlyout(p) {
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
   /* Centred white "sheet" so the tinted page shows as side margins on either side. */
-  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 68px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
+  .da-info-card{width:100%;max-width:880px;margin:0 auto;padding:40px 48px 68px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
   .da-ph{color:#8A93A6;font-style:italic;}
   .da-ab-hero{text-align:center;padding-bottom:18px;border-bottom:1px solid #E2E6F0;margin-bottom:24px;}
   .da-ab-logo-img{width:92px;height:92px;object-fit:contain;display:block;margin:0 auto 8px;}
@@ -23908,7 +23908,7 @@ function hideFlyout(p) {
   .da-ab-stats>div:nth-child(1) b{color:#0B8A79;} .da-ab-stats>div:nth-child(2) b{color:#2E6FD6;} .da-ab-stats>div:nth-child(3) b{color:#6D4FD0;}
   .da-ab-stats span{display:block;margin-top:5px;font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;font-weight:700;}
   /* Colourful feature cards (2-up) */
-  .da-ab-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .da-ab-features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
   .da-ab-feat{border-radius:12px;padding:15px;}
   .da-ab-feat-ic{font-size:22px;margin-bottom:7px;}
   .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:3px;}
@@ -23939,6 +23939,7 @@ function hideFlyout(p) {
   .da-page .auth-field label{color:#6B7280;}
   .da-page .auth-field input,.da-page .auth-field textarea{background:#FFFFFF;border:1px solid #D8DAE5;color:#1E2640;}
   .da-page .auth-field input::placeholder,.da-page .auth-field textarea::placeholder{color:#9AA3B2;}
+  @media (max-width:760px){ .da-ab-features{grid-template-columns:1fr 1fr;} }
   @media (max-width:560px){ .da-ab-features,.da-ab-team{grid-template-columns:1fr;} .da-info-card{padding:26px 20px 40px;} }
   /* Low-key dot wallpaper across the app's light content backdrops (study notes, mock, calculators,
      home). Shows only in blank space — content cards/sheets sit on top and cover it. Placed after
@@ -23962,13 +23963,6 @@ function hideFlyout(p) {
 
     <!-- EDIT: opening line -->
     <p class="da-ab-lead">Medicine is huge and scattered. DoctoRise brings it all together &mdash; notes, flashcards, MCQs and custom mock exams &mdash; so you can learn it, remember it and test yourself in one place.</p>
-
-    <!-- EDIT: the numbers -->
-    <div class="da-ab-stats">
-      <div><b>400+</b><span>Topics</span></div>
-      <div><b>30k+</b><span>Flashcards &amp; MCQs</span></div>
-      <div><b>59</b><span>Calculators</span></div>
-    </div>
 
     <!-- EDIT: mission -->
     <section class="da-ab-sec">
