@@ -21657,6 +21657,18 @@ function hideFlyout(p) {
       + '<div class="da-lock-foot">Topics you already unlocked stay open for their 24 hours.</div></div>';
   }
   function hidePaywall(p){ var el=document.getElementById('da-paywall-'+p); if(el) el.style.display='none'; }
+  // Dismissing a paywall ("Not now" / "OK") returns the visitor to the page they were on,
+  // rather than leaving them on the empty locked-topic template that renders behind the lock.
+  function dismissWall(p){
+    hidePaywall(p);
+    var prev = window.__preSelectHash;
+    if(prev && prev !== window.location.hash){
+      window.location.hash = prev;                       // router restores that view (hashchange -> restoreFromHash)
+    } else {
+      try{ if(typeof updateHash==='function') updateHash('home'); }catch(e){}
+      if(window.goHome) window.goHome(true);              // no prior view (e.g. a deep-link) -> Home
+    }
+  }
   function renderWall(p, name, html, skipHash){
     var st = getState(p); st.activeTopic = name;
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){ el.classList.toggle('active', el.dataset.topic===name); });
@@ -21697,10 +21709,10 @@ function hideFlyout(p) {
             else { dpLoadServer().then(function(){ renderWall(p, name, limitHTML(p), skipHash); }); }   // server said no slot left
           });
         };
-        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; hidePaywall(p); };
+        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; dismissWall(p); };
         renderWall(p, name, dayPassHTML(name, p), skipHash);
       } else {
-        window.__dpCancel = function(){ window.__dpCancel=null; hidePaywall(p); };
+        window.__dpCancel = function(){ window.__dpCancel=null; dismissWall(p); };
         renderWall(p, name, limitHTML(p), skipHash);
       }
     } else {
@@ -21712,6 +21724,9 @@ function hideFlyout(p) {
   window.selectTopic = function(p, name, skipHash){
     hidePaywall(p);
     if(window.__clearStudyBlur) window.__clearStudyBlur(p);
+    // Remember where we were BEFORE this (real, user-initiated) selection, so dismissing a
+    // paywall can return there instead of stranding the user on the blank locked template.
+    if(!skipHash){ try{ window.__preSelectHash = window.location.hash; }catch(e){} }
     var self=this;
     gateTopic(p, name, skipHash, function(){ _selectTopic.call(self, p, name, skipHash); });
   };
