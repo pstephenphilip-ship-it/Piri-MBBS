@@ -21868,12 +21868,21 @@ function hideFlyout(p) {
       if(!isMember && was && !window.__membershipLoaded){ window.__member=true; return; }
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
-      // Membership just ACTIVATED: clear the anti-loop rate-limit stamp so the
-      // unlock reload can't be suppressed — otherwise lock icons rendered while
-      // free would linger even though access is granted. (One-time: da-member is
-      // persisted to '1' above, so the reloaded page won't re-trigger this.)
-      if(isMember && !was){ try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){} }
-      if(isMember!==was){ window.__scheduleReload(); }
+      if(isMember && !was){
+        // Membership just ACTIVATED: clear the anti-loop rate-limit stamp so the
+        // unlock reload can't be suppressed — otherwise lock icons rendered while
+        // free would linger even though access is granted. (One-time: da-member is
+        // persisted to '1' above, so the reloaded page won't re-trigger this.)
+        try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){}
+        window.__scheduleReload();
+      } else if(!isMember && was){
+        // Membership ENDED while on a (now inaccessible) premium page — drop the
+        // topic hash so the forced reload lands on Home, and re-render as a free
+        // user. Clear the rate-limit stamp so the redirect can't be suppressed.
+        try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){}
+        try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
+        window.__scheduleReload();
+      }
     }
     window.__applyMembership = applyMembership;
     function clearMembership(){ try{ localStorage.setItem('da-member','0'); }catch(e){} window.__member=false; }
