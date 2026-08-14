@@ -16769,7 +16769,12 @@ function updateHash(tab, system, topic, mode) {
   if (system) parts.push(encodeURIComponent(system));
   if (topic) parts.push(encodeURIComponent(topic));
   if (mode && mode !== 'notes') parts.push(mode);
-  history.replaceState(null, '', '#' + parts.join('/'));
+  var h = '#' + parts.join('/');
+  // pushState (not replaceState) so each navigation is a real browser history
+  // entry — this makes the back/forward buttons work. Skip when the hash is
+  // unchanged so we don't stack duplicate entries.
+  if (h === window.location.hash) return;
+  history.pushState(null, '', h);
 }
 
 function restoreFromHash() {
