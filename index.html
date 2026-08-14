@@ -401,6 +401,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .annot-fab svg{width:15px;height:15px;flex-shrink:0;}
 .annot-fab.is-hidden,.da-rv-fab.is-hidden,.mock-fab.is-hidden{display:none;}
 .annot-fab-badge{margin-left:auto;background:rgba(35,26,2,.85);color:#FCE9B8;font-size:11px;font-weight:800;border-radius:10px;padding:1px 7px;min-width:18px;text-align:center;line-height:1.5;}
+/* Membership CTA — top-right under the profile, non-members only */
+.da-mem-fab{position:fixed;top:58px;right:20px;z-index:901;font-family:var(--sans);font-size:12px;font-weight:700;color:#04121a;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);border:none;border-radius:22px;padding:8px 15px;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 4px 14px rgba(0,0,0,.2),0 1px 4px rgba(0,194,168,.35);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
+.da-mem-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(0,194,168,.45);}
+.da-mem-fab svg{width:15px;height:15px;flex-shrink:0;}
+.da-mem-fab.is-hidden{display:none;}
+@media (max-width:720px){.da-mem-fab{top:52px;right:14px;padding:8px 12px;font-size:11px;}}
 .annot-fab-badge.zero{display:none;}
 /* Custom Mock floating button (red) — stacked under Review */
 .mock-fab{position:fixed;bottom:22px;right:20px;z-index:900;font-family:var(--sans);font-size:12px;font-weight:700;color:#fff;background:linear-gradient(135deg,#FF4D5E 0%,#E11D48 100%);border:none;border-radius:22px;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(0,0,0,.18),0 1px 4px rgba(225,29,72,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
@@ -23571,6 +23577,23 @@ function hideFlyout(p) {
     rebuild();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();
+</script>
+<!-- ===== Membership CTA button (top-right, non-members only) ===== -->
+<script>
+(function(){
+  function sync(){ var b=document.getElementById('daMemFab'); if(b) b.classList.toggle('is-hidden', !!window.__member); }
+  window.__syncMemFab = sync;
+  function make(){
+    if(document.getElementById('daMemFab')) return;
+    var b=document.createElement('button');
+    b.id='daMemFab'; b.className='da-mem-fab'; b.title='Unlock everything with membership';
+    b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13.5h14M2.6 5.4l3.2 3L9 3.4l3.2 5 3.2-3-1.2 8H3.8z"/></svg><span>Get Membership</span>';
+    b.onclick=function(){ if(window.__openMembership){ window.__openMembership(); } else if(window.__openSettings){ window.__openSettings(); } };
+    document.body.appendChild(b);
+    sync();
+  }
+  if(document.readyState!=='loading') make(); else document.addEventListener('DOMContentLoaded', make);
 })();
 </script>
 </body>
