@@ -176,6 +176,83 @@
         "front": "Before surgery for a confirmed phaeochromocytoma, in what order must blockade be given?",
         "back": "Alpha-blockade FIRST (e.g. phenoxybenzamine), then add beta-blockade only afterwards. Unopposed beta-blockade leaves alpha-mediated vasoconstriction unopposed and can trigger a hypertensive crisis."
       }
+    ],
+    "investigations__SPECIAL TESTS__Endocrine — Glucose & Water": [
+      {
+        "id": "st_glu_ogtt_fc_01",
+        "front": "What glucose load is given in a standard adult OGTT?",
+        "back": "75g of anhydrous glucose dissolved in ~300mL water, drunk over about 5 minutes, after an 8-14 hour overnight fast."
+      },
+      {
+        "id": "st_glu_ogtt_fc_02",
+        "front": "State the WHO/NICE OGTT venous plasma glucose thresholds for diabetes.",
+        "back": "Fasting glucose ≥7.0 mmol/L OR 2-hour glucose ≥11.1 mmol/L."
+      },
+      {
+        "id": "st_glu_ogtt_fc_03",
+        "front": "Define impaired glucose tolerance (IGT) and impaired fasting glucose (IFG) on OGTT.",
+        "back": "IGT = 2-hour glucose 7.8-11.0 mmol/L. IFG = fasting glucose 6.1-6.9 mmol/L."
+      },
+      {
+        "id": "st_glu_ogtt_fc_04",
+        "front": "What are the NICE OGTT thresholds for gestational diabetes?",
+        "back": "Fasting glucose ≥5.6 mmol/L OR 2-hour glucose ≥7.8 mmol/L."
+      },
+      {
+        "id": "st_glu_ogtt_fc_05",
+        "front": "How does the OGTT diagnose acromegaly?",
+        "back": "Growth hormone is measured with the glucose load. In acromegaly GH fails to suppress below 0.4 µg/L (<1 mIU/L), and may paradoxically rise, because autonomous GH secretion is not switched off by hyperglycaemia."
+      },
+      {
+        "id": "st_glu_fast_fc_01",
+        "front": "What is the gold-standard test for suspected insulinoma, and what does it exploit?",
+        "back": "The 72-hour supervised inpatient fast. It exploits the fact that fasting hypoglycaemia normally suppresses insulin, whereas an insulinoma secretes insulin autonomously and fails to suppress."
+      },
+      {
+        "id": "st_glu_fast_fc_02",
+        "front": "State Whipple's triad.",
+        "back": "(1) Symptoms/signs of hypoglycaemia, (2) a simultaneously LOW measured plasma glucose, and (3) relief of symptoms when glucose is given. All three are needed to call hypoglycaemia clinically significant."
+      },
+      {
+        "id": "st_glu_fast_fc_03",
+        "front": "At the moment of hypoglycaemia, which paired bloods are taken and why?",
+        "back": "Glucose (lab-confirmed), insulin, C-peptide, proinsulin, a sulphonylurea screen, and beta-hydroxybutyrate. Together they confirm hyperinsulinism and distinguish endogenous (insulinoma/sulphonylurea) from exogenous insulin."
+      },
+      {
+        "id": "st_glu_fast_fc_04",
+        "front": "How does C-peptide distinguish the causes of hyperinsulinaemic hypoglycaemia?",
+        "back": "Insulinoma = high insulin + HIGH C-peptide (+ high proinsulin, negative drug screen). Exogenous/factitious insulin = high insulin + LOW/suppressed C-peptide. Sulphonylurea = high insulin + high C-peptide + POSITIVE drug screen."
+      },
+      {
+        "id": "st_glu_fast_fc_05",
+        "front": "Why are ketones (beta-hydroxybutyrate) LOW in insulinoma-related hypoglycaemia?",
+        "back": "Insulin suppresses lipolysis and ketogenesis. In hyperinsulinism, low glucose coexists with inappropriately low ketones, unlike normal fasting where hypoglycaemia would drive ketosis."
+      },
+      {
+        "id": "st_glu_water_fc_01",
+        "front": "What three conditions does the water deprivation test differentiate?",
+        "back": "Cranial (central) diabetes insipidus (deficient ADH), nephrogenic DI (renal resistance to ADH), and primary polydipsia (excessive water intake). It is used to work up hypotonic polyuria/polydipsia."
+      },
+      {
+        "id": "st_glu_water_fc_02",
+        "front": "During the deprivation phase, how do the three causes behave?",
+        "back": "Normal person and primary polydipsia concentrate the urine (urine osmolality rises, typically >600-800 mOsm/kg). Both cranial and nephrogenic DI fail to concentrate (urine stays dilute) while plasma osmolality rises."
+      },
+      {
+        "id": "st_glu_water_fc_03",
+        "front": "After giving desmopressin (DDAVP), how are cranial and nephrogenic DI distinguished?",
+        "back": "Cranial DI CONCENTRATES the urine (urine osmolality rises substantially, e.g. >50% or to >600-800) because the kidney responds to exogenous ADH. Nephrogenic DI does NOT respond (urine stays dilute) as the kidneys are resistant to ADH."
+      },
+      {
+        "id": "st_glu_water_fc_04",
+        "front": "When must the water deprivation test be stopped?",
+        "back": "Stop if body weight falls by >3% or if plasma sodium/osmolality rises above normal - these indicate dangerous dehydration. The test requires continuous close supervision to prevent hypernatraemic dehydration and to stop surreptitious drinking."
+      },
+      {
+        "id": "st_glu_water_fc_05",
+        "front": "What is copeptin and why is it useful here?",
+        "back": "Copeptin is the stable C-terminal fragment of the ADH (vasopressin) precursor and acts as a surrogate marker of endogenous ADH secretion. Measured at baseline or after hypertonic saline stimulation, it more reliably discriminates DI subtypes and partial forms than the classic water deprivation test."
+      }
     ]
   },
   "q": {
@@ -494,6 +571,143 @@
         "correctIndex": 2,
         "answer": "Establish alpha-blockade first (e.g. phenoxybenzamine), then add beta-blockade",
         "explanation": "Alpha-blockade must be established first to control vasoconstriction, with beta-blockade added only afterwards. Giving a beta-blocker first leaves alpha-mediated vasoconstriction unopposed and can precipitate a hypertensive crisis."
+      }
+    ],
+    "investigations__SPECIAL TESTS__Endocrine — Glucose & Water": [
+      {
+        "id": "st_glu_ogtt_q01",
+        "type": "mcq",
+        "question": "A 52-year-old asymptomatic man has an OGTT. Fasting plasma glucose is 6.5 mmol/L and 2-hour glucose is 9.0 mmol/L. How is this best classified?",
+        "options": [
+          "Normal glucose tolerance",
+          "Impaired fasting glucose and impaired glucose tolerance",
+          "Diabetes mellitus",
+          "Gestational diabetes",
+          "Acromegaly"
+        ],
+        "correctIndex": 1,
+        "answer": "Impaired fasting glucose and impaired glucose tolerance",
+        "explanation": "A fasting value of 6.1-6.9 mmol/L defines impaired fasting glucose, and a 2-hour value of 7.8-11.0 mmol/L defines impaired glucose tolerance. Neither value reaches the diabetes thresholds of fasting ≥7.0 or 2-hour ≥11.1 mmol/L."
+      },
+      {
+        "id": "st_glu_ogtt_q02",
+        "type": "mcq",
+        "question": "During which part of an OGTT is growth hormone measured, and what result confirms acromegaly?",
+        "options": [
+          "GH rises above 10 µg/L when fasting",
+          "GH suppresses below 0.4 µg/L after the glucose load",
+          "GH fails to suppress below 0.4 µg/L after the glucose load",
+          "GH doubles after an insulin injection",
+          "GH is undetectable at 2 hours"
+        ],
+        "correctIndex": 2,
+        "answer": "GH fails to suppress below 0.4 µg/L after the glucose load",
+        "explanation": "Glucose normally suppresses growth hormone secretion. In acromegaly the autonomous GH secretion fails to suppress below 0.4 µg/L (<1 mIU/L) after the oral glucose load, and may even rise paradoxically."
+      },
+      {
+        "id": "st_glu_ogtt_q03",
+        "type": "mcq",
+        "question": "Which piece of patient preparation is essential for a valid OGTT?",
+        "options": [
+          "A low-carbohydrate diet for 3 days before the test",
+          "Eating an unrestricted diet with adequate carbohydrate for 3 days beforehand",
+          "A 24-hour complete fast including water",
+          "Vigorous exercise immediately before sampling",
+          "Taking regular corticosteroids on the morning of the test"
+        ],
+        "correctIndex": 1,
+        "answer": "Eating an unrestricted diet with adequate carbohydrate for 3 days beforehand",
+        "explanation": "At least 150g of carbohydrate daily for 3 days maintains normal insulin responsiveness; prior carbohydrate restriction falsely impairs glucose tolerance. The patient then fasts overnight (water permitted) and avoids smoking during the test."
+      },
+      {
+        "id": "st_glu_fast_q01",
+        "type": "mcq",
+        "question": "During a 72-hour supervised fast, a patient becomes confused with a lab glucose of 2.1 mmol/L. Paired bloods show insulin 25 microU/mL, C-peptide 0.9 nmol/L, proinsulin high, beta-hydroxybutyrate low, and a negative sulphonylurea screen. What is the diagnosis?",
+        "options": [
+          "Exogenous (factitious) insulin administration",
+          "Sulphonylurea misuse",
+          "Insulinoma",
+          "Normal physiological fasting response",
+          "Adrenal insufficiency"
+        ],
+        "correctIndex": 2,
+        "answer": "Insulinoma",
+        "explanation": "Hypoglycaemia with non-suppressed insulin, HIGH C-peptide and raised proinsulin indicates endogenous pancreatic insulin secretion. Low ketones confirm insulin action, and a negative drug screen excludes sulphonylurea, leaving insulinoma."
+      },
+      {
+        "id": "st_glu_fast_q02",
+        "type": "mcq",
+        "question": "A patient has hypoglycaemia during the fast with insulin 30 microU/mL but a suppressed C-peptide of 0.05 nmol/L. Which cause does this pattern indicate?",
+        "options": [
+          "Insulinoma",
+          "Exogenous insulin administration",
+          "Sulphonylurea abuse",
+          "Nesidioblastosis",
+          "Reactive (postprandial) hypoglycaemia"
+        ],
+        "correctIndex": 1,
+        "answer": "Exogenous insulin administration",
+        "explanation": "Injected insulin raises measured insulin but bypasses the pancreas, so endogenous C-peptide is suppressed. A high insulin with LOW/suppressed C-peptide is the signature of exogenous (factitious) insulin."
+      },
+      {
+        "id": "st_glu_fast_q03",
+        "type": "mcq",
+        "question": "During the fast, when should the diagnostic paired samples for insulin and C-peptide be taken?",
+        "options": [
+          "At a fixed 24-hour interval regardless of glucose level",
+          "Only after intravenous glucose has been given to treat symptoms",
+          "At the moment lab glucose is low (approximately 2.2 to 2.5 mmol/L or below), before treating",
+          "Only once the full 72 hours has elapsed, whatever the glucose",
+          "When capillary glucose first drops below 4 mmol/L"
+        ],
+        "correctIndex": 2,
+        "answer": "At the moment lab glucose is low (approximately 2.2 to 2.5 mmol/L or below), before treating",
+        "explanation": "Insulin and C-peptide are only interpretable when drawn simultaneously with a genuinely low, lab-confirmed glucose. The sample must be taken before glucose or glucagon is administered, otherwise the test is uninterpretable."
+      },
+      {
+        "id": "st_glu_water_q01",
+        "type": "mcq",
+        "question": "During the deprivation phase of a water deprivation test, a patient's urine remains dilute (osmolality 180 mOsm/kg) while plasma osmolality rises. After administration of desmopressin (DDAVP), the urine osmolality rises to 720 mOsm/kg. What is the diagnosis?",
+        "options": [
+          "Cranial (central) diabetes insipidus",
+          "Nephrogenic diabetes insipidus",
+          "Primary polydipsia",
+          "Normal physiological response",
+          "Osmotic diuresis from hyperglycaemia"
+        ],
+        "correctIndex": 0,
+        "answer": "Cranial (central) diabetes insipidus",
+        "explanation": "Failure to concentrate urine during deprivation indicates diabetes insipidus. The substantial rise in urine osmolality after exogenous ADH (desmopressin) confirms the kidney can respond, localising the defect to deficient ADH secretion, i.e. cranial DI."
+      },
+      {
+        "id": "st_glu_water_q02",
+        "type": "mcq",
+        "question": "A patient with chronic polyuria undergoes a water deprivation test. During deprivation the urine stays dilute and plasma osmolality rises; after desmopressin the urine osmolality remains low at 200 mOsm/kg. Which mechanism explains this pattern?",
+        "options": [
+          "Renal collecting-duct resistance to ADH",
+          "Deficient hypothalamic ADH production",
+          "Compulsive excessive water intake",
+          "Excess aldosterone secretion",
+          "Impaired thirst osmoreceptor sensitivity"
+        ],
+        "correctIndex": 0,
+        "answer": "Renal collecting-duct resistance to ADH",
+        "explanation": "The urine fails to concentrate both during deprivation and after exogenous ADH, so the problem lies at the kidney rather than in ADH supply. This ADH resistance at the collecting duct is the hallmark of nephrogenic diabetes insipidus."
+      },
+      {
+        "id": "st_glu_water_q03",
+        "type": "mcq",
+        "question": "Midway through a water deprivation test, a patient has lost 3.5% of body weight and plasma sodium has risen to 149 mmol/L. What is the most appropriate action?",
+        "options": [
+          "Stop the test and allow the patient to drink",
+          "Continue deprivation for the full 8 hours regardless",
+          "Withhold fluids and repeat plasma osmolality in 4 hours",
+          "Give intravenous 5% dextrose and continue deprivation",
+          "Administer a thiazide diuretic and continue"
+        ],
+        "correctIndex": 0,
+        "answer": "Stop the test and allow the patient to drink",
+        "explanation": "Weight loss exceeding 3% or a rising plasma sodium/osmolality signals dangerous dehydration and impending hypernatraemia. The test must be terminated immediately and rehydration permitted under supervision to prevent harm."
       }
     ]
   }
