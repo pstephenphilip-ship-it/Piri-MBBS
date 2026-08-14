@@ -23955,36 +23955,44 @@ function hideFlyout(p) {
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
   /* Centred white "sheet" so the tinted page shows as side margins on either side. */
-  /* Snappy landing-page card — short and colourful, not a wall of notes. */
-  .da-info-card{width:100%;max-width:760px;margin:0 auto;padding:0 0 44px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);overflow:hidden;}
+  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 68px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
   .da-ph{color:#8A93A6;font-style:italic;}
-  /* Colourful gradient hero band (full-bleed at the top of the card) */
-  .da-ab-hero{text-align:center;padding:42px 28px 36px;background:linear-gradient(135deg,#E7F8F4 0%,#E9F1FE 55%,#F1ECFD 100%);}
-  .da-ab-logo-img{width:84px;height:84px;object-fit:contain;display:block;margin:0 auto 8px;}
-  .da-ab-logo{font-family:var(--mono,monospace);font-size:36px;font-weight:800;letter-spacing:-0.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-  .da-ab-tagline{font-size:15px;color:#3B4657;margin-top:8px;font-weight:600;}
-  .da-ab-body{padding:32px 40px 0;}
-  /* One punchy line */
-  .da-ab-punch{font-size:17px;line-height:1.6;color:#1E2640;text-align:center;max-width:610px;margin:0 auto;font-weight:500;}
-  .da-ab-punch b{color:#0B8A79;font-weight:800;}
+  .da-ab-hero{text-align:center;padding-bottom:18px;border-bottom:1px solid #E2E6F0;margin-bottom:24px;}
+  .da-ab-logo-img{width:92px;height:92px;object-fit:contain;display:block;margin:0 auto 8px;}
+  .da-ab-logo{font-family:var(--mono,monospace);font-size:32px;font-weight:800;letter-spacing:-0.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .da-ab-tagline{font-size:14.5px;color:#4B5563;margin-top:7px;font-weight:600;}
+  .da-ab-lead{font-size:14.5px;line-height:1.7;color:#374151;margin:0;text-align:center;}
+  .da-ab-sec{margin-top:26px;}
+  .da-ab-sec h3{font-size:15px;font-weight:800;color:#0B8A79;margin:0 0 12px;letter-spacing:.01em;}
+  .da-ab-sec p{font-size:13.5px;line-height:1.7;color:#374151;margin:0;}
   /* Colourful stat pills */
-  .da-ab-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
-  .da-ab-stats>div{flex:1 1 130px;border-radius:14px;padding:16px 12px;text-align:center;}
+  .da-ab-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+  .da-ab-stats>div{flex:1 1 120px;border-radius:12px;padding:16px 12px;text-align:center;}
   .da-ab-stats>div:nth-child(1){background:#E7F8F4;} .da-ab-stats>div:nth-child(2){background:#E9F1FE;} .da-ab-stats>div:nth-child(3){background:#F1ECFD;}
-  .da-ab-stats b{display:block;font-size:28px;line-height:1;font-family:var(--mono,monospace);}
+  .da-ab-stats b{display:block;font-size:24px;line-height:1;font-family:var(--mono,monospace);}
   .da-ab-stats>div:nth-child(1) b{color:#0B8A79;} .da-ab-stats>div:nth-child(2) b{color:#2E6FD6;} .da-ab-stats>div:nth-child(3) b{color:#6D4FD0;}
-  .da-ab-stats span{display:block;margin-top:6px;font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;font-weight:700;}
-  /* Colourful feature tiles */
-  .da-ab-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px;}
-  .da-ab-tile{border-radius:14px;padding:16px 14px;}
-  .da-ab-tile .ic{font-size:24px;display:block;margin-bottom:8px;}
-  .da-ab-tile b{display:block;font-size:14px;color:#1E2640;margin-bottom:3px;}
-  .da-ab-tile p{font-size:12px;line-height:1.45;color:#5B6472;margin:0;}
-  .da-ab-tile.t1{background:#E7F8F4;} .da-ab-tile.t2{background:#E9F1FE;} .da-ab-tile.t3{background:#EAF7EE;}
-  .da-ab-tile.t4{background:#FDF3E4;} .da-ab-tile.t5{background:#F1ECFD;} .da-ab-tile.t6{background:#FDECF0;}
-  /* Snappy footer CTA (gradient pill) */
-  .da-ab-foot{margin-top:30px;text-align:center;font-size:14px;color:#4B5563;font-weight:500;}
-  .da-ab-foot a{display:inline-block;margin-top:12px;background:linear-gradient(135deg,#00C2A8,#0EA5E9);color:#fff;padding:11px 24px;border-radius:999px;cursor:pointer;text-decoration:none;font-weight:700;font-size:13.5px;}
+  .da-ab-stats span{display:block;margin-top:5px;font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;font-weight:700;}
+  /* Colourful feature cards (2-up) */
+  .da-ab-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .da-ab-feat{border-radius:12px;padding:15px;}
+  .da-ab-feat-ic{font-size:22px;margin-bottom:7px;}
+  .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:3px;}
+  .da-ab-feat p{font-size:12.5px;line-height:1.5;color:#5B6472;margin:0;}
+  .da-ab-feat.t1{background:#E7F8F4;} .da-ab-feat.t2{background:#E9F1FE;} .da-ab-feat.t3{background:#EAF7EE;}
+  .da-ab-feat.t4{background:#FDF3E4;} .da-ab-feat.t5{background:#F1ECFD;} .da-ab-feat.t6{background:#FDECF0;}
+  .da-ab-team{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .da-ab-member{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px;text-align:center;}
+  .da-ab-avatar{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#00C2A8,#0EA5E9);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;font-size:19px;overflow:hidden;}
+  .da-ab-avatar img{width:100%;height:100%;object-fit:cover;}
+  .da-ab-member b{display:block;font-size:14px;color:#1E2640;}
+  .da-ab-member .da-ab-role{font-size:12px;color:#0B8A79;margin:2px 0 8px;}
+  .da-ab-member p{font-size:12px;line-height:1.5;color:#6B7280;margin:0;}
+  .da-ab-values{list-style:none;margin:0;padding:0;}
+  .da-ab-values li{font-size:13.5px;line-height:1.6;color:#374151;padding:8px 0;border-bottom:1px solid #EEF0F5;}
+  .da-ab-values li b{color:#1E2640;}
+  .da-ab-values li:last-child{border-bottom:none;}
+  .da-ab-foot{margin-top:28px;padding-top:18px;border-top:1px solid #E2E6F0;font-size:13px;color:#4B5563;text-align:center;}
+  .da-ab-foot a{color:#0B8A79;cursor:pointer;text-decoration:none;font-weight:700;}
   .da-ct-methods{display:flex;flex-direction:column;gap:10px;margin:16px 0 22px;}
   .da-ct-method{display:flex;align-items:center;gap:12px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:14px 16px;}
   .da-ct-method .da-ct-ic{font-size:20px;flex-shrink:0;}
@@ -23996,8 +24004,7 @@ function hideFlyout(p) {
   .da-page .auth-field label{color:#6B7280;}
   .da-page .auth-field input,.da-page .auth-field textarea{background:#FFFFFF;border:1px solid #D8DAE5;color:#1E2640;}
   .da-page .auth-field input::placeholder,.da-page .auth-field textarea::placeholder{color:#9AA3B2;}
-  @media (max-width:680px){ .da-ab-tiles{grid-template-columns:1fr 1fr;} .da-ab-body{padding:26px 22px 0;} }
-  @media (max-width:440px){ .da-ab-tiles{grid-template-columns:1fr;} .da-ab-stats>div{flex-basis:100%;} }
+  @media (max-width:560px){ .da-ab-features,.da-ab-team{grid-template-columns:1fr;} .da-info-card{padding:26px 20px 40px;} }
   /* Low-key dot wallpaper across the app's light content backdrops (study notes, mock, calculators,
      home). Shows only in blank space — content cards/sheets sit on top and cover it. Placed after
      the base rules so it layers a dot image over their existing #F0F2F5 / #F7F8FC colour. */
@@ -24015,33 +24022,66 @@ function hideFlyout(p) {
     <div class="da-ab-hero">
       <img class="da-ab-logo-img" src="logo.png" alt="DoctoRise logo">
       <div class="da-ab-logo">DoctoRise</div>
-      <div class="da-ab-tagline">Everything you need for medical school &mdash; in one place.</div>
+      <div class="da-ab-tagline">Everything you need for medical school, in one place.</div>
     </div>
 
-    <div class="da-ab-body">
-      <!-- EDIT: one punchy line -->
-      <p class="da-ab-punch">Medicine is huge and scattered. DoctoRise pulls it all into one place &mdash; <b>notes, flashcards, MCQs and custom mock exams</b> &mdash; so you can learn it, remember it and test yourself without switching tools.</p>
+    <!-- EDIT: opening line -->
+    <p class="da-ab-lead">Medicine is huge and scattered. DoctoRise brings it all together &mdash; notes, flashcards, MCQs and custom mock exams &mdash; so you can learn it, remember it and test yourself in one place.</p>
 
-      <!-- EDIT: the numbers -->
-      <div class="da-ab-stats">
-        <div><b>400+</b><span>Topics</span></div>
-        <div><b>30k+</b><span>Flashcards &amp; MCQs</span></div>
-        <div><b>59</b><span>Calculators</span></div>
-      </div>
-
-      <!-- EDIT: colourful feature tiles -->
-      <div class="da-ab-tiles">
-        <div class="da-ab-tile t1"><span class="ic">📘</span><b>All-in-one notes</b><p>Every specialty, one library.</p></div>
-        <div class="da-ab-tile t2"><span class="ic">🎴</span><b>Flashcards</b><p>Active recall that sticks.</p></div>
-        <div class="da-ab-tile t3"><span class="ic">✅</span><b>Exam-style MCQs</b><p>Pitched at real exam level.</p></div>
-        <div class="da-ab-tile t4"><span class="ic">⏱️</span><b>Custom mock exams</b><p>Timed papers, your way.</p></div>
-        <div class="da-ab-tile t5"><span class="ic">✏️</span><b>Highlight &amp; annotate</b><p>Make the notes yours.</p></div>
-        <div class="da-ab-tile t6"><span class="ic">🧮</span><b>Calculators</b><p>With built-in case practice.</p></div>
-      </div>
-
-      <!-- EDIT: closing line -->
-      <div class="da-ab-foot">Built for medical students &mdash; and always growing.<br><a onclick="if(window.__openContact)window.__openContact();">Get in touch &rarr;</a></div>
+    <!-- EDIT: the numbers -->
+    <div class="da-ab-stats">
+      <div><b>400+</b><span>Topics</span></div>
+      <div><b>30k+</b><span>Flashcards &amp; MCQs</span></div>
+      <div><b>59</b><span>Calculators</span></div>
     </div>
+
+    <!-- EDIT: mission -->
+    <section class="da-ab-sec">
+      <h3>Our mission</h3>
+      <p>Take the huge, scattered content of medical school and make it simple &mdash; one place to learn, revise and test yourself.</p>
+    </section>
+
+    <!-- EDIT: story -->
+    <section class="da-ab-sec">
+      <h3>Our story</h3>
+      <p>We got tired of juggling a dozen apps and PDFs, so we built the all-in-one resource we wished we&rsquo;d had &mdash; and it keeps growing.</p>
+    </section>
+
+    <!-- EDIT: feature cards (copy a .da-ab-feat block to add more) -->
+    <section class="da-ab-sec">
+      <h3>What we offer</h3>
+      <div class="da-ab-features">
+        <div class="da-ab-feat t1"><div class="da-ab-feat-ic">📘</div><b>All-in-one notes</b><p>Every specialty, one library.</p></div>
+        <div class="da-ab-feat t2"><div class="da-ab-feat-ic">🎴</div><b>Flashcards</b><p>Active recall that sticks.</p></div>
+        <div class="da-ab-feat t3"><div class="da-ab-feat-ic">✅</div><b>Exam-style MCQs</b><p>Pitched at real exam level.</p></div>
+        <div class="da-ab-feat t4"><div class="da-ab-feat-ic">⏱️</div><b>Custom mock exams</b><p>Timed papers, your way.</p></div>
+        <div class="da-ab-feat t5"><div class="da-ab-feat-ic">✏️</div><b>Highlight &amp; annotate</b><p>Make the notes yours.</p></div>
+        <div class="da-ab-feat t6"><div class="da-ab-feat-ic">🧮</div><b>Calculators</b><p>With built-in case practice.</p></div>
+      </div>
+    </section>
+
+    <!-- EDIT: values (copy a <li> to add more) -->
+    <section class="da-ab-sec">
+      <h3>Why DoctoRise?</h3>
+      <ul class="da-ab-values">
+        <li><b>Everything in one place</b> &mdash; less hunting, more learning.</li>
+        <li><b>Recall over re-reading</b> &mdash; testing is built in.</li>
+        <li><b>Exam-ready</b> &mdash; pitched at what you&rsquo;re actually marked on.</li>
+        <li><b>Yours to personalise</b> &mdash; highlight and annotate as you go.</li>
+      </ul>
+    </section>
+
+    <!-- EDIT: team (copy a .da-ab-member block to add more; swap the avatar letter for an <img src="…"> if you like) -->
+    <section class="da-ab-sec">
+      <h3>Meet the team</h3>
+      <div class="da-ab-team">
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role ]</div><p>[ One line. ]</p></div>
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role ]</div><p>[ One line. ]</p></div>
+      </div>
+    </section>
+
+    <!-- EDIT: closing line -->
+    <div class="da-ab-foot">Built for medical students, and always growing. &middot; <a onclick="if(window.__openContact)window.__openContact();">Get in touch</a></div>
   </div>
 </div>
 
