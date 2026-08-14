@@ -17291,7 +17291,13 @@ const ABBR_MAP={"AION":"anterior ischaemic optic neuropathy","PR3":"proteinase 3
 function expandAbbrs(html){
   function escRx(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
   const keys=Object.keys(ABBR_MAP).sort((a,b)=>b.length-a.length);
-  const pattern=new RegExp('(?<![\\w\\-])('+keys.map(escRx).join('|')+')(?![\\w\\-])','g');
+  // Word-boundary match around each abbreviation. The precise form uses a lookbehind, which
+  // throws a SyntaxError in Safari <16.4 / iOS Safari <16.4 — so fall back to \b there (a hair
+  // less precise on hyphen-adjacent text) rather than letting the note fail to render.
+  const __body='('+keys.map(escRx).join('|')+')';
+  let pattern;
+  try { pattern=new RegExp('(?<![\\w\\-])'+__body+'(?![\\w\\-])','g'); }
+  catch(e){ pattern=new RegExp('\\b'+__body+'(?![\\w\\-])','g'); }
   return html.replace(/>([^<]+)</g,(_,txt)=>{
     const replaced=txt.replace(pattern,(m)=>{
       const full=ABBR_MAP[m];
