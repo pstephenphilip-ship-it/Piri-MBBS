@@ -16868,12 +16868,15 @@ function ensureSystemLoaded(systemName){
     var slug=__slugMap[systemName]||__slugify(systemName);
     if(!slug) return;
     return Promise.all([
-      fetch(CONTENT_BASE+'notes/'+slug+'.json').then(function(r){return r.ok?r.json():null;})
+      // A non-200 here must THROW (not resolve to null) so the outer .catch clears the memo
+      // and the load is retried later. Resolving null would cache an empty "loaded" state for
+      // the whole session, leaving every topic in this system with a blank notes card.
+      fetch(CONTENT_BASE+'notes/'+slug+'.json').then(function(r){ if(!r.ok) throw new Error('notes HTTP '+r.status); return r.json(); })
         .then(function(d){ if(d) Object.assign(RICH_NOTES,d); }),
       fetch(CONTENT_BASE+'cards/'+slug+'.json').then(function(r){return r.ok?r.json():null;})
         .then(function(d){ if(d){ Object.assign(PRESET_FC,d.fc||{}); Object.assign(PRESET_Q,d.q||{}); } })
     ]);
-  }).catch(function(){ delete __ensure[systemName]; });
+  }).catch(function(){ delete __ensure[systemName]; });   // failed load is retryable, never memoized as done
   return __ensure[systemName];
 }
 window.ensureSystemLoaded=ensureSystemLoaded;
@@ -17122,6 +17125,22 @@ async function switchMode(p, mode, el, skipHash) {
   if (!skipHash) { const st = getState(p); updateHash(p, st.activeSystem, st.activeTopic, mode); }
 }
 
+// Self-heal a blank notes card: if a topic's rich note is missing (a transient content-fetch
+// failure or a race after a reload), re-run the system content load ONCE and re-render if the
+// note arrives and the user is still on that topic. One-shot per key so it can never loop.
+var __noteHealTried = {};
+function __maybeHealNote(p, name, richKey, store){
+  if (!richKey || __noteHealTried[richKey]) return;
+  __noteHealTried[richKey] = 1;
+  try {
+    var sys = (getState(p).activeSystem) || '';
+    if (!sys || typeof ensureSystemLoaded !== 'function') return;
+    ensureSystemLoaded(sys).then(function(){
+      var bank = store || RICH_NOTES;
+      if (bank[richKey] && getState(p).activeTopic === name) loadNote(p, name);
+    }).catch(function(){});
+  } catch(e){}
+}
 function loadNote(p, name) {
   const st = getState(p);
   const bc = document.getElementById('breadcrumb-' + p);
@@ -17169,6 +17188,7 @@ function loadNote(p, name) {
       const actions = document.querySelector('#notes-panel-conditions .note-actions');
       if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
     } else {
+      __maybeHealNote(p, name, richKey);   // content may not have loaded yet — retry & re-render
       let richEl = document.getElementById('rich-note-display');
       if (richEl) richEl.style.display = 'none';
       if (container) container.style.display = '';
@@ -17217,6 +17237,7 @@ function loadNote(p, name) {
       const actions = document.querySelector('#notes-panel-' + p + ' .note-actions');
       if (actions) actions.querySelectorAll('.btn-ghost:not(.btn-save)').forEach(b => b.style.display = 'none');
     } else {
+      __maybeHealNote(p, name, richKey);   // content may not have loaded yet — retry & re-render
       if (richEl) richEl.style.display = 'none';
       if (container) container.style.display = '';
       const ta = document.getElementById('freetxt-' + p);
