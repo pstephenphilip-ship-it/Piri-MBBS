@@ -709,6 +709,183 @@
         "front": "First-line systemic therapy for advanced (BCLC C) HCC?",
         "back": "Atezolizumab + bevacizumab is first-line. Alternatives/tyrosine kinase inhibitors include sorafenib and lenvatinib. Systemic therapy is used for portal/vascular invasion, extrahepatic spread, or PS 1-2."
       }
+    ],
+    "investigations__RISK SCORES & CRITERIA__Alcohol, Sepsis & Acute Care": [
+      {
+        "id": "rsc_acute_ciwa_fc_01",
+        "front": "What does CIWA-Ar assess and how many items does it have?",
+        "back": "It grades the severity of alcohol withdrawal to guide symptom-triggered benzodiazepine dosing. 10 items (most scored 0-7, orientation 0-4), maximum 67."
+      },
+      {
+        "id": "rsc_acute_ciwa_fc_02",
+        "front": "What CIWA-Ar score triggers a benzodiazepine dose in a symptom-triggered regimen?",
+        "back": "A score of >=8-10 triggers a benzodiazepine (e.g. chlordiazepoxide, diazepam or lorazepam); the patient is then reassessed and re-scored."
+      },
+      {
+        "id": "rsc_acute_ciwa_fc_03",
+        "front": "What CIWA-Ar score indicates severe withdrawal with high risk of seizures/DTs?",
+        "back": ">20 = severe withdrawal, high risk of withdrawal seizures and delirium tremens; treat and escalate. (16-20 moderate; 10-15 mild-moderate; <8-10 minimal/mild.)"
+      },
+      {
+        "id": "rsc_acute_ciwa_fc_04",
+        "front": "Alcohol withdrawal timeline: when do seizures and delirium tremens occur?",
+        "back": "Tremor/anxiety 6-12h, alcoholic hallucinosis 12-24h, withdrawal seizures 12-48h, delirium tremens 48-72h (confusion, autonomic instability, hallucinations - medical emergency)."
+      },
+      {
+        "id": "rsc_acute_ciwa_fc_05",
+        "front": "Why is parenteral thiamine given before glucose in alcohol withdrawal, and which benzodiazepine is preferred in liver impairment?",
+        "back": "Giving glucose first can precipitate Wernicke's encephalopathy in a thiamine-deficient patient, so IV thiamine (Pabrinex) goes first. Lorazepam is preferred in significant liver impairment (no active metabolites)."
+      },
+      {
+        "id": "rsc_acute_sofa_fc_01",
+        "front": "Sepsis-3: define sepsis.",
+        "back": "Life-threatening organ dysfunction caused by a dysregulated host response to infection. Operationalised as an acute rise in the SOFA score of ≥2 points attributable to infection."
+      },
+      {
+        "id": "rsc_acute_sofa_fc_02",
+        "front": "Sepsis-3: define septic shock.",
+        "back": "Sepsis with persisting hypotension requiring vasopressors to maintain MAP ≥65 mmHg AND a serum lactate >2 mmol/L, despite adequate fluid resuscitation. It identifies a subset with much higher mortality."
+      },
+      {
+        "id": "rsc_acute_sofa_fc_03",
+        "front": "What are the three components of qSOFA (1 point each)?",
+        "back": "Respiratory rate ≥22/min, altered mentation (GCS <15), and systolic BP ≤100 mmHg. A score ≥2 flags higher risk of poor outcome and should prompt escalation and assessment for organ dysfunction."
+      },
+      {
+        "id": "rsc_acute_sofa_fc_04",
+        "front": "Which six organ systems make up the SOFA score?",
+        "back": "Respiration (PaO₂/FiO₂), Coagulation (platelets), Liver (bilirubin), Cardiovascular (MAP/vasopressors), CNS (GCS), and Renal (creatinine/urine output). Each is scored 0–4 (max 24)."
+      },
+      {
+        "id": "rsc_acute_sofa_fc_05",
+        "front": "List the Sepsis Six (3 in, 3 out) and the time target.",
+        "back": "Deliver within 1 hour. IN: high-flow Oxygen, IV Fluids, IV broad-spectrum Antibiotics. OUT: blood Cultures (before antibiotics), serum Lactate, Urine output monitoring. Mnemonic: BUFALO."
+      },
+      {
+        "id": "rsc_acute_news2_fc_01",
+        "front": "How many parameters does NEWS2 use and what is the score range per parameter?",
+        "back": "7 physiological parameters (respiratory rate, SpO₂, supplemental oxygen, systolic BP, pulse, consciousness/ACVPU, temperature), each scored 0–3, aggregate range 0–20."
+      },
+      {
+        "id": "rsc_acute_news2_fc_02",
+        "front": "What NEWS2 total score triggers sepsis consideration and urgent review?",
+        "back": "A total of ≥5 (MEDIUM or HIGH risk) should trigger sepsis screening/consideration and urgent senior/clinician review."
+      },
+      {
+        "id": "rsc_acute_news2_fc_03",
+        "front": "What are the two key changes from NEWS1 to NEWS2?",
+        "back": "(1) Addition of SpO₂ Scale 2 for patients at risk of hypercapnic respiratory failure (COPD), target saturation 88–92%. (2) Consciousness scale changed from AVPU to ACVPU — new-onset Confusion/delirium (C) now scores 3."
+      },
+      {
+        "id": "rsc_acute_news2_fc_04",
+        "front": "How do the NEWS2 risk bands map to escalation?",
+        "back": "0–4 = low (routine, ≥12-hrly obs); any single parameter =3 (red) = urgent clinician review, hourly obs; 5–6 = medium (urgent review, consider sepsis, hourly obs); ≥7 = high (emergency critical-care assessment, continuous monitoring)."
+      },
+      {
+        "id": "rsc_acute_news2_fc_05",
+        "front": "When should SpO₂ Scale 2 be used in NEWS2 and what is the caveat?",
+        "back": "Only in patients with confirmed risk of hypercapnic respiratory failure (e.g. COPD), on a senior clinical decision, with a target of 88–92%. Do not over-oxygenate; default to Scale 1 (target 96%) otherwise."
+      },
+      {
+        "id": "rsc_acute_atls_fc_01",
+        "front": "What blood volume and percentage loss define ATLS Class I vs Class IV haemorrhage (70 kg adult)?",
+        "back": "Class I: <15% loss (<750 mL). Class IV: >40% loss (>2000 mL). Circulating volume assumed ~5 L in a 70 kg adult, so each ~15% ≈ 750 mL."
+      },
+      {
+        "id": "rsc_acute_atls_fc_02",
+        "front": "Which vital sign changes are the EARLIEST reliable signs of haemorrhage in ATLS classes?",
+        "back": "Tachycardia and a NARROWED pulse pressure (raised diastolic from compensatory vasoconstriction) appear in Class II, before any fall in systolic BP. They precede hypotension."
+      },
+      {
+        "id": "rsc_acute_atls_fc_03",
+        "front": "At which ATLS class does systolic blood pressure first fall, and why does this matter?",
+        "back": "Systolic BP falls in Class III (30–40%, 1500–2000 mL loss). Hypotension is therefore a LATE sign — fit young patients compensate and maintain BP until then, so a normal BP does not exclude major blood loss."
+      },
+      {
+        "id": "rsc_acute_atls_fc_04",
+        "front": "Give the heart rate, respiratory rate and urine output for ATLS Class III haemorrhage.",
+        "back": "Class III (30–40%, 1500–2000 mL): HR 120–140, RR 30–40, urine output 5–15 mL/hr, decreased systolic BP, narrowed pulse pressure, anxious/confused."
+      },
+      {
+        "id": "rsc_acute_atls_fc_05",
+        "front": "What are the key management steps for significant haemorrhagic shock (ATLS Class III/IV)?",
+        "back": "Control the haemorrhage (pressure/tourniquet/splint/surgery), two large-bore IV cannulae, activate major haemorrhage protocol with balanced blood product resuscitation, permissive hypotension in trauma, tranexamic acid within 3 hours, and treat the source."
+      },
+      {
+        "id": "rsc_acute_must_fc_01",
+        "front": "What are the three components of the MUST score?",
+        "back": "1) BMI, 2) Unplanned weight loss over 3-6 months, and 3) Acute disease effect (no/likely no nutritional intake for >5 days in an acutely ill patient). The three are scored and summed."
+      },
+      {
+        "id": "rsc_acute_must_fc_02",
+        "front": "How is BMI scored in MUST?",
+        "back": "BMI >20 kg/m² = 0 points; BMI 18.5-20 = 1 point; BMI <18.5 = 2 points."
+      },
+      {
+        "id": "rsc_acute_must_fc_03",
+        "front": "How is unplanned weight loss scored in MUST?",
+        "back": "Weight loss over 3-6 months: <5% = 0 points; 5-10% = 1 point; >10% = 2 points."
+      },
+      {
+        "id": "rsc_acute_must_fc_04",
+        "front": "What do the total MUST scores mean and what action follows?",
+        "back": "0 = low risk (routine care, repeat screening); 1 = medium risk (observe, document intake for 3 days, repeat screening); ≥2 = high risk (treat - refer to dietitian/nutrition support team, set goals, monitor)."
+      },
+      {
+        "id": "rsc_acute_must_fc_05",
+        "front": "What is refeeding syndrome and how is it prevented?",
+        "back": "A dangerous fluid/electrolyte shift when feeding is reintroduced in at-risk patients (little/no intake >5 days, low BMI, alcohol excess). Features hypophosphataemia, hypokalaemia, hypomagnesaemia and thiamine deficiency. Prevent by starting feed slowly (~10 kcal/kg/day), giving thiamine/B vitamins before feeding, replacing phosphate/potassium/magnesium, and monitoring electrolytes."
+      },
+      {
+        "id": "rsc_acute_waterlow_fc_01",
+        "front": "In which direction does the Waterlow score run, and what are the risk bands?",
+        "back": "Higher score = higher risk. Waterlow ≥10 = at risk, ≥15 = high risk, ≥20 = very high risk."
+      },
+      {
+        "id": "rsc_acute_waterlow_fc_02",
+        "front": "In which direction does the Braden scale run, and what are the bands?",
+        "back": "LOWER score = HIGHER risk (opposite to Waterlow). ≤9 very high, 10–12 high, 13–14 moderate, 15–18 mild, 19–23 low. Total range 6–23."
+      },
+      {
+        "id": "rsc_acute_waterlow_fc_03",
+        "front": "What are the 6 Braden subscales?",
+        "back": "Sensory perception, moisture, activity, mobility, nutrition, and friction/shear."
+      },
+      {
+        "id": "rsc_acute_waterlow_fc_04",
+        "front": "What does the SSKIN prevention bundle stand for?",
+        "back": "Surface (pressure-redistributing mattress/cushion), Skin inspection (regular), Keep moving (reposition, e.g. 2-hourly), Incontinence/moisture management, Nutrition/hydration."
+      },
+      {
+        "id": "rsc_acute_waterlow_fc_05",
+        "front": "Describe EPUAP/NPUAP pressure ulcer categories 1–4.",
+        "back": "1 = non-blanching erythema of intact skin; 2 = partial-thickness loss/blister; 3 = full-thickness skin loss (subcutaneous fat visible); 4 = full-thickness tissue loss (muscle/tendon/bone exposed). Plus unstageable and deep tissue injury."
+      },
+      {
+        "id": "rsc_acute_gcs_fc_01",
+        "front": "What are the three components of the GCS and their maximum scores?",
+        "back": "Eye opening (E, /4), Verbal response (V, /5), Motor response (M, /6). Summed for a total of 3 (min) to 15 (max)."
+      },
+      {
+        "id": "rsc_acute_gcs_fc_02",
+        "front": "How do you score EYE opening on the GCS?",
+        "back": "4 = spontaneous; 3 = to speech/sound; 2 = to pain/pressure; 1 = none."
+      },
+      {
+        "id": "rsc_acute_gcs_fc_03",
+        "front": "How do you score the MOTOR response on the GCS?",
+        "back": "6 = obeys commands; 5 = localises to pain; 4 = normal flexion (withdraws); 3 = abnormal flexion (decorticate); 2 = extension (decerebrate); 1 = none. Motor is the most prognostically important component."
+      },
+      {
+        "id": "rsc_acute_gcs_fc_04",
+        "front": "What GCS bands define mild, moderate and severe brain injury, and what is the airway rule?",
+        "back": "13-15 mild, 9-12 moderate, ≤8 severe. GCS ≤8 → the patient cannot protect their airway → consider intubation ('GCS 8, intubate')."
+      },
+      {
+        "id": "rsc_acute_gcs_fc_05",
+        "front": "What is AVPU and how does it relate to GCS?",
+        "back": "A simpler bedside screen: Alert / responds to Voice / responds to Pain / Unresponsive. 'P' (responds only to pain) corresponds roughly to a GCS of 8."
+      }
     ]
   },
   "q": {
@@ -1980,6 +2157,323 @@
         "correctIndex": 2,
         "answer": "Portal vein (vascular) invasion",
         "explanation": "BCLC stage C (advanced) is defined by macrovascular/portal invasion, extrahepatic spread, or performance status 1-2, and is treated with systemic therapy (e.g. atezolizumab + bevacizumab). Vascular invasion also places a tumour outside the Milan criteria for transplant."
+      }
+    ],
+    "investigations__RISK SCORES & CRITERIA__Alcohol, Sepsis & Acute Care": [
+      {
+        "id": "rsc_acute_ciwa_q01",
+        "type": "mcq",
+        "question": "A 52-year-old man admitted with alcohol dependence is being monitored on a symptom-triggered regimen. His CIWA-Ar score is 12. What is the most appropriate action?",
+        "options": [
+          "Withhold all medication and reassess in 24 hours",
+          "Give a benzodiazepine dose and reassess/re-score",
+          "Start a fixed high-dose antipsychotic",
+          "Give IV glucose before anything else",
+          "Discharge home with no follow-up"
+        ],
+        "correctIndex": 1,
+        "answer": "Give a benzodiazepine dose and reassess/re-score",
+        "explanation": "A CIWA-Ar >=8-10 triggers a benzodiazepine dose in a symptom-triggered regimen. A score of 12 is above threshold, so a benzodiazepine (e.g. chlordiazepoxide) is given and the patient re-scored to titrate further doses."
+      },
+      {
+        "id": "rsc_acute_ciwa_q02",
+        "type": "mcq",
+        "question": "Which CIWA-Ar band indicates severe withdrawal with the highest risk of seizures and delirium tremens?",
+        "options": [
+          "<8-10",
+          "10-15",
+          "16-20",
+          ">20",
+          "Any score with a normal orientation item"
+        ],
+        "correctIndex": 3,
+        "answer": ">20",
+        "explanation": "A CIWA-Ar >20 indicates severe withdrawal with a high risk of withdrawal seizures and delirium tremens, mandating treatment and escalation. 16-20 is moderate, 10-15 mild-moderate, and <8-10 minimal/mild."
+      },
+      {
+        "id": "rsc_acute_ciwa_q03",
+        "type": "mcq",
+        "question": "A malnourished alcohol-dependent patient presents drowsy and hypoglycaemic. What is the key principle regarding thiamine and glucose administration?",
+        "options": [
+          "Give IV glucose immediately, thiamine can wait days",
+          "Give parenteral thiamine before administering glucose",
+          "Never give thiamine in alcohol withdrawal",
+          "Give oral thiamine only, glucose is contraindicated",
+          "Thiamine and glucose must never be given to the same patient"
+        ],
+        "correctIndex": 1,
+        "answer": "Give parenteral thiamine before administering glucose",
+        "explanation": "Administering glucose to a thiamine-deficient patient can precipitate Wernicke's encephalopathy. Parenteral thiamine (IV Pabrinex) must be given before or with glucose to prevent this."
+      },
+      {
+        "id": "rsc_acute_sofa_q01",
+        "type": "mcq",
+        "question": "A 68-year-old with a chest infection has RR 24, is newly confused (GCS 14), and has a systolic BP of 98 mmHg. What is his qSOFA score and the appropriate interpretation?",
+        "options": [
+          "0 — reassuring, no further action needed",
+          "1 — low risk, routine ward observations",
+          "3 — high risk of poor outcome, escalate and assess for organ dysfunction",
+          "2 — sepsis is definitively confirmed",
+          "3 — this diagnoses septic shock"
+        ],
+        "correctIndex": 2,
+        "answer": "3 — high risk of poor outcome, escalate and assess for organ dysfunction",
+        "explanation": "All three qSOFA criteria are met: RR ≥22 (1), altered mentation/GCS <15 (1), and SBP ≤100 (1), giving a score of 3. A qSOFA ≥2 identifies a patient at higher risk of poor outcome and should prompt escalation and assessment for organ dysfunction. qSOFA itself does not confirm sepsis or diagnose septic shock — those require organ dysfunction (SOFA ≥2) and the vasopressor-plus-lactate criteria respectively."
+      },
+      {
+        "id": "rsc_acute_sofa_q02",
+        "type": "mcq",
+        "question": "According to Sepsis-3, which combination defines septic shock?",
+        "options": [
+          "qSOFA ≥2 plus a fever >38°C",
+          "Lactate >2 mmol/L on admission before any fluids",
+          "Vasopressors required to maintain MAP ≥65 mmHg AND lactate >2 mmol/L despite adequate fluid resuscitation",
+          "Systolic BP <90 mmHg that responds to a single fluid bolus",
+          "A SOFA score of ≥2 in a patient with infection"
+        ],
+        "correctIndex": 2,
+        "answer": "Vasopressors required to maintain MAP ≥65 mmHg AND lactate >2 mmol/L despite adequate fluid resuscitation",
+        "explanation": "Septic shock is sepsis with circulatory and cellular/metabolic dysfunction: persisting hypotension needing vasopressors to keep MAP ≥65 mmHg AND lactate >2 mmol/L, both despite adequate fluid resuscitation. A SOFA rise ≥2 with infection defines sepsis, not shock. Lactate before fluids or a fluid-responsive BP does not meet the shock definition."
+      },
+      {
+        "id": "rsc_acute_sofa_q03",
+        "type": "mcq",
+        "question": "Which statement about the Sepsis Six is correct?",
+        "options": [
+          "Broad-spectrum antibiotics should be given before taking blood cultures to avoid delay",
+          "The bundle should be completed within 6 hours of recognition",
+          "Blood cultures should be taken before antibiotics, and the whole bundle delivered within 1 hour",
+          "Oxygen is withheld until the lactate result is available",
+          "Urine output monitoring is optional and only for patients already in shock"
+        ],
+        "correctIndex": 2,
+        "answer": "Blood cultures should be taken before antibiotics, and the whole bundle delivered within 1 hour",
+        "explanation": "The Sepsis Six is delivered within the first hour ('golden hour'). Blood cultures are taken before antibiotics to maximise diagnostic yield, then broad-spectrum IV antibiotics are given. The 'three in' are oxygen, IV fluids and IV antibiotics; the 'three out' are cultures, lactate and urine output. Oxygen is given promptly (not delayed for lactate), and urine output monitoring is a core part of the bundle for all patients, not optional."
+      },
+      {
+        "id": "rsc_acute_news2_q01",
+        "type": "mcq",
+        "question": "A 68-year-old man with a productive cough has: RR 24, SpO₂ 94% on air, BP 108/70, pulse 112, temperature 38.4°C, alert. His NEWS2 aggregate is 5. What is the most appropriate immediate action?",
+        "options": [
+          "Continue routine 12-hourly observations",
+          "Urgent review by a clinician and active consideration of sepsis",
+          "Discharge with safety-netting advice",
+          "Repeat observations in 12 hours only",
+          "No escalation as no single parameter scores 3"
+        ],
+        "correctIndex": 1,
+        "answer": "Urgent review by a clinician and active consideration of sepsis",
+        "explanation": "A NEWS2 total of 5–6 is the MEDIUM band and, in a patient with suspected infection, ≥5 is the recommended trigger to screen for and consider sepsis with urgent clinician review and at least hourly observations."
+      },
+      {
+        "id": "rsc_acute_news2_q02",
+        "type": "mcq",
+        "question": "Which parameter change is unique to NEWS2 compared with the original NEWS?",
+        "options": [
+          "Adding respiratory rate to the score",
+          "Scoring new-onset confusion (ACVPU 'C') as 3",
+          "Including systolic blood pressure",
+          "Using temperature as a component",
+          "Scoring supplemental oxygen use"
+        ],
+        "correctIndex": 1,
+        "answer": "Scoring new-onset confusion (ACVPU 'C') as 3",
+        "explanation": "NEWS2 replaced AVPU with ACVPU so that new confusion/delirium (C) scores 3. Respiratory rate, systolic BP, temperature and supplemental oxygen were all already part of the original NEWS."
+      },
+      {
+        "id": "rsc_acute_news2_q03",
+        "type": "mcq",
+        "question": "For which patient group is the NEWS2 SpO₂ Scale 2 (target 88–92%) intended?",
+        "options": [
+          "All patients receiving supplemental oxygen",
+          "Every patient over 65 years",
+          "Patients with confirmed risk of hypercapnic respiratory failure, e.g. COPD, on senior decision",
+          "Pregnant patients",
+          "Any patient with a SpO₂ below 96%"
+        ],
+        "correctIndex": 2,
+        "answer": "Patients with confirmed risk of hypercapnic respiratory failure, e.g. COPD, on senior decision",
+        "explanation": "Scale 2 is reserved for patients with a confirmed or prior risk of type 2 (hypercapnic) respiratory failure, typically COPD, and should be applied only on a senior clinical decision with a target of 88–92% to avoid over-oxygenation. All other patients use Scale 1 (target 96%)."
+      },
+      {
+        "id": "rsc_acute_atls_q01",
+        "type": "mcq",
+        "question": "A 25-year-old man is brought in after a stabbing. HR 110, systolic BP 122 mmHg, diastolic 95 mmHg, RR 24, urine output 25 mL/hr, mildly anxious. Which ATLS haemorrhage class best fits, and what is the key finding?",
+        "options": [
+          "Class I — he is fully compensated with normal vitals",
+          "Class II — tachycardia with a narrowed pulse pressure but preserved systolic BP",
+          "Class III — decompensated with a falling systolic BP",
+          "Class IV — peri-arrest with negligible urine output",
+          "Not classifiable because his systolic BP is normal"
+        ],
+        "correctIndex": 1,
+        "answer": "Class II — tachycardia with a narrowed pulse pressure but preserved systolic BP",
+        "explanation": "HR 100–120, systolic BP still normal but pulse pressure narrowed by a raised diastolic (95 mmHg), RR 20–30 and urine 20–30 mL/hr define Class II (15–30% loss). The narrowed pulse pressure with a normal systolic is the classic early tell — reflecting ~750–1500 mL loss despite a 'reassuring' blood pressure."
+      },
+      {
+        "id": "rsc_acute_atls_q02",
+        "type": "mcq",
+        "question": "Why can a fit young trauma patient have a normal systolic blood pressure despite significant haemorrhage?",
+        "options": [
+          "Blood loss under 40% never affects any vital sign",
+          "Compensatory vasoconstriction maintains systolic BP until roughly Class III (30–40% loss), making hypotension a late sign",
+          "Systolic BP rises with blood loss due to catecholamines",
+          "Pulse pressure widens early and protects the systolic reading",
+          "Urine output increases to compensate for lost volume"
+        ],
+        "correctIndex": 1,
+        "answer": "Compensatory vasoconstriction maintains systolic BP until roughly Class III (30–40% loss), making hypotension a late sign",
+        "explanation": "Young, fit patients mount vigorous sympathetic vasoconstriction, sustaining systolic BP until ~30–40% volume loss (Class III). Hypotension is therefore a LATE sign, and clinicians should not be falsely reassured by a normal BP — tachycardia and a narrowing pulse pressure are the earlier warnings."
+      },
+      {
+        "id": "rsc_acute_atls_q03",
+        "type": "mcq",
+        "question": "A trauma patient is in Class IV haemorrhagic shock. Which management step is most appropriate?",
+        "options": [
+          "Withhold blood products and give 2 L of crystalloid first",
+          "Delay tranexamic acid until 6 hours have passed",
+          "Activate the major haemorrhage protocol with balanced blood product resuscitation and urgent haemorrhage control",
+          "Aim for a supranormal systolic BP before controlling the source",
+          "Reassess in 30 minutes as the picture is likely to improve spontaneously"
+        ],
+        "correctIndex": 2,
+        "answer": "Activate the major haemorrhage protocol with balanced blood product resuscitation and urgent haemorrhage control",
+        "explanation": "Class IV (>40%, >2000 mL) is immediately life-threatening. Management is to activate the major haemorrhage protocol, give balanced blood products (not large-volume crystalloid), obtain large-bore IV access, give tranexamic acid within 3 hours, use permissive hypotension until bleeding is controlled, and urgently stop the source. Delaying blood or TXA, or targeting a high BP before source control, worsens outcomes."
+      },
+      {
+        "id": "rsc_acute_must_q01",
+        "type": "mcq",
+        "question": "A 70-year-old man is admitted with a BMI of 17 kg/m² and reports unplanned weight loss of 8% over the past 4 months. He is eating normally. What is his MUST score and risk category?",
+        "options": [
+          "Score 1, medium risk",
+          "Score 2, high risk",
+          "Score 3, high risk",
+          "Score 4, high risk",
+          "Score 0, low risk"
+        ],
+        "correctIndex": 2,
+        "answer": "Score 3, high risk",
+        "explanation": "BMI <18.5 scores 2, weight loss 5-10% scores 1, and there is no acute disease effect (he is eating). Total = 3, which is ≥2 and therefore high risk - refer to dietitian and treat."
+      },
+      {
+        "id": "rsc_acute_must_q02",
+        "type": "mcq",
+        "question": "Which set of biochemical abnormalities is characteristic of refeeding syndrome?",
+        "options": [
+          "Hyperphosphataemia, hyperkalaemia, hypermagnesaemia",
+          "Hypophosphataemia, hypokalaemia, hypomagnesaemia",
+          "Hypercalcaemia, hyponatraemia, hyperglycaemia",
+          "Hypophosphataemia, hyperkalaemia, hypernatraemia",
+          "Hyperphosphataemia, hypokalaemia, hypocalcaemia"
+        ],
+        "correctIndex": 1,
+        "answer": "Hypophosphataemia, hypokalaemia, hypomagnesaemia",
+        "explanation": "Reintroduction of feeding drives a shift of phosphate, potassium and magnesium into cells, producing hypophosphataemia, hypokalaemia and hypomagnesaemia, alongside thiamine deficiency. Thiamine should be given before feeding and electrolytes replaced with monitoring."
+      },
+      {
+        "id": "rsc_acute_must_q03",
+        "type": "mcq",
+        "question": "A patient screens with a total MUST score of 1. According to standard MUST guidance, what is the appropriate action?",
+        "options": [
+          "Immediate parenteral nutrition",
+          "Refer urgently to the nutrition support team",
+          "No further action needed for one year",
+          "Observe: document dietary intake for 3 days and repeat screening",
+          "Start NG feeding at full rate"
+        ],
+        "correctIndex": 3,
+        "answer": "Observe: document dietary intake for 3 days and repeat screening",
+        "explanation": "A score of 1 is medium risk. The recommended action is to observe, document food/fluid intake for 3 days, and repeat screening - escalating only if intake is inadequate. Active treatment (dietitian referral, nutrition support) is reserved for high risk (≥2)."
+      },
+      {
+        "id": "rsc_acute_waterlow_q01",
+        "type": "mcq",
+        "question": "A bedbound patient has a Braden scale score of 8. How should this be interpreted?",
+        "options": [
+          "Low risk of pressure ulcers",
+          "Moderate risk of pressure ulcers",
+          "Very high risk of pressure ulcers",
+          "No risk – no action needed",
+          "The patient already has a category 4 ulcer"
+        ],
+        "correctIndex": 2,
+        "answer": "Very high risk of pressure ulcers",
+        "explanation": "The Braden scale runs the opposite way to Waterlow: a LOWER score means HIGHER risk. A score of ≤9 indicates very high risk, so a Braden of 8 warrants full preventive measures (SSKIN bundle)."
+      },
+      {
+        "id": "rsc_acute_waterlow_q02",
+        "type": "mcq",
+        "question": "A patient scores 17 on the Waterlow score. What risk category is this?",
+        "options": [
+          "Not at risk",
+          "At risk",
+          "High risk",
+          "Very high risk",
+          "Braden cannot be compared"
+        ],
+        "correctIndex": 2,
+        "answer": "High risk",
+        "explanation": "Waterlow runs so that higher = higher risk: ≥10 at risk, ≥15 high risk, ≥20 very high risk. A score of 17 falls in the high-risk band (≥15)."
+      },
+      {
+        "id": "rsc_acute_waterlow_q03",
+        "type": "mcq",
+        "question": "A sacral pressure ulcer shows full-thickness skin loss with visible subcutaneous fat but no exposed muscle, tendon, or bone. What EPUAP/NPUAP category is this?",
+        "options": [
+          "Category 1",
+          "Category 2",
+          "Category 3",
+          "Category 4",
+          "Unstageable"
+        ],
+        "correctIndex": 2,
+        "answer": "Category 3",
+        "explanation": "Category 3 is full-thickness skin loss with subcutaneous fat visible but no exposed muscle, tendon, or bone. Exposed muscle/tendon/bone would make it category 4; a blister or partial-thickness loss would be category 2."
+      },
+      {
+        "id": "rsc_acute_gcs_q01",
+        "type": "mcq",
+        "question": "A trauma patient opens his eyes to a painful stimulus, uses inappropriate words, and localises to pain. What is his GCS?",
+        "options": [
+          "E2 V3 M5 = 10",
+          "E3 V4 M5 = 12",
+          "E2 V2 M4 = 8",
+          "E1 V3 M5 = 9",
+          "E2 V3 M6 = 11"
+        ],
+        "correctIndex": 0,
+        "answer": "E2 V3 M5 = 10",
+        "explanation": "Eyes open to pain = E2. Inappropriate words = V3. Localises to pain = M5. Total = 2 + 3 + 5 = 10, a moderate impairment. Always report the breakdown (E2V3M5), not just the total."
+      },
+      {
+        "id": "rsc_acute_gcs_q02",
+        "type": "mcq",
+        "question": "A patient's GCS falls from 14 to 8 over 20 minutes following a head injury. What is the most appropriate immediate action?",
+        "options": [
+          "Reassure and continue routine observations",
+          "Urgent senior review, secure the airway (anaesthetic support / consider intubation) and arrange urgent CT head",
+          "Discharge with head-injury advice",
+          "Give oral analgesia and repeat GCS in 4 hours",
+          "Start prophylactic antibiotics"
+        ],
+        "correctIndex": 1,
+        "answer": "Urgent senior review, secure the airway (anaesthetic support / consider intubation) and arrange urgent CT head",
+        "explanation": "A drop of ≥2 points is significant deterioration, and GCS ≤8 means the airway is at risk ('GCS 8, intubate'). This mandates urgent airway support and CT head to identify an evolving intracranial cause."
+      },
+      {
+        "id": "rsc_acute_gcs_q03",
+        "type": "mcq",
+        "question": "Which statement about the GCS is correct?",
+        "options": [
+          "The verbal score has the greatest prognostic value",
+          "A total score alone is sufficient and the breakdown need not be documented",
+          "The motor component is the most prognostically important and the breakdown (E, V, M) should always be recorded",
+          "The maximum possible score is 12",
+          "Intoxication has no effect on the score"
+        ],
+        "correctIndex": 2,
+        "answer": "The motor component is the most prognostically important and the breakdown (E, V, M) should always be recorded",
+        "explanation": "Motor response carries the greatest prognostic weight. The maximum score is 15, confounders such as intoxication, sedation and dysphasia can falsely lower it, and E, V and M must always be documented separately."
       }
     ]
   }
