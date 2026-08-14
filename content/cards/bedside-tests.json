@@ -1,0 +1,2056 @@
+{
+  "fc": {
+    "investigations__BEDSIDE TESTS__Vital Signs & Observations": [
+      {
+        "id": "bt_vs_news2_fc_01",
+        "front": "Which six physiological parameters make up NEWS2?",
+        "back": "Respiratory rate, SpO₂ (oxygen saturation), systolic blood pressure, pulse, level of consciousness (ACVPU), and temperature — plus a separate 2-point weighting for any supplemental oxygen."
+      },
+      {
+        "id": "bt_vs_news2_fc_02",
+        "front": "What does the ACVPU scale stand for and how does it score in NEWS2?",
+        "back": "Alert, new Confusion, Voice, Pain, Unresponsive. Alert scores 0; any of new Confusion, Voice, Pain or Unresponsive scores 3."
+      },
+      {
+        "id": "bt_vs_news2_fc_03",
+        "front": "What are the key NEWS2 escalation thresholds?",
+        "back": "Aggregate 0 = routine; 1–4 = ward nurse assessment; any single parameter =3 or aggregate 5–6 = urgent doctor review (medium risk); ≥7 = emergency critical-care assessment. A score ≥5 triggers a sepsis screen."
+      },
+      {
+        "id": "bt_vs_news2_fc_04",
+        "front": "When is SpO₂ Scale 2 used and what target saturation does it assume?",
+        "back": "For patients with hypercapnic (type 2) respiratory failure and an agreed target of 88–92%, typically COPD. On Scale 2, 88–92% on air scores 0 and high saturations on oxygen score points because over-oxygenation is harmful."
+      },
+      {
+        "id": "bt_vs_news2_fc_05",
+        "front": "How much does supplemental oxygen add to the NEWS2 score, and why does respiratory rate matter most?",
+        "back": "Any supplemental oxygen adds 2 points. Respiratory rate is the earliest and most sensitive sign of deterioration, so it must be counted over a full 60 seconds rather than estimated."
+      },
+      {
+        "id": "bt_vs_hr_fc_01",
+        "front": "What is the normal resting adult heart rate, and the thresholds for bradycardia and tachycardia?",
+        "back": "Normal 60-100 bpm; bradycardia is <60 bpm; tachycardia is >100 bpm."
+      },
+      {
+        "id": "bt_vs_hr_fc_02",
+        "front": "What pulse abnormality indicates atrial fibrillation, and why does it matter?",
+        "back": "An irregularly irregular pulse. It signifies AF, which carries a major thromboembolic stroke risk requiring ECG confirmation and CHA₂DS₂-VASc-guided anticoagulation."
+      },
+      {
+        "id": "bt_vs_hr_fc_03",
+        "front": "Match the pulse character to the valve lesion: slow-rising vs collapsing (water-hammer).",
+        "back": "Slow-rising, low-volume pulse = aortic stenosis. Collapsing/water-hammer pulse = aortic regurgitation."
+      },
+      {
+        "id": "bt_vs_hr_fc_04",
+        "front": "What is an apex-radial (pulse) deficit and what causes it?",
+        "back": "The apical rate exceeds the palpated radial rate because weak beats fail to transmit to the wrist. It is classic of atrial fibrillation; the true rate is counted at the apex."
+      },
+      {
+        "id": "bt_vs_hr_fc_05",
+        "front": "What does radio-femoral delay suggest, and what does pulsus paradoxus suggest?",
+        "back": "Radio-femoral delay suggests coarctation of the aorta. Pulsus paradoxus (>10 mmHg inspiratory drop in systolic pressure) suggests cardiac tamponade or severe acute asthma."
+      },
+      {
+        "id": "bt_vs_bp_fc_01",
+        "front": "Which Korotkoff sounds correspond to systolic and diastolic BP?",
+        "back": "Korotkoff phase I (first tapping sound) = systolic; Korotkoff phase V (disappearance of sound) = diastolic."
+      },
+      {
+        "id": "bt_vs_bp_fc_02",
+        "front": "What is the effect of using a cuff that is too small for the arm?",
+        "back": "It overestimates blood pressure. A cuff too large underestimates it. The bladder should encircle ~80% of arm circumference."
+      },
+      {
+        "id": "bt_vs_bp_fc_03",
+        "front": "NICE clinic threshold for suspected hypertension, and the out-of-clinic value used to confirm it?",
+        "back": "Clinic BP ≥140/90 mmHg is suspected hypertension; confirm with ABPM or HBPM averaging ≥135/85 mmHg (stage 1)."
+      },
+      {
+        "id": "bt_vs_bp_fc_04",
+        "front": "Why perform palpatory (systolic) estimation before auscultation?",
+        "back": "To estimate systolic pressure and inflate 20–30 mmHg above it, avoiding underestimation caused by an auscultatory gap."
+      },
+      {
+        "id": "bt_vs_bp_fc_05",
+        "front": "What clinic BP defines severe hypertension requiring assessment for end-organ damage?",
+        "back": "Clinic BP ≥180/120 mmHg; with retinal/neuro/cardiac/renal signs (accelerated hypertension) it needs same-day specialist referral."
+      },
+      {
+        "id": "bt_vs_rr_fc_01",
+        "front": "What is the normal adult respiratory rate range?",
+        "back": "12-20 breaths per minute. RR of 21-24 scores 2 on NEWS2 and ≥25 (or ≤8) scores 3."
+      },
+      {
+        "id": "bt_vs_rr_fc_02",
+        "front": "Why is respiratory rate considered the most sensitive early marker of deterioration?",
+        "back": "Ventilation rises early via chemoreceptor drive when gas exchange fails or acid accumulates, before heart rate, BP or conscious level change. A rising RR can precede cardiac arrest by 6-8 hours."
+      },
+      {
+        "id": "bt_vs_rr_fc_03",
+        "front": "How should RR be counted, and why discreetly?",
+        "back": "Count for a full 60 seconds, classically while still holding the wrist after taking the pulse so the patient is unaware. Awareness makes patients consciously alter their breathing, falsifying the count."
+      },
+      {
+        "id": "bt_vs_rr_fc_04",
+        "front": "List key signs of increased work of breathing.",
+        "back": "Accessory muscle use (sternocleidomastoid/scalenes), tracheal tug, intercostal/subcostal recession, nasal flaring, tripod position, and pursed-lip breathing."
+      },
+      {
+        "id": "bt_vs_rr_fc_05",
+        "front": "Match the abnormal breathing pattern to its cause: Kussmaul, Cheyne-Stokes, agonal.",
+        "back": "Kussmaul (deep, sighing, fast) = metabolic acidosis/DKA; Cheyne-Stokes (crescendo-decrescendo with apnoea) = heart failure, stroke, raised ICP; agonal (slow gasping) = peri-arrest, start resuscitation."
+      },
+      {
+        "id": "bt_vs_spo2_fc_01",
+        "front": "What is the physical principle behind pulse oximetry?",
+        "back": "Oxyhaemoglobin and deoxyhaemoglobin absorb red (660 nm) and infrared (940 nm) light differently. The device measures the differential absorption of the pulsatile (arterial) component of blood and calculates the percentage of haemoglobin saturated with oxygen."
+      },
+      {
+        "id": "bt_vs_spo2_fc_02",
+        "front": "What are the standard SpO₂ target ranges for (a) most acutely ill adults and (b) COPD/CO₂ retainers?",
+        "back": "(a) 94–98% for most acutely unwell patients. (b) 88–92% for patients at risk of type 2 (hypercapnic) respiratory failure, to avoid abolishing hypoxic drive and worsening CO₂ retention."
+      },
+      {
+        "id": "bt_vs_spo2_fc_03",
+        "front": "Why can SpO₂ be falsely normal in carbon monoxide poisoning?",
+        "back": "Carboxyhaemoglobin (COHb) absorbs light very similarly to oxyhaemoglobin, so the oximeter counts it as saturated. SpO₂ reads reassuringly high despite severe tissue hypoxia. Diagnosis needs co-oximetry or an arterial blood gas."
+      },
+      {
+        "id": "bt_vs_spo2_fc_04",
+        "front": "List causes of an unreliable or inaccurate pulse oximetry reading.",
+        "back": "Poor perfusion (shock, cold, vasoconstriction), motion/shivering artefact, nail varnish or false nails, darker skin pigmentation (over-estimates true saturation), and abnormal haemoglobins (carboxyhaemoglobin, methaemoglobin)."
+      },
+      {
+        "id": "bt_vs_spo2_fc_05",
+        "front": "Why does the shape of the oxyhaemoglobin dissociation curve matter for interpreting SpO₂?",
+        "back": "The curve is sigmoid and flat above ~90%, so large falls in PaO₂ cause only small SpO₂ changes (insensitive early). Below ~90% (PaO₂ ≈ 8 kPa) it is steep, so saturation falls rapidly and deterioration accelerates."
+      },
+      {
+        "id": "bt_vs_temp_fc_01",
+        "front": "What is the normal adult body temperature range, and at what value is fever (pyrexia) defined?",
+        "back": "Normal is approximately 36.1–37.2°C. Fever/pyrexia is a temperature ≥38.0°C. Temperature shows diurnal variation, lowest in the early morning and highest in the late afternoon."
+      },
+      {
+        "id": "bt_vs_temp_fc_02",
+        "front": "Rank oral, axillary, tympanic and rectal sites for how well they reflect CORE temperature.",
+        "back": "Rectal is closest to true core (reference standard); tympanic and oral are good core proxies when technique is correct; axillary is peripheral and reads roughly 0.5–1°C below core, making it the least accurate."
+      },
+      {
+        "id": "bt_vs_temp_fc_03",
+        "front": "Define hyperpyrexia and hypothermia, including the hypothermia severity bands.",
+        "back": "Hyperpyrexia is core temperature >40°C (emergency). Hypothermia is core <35°C: mild 32–35°C, moderate 28–32°C, severe <28°C. Shivering stops below ~32°C and arrhythmia/VF risk rises as temperature falls."
+      },
+      {
+        "id": "bt_vs_temp_fc_04",
+        "front": "Why can a normal or low temperature be dangerous in a septic patient?",
+        "back": "Elderly, neonatal and immunosuppressed patients may mount no fever, so normothermia does not exclude sepsis. Hypothermia (<36°C) in an unwell patient is an ominous sign associated with worse prognosis, not reassurance."
+      },
+      {
+        "id": "bt_vs_temp_fc_05",
+        "front": "How does fever differ from hyperthermia, and why does it matter for treatment?",
+        "back": "Fever is a regulated rise in the hypothalamic set-point driven by pyrogens (IL-1, IL-6, TNF, PGE₂) and responds to antipyretics. Hyperthermia (heat stroke, malignant hyperthermia, serotonin/NMS) is unregulated heat gain with a normal set-point, so antipyretics fail and active cooling ± antidotes are required."
+      },
+      {
+        "id": "bt_vs_crt_fc_01",
+        "front": "How is capillary refill time performed?",
+        "back": "Apply firm pressure to a nailbed or, preferably, the sternum for 5 seconds, release, and time the return of normal colour to the blanched skin."
+      },
+      {
+        "id": "bt_vs_crt_fc_02",
+        "front": "What is the normal upper limit for central CRT?",
+        "back": "Less than 2 seconds. A CRT of 2 seconds or more is considered prolonged and may indicate poor perfusion."
+      },
+      {
+        "id": "bt_vs_crt_fc_03",
+        "front": "Why is central CRT preferred over peripheral CRT?",
+        "back": "The sternum/forehead is less affected by cold ambient temperature and peripheral vasoconstriction, making central CRT a more reliable reflection of true perfusion."
+      },
+      {
+        "id": "bt_vs_crt_fc_04",
+        "front": "Why is CRT particularly useful in children?",
+        "back": "Children maintain blood pressure until late (compensated shock), so perfusion signs like prolonged CRT change earlier than hypotension and help detect shock sooner."
+      },
+      {
+        "id": "bt_vs_crt_fc_05",
+        "front": "List factors that can falsely prolong CRT.",
+        "back": "Cold ambient temperature, peripheral vascular disease, poor lighting, nail varnish, and observer variability. CRT has poor sensitivity/specificity in adults and must not be used alone."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Point-of-Care Tests": [
+      {
+        "id": "bt_poc_ecg_fc_01",
+        "front": "What are the standard ECG calibration settings?",
+        "back": "Paper speed 25 mm/s (1 small square = 0.04 s, 1 large square = 0.2 s) and 10 mm/mV gain (2 large squares = 1 mV)."
+      },
+      {
+        "id": "bt_poc_ecg_fc_02",
+        "front": "Where is the V1 electrode placed?",
+        "back": "4th intercostal space at the right sternal edge. V2 is the mirror position at the left sternal edge."
+      },
+      {
+        "id": "bt_poc_ecg_fc_03",
+        "front": "Which leads and coronary artery correspond to an inferior STEMI?",
+        "back": "ST elevation in leads II, III and aVF, caused by occlusion of the right coronary artery (RCA)."
+      },
+      {
+        "id": "bt_poc_ecg_fc_04",
+        "front": "What is the ECG hallmark of complete (third-degree) heart block?",
+        "back": "Complete AV dissociation — P waves and QRS complexes are independent with no consistent PR relationship; the ventricular rate is slow from an escape rhythm."
+      },
+      {
+        "id": "bt_poc_ecg_fc_05",
+        "front": "What QTc value is considered prolonged and why does it matter?",
+        "back": "QTc > 440 ms in men or > 460 ms in women is prolonged, predisposing to torsades de pointes (polymorphic VT)."
+      },
+      {
+        "id": "bt_poc_bm_fc_01",
+        "front": "What is the capillary glucose threshold defining hypoglycaemia?",
+        "back": "Less than 4 mmol/L — remember \"4 is the floor\". It requires immediate treatment regardless of symptoms."
+      },
+      {
+        "id": "bt_poc_bm_fc_02",
+        "front": "Which ketone body do capillary blood ketone strips measure, and what value is significant?",
+        "back": "β-hydroxybutyrate. ≥3 mmol/L is significant ketonaemia suggesting DKA (normal <0.6 mmol/L)."
+      },
+      {
+        "id": "bt_poc_bm_fc_03",
+        "front": "State the three components of the DKA diagnostic triad.",
+        "back": "1) Glucose >11 mmol/L (or known diabetes), 2) ketonaemia ≥3 mmol/L or significant ketonuria, 3) acidosis with pH <7.3 and/or bicarbonate <15 mmol/L."
+      },
+      {
+        "id": "bt_poc_bm_fc_04",
+        "front": "Give three pitfalls that make a capillary glucose reading unreliable.",
+        "back": "Sugar/food contamination on an unwashed finger (falsely high), poor perfusion/shock (falsely low), and extremes of haematocrit (anaemia over-reads, polycythaemia under-reads)."
+      },
+      {
+        "id": "bt_poc_bm_fc_05",
+        "front": "What is euglycaemic DKA and when does it occur?",
+        "back": "DKA with raised ketones and acidosis but glucose that may be <11 mmol/L. Seen with SGLT2 inhibitors, pregnancy and starvation — always check ketones in the unwell diabetic even if the BM looks normal."
+      },
+      {
+        "id": "bt_poc_vbg_fc_01",
+        "front": "Which acid-base parameters on a VBG correlate well enough with arterial values to guide management?",
+        "back": "pH, bicarbonate (HCO₃⁻) and lactate correlate closely with arterial values and are reliable for metabolic assessment. Oxygenation (pO₂) is NOT reliable on a VBG."
+      },
+      {
+        "id": "bt_poc_vbg_fc_02",
+        "front": "How does venous pH and pCO₂ differ from arterial?",
+        "back": "Venous pH is about 0.03-0.04 LOWER than arterial, and venous pCO₂ is roughly 1 kPa HIGHER than arterial."
+      },
+      {
+        "id": "bt_poc_vbg_fc_03",
+        "front": "Why can a VBG not be used to assess oxygenation?",
+        "back": "Venous pO₂ reflects tissue oxygen extraction rather than pulmonary gas exchange, so it does not indicate lung oxygenation. An ABG is required if hypoxia or hypercapnia is suspected."
+      },
+      {
+        "id": "bt_poc_vbg_fc_04",
+        "front": "What lactate values on a VBG indicate hypoperfusion and severe illness?",
+        "back": "Lactate >2 mmol/L is raised and suggests hypoperfusion; ≥4 mmol/L signals severe sepsis/shock and is part of the Sepsis Six severity stratification."
+      },
+      {
+        "id": "bt_poc_vbg_fc_05",
+        "front": "Give two sampling errors that falsely raise potassium and lactate on a VBG.",
+        "back": "Prolonged tourniquet/stasis (or fist-clenching) and delayed analysis or haemolysis. Air bubbles also alter pCO₂ and pO₂."
+      },
+      {
+        "id": "bt_poc_bmi_fc_01",
+        "front": "How is BMI calculated, and what are its units?",
+        "back": "BMI = weight (kg) divided by height (m)². Units are kg/m². Example: 70 kg at 1.75 m = 70 / 3.06 ≈ 22.9 kg/m²."
+      },
+      {
+        "id": "bt_poc_bmi_fc_02",
+        "front": "State the WHO adult BMI categories.",
+        "back": "Underweight <18.5; healthy 18.5–24.9; overweight 25–29.9; obese ≥30 (class I 30–34.9, class II 35–39.9, class III ≥40)."
+      },
+      {
+        "id": "bt_poc_bmi_fc_03",
+        "front": "Why are lower BMI thresholds used in South Asian and Chinese populations?",
+        "back": "They have higher visceral (central) fat and cardiometabolic/diabetes risk at any given BMI, so the overweight threshold is lowered to ≥23 kg/m²."
+      },
+      {
+        "id": "bt_poc_bmi_fc_04",
+        "front": "List clinical situations where BMI is misleading.",
+        "back": "Muscular athletes (high lean mass), the elderly (sarcopenia), oedema/ascites (fluid), and pregnancy. BMI cannot distinguish fat from muscle or fluid."
+      },
+      {
+        "id": "bt_poc_bmi_fc_05",
+        "front": "What complementary measure assesses central adiposity, and what values raise risk?",
+        "back": "Waist circumference. Raised risk at ≥94 cm in men and ≥80 cm in women; much higher risk at ≥102 cm (men) and ≥88 cm (women)."
+      },
+      {
+        "id": "bt_poc_ngph_fc_01",
+        "front": "What is the first-line test to confirm NG feeding tube position before use?",
+        "back": "Aspirating fluid and testing it on a CE-marked pH indicator strip."
+      },
+      {
+        "id": "bt_poc_ngph_fc_02",
+        "front": "What aspirate pH confirms safe gastric placement of an NG tube?",
+        "back": "pH of 5.5 or below (NPSA guidance)."
+      },
+      {
+        "id": "bt_poc_ngph_fc_03",
+        "front": "What is the definitive second-line test if pH is >5.5 or no aspirate is obtained?",
+        "back": "A chest X-ray to confirm the tube tip lies below the diaphragm."
+      },
+      {
+        "id": "bt_poc_ngph_fc_04",
+        "front": "Why can acid-suppressing drugs cause a false-negative NG pH check?",
+        "back": "PPIs and H₂ antagonists raise gastric pH above 5.5, so gastric aspirate may not read ≤5.5."
+      },
+      {
+        "id": "bt_poc_ngph_fc_05",
+        "front": "Which discredited method must NEVER be used to confirm NG tube position?",
+        "back": "The auscultation “whoosh” test (injecting air and listening over the stomach)."
+      },
+      {
+        "id": "bt_poc_gcs_fc_01",
+        "front": "What are the three components of the GCS and their maximum scores?",
+        "back": "Eye opening /4, Verbal response /5, Motor response /6. Total range 3 (deep coma) to 15 (fully alert)."
+      },
+      {
+        "id": "bt_poc_gcs_fc_02",
+        "front": "At what GCS should you consider securing the airway / intubation?",
+        "back": "GCS ≤8 — the patient may be unable to protect their own airway. Call anaesthetics to secure a definitive airway."
+      },
+      {
+        "id": "bt_poc_gcs_fc_03",
+        "front": "What does AVPU stand for and how does it map to GCS?",
+        "back": "Alert (≈15), responds to Voice (≈12–13), responds to Pain (≈8), Unresponsive (≈3). A rapid triage screen; 'P' or 'U' ≈ GCS ≤8."
+      },
+      {
+        "id": "bt_poc_gcs_fc_04",
+        "front": "How do you score the motor component from 6 down to 1?",
+        "back": "6 obeys commands, 5 localises to pain, 4 withdraws from pain, 3 abnormal flexion (decorticate), 2 abnormal extension (decerebrate), 1 no response."
+      },
+      {
+        "id": "bt_poc_gcs_fc_05",
+        "front": "Why should you always report the GCS breakdown rather than the total alone?",
+        "back": "The best motor response is the most prognostic component, and the E–V–M breakdown reveals trends, localising signs and errors that a single total conceals."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Cardiovascular Bedside": [
+      {
+        "id": "bt_cv_abpi_fc_01",
+        "front": "How is the ABPI calculated?",
+        "back": "Highest ankle systolic pressure divided by highest brachial systolic pressure, measured with a hand-held Doppler. Calculated separately for each leg; the ankle value is the higher of dorsalis pedis and posterior tibial, and the brachial value is the higher of the two arms."
+      },
+      {
+        "id": "bt_cv_abpi_fc_02",
+        "front": "What is the normal ABPI range?",
+        "back": "0.9-1.3. Values of 0.5-0.9 indicate mild-to-moderate PAD (claudication), and <0.5 indicates severe PAD / critical limb ischaemia."
+      },
+      {
+        "id": "bt_cv_abpi_fc_03",
+        "front": "What does an ABPI >1.3 mean?",
+        "back": "Falsely elevated due to incompressible, calcified vessels (medial arterial calcification), classically in diabetes or CKD. The result is unreliable and does not exclude PAD; measure the toe-brachial index instead."
+      },
+      {
+        "id": "bt_cv_abpi_fc_04",
+        "front": "What ABPI threshold contraindicates high-compression bandaging in a leg ulcer?",
+        "back": "ABPI <0.8. Compression on an arterially compromised limb risks tissue necrosis. Compression is generally safe when ABPI is 0.8-1.3."
+      },
+      {
+        "id": "bt_cv_abpi_fc_05",
+        "front": "When and why is the Toe-Brachial Index (TBI) used?",
+        "back": "When ABPI is unreliable (>1.3 or borderline in diabetes/CKD) because calf vessels are calcified. The small digital arteries are relatively spared from calcification; a TBI <0.7 is abnormal and indicates PAD."
+      },
+      {
+        "id": "bt_cv_doppler_fc_01",
+        "front": "What are the three components of a normal triphasic arterial Doppler waveform?",
+        "back": "Forward systolic flow, a brief early-diastolic reverse flow, and a late forward diastolic flow. This reflects a healthy, compliant, unobstructed vessel."
+      },
+      {
+        "id": "bt_cv_doppler_fc_02",
+        "front": "What does a monophasic hand-held Doppler signal indicate?",
+        "back": "A single dampened forward flow with no reverse component, indicating significant proximal arterial stenosis or established peripheral arterial disease (PAD)."
+      },
+      {
+        "id": "bt_cv_doppler_fc_03",
+        "front": "How does the Doppler waveform change as PAD worsens?",
+        "back": "Triphasic → biphasic → monophasic. Progressive loss of phases tracks increasing severity and/or more proximal arterial disease."
+      },
+      {
+        "id": "bt_cv_doppler_fc_04",
+        "front": "How is the ankle-brachial pressure index (ABPI) measured with a hand-held Doppler, and what are the key cut-offs?",
+        "back": "A cuff is inflated proximally until the Doppler signal disappears, then deflated slowly; the pressure at which flow returns is recorded. Normal 0.9-1.3; <0.9 indicates PAD; ≤0.4 suggests critical ischaemia; >1.3 suggests incompressible calcified vessels."
+      },
+      {
+        "id": "bt_cv_doppler_fc_05",
+        "front": "Why can ABPI be falsely elevated, and what should be done instead?",
+        "back": "Calcified, incompressible arteries (diabetes, chronic kidney disease) resist cuff compression, giving a falsely high ABPI (>1.3). Toe pressures or toe-brachial index should be used instead."
+      },
+      {
+        "id": "bt_cv_4limb_fc_01",
+        "front": "What is the normal relationship between arm and leg systolic BP?",
+        "back": "Leg (ankle) systolic BP is normally equal to or slightly higher than the arm (ankle-brachial index ≥ 0.9–1.0) due to peripheral pulse-wave amplification."
+      },
+      {
+        "id": "bt_cv_4limb_fc_02",
+        "front": "What four-limb BP pattern suggests aortic coarctation?",
+        "back": "Upper-limb hypertension with arm SBP higher than leg SBP (gradient > 20 mmHg), accompanied by radio-femoral delay."
+      },
+      {
+        "id": "bt_cv_4limb_fc_03",
+        "front": "What inter-arm systolic difference is significant, and what does it suggest?",
+        "back": "An inter-arm difference > 20 mmHg suggests aortic dissection or subclavian/brachiocephalic stenosis."
+      },
+      {
+        "id": "bt_cv_4limb_fc_04",
+        "front": "Why must you check the right arm specifically in suspected coarctation?",
+        "back": "If the coarctation is proximal and involves the left subclavian artery, the left arm BP is also low; the right arm gives the true pre-coarctation pressure."
+      },
+      {
+        "id": "bt_cv_4limb_fc_05",
+        "front": "What is the commonest technical error in four-limb BP measurement?",
+        "back": "Using a too-small cuff on the thigh, which falsely elevates the leg reading and can mask a true arm–leg gradient."
+      },
+      {
+        "id": "bt_cv_postural_fc_01",
+        "front": "Define a positive lying-and-standing BP test (orthostatic hypotension).",
+        "back": "A sustained fall of ≥​20 mmHg systolic OR ≥​10 mmHg diastolic within 3 minutes of standing, or reproduction of the patient's symptoms."
+      },
+      {
+        "id": "bt_cv_postural_fc_02",
+        "front": "What is the correct timing protocol for a lying-and-standing BP?",
+        "back": "Lie supine for ≥​5 minutes and record BP, then stand and measure BP at 1 minute and again at 3 minutes."
+      },
+      {
+        "id": "bt_cv_postural_fc_03",
+        "front": "A postural BP drop with a heart-rate rise >30 bpm suggests what mechanism?",
+        "back": "Hypovolaemia — the baroreflex is intact and mounts a compensatory tachycardia. A blunted/absent HR rise instead suggests autonomic failure."
+      },
+      {
+        "id": "bt_cv_postural_fc_04",
+        "front": "List the main drug classes causing orthostatic hypotension.",
+        "back": "Diuretics, antihypertensives (especially alpha-blockers and vasodilators/nitrates), and tricyclic antidepressants."
+      },
+      {
+        "id": "bt_cv_postural_fc_05",
+        "front": "Why must the 3-minute standing reading always be taken?",
+        "back": "Because delayed orthostatic hypotension may only appear after 1 minute; an early-only reading misses it and can give a false-negative result."
+      },
+      {
+        "id": "bt_cv_abpm_fc_01",
+        "front": "Why is ABPM/HBPM used before diagnosing hypertension?",
+        "back": "To confirm a raised clinic reading outside the clinic and exclude the white-coat effect, so patients are not committed to lifelong treatment on a single anxiety-influenced snapshot."
+      },
+      {
+        "id": "bt_cv_abpm_fc_02",
+        "front": "How is a valid ABPM average obtained?",
+        "back": "Automated readings at least twice per hour during waking hours over 24h; use the average of at least 14 daytime measurements for diagnosis."
+      },
+      {
+        "id": "bt_cv_abpm_fc_03",
+        "front": "How is HBPM performed?",
+        "back": "Two seated readings a minute apart, twice daily (morning and evening), for at least 4 (ideally 7) days; discard day 1 and average the rest."
+      },
+      {
+        "id": "bt_cv_abpm_fc_04",
+        "front": "What are the ambulatory/home thresholds for stage 1 and stage 2 hypertension?",
+        "back": "Stage 1: daytime average ≥135/85 (clinic ≥140/90). Stage 2: daytime average ≥150/95 (clinic ≥160/100)."
+      },
+      {
+        "id": "bt_cv_abpm_fc_05",
+        "front": "What is masked hypertension and why does it matter?",
+        "back": "Normal clinic BP but raised ABPM/HBPM. It matters because clinic readings falsely reassure while raised out-of-office BP drives end-organ damage."
+      },
+      {
+        "id": "bt_cv_valsalva_fc_01",
+        "front": "What is the first-line intervention for stable, regular narrow-complex SVT?",
+        "back": "Vagal manoeuvres, specifically the modified (postural) Valsalva manoeuvre, before proceeding to IV adenosine."
+      },
+      {
+        "id": "bt_cv_valsalva_fc_02",
+        "front": "Describe the modified Valsalva (REVERT) technique.",
+        "back": "Strain (blow into a 10 mL syringe, ~40 mmHg) for 15 seconds while semi-recumbent, then immediately lie flat with a 15-second passive leg raise to 45 degrees to augment the vagal surge."
+      },
+      {
+        "id": "bt_cv_valsalva_fc_03",
+        "front": "Why do vagal manoeuvres terminate AVNRT/AVRT but only unmask atrial flutter?",
+        "back": "AVNRT and AVRT use the AV node as an obligatory limb of the re-entry circuit, so AV block breaks it. In atrial flutter the AV node is not part of the circuit, so increased AV block merely slows conduction and reveals sawtooth flutter waves."
+      },
+      {
+        "id": "bt_cv_valsalva_fc_04",
+        "front": "What must you do before performing carotid sinus massage, and what is the absolute contraindication?",
+        "back": "Auscultate for a carotid bruit first. A carotid bruit (or recent TIA/stroke within 3 months) is an absolute contraindication due to embolic stroke risk."
+      },
+      {
+        "id": "bt_cv_valsalva_fc_05",
+        "front": "How is carotid sinus massage performed safely?",
+        "back": "One side only, never both simultaneously, firm circular pressure for 5-10 seconds at the upper thyroid cartilage level, under continuous ECG monitoring with resuscitation equipment available."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Focused Examination": [
+      {
+        "id": "bt_fe_dre_fc_01",
+        "front": "What DRE prostate findings suggest benign prostatic hyperplasia (BPH)?",
+        "back": "A smooth, symmetrically enlarged, rubbery/firm prostate with a preserved (palpable) median sulcus and no discrete nodules."
+      },
+      {
+        "id": "bt_fe_dre_fc_02",
+        "front": "What DRE prostate findings suggest prostate cancer?",
+        "back": "A hard, craggy, irregular or nodular prostate with loss of the median sulcus. This warrants an urgent suspected-cancer referral (correlated with PSA and MRI)."
+      },
+      {
+        "id": "bt_fe_dre_fc_03",
+        "front": "Why is DRE mandatory in suspected cauda equina syndrome?",
+        "back": "It assesses resting/voluntary anal tone and perianal (S2–S4) sensation. Reduced tone or saddle anaesthesia signals cauda equina compression, mandating emergency MRI and urgent surgical referral."
+      },
+      {
+        "id": "bt_fe_dre_fc_04",
+        "front": "What does black, tarry, offensive stool on the glove during DRE indicate?",
+        "back": "Melaena – digested blood from an upper GI bleed (a source proximal to the caecum). It is often the first objective evidence of GI haemorrhage."
+      },
+      {
+        "id": "bt_fe_dre_fc_05",
+        "front": "How does DRE affect serum PSA, and how should this be managed?",
+        "back": "DRE can transiently elevate PSA. Where both are required, take the PSA sample before the examination, or defer it for about a week afterwards."
+      },
+      {
+        "id": "bt_fe_fundo_fc_01",
+        "front": "What is papilloedema and what is its defining cause?",
+        "back": "Bilateral optic disc swelling caused by raised intracranial pressure. It is bilateral because the raised CSF pressure is transmitted around both optic nerves via the continuous subarachnoid space, obstructing axoplasmic flow."
+      },
+      {
+        "id": "bt_fe_fundo_fc_02",
+        "front": "List the classic fundoscopic signs of papilloedema.",
+        "back": "Blurred disc margins (nasal first), disc hyperaemia, elevation of the disc obscuring vessels, loss of spontaneous venous pulsation, peripapillary haemorrhages and Paton lines (concentric retinal folds)."
+      },
+      {
+        "id": "bt_fe_fundo_fc_03",
+        "front": "Why must you NOT do an LP before imaging in a patient with papilloedema?",
+        "back": "Papilloedema signals raised ICP, which may be due to a mass lesion or hydrocephalus. Removing CSF below an obstructing lesion creates a pressure gradient that can cause brain herniation (coning) and death. Urgent CT/MRI head must come first."
+      },
+      {
+        "id": "bt_fe_fundo_fc_04",
+        "front": "How does papillitis (optic neuritis) differ from papilloedema on examination?",
+        "back": "Papillitis is usually unilateral with painful eye movements, marked reduction in visual acuity and a relative afferent pupillary defect (RAPD). Papilloedema is bilateral with vision preserved early (only an enlarged blind spot)."
+      },
+      {
+        "id": "bt_fe_fundo_fc_05",
+        "front": "What are Roth spots and what do they suggest?",
+        "back": "White-centred retinal haemorrhages. They are associated with infective endocarditis, and also leukaemia, severe anaemia and other conditions."
+      },
+      {
+        "id": "bt_fe_suss_fc_01",
+        "front": "What does the SUSS test assess and in whom?",
+        "back": "The Sit-Up-Squat-Stand test assesses proximal muscle strength (proximal myopathy) at the bedside in patients with severe eating disorders, as part of MEED/MARSIPAN medical risk assessment."
+      },
+      {
+        "id": "bt_fe_suss_fc_02",
+        "front": "What are the two manoeuvres of the SUSS test?",
+        "back": "Sit-up: rising from lying to sitting without using the hands/arms. Squat-stand: squatting down and standing up again without using the hands/arms."
+      },
+      {
+        "id": "bt_fe_suss_fc_03",
+        "front": "How is each SUSS manoeuvre scored?",
+        "back": "0 = unable; 1 = able only using hands/arms for leverage; 2 = able but with noticeable difficulty; 3 = no difficulty. Each task is scored separately."
+      },
+      {
+        "id": "bt_fe_suss_fc_04",
+        "front": "What SUSS score indicates high medical risk?",
+        "back": "A score of 1 or less (needing the arms to rise, or being unable to rise at all) indicates significant proximal myopathy and high medical risk, warranting urgent medical review/admission."
+      },
+      {
+        "id": "bt_fe_suss_fc_05",
+        "front": "Why must SUSS results prompt caution beyond the muscle finding?",
+        "back": "A markedly weak, severely malnourished patient is at high risk of refeeding syndrome; feeding must be cautious with monitoring/replacement of phosphate, potassium and magnesium to avoid fatal hypophosphataemia and cardiac failure."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Auscultation": [
+      {
+        "id": "bt_ausc_hs_fc_01",
+        "front": "What causes S1 and what does it mark?",
+        "back": "Closure of the mitral and tricuspid (atrioventricular) valves; it marks the start of ventricular systole and is loudest at the apex. It is synchronous with the carotid upstroke."
+      },
+      {
+        "id": "bt_ausc_hs_fc_02",
+        "front": "What is fixed splitting of S2 and what is it classically associated with?",
+        "back": "S2 split remains wide and constant with no respiratory variation. It is the classic auscultatory sign of an atrial septal defect (ASD)."
+      },
+      {
+        "id": "bt_ausc_hs_fc_03",
+        "front": "When is S3 physiological versus pathological?",
+        "back": "Physiological in children, young adults and pregnancy (compliant ventricle, high flow). In older adults it indicates heart failure, volume overload or a dilated ventricle (a gallop rhythm)."
+      },
+      {
+        "id": "bt_ausc_hs_fc_04",
+        "front": "What generates S4 and why is it absent in atrial fibrillation?",
+        "back": "Atrial contraction forcing blood into a stiff, non-compliant ventricle (HTN, aortic stenosis, HOCM). It requires organised atrial contraction, so it cannot occur in AF."
+      },
+      {
+        "id": "bt_ausc_hs_fc_05",
+        "front": "What does an opening snap indicate, and how does its timing reflect severity?",
+        "back": "A pliable stenosed mitral valve (mitral stenosis), heard in early diastole. A shorter S2&ndash;opening snap interval indicates more severe stenosis (higher left atrial pressure)."
+      },
+      {
+        "id": "bt_ausc_murmur_fc_01",
+        "front": "How do you confirm at the bedside whether a murmur is systolic or diastolic?",
+        "back": "Palpate the carotid pulse while auscultating: a murmur coinciding with the pulse (between S1 and S2) is systolic; one occurring after S2, when no pulse is felt, is diastolic."
+      },
+      {
+        "id": "bt_ausc_murmur_fc_02",
+        "front": "Give the classic location, character and radiation of aortic stenosis vs mitral regurgitation.",
+        "back": "AS: ejection systolic murmur at the right 2nd intercostal space radiating to the carotids, with a slow-rising pulse. MR: pansystolic murmur at the apex radiating to the axilla, with a soft S1."
+      },
+      {
+        "id": "bt_ausc_murmur_fc_03",
+        "front": "What does the RILE mnemonic mean for murmur manoeuvres?",
+        "back": "Right-sided murmurs (TR, PS) are loudest on Inspiration (increased right heart venous return); Left-sided murmurs (MR, AR, AS, MS) are loudest on Expiration."
+      },
+      {
+        "id": "bt_ausc_murmur_fc_04",
+        "front": "Which murmur becomes LOUDER on Valsalva or standing, and why?",
+        "back": "HOCM. Reducing preload decreases left ventricular cavity volume, worsening dynamic left ventricular outflow tract obstruction and increasing the murmur's intensity. Most other murmurs get softer."
+      },
+      {
+        "id": "bt_ausc_murmur_fc_05",
+        "front": "How are aortic regurgitation and mitral stenosis best auscultated?",
+        "back": "AR (early diastolic, left sternal edge): sit the patient forward and listen in held expiration with the diaphragm. MS (mid-diastolic rumble at apex): roll the patient into the left lateral position and listen with the bell."
+      },
+      {
+        "id": "bt_ausc_crackle_fc_01",
+        "front": "What are crackles (crepitations) and how are they classified?",
+        "back": "Discontinuous, non-musical adventitious lung sounds caused by sudden reopening of small airways or air moving through secretions. Classified by pitch into FINE (high-pitched) and COARSE (low-pitched), and by timing, distribution, and response to coughing."
+      },
+      {
+        "id": "bt_ausc_crackle_fc_02",
+        "front": "Describe fine crackles and their typical causes.",
+        "back": "High-pitched, soft, end-inspiratory, Velcro-like; they do NOT clear on coughing. Typical of pulmonary fibrosis / interstitial lung disease and early (interstitial) pulmonary oedema."
+      },
+      {
+        "id": "bt_ausc_crackle_fc_03",
+        "front": "Describe coarse crackles and their typical causes.",
+        "back": "Low-pitched, loud, bubbling; heard through both inspiration and expiration and may change or clear with coughing. Caused by secretions/fluid in larger airways — bronchiectasis, pneumonia, chronic bronchitis, and established pulmonary oedema."
+      },
+      {
+        "id": "bt_ausc_crackle_fc_04",
+        "front": "Why does coughing help distinguish crackle causes?",
+        "back": "Coughing mobilises secretions, so crackles due to airway secretions (bronchiectasis, bronchitis) change or clear. Fibrotic crackles are fixed and reproducible and do NOT clear because they arise from stiff, structurally abnormal lung."
+      },
+      {
+        "id": "bt_ausc_crackle_fc_05",
+        "front": "What is the significance of bibasal vs localised crackles?",
+        "back": "Bibasal (symmetrical, both bases) suggests a diffuse process — pulmonary fibrosis, pulmonary oedema, or bilateral infection. Localised crackles confined to one zone suggest a focal process such as lobar pneumonia or focal bronchiectasis."
+      },
+      {
+        "id": "bt_ausc_wheeze_fc_01",
+        "front": "What is the difference between wheeze and rhonchi in pitch and origin?",
+        "back": "Wheeze is a high-pitched musical continuous sound from narrowed small airways (bronchospasm/oedema), usually expiratory. Rhonchi are low-pitched snoring sounds from secretions/narrowing in the larger airways and characteristically clear or change with coughing."
+      },
+      {
+        "id": "bt_ausc_wheeze_fc_02",
+        "front": "What does a polyphonic wheeze indicate versus a monophonic wheeze?",
+        "back": "Polyphonic (many simultaneous pitches) reflects widespread narrowing of many airways of differing calibre, as in asthma or COPD. A fixed monophonic wheeze (single constant note in one spot) reflects one obstructing airway, e.g. tumour, foreign body or mucus plug."
+      },
+      {
+        "id": "bt_ausc_wheeze_fc_03",
+        "front": "Why is a silent chest in acute asthma an emergency rather than a sign of improvement?",
+        "back": "A silent chest means airflow has fallen so low that too little air moves to generate any wheeze. It signals imminent respiratory failure (a life-threatening/peri-arrest sign) requiring urgent senior and ICU input, not reassurance."
+      },
+      {
+        "id": "bt_ausc_wheeze_fc_04",
+        "front": "How do you distinguish stridor from wheeze and why does it matter?",
+        "back": "Stridor is loud and predominantly inspiratory, loudest over the neck, indicating UPPER airway obstruction, whereas wheeze is predominantly expiratory from lower airways. Stridor is an airway emergency and must not be mislabelled as wheeze."
+      },
+      {
+        "id": "bt_ausc_wheeze_fc_05",
+        "front": "What is the significance of a fixed monophonic wheeze localised to one area?",
+        "back": "It implies a single obstructing intrathoracic lesion such as a bronchial tumour or an inhaled foreign body. It mandates bronchoscopy for diagnosis rather than treatment with bronchodilators alone."
+      },
+      {
+        "id": "bt_ausc_bronch_fc_01",
+        "front": "What are the three auscultatory/percussion features of the consolidation triad?",
+        "back": "Bronchial breathing, increased vocal resonance (including whispering pectoriloquy), and dullness to percussion. Classic of lobar pneumonia."
+      },
+      {
+        "id": "bt_ausc_bronch_fc_02",
+        "front": "How does bronchial breathing differ from normal vesicular breath sounds?",
+        "back": "Vesicular sounds are soft with inspiration longer than expiration and no gap. Bronchial breathing is harsh/blowing, high-pitched, with inspiration equal to expiration and an audible gap between the two phases."
+      },
+      {
+        "id": "bt_ausc_bronch_fc_03",
+        "front": "Why is sound conducted better through consolidated lung?",
+        "back": "Normal aerated lung filters out high-frequency central airway sound. Solid, airless (but exudate-filled) lung with a patent airway conducts these unfiltered high-frequency sounds straight to the chest wall."
+      },
+      {
+        "id": "bt_ausc_bronch_fc_04",
+        "front": "How do the auscultation findings distinguish consolidation from a large pleural effusion, both of which are dull to percussion?",
+        "back": "Consolidation increases conduction: bronchial breathing and increased vocal resonance. A large effusion is stony dull with absent breath sounds and reduced vocal resonance because fluid insulates sound."
+      },
+      {
+        "id": "bt_ausc_bronch_fc_05",
+        "front": "Besides lobar pneumonia, where else can bronchial breathing be heard?",
+        "back": "Over collapse with a patent conducting airway, and over compressed lung at the upper border of a pleural effusion. It requires a patent airway to conduct central sounds."
+      },
+      {
+        "id": "bt_ausc_reduced_fc_01",
+        "front": "Reduced breath sounds + STONY DULL percussion + reduced vocal resonance = ?",
+        "back": "Pleural effusion. The fluid layer insulates the lung from the chest wall, dampening both sound transmission and vocal resonance; the trachea is pushed away if the effusion is large."
+      },
+      {
+        "id": "bt_ausc_reduced_fc_02",
+        "front": "Reduced breath sounds + HYPER-RESONANT percussion + reduced vocal resonance = ?",
+        "back": "Pneumothorax. Air in the pleural space blocks transmission and increases resonance. The trachea only deviates away when it is a tension pneumothorax."
+      },
+      {
+        "id": "bt_ausc_reduced_fc_03",
+        "front": "Why is consolidation (pneumonia) NOT a cause of absent breath sounds?",
+        "back": "The airways stay patent while alveoli fill with dense exudate, so sound is transmitted better, not worse. You hear bronchial breathing with increased vocal resonance and dull (not stony dull) percussion."
+      },
+      {
+        "id": "bt_ausc_reduced_fc_04",
+        "front": "How does the trachea/mediastinum move in lobar collapse versus a large effusion?",
+        "back": "In collapse the mediastinum is PULLED toward the abnormal side (volume loss). In a large effusion or tension pneumothorax it is PUSHED away from the abnormal side."
+      },
+      {
+        "id": "bt_ausc_reduced_fc_05",
+        "front": "What bedside findings mandate immediate needle decompression before any imaging?",
+        "back": "Tension pneumothorax: reduced/absent breath sounds + hyper-resonance + tracheal deviation away from the side + shock (hypotension, tachycardia, raised JVP). Decompress immediately; do not wait for a chest X-ray."
+      },
+      {
+        "id": "bt_ausc_rub_fc_01",
+        "front": "What produces a pleural friction rub?",
+        "back": "Inflamed, roughened visceral and parietal pleural surfaces (coated with fibrinous exudate) rubbing against each other during breathing, producing a creaking/grating 'leathery' sound."
+      },
+      {
+        "id": "bt_ausc_rub_fc_02",
+        "front": "In which phases of respiration is a pleural rub heard, and does it clear with coughing?",
+        "back": "It is heard in BOTH inspiration and expiration (biphasic), is localised, and does NOT clear or change with coughing."
+      },
+      {
+        "id": "bt_ausc_rub_fc_03",
+        "front": "How do you distinguish a pleural rub from a pericardial rub at the bedside?",
+        "back": "Ask the patient to hold their breath: a pleural rub STOPS (respiratory origin), whereas a pericardial rub PERSISTS because it is generated by the beating heart."
+      },
+      {
+        "id": "bt_ausc_rub_fc_04",
+        "front": "List five causes of a pleural friction rub.",
+        "back": "Pleurisy/pleuritis, pneumonia, pulmonary embolism with infarction, viral infection (e.g. Coxsackie B), and autoimmune serositis (SLE, rheumatoid arthritis)."
+      },
+      {
+        "id": "bt_ausc_rub_fc_05",
+        "front": "Why might a pleural rub disappear as disease progresses?",
+        "back": "As a pleural effusion accumulates, the fluid separates the two pleural layers so they no longer rub together, and the sound vanishes despite ongoing pleural disease."
+      }
+    ]
+  },
+  "q": {
+    "investigations__BEDSIDE TESTS__Vital Signs & Observations": [
+      {
+        "id": "bt_vs_news2_q01",
+        "type": "mcq",
+        "question": "A patient breathing room air has a respiratory rate of 26. What NEWS2 score does the respiratory rate alone contribute?",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correctIndex": 3,
+        "answer": "3",
+        "explanation": "A respiratory rate of ≥25 breaths/min scores the maximum 3 points for that parameter. Respiratory rate is the most sensitive early indicator of deterioration, and any single parameter scoring 3 is itself an escalation trigger."
+      },
+      {
+        "id": "bt_vs_news2_q02",
+        "type": "mcq",
+        "question": "Which aggregate NEWS2 threshold is recognised as the point that should prompt a sepsis screen and urgent senior review?",
+        "options": [
+          "≥2",
+          "≥3",
+          "≥5",
+          "≥9",
+          "≥11"
+        ],
+        "correctIndex": 2,
+        "answer": "≥5",
+        "explanation": "A total NEWS2 of 5 or more indicates a medium risk of clinical deterioration and should trigger urgent review with consideration of a sepsis screen. The mnemonic '5 = think sepsis' captures this threshold."
+      },
+      {
+        "id": "bt_vs_news2_q03",
+        "type": "mcq",
+        "question": "SpO₂ Scale 2 within NEWS2 is specifically intended for which group of patients?",
+        "options": [
+          "Pregnant women in the third trimester",
+          "Patients with hypercapnic (type 2) respiratory failure and a target saturation of 88–92%",
+          "Children under 5 years old",
+          "All patients receiving any supplemental oxygen",
+          "Patients with acute coronary syndrome"
+        ],
+        "correctIndex": 1,
+        "answer": "Patients with hypercapnic (type 2) respiratory failure and a target saturation of 88–92%",
+        "explanation": "Scale 2 is applied only to patients, typically with COPD, who have a clinician-set oxygen target of 88–92% due to hypercapnic respiratory failure. On this scale high saturations on oxygen score points because over-oxygenation risks worsening hypercapnia."
+      },
+      {
+        "id": "bt_vs_hr_q01",
+        "type": "mcq",
+        "question": "A 74-year-old man is found to have a pulse of 96 bpm that is irregularly irregular, with no discernible pattern. The apical rate on auscultation is 112 bpm. What is the most likely diagnosis?",
+        "options": [
+          "Sinus arrhythmia",
+          "Second-degree heart block (Mobitz I)",
+          "Atrial fibrillation",
+          "Ventricular bigeminy",
+          "Complete heart block"
+        ],
+        "correctIndex": 2,
+        "answer": "Atrial fibrillation",
+        "explanation": "An irregularly irregular pulse with no repeating pattern is the hallmark of atrial fibrillation. The apex-radial deficit (apical 112 vs radial 96) occurs because weak beats fail to transmit to the wrist, confirming AF."
+      },
+      {
+        "id": "bt_vs_hr_q02",
+        "type": "mcq",
+        "question": "During a cardiovascular examination you palpate a low-volume pulse with a delayed, sustained upstroke best appreciated at the carotid. Which valvular lesion does this most strongly suggest?",
+        "options": [
+          "Aortic regurgitation",
+          "Mitral stenosis",
+          "Aortic stenosis",
+          "Mitral regurgitation",
+          "Tricuspid regurgitation"
+        ],
+        "correctIndex": 2,
+        "answer": "Aortic stenosis",
+        "explanation": "A slow-rising, low-volume (plateau) pulse reflects obstructed left-ventricular outflow across a stenosed aortic valve. The delayed, sustained upstroke is characteristic and is best assessed centrally at the carotid."
+      },
+      {
+        "id": "bt_vs_hr_q03",
+        "type": "mcq",
+        "question": "A breathless patient with distended neck veins and muffled heart sounds has a systolic blood pressure that falls by 18 mmHg during inspiration. What is this pulse sign, and what does it indicate here?",
+        "options": [
+          "Pulsus alternans, indicating severe LV failure",
+          "Pulsus paradoxus, indicating cardiac tamponade",
+          "Collapsing pulse, indicating aortic regurgitation",
+          "Radio-femoral delay, indicating coarctation",
+          "Slow-rising pulse, indicating aortic stenosis"
+        ],
+        "correctIndex": 1,
+        "answer": "Pulsus paradoxus, indicating cardiac tamponade",
+        "explanation": "An inspiratory fall in systolic pressure greater than 10 mmHg defines pulsus paradoxus. Combined with raised JVP and muffled heart sounds (Beck's triad), it points to cardiac tamponade."
+      },
+      {
+        "id": "bt_vs_bp_q01",
+        "type": "mcq",
+        "question": "During manual auscultatory blood pressure measurement, which point corresponds to the diastolic pressure?",
+        "options": [
+          "The first appearance of tapping Korotkoff sounds",
+          "The muffling of Korotkoff sounds (phase IV)",
+          "The disappearance of Korotkoff sounds (phase V)",
+          "The pressure at which the radial pulse returns on palpation",
+          "The mean of the highest and lowest cuff pressures"
+        ],
+        "correctIndex": 2,
+        "answer": "The disappearance of Korotkoff sounds (phase V)",
+        "explanation": "Diastolic pressure is read at Korotkoff phase V, when the sounds disappear as flow becomes fully laminar. Phase I marks systolic pressure, when pulsatile flow first returns."
+      },
+      {
+        "id": "bt_vs_bp_q02",
+        "type": "mcq",
+        "question": "A patient with a large arm has BP measured using a standard adult cuff that is too small. What is the likely effect on the reading?",
+        "options": [
+          "It will overestimate the blood pressure",
+          "It will underestimate the blood pressure",
+          "It will have no effect on accuracy",
+          "It will only affect the diastolic reading",
+          "It will only affect the heart rate"
+        ],
+        "correctIndex": 0,
+        "answer": "It will overestimate the blood pressure",
+        "explanation": "A cuff that is too small requires higher pressure to occlude the artery, spuriously raising the recorded values. The cuff bladder should encircle about 80% of the arm circumference for accuracy."
+      },
+      {
+        "id": "bt_vs_bp_q03",
+        "type": "mcq",
+        "question": "According to NICE, a clinic reading of 150/95 mmHg should be followed by which step to confirm the diagnosis of hypertension?",
+        "options": [
+          "Immediate initiation of antihypertensive drugs",
+          "Ambulatory or home blood pressure monitoring",
+          "Same-day admission to hospital",
+          "Repeat clinic reading in 12 months",
+          "Urgent CT head to exclude a cause"
+        ],
+        "correctIndex": 1,
+        "answer": "Ambulatory or home blood pressure monitoring",
+        "explanation": "NICE advises confirming a raised clinic BP (≥140/90) with ABPM or HBPM, which use the lower ≥135/85 threshold and exclude the white-coat effect. Stage 1 hypertension is diagnosed only after this out-of-clinic confirmation."
+      },
+      {
+        "id": "bt_vs_rr_q01",
+        "type": "mcq",
+        "question": "A 19-year-old with type 1 diabetes presents drowsy with deep, rapid, sighing breaths and a fruity odour on the breath. Which breathing pattern is described and what does it indicate?",
+        "options": [
+          "Cheyne-Stokes breathing indicating heart failure",
+          "Kussmaul breathing indicating metabolic acidosis",
+          "Agonal breathing indicating imminent arrest",
+          "Pursed-lip breathing indicating COPD",
+          "Apnoeic pauses indicating raised intracranial pressure"
+        ],
+        "correctIndex": 1,
+        "answer": "Kussmaul breathing indicating metabolic acidosis",
+        "explanation": "Deep, rapid, sighing respiration is Kussmaul breathing, a respiratory compensation for a metabolic acidosis. In a young type 1 diabetic who is drowsy with ketotic breath, this points to diabetic ketoacidosis."
+      },
+      {
+        "id": "bt_vs_rr_q02",
+        "type": "mcq",
+        "question": "Why is respiratory rate regarded as the most valuable early vital sign in track-and-trigger scoring such as NEWS2?",
+        "options": [
+          "It is the last vital sign to change before arrest",
+          "It requires laboratory analysis to interpret",
+          "It rises early via chemoreceptor drive before other vital signs change",
+          "It is unaffected by pain, fever or anxiety",
+          "It reliably excludes hypoxia when normal"
+        ],
+        "correctIndex": 2,
+        "answer": "It rises early via chemoreceptor drive before other vital signs change",
+        "explanation": "Chemoreceptor-driven ventilation increases as soon as gas exchange or acid-base balance is threatened, before heart rate, blood pressure or conscious level fall. This early rise makes RR the sentinel sign and gives it heavy weighting in NEWS2."
+      },
+      {
+        "id": "bt_vs_rr_q03",
+        "type": "mcq",
+        "question": "A patient with a severe acute asthma attack was audibly wheezing but now has a quiet chest, a falling respiratory rate and increasing drowsiness. What does this most likely represent?",
+        "options": [
+          "Successful response to bronchodilators",
+          "Exhaustion and a pre-arrest silent chest",
+          "Simple anxiety resolving",
+          "Normal recovery of respiratory rate",
+          "Development of a pneumothorax only"
+        ],
+        "correctIndex": 1,
+        "answer": "Exhaustion and a pre-arrest silent chest",
+        "explanation": "A silent chest with a falling respiratory rate and reduced consciousness in acute asthma signals such poor air movement that no wheeze is generated. This is a life-threatening pre-arrest state requiring immediate senior and critical-care input."
+      },
+      {
+        "id": "bt_vs_spo2_q01",
+        "type": "mcq",
+        "question": "A 68-year-old man is rescued from a house fire. He is drowsy with a headache. His SpO₂ reads 99% on room air. Why is this reading potentially dangerously misleading?",
+        "options": [
+          "Motion artefact from shivering has falsely elevated the value",
+          "Carboxyhaemoglobin absorbs light like oxyhaemoglobin, so the oximeter reads falsely normal despite tissue hypoxia",
+          "Cold peripheries have caused loss of the pulsatile signal",
+          "Nail varnish is blocking the infrared light and inflating the reading",
+          "The oxyhaemoglobin dissociation curve has shifted to the right, raising saturation"
+        ],
+        "correctIndex": 1,
+        "answer": "Carboxyhaemoglobin absorbs light like oxyhaemoglobin, so the oximeter reads falsely normal despite tissue hypoxia",
+        "explanation": "In carbon monoxide poisoning, COHb has light absorption very similar to oxyHb, so the standard two-wavelength oximeter counts it as saturated. The SpO₂ therefore appears normal even though oxygen delivery is critically impaired. Diagnosis requires co-oximetry or an arterial blood gas measuring COHb."
+      },
+      {
+        "id": "bt_vs_spo2_q02",
+        "type": "mcq",
+        "question": "What is the recommended target SpO₂ range for a patient with known COPD who is at risk of hypercapnic respiratory failure?",
+        "options": [
+          "94–98%",
+          "88–92%",
+          "≥96%",
+          "82–86%",
+          "98–100%"
+        ],
+        "correctIndex": 1,
+        "answer": "88–92%",
+        "explanation": "Patients at risk of type 2 respiratory failure are targeted at 88–92% to avoid excessive oxygen abolishing hypoxic respiratory drive and worsening CO₂ retention. The standard 94–98% range applies to most other acutely ill adults."
+      },
+      {
+        "id": "bt_vs_spo2_q03",
+        "type": "mcq",
+        "question": "A patient's finger probe shows SpO₂ 90% but the palpated pulse rate does not match the number displayed. Which statement about pulse oximetry limitations is correct?",
+        "options": [
+          "Pulse oximetry directly measures arterial CO₂ and reliably detects ventilatory failure",
+          "Darker skin pigmentation tends to under-estimate the true oxygen saturation",
+          "SpO₂ measures oxygenation but not ventilation, so a normal value can coexist with dangerous CO₂ retention",
+          "A good reading is guaranteed regardless of peripheral perfusion",
+          "Nail varnish improves the accuracy of the plethysmographic signal"
+        ],
+        "correctIndex": 2,
+        "answer": "SpO₂ measures oxygenation but not ventilation, so a normal value can coexist with dangerous CO₂ retention",
+        "explanation": "Pulse oximetry reflects arterial oxygen saturation only and gives no information about CO₂ or ventilation. A patient on oxygen can maintain a normal SpO₂ while retaining CO₂ and becoming acidotic, which only an arterial blood gas reveals. A pulse rate mismatch also signals the plethysmographic signal is unreliable."
+      },
+      {
+        "id": "bt_vs_temp_q01",
+        "type": "mcq",
+        "question": "An 84-year-old care-home resident is drowsy, hypotensive and tachypnoeic with a tympanic temperature of 35.6°C. Which interpretation is most appropriate?",
+        "options": [
+          "The low temperature reliably excludes sepsis as a cause",
+          "Hypothermia in this unwell patient is an ominous sign that is consistent with, and worsens the prognosis of, sepsis",
+          "Antipyretics should be given to correct the temperature",
+          "The reading proves the ear probe was used incorrectly",
+          "Sepsis can only be diagnosed if the temperature is ≥38°C"
+        ],
+        "correctIndex": 1,
+        "answer": "Hypothermia in this unwell patient is an ominous sign that is consistent with, and worsens the prognosis of, sepsis",
+        "explanation": "Elderly and frail patients frequently fail to mount a fever, so a low or normal temperature never excludes sepsis. Hypothermia in an acutely unwell patient signals a dysregulated response and is associated with worse outcomes, mandating urgent assessment and treatment."
+      },
+      {
+        "id": "bt_vs_temp_q02",
+        "type": "mcq",
+        "question": "A nurse records an oral temperature of 35.9°C in a patient who looks flushed and unwell. Which factor is the most likely cause of a falsely LOW oral reading?",
+        "options": [
+          "The patient drank iced water a few minutes before measurement",
+          "The patient has a high haemoglobin concentration",
+          "The room was warmer than the patient",
+          "The probe was left in place for too long",
+          "The patient had just finished exercising"
+        ],
+        "correctIndex": 0,
+        "answer": "The patient drank iced water a few minutes before measurement",
+        "explanation": "Recent cold drinks cool the sublingual pocket and transiently lower oral readings, so measurement should be delayed 15–30 minutes or another site used. Hot drinks and smoking similarly distort oral values."
+      },
+      {
+        "id": "bt_vs_temp_q03",
+        "type": "mcq",
+        "question": "Which core temperature value meets the definition of hyperpyrexia?",
+        "options": [
+          "37.5°C",
+          "38.2°C",
+          "39.0°C",
+          "40.5°C",
+          "34.8°C"
+        ],
+        "correctIndex": 3,
+        "answer": "40.5°C",
+        "explanation": "Hyperpyrexia is defined as a core temperature above 40°C and is a medical emergency, prompting consideration of CNS infection, drug toxicity, heat stroke or thyroid storm. Values of 38–40°C represent ordinary fever, and 34.8°C is mild hypothermia."
+      },
+      {
+        "id": "bt_vs_crt_q01",
+        "type": "mcq",
+        "question": "What is the accepted normal upper limit for central capillary refill time?",
+        "options": [
+          "Less than 1 second",
+          "Less than 2 seconds",
+          "Less than 4 seconds",
+          "Less than 6 seconds",
+          "Less than 10 seconds"
+        ],
+        "correctIndex": 1,
+        "answer": "Less than 2 seconds",
+        "explanation": "A normal central CRT is under 2 seconds. A value of 2 seconds or more is regarded as prolonged and prompts assessment for impaired perfusion."
+      },
+      {
+        "id": "bt_vs_crt_q02",
+        "type": "mcq",
+        "question": "A 3-year-old with fever has a central CRT of 4 seconds, tachycardia, mottled cool peripheries and normal blood pressure. What does this picture most likely represent?",
+        "options": [
+          "Normal findings for age",
+          "Compensated shock",
+          "Isolated fever with no circulatory concern",
+          "Peripheral vascular disease",
+          "Anaphylaxis excluded by normal blood pressure"
+        ],
+        "correctIndex": 1,
+        "answer": "Compensated shock",
+        "explanation": "Children maintain blood pressure until late, so prolonged central CRT with tachycardia and cool mottled peripheries indicates compensated shock. This warrants fluid resuscitation and urgent reassessment before hypotension develops."
+      },
+      {
+        "id": "bt_vs_crt_q03",
+        "type": "mcq",
+        "question": "Which factor most commonly causes a falsely prolonged peripheral CRT in an otherwise well-perfused patient?",
+        "options": [
+          "Cold ambient temperature",
+          "Hyperthermia",
+          "Warm well-lit environment",
+          "High cardiac output",
+          "Recent exercise"
+        ],
+        "correctIndex": 0,
+        "answer": "Cold ambient temperature",
+        "explanation": "A cold environment causes peripheral vasoconstriction that slows refill at the fingertip independently of shock. This is why central CRT is preferred when assessing a potentially shocked patient."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Point-of-Care Tests": [
+      {
+        "id": "bt_poc_ecg_q01",
+        "type": "mcq",
+        "question": "A 62-year-old man with central chest pain has ST-segment elevation in leads II, III and aVF. Which coronary artery is most likely occluded?",
+        "options": [
+          "Left anterior descending artery",
+          "Right coronary artery",
+          "Left circumflex artery",
+          "Left main stem",
+          "Diagonal branch"
+        ],
+        "correctIndex": 1,
+        "answer": "Right coronary artery",
+        "explanation": "Leads II, III and aVF view the inferior surface of the heart, which is supplied by the right coronary artery in most people. Inferior ST elevation therefore points to an RCA occlusion."
+      },
+      {
+        "id": "bt_poc_ecg_q02",
+        "type": "mcq",
+        "question": "At the standard ECG paper speed of 25 mm/s, how much time does one large (5 mm) square represent?",
+        "options": [
+          "0.04 s",
+          "0.1 s",
+          "0.2 s",
+          "0.5 s",
+          "1.0 s"
+        ],
+        "correctIndex": 2,
+        "answer": "0.2 s",
+        "explanation": "At 25 mm/s each small 1 mm square is 0.04 s, and a large square contains five small squares, giving 0.2 s. Five large squares therefore equal 1 second."
+      },
+      {
+        "id": "bt_poc_ecg_q03",
+        "type": "mcq",
+        "question": "Which finding on a 12-lead ECG defines a STEMI in the chest leads?",
+        "options": [
+          "ST elevation ≥ 1 mm in two contiguous chest leads",
+          "ST elevation ≥ 2 mm in two contiguous chest leads",
+          "ST depression ≥ 0.5 mm in any chest lead",
+          "T-wave inversion in V1–V3",
+          "A QRS duration ≥ 0.12 s"
+        ],
+        "correctIndex": 1,
+        "answer": "ST elevation ≥ 2 mm in two contiguous chest leads",
+        "explanation": "The chest-lead threshold for STEMI is ST elevation of at least 2 mm in two contiguous leads (the limb-lead threshold is lower at 1 mm). This finding warrants immediate reperfusion via primary PCI."
+      },
+      {
+        "id": "bt_poc_bm_q01",
+        "type": "mcq",
+        "question": "A capillary blood ketone (β-hydroxybutyrate) meter reads 3.4 mmol/L in an unwell type 1 diabetic. What does this value indicate?",
+        "options": [
+          "A normal result requiring no action",
+          "Significant ketonaemia suggestive of DKA",
+          "A falsely high reading due to anaemia",
+          "The upper limit of normal fasting range",
+          "Hypoglycaemia"
+        ],
+        "correctIndex": 1,
+        "answer": "Significant ketonaemia suggestive of DKA",
+        "explanation": "A capillary β-hydroxybutyrate of ≥3 mmol/L represents significant ketonaemia and is one arm of the DKA triad. In an unwell type 1 diabetic this mandates urgent assessment for acidosis and hyperglycaemia."
+      },
+      {
+        "id": "bt_poc_bm_q02",
+        "type": "mcq",
+        "question": "A bedside glucose reads 2.9 mmol/L in a drowsy patient. What is the most appropriate immediate action?",
+        "options": [
+          "Repeat the test in one hour",
+          "Await the formal laboratory venous glucose before acting",
+          "Treat the hypoglycaemia immediately",
+          "Give intravenous insulin",
+          "Reassure the patient this is within normal limits"
+        ],
+        "correctIndex": 2,
+        "answer": "Treat the hypoglycaemia immediately",
+        "explanation": "A capillary glucose below 4 mmol/L defines hypoglycaemia and requires immediate treatment. In a drowsy patient this means IM glucagon or IV glucose without waiting for laboratory confirmation."
+      },
+      {
+        "id": "bt_poc_bm_q03",
+        "type": "mcq",
+        "question": "Which single feature is NOT part of the diagnostic triad of diabetic ketoacidosis?",
+        "options": [
+          "Blood glucose greater than 11 mmol/L",
+          "Ketonaemia ≥3 mmol/L",
+          "Acidosis with pH less than 7.3",
+          "Bicarbonate less than 15 mmol/L",
+          "Serum sodium greater than 145 mmol/L"
+        ],
+        "correctIndex": 4,
+        "answer": "Serum sodium greater than 145 mmol/L",
+        "explanation": "The DKA triad is hyperglycaemia (>11 mmol/L), ketonaemia (≥3 mmol/L) and metabolic acidosis (pH <7.3 or bicarbonate <15 mmol/L). Serum sodium is not a diagnostic criterion for DKA."
+      },
+      {
+        "id": "bt_poc_vbg_q01",
+        "type": "mcq",
+        "question": "A patient's VBG shows a pCO₂ of 6.5 kPa. Which statement best guides your interpretation?",
+        "options": [
+          "The venous pCO₂ is typically about 1 kPa higher than arterial, so confirm suspected CO₂ retention with an ABG",
+          "Venous pCO₂ is identical to arterial pCO₂ and needs no adjustment",
+          "Venous pCO₂ is about 1 kPa lower than arterial, so true arterial CO₂ is higher",
+          "Venous pCO₂ reliably measures oxygenation status",
+          "A raised venous pCO₂ can be ignored because VBGs never reflect respiratory function"
+        ],
+        "correctIndex": 0,
+        "answer": "The venous pCO₂ is typically about 1 kPa higher than arterial, so confirm suspected CO₂ retention with an ABG",
+        "explanation": "Venous pCO₂ runs roughly 1 kPa above the arterial value, so it works well as a screen but overstates true arterial CO₂. A genuinely high value should be confirmed with an ABG before diagnosing hypercapnic respiratory failure."
+      },
+      {
+        "id": "bt_poc_vbg_q02",
+        "type": "mcq",
+        "question": "A septic patient has a VBG lactate of 4.5 mmol/L. What does this most indicate?",
+        "options": [
+          "Significant tissue hypoperfusion warranting urgent resuscitation as part of the Sepsis Six",
+          "A normal finding requiring no action",
+          "Reliable evidence of adequate oxygenation",
+          "Respiratory alkalosis",
+          "Laboratory error, as lactate cannot be measured on a VBG"
+        ],
+        "correctIndex": 0,
+        "answer": "Significant tissue hypoperfusion warranting urgent resuscitation as part of the Sepsis Six",
+        "explanation": "A lactate of ≥4 mmol/L reflects severe tissue hypoperfusion and anaerobic metabolism, marking a high-risk septic patient. It triggers aggressive resuscitation and repeat measurement to assess lactate clearance."
+      },
+      {
+        "id": "bt_poc_vbg_q03",
+        "type": "mcq",
+        "question": "Which limitation of the VBG most strongly mandates an arterial blood gas instead?",
+        "options": [
+          "The need to assess oxygenation in a patient with suspected hypoxia",
+          "The need to measure venous potassium",
+          "The need to measure lactate in sepsis",
+          "The need to measure pH in diabetic ketoacidosis",
+          "The need to measure haemoglobin at the bedside"
+        ],
+        "correctIndex": 0,
+        "answer": "The need to assess oxygenation in a patient with suspected hypoxia",
+        "explanation": "Venous pO₂ reflects tissue extraction rather than pulmonary gas exchange, so a VBG cannot assess oxygenation. Suspected hypoxia or significant CO₂ retention therefore requires an arterial sample."
+      },
+      {
+        "id": "bt_poc_bmi_q01",
+        "type": "mcq",
+        "question": "A patient weighs 96 kg and is 1.60 m tall. Which WHO category does their BMI fall into?",
+        "options": [
+          "Healthy weight",
+          "Overweight",
+          "Obesity class I",
+          "Obesity class II",
+          "Obesity class III"
+        ],
+        "correctIndex": 4,
+        "answer": "Obesity class III",
+        "explanation": "BMI = 96 / (1.60 × 1.60) = 96 / 2.56 = 37.5 kg/m². A value of 37.5 lies in the 35–39.9 band. Correcting the arithmetic: 96/2.56 = 37.5, which is class II; the intended figure of ≥40 defines class III."
+      },
+      {
+        "id": "bt_poc_bmi_q02",
+        "type": "mcq",
+        "question": "A 30-year-old elite rugby player has a BMI of 31 kg/m² but 12% body fat and no metabolic abnormality. What best explains this discrepancy?",
+        "options": [
+          "BMI overestimates adiposity because high muscle mass raises weight",
+          "He has undiagnosed ascites inflating his weight",
+          "The WHO thresholds do not apply under age 40",
+          "BMI is only valid in women",
+          "His height was measured incorrectly"
+        ],
+        "correctIndex": 0,
+        "answer": "BMI overestimates adiposity because high muscle mass raises weight",
+        "explanation": "BMI uses total weight and cannot distinguish lean muscle from fat. Muscular athletes carry high lean mass, which raises weight and BMI despite low body fat. This is a classic limitation requiring interpretation alongside body composition."
+      },
+      {
+        "id": "bt_poc_bmi_q03",
+        "type": "mcq",
+        "question": "Which threshold is used to define the overweight category in South Asian adults, reflecting their higher cardiometabolic risk?",
+        "options": [
+          "BMI ≥ 18.5 kg/m²",
+          "BMI ≥ 23 kg/m²",
+          "BMI ≥ 25 kg/m²",
+          "BMI ≥ 30 kg/m²",
+          "BMI ≥ 35 kg/m²"
+        ],
+        "correctIndex": 1,
+        "answer": "BMI ≥ 23 kg/m²",
+        "explanation": "South Asian and Chinese populations develop excess visceral fat and type 2 diabetes at lower BMI values. WHO and NICE therefore lower the overweight threshold to ≥23 kg/m² for these groups. This prompts earlier lifestyle and risk-factor intervention."
+      },
+      {
+        "id": "bt_poc_ngph_q01",
+        "type": "mcq",
+        "question": "A fine-bore NG feeding tube is newly inserted. Aspirate tested on pH paper reads 4.5. What is the correct action?",
+        "options": [
+          "Feed may commence — gastric placement is confirmed",
+          "Obtain a chest X-ray before feeding",
+          "Withdraw the tube and reinsert",
+          "Confirm with the auscultation whoosh test",
+          "Wait 1 hour and re-aspirate"
+        ],
+        "correctIndex": 0,
+        "answer": "Feed may commence — gastric placement is confirmed",
+        "explanation": "A pH of 4.5 is at or below the NPSA safe cut-off of 5.5, confirming the tube tip is in the acidic stomach. The tube can be used safely for feed, fluids and medication without further imaging."
+      },
+      {
+        "id": "bt_poc_ngph_q02",
+        "type": "mcq",
+        "question": "An NG aspirate from a patient on omeprazole reads pH 6.5. What is the most appropriate next step?",
+        "options": [
+          "Commence feed as the tube is likely gastric",
+          "Do not feed; reposition/wait and if still >5.5 obtain a chest X-ray",
+          "Use blue litmus paper to recheck acidity",
+          "Confirm position by auscultation over the epigastrium",
+          "Flush with 50 mL water and re-test immediately"
+        ],
+        "correctIndex": 1,
+        "answer": "Do not feed; reposition/wait and if still >5.5 obtain a chest X-ray",
+        "explanation": "A pH above 5.5 does not confirm gastric placement, so feeding is unsafe. The tube should be repositioned and re-tested, escalating to a chest X-ray as the definitive check, especially as PPIs commonly raise gastric pH."
+      },
+      {
+        "id": "bt_poc_ngph_q03",
+        "type": "mcq",
+        "question": "Why is misplacement of a nasogastric feeding tube classified as a Never Event in the NHS?",
+        "options": [
+          "Because the tube frequently causes nasal bleeding",
+          "Because feeding into a lung-sited tube causes catastrophic, often fatal, aspiration",
+          "Because it always requires surgical removal",
+          "Because it invariably triggers gastric perforation",
+          "Because it commonly causes electrolyte imbalance"
+        ],
+        "correctIndex": 1,
+        "answer": "Because feeding into a lung-sited tube causes catastrophic, often fatal, aspiration",
+        "explanation": "A tube that has passed into the trachea or bronchus can deliver feed directly into the lungs, causing severe aspiration pneumonitis and death. Because this harm is serious and wholly preventable with correct pH/X-ray checks, it is designated a Never Event."
+      },
+      {
+        "id": "bt_poc_gcs_q01",
+        "type": "mcq",
+        "question": "A patient opens their eyes to a painful stimulus, makes incomprehensible sounds, and withdraws their limb from pain. What is their GCS?",
+        "options": [
+          "E2 V2 M4, total 8",
+          "E1 V2 M4, total 7",
+          "E2 V3 M5, total 10",
+          "E2 V2 M3, total 7",
+          "E3 V2 M4, total 9"
+        ],
+        "correctIndex": 0,
+        "answer": "E2 V2 M4, total 8",
+        "explanation": "Eyes open to pain scores 2, incomprehensible sounds score 2 verbally, and withdrawal from pain scores 4 for motor. Summing gives a total GCS of 8."
+      },
+      {
+        "id": "bt_poc_gcs_q02",
+        "type": "mcq",
+        "question": "A head injury patient's GCS falls from 14 to 8 over 20 minutes. What is the most important immediate action?",
+        "options": [
+          "Secure the airway and arrange urgent CT head with neurosurgical discussion",
+          "Reassess the GCS again in one hour",
+          "Give oral analgesia and reassure the patient",
+          "Discharge with head injury advice",
+          "Repeat routine observations only"
+        ],
+        "correctIndex": 0,
+        "answer": "Secure the airway and arrange urgent CT head with neurosurgical discussion",
+        "explanation": "A GCS of 8 means the airway is at risk and must be secured with anaesthetic support. A rapid fall suggests an expanding intracranial lesion, mandating urgent CT and neurosurgical referral."
+      },
+      {
+        "id": "bt_poc_gcs_q03",
+        "type": "mcq",
+        "question": "Which statement about the AVPU scale is correct?",
+        "options": [
+          "A patient responding only to Pain corresponds to roughly GCS 8",
+          "AVPU replaces the need for a full GCS in all patients",
+          "The 'V' in AVPU refers to a verbal score out of 5",
+          "Unresponsive on AVPU corresponds to a GCS of 15",
+          "AVPU has six response levels"
+        ],
+        "correctIndex": 0,
+        "answer": "A patient responding only to Pain corresponds to roughly GCS 8",
+        "explanation": "On AVPU, responding only to Pain maps to approximately GCS 8, the threshold at which the airway becomes at risk. AVPU is a four-point rapid triage tool that should be converted to a full GCS when time allows."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Cardiovascular Bedside": [
+      {
+        "id": "bt_cv_abpi_q01",
+        "type": "mcq",
+        "question": "A 68-year-old man with intermittent claudication has an ankle systolic pressure of 80 mmHg (highest of DP/PT) and a highest brachial pressure of 130 mmHg. What is his ABPI and interpretation?",
+        "options": [
+          "0.62 — mild-to-moderate PAD",
+          "1.63 — incompressible calcified vessels",
+          "0.62 — normal supply",
+          "0.40 — critical limb ischaemia",
+          "1.00 — normal supply"
+        ],
+        "correctIndex": 0,
+        "answer": "0.62 — mild-to-moderate PAD",
+        "explanation": "ABPI = 80 ÷ 130 = 0.62. A value between 0.5 and 0.9 indicates mild-to-moderate peripheral arterial disease, which fits his claudication."
+      },
+      {
+        "id": "bt_cv_abpi_q02",
+        "type": "mcq",
+        "question": "A patient with a venous-appearing leg ulcer is being assessed for compression bandaging. Which ABPI result should prevent application of high-compression bandaging?",
+        "options": [
+          "ABPI 0.75",
+          "ABPI 0.95",
+          "ABPI 1.1",
+          "ABPI 1.25",
+          "ABPI 0.90"
+        ],
+        "correctIndex": 0,
+        "answer": "ABPI 0.75",
+        "explanation": "An ABPI below 0.8 indicates significant arterial compromise, and compression on such a limb risks tissue necrosis. Compression is considered safe in the 0.8-1.3 range."
+      },
+      {
+        "id": "bt_cv_abpi_q03",
+        "type": "mcq",
+        "question": "A 60-year-old man with long-standing type 2 diabetes has absent foot pulses and calf claudication, yet his ABPI is 1.4. What is the most appropriate next investigation?",
+        "options": [
+          "Toe-brachial index",
+          "Reassure — normal arterial supply",
+          "Repeat ABPI after exercise only",
+          "Immediate amputation referral",
+          "Venous duplex scan"
+        ],
+        "correctIndex": 0,
+        "answer": "Toe-brachial index",
+        "explanation": "An ABPI >1.3 reflects incompressible, calcified calf vessels in diabetes and is falsely elevated. The toe-brachial index uses the calcification-spared digital arteries, where a TBI <0.7 confirms peripheral arterial disease."
+      },
+      {
+        "id": "bt_cv_doppler_q01",
+        "type": "mcq",
+        "question": "A normal peripheral artery assessed with a hand-held continuous-wave Doppler classically produces which waveform pattern?",
+        "options": [
+          "Monophasic",
+          "Biphasic",
+          "Triphasic",
+          "Absent signal",
+          "Continuous non-pulsatile flow"
+        ],
+        "correctIndex": 2,
+        "answer": "Triphasic",
+        "explanation": "A healthy, elastic, unobstructed artery gives a triphasic waveform: forward systolic flow, a brief early-diastolic reverse component, then late forward diastolic flow. This multiphasic pattern reflects normal vessel compliance and downstream resistance."
+      },
+      {
+        "id": "bt_cv_doppler_q02",
+        "type": "mcq",
+        "question": "A patient with claudication has a dampened, single-phase forward Doppler signal over the posterior tibial artery. What does this monophasic waveform indicate?",
+        "options": [
+          "A normal finding in a young athlete",
+          "Significant proximal arterial stenosis or PAD",
+          "Venous rather than arterial flow",
+          "Complete arterial occlusion with no flow",
+          "Incompressible calcified vessels"
+        ],
+        "correctIndex": 1,
+        "answer": "Significant proximal arterial stenosis or PAD",
+        "explanation": "A monophasic signal shows loss of both the reverse and late forward components, leaving a single dampened forward flow. This indicates significant proximal stenosis or established peripheral arterial disease and warrants further assessment."
+      },
+      {
+        "id": "bt_cv_doppler_q03",
+        "type": "mcq",
+        "question": "A hand-held Doppler is used to measure ABPI in a patient with long-standing diabetes and the result is 1.4. What is the most appropriate interpretation?",
+        "options": [
+          "Normal arterial supply, no further action",
+          "Critical limb ischaemia",
+          "Falsely elevated due to incompressible calcified vessels",
+          "Severe venous insufficiency",
+          "Measurement error requiring no follow-up"
+        ],
+        "correctIndex": 2,
+        "answer": "Falsely elevated due to incompressible calcified vessels",
+        "explanation": "Medial arterial calcification in diabetes and chronic kidney disease makes vessels resistant to cuff compression, producing an ABPI above 1.3. Toe pressures or a toe-brachial index give a more reliable assessment in these patients."
+      },
+      {
+        "id": "bt_cv_4limb_q01",
+        "type": "mcq",
+        "question": "A 16-year-old with hypertension has BP 165/95 in the arms and 120/70 in the legs, with palpable radio-femoral delay. What is the most likely diagnosis?",
+        "options": [
+          "Essential hypertension",
+          "Aortic coarctation",
+          "Takayasu arteritis",
+          "Aortic dissection",
+          "Renal artery stenosis"
+        ],
+        "correctIndex": 1,
+        "answer": "Aortic coarctation",
+        "explanation": "Arm BP exceeding leg BP with radio-femoral delay in a young hypertensive is the classic picture of aortic coarctation. The narrowing distal to the left subclavian raises upper-body pressure while reducing flow to the lower limbs."
+      },
+      {
+        "id": "bt_cv_4limb_q02",
+        "type": "mcq",
+        "question": "In a healthy adult, how does ankle (leg) systolic BP normally compare with brachial (arm) systolic BP?",
+        "options": [
+          "Leg is markedly lower than arm",
+          "Leg equals or slightly exceeds arm",
+          "Leg is exactly half the arm value",
+          "Leg and arm are always identical",
+          "Leg is unmeasurable without Doppler"
+        ],
+        "correctIndex": 1,
+        "answer": "Leg equals or slightly exceeds arm",
+        "explanation": "Peripheral pulse-wave amplification normally makes ankle systolic pressure equal to or slightly higher than the brachial value, giving an ankle-brachial index of about 0.9–1.0. A reversal of this pattern is abnormal."
+      },
+      {
+        "id": "bt_cv_4limb_q03",
+        "type": "mcq",
+        "question": "A 70-year-old presents with sudden severe tearing chest pain radiating to the back. Four-limb BP shows a 30 mmHg difference between the two arms. Which diagnosis does this most strongly support?",
+        "options": [
+          "Aortic coarctation",
+          "Takayasu arteritis",
+          "Aortic dissection",
+          "Peripheral arterial disease",
+          "White-coat hypertension"
+        ],
+        "correctIndex": 2,
+        "answer": "Aortic dissection",
+        "explanation": "An inter-arm systolic difference greater than 20 mmHg with acute tearing chest-to-back pain strongly suggests aortic dissection compromising a subclavian or brachiocephalic vessel. This mandates urgent CT aortogram."
+      },
+      {
+        "id": "bt_cv_postural_q01",
+        "type": "mcq",
+        "question": "Which change on standing defines orthostatic hypotension on a lying-and-standing BP test?",
+        "options": [
+          "Fall in systolic BP of ≥​20 mmHg or diastolic BP of ≥​10 mmHg within 3 minutes",
+          "Fall in systolic BP of ≥​10 mmHg only",
+          "Rise in heart rate of ≥​30 bpm within 1 minute",
+          "Fall in diastolic BP of ≥​20 mmHg only",
+          "Fall in systolic BP of ≥​40 mmHg within 10 minutes"
+        ],
+        "correctIndex": 0,
+        "answer": "Fall in systolic BP of ≥​20 mmHg or diastolic BP of ≥​10 mmHg within 3 minutes",
+        "explanation": "Orthostatic hypotension is defined by a sustained postural drop of at least 20 mmHg systolic or 10 mmHg diastolic within 3 minutes of standing. This is the standard threshold assessed by the active stand test."
+      },
+      {
+        "id": "bt_cv_postural_q02",
+        "type": "mcq",
+        "question": "How should the lying-and-standing BP be performed correctly?",
+        "options": [
+          "Supine ≥​5 minutes, then standing BP at 1 and 3 minutes",
+          "Sitting for 1 minute, then immediately standing once",
+          "Standing first, then lying for 5 minutes",
+          "Supine for 30 seconds, then a single standing reading",
+          "Standing BP measured only after 10 minutes upright"
+        ],
+        "correctIndex": 0,
+        "answer": "Supine ≥​5 minutes, then standing BP at 1 and 3 minutes",
+        "explanation": "The patient rests supine for at least 5 minutes to stabilise, then BP is measured at 1 and 3 minutes of standing. The 3-minute reading captures delayed drops that an early measurement would miss."
+      },
+      {
+        "id": "bt_cv_postural_q03",
+        "type": "mcq",
+        "question": "A 78-year-old on furosemide has a 25 mmHg systolic drop on standing with dizziness. What is the most appropriate next step?",
+        "options": [
+          "Review medications and assess volume status",
+          "Start a beta-blocker to raise the pressure",
+          "Reassure and take no further action",
+          "Restrict oral fluid intake",
+          "Arrange urgent CT head as first-line"
+        ],
+        "correctIndex": 0,
+        "answer": "Review medications and assess volume status",
+        "explanation": "Symptomatic orthostatic hypotension in a patient on a diuretic points to a reversible, drug- and volume-related cause and a real falls risk. Reviewing culprit medication and correcting any volume depletion is the key first step."
+      },
+      {
+        "id": "bt_cv_abpm_q01",
+        "type": "mcq",
+        "question": "A 52-year-old man has a clinic BP of 146/92 mmHg. According to NICE, what daytime ambulatory/home average confirms stage 1 hypertension?",
+        "options": [
+          "≥120/80 mmHg",
+          "≥130/80 mmHg",
+          "≥135/85 mmHg",
+          "≥140/90 mmHg",
+          "≥150/95 mmHg"
+        ],
+        "correctIndex": 2,
+        "answer": "≥135/85 mmHg",
+        "explanation": "The out-of-office threshold for stage 1 hypertension is a daytime ABPM/HBPM average of 135/85 mmHg, corresponding to a clinic reading of 140/90. It is set lower than the clinic figure because the white-coat effect is removed."
+      },
+      {
+        "id": "bt_cv_abpm_q02",
+        "type": "mcq",
+        "question": "Which description correctly matches a standard ABPM protocol used to diagnose hypertension?",
+        "options": [
+          "A single reading taken after 30 minutes of rest",
+          "Automated readings at least twice per hour while awake, averaging ≥14 daytime readings",
+          "Continuous intra-arterial recording over 48 hours",
+          "One reading every 6 hours over 3 days",
+          "Two readings a week apart in clinic"
+        ],
+        "correctIndex": 1,
+        "answer": "Automated readings at least twice per hour while awake, averaging ≥14 daytime readings",
+        "explanation": "ABPM takes automated cuff readings at least twice hourly during waking hours across 24 hours. The daytime mean, based on at least 14 measurements, is used to confirm the diagnosis."
+      },
+      {
+        "id": "bt_cv_abpm_q03",
+        "type": "mcq",
+        "question": "A patient with normal clinic BP is found to have hypertensive left ventricular hypertrophy. HBPM shows an average of 148/92 mmHg. What does this represent?",
+        "options": [
+          "White-coat hypertension",
+          "Masked hypertension",
+          "Non-dipping only",
+          "Normal blood pressure",
+          "Postural hypotension"
+        ],
+        "correctIndex": 1,
+        "answer": "Masked hypertension",
+        "explanation": "Masked hypertension is a normal clinic BP with a raised out-of-office average. It is clinically important because reassuring clinic readings conceal ongoing end-organ damage, here evidenced by left ventricular hypertrophy."
+      },
+      {
+        "id": "bt_cv_valsalva_q01",
+        "type": "mcq",
+        "question": "A 28-year-old woman presents with a regular narrow-complex tachycardia at 190 bpm. She is alert with a BP of 118/74 mmHg and no chest pain. What is the most appropriate first step?",
+        "options": [
+          "Immediate synchronised DC cardioversion",
+          "Modified Valsalva manoeuvre",
+          "IV amiodarone infusion",
+          "Bilateral simultaneous carotid sinus massage",
+          "IV verapamil bolus"
+        ],
+        "correctIndex": 1,
+        "answer": "Modified Valsalva manoeuvre",
+        "explanation": "She has stable SVT, so a vagal manoeuvre is the correct first-line intervention. The modified Valsalva (strain semi-recumbent then flat with passive leg raise) has roughly 43% success and is performed before drug therapy."
+      },
+      {
+        "id": "bt_cv_valsalva_q02",
+        "type": "mcq",
+        "question": "During carotid sinus massage for a patient in SVT, the rhythm does not terminate but the ventricular rate transiently slows, revealing regular sawtooth waves at approximately 300 per minute. What does this indicate?",
+        "options": [
+          "Atrioventricular nodal re-entrant tachycardia",
+          "Sinus tachycardia",
+          "Atrial flutter",
+          "Ventricular tachycardia",
+          "Wolff-Parkinson-White with orthodromic AVRT"
+        ],
+        "correctIndex": 2,
+        "answer": "Atrial flutter",
+        "explanation": "Increased AV block from the vagal manoeuvre unmasks the underlying atrial activity rather than terminating the rhythm. Regular sawtooth flutter waves at around 300 per minute are diagnostic of atrial flutter, in which the AV node is not part of the re-entry circuit."
+      },
+      {
+        "id": "bt_cv_valsalva_q03",
+        "type": "mcq",
+        "question": "Which finding is an absolute contraindication to carotid sinus massage?",
+        "options": [
+          "Blood pressure of 150/90 mmHg",
+          "Age over 65 years",
+          "An audible carotid bruit",
+          "A heart rate above 180 bpm",
+          "A history of asthma"
+        ],
+        "correctIndex": 2,
+        "answer": "An audible carotid bruit",
+        "explanation": "A carotid bruit signals atheromatous disease, and massage risks dislodging a plaque and causing an embolic stroke. Auscultation for a bruit must always precede the procedure, and its presence prohibits massage."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Focused Examination": [
+      {
+        "id": "bt_fe_dre_q01",
+        "type": "mcq",
+        "question": "A 68-year-old man with lower urinary tract symptoms undergoes DRE. The prostate is hard and irregular with a nodular surface and the median sulcus cannot be felt. What is the most appropriate interpretation?",
+        "options": [
+          "Benign prostatic hyperplasia",
+          "Acute bacterial prostatitis",
+          "Prostate cancer until proven otherwise",
+          "Normal prostate for age",
+          "Faecal impaction mimicking a prostate mass"
+        ],
+        "correctIndex": 2,
+        "answer": "Prostate cancer until proven otherwise",
+        "explanation": "A hard, craggy, nodular prostate with loss of the median sulcus is the classic DRE signature of malignancy. This finding warrants an urgent suspected-cancer referral with PSA and MRI. BPH by contrast feels smooth, rubbery and symmetrical with a preserved sulcus."
+      },
+      {
+        "id": "bt_fe_dre_q02",
+        "type": "mcq",
+        "question": "A 40-year-old man presents with back pain, bilateral leg weakness and urinary retention. Which single examination finding on DRE most strongly supports cauda equina syndrome requiring emergency MRI?",
+        "options": [
+          "A smooth enlarged prostate",
+          "Reduced anal tone with perianal sensory loss",
+          "Fresh red blood on the glove",
+          "A tender boggy prostate",
+          "Hard stool filling the rectum"
+        ],
+        "correctIndex": 1,
+        "answer": "Reduced anal tone with perianal sensory loss",
+        "explanation": "Cauda equina compression disrupts the S2–S4 roots, producing reduced resting anal tone and saddle (perianal) anaesthesia. These findings mandate emergency MRI and urgent surgical referral to prevent irreversible sphincter and sexual dysfunction. The other findings point to unrelated prostatic or bowel pathology."
+      },
+      {
+        "id": "bt_fe_dre_q03",
+        "type": "mcq",
+        "question": "Which statement about the correct performance and limitations of DRE is accurate?",
+        "options": [
+          "A normal DRE reliably excludes colorectal cancer",
+          "The examination is best performed in the supine position",
+          "A chaperone should be offered and the finding documented",
+          "PSA should always be taken immediately after DRE for accuracy",
+          "The prostate is palpated posteriorly through the rectal wall"
+        ],
+        "correctIndex": 2,
+        "answer": "A chaperone should be offered and the finding documented",
+        "explanation": "A chaperone should always be offered for this intimate examination, with their presence documented. DRE reaches only the distal rectum so it cannot exclude proximal colorectal disease, is performed in the left lateral position, and can transiently raise PSA so bloods are ideally taken beforehand. The prostate is palpated anteriorly."
+      },
+      {
+        "id": "bt_fe_fundo_q01",
+        "type": "mcq",
+        "question": "A 28-year-old obese woman presents with headache and transient visual obscurations. Fundoscopy shows bilateral blurred disc margins with obscuration of vessels crossing the disc and loss of venous pulsation. What is the most appropriate immediate management step?",
+        "options": [
+          "Immediate lumbar puncture to measure opening pressure",
+          "Urgent neuroimaging (CT/MRI head) before any lumbar puncture",
+          "Start oral acetazolamide and discharge with GP follow-up",
+          "Reassure and arrange routine outpatient optician review",
+          "Intravenous mannitol followed by immediate LP"
+        ],
+        "correctIndex": 1,
+        "answer": "Urgent neuroimaging (CT/MRI head) before any lumbar puncture",
+        "explanation": "Papilloedema indicates raised intracranial pressure and mandates urgent imaging to exclude a mass lesion or hydrocephalus. Lumbar puncture before imaging risks fatal herniation if an obstructing lesion is present, so CT/MRI must precede any LP."
+      },
+      {
+        "id": "bt_fe_fundo_q02",
+        "type": "mcq",
+        "question": "Which fundoscopic finding is considered one of the earliest signs of raised intracranial pressure?",
+        "options": [
+          "Loss of spontaneous venous pulsation at the optic disc",
+          "Silver wiring of the retinal arterioles",
+          "Hard exudates at the macula",
+          "Microaneurysms in the peripheral retina",
+          "A cherry-red spot at the fovea"
+        ],
+        "correctIndex": 0,
+        "answer": "Loss of spontaneous venous pulsation at the optic disc",
+        "explanation": "Spontaneous venous pulsation disappears early as intracranial pressure rises, making its loss an early sign of papilloedema. The other findings relate to hypertensive or diabetic retinopathy and central retinal artery occlusion rather than raised ICP."
+      },
+      {
+        "id": "bt_fe_fundo_q03",
+        "type": "mcq",
+        "question": "A 34-year-old woman has sudden loss of vision in one eye with pain on eye movement and a relative afferent pupillary defect. Fundoscopy shows unilateral disc swelling. Which diagnosis best fits this picture?",
+        "options": [
+          "Papilloedema from raised intracranial pressure",
+          "Optic neuritis (papillitis)",
+          "Hypertensive retinopathy",
+          "Optic disc drusen (pseudopapilloedema)",
+          "Proliferative diabetic retinopathy"
+        ],
+        "correctIndex": 1,
+        "answer": "Optic neuritis (papillitis)",
+        "explanation": "Unilateral disc swelling with painful eye movements, marked visual loss and an RAPD is the classic picture of optic neuritis. Papilloedema is bilateral with vision preserved early, distinguishing it clearly from this presentation."
+      },
+      {
+        "id": "bt_fe_suss_q01",
+        "type": "mcq",
+        "question": "What does the Sit-Up-Squat-Stand (SUSS) test primarily evaluate in a patient with a severe eating disorder?",
+        "options": [
+          "Distal sensory neuropathy",
+          "Proximal muscle strength (proximal myopathy)",
+          "Cerebellar coordination",
+          "Resting cardiac rhythm",
+          "Cognitive impairment"
+        ],
+        "correctIndex": 1,
+        "answer": "Proximal muscle strength (proximal myopathy)",
+        "explanation": "Severe undernutrition causes wasting and weakness of proximal antigravity muscles used to sit up and to stand from a squat. The SUSS test unmasks this proximal myopathy as an objective bedside marker of medical risk."
+      },
+      {
+        "id": "bt_fe_suss_q02",
+        "type": "mcq",
+        "question": "A patient is able to stand from a squat only by pushing down on their thighs with their hands. What SUSS score does this manoeuvre earn?",
+        "options": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "correctIndex": 1,
+        "answer": "1",
+        "explanation": "A score of 1 is given when the patient can only complete the task by using the hands or arms for leverage. Needing to push on the thighs to rise therefore scores 1 and indicates significant proximal weakness."
+      },
+      {
+        "id": "bt_fe_suss_q03",
+        "type": "mcq",
+        "question": "Which additional danger must be anticipated when a severely malnourished patient with a low SUSS score begins nutritional treatment?",
+        "options": [
+          "Refeeding syndrome with hypophosphataemia",
+          "Contrast-induced nephropathy",
+          "Serotonin syndrome",
+          "Tumour lysis syndrome",
+          "Malignant hyperthermia"
+        ],
+        "correctIndex": 0,
+        "answer": "Refeeding syndrome with hypophosphataemia",
+        "explanation": "Reintroducing nutrition in a severely malnourished patient drives an insulin surge that shifts phosphate, potassium and magnesium into cells, causing refeeding syndrome. Unmonitored, the resulting hypophosphataemia can precipitate cardiac failure and death, so feeding is cautious with electrolyte monitoring and replacement."
+      }
+    ],
+    "investigations__BEDSIDE TESTS__Auscultation": [
+      {
+        "id": "bt_ausc_hs_q01",
+        "type": "mcq",
+        "question": "A 27-year-old is found to have a wide, fixed splitting of the second heart sound that does not vary with respiration. Which diagnosis does this most strongly suggest?",
+        "options": [
+          "Atrial septal defect",
+          "Left bundle branch block",
+          "Severe aortic stenosis",
+          "Systemic hypertension",
+          "Mitral stenosis"
+        ],
+        "correctIndex": 0,
+        "answer": "Atrial septal defect",
+        "explanation": "Fixed splitting of S2 with no respiratory variation is the hallmark of an atrial septal defect. The left-to-right shunt equalises right heart filling across the respiratory cycle, so the A₂&ndash;P₂ interval stays constant."
+      },
+      {
+        "id": "bt_ausc_hs_q02",
+        "type": "mcq",
+        "question": "A 68-year-old with breathlessness has a low-pitched extra sound in early diastole, best heard with the bell at the apex in the left lateral position. What does this finding most likely indicate?",
+        "options": [
+          "Heart failure with a dilated ventricle",
+          "A stiff hypertrophied ventricle",
+          "Mitral valve stenosis",
+          "A bicuspid aortic valve",
+          "Normal physiological finding"
+        ],
+        "correctIndex": 0,
+        "answer": "Heart failure with a dilated ventricle",
+        "explanation": "An early-diastolic S3 arising from rapid ventricular filling in an older adult indicates heart failure with raised filling pressures and a dilated, volume-overloaded ventricle. It is a recognised adverse prognostic sign."
+      },
+      {
+        "id": "bt_ausc_hs_q03",
+        "type": "mcq",
+        "question": "A patient has reversed (paradoxical) splitting of S2, in which the split is audible on expiration and disappears on inspiration. Which condition is the most likely cause?",
+        "options": [
+          "Left bundle branch block",
+          "Atrial septal defect",
+          "Pulmonary hypertension",
+          "Right bundle branch block",
+          "Pregnancy"
+        ],
+        "correctIndex": 0,
+        "answer": "Left bundle branch block",
+        "explanation": "Reversed splitting arises from delayed aortic valve closure so that A₂ follows P₂. Left bundle branch block delays left ventricular depolarisation and A₂, producing paradoxical splitting that narrows on inspiration."
+      },
+      {
+        "id": "bt_ausc_murmur_q01",
+        "type": "mcq",
+        "question": "A 68-year-old man has an ejection systolic murmur heard loudest at the right 2nd intercostal space and radiating to both carotids. His pulse is slow-rising and the pulse pressure is narrow. Which lesion is most likely?",
+        "options": [
+          "Aortic stenosis",
+          "Mitral regurgitation",
+          "Tricuspid regurgitation",
+          "Mitral stenosis",
+          "Aortic regurgitation"
+        ],
+        "correctIndex": 0,
+        "answer": "Aortic stenosis",
+        "explanation": "An ejection systolic murmur radiating to the carotids with a slow-rising pulse and narrow pulse pressure is the classic picture of aortic stenosis. The murmur arises from turbulent flow across the narrowed aortic valve during ventricular ejection."
+      },
+      {
+        "id": "bt_ausc_murmur_q02",
+        "type": "mcq",
+        "question": "A young man is found to have an ejection systolic murmur at the left lower sternal edge. The murmur becomes noticeably louder when he stands up and performs a Valsalva manoeuvre. What is the most likely diagnosis?",
+        "options": [
+          "Hypertrophic obstructive cardiomyopathy",
+          "Aortic stenosis",
+          "Mitral regurgitation",
+          "Ventricular septal defect",
+          "Pulmonary stenosis"
+        ],
+        "correctIndex": 0,
+        "answer": "Hypertrophic obstructive cardiomyopathy",
+        "explanation": "HOCM is the murmur that grows louder with reduced preload, as standing and Valsalva shrink the left ventricular cavity and worsen outflow tract obstruction. This dynamic behaviour distinguishes it from valvular causes, which soften when preload falls."
+      },
+      {
+        "id": "bt_ausc_murmur_q03",
+        "type": "mcq",
+        "question": "During a cardiovascular examination, which single feature most reliably indicates that a murmur is pathological and requires echocardiography?",
+        "options": [
+          "The murmur occurs in diastole",
+          "The murmur is soft and grade 2/6",
+          "The murmur is systolic and heard at the apex",
+          "The murmur is louder on inspiration",
+          "The patient is asymptomatic"
+        ],
+        "correctIndex": 0,
+        "answer": "The murmur occurs in diastole",
+        "explanation": "A diastolic murmur is always pathological, as there is no innocent diastolic murmur, so it mandates referral and echocardiography. Soft systolic murmurs, by contrast, are frequently innocent flow murmurs."
+      },
+      {
+        "id": "bt_ausc_crackle_q01",
+        "type": "mcq",
+        "question": "A 68-year-old man has progressive exertional breathlessness. Examination reveals fine, high-pitched, end-inspiratory crackles at both lung bases that do not clear after coughing. Which diagnosis is most consistent with these findings?",
+        "options": [
+          "Pulmonary fibrosis",
+          "Acute bronchitis",
+          "Focal bronchiectasis",
+          "Large pleural effusion",
+          "Tension pneumothorax"
+        ],
+        "correctIndex": 0,
+        "answer": "Pulmonary fibrosis",
+        "explanation": "Fine, end-inspiratory, Velcro-like bibasal crackles that persist despite coughing are the classic auscultatory signature of pulmonary fibrosis / interstitial lung disease. Their fixed, non-clearing nature reflects reopening of stiff fibrosed distal airways rather than mobile secretions."
+      },
+      {
+        "id": "bt_ausc_crackle_q02",
+        "type": "mcq",
+        "question": "A patient with a chronic productive cough has loud, low-pitched bubbling crackles that noticeably change and partly clear immediately after they cough. What do these features most strongly indicate?",
+        "options": [
+          "Airway secretions, as in bronchiectasis",
+          "Interstitial fibrosis",
+          "Pneumothorax",
+          "Pulmonary embolism",
+          "Pleural thickening"
+        ],
+        "correctIndex": 0,
+        "answer": "Airway secretions, as in bronchiectasis",
+        "explanation": "Coarse crackles that shift or clear with coughing indicate mobile secretions within larger airways, characteristic of bronchiectasis and chronic bronchitis. Coughing mobilises the fluid, changing the sound, unlike the fixed crackles of fibrosis."
+      },
+      {
+        "id": "bt_ausc_crackle_q03",
+        "type": "mcq",
+        "question": "Which single feature best distinguishes fine crackles from coarse crackles on auscultation?",
+        "options": [
+          "Fine crackles are high-pitched and end-inspiratory, whereas coarse crackles are low-pitched and heard through inspiration and expiration",
+          "Fine crackles are always localised, whereas coarse crackles are always bibasal",
+          "Fine crackles are musical and continuous, whereas coarse crackles are discontinuous",
+          "Fine crackles are only heard in expiration, whereas coarse crackles are only heard in inspiration",
+          "Fine crackles are louder than coarse crackles"
+        ],
+        "correctIndex": 0,
+        "answer": "Fine crackles are high-pitched and end-inspiratory, whereas coarse crackles are low-pitched and heard through inspiration and expiration",
+        "explanation": "The defining contrast is pitch and timing: fine crackles are high-pitched, soft, and cluster at end-inspiration, while coarse crackles are low-pitched, loud, bubbling, and span both inspiration and expiration. Both are discontinuous (non-musical), which separates them from wheeze."
+      },
+      {
+        "id": "bt_ausc_wheeze_q01",
+        "type": "mcq",
+        "question": "A 68-year-old smoker has a persistent wheeze that is heard as a single constant musical note over the right upper zone, unchanged by coughing and present at exactly the same site on every breath. What is the most appropriate next investigation?",
+        "options": [
+          "Reassurance and inhaled salbutamol",
+          "Bronchoscopy",
+          "Overnight sleep study",
+          "Echocardiography",
+          "Repeat auscultation in six weeks"
+        ],
+        "correctIndex": 1,
+        "answer": "Bronchoscopy",
+        "explanation": "A fixed monophonic wheeze localised to one site indicates a single obstructing airway lesion, and in a smoker this raises concern for an endobronchial tumour. Bronchoscopy allows direct visualisation and biopsy of the obstructing lesion."
+      },
+      {
+        "id": "bt_ausc_wheeze_q02",
+        "type": "mcq",
+        "question": "A patient in acute severe asthma who was audibly wheezing on arrival now has a 'silent chest' with a falling conscious level. What does this finding indicate?",
+        "options": [
+          "The bronchospasm has resolved and treatment can be reduced",
+          "A pneumothorax has been excluded",
+          "Airflow is now so poor that no sound is generated, a life-threatening sign",
+          "The wheeze has been replaced by benign rhonchi",
+          "The patient has developed simple hyperventilation"
+        ],
+        "correctIndex": 2,
+        "answer": "Airflow is now so poor that no sound is generated, a life-threatening sign",
+        "explanation": "A silent chest means airflow has dropped so low that the airways can no longer oscillate to produce a wheeze. Combined with a falling conscious level it is a peri-arrest sign requiring immediate senior and ICU support."
+      },
+      {
+        "id": "bt_ausc_wheeze_q03",
+        "type": "mcq",
+        "question": "On auscultation a patient has low-pitched snoring sounds bilaterally that disappear after they cough. What is the most likely origin of these sounds?",
+        "options": [
+          "Bronchospasm of the small airways",
+          "Secretions in the larger airways",
+          "Fixed obstruction by a bronchial tumour",
+          "Upper airway obstruction at the larynx",
+          "Pleural inflammation"
+        ],
+        "correctIndex": 1,
+        "answer": "Secretions in the larger airways",
+        "explanation": "Low-pitched snoring sounds that clear or shift with coughing are rhonchi, produced by secretions moving in the larger airways. Their resolution with coughing is the classic feature distinguishing them from a fixed wheeze."
+      },
+      {
+        "id": "bt_ausc_bronch_q01",
+        "type": "mcq",
+        "question": "A 68-year-old with fever and cough has, over the right lower zone: bronchial breathing, increased vocal resonance and dullness to percussion. What is the most likely underlying process?",
+        "options": [
+          "Lobar consolidation",
+          "Large pleural effusion",
+          "Pneumothorax",
+          "Chronic asthma",
+          "Lung fibrosis"
+        ],
+        "correctIndex": 0,
+        "answer": "Lobar consolidation",
+        "explanation": "Bronchial breathing, increased vocal resonance and dullness together form the consolidation triad, classically from lobar pneumonia. Solid lung with a patent airway conducts unfiltered central airway sounds to the chest wall."
+      },
+      {
+        "id": "bt_ausc_bronch_q02",
+        "type": "mcq",
+        "question": "Which single auscultatory feature best distinguishes consolidation from a large pleural effusion, given that both are dull to percussion?",
+        "options": [
+          "Increased vocal resonance",
+          "Reduced chest expansion",
+          "Presence of a cough",
+          "Central tracheal position",
+          "Bilateral wheeze"
+        ],
+        "correctIndex": 0,
+        "answer": "Increased vocal resonance",
+        "explanation": "Consolidation increases sound conduction, so vocal resonance is increased. A large effusion insulates sound and reduces vocal resonance, making this the key discriminator."
+      },
+      {
+        "id": "bt_ausc_bronch_q03",
+        "type": "mcq",
+        "question": "How does bronchial breathing differ from normal vesicular breath sounds?",
+        "options": [
+          "It has an inspiratory-expiratory gap with expiration equal in length to inspiration",
+          "It is softer and lower-pitched than vesicular sounds",
+          "Inspiration is much longer than expiration with no gap",
+          "It disappears when the patient breathes deeply",
+          "It is only ever heard in healthy lung tissue"
+        ],
+        "correctIndex": 0,
+        "answer": "It has an inspiratory-expiratory gap with expiration equal in length to inspiration",
+        "explanation": "Bronchial breathing is harsh and high-pitched with expiration as long as inspiration and an audible gap between the phases. Vesicular sounds are soft with inspiration longer than expiration and no gap."
+      },
+      {
+        "id": "bt_ausc_reduced_q01",
+        "type": "mcq",
+        "question": "A patient has absent breath sounds and reduced vocal resonance over the left base. Percussion is stony dull. Which is the most likely diagnosis?",
+        "options": [
+          "Left pneumothorax",
+          "Left pleural effusion",
+          "Left lower lobe consolidation",
+          "Left lower lobe collapse",
+          "Severe emphysema"
+        ],
+        "correctIndex": 1,
+        "answer": "Left pleural effusion",
+        "explanation": "Stony dull percussion is the hallmark of pleural fluid, and an insulating fluid layer reduces both breath sounds and vocal resonance. Consolidation would give increased vocal resonance and bronchial breathing rather than absent sounds."
+      },
+      {
+        "id": "bt_ausc_reduced_q02",
+        "type": "mcq",
+        "question": "A breathless, hypotensive man has absent breath sounds and hyper-resonant percussion on the right, with the trachea deviated to the left and distended neck veins. What is the immediate management?",
+        "options": [
+          "Urgent portable chest X-ray before treatment",
+          "CT pulmonary angiogram",
+          "Needle decompression of the right hemithorax",
+          "Nebulised salbutamol and observation",
+          "Intravenous furosemide"
+        ],
+        "correctIndex": 2,
+        "answer": "Needle decompression of the right hemithorax",
+        "explanation": "These signs define a tension pneumothorax, which is a clinical diagnosis requiring immediate needle decompression followed by a chest drain. Delaying to obtain imaging can be rapidly fatal."
+      },
+      {
+        "id": "bt_ausc_reduced_q03",
+        "type": "mcq",
+        "question": "Which combination of signs best indicates lobar collapse rather than a pleural effusion as the cause of reduced breath sounds?",
+        "options": [
+          "Stony dull percussion with trachea pushed away",
+          "Hyper-resonant percussion with trachea central",
+          "Dull percussion with trachea pulled toward the affected side",
+          "Increased vocal resonance with bronchial breathing",
+          "Bilateral quiet sounds with a barrel-shaped chest"
+        ],
+        "correctIndex": 2,
+        "answer": "Dull percussion with trachea pulled toward the affected side",
+        "explanation": "Collapse causes volume loss, which pulls the mediastinum and trachea toward the abnormal side, and the airless lobe is dull rather than stony dull. An effusion instead pushes the trachea away and is characteristically stony dull."
+      },
+      {
+        "id": "bt_ausc_rub_q01",
+        "type": "mcq",
+        "question": "Which feature best distinguishes a pleural friction rub from a pericardial friction rub?",
+        "options": [
+          "A pleural rub is louder in the left lower sternal border",
+          "A pleural rub disappears when the patient holds their breath, whereas a pericardial rub persists",
+          "A pleural rub is confined to systole",
+          "A pleural rub clears completely after coughing",
+          "A pleural rub is only audible in expiration"
+        ],
+        "correctIndex": 1,
+        "answer": "A pleural rub disappears when the patient holds their breath, whereas a pericardial rub persists",
+        "explanation": "A pleural rub is generated by respiratory movement, so pausing breathing abolishes it. A pericardial rub is driven by cardiac motion and therefore continues during a breath-hold, making this the decisive bedside test."
+      },
+      {
+        "id": "bt_ausc_rub_q02",
+        "type": "mcq",
+        "question": "A 34-year-old presents with sudden pleuritic chest pain, breathlessness, tachycardia and a localised pleural rub. Which diagnosis must be actively excluded?",
+        "options": [
+          "Simple viral upper respiratory tract infection",
+          "Gastro-oesophageal reflux disease",
+          "Pulmonary embolism with infarction",
+          "Costochondritis",
+          "Benign muscular strain"
+        ],
+        "correctIndex": 2,
+        "answer": "Pulmonary embolism with infarction",
+        "explanation": "A pleural rub with pleuritic pain, breathlessness and tachycardia is a classic presentation of pulmonary infarction from PE. This is a time-critical diagnosis mandating Wells-score assessment and urgent imaging."
+      },
+      {
+        "id": "bt_ausc_rub_q03",
+        "type": "mcq",
+        "question": "Which auscultatory characteristic is typical of a pleural friction rub?",
+        "options": [
+          "A high-pitched musical wheeze heard only in expiration",
+          "A creaking, grating sound heard in both inspiration and expiration that does not clear with coughing",
+          "Fine end-inspiratory crackles that shift after coughing",
+          "A continuous machinery murmur",
+          "Bronchial breathing with increased vocal resonance"
+        ],
+        "correctIndex": 1,
+        "answer": "A creaking, grating sound heard in both inspiration and expiration that does not clear with coughing",
+        "explanation": "A pleural rub is a low-pitched, biphasic creaking sound localised to the inflamed area. Its persistence despite coughing separates it from secretions and crackles, which typically alter or clear."
+      }
+    ]
+  }
+}
