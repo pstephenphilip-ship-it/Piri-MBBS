@@ -21424,7 +21424,7 @@ function hideFlyout(p) {
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
-    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ var _sf=true; try{ _sf=!sessionStorage.getItem('da-sync-reloaded'); if(_sf) sessionStorage.setItem('da-sync-reloaded','1'); }catch(e){} if(_sf){ (window.__scheduleReload||function(){location.reload();})(); } } }); }
+    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})('sync'); } }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
@@ -21502,20 +21502,31 @@ function hideFlyout(p) {
   // auth + profile + membership + sync all settle before the one reload; each
   // trigger persists its state first, so the reloaded page is stable and no
   // further reload is requested.
-  window.__scheduleReload = window.__scheduleReload || function(){
-    // Anti-loop guard: auto-reload at most once every few seconds ACROSS loads.
-    // If some state keeps requesting a reload on each fresh load (e.g. a sync
-    // diff that never settles), this breaks the cycle after the first reload so
-    // the page stops flashing. sessionStorage persists across reloads in the tab.
+  window.__scheduleReload = window.__scheduleReload || function(reason, immediate){
+    // Hard anti-loop guard. The app reloads to apply auth / membership / sync state; if any of
+    // those never "settles", a purely time-based guard still reloads forever (e.g. every 6s).
+    // So the real protection is structural and CANNOT be bypassed:
+    //   1) Per-REASON once-per-session: each distinct trigger (auth, sync, membership) reloads
+    //      at most once per tab session.
+    //   2) A global session cap as a backstop for anything that slips through.
+    // sessionStorage persists across reloads within the tab and resets when the tab/app closes.
     try{
-      var now = Date.now();
-      var last = parseInt(sessionStorage.getItem('da-reload-ts')||'0', 10);
-      if(now - last < 6000) return;   // reloaded very recently -> don't loop
+      if(reason && sessionStorage.getItem('da-rl-'+reason)) return;                  // this reason already reloaded
+      if(parseInt(sessionStorage.getItem('da-reload-count')||'0',10) >= 3) return;    // never more than 3 auto-reloads/session
+      if(!immediate){
+        var now = Date.now(), last = parseInt(sessionStorage.getItem('da-reload-ts')||'0',10);
+        if(now - last < 6000) return;   // soft smoothing: not two reloads within 6s (skipped for membership transitions)
+      }
     }catch(e){}
     if(window.__reloadScheduled) return;   // only one per page life
     window.__reloadScheduled = true;
     setTimeout(function(){
-      try{ sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+      try{
+        if(reason) sessionStorage.setItem('da-rl-'+reason, '1');
+        sessionStorage.setItem('da-reload-ts', String(Date.now()));
+        var c = parseInt(sessionStorage.getItem('da-reload-count')||'0',10);
+        sessionStorage.setItem('da-reload-count', String(c+1));
+      }catch(e){}
       try{ location.reload(); }catch(e){}
     }, 500);
   };
@@ -21793,7 +21804,7 @@ function hideFlyout(p) {
   };
 
   var prevAuthed = window.__authed;
-  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload(); } }); }catch(e){} }
+  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('auth'); } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
   // Load this account's server-side day-pass unlocks once the session is restored.
@@ -22056,19 +22067,16 @@ function hideFlyout(p) {
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
       if(isMember && !was){
-        // Membership just ACTIVATED: clear the anti-loop rate-limit stamp so the
-        // unlock reload can't be suppressed — otherwise lock icons rendered while
-        // free would linger even though access is granted. (One-time: da-member is
-        // persisted to '1' above, so the reloaded page won't re-trigger this.)
-        try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){}
-        window.__scheduleReload();
+        // Membership just ACTIVATED. Reload once to clear any lock UI rendered while free.
+        // `immediate` skips the 6s smoothing so it isn't swallowed right after a sync reload,
+        // but the once-per-reason + session cap still make a loop impossible; da-member is
+        // persisted to '1' above so the reloaded page won't re-enter this branch.
+        window.__scheduleReload('member-on', true);
       } else if(!isMember && was){
-        // Membership ENDED while on a (now inaccessible) premium page — drop the
-        // topic hash so the forced reload lands on Home, and re-render as a free
-        // user. Clear the rate-limit stamp so the redirect can't be suppressed.
-        try{ sessionStorage.setItem('da-reload-ts','0'); }catch(e){}
+        // Membership ENDED while on a (now inaccessible) premium page — drop the topic hash so
+        // the forced reload lands on Home, and re-render as a free user. Reloads at most once.
         try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){}
-        window.__scheduleReload();
+        window.__scheduleReload('member-off', true);
       }
     }
     window.__applyMembership = applyMembership;
