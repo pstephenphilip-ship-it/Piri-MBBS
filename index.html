@@ -15842,6 +15842,7 @@ window.MOCK_BANK = {
 
   // Open the Custom Mock full view from the floating button (no nav tab)
   window.openMock=function(){
+    if(window.__hideInfoPages) window.__hideInfoPages();
     if(typeof window.__mockAllowed==='function' && !window.__mockAllowed()){ if(window.__showMockLock) window.__showMockLock(); return; }
     document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
     document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
@@ -16969,6 +16970,7 @@ window.addEventListener('hashchange', restoreFromHash);
 document.addEventListener('DOMContentLoaded', restoreFromHash);
 
 function switchMainTab(id, el, skipHash) {
+  if (window.__hideInfoPages) window.__hideInfoPages();
   document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('visible'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('visible');
@@ -23840,7 +23842,9 @@ function hideFlyout(p) {
   /* Full-page view — its own #about / #contact URL (not a popup), with a Back bar.
      Light palette to match the rest of the content area (white cards on light grey). */
   /* Side margins carry a very low-key dot "wallpaper"; the centred white sheet covers the middle. */
-  .da-page{position:fixed;inset:0;z-index:1500;background-color:#E4E7EE;background-image:radial-gradient(rgba(30,38,64,.055) 1px, transparent 1.6px);background-size:22px 22px;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
+  /* Sits BELOW the app headbar (its top is measured in JS to handle the mobile wrap), and under
+     the nav's z-index so the headbar + its menus stay usable. */
+  .da-page{position:fixed;top:52px;left:0;right:0;bottom:0;z-index:8;background-color:#E4E7EE;background-image:radial-gradient(rgba(30,38,64,.055) 1px, transparent 1.6px);background-size:22px 22px;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
   .da-page.open{display:block;}
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
@@ -24002,12 +24006,24 @@ function hideFlyout(p) {
   // works. Opening pushes a history entry (via updateHash); Back/forward and deep links are
   // handled by restoreFromHash, which calls __showInfoPage / __hideInfoPages.
   var openedInSession=false;
+  function positionBelowHeadbar(){
+    var nav=document.querySelector('.topnav'); var h=nav?nav.offsetHeight:52;
+    ['da-about-page','da-contact-page'].forEach(function(id){ var p=document.getElementById(id); if(p) p.style.top=h+'px'; });
+  }
+  function setFloatHidden(hide){  // tuck the floating buttons (Get Membership / Custom Mock / Review) away while on an info page
+    ['daMemFab','mockFab','daRvTrigger'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('is-hidden', !!hide); });
+  }
   function show(which){
     var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
     if(a) a.classList.toggle('open', which==='about');
     if(c) c.classList.toggle('open', which==='contact');
-    if(which){ var pg=document.getElementById('da-'+which+'-page'); if(pg) pg.scrollTop=0; }
+    if(which){ positionBelowHeadbar(); setFloatHidden(true); var pg=document.getElementById('da-'+which+'-page'); if(pg) pg.scrollTop=0; }
+    else if(window.__syncMemFab){ window.__syncMemFab(); }   // restore the membership button; the view nav restores the others
   }
+  window.addEventListener('resize', function(){
+    var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
+    if((a&&a.classList.contains('open'))||(c&&c.classList.contains('open'))) positionBelowHeadbar();
+  });
   window.__showInfoPage = function(which){ show(which); };
   window.__hideInfoPages = function(){ show(null); };
   window.__openAbout   = function(){ openedInSession=true; if(window.updateHash) updateHash('about');   else location.hash='about';   show('about'); };
