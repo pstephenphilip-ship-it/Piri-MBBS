@@ -879,6 +879,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .calc-part-fb.ok{background:#F0FDF4;border-color:#BBF7D0;}
 .calc-part-fb.no{background:#FEF7F7;border-color:#FADADD;}
 .calc-cases-lock{margin-left:6px;font-size:12px;opacity:.85;}
+.calc-case-lock{margin-left:5px;font-size:11px;opacity:.85;white-space:nowrap;}
 .calc-cases-card.calc-cases-blurwrap{position:relative;}
 .calc-cases-blurred{filter:blur(5px);pointer-events:none;user-select:none;transition:filter .15s;}
 .calc-cases-lockover{position:absolute;inset:0;z-index:6;display:flex;align-items:center;justify-content:center;padding:20px;}
@@ -20532,7 +20533,8 @@ function calcRenderCases(id){
   var locked = !window.__member;   // case practice is a premium feature
   var cardEl = host.closest('.calc-cases-card') || host.parentNode;
   // Lock badge on the section header for non-members.
-  if(locked && cardEl){ var hd=cardEl.querySelector('.calc-cases-head'); if(hd && !hd.querySelector('.calc-cases-lock')){ var lk=document.createElement('span'); lk.className='calc-cases-lock'; lk.textContent='🔒'; lk.title='Premium feature'; hd.appendChild(lk); } }
+  // No header lock badge — instead each scenario title below shows its own 🔒
+  // when locked, so the premium state is obvious per case.
   function showCaseLock(){
     if(!cardEl) return;
     cardEl.classList.add('calc-cases-blurwrap'); host.classList.add('calc-cases-blurred');
@@ -20549,7 +20551,7 @@ function calcRenderCases(id){
     var card=document.createElement('div'); card.className='calc-case';
     var head=document.createElement('div'); head.className='calc-case-head';
     head.setAttribute('role','button'); head.setAttribute('tabindex','0'); head.setAttribute('aria-expanded','false');
-    head.innerHTML='<span class="calc-case-num">'+(ci+1)+'</span><span class="calc-case-title">'+c.title+'</span><span class="calc-case-chev">▶</span>';
+    head.innerHTML='<span class="calc-case-num">'+(ci+1)+'</span><span class="calc-case-title">'+c.title+(locked?' <span class="calc-case-lock" title="Premium — unlock with membership">🔒</span>':'')+'</span><span class="calc-case-chev">▶</span>';
     function toggleCase(){ if(locked){ showCaseLock(); return; } var open=card.classList.toggle('open'); head.setAttribute('aria-expanded', open?'true':'false'); }
     head.addEventListener('click',toggleCase);
     head.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggleCase(); } });
