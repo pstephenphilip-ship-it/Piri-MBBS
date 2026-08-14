@@ -23848,10 +23848,6 @@ function hideFlyout(p) {
   .da-page.open{display:block;}
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
-  .da-page-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;height:52px;padding:0 18px;background:#FFFFFF;border-bottom:1px solid #E2E6F0;}
-  .da-page-back{display:inline-flex;align-items:center;gap:7px;background:#F0F2F5;border:1px solid #D8DAE5;color:#1E2640;font-family:var(--sans,inherit);font-size:13px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;transition:background .12s;}
-  .da-page-back:hover{background:#E8EAF0;}
-  .da-page-title{font-weight:800;font-size:14px;color:#1E2640;}
   /* Centred white "sheet" so the tinted page shows as side margins on either side. */
   .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 72px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
   /* Placeholder text — swap these out. Styled so they're easy to spot while editing. */
@@ -23898,14 +23894,17 @@ function hideFlyout(p) {
   .da-page .auth-field input,.da-page .auth-field textarea{background:#FFFFFF;border:1px solid #D8DAE5;color:#1E2640;}
   .da-page .auth-field input::placeholder,.da-page .auth-field textarea::placeholder{color:#9AA3B2;}
   @media (max-width:560px){ .da-ab-features,.da-ab-team{grid-template-columns:1fr;} .da-info-card{padding:26px 20px 40px;} }
+  /* Low-key dot wallpaper across the app's light content backdrops (study notes, mock, calculators,
+     home). Shows only in blank space — content cards/sheets sit on top and cover it. Placed after
+     the base rules so it layers a dot image over their existing #F0F2F5 / #F7F8FC colour. */
+  .note-area,#tab-mock,#tab-calculator,.wc-host{
+    background-image:radial-gradient(rgba(30,38,64,.045) 1px, transparent 1.6px);
+    background-size:22px 22px;
+  }
 </style>
 
 <!-- ===================== ABOUT US PAGE ===================== -->
 <div class="da-page" id="da-about-page">
-  <div class="da-page-top">
-    <button class="da-page-back" onclick="window.__closeInfoPage&&window.__closeInfoPage()"><svg viewBox="0 0 18 18" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4l-5 5 5 5"/></svg>Back</button>
-    <span class="da-page-title">About Us</span>
-  </div>
   <div class="da-info-card">
 
     <!-- EDIT: brand name + tagline -->
@@ -23977,10 +23976,6 @@ function hideFlyout(p) {
 
 <!-- ===================== CONTACT PAGE ===================== -->
 <div class="da-page" id="da-contact-page">
-  <div class="da-page-top">
-    <button class="da-page-back" onclick="window.__closeInfoPage&&window.__closeInfoPage()"><svg viewBox="0 0 18 18" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4l-5 5 5 5"/></svg>Back</button>
-    <span class="da-page-title">Contact</span>
-  </div>
   <div class="da-info-card" style="max-width:520px;">
     <div class="auth-sub" style="font-weight:800;font-size:18px;color:#1E2640;margin-bottom:4px;">Contact us</div>
     <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 4px;"><span class="da-ph">[ A line inviting people to reach out — questions, feedback, partnerships. ]</span></p>
