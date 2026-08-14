@@ -660,26 +660,6 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .wc-nbody:empty:before{content:attr(data-placeholder);color:#9CA3AF;}
 .wc-nbody ul{margin:6px 0;padding-left:22px;}.wc-nbody li{margin:2px 0;}
 .wc-nhint{padding:9px 16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E2E6F0;}
-.wc-contact{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;margin-top:20px;overflow:hidden;}
-.wc-ct-head{display:flex;align-items:center;gap:8px;padding:14px 18px;font-weight:700;font-size:15px;color:#1E2640;border-bottom:1px solid #E2E6F0;}
-.wc-ct-body{padding:16px 18px;}
-.wc-ct-intro{font-size:13px;color:#6B7280;line-height:1.6;margin:0 0 14px;}
-.wc-ct-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:4px;}
-.wc-ct-link{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;border:1.5px solid #E2E6F0;background:#F7F8FC;color:#1E2640;font-size:13px;font-weight:600;text-decoration:none;transition:border-color .13s,background .13s;}
-.wc-ct-link:hover{border-color:#00C2A8;background:#fff;}
-.wc-ct-link svg{width:16px;height:16px;flex:none;color:#0EA5E9;}
-.wc-ct-form{display:flex;flex-direction:column;gap:10px;border-top:1px dashed #E2E6F0;margin-top:16px;padding-top:16px;}
-.wc-ct-flabel{font-size:12px;font-weight:700;color:#1E2640;letter-spacing:.02em;}
-.wc-ct-form input,.wc-ct-form textarea{width:100%;box-sizing:border-box;font-family:inherit;font-size:13.5px;color:#1E2640;background:#fff;border:1.5px solid #E2E6F0;border-radius:9px;padding:10px 12px;outline:none;transition:border-color .13s;}
-.wc-ct-form input:focus,.wc-ct-form textarea:focus{border-color:#0EA5E9;}
-.wc-ct-form textarea{min-height:96px;resize:vertical;line-height:1.5;}
-.wc-ct-send{align-self:flex-start;border:none;cursor:pointer;font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.02em;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);border-radius:10px;padding:11px 22px;transition:opacity .13s;}
-.wc-ct-send:hover{opacity:.9;}
-.wc-ct-send:disabled{opacity:.55;cursor:default;}
-.wc-ct-msg{font-size:12.5px;line-height:1.5;display:none;}
-.wc-ct-msg.show{display:block;}
-.wc-ct-msg.ok{color:#1F8B5E;}
-.wc-ct-msg.err{color:#C93535;}
 .wc-hero3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
 .wc-h3{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;padding:18px 10px;text-align:center;}
 .wc-h3 .n{font-family:var(--mono);font-weight:800;font-size:25px;line-height:1;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -754,54 +734,9 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       +'</div>'
       +'<div class="wc-nbody js-notes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="wcNotesSave(this)"></div>'
       +'<div class="wc-nhint">Saves automatically &mdash; synced to your account across devices when you&rsquo;re signed in.</div></div>';
-    var contact='<div class="wc-contact"><div class="wc-ct-head"><span>&#128236;</span> Get in touch</div>'
-      +'<div class="wc-ct-body"><p class="wc-ct-intro">Questions, feedback or spotted an error? Reach us directly, or send a message below.</p>'
-      +'<div class="wc-ct-links">'
-      +'<a class="wc-ct-link" href="mailto:doctorise22@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>doctorise22@gmail.com</a>'
-      +'<a class="wc-ct-link" href="https://www.instagram.com/docto_rise/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>@docto_rise</a>'
-      +'</div>'
-      +'<form class="wc-ct-form" onsubmit="return wcContactSubmit(event)"><span class="wc-ct-flabel">Send us a query</span>'
-      +'<input type="text" name="name" placeholder="Your name (optional)" autocomplete="name">'
-      +'<input type="email" name="email" placeholder="Your email (so we can reply)" autocomplete="email" required>'
-      +'<textarea name="message" placeholder="How can we help?" required></textarea>'
-      +'<button type="submit" class="wc-ct-send">Send message</button><div class="wc-ct-msg"></div></form></div></div>';
     return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
-      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+actions+stats+hint+notes+contact+'</div>';
+      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+actions+stats+hint+notes+'</div>';
   }
-
-  // ===== Contact form (Web3Forms) =====
-  var CONTACT_ACCESS_KEY = '56c88a6a-aa28-42e0-9236-5b8fbc7f5aa2';  // <-- paste your Web3Forms access key here
-  window.wcContactSubmit = function(ev){
-    ev.preventDefault();
-    var f = ev.target;
-    var btn = f.querySelector('.wc-ct-send');
-    var msg = f.querySelector('.wc-ct-msg');
-    function show(txt, cls){ msg.textContent = txt; msg.className = 'wc-ct-msg show ' + cls; }
-    if (CONTACT_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY'){
-      show('Contact form is not configured yet \u2014 please email doctorise22@gmail.com directly.', 'err');
-      return false;
-    }
-    var payload = {
-      access_key: CONTACT_ACCESS_KEY,
-      subject: 'New DoctoRise query',
-      from_name: 'DoctoRise Contact Form',
-      name: (f.elements['name'] && f.elements['name'].value) || 'Not given',
-      email: f.elements['email'].value,
-      message: f.elements['message'].value
-    };
-    btn.disabled = true; btn.textContent = 'Sending\u2026';
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function(r){ return r.json(); }).then(function(j){
-      if (j && j.success){ f.reset(); show('Thanks! Your message has been sent \u2014 we\u2019ll reply to your email.', 'ok'); }
-      else { show('Sorry, something went wrong. Please email doctorise22@gmail.com directly.', 'err'); }
-    }).catch(function(){
-      show('Network error. Please email doctorise22@gmail.com directly.', 'err');
-    }).finally(function(){ btn.disabled = false; btn.textContent = 'Send message'; });
-    return false;
-  };
 
   window.updateStreakUI=function(){
     var s=window.daStreakState?window.daStreakState():{cur:0,best:0,activeToday:false};
@@ -24087,13 +24022,12 @@ function hideFlyout(p) {
 <div class="da-page" id="da-contact-page">
   <div class="da-info-card" style="max-width:520px;">
     <div class="auth-sub" style="font-weight:800;font-size:18px;color:#1E2640;margin-bottom:4px;">Contact us</div>
-    <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 4px;"><span class="da-ph">[ A line inviting people to reach out — questions, feedback, partnerships. ]</span></p>
+    <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 4px;">Questions, feedback, or spotted an error? We&rsquo;d love to hear from you &mdash; send a message below or reach us directly, and we&rsquo;ll get back to you.</p>
 
     <!-- EDIT: contact methods (change the email + handles) -->
     <div class="da-ct-methods">
-      <div class="da-ct-method"><span class="da-ct-ic">✉️</span><div><b>Email</b><a href="mailto:hello@doctorise.co.uk">hello@doctorise.co.uk</a></div></div>
-      <div class="da-ct-method"><span class="da-ct-ic">📸</span><div><b>Instagram</b><span>[ @yourhandle ]</span></div></div>
-      <div class="da-ct-method"><span class="da-ct-ic">💬</span><div><b>[ Other channel ]</b><span>[ handle / link ]</span></div></div>
+      <div class="da-ct-method"><span class="da-ct-ic">✉️</span><div><b>Email</b><a href="mailto:doctorise22@gmail.com">doctorise22@gmail.com</a></div></div>
+      <div class="da-ct-method"><span class="da-ct-ic">📸</span><div><b>Instagram</b><a href="https://www.instagram.com/docto_rise/" target="_blank" rel="noopener">@docto_rise</a></div></div>
     </div>
 
     <!-- Simple message form — opens the visitor's email app addressed to you. Change the address in daContactSend(). -->
@@ -24101,6 +24035,7 @@ function hideFlyout(p) {
     <div class="auth-field"><label>Your email</label><input id="da-ct-email" type="email" placeholder="you@example.com"></div>
     <div class="auth-field"><label>Message</label><textarea id="da-ct-msg" rows="4" style="width:100%;background:#FFFFFF;border:1px solid #D8DAE5;border-radius:8px;color:#1E2640;font-family:var(--sans,inherit);font-size:13.5px;padding:10px 12px;outline:none;resize:vertical;" placeholder="How can we help?"></textarea></div>
     <button class="auth-submit" onclick="window.daContactSend&&window.daContactSend()">Send message</button>
+    <div id="da-ct-status" style="display:none;font-size:12.5px;line-height:1.5;margin-top:12px;"></div>
   </div>
 </div>
 
@@ -24140,14 +24075,25 @@ function hideFlyout(p) {
   };
 
   // Contact form -> opens the visitor's email client addressed to you. CHANGE this address:
-  var CONTACT_EMAIL = 'hello@doctorise.co.uk';
+  var CONTACT_EMAIL = 'doctorise22@gmail.com';
+  var CONTACT_ACCESS_KEY = '56c88a6a-aa28-42e0-9236-5b8fbc7f5aa2';
   window.daContactSend = function(){
     var name=(document.getElementById('da-ct-name')||{}).value||'';
     var from=(document.getElementById('da-ct-email')||{}).value||'';
     var body=(document.getElementById('da-ct-msg')||{}).value||'';
-    var subject='DoctoRise enquiry'+(name?(' from '+name):'');
-    var full=body+(from?('\n\nReply to: '+from):'')+(name?('\nName: '+name):'');
-    try{ window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(full); }catch(e){}
+    var st=document.getElementById('da-ct-status');
+    var btn=document.querySelector('#da-contact-page .auth-submit');
+    function show(t,ok){ if(st){ st.textContent=t; st.style.color=ok?'#1F8B5E':'#C93535'; st.style.display='block'; } }
+    if(!from || !body){ show('Please add your email and a message.', false); return; }
+    if(btn){ btn.disabled=true; btn.textContent='Sending\u2026'; }
+    fetch('https://api.web3forms.com/submit', { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({ access_key:CONTACT_ACCESS_KEY, subject:'New DoctoRise enquiry'+(name?(' from '+name):''), from_name:'DoctoRise Contact', name:name||'Not given', email:from, message:body }) })
+      .then(function(r){ return r.json(); }).then(function(j){
+        if(j && j.success){ show('Thanks! Your message has been sent \u2014 we\u2019ll reply to your email.', true);
+          ['da-ct-name','da-ct-email','da-ct-msg'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; }); }
+        else { show('Sorry, something went wrong. Please email '+CONTACT_EMAIL+' directly.', false); }
+      }).catch(function(){ show('Network error. Please email '+CONTACT_EMAIL+' directly.', false); })
+      .finally(function(){ if(btn){ btn.disabled=false; btn.textContent='Send message'; } });
   };
   // Escape acts like the Back button when an info page is open.
   document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page'); if((a&&a.classList.contains('open'))||(c&&c.classList.contains('open'))) window.__closeInfoPage(); } });
