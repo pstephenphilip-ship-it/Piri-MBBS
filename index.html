@@ -23890,39 +23890,44 @@ function hideFlyout(p) {
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
   /* Centred white "sheet" so the tinted page shows as side margins on either side. */
-  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 72px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
-  /* Placeholder text — swap these out. Styled so they're easy to spot while editing. */
+  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 68px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
   .da-ph{color:#8A93A6;font-style:italic;}
-  .da-ab-hero{text-align:center;padding-bottom:16px;border-bottom:1px solid #E2E6F0;margin-bottom:22px;}
-  .da-ab-logo-img{width:96px;height:96px;object-fit:contain;display:block;margin:0 auto 10px;}
-  .da-ab-logo{font-family:var(--mono,monospace);font-size:30px;font-weight:800;letter-spacing:-0.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-  .da-ab-tagline{font-size:14px;color:#6B7280;margin-top:6px;}
-  .da-ab-lead{font-size:14.5px;line-height:1.7;color:#1E2640;margin:0 0 6px;}
+  .da-ab-hero{text-align:center;padding-bottom:18px;border-bottom:1px solid #E2E6F0;margin-bottom:24px;}
+  .da-ab-logo-img{width:92px;height:92px;object-fit:contain;display:block;margin:0 auto 8px;}
+  .da-ab-logo{font-family:var(--mono,monospace);font-size:32px;font-weight:800;letter-spacing:-0.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .da-ab-tagline{font-size:14.5px;color:#4B5563;margin-top:7px;font-weight:600;}
+  .da-ab-lead{font-size:14.5px;line-height:1.7;color:#374151;margin:0;text-align:center;}
   .da-ab-sec{margin-top:26px;}
   .da-ab-sec h3{font-size:15px;font-weight:800;color:#0B8A79;margin:0 0 12px;letter-spacing:.01em;}
-  .da-ab-sec p{font-size:13.5px;line-height:1.7;color:#374151;margin:0 0 10px;}
-  .da-ab-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
-  .da-ab-stats>div{flex:1 1 120px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px 12px;text-align:center;}
-  .da-ab-stats b{display:block;font-size:22px;color:#1E2640;font-family:var(--mono,monospace);}
-  .da-ab-stats span{font-size:11.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;}
+  .da-ab-sec p{font-size:13.5px;line-height:1.7;color:#374151;margin:0;}
+  /* Colourful stat pills */
+  .da-ab-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+  .da-ab-stats>div{flex:1 1 120px;border-radius:12px;padding:16px 12px;text-align:center;}
+  .da-ab-stats>div:nth-child(1){background:#E7F8F4;} .da-ab-stats>div:nth-child(2){background:#E9F1FE;} .da-ab-stats>div:nth-child(3){background:#F1ECFD;}
+  .da-ab-stats b{display:block;font-size:24px;line-height:1;font-family:var(--mono,monospace);}
+  .da-ab-stats>div:nth-child(1) b{color:#0B8A79;} .da-ab-stats>div:nth-child(2) b{color:#2E6FD6;} .da-ab-stats>div:nth-child(3) b{color:#6D4FD0;}
+  .da-ab-stats span{display:block;margin-top:5px;font-size:11px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;font-weight:700;}
+  /* Colourful feature cards (2-up) */
   .da-ab-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .da-ab-feat{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:15px;}
-  .da-ab-feat-ic{font-size:22px;margin-bottom:6px;}
-  .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:4px;}
-  .da-ab-feat p{font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;}
+  .da-ab-feat{border-radius:12px;padding:15px;}
+  .da-ab-feat-ic{font-size:22px;margin-bottom:7px;}
+  .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:3px;}
+  .da-ab-feat p{font-size:12.5px;line-height:1.5;color:#5B6472;margin:0;}
+  .da-ab-feat.t1{background:#E7F8F4;} .da-ab-feat.t2{background:#E9F1FE;} .da-ab-feat.t3{background:#EAF7EE;}
+  .da-ab-feat.t4{background:#FDF3E4;} .da-ab-feat.t5{background:#F1ECFD;} .da-ab-feat.t6{background:#FDECF0;}
   .da-ab-team{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   .da-ab-member{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px;text-align:center;}
-  .da-ab-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#00C2A8,#0EA5E9);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;font-size:20px;overflow:hidden;}
+  .da-ab-avatar{width:58px;height:58px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#00C2A8,#0EA5E9);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;font-size:19px;overflow:hidden;}
   .da-ab-avatar img{width:100%;height:100%;object-fit:cover;}
   .da-ab-member b{display:block;font-size:14px;color:#1E2640;}
   .da-ab-member .da-ab-role{font-size:12px;color:#0B8A79;margin:2px 0 8px;}
-  .da-ab-member p{font-size:12px;line-height:1.55;color:#6B7280;margin:0;}
+  .da-ab-member p{font-size:12px;line-height:1.5;color:#6B7280;margin:0;}
   .da-ab-values{list-style:none;margin:0;padding:0;}
-  .da-ab-values li{font-size:13.5px;line-height:1.6;color:#374151;padding:9px 0;border-bottom:1px solid #E2E6F0;}
+  .da-ab-values li{font-size:13.5px;line-height:1.6;color:#374151;padding:8px 0;border-bottom:1px solid #EEF0F5;}
   .da-ab-values li b{color:#1E2640;}
   .da-ab-values li:last-child{border-bottom:none;}
-  .da-ab-foot{margin-top:26px;padding-top:16px;border-top:1px solid #E2E6F0;font-size:12.5px;color:#6B7280;text-align:center;}
-  .da-ab-foot a{color:#0B8A79;cursor:pointer;text-decoration:none;font-weight:600;}
+  .da-ab-foot{margin-top:28px;padding-top:18px;border-top:1px solid #E2E6F0;font-size:13px;color:#4B5563;text-align:center;}
+  .da-ab-foot a{color:#0B8A79;cursor:pointer;text-decoration:none;font-weight:700;}
   .da-ct-methods{display:flex;flex-direction:column;gap:10px;margin:16px 0 22px;}
   .da-ct-method{display:flex;align-items:center;gap:12px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:14px 16px;}
   .da-ct-method .da-ct-ic{font-size:20px;flex-shrink:0;}
@@ -23948,73 +23953,70 @@ function hideFlyout(p) {
 <div class="da-page" id="da-about-page">
   <div class="da-info-card">
 
-    <!-- EDIT: brand name + tagline -->
+    <!-- EDIT: logo + tagline -->
     <div class="da-ab-hero">
       <img class="da-ab-logo-img" src="logo.png" alt="DoctoRise logo">
       <div class="da-ab-logo">DoctoRise</div>
-      <div class="da-ab-tagline">The all-in-one revision platform for medical school.</div>
+      <div class="da-ab-tagline">Everything you need for medical school, in one place.</div>
     </div>
 
-    <!-- EDIT: opening paragraph -->
-    <p class="da-ab-lead">DoctoRise brings the whole of medicine into one place. An MBBS covers an enormous volume of material, and it&rsquo;s usually scattered across lectures, textbooks, flashcard apps and separate question banks. DoctoRise pulls it all together &mdash; structured notes, active-recall flashcards, exam-style questions and customisable mock papers &mdash; so everything you need to learn, revise and test yourself lives under one roof.</p>
+    <!-- EDIT: opening line -->
+    <p class="da-ab-lead">Medicine is huge and scattered. DoctoRise brings it all together &mdash; notes, flashcards, MCQs and custom mock exams &mdash; so you can learn it, remember it and test yourself in one place.</p>
+
+    <!-- EDIT: the numbers -->
+    <div class="da-ab-stats">
+      <div><b>400+</b><span>Topics</span></div>
+      <div><b>30k+</b><span>Flashcards &amp; MCQs</span></div>
+      <div><b>59</b><span>Calculators</span></div>
+    </div>
 
     <!-- EDIT: mission -->
     <section class="da-ab-sec">
       <h3>Our mission</h3>
-      <p>To make the vast, fragmented content of medical school manageable. Instead of juggling a dozen resources, you get one connected platform: learn a topic, lock it in with active recall, and prove it under exam conditions &mdash; all in the same place.</p>
+      <p>Take the huge, scattered content of medical school and make it simple &mdash; one place to learn, revise and test yourself.</p>
     </section>
 
     <!-- EDIT: story -->
     <section class="da-ab-sec">
       <h3>Our story</h3>
-      <p>DoctoRise began with a familiar frustration: there was never a shortage of material to study from, but it lived everywhere at once &mdash; one place for notes, another for flashcards, another for questions &mdash; and none of it joined up. Simply gathering everything took more time and energy than actually learning it.</p>
-      <p>So we set out to build the resource we wished we&rsquo;d had: every part of medicine in one structured, searchable place, paired with the active-recall and exam tools that make it stick. The platform is always growing, with new topics, questions and features added regularly.</p>
+      <p>We got tired of juggling a dozen apps and PDFs, so we built the all-in-one resource we wished we&rsquo;d had &mdash; and it keeps growing.</p>
     </section>
-
-    <!-- EDIT: headline numbers -->
-    <div class="da-ab-stats">
-      <div><b>400+</b><span>Topics covered</span></div>
-      <div><b>30,000+</b><span>Flashcards &amp; MCQs</span></div>
-      <div><b>59</b><span>Clinical calculators</span></div>
-    </div>
 
     <!-- EDIT: feature cards (copy a .da-ab-feat block to add more) -->
     <section class="da-ab-sec">
       <h3>What we offer</h3>
       <div class="da-ab-features">
-        <div class="da-ab-feat"><div class="da-ab-feat-ic">📘</div><b>All-in-one notes</b><p>Clear, high-yield notes spanning conditions, anatomy, histology, signs, investigations, OSCE and pharmacology &mdash; every specialty in one library.</p></div>
-        <div class="da-ab-feat"><div class="da-ab-feat-ic">🎴</div><b>Active-recall flashcards</b><p>Turn passive reading into lasting memory with spaced-repetition flashcards on every topic.</p></div>
-        <div class="da-ab-feat"><div class="da-ab-feat-ic">✅</div><b>Exam-style MCQs</b><p>Single-best-answer questions pitched at the level you&rsquo;ll actually be tested on, each with a worked explanation.</p></div>
-        <div class="da-ab-feat"><div class="da-ab-feat-ic">⏱️</div><b>Customisable mock exams</b><p>Build timed mock papers your way &mdash; choose the systems, length and timing &mdash; and get scored topic by topic.</p></div>
-        <div class="da-ab-feat"><div class="da-ab-feat-ic">✏️</div><b>Highlight &amp; annotate</b><p>Make the notes your own: highlight key lines, add annotations and personal notes, even drop in an image &mdash; and it syncs across your devices.</p></div>
-        <div class="da-ab-feat"><div class="da-ab-feat-ic">🧮</div><b>Clinical calculators</b><p>59 bedside calculators with built-in case practice, so you learn not just the score but how to use it.</p></div>
+        <div class="da-ab-feat t1"><div class="da-ab-feat-ic">📘</div><b>All-in-one notes</b><p>Every specialty, one library.</p></div>
+        <div class="da-ab-feat t2"><div class="da-ab-feat-ic">🎴</div><b>Flashcards</b><p>Active recall that sticks.</p></div>
+        <div class="da-ab-feat t3"><div class="da-ab-feat-ic">✅</div><b>Exam-style MCQs</b><p>Pitched at real exam level.</p></div>
+        <div class="da-ab-feat t4"><div class="da-ab-feat-ic">⏱️</div><b>Custom mock exams</b><p>Timed papers, your way.</p></div>
+        <div class="da-ab-feat t5"><div class="da-ab-feat-ic">✏️</div><b>Highlight &amp; annotate</b><p>Make the notes yours.</p></div>
+        <div class="da-ab-feat t6"><div class="da-ab-feat-ic">🧮</div><b>Calculators</b><p>With built-in case practice.</p></div>
       </div>
+    </section>
+
+    <!-- EDIT: values (copy a <li> to add more) -->
+    <section class="da-ab-sec">
+      <h3>Why DoctoRise?</h3>
+      <ul class="da-ab-values">
+        <li><b>Everything in one place</b> &mdash; less hunting, more learning.</li>
+        <li><b>Recall over re-reading</b> &mdash; testing is built in.</li>
+        <li><b>Exam-ready</b> &mdash; pitched at what you&rsquo;re actually marked on.</li>
+        <li><b>Yours to personalise</b> &mdash; highlight and annotate as you go.</li>
+      </ul>
     </section>
 
     <!-- EDIT: team (copy a .da-ab-member block to add more; swap the avatar letter for an <img src="…"> if you like) -->
     <section class="da-ab-sec">
       <h3>Meet the team</h3>
       <div class="da-ab-team">
-        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
-        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
-        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
-        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role / title ]</div><p>[ One line about this person. ]</p></div>
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role ]</div><p>[ One line. ]</p></div>
+        <div class="da-ab-member"><div class="da-ab-avatar">[ ? ]</div><b>[ Name ]</b><div class="da-ab-role">[ Role ]</div><p>[ One line. ]</p></div>
       </div>
     </section>
 
-    <!-- EDIT: values (copy a <li> to add more) -->
-    <section class="da-ab-sec">
-      <h3>Our values</h3>
-      <ul class="da-ab-values">
-        <li><b>Everything in one place</b> &mdash; one platform for the whole of medicine, so you spend your time learning rather than hunting for material.</li>
-        <li><b>Recall over re-reading</b> &mdash; active recall and testing are built in, because remembering matters more than seeing content once.</li>
-        <li><b>Exam-ready</b> &mdash; notes and questions are pitched at real exam level, so your revision maps onto what you&rsquo;re marked on.</li>
-        <li><b>Yours to make your own</b> &mdash; highlight, annotate and personalise as you go. Your study, your way.</li>
-      </ul>
-    </section>
-
     <!-- EDIT: closing line -->
-    <div class="da-ab-foot">Medicine is hard enough &mdash; finding your way around it shouldn&rsquo;t be. Thanks for studying with DoctoRise. &middot; <a onclick="if(window.__openContact)window.__openContact();">Get in touch</a></div>
+    <div class="da-ab-foot">Built for medical students, and always growing. &middot; <a onclick="if(window.__openContact)window.__openContact();">Get in touch</a></div>
   </div>
 </div>
 
