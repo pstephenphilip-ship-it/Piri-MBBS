@@ -16162,6 +16162,7 @@ window.MOCK_BANK = {
   function tag(q,tab,sys,topic){ var c=JSON.parse(JSON.stringify(q)); c._tab=tab;c._sys=sys;c._topic=topic; return c; }
 
   function begin(pool,want,label,timed){
+    if(!mockGateOk()) return;   // single choke-point: full mocks are members-only (the free trial bypasses begin)
     if(!pool.length){ alert('No questions available for this selection.'); return; }
     // Drop questions already answered in previous mocks (until reset)
     var used=loadUsed();
@@ -16375,7 +16376,11 @@ window.MOCK_BANK = {
   // Save current progress and return to the setup screen to finish later.
   window.mockSaveExit=function(){
     if(S.phase!=='running')return;
-    stopTimer(); saveInProgress();
+    stopTimer();
+    // A non-member can only be in a (free-trial) mock; don't expose the members-only
+    // setup screen — stop the run and show the membership lock instead.
+    if(!mockGateOk()){ S.phase='setup'; return; }
+    saveInProgress();
     S.phase='setup'; renderSetup(); showScreen('setup');
   };
   window.mockDiscardInProgress=function(){ if(window.confirm('Discard your unfinished mock? This cannot be undone.')){ clearInProgress(); renderSetup(); } };
@@ -16657,7 +16662,10 @@ window.MOCK_BANK = {
       '</div>';
   }
   window.mockToggleBd=function(i){ var n=el('mkbd'+i); if(n)n.classList.toggle('mk-open'); };
-  window.mockNewMock=function(){ S.phase='setup'; renderSetup(); showScreen('setup'); };
+  // "New mock" from the results screen. Members go to the full setup screen; a non-member
+  // (only ever here via the free trial) is funnelled to the membership lock, which still
+  // offers "Try for free" to retake the taster — never the full customiser.
+  window.mockNewMock=function(){ if(!mockGateOk()) return; S.phase='setup'; renderSetup(); showScreen('setup'); };
 
   // ================= REVIEW =================
   window.mockReviewQs=function(){ S.revFilter='all'; renderReview(); showScreen('results'); };
