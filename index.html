@@ -16143,11 +16143,14 @@ window.MOCK_BANK = {
   }
 
   // ================= START =================
+  function mockGateOk(){ if(typeof window.__mockAllowed==='function' && !window.__mockAllowed()){ if(window.__showMockLock) window.__showMockLock(); return false; } return true; }
   window.mockStartDefault=function(){
+    if(!mockGateOk()) return;
     var pool=[]; groups().forEach(function(g){ if(g.tab==='conditions'){ g.topics.forEach(function(t){ qForTopic(g.tab,g.system,t).forEach(function(q){ pool.push(tag(q,g.tab,g.system,t)); }); }); } });
     begin(pool,120,'Default mock',true);
   };
   window.mockStartCustom=function(){
+    if(!mockGateOk()) return;
     var topics=selectedTopicList(); if(topics.length===0)return;
     var pool=[]; topics.forEach(function(t){ qForTopic(t.tab,t.sys,t.topic).forEach(function(q){ pool.push(tag(q,t.tab,t.sys,t.topic)); }); });
     if(pool.length===0){ alert('The selected topics have no questions yet. Pick topics that show a question count.'); return; }
@@ -16212,10 +16215,153 @@ window.MOCK_BANK = {
     clearInProgress();
     buildRunner(); startTimer(); showScreen('run');
   }
+  // ===== Free trial: a fixed 10-question Cardiovascular taster for non-members =====
+  // Media-rich sampler (ECG, chest X-ray, echocardiogram, heart-sound audio, a clinical
+  // photo) plus 5 written questions, two of which carry investigation results. Every
+  // question has id:null so it never counts toward the "used" bank, bookmarks, or the
+  // members-only pool, and the taster can be retaken as many times as the user likes.
+  var FREE_TRIAL_QS=[
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Acute coronary syndrome",
+      question:"A 58-year-old man presents with 40 minutes of crushing central chest pain radiating to the left arm, with nausea and sweating. His 12-lead ECG is shown. What is the most appropriate immediate management?",
+      image:"assets/ecg/lateral_stemi.png", imageAlt:"Twelve-lead ECG showing ST elevation.",
+      options:["Primary percutaneous coronary intervention (PCI)","High-dose aspirin, then discharge with an outpatient cardiology appointment","Analgesia alone, as reperfusion is not indicated","Urgent CT coronary angiogram before any intervention","A beta-blocker, then repeat the ECG in 6 hours"],
+      correctIndex:0,
+      explanation:[
+        "Primary PCI — the ECG shows ST elevation (an acute STEMI), so the priority is immediate reperfusion. Give aspirin 300 mg plus a second antiplatelet and activate the cath lab; primary PCI within 120 minutes of first medical contact is the treatment of choice.",
+        "Discharge — an acute STEMI is a time-critical emergency; any delay causes irreversible myocardial loss.",
+        "Analgesia alone — reperfusion, not just symptom control, is what saves myocardium.",
+        "CT coronary angiogram — has no role in an acute STEMI and only delays reperfusion.",
+        "Beta-blocker and wait — 'wait and repeat' is dangerous with diagnostic ST elevation and ongoing pain."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Pericardial disease",
+      question:"A 55-year-old woman presents with progressive breathlessness. She is hypotensive with muffled heart sounds and a raised JVP. Her chest X-ray is shown. What is the most likely explanation for the cardiac silhouette?",
+      image:"assets/ecg/pericardial_effusion_cxr.png", imageAlt:"Chest X-ray showing an enlarged, globular cardiac silhouette.",
+      options:["A large pericardial effusion","A left ventricular aneurysm","Dilated cardiomyopathy from long-standing hypertension","A tension pneumothorax","Bilateral pleural effusions"],
+      correctIndex:0,
+      explanation:[
+        "Large pericardial effusion — an enlarged, globular ('water-bottle') cardiac silhouette with clear lung fields, together with hypotension, muffled heart sounds and a raised JVP (Beck's triad), points to a pericardial effusion causing tamponade. Urgent echocardiography with a view to pericardiocentesis is needed.",
+        "LV aneurysm — causes a focal bulge, not a smooth globular enlargement, and would not give Beck's triad.",
+        "Dilated cardiomyopathy — enlarges the heart but does not produce this acute tamponade picture.",
+        "Tension pneumothorax — causes tracheal deviation and a hyperlucent hemithorax, not a globular heart.",
+        "Pleural effusions — blunt the costophrenic angles rather than enlarging the cardiac shadow."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Infective endocarditis",
+      question:"A 34-year-old man who injects drugs presents with fever, malaise and a new pansystolic murmur. His transthoracic echocardiogram is shown. What is the most likely diagnosis?",
+      image:"assets/ecg/ie_echo_vegetation.png", imageAlt:"Transthoracic echocardiogram showing a valvular vegetation.",
+      options:["Infective endocarditis","An atrial myxoma","Rheumatic mitral stenosis","A left atrial thrombus","Papillary muscle rupture"],
+      correctIndex:0,
+      explanation:[
+        "Infective endocarditis — the echo shows a valvular vegetation. In a person who injects drugs with fever and a new murmur this is IE until proven otherwise, and right-sided (tricuspid) disease is characteristic in this group. Take three sets of blood cultures and apply the modified Duke criteria; Staphylococcus aureus is the commonest organism.",
+        "Atrial myxoma — a mobile mass, but it typically arises in the left atrium on a stalk and is not linked to fever and injecting drug use.",
+        "Rheumatic mitral stenosis — thickens the valve and causes a diastolic murmur, without a discrete vegetation or acute sepsis.",
+        "LA thrombus — usually seen with AF or mitral stenosis, not a febrile illness with a new regurgitant murmur.",
+        "Papillary muscle rupture — a mechanical complication of MI, not this subacute febrile presentation."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Valvular heart disease",
+      question:"A 72-year-old man reports exertional chest tightness and one episode of syncope. He has a slow-rising carotid pulse and a narrow pulse pressure. Listen to the murmur recorded at the right upper sternal edge. What is the most likely diagnosis?",
+      audio:"assets/audio/esm.mp3", audioCredit:"Auscultation recording — right upper sternal edge.",
+      options:["Aortic stenosis","Mitral regurgitation","Aortic regurgitation","Mitral stenosis","A benign flow murmur"],
+      correctIndex:0,
+      explanation:[
+        "Aortic stenosis — an ejection (crescendo-decrescendo) systolic murmur loudest at the right upper sternal edge and radiating to the carotids, with a slow-rising pulse, narrow pulse pressure and the triad of angina, syncope and breathlessness, is classic for severe AS. Confirm with echocardiography.",
+        "Mitral regurgitation — a pansystolic murmur at the apex radiating to the axilla, not an ejection murmur with a slow-rising pulse.",
+        "Aortic regurgitation — an early diastolic murmur with a collapsing (not slow-rising) pulse and a wide pulse pressure.",
+        "Mitral stenosis — a mid-diastolic murmur with an opening snap, best heard at the apex in the left lateral position.",
+        "Benign flow murmur — would not cause syncope, a slow-rising pulse or a narrow pulse pressure."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Cardiovascular risk / hyperlipidaemia",
+      question:"A 46-year-old man attends for a cardiovascular risk assessment. The appearance shown is noted around his eyes. It is most strongly associated with which of the following?",
+      image:"assets/ecg/xanthelasma.webp", imageAlt:"Yellow plaques on the medial eyelids.",
+      options:["Hypercholesterolaemia","Hyperthyroidism","Iron overload","Chronic kidney disease","Long-standing hypertension"],
+      correctIndex:0,
+      explanation:[
+        "Hypercholesterolaemia — these are xanthelasmata: soft yellow cholesterol-laden plaques on the medial eyelids. They reflect deranged lipids and, alongside tendon xanthomata and corneal arcus, can indicate familial hypercholesterolaemia. Check a fasting lipid profile and formally assess cardiovascular risk.",
+        "Hyperthyroidism — causes lid retraction and, in Graves' disease, periorbital swelling, not cholesterol plaques.",
+        "Iron overload — haemochromatosis causes skin bronzing, not eyelid xanthelasmata.",
+        "Chronic kidney disease — associated with pallor and uraemic signs rather than xanthelasmata.",
+        "Hypertension — is largely asymptomatic and does not produce eyelid plaques."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Acute coronary syndrome",
+      question:"A 63-year-old woman presents with 3 hours of central chest pain and is pain-free on arrival. Her ECG shows deep T-wave inversion in the lateral leads but no ST elevation. Her blood results are shown. What is the most likely diagnosis?",
+      data:"<div class=\"mk-obs-h\">Blood results</div><div class=\"mk-obs-grid\"><span>hs-Troponin T (0h) <b>210 ng/L</b></span><span>hs-Troponin T (3h) <b>340 ng/L</b></span><span>Reference <b>&lt;14 ng/L</b></span><span>Hb <b>134 g/L</b></span><span>eGFR <b>78</b></span><span>K&#8314; <b>4.2 mmol/L</b></span></div>",
+      options:["Non-ST-elevation myocardial infarction (NSTEMI)","ST-elevation myocardial infarction (STEMI)","Unstable angina","Stable angina","Acute pericarditis"],
+      correctIndex:0,
+      explanation:[
+        "NSTEMI — ischaemic chest pain with a raised and dynamic troponin but no ST elevation defines an NSTEMI. Manage with aspirin, a second antiplatelet and fondaparinux, and risk-stratify (e.g. GRACE) to time inpatient coronary angiography.",
+        "STEMI — excluded here because there is no ST-segment elevation on the ECG.",
+        "Unstable angina — the same clinical picture but with a normal troponin; the raised troponin makes this an infarct.",
+        "Stable angina — is predictable, exertional and relieved by rest, with a normal troponin.",
+        "Acute pericarditis — causes pleuritic pain with saddle-shaped ST elevation and PR depression, not an isolated troponin rise with T-wave inversion."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Heart failure",
+      question:"A 68-year-old woman presents acutely breathless and unable to lie flat. She has a raised JVP, bibasal crackles and pitting oedema; her chest X-ray shows pulmonary oedema. Her results are shown. What is the most appropriate initial pharmacological management?",
+      data:"<div class=\"mk-obs-h\">Results</div><div class=\"mk-obs-grid\"><span>NT-proBNP <b>4200 pg/mL</b></span><span>Reference <b>&lt;400 pg/mL</b></span><span>SpO&#8322; <b>90% on air</b></span><span>BP <b>158/94 mmHg</b></span><span>HR <b>104 bpm</b></span><span>eGFR <b>62</b></span></div>",
+      options:["Intravenous furosemide","An intravenous fluid bolus","An intravenous beta-blocker to slow the heart","Up-titration of oral bisoprolol","Broad-spectrum intravenous antibiotics"],
+      correctIndex:0,
+      explanation:[
+        "IV furosemide — the picture is acute decompensated heart failure with pulmonary oedema (markedly raised NT-proBNP, orthopnoea, raised JVP, crackles). Sit the patient up, give oxygen if hypoxic and an IV loop diuretic to offload fluid; add nitrates if hypertensive.",
+        "IV fluids — would worsen pulmonary congestion in a fluid-overloaded patient.",
+        "IV beta-blocker — is contraindicated in acute decompensation and can precipitate cardiogenic shock.",
+        "Up-titrating bisoprolol — beta-blockers improve chronic HF prognosis but are not the acute treatment and should not be increased during decompensation.",
+        "Antibiotics — there is no evidence of infection here; this is cardiogenic pulmonary oedema."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Atrial fibrillation",
+      question:"A 74-year-old man is found to have atrial fibrillation. He has hypertension and type 2 diabetes. What is the most appropriate treatment to reduce his risk of stroke?",
+      options:["A direct oral anticoagulant (e.g. apixaban)","Aspirin 75 mg daily","Clopidogrel 75 mg daily","No antithrombotic treatment is required","Aspirin plus dipyridamole"],
+      correctIndex:0,
+      explanation:[
+        "DOAC — his CHA₂DS₂-VASc score is at least 4 (age 65-74, hypertension, diabetes, male), so anticoagulation is indicated. A DOAC is first-line over warfarin in non-valvular AF; assess bleeding risk (e.g. ORBIT) but do not withhold anticoagulation on that basis alone.",
+        "Aspirin — is not effective stroke prevention in AF and is no longer recommended for this indication.",
+        "Clopidogrel — antiplatelets are inferior to anticoagulation for AF-related stroke prevention.",
+        "No treatment — would leave a high-risk patient unprotected.",
+        "Aspirin plus dipyridamole — is used in ischaemic stroke secondary prevention, not for AF."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Hypertension",
+      question:"A 60-year-old man of African-Caribbean origin is diagnosed with hypertension after ambulatory monitoring averages 154/96 mmHg. He has no diabetes. Which is the most appropriate first-line antihypertensive?",
+      options:["A calcium-channel blocker (e.g. amlodipine)","An ACE inhibitor (e.g. ramipril)","An angiotensin-receptor blocker (e.g. losartan)","A thiazide-like diuretic","A beta-blocker (e.g. atenolol)"],
+      correctIndex:0,
+      explanation:[
+        "Calcium-channel blocker — NICE recommends a CCB first-line for patients of Black African or African-Caribbean family origin (any age) and for patients aged 55 or over. ACE inhibitors and ARBs are less effective as initial monotherapy in these groups.",
+        "ACE inhibitor — first-line for patients under 55 who are not of Black African/Caribbean origin, not for this patient.",
+        "ARB — if renin-angiotensin blockade were needed, an ARB would be preferred over an ACE inhibitor in Black African/Caribbean patients, but a CCB is the correct first step.",
+        "Thiazide-like diuretic — is a step-2 or alternative option, not routine first-line here.",
+        "Beta-blocker — is not a first-line antihypertensive except in specific situations."
+      ] },
+    { id:null, type:"mcq", _sys:"Cardiovascular", _topic:"Stable angina",
+      question:"A 59-year-old man describes central chest tightness on walking uphill that settles within a few minutes of rest. Investigations confirm stable angina. In addition to a GTN spray and secondary prevention, what is the most appropriate first-line treatment to control his symptoms?",
+      options:["A beta-blocker or a calcium-channel blocker","A long-acting nitrate such as isosorbide mononitrate","Nicorandil","Ivabradine","Immediate coronary artery bypass grafting"],
+      correctIndex:0,
+      explanation:[
+        "Beta-blocker or CCB — NICE recommends either a beta-blocker or a rate-limiting calcium-channel blocker first-line to control angina; if one is not tolerated, switch to the other, and combine them if needed. All patients also get a short-acting nitrate (GTN) plus secondary prevention (aspirin, a statin, and an ACE inhibitor if indicated).",
+        "Long-acting nitrate — a second-line option added when a beta-blocker or CCB is insufficient or not tolerated.",
+        "Nicorandil — a later-line anti-anginal, not first-line.",
+        "Ivabradine — reserved for specific cases and not first-line monotherapy for angina.",
+        "CABG — revascularisation is considered when symptoms persist despite optimal medical therapy or for prognostic indications, not as the first symptomatic step."
+      ] }
+  ];
+  // Launch the taster from the mock lock overlay (bypasses the members-only gate for these 10 Qs only).
+  window.mockStartFreeTrial=function(){
+    try{ var lk=document.getElementById('da-mock-lock'); if(lk) lk.style.display='none'; }catch(e){}
+    // Bring the mock tab to the front — the trial is launched from the lock, not the nav bar.
+    document.querySelectorAll('.tab-view').forEach(function(t){ t.classList.remove('visible'); });
+    document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+    var tm=document.getElementById('tab-mock'); if(tm) tm.classList.add('visible');
+    try{ if(typeof updateHash==='function') updateHash('mock',null,null,null); }catch(e){}
+    var mf=document.getElementById('mockFab'); if(mf) mf.classList.add('is-hidden');
+    var rv=document.getElementById('daRvTrigger'); if(rv) rv.classList.add('is-hidden');
+    S.questions=JSON.parse(JSON.stringify(FREE_TRIAL_QS));   // deep-copy so every re-take starts clean
+    S.answers={}; S.selfMark={}; S.flagged={}; S.eliminated={}; S.current=0;
+    S.limit=600; S.startAt=Date.now(); S.timed=true; S.elapsed=0;
+    S.remaining=600; S.endAt=S.startAt+600*1000;             // 10-minute timer
+    S.phase='running'; S.label='Free trial · Cardiovascular'; S.freeTrial=true;
+    clearInProgress();
+    buildRunner(); startTimer(); showScreen('run');
+  };
   function mockIsTimed(){ var c=el('mkTimedToggle'); return c?!!c.checked:true; }
   // Resume a saved in-progress mock. Timed papers pause the clock while away
   // (remaining is frozen on save and the countdown restarts from there).
   window.mockResume=function(){
+    if(!mockGateOk()) return;
     var snap=loadInProgress(); if(!snap||!snap.questions){ renderSetup(); return; }
     var qs=[]; for(var i=0;i<snap.questions.length;i++){ var q=resolveRef(snap.questions[i]); if(!q){ qs=null; break; } qs.push(q); }
     if(!qs||qs.length!==snap.questions.length){ alert('Sorry — this saved mock could not be restored (the question bank may have changed since you saved). It has been cleared.'); clearInProgress(); renderSetup(); return; }
@@ -21275,6 +21421,7 @@ function hideFlyout(p) {
 .da-lock-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 .da-lock-btn{cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface2,#EEF1F6);color:var(--text,#374151);border-radius:9px;padding:11px 20px;font-size:13.5px;font-weight:700;font-family:inherit;}
 .da-lock-btn.primary{border:none;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);}
+.da-lock-btn.trial{border:none;color:#3A2A00;background:linear-gradient(135deg,#FBBF24 0%,#F0B429 100%);}
 .da-lock-foot{font-size:11.5px;color:var(--muted2,#9CA3AF);margin-top:20px;line-height:1.5;}
 .da-locked-item{opacity:.62;}
 .da-lock-mini{margin-left:6px;font-size:11px;opacity:.7;}
@@ -21605,8 +21752,8 @@ function hideFlyout(p) {
     o.style.position='fixed'; o.style.inset='0'; o.style.zIndex='2000';
     o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
       +'<div class="da-lock-title">Mock exams are a premium feature</div>'
-      +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; is coming with membership.</div>'
-      +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Not now</button></div></div>';
+      +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; comes with membership. Want a taste first? Try a free 10-question cardiovascular paper.</div>'
+      +'<div class="da-lock-actions"><button class="da-lock-btn trial" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.mockStartFreeTrial)window.mockStartFreeTrial();">Try for free</button><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Not now</button></div></div>';
     document.body.appendChild(o);
   };
 
