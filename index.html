@@ -21424,7 +21424,7 @@ function hideFlyout(p) {
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
-    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})('sync'); } }); }
+    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})('authsync'); } }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
@@ -21529,6 +21529,14 @@ function hideFlyout(p) {
       }catch(e){}
       try{ location.reload(); }catch(e){}
     }, 500);
+  };
+  // A deliberate, user-initiated reload (after verifying a login/device code, a password
+  // reset, etc.). It counts as the ONE post-login settle reload: mark the shared 'authsync'
+  // reason done first, so the freshly loaded page's auth/sync settle doesn't reload AGAIN on
+  // top of it. Membership transitions keep their own separate reason (post-payment unlock).
+  window.__authReload = window.__authReload || function(){
+    try{ sessionStorage.setItem('da-rl-authsync','1'); sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+    try{ location.reload(); }catch(e){}
   };
   // Full-access members (paid membership OR a comp/automatic membership set on the
   // account's Supabase profile). Cached so the gate resolves synchronously on load;
@@ -21804,7 +21812,7 @@ function hideFlyout(p) {
   };
 
   var prevAuthed = window.__authed;
-  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('auth'); } }); }catch(e){} }
+  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('authsync'); } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
   // Load this account's server-side day-pass unlocks once the session is restored.
@@ -22112,7 +22120,7 @@ function hideFlyout(p) {
       var btn=$('da-rec-save'), r0=btn.textContent; btn.disabled=true; btn.textContent='Saving…';
       sb.auth.updateUser({password:a}).then(function(r){
         if(r.error){ msg(r.error.message); btn.disabled=false; btn.textContent=r0; }
-        else { msg('Password updated — signing you in…','ok'); setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} location.reload(); }, 1200); }
+        else { msg('Password updated — signing you in…','ok'); setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} (window.__authReload||function(){location.reload();})(); }, 1200); }
       }).catch(function(e){ msg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
     };
   }
@@ -22159,7 +22167,7 @@ function hideFlyout(p) {
             pmsgR('Password updated — signing you in…','ok');
             if(window.__markVerified) window.__markVerified();
             var claim = window.__claimDevice ? window.__claimDevice() : Promise.resolve();
-            Promise.resolve(claim).then(function(){ window.__mfaPending=false; setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} location.reload(); }, 900); });
+            Promise.resolve(claim).then(function(){ window.__mfaPending=false; setTimeout(function(){ try{ history.replaceState(null,'',location.pathname); }catch(e){} (window.__authReload||function(){location.reload();})(); }, 900); });
           });
         }).catch(function(e){ pmsgR((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
       }
@@ -22241,7 +22249,7 @@ function hideFlyout(p) {
     sb.auth.verifyOtp({ email:mfaEmail, token:code, type:'email' }).then(function(r){
       if(r.error){ mmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
       mmsg('Verified — signing you in…','ok'); window.__mfaPending=false;
-      setTimeout(function(){ location.reload(); }, 600);
+      setTimeout(function(){ (window.__authReload||function(){location.reload();})(); }, 600);
     }).catch(function(e){ mmsg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
   }
   function resend(){
@@ -22346,7 +22354,7 @@ function hideFlyout(p) {
     $('dv-code').addEventListener('keydown',function(e){ if(e.key==='Enter') doVerify(); });
   }
   function openOverlay(email, type, sub, after){
-    buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ location.reload(); };
+    buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ (window.__authReload||function(){location.reload();})(); };
     window.__mfaPending=true;
     $('dv-sub').innerHTML=sub||('Enter the code we emailed to <span style="color:var(--text)">'+email+'</span>');
     $('dv-code').value=''; var m=$('dv-msg'); if(m) m.className='auth-msg';
@@ -22410,10 +22418,10 @@ function hideFlyout(p) {
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} amsg(res.error.message,'err'); return; }
           if(res.data && res.data.session){                     // email confirmation OFF: straight in
             markVerified();
-            claimDevice().then(function(){ location.reload(); });
+            claimDevice().then(function(){ (window.__authReload||function(){location.reload();})(); });
           } else {                                              // confirmation ON: verify the emailed code
             if(typeof closeAuthModal==='function') closeAuthModal();
-            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ location.reload(); });
+            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ (window.__authReload||function(){location.reload();})(); });
           }
         });
       }
@@ -22446,7 +22454,7 @@ function hideFlyout(p) {
         // A *different* device holds the trusted slot (account used elsewhere), or an
         // unclaimed account on a device we've never verified -> require an email code.
         window.__mfaPending=true;
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ location.reload(); }); }
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ (window.__authReload||function(){location.reload();})(); }); }
         if(sentRecently(u.email)) { show(); return; }
         sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
