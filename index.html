@@ -23861,6 +23861,8 @@ function hideFlyout(p) {
      the nav's z-index so the headbar + its menus stay usable. */
   .da-page{position:fixed;top:52px;left:0;right:0;bottom:0;z-index:8;background-color:#E4E7EE;background-image:radial-gradient(rgba(30,38,64,.055) 1px, transparent 1.6px);background-size:22px 22px;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
   .da-page.open{display:block;}
+  /* Hide the floating action buttons while an info page (About/Contact) is open. */
+  body.da-info-open #daMemFab,body.da-info-open #mockFab,body.da-info-open #daRvTrigger{display:none!important;}
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
   /* Centred white "sheet" so the tinted page shows as side margins on either side. */
@@ -24020,15 +24022,15 @@ function hideFlyout(p) {
     var nav=document.querySelector('.topnav'); var h=nav?nav.offsetHeight:52;
     ['da-about-page','da-contact-page'].forEach(function(id){ var p=document.getElementById(id); if(p) p.style.top=h+'px'; });
   }
-  function setFloatHidden(hide){  // tuck the floating buttons (Get Membership / Custom Mock / Review) away while on an info page
-    ['daMemFab','mockFab','daRvTrigger'].forEach(function(id){ var b=document.getElementById(id); if(b) b.classList.toggle('is-hidden', !!hide); });
-  }
   function show(which){
     var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
     if(a) a.classList.toggle('open', which==='about');
     if(c) c.classList.toggle('open', which==='contact');
-    if(which){ positionBelowHeadbar(); setFloatHidden(true); var pg=document.getElementById('da-'+which+'-page'); if(pg) pg.scrollTop=0; }
-    else if(window.__syncMemFab){ window.__syncMemFab(); }   // restore the membership button; the view nav restores the others
+    // Flag on <body>; CSS then hides the floating buttons (Get Membership / Custom Mock / Review)
+    // while an info page is open. Doing it in CSS is robust even when those buttons are created
+    // AFTER this runs (e.g. on a deep-link straight to #contact).
+    document.body.classList.toggle('da-info-open', !!which);
+    if(which){ positionBelowHeadbar(); var pg=document.getElementById('da-'+which+'-page'); if(pg) pg.scrollTop=0; }
   }
   window.addEventListener('resize', function(){
     var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
