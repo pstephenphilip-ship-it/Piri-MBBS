@@ -23839,7 +23839,8 @@ function hideFlyout(p) {
 <style>
   /* Full-page view — its own #about / #contact URL (not a popup), with a Back bar.
      Light palette to match the rest of the content area (white cards on light grey). */
-  .da-page{position:fixed;inset:0;z-index:1500;background:#E4E7EE;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
+  /* Side margins carry a very low-key dot "wallpaper"; the centred white sheet covers the middle. */
+  .da-page{position:fixed;inset:0;z-index:1500;background-color:#E4E7EE;background-image:radial-gradient(rgba(30,38,64,.055) 1px, transparent 1.6px);background-size:22px 22px;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
   .da-page.open{display:block;}
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
