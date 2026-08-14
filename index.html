@@ -16936,12 +16936,15 @@ function updateHash(tab, system, topic, mode) {
 
 function restoreFromHash() {
   var hash = window.location.hash.slice(1);
-  if (!hash) { if (window.goHome) window.goHome(true); return; }
+  if (!hash) { if (window.__hideInfoPages) window.__hideInfoPages(); if (window.goHome) window.goHome(true); return; }
   var parts = hash.split('/');
   var tab = parts[0];
   var system = parts[1] ? decodeURIComponent(parts[1]) : null;
   var topic = parts[2] ? decodeURIComponent(parts[2]) : null;
   var mode = parts[3] || 'notes';
+  // Standalone info pages (About Us / Contact) — each is its own route.
+  if (tab === 'about' || tab === 'contact') { if (window.__showInfoPage) window.__showInfoPage(tab); return; }
+  if (window.__hideInfoPages) window.__hideInfoPages();
   if (tab === 'home') { if (window.goHome) window.goHome(true); return; }
   if (tab === 'mock') { if (window.openMock) window.openMock(); return; }
   var navEl = document.querySelector('.nav-tab[onclick*="\'' + tab + '\'"]');
@@ -23834,9 +23837,16 @@ function hideFlyout(p) {
      Search this file for "ABOUT US + CONTACT" to find it again.
      ===================================================================== -->
 <style>
-  .da-info-card{width:100%;max-width:660px;max-height:88vh;overflow-y:auto;background:var(--surface,#1C2030);border:1px solid var(--border2,#272C3E);border-radius:16px;box-shadow:0 24px 64px rgba(0,0,0,.5);padding:34px 34px 28px;position:relative;text-align:left;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
-  .da-info-card::-webkit-scrollbar{width:8px;}
-  .da-info-card::-webkit-scrollbar-thumb{background:var(--border2,#272C3E);border-radius:8px;}
+  /* Full-page view — its own #about / #contact URL (not a popup), with a Back bar. */
+  .da-page{position:fixed;inset:0;z-index:1500;background:var(--bg,#0D0F14);overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+  .da-page.open{display:block;}
+  .da-page::-webkit-scrollbar{width:9px;}
+  .da-page::-webkit-scrollbar-thumb{background:var(--border2,#272C3E);border-radius:8px;}
+  .da-page-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;height:52px;padding:0 18px;background:var(--surface,#1C2030);border-bottom:1px solid var(--border,#1F2330);}
+  .da-page-back{display:inline-flex;align-items:center;gap:7px;background:var(--surface2,#222638);border:1px solid var(--border2,#272C3E);color:var(--text,#E8EAF0);font-family:var(--sans,inherit);font-size:13px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;transition:background .12s;}
+  .da-page-back:hover{background:var(--border2,#272C3E);}
+  .da-page-title{font-weight:800;font-size:14px;color:var(--text,#E8EAF0);}
+  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:36px 24px 72px;text-align:left;}
   /* Placeholder text — swap these out. Styled so they're easy to spot while editing. */
   .da-ph{color:var(--muted,#6B7280);font-style:italic;}
   .da-ab-hero{text-align:center;padding-bottom:14px;border-bottom:1px solid var(--border,#1F2330);margin-bottom:20px;}
@@ -23876,10 +23886,13 @@ function hideFlyout(p) {
   @media (max-width:560px){ .da-ab-features,.da-ab-team{grid-template-columns:1fr;} .da-info-card{padding:26px 20px 22px;} }
 </style>
 
-<!-- ===================== ABOUT US OVERLAY ===================== -->
-<div class="auth-overlay" id="da-about-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+<!-- ===================== ABOUT US PAGE ===================== -->
+<div class="da-page" id="da-about-page">
+  <div class="da-page-top">
+    <button class="da-page-back" onclick="window.__closeInfoPage&&window.__closeInfoPage()"><svg viewBox="0 0 18 18" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4l-5 5 5 5"/></svg>Back</button>
+    <span class="da-page-title">About Us</span>
+  </div>
   <div class="da-info-card">
-    <button class="auth-close" onclick="document.getElementById('da-about-overlay').classList.remove('open')">&times;</button>
 
     <!-- EDIT: brand name + tagline -->
     <div class="da-ab-hero">
@@ -23943,14 +23956,17 @@ function hideFlyout(p) {
     </section>
 
     <!-- EDIT: closing line -->
-    <div class="da-ab-foot"><span class="da-ph">[ A closing line — thanks for reading, join us, etc. ]</span> &middot; <a onclick="document.getElementById('da-about-overlay').classList.remove('open');if(window.__openContact)window.__openContact();">Get in touch</a></div>
+    <div class="da-ab-foot"><span class="da-ph">[ A closing line — thanks for reading, join us, etc. ]</span> &middot; <a onclick="if(window.__openContact)window.__openContact();">Get in touch</a></div>
   </div>
 </div>
 
-<!-- ===================== CONTACT OVERLAY ===================== -->
-<div class="auth-overlay" id="da-contact-overlay" onclick="if(event.target===this)this.classList.remove('open')">
-  <div class="da-info-card" style="max-width:460px;">
-    <button class="auth-close" onclick="document.getElementById('da-contact-overlay').classList.remove('open')">&times;</button>
+<!-- ===================== CONTACT PAGE ===================== -->
+<div class="da-page" id="da-contact-page">
+  <div class="da-page-top">
+    <button class="da-page-back" onclick="window.__closeInfoPage&&window.__closeInfoPage()"><svg viewBox="0 0 18 18" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4l-5 5 5 5"/></svg>Back</button>
+    <span class="da-page-title">Contact</span>
+  </div>
+  <div class="da-info-card" style="max-width:520px;">
     <div class="auth-sub" style="font-weight:800;font-size:18px;color:var(--text);margin-bottom:4px;">Contact us</div>
     <p style="font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 4px;"><span class="da-ph">[ A line inviting people to reach out — questions, feedback, partnerships. ]</span></p>
 
@@ -23971,9 +23987,26 @@ function hideFlyout(p) {
 
 <script>
 (function(){
-  // Open/close hooks
-  window.__openAbout   = function(){ var o=document.getElementById('da-about-overlay');   if(o){ o.classList.add('open'); var c=o.querySelector('.da-info-card'); if(c) c.scrollTop=0; } };
-  window.__openContact = function(){ var o=document.getElementById('da-contact-overlay'); if(o){ o.classList.add('open'); } };
+  // These are full pages with their own #about / #contact URLs, so the browser Back button
+  // works. Opening pushes a history entry (via updateHash); Back/forward and deep links are
+  // handled by restoreFromHash, which calls __showInfoPage / __hideInfoPages.
+  var openedInSession=false;
+  function show(which){
+    var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page');
+    if(a) a.classList.toggle('open', which==='about');
+    if(c) c.classList.toggle('open', which==='contact');
+    if(which){ var pg=document.getElementById('da-'+which+'-page'); if(pg) pg.scrollTop=0; }
+  }
+  window.__showInfoPage = function(which){ show(which); };
+  window.__hideInfoPages = function(){ show(null); };
+  window.__openAbout   = function(){ openedInSession=true; if(window.updateHash) updateHash('about');   else location.hash='about';   show('about'); };
+  window.__openContact = function(){ openedInSession=true; if(window.updateHash) updateHash('contact'); else location.hash='contact'; show('contact'); };
+  window.__closeInfoPage = function(){
+    // Prefer real Back navigation (returns wherever they were). If they deep-linked straight
+    // here (no in-app history), drop them on Home instead of leaving the site.
+    if(openedInSession && window.history.length>1){ history.back(); }
+    else { show(null); if(window.updateHash) updateHash('home'); if(window.goHome) window.goHome(true); }
+  };
 
   // Contact form -> opens the visitor's email client addressed to you. CHANGE this address:
   var CONTACT_EMAIL = 'hello@doctorise.co.uk';
@@ -23985,8 +24018,8 @@ function hideFlyout(p) {
     var full=body+(from?('\n\nReply to: '+from):'')+(name?('\nName: '+name):'');
     try{ window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(full); }catch(e){}
   };
-  // Close on Escape
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ ['da-about-overlay','da-contact-overlay'].forEach(function(id){ var o=document.getElementById(id); if(o) o.classList.remove('open'); }); } });
+  // Escape acts like the Back button when an info page is open.
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ var a=document.getElementById('da-about-page'), c=document.getElementById('da-contact-page'); if((a&&a.classList.contains('open'))||(c&&c.classList.contains('open'))) window.__closeInfoPage(); } });
 
   // Insert "About Us" and "Contact" into the account menu, between Profile and Settings.
   function insertLinks(){
