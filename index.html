@@ -23839,7 +23839,7 @@ function hideFlyout(p) {
 <style>
   /* Full-page view — its own #about / #contact URL (not a popup), with a Back bar.
      Light palette to match the rest of the content area (white cards on light grey). */
-  .da-page{position:fixed;inset:0;z-index:1500;background:#F0F2F5;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
+  .da-page{position:fixed;inset:0;z-index:1500;background:#E4E7EE;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
   .da-page.open{display:block;}
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
@@ -23847,10 +23847,12 @@ function hideFlyout(p) {
   .da-page-back{display:inline-flex;align-items:center;gap:7px;background:#F0F2F5;border:1px solid #D8DAE5;color:#1E2640;font-family:var(--sans,inherit);font-size:13px;font-weight:600;padding:7px 13px;border-radius:8px;cursor:pointer;transition:background .12s;}
   .da-page-back:hover{background:#E8EAF0;}
   .da-page-title{font-weight:800;font-size:14px;color:#1E2640;}
-  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:36px 24px 72px;text-align:left;}
+  /* Centred white "sheet" so the tinted page shows as side margins on either side. */
+  .da-info-card{width:100%;max-width:680px;margin:0 auto;padding:40px 40px 72px;text-align:left;background:#FFFFFF;box-shadow:0 0 34px rgba(30,38,64,.08);min-height:calc(100vh - 52px);}
   /* Placeholder text — swap these out. Styled so they're easy to spot while editing. */
   .da-ph{color:#8A93A6;font-style:italic;}
   .da-ab-hero{text-align:center;padding-bottom:16px;border-bottom:1px solid #E2E6F0;margin-bottom:22px;}
+  .da-ab-logo-img{width:96px;height:96px;object-fit:contain;display:block;margin:0 auto 10px;}
   .da-ab-logo{font-family:var(--mono,monospace);font-size:30px;font-weight:800;letter-spacing:-0.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
   .da-ab-tagline{font-size:14px;color:#6B7280;margin-top:6px;}
   .da-ab-lead{font-size:14.5px;line-height:1.7;color:#1E2640;margin:0 0 6px;}
@@ -23858,16 +23860,16 @@ function hideFlyout(p) {
   .da-ab-sec h3{font-size:15px;font-weight:800;color:#0B8A79;margin:0 0 12px;letter-spacing:.01em;}
   .da-ab-sec p{font-size:13.5px;line-height:1.7;color:#374151;margin:0 0 10px;}
   .da-ab-stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
-  .da-ab-stats>div{flex:1 1 120px;background:#FFFFFF;border:1px solid #E2E6F0;border-radius:12px;padding:16px 12px;text-align:center;box-shadow:0 2px 8px rgba(30,38,64,.05);}
+  .da-ab-stats>div{flex:1 1 120px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px 12px;text-align:center;}
   .da-ab-stats b{display:block;font-size:22px;color:#1E2640;font-family:var(--mono,monospace);}
   .da-ab-stats span{font-size:11.5px;color:#6B7280;text-transform:uppercase;letter-spacing:.06em;}
   .da-ab-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  .da-ab-feat{background:#FFFFFF;border:1px solid #E2E6F0;border-radius:12px;padding:15px;box-shadow:0 2px 8px rgba(30,38,64,.05);}
+  .da-ab-feat{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:15px;}
   .da-ab-feat-ic{font-size:22px;margin-bottom:6px;}
   .da-ab-feat b{display:block;font-size:13.5px;color:#1E2640;margin-bottom:4px;}
   .da-ab-feat p{font-size:12.5px;line-height:1.55;color:#6B7280;margin:0;}
   .da-ab-team{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .da-ab-member{background:#FFFFFF;border:1px solid #E2E6F0;border-radius:12px;padding:16px;text-align:center;box-shadow:0 2px 8px rgba(30,38,64,.05);}
+  .da-ab-member{background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:16px;text-align:center;}
   .da-ab-avatar{width:60px;height:60px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#00C2A8,#0EA5E9);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-weight:800;font-size:20px;overflow:hidden;}
   .da-ab-avatar img{width:100%;height:100%;object-fit:cover;}
   .da-ab-member b{display:block;font-size:14px;color:#1E2640;}
@@ -23880,7 +23882,7 @@ function hideFlyout(p) {
   .da-ab-foot{margin-top:26px;padding-top:16px;border-top:1px solid #E2E6F0;font-size:12.5px;color:#6B7280;text-align:center;}
   .da-ab-foot a{color:#0B8A79;cursor:pointer;text-decoration:none;font-weight:600;}
   .da-ct-methods{display:flex;flex-direction:column;gap:10px;margin:16px 0 22px;}
-  .da-ct-method{display:flex;align-items:center;gap:12px;background:#FFFFFF;border:1px solid #E2E6F0;border-radius:12px;padding:14px 16px;box-shadow:0 2px 8px rgba(30,38,64,.05);}
+  .da-ct-method{display:flex;align-items:center;gap:12px;background:#F5F7FB;border:1px solid #E2E6F0;border-radius:12px;padding:14px 16px;}
   .da-ct-method .da-ct-ic{font-size:20px;flex-shrink:0;}
   .da-ct-method b{display:block;font-size:13px;color:#1E2640;}
   .da-ct-method span{font-size:12.5px;color:#6B7280;}
@@ -23903,6 +23905,7 @@ function hideFlyout(p) {
 
     <!-- EDIT: brand name + tagline -->
     <div class="da-ab-hero">
+      <img class="da-ab-logo-img" src="logo.png" alt="DoctoRise logo">
       <div class="da-ab-logo">DoctoRise</div>
       <div class="da-ab-tagline"><span class="da-ph">[ Your one-line tagline — e.g. “Master medicine, one system at a time.” ]</span></div>
     </div>
