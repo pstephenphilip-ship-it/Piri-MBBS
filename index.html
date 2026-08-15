@@ -21767,6 +21767,25 @@ function hideFlyout(p) {
     var self=this;
     gateTopic(p, name, skipHash, function(){ _selectTopic.call(self, p, name, skipHash); });
   };
+  // Re-evaluate any lock that's currently on screen. Signing in, a membership unlock or a
+  // day-pass all change access AFTER a paywall may already be rendered; without a page reload
+  // nothing re-runs the gate, so the visitor is stranded on the lock and has to click "back".
+  // This re-runs the gate in place for whatever topic each visible paywall sits on:
+  //   now-unlocked        -> the notes render (access granted, no reload/flash)
+  //   still-locked, authed -> the "create an account" wall becomes the day-pass offer
+  // Reload is no longer required to clear a lock — this also survives the reload-cap being hit.
+  window.__refreshGate = function(){
+    try{
+      var walls = document.querySelectorAll('[id^="da-paywall-"]');
+      Array.prototype.forEach.call(walls, function(pw){
+        if(!pw || pw.style.display==='none') return;
+        var p = pw.id.slice('da-paywall-'.length);
+        var st = getState(p); var name = st && st.activeTopic;
+        if(!p || !name) return;
+        window.selectTopic(p, name, true);   // re-gate in place (skipHash keeps the URL)
+      });
+    }catch(e){}
+  };
   // Frosted lock for premium study modes: blur the rendered panel, float a small card over it.
   function clearStudyBlur(p){
     var ov=document.getElementById('da-study-blur-'+p); if(ov) ov.style.display='none';
@@ -21871,7 +21890,7 @@ function hideFlyout(p) {
   };
 
   var prevAuthed = window.__authed;
-  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('authsync'); } }); }catch(e){} }
+  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('authsync'); if(a){ setTimeout(function(){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(_e){} }, 1600); } } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
   // Load this account's server-side day-pass unlocks once the session is restored.
@@ -22133,6 +22152,9 @@ function hideFlyout(p) {
       if(!isMember && was && !window.__membershipLoaded){ window.__member=true; return; }
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
+      // Whatever the transition, a lock already on screen must re-check itself now that access
+      // is known — in place, without waiting on a reload (which the session cap may swallow).
+      if(isMember){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(e){} }
       if(isMember && !was){
         // Membership just ACTIVATED. Reload once to clear any lock UI rendered while free.
         // `immediate` skips the 6s smoothing so it isn't swallowed right after a sync reload,
@@ -22554,7 +22576,7 @@ function hideFlyout(p) {
         window.__mfaPending=true;
         // After verifying, the user is already signed in — just close the overlay (no reload).
         // The trusted-device claim runs in the background; on the next fresh load it's remembered.
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ var ov=document.getElementById('dv-overlay'); if(ov) ov.classList.remove('open'); }); }
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ var ov=document.getElementById('dv-overlay'); if(ov) ov.classList.remove('open'); try{ if(window.__applyMembership) window.__applyMembership(); }catch(e){} setTimeout(function(){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(e){} }, 200); }); }
         if(sentRecently(u.email)) { show(); return; }   // auto-send the code (rate-limited to once / 90s)
         sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
