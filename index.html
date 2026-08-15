@@ -285,6 +285,11 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .rn-flow-label{font-size:14px;line-height:1.65;color:var(--rn-text);}
 .rn-flow-label strong{display:block;margin-bottom:2px;}
 .rn-flow-sub{font-size:12.5px;color:var(--rn-sub);display:block;margin-top:3px;}
+/* Bold inside a box body (bulleted or inline) must stay inline — only the box
+   title strong should be block — otherwise every bold phrase breaks its line. */
+.rn-flow-sub strong{display:inline;margin:0;}
+.rn-flow-sub ul{margin:4px 0 0;padding-left:16px;}
+.rn-flow-sub li{margin:1px 0;}
 .rn-flow-arrow{text-align:center;color:var(--rn-blue);font-size:18px;line-height:1;margin:0 0 0 28px;opacity:.45;}
 .rn-inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;}
 .rn-inv-card{background:#F1F3F8;border:1.5px solid var(--rn-border);border-radius:10px;padding:14px;}
