@@ -21448,7 +21448,11 @@ function hideFlyout(p) {
     try{ var raw=rawGet('sb-'+PROJECT_REF+'-auth-token'); if(!raw) return false; var o=JSON.parse(raw); var s=o&&(o.currentSession||o); if(!s) return false; if(s.expires_at) return (s.expires_at*1000)>Date.now(); return !!s.access_token; }catch(e){ return false; }
   }
   function isAuthed(){ return !!user || tokenAuthed(); }
-  function flagPending(k){ if (k && k.indexOf('piri_')===0 && isAuthed()){ rawSet(PENDING_KEY,'1'); scheduleSync(); } }
+  // Bump a monotonically increasing token (not a constant '1') on every local change, so a push
+  // in flight can tell whether a NEW change landed after it captured its snapshot. With a constant
+  // flag the two are indistinguishable, and clearing it on push-success would silently drop the
+  // later change — the "I star one thing, unstar another, refresh, it reverts" bug.
+  function flagPending(k){ if (k && k.indexOf('piri_')===0 && isAuthed()){ rawSet(PENDING_KEY, String((parseInt(rawGet(PENDING_KEY),10)||0)+1)); scheduleSync(); } }
   window.localStorage.setItem = function(k,v){ rawSet(k,v); flagPending(k); };
   window.localStorage.removeItem = function(k){ rawRemove(k); flagPending(k); };
 
@@ -21457,7 +21461,20 @@ function hideFlyout(p) {
 
   function badge(t){ var el=document.getElementById('da-sync'); if (el) el.textContent=t||''; }
   function scheduleSync(){ clearTimeout(syncTimer); badge('Saving…'); syncTimer=setTimeout(pushSync,2000); }
-  function pushSync(){ if(!user) return; sb.from('user_progress').upsert({ user_id:user.id, data:collectLocal(), updated_at:new Date().toISOString() }).then(function(r){ if(!r.error){ try{ rawRemove(PENDING_KEY); }catch(e){} } badge(r.error?'Sync error':'Synced ✓'); if(r.error) console.warn('sync push',r.error); }); }
+  function pushSync(){ if(!user) return;
+    var token=rawGet(PENDING_KEY);   // dirty marker for exactly the snapshot we're about to upload
+    sb.from('user_progress').upsert({ user_id:user.id, data:collectLocal(), updated_at:new Date().toISOString() }).then(function(r){
+      if(!r.error){
+        // Clear the dirty flag ONLY if no new local change landed while this push was in flight.
+        // If the token moved, a change (e.g. un-starring a question) happened after our snapshot —
+        // clearing now would let a refresh pull stale cloud data back and revert it. Keep the flag
+        // and push again instead, so the newest state always wins.
+        if(rawGet(PENDING_KEY)===token){ try{ rawRemove(PENDING_KEY); }catch(e){} }
+        else { scheduleSync(); }
+      }
+      badge(r.error?'Sync error':'Synced ✓'); if(r.error) console.warn('sync push',r.error);
+    });
+  }
   function pull(){ if(!user) return;
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
