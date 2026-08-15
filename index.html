@@ -21436,6 +21436,11 @@ function hideFlyout(p) {
   // has changes not yet confirmed pushed to the cloud. Survives reload, so a pull can never
   // clobber a just-made local change (e.g. deleting a saved mock) that has not synced yet.
   var PENDING_KEY='da_sync_pending';
+  // The cloud updated_at this device last wrote/applied (non-synced, no piri_ prefix so it is
+  // never mirrored). Lets a pull tell "the cloud is genuinely newer (another device)" apart from
+  // "the cloud is my own same-or-older copy" — so a stale cloud row can never revert local, even
+  // if the pending flag was somehow lost. See pull().
+  var STAMP_KEY='da_sync_stamp';
   var PROJECT_REF='ynkyqovqlfmnpkdsaonu';
   var rawGet = window.localStorage.getItem.bind(window.localStorage);
   // Authenticated check that does NOT wait for the async getSession() below. A delete made in
@@ -21463,8 +21468,11 @@ function hideFlyout(p) {
   function scheduleSync(){ clearTimeout(syncTimer); badge('Saving…'); syncTimer=setTimeout(pushSync,2000); }
   function pushSync(){ if(!user) return;
     var token=rawGet(PENDING_KEY);   // dirty marker for exactly the snapshot we're about to upload
-    sb.from('user_progress').upsert({ user_id:user.id, data:collectLocal(), updated_at:new Date().toISOString() }).then(function(r){
+    var stamp=new Date().toISOString();
+    sb.from('user_progress').upsert({ user_id:user.id, data:collectLocal(), updated_at:stamp }).then(function(r){
       if(!r.error){
+        // Remember what we just wrote, so a later pull knows the cloud is our own copy (not newer).
+        try{ rawSet(STAMP_KEY, stamp); }catch(e){}
         // Clear the dirty flag ONLY if no new local change landed while this push was in flight.
         // If the token moved, a change (e.g. un-starring a question) happened after our snapshot —
         // clearing now would let a refresh pull stale cloud data back and revert it. Keep the flag
@@ -21475,11 +21483,33 @@ function hideFlyout(p) {
       badge(r.error?'Sync error':'Synced ✓'); if(r.error) console.warn('sync push',r.error);
     });
   }
+  // ms since epoch for an ISO timestamp, or 0 if unparseable/absent.
+  function stampMs(s){ if(!s) return 0; var t=new Date(s).getTime(); return isNaN(t)?0:t; }
   function pull(){ if(!user) return;
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
-    badge('Loading…'); sb.from('user_progress').select('data').eq('user_id',user.id).maybeSingle().then(function(r){ if(r.error){ console.warn('sync pull',r.error); badge(''); return; } if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; } var before=JSON.stringify(collectLocal()); if(r.data && r.data.data){ applyRemote(r.data.data); } else { pushSync(); } var after=JSON.stringify(collectLocal()); badge('Synced ✓'); if(before!==after){ (window.__scheduleReload||function(){location.reload();})('authsync'); } }); }
+    badge('Loading…'); sb.from('user_progress').select('data,updated_at').eq('user_id',user.id).maybeSingle().then(function(r){
+      if(r.error){ console.warn('sync pull',r.error); badge(''); return; }
+      if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }   // changed during the fetch
+      var remote = r.data && r.data.data;
+      if(!remote){ pushSync(); return; }                                                       // no cloud row yet → seed it
+      var localSnap = JSON.stringify(collectLocal());
+      // Safety net against reverts: if the cloud row is NOT newer than what this device last
+      // wrote/applied, the device is at least as up to date. Never overwrite local with a
+      // same-or-older cloud copy (that is exactly how a stale push would revert the user's
+      // latest stars). Push up only if there's an actual diff; otherwise do nothing.
+      var localStamp = rawGet(STAMP_KEY);
+      if(localStamp && stampMs(r.data.updated_at) <= stampMs(localStamp)){
+        if(localSnap !== JSON.stringify(remote)) pushSync();
+        badge('Synced ✓'); return;
+      }
+      // Cloud is genuinely newer (e.g. changed on another device) → apply it.
+      applyRemote(remote);
+      try{ if(r.data.updated_at) rawSet(STAMP_KEY, r.data.updated_at); }catch(e){}
+      var after=JSON.stringify(collectLocal()); badge('Synced ✓');
+      if(localSnap!==after){ (window.__scheduleReload||function(){location.reload();})('authsync'); }
+    }); }
   function maybePull(){ if (user && pulledFor!==user.id){ pulledFor=user.id; pull(); } }
   // Flush any pending push when the tab is hidden/closed, so a change isn't stranded on the 2s debounce.
   document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='hidden' && user && localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); } });
