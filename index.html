@@ -22480,6 +22480,16 @@ function hideFlyout(p) {
         return sb.auth.signUp({ email:email, password:password }).then(function(res){
           btn.disabled=false; btn.textContent=r0;
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} amsg(res.error.message,'err'); return; }
+          // With email confirmation ON, Supabase does NOT error on a duplicate email (to avoid
+          // leaking which emails exist) — it returns a decoy user with an empty identities array.
+          // Detect that and steer the user to sign in instead of creating a phantom "new account".
+          var _u=res.data && res.data.user;
+          if(_u && Array.isArray(_u.identities) && _u.identities.length===0){
+            try{localStorage.removeItem('da_pending_profile');}catch(e){}
+            amsg('An account with this email already exists. Please sign in instead.','err');
+            try{ if(window.setAuthMode) window.setAuthMode('signin'); var ee=$('authEmail'); if(ee) ee.value=email; }catch(e){}
+            return;
+          }
           if(res.data && res.data.session){                     // email confirmation OFF: straight in
             markVerified();
             claimDevice().then(function(){ (window.__authReload||function(){location.reload();})(); });
@@ -22517,10 +22527,10 @@ function hideFlyout(p) {
         }
         // A *different* device holds the trusted slot (account used elsewhere), or an
         // unclaimed account on a device we've never verified -> require an email code.
-        // Don't auto-email a code on every load; show a "Send code" button and let the user
-        // send it on demand. __mfaPending is set first so the reload coalescer stays quiet.
         window.__mfaPending=true;
-        openOverlay(u.email,'email','New device detected. To use DoctoRise on this device, send a verification code to <span style="color:var(--text)">'+u.email+'</span> and enter it below.', function(){ (window.__authReload||function(){location.reload();})(); }, true);
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ (window.__authReload||function(){location.reload();})(); }); }
+        if(sentRecently(u.email)) { show(); return; }   // auto-send the code (rate-limited to once / 90s)
+        sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
     }).catch(function(){});
   }
