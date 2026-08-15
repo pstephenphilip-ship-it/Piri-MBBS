@@ -22250,7 +22250,7 @@ function hideFlyout(p) {
       }
       d.firstChild.onclick=function(){ openPwReq(((($('authEmail')||{}).value)||'').trim()); };
       var _sm=window.setAuthMode;
-      window.setAuthMode=function(mode){ if(typeof _sm==='function') _sm(mode); var fl=$('da-forgot-link'); if(fl) fl.style.display=(mode==='signup')?'none':''; };
+      window.setAuthMode=function(mode){ if(typeof _sm==='function') _sm(mode); var fl=$('da-forgot-link'); if(fl) fl.style.display=(mode==='signup')?'none':''; var _b=$('authSubmitBtn'); if(_b) _b.disabled=false; };
       window.setAuthMode(window.__authMode||'signin');
     }
     sb.auth.onAuthStateChange(function(ev){ if(ev==='PASSWORD_RECOVERY' && !window.__mfaPending){ buildRecovery(); var o=$('da-recover-overlay'); if(o) o.classList.add('open'); } });
@@ -22497,6 +22497,10 @@ function hideFlyout(p) {
             if(typeof closeAuthModal==='function') closeAuthModal();
             openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ (window.__authReload||function(){location.reload();})(); });
           }
+        }).catch(function(err){                                  // network / rate-limit: never leave the shared button stuck disabled
+          btn.disabled=false; btn.textContent=r0;
+          try{localStorage.removeItem('da_pending_profile');}catch(e){}
+          amsg((err&&err.message)||'Couldn’t reach the server. Check your connection and try again.','err');
         });
       }
       // Reject a taken username up-front (best effort — ignore if the RPC is unavailable).
