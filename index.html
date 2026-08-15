@@ -22443,11 +22443,12 @@ function hideFlyout(p) {
     var btn=$('dv-verify'), r0=btn.textContent; btn.disabled=true; btn.textContent='Verifying…';
     sb.auth.verifyOtp({ email:vEmail, token:code, type:vType }).then(function(r){
       if(r.error){ vmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
-      vmsg('Verified — one moment…','ok');
+      vmsg('Verified ✓','ok');
       markVerified();
       window.__mfaPending=false;
-      try{ claimDevice(); }catch(e){}          // best-effort, in the background — NEVER block the redirect on it
-      setTimeout(vAfter, 600);                  // always proceed after verifying, even if the claim is slow/blocked
+      try{ claimDevice(); }catch(e){}          // best-effort, in the background — NEVER block on it
+      btn.disabled=false; btn.textContent=r0;  // never leave the button stuck on "Verifying…"
+      setTimeout(function(){ try{ vAfter(); }catch(e){} }, 300);
     }).catch(function(e){ vmsg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
   }
   function doResend(){
@@ -22546,7 +22547,9 @@ function hideFlyout(p) {
         // A *different* device holds the trusted slot (account used elsewhere), or an
         // unclaimed account on a device we've never verified -> require an email code.
         window.__mfaPending=true;
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ (window.__authReload||function(){location.reload();})(); }); }
+        // After verifying, the user is already signed in — just close the overlay (no reload).
+        // The trusted-device claim runs in the background; on the next fresh load it's remembered.
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ var ov=document.getElementById('dv-overlay'); if(ov) ov.classList.remove('open'); }); }
         if(sentRecently(u.email)) { show(); return; }   // auto-send the code (rate-limited to once / 90s)
         sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
