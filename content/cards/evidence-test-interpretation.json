@@ -1,0 +1,376 @@
+{
+  "fc": {
+    "investigations__EVIDENCE & TEST INTERPRETATION__Diagnostic Test Accuracy (Sensitivity, Specificity)": [
+      {
+        "id": "ev_ss_fc_01",
+        "front": "Define sensitivity and give its formula.",
+        "back": "Sensitivity = TP / (TP + FN). It is the proportion of people WITH the disease who test positive (the detection rate). A highly sensitive test has few false negatives."
+      },
+      {
+        "id": "ev_ss_fc_02",
+        "front": "Define specificity and give its formula.",
+        "back": "Specificity = TN / (TN + FP). It is the proportion of people WITHOUT the disease who test negative. A highly specific test has few false positives."
+      },
+      {
+        "id": "ev_ss_fc_03",
+        "front": "What do the mnemonics SnNOut and SpPIn mean?",
+        "back": "SnNOut: a highly Sensitive test that is Negative rules the disease OUT. SpPIn: a highly Specific test that is Positive rules the disease IN."
+      },
+      {
+        "id": "ev_ss_fc_04",
+        "front": "How does lowering the positivity cut-off affect sensitivity and specificity?",
+        "back": "Lowering the threshold raises sensitivity (catches more true cases, fewer false negatives) but lowers specificity (more false positives). It is a trade-off shown by the ROC curve."
+      },
+      {
+        "id": "ev_ss_fc_05",
+        "front": "What does the ROC AUC tell you, and what values are meaningful?",
+        "back": "The area under the ROC curve summarises overall discrimination. AUC near 1.0 = excellent discrimination; AUC of 0.5 = no better than chance (useless test)."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Predictive Values & Prevalence Effect (PPV / NPV)": [
+      {
+        "id": "ev_pv_fc_01",
+        "front": "Define positive predictive value (PPV) and give its formula.",
+        "back": "PPV = TP/(TP+FP). It is the probability that a person with a POSITIVE test truly has the disease."
+      },
+      {
+        "id": "ev_pv_fc_02",
+        "front": "Define negative predictive value (NPV) and give its formula.",
+        "back": "NPV = TN/(TN+FN). It is the probability that a person with a NEGATIVE test truly is disease-free."
+      },
+      {
+        "id": "ev_pv_fc_03",
+        "front": "Which test characteristics depend on prevalence and which do not?",
+        "back": "PPV and NPV depend on prevalence (pre-test probability). Sensitivity and specificity are intrinsic to the test and do NOT change with prevalence."
+      },
+      {
+        "id": "ev_pv_fc_04",
+        "front": "As prevalence rises, what happens to PPV and NPV for a fixed test?",
+        "back": "PPV increases and NPV decreases."
+      },
+      {
+        "id": "ev_pv_fc_05",
+        "front": "Why does screening a low-prevalence population produce so many false positives?",
+        "back": "With few truly diseased people, even a small false-positive rate applied to the large well population outnumbers the true positives, so PPV falls and most positives are false alarms."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Likelihood Ratios (LR+/LR−, SpPIn / SnNOut)": [
+      {
+        "id": "ev_lr_fc_01",
+        "front": "Formula for LR+ (positive likelihood ratio)?",
+        "back": "LR+ = sensitivity / (1 − specificity). It measures how much a positive test result raises the odds of disease. LR+ > 10 is strong evidence to rule the disease IN."
+      },
+      {
+        "id": "ev_lr_fc_02",
+        "front": "Formula for LR− (negative likelihood ratio)?",
+        "back": "LR− = (1 − sensitivity) / specificity. It measures how much a negative result lowers the odds of disease. LR− < 0.1 is strong evidence to rule the disease OUT."
+      },
+      {
+        "id": "ev_lr_fc_03",
+        "front": "Why are likelihood ratios superior to predictive values?",
+        "back": "LRs are properties of the test itself and are INDEPENDENT of prevalence, whereas PPV and NPV change with the prevalence of disease in the tested population."
+      },
+      {
+        "id": "ev_lr_fc_04",
+        "front": "How do you use an LR to update disease probability?",
+        "back": "Pre-test odds × LR = post-test odds. Convert probability to odds [odds = p/(1−p)], multiply by the LR, then convert back [p = odds/(1+odds)]. The Fagan nomogram does this graphically."
+      },
+      {
+        "id": "ev_lr_fc_05",
+        "front": "What do SpPIn and SnNOut mean?",
+        "back": "SpPIn: a Specific test with a Positive result rules the disease IN (high LR+). SnNOut: a Sensitive test with a Negative result rules the disease OUT (low LR−)."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Screening Principles (Wilson–Jungner)": [
+      {
+        "id": "ev_screen_fc_01",
+        "front": "What is the purpose of screening, and how does it differ from diagnosis?",
+        "back": "Screening tests an apparently healthy, asymptomatic population to identify those at higher risk of a disease or its precursor, so earlier intervention improves outcomes. It is not diagnostic: a positive screen selects people for a definitive diagnostic test, not for treatment."
+      },
+      {
+        "id": "ev_screen_fc_02",
+        "front": "List the four Wilson & Jungner domains and their core requirement.",
+        "back": "CONDITION: important problem with a recognisable latent stage and understood natural history. TEST: simple, safe, acceptable, valid with an agreed cut-off. TREATMENT: an accepted effective treatment exists and early treatment beats late. PROGRAMME: cost-effective, continuous, with adequate facilities and an agreed policy on whom to treat."
+      },
+      {
+        "id": "ev_screen_fc_03",
+        "front": "Define lead-time bias.",
+        "back": "Earlier detection by screening moves the diagnosis date forward, lengthening measured survival from diagnosis even when the actual date of death is unchanged. It makes screen-detected survival look falsely better without anyone living longer."
+      },
+      {
+        "id": "ev_screen_fc_04",
+        "front": "Define length-time bias.",
+        "back": "Screening preferentially detects slow-growing, indolent disease with a long pre-clinical phase and inherently better prognosis, while aggressive fast-growing disease surfaces symptomatically between screens. This overstates the apparent benefit of screening."
+      },
+      {
+        "id": "ev_screen_fc_05",
+        "front": "Give the UK adult and infant screening programmes with their targets.",
+        "back": "Cervical (hrHPV, women 25-64), breast (mammography, 50-71, 3-yearly), bowel (FIT, 50-74, 2-yearly), AAA (one-off ultrasound, men at 65), antenatal (infections, Down's, anomaly scan) and newborn bloodspot (day 5 heel-prick for CF, congenital hypothyroidism, sickle cell and other conditions)."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Notifiable Diseases & Notification Process": [
+      {
+        "id": "ev_notify_fc_01",
+        "front": "What triggers the legal duty to notify a notifiable disease in the UK?",
+        "back": "Reasonable CLINICAL SUSPICION of the disease by the attending registered medical practitioner. You must notify promptly without waiting for laboratory confirmation."
+      },
+      {
+        "id": "ev_notify_fc_02",
+        "front": "To whom is a notifiable disease reported, and how quickly?",
+        "back": "To the proper officer of the local authority / UKHSA. Urgent cases (e.g. meningococcal disease, diphtheria, VHF) same day by phone; routine cases in writing within 3 days."
+      },
+      {
+        "id": "ev_notify_fc_03",
+        "front": "Name six common notifiable diseases in the UK.",
+        "back": "Measles, mumps, rubella, meningococcal disease/meningitis, TB, cholera, diphtheria, whooping cough (pertussis), food poisoning, acute infectious hepatitis, HUS, malaria, rabies, viral haemorrhagic fever, COVID-19 (any six)."
+      },
+      {
+        "id": "ev_notify_fc_04",
+        "front": "Is HIV a statutorily notifiable disease in the UK?",
+        "back": "No. HIV is NOT on the statutory notifiable list (patient confidentiality); it is monitored through confidential voluntary surveillance instead."
+      },
+      {
+        "id": "ev_notify_fc_05",
+        "front": "What is the public-health purpose of prompt notification?",
+        "back": "To enable contact tracing, prophylaxis of contacts, early outbreak detection, and outbreak control before further spread occurs. Diagnostic laboratories must separately report notifiable causative organisms."
+      }
+    ]
+  },
+  "q": {
+    "investigations__EVIDENCE & TEST INTERPRETATION__Diagnostic Test Accuracy (Sensitivity, Specificity)": [
+      {
+        "id": "ev_ss_q01",
+        "type": "mcq",
+        "question": "A test is evaluated against a gold standard. Among 200 people who truly have the disease, 180 test positive and 20 test negative. What is the sensitivity of the test?",
+        "options": [
+          "70%",
+          "80%",
+          "85%",
+          "90%",
+          "95%"
+        ],
+        "correctIndex": 3,
+        "answer": "90%",
+        "explanation": "Sensitivity = TP / (TP + FN) = 180 / (180 + 20) = 180/200 = 90%. It measures the proportion of truly diseased people the test correctly identifies as positive."
+      },
+      {
+        "id": "ev_ss_q02",
+        "type": "mcq",
+        "question": "A GP wants a test to help safely rule OUT deep vein thrombosis in a low-risk patient so that further imaging can be avoided. Which test property is most desirable for this purpose?",
+        "options": [
+          "High specificity",
+          "High sensitivity",
+          "High positive predictive value",
+          "Low prevalence",
+          "A high positivity cut-off"
+        ],
+        "correctIndex": 1,
+        "answer": "High sensitivity",
+        "explanation": "A highly sensitive test has few false negatives, so a negative result reliably rules the disease out (SnNOut). This is why a sensitive D-dimer is used to exclude DVT in low-risk patients."
+      },
+      {
+        "id": "ev_ss_q03",
+        "type": "mcq",
+        "question": "Which statement about sensitivity, specificity and predictive values is correct?",
+        "options": [
+          "Sensitivity increases as disease prevalence rises",
+          "Positive predictive value is independent of prevalence",
+          "Sensitivity and specificity are intrinsic properties of the test and broadly independent of prevalence",
+          "Specificity is calculated as TP / (TP + FP)",
+          "Lowering the cut-off increases both sensitivity and specificity"
+        ],
+        "correctIndex": 2,
+        "answer": "Sensitivity and specificity are intrinsic properties of the test and broadly independent of prevalence",
+        "explanation": "Sensitivity and specificity are calculated down the columns of the 2x2 table by true disease status, so they describe the test itself and are broadly stable across populations. Predictive values, by contrast, depend on prevalence."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Predictive Values & Prevalence Effect (PPV / NPV)": [
+      {
+        "id": "ev_pv_q01",
+        "type": "mcq",
+        "question": "A test with fixed sensitivity and specificity is used first in a symptomatic hospital clinic and later in a general-public screening programme. Compared with the clinic, what happens to the PPV in the screening setting?",
+        "options": [
+          "PPV falls because prevalence is lower",
+          "PPV rises because prevalence is lower",
+          "PPV is unchanged because it is intrinsic to the test",
+          "PPV falls because sensitivity decreases",
+          "PPV rises because specificity increases"
+        ],
+        "correctIndex": 0,
+        "answer": "PPV falls because prevalence is lower",
+        "explanation": "PPV depends on pre-test probability, which is lower in a screening population. With fewer true cases, false positives dominate the positive results, so PPV falls even though the test itself is unchanged."
+      },
+      {
+        "id": "ev_pv_q02",
+        "type": "mcq",
+        "question": "A test has sensitivity 99% and specificity 95%. Applied to 100,000 people with a disease prevalence of 0.1%, roughly what is the PPV?",
+        "options": [
+          "About 2%",
+          "About 50%",
+          "About 95%",
+          "About 99%",
+          "About 0.1%"
+        ],
+        "correctIndex": 0,
+        "answer": "About 2%",
+        "explanation": "Of 100 diseased people, ~99 are true positives; of 99,900 well people, ~4,995 are false positives. PPV = 99/(99+4995), which is roughly 2%, so most positives are false."
+      },
+      {
+        "id": "ev_pv_q03",
+        "type": "mcq",
+        "question": "Which statement about predictive values is correct?",
+        "options": [
+          "Sensitivity and specificity are independent of prevalence, whereas PPV and NPV are not",
+          "PPV and NPV are independent of prevalence, whereas sensitivity and specificity are not",
+          "All four measures rise as prevalence rises",
+          "PPV equals TN/(TN+FN)",
+          "NPV increases as prevalence increases"
+        ],
+        "correctIndex": 0,
+        "answer": "Sensitivity and specificity are independent of prevalence, whereas PPV and NPV are not",
+        "explanation": "Sensitivity and specificity are intrinsic properties measured down the disease columns and do not change with prevalence. PPV and NPV combine test accuracy with pre-test probability, so they shift as prevalence changes."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Likelihood Ratios (LR+/LR−, SpPIn / SnNOut)": [
+      {
+        "id": "ev_lr_q01",
+        "type": "mcq",
+        "question": "A new diagnostic test has a sensitivity of 0.90 and a specificity of 0.95. What is its positive likelihood ratio (LR+)?",
+        "options": [
+          "0.95",
+          "1.05",
+          "9.0",
+          "18",
+          "19"
+        ],
+        "correctIndex": 3,
+        "answer": "18",
+        "explanation": "LR+ = sensitivity / (1 − specificity) = 0.90 / (1 − 0.95) = 0.90 / 0.05 = 18. A value of 18 exceeds 10, so a positive result is strong evidence to rule the disease in."
+      },
+      {
+        "id": "ev_lr_q02",
+        "type": "mcq",
+        "question": "A test has a sensitivity of 0.80 and a specificity of 0.50. What is its negative likelihood ratio (LR−)?",
+        "options": [
+          "0.10",
+          "0.25",
+          "0.40",
+          "0.63",
+          "1.60"
+        ],
+        "correctIndex": 2,
+        "answer": "0.40",
+        "explanation": "LR− = (1 − sensitivity) / specificity = (1 − 0.80) / 0.50 = 0.20 / 0.50 = 0.40. As this is well above 0.1, a negative result only modestly lowers the odds of disease."
+      },
+      {
+        "id": "ev_lr_q03",
+        "type": "mcq",
+        "question": "A patient has a pre-test probability of disease of 20%. A test with an LR+ of 6 returns positive. What is the approximate post-test probability?",
+        "options": [
+          "20%",
+          "40%",
+          "60%",
+          "80%",
+          "95%"
+        ],
+        "correctIndex": 2,
+        "answer": "60%",
+        "explanation": "Pre-test odds = 0.20 / 0.80 = 0.25; post-test odds = 0.25 × 6 = 1.5; post-test probability = 1.5 / (1 + 1.5) = 0.6, i.e. 60%. This demonstrates converting probability to odds, applying the LR, and converting back."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Screening Principles (Wilson–Jungner)": [
+      {
+        "id": "ev_screen_q01",
+        "type": "mcq",
+        "question": "A new blood test is proposed to screen the general population for a rare cancer. Which single feature is MOST essential before a national screening programme is introduced, according to Wilson & Jungner?",
+        "options": [
+          "The test is inexpensive to manufacture",
+          "An accepted, effective treatment exists and treating the early stage improves outcome more than treating late",
+          "The disease is frequently discussed in the media",
+          "The test can be performed at home",
+          "The test has 100% specificity"
+        ],
+        "correctIndex": 1,
+        "answer": "An accepted, effective treatment exists and treating the early stage improves outcome more than treating late",
+        "explanation": "Screening is only worthwhile if earlier detection changes outcome, which requires an accepted effective treatment that works better in the latent or early stage. Without this, early detection merely lengthens the time a person knows they are ill."
+      },
+      {
+        "id": "ev_screen_q02",
+        "type": "mcq",
+        "question": "A cancer screening programme reports that 5-year survival from diagnosis is much higher in screen-detected patients than in those diagnosed after symptoms, yet a randomised trial shows no reduction in disease-specific mortality. Which bias best explains this discrepancy?",
+        "options": [
+          "Recall bias",
+          "Confounding by indication",
+          "Lead-time bias",
+          "Publication bias",
+          "Attrition bias"
+        ],
+        "correctIndex": 2,
+        "answer": "Lead-time bias",
+        "explanation": "Lead-time bias arises because screening advances the date of diagnosis, so survival measured from diagnosis appears longer even when the date of death is unchanged. This is why programme benefit is judged by mortality in randomised trials rather than survival from detection."
+      },
+      {
+        "id": "ev_screen_q03",
+        "type": "mcq",
+        "question": "Which statement about UK national screening programmes is correct?",
+        "options": [
+          "Abdominal aortic aneurysm screening offers a one-off ultrasound to men at age 65",
+          "Bowel cancer screening uses annual colonoscopy for everyone over 40",
+          "Breast screening uses MRI for all women from age 30",
+          "Cervical screening treats women directly on the basis of the screening result",
+          "Newborn bloodspot screening is performed within one hour of birth"
+        ],
+        "correctIndex": 0,
+        "answer": "Abdominal aortic aneurysm screening offers a one-off ultrasound to men at age 65",
+        "explanation": "The UK AAA programme invites men in their 65th year for a single abdominal ultrasound, as aneurysm risk rises with age in men. The other options misstate the modality, age range, or the principle that a positive screen leads to diagnostic follow-up rather than direct treatment."
+      }
+    ],
+    "investigations__EVIDENCE & TEST INTERPRETATION__Notifiable Diseases & Notification Process": [
+      {
+        "id": "ev_notify_q01",
+        "type": "mcq",
+        "question": "A GP sees a 6-year-old with fever, coryza, conjunctivitis and a spreading maculopapular rash with Koplik spots, strongly suggesting measles. What is the correct action regarding notification?",
+        "options": [
+          "Notify the proper officer promptly on clinical suspicion, without waiting for serology",
+          "Await positive measles IgM before notifying, to avoid false alarms",
+          "No notification is required as measles is now rare in the UK",
+          "Notify only if a second case appears in the same school",
+          "Refer to the hospital and let the admitting team decide on notification"
+        ],
+        "correctIndex": 0,
+        "answer": "Notify the proper officer promptly on clinical suspicion, without waiting for serology",
+        "explanation": "Measles is a notifiable disease and the statutory duty is triggered by clinical suspicion, not laboratory confirmation. Prompt notification allows contact tracing and prophylaxis before laboratory results become available."
+      },
+      {
+        "id": "ev_notify_q02",
+        "type": "mcq",
+        "question": "Which of the following is NOT a statutorily notifiable disease in the UK?",
+        "options": [
+          "HIV infection",
+          "Tuberculosis",
+          "Meningococcal disease",
+          "Cholera",
+          "Acute infectious hepatitis"
+        ],
+        "correctIndex": 0,
+        "answer": "HIV infection",
+        "explanation": "HIV is deliberately excluded from the statutory notifiable list to protect patient confidentiality, being tracked instead through voluntary confidential surveillance. Tuberculosis, meningococcal disease, cholera and acute infectious hepatitis are all statutorily notifiable."
+      },
+      {
+        "id": "ev_notify_q03",
+        "type": "mcq",
+        "question": "Who holds the legal responsibility to notify, and to whom is the notification made?",
+        "options": [
+          "The attending registered medical practitioner notifies the proper officer of the local authority / UKHSA",
+          "The receptionist notifies the General Medical Council",
+          "The patient self-reports to their employer",
+          "The pharmacist notifies the Care Quality Commission",
+          "Only the diagnostic laboratory notifies, and only after confirmation"
+        ],
+        "correctIndex": 0,
+        "answer": "The attending registered medical practitioner notifies the proper officer of the local authority / UKHSA",
+        "explanation": "The statutory duty rests with the attending registered medical practitioner, who reports to the proper officer of the local authority working with UKHSA. Diagnostic laboratories have a separate parallel duty to report notifiable causative organisms."
+      }
+    ]
+  }
+}
