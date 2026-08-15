@@ -22444,7 +22444,9 @@ function hideFlyout(p) {
       if(r.error){ vmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
       vmsg('Verified — one moment…','ok');
       markVerified();
-      claimDevice().then(function(){ window.__mfaPending=false; setTimeout(vAfter, 500); });
+      window.__mfaPending=false;
+      try{ claimDevice(); }catch(e){}          // best-effort, in the background — NEVER block the redirect on it
+      setTimeout(vAfter, 600);                  // always proceed after verifying, even if the claim is slow/blocked
     }).catch(function(e){ vmsg((e&&e.message)||'Error'); btn.disabled=false; btn.textContent=r0; });
   }
   function doResend(){
@@ -22502,7 +22504,8 @@ function hideFlyout(p) {
           }
           if(res.data && res.data.session){                     // email confirmation OFF: straight in
             markVerified();
-            claimDevice().then(function(){ (window.__authReload||function(){location.reload();})(); });
+            try{ claimDevice(); }catch(e){}                      // background; don't block the redirect on it
+            setTimeout(function(){ (window.__authReload||function(){location.reload();})(); }, 300);
           } else {                                              // confirmation ON: verify the emailed code
             if(typeof closeAuthModal==='function') closeAuthModal();
             openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ (window.__authReload||function(){location.reload();})(); });
