@@ -22334,7 +22334,11 @@ function hideFlyout(p) {
 <script>
 (function(){
   var sb = window.__sb; if(!sb) return;
-  var AUTH2FA = true;                 // master switch for the device/email verification flow
+  var AUTH2FA = true;                 // master switch for the sign-up code / duplicate-email handling
+  // On-load "new device detected" email-code gate. Disabled: when the trusted-device claim
+  // couldn't persist it re-prompted on every login, each costing a page reload (the refresh
+  // loop). Sign-up email confirmation and the duplicate-email guard are unaffected.
+  var DEVICE_GATE = false;
   function $(id){ return document.getElementById(id); }
   function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded',fn); }
 
@@ -22516,7 +22520,7 @@ function hideFlyout(p) {
 
   // ---- on-load device gate: any authenticated load on a non-trusted device must re-verify ----
   function enforceDevice(){
-    if(!AUTH2FA) return;
+    if(!AUTH2FA || !DEVICE_GATE) return;
     sb.auth.getSession().then(function(r){
       var s=r&&r.data?r.data.session:null, u=s?s.user:null; if(!u) return;
       sb.from('profiles').select('trusted_device').eq('id',u.id).maybeSingle().then(function(pr){
