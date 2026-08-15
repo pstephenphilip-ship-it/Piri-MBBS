@@ -21567,7 +21567,13 @@ function hideFlyout(p) {
   // reason done first, so the freshly loaded page's auth/sync settle doesn't reload AGAIN on
   // top of it. Membership transitions keep their own separate reason (post-payment unlock).
   window.__authReload = window.__authReload || function(){
-    try{ sessionStorage.setItem('da-rl-authsync','1'); sessionStorage.setItem('da-reload-ts', String(Date.now())); }catch(e){}
+    try{
+      if(parseInt(sessionStorage.getItem('da-reload-count')||'0',10) >= 3) return;   // shares the global cap: can never refresh-loop
+      sessionStorage.setItem('da-rl-authsync','1');
+      sessionStorage.setItem('da-reload-ts', String(Date.now()));
+      var c=parseInt(sessionStorage.getItem('da-reload-count')||'0',10);
+      sessionStorage.setItem('da-reload-count', String(c+1));
+    }catch(e){}
     try{ location.reload(); }catch(e){}
   };
   // Full-access members (paid membership OR a comp/automatic membership set on the
@@ -22335,10 +22341,10 @@ function hideFlyout(p) {
 (function(){
   var sb = window.__sb; if(!sb) return;
   var AUTH2FA = true;                 // master switch for the sign-up code / duplicate-email handling
-  // On-load "new device detected" email-code gate. Disabled: when the trusted-device claim
-  // couldn't persist it re-prompted on every login, each costing a page reload (the refresh
-  // loop). Sign-up email confirmation and the duplicate-email guard are unaffected.
-  var DEVICE_GATE = false;
+  // On-load "new device detected" email-code gate (single-trusted-device / account-sharing
+  // protection). ON. If the trusted-device claim can't persist server-side it could re-prompt;
+  // the global reload cap in __authReload bounds that so it can never refresh-loop forever.
+  var DEVICE_GATE = true;
   function $(id){ return document.getElementById(id); }
   function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded',fn); }
 
