@@ -22389,24 +22389,41 @@ function hideFlyout(p) {
       +'<div class="auth-logo"><span class="logo-text">DoctoRise</span></div>'
       +'<div class="auth-sub" id="dv-sub"></div>'
       +'<div class="auth-msg" id="dv-msg"></div>'
-      +'<div class="auth-field"><label for="dv-code">Verification code</label><input id="dv-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="Enter the code"></div>'
-      +'<button class="auth-submit" id="dv-verify">Verify</button>'
-      +'<div class="auth-toggle">Didn’t get it? <a id="dv-resend">Resend code</a></div>'
+      +'<button class="auth-submit" id="dv-send" style="display:none">Send code</button>'
+      +'<div id="dv-codewrap" style="display:none">'
+      +  '<div class="auth-field"><label for="dv-code">Verification code</label><input id="dv-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="Enter the code"></div>'
+      +  '<button class="auth-submit" id="dv-verify">Verify</button>'
+      +  '<div class="auth-toggle">Didn’t get it? <a id="dv-resend">Resend code</a></div>'
+      +'</div>'
       +'<div class="auth-toggle" style="margin-top:6px"><a id="dv-signout">Cancel / use a different account</a></div>'
       +'</div>';
     document.body.appendChild(ov);
     $('dv-verify').onclick=doVerify;
     $('dv-resend').onclick=doResend;
+    $('dv-send').onclick=doSend;
     $('dv-signout').onclick=function(){ window.__mfaPending=false; sb.auth.signOut().then(function(){ location.reload(); }); };
     $('dv-code').addEventListener('keydown',function(e){ if(e.key==='Enter') doVerify(); });
   }
-  function openOverlay(email, type, sub, after){
+  function showSend(){ var s=$('dv-send'), w=$('dv-codewrap'); if(s) s.style.display='block'; if(w) w.style.display='none'; }
+  function showEntry(){ var s=$('dv-send'), w=$('dv-codewrap'); if(s) s.style.display='none'; if(w) w.style.display='block'; setTimeout(function(){ var c=$('dv-code'); if(c) c.focus(); },60); }
+  // Send the code on demand (rather than auto-sending it on load), then reveal the entry field.
+  function doSend(){
+    if(!vEmail) return;
+    var btn=$('dv-send'), r0=btn.textContent; btn.disabled=true; btn.textContent='Sending…';
+    var p=(vType==='signup') ? sb.auth.resend({ type:'signup', email:vEmail })
+                             : sb.auth.signInWithOtp({ email:vEmail, options:{ shouldCreateUser:false } });
+    p.then(function(r){ btn.disabled=false; btn.textContent=r0; if(r&&r.error){ vmsg(r.error.message||'Could not send the code.'); return; } vmsg('Code sent — check your email.','ok'); showEntry(); })
+     .catch(function(e){ btn.disabled=false; btn.textContent=r0; vmsg((e&&e.message)||'Could not send the code.'); });
+  }
+  // needsSend=true shows a "Send code" button first; otherwise the code was already emailed
+  // (e.g. on sign-up) and we show the entry field straight away.
+  function openOverlay(email, type, sub, after, needsSend){
     buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ (window.__authReload||function(){location.reload();})(); };
     window.__mfaPending=true;
     $('dv-sub').innerHTML=sub||('Enter the code we emailed to <span style="color:var(--text)">'+email+'</span>');
     $('dv-code').value=''; var m=$('dv-msg'); if(m) m.className='auth-msg';
+    if(needsSend){ showSend(); } else { showEntry(); }
     $('dv-overlay').classList.add('open');
-    setTimeout(function(){ var c=$('dv-code'); if(c) c.focus(); },60);
   }
   function vmsg(t,k){ var m=$('dv-msg'); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
   function doVerify(){
@@ -22500,10 +22517,10 @@ function hideFlyout(p) {
         }
         // A *different* device holds the trusted slot (account used elsewhere), or an
         // unclaimed account on a device we've never verified -> require an email code.
+        // Don't auto-email a code on every load; show a "Send code" button and let the user
+        // send it on demand. __mfaPending is set first so the reload coalescer stays quiet.
         window.__mfaPending=true;
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ (window.__authReload||function(){location.reload();})(); }); }
-        if(sentRecently(u.email)) { show(); return; }
-        sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
+        openOverlay(u.email,'email','New device detected. To use DoctoRise on this device, send a verification code to <span style="color:var(--text)">'+u.email+'</span> and enter it below.', function(){ (window.__authReload||function(){location.reload();})(); }, true);
       }).catch(function(){});
     }).catch(function(){});
   }
