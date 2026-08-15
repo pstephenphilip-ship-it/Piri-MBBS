@@ -30,6 +30,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .topnav{display:flex;align-items:center;height:52px;background:var(--surface);border-bottom:1px solid var(--border);padding:0;position:relative;z-index:10;flex-shrink:0;}
 .logo{font-family:var(--mono);font-size:21px;font-weight:800;letter-spacing:-0.01em;white-space:nowrap;width:var(--sidebar-w);min-width:var(--sidebar-w);padding:0 20px;box-sizing:border-box;flex-shrink:0;display:flex;align-items:center;gap:10px;}
 .logo-text{background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-beta{font-family:var(--sans,sans-serif);font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0EA5E9;background:rgba(14,165,233,.13);border:1px solid rgba(14,165,233,.42);border-radius:5px;padding:2px 5px;line-height:1;align-self:center;margin-left:-4px;}
 .nav-tabs{display:flex;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;scroll-behavior:smooth;}
 .nav-tabs::-webkit-scrollbar{display:none;}
 .nav-arrow{flex-shrink:0;width:30px;height:52px;display:none;align-items:center;justify-content:center;background:var(--surface);border:none;border-bottom:1px solid var(--border);color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:0;z-index:3;transition:color .15s,opacity .15s;}
@@ -525,7 +526,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 </head>
 <body>
 <nav class="topnav">
-  <div class="logo" onclick="goHome()" style="cursor:pointer;" title="Home"><span class="logo-text">DoctoRise</span></div>
+  <div class="logo" onclick="goHome()" style="cursor:pointer;" title="Home"><span class="logo-text">DoctoRise</span><span class="logo-beta">beta</span></div>
   <button class="nav-arrow nav-arrow-left" id="navArrowL" type="button" aria-label="Scroll tabs left" onclick="scrollNavTabs(-1)">&#8249;</button>
   <div class="nav-tabs" id="navTabs">
     <div class="nav-tab" onclick="switchMainTab('conditions',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15C9 15 3 11 3 7a4 4 0 018 0 4 4 0 018 0c0 4-6 8-6 8z"/><path d="M9 7v3m-1.5-1.5h3"/></svg></span>Medical Conditions</div>
@@ -22798,8 +22799,10 @@ function hideFlyout(p) {
     }
     // Signed in, not a member.
     var live = livePlans();
+    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:10px;font-size:12.5px;line-height:1.55;color:var(--text,#E8EAF0);"><b style="color:#0EA5E9;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at the current price. As the platform is fully completed, prices may go up — but you&rsquo;ll lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
     if(live.length){
       body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
+        betaNote+
         '<div class="da-plan-lead">Unlock flashcards, MCQs, spaced-repetition review and calculator case practice. Choose a plan:</div>'+
         '<div class="da-plan-grid">'+ live.map(planCardHTML).join('') +'</div>'+
         '<div class="da-set-muted" style="margin-top:12px;">Secure checkout by Stripe · cancel anytime.</div>';
