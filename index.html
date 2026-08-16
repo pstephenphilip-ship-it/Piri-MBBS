@@ -24248,43 +24248,227 @@ function hideFlyout(p) {
 })();
 </script>
 <script>
-/* ===== Pharmacology Flashcards page (opened from the search bar; members-only) ===== */
+/* ===== Pharmacology Flashcards (members-only): All / Custom selection + study deck ===== */
 (function(){
+  var PH = window.__PH = { loaded:false, loading:false, groups:{}, tax:[], deck:[], i:0, MYPK:'pharmacology__My Cards__Custom' };
+  function el(id){ return document.getElementById(id); }
+  function escapeHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function cnt(pk){ return (PH.groups[pk]||[]).length; }
+  function mastered(){ try{ return new Set(JSON.parse(localStorage.getItem('piri_ph_mastered')||'[]').map(String)); }catch(e){ return new Set(); } }
+  function saveMastered(set){ try{ localStorage.setItem('piri_ph_mastered', JSON.stringify(Array.from(set))); }catch(e){} }
+  function userCards(){ try{ return JSON.parse(localStorage.getItem('piri_fc__'+PH.MYPK)||'[]'); }catch(e){ return []; } }
+  function saveUserCards(arr){ try{ localStorage.setItem('piri_fc__'+PH.MYPK, JSON.stringify(arr)); }catch(e){} }
+
   window.openPharmaFC = function(){
-    var pg = document.getElementById('pharma-fc-page');
-    if(!pg) return;
+    var pg = el('pharma-fc-page'); if(!pg) return;
     pg.style.display = 'flex';
-    renderPharmaFC(document.getElementById('pharma-fc-body'));
+    var body = el('pharma-fc-body');
+    if(!window.__member){ renderLock(body); return; }
+    if(PH.loaded){ renderHome(body); return; }
+    body.innerHTML = '<div style="flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted,#6B7280);font-family:var(--sans);font-size:13px;">Loading flashcards…</div>';
+    phLoad(function(){ renderHome(body); });
   };
-  window.closePharmaFC = function(){
-    var pg = document.getElementById('pharma-fc-page');
-    if(pg) pg.style.display = 'none';
-  };
-  function renderPharmaFC(box){
-    if(!box) return;
-    if(!window.__member){
-      var authed = !!window.__authed;
-      var actions = authed
-        ? '<button class="da-lock-btn primary" onclick="window.__openSettings&&window.__openSettings()">Manage membership</button>'
-        : '<button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Create free account</button>'
-          + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button>';
-      box.innerHTML =
-        '<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px;">'
-        + '<div class="da-lock" style="margin:0;">'
-        + '<div class="da-lock-icon">🔒</div>'
-        + '<div class="da-lock-title">Pharmacology flashcards are a members feature</div>'
-        + '<div class="da-lock-sub">Rapid-recall drug flashcards — mechanisms, doses, side effects &amp; interactions — are part of <strong>membership</strong>.</div>'
-        + '<div class="da-lock-actions">' + actions + '</div>'
-        + '</div></div>';
-      return;
-    }
+  window.closePharmaFC = function(){ var pg = el('pharma-fc-page'); if(pg) pg.style.display='none'; };
+
+  function phLoad(cb){
+    if(PH.loading){ return; } PH.loading = true;
+    fetch('content/cards/pharmacology-flashcards.json', {cache:'no-cache'})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        PH.groups = d.fc || {};
+        PH.tax = d.taxonomy || [];
+        // merge into PRESET_FC so the global Review (SRS) overlay can resolve pharmacology cards
+        try{ if(typeof PRESET_FC!=='undefined' && PRESET_FC){ for(var k in PH.groups){ if(PH.groups.hasOwnProperty(k)) PRESET_FC[k] = PH.groups[k]; } } else if(window.PRESET_FC){ for(var k2 in PH.groups){ if(PH.groups.hasOwnProperty(k2)) window.PRESET_FC[k2] = PH.groups[k2]; } } }catch(e){}
+        PH.loaded = true; PH.loading = false;
+        try{ if(window.daSrsRefresh) window.daSrsRefresh(); }catch(e){}
+        cb && cb();
+      })
+      .catch(function(){ PH.loading = false; var b=el('pharma-fc-body'); if(b) b.innerHTML='<div style="flex:1;display:flex;align-items:center;justify-content:center;color:var(--muted,#6B7280);">Could not load flashcards.</div>'; });
+  }
+
+  function renderLock(box){
+    var authed = !!window.__authed;
+    var actions = authed
+      ? '<button class="da-lock-btn primary" onclick="window.__openSettings&&window.__openSettings()">Manage membership</button>'
+      : '<button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Create free account</button>'
+        + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button>';
     box.innerHTML =
       '<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px;">'
-      + '<div class="note-empty" style="max-width:420px;text-align:center;">'
-      + '<div class="note-empty-icon">🃏</div>'
-      + '<div class="note-empty-text">Pharmacology flashcards are coming soon.<br>We’re building this deck now.</div>'
+      + '<div class="da-lock" style="margin:0;">'
+      + '<div class="da-lock-icon">🔒</div>'
+      + '<div class="da-lock-title">Pharmacology flashcards are a members feature</div>'
+      + '<div class="da-lock-sub">Rapid-recall drug flashcards — mechanisms, doses, side effects &amp; interactions — are part of <strong>membership</strong>.</div>'
+      + '<div class="da-lock-actions">' + actions + '</div>'
       + '</div></div>';
   }
+
+  // ---------- Selection home (All / Custom) ----------
+  function totalCount(){ var n=0; for(var k in PH.groups){ if(PH.groups.hasOwnProperty(k)) n+=PH.groups[k].length; } return n + userCards().length; }
+  function renderHome(box){
+    var total = totalCount();
+    var h = '';
+    h += '<div style="max-width:820px;margin:0 auto;width:100%;padding:26px 22px 40px;">';
+    h += '<div style="font-size:22px;font-weight:800;color:var(--text,#1E2640);margin-bottom:4px;">Pharmacology Flashcards</div>';
+    h += '<div style="font-size:13.5px;color:var(--muted,#6B7280);margin-bottom:22px;">Study every card, or build a custom set from specific drug groups.</div>';
+    // All card
+    h += '<button type="button" onclick="window.__phStartAll()" style="width:100%;text-align:left;cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface,#fff);border-radius:14px;padding:18px 20px;margin-bottom:12px;display:flex;align-items:center;gap:16px;">'
+      + '<div style="font-size:26px;">🗂️</div>'
+      + '<div style="flex:1;"><div style="font-size:15.5px;font-weight:800;color:var(--text,#1E2640);">All cards</div><div style="font-size:12.5px;color:var(--muted,#6B7280);margin-top:2px;">Every pharmacology flashcard across all groups.</div></div>'
+      + '<div style="font-size:12px;font-weight:700;color:#0EA5E9;background:rgba(14,165,233,.12);border-radius:20px;padding:4px 12px;">'+total+' cards</div></button>';
+    // Custom toggle card
+    h += '<button type="button" onclick="window.__phToggleCustom()" id="ph-custom-toggle" style="width:100%;text-align:left;cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface,#fff);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:16px;">'
+      + '<div style="font-size:26px;">🎛️</div>'
+      + '<div style="flex:1;"><div style="font-size:15.5px;font-weight:800;color:var(--text,#1E2640);">Custom</div><div style="font-size:12.5px;color:var(--muted,#6B7280);margin-top:2px;">Pick specific sections and drug groups (e.g. Cardiovascular → Antihypertensives).</div></div>'
+      + '<div id="ph-custom-caret" style="font-size:15px;color:var(--muted,#6B7280);">▾</div></button>';
+    // Custom tree (hidden initially)
+    h += '<div id="ph-custom-panel" style="display:none;margin-top:12px;border:1px solid var(--border2,#E2E6F0);border-radius:14px;background:var(--surface,#fff);overflow:hidden;">';
+    h += '<div style="max-height:52vh;overflow-y:auto;padding:6px 4px;">';
+    // My Cards group
+    var myc = userCards().length;
+    h += groupRow(PH.MYPK, '📝 My Cards', myc, true);
+    // taxonomy sections
+    PH.tax.forEach(function(sec, si){
+      var secId = 'phsec-'+si;
+      var secTotal = 0; (sec.subsections||[]).forEach(function(sub){ secTotal += cnt('pharmacology__'+sec.section+'__'+sub); });
+      h += '<div style="border-top:1px solid var(--border,#EEF0F5);">';
+      h += '<div style="display:flex;align-items:center;gap:10px;padding:9px 14px;">'
+        + '<input type="checkbox" class="ph-sec-cb" data-sec="'+si+'" onclick="window.__phSecToggle('+si+',this.checked)" style="width:16px;height:16px;cursor:pointer;">'
+        + '<div onclick="window.__phSecExpand('+si+')" style="flex:1;cursor:pointer;font-size:13.5px;font-weight:700;color:var(--text,#1E2640);">'+escapeHtml(sec.icon?sec.icon+' ':'')+escapeHtml(sec.section)+'</div>'
+        + '<div style="font-size:11px;color:var(--muted2,#9CA3AF);">'+secTotal+'</div>'
+        + '<div id="'+secId+'-caret" onclick="window.__phSecExpand('+si+')" style="cursor:pointer;font-size:13px;color:var(--muted,#6B7280);width:16px;text-align:center;">▸</div>'
+        + '</div>';
+      h += '<div id="'+secId+'-subs" style="display:none;padding:2px 0 8px 0;">';
+      (sec.subsections||[]).forEach(function(sub){
+        var pk='pharmacology__'+sec.section+'__'+sub;
+        h += '<label style="display:flex;align-items:center;gap:10px;padding:6px 14px 6px 40px;cursor:pointer;">'
+          + '<input type="checkbox" class="ph-sub-cb" data-sec="'+si+'" data-pk="'+escapeHtml(pk)+'" style="width:15px;height:15px;cursor:pointer;">'
+          + '<div style="flex:1;font-size:12.5px;color:var(--text,#374151);">'+escapeHtml(sub)+'</div>'
+          + '<div style="font-size:11px;color:var(--muted2,#9CA3AF);">'+cnt(pk)+'</div></label>';
+      });
+      h += '</div></div>';
+    });
+    h += '</div>'; // scroll
+    h += '<div style="display:flex;justify-content:flex-end;gap:10px;padding:12px 14px;border-top:1px solid var(--border,#EEF0F5);background:var(--surface2,#F7F8FB);">'
+      + '<button type="button" onclick="window.__phStartCustom()" class="da-lock-btn primary" style="padding:9px 20px;">Start custom set</button></div>';
+    h += '</div>'; // custom panel
+    h += '</div>';
+    box.innerHTML = h;
+  }
+  function groupRow(pk, label, count, isMy){
+    return '<label style="display:flex;align-items:center;gap:10px;padding:9px 14px;cursor:pointer;">'
+      + '<input type="checkbox" class="ph-sub-cb" data-pk="'+escapeHtml(pk)+'" style="width:16px;height:16px;cursor:pointer;">'
+      + '<div style="flex:1;font-size:13.5px;font-weight:700;color:var(--text,#1E2640);">'+escapeHtml(label)+'</div>'
+      + '<div style="font-size:11px;color:var(--muted2,#9CA3AF);">'+count+'</div></label>';
+  }
+  window.__phToggleCustom = function(){
+    var p=el('ph-custom-panel'), c=el('ph-custom-caret'); if(!p) return;
+    var open = p.style.display==='none';
+    p.style.display = open?'block':'none'; if(c) c.textContent = open?'▴':'▾';
+  };
+  window.__phSecExpand = function(si){
+    var subs=el('phsec-'+si+'-subs'), car=el('phsec-'+si+'-caret'); if(!subs) return;
+    var open = subs.style.display==='none';
+    subs.style.display = open?'block':'none'; if(car) car.textContent = open?'▾':'▸';
+  };
+  window.__phSecToggle = function(si, checked){
+    document.querySelectorAll('.ph-sub-cb[data-sec="'+si+'"]').forEach(function(cb){ cb.checked = checked; });
+  };
+
+  // ---------- Deck building & study ----------
+  function buildDeck(pks){
+    var cards=[];
+    pks.forEach(function(pk){
+      if(pk===PH.MYPK){ userCards().forEach(function(c){ if(c&&c.front&&c.back) cards.push({id:c.id, front:c.front, back:c.back, pk:PH.MYPK}); }); return; }
+      (PH.groups[pk]||[]).forEach(function(c){ if(c&&c.front&&c.back) cards.push({id:c.id, front:c.front, back:c.back, pk:pk}); });
+    });
+    var m = mastered();
+    cards.sort(function(a,b){ return (m.has(String(a.id))?1:0) - (m.has(String(b.id))?1:0); });
+    return cards;
+  }
+  window.__phStartAll = function(){
+    var pks = Object.keys(PH.groups); pks.push(PH.MYPK);
+    startDeck(pks, 'All cards');
+  };
+  window.__phStartCustom = function(){
+    var pks=[]; document.querySelectorAll('#ph-custom-panel .ph-sub-cb').forEach(function(cb){ if(cb.checked && cb.dataset.pk) pks.push(cb.dataset.pk); });
+    if(!pks.length){ alert('Pick at least one group.'); return; }
+    startDeck(pks, 'Custom set');
+  };
+  function startDeck(pks, title){
+    PH.deck = buildDeck(pks); PH.i = 0; PH.title = title;
+    renderStudy(el('pharma-fc-body'));
+  }
+
+  function renderStudy(box){
+    if(!PH.deck.length){
+      box.innerHTML = wrapCentered('<div class="note-empty" style="max-width:460px;text-align:center;"><div class="note-empty-icon">🃏</div><div class="note-empty-text">No cards in the selected groups yet.<br>Add your own below, or pick different groups.</div><div style="margin-top:16px;"><button class="da-lock-btn" onclick="window.__phBack()">← Choose groups</button></div></div>');
+      return;
+    }
+    if(PH.i >= PH.deck.length){
+      box.innerHTML = wrapCentered('<div class="note-empty" style="max-width:460px;text-align:center;"><div class="note-empty-icon">✅</div><div class="note-empty-text">You’ve been through this set.</div><div style="margin-top:16px;display:flex;gap:10px;justify-content:center;"><button class="da-lock-btn primary" onclick="window.__phRestart()">Restart set</button><button class="da-lock-btn" onclick="window.__phBack()">← Choose groups</button></div></div>');
+      return;
+    }
+    var card = PH.deck[PH.i];
+    var h = '<div style="max-width:640px;margin:0 auto;width:100%;padding:18px 22px 40px;">';
+    // header row
+    h += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">'
+      + '<button class="da-lock-btn" style="padding:7px 12px;" onclick="window.__phBack()">← Sets</button>'
+      + '<div style="flex:1;font-size:13px;color:var(--muted,#6B7280);">'+escapeHtml(PH.title||'')+' · Card <strong>'+(PH.i+1)+'</strong> / '+PH.deck.length+'</div>'
+      + '<button class="da-lock-btn" style="padding:7px 12px;" onclick="window.__phShuffle()">Shuffle</button>'
+      + '<button class="da-lock-btn" style="padding:7px 12px;" onclick="window.__phRestart()">Restart</button></div>';
+    // card
+    h += '<div class="fc-card-wrap"><div class="fc-card" id="ph-fcc" onclick="window.__phFlip()">'
+      + '<div class="fc-card-front"><div class="fc-card-label">Question</div><div class="fc-card-text">'+escapeHtml(card.front)+'</div><div class="fc-card-hint">Click to reveal answer</div></div>'
+      + '<div class="fc-card-back"><div class="fc-card-label">Answer</div><div class="fc-card-text">'+escapeHtml(card.back)+'</div></div>'
+      + '</div></div>';
+    // rating
+    h += '<div class="fc-rating" id="ph-rating" style="display:none;">'
+      + '<button class="fc-rate-btn fc-rate-again" onclick="window.__phRate(\'again\')">Again</button>'
+      + '<button class="fc-rate-btn fc-rate-hard" onclick="window.__phRate(\'hard\')">Hard</button>'
+      + '<button class="fc-rate-btn fc-rate-good" onclick="window.__phRate(\'good\')">Good</button>'
+      + '<button class="fc-rate-btn fc-rate-easy" onclick="window.__phRate(\'easy\')">Easy</button></div>';
+    // add card
+    h += '<div style="margin-top:26px;border:1px dashed var(--border2,#C8CBD6);border-radius:10px;padding:18px;background:var(--surface,#fff);">'
+      + '<div style="font-size:13px;font-weight:700;color:var(--text,#1E2640);margin-bottom:10px;">➕ Add your own card</div>'
+      + '<textarea id="ph-front" placeholder="Front (question)" style="display:block;width:100%;box-sizing:border-box;min-height:52px;margin-bottom:8px;border:1px solid var(--border2,#E2E6F0);border-radius:8px;padding:9px 12px;font-family:var(--sans);font-size:13px;background:var(--bg,#fff);color:var(--text,#1E2640);"></textarea>'
+      + '<textarea id="ph-back" placeholder="Back (answer)" style="display:block;width:100%;box-sizing:border-box;min-height:52px;margin-bottom:10px;border:1px solid var(--border2,#E2E6F0);border-radius:8px;padding:9px 12px;font-family:var(--sans);font-size:13px;background:var(--bg,#fff);color:var(--text,#1E2640);"></textarea>'
+      + '<button onclick="window.__phAdd()" style="cursor:pointer;border:none;border-radius:8px;padding:9px 18px;font-family:var(--sans);font-size:13px;font-weight:700;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);">Add card</button></div>';
+    h += '</div>';
+    box.innerHTML = h;
+  }
+  function wrapCentered(inner){ return '<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px;">'+inner+'</div>'; }
+
+  window.__phFlip = function(){
+    var c=el('ph-fcc'); if(!c) return; c.classList.toggle('flipped');
+    var r=el('ph-rating'); if(r) r.style.display = c.classList.contains('flipped') ? 'flex' : 'none';
+  };
+  window.__phRate = function(r){
+    var card = PH.deck[PH.i]; if(!card) return;
+    try{ if(window.daSrsRecord) window.daSrsRecord(card.pk, card.id, r); }catch(e){}
+    if(r==='easy'){ var m=mastered(); m.add(String(card.id)); saveMastered(m); PH.deck.splice(PH.i,1); }
+    else if(r==='again'){ PH.deck.splice(PH.i,1); PH.deck.push(card); }
+    else if(r==='hard'){ PH.deck.splice(PH.i,1); PH.deck.splice(Math.min(PH.i+3, PH.deck.length), 0, card); }
+    else { PH.i++; }
+    try{ if(window.daSrsRefresh) window.daSrsRefresh(); }catch(e){}
+    renderStudy(el('pharma-fc-body'));
+  };
+  window.__phShuffle = function(){
+    for(var i=PH.deck.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=PH.deck[i]; PH.deck[i]=PH.deck[j]; PH.deck[j]=t; }
+    PH.i=0; renderStudy(el('pharma-fc-body'));
+  };
+  window.__phRestart = function(){
+    var m = mastered();
+    PH.deck.sort(function(a,b){ return (m.has(String(a.id))?1:0) - (m.has(String(b.id))?1:0); });
+    PH.i=0; renderStudy(el('pharma-fc-body'));
+  };
+  window.__phBack = function(){ renderHome(el('pharma-fc-body')); };
+  window.__phAdd = function(){
+    var fEl=el('ph-front'), bEl=el('ph-back'); if(!fEl||!bEl) return;
+    var f=(fEl.value||'').trim(), b=(bEl.value||'').trim(); if(!f||!b) return;
+    var arr=userCards(); var card={id:Date.now(), front:f, back:b}; arr.push(card); saveUserCards(arr);
+    PH.deck.splice(PH.i, 0, {id:card.id, front:f, back:b, pk:PH.MYPK});
+    renderStudy(el('pharma-fc-body'));
+  };
 })();
 </script>
 </body>
