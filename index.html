@@ -9581,7 +9581,7 @@ window.MOCK_BANK = {
       ] },
     { id:"tac-010", type:"mcq", objective:"tac-af-causes",
       question:"A 58-year-old woman attends with a 2-week history of palpitations and feeling constantly wired and on edge. Her pulse is irregularly irregular, she has a fine tremor, and she has lost 4 kg without trying. An ECG shows atrial fibrillation. Her observations and bloods are shown. What is the most likely precipitant of her AF?",
-      data:'<div class="mk-obs-h">Observations &amp; bloods</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>122 bpm, irregular</b></td><td>60&ndash;100</td></tr><tr><td>TSH</td><td><b>&lt;0.01 mU/L</b></td><td>0.3&ndash;4.2</td></tr><tr><td>Free T4</td><td><b>32 pmol/L</b></td><td>9&ndash;25</td></tr><tr><td>Potassium</td><td><b>4.2 mmol/L</b></td><td>3.5&ndash;5.3</td></tr><tr><td>Haemoglobin</td><td><b>134 g/L</b></td><td>115&ndash;165</td></tr><tr><td>CRP</td><td><b>3 mg/L</b></td><td>&lt;5</td></tr></table>',
+      data:'<div class="mk-obs-h">Observations &amp; bloods</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>122 bpm, irregular</b></td><td>60&ndash;100</td></tr><tr><td>TSH</td><td><b>&lt;0.01 mU/L</b></td><td>0.3&ndash;4.2</td></tr><tr><td>Free T4</td><td><b>32 pmol/L</b></td><td>9&ndash;25</td></tr><tr><td>White cell count</td><td><b>11.5 &times;10&sup9;/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>CRP</td><td><b>3 mg/L</b></td><td>&lt;5</td></tr><tr><td>Haemoglobin</td><td><b>134 g/L</b></td><td>115&ndash;165</td></tr><tr><td>Ferritin</td><td><b>68 &micro;g/L</b></td><td>15&ndash;150</td></tr><tr><td>Potassium</td><td><b>4.2 mmol/L</b></td><td>3.5&ndash;5.3</td></tr><tr><td>Sodium</td><td><b>139 mmol/L</b></td><td>135&ndash;145</td></tr><tr><td>Creatinine</td><td><b>74 &micro;mol/L</b></td><td>60&ndash;110</td></tr><tr><td>Glucose</td><td><b>5.6 mmol/L</b></td><td>4.0&ndash;7.8</td></tr></table>',
       options:[
         "Hyperthyroidism",
         "Iron-deficiency anaemia",
@@ -9591,7 +9591,7 @@ window.MOCK_BANK = {
       correctIndex:0,
       explanation:[
         "The suppressed TSH (&lt;0.01) with a raised free T4 is biochemical THYROTOXICOSIS &mdash; and with the weight loss, tremor and palpitations it is the precipitant of her AF. Hyperthyroidism is a classic, reversible cause, which is why you ALWAYS check TFTs in new AF (cross-link: Hyperthyroidism).",
-        "Reading the REST of the panel excludes the other common precipitants offered: the normal haemoglobin argues against anaemia, the normal CRP against sepsis, and the normal potassium against a hypokalaemia-driven arrhythmia.",
+        "Reading the REST of the panel excludes the other common precipitants offered: a normal haemoglobin and ferritin argue against iron-deficiency anaemia, a normal CRP (despite a marginally raised white cell count) against sepsis, and a normal potassium against a hypokalaemia-driven arrhythmia.",
         "Treating the thyroid often restores sinus rhythm, and a beta-blocker helps both the ventricular rate and the thyrotoxic symptoms &mdash; so identifying the cause changes management. The broader causes follow SMITH (Sepsis/Surgery/Sleep apnoea, Mitral disease, IHD/Inflammation/Idiopathic, Thyroid, Hypertension) plus alcohol, PE, COPD and obesity.",
         "Trap: anaemia, sepsis and hypokalaemia (B, C, D) are all genuine AF triggers but are excluded by the normal results here; and although PE (E) can cause AF, nothing in the picture suggests it &mdash; the one abnormal result on the panel is the thyroid."
       ] },
@@ -10132,7 +10132,8 @@ window.MOCK_BANK = {
         "Trap: AVNRT (A) is abrupt with buried P waves; flutter (B) has sawtooth waves; atrial tachycardia (C) has an abnormal P; AF (D) is irregular with no P waves &mdash; a normal P before every QRS is sinus."
       ] },
     { id:"tac-045", type:"mcq", objective:"tac-sinus-treat-cause",
-      question:"A patient has a persistent sinus tachycardia at 125 bpm. What is the correct management principle?",
+      question:"A 68-year-old man on the surgical ward, two days after a bowel operation, has a persistent sinus tachycardia at 125 bpm. His only background is hypertension. A colleague suggests a beta-blocker to bring the rate down. His observations and bloods are shown. What is the correct management principle?",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>125 bpm</b></td><td>sinus</td></tr><tr><td>Blood pressure</td><td><b>104/62 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>22 /min</b></td><td></td></tr><tr><td>Temperature</td><td><b>38.4&deg;C</b></td><td></td></tr><tr><td>Oxygen saturation</td><td><b>96%</b></td><td>air</td></tr><tr><td>Urine output</td><td><b>0.4 mL/kg/h</b></td><td>low</td></tr></table><div class="mk-obs-h">Bloods</div><table class="mk-labs"><tr><td>White cell count</td><td><b>15.2 &times;10&sup9;/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>CRP</td><td><b>88 mg/L</b></td><td>&lt;5</td></tr><tr><td>Lactate</td><td><b>2.6 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>Haemoglobin</td><td><b>118 g/L</b></td><td>130&ndash;170</td></tr></table>',
       options:[
         "Give IV adenosine as a bolus to terminate the tachycardia",
         "Give a beta-blocker to lower the rate before any investigation",
