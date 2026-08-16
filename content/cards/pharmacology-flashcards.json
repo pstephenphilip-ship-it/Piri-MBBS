@@ -195,19 +195,1239 @@
  "fc": {
   "pharmacology__Cardiovascular Drugs__Antihypertensives": [
    {
-    "id": "ph_cvs_htn_ex01",
-    "front": "What is the mechanism of ACE inhibitors (e.g. ramipril)?",
-    "back": "Block angiotensin-converting enzyme → less angiotensin II → vasodilation + less aldosterone → lower BP. Reduced bradykinin breakdown causes the dry cough."
+    "id": "ph_htn_c00_01",
+    "front": "ACE inhibitors: what is the mechanism of action on the renin-angiotensin system?",
+    "back": "Block angiotensin-converting enzyme (ACE) -> less angiotensin II -> arteriolar vasodilation plus less aldosterone (so Na+ and water loss) -> lower BP and reduced cardiac afterload."
    },
    {
-    "id": "ph_cvs_htn_ex02",
-    "front": "An ACE inhibitor causes an intolerable dry cough. What is the switch?",
-    "back": "An ARB (e.g. losartan, candesartan) — same RAAS blockade without bradykinin accumulation, so the cough settles."
+    "id": "ph_htn_c00_02",
+    "front": "ACE inhibitors: why do they cause dry cough and angioedema?",
+    "back": "They also slow bradykinin breakdown. The accumulating bradykinin is what causes the dry cough and angioedema."
    },
    {
-    "id": "ph_cvs_htn_ex03",
-    "front": "Which antihypertensive class classically causes ankle oedema?",
-    "back": "Dihydropyridine calcium-channel blockers (e.g. amlodipine)."
+    "id": "ph_htn_c00_03",
+    "front": "ACE inhibitors: what is their place in hypertension therapy?",
+    "back": "First-line if under 55 and not of Black African/Caribbean origin; first-line at any age in type 2 diabetes (renoprotective). In Black African/Caribbean patients needing an A-drug, prefer an ARB instead."
+   },
+   {
+    "id": "ph_htn_c00_04",
+    "front": "ACE inhibitors: what are the main indications besides hypertension?",
+    "back": "Heart failure with reduced ejection fraction (improves survival - start early, titrate to max tolerated dose); post-MI secondary prevention, especially with LV dysfunction; and diabetic nephropathy / proteinuric CKD (lowers intraglomerular pressure, slows progression)."
+   },
+   {
+    "id": "ph_htn_c00_05",
+    "front": "ACE inhibitors: why are they renoprotective in diabetic nephropathy / proteinuric CKD?",
+    "back": "They lower intraglomerular pressure, which slows progression of the kidney disease."
+   },
+   {
+    "id": "ph_htn_c00_06",
+    "front": "ACE inhibitors: why are they contraindicated in pregnancy, and what is the alternative?",
+    "back": "Teratogenic - cause fetal renal damage and oligohydramnios. Switch to labetalol or nifedipine if planning pregnancy."
+   },
+   {
+    "id": "ph_htn_c00_07",
+    "front": "ACE inhibitors: why are they contraindicated in bilateral renal artery stenosis?",
+    "back": "These kidneys depend on angiotensin II to hold up the GFR, so an ACEi precipitates acute kidney injury."
+   },
+   {
+    "id": "ph_htn_c00_08",
+    "front": "ACE inhibitors: what absolute contraindication applies to a patient with prior ACEi angioedema?",
+    "back": "Never re-challenge - do not restart an ACE inhibitor."
+   },
+   {
+    "id": "ph_htn_c00_09",
+    "front": "ACE inhibitors: what situations warrant caution (not absolute contraindication)?",
+    "back": "Severe aortic stenosis (risk of hypotension), volume depletion / high-dose diuretics (start low, dose at night), and a baseline K+ >5.0."
+   },
+   {
+    "id": "ph_htn_c00_10",
+    "front": "ACE inhibitors: what are the typical once-daily dose ranges for ramipril, lisinopril and perindopril?",
+    "back": "Ramipril 1.25-10 mg OD; lisinopril 5-40 mg OD; perindopril 4-8 mg OD."
+   },
+   {
+    "id": "ph_htn_c00_11",
+    "front": "ACE inhibitors: how common is the dry cough and what do you do about it?",
+    "back": "Occurs in ~15% (bradykinin-mediated). If intolerable, switch to an ARB - same benefits, no bradykinin, so the cough settles."
+   },
+   {
+    "id": "ph_htn_c00_12",
+    "front": "ACE inhibitors: how do you manage first-dose hypotension?",
+    "back": "Give the first dose at bedtime, start low, and warn the patient. It is worse if the patient is already on a diuretic."
+   },
+   {
+    "id": "ph_htn_c00_13",
+    "front": "ACE inhibitors: at what K+ level do you act on hyperkalaemia, and how?",
+    "back": "If K+ >5.5, reduce or stop the ACEi and review other potassium-raising drugs."
+   },
+   {
+    "id": "ph_htn_c00_14",
+    "front": "ACE inhibitors: how do you interpret a rising creatinine after starting?",
+    "back": "A rise of <=30% (with K+ <=5.5) is expected and fine - do not stop. A bigger jump suggests renal artery stenosis - stop and investigate."
+   },
+   {
+    "id": "ph_htn_c00_15",
+    "front": "ACE inhibitors: how do you manage angioedema?",
+    "back": "Stop immediately and treat as an emergency (airway risk; commoner in Black patients). Never restart."
+   },
+   {
+    "id": "ph_htn_c00_16",
+    "front": "ACE inhibitors: which minor side effects (besides cough) should you know?",
+    "back": "Taste disturbance and a mild rise in urea."
+   },
+   {
+    "id": "ph_htn_c00_17",
+    "front": "ACE inhibitors: why do NSAIDs cause AKI when combined, and what is the 'triple whammy'?",
+    "back": "NSAIDs constrict the afferent arteriole while the ACEi dilates the efferent one -> filtration pressure collapses -> AKI. The triple whammy is ACEi + NSAID + diuretic. Avoid, or monitor U&Es and keep hydrated."
+   },
+   {
+    "id": "ph_htn_c00_18",
+    "front": "ACE inhibitors: which drugs cause additive hyperkalaemia, and what is the rule?",
+    "back": "ARBs, spironolactone/eplerenone, amiloride, trimethoprim and K+ supplements. Don't routinely combine ACEi + ARB, and check K+ after adding an aldosterone antagonist."
+   },
+   {
+    "id": "ph_htn_c00_19",
+    "front": "ACE inhibitors: what is the interaction with lithium?",
+    "back": "Reduced renal excretion of lithium -> lithium toxicity -> monitor levels."
+   },
+   {
+    "id": "ph_htn_c00_20",
+    "front": "ACE inhibitors: how do you avoid first-dose hypotension when a patient is on a diuretic?",
+    "back": "Omit the diuretic dose beforehand or dose the ACEi at night."
+   },
+   {
+    "id": "ph_htn_c00_21",
+    "front": "ACE inhibitors: what U&E monitoring schedule is required?",
+    "back": "Check U&Es before starting, again at 1-2 weeks, and after every dose increase - to catch a big creatinine rise (unmasks renal artery stenosis) and hyperkalaemia early."
+   },
+   {
+    "id": "ph_htn_c00_22",
+    "front": "ACE inhibitors: what is the 'sick-day rule'?",
+    "back": "Recheck and hold the ACEi during any dehydrating illness (vomiting, diarrhoea, sepsis)."
+   },
+   {
+    "id": "ph_htn_c00_23",
+    "front": "ACE inhibitors: what does captopril's structure mean for its use?",
+    "back": "Short-acting (BD/TDS) with a thiol group -> more taste disturbance and rash. Now mainly used for neonatal or test dosing."
+   },
+   {
+    "id": "ph_htn_c00_24",
+    "front": "ACE inhibitors: which agents are the long-acting once-daily prodrugs used in practice?",
+    "back": "Ramipril, perindopril and trandolapril - long-acting prodrugs given once daily."
+   },
+   {
+    "id": "ph_htn_c00_25",
+    "front": "ACE inhibitors: what is special about lisinopril's pharmacology?",
+    "back": "It is not a prodrug (already active) and is renally cleared, so it accumulates in renal impairment - use lower doses."
+   },
+   {
+    "id": "ph_htn_c00_26",
+    "front": "ACE inhibitors: what is the active metabolite of enalapril and its IV form?",
+    "back": "Enalapril is a prodrug hydrolysed to enalaprilat (the active metabolite); enalaprilat itself is the intravenous form."
+   },
+   {
+    "id": "ph_htn_c01_01",
+    "front": "ARBs (losartan, candesartan, valsartan, irbesartan): What is the mechanism of action?",
+    "back": "Block the angiotensin II type-1 (AT1) receptor -> vasodilation and less aldosterone (same downstream effect as an ACEi), but without raising bradykinin -> so no dry cough."
+   },
+   {
+    "id": "ph_htn_c01_02",
+    "front": "ARBs: Why do they not cause the dry cough seen with ACE inhibitors?",
+    "back": "They act at the AT1 receptor without raising bradykinin. It is the accumulation of bradykinin (from ACEi) that causes the cough, so ARBs avoid it."
+   },
+   {
+    "id": "ph_htn_c01_03",
+    "front": "ARBs: What is their first-line niche in hypertension?",
+    "back": "Same as an ACEi -> patients under 55 or with type 2 diabetes. They are the go-to when an ACEi has caused cough."
+   },
+   {
+    "id": "ph_htn_c01_04",
+    "front": "ARBs vs ACEi: Which is preferred in Black African/Caribbean patients needing an A-drug?",
+    "back": "An ARB is preferred over an ACEi (NICE), including in those with type 2 diabetes."
+   },
+   {
+    "id": "ph_htn_c01_05",
+    "front": "ARBs: What are the main indications besides hypertension?",
+    "back": "Heart failure with reduced EF (alternative to ACEi) and diabetic nephropathy / proteinuric CKD (renoprotective)."
+   },
+   {
+    "id": "ph_htn_c01_06",
+    "front": "ARBs: What are the absolute contraindications?",
+    "back": "Pregnancy (teratogenic, same as ACEi) and bilateral renal artery stenosis (precipitates AKI)."
+   },
+   {
+    "id": "ph_htn_c01_07",
+    "front": "ARBs: In what situations should they be used with caution?",
+    "back": "Volume depletion, baseline K+ >5.0, and severe aortic stenosis."
+   },
+   {
+    "id": "ph_htn_c01_08",
+    "front": "ARBs: What are the typical starting (and maximum) doses of losartan, candesartan, and valsartan?",
+    "back": "Losartan 50 mg OD (up to 100 mg); candesartan 8 mg OD (up to 32 mg); valsartan 80-160 mg OD."
+   },
+   {
+    "id": "ph_htn_c01_09",
+    "front": "ARBs: How do you act on hyperkalaemia caused by them?",
+    "back": "Check K+; reduce or stop the ARB if K+ >5.5."
+   },
+   {
+    "id": "ph_htn_c01_10",
+    "front": "ARBs: How much rise in creatinine after starting is acceptable, and what does a bigger jump suggest?",
+    "back": "A rise of up to 30% is acceptable (same rule as ACEi); a bigger jump -> suspect renal artery stenosis."
+   },
+   {
+    "id": "ph_htn_c01_11",
+    "front": "ARBs: What are the notable side effects?",
+    "back": "Hyperkalaemia, rising creatinine, and first-dose hypotension with dizziness. No cough (key advantage over ACEi) and angioedema is rare."
+   },
+   {
+    "id": "ph_htn_c01_12",
+    "front": "ARBs: What is the interaction with NSAIDs?",
+    "back": "Additive AKI risk (the triple whammy when combined with a diuretic) -> avoid or monitor U&Es."
+   },
+   {
+    "id": "ph_htn_c01_13",
+    "front": "ARBs: Which drugs raise the risk of hyperkalaemia when combined, and what combination must be avoided?",
+    "back": "K+-raising drugs (spironolactone, trimethoprim, K+ supplements) -> hyperkalaemia. Never combine an ARB with an ACEi."
+   },
+   {
+    "id": "ph_htn_c01_14",
+    "front": "ARBs: What is the interaction with lithium?",
+    "back": "Reduced lithium excretion -> toxicity -> monitor lithium levels."
+   },
+   {
+    "id": "ph_htn_c01_15",
+    "front": "ARBs: When should U&Es be checked?",
+    "back": "Before starting, at 1-2 weeks, and after each dose increase -> to catch a big creatinine rise (renal artery stenosis) or hyperkalaemia."
+   },
+   {
+    "id": "ph_htn_c01_16",
+    "front": "ARBs: What is the sick-day rule?",
+    "back": "Hold the ARB during dehydrating illness."
+   },
+   {
+    "id": "ph_htn_c01_17",
+    "front": "ARBs: What is special about losartan among the class?",
+    "back": "It is mildly uricosuric (a small bonus in gout). It is a short-acting parent converted (via CYP2C9/3A4) to the active metabolite EXP3174 (E-3174), which is more potent and longer-acting and gives most of the 24-hour effect."
+   },
+   {
+    "id": "ph_htn_c01_18",
+    "front": "ARBs: What is notable about candesartan individually?",
+    "back": "It is long-acting and also has migraine-prophylaxis evidence."
+   },
+   {
+    "id": "ph_htn_c01_19",
+    "front": "ARBs: Which agents have strong renoprotection data?",
+    "back": "Irbesartan and valsartan."
+   },
+   {
+    "id": "ph_htn_c01_20",
+    "front": "ARBs: What is the key high-yield pearl summarising their role?",
+    "back": "They are the ACEi alternative when cough is the problem -> same benefits, no bradykinin. They share the same pregnancy and hyperkalaemia cautions, and an ACEi + ARB must never be combined."
+   },
+   {
+    "id": "ph_htn_c02_01",
+    "front": "Calcium channel blockers (dihydropyridines): what is the mechanism of action?",
+    "back": "They block L-type Ca2+ channels in vascular smooth muscle -> arteriolar vasodilation -> lower BP."
+   },
+   {
+    "id": "ph_htn_c02_02",
+    "front": "Calcium channel blockers (dihydropyridines): why are they described as vascular-selective?",
+    "back": "They act selectively on vascular smooth muscle with little effect on heart rate or contractility (unlike rate-limiting CCBs)."
+   },
+   {
+    "id": "ph_htn_c02_03",
+    "front": "Dihydropyridine CCBs (amlodipine): where do they sit in the NICE stepwise treatment of hypertension?",
+    "back": "First-line (step 1) if aged >=55, or Black African/Caribbean at any age - in either case without type 2 diabetes."
+   },
+   {
+    "id": "ph_htn_c02_04",
+    "front": "Dihydropyridine CCBs: how do they help in angina?",
+    "back": "They reduce afterload and cause coronary vasodilation."
+   },
+   {
+    "id": "ph_htn_c02_05",
+    "front": "Nimodipine: what is its specific indication?",
+    "back": "To prevent cerebral vasospasm after subarachnoid haemorrhage (SAH) - it is CNS-selective and not used for hypertension."
+   },
+   {
+    "id": "ph_htn_c02_06",
+    "front": "Dihydropyridine CCBs: why give with caution in severe aortic stenosis?",
+    "back": "Vasodilation can precipitate collapse. Also use caution in unstable angina and marked ankle oedema."
+   },
+   {
+    "id": "ph_htn_c02_07",
+    "front": "Dihydropyridine CCBs: which CCB is safest in stable heart failure, and what should be avoided?",
+    "back": "Amlodipine is the safest CCB in stable heart failure; avoid CCBs in cardiogenic shock."
+   },
+   {
+    "id": "ph_htn_c02_08",
+    "front": "Amlodipine: what is the typical oral dose for hypertension?",
+    "back": "5 mg once daily, up to 10 mg."
+   },
+   {
+    "id": "ph_htn_c02_09",
+    "front": "Nimodipine: what is the dose for subarachnoid haemorrhage prophylaxis?",
+    "back": "60 mg every 4 hours."
+   },
+   {
+    "id": "ph_htn_c02_10",
+    "front": "Dihydropyridine CCBs: what is the most characteristic side effect and why does it occur?",
+    "back": "Ankle/peripheral oedema - very common and dose-related, caused by precapillary (arteriolar) dilation, not fluid overload."
+   },
+   {
+    "id": "ph_htn_c02_11",
+    "front": "Dihydropyridine CCBs: how do you manage the ankle oedema they cause?",
+    "back": "Diuretics don't help (it isn't fluid overload); instead reduce the dose or add an ACE inhibitor/ARB."
+   },
+   {
+    "id": "ph_htn_c02_12",
+    "front": "Dihydropyridine CCBs: which vasodilation-related side effects occur besides oedema?",
+    "back": "Flushing, headache, and palpitations (reflex tachycardia); also gum hypertrophy."
+   },
+   {
+    "id": "ph_htn_c02_13",
+    "front": "Dihydropyridine CCBs: why avoid grapefruit juice, and which drug is especially affected?",
+    "back": "Grapefruit juice inhibits CYP3A4 -> higher drug levels and hypotension, especially with felodipine."
+   },
+   {
+    "id": "ph_htn_c02_14",
+    "front": "Amlodipine: what is the key interaction with simvastatin?",
+    "back": "Amlodipine raises simvastatin levels -> cap simvastatin at 20 mg."
+   },
+   {
+    "id": "ph_htn_c02_15",
+    "front": "Dihydropyridine CCBs: what should be monitored?",
+    "back": "Blood pressure for response, and ankle oedema (dose-related arteriolar dilation, not fluid overload, so it doesn't respond to diuretics)."
+   },
+   {
+    "id": "ph_htn_c02_16",
+    "front": "Amlodipine: what pharmacokinetic feature allows once-daily dosing?",
+    "back": "It has a long half-life, so it is given once daily; it is also safe in stable heart failure."
+   },
+   {
+    "id": "ph_htn_c02_17",
+    "front": "Nicardipine: what is its notable formulation/use?",
+    "back": "Available IV for hypertensive emergencies."
+   },
+   {
+    "id": "ph_htn_c03_01",
+    "front": "Non-dihydropyridine CCBs (verapamil/diltiazem): what is the mechanism of action?",
+    "back": "Block L-type Ca2+ channels in both blood vessels AND the heart -> vasodilation plus negative chronotropy (slows the SA/AV node) and negative inotropy (reduces contractility)."
+   },
+   {
+    "id": "ph_htn_c03_02",
+    "front": "Non-dihydropyridine CCBs: how do they differ from dihydropyridines in where they act?",
+    "back": "They act on the heart as well as vessels, producing negative chronotropy and negative inotropy in addition to vasodilation (not vessel-selective)."
+   },
+   {
+    "id": "ph_htn_c03_03",
+    "front": "Verapamil/diltiazem: what are the main clinical uses?",
+    "back": "Rate control in AF/SVT; angina (including when a beta-blocker is contraindicated); and, less commonly, hypertension."
+   },
+   {
+    "id": "ph_htn_c03_04",
+    "front": "Verapamil/diltiazem: which non-dihydropyridine feature makes them useful for angina when beta-blockers can't be used?",
+    "back": "Their negative chronotropy/inotropy reduces cardiac workload, so they can substitute for a beta-blocker in angina when one is contraindicated."
+   },
+   {
+    "id": "ph_htn_c03_05",
+    "front": "Verapamil/diltiazem: why must they NEVER be combined with a beta-blocker?",
+    "back": "Additive AV-node block -> severe bradycardia, complete heart block, and asystole."
+   },
+   {
+    "id": "ph_htn_c03_06",
+    "front": "Verapamil/diltiazem: what cardiac conduction/rhythm states are contraindications?",
+    "back": "2nd-3rd degree AV block, significant bradycardia, and VT or WPW with AF."
+   },
+   {
+    "id": "ph_htn_c03_07",
+    "front": "Verapamil/diltiazem: why are they contraindicated in heart failure with reduced EF?",
+    "back": "Their negative inotropy reduces contractility further -> cardiac decompensation."
+   },
+   {
+    "id": "ph_htn_c03_08",
+    "front": "Verapamil: what is the typical dosing?",
+    "back": "40-120 mg TDS (or a modified-release preparation once daily)."
+   },
+   {
+    "id": "ph_htn_c03_09",
+    "front": "Diltiazem: what is the typical dosing?",
+    "back": "Modified-release 90-360 mg once daily (OD)."
+   },
+   {
+    "id": "ph_htn_c03_10",
+    "front": "Verapamil/diltiazem: what are the key cardiac side effects?",
+    "back": "Bradycardia and AV block, due to negative chronotropy."
+   },
+   {
+    "id": "ph_htn_c03_11",
+    "front": "Verapamil: which very common non-cardiac side effect is characteristic?",
+    "back": "Constipation (very common with verapamil)."
+   },
+   {
+    "id": "ph_htn_c03_12",
+    "front": "Verapamil/diltiazem: what side effects arise from negative inotropy and vasodilation?",
+    "back": "Worsening heart failure (negative inotropy) and ankle oedema."
+   },
+   {
+    "id": "ph_htn_c03_13",
+    "front": "Verapamil/diltiazem: why is combining them with a beta-blocker a dangerous interaction?",
+    "back": "It causes additive AV-node block -> bradycardia/asystole; the combination should be avoided."
+   },
+   {
+    "id": "ph_htn_c03_14",
+    "front": "Verapamil: what is its interaction with digoxin?",
+    "back": "Verapamil raises digoxin levels -> risk of digoxin toxicity."
+   },
+   {
+    "id": "ph_htn_c03_15",
+    "front": "Verapamil/diltiazem: what is the interaction with simvastatin and its mechanism?",
+    "back": "They raise simvastatin levels via CYP3A4 inhibition."
+   },
+   {
+    "id": "ph_htn_c03_16",
+    "front": "Verapamil/diltiazem: what is the MHRA dose limit for co-prescribed simvastatin?",
+    "back": "Simvastatin maximum 20 mg/day, because of CYP3A4 inhibition raising statin levels."
+   },
+   {
+    "id": "ph_htn_c03_17",
+    "front": "Verapamil/diltiazem: what monitoring is needed, especially with digoxin or a beta-blocker?",
+    "back": "Monitor HR, BP and ECG (AV conduction), particularly when co-prescribed with digoxin or a beta-blocker."
+   },
+   {
+    "id": "ph_htn_c03_18",
+    "front": "Verapamil vs diltiazem: how do they compare in negative inotropy and tolerability?",
+    "back": "Verapamil is the most negatively inotropic and causes the most constipation (avoid in heart failure); diltiazem is intermediate (rate control plus vasodilation) and better tolerated."
+   },
+   {
+    "id": "ph_htn_c03_19",
+    "front": "Verapamil/diltiazem: what is the single most important prescribing pearl?",
+    "back": "Never give with a beta-blocker due to the risk of AV-node standstill."
+   },
+   {
+    "id": "ph_htn_c03_20",
+    "front": "Verapamil: which two problems does the exam pearl specifically link to it?",
+    "back": "Constipation and worsening of heart failure."
+   },
+   {
+    "id": "ph_htn_c04_01",
+    "front": "Beta-blockers (bisoprolol/metoprolol): what is the mechanism of action?",
+    "back": "Block β1-adrenoceptors (mainly cardiac) -> reduce heart rate, contractility and AV conduction -> lower cardiac output and BP. They also reduce renin release."
+   },
+   {
+    "id": "ph_htn_c04_02",
+    "front": "Beta-blockers: what does 'cardioselective' mean and what is its limitation?",
+    "back": "Relatively β1 > β2 selective (e.g. bisoprolol, metoprolol). Selectivity is lost at higher doses."
+   },
+   {
+    "id": "ph_htn_c04_03",
+    "front": "Beta-blockers: which agents improve survival in heart failure with reduced EF, and how are they started?",
+    "back": "Bisoprolol, carvedilol and nebivolol improve survival. Start low, go slow, and only when the patient is stable."
+   },
+   {
+    "id": "ph_htn_c04_04",
+    "front": "Beta-blockers: list the main indications.",
+    "back": "Heart failure (reduced EF), angina and post-MI secondary prevention, AF rate control and arrhythmias, and hypertension (as a step-4 add-on)."
+   },
+   {
+    "id": "ph_htn_c04_05",
+    "front": "Beta-blockers: where do they sit in hypertension treatment?",
+    "back": "Step-4 add-on -> not first-line unless there is another indication."
+   },
+   {
+    "id": "ph_htn_c04_06",
+    "front": "Beta-blockers: why are they cautioned/relatively contraindicated in asthma?",
+    "back": "β2 blockade -> bronchospasm. Relative CI; use a cardioselective agent with caution only if unavoidable."
+   },
+   {
+    "id": "ph_htn_c04_07",
+    "front": "Beta-blockers: list the cardiac contraindications.",
+    "back": "Severe bradycardia, 2nd-3rd degree heart block, decompensated heart failure, and cardiogenic shock."
+   },
+   {
+    "id": "ph_htn_c04_08",
+    "front": "Beta-blockers: which drug class must never be co-prescribed, and why?",
+    "back": "Never with verapamil/diltiazem -> risk of severe bradycardia / AV block; avoid."
+   },
+   {
+    "id": "ph_htn_c04_09",
+    "front": "Bisoprolol: what is the dosing in heart failure?",
+    "back": "Start 1.25-2.5 mg once daily and titrate up to 10 mg. Start low."
+   },
+   {
+    "id": "ph_htn_c04_10",
+    "front": "Bisoprolol: what is the maximum dose in hypertension?",
+    "back": "20 mg once daily (start low)."
+   },
+   {
+    "id": "ph_htn_c04_11",
+    "front": "Beta-blockers: list the common side effects.",
+    "back": "Bradycardia, fatigue/lethargy, cold peripheries, bronchospasm (β2), erectile dysfunction, and vivid dreams (with lipophilic agents)."
+   },
+   {
+    "id": "ph_htn_c04_12",
+    "front": "Beta-blockers: what important effect do they have in diabetics?",
+    "back": "They mask the tachycardia of hypoglycaemia -> loss of an early hypo warning sign."
+   },
+   {
+    "id": "ph_htn_c04_13",
+    "front": "Beta-blockers: what are the key drug interactions?",
+    "back": "Verapamil/diltiazem -> severe bradycardia/AV block (avoid); insulin/sulfonylureas -> masks hypo warning signs; NSAIDs -> blunt the antihypertensive effect."
+   },
+   {
+    "id": "ph_htn_c04_14",
+    "front": "Beta-blockers: what monitoring is needed when uptitrating in heart failure?",
+    "back": "Monitor HR and BP, uptitrate slowly, and expect transient early worsening."
+   },
+   {
+    "id": "ph_htn_c04_15",
+    "front": "Beta-blockers: why must they never be stopped abruptly?",
+    "back": "Abrupt withdrawal -> rebound tachycardia / angina / MI. Taper down instead."
+   },
+   {
+    "id": "ph_htn_c04_16",
+    "front": "Bisoprolol: what are its distinguishing features?",
+    "back": "Highly β1-selective and once daily -> first choice in heart failure/hypertension."
+   },
+   {
+    "id": "ph_htn_c04_17",
+    "front": "Metoprolol: what are its distinguishing features?",
+    "back": "β1-selective; also used IV for acute rate control."
+   },
+   {
+    "id": "ph_htn_c04_18",
+    "front": "Nebivolol: what makes it unique among beta-blockers?",
+    "back": "The most β1-selective agent; uniquely causes nitric-oxide-mediated vasodilation (via β3/eNOS) -> vasodilating and metabolically favourable, used in elderly HF/HTN."
+   },
+   {
+    "id": "ph_htn_c05_01",
+    "front": "Beta-blockers (carvedilol): what is carvedilol's mechanism of action?",
+    "back": "Non-selective beta-blocker (blocks beta1 and beta2) plus alpha1-blockade. The alpha1 effect adds vasodilation, which reduces afterload and is useful in heart failure."
+   },
+   {
+    "id": "ph_htn_c05_02",
+    "front": "Beta-blockers (carvedilol): what distinguishes carvedilol from a simple beta-blocker?",
+    "back": "It adds alpha1-blockade (causing vasodilation) on top of non-selective beta-blockade, making it prognostic in heart failure. It is given twice daily."
+   },
+   {
+    "id": "ph_htn_c05_03",
+    "front": "Beta-blockers (carvedilol): what are the indications?",
+    "back": "Heart failure with reduced ejection fraction (one of the three prognostic beta-blockers with bisoprolol and nebivolol), plus hypertension and angina."
+   },
+   {
+    "id": "ph_htn_c05_04",
+    "front": "Beta-blockers: which three beta-blockers are prognostic in heart failure?",
+    "back": "Carvedilol, bisoprolol, and nebivolol."
+   },
+   {
+    "id": "ph_htn_c05_05",
+    "front": "Beta-blockers (carvedilol): what are the contraindications?",
+    "back": "Asthma (non-selective -> higher bronchospasm risk), decompensated heart failure, and severe bradycardia / heart block."
+   },
+   {
+    "id": "ph_htn_c05_06",
+    "front": "Beta-blockers (carvedilol): why is it contraindicated in asthma?",
+    "back": "It is non-selective (blocks beta2), giving a higher bronchospasm risk than cardioselective agents."
+   },
+   {
+    "id": "ph_htn_c05_07",
+    "front": "Beta-blockers (carvedilol): what is the dosing in heart failure?",
+    "back": "Start 3.125 mg BD and titrate slowly up to 25 mg BD."
+   },
+   {
+    "id": "ph_htn_c05_08",
+    "front": "Beta-blockers (carvedilol): what side effect is added by its alpha1-blockade?",
+    "back": "Postural hypotension / dizziness (from alpha1 block), especially with the first dose."
+   },
+   {
+    "id": "ph_htn_c05_09",
+    "front": "Beta-blockers (carvedilol): how does its bronchospasm risk compare to cardioselective agents?",
+    "back": "Bronchospasm risk is higher than with cardioselective beta-blockers, because carvedilol is non-selective."
+   },
+   {
+    "id": "ph_htn_c05_10",
+    "front": "Beta-blockers (carvedilol): which drugs must never be co-prescribed, and why?",
+    "back": "Never with verapamil or diltiazem -> additive AV block -> bradycardia, heart block, or asystole."
+   },
+   {
+    "id": "ph_htn_c05_11",
+    "front": "Beta-blockers (carvedilol): why should it not be stopped abruptly?",
+    "back": "Abrupt withdrawal causes rebound tachycardia, angina, and hypertension. Taper the dose instead."
+   },
+   {
+    "id": "ph_htn_c05_12",
+    "front": "Beta-blockers (carvedilol): what is the interaction with insulin/sulfonylureas?",
+    "back": "It may mask the warning signs of hypoglycaemia (except sweating)."
+   },
+   {
+    "id": "ph_htn_c05_13",
+    "front": "Beta-blockers (carvedilol): what should be monitored?",
+    "back": "Heart rate and blood pressure, aiming for a resting HR that is not persistently below 50-55."
+   },
+   {
+    "id": "ph_htn_c05_14",
+    "front": "Beta-blockers (carvedilol): what monitoring is specific to heart failure use?",
+    "back": "Uptitrate slowly and watch for transient worsening of heart failure and fluid retention."
+   },
+   {
+    "id": "ph_htn_c05_15",
+    "front": "Beta-blockers (carvedilol): what is the high-yield exam pearl?",
+    "back": "It adds alpha1 vasodilation to beta-blockade, making it good in heart failure, but being non-selective it is worse in asthma and causes a postural drop."
+   },
+   {
+    "id": "ph_htn_c06_01",
+    "front": "Beta-blockers (atenolol): what is atenolol's receptor selectivity and solubility?",
+    "back": "Atenolol is beta1-selective and water-soluble (hydrophilic)."
+   },
+   {
+    "id": "ph_htn_c06_02",
+    "front": "Beta-blockers (atenolol): what are the consequences of atenolol being water-soluble (hydrophilic)?",
+    "back": "Being hydrophilic, it is renally excreted and crosses the blood-brain barrier poorly -> fewer CNS effects, but it accumulates in renal impairment."
+   },
+   {
+    "id": "ph_htn_c06_03",
+    "front": "Beta-blockers (atenolol): what are the main indications?",
+    "back": "Angina, arrhythmias, and post-MI. Historically used for hypertension too."
+   },
+   {
+    "id": "ph_htn_c06_04",
+    "front": "Beta-blockers (atenolol): why is it now less favoured for hypertension?",
+    "back": "It has weaker stroke-prevention evidence than other agents, so it is no longer first-line for HTN outcomes."
+   },
+   {
+    "id": "ph_htn_c06_05",
+    "front": "Beta-blockers (atenolol): what are the contraindications?",
+    "back": "Asthma, severe bradycardia / 2nd-3rd degree heart block, and decompensated heart failure."
+   },
+   {
+    "id": "ph_htn_c06_06",
+    "front": "Beta-blockers (atenolol): what is the typical dose?",
+    "back": "Atenolol 25-100 mg once daily (OD)."
+   },
+   {
+    "id": "ph_htn_c06_07",
+    "front": "Beta-blockers (atenolol): why does it cause fewer CNS side effects than other beta-blockers?",
+    "back": "Because it is hydrophilic and penetrates the blood-brain barrier poorly, giving fewer CNS effects such as nightmares."
+   },
+   {
+    "id": "ph_htn_c06_08",
+    "front": "Beta-blockers (atenolol): how should dosing be adjusted in renal impairment?",
+    "back": "It accumulates in renal impairment (renally cleared), so reduce the dose in CKD."
+   },
+   {
+    "id": "ph_htn_c06_09",
+    "front": "Beta-blockers (atenolol): which drugs must never be co-prescribed and why?",
+    "back": "Never with verapamil or diltiazem -> additive AV block -> bradycardia, heart block, or asystole."
+   },
+   {
+    "id": "ph_htn_c06_10",
+    "front": "Beta-blockers (atenolol): why should it not be stopped abruptly?",
+    "back": "Abrupt withdrawal causes rebound tachycardia, angina, and hypertension -> taper the dose."
+   },
+   {
+    "id": "ph_htn_c06_11",
+    "front": "Beta-blockers (atenolol): what is the interaction with insulin/sulfonylureas?",
+    "back": "It may mask the hypoglycaemia warning signs (except sweating)."
+   },
+   {
+    "id": "ph_htn_c06_12",
+    "front": "Beta-blockers (atenolol): what should be monitored, and what resting HR target applies?",
+    "back": "Monitor HR and BP, aiming for a resting HR not persistently below 50-55."
+   },
+   {
+    "id": "ph_htn_c06_13",
+    "front": "Beta-blockers (atenolol): how is it used in heart failure?",
+    "back": "Uptitrate slowly and watch for transient worsening or fluid retention."
+   },
+   {
+    "id": "ph_htn_c07_01",
+    "front": "Beta-blockers (propranolol): what is propranolol's receptor selectivity and lipid solubility?",
+    "back": "Non-selective beta-blocker (blocks both β1 and β2). Highly lipid-soluble, so it crosses the blood-brain barrier (giving CNS effects) and is hepatically metabolised."
+   },
+   {
+    "id": "ph_htn_c07_02",
+    "front": "Beta-blockers (propranolol): why is it called the 'non-cardiac' beta-blocker, and what are its main uses?",
+    "back": "Because its key uses are outside cardiac indications: thyrotoxicosis, anxiety/somatic tremor, essential tremor, migraine prophylaxis, and portal hypertension (variceal bleed prophylaxis)."
+   },
+   {
+    "id": "ph_htn_c07_03",
+    "front": "Beta-blockers (propranolol): how does it help in thyrotoxicosis?",
+    "back": "It gives symptom control and blocks peripheral conversion of T4 -> T3."
+   },
+   {
+    "id": "ph_htn_c07_04",
+    "front": "Beta-blockers (propranolol): what are the main contraindications?",
+    "back": "Asthma (non-selective block -> bronchospasm) and severe bradycardia / heart block."
+   },
+   {
+    "id": "ph_htn_c07_05",
+    "front": "Beta-blockers (propranolol): what is the typical regular oral dose?",
+    "back": "40 mg BD-TDS, up-titrated as needed."
+   },
+   {
+    "id": "ph_htn_c07_06",
+    "front": "Beta-blockers (propranolol): what is the dose for situational anxiety?",
+    "back": "10-40 mg PRN."
+   },
+   {
+    "id": "ph_htn_c07_07",
+    "front": "Beta-blockers (propranolol): what CNS side effects arise from its high lipid solubility?",
+    "back": "Greater CNS penetration causes vivid dreams / nightmares and fatigue."
+   },
+   {
+    "id": "ph_htn_c07_08",
+    "front": "Beta-blockers (propranolol): which respiratory side effect makes it dangerous in asthma?",
+    "back": "Bronchospasm (from β2 blockade) - avoid in asthma."
+   },
+   {
+    "id": "ph_htn_c07_09",
+    "front": "Beta-blockers (propranolol): which drugs must never be combined with it, and why?",
+    "back": "Never combine with verapamil or diltiazem -> additive AV block -> bradycardia, heart block, or asystole."
+   },
+   {
+    "id": "ph_htn_c07_10",
+    "front": "Beta-blockers (propranolol): why should it not be stopped abruptly?",
+    "back": "Abrupt withdrawal causes rebound tachycardia, angina, and hypertension - taper the dose instead."
+   },
+   {
+    "id": "ph_htn_c07_11",
+    "front": "Beta-blockers (propranolol): how does it interact with insulin/sulfonylureas?",
+    "back": "It may mask the warning signs of hypoglycaemia (sweating is preserved)."
+   },
+   {
+    "id": "ph_htn_c07_12",
+    "front": "Beta-blockers (propranolol): what should be monitored, and what resting HR target applies?",
+    "back": "Monitor HR and BP; aim for a resting HR not persistently below 50-55."
+   },
+   {
+    "id": "ph_htn_c07_13",
+    "front": "Beta-blockers (propranolol): how should it be used in heart failure?",
+    "back": "Up-titrate slowly and watch for transient worsening / fluid retention."
+   },
+   {
+    "id": "ph_htn_c08_01",
+    "front": "Thiazide/thiazide-like diuretics: what is the mechanism of action?",
+    "back": "They block the Na+/Cl- cotransporter in the distal convoluted tubule, causing mild natriuresis. Long term they mainly lower BP by reducing peripheral vascular resistance."
+   },
+   {
+    "id": "ph_htn_c08_02",
+    "front": "Thiazide/thiazide-like diuretics: what are the indications?",
+    "back": "Hypertension (NICE step 3 add-on) and mild oedema."
+   },
+   {
+    "id": "ph_htn_c08_03",
+    "front": "Thiazide-like diuretics: where do they sit in the NICE hypertension pathway, and which type is preferred?",
+    "back": "Step 3 add-on. A thiazide-LIKE diuretic (e.g. indapamide) is preferred over a classic thiazide (e.g. bendroflumethiazide)."
+   },
+   {
+    "id": "ph_htn_c08_04",
+    "front": "Thiazide/thiazide-like diuretics: what are the contraindications?",
+    "back": "Gout/hyperuricaemia (urate rises, triggering attacks), hyponatraemia/hypokalaemia, Addison's disease, and severe renal or hepatic impairment."
+   },
+   {
+    "id": "ph_htn_c08_05",
+    "front": "Thiazide/thiazide-like diuretics: why is caution needed in diabetes?",
+    "back": "They raise blood glucose."
+   },
+   {
+    "id": "ph_htn_c08_06",
+    "front": "Thiazide/thiazide-like diuretics: what is the typical dose of indapamide and bendroflumethiazide?",
+    "back": "Indapamide 2.5 mg OD; bendroflumethiazide 2.5 mg OD."
+   },
+   {
+    "id": "ph_htn_c08_07",
+    "front": "Thiazide/thiazide-like diuretics: what are the classic electrolyte side effects?",
+    "back": "Hypokalaemia and hyponatraemia (classic - check U&Es), plus hypercalcaemia (Ca2+ retained)."
+   },
+   {
+    "id": "ph_htn_c08_08",
+    "front": "Thiazide/thiazide-like diuretics: what metabolic side effects do they cause?",
+    "back": "Hyperuricaemia (precipitating gout), hyperglycaemia, and hyperlipidaemia."
+   },
+   {
+    "id": "ph_htn_c08_09",
+    "front": "Thiazide/thiazide-like diuretics: name two non-metabolic side effects.",
+    "back": "Postural hypotension and erectile dysfunction."
+   },
+   {
+    "id": "ph_htn_c08_10",
+    "front": "Thiazide/thiazide-like diuretics: what is the interaction with NSAIDs?",
+    "back": "NSAIDs blunt the diuretic/antihypertensive effect and increase the risk of AKI."
+   },
+   {
+    "id": "ph_htn_c08_11",
+    "front": "Thiazide/thiazide-like diuretics: what is the interaction with lithium?",
+    "back": "They reduce lithium excretion, leading to lithium toxicity."
+   },
+   {
+    "id": "ph_htn_c08_12",
+    "front": "Thiazide/thiazide-like diuretics: what is the risk when combined with loop diuretics or steroids?",
+    "back": "Additive hypokalaemia, which increases the risk of digoxin toxicity."
+   },
+   {
+    "id": "ph_htn_c08_13",
+    "front": "Thiazide/thiazide-like diuretics: what monitoring is required?",
+    "back": "U&Es (Na+, K+) at baseline and after starting or a dose change, as thiazides drop both. Also check glucose in diabetics and urate if gout-prone."
+   },
+   {
+    "id": "ph_htn_c08_14",
+    "front": "Which drugs are thiazide-LIKE diuretics, and why are they NICE-preferred at step 3?",
+    "back": "Indapamide and chlortalidone. They are longer-acting with better outcome data."
+   },
+   {
+    "id": "ph_htn_c08_15",
+    "front": "Which drugs are classic thiazide diuretics, and what specific warning applies to hydrochlorothiazide?",
+    "back": "Bendroflumethiazide and hydrochlorothiazide. HCTZ carries an MHRA warning regarding non-melanoma skin cancer with long-term use."
+   },
+   {
+    "id": "ph_htn_c08_16",
+    "front": "Thiazide/thiazide-like diuretics: summarise the classic exam pearl on their metabolic effects.",
+    "back": "They raise glucose, urate, calcium and lipids, and lower sodium and potassium - and can precipitate gout. Thiazide-like (indapamide) is preferred in hypertension."
+   },
+   {
+    "id": "ph_htn_c09_01",
+    "front": "Loop diuretics: what is the mechanism of action?",
+    "back": "They block the Na+/K+/2Cl- cotransporter in the thick ascending limb of the loop of Henle, producing powerful natriuresis/diuresis."
+   },
+   {
+    "id": "ph_htn_c09_02",
+    "front": "Loop diuretics: what additional (non-renal) action gives rapid relief in pulmonary oedema?",
+    "back": "They venodilate, which rapidly reduces preload and relieves pulmonary oedema."
+   },
+   {
+    "id": "ph_htn_c09_03",
+    "front": "Loop diuretics: what are the main clinical uses?",
+    "back": "Fluid overload states: heart failure, pulmonary oedema, and nephrotic or hepatic oedema."
+   },
+   {
+    "id": "ph_htn_c09_04",
+    "front": "Loop diuretics: what is their place in hypertension treatment?",
+    "back": "They are NOT a first-line antihypertensive; used when heart failure or CKD coexist."
+   },
+   {
+    "id": "ph_htn_c09_05",
+    "front": "Loop diuretics: what are the contraindications?",
+    "back": "Severe hypokalaemia/hyponatraemia, dehydration/hypovolaemia, and anuria."
+   },
+   {
+    "id": "ph_htn_c09_06",
+    "front": "Loop diuretics: in which conditions should they be used with caution?",
+    "back": "Gout, hepatic encephalopathy, prostatic enlargement/urinary retention, and severe sulfonamide allergy (theoretical cross-reactivity, low in practice)."
+   },
+   {
+    "id": "ph_htn_c09_07",
+    "front": "Loop diuretics: what is the typical furosemide dose?",
+    "back": "Furosemide 40 mg OD PO (range 20-80 mg); given IV in acute pulmonary oedema."
+   },
+   {
+    "id": "ph_htn_c09_08",
+    "front": "Loop diuretics: how does bumetanide dosing compare to furosemide?",
+    "back": "Bumetanide 1 mg is approximately equivalent to furosemide 40 mg, and is better absorbed when the gut is oedematous."
+   },
+   {
+    "id": "ph_htn_c09_09",
+    "front": "Loop diuretics: what electrolyte and acid-base disturbances do they cause?",
+    "back": "Hypokalaemia, hyponatraemia, hypomagnesaemia, hypocalcaemia (lose Ca2+), and a hypochloraemic metabolic alkalosis."
+   },
+   {
+    "id": "ph_htn_c09_10",
+    "front": "Loop diuretics: how does their effect on calcium differ from thiazides?",
+    "back": "Loops lose Ca2+ (hypocalcaemia), which is the opposite of thiazides, which retain calcium."
+   },
+   {
+    "id": "ph_htn_c09_11",
+    "front": "Loop diuretics: what non-electrolyte side effects can occur?",
+    "back": "Dehydration/AKI, hyperuricaemia (gout), ototoxicity (high-dose or fast IV), and hyperglycaemia."
+   },
+   {
+    "id": "ph_htn_c09_12",
+    "front": "Loop diuretics: what interaction occurs with aminoglycosides?",
+    "back": "Additive ototoxicity plus nephrotoxicity."
+   },
+   {
+    "id": "ph_htn_c09_13",
+    "front": "Loop diuretics: why are they dangerous with digoxin?",
+    "back": "Loop-induced hypokalaemia potentiates digoxin toxicity."
+   },
+   {
+    "id": "ph_htn_c09_14",
+    "front": "Loop diuretics: what is the interaction with lithium?",
+    "back": "They reduce lithium excretion, leading to lithium toxicity."
+   },
+   {
+    "id": "ph_htn_c09_15",
+    "front": "Loop diuretics: what should be monitored?",
+    "back": "U&Es (K+, Na+) and renal function, since loops drop K+ and can cause AKI if over-diuresed; use daily weights in acute heart failure to guide diuresis."
+   },
+   {
+    "id": "ph_htn_c09_16",
+    "front": "Loop diuretics: how does oral absorption differ between furosemide and bumetanide?",
+    "back": "Furosemide has variable oral absorption that is worse when the gut is oedematous; bumetanide has better/more predictable oral absorption in gut oedema (1 mg ~ 40 mg furosemide)."
+   },
+   {
+    "id": "ph_htn_c09_17",
+    "front": "Loop diuretics: why must IV doses be given slowly?",
+    "back": "A fast IV bolus risks ototoxicity, so IV loops should be given slowly."
+   },
+   {
+    "id": "ph_htn_c10_01",
+    "front": "Potassium-sparing diuretics (spironolactone, eplerenone): what is the mechanism of action?",
+    "back": "They block the mineralocorticoid (aldosterone) receptor in the distal nephron, producing mild natriuresis while retaining K+ (potassium-sparing)."
+   },
+   {
+    "id": "ph_htn_c10_02",
+    "front": "Potassium-sparing diuretics: why are spironolactone and eplerenone used in heart failure with reduced EF?",
+    "back": "They improve survival (prognostic benefit) and are added on top of an ACE inhibitor plus beta-blocker."
+   },
+   {
+    "id": "ph_htn_c10_03",
+    "front": "Potassium-sparing diuretics: what is their role in resistant hypertension per NICE?",
+    "back": "Spironolactone is used at NICE step 4, but only if K+ is <=4.5."
+   },
+   {
+    "id": "ph_htn_c10_04",
+    "front": "Potassium-sparing diuretics: name other indications besides heart failure and resistant hypertension.",
+    "back": "Primary hyperaldosteronism (Conn's), and ascites in cirrhosis (spironolactone is first-line for ascites)."
+   },
+   {
+    "id": "ph_htn_c10_05",
+    "front": "Potassium-sparing diuretics: what are the contraindications?",
+    "back": "Hyperkalaemia (K+ >5.0), severe renal impairment, and Addison's disease."
+   },
+   {
+    "id": "ph_htn_c10_06",
+    "front": "Potassium-sparing diuretics: what is a key caution when combining with other drugs?",
+    "back": "Combining with an ACE inhibitor or ARB requires close K+ monitoring due to additive hyperkalaemia risk."
+   },
+   {
+    "id": "ph_htn_c10_07",
+    "front": "Spironolactone: what is the typical dosing in heart failure and in ascites?",
+    "back": "Heart failure: 25 mg OD (range 12.5-50 mg). Ascites: up to 100-400 mg."
+   },
+   {
+    "id": "ph_htn_c10_08",
+    "front": "Eplerenone: what is the typical dose?",
+    "back": "25-50 mg OD."
+   },
+   {
+    "id": "ph_htn_c10_09",
+    "front": "Potassium-sparing diuretics: what is the key dangerous side effect?",
+    "back": "Hyperkalaemia, which can cause fatal arrhythmia; AKI is also a risk."
+   },
+   {
+    "id": "ph_htn_c10_10",
+    "front": "Spironolactone: what off-target sex-hormone side effects can it cause, and how does eplerenone differ?",
+    "back": "Gynaecomastia, breast tenderness and menstrual upset (spironolactone is non-selective). Eplerenone is selective, so causes far less."
+   },
+   {
+    "id": "ph_htn_c10_11",
+    "front": "Potassium-sparing diuretics: which drugs cause additive hyperkalaemia when combined?",
+    "back": "ACE inhibitors, ARBs, K+ supplements, trimethoprim, and NSAIDs -> monitor K+ closely."
+   },
+   {
+    "id": "ph_htn_c10_12",
+    "front": "Spironolactone: what is its interaction with digoxin?",
+    "back": "Spironolactone can raise digoxin levels."
+   },
+   {
+    "id": "ph_htn_c10_13",
+    "front": "Potassium-sparing diuretics: how should U&Es be monitored?",
+    "back": "Check U&Es (K+, creatinine) before starting, at ~1 week and ~1 month, then periodically, to catch hyperkalaemia."
+   },
+   {
+    "id": "ph_htn_c10_14",
+    "front": "Potassium-sparing diuretics: when should the drug be stopped based on monitoring?",
+    "back": "Stop if K+ >6.0 or if AKI develops."
+   },
+   {
+    "id": "ph_htn_c10_15",
+    "front": "Aldosterone antagonists: if breast effects (gynaecomastia) occur on spironolactone, what is the recommended action?",
+    "back": "Switch to eplerenone, which is selective and does not cause gynaecomastia."
+   },
+   {
+    "id": "ph_htn_c10_16",
+    "front": "Spironolactone: why does it have a slow onset (days) of action?",
+    "back": "It acts largely via its long-lived active metabolite canrenone (t1/2 ~16 h); eplerenone is directly active with a shorter, cleaner profile."
+   },
+   {
+    "id": "ph_htn_c11_01",
+    "front": "Potassium-sparing diuretics (amiloride, triamterene): what is their mechanism of action?",
+    "back": "They block the epithelial sodium channel (ENaC) in the collecting duct, producing a mild natriuresis while sparing K+. This action is independent of aldosterone."
+   },
+   {
+    "id": "ph_htn_c11_02",
+    "front": "Potassium-sparing diuretics: what type of agent are amiloride and triamterene specifically (vs spironolactone-type drugs)?",
+    "back": "They are direct ENaC blockers, not aldosterone antagonists. They are weak diuretics used mainly to offset thiazide/loop-induced hypokalaemia."
+   },
+   {
+    "id": "ph_htn_c11_03",
+    "front": "Potassium-sparing diuretics (amiloride, triamterene): what is their main clinical use?",
+    "back": "As a potassium-sparing add-on, usually combined with a thiazide or loop diuretic to offset K+ loss (e.g. co-amilofruse). On their own they are only weak diuretics."
+   },
+   {
+    "id": "ph_htn_c11_04",
+    "front": "Potassium-sparing diuretics: what does the combination co-amilofruse contain and why is it used?",
+    "back": "It combines amiloride (a K+-sparing ENaC blocker) with furosemide (a loop diuretic), pairing them so the amiloride offsets the loop-induced K+ loss."
+   },
+   {
+    "id": "ph_htn_c11_05",
+    "front": "Potassium-sparing diuretics (amiloride, triamterene): what are the contraindications?",
+    "back": "Hyperkalaemia and severe renal impairment."
+   },
+   {
+    "id": "ph_htn_c11_06",
+    "front": "Potassium-sparing diuretics: in what situation should you use caution?",
+    "back": "Caution when combined with an ACE inhibitor/ARB or other K+-sparing agents, because of the additive hyperkalaemia risk."
+   },
+   {
+    "id": "ph_htn_c11_07",
+    "front": "Potassium-sparing diuretics: what is the typical dose of amiloride?",
+    "back": "Amiloride 5-10 mg once daily (OD)."
+   },
+   {
+    "id": "ph_htn_c11_08",
+    "front": "Potassium-sparing diuretics (amiloride, triamterene): what are the key side effects?",
+    "back": "Hyperkalaemia and mild GI upset. Triamterene can rarely cause renal stones or AKI."
+   },
+   {
+    "id": "ph_htn_c11_09",
+    "front": "Potassium-sparing diuretics: which drug can rarely cause renal stones or AKI?",
+    "back": "Triamterene."
+   },
+   {
+    "id": "ph_htn_c11_10",
+    "front": "Potassium-sparing diuretics: which drugs interact to cause additive hyperkalaemia?",
+    "back": "ACE inhibitors/ARBs, other K+-sparing agents, K+ supplements, trimethoprim, ciclosporin, and NSAIDs. These are additive, so check K+."
+   },
+   {
+    "id": "ph_htn_c11_11",
+    "front": "Potassium-sparing diuretics: how should amiloride/triamterene be monitored?",
+    "back": "Check U&E / K+ at baseline and after starting or any dose change (more often in renal impairment or with interacting drugs). Stop if the patient becomes hyperkalaemic."
+   },
+   {
+    "id": "ph_htn_c11_12",
+    "front": "Potassium-sparing diuretics: what is the high-yield exam pearl?",
+    "back": "They are weak diuretics used mainly to spare K+ alongside a thiazide/loop diuretic. Watch for hyperkalaemia."
+   },
+   {
+    "id": "ph_htn_c12_01",
+    "front": "Alpha-blockers: what is the mechanism of action on blood pressure?",
+    "back": "They block alpha-1 adrenoceptors on vascular smooth muscle -> vasodilation -> lower BP."
+   },
+   {
+    "id": "ph_htn_c12_02",
+    "front": "Alpha-blockers: what is their mechanism on the urinary tract?",
+    "back": "They relax prostatic and bladder-neck smooth muscle -> improved urinary flow."
+   },
+   {
+    "id": "ph_htn_c12_03",
+    "front": "Alpha-blockers: what is their place in NICE hypertension management?",
+    "back": "Resistant hypertension -> step 4 if K+ >4.5 (doxazosin)."
+   },
+   {
+    "id": "ph_htn_c12_04",
+    "front": "Alpha-blockers: which drug is used for benign prostatic hyperplasia and why?",
+    "back": "Tamsulosin -> it is uroselective (alpha-1A), so it treats BPH with minimal BP effect."
+   },
+   {
+    "id": "ph_htn_c12_05",
+    "front": "Alpha-blockers: in which patient groups should they be used with caution?",
+    "back": "Caution with postural hypotension, the elderly (falls risk), and existing urinary incontinence."
+   },
+   {
+    "id": "ph_htn_c12_06",
+    "front": "Alpha-blockers: what is the starting dose and titration of doxazosin?",
+    "back": "Doxazosin 1 mg once daily, titrate up; modified-release up to 8 mg."
+   },
+   {
+    "id": "ph_htn_c12_07",
+    "front": "Alpha-blockers: what is the classic first-dose adverse effect and how do you prevent it?",
+    "back": "First-dose/postural hypotension and syncope -> give the first dose at bedtime (dose at night)."
+   },
+   {
+    "id": "ph_htn_c12_08",
+    "front": "Alpha-blockers: list the common side effects besides postural hypotension.",
+    "back": "Dizziness, headache, ankle oedema, and urinary incontinence (in women)."
+   },
+   {
+    "id": "ph_htn_c12_09",
+    "front": "Alpha-blockers: what serious surgical complication is linked to tamsulosin?",
+    "back": "Intra-operative floppy iris syndrome -> warn the ophthalmologist before cataract surgery."
+   },
+   {
+    "id": "ph_htn_c12_10",
+    "front": "Alpha-blockers: what is the interaction with PDE5 inhibitors (sildenafil, tadalafil)?",
+    "back": "Additive hypotension -> separate dosing/start low."
+   },
+   {
+    "id": "ph_htn_c12_11",
+    "front": "Alpha-blockers: what happens if combined with other antihypertensives?",
+    "back": "Additive hypotension -> separate dosing and start low."
+   },
+   {
+    "id": "ph_htn_c12_12",
+    "front": "Alpha-blockers: what is a key prescribing rule regarding combining these drugs?",
+    "back": "Do not co-prescribe two alpha-blockers."
+   },
+   {
+    "id": "ph_htn_c12_13",
+    "front": "Alpha-blockers: what monitoring is required?",
+    "back": "Postural (lying/standing) BP, especially after the first dose and each uptitration."
+   },
+   {
+    "id": "ph_htn_c12_14",
+    "front": "Alpha-blockers: what are the indications for doxazosin specifically?",
+    "back": "HTN (step 4) and BPH; the modified-release form smooths the postural BP drop."
+   },
+   {
+    "id": "ph_htn_c12_15",
+    "front": "Alpha-blockers: what is distinctive about tamsulosin's selectivity?",
+    "back": "Uroselective (alpha-1A) -> used for BPH with minimal BP effect."
+   },
+   {
+    "id": "ph_htn_c12_16",
+    "front": "Alpha-blockers: what are the indications for terazosin?",
+    "back": "Both HTN and BPH."
+   },
+   {
+    "id": "ph_htn_c13_01",
+    "front": "Methyldopa (centrally acting): what is its mechanism of action?",
+    "back": "Centrally-acting alpha2-agonist, acting via its metabolite alpha-methylnoradrenaline -> reduces central sympathetic outflow -> lowers BP."
+   },
+   {
+    "id": "ph_htn_c13_02",
+    "front": "Methyldopa (centrally acting): what is its main clinical use?",
+    "back": "Hypertension in pregnancy. It is a recognised option with a long safety record, used where other agents are unsuitable."
+   },
+   {
+    "id": "ph_htn_c13_03",
+    "front": "Methyldopa (centrally acting): where does it sit in the treatment order for hypertension in pregnancy?",
+    "back": "Not first-line. Labetalol is first-line, modified-release nifedipine is the usual alternative, and methyldopa is used where these are unsuitable."
+   },
+   {
+    "id": "ph_htn_c13_04",
+    "front": "Methyldopa (centrally acting): what are its contraindications?",
+    "back": "Depression (can precipitate or worsen it), active liver disease, and phaeochromocytoma."
+   },
+   {
+    "id": "ph_htn_c13_05",
+    "front": "Methyldopa (centrally acting): what is the typical dosing?",
+    "back": "250 mg BD-TDS, up to a maximum of 3 g/day."
+   },
+   {
+    "id": "ph_htn_c13_06",
+    "front": "Methyldopa (centrally acting): what are the common CNS/general side effects?",
+    "back": "Sedation/drowsiness, depression, dry mouth, and postural hypotension."
+   },
+   {
+    "id": "ph_htn_c13_07",
+    "front": "Methyldopa (centrally acting): what haematological side effect can occur?",
+    "back": "Coombs-positive haemolytic anaemia (positive direct antiglobulin test)."
+   },
+   {
+    "id": "ph_htn_c13_08",
+    "front": "Methyldopa (centrally acting): what serious hepatic side effect can occur and how do you act on it?",
+    "back": "Drug-induced hepatitis -> check LFTs."
+   },
+   {
+    "id": "ph_htn_c13_09",
+    "front": "Methyldopa (centrally acting): why are MAOIs contraindicated with it?",
+    "back": "Risk of hypertensive crisis; the combination is contraindicated."
+   },
+   {
+    "id": "ph_htn_c13_10",
+    "front": "Methyldopa (centrally acting): how does it interact with oral iron salts?",
+    "back": "Oral iron salts reduce methyldopa absorption -> separate the doses."
+   },
+   {
+    "id": "ph_htn_c13_11",
+    "front": "Methyldopa (centrally acting): what is the interaction with lithium?",
+    "back": "Enhanced lithium neurotoxicity."
+   },
+   {
+    "id": "ph_htn_c13_12",
+    "front": "Methyldopa (centrally acting): what happens when combined with other antihypertensives or anaesthetics?",
+    "back": "Additive hypotension."
+   },
+   {
+    "id": "ph_htn_c13_13",
+    "front": "Methyldopa (centrally acting): what monitoring is required and when?",
+    "back": "LFTs (risk of drug-induced hepatitis) and FBC plus direct antiglobulin/Coombs test (haemolytic anaemia), at baseline and periodically."
+   },
+   {
+    "id": "ph_htn_c13_14",
+    "front": "Methyldopa (centrally acting): what is the high-yield exam identity for this drug?",
+    "back": "It is the classic hypertension-in-pregnancy drug; watch for depression, sedation, and a positive Coombs test/haemolysis."
+   },
+   {
+    "id": "ph_htn_c13_15",
+    "front": "Methyldopa (centrally acting): what should be done with it postnatally and why?",
+    "back": "Stop it postnatally, because it worsens postnatal depression."
+   },
+   {
+    "id": "ph_htn_c14_01",
+    "front": "Moxonidine (centrally-acting antihypertensive): what is its mechanism of action?",
+    "back": "It is a centrally-acting imidazoline (I1) receptor agonist -> reduces central sympathetic outflow -> lowers BP."
+   },
+   {
+    "id": "ph_htn_c14_02",
+    "front": "Centrally-acting antihypertensives (moxonidine): what is the main indication?",
+    "back": "Resistant hypertension -> a later-line option used when standard agents are unsuitable or insufficient."
+   },
+   {
+    "id": "ph_htn_c14_03",
+    "front": "Moxonidine (centrally-acting): what are the cardiac contraindications?",
+    "back": "Sick sinus syndrome, 2nd-3rd degree AV block, bradycardia <50 bpm, and severe heart failure."
+   },
+   {
+    "id": "ph_htn_c14_04",
+    "front": "Moxonidine (centrally-acting): which allergy/reaction history is a contraindication?",
+    "back": "A history of angioedema."
+   },
+   {
+    "id": "ph_htn_c14_05",
+    "front": "Moxonidine (centrally-acting): in which situations should it be used with caution?",
+    "back": "Renal impairment and first-degree AV block."
+   },
+   {
+    "id": "ph_htn_c14_06",
+    "front": "Moxonidine (centrally-acting): what is the typical dose?",
+    "back": "200 micrograms once daily, up to a maximum of 600 micrograms/day."
+   },
+   {
+    "id": "ph_htn_c14_07",
+    "front": "Moxonidine (centrally-acting): what are the common side effects?",
+    "back": "Dry mouth, headache, fatigue, and dizziness."
+   },
+   {
+    "id": "ph_htn_c14_08",
+    "front": "Moxonidine (centrally-acting): why must it not be stopped abruptly, and what should you do instead?",
+    "back": "Abrupt withdrawal causes rebound hypertension -> taper the dose rather than stopping suddenly."
+   },
+   {
+    "id": "ph_htn_c14_09",
+    "front": "Moxonidine (centrally-acting): what interactions occur with other antihypertensives and CNS depressants?",
+    "back": "Additive hypotension and sedation."
+   },
+   {
+    "id": "ph_htn_c14_10",
+    "front": "Moxonidine (centrally-acting): how do tricyclic antidepressants affect it?",
+    "back": "Tricyclic antidepressants may reduce its antihypertensive effect."
+   },
+   {
+    "id": "ph_htn_c14_11",
+    "front": "Moxonidine (centrally-acting): what should be monitored?",
+    "back": "Heart rate (HR) and blood pressure (BP)."
+   },
+   {
+    "id": "ph_htn_c14_12",
+    "front": "Moxonidine (centrally-acting): if a patient is also on a beta-blocker, in what order should the drugs be stopped?",
+    "back": "Stop the moxonidine first (then the beta-blocker), tapering to avoid rebound hypertension."
+   },
+   {
+    "id": "ph_htn_c14_13",
+    "front": "Moxonidine (centrally-acting): what is the key high-yield exam pearl?",
+    "back": "It is a centrally-acting later-line add-on antihypertensive; do not stop abruptly as this causes rebound hypertension."
    }
   ],
   "pharmacology__Cardiovascular Drugs__Antiarrhythmics (Vaughan-Williams)": [],
@@ -217,18 +1437,7 @@
   "pharmacology__Cardiovascular Drugs__Anticoagulants": [],
   "pharmacology__Cardiovascular Drugs__Antiplatelets": [],
   "pharmacology__Cardiovascular Drugs__Thrombolytics / Fibrinolytics": [],
-  "pharmacology__Respiratory Drugs__Bronchodilators": [
-   {
-    "id": "ph_resp_bd_ex01",
-    "front": "Mechanism and role of salbutamol?",
-    "back": "Short-acting beta-2 agonist (SABA): stimulates β2 receptors → bronchial smooth-muscle relaxation. Reliever for acute bronchospasm."
-   },
-   {
-    "id": "ph_resp_bd_ex02",
-    "front": "Give an example of a long-acting muscarinic antagonist (LAMA) and its use.",
-    "back": "Tiotropium — blocks M3 receptors for sustained bronchodilation; maintenance therapy in COPD (and add-on in asthma)."
-   }
-  ],
+  "pharmacology__Respiratory Drugs__Bronchodilators": [],
   "pharmacology__Respiratory Drugs__Inhaled Corticosteroids (ICS)": [],
   "pharmacology__Respiratory Drugs__Combination Inhalers": [],
   "pharmacology__Respiratory Drugs__Leukotriene Receptor Antagonists (LTRAs)": [],
