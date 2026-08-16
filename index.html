@@ -9482,17 +9482,17 @@ window.MOCK_BANK = {
     { id:"tac-004", type:"mcq", objective:"tac-instability-definition",
       question:"Four patients each present with a tachycardia at around 170 bpm. Which ONE is haemodynamically unstable and needs immediate cardioversion?",
       options:[
-        "A patient with palpitations and mild anxiety, blood pressure 128/80",
-        "A patient aware their heart is racing, blood pressure 130/78",
-        "A patient with mild breathlessness on exertion, blood pressure 124/76",
-        "A patient who has had a syncopal episode, systolic BP 78",
-        "A patient who can feel a fast pulse, blood pressure 118/72"],
+        "Brief presyncope on standing but no blackout, now BP 106/70",
+        "Clammy with a fast pulse and a systolic BP of 96",
+        "Anxious with chest tightness, a normal ECG and BP 120/80",
+        "A witnessed syncopal collapse at onset, now alert with BP 112/74",
+        "Mild breathlessness on exertion with clear lungs, BP 118/78"],
       correctIndex:3,
       explanation:[
-        "Instability means END-ORGAN compromise or haemodynamic collapse. It is ANY ONE of the FOUR adverse features: SHOCK (SBP &lt;90), SYNCOPE / reduced consciousness, myocardial ISCHAEMIA (ischaemic chest pain), or severe HEART FAILURE (pulmonary oedema) &mdash; not simply a fast or symptomatic rhythm. The patient with syncope and a systolic BP of 78 clearly qualifies.",
+        "Instability means END-ORGAN compromise or haemodynamic collapse. It is ANY ONE of the FOUR adverse features: SHOCK (SBP &lt;90 with hypoperfusion), SYNCOPE / reduced consciousness, myocardial ISCHAEMIA (ischaemic chest pain), or severe HEART FAILURE (pulmonary oedema) &mdash; not simply a fast or symptomatic rhythm. The patient who had a WITNESSED SYNCOPAL COLLAPSE (D) qualifies on that criterion ALONE &mdash; even though his blood pressure has since recovered to 112/74.",
         "The threshold matters because instability triggers immediate synchronised DC cardioversion regardless of the rhythm (tac-003) &mdash; so over- or under-calling it changes management. These are the SAME four adverse features that drive both arms of the peri-arrest algorithm (cross-link: Cardiac Arrest / Advanced Life Support (ALS), Bradycardias / Heart Block).",
-        "Crucially, palpitations, anxiety, a fast rate per se, and mild breathlessness with a preserved BP do NOT constitute instability &mdash; many stable SVTs run at 160&ndash;200 bpm in fully compensated patients who have time for vagal manoeuvres and drugs.",
-        "Trap: mild anxiety, a racing sensation, exertional breathlessness or simply feeling a fast pulse with a preserved blood pressure (A, B, C, E) are symptoms of the tachycardia, not end-organ compromise &mdash; only the patient with syncope and a systolic BP of 78 (D) is truly unstable."
+        "Crucially, the OTHER patients each have a worrying-sounding feature that does NOT meet the bar: presyncope without a blackout, a systolic BP of 96 (low, but not &lt;90), non-ischaemic chest tightness with a normal ECG, and mild exertional breathlessness with clear lungs. Many stable SVTs run at 160&ndash;200 bpm in fully compensated patients who have time for vagal manoeuvres and drugs.",
+        "Trap: the clammy patient with a systolic BP of 96 (B) draws the eye but does NOT cross the shock threshold (&lt;90); presyncope without a blackout (A), anxious non-ischaemic chest tightness with a normal ECG (C) and mild exertional breathlessness with clear lungs (E) are symptoms of the tachycardia, not end-organ compromise &mdash; only the WITNESSED SYNCOPE (D) makes this patient unstable, regardless of the recovered blood pressure."
       ] },
     { id:"tac-005", type:"mcq", objective:"tac-avnode-principle",
       question:"You have a patient with a stable, regular tachycardia and are deciding whether to give an AV-nodal blocking drug (adenosine, a beta-blocker or verapamil). Working out whether the AV node is part of the circuit tells you what?",
@@ -9704,7 +9704,7 @@ window.MOCK_BANK = {
       ] },
     { id:"tac-018", type:"mcq", objective:"tac-chadsvasc",
       question:"A 76-year-old woman with newly diagnosed non-valvular atrial fibrillation is assessed for stroke prevention. Her risk factors are shown. What is her CHA2DS2-VASc score, and what does it indicate?",
-      data:'<div class="mk-obs-h">CHA2DS2-VASc risk factors</div><table class="mk-labs"><tr><td>Age</td><td><b>76 years</b></td><td>&ge;75 scores 2</td></tr><tr><td>Sex</td><td><b>Female</b></td><td>1</td></tr><tr><td>Hypertension</td><td><b>Yes (treated)</b></td><td>1</td></tr><tr><td>Type 2 diabetes</td><td><b>Yes</b></td><td>1</td></tr><tr><td>Prior stroke / TIA</td><td><b>No</b></td><td>0</td></tr><tr><td>Heart failure</td><td><b>No</b></td><td>0</td></tr><tr><td>Vascular disease</td><td><b>No</b></td><td>0</td></tr></table>',
+      data:'<div class="mk-obs-h">CHA2DS2-VASc risk factors</div><table class="mk-labs"><tr><td>Age</td><td><b>76 years</b></td></tr><tr><td>Sex</td><td><b>Female</b></td></tr><tr><td>Hypertension</td><td><b>Yes (treated)</b></td></tr><tr><td>Type 2 diabetes</td><td><b>Yes</b></td></tr><tr><td>Prior stroke / TIA</td><td><b>No</b></td></tr><tr><td>Heart failure</td><td><b>No</b></td></tr><tr><td>Vascular disease</td><td><b>No</b></td></tr></table>',
       options:[
         "Score 3; no anticoagulation is needed",
         "Score 2; aspirin is sufficient here",
@@ -9940,7 +9940,7 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/d/dd/ECG_AVNRT_181_bpm.jpg",
       imageAlt:"A regular narrow-complex tachycardia at about 180 bpm; a small extra deflection distorts the terminal part of each QRS complex.",
       imageCredit:"Ewingdo, CC BY-SA 4.0, via Wikimedia Commons.",
-      question:"A 24-year-old woman has a sudden onset of rapid, regular palpitations that began abruptly while she was sitting. She is stable. Her ECG is shown: a regular narrow-complex tachycardia at 180 bpm with no clearly visible P waves before the QRS. What is the most likely diagnosis?",
+      question:"A 24-year-old woman has a sudden onset of rapid, regular palpitations that began abruptly while she was sitting. She is stable. Her ECG is shown. What is the most likely diagnosis?",
       options:[
         "Sinus tachycardia",
         "Atrial fibrillation",
@@ -10003,7 +10003,7 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/2/29/WPW2012.jpg",
       imageAlt:"A sinus-rhythm ECG with a short PR interval and a slurred, gradual upstroke at the start of each QRS complex.",
       imageCredit:"James Heilman MD, CC BY-SA 3.0, via Wikimedia Commons.",
-      question:"A 20-year-old with occasional palpitations has the resting ECG (in sinus rhythm) shown. It shows a short PR interval and a slurred upstroke to the QRS. What does this indicate?",
+      question:"A 20-year-old with occasional palpitations has the resting ECG (in sinus rhythm) shown. What does this indicate?",
       options:[
         "First-degree AV block from delayed AV-nodal conduction",
         "Left bundle branch block from His-Purkinje disease",
@@ -10066,7 +10066,7 @@ window.MOCK_BANK = {
       image:"assets/img/focal_atrial_tachycardia.png",
       imageAlt:"A regular narrow-complex tachycardia whose P waves differ in shape from the normal sinus P wave.",
       imageCredit:"Illustrative ECG.",
-      question:"A 60-year-old has a regular narrow-complex tachycardia at 170 bpm. The onset showed a gradual warm-up (the rate accelerated over several beats), and the P waves before each QRS are abnormally shaped but differ from the sinus P wave. The strip is shown. What is the most likely diagnosis?",
+      question:"A 60-year-old presents with a regular tachycardia at 170 bpm. The rhythm strip is shown. What is the most likely diagnosis?",
       options:[
         "AVNRT",
         "Sinus tachycardia",
@@ -10212,7 +10212,7 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/d/d2/E309_%28CardioNetworks_ECGpedia%29.jpg",
       imageAlt:"A broad-complex tachycardia with occasional independent P waves visible at a slower, unrelated rate.",
       imageCredit:"Michael Rosengarten, McGill / CardioNetworks ECGpedia, CC BY-SA 3.0, via Wikimedia Commons.",
-      question:"A broad-complex tachycardia strip is examined for features that would confirm ventricular tachycardia. Independent P waves are seen marching through the QRS complexes at their own, slower rate. What is this finding, and what does it indicate?",
+      question:"A broad-complex tachycardia strip is shown. One feature visible on it would, on its own, confirm ventricular tachycardia. What is that finding, and what does it indicate?",
       options:[
         "A delta wave, indicating pre-excitation",
         "Electrical alternans, indicating tamponade",
@@ -10399,7 +10399,7 @@ window.MOCK_BANK = {
       image:"assets/img/af_lbbb_aberrancy.png",
       imageAlt:"An irregular broad-complex tachycardia in which every QRS has the same fixed wide, bundle-branch-block shape.",
       imageCredit:"Illustrative ECG.",
-      question:"An irregular broad-complex tachycardia is seen at ~150 bpm. Every QRS has the SAME fixed left bundle branch block morphology, and the patient has known LBBB on a prior ECG. The strip is shown. How is this best classified and managed?",
+      question:"A patient with known left bundle branch block on a prior ECG presents with an irregular tachycardia at ~150 bpm. The strip is shown. How is this best classified and managed?",
       options:[
         "Pre-excited AF; give urgent intravenous flecainide",
         "AF with bundle branch block; manage it as ordinary AF",
