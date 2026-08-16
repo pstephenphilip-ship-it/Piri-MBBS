@@ -10191,7 +10191,7 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/c/c4/Electrocardiogram_of_Ventricular_Tachycardia.png",
       imageAlt:"A regular broad-complex tachycardia in which every QRS complex has the same wide, abnormal shape.",
       imageCredit:"Ksheka, CC BY-SA 2.5, via Wikimedia Commons.",
-      question:"A 68-year-old with a previous myocardial infarction has palpitations and light-headedness. The ECG shows a regular, broad-complex tachycardia at 160 bpm in which every QRS has the same abnormal, wide morphology. The strip is shown. What is the most likely diagnosis?",
+      question:"A 68-year-old man with a previous myocardial infarction has palpitations and light-headedness. His ECG is shown. What is the most likely diagnosis?",
       options:[
         "Monomorphic ventricular tachycardia",
         "AVNRT conducting with rate-related aberrancy",
@@ -10318,10 +10318,7 @@ window.MOCK_BANK = {
         "Trap: verapamil (A) is dangerous in VT; adenosine (B) does not treat VT; assuming aberrancy and beta-blocking (C) is the fatal error; and discharging a broad-complex tachycardia (D) misses a lethal arrhythmia."
       ] },
     { id:"tac-057", type:"mcq", objective:"tac-preexcited-af",
-      image:"assets/img/preexcited_af.png",
-      imageAlt:"A very fast, broad, irregular tachycardia in which the width and shape of the QRS complexes vary from beat to beat.",
-      imageCredit:"Illustrative ECG.",
-      question:"A 22-year-old with known Wolff-Parkinson-White presents with sudden palpitations and dizziness. The ECG shows a very fast (ventricular rate ~220 bpm), BROAD, IRREGULAR tachycardia in which the QRS width and shape VARY from beat to beat. The strip is shown. What is the diagnosis?",
+      question:"A 22-year-old with known Wolff-Parkinson-White presents with sudden palpitations and dizziness. The ECG shows a very fast (ventricular rate ~220 bpm), BROAD, IRREGULAR tachycardia in which the QRS width and shape VARY from beat to beat. What is the diagnosis?",
       options:[
         "Monomorphic ventricular tachycardia",
         "Pre-excited atrial fibrillation (WPW + AF)",
@@ -10426,21 +10423,6 @@ window.MOCK_BANK = {
         "This is the peri-arrest link (tac-003, tac-052): an unstable but PERFUSING tachyarrhythmia &rarr; synchronised DC; PULSELESS &rarr; the arrest algorithm with unsynchronised defibrillation (cross-link: Cardiac Arrest / Advanced Life Support (ALS)).",
         "Trap: shocking the perfusing AF patient UNsynchronised (A, C) risks inducing VF by landing on the T wave; trying to SYNCHRONISE pulseless VT (A, B) fails (no organised R wave) and delays defibrillation; and drugs alone (E) are wrong for both an unstable and an arrested patient."
       ] },
-    { id:"tac-064", type:"mcq", objective:"tac-algorithm-synthesis",
-      question:"A doctor is handed the ECG of a tachycardia and asked to work through it systematically. In what ORDER should the assessment proceed?",
-      options:[
-        "P-wave morphology, then rate, then axis",
-        "QT interval, then rate, then P waves",
-        "Stability first, then QRS width, then regularity",
-        "Rate first, then anticoagulation, then cause",
-        "Regularity first, then P waves, then stability"],
-      correctIndex:2,
-      explanation:[
-        "The fixed order is: (1) ASSESS STABILITY &mdash; an unstable patient is cardioverted immediately regardless of rhythm (tac-003); (2) measure QRS WIDTH &mdash; narrow (supraventricular) vs broad (VT until proven otherwise, tac-001); (3) assess REGULARITY &mdash; then read the P-waves in a narrow rhythm or hunt for VT features in a broad one.",
-        "This is the Resuscitation Council algorithm distilled: treat the PATIENT (stability) before the RHYTHM, then let width and regularity place the rhythm in one of the four quadrants (tac-007).",
-        "From the quadrant, the master principle (tac-005) gives the drug logic: is the AV node in the circuit (terminate), a bystander (rate-control), being bypassed (endanger), or is it sinus (treat the cause)? The whole topic reduces to this sequence.",
-        "Trap: starting with P-waves, QT, rate or regularity (A, B, D, E) skips the two things that must come first &mdash; is the patient STABLE, and is the QRS NARROW or BROAD? Stability and width lead everything else."
-      ] },
     { id:"tac-065", type:"mcq", objective:"tac-pvc-benign",
       image:"https://upload.wikimedia.org/wikipedia/commons/3/3c/Extrasistole_isolata.JPG",
       imageAlt:"A rhythm strip (a few leads) showing an early, broad QRS complex with no preceding P wave interrupting an otherwise regular rhythm.",
@@ -10491,10 +10473,7 @@ window.MOCK_BANK = {
         "Trap: normal coronaries exclude an ischaemic cause (A); a 25% burden with a falling EF is NOT incidental (B); it is REVERSIBLE, not transplant-bound (C); and this is not athlete&rsquo;s heart (D) &mdash; the high PVC burden is the culprit and the target."
       ] },
     { id:"tac-068", type:"mcq", objective:"tac-pac",
-      image:"assets/img/pac_ecg.png",
-      imageAlt:"A 12-lead ECG in sinus rhythm with an occasional early beat whose P wave differs in shape from the sinus P waves, followed by a narrow QRS.",
-      imageCredit:"Illustrative ECG.",
-      question:"A 40-year-old with palpitations has the ECG shown: occasional EARLY beats, each with an abnormally shaped P wave and a NARROW QRS, after which the rhythm resumes. What are these, and what is their significance?",
+      question:"A 40-year-old with palpitations is found to have occasional EARLY beats, each with an abnormally shaped P wave and a NARROW QRS, after which the rhythm resumes. What are these, and what is their significance?",
       options:[
         "Ventricular ectopics, which are essentially always dangerous",
         "Atrial ectopics (PACs); usually benign but can trigger AF/SVT",
@@ -10527,7 +10506,8 @@ window.MOCK_BANK = {
         "Trap: a sinus origin (B) gives an upright P BEFORE each QRS; pre-excitation (C) gives a delta wave; a ventricular origin (D) gives a BROAD QRS; and multiple atrial foci (E) is MAT (irregular, multiform P) &mdash; a retrograde/absent P with a narrow QRS is junctional."
       ] },
     { id:"tac-070", type:"mcq", objective:"tac-ist",
-      question:"A 28-year-old woman has months of palpitations. Her resting heart rate is persistently 105 to 115 bpm with a normal P-wave morphology, and it rises excessively with minimal exertion. Extensive investigation (bloods, TFTs, echo) is normal, and there is no infection, anaemia, pain or dehydration. What is the most likely diagnosis?",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Resting heart rate</td><td><b>105&ndash;115 bpm</b></td><td>60&ndash;100</td></tr><tr><td>ECG</td><td><b>Sinus rhythm, normal P waves</b></td><td>&mdash;</td></tr><tr><td>Full blood count</td><td><b>Normal</b></td><td>&mdash;</td></tr><tr><td>Thyroid function</td><td><b>Normal</b></td><td>&mdash;</td></tr><tr><td>Echocardiogram</td><td><b>Normal</b></td><td>&mdash;</td></tr></table>',
+      question:"A 28-year-old woman has months of palpitations; her resting heart rate is persistently raised and rises excessively with minimal exertion. There is no infection, pain or dehydration, and her results are shown. What is the most likely diagnosis?",
       options:[
         "Focal atrial tachycardia from an ectopic focus",
         "AVNRT, a paroxysmal re-entrant tachycardia",
