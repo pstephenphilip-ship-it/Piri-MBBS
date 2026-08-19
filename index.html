@@ -3530,17 +3530,17 @@ window.MOCK_BANK = {
         "Clinical anchor: in a known TAA, a change in the PAIN (new, sudden, severe, tearing) is the red flag, not a slow change in exercise tolerance. Cross-link: Aortic Dissection (ad-001) &mdash; the aneurysm is the substrate, dissection is the event."
       ] },
     { id:"taa-005", type:"mcq", objective:"taa-svco",
-      question:"A 64-year-old woman presents with facial fullness, a headache worse on bending forward, and distended veins across her upper chest and neck. CT shows a large ascending aorta and arch aneurysm compressing an adjacent structure. Which structure is compressed?",
+      question:"A 64-year-old woman presents with facial fullness and a headache that is worse on bending forward or lying flat. CT shows a large ascending aorta and arch aneurysm compressing an adjacent mediastinal structure. Which structure is being compressed?",
       options:[
-        "Left atrium",
-        "Superior vena cava",
-        "Inferior vena cava",
         "Trachea",
-        "Thoracic duct"],
+        "Superior vena cava",
+        "Oesophagus",
+        "Recurrent laryngeal nerve",
+        "Left main bronchus"],
       correctIndex:1,
       explanation:[
-        "The picture is SUPERIOR VENA CAVA OBSTRUCTION &mdash; facial plethora and fullness, distended neck and chest-wall veins, and a headache worse on STOOPING (raised venous pressure), sometimes with a positive Pemberton's sign. A large ascending/arch aneurysm sits right beside the SVC and is a recognised benign cause.",
-        "Trap (D, trachea): tracheal compression by a thoracic aneurysm gives STRIDOR and cough &mdash; an airway problem, not venous congestion. The distended veins and facial plethora are what localise this to the SVC, not the airway.",
+        "The picture is SUPERIOR VENA CAVA OBSTRUCTION. Facial fullness and plethora, and a headache worse on STOOPING or lying flat, reflect raised UPPER-BODY VENOUS PRESSURE &mdash; on examination you would find distended neck and chest-wall veins and sometimes a positive Pemberton&rsquo;s sign. A large ascending/arch aneurysm sits right beside the SVC and is a recognised benign cause.",
+        "Trap: every option is a mediastinal structure a large ascending/arch aneurysm CAN compress, but each produces a DIFFERENT syndrome &mdash; the TRACHEA (A) or left main BRONCHUS (E) give STRIDOR, cough and dyspnoea; the OESOPHAGUS (C) gives dysphagia; the RECURRENT LARYNGEAL nerve (D) gives a hoarse voice (Ortner&rsquo;s / cardiovocal syndrome). Facial fullness and a stooping-worsened headache are VENOUS congestion, which localises the compression to the SVC.",
         "Important context: the COMMONEST cause of SVC obstruction overall is MALIGNANCY (lung cancer, lymphoma), so an aneurysm is the recognised-but-uncommon cause and malignancy must be excluded. Cross-link: Lung Cancer (SVCO as a presentation)."
       ] },
     { id:"taa-006", type:"mcq", objective:"taa-herald-bleed",
@@ -3683,15 +3683,16 @@ window.MOCK_BANK = {
         "Management principle: antibiotics ALONE will NOT sterilise an infected aneurysm wall &mdash; it needs SURGICAL RESECTION plus antibiotics (source control), the same logic as any infected tissue or prosthetic material. Contrast the SLOW, afebrile, FUSIFORM degenerative aneurysm (taa-010/015).",
         "Cross-links: Infective Endocarditis (the seeding source); Sepsis (source control)."
       ] },
-    { id:"taa-015", type:"mcq", objective:"taa-fusiform-saccular",
-      question:"Patient X has a uniform, circumferential dilatation of a segment of the descending aorta and atherosclerotic risk factors. Patient Y has a focal, asymmetrical outpouching from one side of the aortic wall and is febrile with positive blood cultures. Which statement best characterises the two aneurysm morphologies?",
-      options:[
-        "Both are fusiform",
-        "X is saccular and Y is fusiform",
-        "X is fusiform and Y is saccular",
-        "Both are saccular",
-        "Neither term applies to the thoracic aorta"],
-      correctIndex:2,
+    { id:"taa-015", type:"fill", objective:"taa-fusiform-saccular",
+      question:"Two aneurysm morphologies are described. Name the shape of each (one word per box).",
+      rows:[
+        "Patient X — a uniform, circumferential dilatation of a segment of the descending aorta, with atherosclerotic risk factors: a {{0}} aneurysm.",
+        "Patient Y — a focal, asymmetrical outpouching from one side of the aortic wall, febrile with positive blood cultures: a {{1}} aneurysm."
+      ],
+      blanks:[
+        {label:"Uniform, circumferential (degenerative)",accept:["fusiform"],answer:"Fusiform"},
+        {label:"Focal one-sided outpouching (infective / mycotic)",accept:["saccular"],answer:"Saccular"}
+      ],
       explanation:[
         "FUSIFORM = circumferential, uniform dilatation (the typical DEGENERATIVE shape). SACCULAR = a focal, asymmetrical OUTPOUCHING from one side of the wall (mycotic, penetrating ulcer, pseudoaneurysm, trauma). So X is fusiform (degenerative) and Y is saccular (infective).",
         "Morphology does DOUBLE DUTY. It hints at CAUSE (fusiform &rarr; degenerative; saccular &rarr; infective/ulcer/trauma) and &mdash; the clinically load-bearing point &mdash; it modifies RUPTURE RISK: a saccular aneurysm has a HIGHER rupture risk than a fusiform one of the SAME diameter, because the focal outpouching is a weaker, localised wall defect. Shape changes the THRESHOLD, not just the differential, so a saccular aneurysm is treated more aggressively at equal size.",
@@ -3765,7 +3766,7 @@ window.MOCK_BANK = {
       image:"https://upload.wikimedia.org/wikipedia/commons/b/bf/Bifid_uvula.JPG",
       imageAlt:"Photograph of an open mouth and soft palate showing the uvula divided into two.",
       imageCredit:"Adam6611, public domain, via Wikimedia Commons.",
-      question:"A child has hypertelorism (widely spaced eyes), the uvula shown, and a cleft palate. CT angiography shows arterial tortuosity throughout, an aortic root aneurysm and a second aneurysm in a branch artery. Aneurysms in this condition tend to rupture or dissect at smaller diameters than in other aortopathies. What is the most likely diagnosis?",
+      question:"A child has hypertelorism, the uvula shown, and a cleft palate. CT angiography shows arterial tortuosity throughout, an aortic root aneurysm and a second aneurysm in a branch artery. Aneurysms in this condition tend to rupture or dissect at smaller diameters than in other aortopathies. What is the most likely diagnosis?",
       options:[
         "Loeys-Dietz syndrome",
         "Marfan syndrome",
