@@ -260,11 +260,6 @@
     "back": "Hold the ACE inhibitor during any dehydrating illness (vomiting, diarrhoea, sepsis) and recheck U&Es, because of the risk of AKI."
    },
    {
-    "id": "ph_htn_g0_14",
-    "front": "What is the high-yield exam pearl for ACE inhibitors?",
-    "back": "Cough -> switch to an ARB. Stop in pregnancy and on sick days (dehydration/AKI). A creatinine rise up to 30% is fine; a bigger jump -> think bilateral renal artery stenosis."
-   },
-   {
     "id": "ph_htn_g1_01",
     "front": "ARBs (angiotensin receptor blockers): how do they lower blood pressure?",
     "back": "They block the angiotensin II AT1 receptor, causing vasodilation and reduced aldosterone (like an ACEi), but without raising bradykinin, so they do not cause a dry cough."
@@ -291,7 +286,7 @@
    },
    {
     "id": "ph_htn_g1_06",
-    "front": "ARBs: what are the high-yield dangerous interactions?",
+    "front": "Which drug interactions with ARBs are dangerous?",
     "back": "NSAIDs (additive AKI risk, 'triple whammy' with a diuretic), K+-raising drugs (spironolactone, trimethoprim, K+ supplements) causing hyperkalaemia, and lithium (reduced excretion -> toxicity). Never combine an ARB with an ACEi."
    },
    {
@@ -376,7 +371,7 @@
    },
    {
     "id": "ph_htn_g3_06",
-    "front": "What are the high-yield drug interactions with verapamil/diltiazem (besides beta-blockers)?",
+    "front": "What are the important drug interactions with verapamil and diltiazem (besides beta-blockers)?",
     "back": "Verapamil raises digoxin levels (toxicity risk), and both raise simvastatin levels - limit simvastatin to a maximum of 20 mg/day (MHRA advice)."
    },
    {
@@ -476,18 +471,13 @@
    },
    {
     "id": "ph_htn_g5_06",
-    "front": "Which high-yield drug interactions matter for thiazide/thiazide-like diuretics?",
+    "front": "Which drug interactions matter for thiazide/thiazide-like diuretics?",
     "back": "NSAIDs blunt the effect and risk AKI; lithium excretion falls -> lithium toxicity; loop diuretics/steroids add to hypokalaemia which increases digoxin toxicity risk."
    },
    {
     "id": "ph_htn_g5_07",
     "front": "What monitoring is needed when starting a thiazide/thiazide-like diuretic?",
     "back": "Check U&Es (Na+ and K+) at baseline and after starting or dose change (they drop both). Check glucose in diabetics and urate if gout-prone."
-   },
-   {
-    "id": "ph_htn_g5_08",
-    "front": "Exam pearl: what is the metabolic profile of thiazide/thiazide-like diuretics?",
-    "back": "They raise glucose, urate, calcium and lipids, lower Na+ and K+, and can precipitate gout. Indapamide (thiazide-like) is the NICE-preferred choice in hypertension."
    },
    {
     "id": "ph_htn_g6_01",
@@ -521,7 +511,7 @@
    },
    {
     "id": "ph_htn_g6_07",
-    "front": "Loop diuretics: high-yield dangerous interactions?",
+    "front": "What are the dangerous drug interactions with loop diuretics?",
     "back": "Aminoglycosides -> additive ototoxicity and nephrotoxicity; digoxin -> loop-induced hypokalaemia potentiates digoxin toxicity; lithium -> reduced excretion causing lithium toxicity."
    },
    {
@@ -631,7 +621,7 @@
    },
    {
     "id": "ph_htn_g8_10",
-    "front": "Alpha-blockers: what is the key exam pearl about tamsulosin and surgery?",
+    "front": "Why must tamsulosin be flagged to the surgeon before cataract surgery?",
     "back": "Tamsulosin can cause intra-operative floppy iris syndrome -> warn the ophthalmologist before cataract surgery."
    },
    {
@@ -661,7 +651,7 @@
    },
    {
     "id": "ph_htn_g9_06",
-    "front": "What are the high-yield exam pearls for methyldopa?",
+    "front": "Why is methyldopa the go-to antihypertensive in pregnancy, and what are its main side effects?",
     "back": "It is the classic hypertension-in-pregnancy drug. Watch for depression, sedation and a positive Coombs test/haemolysis. Stop it postnatally as it worsens postnatal depression."
    },
    {
@@ -708,7 +698,7 @@
    },
    {
     "id": "ph_aa_g0_06",
-    "front": "What is the key drug interaction to remember with flecainide?",
+    "front": "How does amiodarone interact with flecainide, and what must you do?",
     "back": "Amiodarone raises flecainide levels -> halve the flecainide dose. Flecainide itself raises digoxin levels."
    },
    {
@@ -1276,7 +1266,253 @@
     "back": "Hydralazine 25-75 mg QDS plus isosorbide dinitrate 20-40 mg TDS (a fixed-dose combination is available)."
    }
   ],
-  "pharmacology__Cardiovascular Drugs__Lipid-Lowering Drugs": [],
+  "pharmacology__Cardiovascular Drugs__Lipid-Lowering Drugs": [
+   {
+    "id": "ph_ll_g0_01",
+    "front": "What is the mechanism of action of statins?",
+    "back": "They inhibit HMG-CoA reductase, the rate-limiting enzyme of hepatic cholesterol synthesis. The liver responds by upregulating LDL receptors, which clears LDL from the blood."
+   },
+   {
+    "id": "ph_ll_g0_02",
+    "front": "Besides lowering LDL, what pleiotropic benefit do statins provide?",
+    "back": "They stabilise atherosclerotic plaques and improve endothelial function."
+   },
+   {
+    "id": "ph_ll_g0_03",
+    "front": "For primary prevention of cardiovascular disease, which statin and dose is first-line, and at what threshold?",
+    "back": "Atorvastatin 20 mg once daily, offered when QRISK3 is >=10%."
+   },
+   {
+    "id": "ph_ll_g0_04",
+    "front": "Name two groups who should be offered a statin for primary prevention regardless of their QRISK3 score.",
+    "back": "People with type 1 diabetes and people with chronic kidney disease. A statin is also considered in those aged >=85 years."
+   },
+   {
+    "id": "ph_ll_g0_05",
+    "front": "For secondary prevention (post-MI, ischaemic stroke, or peripheral arterial disease), which statin and dose is used?",
+    "back": "Atorvastatin 80 mg once daily (high-intensity)."
+   },
+   {
+    "id": "ph_ll_g0_06",
+    "front": "A patient has suspected familial hypercholesterolaemia. How does management differ from ordinary primary prevention?",
+    "back": "QRISK does NOT apply. Refer to a specialist and arrange cascade testing of family members. Typical features are very high LDL, tendon xanthomata, and premature cardiovascular disease."
+   },
+   {
+    "id": "ph_ll_g0_07",
+    "front": "When during the day should atorvastatin versus simvastatin be taken?",
+    "back": "Atorvastatin (20 or 80 mg) can be taken at any time of day. Simvastatin should be dosed at night."
+   },
+   {
+    "id": "ph_ll_g0_09",
+    "front": "What are the two key contraindications to starting a statin?",
+    "back": "Pregnancy or breastfeeding (cholesterol is needed for fetal development, so stop the statin), and active liver disease / persistent transaminitis."
+   },
+   {
+    "id": "ph_ll_g0_10",
+    "front": "What is the most common muscle-related side effect of statins, and how common is it?",
+    "back": "Myalgia/myopathy is a common patient complaint. Most muscle aches are benign, but they must be distinguished from rare serious myopathy."
+   },
+   {
+    "id": "ph_ll_g0_11",
+    "front": "A patient on a statin has severe muscle pain and dark urine. What is the concern and what do you do?",
+    "back": "Rhabdomyolysis. Check creatine kinase (CK) and stop the statin."
+   },
+   {
+    "id": "ph_ll_g0_12",
+    "front": "How is a mild rise in ALT on a statin managed, and when should you stop the drug?",
+    "back": "A mild transaminitis is common and a rise of less than 3x the upper limit of normal is NOT a reason to stop. Stop the statin if ALT rises to more than 3x ULN."
+   },
+   {
+    "id": "ph_ll_g0_13",
+    "front": "What metabolic side effect can statins cause?",
+    "back": "A small excess of new-onset type 2 diabetes. (Also GI upset and headache.) The cardiovascular benefit still outweighs this risk."
+   },
+   {
+    "id": "ph_ll_g0_14",
+    "front": "Simvastatin dose is capped at a maximum of 20 mg when co-prescribed with which drugs?",
+    "back": "Amlodipine, diltiazem, verapamil, or amiodarone (these raise simvastatin levels and increase myopathy risk)."
+   },
+   {
+    "id": "ph_ll_g0_15",
+    "front": "Which drugs should make you AVOID simvastatin altogether?",
+    "back": "Clarithromycin/erythromycin, azole antifungals, HIV protease inhibitors, ciclosporin, and gemfibrozil."
+   },
+   {
+    "id": "ph_ll_g0_16",
+    "front": "A patient on simvastatin is prescribed clarithromycin for a chest infection. What is the practical action?",
+    "back": "Hold (stop) the statin for the duration of the antibiotic course, then restart afterwards."
+   },
+   {
+    "id": "ph_ll_g0_17",
+    "front": "Why is gemfibrozil contraindicated with any statin, and what is the alternative if a fibrate is needed?",
+    "back": "The combination markedly increases the risk of myopathy/rhabdomyolysis. If a fibrate is required, fenofibrate is preferred."
+   },
+   {
+    "id": "ph_ll_g0_18",
+    "front": "Which common dietary item, in large amounts, raises statin levels?",
+    "back": "Grapefruit (in large quantities)."
+   },
+   {
+    "id": "ph_ll_g0_19",
+    "front": "What is the LFT monitoring schedule for a patient starting a statin?",
+    "back": "Check LFTs at baseline, 3 months, and 12 months, then not routinely. A rise of less than 3x ULN is not a reason to stop."
+   },
+   {
+    "id": "ph_ll_g0_20",
+    "front": "How is the lipid response to a statin monitored, and what is the target?",
+    "back": "Check lipids / non-HDL cholesterol at baseline and at 3 months, aiming for at least a 40% fall in non-HDL cholesterol."
+   },
+   {
+    "id": "ph_ll_g0_21",
+    "front": "A patient reports muscle aches on a statin (statin intolerance). Why not simply stop it, and what is the approach?",
+    "back": "Don't just stop and give up. Exclude other causes, then stop and rechallenge at a lower dose, alternate-day dosing, or a different statin, before moving to an alternative such as ezetimibe."
+   },
+   {
+    "id": "ph_ll_g0_22",
+    "front": "When should HbA1c be checked in a patient on a statin?",
+    "back": "At baseline and around 3 months in those at risk of diabetes, given the small excess risk of new-onset type 2 diabetes."
+   },
+   {
+    "id": "ph_ll_g1_01",
+    "front": "How does ezetimibe lower LDL cholesterol?",
+    "back": "It blocks the NPC1L1 cholesterol transporter in the small intestine -> reduces absorption of dietary and biliary cholesterol -> the liver upregulates LDL receptors -> LDL falls by ~15-20%."
+   },
+   {
+    "id": "ph_ll_g1_02",
+    "front": "When is ezetimibe used in lipid-lowering therapy?",
+    "back": "As the first add-on to a statin when the LDL/non-HDL target isn't reached (gives added cardiovascular benefit). It can be used as monotherapy in patients who are statin-intolerant."
+   },
+   {
+    "id": "ph_ll_g1_03",
+    "front": "What is the typical dose of ezetimibe?",
+    "back": "Ezetimibe 10 mg orally once daily (can be taken at any time of day)."
+   },
+   {
+    "id": "ph_ll_g1_04",
+    "front": "How well tolerated is ezetimibe, and what side effects can occur?",
+    "back": "Generally very well tolerated. Occasionally causes GI upset or myalgia, and (when combined with a statin) a small rise in transaminases."
+   },
+   {
+    "id": "ph_ll_g1_05",
+    "front": "How should ezetimibe be timed relative to a bile-acid sequestrant?",
+    "back": "Bile-acid sequestrants reduce ezetimibe absorption -> give ezetimibe at least 2 hours before, or at least 4 hours after, the sequestrant."
+   },
+   {
+    "id": "ph_ll_g1_06",
+    "front": "How do PCSK9 inhibitors (evolocumab, alirocumab) lower LDL?",
+    "back": "They are monoclonal antibodies against PCSK9. PCSK9 normally tags LDL receptors for destruction, so blocking it means more LDL receptors are recycled to the cell surface -> a large LDL fall (~50-60%) on top of a statin."
+   },
+   {
+    "id": "ph_ll_g1_07",
+    "front": "Who are PCSK9 inhibitors reserved for?",
+    "back": "They are a specialist add-on for familial hypercholesterolaemia, or for established cardiovascular disease with persistently high LDL despite a maximal statin plus ezetimibe (used at NICE thresholds)."
+   },
+   {
+    "id": "ph_ll_g1_08",
+    "front": "How are PCSK9 inhibitors given?",
+    "back": "By subcutaneous injection, e.g. evolocumab every 2 weeks (or once monthly). No routine monitoring bloods are required."
+   },
+   {
+    "id": "ph_ll_g1_09",
+    "front": "What are the main side effects of PCSK9 inhibitors?",
+    "back": "Injection-site reactions and flu-like symptoms. Otherwise very well tolerated, with no myopathy signal (unlike statins)."
+   },
+   {
+    "id": "ph_ll_g1_10",
+    "front": "Can PCSK9 inhibitors be used in pregnancy?",
+    "back": "No - avoid in pregnancy and breast-feeding due to limited safety data."
+   },
+   {
+    "id": "ph_ll_g1_11",
+    "front": "How does inclisiran lower LDL cholesterol?",
+    "back": "It is a small interfering RNA (siRNA) taken up by the liver that silences PCSK9 -> fewer PCSK9 proteins -> more LDL receptors -> a large LDL reduction. It is long-lasting, which allows twice-yearly dosing."
+   },
+   {
+    "id": "ph_ll_g1_12",
+    "front": "What is the licensed indication for inclisiran?",
+    "back": "Secondary prevention only: established atherosclerotic cardiovascular disease with LDL-C persistently >=2.6 mmol/L despite maximal tolerated statin +/- ezetimibe."
+   },
+   {
+    "id": "ph_ll_g1_13",
+    "front": "What is the dosing schedule for inclisiran?",
+    "back": "Subcutaneous injection at 0 and 3 months, then every 6 months (twice yearly). The infrequent dosing makes it excellent for adherence."
+   },
+   {
+    "id": "ph_ll_g1_14",
+    "front": "Inclisiran vs PCSK9 antibodies (evolocumab/alirocumab) - how do they compare?",
+    "back": "Both act on the same target (PCSK9). The antibodies bind and neutralise the PCSK9 protein and are given every 2-4 weeks; inclisiran is an siRNA that silences PCSK9 production and is given only twice yearly - same target, different modality."
+   },
+   {
+    "id": "ph_ll_g2_01",
+    "front": "How do fibrates (e.g. fenofibrate, bezafibrate) work, and what is their main lipid effect?",
+    "back": "They are PPAR-alpha agonists. Their main effect is to lower triglycerides (with a modest rise in HDL)."
+   },
+   {
+    "id": "ph_ll_g2_02",
+    "front": "What is the main indication for a fibrate?",
+    "back": "Severe hypertriglyceridaemia, especially TG >10 mmol/L, to prevent acute pancreatitis."
+   },
+   {
+    "id": "ph_ll_g2_03",
+    "front": "Does NICE recommend fibrates for mixed dyslipidaemia or added to a statin for cardiovascular prevention?",
+    "back": "No. NICE does not recommend fibrates for mixed dyslipidaemia or as an add-on to a statin for CVD prevention (no outcome benefit and myopathy risk). Their role is limited to severe hypertriglyceridaemia."
+   },
+   {
+    "id": "ph_ll_g2_04",
+    "front": "What are the key contraindications to fibrates?",
+    "back": "Severe renal or hepatic impairment, gallbladder disease, and pregnancy/breast-feeding."
+   },
+   {
+    "id": "ph_ll_g2_05",
+    "front": "Which fibrate + statin combination is contraindicated, and why? What is done if a statin combination is needed?",
+    "back": "Gemfibrozil + any statin is contraindicated due to a high risk of rhabdomyolysis. If a statin combination is needed, use fenofibrate instead, with vigilance for muscle symptoms."
+   },
+   {
+    "id": "ph_ll_g2_06",
+    "front": "What are the important side effects of fibrates?",
+    "back": "GI upset, myopathy (risk compounds when combined with a statin), gallstones, a reversible rise in creatinine, and deranged LFTs."
+   },
+   {
+    "id": "ph_ll_g2_07",
+    "front": "How do fibrates interact with warfarin?",
+    "back": "Fibrates enhance the effect of warfarin -> increased bleeding risk -> monitor INR."
+   },
+   {
+    "id": "ph_ll_g2_09",
+    "front": "How do high-dose omega-3 fatty acids (e.g. icosapent ethyl, purified EPA) affect lipids?",
+    "back": "High-dose omega-3 lowers triglycerides."
+   },
+   {
+    "id": "ph_ll_g2_10",
+    "front": "What is the place of omega-3 fatty acids in lipid management according to NICE?",
+    "back": "NICE does not recommend omega-3 for cardiovascular prevention. Use is confined to severe hypertriglyceridaemia when other measures fail - a niche adjunct, not for routine LDL lowering."
+   },
+   {
+    "id": "ph_ll_g2_11",
+    "front": "What are the side effects of high-dose omega-3 fatty acids, and their key interaction?",
+    "back": "GI upset/fishy aftertaste, a slight increase in bleeding time, and a small AF signal at high dose. They add to the bleeding risk of anticoagulants and antiplatelets."
+   },
+   {
+    "id": "ph_ll_g2_12",
+    "front": "How do bile acid sequestrants (colestyramine, colesevelam) lower LDL?",
+    "back": "They bind bile acids in the gut and block their reabsorption. The liver then diverts cholesterol to make new bile acids, upregulating LDL receptors and lowering LDL. They are not absorbed systemically."
+   },
+   {
+    "id": "ph_ll_g2_13",
+    "front": "What are the uses of bile acid sequestrants?",
+    "back": "LDL lowering in statin-intolerant patients or as an add-on (largely superseded). Their niche is familial hypercholesterolaemia and pregnancy (as they are not systemically absorbed). Also used for cholestatic pruritus and bile-acid diarrhoea."
+   },
+   {
+    "id": "ph_ll_g2_14",
+    "front": "What are the side effects of bile acid sequestrants, and why are they poorly tolerated?",
+    "back": "GI effects - bloating, constipation and flatulence - make them poorly tolerated. They can also raise triglycerides."
+   },
+   {
+    "id": "ph_ll_g2_15",
+    "front": "Why must other medicines be timed carefully around bile acid sequestrants?",
+    "back": "They impair absorption of fat-soluble vitamins (A, D, E, K) and other drugs, so take other medicines 1 hour before or 4-6 hours after the sequestrant."
+   }
+  ],
   "pharmacology__Cardiovascular Drugs__Anticoagulants": [],
   "pharmacology__Cardiovascular Drugs__Antiplatelets": [],
   "pharmacology__Cardiovascular Drugs__Thrombolytics / Fibrinolytics": [],
