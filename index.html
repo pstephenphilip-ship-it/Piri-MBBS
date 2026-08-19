@@ -3503,16 +3503,16 @@ window.MOCK_BANK = {
     { id:"taa-003", type:"mcq", objective:"taa-root-ar",
       question:"A 58-year-old man with a bicuspid aortic valve is found on echocardiography to have dilatation of the aortic root at the level of the sinuses of Valsalva, measuring 4.8 cm. Which complication is most directly caused by aneurysmal dilatation at this specific location?",
       options:[
-        "Mitral stenosis",
-        "Pulmonary stenosis",
-        "Ventricular septal defect",
-        "Tricuspid regurgitation",
+        "Aortic stenosis",
+        "Aortic dissection",
+        "Mitral regurgitation",
+        "Coronary ostial obstruction",
         "Aortic regurgitation"],
       correctIndex:4,
       explanation:[
         "Dilatation of the root (ANNULOAORTIC ECTASIA) stretches the valve annulus and pulls the cusps apart, so they no longer coapt &rarr; AORTIC REGURGITATION &mdash; and this happens even with structurally NORMAL leaflets. The AR is a GEOMETRY problem (the root dilating), not the valve itself failing.",
         "This is the key teaching that drives the whole surgical logic later: you operate on the ROOT DIAMETER, because a dilating root will cause AR (and predisposes to dissection) regardless of how normal the cusps look. It is why bicuspid-valve and Marfan patients are followed by AORTIC IMAGING, not just serial assessment of valve function &mdash; the aorta is the threat, and the AR is simply the marker that root geometry is failing.",
-        "Trap: assuming a 'valve problem' must involve the MITRAL valve (A). The mitral, pulmonary, tricuspid and septal options (A/B/D/E) are anatomically unrelated to aortic-root geometry.",
+        "Trap: every option is now an aortic-context complication, but only ONE is the DIRECT result of sinus/annular dilatation. Aortic STENOSIS (A) comes from the bicuspid LEAFLETS fusing and calcifying, not from the root; aortic DISSECTION (B) is a catastrophic risk of the aneurysm&rsquo;s wall stress but a separate event, not the coaptation failure the geometry produces; mitral regurgitation (C) and coronary ostial obstruction (D) are not caused by the root stretching the aortic valve apart &mdash; the direct consequence is AORTIC REGURGITATION.",
         "Cross-links: Valvular Heart Disease (aortic regurgitation); Block 3 (root/sinuses-of-Valsalva measurement on echo) and Block 7 (why the lower surgical thresholds apply to bicuspid/Marfan aortopathy)."
       ] },
     { id:"taa-004", type:"mcq", objective:"taa-acute-change",
@@ -3921,19 +3921,19 @@ window.MOCK_BANK = {
         "The principle: absolute diameter is a BODY-SIZE-DEPENDENT measure, so index it in the young/small &mdash; the same &lsquo;adjust for body size&rsquo; logic behind many reference ranges, but here it is surgically load-bearing."
       ] },
     { id:"taa-031", type:"mcq", objective:"taa-growth-rate",
-      data:'<div class="mk-obs-h">Serial CT diameter (descending thoracic aorta)</div><table class="mk-labs"><tr><td>Jan 2024</td><td><b>50 mm</b></td><td>&mdash;</td></tr><tr><td>Jan 2025</td><td><b>52 mm</b></td><td>&mdash;</td></tr><tr><td>Jan 2026</td><td><b>58 mm</b></td><td>&mdash;</td></tr></table>',
+      data:'<div class="mk-obs-h">Serial CT diameter (descending thoracic aorta)</div><table class="mk-labs"><tr><td>Jan 2024</td><td><b>44 mm</b></td><td>&mdash;</td></tr><tr><td>Jan 2025</td><td><b>46 mm</b></td><td>&mdash;</td></tr><tr><td>Jan 2026</td><td><b>52 mm</b></td><td>&mdash;</td></tr></table>',
       question:"A man with a degenerative descending thoracic aneurysm has the serial CT measurements shown. Which feature most warrants referral for surgical consideration?",
       options:[
-        "Rapid growth of 6 mm over the past year",
-        "Stable size two years ago",
-        "A normal growth rate throughout",
-        "The aneurysm has shrunk",
-        "No change requiring action"],
+        "Growth of 6 mm in the last year, above the 5 mm/year trigger",
+        "The current diameter of 52 mm, past the operative size threshold",
+        "An average growth of about 4 mm/year over the two years",
+        "The total 8 mm increase since the first scan, ignoring the interval",
+        "Deceleration of growth in the most recent interval"],
       correctIndex:0,
       explanation:[
-        "RAPID GROWTH is an independent indication. Growth of &gt;0.5 cm (5 mm) per year triggers intervention REGARDLESS of the absolute diameter, because fast growth predicts rupture. Here the aorta grew 6 mm in the past year (50 &rarr; 52 &rarr; 58 mm), exceeding that trigger.",
-        "So the surgical decision has TWO axes: ABSOLUTE diameter (58 mm is also approaching the ~55&ndash;60 mm descending threshold) and GROWTH RATE (&gt;5 mm/yr). Here both converge, but the key teaching is that a rapidly-growing aneurysm still needs intervention even when BELOW the size threshold &mdash; the trajectory matters as much as the current size.",
-        "Clinical anchor: read the TREND, not just the latest number &mdash; growth rate is an independent rupture predictor. Cross-links: Blocks 5 & 7 (surveillance intervals and surgical thresholds)."
+        "RAPID GROWTH is an independent indication. Growth of &gt;0.5 cm (5 mm) per year triggers intervention REGARDLESS of the absolute diameter, because fast growth predicts rupture. Here the aorta jumped 6 mm in the LAST year (44 &rarr; 46 &rarr; 52 mm) &mdash; and note it ACCELERATED (2 mm, then 6 mm), so the two-year annualised average (8 mm / 2 = 4 mm/yr) MASKS the dangerous recent trajectory.",
+        "So the surgical decision has TWO axes: ABSOLUTE diameter (the descending threshold is ~55&ndash;60 mm, which 52 mm has NOT reached) and GROWTH RATE (&gt;5 mm/yr, which the last year HAS). The key teaching is that a rapidly-growing aneurysm needs intervention even when BELOW the size threshold &mdash; the trajectory matters as much as the current size.",
+        "Trap: 52 mm has not crossed the size threshold (B); the two-year AVERAGE of ~4 mm/yr (C) and the raw 8 mm total (D) both under-read the risk by hiding the acceleration into the last year; and growth did not decelerate (E) &mdash; it is the 6 mm in the most recent year, above 5 mm/yr, that warrants referral. Read the TREND, not just an average or the latest number. Cross-links: Blocks 5 & 7 (surveillance intervals and surgical thresholds)."
       ] },
     { id:"taa-032", type:"mcq", objective:"taa-echo-ar-consequence",
       question:"A man with a dilated aortic root develops a new early diastolic murmur. Beyond measuring the root diameter, what should the echocardiogram specifically assess?",
@@ -3994,18 +3994,18 @@ window.MOCK_BANK = {
         "The practical corollary: a &lsquo;watch it a bit longer&rsquo; delay near the threshold is dangerous precisely because the curve is steep there. Cross-link: Block 7 (the specific numbers sit where risk starts climbing)."
       ] },
     { id:"taa-036", type:"mcq", objective:"taa-female-bsa-threshold",
-      question:"A woman of small body-surface-area has an ascending aortic aneurysm at a diameter just below the standard 5.5 cm operative threshold. Why might her surgeon consider operating earlier than in a large man?",
+      question:"A 62-year-old woman who is 152 cm tall and weighs 48 kg has an ascending aortic aneurysm measured at 5.2 cm, just below the standard 5.5 cm operative threshold. Why might her surgeon consider operating earlier than in a large man with an aorta of the same diameter?",
       options:[
-        "Women tend to tolerate larger aneurysms before rupture",
-        "Women and small-BSA patients rupture at smaller diameters",
-        "Body size has little bearing on rupture risk",
-        "A fixed 5.5 cm threshold applies equally to everyone",
-        "Only men develop thoracic aortic aneurysms"],
+        "Oestrogen weakens the aortic wall, so women rupture at any given diameter",
+        "Rupture risk tracks diameter indexed to body size, so she ruptures sooner",
+        "A smaller aorta is technically simpler to repair, so it is operated on sooner",
+        "Women's aneurysms grow faster, and that alone mandates earlier surgery",
+        "The 5.5 cm figure is validated in men only, so no size threshold fits her"],
       correctIndex:1,
       explanation:[
-        "Rupture relates to diameter INDEXED to body size, so women and small-BSA patients rupture at smaller ABSOLUTE diameters. A 5.5 cm aorta is a bigger RELATIVE aneurysm in a small woman than in a large man &mdash; so she reaches the same risk at a smaller number, and guidelines allow a LOWER threshold (BSA-indexed, or around 5.0 cm) in small patients.",
+        "Rupture relates to diameter INDEXED to body size, so women and small-BSA patients rupture at smaller ABSOLUTE diameters. At 152 cm and 48 kg her BSA is only ~1.4 m&sup2;, so a 5.2 cm aorta is a far bigger RELATIVE aneurysm than the same 5.2 cm in a large man &mdash; she reaches the same rupture risk at a smaller number, and guidelines allow a LOWER (BSA-indexed, or around 5.0 cm) threshold in small patients.",
         "The threshold is therefore BODY-SIZE-DEPENDENT, not a universal 5.5 cm &mdash; the SAME logic as using Z-scores for diagnosis in the young/small (taa-030). Absolute cutoffs systematically UNDER-treat small patients.",
-        "Traps invert the point: (A/D) a fixed 5.5 cm applied to everyone under-protects small women; (C/E) body size and sex clearly matter. Cross-links: taa-030 (Z-score); Block 7 (indexed thresholds)."
+        "Trap: the real driver is SIZE INDEXING. A vague oestrogen wall-weakening effect (A) is not the operative rationale; ease of repair (C) does not set the threshold; a claimed faster growth rate in women (D) is a separate indication, not why the cutoff is lower; and it is false that no threshold applies to women (E) &mdash; an INDEXED threshold does. Cross-links: taa-030 (Z-score); Block 7 (indexed thresholds)."
       ] },
     { id:"taa-037", type:"mcq", objective:"taa-riskfactors-diabetes-paradox",
       data:'<div class="mk-obs-h">Background</div><table class="mk-labs"><tr><td>Smoking</td><td><b>Current, 30/day</b></td><td>Non-smoker</td></tr><tr><td>Type 2 diabetes</td><td><b>HbA1c 46 mmol/mol</b></td><td>Well controlled</td></tr><tr><td>Exercise</td><td><b>30-minute daily walk</b></td><td>&mdash;</td></tr><tr><td>Lipids</td><td><b>On a statin</b></td><td>&mdash;</td></tr><tr><td>BMI</td><td><b>23 kg/m²</b></td><td>18.5&ndash;24.9</td></tr></table>',
