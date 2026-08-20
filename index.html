@@ -412,7 +412,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .da-mem-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(0,194,168,.45);}
 .da-mem-fab svg{width:15px;height:15px;flex-shrink:0;}
 .da-mem-fab.is-hidden{display:none;}
-@media (max-width:720px){.da-mem-fab{top:52px;right:14px;padding:8px 12px;font-size:11px;}}
+@media (max-width:720px){.da-mem-fab{top:auto;bottom:20px;left:16px;right:auto;padding:9px 14px;font-size:11px;}}
 .annot-fab-badge.zero{display:none;}
 /* Custom Mock floating button (red) — stacked under Review */
 .mock-fab{position:fixed;bottom:22px;right:20px;z-index:900;font-family:var(--sans);font-size:12px;font-weight:700;color:#fff;background:linear-gradient(135deg,#FF4D5E 0%,#E11D48 100%);border:none;border-radius:22px;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 4px 14px rgba(0,0,0,.18),0 1px 4px rgba(225,29,72,.3);transition:transform .12s,box-shadow .15s;white-space:nowrap;}
@@ -3878,7 +3878,10 @@ initTab('conditions');
 
 /* ===================== CALCULATOR TAB ===================== */
 const CALC_PANELS=['bmi','news2','gcs','ibw','bsa','map','cha2ds2','hasbled','grace','qtc','heart','qrisk3','jones','curb65','wells','wellspe','spesi','perc','lights','qsofa','sofa','alvarado','blatchford','rockall','egfr','cg','fena','aniongap','corrcalcium','osmolality','fwd','aagradient','childpugh','meld','maddrey','imrie','saag','maintfluids','bishop','edd','apgar','amt10','rosier','ciwa','nihss','fourat','abcd2','cfs','auditc','feverpain','centor','duke','parkland','ottawa','cthead','corrna','padua','phq9','geneva'];
-function calcShowPanel(id,el){var _ch=document.getElementById('calc-home');if(_ch)_ch.style.display='none';document.querySelectorAll('#calc-main [id^="calc-panel-"]').forEach(function(pan){pan.style.display='none';});document.querySelectorAll('#calc-main [id^="calc-result-"]').forEach(function(r){r.classList.remove('visible','warn','danger');});document.querySelectorAll('.calc-nav-item').forEach(n=>n.classList.remove('active'));const panel=document.getElementById('calc-panel-'+id);if(panel)panel.style.display='';if(el)el.classList.add('active');if(typeof calcRenderCases==='function')calcRenderCases(id);}
+function calcShowPanel(id,el){var _ch=document.getElementById('calc-home');if(_ch)_ch.style.display='none';document.querySelectorAll('#calc-main [id^="calc-panel-"]').forEach(function(pan){pan.style.display='none';});document.querySelectorAll('#calc-main [id^="calc-result-"]').forEach(function(r){r.classList.remove('visible','warn','danger');});document.querySelectorAll('.calc-nav-item').forEach(n=>n.classList.remove('active'));const panel=document.getElementById('calc-panel-'+id);if(panel)panel.style.display='';if(el)el.classList.add('active');if(typeof calcRenderCases==='function')calcRenderCases(id);
+  // On the stacked mobile layout the panel sits BELOW the calculator picker — bring it into view.
+  try{ if(panel && window.matchMedia && window.matchMedia('(max-width:820px)').matches){ requestAnimationFrame(function(){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }); } }catch(e){}
+}
 function calcApplyResult(id,tone){const r=document.getElementById('calc-result-'+id);if(!r)return;r.classList.remove('warn','danger');r.classList.add('visible');if(tone==='warn')r.classList.add('warn');if(tone==='danger')r.classList.add('danger');}
 // ── Collapsible notes + case-based practice questions for calculators ──
 function calcJones(){var maj=['jn-card','jn-arth','jn-chor','jn-em','jn-nod'],mino=['jn-fever','jn-argia','jn-acr','jn-pr'];var M=0,N=0;maj.forEach(function(id){if(document.getElementById(id).checked)M++;});mino.forEach(function(id){if(document.getElementById(id).checked)N++;});var card=document.getElementById('jn-card').checked;if(card&&document.getElementById('jn-pr').checked)N--;if(document.getElementById('jn-arth').checked&&document.getElementById('jn-argia').checked)N--;if(N<0)N=0;var gas=document.getElementById('jn-gas').checked;var rec=document.getElementById('jn-pres').value==='rec';var standalone=document.getElementById('jn-chor').checked||M>0&&card&&M===1&&N===0&&false;var chorea=document.getElementById('jn-chor').checked;var met=gas&&(M>=2||(M>=1&&N>=2)||(rec&&N>=3));var lbl,tone,det;if(chorea&&M>=1){met=true;}if(met){lbl='Jones criteria MET — acute rheumatic fever';tone='danger';det=(chorea&&!(gas&&(M>=2||(M>=1&&N>=2)||(rec&&N>=3)))?'Diagnosed on Sydenham chorea (a stand-alone criterion).':'Met via '+(M>=2?'2 major':(M>=1&&N>=2?'1 major + 2 minor':'3 minor (recurrence)'))+((gas)?' with strep evidence.':'.'))+' '+(rec?'Recurrent':'Initial')+' episode.';}else if(!gas){lbl='Need evidence of preceding strep';tone='warn';det='Except for Sydenham chorea or indolent carditis, a diagnosis requires evidence of recent group A strep (ASO/anti-DNase B, throat swab, or scarlet fever).';}else{lbl='Criteria not met';tone='';det='Need 2 major, or 1 major + 2 minor'+(rec?', or 3 minor (recurrence)':'')+'.';}document.getElementById('jones-val').textContent='Major '+M+' · Minor '+N;document.getElementById('jones-lbl').textContent=lbl;document.getElementById('jones-det').textContent=det;calcApplyResult('jones',tone);}
@@ -9240,6 +9243,11 @@ function hideFlyout(p) {
   .system-sidebar{padding-bottom:20px;}
   /* Calculator + mock: let them scroll instead of overflowing */
   #tab-calculator .calc-layout{flex-direction:column;overflow-y:auto;}
+  /* Sidebar must stretch full-width when stacked (its fixed 220px left a dead column and
+     buried the calculator panel below a 2500px-tall list). Cap its height so the panel below
+     stays reachable. */
+  #tab-calculator .calc-sidebar{width:auto;min-width:0;max-height:44vh;border-right:none;border-bottom:1px solid var(--border);}
+  #tab-calculator .calc-main{padding:18px 15px 72px;}
   .mk-screen{padding:22px 14px 90px;}
   .mk-hero h1{font-size:23px;}
   .mk-run-body{padding:16px 12px 96px;}
