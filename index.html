@@ -2917,6 +2917,10 @@ function expandAbbrs(html){
   });
 }
 
+// Escape user-authored text before it goes into innerHTML. Preset content is trusted HTML and
+// is left as-is; only user-created flashcards/questions are escaped (so a "<" or stray markup
+// they type shows literally instead of breaking the card/question layout).
+function daEscHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 const PRESET_FC={};
 const PRESET_Q={};
 function fcKey(p,s,t){return 'piri_fc__'+p+'__'+s+'__'+t;}
@@ -2928,7 +2932,9 @@ function loadFCView(p) {
   let userCards = [];
   try { userCards = JSON.parse(localStorage.getItem(fcKey(p,st.activeSystem,st.activeTopic))||'[]'); } catch {}
   const presetIds = new Set(presetCards.map(c=>c.id));
-  st.fcCards = [...presetCards, ...userCards.filter(c=>!presetIds.has(c.id) && c.front && c.back)];
+  // Tag user-authored cards so the renderer escapes them (preset cards are trusted HTML;
+  // user cards are plain text — without escaping, a stray "<" or HTML breaks the card).
+  st.fcCards = [...presetCards, ...userCards.filter(c=>!presetIds.has(c.id) && c.front && c.back).map(c=>Object.assign({}, c, {_user:true}))];
   // Load mastered set and sort mastered cards to the back
   try { st.fcMastered = new Set(JSON.parse(localStorage.getItem(fcProgKey(p,st.activeSystem,st.activeTopic))||'[]')); } catch { st.fcMastered = new Set(); }
   st.fcCards.sort((a,b) => (st.fcMastered.has(a.id)?1:0) - (st.fcMastered.has(b.id)?1:0));
@@ -2955,7 +2961,8 @@ function renderFC(p) {
   const masteredCount=st.fcMastered?st.fcMastered.size:0;
   const mastBadge=masteredCount>0?'<span style="font-size:11px;color:#1A9BA8;font-weight:600;margin-left:8px;">'+masteredCount+' mastered</span>':'';
   if(tot)tot.innerHTML=st.fcCards.length+mastBadge;
-  area.innerHTML='<div class="fc-card-wrap"><div class="fc-card" id="fcc-'+p+'" onclick="flipCard(\''+p+'\')"><div class="fc-card-front"><div class="fc-card-label">Question</div><div class="fc-card-text">'+card.front+'</div><div class="fc-card-hint">Click to reveal answer</div></div><div class="fc-card-back"><div class="fc-card-label">Answer</div><div class="fc-card-text">'+card.back+'</div></div></div></div>';
+  const _cf=card._user?daEscHtml(card.front):card.front, _cb=card._user?daEscHtml(card.back):card.back;
+  area.innerHTML='<div class="fc-card-wrap"><div class="fc-card" id="fcc-'+p+'" onclick="flipCard(\''+p+'\')"><div class="fc-card-front"><div class="fc-card-label">Question</div><div class="fc-card-text">'+_cf+'</div><div class="fc-card-hint">Click to reveal answer</div></div><div class="fc-card-back"><div class="fc-card-label">Answer</div><div class="fc-card-text">'+_cb+'</div></div></div></div>';
   if(rating)rating.style.display='none';
 }
 function flipCard(p){const el=document.getElementById('fcc-'+p);if(!el)return;el.classList.toggle('flipped');const rating=document.getElementById('fcRating-'+p);if(rating)rating.style.display=el.classList.contains('flipped')?'flex':'none';}
@@ -3035,7 +3042,7 @@ function loadQView(p){
   let userQs=[];
   try{userQs=JSON.parse(localStorage.getItem(qKey(p,st.activeSystem,st.activeTopic))||'[]');}catch{}
   const presetQIds=new Set(presetQs.map(q=>q.id));
-  st.questions=[...presetQs,...userQs.filter(q=>!presetQIds.has(q.id) && q.question)];
+  st.questions=[...presetQs,...userQs.filter(q=>!presetQIds.has(q.id) && q.question).map(q=>Object.assign({}, q, {_user:true}))];
   st.qAnswered={};
   const ti=document.getElementById('qTitle-'+p); const sub=document.getElementById('qSub-'+p);
   if(ti)ti.textContent=st.activeTopic+' — Questions';
@@ -3048,10 +3055,12 @@ function renderQ(p){
   area.innerHTML=''; const letters=['A','B','C','D','E'];
   st.questions.forEach((q,qi)=>{
     const card=document.createElement('div'); card.className='q-card'; card.id='qcard-'+p+'-'+qi;
-    let body='<div class="q-number">Q'+(qi+1)+' · '+(q.type==='mcq'?'MCQ':'SAQ')+'</div><div class="q-text">'+q.question+'</div>';
-    if(q.type==='mcq'){body+='<div class="q-options" id="qopts-'+p+'-'+qi+'">';q.options.forEach((opt,oi)=>{body+='<div class="q-option" id="qopt-'+p+'-'+qi+'-'+oi+'" onclick="selectMcq(\''+p+'\','+qi+','+oi+')"><span class="q-option-letter">'+letters[oi]+'</span><span class="q-option-text">'+opt+'</span></div>';});body+='</div>';}
+    const _qtext=q._user?daEscHtml(q.question):q.question;
+    let body='<div class="q-number">Q'+(qi+1)+' · '+(q.type==='mcq'?'MCQ':'SAQ')+'</div><div class="q-text">'+_qtext+'</div>';
+    if(q.type==='mcq'){body+='<div class="q-options" id="qopts-'+p+'-'+qi+'">';q.options.forEach((opt,oi)=>{var _opt=q._user?daEscHtml(opt):opt;body+='<div class="q-option" id="qopt-'+p+'-'+qi+'-'+oi+'" onclick="selectMcq(\''+p+'\','+qi+','+oi+')"><span class="q-option-letter">'+letters[oi]+'</span><span class="q-option-text">'+_opt+'</span></div>';});body+='</div>';}
     else{body+='<textarea class="q-saq-input" id="qsaq-'+p+'-'+qi+'" placeholder="Type your answer..." rows="3"></textarea>';}
-    body+='<div class="q-explanation" id="qexp-'+p+'-'+qi+'"><div class="q-exp-label">Explanation</div><div class="q-exp-text">'+(q.explanation||'No explanation provided.')+'</div></div><div class="q-card-actions"><button class="btn-reveal" onclick="revealA(\''+p+'\','+qi+')">Reveal Answer</button><span class="q-result-tag" id="qres-'+p+'-'+qi+'"></span></div>';
+    var _qexp=q.explanation||'No explanation provided.'; if(q._user)_qexp=daEscHtml(_qexp);
+    body+='<div class="q-explanation" id="qexp-'+p+'-'+qi+'"><div class="q-exp-label">Explanation</div><div class="q-exp-text">'+_qexp+'</div></div><div class="q-card-actions"><button class="btn-reveal" onclick="revealA(\''+p+'\','+qi+')">Reveal Answer</button><span class="q-result-tag" id="qres-'+p+'-'+qi+'"></span></div>';
     card.innerHTML=body; area.appendChild(card);
   });
 }
