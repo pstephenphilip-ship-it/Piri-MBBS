@@ -9254,6 +9254,17 @@ function hideFlyout(p) {
   /* Tables / wide content never force the page to scroll sideways */
   .rn-table,.note-content table{display:block;overflow-x:auto;max-width:100%;}
 }
+/* Phones: reclaim horizontal space. The desktop note card's 32px inner padding plus the
+   content gutter left an over-narrow ~296px text column that wrapped every few words. Trim
+   both so notes run close to edge-to-edge (tablets keep the roomier padding above). */
+@media (max-width:600px){
+  .note-content{padding:10px 7px 44px;}
+  #rich-note-display,#rich-note-display-osce,.rich-note-display-generic{padding:16px 13px 52px;}
+  .rich-note{max-width:none;}
+  .pharma-detail{padding:12px 10px 44px;}
+  /* Inner call-out boxes were also indented; tighten so their text isn't double-cramped. */
+  .rn-bm-card,.rn-as-item,.rn-flow-step{padding-left:13px;padding-right:13px;}
+}
 /* Mock runner (single-column mode, <=1080px incl. tablets): show the QUESTION first.
    The number grid (palette) is 1000px+ tall and was placed first (order:-1),
    burying the question far below the fold. Move it below as a compact strip. */
