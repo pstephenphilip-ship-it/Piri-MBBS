@@ -2740,15 +2740,20 @@ async function switchMode(p, mode, el, skipHash) {
 // note arrives and the user is still on that topic. One-shot per key so it can never loop.
 var __noteHealTried = {};
 function __maybeHealNote(p, name, richKey, store){
-  if (!richKey || __noteHealTried[richKey]) return;
-  __noteHealTried[richKey] = 1;
+  if (!richKey) return;
+  var tries = __noteHealTried[richKey] || 0;
+  if (tries >= 3) return;                       // bounded — can never loop
+  __noteHealTried[richKey] = tries + 1;
   try {
     var sys = (getState(p).activeSystem) || '';
     if (!sys || typeof ensureSystemLoaded !== 'function') return;
     ensureSystemLoaded(sys).then(function(){
       var bank = store || RICH_NOTES;
       if (bank[richKey] && getState(p).activeTopic === name) loadNote(p, name);
-    }).catch(function(){});
+    }).catch(function(){
+      // Transient fetch failure: refund the attempt so a later visit retries (still bounded).
+      if (__noteHealTried[richKey] > 0) __noteHealTried[richKey]--;
+    });
   } catch(e){}
 }
 function loadNote(p, name) {
@@ -2921,6 +2926,12 @@ function expandAbbrs(html){
 // is left as-is; only user-created flashcards/questions are escaped (so a "<" or stray markup
 // they type shows literally instead of breaking the card/question layout).
 function daEscHtml(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// Collision-proof id for user-created items (flashcards, questions, annotations). Date.now()
+// alone repeats when two items are made in the same millisecond, which made delete/edit hit the
+// wrong item. Combine the timestamp with a rolling sequence — stays a safe integer past year 2200.
+var __daLastUid = 0;
+function daUid(){ var t = Date.now() * 1000; if (t <= __daLastUid) t = __daLastUid + 1; __daLastUid = t; return t; }
+window.daUid = daUid;
 const PRESET_FC={};
 const PRESET_Q={};
 function fcKey(p,s,t){return 'piri_fc__'+p+'__'+s+'__'+t;}
@@ -3003,7 +3014,7 @@ function fcRestart(p){
 function addCard(p){
   const front=document.getElementById('fcFront-'+p); const back=document.getElementById('fcBack-'+p);
   if(!front||!back||!front.value.trim()||!back.value.trim()){alert('Both front and back required.');return;}
-  const st=getState(p); const newCard={front:front.value.trim(),back:back.value.trim(),id:Date.now()};
+  const st=getState(p); const newCard={front:front.value.trim(),back:back.value.trim(),id:daUid()};
   st.fcCards.push(newCard);
   const _pk=p+'__'+st.activeSystem+'__'+st.activeTopic;
   const presetIds=new Set((PRESET_FC[_pk]||[]).map(c=>c.id));
@@ -3099,12 +3110,12 @@ function addQ(p){
     const nonEmpty=opts.map((o,i)=>({o,i})).filter(x=>x.o); if(nonEmpty.length<2){alert('At least 2 options required.');return;}
     const cr=document.querySelector('input[name="qR-'+p+'"]:checked'); if(!cr){alert('Select correct answer.');return;}
     const ci=parseInt(cr.value); if(!opts[ci]){alert('Correct option cannot be empty.');return;}
-    q={type:'mcq',question:text,options:nonEmpty.map(x=>x.o),correctIndex:nonEmpty.findIndex(x=>x.i===ci),explanation,id:Date.now()};
+    q={type:'mcq',question:text,options:nonEmpty.map(x=>x.o),correctIndex:nonEmpty.findIndex(x=>x.i===ci),explanation,id:daUid()};
     ids.forEach(id=>{document.getElementById(id+p).value='';});
     document.querySelectorAll('input[name="qR-'+p+'"]').forEach(r=>r.checked=false);
   } else {
     const ans=document.getElementById('qAns-'+p).value.trim(); if(!ans){alert('Model answer required.');return;}
-    q={type:'saq',question:text,modelAnswer:ans,explanation,id:Date.now()};
+    q={type:'saq',question:text,modelAnswer:ans,explanation,id:daUid()};
     document.getElementById('qAns-'+p).value='';
   }
   st.questions.push(q); localStorage.setItem(qKey(p,st.activeSystem,st.activeTopic),JSON.stringify(st.questions));
@@ -3270,6 +3281,22 @@ initTab('conditions');
   var _pendingText = '';
   var _activePanel = '';
   var _barText = '';
+  var _pendingOcc = 0;   // which occurrence of the selected text this is (0-based) — so the
+                         // highlight re-applies to the RIGHT instance when the phrase repeats.
+  // Count how many non-overlapping occurrences of `target` (whitespace-stripped) appear before
+  // the selection start, using the same normalisation as annotTextMap so it matches on restore.
+  function __occIndex(panel, range, target){
+    if(!target || !panel || !range) return 0;
+    try{
+      var tm = annotTextMap(panel);
+      var sc = range.startContainer, so = range.startOffset, normStart = -1;
+      for(var i=0;i<tm.map.length;i++){ var m=tm.map[i]; if(m.node===sc && m.off>=so){ normStart=i; break; } }
+      if(normStart<0) return 0;   // start not in the text map (element/whitespace boundary) -> first
+      var occ=0, from=0, idx;
+      while((idx=tm.norm.indexOf(target, from))>=0 && idx < normStart){ occ++; from=idx+target.length; }
+      return occ;
+    }catch(e){ return 0; }
+  }
 
   function annotKey(p, sys, topic){ return 'piri_annot__'+p+'__'+(sys||'')+'__'+topic; }
   function sbId(p){ return 'annot-sb-'+p; }
@@ -3383,6 +3410,7 @@ initTab('conditions');
     if(!rect || (!rect.width && !rect.height)){ removeTip(); return; }
     _pendingText = sel.toString().trim();
     _activePanel = panelEl.getAttribute('data-annot-panel');
+    _pendingOcc = __occIndex(panelEl, range, annotNormTarget(_pendingText));
     showTip(rect.left + rect.width/2, rect.top);
   }
   function ensureSelDocHandlers(){
@@ -3463,7 +3491,7 @@ initTab('conditions');
     var key = annotKey(p, info.sys, info.topic);
     var annots = [];
     try{ annots = JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    annots.push({ id:Date.now(), selectedText:_pendingText, note:'', color:color||'yellow' });
+    annots.push({ id:daUid(), selectedText:_pendingText, occ:_pendingOcc, note:'', color:color||'yellow' });
     localStorage.setItem(key, JSON.stringify(annots));
     removeTip();
     _pendingText = '';
@@ -3557,7 +3585,7 @@ initTab('conditions');
     var key=annotKey(p,info.sys,info.topic);
     var annots=[];
     try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    var _o={ id:Date.now(), selectedText:_pendingText, note:ta.value.trim(), color:'yellow' }; if(_im){ _o.image=_im; }
+    var _o={ id:daUid(), selectedText:_pendingText, occ:_pendingOcc, note:ta.value.trim(), color:'yellow' }; if(_im){ _o.image=_im; }
     annots.push(_o);
     annotStore(key,annots);
     window.removeAnnotPopup();
@@ -3622,8 +3650,13 @@ initTab('conditions');
     var target=annotNormTarget(a.selectedText);
     if(!target) return;
     var tm=annotTextMap(panel);
-    var idx=tm.norm.indexOf(target);
-    if(idx<0) return;
+    // Seek the stored occurrence (a.occ). Older annotations without occ fall back to the first
+    // match; if the wanted occurrence no longer exists (note edited), also fall back to the first.
+    var want=(a.occ|0), idx=-1, from=0, seen=0, found=-1, hit;
+    while((hit=tm.norm.indexOf(target, from))>=0){ if(seen===want){ found=hit; break; } seen++; from=hit+target.length; }
+    if(found<0) found=tm.norm.indexOf(target);
+    if(found<0) return;
+    idx=found;
     var startInfo=tm.map[idx], endInfo=tm.map[idx+target.length-1];
     if(!startInfo||!endInfo) return;
     var startNode=startInfo.node, startOff=startInfo.off;
@@ -10059,7 +10092,7 @@ function hideFlyout(p) {
   window.__phAdd = function(){
     var fEl=el('ph-front'), bEl=el('ph-back'); if(!fEl||!bEl) return;
     var f=(fEl.value||'').trim(), b=(bEl.value||'').trim(); if(!f||!b) return;
-    var arr=userCards(); var card={id:Date.now(), front:f, back:b}; arr.push(card); saveUserCards(arr);
+    var arr=userCards(); var card={id:daUid(), front:f, back:b}; arr.push(card); saveUserCards(arr);
     PH.deck.splice(PH.i, 0, {id:card.id, front:f, back:b, pk:PH.MYPK});
     renderStudy(el('pharma-fc-body'));
   };
