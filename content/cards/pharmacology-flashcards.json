@@ -10181,7 +10181,378 @@
     "back": "Antidepressants such as fluoxetine and paroxetine inhibit its metabolism, so the maximum tetrabenazine dose must be reduced when they are co-prescribed."
    }
   ],
-  "pharmacology__Rheumatology & Musculoskeletal Drugs__Analgesics": [],
+  "pharmacology__Rheumatology & Musculoskeletal Drugs__Analgesics": [
+   {
+    "id": "ph_rh_anlg_01",
+    "front": "Where does paracetamol sit on the WHO analgesic ladder, and what kind of pain is that ladder for?",
+    "back": "Step 1 (non-opioid). The WHO ladder is for acute and cancer pain. NICE (NG193) advises AGAINST starting paracetamol, NSAIDs or opioids for chronic PRIMARY pain."
+   },
+   {
+    "id": "ph_rh_anlg_02",
+    "front": "How does paracetamol's mechanism and side-effect profile differ from an NSAID?",
+    "back": "Paracetamol acts CENTRALLY (weak central COX inhibition plus descending serotonergic/endocannabinoid modulation), giving analgesia and antipyresis but MINIMAL anti-inflammatory effect and minimal GI/renal harm - so it is very well tolerated at normal doses."
+   },
+   {
+    "id": "ph_rh_anlg_03",
+    "front": "What is the maximum daily oral dose of paracetamol in a healthy adult, and the usual regimen?",
+    "back": "1 g QDS orally, maximum 4 g/day."
+   },
+   {
+    "id": "ph_rh_anlg_04",
+    "front": "In which patients should you REDUCE the paracetamol dose, and why?",
+    "back": "Reduce if body weight <50 kg, malnourished, hepatic impairment, or chronic high alcohol intake. These patients have lower glutathione reserves, so they are more prone to hepatotoxicity."
+   },
+   {
+    "id": "ph_rh_anlg_05",
+    "front": "How should IV paracetamol be dosed in an adult weighing under 50 kg?",
+    "back": "Dose by weight: 15 mg/kg per dose (max 60 mg/kg/day), NOT a flat 1 g. This avoids fatal ~10-fold dosing errors in small/underweight patients."
+   },
+   {
+    "id": "ph_rh_anlg_06",
+    "front": "What is the mechanism of liver injury in paracetamol overdose?",
+    "back": "In overdose the toxic metabolite NAPQI accumulates; once glutathione stores are depleted, NAPQI binds hepatocytes -> hepatotoxicity and acute liver failure."
+   },
+   {
+    "id": "ph_rh_anlg_07",
+    "front": "What is the antidote for paracetamol overdose and how does it work?",
+    "back": "N-acetylcysteine - it replenishes glutathione, allowing the toxic metabolite NAPQI to be safely neutralised before it damages hepatocytes."
+   },
+   {
+    "id": "ph_rh_anlg_08",
+    "front": "A patient took paracetamol in a staggered pattern over several hours, or the timing is uncertain. Can you use the treatment nomogram?",
+    "back": "No. The nomogram only applies to a SINGLE acute ingestion timed at least 4 hours after ingestion. For a staggered overdose, therapeutic excess, or uncertain timing, give N-acetylcysteine regardless of the level."
+   },
+   {
+    "id": "ph_rh_anlg_09",
+    "front": "Which patient factors increase the hepatotoxicity risk in paracetamol overdose?",
+    "back": "Enzyme-inducing drugs (e.g. carbamazepine, phenytoin, rifampicin) and chronic alcohol excess - both increase production of the toxic metabolite NAPQI. Malnutrition/low weight also lower glutathione and add risk."
+   },
+   {
+    "id": "ph_rh_anlg_10",
+    "front": "What blood tests do you monitor in a paracetamol overdose?",
+    "back": "Paracetamol level (plotted on the nomogram for single acute ingestions), LFTs, INR (clotting), and renal function."
+   },
+   {
+    "id": "ph_rh_anlg_11",
+    "front": "How do NSAIDs produce analgesia, and what does blocking prostaglandins cost you?",
+    "back": "They inhibit COX-1 and COX-2 -> reduced prostaglandin synthesis -> analgesic, anti-inflammatory and antipyretic. But loss of PROTECTIVE prostaglandins causes the harms: GI, renal and cardiovascular effects."
+   },
+   {
+    "id": "ph_rh_anlg_12",
+    "front": "What are the THREE major harms of NSAIDs a prescriber must weigh?",
+    "back": "1) GI ulceration/bleeding, 2) acute kidney injury and fluid retention, 3) increased cardiovascular/thrombotic risk."
+   },
+   {
+    "id": "ph_rh_anlg_13",
+    "front": "How do you protect the stomach when prescribing an NSAID to an at-risk patient?",
+    "back": "Co-prescribe a PPI. Also use the lowest effective dose for the shortest time and take with food."
+   },
+   {
+    "id": "ph_rh_anlg_14",
+    "front": "What is the 'triple whammy' and why is it dangerous?",
+    "back": "NSAID + ACE inhibitor/ARB + diuretic taken together. All three compromise renal perfusion/autoregulation -> high risk of acute kidney injury."
+   },
+   {
+    "id": "ph_rh_anlg_15",
+    "front": "Which NSAID has the LOWEST cardiovascular risk, and which have the highest?",
+    "back": "Naproxen (at 1 g/day or less) has the lowest CV/thrombotic risk. Diclofenac and high-dose ibuprofen (2.4 g/day or more) carry the highest CV risk."
+   },
+   {
+    "id": "ph_rh_anlg_16",
+    "front": "In which cardiovascular patients is diclofenac specifically contraindicated (per the MHRA)?",
+    "back": "Established ischaemic heart disease, cerebrovascular disease, peripheral arterial disease, and heart failure - because of its increased thrombotic risk."
+   },
+   {
+    "id": "ph_rh_anlg_17",
+    "front": "Why can NSAIDs trigger a severe reaction in some asthmatics?",
+    "back": "In aspirin/NSAID-sensitive asthma, blocking COX shunts arachidonic acid down the leukotriene pathway -> bronchospasm. Avoid NSAIDs in these patients."
+   },
+   {
+    "id": "ph_rh_anlg_18",
+    "front": "In which situations should NSAIDs be avoided altogether?",
+    "back": "Active peptic ulcer/GI bleeding, severe heart failure, significant renal impairment, and aspirin-sensitive asthma. Also avoid in later pregnancy."
+   },
+   {
+    "id": "ph_rh_anlg_19",
+    "front": "Why are NSAIDs avoided in pregnancy from around 20-28 weeks onward?",
+    "back": "They can cause fetal renal dysfunction with oligohydramnios and, later, premature closure of the ductus arteriosus."
+   },
+   {
+    "id": "ph_rh_anlg_20",
+    "front": "How do NSAIDs affect lithium and methotrexate levels?",
+    "back": "They reduce renal excretion of both -> raised plasma levels and risk of lithium toxicity or methotrexate toxicity. Avoid the combination or monitor closely."
+   },
+   {
+    "id": "ph_rh_anlg_21",
+    "front": "Why should ibuprofen doses be separated from low-dose aspirin taken for cardioprotection?",
+    "back": "Ibuprofen competes at COX-1 and can block aspirin's antiplatelet/cardioprotective effect. Separate the doses (take aspirin first, or space them apart)."
+   },
+   {
+    "id": "ph_rh_anlg_22",
+    "front": "How does a COX-2 selective inhibitor (e.g. celecoxib, etoricoxib) differ from a traditional NSAID for the gut?",
+    "back": "Selective COX-2 inhibition spares COX-1, so there are FEWER GI ulcers and bleeds than with non-selective NSAIDs."
+   },
+   {
+    "id": "ph_rh_anlg_23",
+    "front": "What is the main trade-off that limits COX-2 inhibitor use?",
+    "back": "Their cardiovascular/thrombotic risk remains, or is higher, than traditional NSAIDs. So they are useful where GI risk is high but should be AVOIDED in established cardiovascular disease."
+   },
+   {
+    "id": "ph_rh_anlg_24",
+    "front": "Do COX-2 inhibitors avoid the renal problems of other NSAIDs?",
+    "back": "No. They still cause the same renal effects, fluid retention and hypertension. Avoid in renal impairment and uncontrolled hypertension."
+   },
+   {
+    "id": "ph_rh_anlg_25",
+    "front": "When would you choose a COX-2 inhibitor over a traditional NSAID?",
+    "back": "When a patient needs anti-inflammatory analgesia and has HIGH GI risk but LOW/acceptable cardiovascular risk."
+   },
+   {
+    "id": "ph_rh_anlg_26",
+    "front": "How does codeine produce its analgesic effect?",
+    "back": "Codeine is a PRODRUG converted to morphine, which is a mu-opioid agonist. It is a weak opioid at step 2 of the WHO ladder, used for mild-to-moderate pain."
+   },
+   {
+    "id": "ph_rh_anlg_27",
+    "front": "Codeine and dihydrocodeine are activated by an enzyme with genetic variation. What happens in ultra-rapid versus poor metabolisers?",
+    "back": "Ultra-rapid metabolisers convert too much codeine to morphine -> excess morphine and dangerous respiratory depression. Poor metabolisers make little morphine -> little/no analgesia."
+   },
+   {
+    "id": "ph_rh_anlg_28",
+    "front": "Why is codeine contraindicated in children under 12 and after tonsillectomy?",
+    "back": "Unpredictable conversion to morphine (ultra-rapid metabolisers) risks fatal respiratory depression. It is also avoided in breastfeeding, as excess morphine can pass to the infant."
+   },
+   {
+    "id": "ph_rh_anlg_29",
+    "front": "Besides pain, what other uses does codeine have?",
+    "back": "It is an antitussive (cough suppressant) and an antidiarrhoeal, in addition to analgesia (often given as co-codamol with paracetamol)."
+   },
+   {
+    "id": "ph_rh_anlg_30",
+    "front": "What should you ALWAYS co-prescribe with a weak opioid such as codeine, and why?",
+    "back": "A laxative - opioids reliably cause constipation. Also warn about nausea and drowsiness."
+   },
+   {
+    "id": "ph_rh_anlg_31",
+    "front": "What happens if a weak opioid is combined with benzodiazepines, gabapentinoids or alcohol?",
+    "back": "Additive sedation and respiratory depression - a dangerous combination (MHRA warning). Prescribe with caution and warn the patient."
+   },
+   {
+    "id": "ph_rh_anlg_32",
+    "front": "How does tramadol differ mechanistically from codeine?",
+    "back": "Tramadol is a weak mu-opioid agonist that ALSO inhibits serotonin and noradrenaline reuptake -> dual analgesic action, with some benefit in neuropathic pain."
+   },
+   {
+    "id": "ph_rh_anlg_33",
+    "front": "What TWO extra risks does tramadol carry compared with other opioids?",
+    "back": "1) It LOWERS the seizure threshold (avoid in epilepsy), and 2) it can cause serotonin syndrome when combined with serotonergic drugs (SSRIs, SNRIs, TCAs, MAOIs)."
+   },
+   {
+    "id": "ph_rh_anlg_34",
+    "front": "How do tramadol's constipation and respiratory depression compare with classic opioids?",
+    "back": "Tramadol tends to cause LESS constipation and less respiratory depression than classic opioids, but it can still cause dependence and is a controlled drug."
+   },
+   {
+    "id": "ph_rh_anlg_35",
+    "front": "A patient on an SSRI is prescribed tramadol and becomes agitated, tremulous, hyperthermic with clonus. What is the likely diagnosis?",
+    "back": "Serotonin syndrome - the result of additive serotonergic effect from tramadol plus the SSRI. Stop the offending drugs and give supportive care."
+   },
+   {
+    "id": "ph_rh_anlg_36",
+    "front": "Where do morphine, oxycodone and hydromorphone sit on the WHO analgesic ladder, and what is their mechanism?",
+    "back": "They are strong opioids (step 3), acting as full mu-opioid receptor agonists -> potent analgesia (with euphoria, sedation and respiratory depression)."
+   },
+   {
+    "id": "ph_rh_anlg_37",
+    "front": "A patient with severe cancer pain needs regular opioid analgesia. What is the NICE first-line strong opioid and how is it given?",
+    "back": "Oral morphine is first-line for cancer pain (NICE CG140): a modified-release preparation for background pain plus immediate-release morphine for breakthrough pain."
+   },
+   {
+    "id": "ph_rh_anlg_38",
+    "front": "For which type of chronic pain are strong opioids NOT recommended?",
+    "back": "Chronic primary pain (NG193) — there is little evidence of long-term benefit and a real risk of dependence, so opioids should not be started for it."
+   },
+   {
+    "id": "ph_rh_anlg_39",
+    "front": "Besides moderate-to-severe and cancer pain, name a palliative-care symptom (other than pain) that morphine is used to relieve.",
+    "back": "Breathlessness in palliative care. Morphine (and diamorphine) reduces the sensation of breathlessness; it is also used for acute MI and pulmonary oedema."
+   },
+   {
+    "id": "ph_rh_anlg_40",
+    "front": "Which opioid side effect is universal and mandates a co-prescription every single time?",
+    "back": "Constipation — it is universal (opioids do not develop tolerance to it), so ALWAYS co-prescribe a regular laxative when starting a strong opioid."
+   },
+   {
+    "id": "ph_rh_anlg_41",
+    "front": "A patient started on morphine is nauseated and vomiting in the first few days. How do you manage this?",
+    "back": "Prescribe an antiemetic initially — opioid-induced nausea/vomiting is usually transient and settles within days, so the antiemetic can often be stopped later (unlike the laxative, which is continued)."
+   },
+   {
+    "id": "ph_rh_anlg_42",
+    "front": "What are the three features of the classic opioid overdose triad, and what reverses it?",
+    "back": "Pinpoint (constricted) pupils = miosis, respiratory depression, and coma/reduced consciousness. Reverse with naloxone, the competitive mu-opioid antagonist."
+   },
+   {
+    "id": "ph_rh_anlg_43",
+    "front": "Which is the most dangerous acute side effect of strong opioids, and how is it monitored?",
+    "back": "Respiratory depression. Monitor respiratory rate and sedation level; a falling respiratory rate is the key warning sign of toxicity."
+   },
+   {
+    "id": "ph_rh_anlg_44",
+    "front": "Why should morphine be avoided in renal impairment, and how does it present?",
+    "back": "Its active metabolites accumulate when renal clearance falls, causing excessive sedation and respiratory depression, plus neuroexcitation (myoclonus/twitching and seizures)."
+   },
+   {
+    "id": "ph_rh_anlg_45",
+    "front": "Which strong opioids are the safest choices in significant renal impairment, and why?",
+    "back": "Fentanyl and alfentanil — they have no active metabolites that accumulate. Morphine should be avoided; oxycodone also accumulates and needs caution/dose reduction."
+   },
+   {
+    "id": "ph_rh_anlg_46",
+    "front": "A palliative patient takes 60 mg of oral morphine over 24 hours. What is an appropriate breakthrough (PRN) dose?",
+    "back": "One-sixth (1/6) of the total daily oral morphine = 10 mg immediate-release morphine PRN for breakthrough pain."
+   },
+   {
+    "id": "ph_rh_anlg_47",
+    "front": "When converting a patient from oral to parenteral (subcutaneous/IV) morphine, roughly what conversion ratio is used?",
+    "back": "Oral to parenteral is roughly 2:1 — i.e. the parenteral dose is about half the oral dose (e.g. 60 mg oral over 24 h -> about 30 mg subcutaneous over 24 h in a syringe driver)."
+   },
+   {
+    "id": "ph_rh_anlg_48",
+    "front": "Which common co-prescribed drug classes cause dangerous additive respiratory depression with opioids?",
+    "back": "Benzodiazepines, gabapentinoids (gabapentin/pregabalin — MHRA warning), and alcohol/other CNS depressants — all add to opioid-induced respiratory depression."
+   },
+   {
+    "id": "ph_rh_anlg_49",
+    "front": "How potent is fentanyl relative to morphine, and what class of opioid is it?",
+    "back": "Fentanyl is a potent, lipophilic synthetic mu-opioid agonist, roughly 100 times more potent than morphine."
+   },
+   {
+    "id": "ph_rh_anlg_50",
+    "front": "What is the only appropriate indication for a fentanyl transdermal patch, and who should NOT receive one?",
+    "back": "Stable, severe chronic or cancer pain in a patient already on opioids. It is NOT for acute or unstable pain, nor for opioid-naive patients, because of its slow onset and slow offset."
+   },
+   {
+    "id": "ph_rh_anlg_51",
+    "front": "Why is a fentanyl patch unsuitable for rapid dose titration or acute pain?",
+    "back": "It takes about 12-24 hours to reach effect and just as long to wear off; a depot of drug persists in skin and fat after the patch is removed, so effects are delayed and prolonged."
+   },
+   {
+    "id": "ph_rh_anlg_52",
+    "front": "Why is fentanyl a good opioid choice in a patient with renal impairment?",
+    "back": "It has no active metabolites that accumulate, so it is safe in renal impairment (unlike morphine)."
+   },
+   {
+    "id": "ph_rh_anlg_53",
+    "front": "How does external heat affect a fentanyl patch, and what is the clinical danger?",
+    "back": "Heat (fever, hot bath, heat pad) increases absorption of fentanyl from the patch -> risk of overdose and respiratory depression. Warn patients to avoid heat sources over the patch."
+   },
+   {
+    "id": "ph_rh_anlg_54",
+    "front": "What MHRA safety point applies to disposing of used fentanyl patches?",
+    "back": "Used patches still contain significant drug. Accidental transfer to another person or child (skin contact) can be fatal, so patches must be folded (sticky sides together) and disposed of safely."
+   },
+   {
+    "id": "ph_rh_anlg_55",
+    "front": "How often is a fentanyl transdermal patch changed?",
+    "back": "Every 72 hours (every 3 days)."
+   },
+   {
+    "id": "ph_rh_anlg_56",
+    "front": "Which drugs raise fentanyl levels and risk respiratory depression?",
+    "back": "Certain enzyme-inhibiting drugs (e.g. clarithromycin, azole antifungals, ritonavir, grapefruit) raise fentanyl levels -> toxicity/respiratory depression. Enzyme-inducing drugs reduce its effect."
+   },
+   {
+    "id": "ph_rh_anlg_57",
+    "front": "How does buprenorphine differ mechanistically from morphine, and what safety advantage does this give?",
+    "back": "Buprenorphine is a partial mu-opioid agonist (and kappa-antagonist), so it has a ceiling effect on respiratory depression, making it comparatively safer in overdose."
+   },
+   {
+    "id": "ph_rh_anlg_58",
+    "front": "What are the two main clinical uses of buprenorphine?",
+    "back": "Chronic pain (transdermal patch or sublingual) and opioid-dependence substitution therapy (sublingual, often combined with naloxone as 'Suboxone' to deter injection/misuse)."
+   },
+   {
+    "id": "ph_rh_anlg_59",
+    "front": "Why can buprenorphine precipitate withdrawal if given too early to someone dependent on a full agonist?",
+    "back": "Its high receptor affinity displaces the full agonist from the mu-receptor but only partially activates it -> abrupt drop in opioid effect. Delay the first dose until the patient shows objective early withdrawal."
+   },
+   {
+    "id": "ph_rh_anlg_60",
+    "front": "Why is buprenorphine-induced respiratory depression harder to reverse with naloxone?",
+    "back": "Buprenorphine binds the mu-receptor with very high affinity, so naloxone struggles to displace it — higher and/or repeated naloxone doses (or an infusion) may be needed."
+   },
+   {
+    "id": "ph_rh_anlg_61",
+    "front": "Is buprenorphine safe to use in renal impairment?",
+    "back": "Yes — buprenorphine is considered safe in renal impairment."
+   },
+   {
+    "id": "ph_rh_anlg_62",
+    "front": "What is methadone's mechanism, and what property makes its dosing hazardous?",
+    "back": "It is a long-acting full mu-opioid agonist (also an NMDA antagonist). Its long, variable half-life means it accumulates, so overdose risk is highest early in treatment."
+   },
+   {
+    "id": "ph_rh_anlg_63",
+    "front": "What are the two main clinical uses of methadone?",
+    "back": "Opioid-dependence substitution therapy (a single daily supervised dose) and some complex/neuropathic or cancer pain."
+   },
+   {
+    "id": "ph_rh_anlg_64",
+    "front": "What cardiac adverse effect must be monitored with methadone, and how?",
+    "back": "QT prolongation, which can cause torsades de pointes. Do a baseline and on-treatment ECG, and avoid combining with other QT-prolonging drugs (e.g. amiodarone, antipsychotics, ondansetron, macrolides, quinolones)."
+   },
+   {
+    "id": "ph_rh_anlg_65",
+    "front": "When during methadone treatment is the risk of fatal accumulation/overdose greatest, and why?",
+    "back": "In the first 1-2 weeks of induction. The long half-life means the drug outlasts its analgesic effect and accumulates -> titrate slowly with supervised consumption."
+   },
+   {
+    "id": "ph_rh_anlg_66",
+    "front": "How do enzyme-inducing and enzyme-inhibiting drugs affect a patient stable on methadone?",
+    "back": "Enzyme-inducing drugs (e.g. rifampicin, some antiepileptics) lower methadone levels -> withdrawal. Enzyme-inhibiting drugs raise levels -> toxicity, respiratory depression and torsades risk."
+   },
+   {
+    "id": "ph_rh_anlg_67",
+    "front": "What is naloxone and what is its principal indication?",
+    "back": "A competitive mu-opioid receptor antagonist — the antidote for opioid overdose / opioid-induced respiratory depression. Given IV/IM/intranasal, including take-home kits for at-risk users."
+   },
+   {
+    "id": "ph_rh_anlg_68",
+    "front": "When giving naloxone in overdose, what clinical endpoint should you titrate to and why not aim for full alertness?",
+    "back": "Titrate in small increments to restore adequate breathing, not full consciousness — over-reversal can precipitate severe acute opioid withdrawal (agitation, pain, tachycardia, hypertension, pulmonary oedema)."
+   },
+   {
+    "id": "ph_rh_anlg_69",
+    "front": "Why must a patient be monitored after naloxone reverses an overdose, and when is this especially important?",
+    "back": "Naloxone's half-life is shorter than most opioids, so re-sedation (re-narcotisation) can occur as it wears off. Repeat doses or an infusion are needed, especially with long-acting/high-affinity opioids (methadone, buprenorphine, modified-release morphine)."
+   },
+   {
+    "id": "ph_rh_anlg_70",
+    "front": "What is naltrexone and what is it used for?",
+    "back": "A long-acting oral opioid antagonist used to maintain abstinence — relapse prevention in opioid dependence after detox, and in alcohol dependence to reduce craving/reward. It is NOT an acute overdose antidote."
+   },
+   {
+    "id": "ph_rh_anlg_71",
+    "front": "Before starting naltrexone for relapse prevention, what must be true of the patient?",
+    "back": "They must be opioid-free for about 7-10 days (longer after methadone), otherwise naltrexone precipitates acute withdrawal. This is sometimes confirmed with a naloxone challenge."
+   },
+   {
+    "id": "ph_rh_anlg_72",
+    "front": "A patient on naltrexone needs surgery/acute pain relief. What is the problem and how is it managed?",
+    "back": "Naltrexone blocks all opioid analgesia, so standard opioids won't work. Plan ahead — stop it in advance and use non-opioid analgesia or specialist high-dose strategies."
+   },
+   {
+    "id": "ph_rh_anlg_73",
+    "front": "What organ toxicity requires monitoring in patients taking naltrexone?",
+    "back": "Dose-related hepatotoxicity — monitor LFTs; avoid in acute hepatitis or liver failure."
+   },
+   {
+    "id": "ph_rh_anlg_74",
+    "front": "Contrast naloxone and naltrexone in role and duration of action.",
+    "back": "Naloxone is a short-acting antagonist for emergency reversal of opioid overdose (restores breathing, but risks re-sedation). Naltrexone is a long-acting oral antagonist for maintaining abstinence in opioid/alcohol dependence — NOT for acute overdose."
+   }
+  ],
   "pharmacology__Rheumatology & Musculoskeletal Drugs__DMARDs — Conventional (csDMARDs)": [],
   "pharmacology__Rheumatology & Musculoskeletal Drugs__DMARDs — Biologics": [],
   "pharmacology__Rheumatology & Musculoskeletal Drugs__JAK Inhibitors (tsDMARDs)": [],
