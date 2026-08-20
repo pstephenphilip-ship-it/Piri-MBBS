@@ -426,7 +426,13 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 }
 .annot-drawer{width:0;min-width:0;flex-shrink:0;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;transition:width .2s ease;}
 .annot-drawer.open{width:clamp(360px,42vw,660px);min-width:0;border-left:1px solid var(--border2);}
-@media (max-width:820px){.annot-drawer.open{width:88vw;min-width:0;}}
+/* On tablets/phones the drawer can't reveal as a flex-width sibling — the stacked layout left it
+   hidden behind the note, so clicking "My Notes" just made the FABs vanish with no visible panel.
+   Make it a fixed overlay that slides in over the content, with its × close button always visible. */
+@media (max-width:820px){
+  .annot-drawer{position:fixed;top:0;right:0;bottom:0;left:auto;z-index:1500;box-shadow:-6px 0 24px rgba(0,0,0,.28);}
+  .annot-drawer.open{width:min(94vw,440px);min-width:0;}
+}
 .annot-drawer-hdr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 15px;border-bottom:1px solid var(--border);flex-shrink:0;}
 .annot-drawer-titles{min-width:0;}
 .annot-drawer-title{font-family:var(--sans);font-size:13.5px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;white-space:nowrap;}
