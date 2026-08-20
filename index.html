@@ -8915,14 +8915,14 @@ function hideFlyout(p) {
   function parsePk(pk){ var i=pk.indexOf('__'); var p=pk.slice(0,i); var rest=pk.slice(i+2); var j=rest.indexOf('__'); return {p:p, system:rest.slice(0,j), topic:rest.slice(j+2)}; }
   function ensureDueSystems(){
     try{ var due=dueList(), names={};
-      due.forEach(function(sid){ var pk=sid.split('::')[0]; var parts=pk.split('__'); if(parts.length>=3 && parts[0]==='conditions') names[parts[1]]=1; });
+      due.forEach(function(sid){ var pk=sid.split('::')[0]; var parts=pk.split('__'); if(parts.length>=3) names[parts[1]]=1; });   // any tab (anatomy/histology/signs/…), not just conditions — else those due cards never load and can't be reviewed
       return Promise.all(Object.keys(names).map(function(n){ return window.ensureSystemLoaded?window.ensureSystemLoaded(n):Promise.resolve(); }));
     }catch(e){ return Promise.resolve(); }
   }
   function cardMap(){
     var map={};
     try{ if(typeof PRESET_FC!=='undefined'){ Object.keys(PRESET_FC).forEach(function(pk){ (PRESET_FC[pk]||[]).forEach(function(c){ if(c&&c.front&&c.back) map[srsId(pk,c.id)]={pk:pk,front:c.front,back:c.back}; }); }); } }catch(e){}
-    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k&&k.indexOf('piri_fc__')===0){ var arr=[]; try{arr=JSON.parse(localStorage.getItem(k)||'[]');}catch(e){} var pk=k.slice('piri_fc__'.length); arr.forEach(function(c){ if(c&&c.front&&c.back) map[srsId(pk,c.id)]={pk:pk,front:c.front,back:c.back}; }); } } }catch(e){}
+    try{ for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k&&k.indexOf('piri_fc__')===0){ var arr=[]; try{arr=JSON.parse(localStorage.getItem(k)||'[]');}catch(e){} var pk=k.slice('piri_fc__'.length); arr.forEach(function(c){ if(c&&c.front&&c.back) map[srsId(pk,c.id)]={pk:pk,front:c.front,back:c.back,_user:true}; }); } } }catch(e){}
     return map;
   }
 
@@ -8999,10 +8999,13 @@ function hideFlyout(p) {
     if(!session || !session.queue.length){ renderDone(); return; }
     var sid=session.queue[0], c=session.map[sid], m=load(), prev=m[sid];
     var src=parsePk(c.pk);
+    // Preset cards are trusted HTML; user-authored cards are plain text -> escape so a stray
+    // "<" or markup shows literally instead of breaking the review card (mirrors the topic view).
+    var _front=c._user?esc(c.front):c.front, _back=c._user?esc(c.back):c.back;
     var html='<div class="da-rv-prog">'+(session.done+1)+' / '+session.total+'</div>'+
-      '<div class="da-rv-card"><div class="da-rv-lbl">Question</div><div class="da-rv-front">'+c.front+'</div>';
+      '<div class="da-rv-card"><div class="da-rv-lbl">Question</div><div class="da-rv-front">'+_front+'</div>';
     if(session.revealed){
-      html+='<hr class="da-rv-divider"><div class="da-rv-lbl">Answer</div><div class="da-rv-back">'+c.back+'</div>'+
+      html+='<hr class="da-rv-divider"><div class="da-rv-lbl">Answer</div><div class="da-rv-back">'+_back+'</div>'+
         '<div class="da-rv-src">'+esc(src.topic)+'</div>';
     }
     html+='</div>';
