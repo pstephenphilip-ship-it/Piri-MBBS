@@ -2552,7 +2552,7 @@ function restoreFromHash() {
   if (tab === 'home') { if (window.goHome) window.goHome(true); return; }
   if (tab === 'mock') { if (window.openMock) window.openMock(); return; }
   var navEl = document.querySelector('.nav-tab[onclick*="\'' + tab + '\'"]');
-  if (!navEl) return;
+  if (!navEl) { if (window.goHome) window.goHome(true); return; }   // unknown/stale route -> fall back Home, don't strand the user
   switchMainTab(tab, navEl, true);
   if (!system) return;
   var st = getState(tab);
@@ -2574,9 +2574,11 @@ document.addEventListener('DOMContentLoaded', restoreFromHash);
 
 function switchMainTab(id, el, skipHash) {
   if (window.__hideInfoPages) window.__hideInfoPages();
+  var _view = document.getElementById('tab-' + id);
+  if (!_view) { if (window.goHome && id !== 'home') window.goHome(true); return; }   // unknown tab id -> Home instead of throwing
   document.querySelectorAll('.tab-view').forEach(t => t.classList.remove('visible'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('visible');
+  _view.classList.add('visible');
   if (el && el.classList) el.classList.add('active');
   // Restore the floating buttons when leaving the focused mock view
   if (id !== 'mock') {
