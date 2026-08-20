@@ -18010,7 +18010,443 @@
     "back": "Antihistamines (chlorphenamine, or oral cetirizine) treat cutaneous symptoms only. They are given AFTER adrenaline and stabilisation and never take priority over it."
    }
   ],
-  "pharmacology__Emergency Medicine & Critical Care__Overdose & Antidotes": [],
+  "pharmacology__Emergency Medicine & Critical Care__Overdose & Antidotes": [
+   {
+    "id": "ph_em_od_01",
+    "front": "What is the first-line antidote for paracetamol overdose, and how does it work?",
+    "back": "N-acetylcysteine (NAC). It replenishes hepatic glutathione and provides sulfhydryl groups, which detoxify the toxic paracetamol metabolite NAPQI -> prevents centrilobular hepatic (liver) necrosis."
+   },
+   {
+    "id": "ph_em_od_02",
+    "front": "A patient took a single paracetamol overdose 6 hours ago. What decides whether they get N-acetylcysteine?",
+    "back": "A paracetamol level taken at >=4 hours post-ingestion, plotted against the single treatment line (100 mg/L at 4 hours). If the level is on or above the line, treat with NAC. Since MHRA 2012 the same line is used for everyone, regardless of risk factors."
+   },
+   {
+    "id": "ph_em_od_03",
+    "front": "When should you start N-acetylcysteine empirically without waiting for a paracetamol level?",
+    "back": "In a staggered overdose, when the timing of ingestion is unknown, or when the patient presents >=8 hours after ingestion. Do not delay treatment to await levels once presentation is >=8 hours."
+   },
+   {
+    "id": "ph_em_od_04",
+    "front": "Within what timeframe is N-acetylcysteine most effective in paracetamol overdose?",
+    "back": "Within 8 hours of ingestion. Efficacy falls off after this, but NAC should never be withheld in late or staggered presentations."
+   },
+   {
+    "id": "ph_em_od_05",
+    "front": "How is N-acetylcysteine given for paracetamol overdose, and how is the dose determined?",
+    "back": "By IV infusion, weight-based, with the dose capped at 110 kg body weight. A staged regimen is used (e.g. a loading dose followed by maintenance infusions)."
+   },
+   {
+    "id": "ph_em_od_06",
+    "front": "A patient on a N-acetylcysteine infusion develops flushing, urticaria and bronchospasm. What is happening and how do you manage it?",
+    "back": "An anaphylactoid reaction - it is non-IgE mediated and rate-related (not a true allergy). Manage by pausing or slowing the infusion (+/- antihistamine), then restart at a slower rate. Do NOT abandon the antidote."
+   },
+   {
+    "id": "ph_em_od_07",
+    "front": "Why can you continue N-acetylcysteine after an anaphylactoid reaction, unlike a true anaphylaxis?",
+    "back": "Because the reaction is non-IgE and rate-related, driven by the infusion speed rather than immune sensitisation. Slowing the rate resolves it, so the antidote can be continued rather than permanently stopped."
+   },
+   {
+    "id": "ph_em_od_08",
+    "front": "What bloods/parameters do you monitor during and after treating a significant paracetamol overdose?",
+    "back": "Serial INR/prothrombin time, ALT, creatinine, and venous bicarbonate/pH. These track evolving hepatotoxicity, renal injury and acidosis."
+   },
+   {
+    "id": "ph_em_od_09",
+    "front": "Which criteria are used to flag the need for liver transplant referral after paracetamol-induced liver failure?",
+    "back": "The King's College Criteria."
+   },
+   {
+    "id": "ph_em_od_10",
+    "front": "How does naloxone reverse opioid overdose?",
+    "back": "It is a competitive opioid (mu) receptor antagonist - it rapidly displaces the opioid from the receptor, reversing respiratory depression, sedation and pinpoint pupils."
+   },
+   {
+    "id": "ph_em_od_11",
+    "front": "In opioid overdose, what clinical endpoint should you titrate naloxone to?",
+    "back": "Adequate breathing/respiration - NOT full consciousness. Give small IV boluses (e.g. 400 micrograms) and repeat every 2-3 minutes until respiration is restored."
+   },
+   {
+    "id": "ph_em_od_12",
+    "front": "Why must a patient be monitored (and possibly re-dosed) after naloxone reverses an opioid overdose?",
+    "back": "Naloxone has a shorter half-life than most opioids, so re-sedation and recurrent respiratory depression can occur as it wears off. Monitor closely, repeat doses, and consider an infusion for long-acting opioids such as methadone."
+   },
+   {
+    "id": "ph_em_od_13",
+    "front": "Which forms of naloxone are used as community/take-home treatment for opioid overdose?",
+    "back": "IM or intranasal naloxone."
+   },
+   {
+    "id": "ph_em_od_14",
+    "front": "What adverse reaction can naloxone precipitate in an opioid-dependent patient?",
+    "back": "Acute opioid withdrawal - agitation, pain, hypertension and vomiting. This is why careful titration (small boluses to restore breathing) is used in known dependence rather than large doses."
+   },
+   {
+    "id": "ph_em_od_15",
+    "front": "What is flumazenil and what does it reverse?",
+    "back": "A competitive antagonist at the benzodiazepine binding site of the GABA-A receptor (it does not block GABA itself). It reverses benzodiazepine sedation and respiratory depression."
+   },
+   {
+    "id": "ph_em_od_16",
+    "front": "Why is flumazenil rarely used in benzodiazepine overdose?",
+    "back": "It can precipitate seizures - especially in a mixed overdose (e.g. with a tricyclic antidepressant) or in benzodiazepine dependence. Supportive airway management and ventilation are usually safer."
+   },
+   {
+    "id": "ph_em_od_17",
+    "front": "In which two situations does flumazenil carry the highest risk of provoking seizures?",
+    "back": "A mixed overdose with a pro-convulsant drug such as a tricyclic antidepressant, and chronic benzodiazepine dependence/long-term use (where it removes seizure-protective GABA-A activity)."
+   },
+   {
+    "id": "ph_em_od_18",
+    "front": "After giving flumazenil, why might a patient become drowsy again?",
+    "back": "Flumazenil has a short half-life relative to many benzodiazepines, so re-sedation can occur as it wears off - requiring prolonged observation and possible repeat dosing."
+   },
+   {
+    "id": "ph_em_od_19",
+    "front": "What are digoxin-specific antibody fragments (Digibind/DigiFab) and how do they work?",
+    "back": "Ovine (Fab) antibody fragments that bind free digoxin -> form an inert complex that is renally cleared -> reduces digoxin acting at the Na+/K+-ATPase, reversing toxicity."
+   },
+   {
+    "id": "ph_em_od_20",
+    "front": "What are the indications for digoxin-specific antibody fragments in digoxin toxicity?",
+    "back": "Life-threatening toxicity: ventricular arrhythmias, significant bradyarrhythmia or heart block, haemodynamic instability, a large ingested/serum load, and hyperkalaemia (>5.0-5.5 mmol/L) in acute poisoning (a marker of severity)."
+   },
+   {
+    "id": "ph_em_od_21",
+    "front": "Why is a raised potassium (>5.0-5.5) important in acute digoxin poisoning?",
+    "back": "It is a marker of severe toxicity and an indication for digoxin-specific antibody fragments. The high potassium reflects widespread inhibition of the Na+/K+-ATPase."
+   },
+   {
+    "id": "ph_em_od_22",
+    "front": "How is the number of vials of digoxin-specific antibody fragments calculated?",
+    "back": "From the ingested dose, or from the steady-state serum digoxin level and body weight. In cardiac arrest or when the load is unknown, empirical (fixed) dosing is used."
+   },
+   {
+    "id": "ph_em_od_23",
+    "front": "Why should you avoid IV calcium for hyperkalaemia caused by digoxin toxicity?",
+    "back": "Because of the theoretical risk of a 'stone heart' - the combination of high intracellular calcium and digoxin can cause irreversible myocardial contracture. Treat digoxin-related hyperkalaemia with digoxin-specific antibody fragments instead."
+   },
+   {
+    "id": "ph_em_od_24",
+    "front": "After giving digoxin-specific antibody fragments, what potassium change should you anticipate?",
+    "back": "Rebound hypokalaemia - as the Na+/K+-ATPase is restored, potassium is driven back into cells. Monitor serum potassium closely."
+   },
+   {
+    "id": "ph_em_od_25",
+    "front": "Why is a serum digoxin level unreliable after giving digoxin-specific antibody fragments?",
+    "back": "The assay measures both bound and free digoxin, so total levels become falsely misleading. Digoxin should only be reintroduced after the Fab is cleared (may take days, longer in renal impairment)."
+   },
+   {
+    "id": "ph_em_od_26",
+    "front": "What is the first-line antidote for beta-blocker overdose with bradycardia/hypotension refractory to atropine and fluids?",
+    "back": "Glucagon - it activates cardiac glucagon receptors -> raises cardiac cAMP independently of beta-receptors -> positive inotropy and chronotropy that bypasses the beta-blockade."
+   },
+   {
+    "id": "ph_em_od_27",
+    "front": "How does glucagon restore cardiac output when beta-receptors are blocked?",
+    "back": "It stimulates cardiac glucagon receptors, raising intracellular cAMP by a route independent of the beta-adrenergic receptor. This gives positive inotropy/chronotropy despite the receptor blockade."
+   },
+   {
+    "id": "ph_em_od_28",
+    "front": "What is the dosing approach for glucagon in beta-blocker overdose?",
+    "back": "A 5-10 mg IV bolus over 1-2 minutes, followed by an infusion titrated to effect. High doses are needed compared with its use in hypoglycaemia."
+   },
+   {
+    "id": "ph_em_od_29",
+    "front": "What is the main side effect of the high glucagon doses used in beta-blocker overdose, and how do you prepare for it?",
+    "back": "Vomiting - which carries an aspiration risk in the obtunded patient. Have an antiemetic ready and protect the airway."
+   },
+   {
+    "id": "ph_em_od_30",
+    "front": "When glucagon is used for severe hypoglycaemia (no IV access), in which patients will it be ineffective?",
+    "back": "When hepatic glycogen stores are depleted - e.g. in alcohol excess or starvation. Glucagon works by mobilising hepatic glycogen, so with empty stores it cannot raise glucose."
+   },
+   {
+    "id": "ph_em_od_31",
+    "front": "In high-dose insulin euglycaemic therapy (HIET) for CCB/beta-blocker overdose, what is the therapeutic role of the insulin versus the dextrose?",
+    "back": "The insulin is the inotrope - it improves the poisoned myocardium's energy (carbohydrate) utilisation and contractility. The dextrose is co-infused only to prevent hypoglycaemia from the high insulin doses."
+   },
+   {
+    "id": "ph_em_od_32",
+    "front": "What is the key indication for high-dose insulin euglycaemic therapy (HIET)?",
+    "back": "Calcium-channel-blocker overdose with cardiogenic shock (also beta-blocker overdose with myocardial depression, and toxin-induced cardiogenic shock refractory to standard measures)."
+   },
+   {
+    "id": "ph_em_od_33",
+    "front": "What is the dosing regimen for high-dose insulin euglycaemic therapy?",
+    "back": "Short-acting insulin 1 unit/kg IV bolus, then 0.5-1 unit/kg/h (titrated higher in refractory shock), with a dextrose infusion to maintain euglycaemia and potassium supplemented as needed. It is specialist/toxicology-guided."
+   },
+   {
+    "id": "ph_em_od_34",
+    "front": "What two things must you monitor most closely during high-dose insulin euglycaemic therapy?",
+    "back": "Blood glucose (frequently - hypoglycaemia can be delayed and prolonged even after the insulin is stopped) and potassium (insulin drives potassium intracellularly -> hypokalaemia)."
+   },
+   {
+    "id": "ph_em_od_35",
+    "front": "Why must glucose monitoring continue for hours after high-dose insulin euglycaemic therapy is stopped?",
+    "back": "Because hypoglycaemia from the high insulin doses can be delayed and prolonged, persisting well after the infusion ends."
+   },
+   {
+    "id": "ph_em_od_36",
+    "front": "How does high-dose IV calcium help in calcium-channel-blocker overdose?",
+    "back": "It raises extracellular calcium to overcome the L-type calcium-channel blockade -> restores calcium influx -> improves myocardial contractility and vascular tone (helping the hypotension/bradycardia)."
+   },
+   {
+    "id": "ph_em_od_37",
+    "front": "In hyperkalaemia, what does IV calcium do - and importantly what does it NOT do?",
+    "back": "It stabilises the cardiac membrane (raises the threshold potential), protecting against arrhythmia. It does NOT lower the serum potassium - other treatments are still needed to shift/remove potassium."
+   },
+   {
+    "id": "ph_em_od_38",
+    "front": "How do calcium chloride and calcium gluconate differ, and what does this mean for administration?",
+    "back": "Calcium chloride contains about 3x the elemental calcium of gluconate but is more caustic, so it should be given via a central or large vein. Peripheral extravasation of calcium chloride can cause tissue necrosis."
+   },
+   {
+    "id": "ph_em_od_39",
+    "front": "Which poisoning is a caution against giving IV calcium, and why?",
+    "back": "Digoxin toxicity - because of the theoretical risk of a 'stone heart' (irreversible myocardial contracture) when calcium is added to digoxin-induced high intracellular calcium."
+   },
+   {
+    "id": "ph_em_od_40",
+    "front": "Why must you never mix IV calcium with sodium bicarbonate in the same line?",
+    "back": "They precipitate (form insoluble calcium carbonate). Give them separately."
+   },
+   {
+    "id": "ph_em_od_41",
+    "front": "What is the antidote for the muscarinic cholinergic crisis of organophosphate/nerve-agent poisoning, and how does it work?",
+    "back": "Atropine - a competitive antimuscarinic (anticholinergic). It blocks acetylcholine at muscarinic receptors, drying secretions, increasing heart rate and bronchodilating, countering features such as SLUDGE, bronchorrhoea and bradycardia."
+   },
+   {
+    "id": "ph_em_od_42",
+    "front": "How is atropine dosed and titrated in organophosphate poisoning?",
+    "back": "Give repeated doubling IV doses, titrated to the endpoint of drying of bronchial secretions / a clear chest - NOT to heart rate or pupils. Large cumulative doses (+/- an infusion) are often needed."
+   },
+   {
+    "id": "ph_em_od_43",
+    "front": "What is the therapeutic endpoint for atropine in organophosphate poisoning?",
+    "back": "Drying of bronchial secretions and a clear chest on auscultation. Heart rate and pupil size are not the targets."
+   },
+   {
+    "id": "ph_em_od_44",
+    "front": "Atropine only treats the muscarinic features of organophosphate poisoning. What is added to treat the nicotinic (muscle weakness) component?",
+    "back": "Pralidoxime - it reactivates acetylcholinesterase and addresses the nicotinic effects (muscle weakness/paralysis) that atropine does not cover."
+   },
+   {
+    "id": "ph_em_od_45",
+    "front": "What is the antimuscarinic toxidrome to watch for as a sign of atropine excess?",
+    "back": "Dry mouth, urinary retention, ileus, tachyarrhythmia, hyperthermia, blurred vision, and confusion/delirium (central antimuscarinic effects)."
+   },
+   {
+    "id": "ph_em_od_46",
+    "front": "How does pralidoxime (2-PAM) reverse organophosphate poisoning?",
+    "back": "It reactivates acetylcholinesterase by removing the organophosphate from the phosphorylated enzyme -> restores acetylcholine breakdown -> reverses both muscarinic and nicotinic features of poisoning."
+   },
+   {
+    "id": "ph_em_od_47",
+    "front": "A patient with organophosphate poisoning has muscle weakness, fasciculations and failing respiratory muscles despite atropine. Which additional antidote targets these features?",
+    "back": "Pralidoxime. Atropine reverses muscarinic effects but not the nicotinic features (weakness, fasciculation, respiratory muscle failure); pralidoxime reactivates acetylcholinesterase and addresses the nicotinic component."
+   },
+   {
+    "id": "ph_em_od_48",
+    "front": "Why must pralidoxime be given EARLY in organophosphate poisoning?",
+    "back": "Once the organophosphate-enzyme bond has 'aged' it becomes irreversible, and pralidoxime can no longer remove the organophosphate to reactivate acetylcholinesterase. Given late it is ineffective."
+   },
+   {
+    "id": "ph_em_od_49",
+    "front": "Should pralidoxime be used alone to treat organophosphate poisoning?",
+    "back": "No. It is an adjunct that must always be given with atropine - atropine covers the muscarinic effects while pralidoxime covers the nicotinic (muscle) effects; the two are synergistic."
+   },
+   {
+    "id": "ph_em_od_50",
+    "front": "Is pralidoxime indicated in carbamate poisoning?",
+    "back": "No. Pralidoxime is not indicated in carbamate poisoning; it is used for organophosphate/nerve-agent poisoning."
+   },
+   {
+    "id": "ph_em_od_51",
+    "front": "How is pralidoxime administered, and what happens if it is given too rapidly IV?",
+    "back": "IV loading dose followed by infusion. Given too rapidly it can cause hypertension and tachycardia; other effects include dizziness, blurred vision, headache and injection-site pain."
+   },
+   {
+    "id": "ph_em_od_52",
+    "front": "In acute iron poisoning, which iron chelator is used and by what route?",
+    "back": "Parenteral desferrioxamine (deferoxamine) by IV infusion. The oral chelators (deferasirox, deferiprone) have NO role in acute iron poisoning."
+   },
+   {
+    "id": "ph_em_od_53",
+    "front": "How does desferrioxamine work in iron poisoning?",
+    "back": "It is an iron chelator that binds free ferric iron -> forms a stable complex that is renally excreted, reducing free iron and tissue toxicity."
+   },
+   {
+    "id": "ph_em_od_54",
+    "front": "What urine change signals that desferrioxamine is chelating and excreting iron?",
+    "back": "A reddish 'vin rosé' discolouration of the urine indicates iron is being excreted."
+   },
+   {
+    "id": "ph_em_od_55",
+    "front": "Why must desferrioxamine be infused slowly?",
+    "back": "Rapid IV infusion causes hypotension; the infusion rate is titrated to avoid this. Anaphylactoid/allergic reactions can also occur."
+   },
+   {
+    "id": "ph_em_od_56",
+    "front": "Should the decision to treat acute iron poisoning rest on the serum iron level alone?",
+    "back": "No - treat by the clinical picture (severe symptoms, shock, coma) as well as the iron level; do not rely on iron levels alone. Desferrioxamine is indicated for severe features or a markedly raised iron level."
+   },
+   {
+    "id": "ph_em_od_57",
+    "front": "What are the main risks of LONG-TERM desferrioxamine use?",
+    "back": "Retinal and ototoxicity, ARDS with prolonged use, and increased risk of Yersinia infection. Long-term use needs audiometry and ophthalmology monitoring."
+   },
+   {
+    "id": "ph_em_od_58",
+    "front": "What is deferasirox and what is it used for?",
+    "back": "An oral, once-daily iron chelator for chronic transfusional iron overload (thalassaemia, sickle cell disease, myelodysplasia) - not for acute poisoning."
+   },
+   {
+    "id": "ph_em_od_59",
+    "front": "What monitoring is essential when prescribing deferasirox?",
+    "back": "Renal function and LFTs - it can cause renal impairment, hepatotoxicity and GI upset/bleeding (also cytopenias). Ferritin/iron burden is tracked to guide dosing."
+   },
+   {
+    "id": "ph_em_od_60",
+    "front": "How does phytomenadione (vitamin K1) reverse warfarin?",
+    "back": "Vitamin K is the cofactor for hepatic synthesis of clotting factors II, VII, IX and X; it overcomes warfarin's block of vitamin K recycling, restoring functional clotting factor production."
+   },
+   {
+    "id": "ph_em_od_61",
+    "front": "Why is vitamin K NOT suitable for immediate warfarin reversal?",
+    "back": "Its onset is slow (6-24 hours) because new clotting factors must be synthesised. For immediate reversal in major bleeding you need PCC (which replaces factors directly)."
+   },
+   {
+    "id": "ph_em_od_62",
+    "front": "When is phytomenadione the appropriate choice for a high INR?",
+    "back": "Non-urgent reversal - a high INR with minor or no bleeding. Low-dose IV for high INR/minor bleed; oral for asymptomatic high INR."
+   },
+   {
+    "id": "ph_em_od_63",
+    "front": "A patient who still needs anticoagulation is given a large dose of IV vitamin K. What is the consequence?",
+    "back": "Prolonged warfarin resistance for days to weeks, making it difficult to re-anticoagulate. Large doses are therefore avoided if ongoing anticoagulation is needed."
+   },
+   {
+    "id": "ph_em_od_64",
+    "front": "What acute reaction can occur with rapid IV administration of vitamin K?",
+    "back": "An anaphylactoid reaction; the IV formulation should be given cautiously/slowly."
+   },
+   {
+    "id": "ph_em_od_65",
+    "front": "What is prothrombin complex concentrate (PCC), e.g. Beriplex/Octaplex?",
+    "back": "A concentrate of the vitamin-K-dependent clotting factors II, VII, IX and X that immediately replaces the factors warfarin depletes, giving rapid INR correction and haemostasis."
+   },
+   {
+    "id": "ph_em_od_66",
+    "front": "A warfarinised patient has an intracranial haemorrhage. What is the first-line reversal agent?",
+    "back": "Prothrombin complex concentrate (PCC), given IV. It is preferred over FFP for urgent warfarin reversal with major/life-threatening bleeding - immediate onset and far less volume."
+   },
+   {
+    "id": "ph_em_od_67",
+    "front": "Why is PCC preferred over fresh frozen plasma (FFP) for urgent warfarin reversal?",
+    "back": "PCC works immediately and delivers the factors in a far smaller volume than FFP - an advantage in bleeding or cardiac patients who cannot tolerate a large fluid load."
+   },
+   {
+    "id": "ph_em_od_68",
+    "front": "Why must IV vitamin K always be co-administered when giving PCC for warfarin reversal?",
+    "back": "PCC's effect is transient (the infused factors are cleared) while warfarin persists; vitamin K provides durable reversal by restoring endogenous factor synthesis."
+   },
+   {
+    "id": "ph_em_od_69",
+    "front": "How is PCC dosed, and what should be checked afterwards?",
+    "back": "Dosed by body weight and current INR. Check the INR shortly after administration to confirm reversal, and watch for thrombotic complications."
+   },
+   {
+    "id": "ph_em_od_70",
+    "front": "What is the main serious risk of PCC?",
+    "back": "Thromboembolism (DVT/PE, arterial thrombosis). Cautions include DIC/active thrombosis and (as the product contains heparin) heparin-induced thrombocytopenia."
+   },
+   {
+    "id": "ph_em_od_71",
+    "front": "What is idarucizumab (Praxbind) and which drug does it reverse?",
+    "back": "A monoclonal antibody fragment that binds and neutralises dabigatran (a direct thrombin inhibitor), giving immediate reversal of its anticoagulant effect."
+   },
+   {
+    "id": "ph_em_od_72",
+    "front": "What is the dose of idarucizumab for dabigatran reversal?",
+    "back": "A fixed dose of 5 g IV (two 2.5 g vials), with immediate onset. A second dose is rarely needed if bleeding recurs or dabigatran redistributes."
+   },
+   {
+    "id": "ph_em_od_73",
+    "front": "When is idarucizumab used?",
+    "back": "Life-threatening or uncontrolled bleeding in a patient on dabigatran, or the need for emergency surgery/an urgent procedure requiring normal haemostasis."
+   },
+   {
+    "id": "ph_em_od_74",
+    "front": "Will idarucizumab reverse apixaban or rivaroxaban?",
+    "back": "No. It is specific for dabigatran (a direct thrombin inhibitor). Factor Xa inhibitors require andexanet alfa (or PCC as an alternative)."
+   },
+   {
+    "id": "ph_em_od_75",
+    "front": "How does andexanet alfa reverse a factor Xa inhibitor?",
+    "back": "It is a recombinant, catalytically inactive 'decoy' factor Xa that binds and sequesters the factor Xa inhibitor (apixaban, rivaroxaban), restoring endogenous factor Xa activity."
+   },
+   {
+    "id": "ph_em_od_76",
+    "front": "For which clinical scenario is andexanet alfa NICE-approved?",
+    "back": "Life-threatening or uncontrolled GI bleeding in a patient on a factor Xa inhibitor (apixaban/rivaroxaban). PCC is the off-label alternative, often used for other bleeding sites or on cost grounds."
+   },
+   {
+    "id": "ph_em_od_77",
+    "front": "How is andexanet alfa given, and what can happen after the infusion ends?",
+    "back": "IV bolus followed by a continuous infusion (dose depends on the agent, dose and time since last intake). Its effect is short-lived, so rebound anticoagulation is possible after the infusion stops."
+   },
+   {
+    "id": "ph_em_od_78",
+    "front": "What are the key risks/limitations of andexanet alfa?",
+    "back": "Thromboembolic events (arterial and venous) and rebound anticoagulation after the infusion. Anti-Xa assays are unreliable during/after treatment, so they cannot guide dosing."
+   },
+   {
+    "id": "ph_em_od_79",
+    "front": "How does cyanide cause cellular death?",
+    "back": "It inhibits mitochondrial cytochrome c oxidase (complex IV) -> halts oxidative phosphorylation -> histotoxic ('cellular') hypoxia. Cells cannot use oxygen despite it being present."
+   },
+   {
+    "id": "ph_em_od_80",
+    "front": "What blood-gas and biochemistry picture suggests cyanide poisoning?",
+    "back": "A high venous oxygen content (tissues cannot extract/use oxygen) with a severe lactic acidosis. Oxygen saturation may be misleadingly normal."
+   },
+   {
+    "id": "ph_em_od_81",
+    "front": "A patient rescued from an enclosed-space house fire is comatose with a severe lactic acidosis. What poisoning should you suspect and treat?",
+    "back": "Cyanide poisoning from smoke inhalation. Give a cyanide antidote (hydroxocobalamin first-line) with high-flow oxygen."
+   },
+   {
+    "id": "ph_em_od_82",
+    "front": "Which cyanide antidote is the safest first-line choice, and how does it work?",
+    "back": "Hydroxocobalamin (Cyanokit) - it binds cyanide to form cyanocobalamin (vitamin B12a), which is renally excreted. It is safe enough to give empirically, e.g. in smoke inhalation."
+   },
+   {
+    "id": "ph_em_od_83",
+    "front": "What harmless but striking side effect follows hydroxocobalamin, and what practical problem can it cause?",
+    "back": "Red discolouration of the skin and urine. It also interferes with co-oximetry and some colorimetric laboratory assays, which can confuse later blood results."
+   },
+   {
+    "id": "ph_em_od_84",
+    "front": "How does dicobalt edetate treat cyanide poisoning, and why must it be used cautiously?",
+    "back": "Cobalt directly chelates cyanide - potent, but it risks cobalt toxicity (hypotension, arrhythmias, seizures), especially if given when cyanide is NOT actually present. Reserve it for confirmed severe poisoning."
+   },
+   {
+    "id": "ph_em_od_85",
+    "front": "How does sodium thiosulfate act against cyanide, and what is its role?",
+    "back": "It is a sulfur donor for the enzyme rhodanese, converting cyanide to non-toxic thiocyanate. Its onset is slower, so it is typically used as an adjunct (e.g. alongside hydroxocobalamin or a nitrite)."
+   },
+   {
+    "id": "ph_em_od_86",
+    "front": "Which laboratory marker is followed to gauge response to cyanide-antidote treatment?",
+    "back": "Lactate - it falls with successful treatment. Also monitor acid-base status, haemodynamics and ECG; all antidotes are given with high-flow oxygen."
+   },
+   {
+    "id": "ph_em_od_87",
+    "front": "Match each anticoagulant to its specific reversal agent: warfarin (non-urgent high INR), warfarin (major bleeding), dabigatran, apixaban/rivaroxaban.",
+    "back": "Warfarin non-urgent high INR -> vitamin K (slow onset). Warfarin with major bleeding -> PCC immediately (plus vitamin K). Dabigatran -> idarucizumab. Apixaban/rivaroxaban -> andexanet alfa (or PCC)."
+   }
+  ],
   "pharmacology__Emergency Medicine & Critical Care__Sedation & Anaesthesia": [],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Drugs Requiring Therapeutic Drug Monitoring (TDM)": [],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Critical Drug Interactions": [],
