@@ -1319,13 +1319,13 @@ window.MOCK_BANK = {
     { id:"aaa-005", type:"mcq",
       question:"A 78-year-old man with a known 6 cm abdominal aortic aneurysm is brought to the Emergency Department with sudden abdominal and back pain and a brief loss of consciousness. What is the most appropriate immediate management?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>132 bpm</b></span><span>BP <b>74/40 mmHg</b></span><span>RR <b>28/min</b></span><span>SpO2 <b>92% RA</b></span><span>GCS <b>14</b></span></div><div class="mk-obs-h" style="margin-top:9px">Examination</div><div class="mk-obs-line">Pale with cool peripheries; tender, pulsatile abdominal mass.</div>',
-      options:["2 L rapid IV crystalloid to restore a systolic BP above 110 mmHg before transfer","Bedside abdominal ultrasound then admit to a monitored bed for observation","CT angiogram of the abdomen and pelvis to plan the repair before surgery","Immediate transfer to theatre for emergency repair with permissive hypotension","IV opioid analgesia and repeat observations in 30 minutes on the ward"],
+      options:["2 L rapid IV crystalloid to restore a systolic BP above 110 mmHg before transfer","Bedside abdominal ultrasound then admit to a monitored bed for observation","CT angiogram of the abdomen and pelvis to plan the repair before surgery","Immediate transfer to theatre for emergency repair with permissive hypotension","Admit to ICU for aggressive fluid resuscitation and stabilisation before any surgery"],
       correctIndex:3,
       explanation:[
         "Immediate transfer to theatre with permissive hypotension — he is unstable (HR 132, BP 74/40, syncope) with a known large AAA, so this is a rupture until proven otherwise, and unstable patients go straight to theatre for open repair (no time for CT). Permissive hypotension (aim systolic below 100 mmHg) avoids dislodging the tamponading clot — the 'pop the clot' phenomenon.",
         "CT angiogram before surgery — the main trap: CT is reasonable in a haemodynamically stable patient, but imaging must not delay theatre in someone this unstable.",
         "2 L rapid IV crystalloid to systolic >110 — over-resuscitation raises the pressure and dislodges the clot, worsening haemorrhage; fluids are given cautiously.",
-        "IV opioid analgesia and observe — fatally delays definitive control of the bleeding.",
+        "Admit to ICU to stabilise first — you cannot resuscitate your way out of ongoing haemorrhage; delaying surgical control to stabilise in ICU is fatal, because theatre IS the resuscitation.",
         "Bedside ultrasound then observe — ultrasound may confirm the AAA, but 'observation' is wrong; he needs emergency repair now."
       ] },
     { id:"aaa-006", type:"mcq",
@@ -1409,12 +1409,12 @@ window.MOCK_BANK = {
     { id:"aaa-013", type:"mcq",
       question:"A 71-year-old man with a known 5.0 cm infrarenal abdominal aortic aneurysm, previously stable on 3-monthly surveillance, presents with new, persistent central abdominal and back pain and tenderness over the aneurysm. A CT shows no evidence of rupture. What is the most appropriate management?",
       data:'<div class="mk-obs-h">Observations</div><div class="mk-obs-grid"><span>HR <b>76 bpm</b></span><span>BP <b>138/84 mmHg</b></span><span>RR <b>16/min</b></span><span>SpO2 <b>98% RA</b></span><span>Temp <b>36.9 &deg;C</b></span><span>GCS <b>15</b></span></div>',
-      options:["Refer urgently to vascular surgery for consideration of repair","Continue 3-monthly ultrasound surveillance","Reassure the patient; no intervention is required","Repeat the CT scan in 2 weeks","Increase antihypertensive therapy and review in clinic"],
+      options:["Refer urgently to vascular surgery for consideration of repair","Continue 3-monthly ultrasound surveillance","Admit for analgesia and observation, operating only if he becomes haemodynamically unstable","Repeat the CT scan in 2 weeks","Increase antihypertensive therapy and review in clinic"],
       correctIndex:0,
       explanation:[
         "Refer urgently to vascular surgery — a symptomatic aneurysm (new pain or tenderness) is an indication for repair regardless of absolute diameter. Even at 5.0 cm, below the 5.5 cm size threshold, new tenderness signals an unstable, potentially impending rupture, so this aneurysm has crossed from 'watch' to 'treat' on symptoms alone. The CT being negative for rupture is deliberate: it isolates the symptomatic criterion, without an actual rupture doing the work.",
         "Continue 3-monthly surveillance — the trap: correct if you judge on size only (5.0 cm is a medium AAA), but it ignores the new symptoms, which override the size rule.",
-        "Reassure; no intervention required — the same size-only error, and dangerous: it dismisses the very symptom that mandates referral.",
+        "Admit and observe, operating only on instability — a dangerous wait-and-see: a symptomatic, tender aneurysm has ALREADY declared itself, so waiting for haemodynamic collapse means operating on a rupture instead of preventing one.",
         "Repeat the CT in 2 weeks — delays definitive assessment in a patient whose symptoms already indicate referral now.",
         "Increase antihypertensive therapy and review in clinic — optimising blood pressure is sensible background management, but it does not address the symptomatic aneurysm needing surgical assessment."
       ] },
