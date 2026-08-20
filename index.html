@@ -8146,6 +8146,13 @@ function hideFlyout(p) {
       if(r.error){ vmsg(r.error.message||'Invalid or expired code.'); btn.disabled=false; btn.textContent=r0; return; }
       vmsg('Verified ✓','ok');
       markVerified();
+      // Remember THIS device locally right away — not only if the server claim lands. Without
+      // this, a failed/slow profiles write (e.g. migration not applied) makes the same device
+      // re-prompt for a code every session after the 90s justVerified() window. The server
+      // value stays authoritative (checked first in enforceDevice), so a real takeover on
+      // another device still re-challenges this one; local trust only helps when the server
+      // has no record yet.
+      try{ var _uid=r&&r.data&&r.data.user&&r.data.user.id; if(_uid) setLocalTrust(_uid); }catch(e){}
       window.__mfaPending=false;
       try{ claimDevice(); }catch(e){}          // best-effort, in the background — NEVER block on it
       btn.disabled=false; btn.textContent=r0;  // never leave the button stuck on "Verifying…"
