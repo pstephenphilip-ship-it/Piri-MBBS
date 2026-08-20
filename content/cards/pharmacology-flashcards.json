@@ -12477,7 +12477,163 @@
     "back": "Anti-GD2 antibody for high-risk neuroblastoma. It characteristically causes severe neuropathic pain (requiring analgesia, often opioids)."
    }
   ],
-  "pharmacology__Oncology & Immunosuppression__Immune Checkpoint Inhibitors": [],
+  "pharmacology__Oncology & Immunosuppression__Immune Checkpoint Inhibitors": [
+   {
+    "id": "ph_on_cpi_01",
+    "front": "In simple terms, how do immune checkpoint inhibitors work against cancer?",
+    "back": "They are monoclonal antibodies that 'release the brakes' on T cells, so the patient's own cytotoxic T cells can recognise and attack the tumour."
+   },
+   {
+    "id": "ph_on_cpi_02",
+    "front": "How do anti-PD-1 drugs (e.g. pembrolizumab, nivolumab) restore anti-tumour immunity?",
+    "back": "They block PD-1 on activated/exhausted T cells, preventing tumour PD-L1 from switching the T cell 'off' in the tumour (effector phase) -> reverse T-cell exhaustion -> restore cytotoxic (CD8) T-cell activity against the tumour."
+   },
+   {
+    "id": "ph_on_cpi_03",
+    "front": "Name four anti-PD-1 monoclonal antibodies used in cancer.",
+    "back": "Pembrolizumab, nivolumab, cemiplimab and dostarlimab."
+   },
+   {
+    "id": "ph_on_cpi_04",
+    "front": "How do anti-PD-L1 drugs (atezolizumab, durvalumab, avelumab) differ mechanistically from anti-PD-1 drugs?",
+    "back": "They act on the same axis but block the ligand PD-L1 (on tumour/immune cells) rather than the PD-1 receptor -> same effect: reverse T-cell exhaustion at the effector phase."
+   },
+   {
+    "id": "ph_on_cpi_05",
+    "front": "How does ipilimumab (anti-CTLA-4) work, and how is this different from PD-1/PD-L1 blockade?",
+    "back": "CTLA-4 normally outcompetes CD28 for B7 on antigen-presenting cells to switch T cells off, and sits on regulatory T cells (Tregs). Ipilimumab blocks this EARLIER checkpoint during T-cell priming in the lymph node (and reduces Treg suppression) -> boosts priming. PD-1/PD-L1 blockade acts later, in the tumour itself."
+   },
+   {
+    "id": "ph_on_cpi_06",
+    "front": "A patient with resected melanoma has no visible disease. Why might they still be offered a checkpoint inhibitor?",
+    "back": "Checkpoint inhibitors (e.g. anti-PD-1) are used in the adjuvant setting after surgery with curative intent, to reduce the risk of recurrence."
+   },
+   {
+    "id": "ph_on_cpi_07",
+    "front": "For which broad group of tumours does pembrolizumab hold a tissue-agnostic licence?",
+    "back": "MSI-high / mismatch-repair-deficient (dMMR) tumours (and high tumour mutational burden) -> licensed based on this biomarker regardless of the tumour's site of origin."
+   },
+   {
+    "id": "ph_on_cpi_08",
+    "front": "Name several cancers in which anti-PD-1/PD-L1 therapy is used.",
+    "back": "Melanoma, non-small-cell lung cancer, renal, bladder, head & neck cancers and Hodgkin lymphoma, among many others."
+   },
+   {
+    "id": "ph_on_cpi_09",
+    "front": "What is durvalumab used for after chemoradiotherapy in unresectable stage III lung cancer?",
+    "back": "Consolidation (maintenance) therapy following chemoradiotherapy in unresectable stage III NSCLC (the PACIFIC indication)."
+   },
+   {
+    "id": "ph_on_cpi_10",
+    "front": "What biomarker helps predict response to PD-1/PD-L1 inhibitors?",
+    "back": "PD-L1 expression on tumour/immune cells is a predictive biomarker (higher expression tends to predict better response)."
+   },
+   {
+    "id": "ph_on_cpi_11",
+    "front": "In advanced melanoma or renal cell carcinoma, ipilimumab is usually given with which other drug?",
+    "back": "Nivolumab (anti-PD-1) -> the ipilimumab + nivolumab combination blocks two non-redundant checkpoints for greater efficacy, at the cost of more immune-related adverse events."
+   },
+   {
+    "id": "ph_on_cpi_12",
+    "front": "What underlies the characteristic toxicities of checkpoint inhibitors (immune-related adverse events)?",
+    "back": "By releasing the brakes on the immune system, the activated T cells also attack NORMAL tissues, causing autoimmune-type inflammation of almost any organ (immune-related adverse events, irAEs)."
+   },
+   {
+    "id": "ph_on_cpi_13",
+    "front": "Which organ systems are most commonly affected by immune-related adverse events?",
+    "back": "Gut (colitis), liver (hepatitis), lungs (pneumonitis), skin (dermatitis/rash) and endocrine glands (thyroid, pituitary, adrenal, pancreas). Nephritis, myocarditis and neuropathy also occur."
+   },
+   {
+    "id": "ph_on_cpi_14",
+    "front": "A patient on pembrolizumab develops new frequent watery diarrhoea. What irAE must you suspect and what is the concern?",
+    "back": "Immune-related colitis. It can progress to severe colitis with bowel perforation, so it must be assessed and treated promptly (withhold drug + corticosteroids depending on grade), not just managed as simple diarrhoea."
+   },
+   {
+    "id": "ph_on_cpi_15",
+    "front": "A patient 6 weeks into nivolumab develops progressive breathlessness and a dry cough. Which irAE should you think of?",
+    "back": "Immune-related pneumonitis -> withhold the checkpoint inhibitor and treat with corticosteroids according to severity; it can be life-threatening."
+   },
+   {
+    "id": "ph_on_cpi_16",
+    "front": "How does immune-related hepatitis from a checkpoint inhibitor typically present, and how is it detected?",
+    "back": "Usually asymptomatic transaminitis found on monitoring LFTs (raised ALT/AST +/- bilirubin). Managed by withholding the drug and giving corticosteroids depending on grade."
+   },
+   {
+    "id": "ph_on_cpi_17",
+    "front": "A patient on ipilimumab + nivolumab develops chest pain and breathlessness with a raised troponin. Which rare irAE must you not miss?",
+    "back": "Immune-related myocarditis -> rare but high fatality. Requires URGENT high-dose corticosteroids and permanent discontinuation of the checkpoint inhibitor."
+   },
+   {
+    "id": "ph_on_cpi_18",
+    "front": "What is the general grade-based rule for managing immune-related adverse events?",
+    "back": "Grade 1 (mild): continue drug and monitor. Grade 2 (moderate): withhold the drug and give oral prednisolone (0.5-1 mg/kg). Grade 3-4 (severe): IV methylprednisolone (high-dose, 1-2 mg/kg) and often permanently stop the drug."
+   },
+   {
+    "id": "ph_on_cpi_19",
+    "front": "A patient with checkpoint-inhibitor colitis is not improving despite high-dose IV corticosteroids. What is the next step?",
+    "back": "Steroid-refractory colitis -> add infliximab."
+   },
+   {
+    "id": "ph_on_cpi_20",
+    "front": "A patient with checkpoint-inhibitor hepatitis is not responding to high-dose corticosteroids. What is used, and what must be avoided?",
+    "back": "Steroid-refractory hepatitis -> mycophenolate. Infliximab is avoided here (it is hepatotoxic)."
+   },
+   {
+    "id": "ph_on_cpi_21",
+    "front": "Do the corticosteroids used to treat immune-related adverse events reduce the anti-tumour effect of the checkpoint inhibitor?",
+    "back": "No -> corticosteroids given to manage irAEs do not appear to blunt the anti-tumour efficacy of the checkpoint inhibitor."
+   },
+   {
+    "id": "ph_on_cpi_22",
+    "front": "How is the management of endocrine irAEs (e.g. hypothyroidism) different from that of colitis or pneumonitis?",
+    "back": "Endocrinopathies are the EXCEPTION -> usually the checkpoint inhibitor is CONTINUED and the missing hormone is replaced (e.g. levothyroxine), rather than giving immunosuppression."
+   },
+   {
+    "id": "ph_on_cpi_23",
+    "front": "A patient on nivolumab is found to have a high TSH and low T4. What is the management?",
+    "back": "Immune-related hypothyroidism -> replace with levothyroxine and continue the checkpoint inhibitor. Endocrine irAEs are treated with hormone replacement, not steroids."
+   },
+   {
+    "id": "ph_on_cpi_24",
+    "front": "A patient on a checkpoint inhibitor develops polyuria, thirst and a high glucose with ketones. What has happened and how is it managed?",
+    "back": "Immune-related type 1 diabetes (autoimmune destruction of beta cells), which can present as DKA. Manage with insulin (hormone replacement), treat DKA, and continue the checkpoint inhibitor."
+   },
+   {
+    "id": "ph_on_cpi_25",
+    "front": "A patient on ipilimumab presents unwell with headache, fatigue, hyponatraemia and hypotension. Which irAE and what is the urgent treatment?",
+    "back": "Hypophysitis / adrenal insufficiency (possible adrenal crisis) -> give urgent hydrocortisone. Adrenal crisis and hypophysitis are endocrine emergencies."
+   },
+   {
+    "id": "ph_on_cpi_26",
+    "front": "When can immune-related adverse events occur relative to treatment?",
+    "back": "At ANY time -> during treatment, early or late, and even months AFTER the drug has been stopped. Ongoing vigilance is needed even after stopping."
+   },
+   {
+    "id": "ph_on_cpi_27",
+    "front": "What baseline and ongoing bloods should be monitored in a patient on a checkpoint inhibitor?",
+    "back": "Thyroid function (TFTs), glucose, LFTs, renal function and cortisol/ACTH -> to detect endocrine, hepatic and renal irAEs early."
+   },
+   {
+    "id": "ph_on_cpi_28",
+    "front": "What key safety advice should you give a patient starting a checkpoint inhibitor?",
+    "back": "Report promptly/urgently any new symptoms such as diarrhoea, breathlessness, or rash (and other new symptoms), as these may be immune-related adverse events needing early treatment."
+   },
+   {
+    "id": "ph_on_cpi_29",
+    "front": "Which pre-existing conditions are relative contraindications to checkpoint inhibitors?",
+    "back": "Active autoimmune disease (risk of severe flare), organ transplant (risk of rejection), and patients on high-dose immunosuppression. Also use caution with live vaccines."
+   },
+   {
+    "id": "ph_on_cpi_30",
+    "front": "Why is caution needed before giving a checkpoint inhibitor to an organ transplant recipient?",
+    "back": "Activating the immune system risks precipitating rejection of the transplanted organ -> a relative contraindication."
+   },
+   {
+    "id": "ph_on_cpi_31",
+    "front": "How do the immune-related adverse events of CTLA-4 blockade compare with PD-1/PD-L1 blockade?",
+    "back": "irAEs are MORE frequent and MORE severe with CTLA-4 blockade (ipilimumab), and are HIGHEST with the ipilimumab + nivolumab combination -> especially colitis and hypophysitis."
+   }
+  ],
   "pharmacology__Oncology & Immunosuppression__Hormone Therapies — Oncology": [],
   "pharmacology__Oncology & Immunosuppression__Transplant / Immunosuppression": [],
   "pharmacology__Obstetrics, Gynaecology & Sexual Health__Contraception": [],
