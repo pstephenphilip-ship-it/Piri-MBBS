@@ -3119,6 +3119,116 @@ window.MOCK_BANK = {
       explanation:[
         "Once at threshold, CT ANGIOGRAPHY defines the precise anatomy – aneurysm neck length and angulation, and iliac access – to plan repair and assess suitability for EVAR.",
         "It is also used in the stable patient with suspected rupture; ultrasound remains first-line for diagnosis and surveillance."
+      ] },
+    { id:"aaa-024", type:"mcq", objective:"aaa-smoking-cessation",
+      question:"A 64-year-old man with a 4 cm AAA on surveillance asks what he can do to reduce the chance of his aneurysm enlarging and rupturing. Which single measure is most effective?",
+      options:[
+        "Stopping smoking",
+        "Taking a daily statin",
+        "Taking low-dose aspirin",
+        "Starting a beta-blocker",
+        "Taking a vitamin supplement"],
+      correctIndex:0,
+      explanation:[
+        "SMOKING CESSATION is the single most effective measure and the only one clearly shown to slow AAA growth and reduce the risk of rupture.",
+        "Statins, antiplatelets and blood-pressure control matter for the patient's overall cardiovascular health, but they do not slow the aneurysm the way stopping smoking does."
+      ] },
+    { id:"aaa-025", type:"mcq", objective:"aaa-drugs-not-for-aneurysm",
+      question:"A 66-year-old man with a 4.5 cm AAA and hypertension is started on a statin and low-dose aspirin. He asks whether these medications will shrink or slow his aneurysm. What is the most accurate explanation?",
+      options:[
+        "Yes, the statin will slow the aneurysm's growth",
+        "No; they reduce cardiovascular risk, not the AAA itself",
+        "Yes, aspirin dissolves the aneurysm thrombus and shrinks it",
+        "They will reliably prevent the aneurysm from ever rupturing",
+        "They should be stopped, as they have no role in this patient"],
+      correctIndex:1,
+      explanation:[
+        "NICE advises AGAINST offering statins or antiplatelets specifically to slow AAA growth or reduce rupture – the evidence does not support it.",
+        "They are given here to manage his broader cardiovascular risk (he is an older vasculopath), not to treat the aneurysm; smoking cessation is the measure that slows the AAA."
+      ] },
+    { id:"aaa-026", type:"mcq", objective:"aaa-rapid-growth-repair",
+      image:"assets/ecg/aaa_ct.png",
+      imageAlt:"Abdominal CT angiogram.",
+      data:'<div class="mk-obs-h">Serial imaging</div><table class="mk-labs"><tr><td>12 months ago</td><td><b>4.3 cm</b></td><td></td></tr><tr><td>Today</td><td><b>5.4 cm</b></td><td></td></tr></table>',
+      question:"A 68-year-old man's AAA has enlarged over the past year, as shown, and he is asymptomatic. His CT is shown. What is the most appropriate management?",
+      options:[
+        "Continue annual surveillance",
+        "Reassure; growth is within normal limits",
+        "Refer for repair given the rapid growth",
+        "Repeat the scan in 5 years",
+        "Halve the growth with a statin"],
+      correctIndex:2,
+      explanation:[
+        "An AAA that is larger than 4 cm AND has grown more than 1 cm in a single year meets the criteria for REPAIR, even below 5.5 cm, because rapid expansion signals a higher rupture risk.",
+        "The other triggers for repair are a diameter ≥5.5 cm and symptoms; continued surveillance or reassurance would be unsafe here."
+      ] },
+    { id:"aaa-027", type:"mcq", objective:"aaa-evar-high-risk",
+      image:"assets/ecg/aaa_evar.png",
+      imageAlt:"Imaging following endovascular aneurysm repair.",
+      question:"A 79-year-old man with severe COPD and ischaemic heart disease has a 6.0 cm infrarenal AAA suitable for either repair. Given his high operative risk, which approach offers the lower peri-operative mortality?",
+      options:[
+        "Open repair, because it is more durable",
+        "Neither; he should not be repaired",
+        "Open repair via a midline laparotomy",
+        "Endovascular repair (EVAR)",
+        "Conservative management only"],
+      correctIndex:3,
+      explanation:[
+        "EVAR has a LOWER 30-day (peri-operative) mortality and a shorter recovery than open repair, which makes it attractive in high-risk patients such as this one.",
+        "The trade-off is a higher rate of late reintervention and the need for lifelong surveillance."
+      ] },
+    { id:"aaa-028", type:"mcq", objective:"aaa-evar-open-tradeoff",
+      question:"A 70-year-old man with an unruptured infrarenal AAA is weighing EVAR against open repair. Which statement about the comparison is correct?",
+      options:[
+        "EVAR carries a higher 30-day mortality than open repair",
+        "The early survival advantage of EVAR is maintained in the long term",
+        "EVAR requires fewer secondary interventions than open repair",
+        "Open repair commits the patient to lifelong graft surveillance",
+        "EVAR's early survival gain is lost over time, with more reinterventions"],
+      correctIndex:4,
+      explanation:[
+        "EVAR has a LOWER peri-operative (30-day) mortality, but that early advantage is LOST over the following years as late graft failures accrue, and EVAR carries MORE secondary interventions plus lifelong surveillance.",
+        "It is EVAR, not open repair, that needs lifelong imaging follow-up; open repair is the more durable operation, which is why NICE has controversially favoured it first-line for suitable unruptured infrarenal AAAs."
+      ] },
+    { id:"aaa-029", type:"mcq", objective:"aaa-colonic-ischaemia",
+      question:"Three days after open AAA repair, a patient develops crampy abdominal pain and bloody diarrhoea. What is the most likely complication, and the key investigation?",
+      options:[
+        "Colonic ischaemia; flexible sigmoidoscopy",
+        "Clostridioides difficile colitis; stool toxin assay",
+        "Anastomotic graft leak; CT of the abdomen",
+        "Small-bowel obstruction; abdominal X-ray",
+        "Wound infection; swab and antibiotics"],
+      correctIndex:0,
+      explanation:[
+        "Open AAA repair sacrifices the INFERIOR MESENTERIC ARTERY, leaving the left colon dependent on collateral supply. COLONIC ISCHAEMIA presents in the first post-operative days with crampy pain and BLOODY DIARRHOEA.",
+        "Urgent FLEXIBLE SIGMOIDOSCOPY confirms the diagnosis and assesses the extent of mucosal ischaemia."
+      ] },
+    { id:"aaa-030", type:"saq", objective:"aaa-endoleak",
+      image:"https://upload.wikimedia.org/wikipedia/commons/9/95/Endovasc.jpg",
+      imageAlt:"Axial abdominal CT after endovascular aneurysm repair.",
+      imageCredit:"Dr Haudebourg, public domain, via Wikimedia Commons.",
+      question:"Two years after EVAR, a man's surveillance CT (shown) reveals that the aneurysm sac has enlarged, though he is asymptomatic. What is the most likely complication?",
+      answer:"Endoleak",
+      accept:["endoleak","endo-leak","endoleaks","endovascular leak"],
+      markPoints:[
+        "Endoleak – persistent blood flow into the aneurysm sac around or through the stent graft, re-pressurising the sac and risking rupture; any post-EVAR sac expansion signals it."
+      ],
+      explanation:[
+        "After EVAR, any SAC EXPANSION on surveillance indicates an ENDOLEAK – persistent blood flow into the aneurysm sac around or through the graft, which re-pressurises the sac and risks rupture. It must be investigated and treated.",
+        "The commonest is a Type II endoleak, from retrograde flow via the inferior mesenteric or lumbar arteries."
+      ] },
+    { id:"aaa-031", type:"mcq", objective:"aaa-evar-surveillance",
+      question:"A patient being counselled before choosing EVAR over open repair asks about the long-term follow-up. Which important commitment must he be told about?",
+      options:[
+        "He will need lifelong anticoagulation",
+        "He must avoid all future surgery",
+        "He needs lifelong imaging surveillance",
+        "He can never drive again",
+        "No follow-up is required after EVAR"],
+      correctIndex:2,
+      explanation:[
+        "EVAR commits the patient to LIFELONG IMAGING SURVEILLANCE (CT or duplex), because the stent graft can develop an endoleak or migrate at any time.",
+        "Defaulting from follow-up forfeits the protection the operation provided – a key part of the EVAR trade-off against open repair."
       ] }
 ]
 };
