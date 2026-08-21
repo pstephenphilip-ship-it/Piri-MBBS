@@ -2807,6 +2807,111 @@ window.MOCK_BANK = {
       explanation:[
         "In cocaine-associated chest pain, BETA-BLOCKERS are avoided: blocking beta receptors leaves unopposed alpha-adrenergic stimulation, worsening coronary vasoconstriction and hypertension. First-line treatment is a BENZODIAZEPINE with nitrates (and aspirin), adding a calcium-channel blocker if needed."
       ] }
+],
+"conditions__CARDIOVASCULAR__Abdominal Aortic Aneurysm": [
+    { id:"aaa-001", type:"mcq", objective:"aaa-definition",
+      question:"An abdominal ultrasound in a 68-year-old man measures the infrarenal aorta at 3.4 cm. At what minimum diameter is the abdominal aorta defined as aneurysmal?",
+      options:[
+        "≥2.0 cm",
+        "≥2.5 cm",
+        "≥3.0 cm",
+        "≥4.5 cm",
+        "≥5.5 cm"],
+      correctIndex:2,
+      explanation:[
+        "An AAA is a permanent, localised dilatation of the abdominal aorta ≥3.0 cm (or more than 1.5 times the normal diameter; the normal infrarenal aorta is about 2 cm).",
+        "4.5 cm and 5.5 cm are surveillance and repair thresholds, not the definition."
+      ] },
+    { id:"aaa-002", type:"mcq", objective:"aaa-location",
+      question:"Most abdominal aortic aneurysms arise in which segment?",
+      options:[
+        "Infrarenal aorta",
+        "Suprarenal aorta",
+        "Aortic arch",
+        "Ascending aorta",
+        "Thoracoabdominal aorta"],
+      correctIndex:0,
+      explanation:[
+        "The vast majority of AAAs are INFRARENAL (below the renal arteries).",
+        "Suprarenal and thoracoabdominal aneurysms are less common and more complex to repair because the visceral and renal vessels are involved."
+      ] },
+    { id:"aaa-003", type:"mcq", objective:"aaa-strongest-modifiable-rf",
+      data:'<div class="mk-obs-h">Background</div><table class="mk-labs"><tr><td>Smoking</td><td><b>30 pack-years</b></td><td>&mdash;</td></tr><tr><td>Blood pressure</td><td><b>152/90 mmHg</b></td><td>&lt;140/90</td></tr><tr><td>Total cholesterol</td><td><b>5.8 mmol/L</b></td><td>&lt;5.0</td></tr><tr><td>HbA<sub>1c</sub></td><td><b>38 mmol/mol</b></td><td>&lt;42</td></tr></table>',
+      question:"A 70-year-old man is found to have a 4 cm AAA. His background is shown. Which is the strongest modifiable risk factor for AAA?",
+      options:[
+        "Hypertension",
+        "Hyperlipidaemia",
+        "Family history",
+        "Smoking",
+        "Male sex"],
+      correctIndex:3,
+      explanation:[
+        "SMOKING is the strongest modifiable risk factor for AAA – it is dose-dependent and drives elastin degradation, and smoking cessation is the one measure shown to slow growth and reduce rupture.",
+        "Age, male sex and family history are non-modifiable; hypertension and hyperlipidaemia contribute but less strongly than smoking."
+      ] },
+    { id:"aaa-004", type:"saq", objective:"aaa-diabetes-protective",
+      question:"Which major cardiovascular risk factor is associated with a reduced risk of abdominal aortic aneurysm?",
+      answer:"Diabetes mellitus",
+      accept:["diabetes","diabetes mellitus","dm","type 2 diabetes","t2dm"],
+      markPoints:[
+        "Diabetes mellitus – the only major cardiovascular risk factor associated with a REDUCED risk (and slower growth) of AAA."
+      ],
+      explanation:[
+        "DIABETES MELLITUS is the only major cardiovascular risk factor associated with a REDUCED risk of AAA and slower aneurysm growth, thought to relate to matrix glycation and medial changes in the aortic wall.",
+        "Every other major cardiovascular risk factor (smoking, hypertension, hyperlipidaemia, age) increases AAA risk – a counterintuitive point that is frequently examined."
+      ] },
+    { id:"aaa-005", type:"mcq", objective:"aaa-family-history",
+      question:"A 55-year-old man is worried because his brother has just been diagnosed with a 5 cm AAA. He has no symptoms. What is the most appropriate action?",
+      options:[
+        "Reassure him; no screening is needed until he turns 65",
+        "Offer him an abdominal ultrasound screening scan now",
+        "Arrange a CT aortogram",
+        "Only screen him if he develops symptoms",
+        "No screening, as sibling history does not affect risk"],
+      correctIndex:1,
+      explanation:[
+        "A first-degree relative (sibling, parent or child) of someone with an AAA carries a materially higher risk, so offer ULTRASOUND screening now rather than waiting for the national programme at 65 (option A is the trap).",
+        "CT is not the screening tool – ultrasound is first-line – and waiting for symptoms is unsafe, as most AAAs are silent until they rupture."
+      ] },
+    { id:"aaa-006", type:"mcq", objective:"aaa-atherosclerosis-association",
+      question:"Which statement best reflects the relationship between atherosclerosis and a degenerative AAA?",
+      options:[
+        "AAA develops as a direct late complication of atherosclerotic plaque rupture in the wall",
+        "Atherosclerosis protects against AAA by thickening the intimal layer",
+        "They share risk factors, but AAA arises from inflammatory medial degradation, not plaque",
+        "AAA and atherosclerosis are unrelated and essentially never coexist",
+        "Atherosclerotic calcification is the primary force that dilates the aorta"],
+      correctIndex:2,
+      explanation:[
+        "Atherosclerosis and AAA share risk factors and frequently coexist, but the aneurysm itself is driven by chronic transmural inflammation and matrix-metalloproteinase-mediated destruction of medial elastin and collagen, NOT by plaque rupture (option A borrows the ACS mechanism and is the trap).",
+        "Atherosclerosis is therefore associated with AAA rather than directly causative."
+      ] },
+    { id:"aaa-007", type:"mcq", objective:"aaa-inflammatory-aetiology",
+      question:"Which of the following is an inflammatory (vasculitic) cause of aortic aneurysm?",
+      options:[
+        "Hypertension",
+        "Atherosclerosis",
+        "Hyperlipidaemia",
+        "Cigarette smoking",
+        "Takayasu arteritis"],
+      correctIndex:4,
+      explanation:[
+        "TAKAYASU ARTERITIS (a large-vessel aortitis) is an inflammatory/vasculitic cause of aneurysm; the other options are degenerative risk factors, not vasculitides.",
+        "Connective-tissue disorders (Marfan syndrome, Ehlers–Danlos) are a separate hereditary group and more typically affect the thoracic aorta and root."
+      ] },
+    { id:"aaa-008", type:"mcq", objective:"aaa-wall-substrate",
+      question:"In the development of an AAA, degradation of which structural components of the aortic media is central to wall weakening?",
+      options:[
+        "Elastin and collagen",
+        "Endothelial cells of the intima",
+        "Smooth muscle of the adventitia only",
+        "The vasa vasorum",
+        "Fibrin within the lumen"],
+      correctIndex:0,
+      explanation:[
+        "Matrix metalloproteinases degrade the ELASTIN and COLLAGEN of the media – the load-bearing structural proteins – so the aortic wall progressively weakens and dilates.",
+        "The enzyme family responsible (matrix metalloproteinases) is covered in the ACS pathophysiology; here the point is the structural substrate they destroy."
+      ] }
 ]
 };
 </script>
