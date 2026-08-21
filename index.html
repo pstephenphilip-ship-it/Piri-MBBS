@@ -3003,6 +3003,122 @@ window.MOCK_BANK = {
       explanation:[
         "An AORTOENTERIC FISTULA is an abnormal communication between the aorta (or a previous aortic graft) and the bowel, classically the third or fourth part of the duodenum.",
         "It presents with a \'herald\' gastrointestinal bleed followed by catastrophic haemorrhage, and must be considered in anyone with GI bleeding and a history of AAA or aortic graft."
+      ] },
+    { id:"aaa-016", type:"mcq", objective:"aaa-screening-eligibility",
+      question:"A 66-year-old woman with a 40 pack-year smoking history mentions that her late brother died of a ruptured AAA. She asks her GP whether she will be invited for the national AAA screening programme like her husband was. What is the correct advice?",
+      options:[
+        "She will be screened automatically at 65",
+        "She needs annual screening from now on",
+        "Screening requires symptoms to be present first",
+        "Women are not routinely screened",
+        "Only a CT scan can screen for an AAA"],
+      correctIndex:3,
+      explanation:[
+        "The national programme screens MEN in the year they turn 65 with a one-off abdominal ultrasound; WOMEN are not routinely screened because of the much lower prevalence.",
+        "Individual screening may be considered in women aged 70 or over with risk factors such as smoking, but there is no automatic invitation for women."
+      ] },
+    { id:"aaa-017", type:"mcq", objective:"aaa-first-line-confirm",
+      question:"A 68-year-old man with hypertension is found by his GP to have a pulsatile abdominal mass during a routine examination. He is asymptomatic. Which is the most appropriate first-line investigation to confirm and size a suspected AAA?",
+      options:[
+        "CT angiography of the aorta",
+        "Plain abdominal X-ray",
+        "MRI of the abdomen",
+        "Invasive catheter aortography",
+        "Abdominal ultrasound"],
+      correctIndex:4,
+      explanation:[
+        "Abdominal ULTRASOUND is the first-line investigation to confirm and size an AAA – it is cheap, radiation-free, repeatable and accurate for diameter.",
+        "CT angiography is reserved for repair planning and for the stable patient with suspected rupture; plain films, MRI and invasive aortography are not first-line."
+      ] },
+    { id:"aaa-018", type:"mcq", objective:"aaa-small-surveillance",
+      image:"assets/ecg/aaa_uss.png",
+      imageAlt:"Abdominal ultrasound.",
+      data:'<div class="mk-obs-h">Ultrasound</div><table class="mk-labs"><tr><td>Aortic diameter (AP)</td><td><b>4.2 cm</b></td><td></td></tr></table>',
+      question:"A 67-year-old ex-smoker with hypertension attends the screening service. He is asymptomatic. The ultrasound is shown, with the measurement below. What is the appropriate surveillance interval?",
+      options:[
+        "Annual ultrasound surveillance",
+        "3-monthly ultrasound surveillance",
+        "Immediate referral for repair",
+        "Discharge with no follow-up",
+        "Repeat only if symptoms develop"],
+      correctIndex:0,
+      explanation:[
+        "A diameter of 3.0–4.4 cm is a SMALL AAA, which is monitored with ANNUAL ultrasound surveillance.",
+        "Referral for repair (≥5.5 cm) and discharge are both inappropriate at this size, and surveillance should not wait for symptoms."
+      ] },
+    { id:"aaa-019", type:"mcq", objective:"aaa-medium-surveillance",
+      data:'<div class="mk-obs-h">Surveillance scan</div><table class="mk-labs"><tr><td>Aortic diameter</td><td><b>5.0 cm</b></td><td></td></tr></table>',
+      question:"A 71-year-old man with hypertension and a past smoking history is in the surveillance programme and remains asymptomatic. His latest scan is shown. What is the appropriate action?",
+      options:[
+        "Annual ultrasound surveillance",
+        "3-monthly ultrasound surveillance",
+        "Discharge from surveillance",
+        "Emergency repair today",
+        "Repeat the scan in 5 years"],
+      correctIndex:1,
+      explanation:[
+        "A diameter of 4.5–5.4 cm is a MEDIUM AAA, monitored with 3-MONTHLY ultrasound surveillance to watch for growth toward the 5.5 cm threshold.",
+        "It has not yet reached the size for repair, and annual or 5-yearly intervals would be too infrequent."
+      ] },
+    { id:"aaa-020", type:"mcq", objective:"aaa-threshold-refer",
+      image:"assets/ecg/aaa_uss.png",
+      imageAlt:"Abdominal ultrasound.",
+      data:'<div class="mk-obs-h">Serial surveillance</div><table class="mk-labs"><tr><td>12 months ago</td><td><b>5.1 cm</b></td><td></td></tr><tr><td>Today</td><td><b>5.6 cm</b></td><td></td></tr></table>',
+      question:"A fit, independent 72-year-old man is in AAA surveillance and is asymptomatic. His serial measurements are shown. What is the most appropriate next step?",
+      options:[
+        "Continue 3-monthly surveillance",
+        "Continue annual surveillance",
+        "Refer to vascular surgery to consider repair",
+        "Reassure; this remains a safe size",
+        "Start lifelong anticoagulation"],
+      correctIndex:2,
+      explanation:[
+        "At ≥5.5 cm the aneurysm reaches the threshold for REFERRAL to vascular surgery to consider elective repair, balancing rupture risk against operative risk.",
+        "The interval growth from 5.1 to 5.6 cm is an added concern; continuing surveillance or reassurance would be unsafe."
+      ] },
+    { id:"aaa-021", type:"categorize", objective:"aaa-size-action-map",
+      question:"Sort each surveillance finding into the correct action.",
+      buckets:["Yearly surveillance","3-monthly surveillance","Refer to vascular surgery"],
+      items:[
+        {text:"A 3.2 cm aorta in an asymptomatic 66-year-old man",bucket:0},
+        {text:"A 4.4 cm aorta on a routine surveillance scan",bucket:0},
+        {text:"A 4.7 cm aorta in a 70-year-old smoker",bucket:1},
+        {text:"A 5.3 cm aorta, stable over 6 months",bucket:1},
+        {text:"A 5.6 cm aorta in a fit 71-year-old",bucket:2},
+        {text:"A 6.4 cm asymptomatic aorta",bucket:2}
+      ],
+      explanation:[
+        "The screening bands map directly to actions: 3.0–4.4 cm (small) → YEARLY ultrasound; 4.5–5.4 cm (medium) → 3-MONTHLY ultrasound; ≥5.5 cm (large) → REFER to vascular surgery to consider repair.",
+        "Note the cut-offs: a 5.3 cm aorta is still 3-monthly, whereas 5.5 cm and above crosses into referral."
+      ] },
+    { id:"aaa-022", type:"mcq", objective:"aaa-dvla-decision",
+      question:"A 68-year-old man who holds an ordinary car (Group 1) licence is found on surveillance to have an AAA now measuring 6.2 cm. He feels well and drives daily. Regarding his licence, what must he do?",
+      options:[
+        "Do nothing; no need to inform the DVLA",
+        "Stop driving but no need to inform the DVLA",
+        "Inform the DVLA and stop driving immediately",
+        "Inform the DVLA; he may continue driving for now",
+        "He is permanently banned from driving"],
+      correctIndex:3,
+      explanation:[
+        "For a Group 1 licence, the driver must NOTIFY the DVLA once the AAA reaches 6.0 cm, and is DISQUALIFIED at 6.5 cm. At 6.2 cm he must inform the DVLA but may still drive, as he is below 6.5 cm.",
+        "Repair would usually be recommended at this size in any case; Group 2 (bus/lorry) limits are lower."
+      ] },
+    { id:"aaa-023", type:"mcq", objective:"aaa-ct-planning",
+      image:"assets/ecg/aaa_ct.png",
+      imageAlt:"Abdominal CT angiogram.",
+      data:'<div class="mk-obs-h">CT angiogram</div><table class="mk-labs"><tr><td>Maximum aortic diameter</td><td><b>5.7 cm</b></td><td></td></tr></table>',
+      question:"A 74-year-old man's AAA has reached 5.7 cm and elective repair is being planned. The CT angiogram shown is arranged. What is its main role at this point?",
+      options:[
+        "It is cheaper than ultrasound",
+        "It avoids radiation exposure",
+        "It replaces ultrasound for surveillance",
+        "It is only useful after the repair",
+        "It defines the anatomy for repair (EVAR) planning"],
+      correctIndex:4,
+      explanation:[
+        "Once at threshold, CT ANGIOGRAPHY defines the precise anatomy – aneurysm neck length and angulation, and iliac access – to plan repair and assess suitability for EVAR.",
+        "It is also used in the stable patient with suspected rupture; ultrasound remains first-line for diagnosis and surveillance."
       ] }
 ]
 };
