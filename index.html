@@ -9264,12 +9264,19 @@ function hideFlyout(p) {
    content gutter left an over-narrow ~296px text column that wrapped every few words. Trim
    both so notes run close to edge-to-edge (tablets keep the roomier padding above). */
 @media (max-width:600px){
-  .note-content{padding:10px 7px 44px;}
-  #rich-note-display,#rich-note-display-osce,.rich-note-display-generic{padding:16px 13px 52px;}
+  /* Outer gutters: near-zero so the note card runs edge-to-edge (no wallpaper strip either side). */
+  .note-content{padding:8px 4px 44px;}
+  #rich-note-display,#rich-note-display-osce,.rich-note-display-generic{padding:12px 6px 52px;}
   .rich-note{max-width:none;}
-  .pharma-detail{padding:12px 10px 44px;}
+  .pharma-detail{padding:10px 6px 44px;}
+  /* Section cards: the 20px body padding was the biggest remaining inset — trim it and the
+     section header so text/tables inside use the full width. */
+  .rn-body{padding:13px 10px;}
+  .rn-section-title{padding:11px 12px;}
   /* Inner call-out boxes were also indented; tighten so their text isn't double-cramped. */
-  .rn-bm-card,.rn-as-item,.rn-flow-step{padding-left:13px;padding-right:13px;}
+  .rn-bm-card,.rn-as-item,.rn-flow-step{padding-left:11px;padding-right:11px;}
+  /* Wide tables: smaller cell padding to fit more before needing the horizontal scroll. */
+  .rn-table th,.rn-table td,.rich-note table th,.rich-note table td{padding:7px 9px;}
 }
 /* Mock runner (single-column mode, <=1080px incl. tablets): show the QUESTION first.
    The number grid (palette) is 1000px+ tall and was placed first (order:-1),
