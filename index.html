@@ -2277,6 +2277,177 @@ window.MOCK_BANK = {
       explanation:[
         "FIBRINOLYSIS is not indicated in NSTEMI or unstable angina &mdash; there is no persistently occluding thrombus to lyse, and trials show no benefit with increased bleeding. It is reserved for STEMI when timely PCI is unavailable.",
         "Aspirin, ticagrelor, fondaparinux and coronary angiography are all part of standard NSTEMI care."
+      ] },
+    { id:"acs-071", type:"mcq", objective:"acs-vf-arrest",
+      image:"https://upload.wikimedia.org/wikipedia/commons/f/f1/Ventricular_fibrillation.png",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A patient on the coronary care monitor suddenly collapses 3 hours after an MI. The rhythm strip is shown below. What is the most appropriate immediate management?",
+      options:[
+        "Intravenous amiodarone",
+        "Synchronised cardioversion",
+        "Immediate unsynchronised defibrillation",
+        "Intravenous adenosine",
+        "Start chest compressions and give atropine"],
+      correctIndex:2,
+      explanation:[
+        "The strip shows VENTRICULAR FIBRILLATION &mdash; the commonest cause of death in the first hours after an MI. The immediate treatment is UNSYNCHRONISED defibrillation as part of the ALS algorithm, with good-quality CPR between shocks.",
+        "Amiodarone (A) is given after the third shock; synchronised cardioversion (B) and adenosine (D) are for organised tachyarrhythmias; atropine (E) has no role in VF."
+      ] },
+    { id:"acs-072", type:"mcq", objective:"acs-papillary-rupture",
+      audio:"assets/audio/09_apex_holo_sys_mur_supine_bell.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>112 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>96/64 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>30 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>86% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.8 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"Four days after an inferior MI, a 68-year-old man suddenly develops severe breathlessness with widespread crackles. On examination there is a new murmur, a recording of which is provided below, and his observations are shown. What is the most likely underlying mechanism?",
+      options:[
+        "Rupture of the interventricular septum",
+        "Papillary muscle rupture",
+        "Free wall rupture into the pericardium",
+        "Infective endocarditis of the mitral valve",
+        "Dressler's syndrome"],
+      correctIndex:1,
+      explanation:[
+        "A pansystolic murmur loudest at the APEX and radiating to the axilla, with sudden flash pulmonary oedema (hypoxia and tachypnoea on the observations) days after an inferior MI, is acute severe MITRAL REGURGITATION from PAPILLARY MUSCLE RUPTURE &mdash; the posteromedial muscle has a single blood supply from the posterior descending artery.",
+        "A septal rupture (A) gives a murmur at the lower left sternal edge; free wall rupture (C) causes tamponade, not a murmur; and Dressler's (E) is a later pericarditis. This is a surgical emergency."
+      ] },
+    { id:"acs-073", type:"mcq", objective:"acs-vsd-rupture",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>118 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>84/56 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>28 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>90% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Lactate</td><td><b>3.4 mmol/L</b></td><td>&lt;2.0</td></tr></table>',
+      question:"A 72-year-old man is 4 days into an anterior MI when he deteriorates. A harsh pansystolic murmur is loudest at the lower left sternal edge with a palpable thrill, and his observations are shown. What is the most likely complication?",
+      options:[
+        "Ventricular septal rupture",
+        "Acute mitral regurgitation",
+        "Aortic dissection",
+        "Pulmonary embolism",
+        "Left ventricular aneurysm"],
+      correctIndex:0,
+      explanation:[
+        "A harsh pansystolic murmur at the LOWER LEFT STERNAL EDGE with a THRILL and cardiogenic shock (hypotension, raised lactate) days after an anterior MI indicates a VENTRICULAR SEPTAL RUPTURE; echocardiography or a right-heart study shows a left-to-right shunt (oxygen step-up).",
+        "Acute MR (B) radiates to the axilla and rarely has a thrill; dissection (C), PE (D) and aneurysm (E) do not fit this murmur."
+      ] },
+    { id:"acs-074", type:"mcq", objective:"acs-free-wall-rupture",
+      question:"Five days after a large MI, a patient suddenly collapses with a pulseless electrical activity arrest, distended neck veins and muffled heart sounds. What is the most likely cause?",
+      options:[
+        "Massive pulmonary embolism",
+        "Recurrent STEMI",
+        "Ventricular septal rupture",
+        "Left ventricular free wall rupture",
+        "Tension pneumothorax"],
+      correctIndex:3,
+      explanation:[
+        "Sudden collapse with PEA, a raised JVP and muffled heart sounds around day 3&ndash;5 is FREE WALL RUPTURE causing acute tamponade &mdash; it is frequently fatal.",
+        "A septal rupture (C) produces a murmur and left-to-right shunt rather than immediate tamponade; PE (A) and pneumothorax (E) have different signs and context."
+      ] },
+    { id:"acs-075", type:"mcq", objective:"acs-tamponade",
+      image:"assets/ecg/pericardial_effusion_echo.png",
+      imageAlt:"Transthoracic echocardiogram.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>118 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>82/58 mmHg</b></td><td></td></tr><tr><td>Pulsus paradoxus</td><td><b>16 mmHg</b></td><td>&lt;10</td></tr><tr><td>JVP (above sternal angle)</td><td><b>7 cm</b></td><td>&lt;4</td></tr><tr><td>Respiratory rate</td><td><b>24 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>95% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A patient 5 days after an MI becomes acutely unwell. On auscultation the heart sounds are muffled. His observations are shown, and the echocardiogram is shown below. What is the most likely diagnosis?",
+      options:[
+        "Acute mitral regurgitation",
+        "Cardiogenic shock from pump failure",
+        "Massive pulmonary embolism",
+        "Tension pneumothorax",
+        "Cardiac tamponade"],
+      correctIndex:4,
+      explanation:[
+        "The observations carry the tamponade physiology to be spotted: tachycardia, hypotension with a narrow pulse pressure, an exaggerated PULSUS PARADOXUS (&gt;10 mmHg) and a raised JVP. With a pericardial effusion and diastolic right-heart collapse on the echo, this is CARDIAC TAMPONADE (here from haemopericardium).",
+        "Acute MR (A) and pump failure (B) do not cause pulsus paradoxus with an effusion; the picture demands urgent drainage/surgery."
+      ] },
+    { id:"acs-076", type:"mcq", objective:"acs-complete-heart-block",
+      image:"https://upload.wikimedia.org/wikipedia/commons/2/24/CompleteHeartBlock.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>34 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>92/58 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>18 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.6 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A 70-year-old man with an inferior MI feels lightheaded. His observations and 12-lead ECG are shown below. What is the most likely conduction abnormality?",
+      options:[
+        "Complete (third-degree) AV block",
+        "First-degree AV block",
+        "Atrial fibrillation",
+        "Sinus bradycardia",
+        "Left bundle branch block"],
+      correctIndex:0,
+      explanation:[
+        "P waves marching independently of the QRS complexes (AV dissociation) with a slow escape rhythm indicate COMPLETE (third-degree) AV BLOCK &mdash; common with inferior MI because the right coronary artery supplies the AV node. It is often transient; treat with atropine and temporary pacing if the patient is unstable.",
+        "First-degree block (B) has a constant long PR with every P conducted; AF (C) has no P waves; sinus bradycardia (D) preserves 1:1 conduction; LBBB (E) is a broad-QRS conduction defect without dissociation."
+      ] },
+    { id:"acs-077", type:"mcq", objective:"acs-dressler",
+      data:'<div class="mk-obs-h">Observations &amp; bloods</div><table class="mk-labs"><tr><td>Temperature</td><td><b>38.1 &deg;C</b></td><td>36.1&ndash;37.2</td></tr><tr><td>White cell count</td><td><b>12.8 &times;10<sup>9</sup>/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>C-reactive protein</td><td><b>78 mg/L</b></td><td>&lt;5</td></tr><tr><td>ESR</td><td><b>62 mm/hr</b></td><td>&lt;20</td></tr><tr><td>hs-Troponin T</td><td><b>12 ng/L</b></td><td>&lt;14</td></tr></table>',
+      question:"Three weeks after an MI, a man develops fever and sharp pleuritic chest pain eased by sitting forward. A pericardial friction rub is heard, and his blood results are shown. What is the most likely diagnosis?",
+      options:[
+        "Recurrent myocardial infarction",
+        "Early post-infarction pericarditis",
+        "Dressler's syndrome",
+        "Infective endocarditis",
+        "Pulmonary embolism"],
+      correctIndex:2,
+      explanation:[
+        "Fever, pleuritic positional chest pain, a friction rub and raised inflammatory markers (CRP, ESR, WCC) 2&ndash;6 weeks after an MI &mdash; with a NORMAL troponin arguing against re-infarction &mdash; are typical of DRESSLER'S SYNDROME, an immune-mediated pericarditis. Treat with NSAIDs, adding colchicine.",
+        "Peri-infarct pericarditis (B) occurs within days; the timing and systemic features here point to Dressler's rather than re-infarction (A), endocarditis (D) or PE (E)."
+      ] },
+    { id:"acs-078", type:"mcq", objective:"acs-cardiogenic-shock",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>124 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>78/50 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>30 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>88% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Lactate</td><td><b>4.6 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>Urine output</td><td><b>15 mL/hr</b></td><td>&gt;30</td></tr></table>',
+      question:"A 60-year-old man with a large anterior MI becomes acutely unwell with cool, mottled peripheries and pulmonary oedema. His observations are shown. What type of shock is this?",
+      options:[
+        "Septic shock",
+        "Hypovolaemic shock",
+        "Right ventricular infarction",
+        "Cardiogenic shock",
+        "Anaphylaxis"],
+      correctIndex:3,
+      explanation:[
+        "Pump failure from a large infarct produces CARDIOGENIC SHOCK (Killip IV): hypotension with tissue hypoperfusion (raised lactate, oliguria) and pulmonary congestion. It carries a high mortality and needs urgent revascularisation, with inotropes/vasopressors and mechanical support considered.",
+        "Sepsis (A) and anaphylaxis (E) are distributive; hypovolaemia (B) would not cause pulmonary oedema; right ventricular infarction (C) causes shock with CLEAR lungs."
+      ] },
+    { id:"acs-079", type:"mcq", objective:"acs-mural-thrombus",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>84 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>122/76 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>16 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 58-year-old man has a large anterior STEMI. He is comfortable and his observations are shown. Echocardiography shows an akinetic, dilated apex. Which complication is he now at particular risk of?",
+      options:[
+        "Infective endocarditis",
+        "Left ventricular mural thrombus",
+        "Deep vein thrombosis",
+        "Aortic dissection",
+        "Pulmonary embolism"],
+      correctIndex:1,
+      explanation:[
+        "An akinetic or aneurysmal apex after a large anterior MI allows stasis and the formation of a LEFT VENTRICULAR MURAL THROMBUS, with a risk of systemic embolism (stroke, limb or mesenteric ischaemia).",
+        "Anticoagulation (warfarin or a DOAC) is usually added for 3&ndash;6 months alongside antiplatelet therapy, weighing the bleeding risk. Endocarditis (A), DVT (C), dissection (D) and PE (E) are not the characteristic sequela here."
+      ] },
+    { id:"acs-080", type:"mcq", objective:"acs-killip-class",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>96 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>118/74 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>22 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>94% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A patient 1 day after an MI has bibasal crackles and a third heart sound but no hypotension. His observations are shown. Which Killip class best describes him?",
+      options:[
+        "Killip class I",
+        "Killip class IV",
+        "Killip class III",
+        "Killip class V",
+        "Killip class II"],
+      correctIndex:4,
+      explanation:[
+        "KILLIP CLASS II describes mild-to-moderate heart failure &mdash; basal crackles, a third heart sound or a raised JVP &mdash; without shock or frank oedema.",
+        "Class I has no signs of failure; class III is frank pulmonary oedema; class IV is cardiogenic shock; there is no class V. A higher Killip class predicts a worse prognosis."
+      ] },
+    { id:"acs-081", type:"saq", objective:"acs-becks-triad-saq",
+      question:"What is the eponym for the triad of hypotension, a raised JVP and muffled heart sounds seen in cardiac tamponade?",
+      answer:"Beck's triad",
+      accept:["becks triad","beck triad","beck's triad"],
+      markPoints:[
+        "Beck's triad &mdash; hypotension, a raised JVP (elevated venous pressure) and muffled heart sounds."
+      ],
+      explanation:[
+        "BECK&rsquo;S TRIAD &mdash; hypotension, a raised JVP and muffled heart sounds &mdash; signals cardiac tamponade, in which pericardial fluid restricts diastolic filling. After an MI it should raise concern for free wall rupture and demands urgent echocardiography."
+      ] },
+    { id:"acs-082", type:"mcq", objective:"acs-mechanical-timing",
+      question:"Mechanical complications such as papillary muscle or ventricular septal rupture most typically occur at what time after an MI?",
+      options:[
+        "Within the first hour",
+        "Within the first 24 hours",
+        "Between 3 and 5 days",
+        "At 3 to 6 weeks",
+        "After 3 months"],
+      correctIndex:2,
+      explanation:[
+        "Mechanical ruptures cluster around DAYS 3&ndash;5 (range 2&ndash;7) as necrotic myocardium softens before it scars.",
+        "Malignant arrhythmias dominate the first hours, Dressler's syndrome occurs at weeks, and true aneurysm or mural thrombus develop later still."
       ] }
 ]
 };
