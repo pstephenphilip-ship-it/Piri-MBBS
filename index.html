@@ -3229,6 +3229,118 @@ window.MOCK_BANK = {
       explanation:[
         "EVAR commits the patient to LIFELONG IMAGING SURVEILLANCE (CT or duplex), because the stent graft can develop an endoleak or migrate at any time.",
         "Defaulting from follow-up forfeits the protection the operation provided – a key part of the EVAR trade-off against open repair."
+      ] },
+    { id:"aaa-032", type:"mcq", objective:"aaa-ruptured-diagnosis",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>122 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>84/56 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>26 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 74-year-old man collapses at home with sudden severe abdominal and back pain. On arrival he is pale and clammy with a tender, pulsatile, expansile abdominal mass. His observations are shown. What is the most likely diagnosis?",
+      options:[
+        "Acute pancreatitis",
+        "Ruptured abdominal aortic aneurysm",
+        "Perforated peptic ulcer",
+        "Renal colic",
+        "Acute mesenteric ischaemia"],
+      correctIndex:1,
+      explanation:[
+        "The classic triad – sudden abdominal/back pain, HYPOTENSION with collapse, and a pulsatile EXPANSILE mass – in an older man is a RUPTURED AAA until proven otherwise, and it carries roughly 80% overall mortality.",
+        "Note that the oxygen saturation can look normal despite major haemorrhage; the other diagnoses do not give a pulsatile expansile mass."
+      ] },
+    { id:"aaa-033", type:"mcq", objective:"aaa-ruptured-resuscitation",
+      question:"A patient with a suspected ruptured AAA arrives shocked. Alongside urgent vascular referral, which is the most appropriate immediate resuscitation step?",
+      options:[
+        "A single wide-bore cannula with rapid crystalloid to normalise the pressure",
+        "Central line insertion before transfer, to guide fluid resuscitation",
+        "Aggressive transfusion aiming for a systolic pressure above 140 mmHg",
+        "Two large-bore cannulae, urgent crossmatch and the major haemorrhage protocol",
+        "Waiting for a full crossmatch before giving any blood products"],
+      correctIndex:3,
+      explanation:[
+        "Insert TWO large-bore cannulae, send urgent bloods, activate the MAJOR HAEMORRHAGE PROTOCOL and crossmatch (giving emergency O-negative blood while waiting), and adopt PERMISSIVE HYPOTENSION.",
+        "The traps all over-resuscitate or delay: normalising the pressure with crystalloid (A) or a high transfusion target (C) dislodges the clot, while a central line (B) or waiting for a full crossmatch (E) wastes time the patient does not have."
+      ] },
+    { id:"aaa-034", type:"mcq", objective:"aaa-permissive-hypotension",
+      question:"While awaiting theatre for a ruptured AAA, the team deliberately avoids aggressively raising the blood pressure. What is the rationale for this 'permissive hypotension'?",
+      options:[
+        "It reduces the dose of anaesthetic needed",
+        "It prevents acute kidney injury",
+        "High blood pressure causes coronary spasm",
+        "It allows time for antibiotics to work",
+        "Raising the pressure can dislodge the clot"],
+      correctIndex:4,
+      explanation:[
+        "A clot temporarily tamponades a contained rupture. Aggressively raising the blood pressure – with over-transfusion or fluids – can DISLODGE that clot and precipitate torrential haemorrhage.",
+        "The target is therefore a lower systolic pressure (around <100 mmHg) until the aorta is surgically controlled."
+      ] },
+    { id:"aaa-035", type:"mcq", objective:"aaa-ruptured-oxygen",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>118 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>82/54 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>24 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A shocked patient with a ruptured AAA has the observations shown. Regarding oxygen, what is the most appropriate action?",
+      options:[
+        "Give high-flow oxygen despite the normal saturation",
+        "Withhold oxygen, as the saturation is normal",
+        "Give oxygen only if saturations fall below 88%",
+        "Start non-invasive ventilation",
+        "No oxygen is needed at any point"],
+      correctIndex:0,
+      explanation:[
+        "In major haemorrhage the pulse-oximeter reading can be FALSELY REASSURING – the remaining haemoglobin is fully saturated even as the oxygen-CARRYING CAPACITY collapses.",
+        "Give HIGH-FLOW oxygen regardless of the SpO2 reading while resuscitating and transferring to theatre."
+      ] },
+    { id:"aaa-036", type:"mcq", objective:"aaa-unstable-theatre",
+      question:"A 78-year-old man with a ruptured AAA is hypotensive and deteriorating despite resuscitation. What is the most appropriate next step?",
+      options:[
+        "CT angiogram to plan the repair",
+        "Immediate transfer to theatre for open repair",
+        "Admit to ICU for stabilisation first",
+        "Await the crossmatched blood before moving",
+        "Trial of conservative management"],
+      correctIndex:1,
+      explanation:[
+        "A haemodynamically UNSTABLE patient with a ruptured AAA must go STRAIGHT TO THEATRE for open repair – there is no time for CT, which would only delay control of the aorta.",
+        "Stabilisation on ICU or waiting for imaging or blood costs time the exsanguinating patient does not have."
+      ] },
+    { id:"aaa-037", type:"mcq", objective:"aaa-stable-ct-evar",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/ab/RupturedAAA.png",
+      imageAlt:"Axial contrast CT of the abdomen.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 72-year-old man with a ruptured AAA is, unusually, haemodynamically stable and responding to resuscitation. His CT angiogram is shown. What does being stable enough for CT allow?",
+      options:[
+        "It rules out rupture",
+        "It means surgery can be avoided",
+        "Conservative management is now safe",
+        "Assessment of suitability for emergency EVAR",
+        "Discharge home"],
+      correctIndex:3,
+      explanation:[
+        "A STABLE patient with a ruptured AAA can undergo CT angiography, which assesses the anatomy and suitability for EMERGENCY EVAR (with open repair as the alternative).",
+        "An UNSTABLE patient bypasses imaging and goes straight to theatre; stability does not rule out rupture or make surgery avoidable."
+      ] },
+    { id:"aaa-038", type:"mcq", objective:"aaa-aortocaval-fistula",
+      question:"A man with a large AAA presents with high-output cardiac failure, engorged leg veins and a continuous 'machinery' murmur over the abdomen. What complication has most likely occurred?",
+      options:[
+        "Rupture into the peritoneal cavity",
+        "Aortoenteric fistula",
+        "Aortocaval fistula",
+        "Distal embolisation",
+        "Retroperitoneal rupture"],
+      correctIndex:2,
+      explanation:[
+        "Erosion of the AAA into the INFERIOR VENA CAVA creates an AORTOCAVAL FISTULA – a large left-to-right shunt that causes HIGH-OUTPUT cardiac failure, engorged pulsatile lower-limb veins, a continuous abdominal (machinery) murmur and sometimes haematuria.",
+        "An aortoenteric fistula instead presents with gastrointestinal bleeding, and rupture presents with haemorrhagic shock."
+      ] },
+    { id:"aaa-039", type:"mcq", objective:"aaa-ct-rupture-sign",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/ab/RupturedAAA.png",
+      imageAlt:"Axial contrast CT of the abdomen.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 75-year-old man has sudden back pain and collapse. He is transiently stabilised and the CT shown is obtained. Which CT feature confirms that his aortic aneurysm has ruptured?",
+      options:[
+        "Mural thrombus lining the aneurysm",
+        "Calcification of the aortic wall",
+        "A large aneurysm sac in itself",
+        "A patent inferior mesenteric artery",
+        "Periaortic / retroperitoneal haematoma"],
+      correctIndex:4,
+      explanation:[
+        "The CT sign of rupture is blood OUTSIDE the aortic wall – a PERIAORTIC or RETROPERITONEAL HAEMATOMA. A large sac, mural thrombus and wall calcification are features of the aneurysm itself, not of rupture.",
+        "About 80% of ruptures track posteriorly into the retroperitoneum, where surrounding tissue can temporarily tamponade the bleed (a window to reach theatre); the ~20% that rupture anteriorly into the peritoneal cavity bleed freely and are usually rapidly fatal."
       ] }
 ]
 };
