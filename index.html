@@ -7573,7 +7573,6 @@ function hideFlyout(p) {
     return false;
   }
   function isUnlocked(p, system, topic){
-    if (p==='osce' && topic) return false;                         // OSCE stations are a work in progress — locked for everyone
     if (window.__member) return true;                              // full-access member (paid or comp)
     if (!topic) return true;                                       // browsing the system list is allowed
     if (isFreeAllow(p, system, topic)) return true;                // always-free allowlist
@@ -7588,7 +7587,7 @@ function hideFlyout(p) {
       + '<div class="da-lock-sub">Create a <strong>free account</strong> to unlock locked topic <strong>notes</strong> &mdash; up to <strong>6 a day</strong> (max 3 per section). Flashcards, MCQs &amp; mock exams come with membership.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
       + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button></div>'
-      + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs &amp; all calculators.</div></div>';
+      + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
   }
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
   function dayPassHTML(name, p){
@@ -7649,16 +7648,6 @@ function hideFlyout(p) {
   function gateTopic(p, name, skipHash, proceed){
     var st = getState(p), sys = st.activeSystem;
     if (isUnlocked(p, sys, name)){ proceed(); return; }
-    // OSCE stations are still being built — locked for everyone (members included). Show a plain
-    // "work in progress" notice rather than a sign-up / day-pass paywall, and no unlock is consumed.
-    if (p==='osce'){
-      window.__dpUnlock=null; window.__dpCancel=function(){ window.__dpCancel=null; dismissWall(p); };
-      renderWall(p, name, '<div class="da-lock"><div class="da-lock-icon">🛠️</div>'
-        + '<div class="da-lock-title">OSCE stations are coming soon</div>'
-        + '<div class="da-lock-sub">This section is still a <strong>work in progress</strong>. OSCE stations aren&rsquo;t available yet &mdash; check back soon.</div>'
-        + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpCancel&&window.__dpCancel()">OK</button></div></div>', skipHash);
-      return;
-    }
     // Signed in but the server-side unlock list hasn't loaded yet (e.g. deep-link on first
     // paint): wait for it, then decide — so a valid unlock isn't briefly shown as locked.
     if (window.__authed && !_dpLoaded){
