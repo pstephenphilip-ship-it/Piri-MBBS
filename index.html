@@ -1516,6 +1516,144 @@ window.MOCK_BANK = {
       ],
       explanation:[
         "LEVINE&rsquo;S SIGN is the clenched fist held over the sternum when describing chest pain. It is a classic bedside association with ISCHAEMIC cardiac pain, capturing the heavy, central, gripping quality &mdash; though it is not specific."
+      ] },
+    { id:"acs-019", type:"mcq", objective:"acs-first-investigation",
+      question:"A 62-year-old man arrives with 45 minutes of central chest pain and sweating. What is the single most important immediate investigation, and within what time of arrival?",
+      options:[
+        "A 12-lead ECG within 10 minutes",
+        "A high-sensitivity troponin before any other test",
+        "A chest X-ray within 30 minutes",
+        "An echocardiogram within the first hour",
+        "Coronary angiography within 20 minutes"],
+      correctIndex:0,
+      explanation:[
+        "A 12-lead ECG within 10 minutes of first medical contact is the single most important immediate step &mdash; it triages STEMI (which needs immediate reperfusion) from NSTEMI/unstable angina.",
+        "High-sensitivity troponin is essential but comes AFTER the ECG: a STEMI is reperfused on ECG criteria without waiting for the troponin result. A chest X-ray, echocardiography and angiography all have roles later, but none is the immediate triage test."
+      ] },
+    { id:"acs-020", type:"mcq", objective:"acs-normal-ecg-serial",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Normal_ECG_with_12_leads.jpg?width=1000",
+      imageAlt:"Twelve-lead electrocardiogram on standard grid paper.",
+      imageCredit:"Jmarchn, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 55-year-old man presents 1 hour after an episode of chest pain that has now settled. His ECG is shown below and his first high-sensitivity troponin is within the reference range. What is the most appropriate next step?",
+      options:[
+        "Discharge him, as a normal ECG and normal early troponin exclude an ACS",
+        "Reassure him and arrange a routine outpatient exercise tolerance test",
+        "Diagnose unstable angina and start fibrinolysis",
+        "Immediately activate the primary PCI pathway",
+        "Repeat the troponin at 3 hours with serial ECGs"],
+      correctIndex:4,
+      explanation:[
+        "A single normal ECG and an early troponin do NOT exclude an acute coronary syndrome. Troponin typically rises only 3&ndash;6 hours after symptom onset, which is why the NICE pathway repeats it at 3 hours alongside serial ECGs.",
+        "There is no ST-elevation to lyse (C) or take for primary PCI (D); immediate discharge (A) or a routine outpatient test (B) would risk missing an evolving NSTEMI."
+      ] },
+    { id:"acs-021", type:"mcq", objective:"acs-0-3h-ruleout",
+      data:'<div class="mk-obs-h">Serial high-sensitivity troponin</div><table class="mk-labs"><tr><td>hs-Troponin T &mdash; 0 h</td><td><b>5 ng/L</b></td><td>&lt;14</td></tr><tr><td>hs-Troponin T &mdash; 3 h</td><td><b>6 ng/L</b></td><td>&lt;14</td></tr></table>',
+      question:"A 48-year-old woman with 2 hours of chest pain is assessed on the NICE pathway; her ECG shows no ischaemic changes. Her serial troponins are shown. What do these results allow?",
+      options:[
+        "Immediate rule-in of an acute NSTEMI",
+        "Rule-out of MI, so discharge can be considered",
+        "A diagnosis of STEMI requiring primary PCI now",
+        "Confirmation of a diagnosis of unstable angina",
+        "Nothing further until a 12-hour troponin is taken"],
+      correctIndex:1,
+      explanation:[
+        "Two low troponins taken 3 hours apart with no significant rise, combined with a non-ischaemic ECG, RULE OUT myocardial infarction on the NICE 0/3h pathway &mdash; an alternative cause should be sought and discharge considered.",
+        "The unchanging low values cannot rule IN an NSTEMI (A) or confirm a STEMI (C); unstable angina is a clinical diagnosis not confirmed by these bloods (D); and the 0/3h pathway does not mandate a 12-hour sample (E)."
+      ] },
+    { id:"acs-022", type:"mcq", objective:"acs-cxr-oedema",
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/75/Pulmonary_oedema.jpg",
+      imageAlt:"Anteroposterior chest radiograph.",
+      imageCredit:"Frank Gaillard, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 70-year-old man, 1 day after an anterior STEMI, becomes acutely breathless with widespread fine crackles at both lung bases. His chest radiograph is shown below. What does it demonstrate?",
+      options:[
+        "A large unilateral pleural effusion",
+        "Right middle lobe pneumonia",
+        "Acute pulmonary oedema",
+        "A tension pneumothorax",
+        "A normal chest radiograph"],
+      correctIndex:2,
+      explanation:[
+        "The film shows bilateral perihilar (&lsquo;bat-wing&rsquo;) alveolar shadowing with upper-lobe venous diversion and interstitial (Kerley B) lines &mdash; the radiographic hallmarks of acute pulmonary oedema. One day after a large anterior infarct, acute left-ventricular failure is the likely cause.",
+        "A unilateral effusion (A), lobar pneumonia (B), a pneumothorax (D) or a normal film (E) would each show a different, mostly asymmetric or localised, pattern."
+      ] },
+    { id:"acs-023", type:"mcq", objective:"acs-cxr-dissection",
+      image:"https://upload.wikimedia.org/wikipedia/commons/3/31/AoDiss_ChestXRay.jpg",
+      imageAlt:"Frontal chest radiograph.",
+      imageCredit:"J. Heuser, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>104 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure &ndash; right arm</td><td><b>170/96 mmHg</b></td><td></td></tr><tr><td>Blood pressure &ndash; left arm</td><td><b>134/80 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>22 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.7 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A 66-year-old man presents with sudden-onset severe chest pain. He says the pain is extremely severe but cannot describe its character any further. He has a background of hypertension treated with amlodipine. His observations are shown, a 12-lead ECG shows no acute ischaemic changes, and troponin is pending. His chest radiograph is shown below. Which of the following is the most appropriate next investigation?",
+      options:[
+        "Coronary angiography",
+        "CT angiography of the aorta",
+        "D-dimer testing",
+        "Transthoracic echocardiography",
+        "Ventilation–perfusion (V/Q) scan"],
+      correctIndex:1,
+      explanation:[
+        "Two independent clues must be read by the student &mdash; a &gt;20 mmHg difference in systolic blood pressure between the arms, and a widened mediastinum on the radiograph &mdash; which together point to an acute aortic syndrome rather than an ACS.",
+        "CT angiography of the aorta is first-line in a haemodynamically stable patient: it is fast and defines the dissection flap, the entry tear and any branch-vessel involvement for surgical planning.",
+        "Coronary angiography (A) is not only wrong but hazardous, as the associated antiplatelet/anticoagulant therapy is dangerous in dissection. A D-dimer (C) can support ruling out low-probability cases but cannot characterise a dissection; transthoracic echo (D) is operator-dependent and poor for the distal aorta; and a V/Q scan (E) addresses pulmonary embolism, not this picture."
+      ] },
+    { id:"acs-024", type:"mcq", objective:"acs-echo-role",
+      question:"Once a patient is haemodynamically stable after a myocardial infarction, which investigation best assesses left-ventricular function and detects mechanical complications?",
+      options:[
+        "A repeat 12-lead ECG",
+        "A chest radiograph",
+        "Serial high-sensitivity troponin",
+        "Transthoracic echocardiography",
+        "Coronary angiography"],
+      correctIndex:3,
+      explanation:[
+        "Transthoracic echocardiography measures ejection fraction, reveals regional wall-motion abnormalities, and detects the mechanical complications of MI &mdash; mitral regurgitation, ventricular septal defect, mural thrombus, pericardial effusion and aneurysm formation.",
+        "A repeat ECG (A), chest radiograph (B) and serial troponin (C) give supporting information but do not quantify LV function; coronary angiography (E) defines the coronary anatomy, not ventricular function."
+      ] },
+    { id:"acs-025", type:"mcq", objective:"acs-fbc-anaemia",
+      data:'<div class="mk-obs-h">Blood results</div><table class="mk-labs"><tr><td>Haemoglobin</td><td><b>66 g/L</b></td><td>120&ndash;150</td></tr><tr><td>Mean cell volume</td><td><b>70 fL</b></td><td>80&ndash;100</td></tr><tr><td>White cell count</td><td><b>11.4 &times;10<sup>9</sup>/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>Platelets</td><td><b>421 &times;10<sup>9</sup>/L</b></td><td>150&ndash;400</td></tr><tr><td>Sodium</td><td><b>139 mmol/L</b></td><td>135&ndash;145</td></tr><tr><td>Potassium</td><td><b>4.4 mmol/L</b></td><td>3.5&ndash;5.3</td></tr><tr><td>Urea</td><td><b>8.4 mmol/L</b></td><td>2.5&ndash;7.8</td></tr><tr><td>Creatinine</td><td><b>79 &micro;mol/L</b></td><td>45&ndash;90</td></tr><tr><td>C-reactive protein</td><td><b>14 mg/L</b></td><td>&lt;5</td></tr></table>',
+      question:"A 74-year-old woman presents with a 2-week history of chest tightness on exertion, now occurring at rest. She appears pale and reports increasing fatigue and breathlessness. Her ECG shows minor T-wave flattening in the lateral leads and her high-sensitivity troponin is mildly elevated and unchanged on serial testing. Her blood results are shown. Which single result best explains her myocardial ischaemia?",
+      options:[
+        "The haemoglobin",
+        "The white cell count",
+        "The urea",
+        "The platelet count",
+        "The C-reactive protein"],
+      correctIndex:0,
+      explanation:[
+        "Four of the listed results (haemoglobin, white cell count, platelets, urea and CRP) lie outside their reference range, so simply spotting an abnormal number will not work &mdash; the student must decide which one is mechanistically responsible.",
+        "This is a TYPE 2 MI: ischaemia from an oxygen supply&ndash;demand mismatch rather than acute plaque rupture (a mildly raised but STATIC troponin, no dynamic ECG). Severe anaemia (Hb 66, with a low MCV pointing to iron deficiency) sharply reduces oxygen-carrying capacity and, on a background of likely coronary disease, precipitates ischaemia.",
+        "The priority is to identify the source of blood loss (commonly occult gastrointestinal) and correct the anaemia alongside anti-ischaemic treatment. The mild leucocytosis, thrombocytosis, raised urea and CRP are non-specific reactive findings that do not themselves cause ischaemia. The severe anaemia is also pivotal because it heavily influences the safety of any antiplatelet or anticoagulant therapy."
+      ] },
+    { id:"acs-026", type:"mcq", objective:"acs-angio-access",
+      question:"A patient with an acute coronary syndrome is to undergo coronary angiography. Which arterial access route is generally preferred in current UK practice, and why?",
+      options:[
+        "Femoral, because it allows larger-bore catheters",
+        "Femoral, because it carries a lower stroke risk",
+        "Brachial, because it is the most direct route to the heart",
+        "Radial, because it removes the need for any antithrombotic therapy",
+        "Radial, because it reduces access-site bleeding and vascular complications"],
+      correctIndex:4,
+      explanation:[
+        "Radial access is the default in UK practice for coronary angiography and PCI: compared with femoral access it causes fewer access-site bleeding and vascular complications, allows earlier mobilisation, and is associated with lower mortality in ACS.",
+        "Larger catheters (A) and a &lsquo;more direct route&rsquo; (C) are not decisive advantages; femoral access does not lower stroke risk (B); and no access route removes the need for antithrombotic therapy (D), which is mandatory during PCI."
+      ] },
+    { id:"acs-027", type:"categorize", objective:"acs-investigation-map",
+      question:"A series of patients present to the emergency department with acute chest pain. Sort each investigation finding into the diagnosis it most strongly supports.",
+      buckets:["STEMI (type 1 MI)","Type 2 MI","Acute aortic syndrome","Pulmonary embolism"],
+      items:[
+        {text:"ST-segment elevation in leads II, III and aVF",bucket:0},
+        {text:"A dynamic troponin rise with new reciprocal ST depression",bucket:0},
+        {text:"Haemoglobin 66 g/L with a mildly raised, unchanging troponin and no ischaemic ECG changes",bucket:1},
+        {text:"A minor troponin rise during fast atrial fibrillation at 170 bpm",bucket:1},
+        {text:"A widened mediastinum on the chest radiograph",bucket:2},
+        {text:"Systolic blood pressure 24 mmHg higher in the right arm than the left",bucket:2},
+        {text:"An S1Q3T3 pattern with sinus tachycardia and clear lung fields",bucket:3},
+        {text:"A raised D-dimer with hypoxia and a normal chest radiograph",bucket:3}
+      ],
+      explanation:[
+        "The skill tested is attributing a finding to a mechanism rather than reciting what a test &lsquo;does&rsquo;.",
+        "STEMI (type 1): territorial ST elevation (II/III/aVF is inferior) and a DYNAMIC troponin rise with reciprocal change reflect acute plaque rupture and transmural ischaemia.",
+        "Type 2 MI: troponin is raised but STATIC or minor with no ischaemic ECG &mdash; the injury is driven by a supply&ndash;demand mismatch (severe anaemia; a sustained tachyarrhythmia), so the abnormal test only makes sense alongside its precipitant.",
+        "Acute aortic syndrome: a widened mediastinum and a &gt;20 mmHg inter-arm systolic difference are structural or perfusion clues, not ischaemic ones. Pulmonary embolism: S1Q3T3 with sinus tachycardia, hypoxia and clear lungs reflect acute right-heart strain, for which a D-dimer supports but cannot confirm.",
+        "The recurring lesson: the same test (troponin, ECG, chest X-ray) means different things depending on the pattern and the clinical context."
       ] }
 ]
 };
