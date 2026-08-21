@@ -2725,6 +2725,87 @@ window.MOCK_BANK = {
       ],
       explanation:[
         "VERAPAMIL, a rate-limiting non-dihydropyridine calcium-channel blocker, must not be combined with a beta-blocker: both depress AV conduction and contractility, risking profound bradycardia, complete heart block and heart failure. Diltiazem carries the same caution. When a CCB is combined with a beta-blocker, a dihydropyridine such as amlodipine is used instead."
+      ] },
+    { id:"acs-104", type:"mcq", objective:"acs-prinzmetal-dx",
+      image:"https://upload.wikimedia.org/wikipedia/commons/8/8d/12_Lead_EKG_ST_Elevation_tracing_only.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Displaced, public domain, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>88 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>150/92 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 42-year-old man who smokes heavily has recurrent chest pain at rest, typically in the early hours of the morning. During an episode the ECG shown below is recorded, and it normalises once the pain settles. His observations during the episode are shown. Later angiography shows unobstructed coronary arteries. What is the most likely diagnosis?",
+      options:[
+        "Prinzmetal (variant) angina",
+        "Acute STEMI from plaque rupture",
+        "Stable angina",
+        "Acute pericarditis",
+        "Musculoskeletal chest pain"],
+      correctIndex:0,
+      explanation:[
+        "Chest pain at REST (often in the early hours) with TRANSIENT ST changes that resolve as the pain settles, and UNOBSTRUCTED coronary arteries, indicate PRINZMETAL (variant) ANGINA from coronary vasospasm.",
+        "It is associated with smoking, cocaine and triptans. Treatment is with calcium-channel blockers and nitrates; a STEMI (B) would show a persistently occluded artery, and stable angina (C) is exertional."
+      ] },
+    { id:"acs-105", type:"mcq", objective:"acs-vasospasm-treatment",
+      question:"A patient with confirmed coronary vasospasm (Prinzmetal angina) is being started on treatment. Which drug should be AVOIDED?",
+      options:[
+        "A calcium-channel blocker",
+        "A non-selective beta-blocker",
+        "Sublingual GTN",
+        "A long-acting nitrate",
+        "Smoking cessation support"],
+      correctIndex:1,
+      explanation:[
+        "Calcium-channel blockers and nitrates are first-line for vasospastic angina. A NON-SELECTIVE BETA-BLOCKER should be avoided: blocking beta-mediated vasodilatation leaves unopposed alpha-adrenergic vasoconstriction, which can WORSEN the spasm.",
+        "Smoking cessation is an essential part of management, not something to avoid."
+      ] },
+    { id:"acs-106", type:"mcq", objective:"acs-minoca",
+      data:'<div class="mk-obs-h">Serial high-sensitivity troponin</div><table class="mk-labs"><tr><td>hs-Troponin T &mdash; 0 h</td><td><b>55 ng/L</b></td><td>&lt;14</td></tr><tr><td>hs-Troponin T &mdash; 3 h</td><td><b>210 ng/L</b></td><td>&lt;14</td></tr></table>',
+      question:"A 55-year-old woman meets the criteria for an acute MI with a clear troponin rise, but her coronary angiogram shows no stenosis greater than 50%. What is the most accurate term for this presentation?",
+      options:[
+        "Unstable angina",
+        "Takotsubo cardiomyopathy",
+        "MINOCA",
+        "Coronary artery vasospasm alone",
+        "Non-cardiac chest pain"],
+      correctIndex:2,
+      explanation:[
+        "MINOCA &mdash; Myocardial Infarction with Non-Obstructive Coronary Arteries &mdash; describes an infarction (troponin rise with ischaemic features) where angiography shows stenosis LESS THAN 50% and no immediately obvious alternative cause.",
+        "It is a working diagnosis that prompts a search for the underlying mechanism (plaque disruption, vasospasm, SCAD, thromboembolism or microvascular disease), often with cardiac MRI. A normal troponin would make it unstable angina (A) or non-cardiac (E)."
+      ] },
+    { id:"acs-107", type:"mcq", objective:"acs-scad",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>96 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>118/74 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.8 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A 38-year-old woman, 3 weeks postpartum and with no cardiovascular risk factors, has an acute MI. Her observations are shown, and angiography reveals a non-atherosclerotic separation of the layers of the coronary artery wall. What is the most likely diagnosis?",
+      options:[
+        "Atherosclerotic plaque rupture",
+        "Coronary embolism",
+        "Prinzmetal angina",
+        "Spontaneous coronary artery dissection",
+        "Takotsubo cardiomyopathy"],
+      correctIndex:3,
+      explanation:[
+        "SPONTANEOUS CORONARY ARTERY DISSECTION (SCAD) &mdash; a non-traumatic, non-atherosclerotic separation of the coronary wall layers &mdash; classically affects younger women, often peripartum or with fibromuscular dysplasia, with few conventional risk factors.",
+        "It is frequently managed CONSERVATIVELY, as the dissection often heals and PCI can extend it. The absence of atherosclerotic risk factors and the peripartum context point away from plaque rupture (A)."
+      ] },
+    { id:"acs-108", type:"mcq", objective:"acs-microvascular-angina",
+      question:"A 60-year-old woman has typical exertional angina and a positive functional ischaemia test, but her coronary angiogram shows completely normal epicardial arteries. What is the most likely diagnosis?",
+      options:[
+        "Prinzmetal angina",
+        "MINOCA",
+        "Musculoskeletal pain",
+        "Aortic stenosis",
+        "Microvascular angina"],
+      correctIndex:4,
+      explanation:[
+        "Angina with objective ischaemia on functional testing but UNOBSTRUCTED epicardial arteries points to MICROVASCULAR ANGINA (cardiac syndrome X), caused by dysfunction of the coronary microcirculation.",
+        "It is treated with conventional anti-anginals (beta-blocker, calcium-channel blocker) and aggressive risk-factor control; the normal epicardial vessels exclude obstructive causes."
+      ] },
+    { id:"acs-109", type:"saq", objective:"acs-cocaine-betablocker-saq",
+      question:"Which class of drug should be avoided in the acute management of cocaine-associated chest pain?",
+      answer:"Beta-blockers",
+      accept:["beta blockers","beta-blocker","beta blocker","beta-blockers","b-blockers","betablockers","beta blockade"],
+      markPoints:[
+        "Beta-blockers &mdash; avoided because of unopposed alpha-adrenergic coronary vasoconstriction and hypertension."
+      ],
+      explanation:[
+        "In cocaine-associated chest pain, BETA-BLOCKERS are avoided: blocking beta receptors leaves unopposed alpha-adrenergic stimulation, worsening coronary vasoconstriction and hypertension. First-line treatment is a BENZODIAZEPINE with nitrates (and aspirin), adding a calcium-channel blocker if needed."
       ] }
 ]
 };
