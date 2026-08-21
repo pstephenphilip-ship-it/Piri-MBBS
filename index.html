@@ -1271,7 +1271,135 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
    flow is testable — delete them once your bank is ready. When this object
    is empty, the section shows a friendly "bank being built" state.
    ===================================================================== */
-window.MOCK_BANK = {};
+window.MOCK_BANK = {
+"conditions__CARDIOVASCULAR__Acute Coronary Syndrome": [
+    { id:"acs-001", type:"mcq", objective:"acs-common-mechanism",
+      question:"A 58-year-old man who smokes has his first acute myocardial infarction. Angiography shows the culprit lesion had caused only about 40% stenosis before the event. What is the most likely mechanism of his acute event?",
+      options:[
+        "Gradual occlusion by a slowly enlarging stable plaque",
+        "Coronary vasospasm of an angiographically normal artery",
+        "Embolism from a left atrial appendage thrombus",
+        "Rupture or erosion of a vulnerable plaque with overlying thrombus",
+        "Spontaneous coronary artery dissection"],
+      correctIndex:3,
+      explanation:[
+        "All acute coronary syndromes share a common mechanism: RUPTURE or EROSION of an atheromatous plaque &rarr; exposure of the thrombogenic lipid core &rarr; platelet aggregation and thrombus &rarr; coronary occlusion. Crucially the culprit is often NOT the tightest stenosis &mdash; a lipid-rich, thin-capped &lsquo;vulnerable&rsquo; plaque can rupture at only ~40% stenosis.",
+        "Traps: coronary vasospasm (Prinzmetal, B) and spontaneous coronary artery dissection (E) are genuine ACS mechanisms but are rarer and occur in specific groups; embolism (C) is uncommon; and gradual occlusion of a STABLE plaque (A) produces stable angina, not an acute event.",
+        "Cross-link: vulnerable-plaque composition and the atherogenesis cascade."
+      ] },
+    { id:"acs-002", type:"mcq", objective:"acs-type2-mi",
+      data:'<div class="mk-obs-h">Observations &amp; bloods</div><table class="mk-labs"><tr><td>Temperature</td><td><b>38.9 &deg;C</b></td><td>36.1&ndash;37.2</td></tr><tr><td>Heart rate</td><td><b>122 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>92/58 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>26 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>91% (air)</b></td><td>94&ndash;98</td></tr><tr><td>hs-Troponin T (0 h &rarr; 3 h)</td><td><b>68 &rarr; 96 ng/L</b></td><td>&lt;14</td></tr><tr><td>CRP</td><td><b>210 mg/L</b></td><td>&lt;5</td></tr><tr><td>White cell count</td><td><b>18.5 &times;10<sup>9</sup>/L</b></td><td>4.0&ndash;11.0</td></tr><tr><td>Lactate</td><td><b>3.1 mmol/L</b></td><td>&lt;2.0</td></tr></table>',
+      question:"A 78-year-old woman is admitted with severe community-acquired pneumonia. On day 2 she develops chest discomfort. Angiography shows no obstructive coronary disease and no plaque rupture. Her results are shown. Which type of myocardial infarction is this?",
+      options:[
+        "Type 1 MI (atherothrombotic plaque event)",
+        "Type 2 MI (supply–demand mismatch)",
+        "Type 3 MI (sudden cardiac death)",
+        "Type 4 MI (PCI-related)",
+        "Type 5 MI (CABG-related)"],
+      correctIndex:1,
+      explanation:[
+        "Sepsis drives TACHYCARDIA, HYPOXIA and HYPOTENSION &mdash; a supply&ndash;demand mismatch that injures the myocardium WITHOUT an acute plaque event. With unobstructed coronaries and no plaque rupture this is a TYPE 2 MI, and the priority is to treat the underlying cause (the sepsis), not primary PCI.",
+        "The universal types: TYPE 1 = atherothrombosis (plaque rupture/erosion); TYPE 2 = supply&ndash;demand mismatch; TYPE 3 = cardiac death with ischaemia before troponin can be measured; TYPE 4 = PCI-related; TYPE 5 = CABG-related.",
+        "The dynamic troponin (68 &rarr; 96) confirms acute myocardial INJURY, but it is the mechanism &mdash; not the troponin itself &mdash; that defines the type."
+      ] },
+    { id:"acs-003", type:"mcq", objective:"acs-dynamic-troponin",
+      data:'<div class="mk-obs-h">Serial high-sensitivity troponin</div><table class="mk-labs"><tr><td>hs-Troponin T &mdash; 0 h</td><td><b>82 ng/L</b></td><td>&lt;14</td></tr><tr><td>hs-Troponin T &mdash; 3 h</td><td><b>210 ng/L</b></td><td>&lt;14</td></tr></table>',
+      question:"A 70-year-old man on haemodialysis for chronic kidney disease attends with atypical chest discomfort; his baseline troponin is often mildly raised. His serial results are shown. Which feature best indicates an acute myocardial infarction rather than his chronic elevation?",
+      options:[
+        "A single very high troponin value in isolation",
+        "The absolute troponin concentration alone",
+        "Any detectable troponin at presentation",
+        "A significant rise and/or fall between serial samples",
+        "A troponin that stays unchanged on repeat testing"],
+      correctIndex:3,
+      explanation:[
+        "Chronic troponin elevation (as in CKD) is typically STATIC. A significant RISE and/or FALL between serial samples is what signals ACUTE myocardial injury &mdash; here 82 &rarr; 210 ng/L is a clear dynamic change.",
+        "The Fourth Universal Definition of MI requires a rise and/or fall of troponin with at least one value above the 99th-percentile upper reference limit, PLUS evidence of ischaemia (symptoms, ECG changes, imaging, or angiographic thrombus).",
+        "Traps: a single high value (A), the absolute concentration (B), any detectable troponin (C) or a static level (E) cannot separate acute infarction from a chronically raised baseline."
+      ] },
+    { id:"acs-004", type:"categorize", objective:"acs-mi-types-map",
+      question:"Sort each scenario into the type of myocardial infarction (Fourth Universal Definition) it represents.",
+      buckets:["Type 1","Type 2","Type 3","Type 4 (PCI-related)","Type 5 (CABG-related)"],
+      items:[
+        {text:"Occlusive coronary thrombus on a ruptured plaque at angiography",bucket:0},
+        {text:"Fast atrial fibrillation with severe anaemia causing ischaemia, unobstructed coronaries",bucket:1},
+        {text:"Cardiac death with ischaemic symptoms before troponin could be sampled",bucket:2},
+        {text:"Troponin rise within 48 hours of elective coronary stenting",bucket:3},
+        {text:"Troponin rise in the days after coronary artery bypass grafting",bucket:4}
+      ],
+      explanation:[
+        "The Fourth Universal Definition splits MI by MECHANISM: TYPE 1 atherothrombotic plaque event; TYPE 2 supply&ndash;demand mismatch (arrhythmia, anaemia, sepsis, hypotension); TYPE 3 cardiac death with presumed ischaemia before biomarkers are available; TYPE 4 PCI-related (4a peri-procedural, 4b stent thrombosis, 4c restenosis); TYPE 5 CABG-related.",
+        "The distinction is not academic: a Type 2 MI is managed by correcting the DRIVER (rate control, transfusion, treating sepsis), whereas a Type 1 MI needs antithrombotic therapy and revascularisation."
+      ] },
+    { id:"acs-005", type:"mcq", objective:"acs-atherogenesis-initiation",
+      question:"A 52-year-old man with hypertension, type 2 diabetes and a 30 pack-year smoking history has widespread coronary atherosclerosis. What is the accepted initiating event in atherosclerotic plaque formation?",
+      options:[
+        "Endothelial dysfunction or injury",
+        "Calcium deposition within the arterial media",
+        "Thrombus forming on a structurally intact endothelium",
+        "Necrosis of smooth muscle cells in the media",
+        "Lipid accumulation within the adventitia"],
+      correctIndex:0,
+      explanation:[
+        "ENDOTHELIAL DYSFUNCTION / INJURY is the initiating event. Smoking, hypertension and hyperglycaemia create a pro-inflammatory, pro-oxidant state with reduced nitric-oxide bioavailability, allowing LDL to infiltrate the subendothelium.",
+        "The cascade then runs: LDL oxidation &rarr; monocytes become macrophages &rarr; foam cells (the fatty streak) &rarr; smooth-muscle proliferation and a fibrous cap over a lipid core &rarr; the mature plaque that later ruptures.",
+        "Traps: medial calcification, smooth-muscle necrosis and adventitial lipid are not the initiating step, and thrombus forms on a DISRUPTED (not intact) endothelium."
+      ] },
+    { id:"acs-006", type:"mcq", objective:"acs-vulnerable-plaque",
+      question:"On coronary imaging, two plaques are compared. Which combination of features identifies the plaque most likely to rupture and cause an acute coronary syndrome?",
+      options:[
+        "A thick fibrous cap, small lipid core and dense collagen",
+        "Heavy calcification with little lipid and few inflammatory cells",
+        "A thin fibrous cap, large lipid-rich core and heavy macrophage infiltration",
+        "Abundant smooth muscle with a thick cap and a small core",
+        "A tightly stenotic lesion capped by thick, collagen-rich tissue"],
+      correctIndex:2,
+      explanation:[
+        "The VULNERABLE (rupture-prone) plaque has a THIN fibrous cap, a LARGE lipid-rich necrotic core, and heavy MACROPHAGE / inflammatory infiltration &mdash; the macrophages secrete matrix metalloproteinases that thin the cap further.",
+        "Such a plaque can rupture even when only moderately stenotic, which is why the culprit lesion in an MI is frequently not the tightest one seen on prior imaging.",
+        "Traps: thick-capped, calcified, collagen-rich or smooth-muscle-rich plaques are comparatively STABLE; and the DEGREE of stenosis (E) does not predict rupture risk."
+      ] },
+    { id:"acs-007", type:"mcq", objective:"acs-nstemi-vs-ua",
+      question:"A 64-year-old woman has 30 minutes of chest pain at rest with lateral T-wave inversion on her ECG. She is treated identically to a suspected NSTEMI while results are awaited. What single result distinguishes a diagnosis of NSTEMI from unstable angina?",
+      options:[
+        "The presence of ST depression on the ECG",
+        "A rise in cardiac troponin",
+        "The severity or duration of the chest pain",
+        "Relief of the pain with GTN",
+        "A normal chest X-ray"],
+      correctIndex:1,
+      explanation:[
+        "Unstable angina and NSTEMI both present with ischaemic symptoms and an ECG showing ST DEPRESSION, T-wave inversion or no change &mdash; with NO ST elevation. The ONLY distinction is the TROPONIN: raised (with a rise/fall) = NSTEMI; normal = unstable angina.",
+        "Because the troponin takes hours, the two are indistinguishable at first and are managed identically (the BATMAN pathway) until the result is back.",
+        "Traps: ST depression, pain severity, GTN response and the chest X-ray are shared between the two or are non-discriminating."
+      ] },
+    { id:"acs-008", type:"mcq", objective:"acs-troponin-nonspecific",
+      question:"A 60-year-old woman is admitted with a large pulmonary embolism. Her high-sensitivity troponin is mildly raised. Which statement about this result is correct?",
+      options:[
+        "The raised troponin confirms a concurrent acute coronary syndrome",
+        "Troponin is specific to acute coronary syndrome, so a PE could not raise it",
+        "The raised troponin means the clot has embolised to a coronary artery",
+        "It must be a laboratory error, as PE does not affect the myocardium",
+        "Troponin marks myocardial injury and is raised in many non-ACS conditions"],
+      correctIndex:4,
+      explanation:[
+        "Troponin is a marker of MYOCYTE INJURY, NOT of acute coronary syndrome specifically. In PE it rises from acute RIGHT-VENTRICULAR strain, and it marks a higher-risk PE.",
+        "Other non-ACS causes to remember: sepsis, myocarditis, heart failure, tachyarrhythmia, chronic kidney disease and post-cardiac-arrest. Interpret troponin alongside the clinical picture, the ECG and the dynamic (rise/fall) pattern.",
+        "Traps: the raised troponin does not itself confirm ACS (A), is not ACS-specific (B), does not imply coronary embolism (C), and is not an artefact (D)."
+      ] },
+    { id:"acs-009", type:"saq", objective:"acs-mmp",
+      question:"Within an atherosclerotic plaque, activated macrophages secrete a family of zinc-dependent enzymes that degrade the collagen of the fibrous cap, weakening it and precipitating the rupture that triggers an acute coronary syndrome. Name this enzyme family.",
+      answer:"Matrix metalloproteinases (MMPs)",
+      accept:["matrix metalloproteinase","matrix metalloproteinases","mmp","mmps","metalloproteinase","metalloproteinases"],
+      markPoints:[
+        "Matrix metalloproteinases (MMPs) &mdash; zinc-dependent, collagen-degrading enzymes secreted by activated plaque macrophages; they thin the fibrous cap and precipitate rupture."
+      ],
+      explanation:[
+        "MATRIX METALLOPROTEINASES (MMPs) are zinc-dependent proteolytic enzymes released by activated macrophages within the plaque. They digest the collagen of the fibrous cap, thinning it until it ruptures &mdash; the pivotal step that converts a stable plaque into an acute coronary syndrome.",
+        "This links the chronic inflammatory process to the acute event, and is why plaque COMPOSITION (a thin, inflamed cap) matters more than the degree of stenosis in predicting rupture."
+      ] }
+]
+};
 </script>
 <script>
 (function(){
