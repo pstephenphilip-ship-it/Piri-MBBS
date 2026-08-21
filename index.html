@@ -2140,6 +2140,136 @@ window.MOCK_BANK = {
       ],
       explanation:[
         "A 300 mg loading dose of aspirin is given as soon as possible in a suspected ACS (chewed or dispersed so it is absorbed quickly), followed by 75 mg once daily long term."
+      ] },
+    { id:"acs-061", type:"mcq", objective:"acs-nstemi-dx",
+      image:"assets/ecg/st_depression.png",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      data:'<div class="mk-obs-h">Serial high-sensitivity troponin</div><table class="mk-labs"><tr><td>hs-Troponin T &mdash; 0 h</td><td><b>48 ng/L</b></td><td>&lt;14</td></tr><tr><td>hs-Troponin T &mdash; 3 h</td><td><b>165 ng/L</b></td><td>&lt;14</td></tr></table>',
+      question:"A 67-year-old man has 3 hours of central chest pain. His 12-lead ECG is shown below and his serial troponins are shown. What is the most likely diagnosis?",
+      options:[
+        "Non-ST-elevation myocardial infarction (NSTEMI)",
+        "ST-elevation myocardial infarction (STEMI)",
+        "Unstable angina",
+        "Acute pericarditis",
+        "Stable angina"],
+      correctIndex:0,
+      explanation:[
+        "A dynamic troponin RISE (48 &rarr; 165) with ischaemic symptoms and ST depression (no ST elevation) defines an NSTEMI.",
+        "A STEMI (B) requires ST elevation; unstable angina (C) has a NORMAL troponin; pericarditis (D) gives widespread saddle ST elevation; and stable angina (E) is exertional and settles with rest."
+      ] },
+    { id:"acs-062", type:"mcq", objective:"acs-unstable-angina-dx",
+      question:"A 59-year-old woman has had increasingly frequent chest pain at rest over 2 days. Her ECG shows T-wave inversion and her high-sensitivity troponin is normal on serial testing. What is the most likely diagnosis?",
+      options:[
+        "NSTEMI",
+        "Unstable angina",
+        "STEMI",
+        "Stable angina",
+        "Non-cardiac chest pain"],
+      correctIndex:1,
+      explanation:[
+        "Ischaemic symptoms at rest or of crescendo pattern, with ischaemic ECG changes but a NORMAL serial troponin, define UNSTABLE ANGINA &mdash; part of the ACS spectrum.",
+        "A troponin rise would reclassify this as NSTEMI (A); a STEMI (C) needs ST elevation; stable angina (D) is predictable and exertional; and the ischaemic ECG argues against a non-cardiac cause (E)."
+      ] },
+    { id:"acs-063", type:"mcq", objective:"acs-grace-score",
+      question:"Which scoring system estimates 6-month mortality and guides the timing of coronary angiography in NSTEMI?",
+      options:[
+        "CHA₂DS₂-VASc score",
+        "Wells score",
+        "GRACE score",
+        "CURB-65 score",
+        "Child–Pugh score"],
+      correctIndex:2,
+      explanation:[
+        "The GRACE score estimates in-hospital and 6-month mortality from age, heart rate, systolic blood pressure, serum creatinine, Killip class, cardiac arrest at admission, ST-segment deviation and cardiac markers; NICE uses it to time angiography.",
+        "CHA&#8322;DS&#8322;-VASc (A) assesses stroke risk in AF; the Wells score (B) assesses VTE; CURB-65 (D) grades pneumonia; and Child&ndash;Pugh (E) grades liver disease."
+      ] },
+    { id:"acs-064", type:"mcq", objective:"acs-angiography-72h",
+      question:"A 64-year-old man with an NSTEMI has a GRACE-predicted 6-month mortality of 9%. He is currently pain-free and stable. What is the most appropriate timing of coronary angiography?",
+      options:[
+        "No angiography; manage medically",
+        "Immediately, within the next hour",
+        "As an outpatient within 6 weeks",
+        "Within 72 hours of admission",
+        "Only if a further troponin rises"],
+      correctIndex:3,
+      explanation:[
+        "A GRACE 6-month mortality above 3% (intermediate or higher risk) in a stable patient warrants coronary angiography, with follow-on PCI if indicated, WITHIN 72 HOURS of admission.",
+        "Immediate angiography (B) is reserved for clinical instability; a low-risk patient would be managed non-invasively; delay (C) or waiting for another troponin (E) is inappropriate at this risk level."
+      ] },
+    { id:"acs-065", type:"mcq", objective:"acs-immediate-angiography",
+      question:"A 58-year-old woman with an NSTEMI develops ongoing chest pain, dynamic ST changes and a falling blood pressure. What is the most appropriate management?",
+      options:[
+        "Immediate coronary angiography",
+        "Angiography within 72 hours",
+        "Fibrinolysis with tenecteplase",
+        "Discharge on medical therapy",
+        "Outpatient exercise testing"],
+      correctIndex:0,
+      explanation:[
+        "Haemodynamic instability with refractory ischaemia marks a VERY-HIGH-RISK NSTEMI, which warrants IMMEDIATE (emergency) coronary angiography rather than waiting for the 72-hour pathway.",
+        "Fibrinolysis (C) has no role in NSTEMI; discharge (D) or outpatient testing (E) would be dangerous in an unstable patient."
+      ] },
+    { id:"acs-066", type:"mcq", objective:"acs-nstemi-antiplatelet",
+      question:"A 70-year-old man with an NSTEMI is to be managed medically (no PCI) and is not at high bleeding risk. In addition to aspirin, which antiplatelet does NICE recommend?",
+      options:[
+        "Prasugrel",
+        "Ticagrelor",
+        "Clopidogrel",
+        "Dipyridamole",
+        "No second antiplatelet"],
+      correctIndex:1,
+      explanation:[
+        "NICE recommends TICAGRELOR with aspirin for unstable angina or NSTEMI in patients without a high bleeding risk who are managed medically.",
+        "Clopidogrel (C) is reserved for those at high bleeding risk; prasugrel (A) is used at the time of PCI once the coronary anatomy is known, not for routine medical management."
+      ] },
+    { id:"acs-067", type:"saq", objective:"acs-fondaparinux-saq",
+      question:"What is the antithrombin (anticoagulant) of choice for a patient with NSTEMI who is not proceeding to immediate angiography and has normal renal function?",
+      answer:"Fondaparinux",
+      accept:["fondaparinux","fondaparinux sodium","arixtra"],
+      markPoints:[
+        "Fondaparinux (2.5 mg subcutaneously once daily) &mdash; unless immediate angiography is planned or bleeding risk is high."
+      ],
+      explanation:[
+        "NICE recommends FONDAPARINUX for unstable angina or NSTEMI when immediate angiography is not planned and bleeding risk is not high. If the serum creatinine is above 265 &micro;mol/L, use dose-adjusted UNFRACTIONATED HEPARIN instead."
+      ] },
+    { id:"acs-068", type:"mcq", objective:"acs-high-bleeding-risk",
+      question:"An 82-year-old woman with an NSTEMI has a recent gastrointestinal bleed and is judged to be at high bleeding risk. In addition to aspirin, which antiplatelet is most appropriate?",
+      options:[
+        "Ticagrelor",
+        "Prasugrel",
+        "Clopidogrel",
+        "A second antithrombin instead",
+        "No antiplatelet at all"],
+      correctIndex:2,
+      explanation:[
+        "In a patient at HIGH BLEEDING RISK, NICE recommends CLOPIDOGREL with aspirin, as it carries a lower bleeding risk than ticagrelor or prasugrel.",
+        "Dual antiplatelet therapy is still needed (E); substituting a second anticoagulant (D) does not address the antiplatelet requirement."
+      ] },
+    { id:"acs-069", type:"mcq", objective:"acs-low-risk-conservative",
+      question:"A 55-year-old man with an NSTEMI has a GRACE-predicted 6-month mortality of 1.5%, his symptoms have settled, and he has no recurrent ischaemia. What is the most appropriate management strategy?",
+      options:[
+        "Immediate coronary angiography",
+        "Fibrinolysis with tenecteplase",
+        "Inpatient coronary angiography within 72 hours",
+        "Medical therapy and non-invasive ischaemia testing",
+        "Urgent coronary artery bypass grafting"],
+      correctIndex:3,
+      explanation:[
+        "A LOW GRACE risk (below 3%) with settled symptoms and no recurrent ischaemia supports a CONSERVATIVE strategy: optimise medical therapy and assess with non-invasive ischaemia testing.",
+        "Routine early invasive angiography (A, C) is reserved for intermediate or high risk; fibrinolysis (B) has no role in NSTEMI; and revascularisation (E) is guided by subsequent findings, not chosen up front."
+      ] },
+    { id:"acs-070", type:"mcq", objective:"acs-no-fibrinolysis-nstemi",
+      question:"Which of the following has NO role in the management of an NSTEMI?",
+      options:[
+        "Aspirin",
+        "Ticagrelor",
+        "Fondaparinux",
+        "Coronary angiography",
+        "Fibrinolysis"],
+      correctIndex:4,
+      explanation:[
+        "FIBRINOLYSIS is not indicated in NSTEMI or unstable angina &mdash; there is no persistently occluding thrombus to lyse, and trials show no benefit with increased bleeding. It is reserved for STEMI when timely PCI is unavailable.",
+        "Aspirin, ticagrelor, fondaparinux and coronary angiography are all part of standard NSTEMI care."
       ] }
 ]
 };
