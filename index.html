@@ -3458,6 +3458,113 @@ window.MOCK_BANK = {
       explanation:[
         "None of the findings names its trigger: a troponin rise with ST change (or a new wall-motion abnormality) indicates ACUTE CORONARY SYNDROME; fever, a raised lactate and consolidation indicate INFECTION/SEPSIS; melaena or low ferritin with a low haemoglobin indicate ANAEMIA; and a very high blood pressure with hypertensive retinopathy indicates a HYPERTENSIVE EMERGENCY.",
         "Each of these can tip chronic heart failure into acute decompensation, and each is managed by treating the specific precipitant."
+      ] },
+    { id:"ahf-009", type:"mcq", objective:"ahf-specific-sign",
+      question:"An elderly smoker with both COPD and a previous MI presents with acute breathlessness and a widespread wheeze. Deciding between a COPD exacerbation and pulmonary oedema, which single finding most specifically points to pulmonary oedema?",
+      options:[
+        "A widespread expiratory wheeze",
+        "Bilateral basal crackles",
+        "A raised jugular venous pressure",
+        "Peripheral pitting oedema",
+        "A third heart sound (S3)"],
+      correctIndex:4,
+      explanation:[
+        "A THIRD HEART SOUND specifically indicates a failing, volume-loaded left ventricle.",
+        "The trap is that a raised JVP and peripheral oedema feel cardiac but reflect right-sided/systemic congestion (also seen in cor pulmonale and PE), while a wheeze and basal crackles are non-specific (crackles occur in infection and fibrosis too)."
+      ] },
+    { id:"ahf-010", type:"mcq", objective:"ahf-cardiorenal",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Blood pressure</td><td><b>118/76 mmHg</b></td><td></td></tr><tr><td>Lactate</td><td><b>3.8 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>Urine output (4 h)</td><td><b>15 mL/hr</b></td><td>&gt;30</td></tr><tr><td>Creatinine (was 88)</td><td><b>128 &micro;mol/L</b></td><td>60&ndash;110</td></tr></table>',
+      question:"A 70-year-old man with acute heart failure looks comfortable, and his blood pressure is 118/76 mmHg. The results below are noted. What is the best interpretation?",
+      options:[
+        "Pre-renal injury from over-diuresis; stop the diuretic and give fluid",
+        "A separate acute kidney injury caused by his ACE inhibitor",
+        "Simple dehydration, correctable with a fluid challenge",
+        "A low-output cardiorenal state with hypoperfusion despite a normal BP",
+        "Contrast-induced nephropathy"],
+      correctIndex:3,
+      explanation:[
+        "Every distractor is a genuine cause of a rising creatinine in a heart-failure patient – the discriminator is the raised LACTATE, which flags tissue HYPOPERFUSION.",
+        "This is a cardiorenal picture from poor forward flow; a fluid challenge (options A and C) could tip him into worse pulmonary oedema, and there is no ACE-inhibitor or contrast cause given."
+      ] },
+    { id:"ahf-011", type:"mcq", objective:"ahf-s4",
+      question:"On auscultation you hear an added heart sound just before S1 (a fourth heart sound, S4). What does an S4 specifically indicate?",
+      options:[
+        "A stiff, non-compliant ventricle, as in HFpEF or LVH",
+        "A dilated, volume-overloaded ventricle (HFrEF)",
+        "Coexisting mitral regurgitation",
+        "Underlying atrial fibrillation",
+        "Constrictive pericarditis"],
+      correctIndex:0,
+      explanation:[
+        "An S4 is produced by atrial contraction against a STIFF, non-compliant ventricle – hypertensive heart disease, LVH or HFpEF.",
+        "Option B is the S3 answer (the classic S3/S4 confusion), and option D is a deeper trap: an S4 depends on an organised atrial contraction, so it is ABSENT in atrial fibrillation."
+      ] },
+    { id:"ahf-012", type:"mcq", objective:"ahf-pnd-mechanism",
+      question:"A patient with heart failure repeatedly wakes about an hour into sleep, gasping, needing to sit up or stand at a window. Which mechanism best explains this?",
+      options:[
+        "Nocturnal bronchoconstriction driven by a circadian dip in cortisol",
+        "Redistribution of peripheral fluid into the circulation when supine",
+        "A fall in respiratory drive during sleep, causing hypercapnia",
+        "Upper-airway collapse causing obstructive sleep apnoeas",
+        "A fall in venous return when supine, reducing cardiac output"],
+      correctIndex:1,
+      explanation:[
+        "Lying flat RAISES venous return and redistributes peripheral fluid into the circulation, driving pulmonary capillary pressure up in a heart that cannot cope – paroxysmal nocturnal dyspnoea, relieved by sitting up.",
+        "The distractors are genuine competing causes of waking breathless (nocturnal asthma, sleep hypoventilation, OSA), and option E is the plausible-but-reversed physiology."
+      ] },
+    { id:"ahf-013", type:"mcq", objective:"ahf-cardiogenic-vs-ards",
+      question:"A patient has acute severe breathlessness, hypoxia and bilateral shadowing on the chest film. Which feature would best support cardiogenic pulmonary oedema rather than ARDS?",
+      options:[
+        "Diffuse bilateral alveolar infiltrates",
+        "Severe hypoxia refractory to oxygen",
+        "Cardiomegaly with upper-lobe venous diversion",
+        "Infiltrates extending to the lung periphery",
+        "A normal heart size with a normal BNP"],
+      correctIndex:2,
+      explanation:[
+        "Diffuse infiltrates and severe hypoxia are shared by both conditions. Peripheral infiltrates (D) and a normal heart size with a normal BNP (E) actually favour ARDS or non-cardiogenic oedema.",
+        "CARDIOMEGALY with upper-lobe venous diversion (cephalisation), together with pleural effusions, is what distinguishes a cardiogenic cause."
+      ] },
+    { id:"ahf-014", type:"mcq", objective:"ahf-cold-wet-profile",
+      question:"A patient with acute heart failure has bilateral crackles and a raised JVP, but is also drowsy with mottled knees, cool peripheries and a lactate of 4.0. Which haemodynamic profile is this?",
+      options:[
+        "Warm and wet; treat with diuretics alone",
+        "Warm and dry; no acute treatment needed",
+        "Cold and dry; give a fluid challenge",
+        "Cold and wet; needs decongestion plus inotropic support",
+        "Cold and wet; treat with a large fluid bolus"],
+      correctIndex:3,
+      explanation:[
+        "He is congested (crackles and a raised JVP = wet) AND hypoperfused (mottled, cool, lactate 4.0 = cold) – the cold-and-wet profile, the highest-risk group.",
+        "The traps: A is the common warm-and-wet default that misses the hypoperfusion, and E gets the profile right but the management wrong – cold-and-wet needs decongestion with inotropic support, not a fluid bolus."
+      ] },
+    { id:"ahf-015", type:"mcq", objective:"ahf-cardiogenic-vs-obstructive",
+      question:"A patient with a large anterior MI develops hypotension, a raised JVP and cold peripheries with a rising lactate. His chest has bilateral crackles and his heart sounds are normal. Which type of shock is most likely?",
+      options:[
+        "Septic shock",
+        "Cardiac tamponade (obstructive shock)",
+        "Cardiogenic shock",
+        "Massive pulmonary embolism",
+        "Hypovolaemic shock"],
+      correctIndex:2,
+      explanation:[
+        "Hypotension with a raised JVP could be cardiogenic OR obstructive – tamponade and massive PE both raise the JVP and cause shock, which is what makes them tempting.",
+        "But the bilateral crackles (left-sided pulmonary oedema) with normal heart sounds, after a large anterior MI, point to pump failure: tamponade gives muffled sounds and clear lungs, and PE gives clear lungs with right-heart strain."
+      ] },
+    { id:"ahf-016", type:"categorize", objective:"ahf-left-right-map",
+      question:"Sort each clinical feature by whether it reflects predominantly left-sided or right-sided heart failure.",
+      buckets:["Left-sided heart failure","Right-sided heart failure"],
+      items:[
+        {text:"Paroxysmal nocturnal dyspnoea",bucket:0},
+        {text:"A displaced apex beat",bucket:0},
+        {text:"A third heart sound",bucket:0},
+        {text:"Hepatojugular reflux",bucket:1},
+        {text:"Sacral and ankle oedema",bucket:1},
+        {text:"Ascites with tender hepatomegaly",bucket:1}
+      ],
+      explanation:[
+        "Left-sided failure backs up into the LUNGS – paroxysmal nocturnal dyspnoea, and it also gives a displaced apex and a third heart sound from the dilated, volume-loaded left ventricle.",
+        "Right-sided failure backs up into the SYSTEMIC veins – hepatojugular reflux, dependent (sacral/ankle) oedema, ascites and tender hepatomegaly. Biventricular (congestive) failure combines both."
       ] }
 ]
 };
