@@ -3342,6 +3342,123 @@ window.MOCK_BANK = {
         "The CT sign of rupture is blood OUTSIDE the aortic wall – a PERIAORTIC or RETROPERITONEAL HAEMATOMA. A large sac, mural thrombus and wall calcification are features of the aneurysm itself, not of rupture.",
         "About 80% of ruptures track posteriorly into the retroperitoneum, where surrounding tissue can temporarily tamponade the bleed (a window to reach theatre); the ~20% that rupture anteriorly into the peritoneal cavity bleed freely and are usually rapidly fatal."
       ] }
+],
+"conditions__CARDIOVASCULAR__Acute Heart Failure": [
+    { id:"ahf-001", type:"mcq", objective:"ahf-oedema-mechanism",
+      question:"A 70-year-old man is admitted with acute pulmonary oedema. Which haemodynamic change most directly produces the fluid in his alveoli?",
+      options:[
+        "Raised left atrial and pulmonary venous pressure",
+        "Raised right atrial and systemic venous pressure",
+        "A fall in plasma oncotic pressure",
+        "Increased alveolar surfactant",
+        "Bronchial mucus hypersecretion"],
+      correctIndex:0,
+      explanation:[
+        "Acute LV dysfunction, or a stiff non-compliant LV, raises LEFT ATRIAL and PULMONARY VENOUS pressure; the raised hydrostatic pressure forces a transudate into the interstitium and alveoli.",
+        "Raised right-sided/systemic venous pressure (B) causes peripheral congestion, not pulmonary oedema; a low oncotic pressure (C) is a non-cardiac mechanism."
+      ] },
+    { id:"ahf-002", type:"mcq", objective:"ahf-de-novo",
+      question:"A 71-year-old man presents with acute pulmonary oedema. On questioning he describes 4 months of worsening exertional breathlessness and ankle swelling, but he has never seen a doctor and takes no cardiac medication. How is his heart failure best classified, and what does this mean?",
+      options:[
+        "Decompensated chronic HF; restart his usual medication",
+        "De novo heart failure; he needs a full diagnostic workup",
+        "Chronic stable HF; discharge with outpatient follow-up",
+        "High-output failure; treat only the underlying cause",
+        "This is not heart failure, as it is longstanding"],
+      correctIndex:1,
+      explanation:[
+        "Although his symptoms have built over months, he has never been diagnosed or treated, so this is DE NOVO (newly presenting) heart failure, which mandates a full diagnostic workup (echo, ECG, ischaemia assessment, bloods) to establish the cause.",
+        "Decompensated chronic HF applies only when there is a pre-existing diagnosis to decompensate, and there is no usual medication to restart (option A is the trap)."
+      ] },
+    { id:"ahf-003", type:"mcq", objective:"ahf-find-the-trigger",
+      question:"A 76-year-old man with known heart failure is admitted with acute pulmonary oedema and given IV furosemide with good effect. The junior plans to discharge him once the oedema settles. What is the most important additional step?",
+      options:[
+        "No further action; the diuretic has treated the problem",
+        "Start empirical long-term antibiotics",
+        "Identify and treat the precipitant of this decompensation",
+        "Stop his regular heart-failure medications",
+        "Arrange routine outpatient follow-up only"],
+      correctIndex:2,
+      explanation:[
+        "In decompensated chronic HF the diuretic treats the CONGESTION, not the cause. You must actively identify and treat the PRECIPITANT – ischaemia, new AF, infection, non-compliance, anaemia or iatrogenic fluids – or the decompensation simply recurs.",
+        "Discharging on diuresis alone, without finding the trigger, risks early readmission (option A is the trap)."
+      ] },
+    { id:"ahf-004", type:"mcq", objective:"ahf-hfpef",
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/75/Pulmonary_oedema.jpg",
+      imageAlt:"Frontal chest radiograph.",
+      imageCredit:"Frank Gaillard, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Echocardiogram</div><table class="mk-labs"><tr><td>LV end-diastolic volume</td><td><b>125 mL</b></td><td></td></tr><tr><td>LV end-systolic volume</td><td><b>50 mL</b></td><td></td></tr><tr><td>LV wall thickness</td><td><b>14 mm</b></td><td>&lt;11</td></tr></table>',
+      question:"An 82-year-old woman with long-standing hypertension develops sudden severe breathlessness. Her CXR is shown. An urgent echocardiogram of her non-dilated, vigorously contracting left ventricle reports the measurements below. How is her acute heart failure best classified?",
+      options:[
+        "Heart failure with reduced ejection fraction (HFrEF)",
+        "This cannot be heart failure, as the ventricle contracts well",
+        "High-output cardiac failure",
+        "Heart failure with preserved ejection fraction (HFpEF)",
+        "Right ventricular failure"],
+      correctIndex:3,
+      explanation:[
+        "Ejection fraction = (EDV - ESV) / EDV = (125 - 50) / 125 = 60%, which is PRESERVED (≥50%). With a thickened (14 mm), non-dilated LV in a hypertensive patient, the ventricle is stiff and cannot relax, so filling pressures spike into flash pulmonary oedema: this is HFpEF.",
+        "A preserved EF and good contraction do NOT exclude heart failure (option B is the trap). Congestion is relieved the same way, but the disease-modifying drugs differ from HFrEF."
+      ] },
+    { id:"ahf-005", type:"mcq", objective:"ahf-trigger-af-ecg",
+      image:"https://upload.wikimedia.org/wikipedia/commons/8/87/ECG_Atrial_Fibrillation_98_bpm.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Ewingdo, CC BY-SA 4.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Initial results</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>128 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>118/76 mmHg</b></td><td></td></tr><tr><td>hs-Troponin T</td><td><b>11 ng/L</b></td><td>&lt;14</td></tr></table>',
+      question:"A 74-year-old man with known heart failure, previously in sinus rhythm, becomes acutely breathless. His ECG is shown and his initial results are below. Which ECG finding is the most likely precipitant of his decompensation?",
+      options:[
+        "An acute ST-elevation MI",
+        "A supraventricular tachycardia",
+        "Complete heart block",
+        "Ventricular tachycardia",
+        "New atrial fibrillation"],
+      correctIndex:4,
+      explanation:[
+        "The tracing is an irregularly irregular, narrow-complex rhythm with no P waves – ATRIAL FIBRILLATION. New AF, losing the atrial kick and shortening diastolic filling, precipitates decompensation, and rate or rhythm control is part of treating it.",
+        "Each distractor is separated on the ECG: an SVT is regular, VT is broad-complex, complete heart block is slow with AV dissociation, and a STEMI shows ST elevation – with the normal troponin arguing against it."
+      ] },
+    { id:"ahf-006", type:"mcq", objective:"ahf-trigger-fluid-overload",
+      data:'<div class="mk-obs-h">Observations &amp; fluid balance</div><table class="mk-labs"><tr><td>Respiratory rate</td><td><b>30 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>88% (air)</b></td><td>94&ndash;98</td></tr><tr><td>12-hour fluid input</td><td><b>3200 mL</b></td><td></td></tr><tr><td>12-hour urine output</td><td><b>400 mL</b></td><td></td></tr><tr><td>Net fluid balance</td><td><b>+2800 mL</b></td><td></td></tr></table>',
+      question:"A 79-year-old woman is recovering on the ward after a hip fracture repair. Overnight she becomes acutely breathless with pink frothy sputum. Her observations and fluid balance are shown. What is the most likely precipitant of her acute heart failure?",
+      options:[
+        "Iatrogenic fluid overload",
+        "Pulmonary embolism",
+        "Aspiration pneumonia",
+        "Hospital-acquired pneumonia",
+        "Atelectasis"],
+      correctIndex:0,
+      explanation:[
+        "The frothy sputum and hypoxia mark pulmonary oedema; the precipitant is read off the chart – a markedly positive balance (input 3200 mL against output 400 mL, net +2800 mL) points to IATROGENIC FLUID OVERLOAD in a patient with limited cardiac reserve. Stop the fluids and give a diuretic.",
+        "The distractors are genuine post-operative causes of breathlessness but do not fit a large positive fluid balance with frank pulmonary oedema."
+      ] },
+    { id:"ahf-007", type:"mcq", objective:"ahf-acute-mr",
+      question:"A 58-year-old man with mitral valve prolapse suddenly develops flash pulmonary oedema. On examination there is a new loud pansystolic murmur at the apex radiating to the axilla. Which acute valvular lesion is the most likely cause?",
+      options:[
+        "Aortic stenosis",
+        "Acute mitral regurgitation",
+        "Mitral stenosis",
+        "Acute aortic regurgitation",
+        "Tricuspid regurgitation"],
+      correctIndex:1,
+      explanation:[
+        "A pansystolic murmur loudest at the APEX and radiating to the AXILLA is mitral regurgitation – here acute, from ruptured chordae. Because the left atrium is normal-sized and non-compliant, the regurgitant volume drives pressure up steeply and floods the lungs (flash pulmonary oedema); it is a surgical emergency.",
+        "The distractors separate on auscultation: aortic stenosis is ejection-systolic to the carotids, mitral stenosis a mid-diastolic rumble, acute aortic regurgitation an early-diastolic murmur, and tricuspid regurgitation pansystolic at the lower left sternal edge, louder on inspiration."
+      ] },
+    { id:"ahf-008", type:"categorize", objective:"ahf-trigger-map",
+      question:"Each patient with known heart failure has decompensated. Sort each finding into the precipitant it indicates.",
+      buckets:["Acute coronary syndrome","Sepsis / infection","Anaemia","Hypertensive emergency"],
+      items:[
+        {text:"A dynamic troponin rise with new ST-segment depression",bucket:0},
+        {text:"A new regional wall-motion abnormality on echo",bucket:0},
+        {text:"Fever, a lactate of 3.5 and focal consolidation on the chest film",bucket:1},
+        {text:"Melaena with a haemoglobin of 61 g/L",bucket:2},
+        {text:"Pale conjunctivae, haemoglobin 70 g/L and low ferritin",bucket:2},
+        {text:"Blood pressure 226/124 with headache and retinal haemorrhages",bucket:3}
+      ],
+      explanation:[
+        "None of the findings names its trigger: a troponin rise with ST change (or a new wall-motion abnormality) indicates ACUTE CORONARY SYNDROME; fever, a raised lactate and consolidation indicate INFECTION/SEPSIS; melaena or low ferritin with a low haemoglobin indicate ANAEMIA; and a very high blood pressure with hypertensive retinopathy indicates a HYPERTENSIVE EMERGENCY.",
+        "Each of these can tip chronic heart failure into acute decompensation, and each is managed by treating the specific precipitant."
+      ] }
 ]
 };
 </script>
