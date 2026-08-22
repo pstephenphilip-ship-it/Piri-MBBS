@@ -3565,6 +3565,131 @@ window.MOCK_BANK = {
       explanation:[
         "Left-sided failure backs up into the LUNGS – paroxysmal nocturnal dyspnoea, and it also gives a displaced apex and a third heart sound from the dilated, volume-loaded left ventricle.",
         "Right-sided failure backs up into the SYSTEMIC veins – hepatojugular reflux, dependent (sacral/ankle) oedema, ascites and tender hepatomegaly. Biventricular (congestive) failure combines both."
+      ] },
+    { id:"ahf-017", type:"mcq", objective:"ahf-cxr-read",
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/75/Pulmonary_oedema.jpg",
+      imageAlt:"Frontal chest radiograph.",
+      imageCredit:"Frank Gaillard, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 75-year-old man presents with acute breathlessness and hypoxia. His chest radiograph is shown. What is the most likely diagnosis?",
+      options:[
+        "Bilateral pneumonia",
+        "Pulmonary fibrosis",
+        "Acute cardiogenic pulmonary oedema",
+        "ARDS",
+        "Bilateral pleural effusions alone"],
+      correctIndex:2,
+      explanation:[
+        "All five cause bilateral changes with breathlessness, so the film has to be read: cardiomegaly, upper-lobe venous diversion, Kerley B lines, bat-wing alveolar shadowing and pleural effusions point to cardiogenic pulmonary oedema.",
+        "ARDS classically has a normal heart size with peripheral infiltrates, and pneumonia or fibrosis give different distributions."
+      ] },
+    { id:"ahf-018", type:"mcq", objective:"ahf-bnp-false-high",
+      data:'<div class="mk-obs-h">Bloods</div><table class="mk-labs"><tr><td>NT-proBNP</td><td><b>1800 ng/L</b></td><td>&lt;300</td></tr><tr><td>Creatinine</td><td><b>168 &micro;mol/L</b></td><td>60&ndash;110</td></tr><tr><td>eGFR</td><td><b>34 mL/min</b></td><td>&gt;90</td></tr><tr><td>Urea</td><td><b>12.5 mmol/L</b></td><td>2.5&ndash;7.8</td></tr></table>',
+      question:"An 82-year-old woman in atrial fibrillation presents breathless. Her echo shows normal LV function and no significant valve disease, and her results are shown. Why might her NT-proBNP be raised without heart failure?",
+      options:[
+        "Age, atrial fibrillation and renal impairment all raise BNP",
+        "Only heart failure raises BNP, so she must have HF",
+        "BNP is characteristically lowered by atrial fibrillation",
+        "The raised BNP is falsely caused by her diuretics",
+        "BNP assays are unreliable in women"],
+      correctIndex:0,
+      explanation:[
+        "BNP is sensitive but NOT specific. The panel reveals renal impairment (eGFR 34), and with her age and atrial fibrillation the raised level is expected without heart failure.",
+        "A raised BNP supports but does not confirm HF; her normal echo fits a non-HF cause of the elevation (age, AF, renal impairment, LVH, PE and sepsis all raise it)."
+      ] },
+    { id:"ahf-019", type:"mcq", objective:"ahf-bnp-false-low",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>BMI</td><td><b>44 kg/m<sup>2</sup></b></td><td>18.5&ndash;24.9</td></tr><tr><td>NT-proBNP</td><td><b>240 ng/L</b></td><td>&lt;300</td></tr><tr><td>Creatinine</td><td><b>82 &micro;mol/L</b></td><td>60&ndash;110</td></tr></table>',
+      question:"A 55-year-old man presents with breathlessness and clinical signs suggestive of heart failure. His results are shown. How should his NT-proBNP be interpreted?",
+      options:[
+        "The normal BNP reliably excludes heart failure",
+        "Obesity characteristically raises BNP",
+        "The result confirms a respiratory cause",
+        "BNP is unaffected by body weight",
+        "BNP can be falsely low in obesity, so HF is not excluded"],
+      correctIndex:4,
+      explanation:[
+        "The panel shows a BMI of 44 – obesity LOWERS BNP, so this normal value can be falsely reassuring; with strong clinical signs, heart failure is not excluded.",
+        "Over-trusting the rule-out (A) and reversing the direction of the obesity effect (B) are the traps."
+      ] },
+    { id:"ahf-020", type:"mcq", objective:"ahf-ecg-trigger",
+      image:"https://upload.wikimedia.org/wikipedia/commons/8/8d/12_Lead_EKG_ST_Elevation_tracing_only.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Displaced, public domain, via Wikimedia Commons.",
+      question:"A 68-year-old man with known heart failure decompensates acutely. His ECG is shown. Which finding is the precipitant?",
+      options:[
+        "New atrial fibrillation",
+        "A supraventricular tachycardia",
+        "Complete heart block",
+        "An acute ST-elevation MI",
+        "Left bundle branch block"],
+      correctIndex:3,
+      explanation:[
+        "Every option is an ECG-diagnosable trigger, so the tracing has to be read: ST elevation across a territory identifies an acute STEMI as the precipitant.",
+        "Atrial fibrillation is irregular with no P waves, an SVT is regular and narrow-complex, complete heart block is slow with AV dissociation, and LBBB is a broad-QRS conduction defect."
+      ] },
+    { id:"ahf-021", type:"mcq", objective:"ahf-echo-role",
+      question:"In a patient admitted with acute heart failure, which investigation best identifies the underlying structural cause (a ruptured valve, a regional wall-motion abnormality, or the ejection fraction)?",
+      options:[
+        "Chest radiograph",
+        "12-lead ECG",
+        "Echocardiography",
+        "BNP",
+        "Arterial blood gas"],
+      correctIndex:2,
+      explanation:[
+        "All are part of the workup, but only ECHOCARDIOGRAPHY defines structure – ejection fraction, regional wall motion, and valve lesions such as an acute ruptured valve.",
+        "The CXR, ECG, BNP and ABG give supporting information but do not image the heart's structure."
+      ] },
+    { id:"ahf-022", type:"mcq", objective:"ahf-troponin-nonspecific",
+      question:"A patient with acute pulmonary oedema (precipitated by a hypertensive emergency) has a mildly raised troponin, but no chest pain and no dynamic ECG changes. How should this be interpreted?",
+      options:[
+        "It confirms a type 1 (plaque-rupture) myocardial infarction",
+        "Troponin also rises in heart failure; read it with the ECG and trend",
+        "It excludes myocardial infarction",
+        "It is a laboratory error",
+        "It mandates immediate primary PCI"],
+      correctIndex:1,
+      explanation:[
+        "Troponin is not specific to plaque rupture – it rises with the myocardial strain and demand of acute heart failure itself.",
+        "Without chest pain or dynamic ECG/troponin change this is more likely strain than a type 1 MI; interpret with the ECG and the serial trend. Options A and E over-call it."
+      ] },
+    { id:"ahf-023", type:"mcq", objective:"ahf-abg-tiring",
+      data:'<div class="mk-obs-h">Arterial blood gas</div><table class="mk-labs"><tr><td>pH</td><td><b>7.28</b></td><td>7.35&ndash;7.45</td></tr><tr><td>PaO<sub>2</sub></td><td><b>8.0 kPa</b></td><td>10&ndash;13</td></tr><tr><td>PaCO<sub>2</sub> (was 3.8)</td><td><b>7.2 kPa</b></td><td>4.7&ndash;6.0</td></tr></table>',
+      question:"A patient with acute pulmonary oedema initially had a low CO₂ from hyperventilation. A repeat arterial blood gas is shown. What does this change indicate?",
+      options:[
+        "The patient is improving and can be stepped down",
+        "A metabolic alkalosis caused by his diuretics",
+        "Chronic CO₂ retention from underlying COPD",
+        "The inspired oxygen should simply be reduced",
+        "He is tiring toward respiratory failure"],
+      correctIndex:4,
+      explanation:[
+        "A previously hyperventilating patient whose CO₂ is now RISING (with acidosis and persistent hypoxia) is exhausting, not improving – an ominous sign of impending respiratory failure that needs CPAP or ventilatory support.",
+        "A normalising or rising CO₂ in this context is the opposite of reassurance, which is why option A is the dangerous misread."
+      ] },
+    { id:"ahf-024", type:"mcq", objective:"ahf-ddimer",
+      data:'<div class="mk-obs-h">Bloods</div><table class="mk-labs"><tr><td>D-dimer</td><td><b>1240 ng/mL</b></td><td>&lt;500</td></tr></table><div class="mk-obs-h">FY1 review &ndash; PE assessment</div><div class="mk-obs-line">No pleuritic chest pain. No haemoptysis. No calf swelling or tenderness. No recent surgery, immobility or long-haul travel. No previous VTE.</div>',
+      question:"A breathless patient with known acute heart failure has the results and assessment shown. How should the elevated D-dimer be interpreted?",
+      options:[
+        "It is a non-specific finding here",
+        "It confirms a pulmonary embolism",
+        "It excludes a pulmonary embolism",
+        "It confirms the heart failure",
+        "It warrants immediate thrombolysis"],
+      correctIndex:0,
+      explanation:[
+        "The documented findings describe a LOW pre-test probability for PE, so the raised D-dimer – routinely elevated by any acute illness, including the heart failure itself – is non-specific here.",
+        "D-dimer is only useful when PE is genuinely suspected; sent indiscriminately, a positive result just triggers unnecessary imaging."
+      ] },
+    { id:"ahf-025", type:"saq", objective:"ahf-bnp-threshold",
+      question:"In suspected acute heart failure, an NT-proBNP below which value (in ng/L) makes the diagnosis unlikely?",
+      answer:"300",
+      accept:["300","300 ng/l","300ng/l","<300","less than 300","below 300"],
+      markPoints:[
+        "NT-proBNP below 300 ng/L (or BNP below 100 ng/L) makes acute heart failure unlikely – a rule-out threshold."
+      ],
+      explanation:[
+        "In suspected ACUTE heart failure, an NT-proBNP below 300 ng/L (or a BNP below 100 ng/L) makes the diagnosis unlikely.",
+        "BNP has a high negative predictive value, so a low level is a good rule-out; a raised level is far less specific, as age, atrial fibrillation, renal impairment and other acute illness also raise it."
       ] }
 ]
 };
