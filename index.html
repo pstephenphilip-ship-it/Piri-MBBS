@@ -3690,6 +3690,127 @@ window.MOCK_BANK = {
       explanation:[
         "In suspected ACUTE heart failure, an NT-proBNP below 300 ng/L (or a BNP below 100 ng/L) makes the diagnosis unlikely.",
         "BNP has a high negative predictive value, so a low level is a good rule-out; a raised level is far less specific, as age, atrial fibrillation, renal impairment and other acute illness also raise it."
+      ] },
+    { id:"ahf-026", type:"mcq", objective:"ahf-furosemide-dose",
+      question:"A patient with acute pulmonary oedema takes furosemide 80 mg twice daily by mouth at home. What is the most appropriate initial dose of IV furosemide?",
+      options:[
+        "40 mg IV",
+        "80 mg IV",
+        "20 mg IV",
+        "160 mg IV",
+        "Oral furosemide 160 mg"],
+      correctIndex:3,
+      explanation:[
+        "For a patient already on a loop diuretic, the initial IV dose should be AT LEAST their usual total daily oral dose, given intravenously – 80 mg twice daily is 160 mg/day, so at least 160 mg IV.",
+        "A standard 40 mg (A) or a single-dose 80 mg (B) does little in a loop-tolerant patient, and the oral route (E) is the right dose but too slow and unreliably absorbed through a congested gut. Then titrate to urine output, weight and symptoms."
+      ] },
+    { id:"ahf-027", type:"mcq", objective:"ahf-oxygen-target",
+      question:"A patient with acute heart failure has an oxygen saturation of 95% on room air and is not distressed by hypoxia. What is the most appropriate oxygen management?",
+      options:[
+        "High-flow oxygen via a non-rebreathe mask for all HF patients",
+        "Target an oxygen saturation of 100%",
+        "Nasal oxygen at 2 L/min routinely",
+        "Withhold oxygen even if he later becomes hypoxic",
+        "Give oxygen only if hypoxic, targeting 94–98%"],
+      correctIndex:4,
+      explanation:[
+        "Oxygen is given ONLY if the patient is hypoxic, targeting 94–98% (or 88–92% if at risk of CO₂ retention). At 95% on air, none is currently needed.",
+        "Routine high-flow oxygen in a non-hypoxic patient offers no benefit and may harm, and aiming for 100% is unnecessary – but it should not be withheld if he later desaturates (D)."
+      ] },
+    { id:"ahf-028", type:"mcq", objective:"ahf-cpap",
+      image:"https://upload.wikimedia.org/wikipedia/commons/7/75/Pulmonary_oedema.jpg",
+      imageAlt:"Frontal chest radiograph.",
+      imageCredit:"Frank Gaillard, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A patient with acute pulmonary oedema (CXR shown) remains hypoxic and exhausted despite high-flow oxygen and IV furosemide, but is maintaining his airway. What is the most appropriate next step?",
+      options:[
+        "Immediate intubation and mechanical ventilation",
+        "A further large dose of IV furosemide alone",
+        "Continuous positive airway pressure (CPAP)",
+        "Nebulised salbutamol and steroids",
+        "A trial of oral morphine for the distress"],
+      correctIndex:2,
+      explanation:[
+        "When oxygen alone is insufficient, CPAP is the first-line ventilatory support in cardiogenic pulmonary oedema – its positive pressure reduces preload and afterload, cuts the work of breathing and improves oxygenation, often avoiding intubation.",
+        "Invasive ventilation is reserved for refractory cases or airway compromise; salbutamol and steroids (D) treat airways disease, not fluid; and morphine (E) is no longer recommended."
+      ] },
+    { id:"ahf-029", type:"mcq", objective:"ahf-stop-fluids",
+      question:"A patient receiving IV maintenance fluids for reduced oral intake develops acute pulmonary oedema. What is the most appropriate immediate management?",
+      options:[
+        "Continue the fluids and add an IV diuretic",
+        "Stop the fluids and give IV furosemide",
+        "Stop the fluids and give a fluid challenge if the BP drops",
+        "Stop the fluids and start oral diuretics",
+        "Reduce the fluid rate and observe"],
+      correctIndex:1,
+      explanation:[
+        "The correct action pairs BOTH halves – stop the offending fluids AND actively decongest with an INTRAVENOUS loop diuretic.",
+        "The traps are each half-right: continuing fluids alongside a diuretic (A) keeps overloading him; an oral diuretic (D) is too slow and unreliably absorbed acutely; a fluid challenge (C) is the wrong direction in pulmonary oedema; and merely reducing the rate and observing (E) under-treats an emergency."
+      ] },
+    { id:"ahf-030", type:"mcq", objective:"ahf-morphine",
+      question:"A distressed, very anxious patient with acute pulmonary oedema. A colleague suggests IV morphine to relieve the distress and reduce preload. What is the best advice?",
+      options:[
+        "Give morphine; it is first-line for the anxiety",
+        "Give morphine, as it reliably reduces mortality",
+        "Give a double dose for a faster effect",
+        "Avoid routine morphine; it is associated with harm in AHF",
+        "Morphine is the treatment of choice for the preload reduction"],
+      correctIndex:3,
+      explanation:[
+        "IV morphine is NO LONGER routinely recommended in acute heart failure – registry data link it to increased ventilation rates and higher mortality.",
+        "Address the breathlessness with oxygen or CPAP and decongestion instead, and reserve morphine for a palliative context."
+      ] },
+    { id:"ahf-031", type:"mcq", objective:"ahf-sit-up",
+      question:"The first step in the SODIUM approach to acute pulmonary oedema is to sit the patient upright. Why does this help?",
+      options:[
+        "It reduces venous return and improves respiratory mechanics",
+        "It increases venous return to the heart",
+        "It raises the blood pressure",
+        "It directly dilates the coronary arteries",
+        "It reduces myocardial oxygen demand by slowing the heart"],
+      correctIndex:0,
+      explanation:[
+        "Sitting the patient up REDUCES venous return (pooling blood in the dependent circulation, lowering preload) and improves diaphragmatic and respiratory mechanics, easing the work of breathing.",
+        "Option B is the opposite effect; the manoeuvre works through preload and mechanics, not by raising blood pressure, dilating coronaries or slowing the heart."
+      ] },
+    { id:"ahf-032", type:"mcq", objective:"ahf-vte-prophylaxis",
+      question:"A patient is admitted with acute heart failure: acutely breathless, congested and largely immobile. Which routine measure should be prescribed on admission, alongside the acute treatment?",
+      options:[
+        "Therapeutic anticoagulation for presumed PE",
+        "VTE thromboprophylaxis",
+        "A statin for the acute episode",
+        "Broad-spectrum antibiotics",
+        "Bed rest with no prophylaxis"],
+      correctIndex:1,
+      explanation:[
+        "An acutely breathless, congested and immobile patient is at high risk of venous thromboembolism, so prophylactic-dose thromboprophylaxis (e.g. low-molecular-weight heparin) is prescribed on admission unless contraindicated.",
+        "Therapeutic anticoagulation (A) is only for confirmed or strongly suspected VTE; a statin and antibiotics are not routine acute measures here."
+      ] },
+    { id:"ahf-033", type:"mcq", objective:"ahf-af-rate-control",
+      image:"https://upload.wikimedia.org/wikipedia/commons/8/87/ECG_Atrial_Fibrillation_98_bpm.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Ewingdo, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A patient in acute pulmonary oedema deteriorates. His ECG is shown and his blood pressure is 105/70 mmHg. Which is the most appropriate agent to control his ventricular rate?",
+      options:[
+        "Intravenous verapamil",
+        "A large IV beta-blocker bolus",
+        "Intravenous fluids",
+        "Immediate DC cardioversion regardless",
+        "Digoxin"],
+      correctIndex:4,
+      explanation:[
+        "The ECG is irregularly irregular and narrow-complex with no P waves – fast atrial fibrillation driving the decompensation. In decompensated heart failure, DIGOXIN slows the ventricular rate WITHOUT the negative inotropy of a beta-blocker or the contraindicated verapamil/diltiazem, which worsen acute HF.",
+        "DC cardioversion (D) is reserved for haemodynamic instability, and IV fluids (C) would worsen the oedema; amiodarone is an alternative rate/rhythm agent. Verapamil and a beta-blocker are standard AF rate-control choices but the wrong call here – the trap."
+      ] },
+    { id:"ahf-034", type:"saq", objective:"ahf-first-line-drug-saq",
+      question:"What is the first-line intravenous drug used to relieve the pulmonary congestion of acute heart failure?",
+      answer:"Furosemide",
+      accept:["furosemide","frusemide","iv furosemide","loop diuretic","bumetanide"],
+      markPoints:[
+        "Furosemide – an intravenous loop diuretic; dose to the patient (at least the usual total daily oral dose IV if already loop-treated)."
+      ],
+      explanation:[
+        "The first-line intravenous drug for the congestion of acute heart failure is FUROSEMIDE, a loop diuretic.",
+        "Give 40–80 mg IV in a diuretic-naive patient, but at least the patient's usual total daily oral dose intravenously if they are already on a loop diuretic, then judge the response by urine output, daily weight and symptoms."
       ] }
 ]
 };
