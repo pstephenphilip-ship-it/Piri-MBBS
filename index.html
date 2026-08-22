@@ -3718,10 +3718,7 @@ window.MOCK_BANK = {
         "Routine high-flow oxygen in a non-hypoxic patient offers no benefit and may harm, and aiming for 100% is unnecessary – but it should not be withheld if he later desaturates (D)."
       ] },
     { id:"ahf-028", type:"mcq", objective:"ahf-cpap",
-      image:"https://upload.wikimedia.org/wikipedia/commons/7/75/Pulmonary_oedema.jpg",
-      imageAlt:"Frontal chest radiograph.",
-      imageCredit:"Frank Gaillard, CC BY-SA 3.0, via Wikimedia Commons.",
-      question:"A patient with acute pulmonary oedema (CXR shown) remains hypoxic and exhausted despite high-flow oxygen and IV furosemide, but is maintaining his airway. What is the most appropriate next step?",
+      question:"A patient with acute pulmonary oedema remains hypoxic and exhausted despite high-flow oxygen and IV furosemide, but is maintaining his airway. What is the most appropriate next step?",
       options:[
         "Immediate intubation and mechanical ventilation",
         "A further large dose of IV furosemide alone",
@@ -3811,6 +3808,130 @@ window.MOCK_BANK = {
       explanation:[
         "The first-line intravenous drug for the congestion of acute heart failure is FUROSEMIDE, a loop diuretic.",
         "Give 40–80 mg IV in a diuretic-naive patient, but at least the patient's usual total daily oral dose intravenously if they are already on a loop diuretic, then judge the response by urine output, daily weight and symptoms."
+      ] },
+    { id:"ahf-035", type:"mcq", objective:"ahf-hypertensive-gtn",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>104 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>210/120 mmHg</b></td><td></td></tr><tr><td>Respiratory rate</td><td><b>32 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>87% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"An 80-year-old woman presents with flash pulmonary oedema. Her observations are shown. In addition to oxygen and IV furosemide, which agent is most appropriate?",
+      options:[
+        "Intravenous fluids",
+        "Intravenous noradrenaline",
+        "Intravenous GTN (nitrate)",
+        "Oral amlodipine",
+        "Intravenous dobutamine"],
+      correctIndex:2,
+      explanation:[
+        "The very high blood pressure on the panel defines HYPERTENSIVE acute heart failure, where an IV vasodilator such as GTN is added – it reduces preload (venodilation) and, at higher doses, afterload, rapidly relieving the flash pulmonary oedema.",
+        "Noradrenaline (B) and dobutamine (E) are for the hypotensive or shocked patient, not this hypertensive one; fluids (A) worsen the oedema; oral amlodipine (D) is too slow."
+      ] },
+    { id:"ahf-036", type:"mcq", objective:"ahf-gtn-mechanism",
+      question:"IV GTN is given in hypertensive acute heart failure. Through which primary action does it relieve the pulmonary oedema?",
+      options:[
+        "Venodilation, reducing preload",
+        "Increasing myocardial contractility",
+        "Increasing the heart rate",
+        "Arterial vasoconstriction, raising blood pressure",
+        "A direct diuretic effect on the kidney"],
+      correctIndex:0,
+      explanation:[
+        "GTN is primarily a VENODILATOR, reducing preload (venous return) and so lowering pulmonary capillary pressure; at higher doses it also reduces afterload.",
+        "It has no direct inotropic, chronotropic or diuretic action, and option D is the opposite of its effect."
+      ] },
+    { id:"ahf-037", type:"mcq", objective:"ahf-cardiogenic-shock",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>118 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>80/52 mmHg</b></td><td></td></tr><tr><td>Lactate</td><td><b>5.4 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>Urine output</td><td><b>10 mL/hr</b></td><td>&gt;30</td></tr><tr><td>Temperature</td><td><b>36.8 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A patient with a large MI deteriorates; there is no evidence of infection or bleeding. His results are shown. What is the most appropriate management?",
+      options:[
+        "A rapid intravenous fluid bolus",
+        "Dobutamine and urgent revascularisation",
+        "IV GTN to reduce afterload",
+        "A beta-blocker to control the heart rate",
+        "Watchful waiting on diuretics alone"],
+      correctIndex:1,
+      explanation:[
+        "Hypotension with tissue hypoperfusion (raised lactate, oliguria) and a normal temperature (excluding sepsis) is CARDIOGENIC SHOCK. It is treated with inotropic support (dobutamine, adding a vasopressor if needed) and, when due to an MI, URGENT REVASCULARISATION – NOT fluids, unlike septic shock.",
+        "GTN (C) and a beta-blocker (D) would drop the already-low output dangerously."
+      ] },
+    { id:"ahf-038", type:"mcq", objective:"ahf-rv-infarction",
+      image:"https://upload.wikimedia.org/wikipedia/commons/f/f4/ST_Segment_Elevation_Myocardial_Infarction_Unlabeled.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Andrewmeyerson, CC BY-SA 4.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>88 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>84/58 mmHg</b></td><td></td></tr><tr><td>JVP</td><td><b>Raised</b></td><td></td></tr><tr><td>Chest</td><td><b>Clear lung fields</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A patient presents with chest pain, and his ECG is shown. He then becomes hypotensive, and his observations are shown. What is the most appropriate management?",
+      options:[
+        "IV GTN to offload the heart",
+        "IV furosemide for the raised JVP",
+        "Immediate IV beta-blocker",
+        "A cautious IV fluid challenge",
+        "High-dose IV nitrate infusion"],
+      correctIndex:3,
+      explanation:[
+        "The ECG shows ST elevation in II, III and aVF (an inferior STEMI, an RCA-territory event), and the panel shows hypotension with a raised JVP but CLEAR lungs – RIGHT-VENTRICULAR INFARCTION.",
+        "The preload-dependent RV needs a cautious FLUID challenge; the instinct to offload the raised JVP with nitrates (A, E) or diuretics (B) would drop the output dangerously. Confirm with right-sided leads (V4R)."
+      ] },
+    { id:"ahf-039", type:"mcq", objective:"ahf-marginal-bp",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>110 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>92/60 mmHg</b></td><td></td></tr><tr><td>Lactate</td><td><b>3.2 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>Capillary refill</td><td><b>4 s</b></td><td>&lt;2</td></tr></table>',
+      question:"A patient with acute heart failure has the results shown. Which escalation is most appropriate?",
+      options:[
+        "Aggressive high-dose IV GTN to offload the heart",
+        "An inotrope (dobutamine), with cautious vasodilator use",
+        "A large fluid bolus",
+        "Immediate thrombolysis",
+        "A beta-blocker to slow the heart"],
+      correctIndex:1,
+      explanation:[
+        "At a systolic pressure around 90–100 mmHg with signs of hypoperfusion (raised lactate, prolonged capillary refill), management is INOTROPE-LED (e.g. dobutamine to raise cardiac output), with only cautious low-dose vasodilator use.",
+        "Aggressive GTN (A) would drop the marginal blood pressure further; below 90 mmHg (cardiogenic shock) a vasopressor is added."
+      ] },
+    { id:"ahf-040", type:"mcq", objective:"ahf-diuretic-resistance",
+      data:'<div class="mk-obs-h">Diuretic response</div><table class="mk-labs"><tr><td>Furosemide</td><td><b>IV infusion (maximal)</b></td><td></td></tr><tr><td>Urine output (6 h)</td><td><b>20 mL/hr</b></td><td>&gt;30</td></tr><tr><td>Weight change (24 h)</td><td><b>+0.5 kg</b></td><td></td></tr><tr><td>Chest</td><td><b>Persistent bibasal crackles</b></td><td></td></tr></table>',
+      question:"A patient remains congested despite escalating IV furosemide to an infusion. His response is shown. What is the most appropriate next step to improve diuresis?",
+      options:[
+        "Give a fluid bolus to try to prime the kidneys",
+        "Switch back to oral furosemide",
+        "Stop the loop diuretic entirely",
+        "Add a potassium-sparing diuretic for extra diuresis",
+        "Add metolazone for sequential nephron blockade"],
+      correctIndex:4,
+      explanation:[
+        "The panel shows a poor response (urine output 20 mL/hr, weight rising, persistent crackles). When a loop diuretic even by infusion is insufficient, adding a thiazide or thiazide-like diuretic (metolazone, or bendroflumethiazide) blocks a second nephron site – SEQUENTIAL NEPHRON BLOCKADE, a potent combination.",
+        "A fluid bolus (A) worsens congestion; switching to oral (B) or stopping (C) reduces diuresis; potassium-sparing agents (D) are weak diuretics used mainly for their potassium and prognostic effects."
+      ] },
+    { id:"ahf-041", type:"mcq", objective:"ahf-nephron-blockade-risks",
+      question:"A patient on combined loop and thiazide diuretics (sequential nephron blockade) for resistant heart failure needs close monitoring. Which complications are most important to watch for?",
+      options:[
+        "Hypokalaemia, hyponatraemia and acute kidney injury",
+        "Hyperkalaemia with a metabolic alkalosis and hypovolaemia",
+        "Hypercalcaemia and polycythaemia",
+        "Hypernatraemia and fluid overload",
+        "Hypoglycaemia and neutropenia"],
+      correctIndex:0,
+      explanation:[
+        "The combination is a potent diuretic pairing that readily causes HYPOKALAEMIA, HYPONATRAEMIA and ACUTE KIDNEY INJURY (from over-diuresis and hypovolaemia), so U&Es must be checked closely.",
+        "Option B is the trap – loop and thiazide diuretics cause HYPOkalaemia, not hyperkalaemia."
+      ] },
+    { id:"ahf-042", type:"mcq", objective:"ahf-refractory-shock",
+      data:'<div class="mk-obs-h">On dobutamine</div><table class="mk-labs"><tr><td>Blood pressure</td><td><b>82/54 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>120 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Lactate (rising)</td><td><b>5.8 mmol/L</b></td><td>&lt;2.0</td></tr><tr><td>Urine output</td><td><b>8 mL/hr</b></td><td>&gt;30</td></tr></table>',
+      question:"A patient in cardiogenic shock after an MI remains hypoperfused despite dobutamine. His results are shown. What is the most appropriate next escalation?",
+      options:[
+        "Stop all vasoactive drugs",
+        "Give a large intravenous fluid bolus",
+        "Oral heart-failure medication",
+        "Add noradrenaline; consider mechanical support",
+        "Start an IV GTN infusion"],
+      correctIndex:3,
+      explanation:[
+        "When an inotrope alone fails, add a VASOPRESSOR (noradrenaline) to restore perfusion pressure and consider MECHANICAL circulatory support (intra-aortic balloon pump, Impella or VA-ECMO) in a specialist centre, alongside revascularisation.",
+        "Fluids (B) and GTN (E) worsen the low-output state, and stopping vasoactive drugs (A) would be fatal."
+      ] },
+    { id:"ahf-043", type:"saq", objective:"ahf-v4r-saq",
+      question:"In suspected right-ventricular infarction, which additional ECG lead should be recorded to confirm it?",
+      answer:"V4R",
+      accept:["v4r","right-sided v4","right sided v4","v4 r","rv4","right sided lead v4"],
+      markPoints:[
+        "V4R (a right-sided chest lead) – ST elevation here confirms right-ventricular infarction."
+      ],
+      explanation:[
+        "In an inferior MI with hypotension and clear lungs, record RIGHT-SIDED CHEST LEADS, especially V4R: ST elevation in V4R confirms right-ventricular infarction.",
+        "The RV is preload-dependent, so these patients need cautious fluids and must avoid nitrates and diuretics."
       ] }
 ]
 };
