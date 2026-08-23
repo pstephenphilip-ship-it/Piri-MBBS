@@ -4141,6 +4141,114 @@ window.MOCK_BANK = {
       explanation:[
         "The defining principle is whether the ASCENDING aorta is involved: DeBakey I and II both involve the ascending aorta = Stanford A; DeBakey III is confined to the descending aorta = Stanford B.",
         "Any tear beginning in the ascending aorta is Type A (surgical), and any beginning distal to the left subclavian and confined to the descending aorta is Type B (usually medical)."
+      ] },
+    { id:"aod-009", type:"mcq", objective:"aod-pain-character",
+      question:"A 58-year-old man has sudden severe chest pain. Which feature would most specifically suggest aortic dissection rather than a myocardial infarction?",
+      options:[
+        "Central, crushing quality",
+        "Radiation to the left arm",
+        "Maximal in intensity at the very onset",
+        "Associated with sweating and nausea",
+        "Relieved by sitting forward"],
+      correctIndex:2,
+      explanation:[
+        "Dissection pain is MAXIMAL AT ONSET; MI pain builds and crescendos.",
+        "A crushing quality, arm radiation and sweating/nausea are all shared with MI (non-discriminating), and relief on sitting forward points to pericarditis – only C is specific for dissection."
+      ] },
+    { id:"aod-010", type:"mcq", objective:"aod-discriminating-sign",
+      question:"In a patient with severe chest pain, which single finding most strongly points to aortic dissection rather than acute MI?",
+      options:[
+        "A raised jugular venous pressure",
+        "Bilateral crackles at the lung bases",
+        "A fourth heart sound (S4) gallop",
+        "A >20 mmHg difference in BP between the arms",
+        "ST-segment elevation on the 12-lead ECG"],
+      correctIndex:3,
+      explanation:[
+        "A >20 mmHg INTER-ARM blood-pressure difference (subclavian involvement) is the classic discriminating sign.",
+        "Option E is the trap – dissection can itself cause ST elevation through coronary-ostium involvement, so it does not distinguish; a raised JVP, crackles and an S4 are non-specific."
+      ] },
+    { id:"aod-011", type:"mcq", objective:"aod-interarm-bp",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Blood pressure (right arm)</td><td><b>168/94 mmHg</b></td><td></td></tr><tr><td>Blood pressure (left arm)</td><td><b>132/78 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>96 bpm</b></td><td>60&ndash;100</td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 65-year-old man has sudden tearing interscapular pain. His observations, with blood pressure in both arms, are shown. Which finding most supports aortic dissection?",
+      options:[
+        "The tachycardia",
+        "The inter-arm blood-pressure difference",
+        "The oxygen saturation",
+        "The systolic hypertension alone",
+        "The normal heart rate"],
+      correctIndex:1,
+      explanation:[
+        "The two arm pressures differ by 36 mmHg (well over 20 mmHg) – a subclavian-territory pressure/pulse deficit that strongly supports dissection.",
+        "Hypertension is a risk factor but not the specific sign, and the heart rate and saturations are unremarkable."
+      ] },
+    { id:"aod-012", type:"mcq", objective:"aod-ar-murmur-audio",
+      audio:"assets/audio/16_aortic_early_dias_mur_sitting_bell.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"A patient with sudden tearing chest pain has a new murmur, a recording of which is provided. What does it most likely indicate?",
+      options:[
+        "Aortic stenosis, unrelated to the pain",
+        "Mitral regurgitation from papillary rupture",
+        "A pericardial friction rub",
+        "An innocent flow murmur",
+        "Acute aortic regurgitation from retrograde dissection"],
+      correctIndex:4,
+      explanation:[
+        "The recording is an EARLY-DIASTOLIC murmur, best heard at the left sternal edge – ACUTE AORTIC REGURGITATION from retrograde extension to the aortic root, a Type A feature.",
+        "The distractors are the sounds that must be excluded by ear: aortic stenosis is ejection-systolic, mitral regurgitation pansystolic, and a pericardial rub is a scratchy to-and-fro sound."
+      ] },
+    { id:"aod-013", type:"mcq", objective:"aod-painless-multisystem",
+      question:"A 70-year-old man presents with a sudden dense left hemiparesis and, on examination, a cold, pulseless right leg. He has no chest pain. What is the most important unifying diagnosis to exclude?",
+      options:[
+        "Two separate embolic events",
+        "Aortic dissection",
+        "A large ischaemic stroke alone",
+        "Peripheral arterial disease",
+        "Vasculitis"],
+      correctIndex:1,
+      explanation:[
+        "Simultaneous stroke (arch/carotid) and acute limb ischaemia (iliac) with NO chest pain is aortic dissection propagating into several branch vessels – multiple organ systems failing at once.",
+        "Attributing it to two coincidental emboli (A), or to the stroke alone (C), is the tempting miss; chronic PAD and vasculitis do not fit this acute, multi-territory onset."
+      ] },
+    { id:"aod-014", type:"mcq", objective:"aod-pulse-deficit",
+      question:"In aortic dissection, a weak or absent femoral pulse (a pulse deficit) is caused by which mechanism?",
+      options:[
+        "The false lumen or flap occluding the branch artery",
+        "Reflex vasoconstriction of the limb from the pain",
+        "Coexisting peripheral arterial disease",
+        "Hypovolaemia from blood loss",
+        "Aortic valve regurgitation"],
+      correctIndex:0,
+      explanation:[
+        "The flap or false lumen compresses or occludes the origin of a branch vessel, cutting off flow – a malperfusion PULSE DEFICIT.",
+        "The distractors are other genuine causes of a weak pulse (vasoconstriction, PAD, hypovolaemia) but are not the dissection-specific mechanism."
+      ] },
+    { id:"aod-015", type:"mcq", objective:"aod-hypotension-typea",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Blood pressure</td><td><b>84/56 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>118 bpm</b></td><td>60&ndash;100</td></tr><tr><td>JVP</td><td><b>Raised</b></td><td></td></tr><tr><td>Heart sounds</td><td><b>Muffled</b></td><td></td></tr></table>',
+      question:"A patient with a suspected aortic dissection is hypotensive. His observations are shown. Why is hypotension particularly concerning here?",
+      options:[
+        "It suggests an uncomplicated Type B dissection",
+        "It is an expected effect of the analgesia",
+        "It indicates simple vasovagal syncope",
+        "It points to a proximal (Type A) complication",
+        "It reflects dehydration"],
+      correctIndex:3,
+      explanation:[
+        "Hypotension in dissection is a proximal (Type A) complication until proven otherwise – cardiac tamponade (the raised JVP and muffled heart sounds here), severe acute AR, or rupture.",
+        "Attributing it to analgesia, a vasovagal episode or dehydration is the dangerous miss; hypotension does not fit an uncomplicated Type B."
+      ] },
+    { id:"aod-016", type:"mcq", objective:"aod-mesenteric",
+      question:"A patient with an aortic dissection develops severe central abdominal pain out of proportion to the examination findings, with a rising lactate. Which complication has most likely occurred?",
+      options:[
+        "Acute pancreatitis",
+        "Renal infarction",
+        "Splenic rupture",
+        "Peptic ulcer perforation",
+        "Mesenteric ischaemia"],
+      correctIndex:4,
+      explanation:[
+        "Pain out of proportion to the examination with a rising lactate is MESENTERIC ISCHAEMIA – the flap occluding the superior mesenteric artery.",
+        "The distractors are other causes of abdominal pain in this setting but do not fit the classic out-of-proportion-pain-plus-lactate hallmark."
       ] }
 ]
 };
