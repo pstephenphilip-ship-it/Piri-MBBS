@@ -709,6 +709,25 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .wc-nbody:empty:before{content:attr(data-placeholder);color:#9CA3AF;}
 .wc-nbody ul{margin:6px 0;padding-left:22px;}.wc-nbody li{margin:2px 0;}
 .wc-nhint{padding:9px 16px;font-size:11px;color:#9CA3AF;border-top:1px solid #E2E6F0;}
+/* Multi-note planner (home page) */
+.wc-planner{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;overflow:hidden;margin-top:14px;}
+.wc-plan-tabs{display:flex;gap:6px;padding:10px 12px;overflow-x:auto;border-bottom:1px solid #E2E6F0;scrollbar-width:thin;}
+.wc-plan-tabs:empty{display:none;}
+.wc-plan-tab{flex:0 0 auto;max-width:160px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;font-weight:700;color:#6B7280;background:#F3F5FA;border:1px solid #E2E6F0;border-radius:20px;padding:6px 13px;cursor:pointer;transition:background .15s,color .15s;}
+.wc-plan-tab:hover{border-color:#00C2A8;color:#00A892;}
+.wc-plan-tab.active{color:#04121a;background:linear-gradient(135deg,#00C2A8,#0EA5E9);border-color:transparent;}
+.wc-plan-title{width:100%;box-sizing:border-box;border:none;border-bottom:1px solid #E2E6F0;padding:12px 16px;font-size:15px;font-weight:700;color:#1E2640;outline:none;font-family:inherit;background:transparent;}
+.wc-plan-title::placeholder{color:#B6BCC9;font-weight:600;}
+.wc-plan-body{min-height:140px;max-height:340px;overflow-y:auto;padding:14px 16px;font-size:14px;line-height:1.7;color:#1E2640;outline:none;}
+.wc-plan-body:empty:before{content:attr(data-placeholder);color:#9CA3AF;}
+.wc-plan-body ul{margin:6px 0;padding-left:22px;}.wc-plan-body li{margin:2px 0;}
+.wc-task{display:flex;align-items:flex-start;gap:8px;margin:3px 0;}
+.wc-cb{cursor:pointer;-webkit-user-select:none;user-select:none;font-size:16px;line-height:1.45;color:#00A892;flex:0 0 auto;}
+.wc-plan-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 16px;border-top:1px solid #E2E6F0;}
+.wc-plan-del{font-size:11px;font-weight:600;color:#9CA3AF;background:none;border:none;cursor:pointer;}
+.wc-plan-del:hover{color:#DC2626;}
+.wc-plan-hint{font-size:11px;color:#9CA3AF;text-align:right;}
+.wc-plan-empty{padding:24px 16px;text-align:center;color:#9CA3AF;font-size:13px;line-height:1.6;}
 .wc-hero3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
 .wc-h3{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;padding:18px 10px;text-align:center;}
 .wc-h3 .n{font-family:var(--mono);font-weight:800;font-size:25px;line-height:1;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -775,17 +794,15 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       +'<span class="wc-act-badge zero js-rv-badge">0</span></button>'
       +'</div>') : '';
     var hint = opts.hint ? ('<div class="wc-hint">'+opts.hint+'</div>') : '';
-    var notes='<div class="wc-notes"><div class="wc-nhead"><span>&#128221; My Notes &amp; To-Do</span><span class="wc-nactions"><button class="wc-nsave" type="button" onclick="wcNotesSaveNow(event)">Save</button><button class="wc-nclear" type="button" onclick="wcNotesClear(event)">Clear</button></span></div>'
-      +'<div class="wc-ntoolbar">'
-      +'<button class="wc-nbtn" type="button" title="Bold" onmousedown="return wcFmt(event,\'bold\')"><b>B</b></button>'
-      +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return wcFmt(event,\'italic\')"><i>I</i></button>'
-      +'<button class="wc-nbtn" type="button" title="Underline" onmousedown="return wcFmt(event,\'underline\')"><u>U</u></button>'
-      +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return wcFmt(event,\'insertUnorderedList\')">&#8226;</button>'
-      +'</div>'
-      +'<div class="wc-nbody js-notes" contenteditable="true" data-placeholder="Jot down tasks, revision reminders, weak topics&hellip; (bold, underline, bullets supported)" oninput="wcNotesSave(this)"></div>'
-      +'<div class="wc-nhint">Saves automatically &mdash; synced to your account across devices when you&rsquo;re signed in.</div></div>';
+    // Multi-note planner (home only). Tabs of notes + one editor; each note is rich text and can
+    // hold tick-box tasks. Tabs/editor are filled in by wcPlanRenderAll() after paint.
+    var planner = opts.planner ? ('<div class="wc-planner">'
+      +'<div class="wc-nhead"><span>&#128221; My Planner</span><span class="wc-nactions"><button class="wc-nsave" type="button" onclick="wcPlanNew()">+ New note</button></span></div>'
+      +'<div class="wc-plan-tabs"></div>'
+      +'<div class="wc-plan-editor"></div>'
+      +'</div>') : '';
     return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
-      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+actions+stats+hint+notes+'</div>';
+      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+actions+stats+hint+planner+'</div>';
   }
 
   window.updateStreakUI=function(){
@@ -836,10 +853,65 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     var n = window.daSrsDue ? window.daSrsDue() : 0;
     document.querySelectorAll('.js-rv-badge').forEach(function(e){ e.textContent = n>99?'99+':n; e.classList.toggle('zero', n===0); });
   };
-  function paintWelcome(container, opts){ if(!container)return; container.innerHTML=welcomeHTML(opts); loadNotesInto(container); updateStreakUI(); updateStatsUI(); window.updateHomeActions(); }
+
+  // ===== Multi-note planner (home page) — synced via the piri_ namespace =====
+  var PKEY='piri_planner_v1', planActiveId=null, planT;
+  function planLoad(){
+    try{ var v=JSON.parse(localStorage.getItem(PKEY)||'null'); if(Array.isArray(v)) return v; }catch(e){}
+    // One-time migration of the old single shared note into the first planner note.
+    try{ var old=localStorage.getItem(NKEY); if(old && old.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'').trim()){ var seed=[{id:daUid(),title:'My Notes',html:old}]; planSaveList(seed); return seed; } }catch(e){}
+    return [];
+  }
+  function planSaveList(list){ try{ localStorage.setItem(PKEY, JSON.stringify(list)); }catch(e){} }
+  var PLAN_TOOLBAR='<div class="wc-ntoolbar">'
+    +'<button class="wc-nbtn" type="button" title="Bold" onmousedown="return wcPlanFmt(event,\'bold\')"><b>B</b></button>'
+    +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return wcPlanFmt(event,\'italic\')"><i>I</i></button>'
+    +'<button class="wc-nbtn" type="button" title="Underline" onmousedown="return wcPlanFmt(event,\'underline\')"><u>U</u></button>'
+    +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return wcPlanFmt(event,\'insertUnorderedList\')">&#8226;</button>'
+    +'<button class="wc-nbtn" type="button" title="Add a tick-box task" onmousedown="return wcPlanTask(event)">&#9744;</button>'
+    +'</div>';
+  function planRenderOne(host){
+    var tabsEl=host.querySelector('.wc-plan-tabs'), edEl=host.querySelector('.wc-plan-editor');
+    if(!tabsEl||!edEl) return;
+    var list=planLoad();
+    if(!list.length){ tabsEl.innerHTML=''; edEl.innerHTML='<div class="wc-plan-empty">No notes yet.<br>Tap <b>+ New note</b> to start a study plan, checklist or scratchpad.</div>'; return; }
+    if(!planActiveId || !list.some(function(n){return n.id===planActiveId;})) planActiveId=list[0].id;
+    var active=null; list.forEach(function(n){ if(n.id===planActiveId) active=n; });
+    if(!active) active=list[0];
+    tabsEl.innerHTML=list.map(function(n){ return '<button class="wc-plan-tab'+(n.id===active.id?' active':'')+'" type="button" data-id="'+n.id+'" onclick="wcPlanSelect(\''+n.id+'\')">'+daEscHtml(n.title||'Untitled')+'</button>'; }).join('');
+    edEl.innerHTML='<input class="wc-plan-title" type="text" placeholder="Note title" oninput="wcPlanTitle(this)">'
+      +PLAN_TOOLBAR
+      +'<div class="wc-plan-body js-plan-body" contenteditable="true" data-placeholder="Jot tasks, revision reminders, weak topics&hellip; (bold, bullets &amp; tick-boxes supported)" oninput="wcPlanBody(this)"></div>'
+      +'<div class="wc-plan-foot"><button class="wc-plan-del" type="button" onclick="wcPlanDelete()">Delete note</button><span class="wc-plan-hint">Saves automatically &mdash; synced across devices when signed in.</span></div>';
+    edEl.querySelector('.wc-plan-title').value=active.title||'';
+    edEl.querySelector('.js-plan-body').innerHTML=active.html||'';
+  }
+  window.wcPlanRenderAll=function(){ document.querySelectorAll('.wc-planner').forEach(planRenderOne); };
+  // Flush the current editor's body into its note SYNCHRONOUSLY. Must run before switching notes,
+  // else the 250ms debounce fires after planActiveId moved and writes the old body into the new note.
+  function planFlush(){ clearTimeout(planT); if(planActiveId==null) return; var el=document.querySelector('.wc-planner .js-plan-body'); if(!el) return; var list=planLoad(); var changed=false; list.forEach(function(n){ if(n.id===planActiveId && n.html!==el.innerHTML){ n.html=el.innerHTML; changed=true; } }); if(changed) planSaveList(list); }
+  window.wcPlanNew=function(){ planFlush(); var list=planLoad(); var n={id:daUid(),title:'',html:''}; list.push(n); planSaveList(list); planActiveId=n.id; window.wcPlanRenderAll(); var t=document.querySelector('.wc-planner .wc-plan-title'); if(t) t.focus(); };
+  window.wcPlanSelect=function(id){ planFlush(); planActiveId=id; window.wcPlanRenderAll(); };
+  window.wcPlanTitle=function(inp){ var list=planLoad(); list.forEach(function(n){ if(n.id===planActiveId) n.title=inp.value; }); planSaveList(list);
+    document.querySelectorAll('.wc-plan-tab[data-id="'+planActiveId+'"]').forEach(function(t){ t.textContent=inp.value||'Untitled'; }); };
+  window.wcPlanBody=function(el){ clearTimeout(planT); planT=setTimeout(function(){ var list=planLoad(); list.forEach(function(n){ if(n.id===planActiveId) n.html=el.innerHTML; }); planSaveList(list); },250); };
+  window.wcPlanDelete=function(){ clearTimeout(planT); var list=planLoad(); var i=-1; list.forEach(function(n,ix){ if(n.id===planActiveId) i=ix; }); if(i<0) return;
+    var n=list[i]; var hasContent=(n.title||'').trim() || (n.html||'').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'').trim();
+    if(hasContent && !window.confirm('Delete this note? This cannot be undone.')) return;
+    list.splice(i,1); planSaveList(list); planActiveId=list.length?list[Math.max(0,i-1)].id:null; window.wcPlanRenderAll(); };
+  window.wcPlanFmt=function(ev,cmd){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus(); try{document.execCommand(cmd,false,null);}catch(e){} window.wcPlanBody(el); return false; };
+  window.wcPlanTask=function(ev){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus();
+    try{ document.execCommand('insertHTML',false,'<div class="wc-task"><span class="wc-cb" contenteditable="false">&#9744;</span><span>&nbsp;</span></div>'); }catch(e){}
+    window.wcPlanBody(el); return false; };
+  // Toggle a task's tick-box (the span is contenteditable=false, so a click means "toggle").
+  document.addEventListener('click', function(e){ var cb=e.target&&e.target.closest?e.target.closest('.wc-cb'):null; if(!cb) return;
+    cb.textContent=(cb.textContent.indexOf('☑')>=0)?'☐':'☑';   // ☐ <-> ☑
+    var body=cb.closest('.js-plan-body'); if(body) window.wcPlanBody(body); });
+
+  function paintWelcome(container, opts){ if(!container)return; container.innerHTML=welcomeHTML(opts); loadNotesInto(container); if(window.wcPlanRenderAll) window.wcPlanRenderAll(); updateStreakUI(); updateStatsUI(); window.updateHomeActions(); }
   window.paintWelcome=paintWelcome;
 
-  window.renderHome=function(){ paintWelcome(document.getElementById('homeHost'), {actions:true}); };
+  window.renderHome=function(){ paintWelcome(document.getElementById('homeHost'), {actions:true, planner:true}); };
   window.goHome=function(skipHash){ if(window.switchMainTab) window.switchMainTab('home', null, skipHash); };
 
   var WELCOME_TARGETS=[
