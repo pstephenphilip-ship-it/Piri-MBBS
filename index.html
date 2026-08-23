@@ -4696,6 +4696,112 @@ window.MOCK_BANK = {
       explanation:[
         "EXTRINSIC causes act on a structurally normal SA node from outside – drugs such as beta-blockers and systemic conditions such as hypothyroidism and raised intracranial pressure – and are typically reversible.",
         "INTRINSIC causes are disease of the SA node itself – degenerative fibrosis, sick sinus syndrome and SA exit block – which, once symptomatic and irreversible, are the ones that need a pacemaker."
+      ] },
+    { id:"brady-009", type:"mcq", objective:"sss-identify-pause",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Electrophysiology_study_showed_sinus_of_4070_milliseconds_-_546712_fig002.png",
+      imageAlt:"Multi-lead electrocardiogram recording.",
+      imageCredit:"Duba AS et al., 2015. CC BY 3.0, via Wikimedia Commons.",
+      question:"A 78-year-old woman has recurrent dizziness and two blackouts; between episodes she feels well. A monitored multi-lead ECG recording is shown. What is the most likely diagnosis?",
+      options:[
+        "Complete heart block",
+        "Sick sinus syndrome",
+        "Vasovagal syncope",
+        "Carotid sinus hypersensitivity",
+        "Mobitz II AV block"],
+      correctIndex:1,
+      explanation:[
+        "The recording shows a prolonged SINUS PAUSE (here over 4 seconds) – the entire P-QRS-T drops out because the SA node fails to fire, then sinus rhythm resumes. Recurrent syncope from such pauses is SICK SINUS SYNDROME.",
+        "In complete heart block (A) the P waves keep marching through the pause, Mobitz II (E) drops a QRS but keeps the P wave, and vasovagal syncope or carotid hypersensitivity (C, D) are situational without this resting-ECG abnormality."
+      ] },
+    { id:"brady-010", type:"mcq", objective:"sss-tachy-brady",
+      question:"A 74-year-old man reports palpitations followed by a blackout. His ECG during the palpitations shows atrial fibrillation; a strip taken just as the palpitations stopped shows a prolonged pause before sinus rhythm resumes. Which syndrome does this describe?",
+      options:[
+        "Wolff–Parkinson–White syndrome",
+        "Ventricular tachycardia",
+        "Atrial flutter with 2:1 block",
+        "Tachy-brady syndrome",
+        "Long QT syndrome"],
+      correctIndex:3,
+      explanation:[
+        "Paroxysmal atrial fibrillation terminating into a long pause before sinus rhythm resumes is TACHY-BRADY SYNDROME (part of sick sinus syndrome) – the tachyarrhythmia overdrive-suppresses an already diseased SA node, so when it stops the node is slow to recover.",
+        "WPW, VT, atrial flutter and long QT (A, B, C, E) can all cause palpitations or syncope but do not show this AF-terminating-into-a-pause pattern."
+      ] },
+    { id:"brady-011", type:"mcq", objective:"sss-pace-first",
+      question:"A patient with tachy-brady syndrome (paroxysmal AF alternating with symptomatic sinus pauses) needs treatment for the AF. Why is a permanent pacemaker generally implanted first?",
+      options:[
+        "Rate-limiting drugs for the AF would worsen the bradycardia and pauses",
+        "Anticoagulation cannot be started until a pacemaker is in place",
+        "The pacemaker cures the atrial fibrillation",
+        "Beta-blockers are contraindicated in all pacemaker patients",
+        "A pacemaker removes the need for anticoagulation"],
+      correctIndex:0,
+      explanation:[
+        "Drugs used to rate-control or suppress the AF (beta-blockers, rate-limiting calcium-channel blockers, antiarrhythmics) also SLOW the SA node, worsening the bradycardia and pauses – so a pacemaker is implanted first, making it safe to then use these drugs.",
+        "The pacemaker does not cure the AF (C) or remove the need for anticoagulation (E); beta-blockers are not contraindicated in pacemaker patients (D), and anticoagulation does not depend on the device (B)."
+      ] },
+    { id:"brady-012", type:"mcq", objective:"sss-af-anticoagulation",
+      question:"An 80-year-old man with tachy-brady syndrome has paroxysmal AF, and a permanent pacemaker is planned. He is hypertensive and had a TIA last year. He lives alone and has had two mechanical falls in the past year. What is the most appropriate approach to stroke prevention?",
+      options:[
+        "Withhold anticoagulation because of his falls risk",
+        "Anticoagulate with a DOAC – his stroke risk outweighs the falls risk",
+        "Aspirin, as a safer alternative given the falls",
+        "Anticoagulate only once the pacemaker is in place",
+        "No anticoagulation, since the pacemaker will control the arrhythmia"],
+      correctIndex:1,
+      explanation:[
+        "Paroxysmal AF carries the SAME stroke risk as persistent AF, and with his age, hypertension and prior TIA his risk is high – so he should be ANTICOAGULATED (a DOAC), as the stroke-prevention benefit outweighs the falls-related bleeding risk.",
+        "Withholding anticoagulation for the falls risk (A) is the classic error, aspirin (C) is ineffective for AF stroke prevention, there is no reason to delay for the pacemaker (D), and the device treats the bradycardia, not the stroke risk (E)."
+      ] },
+    { id:"brady-013", type:"mcq", objective:"sss-chronotropic-incompetence",
+      question:"A 70-year-old woman with sick sinus syndrome is breathless and fatigued on exertion. On an exercise test her heart rate rises only from 58 to 74 bpm at peak effort. What does this demonstrate?",
+      options:[
+        "Exercise-induced ischaemia",
+        "A normal physiological response",
+        "A beta-blocker effect",
+        "Chronotropic incompetence",
+        "Ventricular tachycardia"],
+      correctIndex:3,
+      explanation:[
+        "A heart rate that fails to rise appropriately with exercise (here only 58 to 74/min at peak effort) is CHRONOTROPIC INCOMPETENCE – a feature of sick sinus syndrome, helped by a rate-responsive pacemaker.",
+        "A normal response (B) would be a much greater rate rise, there is no chest pain or ST change to suggest ischaemia (A), she is on no beta-blocker (C), and this is not ventricular tachycardia (E)."
+      ] },
+    { id:"brady-014", type:"mcq", objective:"sss-loop-recorder",
+      question:"A 68-year-old man has roughly monthly episodes of dizziness suspected to be sick sinus syndrome. His resting ECG and a 24-hour Holter monitor are both normal. What is the most appropriate next investigation?",
+      options:[
+        "Repeat the same 24-hour Holter monthly",
+        "An echocardiogram",
+        "An implantable loop recorder",
+        "A CT coronary angiogram",
+        "Reassure; no further investigation"],
+      correctIndex:2,
+      explanation:[
+        "Symptoms occurring only about monthly are too infrequent for a 24-hour Holter to capture, so an IMPLANTABLE LOOP RECORDER – which monitors for months to years – is needed to achieve symptom-rhythm correlation.",
+        "Repeating the same 24-hour monitor (A) is unlikely to catch a monthly event, an echocardiogram (B) and CT coronary angiogram (D) assess different problems, and reassurance (E) is unsafe with unexplained blackouts."
+      ] },
+    { id:"brady-015", type:"mcq", objective:"sss-definitive-pacemaker",
+      question:"An 80-year-old woman with sick sinus syndrome has recurrent syncope clearly correlated with symptomatic sinus pauses. There is no reversible cause and she takes no rate-slowing drugs. What is the definitive treatment?",
+      options:[
+        "Long-term atropine",
+        "Oral theophylline",
+        "Reassurance and observation",
+        "A beta-blocker",
+        "Permanent pacemaker"],
+      correctIndex:4,
+      explanation:[
+        "She has symptomatic sick sinus syndrome – syncope correlated with pauses – with no reversible cause and no offending drugs, so the definitive treatment is a PERMANENT PACEMAKER.",
+        "Atropine and theophylline (A, B) are not long-term solutions, observation (C) is unsafe given the syncope, and a beta-blocker (D) would worsen the bradycardia."
+      ] },
+    { id:"brady-016", type:"saq", objective:"sss-commonest-pathology",
+      question:"An 82-year-old woman has symptomatic sick sinus syndrome with no drug or systemic cause found. Name the commonest underlying pathological process responsible.",
+      answer:"Idiopathic degenerative fibrosis",
+      accept:["fibrosis","degenerative fibrosis","idiopathic fibrosis","age-related fibrosis","sinoatrial fibrosis","SA node fibrosis","idiopathic degenerative fibrosis","fibrosis of the SA node"],
+      markPoints:[
+        "Idiopathic, age-related degenerative fibrosis of the SA node",
+        "The commonest intrinsic cause of sick sinus syndrome, typically in the elderly",
+        "Progressive fibrous replacement of sino-atrial nodal tissue impairing impulse generation"],
+      explanation:[
+        "The commonest intrinsic cause of sick sinus syndrome is idiopathic, age-related DEGENERATIVE FIBROSIS of the SA node – progressive fibrous replacement of nodal tissue that impairs impulse generation.",
+        "It typically affects the elderly and, once symptomatic and irreversible, is treated with a permanent pacemaker."
       ] }
 ]
 };
