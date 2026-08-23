@@ -4802,6 +4802,118 @@ window.MOCK_BANK = {
       explanation:[
         "The commonest intrinsic cause of sick sinus syndrome is idiopathic, age-related DEGENERATIVE FIBROSIS of the SA node – progressive fibrous replacement of nodal tissue that impairs impulse generation.",
         "It typically affects the elderly and, once symptomatic and irreversible, is treated with a permanent pacemaker."
+      ] },
+    { id:"brady-017", type:"mcq", objective:"avb-identify-first-degree",
+      image:"https://upload.wikimedia.org/wikipedia/commons/6/65/First_Degree_AV_Block_ECG_Unlabeled.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Andrewmeyerson, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>66 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>128/78 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.7 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A 62-year-old man attends his GP for a routine health check before starting at a gym. He feels well, with no chest pain, breathlessness, dizziness or blackouts, takes no regular medications, and his examination is normal. His observations and resting 12-lead ECG are shown. What does the ECG show?",
+      options:[
+        "Second-degree AV block, Mobitz I",
+        "Second-degree AV block, Mobitz II",
+        "Complete heart block",
+        "A normal PR interval",
+        "First-degree AV block"],
+      correctIndex:4,
+      explanation:[
+        "Every P wave is followed by a QRS with a FIXED but prolonged PR interval (over 200 ms) – FIRST-DEGREE AV block. No beats are dropped; conduction is simply delayed.",
+        "Mobitz I (A) shows progressive PR lengthening then a dropped beat, Mobitz II (B) a constant PR then a sudden dropped beat, complete heart block (C) has independent P waves and QRS, and a normal PR (D) is 200 ms or less."
+      ] },
+    { id:"brady-018", type:"mcq", objective:"avb-first-degree-management",
+      question:"A 55-year-old man has a 12-lead ECG performed as part of a routine insurance medical, which incidentally shows first-degree AV block (PR interval 240 ms). He takes no rate-slowing medication. What is the most appropriate management?",
+      options:[
+        "No treatment; reassurance",
+        "Routine referral to cardiology",
+        "Permanent pacemaker",
+        "Atropine",
+        "Urgent cardiology admission"],
+      correctIndex:0,
+      explanation:[
+        "Isolated first-degree AV block in an asymptomatic person is BENIGN and needs no treatment beyond reassurance – it does not itself progress to dangerous block.",
+        "Routine cardiology referral (B) is the over-referral trap; a pacemaker (C), atropine (D) and urgent admission (E) are all inappropriate escalation for a benign incidental finding."
+      ] },
+    { id:"brady-019", type:"mcq", objective:"avb-identify-mobitz1",
+      image:"https://upload.wikimedia.org/wikipedia/commons/b/b4/Type_I_A-V_block_5-to-4_Wenckebach_periods.png",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>58 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>122/76 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.6 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A 48-year-old woman attends pre-operative assessment before an elective hernia repair. She is asymptomatic and takes no rate-slowing medication. Her observations and a recorded rhythm strip are shown. What does the rhythm strip show?",
+      options:[
+        "Second-degree AV block, Mobitz II",
+        "Second-degree AV block, Mobitz I",
+        "First-degree AV block",
+        "Complete heart block",
+        "Sinus arrhythmia"],
+      correctIndex:1,
+      explanation:[
+        "The PR interval lengthens progressively beat-to-beat until a P wave fails to conduct and a QRS is dropped, then the cycle resets – MOBITZ I (Wenckebach) second-degree AV block, a nodal and usually benign pattern.",
+        "Mobitz II (A) has a constant PR then a sudden drop, first-degree block (C) drops no beats, complete heart block (D) shows AV dissociation, and sinus arrhythmia (E) varies the P-P interval with respiration but drops no QRS."
+      ] },
+    { id:"brady-020", type:"mcq", objective:"avb-mobitz1-significance",
+      question:"A 30-year-old fit man has Mobitz I AV block on a Holter monitor performed for palpitations, occurring mainly at night. He is asymptomatic. What is the most likely significance?",
+      options:[
+        "Usually benign, at the level of the AV node",
+        "Infranodal – it needs a pacemaker",
+        "It indicates significant coronary disease",
+        "It requires immediate cardiology admission",
+        "It is a form of complete heart block"],
+      correctIndex:0,
+      explanation:[
+        "Mobitz I is typically a NODAL, benign block, common in people with high vagal tone – such as fit young adults and during sleep – and needs no treatment when asymptomatic.",
+        "Calling it infranodal and pacing it (B) confuses it with Mobitz II; it does not signify coronary disease (C), warrant admission (D), or equate to complete heart block (E)."
+      ] },
+    { id:"brady-021", type:"mcq", objective:"avb-mobitz1-symptomatic",
+      question:"A 75-year-old man has Mobitz I AV block with recurrent dizziness. No reversible cause is found and he takes no rate-slowing drugs. What is the most appropriate management?",
+      options:[
+        "Reassurance; no treatment",
+        "Long-term atropine",
+        "Permanent pacemaker",
+        "A beta-blocker",
+        "No follow-up needed"],
+      correctIndex:2,
+      explanation:[
+        "Mobitz I is usually benign, but when it causes SYMPTOMS (recurrent dizziness) with no reversible cause, symptomatic bradycardia is an indication for a PERMANENT PACEMAKER.",
+        "Reassurance or no follow-up (A, E) is the trap of assuming Mobitz I is always benign; atropine (B) is not a long-term solution and a beta-blocker (D) would worsen the block."
+      ] },
+    { id:"brady-022", type:"mcq", objective:"avb-distinguish-mobitz",
+      question:"Which single feature best distinguishes Mobitz I from Mobitz II second-degree AV block on the ECG?",
+      options:[
+        "The QRS complex is always broad in Mobitz I",
+        "Mobitz I always drops more consecutive beats than Mobitz II",
+        "Only Mobitz II has visible preceding P waves",
+        "Progressive PR lengthening before the drop, versus a constant PR",
+        "The underlying atrial rate differs between the two"],
+      correctIndex:3,
+      explanation:[
+        "The defining difference is the PR interval before the dropped beat: it LENGTHENS progressively in Mobitz I (Wenckebach), but stays CONSTANT in Mobitz II.",
+        "Mobitz I QRS is usually narrow not broad (A), the number of dropped beats does not distinguish them (B), both have P waves (C), and the atrial rate is not the discriminator (E)."
+      ] },
+    { id:"brady-023", type:"mcq", objective:"avb-first-degree-inferior-mi",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>58 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>118/70 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A patient with an acute inferior STEMI develops first-degree AV block with a PR interval of 260 ms. His observations are shown. What is the most appropriate management of the conduction abnormality?",
+      options:[
+        "Immediate insertion of a permanent pacemaker",
+        "Immediate transvenous (temporary wire) pacing",
+        "Systemic thrombolysis to treat the block",
+        "Stop all reperfusion therapy immediately",
+        "Monitor; it is usually transient and self-resolving"],
+      correctIndex:4,
+      explanation:[
+        "AV block complicating an inferior MI is at the AV NODE (vagally mediated, RCA territory) and is usually transient, resolving with reperfusion – so first-degree block here just needs MONITORING.",
+        "A permanent pacemaker (A) or transvenous pacing (B) is unnecessary for stable first-degree block, and thrombolysis for the block or stopping reperfusion (C, D) makes no sense."
+      ] },
+    { id:"brady-024", type:"saq", objective:"avb-pr-threshold",
+      question:"A patient's ECG is reported as first-degree AV block, defined by prolongation of the PR interval. Above what PR duration (in milliseconds) is it considered prolonged?",
+      answer:"200 ms",
+      accept:["200","200 ms","200ms","0.2 s","0.2 seconds","200 milliseconds","one large square",">200 ms","over 200 ms"],
+      markPoints:[
+        "A PR interval greater than 200 ms (0.2 seconds, or one large square)",
+        "Measured from the start of the P wave to the start of the QRS complex",
+        "In first-degree block every P wave still conducts – the PR is prolonged but constant"],
+      explanation:[
+        "First-degree AV block is defined by a PR interval greater than 200 ms (0.2 seconds, or one large square on standard ECG paper), measured from the start of the P wave to the start of the QRS.",
+        "Every P wave still conducts to the ventricles – the PR is uniformly prolonged, with no dropped beats."
       ] }
 ]
 };
