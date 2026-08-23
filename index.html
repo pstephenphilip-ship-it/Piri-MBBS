@@ -5024,6 +5024,116 @@ window.MOCK_BANK = {
       explanation:[
         "Mobitz II block arises in the HIS-PURKINJE system, below the AV node (infranodal) – which is why the QRS is often broad, the escape rhythm unreliable and atropine ineffective.",
         "This infranodal location is the reason Mobitz II carries a high risk of complete heart block and needs pacing."
+      ] },
+    { id:"brady-033", type:"mcq", objective:"chb-identify",
+      image:"https://upload.wikimedia.org/wikipedia/commons/9/9a/Complete_A-V_block_with_resulting_junctional_escape.png",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>42 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>108/70 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 78-year-old man with a background of hypertension and type 2 diabetes is brought to the emergency department after three sudden blackouts over the past week, each with no warning and full recovery within a minute. He has felt generally tired and occasionally lightheaded. He takes amlodipine and metformin, and no beta-blockers or other rate-slowing drugs. His observations and rhythm strip are shown. What does the rhythm strip show?",
+      options:[
+        "Second-degree AV block, Mobitz II",
+        "Second-degree AV block, Mobitz I",
+        "Complete (third-degree) heart block",
+        "First-degree AV block",
+        "Sinus bradycardia"],
+      correctIndex:2,
+      explanation:[
+        "The P waves and QRS complexes are completely INDEPENDENT – a regular P-P and a regular but slower R-R at different rates, with no fixed PR relationship – this is COMPLETE (third-degree) heart block with an escape rhythm.",
+        "Mobitz II (A) and Mobitz I (B) keep a relationship between P waves and conducted QRS, first-degree block (D) conducts every beat, and sinus bradycardia (E) has a P before every QRS with a normal PR."
+      ] },
+    { id:"brady-034", type:"mcq", objective:"chb-narrow-escape",
+      question:"A patient in complete heart block has a narrow-complex escape rhythm at 50 bpm. What does the narrow QRS tell you about the escape?",
+      options:[
+        "It arises high (junctional/His bundle) and is relatively reliable",
+        "It arises down in the ventricles and is therefore unreliable",
+        "It proves that the block must be infranodal",
+        "It means that pacing will never be required",
+        "It confirms that there is an anterior myocardial infarction"],
+      correctIndex:0,
+      explanation:[
+        "A NARROW-complex escape arises high in the conduction system (junctional or His-bundle), typically at 40–60 bpm, and is relatively RELIABLE – it may even respond to atropine and is often due to a reversible cause.",
+        "A broad escape (B) arises in the ventricles and is unreliable; a narrow escape does not prove infranodal disease (C), does not remove the possible need for pacing (D), and does not confirm an anterior MI (E)."
+      ] },
+    { id:"brady-035", type:"mcq", objective:"chb-broad-escape-mgmt",
+      question:"A patient in complete heart block has a broad-complex escape rhythm at 32 bpm and has just had a syncopal episode. What is the most appropriate management?",
+      options:[
+        "Reassurance, since the escape rhythm is adequate",
+        "Urgent pacing — the broad, slow escape is unreliable",
+        "Atropine alone will reliably correct the rhythm",
+        "Discharge home with routine outpatient follow-up",
+        "A beta-blocker to help stabilise the escape rhythm"],
+      correctIndex:1,
+      explanation:[
+        "A broad-complex escape under 40 bpm is a low, INFRANODAL (ventricular) escape that is slow and UNRELIABLE and can fail without warning (Stokes-Adams) – with syncope this needs urgent pacing, then a permanent pacemaker.",
+        "Reassurance or discharge (A, D) is dangerous, atropine (C) is ineffective on an infranodal escape, and a beta-blocker (E) would worsen it."
+      ] },
+    { id:"brady-036", type:"mcq", objective:"chb-stokes-adams",
+      question:"A 72-year-old man has sudden collapses with loss of consciousness. Each time he goes pale, recovers within 30 seconds with facial flushing, and is immediately lucid, with no confusion, tongue-biting or incontinence. What is the most likely cause?",
+      options:[
+        "A generalised tonic-clonic epileptic seizure",
+        "A vasovagal (neurocardiogenic) faint",
+        "A transient ischaemic attack (TIA)",
+        "A Stokes-Adams attack from complete heart block",
+        "A hypoglycaemic episode"],
+      correctIndex:3,
+      explanation:[
+        "Sudden loss of consciousness with pallor, then flushing on recovery, and immediate lucidity with NO post-ictal phase, tongue-biting or incontinence is a STOKES-ADAMS attack – transient asystole or a very slow escape in complete heart block.",
+        "A seizure (A) has a post-ictal phase and often tongue-biting/incontinence, a vasovagal faint (B) has a prodrome and trigger, a TIA (C) causes focal deficits rather than collapse, and hypoglycaemia (E) comes on gradually."
+      ] },
+    { id:"brady-037", type:"mcq", objective:"chb-reversible-digoxin",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Digoxin level</td><td><b>3.8 &micro;g/L</b></td><td>0.8&ndash;2.0</td></tr><tr><td>Potassium</td><td><b>5.9 mmol/L</b></td><td>3.5&ndash;5.3</td></tr><tr><td>Heart rate</td><td><b>46 bpm</b></td><td>60&ndash;100</td></tr></table>',
+      question:"An 80-year-old man on long-term digoxin presents with complete heart block and a narrow-complex escape. His results are shown. What is the most appropriate initial management?",
+      options:[
+        "Insert an immediate permanent pacemaker",
+        "Continue the digoxin and simply observe",
+        "Start a beta-blocker to control the rhythm",
+        "Give an intravenous calcium-channel blocker",
+        "Stop the digoxin and treat the toxicity"],
+      correctIndex:4,
+      explanation:[
+        "Digoxin toxicity – a high level with hyperkalaemia – is a REVERSIBLE cause of complete heart block: stop the digoxin, treat the toxicity (correct potassium, consider digoxin-specific antibody), and the block will often resolve without a permanent pacemaker.",
+        "A permanent pacemaker (A) is premature before treating the reversible cause; continuing digoxin (B) is dangerous, and a beta-blocker (C) or calcium-channel blocker (D) would worsen the block."
+      ] },
+    { id:"brady-038", type:"mcq", objective:"chb-permanent-vs-temporary",
+      question:"A patient is admitted with complete heart block. In deciding whether they will need a permanent pacemaker or only temporary pacing, which factor is most important?",
+      options:[
+        "Whether the escape rhythm is broad or narrow",
+        "The absolute heart rate at presentation",
+        "Whether the underlying cause is reversible",
+        "Whether the patient is currently symptomatic",
+        "The presence of a bundle branch block on old ECGs"],
+      correctIndex:2,
+      explanation:[
+        "The key determinant of PERMANENT versus TEMPORARY pacing is whether the cause is REVERSIBLE – block from drugs, electrolyte disturbance or an inferior MI is often transient and needs only temporary support while the cause is corrected, whereas irreversible conduction disease needs a permanent pacemaker.",
+        "The escape width, heart rate, current symptoms and an old bundle branch block (A, B, D, E) all inform risk and urgency, but none decides permanent-versus-temporary the way reversibility does."
+      ] },
+    { id:"brady-039", type:"categorize", objective:"chb-escape-sort",
+      question:"Sort each feature by whether it belongs to a narrow-complex (His-bundle) or a broad-complex (ventricular) escape rhythm in complete heart block.",
+      buckets:["Narrow-complex escape (His bundle)","Broad-complex escape (ventricular)"],
+      items:[
+        {text:"Rate 40–60 bpm",bucket:0},
+        {text:"May respond to IV atropine",bucket:0},
+        {text:"Often due to a reversible cause (e.g. inferior MI)",bucket:0},
+        {text:"Rate under 40 bpm",bucket:1},
+        {text:"Unreliable, causing Stokes-Adams attacks",bucket:1},
+        {text:"Permanent pacemaker mandatory",bucket:1}
+      ],
+      explanation:[
+        "A NARROW-complex escape arises high (junctional/His bundle): rate 40–60 bpm, may respond to atropine, and is often due to a reversible cause such as inferior MI – relatively reliable.",
+        "A BROAD-complex escape arises low in the ventricles: rate under 40 bpm, unreliable with Stokes-Adams attacks, and mandates a permanent pacemaker."
+      ] },
+    { id:"brady-040", type:"saq", objective:"chb-av-dissociation",
+      question:"In complete heart block the P waves and QRS complexes beat completely independently of one another on the ECG. Name this phenomenon.",
+      answer:"AV dissociation",
+      accept:["AV dissociation","atrioventricular dissociation","complete AV dissociation","A-V dissociation","atrio-ventricular dissociation"],
+      markPoints:[
+        "Atrioventricular (AV) dissociation",
+        "The P waves and QRS complexes are independent – regular P-P and R-R at different rates",
+        "The atrial rate is faster than the slower ventricular escape rate"],
+      explanation:[
+        "In complete heart block the atria and ventricles are driven independently – AV DISSOCIATION – with a regular P-P and a regular but slower R-R and no fixed relationship between them.",
+        "The atrial (P) rate is faster than the ventricular escape rate, which is what sustains perfusion."
       ] }
 ]
 };
