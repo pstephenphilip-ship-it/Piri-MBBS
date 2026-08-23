@@ -859,7 +859,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   function planLoad(){
     try{ var v=JSON.parse(localStorage.getItem(PKEY)||'null'); if(Array.isArray(v)) return v; }catch(e){}
     // One-time migration of the old single shared note into the first planner note.
-    try{ var old=localStorage.getItem(NKEY); if(old && old.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'').trim()){ var seed=[{id:daUid(),title:'My Notes',html:old}]; planSaveList(seed); return seed; } }catch(e){}
+    try{ var old=localStorage.getItem(NKEY); if(old && old.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'').trim()){ var seed=[{id:''+daUid(),title:'My Notes',html:old}]; planSaveList(seed); return seed; } }catch(e){}
     return [];
   }
   function planSaveList(list){ try{ localStorage.setItem(PKEY, JSON.stringify(list)); }catch(e){} }
@@ -875,10 +875,10 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     if(!tabsEl||!edEl) return;
     var list=planLoad();
     if(!list.length){ tabsEl.innerHTML=''; edEl.innerHTML='<div class="wc-plan-empty">No notes yet.<br>Tap <b>+ New note</b> to start a study plan, checklist or scratchpad.</div>'; return; }
-    if(!planActiveId || !list.some(function(n){return n.id===planActiveId;})) planActiveId=list[0].id;
-    var active=null; list.forEach(function(n){ if(n.id===planActiveId) active=n; });
+    if(!planActiveId || !list.some(function(n){return String(n.id)===String(planActiveId);})) planActiveId=list[0].id;
+    var active=null; list.forEach(function(n){ if(String(n.id)===String(planActiveId)) active=n; });
     if(!active) active=list[0];
-    tabsEl.innerHTML=list.map(function(n){ return '<button class="wc-plan-tab'+(n.id===active.id?' active':'')+'" type="button" data-id="'+n.id+'" onclick="wcPlanSelect(\''+n.id+'\')">'+daEscHtml(n.title||'Untitled')+'</button>'; }).join('');
+    tabsEl.innerHTML=list.map(function(n){ return '<button class="wc-plan-tab'+(String(n.id)===String(active.id)?' active':'')+'" type="button" data-id="'+n.id+'" onclick="wcPlanSelect(\''+n.id+'\')">'+daEscHtml(n.title||'Untitled')+'</button>'; }).join('');
     edEl.innerHTML='<input class="wc-plan-title" type="text" placeholder="Note title" oninput="wcPlanTitle(this)">'
       +PLAN_TOOLBAR
       +'<div class="wc-plan-body js-plan-body" contenteditable="true" data-placeholder="Jot tasks, revision reminders, weak topics&hellip; (bold, bullets &amp; tick-boxes supported)" oninput="wcPlanBody(this)"></div>'
@@ -889,13 +889,13 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   window.wcPlanRenderAll=function(){ document.querySelectorAll('.wc-planner').forEach(planRenderOne); };
   // Flush the current editor's body into its note SYNCHRONOUSLY. Must run before switching notes,
   // else the 250ms debounce fires after planActiveId moved and writes the old body into the new note.
-  function planFlush(){ clearTimeout(planT); if(planActiveId==null) return; var el=document.querySelector('.wc-planner .js-plan-body'); if(!el) return; var list=planLoad(); var changed=false; list.forEach(function(n){ if(n.id===planActiveId && n.html!==el.innerHTML){ n.html=el.innerHTML; changed=true; } }); if(changed) planSaveList(list); }
-  window.wcPlanNew=function(){ planFlush(); var list=planLoad(); var n={id:daUid(),title:'',html:''}; list.push(n); planSaveList(list); planActiveId=n.id; window.wcPlanRenderAll(); var t=document.querySelector('.wc-planner .wc-plan-title'); if(t) t.focus(); };
+  function planFlush(){ clearTimeout(planT); if(planActiveId==null) return; var el=document.querySelector('.wc-planner .js-plan-body'); if(!el) return; var list=planLoad(); var changed=false; list.forEach(function(n){ if(String(n.id)===String(planActiveId) && n.html!==el.innerHTML){ n.html=el.innerHTML; changed=true; } }); if(changed) planSaveList(list); }
+  window.wcPlanNew=function(){ planFlush(); var list=planLoad(); var n={id:''+daUid(),title:'',html:''}; list.push(n); planSaveList(list); planActiveId=n.id; window.wcPlanRenderAll(); var t=document.querySelector('.wc-planner .wc-plan-title'); if(t) t.focus(); };
   window.wcPlanSelect=function(id){ planFlush(); planActiveId=id; window.wcPlanRenderAll(); };
-  window.wcPlanTitle=function(inp){ var list=planLoad(); list.forEach(function(n){ if(n.id===planActiveId) n.title=inp.value; }); planSaveList(list);
+  window.wcPlanTitle=function(inp){ var list=planLoad(); list.forEach(function(n){ if(String(n.id)===String(planActiveId)) n.title=inp.value; }); planSaveList(list);
     document.querySelectorAll('.wc-plan-tab[data-id="'+planActiveId+'"]').forEach(function(t){ t.textContent=inp.value||'Untitled'; }); };
-  window.wcPlanBody=function(el){ clearTimeout(planT); planT=setTimeout(function(){ var list=planLoad(); list.forEach(function(n){ if(n.id===planActiveId) n.html=el.innerHTML; }); planSaveList(list); },250); };
-  window.wcPlanDelete=function(){ clearTimeout(planT); var list=planLoad(); var i=-1; list.forEach(function(n,ix){ if(n.id===planActiveId) i=ix; }); if(i<0) return;
+  window.wcPlanBody=function(el){ clearTimeout(planT); planT=setTimeout(function(){ var list=planLoad(); list.forEach(function(n){ if(String(n.id)===String(planActiveId)) n.html=el.innerHTML; }); planSaveList(list); },250); };
+  window.wcPlanDelete=function(){ clearTimeout(planT); var list=planLoad(); var i=-1; list.forEach(function(n,ix){ if(String(n.id)===String(planActiveId)) i=ix; }); if(i<0) return;
     var n=list[i]; var hasContent=(n.title||'').trim() || (n.html||'').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'').trim();
     if(hasContent && !window.confirm('Delete this note? This cannot be undone.')) return;
     list.splice(i,1); planSaveList(list); planActiveId=list.length?list[Math.max(0,i-1)].id:null; window.wcPlanRenderAll(); };
