@@ -3932,6 +3932,101 @@ window.MOCK_BANK = {
       explanation:[
         "In an inferior MI with hypotension and clear lungs, record RIGHT-SIDED CHEST LEADS, especially V4R: ST elevation in V4R confirms right-ventricular infarction.",
         "The RV is preload-dependent, so these patients need cautious fluids and must avoid nitrates and diuretics."
+      ] },
+    { id:"ahf-044", type:"categorize", objective:"ahf-four-pillars-sort",
+      question:"Sort each drug by whether it is one of the four disease-modifying pillars of HFrEF, or a symptomatic/other agent.",
+      buckets:["Disease-modifying pillar","Symptomatic or not a pillar"],
+      items:[
+        {text:"An ARNI (sacubitril–valsartan)",bucket:0},
+        {text:"A beta-blocker (bisoprolol)",bucket:0},
+        {text:"An MRA (spironolactone)",bucket:0},
+        {text:"An SGLT2 inhibitor (dapagliflozin)",bucket:0},
+        {text:"A loop diuretic (furosemide)",bucket:1},
+        {text:"Digoxin",bucket:1},
+        {text:"Ivabradine",bucket:1}
+      ],
+      explanation:[
+        "The four prognostic PILLARS of HFrEF are an ARNI (or ACE inhibitor/ARB), a beta-blocker, an MRA and an SGLT2 inhibitor – each reduces mortality.",
+        "The traps are drugs a heart-failure patient is commonly on that do NOT change mortality this way: the loop diuretic (symptomatic decongestion), digoxin (rate/symptom control) and ivabradine (a later add-on)."
+      ] },
+    { id:"ahf-045", type:"mcq", objective:"ahf-hfpef-therapy",
+      question:"A patient with HFpEF (ejection fraction 60%) is being optimised after an admission. Which is the most appropriate disease-modifying approach?",
+      options:[
+        "The full four pillars of therapy, as used in HFrEF",
+        "An ACE inhibitor, beta-blocker and MRA for prognosis",
+        "An SGLT2 inhibitor, diuretics and comorbidity control",
+        "A beta-blocker and ARNI combination",
+        "No drug therapy is of any benefit"],
+      correctIndex:2,
+      explanation:[
+        "In HFpEF the four pillars do NOT carry the same mortality benefit as in HFrEF. The evidence-based drug is an SGLT2 INHIBITOR, alongside diuretics to control congestion and aggressive management of comorbidities (hypertension, AF, obesity).",
+        "Applying the full HFrEF regimen (options A, B and D) is the trap; drug therapy does help (E is wrong)."
+      ] },
+    { id:"ahf-046", type:"mcq", objective:"ahf-betablocker-continue",
+      question:"A patient admitted with decompensated HFrEF takes bisoprolol at home. He is now haemodynamically stable with a heart rate of 72. What should happen to his beta-blocker?",
+      options:[
+        "Stop it permanently, as beta-blockers worsen heart failure",
+        "Continue it; withhold only if unstable or bradycardic",
+        "Stop it now and never restart",
+        "Double the dose acutely to control the failure",
+        "Switch to a calcium-channel blocker"],
+      correctIndex:1,
+      explanation:[
+        "Beta-blockers are PROGNOSTIC in HFrEF and should be CONTINUED through an admission, withheld only if the patient is haemodynamically unstable or significantly bradycardic – and restarted before discharge if temporarily stopped.",
+        "Stopping them (A, C) worsens outcomes, and acute up-titration (D) during decompensation is harmful."
+      ] },
+    { id:"ahf-047", type:"mcq", objective:"ahf-iv-to-oral-diuretic",
+      data:'<div class="mk-obs-h">Current status</div><table class="mk-labs"><tr><td>Weight change</td><td><b>-4 kg, now settled</b></td><td></td></tr><tr><td>Chest</td><td><b>Clear</b></td><td></td></tr><tr><td>JVP</td><td><b>Normal</b></td><td></td></tr><tr><td>Oxygen</td><td><b>Off, SpO<sub>2</sub> 96% on air</b></td><td></td></tr></table>',
+      question:"A patient admitted with acute heart failure has responded well to IV furosemide. His status is shown. What is the most appropriate next step with his diuretic?",
+      options:[
+        "Continue the IV furosemide indefinitely",
+        "Stop all diuretics immediately",
+        "Increase the IV dose further",
+        "Switch to oral furosemide at the lowest dose",
+        "Add a second IV loop diuretic"],
+      correctIndex:3,
+      explanation:[
+        "Once the patient is EUVOLAEMIC (weight settled, chest clear, JVP normal, off oxygen), switch from IV to ORAL diuretic and find the lowest maintenance dose that keeps him decongested.",
+        "Continuing or increasing IV therapy (A, C, E) risks over-diuresis and acute kidney injury, while stopping entirely (B) risks re-accumulation."
+      ] },
+    { id:"ahf-048", type:"mcq", objective:"ahf-start-before-discharge",
+      question:"A patient with newly diagnosed HFrEF is improving and nearly ready for discharge. Regarding the disease-modifying drugs, what is the best approach?",
+      options:[
+        "Defer them to the routine outpatient clinic in a few months",
+        "Start them only if symptoms persist after discharge",
+        "The diuretic is the only drug that matters",
+        "Wait for the GP to initiate them",
+        "Start and uptitrate them before discharge, with early HF review"],
+      correctIndex:4,
+      explanation:[
+        "The admission is the OPPORTUNITY to start and begin up-titrating the four pillars – they change outcome, whereas the diuretic only treats congestion.",
+        "Deferring to a future clinic or the GP (A, B, D) wastes the highest-risk window; arrange early heart-failure-team review, as the weeks after discharge carry the greatest readmission risk."
+      ] },
+    { id:"ahf-049", type:"mcq", objective:"ahf-sglt2",
+      question:"Which statement about SGLT2 inhibitors (e.g. dapagliflozin) in heart failure is correct?",
+      options:[
+        "They benefit only patients with diabetes",
+        "They are contraindicated in heart failure",
+        "They cut HF hospitalisation in both HFrEF and HFpEF",
+        "They act mainly as a strong loop diuretic",
+        "They raise the ejection fraction to normal"],
+      correctIndex:2,
+      explanation:[
+        "SGLT2 INHIBITORS reduce heart-failure hospitalisation and cardiovascular death across the EF spectrum – in BOTH HFrEF and HFpEF – and independently of diabetes.",
+        "They have a mild natriuretic/osmotic-diuretic effect but do not replace a loop diuretic, and they do not normalise the ejection fraction."
+      ] },
+    { id:"ahf-050", type:"mcq", objective:"ahf-mra-monitoring",
+      question:"A patient with HFrEF is started on spironolactone as part of guideline therapy. Which is the most important monitoring, with a recognised side effect?",
+      options:[
+        "Monitor potassium and renal function; can cause gynaecomastia",
+        "Monitor the INR closely; it commonly causes major bleeding",
+        "Monitor liver function; it causes hepatitis",
+        "Monitor the QT interval; it causes torsades",
+        "No monitoring is needed"],
+      correctIndex:0,
+      explanation:[
+        "MRAs (spironolactone, eplerenone) can cause HYPERKALAEMIA and worsening renal function – especially alongside an ACE inhibitor or ARB – so potassium and renal function must be monitored.",
+        "Spironolactone also causes GYNAECOMASTIA through its anti-androgen effect; switching to eplerenone avoids this."
       ] }
 ]
 };
