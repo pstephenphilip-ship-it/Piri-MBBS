@@ -4914,6 +4914,116 @@ window.MOCK_BANK = {
       explanation:[
         "First-degree AV block is defined by a PR interval greater than 200 ms (0.2 seconds, or one large square on standard ECG paper), measured from the start of the P wave to the start of the QRS.",
         "Every P wave still conducts to the ventricles – the PR is uniformly prolonged, with no dropped beats."
+      ] },
+    { id:"brady-025", type:"mcq", objective:"avb-identify-mobitz2",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/a7/B9431a_copy_alt_copy.png",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>50 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>124/76 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 68-year-old man reports several episodes of sudden dizziness. He feels well now, and his observations and a recorded rhythm strip are shown. What does the rhythm strip show?",
+      options:[
+        "Mobitz I (Wenckebach)",
+        "Mobitz II second-degree AV block",
+        "First-degree AV block",
+        "Complete heart block",
+        "Sinus arrhythmia"],
+      correctIndex:1,
+      explanation:[
+        "The PR interval is CONSTANT and then a P wave suddenly fails to conduct, with no preceding lengthening – MOBITZ II second-degree AV block.",
+        "Mobitz I (A) shows progressive PR lengthening before the drop, first-degree block (C) drops no beats, complete heart block (D) has full AV dissociation, and sinus arrhythmia (E) simply varies the P-P interval with respiration."
+      ] },
+    { id:"brady-026", type:"mcq", objective:"avb-mobitz2-danger",
+      question:"Compared with Mobitz I, why is Mobitz II second-degree AV block considered dangerous?",
+      options:[
+        "It is a nodal block and is almost always entirely benign",
+        "It reliably responds to intravenous atropine, like nodal block",
+        "It occurs only in young athletes with high vagal tone",
+        "It is infranodal, with a high risk of progression to complete heart block",
+        "It never requires a pacemaker as the escape is reliable"],
+      correctIndex:3,
+      explanation:[
+        "Mobitz II is an INFRANODAL (His-Purkinje) block, and it can progress SUDDENLY and without warning to complete heart block – which is why it is treated even when asymptomatic.",
+        "It is not a benign nodal block (A), does not respond reliably to atropine (B), is not confined to athletes (C), and does need a pacemaker because its escape is unreliable (E)."
+      ] },
+    { id:"brady-027", type:"mcq", objective:"avb-mobitz2-pace",
+      question:"A 70-year-old woman has Mobitz II AV block on her ECG. She currently feels well, with no syncope. What is the most appropriate management?",
+      options:[
+        "Permanent pacemaker, even though she is asymptomatic",
+        "Reassurance; review only if symptoms develop",
+        "Atropine as needed",
+        "Routine outpatient follow-up with no intervention",
+        "Start a beta-blocker"],
+      correctIndex:0,
+      explanation:[
+        "Mobitz II is an indication for a PERMANENT PACEMAKER regardless of symptoms, because of its high and unpredictable risk of progressing to complete heart block.",
+        "Waiting for symptoms (B), using atropine (C), simple follow-up (D) or a beta-blocker (E) all leave her exposed to sudden complete block."
+      ] },
+    { id:"brady-028", type:"mcq", objective:"avb-2to1-ambiguity",
+      image:"https://upload.wikimedia.org/wikipedia/commons/b/b8/2to1block.jpg",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A patient's rhythm strip is shown. How should it be classified?",
+      options:[
+        "It is definitely Mobitz I (Wenckebach) conduction",
+        "It cannot be classified as Mobitz I or II from 2:1 alone",
+        "It is definitely Mobitz II second-degree block",
+        "It is complete (third-degree) heart block",
+        "It is simply first-degree AV block"],
+      correctIndex:1,
+      explanation:[
+        "With 2:1 conduction only every other P wave conducts, so there are never two consecutive conducted beats to reveal whether the PR interval lengthens – it therefore CANNOT be classified as Mobitz I or II from the 2:1 pattern alone.",
+        "Calling it definitely Mobitz I or II (A, C) is wrong; the P waves and QRS are related, not dissociated as in complete block (D), and beats are dropped, so it is not first-degree block (E). QRS width and other clues help judge the likely level."
+      ] },
+    { id:"brady-029", type:"mcq", objective:"avb-high-grade",
+      question:"A patient's ECG shows two or more consecutive P waves that fail to conduct, with a constant PR interval on the conducted beats (for example 3:1 conduction). How is this best described, and what does it warrant?",
+      options:[
+        "A normal variant needing no action",
+        "First-degree AV block needing only reassurance",
+        "Mobitz I that can simply be observed",
+        "High-grade (advanced) AV block that warrants pacing",
+        "A sinus pause needing no treatment"],
+      correctIndex:3,
+      explanation:[
+        "Two or more consecutive non-conducted P waves is HIGH-GRADE (advanced) AV block – it is unstable, usually infranodal, and warrants pacing.",
+        "It is neither a normal variant (A), first-degree block (B), simple Mobitz I to observe (C), nor a sinus pause (E), all of which under-rate a dangerous rhythm."
+      ] },
+    { id:"brady-030", type:"mcq", objective:"avb-atropine-infranodal",
+      question:"A patient with symptomatic Mobitz II AV block is given atropine. Why is this unlikely to help and may even worsen the situation?",
+      options:[
+        "It accelerates conduction through the diseased His-Purkinje tissue",
+        "It slows the atrial rate and so causes even more dropped beats",
+        "It speeds the atria but not infranodal conduction, worsening the block ratio",
+        "The block is nodal, so atropine is strictly contraindicated",
+        "It directly suppresses the ventricular escape rhythm below the block"],
+      correctIndex:2,
+      explanation:[
+        "Mobitz II block is INFRANODAL (His-Purkinje). Atropine acts on the vagally-innervated AV node, so it speeds the atrial rate without improving conduction below the block – more P waves then arrive that cannot get through, so the block ratio can WORSEN and the ventricular rate fall.",
+        "Atropine does not accelerate His-Purkinje conduction (A) or suppress the escape (E); it speeds rather than slows the atria (B), and the block is infranodal, not nodal (D)."
+      ] },
+    { id:"brady-031", type:"mcq", objective:"avb-anterior-mi-mobitz2",
+      question:"A patient with an acute anterior STEMI develops Mobitz II AV block with a broad QRS. What does this indicate about the level and prognosis?",
+      options:[
+        "AV nodal block that will likely resolve with reperfusion, as in inferior MI",
+        "A rate-related bundle branch aberrancy rather than a true AV block",
+        "Established complete heart block that requires no further monitoring",
+        "A stable escape rhythm that makes temporary pacing unnecessary",
+        "Infranodal (His-Purkinje) block with an unreliable escape and a poor prognosis"],
+      correctIndex:4,
+      explanation:[
+        "An anterior MI infarcts the interventricular septum and the HIS-PURKINJE system, so block here is INFRANODAL with a broad, slow, unreliable escape and a POOR prognosis – it needs urgent pacing.",
+        "Unlike inferior-MI (nodal) block it will not reliably resolve with reperfusion (A), the broad QRS reflects true infranodal disease not rate-related aberrancy (B), it is Mobitz II rather than established complete block (C), and the escape is unreliable, so pacing IS needed (D)."
+      ] },
+    { id:"brady-032", type:"saq", objective:"avb-mobitz2-level",
+      question:"Mobitz II second-degree AV block arises below the AV node. Name the region of the conduction system where it arises.",
+      answer:"His-Purkinje system",
+      accept:["His-Purkinje","His-Purkinje system","infranodal","bundle of His","His bundle","His-Purkinje conduction system","below the AV node"],
+      markPoints:[
+        "The His-Purkinje system (infranodal conduction tissue)",
+        "Situated below the AV node, hence the term infranodal",
+        "Explains the broad QRS, the unreliable escape and why atropine does not help"],
+      explanation:[
+        "Mobitz II block arises in the HIS-PURKINJE system, below the AV node (infranodal) – which is why the QRS is often broad, the escape rhythm unreliable and atropine ineffective.",
+        "This infranodal location is the reason Mobitz II carries a high risk of complete heart block and needs pacing."
       ] }
 ]
 };
