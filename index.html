@@ -4028,6 +4028,120 @@ window.MOCK_BANK = {
         "MRAs (spironolactone, eplerenone) can cause HYPERKALAEMIA and worsening renal function – especially alongside an ACE inhibitor or ARB – so potassium and renal function must be monitored.",
         "Spironolactone also causes GYNAECOMASTIA through its anti-androgen effect; switching to eplerenone avoids this."
       ] }
+],
+"conditions__CARDIOVASCULAR__Aortic Dissection": [
+    { id:"aod-001", type:"mcq", objective:"aod-pathophysiology",
+      question:"In acute aortic dissection, what is the primary initiating event?",
+      options:[
+        "An intimal tear, letting blood track into the media",
+        "Rupture of a vulnerable atheromatous plaque",
+        "Aneurysmal dilatation of all three wall layers",
+        "Inflammation of the vasa vasorum",
+        "Embolic occlusion of the aortic lumen"],
+      correctIndex:0,
+      explanation:[
+        "Dissection begins with an INTIMAL TEAR: blood is forced into the media, creating a false lumen that propagates along the wall.",
+        "B is the ACS mechanism, C is a true aneurysm (all three layers – the \'dissecting aneurysm\' confusion), D is aortitis and E is embolism – all plausible aortic or vascular processes, but only A is dissection."
+      ] },
+    { id:"aod-002", type:"mcq", objective:"aod-stanford-importance",
+      question:"In aortic dissection, why is the Stanford classification (Type A vs B) considered the clinically most important?",
+      options:[
+        "It quantifies the aortic diameter for surgical planning",
+        "It often guides whether treatment is surgical or medical",
+        "It determines the analgesic requirement",
+        "It predicts the long-term risk of aneurysm formation",
+        "It is interchangeable with the DeBakey classification"],
+      correctIndex:1,
+      explanation:[
+        "Stanford is prized because it steers management: ascending involvement (Type A) generally means surgery, while Type B is usually managed medically.",
+        "The distractors are each plausible things a classification could do – sizing (A), prognosis/aneurysm risk (D, genuinely tempting as aneurysm is the commonest long-term Type B complication), or being the same as DeBakey (E, the classic confusion) – but none is why Stanford is the clinical workhorse."
+      ] },
+    { id:"aod-003", type:"mcq", objective:"aod-ct-classify-typeb",
+      image:"https://upload.wikimedia.org/wikipedia/commons/0/0a/Descending_(Type_B_Stanford)_Aortic_Dissection.PNG",
+      imageAlt:"CT angiogram of the chest.",
+      imageCredit:"JasonRobertYoungMD, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 60-year-old man has sudden severe interscapular pain. His CT angiogram is shown. Based on where the dissection lies, how is it classified and initially managed?",
+      options:[
+        "Type A: surgical emergency",
+        "Type A: medical management",
+        "Type B: surgical emergency",
+        "Type B: medical if uncomplicated",
+        "Cannot be classified from CT"],
+      correctIndex:3,
+      explanation:[
+        "The flap lies in the DESCENDING aorta, distal to the left subclavian artery – Stanford B – which is managed MEDICALLY (blood-pressure and heart-rate control) unless complicated.",
+        "The distractors span the full type-by-management matrix, so both the reading of the scan and the Stanford management rule are needed to choose."
+      ] },
+    { id:"aod-004", type:"mcq", objective:"aod-retrograde-ar",
+      question:"A patient with a Stanford Type A aortic dissection develops acute pulmonary oedema and a new early-diastolic murmur at the left sternal edge. Retrograde extension to which structure best explains this?",
+      options:[
+        "The coronary ostia",
+        "The pericardium",
+        "The carotid arteries",
+        "The recurrent laryngeal nerve",
+        "The aortic valve"],
+      correctIndex:4,
+      explanation:[
+        "Flash pulmonary oedema with a new early-diastolic murmur is ACUTE AORTIC REGURGITATION, from the flap undermining the aortic valve.",
+        "Every distractor is a genuine proximal Type A complication with its own presentation: coronary ostia → MI (classically inferior), pericardium → tamponade, carotids → stroke, recurrent laryngeal nerve → hoarseness – so the clinical picture must be read to choose the structure."
+      ] },
+    { id:"aod-005", type:"mcq", objective:"aod-modifiable-rf",
+      question:"A 62-year-old man presents with an aortic dissection. Which is the single most important modifiable risk factor?",
+      options:[
+        "Marfan syndrome",
+        "Bicuspid aortic valve",
+        "Hypertension",
+        "Male sex",
+        "Increasing age"],
+      correctIndex:2,
+      explanation:[
+        "HYPERTENSION is the leading MODIFIABLE risk factor for dissection.",
+        "Marfan syndrome and a bicuspid aortic valve are genuine risk factors but not modifiable, and male sex and age are non-modifiable – the trap is picking a strong risk factor without applying the modifiable qualifier."
+      ] },
+    { id:"aod-006", type:"mcq", objective:"aod-marfan",
+      question:"A 26-year-old tall man with long limbs, arachnodactyly and lens dislocation presents with sudden tearing chest pain. Which underlying condition most likely predisposes him to aortic dissection?",
+      options:[
+        "Marfan syndrome",
+        "Ehlers–Danlos type IV (vascular)",
+        "Loeys–Dietz syndrome",
+        "Bicuspid aortic valve",
+        "Takayasu arteritis"],
+      correctIndex:0,
+      explanation:[
+        "Vascular Ehlers–Danlos and Loeys–Dietz syndromes also predispose to dissection, which makes them tempting, but the phenotype here – tall, arachnodactyly and especially LENS DISLOCATION (ectopia lentis) – is specific for MARFAN SYNDROME.",
+        "Bicuspid aortic valve causes an aortopathy but not this phenotype, and Takayasu is a large-vessel vasculitis."
+      ] },
+    { id:"aod-007", type:"mcq", objective:"aod-imh",
+      image:"assets/img/aortic_imh_ct.jpg",
+      imageAlt:"Axial chest CT angiogram.",
+      imageCredit:"Via WikiDoc, Creative Commons Attribution-ShareAlike.",
+      question:"A 68-year-old hypertensive man has sudden severe tearing chest pain. His CT angiogram is shown. What is the most likely diagnosis?",
+      options:[
+        "Classic aortic dissection with an intimal flap",
+        "Penetrating atherosclerotic ulcer",
+        "Intramural haematoma",
+        "Thoracic aortic aneurysm",
+        "Normal aorta"],
+      correctIndex:2,
+      explanation:[
+        "The scan shows crescentic high-attenuation thickening WITHIN the aortic wall, with NO intimal flap and no false-lumen flow – an INTRAMURAL HAEMATOMA, an acute aortic syndrome on the same spectrum as dissection.",
+        "A classic dissection (A) has a visible flap and true/false lumen; a penetrating ulcer (B) is a focal crater; and an aneurysm (D) is a dilatation – so the discrimination is genuine and image-based."
+      ] },
+    { id:"aod-008", type:"categorize", objective:"aod-debakey-stanford",
+      question:"Sort each aortic dissection by its Stanford equivalent.",
+      buckets:["Stanford A (ascending involved)","Stanford B (ascending spared)"],
+      items:[
+        {text:"DeBakey I (ascending + arch + descending)",bucket:0},
+        {text:"DeBakey II (ascending only)",bucket:0},
+        {text:"A tear beginning in the ascending aorta",bucket:0},
+        {text:"DeBakey III (descending only)",bucket:1},
+        {text:"A tear beginning distal to the left subclavian",bucket:1},
+        {text:"A dissection confined to the descending aorta",bucket:1}
+      ],
+      explanation:[
+        "The defining principle is whether the ASCENDING aorta is involved: DeBakey I and II both involve the ascending aorta = Stanford A; DeBakey III is confined to the descending aorta = Stanford B.",
+        "Any tear beginning in the ascending aorta is Type A (surgical), and any beginning distal to the left subclavian and confined to the descending aorta is Type B (usually medical)."
+      ] }
 ]
 };
 </script>
