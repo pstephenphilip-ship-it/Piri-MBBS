@@ -5134,6 +5134,117 @@ window.MOCK_BANK = {
       explanation:[
         "In complete heart block the atria and ventricles are driven independently – AV DISSOCIATION – with a regular P-P and a regular but slower R-R and no fixed relationship between them.",
         "The atrial (P) rate is faster than the ventricular escape rate, which is what sustains perfusion."
+      ] },
+    { id:"brady-041", type:"mcq", objective:"mi-inferior-chb-level",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>46 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>118/74 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>97% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 64-year-old man with an acute inferior STEMI develops complete heart block with a narrow-complex escape at 46 bpm. His observations are shown. What is the most likely level of block and its expected course?",
+      options:[
+        "Infranodal block that is permanent and needs a pacemaker",
+        "A sign the infarct is very extensive with a poor prognosis",
+        "Fixed block that responds to no treatment",
+        "An unrelated incidental finding",
+        "AV nodal block, usually transient and resolving with reperfusion"],
+      correctIndex:4,
+      explanation:[
+        "Complete heart block in an INFERIOR MI is AV-NODAL (the RCA supplies the AV node and there is a vagal reflex), with a narrow, fairly reliable escape at 40–60 – it is usually TRANSIENT and resolves with reperfusion.",
+        "A permanent infranodal block (A), a marker of a very extensive infarct (B) or a fixed untreatable block (C) describe the anterior pattern, and it is certainly not incidental (D)."
+      ] },
+    { id:"brady-042", type:"mcq", objective:"mi-anterior-chb-level",
+      question:"A 58-year-old man with an acute anterior STEMI develops complete heart block with a broad-complex escape at 30 bpm. What does this indicate?",
+      options:[
+        "Infranodal block from a large infarct, with a poor prognosis",
+        "A benign, vagally-mediated block that will resolve with atropine",
+        "AV nodal block that is usually transient and benign",
+        "A good prognostic sign of successful reperfusion",
+        "A benign finding that needs no specific intervention"],
+      correctIndex:0,
+      explanation:[
+        "Complete heart block in an ANTERIOR MI is INFRANODAL – the infarct has destroyed a large volume of septal myocardium and the His-Purkinje system, giving a broad, slow, unreliable escape and a POOR prognosis; it needs urgent pacing.",
+        "Unlike the inferior (AV-nodal) pattern it is not a benign vagal block resolving with atropine (B), not usually transient (C), certainly not a good sign (D), and it does need intervention (E)."
+      ] },
+    { id:"brady-043", type:"mcq", objective:"mi-inferior-stemi-brady-mgmt",
+      image:"https://upload.wikimedia.org/wikipedia/commons/3/3e/IandRStemi.JPG",
+      imageAlt:"Fifteen-lead electrocardiogram.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>44 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>96/60 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 63-year-old man has sudden central chest pain. His observations and 15-lead ECG are shown. What is the most appropriate immediate management?",
+      options:[
+        "Immediate permanent pacemaker before reperfusion",
+        "Atropine for the bradycardia and urgent reperfusion (primary PCI)",
+        "Thrombolysis, since primary PCI is unsafe with this bradycardia",
+        "A beta-blocker to treat the chest pain",
+        "Fully correct the bradycardia and blood pressure before any reperfusion"],
+      correctIndex:1,
+      explanation:[
+        "This is an INFERIOR STEMI, where the bradycardia is vagal/AV-nodal and responds to ATROPINE – but the priority is URGENT REPERFUSION (primary PCI), managing the rate in parallel; the block usually resolves once the artery is opened.",
+        "A permanent pacemaker (A) is premature for a transient nodal block; primary PCI is not contraindicated by bradycardia, so thrombolysis on that basis (C) is wrong; a beta-blocker (D) would worsen the bradycardia; and delaying reperfusion to fully correct the rate and BP (E) wastes myocardium – time is muscle."
+      ] },
+    { id:"brady-044", type:"mcq", objective:"mi-anterior-bifascicular",
+      question:"A patient with an acute anterior STEMI develops a new right bundle branch block with left axis deviation (a bifascicular block). Which statement about this finding is correct?",
+      options:[
+        "It reflects chronic pre-existing conduction disease, unrelated to the acute event",
+        "Only one fascicle now conducts, but that provides a reliable safety margin",
+        "It signals extensive septal damage with a high risk of progression to complete heart block",
+        "It should be treated with immediate permanent pacemaker implantation",
+        "It would reliably respond to atropine if the ventricular rate fell"],
+      correctIndex:2,
+      explanation:[
+        "A NEW bifascicular block in an anterior MI means the infarct has extensively damaged the septal conduction system, leaving only one fascicle conducting – there is a HIGH RISK of progression to complete heart block, so the patient needs close monitoring and often a prophylactic (temporary) pacing wire.",
+        "It is new rather than chronic (A); the single remaining fascicle is precarious, not a reliable margin (B); the move is monitoring ± prophylactic temporary pacing, not immediate permanent implantation (D); and being infranodal it would not respond to atropine (E)."
+      ] },
+    { id:"brady-045", type:"mcq", objective:"mi-anterior-prognosis",
+      question:"Why does complete heart block during an anterior MI carry a much worse prognosis than during an inferior MI?",
+      options:[
+        "The bradycardia itself is the main driver of the excess mortality",
+        "Anterior-MI block, unlike inferior, cannot be treated with pacing",
+        "It indicates occlusion of a dominant right coronary artery",
+        "It marks a large infarct with extensive septal and pump damage",
+        "The block physically prevents effective reperfusion of the myocardium"],
+      correctIndex:3,
+      explanation:[
+        "Complete heart block in an anterior MI signifies a LARGE infarct that has destroyed a big volume of septal myocardium and the His-Purkinje system – the excess mortality is driven by extensive pump damage (cardiogenic shock) and an unreliable broad escape, not by the slow rate alone.",
+        "So the bradycardia is a MARKER, not the primary cause, of death (A) – pacing the rate does not rescue the muscle; the block can be paced (B), the culprit vessel is the LAD not the RCA (C), and it does not physically block reperfusion (E)."
+      ] },
+    { id:"brady-046", type:"mcq", objective:"mi-inferior-avoid-overpacing",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>48 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>124/78 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr></table><div class="mk-obs-line">The patient is alert and asymptomatic, with no dizziness, chest pain or breathlessness.</div>',
+      question:"A patient with an acute inferior STEMI has complete heart block with a stable narrow-complex escape at 48 bpm. His observations are shown. What is the most appropriate management of the block?",
+      options:[
+        "Insert an immediate permanent pacemaker now",
+        "Start immediate transvenous pacing regardless of stability",
+        "Give a beta-blocker to help stabilise the rhythm",
+        "Stop the reperfusion therapy immediately",
+        "Monitor with reperfusion; it usually resolves without pacing"],
+      correctIndex:4,
+      explanation:[
+        "A STABLE, asymptomatic, normotensive AV-nodal block in an inferior MI just needs MONITORING with reperfusion – it is usually transient and resolves as the artery is opened, so no pacing is required.",
+        "An immediate permanent pacemaker (A) or transvenous pacing regardless (B) is over-treatment, a beta-blocker (C) would worsen it, and stopping reperfusion (D) is exactly wrong."
+      ] },
+    { id:"brady-047", type:"categorize", objective:"mi-conduction-sort",
+      question:"Sort each feature by whether it belongs to AV block complicating an inferior MI or an anterior MI.",
+      buckets:["Inferior MI (AV nodal block)","Anterior MI (infranodal block)"],
+      items:[
+        {text:"Narrow-complex escape, 40–60 bpm",bucket:0},
+        {text:"Often responds to atropine",bucket:0},
+        {text:"Usually transient, resolves with reperfusion",bucket:0},
+        {text:"Broad-complex escape, under 40 bpm",bucket:1},
+        {text:"Poor prognosis, marks a large infarct",bucket:1},
+        {text:"Often needs pacing",bucket:1}
+      ],
+      explanation:[
+        "INFERIOR-MI block is AV-NODAL: a narrow escape at 40–60 bpm, often atropine-responsive, and usually transient, resolving with reperfusion.",
+        "ANTERIOR-MI block is INFRANODAL: a broad escape under 40 bpm, a poor prognosis marking a large infarct, and it often needs pacing."
+      ] },
+    { id:"brady-048", type:"saq", objective:"mi-av-node-artery",
+      question:"Complete heart block complicating an inferior MI usually arises because the artery supplying the AV node is occluded. Name that artery.",
+      answer:"Right coronary artery",
+      accept:["RCA","right coronary artery","right coronary","the right coronary artery"],
+      markPoints:[
+        "The right coronary artery (RCA)",
+        "Supplies the AV node in about 90% of people via the AV nodal artery",
+        "Also supplies the inferior wall, so inferior MI and AV-nodal block occur together"],
+      explanation:[
+        "In most people the RIGHT CORONARY ARTERY supplies the AV node (via the AV nodal artery), which is why an inferior MI – an RCA-territory infarct – so often causes AV-nodal block.",
+        "This block is typically transient and resolves with reperfusion."
       ] }
 ]
 };
