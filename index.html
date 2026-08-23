@@ -5317,6 +5317,115 @@ window.MOCK_BANK = {
       explanation:[
         "In most people the RIGHT CORONARY ARTERY supplies the AV node (via the AV nodal artery), which is why an inferior MI – an RCA-territory infarct – so often causes AV-nodal block.",
         "This block is typically transient and resolves with reperfusion."
+      ] },
+    { id:"brady-049", type:"mcq", objective:"lbbb-identify",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/a0/DVA2474_(CardioNetworks_ECGpedia).jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"W.G. de Voogt, CardioNetworks ECGpedia, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>74 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>138/84 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 70-year-old man with hypertension is being assessed in clinic. His observations and 12-lead ECG are shown. What does the ECG show?",
+      options:[
+        "Left bundle branch block",
+        "Right bundle branch block",
+        "First-degree AV block",
+        "Complete heart block",
+        "A normal ECG"],
+      correctIndex:0,
+      explanation:[
+        "The QRS is broad (over 120 ms) with a dominant deep S wave in V1 and a broad, notched R wave in the lateral leads (I, V6) – LEFT bundle branch block (the WiLLiaM pattern).",
+        "Right bundle branch block (B) would show an RSR′ in V1 and a slurred S in V6; there is no PR prolongation for first-degree block (C), no AV dissociation for complete block (D), and the broad abnormal QRS is not normal (E)."
+      ] },
+    { id:"brady-050", type:"mcq", objective:"lbbb-morphology",
+      question:"In left bundle branch block, which describes the typical QRS morphology in leads V1 and V6?",
+      options:[
+        "An RSR′ (\'rabbit ears\') in V1 and a wide slurred S wave in V6",
+        "A tall dominant R wave in V1 and a deep S wave in V6",
+        "A dominant deep S (QS) in V1 and a broad notched R wave in V6",
+        "A slurred delta wave with a short PR interval in V1 and V6",
+        "Deep symmetrical T-wave inversion in V1 and V6"],
+      correctIndex:2,
+      explanation:[
+        "In LBBB the left ventricle depolarises late and abnormally, giving a dominant DEEP S wave (QS) in V1 and a broad, monophasic NOTCHED R wave in the lateral leads (I, V6) – the WiLLiaM pattern.",
+        "An RSR′ in V1 with a slurred S in V6 is RBBB (A, MaRRoW); a tall R in V1 (B) suggests RVH or a posterior MI; a delta wave with a short PR (D) is pre-excitation (WPW); and T-wave inversion (E) is a repolarisation change, not the defining QRS morphology."
+      ] },
+    { id:"brady-051", type:"mcq", objective:"lbbb-pathological",
+      question:"A 68-year-old man is found to have a new left bundle branch block. What is the most appropriate interpretation?",
+      options:[
+        "It is always pathological and needs evaluation for structural heart disease",
+        "It is usually a benign normal variant needing no further investigation",
+        "It is itself an indication for permanent pacemaker implantation",
+        "It is only clinically significant when the QRS exceeds 200 ms",
+        "It reliably confirms an underlying diagnosis of atrial fibrillation"],
+      correctIndex:0,
+      explanation:[
+        "A new LBBB is ALWAYS pathological – it points to underlying structural heart disease (ischaemic heart disease, aortic stenosis, hypertension or a cardiomyopathy), so it warrants evaluation.",
+        "Unlike RBBB it is not a benign normal variant (B); LBBB alone is not itself a pacing indication (C); its significance does not depend on a 200 ms threshold (D); and it does not confirm atrial fibrillation (E)."
+      ] },
+    { id:"brady-052", type:"mcq", objective:"lbbb-ischaemia-pci",
+      question:"A 62-year-old man presents with 40 minutes of chest pain. His ECG shows a left bundle branch block, and no old ECG is available for comparison. What is the most appropriate management?",
+      options:[
+        "Apply Sgarbossa criteria and activate PCI only if they are positive",
+        "Withhold PCI until an old ECG confirms the LBBB is new",
+        "Manage as an NSTEMI with antiplatelets and serial troponins",
+        "Activate the primary PCI pathway",
+        "Wait for the troponin result before making any decision"],
+      correctIndex:3,
+      explanation:[
+        "Ongoing ischaemic chest pain with a left bundle branch block (old or new is often unknowable) is managed down the PRIMARY PCI pathway – the symptoms decide, and this presentation is treated like a STEMI.",
+        "Standing down on negative Sgarbossa criteria (A) is dangerous – they are specific but INSENSITIVE, so they rule in, not out; delaying for an old ECG (B) or troponin (E) wastes time, and treating ongoing ischaemia as a stable NSTEMI (C) misses the window."
+      ] },
+    { id:"brady-053", type:"mcq", objective:"lbbb-alone-not-indication",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>72 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>132/80 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.7 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table><div class="mk-obs-line">He is comfortable at rest and pain-free, attending purely for routine pre-operative review.</div>',
+      question:"A 60-year-old man attends a pre-operative assessment. His ECG shows a left bundle branch block that was not present on ECGs from previous years. His observations are shown. Regarding the primary PCI pathway, what is correct?",
+      options:[
+        "Immediate primary PCI purely because the LBBB is new",
+        "Systemic thrombolysis to treat the new bundle branch block",
+        "LBBB alone, without symptoms, is not an indication for PCI",
+        "Any new LBBB mandates urgent cardiac catheterisation",
+        "A new LBBB is a STEMI-equivalent regardless of symptoms"],
+      correctIndex:2,
+      explanation:[
+        "Even though this LBBB is NEW, he has no ischaemic symptoms – and LBBB ALONE, without symptoms, is NOT an indication for primary PCI: the symptoms decide, not the LBBB or its newness.",
+        "Reflexively activating PCI (A), thrombolysis (B), mandatory catheterisation (D) or calling any new LBBB a STEMI-equivalent regardless of symptoms (E) all over-treat an incidental finding – though a new LBBB does still warrant investigation for underlying structural heart disease."
+      ] },
+    { id:"brady-054", type:"mcq", objective:"lbbb-obscures-ischaemia",
+      question:"Why does a left bundle branch block make the ECG diagnosis of an acute STEMI difficult?",
+      options:[
+        "It removes all of the ST segments from the ECG entirely",
+        "It produces secondary ST/T changes that mask or mimic ischaemia",
+        "It makes the heart rate impossible to interpret",
+        "It abolishes the P waves needed to detect ischaemia",
+        "It affects only the limb leads and never the chest leads"],
+      correctIndex:1,
+      explanation:[
+        "LBBB alters the sequence of ventricular depolarisation and repolarisation, producing SECONDARY ST-segment and T-wave changes (appropriate discordance) that MASK or MIMIC ischaemia – so a STEMI cannot be read in the usual way (hence tools like the Sgarbossa criteria).",
+        "It does not remove the ST segments (A), make the rate uninterpretable (C), abolish the P waves (D), or affect only the limb leads (E)."
+      ] },
+    { id:"brady-055", type:"mcq", objective:"lbbb-crt",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>LVEF</td><td><b>28%</b></td><td></td></tr><tr><td>QRS duration</td><td><b>160 ms (LBBB)</b></td><td></td></tr><tr><td>NYHA class</td><td><b>III</b></td><td></td></tr><tr><td>Rhythm</td><td><b>Sinus</b></td><td></td></tr></table>',
+      question:"A patient with heart failure remains in NYHA class III on optimal medical therapy and is in sinus rhythm. His results are shown. What device therapy is most appropriate?",
+      options:[
+        "A single-chamber VVI pacemaker",
+        "No device is indicated",
+        "An implantable loop recorder",
+        "A standard dual-chamber pacemaker for the LBBB",
+        "Cardiac resynchronisation therapy (biventricular pacing)"],
+      correctIndex:4,
+      explanation:[
+        "A symptomatic HFrEF patient (LVEF 28%, NYHA III) on optimal medical therapy, in sinus rhythm with an LBBB and a broad QRS (160 ms), meets the criteria for CARDIAC RESYNCHRONISATION THERAPY (biventricular pacing), which improves symptoms and survival.",
+        "A VVI (A) or standard dual-chamber pacemaker (D) does not resynchronise the ventricles, an implantable loop recorder (C) only monitors, and 'no device' (B) misses a prognostic therapy."
+      ] },
+    { id:"brady-056", type:"saq", objective:"bbb-qrs-threshold",
+      question:"A bundle branch block is called complete when the QRS duration reaches or exceeds a particular value (in milliseconds). State that value.",
+      answer:"120 ms",
+      accept:["120","120 ms","120ms","0.12 s","0.12 seconds","120 milliseconds","three small squares","over 120 ms"],
+      markPoints:[
+        "A QRS duration of 120 ms or more (0.12 s, three small squares)",
+        "At or above this the block is complete; 110–120 ms is an incomplete block",
+        "Taken as the widest QRS on the 12-lead ECG"],
+      explanation:[
+        "A complete bundle branch block is defined by a QRS duration of 120 ms or more (0.12 seconds, three small squares on standard ECG paper).",
+        "A QRS of 110–120 ms is an incomplete bundle branch block."
       ] }
 ]
 };
