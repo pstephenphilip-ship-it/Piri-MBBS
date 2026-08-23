@@ -4365,6 +4365,115 @@ window.MOCK_BANK = {
       explanation:[
         "In a STABLE patient, CT ANGIOGRAPHY (CT aortogram) of the chest and abdomen is the definitive first-line investigation – fast, accessible and highly sensitive and specific.",
         "It demonstrates the intimal flap, the true and false lumen and the extent of the dissection, which guides classification and management; transoesophageal echo is reserved for patients too unstable to move to CT."
+      ] },
+    { id:"aod-025", type:"mcq", objective:"aod-first-line-agent",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Blood pressure (right arm)</td><td><b>196/108 mmHg</b></td><td></td></tr><tr><td>Blood pressure (left arm)</td><td><b>190/106 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>106 bpm</b></td><td>60&ndash;100</td></tr><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr></table>',
+      question:"A 63-year-old man with poorly controlled hypertension and a 30-pack-year smoking history has sudden, severe, tearing chest pain radiating to his back. CT aortography shows a dissection beginning distal to the left subclavian artery. He is not shocked, and his observations are shown. Which is the most appropriate first-line agent to control his haemodynamics?",
+      options:[
+        "IV glyceryl trinitrate",
+        "IV hydralazine",
+        "IV labetalol",
+        "Sublingual nifedipine",
+        "IV furosemide"],
+      correctIndex:2,
+      explanation:[
+        "IV LABETALOL (combined alpha- and beta-blockade) lowers both the heart rate and the blood pressure, cutting the pulsatile shear (dP/dt) that propagates the tear – so it is first-line.",
+        "Pure vasodilators given first (glyceryl trinitrate, hydralazine, nifedipine) cause a reflex tachycardia that raises wall stress, and furosemide does not address the problem."
+      ] },
+    { id:"aod-026", type:"mcq", objective:"aod-betablocker-first",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td></td><td><b>Before</b></td><td><b>After</b></td></tr><tr><td>Blood pressure</td><td><b>192/104</b></td><td><b>150/82 mmHg</b></td></tr><tr><td>Heart rate</td><td><b>90</b></td><td><b>124 bpm</b></td></tr></table>',
+      question:"A 61-year-old man with a CT-confirmed Stanford Type B aortic dissection was started on an IV glyceryl trinitrate infusion alone to lower his blood pressure. His observations before and 30 minutes after starting it are shown. What has happened, and what does it illustrate about managing dissection?",
+      options:[
+        "Reflex tachycardia from unopposed vasodilatation, raising aortic wall stress",
+        "Adequate treatment, since lowering the blood pressure is what matters most",
+        "A vasovagal reaction to the glyceryl trinitrate infusion",
+        "Under-treatment, because the glyceryl trinitrate dose remains too low",
+        "A direct chronotropic side effect that is specific to glyceryl trinitrate"],
+      correctIndex:0,
+      explanation:[
+        "Lowering the blood pressure with a vasodilator alone triggers a baroreceptor-mediated reflex TACHYCARDIA – the faster, more forceful ejection raises dP/dt and aortic wall shear, which can extend the dissection.",
+        "Rate control with a beta-blocker must therefore be established first; the tachycardia is reflex, not vasovagal (which causes bradycardia) or a direct drug effect, and the fall in blood pressure alone is not reassuring."
+      ] },
+    { id:"aod-027", type:"mcq", objective:"aod-haemodynamic-targets",
+      question:"A 57-year-old woman with hypertension and a bicuspid aortic valve has a CT-confirmed acute aortic dissection, is being managed medically on the high-dependency unit and is started on an IV beta-blocker. To what immediate targets should her heart rate and systolic blood pressure be brought?",
+      options:[
+        "Heart rate under 100/min, systolic BP 140–160 mmHg",
+        "Heart rate under 80/min, systolic BP 120–140 mmHg",
+        "Heart rate under 50/min, systolic BP 80–90 mmHg",
+        "Heart rate under 60/min, systolic BP 100–120 mmHg",
+        "Heart rate under 60/min, systolic BP 160–180 mmHg"],
+      correctIndex:3,
+      explanation:[
+        "The immediate targets are a heart rate under 60/min and a systolic blood pressure of 100–120 mmHg – the lowest pressure that still perfuses vital organs, minimising shear on the weakened wall.",
+        "Higher targets (A, B, E) leave dangerous shear stress, while a systolic of 80–90 mmHg (D) risks organ malperfusion."
+      ] },
+    { id:"aod-028", type:"mcq", objective:"aod-titrate-higher-arm",
+      question:"A 68-year-old man with an acute Stanford Type B aortic dissection has a blood pressure of 172/94 mmHg in the right arm and 118/72 mmHg in the left arm. When titrating his antihypertensive infusion, which reading should be used to guide treatment?",
+      options:[
+        "The higher (right-arm) pressure",
+        "The lower (left-arm) pressure",
+        "The average of the two arm pressures",
+        "Whichever arm is measured first",
+        "The right arm by convention, whatever the values"],
+      correctIndex:0,
+      explanation:[
+        "The LOWER reading is falsely low because the dissection flap compromises flow into that subclavian artery; titrate to the HIGHER arm, which reflects true central perfusion pressure.",
+        "Treating to the low arm would cause dangerous over-treatment and organ hypoperfusion, and averaging or picking an arm by convention ignores the mechanism."
+      ] },
+    { id:"aod-029", type:"mcq", objective:"aod-typea-surgery",
+      question:"A 55-year-old man with Marfan syndrome presents with sudden tearing chest pain. CT aortography shows a dissection flap arising in the ascending aorta and extending into the arch. He is alert and haemodynamically stable on an esmolol infusion. What is the definitive management?",
+      options:[
+        "Continue medical therapy alone",
+        "Thoracic endovascular stent graft (TEVAR)",
+        "Percutaneous coronary intervention",
+        "Transfer for an outpatient surgical review",
+        "Emergency open surgical repair"],
+      correctIndex:4,
+      explanation:[
+        "Involvement of the ascending aorta is Stanford Type A – a SURGICAL EMERGENCY (open repair, with aortic root and valve replacement if involved) because of the risk of rupture, tamponade, and coronary or arch-vessel occlusion.",
+        "His current stability is the trap toward continuing medical therapy (A); medical management alone and TEVAR (B) are for uncomplicated Type B, and being stable does not make a Type A dissection any less surgical."
+      ] },
+    { id:"aod-030", type:"mcq", objective:"aod-tamponade-nodrain",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Blood pressure</td><td><b>78/56 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>128 bpm</b></td><td>60&ndash;100</td></tr><tr><td>JVP</td><td><b>Raised</b></td><td></td></tr><tr><td>Heart sounds</td><td><b>Muffled</b></td><td></td></tr><tr><td>Pulsus paradoxus</td><td><b>Present</b></td><td></td></tr></table>',
+      question:"A 60-year-old man with a confirmed Stanford Type A aortic dissection suddenly becomes drowsy and cold. A bedside echocardiogram shows a large pericardial effusion with diastolic collapse of the right atrium. His observations are shown. What is the most appropriate management?",
+      options:[
+        "Rapid large-volume pericardiocentesis to relieve the tamponade",
+        "Emergency surgery, avoiding pericardiocentesis if possible",
+        "A 500 mL intravenous fluid bolus and reassessment",
+        "Increase the beta-blocker infusion to control the tachycardia",
+        "Insert a pericardial drain and admit to coronary care"],
+      correctIndex:1,
+      explanation:[
+        "This is cardiac tamponade from blood tracking into the pericardium in a Type A dissection – but draining it (A, E) can release the pressure that is partly containing the bleed and precipitate fatal re-bleeding, so the patient needs EMERGENCY SURGERY.",
+        "A cautious, small-volume controlled pericardial drainage is only a last-resort bridge in extremis; a fluid bolus (C) buys little and increasing the beta-blocker (D) would worsen the hypotension."
+      ] },
+    { id:"aod-031", type:"mcq", objective:"aod-typeb-medical",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Blood pressure</td><td><b>124/78 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>62 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Lactate</td><td><b>1.1 mmol/L</b></td><td>0.5&ndash;2.2</td></tr><tr><td>Creatinine</td><td><b>78 &micro;mol/L</b></td><td>60&ndash;110</td></tr><tr><td>Abdomen</td><td><b>Soft, non-tender</b></td><td></td></tr></table>',
+      question:"A 64-year-old hypertensive woman has a CT-confirmed dissection confined to the descending thoracic aorta, distal to the left subclavian artery. Her pain has settled with analgesia and her blood pressure is controlled. Her results are shown. What is the most appropriate ongoing management?",
+      options:[
+        "Emergency open surgical repair",
+        "Immediate thoracic endovascular stent grafting (TEVAR) of the aorta",
+        "Medical management with strict blood-pressure and heart-rate control",
+        "Systemic thrombolysis",
+        "Discharge home with GP follow-up"],
+      correctIndex:2,
+      explanation:[
+        "This is an UNCOMPLICATED Stanford B dissection – no malperfusion (normal lactate and creatinine, soft abdomen), no rupture and controlled pain and blood pressure – so it is managed MEDICALLY with strict impulse control and surveillance imaging.",
+        "Surgery or TEVAR (A, B) are reserved for complications such as malperfusion, rupture, refractory pain or rapid expansion; thrombolysis (D) is dangerous and discharge (E) is unsafe as she needs inpatient monitoring."
+      ] },
+    { id:"aod-032", type:"mcq", objective:"aod-oxygen-titrate",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>SpO<sub>2</sub></td><td><b>96% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Blood pressure</td><td><b>138/82 mmHg</b></td><td></td></tr><tr><td>Heart rate</td><td><b>70 bpm</b></td><td>60&ndash;100</td></tr></table>',
+      question:"A 66-year-old man with a suspected acute aortic dissection is being stabilised. He is alert and not shocked, and his observations are shown. What is the most appropriate approach to oxygen therapy?",
+      options:[
+        "High-flow oxygen at 15 L/min for every dissection patient",
+        "Titrate oxygen only to maintain saturations of 94–98%",
+        "Aim for saturations of 100% using high-flow oxygen",
+        "Withhold oxygen therapy completely",
+        "Give oxygen only if the chest pain worsens"],
+      correctIndex:1,
+      explanation:[
+        "With saturations already 94–98% and no shock, no supplemental oxygen is needed – you TITRATE only to keep saturations 94–98% (or 88–92% if at risk of hypercapnia).",
+        "Routine high-flow oxygen (A, C) offers no benefit and hyperoxia may be harmful; high-flow is reserved for shock or peri-arrest, and withholding oxygen (D) or waiting for pain (E) ignores the target-driven approach."
       ] }
 ]
 };
