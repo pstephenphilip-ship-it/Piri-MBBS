@@ -5998,6 +5998,111 @@ window.MOCK_BANK = {
       explanation:[
         "The adult cardiac-arrest dose of adrenaline is 1 mg IV/IO (10 mL of 1:10,000), repeated every 3–5 minutes.",
         "This differs sharply from the anaphylaxis dose of 0.5 mg IM of 1:1000 – giving 1:1000 intravenously is a dangerous error."
+      ] },
+    { id:"als-017", type:"mcq", objective:"als-nonshock-first-drug",
+      question:"A 68-year-old woman is in cardiac arrest with pulseless electrical activity. CPR is in progress and IV access is obtained. What is the most appropriate immediate drug management?",
+      options:[
+        "Adrenaline 1 mg IV only after the 3rd shock",
+        "Amiodarone 300 mg IV",
+        "Adrenaline 1 mg IV immediately, then every 3–5 minutes",
+        "A single defibrillation shock",
+        "Atropine 3 mg IV"],
+      correctIndex:2,
+      explanation:[
+        "In a NON-SHOCKABLE arrest (PEA/asystole), give ADRENALINE 1 mg IV IMMEDIATELY once access is available, then repeat every 3–5 minutes.",
+        "Waiting until after the 3rd shock (A) is the shockable-arm timing; amiodarone (B) and defibrillation (D) have no role in non-shockable rhythms, and atropine (E) is not used in arrest."
+      ] },
+    { id:"als-018", type:"mcq", objective:"als-atropine-removed",
+      question:"A patient is in asystole. Regarding atropine, what is the current recommendation?",
+      options:[
+        "Give atropine 3 mg IV once",
+        "Atropine is no longer recommended in asystole or PEA",
+        "Give atropine 500 mcg every 3–5 minutes",
+        "Give atropine only if the asystole follows a bradycardia",
+        "Give atropine together with adrenaline"],
+      correctIndex:1,
+      explanation:[
+        "ATROPINE is NO LONGER recommended for asystole or PEA – it was removed from the algorithm as there is no evidence it improves outcome; treat with CPR, adrenaline and the reversible causes.",
+        "Giving atropine 3 mg (A) is the outdated teaching, and the other regimens (C, D, E) are equally wrong – atropine has no place in the modern arrest algorithm."
+      ] },
+    { id:"als-019", type:"mcq", objective:"als-nonshock-no-defib",
+      question:"A patient is in asystole, and a junior team member asks whether a shock should be tried in case it helps. Which is the best explanation for why defibrillation is not indicated?",
+      options:[
+        "A shock might work, but the risk of burns outweighs the benefit",
+        "Defibrillation is effective but should wait until after adrenaline",
+        "Asystole should be shocked once, and only then treated with CPR",
+        "There is no fibrillating myocardium to depolarise, so a shock is futile",
+        "A shock is effective only if delivered within the first minute"],
+      correctIndex:3,
+      explanation:[
+        "Defibrillation depolarises a critical mass of FIBRILLATING myocardium so a coordinated rhythm can resume – in ASYSTOLE there is no such activity to reset, so a shock is FUTILE and only interrupts life-sustaining CPR.",
+        "It is not a burns/benefit trade-off (A), not effective-but-delayed (B), it should not be shocked at all (C), and there is no early time-window in which it works (E)."
+      ] },
+    { id:"als-020", type:"mcq", objective:"als-nonshock-no-amiodarone",
+      question:"A 66-year-old man is in cardiac arrest with asystole confirmed on the monitor. CPR is ongoing and adrenaline has been given. A team member suggests giving amiodarone. What is the correct response?",
+      options:[
+        "Give amiodarone 300 mg",
+        "Give amiodarone 150 mg",
+        "Amiodarone has no role in non-shockable arrest",
+        "Give amiodarone only if asystole persists past 5 cycles",
+        "Give amiodarone together with adrenaline"],
+      correctIndex:2,
+      explanation:[
+        "AMIODARONE has no role in a non-shockable arrest – it is only used for shockable rhythms (after the 3rd and 5th shocks) – so it should not be given in asystole.",
+        "Any dose or timing of amiodarone here (A, B, D, E) is wrong; the treatment for asystole is CPR, adrenaline and a search for the reversible cause."
+      ] },
+    { id:"als-021", type:"mcq", objective:"als-nonshock-reversible-cause",
+      question:"A 47-year-old man is brought in after a stab wound to the left chest. He arrests, and the monitor shows PEA. On examination his neck veins are distended and his heart sounds are muffled. Alongside CPR, what is the most appropriate immediate action?",
+      options:[
+        "Give a further 1 mg of adrenaline and continue CPR unchanged",
+        "Defibrillate the PEA rhythm",
+        "Give amiodarone 300 mg",
+        "Treat cardiac tamponade — pericardiocentesis or emergency thoracotomy",
+        "Rapid IV fluids for presumed hypovolaemia alone"],
+      correctIndex:3,
+      explanation:[
+        "Penetrating chest trauma with PEA, distended neck veins and muffled heart sounds is CARDIAC TAMPONADE – a reversible T. CPR and adrenaline alone will not work; the tamponade must be relieved (pericardiocentesis, or emergency thoracotomy in a traumatic arrest).",
+        "Continuing drugs and CPR unchanged (A) is the fatal error when a reversible cause is present; defibrillation (B) is futile in PEA, amiodarone (C) has no role, and fluids alone (E) will not relieve tamponade – the distended (not flat) neck veins argue against hypovolaemia."
+      ] },
+    { id:"als-022", type:"mcq", objective:"als-rhythm-change",
+      question:"A patient in PEA has been receiving CPR and adrenaline. At the 2-minute rhythm check, the monitor now shows ventricular fibrillation. What should be done?",
+      options:[
+        "Continue with adrenaline only, as the arrest began as non-shockable",
+        "Give amiodarone but do not shock",
+        "Withhold further treatment",
+        "Restart from scratch with 3 stacked shocks",
+        "Deliver a shock and switch to the shockable arm of the algorithm"],
+      correctIndex:4,
+      explanation:[
+        "The rhythm is reassessed every 2 minutes and you treat the CURRENT rhythm – now that it is VF, deliver a shock and follow the SHOCKABLE arm.",
+        "Sticking with adrenaline only because it started as PEA (A) or withholding a shock (B, C) ignores the new shockable rhythm, and there is no need to restart with stacked shocks (D)."
+      ] },
+    { id:"als-023", type:"categorize", objective:"als-arms-sort",
+      question:"Sort each action by whether it belongs to the shockable or the non-shockable arm of the ALS algorithm.",
+      buckets:["Shockable arm (VF/pVT)","Non-shockable arm (PEA/asystole)"],
+      items:[
+        {text:"Defibrillation",bucket:0},
+        {text:"Amiodarone after the 3rd shock",bucket:0},
+        {text:"Adrenaline after the 3rd shock",bucket:0},
+        {text:"No defibrillation",bucket:1},
+        {text:"Adrenaline immediately",bucket:1},
+        {text:"No amiodarone",bucket:1}
+      ],
+      explanation:[
+        "The SHOCKABLE arm (VF/pulseless VT) centres on DEFIBRILLATION, with adrenaline and amiodarone 300 mg both given after the 3rd shock.",
+        "The NON-SHOCKABLE arm (PEA/asystole) has NO defibrillation and NO amiodarone; adrenaline is given immediately, and success depends on finding and fixing the reversible cause."
+      ] },
+    { id:"als-024", type:"saq", objective:"als-adrenaline-interval",
+      question:"In a cardiac arrest, once started, adrenaline is repeated at regular intervals. State that interval (in minutes).",
+      answer:"Every 3–5 minutes",
+      accept:["3-5","3–5","3 to 5","3-5 minutes","3–5 minutes","every 3-5 minutes","every 3 to 5 minutes","3-5 min","3 to 5 min","every 3–5 min"],
+      markPoints:[
+        "Every 3–5 minutes",
+        "In practice about once every other 2-minute CPR cycle",
+        "The dose is 1 mg IV/IO each time"],
+      explanation:[
+        "Once started, adrenaline 1 mg is repeated EVERY 3–5 MINUTES – in practice about once every other 2-minute cycle.",
+        "This applies to both arms; only the timing of the FIRST dose differs (immediately if non-shockable, after the 3rd shock if shockable)."
       ] }
 ]
 };
