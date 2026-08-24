@@ -6103,6 +6103,118 @@ window.MOCK_BANK = {
       explanation:[
         "Once started, adrenaline 1 mg is repeated EVERY 3–5 MINUTES – in practice about once every other 2-minute cycle.",
         "This applies to both arms; only the timing of the FIRST dose differs (immediately if non-shockable, after the 3rd shock if shockable)."
+      ] },
+    { id:"als-025", type:"mcq", objective:"als-adrenaline-concentration",
+      question:"A 72-year-old man is in cardiac arrest. The team leader calls for 1 mg of IV adrenaline, and you go to draw it up. Which concentration and volume corresponds to the 1 mg cardiac-arrest dose?",
+      options:[
+        "10 mL of 1:10,000",
+        "1 mL of 1:1000",
+        "10 mL of 1:1000",
+        "0.5 mL of 1:1000",
+        "1 mL of 1:10,000"],
+      correctIndex:0,
+      explanation:[
+        "The cardiac-arrest dose is 1 mg = 10 mL of 1:10,000 (the pre-filled syringe), given IV/IO and flushed with 20 mL.",
+        "1 mL of 1:1000 (B) is 1 mg but the wrong, concentrated preparation for IV push; 10 mL of 1:1000 (C) is 10 mg (a huge overdose); 0.5 mL of 1:1000 (D) is the anaphylaxis IM dose; and 1 mL of 1:10,000 (E) is only 0.1 mg."
+      ] },
+    { id:"als-026", type:"mcq", objective:"als-tca-bicarbonate",
+      question:"A 35-year-old woman is in cardiac arrest following a large tricyclic antidepressant overdose, with a broad QRS. Alongside standard ALS, which specific treatment is indicated?",
+      options:[
+        "Sodium bicarbonate",
+        "Calcium chloride",
+        "Magnesium 2 g",
+        "Amiodarone 300 mg",
+        "Atropine 3 mg"],
+      correctIndex:0,
+      explanation:[
+        "Tricyclic antidepressant toxicity blocks cardiac sodium channels (broad QRS, arrhythmia); the specific treatment is SODIUM BICARBONATE, which overcomes the sodium-channel blockade.",
+        "Calcium (B) is for hyperkalaemia or calcium-channel-blocker toxicity, magnesium (C) for torsades, amiodarone (D) could worsen the arrhythmia, and atropine (E) has no role."
+      ] },
+    { id:"als-027", type:"mcq", objective:"als-torsades-magnesium",
+      image:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Torsades_de_Pointes_TdP.png",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 40-year-old woman with known long QT syndrome collapses and is in cardiac arrest. Her rhythm is shown. Alongside defibrillation, which specific drug is indicated?",
+      options:[
+        "Amiodarone 300 mg IV",
+        "Calcium chloride 10 mL IV",
+        "Magnesium sulfate 2 g IV",
+        "Adrenaline 3 mg IV",
+        "Atropine 3 mg IV"],
+      correctIndex:2,
+      explanation:[
+        "The rhythm is TORSADES DE POINTES (polymorphic VT with a twisting axis) on a background of long QT – the specific treatment is MAGNESIUM SULFATE 2 g IV (alongside defibrillation for the pulseless rhythm).",
+        "Amiodarone (A) prolongs the QT and is the wrong choice, calcium (B) is for hyperkalaemia, adrenaline stays at 1 mg (D), and atropine (E) has no role."
+      ] },
+    { id:"als-028", type:"mcq", objective:"als-hyperkalaemia-treatment",
+      image:"https://upload.wikimedia.org/wikipedia/commons/6/67/Hyperkalemia_ECG.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Dr Michael-Joseph F. Agbayani & Dr Eddieson Gonzales, CC BY 4.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Results</div><table class="mk-labs"><tr><td>Potassium</td><td><b>7.8 mmol/L</b></td><td>3.5&ndash;5.3</td></tr></table>',
+      question:"A 60-year-old man on haemodialysis suffers a cardiac arrest. His most recent ECG and results are shown. Alongside standard ALS, which treatment targets the underlying cause?",
+      options:[
+        "Amiodarone 300 mg IV bolus",
+        "Calcium chloride and insulin with dextrose",
+        "Intravenous magnesium 2 g",
+        "Sodium bicarbonate infusion alone",
+        "Further doses of adrenaline only"],
+      correctIndex:1,
+      explanation:[
+        "Severe HYPERKALAEMIA (here 7.8 mmol/L with peaked T waves) is treated with CALCIUM CHLORIDE (cardioprotection) plus INSULIN with DEXTROSE (to shift potassium into cells), with dialysis for definitive removal.",
+        "Amiodarone (A) and magnesium (C) do not treat hyperkalaemia, bicarbonate alone (D) is insufficient, and more adrenaline (E) does not address the cause."
+      ] },
+    { id:"als-029", type:"mcq", objective:"als-pe-thrombolysis",
+      question:"A 55-year-old woman arrests in PEA with a strongly suspected massive pulmonary embolism. What is the most appropriate specific treatment?",
+      options:[
+        "Thrombolysis, but stop CPR at the usual 20 minutes if no ROSC",
+        "Therapeutic heparin anticoagulation alone",
+        "Continue standard ALS without any specific PE treatment",
+        "Thrombolysis (e.g. alteplase 50 mg), continuing CPR for 60–90 minutes",
+        "Immediate surgical embolectomy instead of thrombolysis"],
+      correctIndex:3,
+      explanation:[
+        "In a cardiac arrest from a suspected massive PE, give THROMBOLYSIS (e.g. alteplase 50 mg) and then CONTINUE CPR for 60–90 minutes to allow the clot to lyse.",
+        "Stopping at the usual 20 minutes (A) defeats the purpose, heparin alone (B) is insufficient in arrest, standard ALS without treating the cause (C) will fail, and surgical embolectomy (E) is a later option, not the immediate bedside action."
+      ] },
+    { id:"als-030", type:"mcq", objective:"als-lidocaine-alternative",
+      question:"A 68-year-old man remains in ventricular fibrillation after multiple shocks. The team finds that amiodarone is unavailable. Which drug is an acceptable alternative antiarrhythmic?",
+      options:[
+        "Adenosine",
+        "Verapamil",
+        "Digoxin",
+        "Atropine",
+        "Lidocaine"],
+      correctIndex:4,
+      explanation:[
+        "If amiodarone is unavailable, LIDOCAINE is the accepted alternative antiarrhythmic for refractory VF/pulseless VT.",
+        "Adenosine (A) and verapamil (B) are for supraventricular tachycardias, digoxin (C) is a rate-control agent, and atropine (D) has no role in cardiac arrest."
+      ] },
+    { id:"als-031", type:"categorize", objective:"als-drug-routine-specific",
+      question:"Sort each drug by whether it is a routine ALS-algorithm drug or one used only in a specific situation.",
+      buckets:["Routine ALS-algorithm drug","Used only in a specific situation"],
+      items:[
+        {text:"Adrenaline 1 mg",bucket:0},
+        {text:"Amiodarone 300 mg (shockable)",bucket:0},
+        {text:"Amiodarone 150 mg (shockable)",bucket:0},
+        {text:"Magnesium 2 g (torsades)",bucket:1},
+        {text:"Calcium chloride (hyperkalaemia)",bucket:1},
+        {text:"Thrombolysis (massive PE)",bucket:1}
+      ],
+      explanation:[
+        "The ROUTINE algorithm drugs are adrenaline (in both arms) and amiodarone (300 mg then 150 mg, shockable arm only).",
+        "The SPECIFIC-situation drugs treat a particular cause: magnesium for torsades, calcium for hyperkalaemia, and thrombolysis for a massive PE."
+      ] },
+    { id:"als-032", type:"saq", objective:"als-magnesium-dose",
+      question:"A patient in cardiac arrest is in torsades de pointes. State the dose of intravenous magnesium sulfate given (in grams).",
+      answer:"2 g",
+      accept:["2","2 g","2g","2 grams","2 g IV"],
+      markPoints:[
+        "Magnesium sulfate 2 g IV",
+        "The specific treatment for torsades de pointes (polymorphic VT / long QT)",
+        "Not given routinely in cardiac arrest"],
+      explanation:[
+        "The treatment for torsades de pointes is MAGNESIUM SULFATE 2 g IV.",
+        "Magnesium is not a routine arrest drug – it is reserved for torsades or documented hypomagnesaemia."
       ] }
 ]
 };
