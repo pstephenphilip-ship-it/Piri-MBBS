@@ -11292,6 +11292,11 @@ function hideFlyout(p) {
   // "the cloud is my own same-or-older copy" — so a stale cloud row can never revert local, even
   // if the pending flag was somehow lost. See pull().
   var STAMP_KEY='da_sync_stamp';
+  // The account id whose data currently sits in this device's localStorage. If a DIFFERENT
+  // account signs in, the local piri_ data (and the sync stamp) belong to the previous user and
+  // must be cleared so the new account loads its OWN cloud copy — otherwise a device keeps showing
+  // the same notes regardless of who is logged in (and can push them into the wrong account).
+  var OWNER_KEY='da_sync_owner';
   var PROJECT_REF='ynkyqovqlfmnpkdsaonu';
   var rawGet = window.localStorage.getItem.bind(window.localStorage);
   // Authenticated check that does NOT wait for the async getSession() below. A delete made in
@@ -11314,6 +11319,7 @@ function hideFlyout(p) {
 
   function collectLocal(){ var o={}; for (var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if (k && k.indexOf('piri_')===0) o[k]=localStorage.getItem(k); } return o; }
   function applyRemote(obj){ if(!obj) return; Object.keys(obj).forEach(function(k){ if (k.indexOf('piri_')===0){ try{ rawSet(k,obj[k]); }catch(e){} } }); }
+  function wipeLocalPiri(){ try{ var ks=[]; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); if(k && k.indexOf('piri_')===0) ks.push(k); } ks.forEach(function(k){ rawRemove(k); }); }catch(e){} }
 
   function badge(t){ var el=document.getElementById('da-sync'); if (el) el.textContent=t||''; }
   function scheduleSync(){ clearTimeout(syncTimer); badge('Saving…'); syncTimer=setTimeout(pushSync,2000); }
@@ -11337,6 +11343,13 @@ function hideFlyout(p) {
   // ms since epoch for an ISO timestamp, or 0 if unparseable/absent.
   function stampMs(s){ if(!s) return 0; var t=new Date(s).getTime(); return isNaN(t)?0:t; }
   function pull(){ if(!user) return;
+    // Account switch on this device: the local piri_ data belongs to a DIFFERENT account, so it
+    // must not be pushed into — or kept over — the account that just signed in. Clear it (and the
+    // stamp/pending) so this account loads its own cloud copy cleanly. (Anonymous data has no
+    // owner, so first sign-in is NOT treated as a switch and the cloud-wins path below applies.)
+    var owner=rawGet(OWNER_KEY);
+    if(owner && owner!==user.id){ wipeLocalPiri(); try{ rawRemove(STAMP_KEY); rawRemove(PENDING_KEY); }catch(e){} }
+    try{ rawSet(OWNER_KEY, user.id); }catch(e){}
     // Local has unpushed changes → the device is authoritative; push up instead of pulling
     // down, so a not-yet-synced deletion/reset can never be restored by a stale cloud copy.
     if(localStorage.getItem(PENDING_KEY)){ clearTimeout(syncTimer); pushSync(); return; }
