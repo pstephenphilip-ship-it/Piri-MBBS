@@ -777,9 +777,9 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     var _pPharma = (function(){ try{ var n=0; Object.keys(PHARMA_SECTIONS).forEach(function(s){ var ss=PHARMA_SECTIONS[s].subsections||{}; Object.keys(ss).forEach(function(k){ n+=(ss[k]||[]).length; }); }); return n||560; }catch(e){ return 560; } })();
     var _pCalc   = (function(){ try{ var n=document.querySelectorAll('#calc-nav-list .calc-nav-item').length; return n||60; }catch(e){ return 60; } })();
     var stats='<div class="wc-hero3">'
-      +'<div class="wc-h3"><div class="n">30,000+</div><div class="l">Flashcards</div></div>'
-      +'<div class="wc-h3"><div class="n">22,500+</div><div class="l">MCQs</div></div>'
-      +'<div class="wc-h3"><div class="n">1,200+</div><div class="l">Topics</div></div>'
+      +'<div class="wc-h3"><div class="n js-hero-fc">&hellip;</div><div class="l">Flashcards</div></div>'
+      +'<div class="wc-h3"><div class="n js-hero-q">&hellip;</div><div class="l">MCQs</div></div>'
+      +'<div class="wc-h3"><div class="n js-hero-topics">&hellip;</div><div class="l">Topics</div></div>'
       +'</div>'
       +'<div class="wc-inside-h">Everything in one place</div>'
       +'<div class="wc-pillars">'
@@ -825,10 +825,18 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   window.renderHomeStreak=window.updateStreakUI;
 
   var STATCACHE=null;
+  // Round DOWN to a sensible step and append "+" (e.g. 21389 -> "21,000+", 2022 -> "2,000+").
+  function _niceDown(n){ n=+n||0; var step = n>=10000?1000 : n>=1000?100 : n>=100?10:1; var v=Math.floor(n/step)*step; try{ return v.toLocaleString('en-US')+'+'; }catch(e){ return v+'+'; } }
+  function _tabTopics(t){ try{ return Object.keys(t).reduce(function(a,k){ var v=t[k]||{}; return a+((v.topics||v.conditions||[]).length); },0); }catch(e){ return 0; } }
+  function _pharmaTopics(){ try{ var n=0; Object.keys(PHARMA_SECTIONS).forEach(function(s){ var ss=PHARMA_SECTIONS[s].subsections||{}; Object.keys(ss).forEach(function(k){ n+=(ss[k]||[]).length; }); }); return n; }catch(e){ return 0; } }
   function applyStats(o){ if(!o)return;
     document.querySelectorAll('.js-stat-cond').forEach(function(e){e.textContent=o.cond;});
     document.querySelectorAll('.js-stat-fc').forEach(function(e){e.textContent=o.fc;});
-    document.querySelectorAll('.js-stat-q').forEach(function(e){e.textContent=o.q;}); }
+    document.querySelectorAll('.js-stat-q').forEach(function(e){e.textContent=o.q;});
+    // Top-row hero stats: live counts rounded down with a "+".
+    document.querySelectorAll('.js-hero-fc').forEach(function(e){e.textContent=_niceDown(o.fc);});
+    document.querySelectorAll('.js-hero-q').forEach(function(e){e.textContent=_niceDown(o.q);});
+    document.querySelectorAll('.js-hero-topics').forEach(function(e){e.textContent=_niceDown(o.topics);}); }
   function updateStatsUI(){
     var sys=(typeof CONDITIONS_SYSTEMS!=='undefined')?Object.keys(CONDITIONS_SYSTEMS).length:'\u2014';
     document.querySelectorAll('.js-stat-sys').forEach(function(e){e.textContent=sys;});
@@ -839,11 +847,19 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     ]).then(function(res){
       var mf=res[0]||{}, sn=res[1]||{}, tf=0,tq=0;
       (mf.systems||[]).forEach(function(s){tf+=s.fcards||0;tq+=s.qcards||0;});
-      var cond='\u2014';
+      var cond=0;
       if(typeof CONDITIONS_SYSTEMS!=='undefined'){
         cond=Object.keys(CONDITIONS_SYSTEMS).reduce(function(a,sy){var m=CONDITIONS_SYSTEMS[sy];return a+((m.conditions||[]).reduce(function(x,t){var subs=(sn&&sn[sy+'__'+t])||null;return x+((subs&&subs.length)?subs.length:1);},0));},0);
       }
-      STATCACHE={cond:cond,fc:tf,q:tq}; applyStats(STATCACHE);
+      // Total topics = subnav-aware conditions + every other section's topics.
+      var topics = cond
+        + (typeof TAB_SIGNS!=='undefined'?_tabTopics(TAB_SIGNS):0)
+        + (typeof TAB_INVESTIGATIONS!=='undefined'?_tabTopics(TAB_INVESTIGATIONS):0)
+        + (typeof TAB_ANATOMY!=='undefined'?_tabTopics(TAB_ANATOMY):0)
+        + (typeof TAB_HISTOLOGY!=='undefined'?_tabTopics(TAB_HISTOLOGY):0)
+        + (typeof TAB_OSCE!=='undefined'?_tabTopics(TAB_OSCE):0)
+        + _pharmaTopics();
+      STATCACHE={cond:cond,fc:tf,q:tq,topics:topics}; applyStats(STATCACHE);
     });
   }
   window.updateStatsUI=updateStatsUI;
