@@ -5426,6 +5426,116 @@ window.MOCK_BANK = {
       explanation:[
         "A complete bundle branch block is defined by a QRS duration of 120 ms or more (0.12 seconds, three small squares on standard ECG paper).",
         "A QRS of 110–120 ms is an incomplete bundle branch block."
+      ] },
+    { id:"brady-057", type:"mcq", objective:"rbbb-identify",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Cardiogram_indicating_right_bundle_branch_block.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>70 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>130/78 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Temperature</td><td><b>36.6 &deg;C</b></td><td>36.1&ndash;37.2</td></tr></table>',
+      question:"A 55-year-old man attends for a routine health check and feels well. His observations and 12-lead ECG are shown. What does the ECG show?",
+      options:[
+        "Left bundle branch block",
+        "First-degree AV block",
+        "Complete heart block",
+        "A normal ECG",
+        "Right bundle branch block"],
+      correctIndex:4,
+      explanation:[
+        "The QRS is broad with an RSR′ ('rabbit ears') pattern in V1 and a wide, slurred S wave in the lateral leads (I, V6) – RIGHT bundle branch block (the MaRRoW pattern).",
+        "Left bundle branch block (A) shows a deep dominant S in V1 and a notched R in V6; there is no PR prolongation for first-degree block (B), no AV dissociation for complete block (C), and the broad abnormal QRS is not normal (D)."
+      ] },
+    { id:"brady-058", type:"mcq", objective:"rbbb-asd",
+      question:"A 25-year-old woman is found to have a fixed, widely split second heart sound and an ejection systolic murmur at the upper left sternal edge. Her ECG shows a right bundle branch block. What is the most likely underlying diagnosis?",
+      options:[
+        "Atrial septal defect",
+        "Ventricular septal defect",
+        "Aortic stenosis",
+        "Mitral regurgitation",
+        "Pulmonary embolism"],
+      correctIndex:0,
+      explanation:[
+        "A FIXED, widely split second heart sound with a pulmonary flow (ejection systolic) murmur and right bundle branch block is the classic triad of an ATRIAL SEPTAL DEFECT – right-heart volume overload causes both the RBBB and the fixed splitting.",
+        "A VSD (B) gives a pansystolic murmur without fixed splitting, aortic stenosis (C) is heard at the aortic area, mitral regurgitation (D) is pansystolic at the apex, and a pulmonary embolism (E) is an acute, not chronic, presentation."
+      ] },
+    { id:"brady-059", type:"mcq", objective:"rbbb-normal-variant",
+      question:"A 22-year-old asymptomatic man has an incidental right bundle branch block on a routine ECG, with a structurally normal heart on examination. What is the most appropriate interpretation?",
+      options:[
+        "It is always pathological, like LBBB",
+        "It can be a benign normal variant and needs no treatment",
+        "It requires a permanent pacemaker",
+        "It should be monitored with regular surveillance ECGs",
+        "It is a STEMI-equivalent"],
+      correctIndex:1,
+      explanation:[
+        "In a young, asymptomatic person with a structurally normal heart, an isolated RIGHT bundle branch block can be a BENIGN NORMAL VARIANT that needs no treatment or follow-up.",
+        "Unlike LBBB it is not always pathological (A); it does not need a pacemaker (C) or ongoing surveillance ECGs (D), and it is certainly not a STEMI-equivalent (E)."
+      ] },
+    { id:"brady-060", type:"mcq", objective:"rbbb-pe",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>112 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Respiratory rate</td><td><b>26 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>89% (air)</b></td><td>94&ndash;98</td></tr><tr><td>Blood pressure</td><td><b>118/76 mmHg</b></td><td></td></tr></table>',
+      question:"A 58-year-old woman has sudden breathlessness and sharp chest pain that is worse when she breathes in. Her observations are shown, and her ECG shows a new right bundle branch block. What should this most raise concern for?",
+      options:[
+        "Acute LAD occlusion",
+        "Aortic stenosis",
+        "Acute pulmonary embolism (RV strain)",
+        "A normal variant needing no action",
+        "Left ventricular failure"],
+      correctIndex:2,
+      explanation:[
+        "Sudden breathlessness with pleuritic pain, tachycardia and hypoxia, plus a NEW right bundle branch block (acute right-ventricular strain), should raise concern for an ACUTE PULMONARY EMBOLISM.",
+        "An LAD occlusion (A) causes an anterior MI pattern, aortic stenosis (B) and left ventricular failure (E) do not cause an acute new RBBB, and this presentation is clearly not a benign variant (D)."
+      ] },
+    { id:"brady-061", type:"mcq", objective:"fascicular-lafb-axis",
+      question:"An ECG shows left axis deviation with small q waves in leads I and aVL, small r waves in II, III and aVF, and a normal QRS duration. What does this represent?",
+      options:[
+        "Left posterior fascicular block",
+        "Complete left bundle branch block",
+        "Right bundle branch block",
+        "Left anterior fascicular block",
+        "A normal axis"],
+      correctIndex:3,
+      explanation:[
+        "Left axis deviation with a qR pattern in I/aVL, an rS pattern in II/III/aVF and a NORMAL (narrow) QRS is LEFT ANTERIOR FASCICULAR BLOCK (left anterior hemiblock).",
+        "Left posterior fascicular block (A) causes right axis deviation; complete LBBB (B) has a broad QRS; RBBB (C) shows an RSR′ in V1; and this is not a normal axis (E)."
+      ] },
+    { id:"brady-062", type:"mcq", objective:"fascicular-bifascicular-pacing",
+      question:"A patient has right bundle branch block plus left anterior fascicular block (bifascicular block) and now also first-degree AV block. He presents with recurrent syncope. What is the most appropriate management?",
+      options:[
+        "Reassurance; bifascicular block is always benign",
+        "Atropine as needed",
+        "No action unless the QRS widens further",
+        "A beta-blocker",
+        "Permanent pacemaker"],
+      correctIndex:4,
+      explanation:[
+        "Bifascicular block (RBBB + left anterior fascicular block) with added PR prolongation, presenting with SYNCOPE, carries a high risk of progression to complete heart block – this is an indication for a PERMANENT PACEMAKER.",
+        "Reassurance or waiting (A, C) is unsafe with syncope, atropine (B) is not a long-term solution, and a beta-blocker (D) would worsen conduction."
+      ] },
+    { id:"brady-063", type:"categorize", objective:"bbb-rbbb-lbbb-sort",
+      question:"Sort each feature by whether it belongs to right bundle branch block or left bundle branch block.",
+      buckets:["Right bundle branch block","Left bundle branch block"],
+      items:[
+        {text:"RSR′ (\'rabbit ears\') in V1",bucket:0},
+        {text:"Can be a benign normal variant",bucket:0},
+        {text:"Associated with PE and RV strain",bucket:0},
+        {text:"Deep dominant S wave (QS) in V1",bucket:1},
+        {text:"Always pathological",bucket:1},
+        {text:"Broad notched R wave in V6",bucket:1}
+      ],
+      explanation:[
+        "RIGHT bundle branch block: an RSR′ ('rabbit ears') in V1, can be a benign normal variant, and is associated with acute PE and right-ventricular strain.",
+        "LEFT bundle branch block: a deep dominant S (QS) in V1, a broad notched R wave in V6, and it is ALWAYS pathological."
+      ] },
+    { id:"brady-064", type:"saq", objective:"fascicular-remaining-pathway",
+      question:"In a patient with right bundle branch block and left anterior fascicular block, ventricular conduction depends on a single remaining pathway. Name it.",
+      answer:"Left posterior fascicle",
+      accept:["left posterior fascicle","LPF","posterior fascicle","left posterior fascicular","left posterior hemifascicle","left posterior division"],
+      markPoints:[
+        "The left posterior fascicle (of the left bundle branch)",
+        "In RBBB + left anterior fascicular block it is the only remaining conduction pathway",
+        "If it also fails, complete heart block results – hence the risk in bifascicular block"],
+      explanation:[
+        "With RBBB and left ANTERIOR fascicular block, the only intact route from the AV node to the ventricles is the LEFT POSTERIOR FASCICLE.",
+        "If it too fails, conduction is completely interrupted (complete heart block) – which is why bifascicular block with syncope warrants pacing."
       ] }
 ]
 };
