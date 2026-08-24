@@ -5775,6 +5775,230 @@ window.MOCK_BANK = {
         "EARLY complications (the procedure and first weeks) include pneumothorax from subclavian puncture, lead displacement (the commonest early problem) and a pocket haematoma.",
         "LATE complications include lead fracture or insulation failure, pacemaker syndrome (from loss of AV synchrony) and twiddler's syndrome (the patient rotating the generator and dislodging the leads)."
       ] }
+],
+"conditions__CARDIOVASCULAR__Cardiac Arrest / Advanced Life Support (ALS)": [
+    { id:"als-001", type:"mcq", objective:"als-vf-identify-shock",
+      image:"https://upload.wikimedia.org/wikipedia/commons/f/f1/Ventricular_fibrillation.png",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Jer5150, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 60-year-old man collapses. He is unresponsive, not breathing normally and has no pulse. CPR is started and the defibrillator attached, and his rhythm is shown. What is the most appropriate immediate action?",
+      options:[
+        "Deliver a single unsynchronised shock",
+        "Give adrenaline 1 mg IV first",
+        "Give amiodarone 300 mg first",
+        "Synchronised cardioversion",
+        "Continue CPR only; this rhythm is non-shockable"],
+      correctIndex:0,
+      explanation:[
+        "The strip shows VENTRICULAR FIBRILLATION – a shockable rhythm – so the immediate action is a single UNSYNCHRONISED shock, followed straight away by CPR.",
+        "Adrenaline (B) and amiodarone (C) are given only after the 3rd shock, VF cannot be synchronised (D), and it is certainly not non-shockable (E)."
+      ] },
+    { id:"als-002", type:"mcq", objective:"als-pvt-shockable",
+      image:"https://upload.wikimedia.org/wikipedia/commons/c/c4/Electrocardiogram_of_Ventricular_Tachycardia.png",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Ksheka, CC BY-SA 2.5, via Wikimedia Commons.",
+      question:"A patient in cardiac arrest has the monitored rhythm shown and no palpable pulse. How is this rhythm classified and managed?",
+      options:[
+        "Non-shockable — CPR and adrenaline only",
+        "Shockable — defibrillate",
+        "An SVT — give adenosine",
+        "Asystole — do not shock",
+        "Synchronised cardioversion"],
+      correctIndex:1,
+      explanation:[
+        "A regular, monomorphic BROAD-complex tachycardia with NO pulse is PULSELESS VT – a SHOCKABLE rhythm – so defibrillate.",
+        "It is not non-shockable (A); adenosine (C) is for a stable narrow-complex SVT, it is not a flat line (D), and a pulseless patient cannot be synchronised (E)."
+      ] },
+    { id:"als-003", type:"mcq", objective:"als-pea-identify",
+      image:"https://upload.wikimedia.org/wikipedia/commons/3/3f/Normal_ECG_from_a_66-year_old_British_male_subject_2019.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"Rodhullandemu, public domain, via Wikimedia Commons.",
+      question:"A 72-year-old woman on the ward suddenly becomes unresponsive, not breathing normally, with no central pulse. CPR is started, and the monitor shows the organised rhythm below. What is the diagnosis and immediate management?",
+      options:[
+        "A normal rhythm — she cannot truly be in cardiac arrest",
+        "Ventricular fibrillation — deliver an immediate unsynchronised shock",
+        "Pulseless electrical activity — CPR, adrenaline and treat reversible causes",
+        "Asystole — give adrenaline and continue CPR without shocking",
+        "A perfusing rhythm — withhold CPR and simply observe her"],
+      correctIndex:2,
+      explanation:[
+        "An ORGANISED rhythm on the monitor with NO palpable pulse is PULSELESS ELECTRICAL ACTIVITY (PEA) – a non-shockable arrest – treated with CPR, adrenaline immediately, and a search for reversible causes.",
+        "The trap is that 'the trace looks fine' (A, E) – but with no pulse she is in arrest; it is not VF to shock (B), and the trace is organised, not the flat line of asystole (D)."
+      ] },
+    { id:"als-004", type:"mcq", objective:"als-shockable-classification",
+      question:"Which of the following cardiac arrest rhythms is shockable?",
+      options:[
+        "Asystole",
+        "Pulseless electrical activity",
+        "A slow idioventricular rhythm without a pulse",
+        "Pulseless ventricular tachycardia",
+        "An organised narrow-complex rhythm without a pulse"],
+      correctIndex:3,
+      explanation:[
+        "Of the four arrest rhythms, only VENTRICULAR FIBRILLATION and PULSELESS VT are shockable – so pulseless VT is the answer.",
+        "Asystole (A), PEA (B), and the pulseless idioventricular and organised rhythms (C, E), which are forms of PEA, are all non-shockable."
+      ] },
+    { id:"als-005", type:"mcq", objective:"als-fine-vf-vs-asystole",
+      question:"During the resuscitation of a 66-year-old man, the monitor shows an almost-flat line with very fine, low-amplitude undulations, and the team is unsure whether this is asystole or fine ventricular fibrillation. What is the most appropriate action?",
+      options:[
+        "Deliver an immediate unsynchronised shock in case it is fine VF",
+        "Increase the monitor gain and then shock regardless of the result",
+        "Diagnose asystole and stop the resuscitation",
+        "Give amiodarone 300 mg to treat possible fine VF",
+        "Continue high-quality CPR and do not shock while the rhythm is in doubt"],
+      correctIndex:4,
+      explanation:[
+        "When it is genuinely uncertain whether the rhythm is asystole or fine VF, DO NOT shock – continue high-quality CPR; good compressions may coarsen true fine VF into a clearly shockable rhythm.",
+        "Reflexively shocking (A, B) is the tempting error, stopping resuscitation (C) is premature, and amiodarone (D) is not given without a shockable rhythm and delivered defibrillation."
+      ] },
+    { id:"als-006", type:"mcq", objective:"als-asystole-mgmt",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Asystole.svg",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Rocuronium Bromide, CC0 (public domain), via Wikimedia Commons.",
+      question:"A 58-year-old man is in cardiac arrest. The flat-line rhythm below is confirmed on two leads with the connections and gain checked. What is the correct management?",
+      options:[
+        "CPR with adrenaline 1 mg and a search for reversible causes",
+        "Immediate unsynchronised defibrillation of the rhythm",
+        "A bolus of amiodarone 300 mg to restart the heart",
+        "Synchronised cardioversion timed to the R wave",
+        "Immediate withdrawal of resuscitation efforts"],
+      correctIndex:0,
+      explanation:[
+        "ASYSTOLE is non-shockable: give high-quality CPR with adrenaline 1 mg immediately, and search hard for a reversible cause (4Hs/4Ts).",
+        "Defibrillation and cardioversion (B, D) have no role in a flat line, amiodarone (C) is for shockable rhythms, and withdrawing (E) is premature before reversible causes are addressed."
+      ] },
+    { id:"als-007", type:"categorize", objective:"als-shockable-sort",
+      question:"Sort each rhythm description by whether it is shockable or non-shockable.",
+      buckets:["Shockable","Non-shockable"],
+      items:[
+        {text:"Chaotic, irregular fibrillatory waves",bucket:0},
+        {text:"A regular broad-complex tachycardia with no pulse",bucket:0},
+        {text:"A polymorphic wide-complex tachycardia with no pulse",bucket:0},
+        {text:"A flat line",bucket:1},
+        {text:"Organised complexes with no pulse",bucket:1},
+        {text:"A slow agonal rhythm with no pulse",bucket:1}
+      ],
+      explanation:[
+        "SHOCKABLE rhythms are ventricular fibrillation (chaotic fibrillatory waves) and pulseless VT (a regular or polymorphic broad-complex tachycardia with no pulse) – deliver a shock.",
+        "NON-SHOCKABLE rhythms are asystole (a flat line) and pulseless electrical activity (organised or agonal complexes with no pulse) – give CPR and adrenaline and treat the reversible cause."
+      ] },
+    { id:"als-008", type:"saq", objective:"als-pea-name",
+      question:"A monitored patient loses cardiac output. The monitor shows organised electrical complexes, but there is no palpable pulse. Name this type of cardiac arrest.",
+      answer:"Pulseless electrical activity (PEA)",
+      accept:["PEA","pulseless electrical activity","electromechanical dissociation","EMD","pulseless electrical activity (PEA)"],
+      markPoints:[
+        "Pulseless electrical activity (PEA)",
+        "Organised electrical activity on the monitor but no palpable pulse or cardiac output",
+        "A non-shockable rhythm – treat with CPR, adrenaline and the reversible causes (4Hs/4Ts)"],
+      explanation:[
+        "Organised electrical complexes with no palpable pulse is PULSELESS ELECTRICAL ACTIVITY (PEA) – the electrical system is intact but there is no effective mechanical output.",
+        "It is non-shockable and almost always due to a reversible cause, so treat with CPR, adrenaline and a search through the 4Hs and 4Ts."
+      ] },
+    { id:"als-009", type:"mcq", objective:"als-shockable-first-step",
+      question:"A 55-year-old man collapses in the emergency department. He is in confirmed ventricular fibrillation, CPR is in progress and the defibrillator is charged. What is the immediate priority?",
+      options:[
+        "Give three quick stacked shocks and then check the pulse",
+        "A single unsynchronised shock, then resume CPR",
+        "Give adrenaline 1 mg before delivering the shock",
+        "Pause CPR to obtain intravenous access first",
+        "Give amiodarone 300 mg before delivering the shock"],
+      correctIndex:1,
+      explanation:[
+        "For VF/pulseless VT the priority is a SINGLE unsynchronised shock, followed immediately by 2 minutes of CPR.",
+        "Three stacked shocks (A) apply only to a witnessed, monitored arrest; adrenaline (C) and amiodarone (E) wait until after the 3rd shock, and CPR should not be paused to gain access (D)."
+      ] },
+    { id:"als-010", type:"mcq", objective:"als-post-shock",
+      question:"A 62-year-old woman in ventricular fibrillation has just received her first shock. What should the team do immediately afterwards?",
+      options:[
+        "Pause to check the carotid pulse for up to 10 seconds",
+        "Pause briefly to reassess the rhythm on the monitor",
+        "Resume chest compressions immediately, with no pulse check",
+        "Deliver a second shock straight away without CPR",
+        "Stop to secure the airway before resuming compressions"],
+      correctIndex:2,
+      explanation:[
+        "Immediately after a shock, RESUME chest compressions at once and continue CPR for 2 minutes – do NOT pause to check the pulse or the rhythm.",
+        "Checking the pulse (A) or reassessing the rhythm (B) wastes perfusion time, a second immediate shock (D) is wrong, and pausing for the airway (E) is not the priority right after a shock."
+      ] },
+    { id:"als-011", type:"mcq", objective:"als-adrenaline-timing",
+      question:"A 70-year-old man in a ventricular fibrillation arrest has received two shocks with ongoing CPR. In the shockable pathway, after which shock is the first dose of adrenaline given?",
+      options:[
+        "After the 1st shock",
+        "Immediately, before any shock",
+        "Only after ROSC",
+        "After the 3rd shock",
+        "After the 5th shock"],
+      correctIndex:3,
+      explanation:[
+        "In the SHOCKABLE arm the first dose of adrenaline is given AFTER THE 3RD SHOCK (once compressions have restarted), then repeated every 3–5 minutes.",
+        "Giving it after the 1st shock (A) or immediately (B) is the non-shockable timing, waiting for ROSC (C) or the 5th shock (E) is too late."
+      ] },
+    { id:"als-012", type:"mcq", objective:"als-amiodarone-first",
+      question:"A 64-year-old woman remains in ventricular fibrillation after the 3rd shock, and adrenaline has just been given. Which additional drug and dose is now indicated?",
+      options:[
+        "Amiodarone 150 mg IV",
+        "Lidocaine 300 mg IV",
+        "Magnesium 2 g IV",
+        "Atropine 3 mg IV",
+        "Amiodarone 300 mg IV"],
+      correctIndex:4,
+      explanation:[
+        "After the 3rd shock, alongside adrenaline, give AMIODARONE 300 mg IV.",
+        "150 mg (A) is the later, second dose; lidocaine (B) is only an alternative if amiodarone is unavailable; magnesium (C) is for torsades; and atropine (D) has no role in cardiac arrest."
+      ] },
+    { id:"als-013", type:"mcq", objective:"als-unsync-energy",
+      question:"When defibrillating ventricular fibrillation, why is the shock delivered unsynchronised, and at what energy?",
+      options:[
+        "There is no organised R wave to synchronise to; at least 150 J biphasic",
+        "It is synchronised to the R wave to avoid the T wave; 150 J biphasic",
+        "It is synchronised to avoid R-on-T; 120–150 J biphasic",
+        "Unsynchronised, but the energy should start low at 50 J and escalate",
+        "Unsynchronised; a fixed 360 J biphasic shock every time"],
+      correctIndex:0,
+      explanation:[
+        "VF has no organised R wave to lock onto, so the shock is UNSYNCHRONISED and delivered on the button press, at AT LEAST 150 J biphasic (then escalating).",
+        "Synchronisation (B, C) is for an organised rhythm with a pulse (cardioversion) and is impossible in VF; starting at 50 J (D) is too low, and a fixed 360 J every time (E) is wrong."
+      ] },
+    { id:"als-014", type:"mcq", objective:"als-amiodarone-second",
+      question:"A 59-year-old man remains in ventricular fibrillation after 5 shocks, having received adrenaline and one dose of amiodarone 300 mg. What further antiarrhythmic dose is now indicated?",
+      options:[
+        "A further amiodarone 300 mg IV",
+        "A further amiodarone 150 mg IV",
+        "No further antiarrhythmic",
+        "Adrenaline 3 mg IV",
+        "Routine magnesium 2 g IV"],
+      correctIndex:1,
+      explanation:[
+        "After the 5th shock a further dose of AMIODARONE 150 mg IV is given.",
+        "A second 300 mg dose (A) is wrong, there IS a further dose (C), adrenaline stays at 1 mg (D), and magnesium (E) is not routine – only for torsades."
+      ] },
+    { id:"als-015", type:"categorize", objective:"als-shockable-do-dont",
+      question:"A patient is in cardiac arrest and, on rhythm assessment in the ALS algorithm, the rhythm is deemed shockable (VF/pulseless VT). Sort each action by whether it is correct or incorrect in managing this shockable rhythm.",
+      buckets:["Correct in the shockable arm","Incorrect / do not do"],
+      items:[
+        {text:"A single shock, then immediately resume CPR",bucket:0},
+        {text:"Adrenaline after the 3rd shock",bucket:0},
+        {text:"Amiodarone 300 mg after the 3rd shock",bucket:0},
+        {text:"Synchronise the shock to the R wave",bucket:1},
+        {text:"Check for a pulse immediately after each shock",bucket:1},
+        {text:"Give adrenaline before the first shock",bucket:1}
+      ],
+      explanation:[
+        "In the SHOCKABLE arm: give a single shock then immediately resume CPR, and after the 3rd shock give adrenaline 1 mg and amiodarone 300 mg.",
+        "You should NOT synchronise the shock (there is no R wave in VF), pause to check the pulse after each shock, or give adrenaline before the first shock – adrenaline waits until after the 3rd shock in the shockable arm."
+      ] },
+    { id:"als-016", type:"saq", objective:"als-adrenaline-dose",
+      question:"In adult cardiac arrest, adrenaline is given intravenously at a dose of how many milligrams?",
+      answer:"1 mg",
+      accept:["1","1 mg","1mg","1 milligram"],
+      markPoints:[
+        "1 mg of adrenaline",
+        "Given IV or IO as 10 mL of 1:10,000, flushed with 20 mL",
+        "Repeated every 3–5 minutes (after the 3rd shock if shockable; immediately if non-shockable)"],
+      explanation:[
+        "The adult cardiac-arrest dose of adrenaline is 1 mg IV/IO (10 mL of 1:10,000), repeated every 3–5 minutes.",
+        "This differs sharply from the anaphylaxis dose of 0.5 mg IM of 1:1000 – giving 1:1000 intravenously is a dangerous error."
+      ] }
 ]
 };
 </script>
