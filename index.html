@@ -728,6 +728,13 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .wc-plan-del:hover{color:#DC2626;}
 .wc-plan-hint{font-size:11px;color:#9CA3AF;text-align:right;}
 .wc-plan-empty{padding:24px 16px;text-align:center;color:#9CA3AF;font-size:13px;line-height:1.6;}
+.wc-nexpand{font-size:11px;font-weight:700;color:#00A892;background:#E4FBF6;border:1px solid #B7EDE4;border-radius:6px;padding:5px 11px;cursor:pointer;transition:background .15s ease;white-space:nowrap;}
+.wc-nexpand:hover{background:#D2F6EF;}
+.wc-planner.big .wc-plan-body{min-height:440px;max-height:min(72vh,760px);}
+.wc-plan-body table{border-collapse:collapse;margin:8px 0;width:auto;max-width:100%;}
+.wc-plan-body table td,.wc-plan-body table th{border:1px solid #C7CEDC;padding:6px 10px;min-width:54px;font-size:13.5px;line-height:1.5;vertical-align:top;}
+.wc-plan-body table th{background:#F0F2F8;font-weight:700;text-align:left;}
+.wc-plan-body mark{background:#FFE86B;color:inherit;padding:0 1px;border-radius:2px;}
 .wc-hero3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
 .wc-h3{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;padding:18px 10px;text-align:center;}
 .wc-h3 .n{font-family:var(--mono);font-weight:800;font-size:25px;line-height:1;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -806,7 +813,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     // Multi-note planner (home only). Tabs of notes + one editor; each note is rich text and can
     // hold tick-box tasks. Tabs/editor are filled in by wcPlanRenderAll() after paint.
     var planner = opts.planner ? ('<div class="wc-planner">'
-      +'<div class="wc-nhead"><span>&#128221; My Planner</span><span class="wc-nactions"><button class="wc-nsave" type="button" onclick="wcPlanNew()">+ New note</button></span></div>'
+      +'<div class="wc-nhead"><span>&#128221; My Planner</span><span class="wc-nactions"><button class="wc-nexpand js-plan-expand" type="button" title="Make notes bigger" onclick="wcPlanExpand(event)">&#10530; Expand</button><button class="wc-nsave" type="button" onclick="wcPlanNew()">+ New note</button></span></div>'
       +'<div class="wc-plan-tabs"></div>'
       +'<div class="wc-plan-editor"></div>'
       +'</div>') : '';
@@ -881,6 +888,8 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 
   // ===== Multi-note planner (home page) — synced via the piri_ namespace =====
   var PKEY='piri_planner_v1', planActiveId=null, planT;
+  // Bigger-editor preference (piri_ key -> syncs across devices).
+  function planExpanded(){ try{ return localStorage.getItem('piri_planner_big')==='1'; }catch(e){ return false; } }
   function planLoad(){
     try{ var v=JSON.parse(localStorage.getItem(PKEY)||'null'); if(Array.isArray(v)) return v; }catch(e){}
     // One-time migration of the old single shared note into the first planner note.
@@ -893,11 +902,15 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     +'<button class="wc-nbtn" type="button" title="Italic" onmousedown="return wcPlanFmt(event,\'italic\')"><i>I</i></button>'
     +'<button class="wc-nbtn" type="button" title="Underline" onmousedown="return wcPlanFmt(event,\'underline\')"><u>U</u></button>'
     +'<button class="wc-nbtn" type="button" title="Bullet list" onmousedown="return wcPlanFmt(event,\'insertUnorderedList\')">&#8226;</button>'
+    +'<button class="wc-nbtn" type="button" title="Highlight" onmousedown="return wcPlanHi(event)"><span style="background:#FFE86B;color:#1E2640;padding:0 3px;border-radius:2px;font-weight:700;">H</span></button>'
+    +'<button class="wc-nbtn" type="button" title="Insert table" onmousedown="return wcPlanTable(event)">&#9638;</button>'
     +'<button class="wc-nbtn" type="button" title="Add a tick-box task" onmousedown="return wcPlanTask(event)">&#9744;</button>'
     +'</div>';
   function planRenderOne(host){
     var tabsEl=host.querySelector('.wc-plan-tabs'), edEl=host.querySelector('.wc-plan-editor');
     if(!tabsEl||!edEl) return;
+    var _big=planExpanded(); host.classList.toggle('big',_big);
+    var _xb=host.querySelector('.js-plan-expand'); if(_xb){ _xb.innerHTML=(_big?'&#10530; Shrink':'&#10530; Expand'); _xb.title=_big?'Shrink notes':'Make notes bigger'; }
     var list=planLoad();
     if(!list.length){ tabsEl.innerHTML=''; edEl.innerHTML='<div class="wc-plan-empty">No notes yet.<br>Tap <b>+ New note</b> to start a study plan, checklist or scratchpad.</div>'; return; }
     if(!planActiveId || !list.some(function(n){return String(n.id)===String(planActiveId);})) planActiveId=list[0].id;
@@ -928,6 +941,21 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   window.wcPlanTask=function(ev){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus();
     try{ document.execCommand('insertHTML',false,'<div class="wc-task"><span class="wc-cb" contenteditable="false">&#9744;</span><span>&nbsp;</span></div>'); }catch(e){}
     window.wcPlanBody(el); return false; };
+  // Highlight the current selection (yellow). Falls back to backColor on older engines.
+  window.wcPlanHi=function(ev){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus();
+    try{ document.execCommand('styleWithCSS',false,true); }catch(e){}
+    try{ document.execCommand('hiliteColor',false,'#FFE86B'); }catch(e){ try{ document.execCommand('backColor',false,'#FFE86B'); }catch(e2){} }
+    try{ document.execCommand('styleWithCSS',false,false); }catch(e){}
+    window.wcPlanBody(el); return false; };
+  // Insert a small editable table (header row + 2 rows, 3 columns). Cells are edited inline.
+  window.wcPlanTable=function(ev){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus();
+    var td='<td>&nbsp;</td>', th='<th>&nbsp;</th>';
+    var html='<table><thead><tr>'+th+th+th+'</tr></thead><tbody><tr>'+td+td+td+'</tr><tr>'+td+td+td+'</tr></tbody></table><p><br></p>';
+    try{ document.execCommand('insertHTML',false,html); }catch(e){}
+    window.wcPlanBody(el); return false; };
+  // Toggle the bigger-editor mode across every planner instance and persist it.
+  window.wcPlanExpand=function(ev){ if(ev&&ev.preventDefault)ev.preventDefault(); var on=!planExpanded(); try{ localStorage.setItem('piri_planner_big',on?'1':'0'); }catch(e){}
+    document.querySelectorAll('.wc-planner').forEach(function(h){ h.classList.toggle('big',on); var xb=h.querySelector('.js-plan-expand'); if(xb){ xb.innerHTML=(on?'&#10530; Shrink':'&#10530; Expand'); xb.title=on?'Shrink notes':'Make notes bigger'; } }); };
   // Toggle a task's tick-box (the span is contenteditable=false, so a click means "toggle").
   document.addEventListener('click', function(e){ var cb=e.target&&e.target.closest?e.target.closest('.wc-cb'):null; if(!cb) return;
     cb.textContent=(cb.textContent.indexOf('☑')>=0)?'☐':'☑';   // ☐ <-> ☑
