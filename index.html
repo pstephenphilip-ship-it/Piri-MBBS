@@ -559,9 +559,12 @@ body{display:flex;flex-direction:column;}
 .account-menu button:hover{background:var(--surface2);}
 .account-menu button.am-danger{color:var(--danger);}
 
-.auth-overlay{position:fixed;inset:0;background:rgba(8,10,16,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px;}
+/* Scrollable modal: sized to the visible viewport (100dvh), the card centred with margin:auto so
+   a card taller than the screen (e.g. the membership plans) can be scrolled to its end instead of
+   being clipped by align-items:center. Bottom safe-area padding clears the mobile browser bar. */
+.auth-overlay{position:fixed;inset:0;bottom:auto;height:100vh;height:100dvh;background:rgba(8,10,16,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:3000;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:20px 20px max(24px,env(safe-area-inset-bottom));box-sizing:border-box;}
 .auth-overlay.open{display:flex;}
-.auth-card{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--border2);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.5);padding:30px 28px 26px;position:relative;}
+.auth-card{width:100%;max-width:380px;margin:auto;background:var(--surface);border:1px solid var(--border2);border-radius:14px;box-shadow:0 24px 64px rgba(0,0,0,.5);padding:30px 28px 26px;position:relative;}
 .auth-card .auth-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;line-height:1;padding:4px;border-radius:4px;}
 .auth-card .auth-close:hover{color:var(--text);}
 .auth-logo{font-family:var(--mono);font-size:22px;font-weight:800;text-align:center;margin-bottom:4px;}
