@@ -6329,6 +6329,117 @@ window.MOCK_BANK = {
       explanation:[
         "The treatment for torsades de pointes is MAGNESIUM SULFATE 2 g IV.",
         "Magnesium is not a routine arrest drug – it is reserved for torsades or documented hypomagnesaemia."
+      ] },
+    { id:"als-033", type:"mcq", objective:"als-compression-params",
+      data:'<div class="mk-obs-h">Arterial blood gas (during CPR)</div><table class="mk-labs"><tr><td>pH</td><td><b>6.98</b></td><td>7.35&ndash;7.45</td></tr><tr><td>PaCO<sub>2</sub></td><td><b>9.2 kPa</b></td><td>4.7&ndash;6.0</td></tr><tr><td>PaO<sub>2</sub></td><td><b>7.5 kPa</b></td><td>11&ndash;13</td></tr><tr><td>Lactate</td><td><b>9.1 mmol/L</b></td><td>0.5&ndash;2.2</td></tr><tr><td>Bicarbonate</td><td><b>15 mmol/L</b></td><td>22&ndash;26</td></tr></table>',
+      question:"A 64-year-old man with type 2 diabetes and hypertension is brought to the emergency department after collapsing at home. His wife says he had had central chest pain and breathlessness for the previous hour, and that he takes ramipril and metformin. On arrival he is unresponsive with no pulse; a crash call is put out and CPR is started. An arterial blood gas taken during resuscitation is shown. As you take over compressions and want to ensure they are high-quality, what are the correct depth and rate?",
+      options:[
+        "5–6 cm deep at 100–120 per minute",
+        "3–4 cm deep at 60–80 per minute",
+        "As deep as possible at 140 per minute",
+        "5–6 cm deep at 80 per minute",
+        "2–3 cm deep at 100–120 per minute"],
+      correctIndex:0,
+      explanation:[
+        "High-quality adult compressions are 5–6 cm DEEP at a rate of 100–120 PER MINUTE, with full recoil between compressions.",
+        "Shallower or slower compressions (B, D, E) do not perfuse, and compressing 'as deep as possible' or faster than 120/min (C) reduces filling and risks injury – the blood gas simply reflects the arrest and is not needed to answer."
+      ] },
+    { id:"als-034", type:"mcq", objective:"als-ventilation-intubated",
+      question:"A 58-year-old woman with COPD, a 40-pack-year smoking history and prior admissions for infective exacerbations is being resuscitated for a witnessed cardiac arrest. CPR has run for 6 minutes with a supraglottic airway, and the anaesthetist has now intubated her and confirmed the tube with waveform capnography. How should compressions and ventilation now be delivered?",
+      options:[
+        "Continue 30:2 with pauses for ventilation",
+        "Compressions only, with no ventilation",
+        "A 15:2 compression-to-ventilation ratio",
+        "Ventilate at 30 breaths/min with paused compressions",
+        "Continuous compressions, with ventilation at 10 breaths/min"],
+      correctIndex:4,
+      explanation:[
+        "Once the trachea is secured with an ETT, give CONTINUOUS compressions and ventilate at 10 breaths/min WITHOUT pausing – there is no longer a compression-to-ventilation ratio.",
+        "The 30:2 ratio (A) is for before a definitive airway, compressions must be ventilated (B), 15:2 (C) is a paediatric two-rescuer ratio, and 30 breaths/min with paused compressions (D) is wrong on both counts."
+      ] },
+    { id:"als-035", type:"mcq", objective:"als-ett-confirmation",
+      question:"A 70-year-old man collapses on the surgical ward 3 days after a hemicolectomy, on a background of ischaemic heart disease. He is in cardiac arrest; during resuscitation the registrar attempts endotracheal intubation, and there is concern about whether the tube lies in the trachea or the oesophagus. Which is the most reliable method to confirm correct placement during CPR?",
+      options:[
+        "Chest auscultation alone",
+        "Waveform capnography",
+        "A chest X-ray",
+        "Observing chest rise",
+        "Pulse oximetry"],
+      correctIndex:1,
+      explanation:[
+        "WAVEFORM CAPNOGRAPHY is the gold standard for confirming tracheal tube placement – a sustained CO₂ waveform means the tube is in the trachea.",
+        "Auscultation (A) and chest rise (D) are supportive but not definitive, a chest X-ray (C) is too slow, and pulse oximetry (E) is unreliable in a pulseless arrest."
+      ] },
+    { id:"als-036", type:"mcq", objective:"als-etco2-rosc",
+      image:"assets/img/capnography_etco2_rise.png",
+      imageAlt:"Waveform capnography (end-tidal CO2) trace over four minutes.",
+      imageCredit:"Illustrative capnography trace.",
+      question:"A 52-year-old woman collapses at the gym; the arrest is witnessed and bystander CPR is started immediately. In the emergency department she is intubated, CPR continues with continuous compressions, and waveform capnography is in place. Her end-tidal CO₂ trace over the last four minutes is shown. What does this most likely indicate, and what should the team do?",
+      options:[
+        "Tube displacement — remove and replace the tube",
+        "Oesophageal intubation — stop and re-intubate",
+        "Possible ROSC — continue CPR, reassess at the next check",
+        "It is an artefact and meaningless during CPR",
+        "Stop CPR immediately to check for a pulse"],
+      correctIndex:2,
+      explanation:[
+        "The trace shows a SUDDEN RISE in end-tidal CO₂ (here from about 2 to over 5 kPa) – this indicates POSSIBLE ROSC as circulation returns; DO NOT interrupt CPR, and reassess at the next 2-minute rhythm check.",
+        "A falling or absent waveform would suggest tube displacement or oesophageal intubation (A, B); the trace is not meaningless (D), and stopping CPR mid-cycle to check the pulse (E) is wrong – confirm at the scheduled rhythm check."
+      ] },
+    { id:"als-037", type:"mcq", objective:"als-io-access",
+      data:'<div class="mk-obs-h">On paramedic arrival</div><table class="mk-labs"><tr><td>Respiratory rate</td><td><b>4 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>78%</b></td><td>94&ndash;98</td></tr><tr><td>Pupils</td><td><b>Pinpoint</b></td><td></td></tr><tr><td>GCS</td><td><b>3</b></td><td>15</td></tr><tr><td>Heart rate</td><td><b>38 bpm</b></td><td>60&ndash;100</td></tr></table>',
+      question:"A 46-year-old man with a long history of intravenous drug use is in cardiac arrest following a suspected heroin overdose, found unresponsive by a friend. The paramedics' findings on arrival are shown. He has heavily scarred, poor peripheral veins, and after 90 seconds two experienced nurses cannot establish peripheral IV access, yet drugs are needed urgently. What is the most appropriate next step for vascular access?",
+      options:[
+        "Central line insertion, pausing CPR",
+        "Give drugs down the endotracheal tube",
+        "Oral medication",
+        "Intraosseous access",
+        "Wait until IV access is eventually achieved"],
+      correctIndex:3,
+      explanation:[
+        "When peripheral IV access fails in an arrest, obtain INTRAOSSEOUS (IO) access – it is fast to insert under CPR conditions and equally effective for all ALS drugs.",
+        "A central line (A) pauses CPR and is slow, the endotracheal route (B) is no longer recommended, oral drugs (C) are useless in arrest, and waiting (E) dangerously delays treatment."
+      ] },
+    { id:"als-038", type:"mcq", objective:"als-compression-quality",
+      data:'<div class="mk-obs-h">End-tidal CO<sub>2</sub></div><table class="mk-labs"><tr><td>Start of resuscitation</td><td><b>3.8 kPa</b></td><td></td></tr><tr><td>At 10 minutes</td><td><b>2.6 kPa</b></td><td></td></tr><tr><td>Now</td><td><b>1.9 kPa</b></td><td></td></tr></table>',
+      question:"A 60-year-old woman has been in cardiac arrest for 20 minutes with multiple cycles completed and reversible causes being addressed. The current rescuer has been compressing for several minutes, is visibly tiring, and the end-tidal CO₂ trend is shown. Which measure best maintains high-quality chest compressions during this prolonged resuscitation?",
+      options:[
+        "Keep the same rescuer compressing throughout for consistency",
+        "Pause compressions frequently to reassess",
+        "Compress on a soft mattress for comfort",
+        "Reduce the rate to conserve the rescuer's energy",
+        "Rotate the compressor every 2 minutes and keep pauses under 5 seconds"],
+      correctIndex:4,
+      explanation:[
+        "The falling end-tidal CO₂ reflects deteriorating compression quality as the rescuer tires; ROTATE the compressor every 2 minutes and keep any pauses under 5 seconds to maintain quality.",
+        "Keeping a tiring rescuer (A) worsens quality, frequent pauses (B) lose perfusion, a soft mattress (C) absorbs compressions, and slowing the rate (D) reduces output."
+      ] },
+    { id:"als-039", type:"categorize", objective:"als-cpr-technique-sort",
+      question:"A resuscitation is in progress and the team leader is auditing compression quality. Sort each feature by whether it is correct or incorrect CPR technique.",
+      buckets:["Correct CPR technique","Incorrect CPR technique"],
+      items:[
+        {text:"Depth 5–6 cm",bucket:0},
+        {text:"Rate 100–120 per minute",bucket:0},
+        {text:"Full chest recoil between compressions",bucket:0},
+        {text:"Leaning on the chest between compressions",bucket:1},
+        {text:"A rate over 140 per minute",bucket:1},
+        {text:"Pauses longer than 10 seconds",bucket:1}
+      ],
+      explanation:[
+        "CORRECT technique is compressing 5–6 cm deep at 100–120/min, allowing FULL chest recoil between compressions.",
+        "INCORRECT: leaning on the chest (preventing recoil), compressing faster than 140/min (which reduces filling), and long pauses over 10 seconds (which lose perfusion)."
+      ] },
+    { id:"als-040", type:"saq", objective:"als-compression-rate",
+      question:"During the resuscitation of an adult in cardiac arrest, you are coaching a new team member on compression technique. State the recommended rate of chest compressions (per minute).",
+      answer:"100–120 per minute",
+      accept:["100-120","100–120","100 to 120","100-120 per minute","100–120/min","100 to 120 per minute","100-120/min","100 to 120/min"],
+      markPoints:[
+        "100–120 compressions per minute",
+        "Combined with a depth of 5–6 cm and full chest recoil",
+        "Faster than 120/min reduces cardiac filling and perfusion"],
+      explanation:[
+        "The recommended chest-compression rate is 100–120 per minute, at a depth of 5–6 cm with full recoil.",
+        "Compressing faster than 120/min reduces ventricular filling and lowers perfusion."
       ] }
 ]
 };
