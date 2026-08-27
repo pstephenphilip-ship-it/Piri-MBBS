@@ -27,6 +27,10 @@
   --radius:6px;--sidebar-w:220px;--list-w:260px;
 }
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden;}
+/* Shell is a flex column: the top bar takes its natural height (one row on desktop, two
+   wrapped rows on phones) and .app-body fills whatever's left — so the bottom of every
+   scroll pane stays on-screen instead of being cut off by a hardcoded 52px assumption. */
+body{display:flex;flex-direction:column;}
 .topnav{display:flex;align-items:center;height:52px;background:var(--surface);border-bottom:1px solid var(--border);padding:0;position:relative;z-index:10;flex-shrink:0;}
 .logo{font-family:var(--mono);font-size:21px;font-weight:800;letter-spacing:-0.01em;white-space:nowrap;width:var(--sidebar-w);min-width:var(--sidebar-w);padding:0 20px;box-sizing:border-box;flex-shrink:0;display:flex;align-items:center;gap:10px;}
 .logo-text{background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -41,7 +45,13 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .nav-tab{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:0.01em;color:var(--muted);padding:0 16px;height:52px;display:flex;align-items:center;gap:7px;cursor:pointer;border-bottom:2px solid transparent;border-top:2px solid transparent;white-space:nowrap;transition:color 0.15s,border-color 0.15s;-webkit-user-select:none;user-select:none;}.nav-tab-icon{display:flex;align-items:center;justify-content:center;width:18px;height:18px;flex-shrink:0;opacity:0.55;transition:opacity 0.15s;}.nav-tab:hover .nav-tab-icon,.nav-tab.active .nav-tab-icon{opacity:1;}
 .nav-tab:hover{color:var(--text);}.nav-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
 @keyframes mockPulse{0%,100%{box-shadow:0 2px 10px rgba(225,29,72,0.35);}50%{box-shadow:0 2px 18px rgba(225,29,72,0.7);}}
-.app-body{display:flex;height:calc(100vh - 52px);height:calc(100dvh - 52px);overflow:hidden;}
+.app-body{display:flex;flex:1 1 auto;min-height:0;overflow:hidden;}
+/* Momentum scrolling + no scroll-chaining on the inner panes. Without overscroll-behavior a
+   flick that reaches the end of a pane bubbles out and triggers the mobile browser's URL-bar
+   show/hide + rubber-band, which reads as "buggy" scrolling. */
+.system-sidebar,.condition-items,.mode-panel,.calc-main,.calc-sidebar,.wc-host,
+.tab-view.home-view.visible,#pharma-detail,.annot-drawer .annot-cards-wrap,
+.mk-wrap,.mk-screen,.mk-run-body{-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
 .da-fav-mark{color:#f5c518;font-size:11px;margin-left:auto;padding-left:6px;flex-shrink:0;line-height:1;}
 .tab-view{display:none;flex:1;overflow:hidden;position:relative;}.tab-view.visible{display:flex;}
 .system-sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex-shrink:0;overflow-x:hidden;}
