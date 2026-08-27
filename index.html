@@ -8815,6 +8815,16 @@ initTab('conditions');
       case 'yellow': default: return '#F0B429';
     }
   }
+  // Opaque fills for highlights that land inside a heading (which has its own coloured
+  // background) — the translucent versions above wash out to invisible there.
+  function hlBgStrong(color){
+    switch(color){
+      case 'green': return '#B7EFC5';
+      case 'blue':  return '#BBD9FF';
+      case 'pink':  return '#FFC7D8';
+      case 'yellow': default: return '#FBE39A';
+    }
+  }
 
   // For pharmacology, track active drug via override
   var _pharmaDrug = '';
@@ -9112,14 +9122,37 @@ initTab('conditions');
   }
   function annotNormTarget(t){ return (t||'').replace(/\s+/g,'').trim(); }
 
-  function annotMakeMark(a, text, p){
-    var mark=document.createElement('mark');
-    mark.className='annot-highlight'; mark.textContent=text; mark.title=a.note||'';
+  function annotStyleMark(mark, a, p){
+    mark.className='annot-highlight'; mark.title=a.note||'';
     mark.style.background=hlBg(a.color);
     mark.style.borderBottom=(a.note&&a.note.trim())?('2px solid '+hlBorder(a.color)):'none';
-    mark.dataset.panel=p; mark.dataset.annotId=a.id;
+    mark.dataset.panel=p; mark.dataset.annotId=a.id; mark.dataset.hlColor=a.color||'yellow';
     mark.onclick=function(e){ if(e){ e.stopPropagation(); } window.daShowNote(p, a.id, this); };
     return mark;
+  }
+  function annotMakeMark(a, text, p){
+    var mark=document.createElement('mark'); mark.textContent=text;
+    return annotStyleMark(mark, a, p);
+  }
+  // Nearest block-level ancestor — we only wrap a selection in ONE mark when it stays inside a
+  // single block (an inline <mark> can't validly wrap across paragraphs/list items).
+  function annotBlockOf(node, panel){
+    var el = node && (node.nodeType===1?node:node.parentNode);
+    while(el && el!==panel){
+      if(/^(P|DIV|LI|TD|TH|H1|H2|H3|H4|H5|H6|SECTION|UL|OL|TABLE|TR|BLOCKQUOTE)$/.test(el.tagName)) return el;
+      try{ var d=getComputedStyle(el).display; if(d==='block'||d==='list-item'||d==='table-cell'||d==='table-row') return el; }catch(e){}
+      el=el.parentNode;
+    }
+    return panel;
+  }
+  // Wrap a whole range in ONE mark so a selection crossing bold / abbr / plain text stays a single
+  // continuous highlight instead of one detached box per text node.
+  function annotWrapRange(sN,sO,eN,eO,a,p){
+    var range=document.createRange();
+    try{ range.setStart(sN,sO); range.setEnd(eN,eO); }catch(e){ return false; }
+    var mark=annotStyleMark(document.createElement('mark'), a, p);
+    try{ range.surroundContents(mark); return true; }
+    catch(e){ try{ mark.appendChild(range.extractContents()); range.insertNode(mark); return true; }catch(e2){ return false; } }
   }
   // Wrap a single text node's [s,e) slice in a mark, preserving the surrounding text
   function annotWrapSegment(node, s, e, a, p){
@@ -9149,6 +9182,11 @@ initTab('conditions');
     if(!startInfo||!endInfo) return;
     var startNode=startInfo.node, startOff=startInfo.off;
     var endNode=endInfo.node, endOff=endInfo.off+1;
+    // Same block -> one continuous mark (fixes highlights breaking up across bold/abbr/plain).
+    // Cross-block -> fall through to the per-text-node wrapper below.
+    if(annotBlockOf(startNode,panel)===annotBlockOf(endNode,panel)){
+      if(annotWrapRange(startNode,startOff,endNode,endOff,a,p)) return;
+    }
     // Static ordered list of text nodes (we mutate the DOM as we wrap)
     var list=[], w=document.createTreeWalker(panel, NodeFilter.SHOW_TEXT, null, false), x;
     while(x=w.nextNode()) list.push(x);
@@ -9171,6 +9209,12 @@ initTab('conditions');
     panel.normalize();
     if(!annots.length) return;
     annots.forEach(function(a){ if(a.selectedText) annotHighlightOne(panel, a, p); });
+    // Any highlight sitting inside a heading: swap the translucent tint for an opaque fill (and
+    // dark text) so it stays visible over the heading's own coloured background.
+    panel.querySelectorAll('.annot-highlight').forEach(function(m){
+      var head=m.parentElement&&m.parentElement.closest&&m.parentElement.closest('.rn-section-title,.note-title,.cp-title,h1,h2,h3,h4,h5,h6');
+      if(head){ m.style.background=hlBgStrong(m.dataset.hlColor); m.style.color='#0B1220'; }
+    });
   }
 
   function annotSetMeta(p, count, subText){
