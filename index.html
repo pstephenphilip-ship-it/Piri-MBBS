@@ -6630,6 +6630,115 @@ window.MOCK_BANK = {
         "Formal neurological prognostication of a comatose cardiac-arrest survivor should be delayed for at least 72 HOURS (longer if hypothermia or residual sedation may be confounding).",
         "It relies on several modalities together – examination, EEG, imaging and biomarkers – never a single test in isolation."
       ] }
+],
+"conditions__CARDIOVASCULAR__Cardiomyopathies": [
+    { id:"cmyo-001", type:"mcq", objective:"cmyo-definition-exclusion",
+      question:"A 68-year-old man with severe aortic stenosis is found to have a thickened, poorly-relaxing left ventricle on echocardiography. A student labels this ‘hypertrophic cardiomyopathy’. Why does this NOT count as a cardiomyopathy?",
+      options:[
+        "It affects only the right ventricle",
+        "The left ventricle is never involved",
+        "The hypertrophy is explained by the aortic stenosis",
+        "Hypertrophy never occurs in cardiomyopathy",
+        "The echocardiogram is not completely normal"],
+      correctIndex:2,
+      explanation:[
+        "Cardiomyopathy is a PRIMARY structural or functional disease of the myocardium that is NOT explained by coronary disease, valve disease, hypertension or congenital heart disease. Here the LV hypertrophy is a direct, secondary consequence of the pressure overload from aortic stenosis, so it is not a cardiomyopathy.",
+        "The other statements are false – cardiomyopathy commonly involves the LV (A, B), frequently causes hypertrophy or other structural change (D), and by definition produces an abnormal heart (E)."
+      ] },
+    { id:"cmyo-002", type:"mcq", objective:"cmyo-dilated-pattern",
+      question:"An echocardiogram shows a markedly dilated, thin-walled left ventricle that contracts poorly, with global hypokinesia and an ejection fraction of 25%. Which pattern of cardiomyopathy and dysfunction does this describe?",
+      options:[
+        "Dilated cardiomyopathy — systolic dysfunction (HFrEF)",
+        "Hypertrophic cardiomyopathy — diastolic dysfunction",
+        "Restrictive cardiomyopathy — diastolic dysfunction",
+        "Takotsubo — a fixed, irreversible apical defect",
+        "A structurally normal heart"],
+      correctIndex:0,
+      explanation:[
+        "A dilated, thin-walled ventricle with GLOBAL hypokinesia and a low EF is DILATED cardiomyopathy – the ‘big and weak’ pattern that causes SYSTOLIC dysfunction (HFrEF).",
+        "Hypertrophic (B) and restrictive (C) cause diastolic dysfunction with a non-dilated, thick or normal-sized ventricle; Takotsubo (D) is a transient, reversible apical abnormality, not fixed global dilatation; and the heart is clearly abnormal (E)."
+      ] },
+    { id:"cmyo-003", type:"mcq", objective:"cmyo-hcm-pattern",
+      question:"A cardiomyopathy is characterised by a thick, stiff, non-compliant left ventricle — classically with asymmetric hypertrophy of the interventricular septum. Which part of the cardiac cycle does it impair, and what may it additionally cause?",
+      options:[
+        "Impairs systole; may cause a fixed low cardiac output",
+        "Impairs diastole; may cause dynamic LVOT obstruction",
+        "Impairs diastole; but always creates a septal defect",
+        "Impairs systole; may cause pericardial calcification",
+        "Has no measurable effect on systole or diastole"],
+      correctIndex:1,
+      explanation:[
+        "A thick, stiff ventricle fills poorly, so hypertrophic cardiomyopathy primarily impairs DIASTOLE (filling). In about a third, systolic anterior motion of the mitral valve produces dynamic LEFT VENTRICULAR OUTFLOW TRACT (LVOT) obstruction – ‘HOCM’.",
+        "The problem is diastolic, not systolic (A, D); it does not create a septal defect (C); and it certainly affects the heart (E)."
+      ] },
+    { id:"cmyo-004", type:"mcq", objective:"cmyo-restrictive-pattern",
+      question:"A 60-year-old woman has right-heart failure. Echo shows non-dilated ventricles of normal wall thickness with rigid, poorly-compliant walls, impaired filling, markedly enlarged atria and a preserved ejection fraction. Which cardiomyopathy is this, and how common is it relative to the others?",
+      options:[
+        "Dilated — the commonest pattern",
+        "Hypertrophic — the commonest inherited pattern",
+        "Takotsubo — a transient stress-induced pattern",
+        "Restrictive — the rarest of the three classic patterns",
+        "ARVC — a right-ventricular arrhythmic pattern"],
+      correctIndex:3,
+      explanation:[
+        "Rigid, non-compliant walls of NORMAL size and thickness, with impaired diastolic filling, big atria and a PRESERVED EF, are RESTRICTIVE cardiomyopathy – the rarest of the three classic patterns.",
+        "Dilated (A) is big with a low EF, hypertrophic (B) has thick walls, Takotsubo (C) is transient apical ballooning, and ARVC (E) is fibrofatty right-ventricular disease presenting with arrhythmia."
+      ] },
+    { id:"cmyo-005", type:"categorize", objective:"cmyo-pattern-map",
+      question:"Sort each feature into the classic cardiomyopathy pattern it best describes.",
+      buckets:["Dilated","Hypertrophic","Restrictive"],
+      items:[
+        { text:"Big, thin, poorly-contracting ventricle causing systolic failure", bucket:0 },
+        { text:"Alcohol, peripartum and viral myocarditis are classic causes", bucket:0 },
+        { text:"Asymmetric septal thickening with diastolic failure ± outflow obstruction", bucket:1 },
+        { text:"The commonest cause of sudden cardiac death in young athletes", bucket:1 },
+        { text:"Rigid walls of normal size; mimics constrictive pericarditis", bucket:2 },
+        { text:"Most strongly associated with cardiac amyloidosis", bucket:2 }],
+      explanation:[
+        "DILATED = a big, thin, weak ventricle → systolic failure (alcohol, peripartum, viral). HYPERTROPHIC = asymmetric septal thickening → diastolic failure ± LVOT obstruction, and the commonest cause of sudden death in young athletes. RESTRICTIVE = rigid walls of normal size → diastolic failure, classically from amyloid, mimicking constrictive pericarditis.",
+        "The unifying rule: dilated fails in SYSTOLE, while both hypertrophic and restrictive fail in DIASTOLE."
+      ] },
+    { id:"cmyo-006", type:"mcq", objective:"cmyo-takotsubo-identify",
+      image:"https://upload.wikimedia.org/wikipedia/commons/5/53/Takotsubo_ventriculography.gif",
+      imageAlt:"Left ventriculogram.",
+      imageCredit:"Gangadhar et al., Wikimedia Commons, CC BY 2.0.",
+      question:"A 70-year-old woman presents with central chest pain and ST elevation two hours after the sudden death of her husband. Troponin is raised. Emergency angiography shows unobstructed coronary arteries; her left ventriculogram is shown. What is the diagnosis?",
+      options:[
+        "Acute STEMI from coronary plaque rupture",
+        "Dilated cardiomyopathy",
+        "Hypertrophic cardiomyopathy",
+        "Restrictive cardiomyopathy",
+        "Takotsubo (stress) cardiomyopathy"],
+      correctIndex:4,
+      explanation:[
+        "A post-menopausal woman, an intense emotional trigger, ST elevation with a troponin rise that MIMICS an ACS, UNOBSTRUCTED coronaries, and a ventriculogram showing apical ballooning with a hyperkinetic base are classic TAKOTSUBO (stress) cardiomyopathy, driven by a catecholamine surge.",
+        "The unobstructed coronaries exclude plaque-rupture STEMI (A); the ventricle is not dilated, hypertrophied or restrictive (B–D). Takotsubo usually recovers fully within weeks."
+      ] },
+    { id:"cmyo-007", type:"mcq", objective:"cmyo-arvc-identify",
+      question:"A 22-year-old footballer has an episode of exertional syncope. His ECG shows T-wave inversion in V1–V3 and a small positive deflection at the end of the QRS complex (an epsilon wave). Cardiac MRI shows fibrofatty replacement of the right ventricular free wall. What is the diagnosis?",
+      options:[
+        "Hypertrophic cardiomyopathy — septal hypertrophy",
+        "Arrhythmogenic right ventricular cardiomyopathy (ARVC)",
+        "Dilated cardiomyopathy — a big, weak ventricle",
+        "Restrictive cardiomyopathy — rigid, stiff walls",
+        "Takotsubo — transient apical ballooning"],
+      correctIndex:1,
+      explanation:[
+        "A young athlete with exertional syncope, T-wave inversion in V1–V3, an EPSILON WAVE and FIBROFATTY replacement of the RV free wall has ARVC – an autosomal-dominant desmosomal disease and an important cause of sudden death in the young.",
+        "None of the other patterns produce an epsilon wave or fibrofatty RV: hypertrophic (A) is septal hypertrophy, dilated (C) is a big weak ventricle, restrictive (D) is rigid walls, and Takotsubo (E) is transient apical ballooning."
+      ] },
+    { id:"cmyo-008", type:"saq", objective:"cmyo-commonest-inherited",
+      question:"Which cardiomyopathy is the commonest inherited cardiac disorder?",
+      answer:"Hypertrophic cardiomyopathy (HCM)",
+      accept:["hypertrophic","hcm","hypertrophic cardiomyopathy","hocm"],
+      markPoints:[
+        "Hypertrophic cardiomyopathy (HCM)",
+        "The commonest inherited cardiac disorder, ~1 in 500",
+        "Autosomal dominant, from sarcomere-protein gene mutations"],
+      explanation:[
+        "HYPERTROPHIC cardiomyopathy is the commonest INHERITED cardiac disorder (~1 in 500) – autosomal dominant, caused by sarcomere-protein gene mutations with variable penetrance.",
+        "Do not confuse the two ‘commonest’ facts: DILATED cardiomyopathy is the commonest cardiomyopathy overall, whereas HYPERTROPHIC is the commonest inherited/genetic cardiac condition."
+      ] }
 ]
 };
 </script>
