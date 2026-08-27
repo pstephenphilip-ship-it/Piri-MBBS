@@ -9090,8 +9090,9 @@ initTab('conditions');
     _pendingText='';
     window.getSelection()&&window.getSelection().removeAllRanges();
     annotRender(p);
-    var sb=document.getElementById(sbId(p));
-    if(sb&&!sb.classList.contains('open')) annotToggle(p);
+    // Note saved — refresh the highlight in place but DON'T pull the whole notes drawer open.
+    // The full drawer opens only from the notes tab button (FAB); a single highlight/note is
+    // viewed in its own small popup (daShowNote) when you click the highlight.
   };
 
   // Build a whitespace-collapsed string of the panel's text plus a map from each
