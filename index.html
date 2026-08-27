@@ -735,6 +735,14 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 .wc-plan-body table td,.wc-plan-body table th{border:1px solid #C7CEDC;padding:6px 10px;min-width:54px;font-size:13.5px;line-height:1.5;vertical-align:top;}
 .wc-plan-body table th{background:#F0F2F8;font-weight:700;text-align:left;}
 .wc-plan-body mark{background:#FFE86B;color:inherit;padding:0 1px;border-radius:2px;}
+.wc-plan-body table td:focus,.wc-plan-body table th:focus{outline:2px solid #00C2A8;outline-offset:-2px;}
+.wc-nsep{width:1px;height:20px;background:#E2E6F0;margin:0 3px;align-self:center;flex:0 0 auto;}
+.wc-ttools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 12px;background:#F0FBF9;border-bottom:1px solid #E2E6F0;}
+.wc-ttlabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#00A892;margin-right:2px;}
+.wc-ttbtn{font-size:12px;font-weight:600;color:#1E2640;background:#fff;border:1px solid #CDE9E3;border-radius:6px;padding:4px 10px;cursor:pointer;line-height:1.2;}
+.wc-ttbtn:hover{border-color:#00C2A8;color:#00A892;}
+.wc-ttbtn.danger{color:#B4402A;border-color:#EAD3CD;}
+.wc-ttbtn.danger:hover{border-color:#DC2626;color:#DC2626;}
 .wc-hero3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px;}
 .wc-h3{background:#fff;border:1.5px solid #E2E6F0;border-radius:14px;padding:18px 10px;text-align:center;}
 .wc-h3 .n{font-family:var(--mono);font-weight:800;font-size:25px;line-height:1;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
@@ -905,6 +913,18 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     +'<button class="wc-nbtn" type="button" title="Highlight" onmousedown="return wcPlanHi(event)"><span style="background:#FFE86B;color:#1E2640;padding:0 3px;border-radius:2px;font-weight:700;">H</span></button>'
     +'<button class="wc-nbtn" type="button" title="Insert table" onmousedown="return wcPlanTable(event)">&#9638;</button>'
     +'<button class="wc-nbtn" type="button" title="Add a tick-box task" onmousedown="return wcPlanTask(event)">&#9744;</button>'
+    +'<span class="wc-nsep"></span>'
+    +'<button class="wc-nbtn" type="button" title="Undo" onmousedown="return wcPlanUndo(event)">&#8630;</button>'
+    +'<button class="wc-nbtn" type="button" title="Redo" onmousedown="return wcPlanRedo(event)">&#8631;</button>'
+    +'</div>';
+  // Contextual table controls — shown only while the caret is inside a table cell.
+  var PLAN_TTOOLS='<div class="wc-ttools js-ttools" style="display:none">'
+    +'<span class="wc-ttlabel">Table</span>'
+    +'<button class="wc-ttbtn" type="button" title="Add a row below" onmousedown="return wcTblAddRow(event)">+ Row</button>'
+    +'<button class="wc-ttbtn" type="button" title="Add a column to the right" onmousedown="return wcTblAddCol(event)">+ Col</button>'
+    +'<button class="wc-ttbtn" type="button" title="Delete this row" onmousedown="return wcTblDelRow(event)">&#8722; Row</button>'
+    +'<button class="wc-ttbtn" type="button" title="Delete this column" onmousedown="return wcTblDelCol(event)">&#8722; Col</button>'
+    +'<button class="wc-ttbtn danger" type="button" title="Delete the whole table" onmousedown="return wcTblDel(event)">Delete table</button>'
     +'</div>';
   function planRenderOne(host){
     var tabsEl=host.querySelector('.wc-plan-tabs'), edEl=host.querySelector('.wc-plan-editor');
@@ -919,6 +939,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
     tabsEl.innerHTML=list.map(function(n){ return '<button class="wc-plan-tab'+(String(n.id)===String(active.id)?' active':'')+'" type="button" data-id="'+n.id+'" onclick="wcPlanSelect(\''+n.id+'\')">'+daEscHtml(n.title||'Untitled')+'</button>'; }).join('');
     edEl.innerHTML='<input class="wc-plan-title" type="text" placeholder="Note title" oninput="wcPlanTitle(this)">'
       +PLAN_TOOLBAR
+      +PLAN_TTOOLS
       +'<div class="wc-plan-body js-plan-body" contenteditable="true" data-placeholder="Jot tasks, revision reminders, weak topics&hellip; (bold, bullets &amp; tick-boxes supported)" oninput="wcPlanBody(this)"></div>'
       +'<div class="wc-plan-foot"><button class="wc-plan-del" type="button" onclick="wcPlanDelete()">Delete note</button><span class="wc-plan-hint">Saves automatically &mdash; synced across devices when signed in.</span></div>';
     edEl.querySelector('.wc-plan-title').value=active.title||'';
@@ -956,6 +977,71 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   // Toggle the bigger-editor mode across every planner instance and persist it.
   window.wcPlanExpand=function(ev){ if(ev&&ev.preventDefault)ev.preventDefault(); var on=!planExpanded(); try{ localStorage.setItem('piri_planner_big',on?'1':'0'); }catch(e){}
     document.querySelectorAll('.wc-planner').forEach(function(h){ h.classList.toggle('big',on); var xb=h.querySelector('.js-plan-expand'); if(xb){ xb.innerHTML=(on?'&#10530; Shrink':'&#10530; Expand'); xb.title=on?'Shrink notes':'Make notes bigger'; } }); };
+  // Undo / redo the active note's editor (native contenteditable history — covers typing,
+  // formatting, highlight and the insertHTML-based table edits below).
+  window.wcPlanUndo=function(ev){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus(); try{ document.execCommand('undo'); }catch(e){} window.wcPlanBody(el); return false; };
+  window.wcPlanRedo=function(ev){ ev.preventDefault(); var host=ev.currentTarget.closest('.wc-planner'); var el=host&&host.querySelector('.js-plan-body'); if(!el) return false; el.focus(); try{ document.execCommand('redo'); }catch(e){} window.wcPlanBody(el); return false; };
+
+  // ---- Editable tables inside a planner note ----
+  // The <td>/<th> the caret currently sits in, if it's inside a planner body.
+  function planCurrentCell(){
+    var sel=window.getSelection&&window.getSelection(); if(!sel||!sel.rangeCount) return null;
+    var node=sel.anchorNode; if(!node) return null;
+    var el=(node.nodeType===1)?node:node.parentNode; if(!el||!el.closest) return null;
+    var cell=el.closest('td,th'); if(!cell||!cell.closest('.js-plan-body')) return null;
+    return cell;
+  }
+  // Rebuild the current table via a mutate() on a clone, replacing it through execCommand so the
+  // change lands on the native undo stack. Caret is returned into the table so the tools stay up.
+  function planReplaceTable(mutate){
+    var cell=planCurrentCell(); if(!cell) return;
+    var table=cell.closest('table'); var body=cell.closest('.js-plan-body'); if(!table||!body) return;
+    var tIdx=[].indexOf.call(body.querySelectorAll('table'), table);
+    var rIdx=[].indexOf.call(table.rows, cell.parentNode), cIdx=cell.cellIndex;
+    var clone=table.cloneNode(true);
+    try{ mutate(clone, rIdx, cIdx); }catch(e){ return; }
+    body.focus();
+    var sel=window.getSelection(), range=document.createRange();
+    range.selectNode(table); sel.removeAllRanges(); sel.addRange(range);
+    var ok=false; try{ ok=document.execCommand('insertHTML', false, clone.outerHTML); }catch(e){}
+    if(!ok){ try{ table.parentNode.replaceChild(clone, table); }catch(e){} }
+    try{ var nt=body.querySelectorAll('table')[tIdx]; if(nt){ var fc=nt.querySelector('th,td'); if(fc){ var r=document.createRange(); r.selectNodeContents(fc); r.collapse(true); sel.removeAllRanges(); sel.addRange(r); } } }catch(e){}
+    window.wcPlanBody(body);
+  }
+  function _newCell(tag){ var c=document.createElement(tag); c.innerHTML='&nbsp;'; return c; }
+  window.wcTblAddRow=function(ev){ ev.preventDefault(); planReplaceTable(function(clone,r){
+    var ref=clone.rows[r]; var tr=document.createElement('tr');
+    for(var i=0;i<ref.cells.length;i++) tr.appendChild(_newCell('td'));
+    var tbody=clone.tBodies[0];
+    if(ref.parentNode.tagName==='THEAD' && tbody) tbody.insertBefore(tr, tbody.firstChild);
+    else ref.parentNode.insertBefore(tr, ref.nextSibling);
+  }); return false; };
+  window.wcTblAddCol=function(ev){ ev.preventDefault(); planReplaceTable(function(clone,r,c){
+    [].forEach.call(clone.rows, function(row){
+      var isH=(row.parentNode.tagName==='THEAD')||(row.cells[0]&&row.cells[0].tagName==='TH');
+      row.insertBefore(_newCell(isH?'th':'td'), row.cells[c+1]||null);
+    });
+  }); return false; };
+  window.wcTblDelRow=function(ev){ ev.preventDefault(); planReplaceTable(function(clone,r){
+    if(clone.rows.length<=1) return; var row=clone.rows[r]; row.parentNode.removeChild(row);
+  }); return false; };
+  window.wcTblDelCol=function(ev){ ev.preventDefault(); planReplaceTable(function(clone,r,c){
+    if(!clone.rows[0]||clone.rows[0].cells.length<=1) return;
+    [].forEach.call(clone.rows, function(row){ if(row.cells[c]) row.removeChild(row.cells[c]); });
+  }); return false; };
+  window.wcTblDel=function(ev){ ev.preventDefault(); var cell=planCurrentCell(); if(!cell) return false;
+    var table=cell.closest('table'), body=cell.closest('.js-plan-body'); if(!table||!body) return false; body.focus();
+    var sel=window.getSelection(), range=document.createRange(); range.selectNode(table); sel.removeAllRanges(); sel.addRange(range);
+    var ok=false; try{ ok=document.execCommand('insertHTML',false,'<p><br></p>'); }catch(e){}
+    if(!ok){ try{ table.parentNode.removeChild(table); }catch(e){} }
+    document.querySelectorAll('.js-ttools').forEach(function(t){ t.style.display='none'; });
+    window.wcPlanBody(body); return false; };
+  // Reveal the table tools only for the editor whose caret sits inside a table cell.
+  document.addEventListener('selectionchange', function(){
+    var cell=planCurrentCell(); var active=cell?cell.closest('.wc-plan-editor'):null;
+    document.querySelectorAll('.js-ttools').forEach(function(t){ t.style.display=(active&&t.closest('.wc-plan-editor')===active)?'flex':'none'; });
+  });
+
   // Toggle a task's tick-box (the span is contenteditable=false, so a click means "toggle").
   document.addEventListener('click', function(e){ var cb=e.target&&e.target.closest?e.target.closest('.wc-cb'):null; if(!cb) return;
     cb.textContent=(cb.textContent.indexOf('☑')>=0)?'☐':'☑';   // ☐ <-> ☑
