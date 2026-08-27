@@ -6347,20 +6347,20 @@ window.MOCK_BANK = {
     { id:"als-034", type:"mcq", objective:"als-ventilation-intubated",
       question:"A 58-year-old woman with COPD, a 40-pack-year smoking history and prior admissions for infective exacerbations is being resuscitated for a witnessed cardiac arrest. CPR has run for 6 minutes with a supraglottic airway, and the anaesthetist has now intubated her and confirmed the tube with waveform capnography. How should compressions and ventilation now be delivered?",
       options:[
-        "Continue 30:2 with pauses for ventilation",
-        "Compressions only, with no ventilation",
-        "A 15:2 compression-to-ventilation ratio",
-        "Ventilate at 30 breaths/min with paused compressions",
-        "Continuous compressions, with ventilation at 10 breaths/min"],
+        "Continue 30:2, as a supraglottic-to-ETT change does not alter the ratio",
+        "Continuous compressions with ventilation at 6 breaths per minute",
+        "Continuous compressions with ventilation at 15 breaths per minute",
+        "Pause compressions briefly for each ventilation",
+        "Continuous compressions, with ventilation at 10 breaths per minute"],
       correctIndex:4,
       explanation:[
         "Once the trachea is secured with an ETT, give CONTINUOUS compressions and ventilate at 10 breaths/min WITHOUT pausing – there is no longer a compression-to-ventilation ratio.",
-        "The 30:2 ratio (A) is for before a definitive airway, compressions must be ventilated (B), 15:2 (C) is a paediatric two-rescuer ratio, and 30 breaths/min with paused compressions (D) is wrong on both counts."
+        "Keeping 30:2 (A) is wrong once intubated; 6 (B) or 15 (C) breaths/min is the right approach but the wrong rate; and pausing compressions for each breath (D) defeats the point of a secured airway."
       ] },
     { id:"als-035", type:"mcq", objective:"als-ett-confirmation",
       question:"A 70-year-old man collapses on the surgical ward 3 days after a hemicolectomy, on a background of ischaemic heart disease. He is in cardiac arrest; during resuscitation the registrar attempts endotracheal intubation, and there is concern about whether the tube lies in the trachea or the oesophagus. Which is the most reliable method to confirm correct placement during CPR?",
       options:[
-        "Chest auscultation alone",
+        "Chest auscultation",
         "Waveform capnography",
         "A chest X-ray",
         "Observing chest rise",
@@ -6371,20 +6371,20 @@ window.MOCK_BANK = {
         "Auscultation (A) and chest rise (D) are supportive but not definitive, a chest X-ray (C) is too slow, and pulse oximetry (E) is unreliable in a pulseless arrest."
       ] },
     { id:"als-036", type:"mcq", objective:"als-etco2-rosc",
-      image:"assets/img/capnography_etco2_rise.png",
+      image:"assets/img/capnography_etco2_rise.jpg",
       imageAlt:"Waveform capnography (end-tidal CO2) trace over four minutes.",
       imageCredit:"Illustrative capnography trace.",
       question:"A 52-year-old woman collapses at the gym; the arrest is witnessed and bystander CPR is started immediately. In the emergency department she is intubated, CPR continues with continuous compressions, and waveform capnography is in place. Her end-tidal CO₂ trace over the last four minutes is shown. What does this most likely indicate, and what should the team do?",
       options:[
-        "Tube displacement — remove and replace the tube",
-        "Oesophageal intubation — stop and re-intubate",
-        "Possible ROSC — continue CPR, reassess at the next check",
-        "It is an artefact and meaningless during CPR",
+        "Improved compression quality alone — continue unchanged",
+        "Hyperventilation — slow the ventilation rate down",
+        "Possible ROSC — continue CPR, reassess at the next rhythm check",
+        "Tube displacement — stop to check the tube position",
         "Stop CPR immediately to check for a pulse"],
       correctIndex:2,
       explanation:[
-        "The trace shows a SUDDEN RISE in end-tidal CO₂ (here from about 2 to over 5 kPa) – this indicates POSSIBLE ROSC as circulation returns; DO NOT interrupt CPR, and reassess at the next 2-minute rhythm check.",
-        "A falling or absent waveform would suggest tube displacement or oesophageal intubation (A, B); the trace is not meaningless (D), and stopping CPR mid-cycle to check the pulse (E) is wrong – confirm at the scheduled rhythm check."
+        "The trace shows a SUDDEN, sustained RISE in end-tidal CO₂ – as circulation returns this indicates POSSIBLE ROSC; continue CPR and confirm at the next 2-minute rhythm check rather than interrupting.",
+        "Gradually improving compressions (A) raise ETCO₂ only modestly, not in this sudden step; hyperventilation (B) actually LOWERS ETCO₂; tube displacement (D) causes a FALL, not a rise; and stopping CPR mid-cycle to check the pulse (E) is wrong."
       ] },
     { id:"als-037", type:"mcq", objective:"als-io-access",
       data:'<div class="mk-obs-h">On paramedic arrival</div><table class="mk-labs"><tr><td>Respiratory rate</td><td><b>4 /min</b></td><td>12&ndash;20</td></tr><tr><td>SpO<sub>2</sub></td><td><b>78%</b></td><td>94&ndash;98</td></tr><tr><td>Pupils</td><td><b>Pinpoint</b></td><td></td></tr><tr><td>GCS</td><td><b>3</b></td><td>15</td></tr><tr><td>Heart rate</td><td><b>38 bpm</b></td><td>60&ndash;100</td></tr></table>',
@@ -6419,15 +6419,15 @@ window.MOCK_BANK = {
       buckets:["Correct CPR technique","Incorrect CPR technique"],
       items:[
         {text:"Depth 5–6 cm",bucket:0},
-        {text:"Rate 100–120 per minute",bucket:0},
-        {text:"Full chest recoil between compressions",bucket:0},
-        {text:"Leaning on the chest between compressions",bucket:1},
-        {text:"A rate over 140 per minute",bucket:1},
-        {text:"Pauses longer than 10 seconds",bucket:1}
+        {text:"A rate of 110 per minute",bucket:0},
+        {text:"Allowing full chest recoil between compressions",bucket:0},
+        {text:"Compressing to a depth of only 4 cm",bucket:1},
+        {text:"A rate of around 130 per minute",bucket:1},
+        {text:"Resting the hands on the chest between compressions",bucket:1}
       ],
       explanation:[
-        "CORRECT technique is compressing 5–6 cm deep at 100–120/min, allowing FULL chest recoil between compressions.",
-        "INCORRECT: leaning on the chest (preventing recoil), compressing faster than 140/min (which reduces filling), and long pauses over 10 seconds (which lose perfusion)."
+        "CORRECT technique is compressing 5–6 cm deep at 100–120/min (e.g. 110/min), allowing FULL chest recoil between compressions.",
+        "INCORRECT and subtly wrong: a depth of only 4 cm is too shallow, around 130/min is too fast (reducing filling), and resting the hands on the chest prevents full recoil."
       ] },
     { id:"als-040", type:"saq", objective:"als-compression-rate",
       question:"During the resuscitation of an adult in cardiac arrest, you are coaching a new team member on compression technique. State the recommended rate of chest compressions (per minute).",
