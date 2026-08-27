@@ -6547,6 +6547,88 @@ window.MOCK_BANK = {
       explanation:[
         "The specific antidote for opioid toxicity is NALOXONE, an opioid-receptor antagonist that reverses the respiratory depression driving the arrest.",
         "In cardiac arrest it is given alongside standard ALS and airway/ventilatory support."
+      ] },
+    { id:"als-049", type:"mcq", objective:"als-synchronised-cardioversion",
+      data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>180 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>84/54 mmHg</b></td><td></td></tr><tr><td>Conscious level</td><td><b>Awake but distressed</b></td><td></td></tr></table>',
+      question:"A 66-year-old man presents with palpitations and chest pain. He is conscious but hypotensive, and his ECG shows a regular broad-complex tachycardia at 180/min with a palpable pulse. His observations are shown, and he is treated with electrical cardioversion. How should the shock be delivered?",
+      options:[
+        "Unsynchronised, as for VF",
+        "Synchronised to the R wave",
+        "Synchronised to the T wave",
+        "No shock — drugs only",
+        "Only after he loses his pulse"],
+      correctIndex:1,
+      explanation:[
+        "An ORGANISED tachyarrhythmia WITH a pulse (here an unstable broad-complex VT) needs SYNCHRONISED cardioversion – the shock is timed to the R wave to avoid landing on the T wave (R-on-T, which could induce VF).",
+        "An unsynchronised shock (A) is for pulseless VF/VT; synchronising to the T wave (C) is exactly what must be avoided; drugs alone (D) are inadequate when unstable; and you do not wait for him to arrest (E)."
+      ] },
+    { id:"als-050", type:"mcq", objective:"als-monitored-stacked-shocks",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Ventricular_Fibrillation.svg",
+      imageAlt:"Rhythm strip.",
+      imageCredit:"Rocuronium Bromide, CC0 (public domain), via Wikimedia Commons.",
+      question:"A patient in the cardiac catheter laboratory is already monitored with a defibrillator attached. He suddenly loses consciousness; the arrest is witnessed and the monitor shows the rhythm below. What is the appropriate initial defibrillation strategy?",
+      options:[
+        "A single shock then 2 minutes of CPR, as always",
+        "Adrenaline before any shock",
+        "No shock, as it is monitored",
+        "Start with amiodarone",
+        "Up to three stacked shocks, then the standard ALS cycle"],
+      correctIndex:4,
+      explanation:[
+        "The trace is VENTRICULAR FIBRILLATION in a WITNESSED, MONITORED arrest with a defibrillator immediately to hand – so up to THREE quick stacked shocks may be given first, before starting the standard ALS cycle.",
+        "A single shock then CPR (A) is the usual approach for an unwitnessed arrest; adrenaline (B) and amiodarone (D) come later; and VF is shockable, so 'no shock' (C) is wrong."
+      ] },
+    { id:"als-051", type:"mcq", objective:"als-device-pad-placement",
+      question:"A 74-year-old man with a permanent pacemaker (implanted 3 years ago for complete heart block), ischaemic heart disease and type 2 diabetes collapses in the emergency department. He is unresponsive and pulseless with ventricular fibrillation on the monitor. As the team prepares to defibrillate, you note the pacemaker generator as a firm lump below his left clavicle. Regarding pad placement, what is correct?",
+      options:[
+        "Place a pad directly over the device box for best contact",
+        "Place the pads at least 8 cm from the device",
+        "Do not defibrillate a patient with a pacemaker",
+        "Halve the shock energy",
+        "Remove the pacemaker before shocking"],
+      correctIndex:1,
+      explanation:[
+        "With a pacemaker (or ICD) in situ, place the defibrillation pads at least 8 cm from the generator – or use anterior-posterior placement – never over the box, and interrogate the device afterwards, as a shock can alter its programming or damage the leads.",
+        "A pacemaker is not a contraindication to defibrillation (C), the energy is unchanged (D), and you neither place a pad over the box (A) nor remove the device (E)."
+      ] },
+    { id:"als-052", type:"mcq", objective:"als-postrosc-oxygen",
+      data:'<div class="mk-obs-h">Post-ROSC</div><table class="mk-labs"><tr><td>SpO<sub>2</sub></td><td><b>100%</b></td><td>94&ndash;98</td></tr><tr><td>FiO<sub>2</sub></td><td><b>1.0 (100%)</b></td><td></td></tr><tr><td>Blood pressure</td><td><b>110/70 mmHg</b></td><td></td></tr></table>',
+      question:"A 62-year-old man achieves ROSC after a ventricular fibrillation arrest and is intubated and ventilated. His post-ROSC observations are shown. Regarding oxygenation, what is the appropriate target?",
+      options:[
+        "Maintain 100% oxygen to maximise delivery",
+        "Aim for an SpO₂ of 88–92%",
+        "Withhold oxygen",
+        "Titrate oxygen to a target SpO₂ of 94–98%",
+        "Aim for an SpO₂ of 92–96%"],
+      correctIndex:3,
+      explanation:[
+        "After ROSC, titrate the oxygen to a target SpO₂ of 94–98% – he is currently at 100% on 100% oxygen and must be WEANED, because HYPEROXIA worsens reperfusion injury.",
+        "Maintaining 100% oxygen (A) causes harmful hyperoxia, 88–92% (B) is the target for CO₂-retainers, 92–96% (E) is close but not the recommended range, and withholding oxygen (C) is dangerous."
+      ] },
+    { id:"als-053", type:"mcq", objective:"als-maternal-arrest",
+      question:"A 32-year-old woman at 34 weeks' gestation has a cardiac arrest and CPR is started. In addition to standard ALS, which two maternal-specific measures are most important?",
+      options:[
+        "Right uterine displacement, and caesarean only after 30 minutes",
+        "A 90° left tilt, and delaying CPR until after delivery",
+        "Leg elevation, and a double dose of adrenaline",
+        "Standard CPR positioning, and no caesarean at all",
+        "Left uterine displacement, and perimortem caesarean by 5 minutes"],
+      correctIndex:4,
+      explanation:[
+        "In a maternal cardiac arrest beyond 20 weeks, apply MANUAL LEFT UTERINE DISPLACEMENT to relieve aortocaval compression, and if there is no ROSC by about 4 minutes perform a PERIMORTEM CAESAREAN aiming for delivery by 5 minutes – this aids MATERNAL resuscitation, not just the fetus.",
+        "Displacing to the right or delivering only after 30 minutes (A) is wrong on both counts, a 90° tilt makes compressions ineffective and CPR must not be delayed (B), leg elevation and extra adrenaline (C) do not relieve aortocaval compression, and pregnancy definitely changes the resuscitation (D)."
+      ] },
+    { id:"als-054", type:"saq", objective:"als-prognostication-timing",
+      question:"After a cardiac arrest, formal neurological prognostication of a comatose survivor should be delayed for a minimum period. State that period (in hours).",
+      answer:"72 hours",
+      accept:["72","72 hours","72 hrs","72h","seventy-two hours"],
+      markPoints:[
+        "At least 72 hours",
+        "Delayed to let sedation clear and allow for neurological recovery (longer if hypothermia confounds)",
+        "Uses multiple modalities together, never a single test"],
+      explanation:[
+        "Formal neurological prognostication of a comatose cardiac-arrest survivor should be delayed for at least 72 HOURS (longer if hypothermia or residual sedation may be confounding).",
+        "It relies on several modalities together – examination, EEG, imaging and biomarkers – never a single test in isolation."
       ] }
 ]
 };
