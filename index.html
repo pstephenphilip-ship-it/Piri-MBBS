@@ -12609,8 +12609,12 @@ function hideFlyout(p) {
 
 <!-- ===== Freemium gating for anonymous visitors ===== -->
 <style>
-.da-lock-wrap{position:fixed;inset:0;z-index:2000;background:var(--bg,#F7F8FB);display:flex;align-items:center;justify-content:center;overflow:auto;}
-.da-lock{max-width:460px;margin:56px 20px;text-align:center;background:var(--surface,#fff);border:1px solid var(--border2,#E2E6F0);border-radius:16px;padding:38px 30px;box-shadow:0 10px 40px rgba(0,0,0,.12);}
+/* Fixed to the *visible* viewport (100dvh) with the card centred via margin:auto rather than
+   align-items:center. Centring a taller-than-screen modal with align-items:center clips it so
+   the bottom plan can't be scrolled to; margin:auto centres when it fits and scrolls fully when
+   it doesn't. Bottom safe-area padding keeps the last button clear of the mobile browser bar. */
+.da-lock-wrap{position:fixed;inset:0;bottom:auto;height:100vh;height:100dvh;z-index:2000;background:var(--bg,#F7F8FB);display:flex;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px 20px max(28px,env(safe-area-inset-bottom));box-sizing:border-box;}
+.da-lock{max-width:460px;width:100%;margin:auto;text-align:center;background:var(--surface,#fff);border:1px solid var(--border2,#E2E6F0);border-radius:16px;padding:38px 30px;box-shadow:0 10px 40px rgba(0,0,0,.12);}
 .da-lock-icon{font-size:42px;margin-bottom:12px;}
 .da-lock-title{font-size:20px;font-weight:800;color:var(--text,#1E2640);margin-bottom:8px;}
 .da-lock-sub{font-size:13.5px;color:var(--muted,#6B7280);line-height:1.6;margin-bottom:22px;}
