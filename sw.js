@@ -1,6 +1,6 @@
 /* DoctoRise service worker — offline shell + on-demand content caching.
    Bump VERSION to force a clean cache refresh on the next visit. */
-const VERSION = 'v527';
+const VERSION = 'v528';
 const SHELL_CACHE = 'doctorise-shell-' + VERSION;
 const CONTENT_CACHE = 'doctorise-content-' + VERSION;
 
