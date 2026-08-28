@@ -13175,10 +13175,16 @@ function hideFlyout(p) {
       return false;
     }
     btn.disabled=true; btn.textContent='Signing in…';
-    sb.auth.signInWithPassword({email:email,password:password}).then(function(res){
+    // The backend can take several seconds to wake from idle (free-tier cold start). Reassure the
+    // user while that happens rather than looking frozen, and only give up after a long failsafe so
+    // a slow-but-successful login is never cancelled.
+    var _siSlow=setTimeout(function(){ btn.textContent='Waking the server…'; aMsg('First sign-in of the day can take a few seconds — hang tight.','ok'); }, 5000);
+    var _siTo; var _siTimeout=new Promise(function(_,rej){ _siTo=setTimeout(function(){ rej(new Error('Couldn’t reach the server. Check your connection (turn off any VPN) and try again.')); }, 45000); });
+    Promise.race([ sb.auth.signInWithPassword({email:email,password:password}), _siTimeout ]).then(function(res){
+      clearTimeout(_siTo); clearTimeout(_siSlow);
       if(res.error){ aMsg(res.error.message,'err'); btn.disabled=false; btn.textContent=restore; }
       else { aMsg('Signed in.','ok'); setTimeout(closeAuthSafe,400); }
-    }).catch(function(err){ aMsg((err&&err.message)||'Network error.','err'); btn.disabled=false; btn.textContent=restore; });
+    }).catch(function(err){ clearTimeout(_siTo); clearTimeout(_siSlow); aMsg((err&&err.message)||'Network error.','err'); btn.disabled=false; btn.textContent=restore; });
     return false;
   };
 
