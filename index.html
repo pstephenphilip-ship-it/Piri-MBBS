@@ -8569,7 +8569,18 @@ function renderQ(p){
     let body='<div class="q-number">Q'+(qi+1)+' · '+(q.type==='mcq'?'MCQ':'SAQ')+'</div><div class="q-text">'+_qtext+'</div>';
     if(q.type==='mcq'){body+='<div class="q-options" id="qopts-'+p+'-'+qi+'">';q.options.forEach((opt,oi)=>{var _opt=q._user?daEscHtml(opt):opt;body+='<div class="q-option" id="qopt-'+p+'-'+qi+'-'+oi+'" onclick="selectMcq(\''+p+'\','+qi+','+oi+')"><span class="q-option-letter">'+letters[oi]+'</span><span class="q-option-text">'+_opt+'</span></div>';});body+='</div>';}
     else{body+='<textarea class="q-saq-input" id="qsaq-'+p+'-'+qi+'" placeholder="Type your answer..." rows="3"></textarea>';}
-    var _qexp=q.explanation||'No explanation provided.'; if(q._user)_qexp=daEscHtml(_qexp);
+    var _qexp;
+    if(Array.isArray(q.explanation)){
+      _qexp='<ul class="mk-exp-list">'+q.explanation.map(function(b,bi){
+        var t=q._user?daEscHtml(String(b)):String(b);
+        var parts=t.split(' \u2014 ');
+        var lead=parts.length>1?parts.shift():'';
+        var rest=parts.join(' \u2014 ');
+        return '<li class="mk-exp-li'+(bi===0?' mk-exp-correct':'')+'">'+(lead?'<b>'+lead+'</b> \u2014 ':'')+rest+'</li>';
+      }).join('')+'</ul>';
+    } else {
+      _qexp=q.explanation||'No explanation provided.'; if(q._user)_qexp=daEscHtml(_qexp);
+    }
     body+='<div class="q-explanation" id="qexp-'+p+'-'+qi+'"><div class="q-exp-label">Explanation</div><div class="q-exp-text">'+_qexp+'</div></div><div class="q-card-actions"><button class="btn-reveal" onclick="revealA(\''+p+'\','+qi+')">Reveal Answer</button><span class="q-result-tag" id="qres-'+p+'-'+qi+'"></span></div>';
     card.innerHTML=body; area.appendChild(card);
   });
