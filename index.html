@@ -8538,6 +8538,17 @@ function loadQView(p){
   const st=getState(p); if(!st.activeTopic)return;
   const _pk=p+'__'+st.activeSystem+'__'+st.activeTopic;
   const presetQs=PRESET_Q[_pk]?JSON.parse(JSON.stringify(PRESET_Q[_pk])):[];
+  // Serve-time option shuffle: preset MCQ answer positions follow a fixed
+  // pattern in the source data, which is gameable. Randomise option order per
+  // render on the disposable clone (source PRESET_Q untouched) and remap
+  // correctIndex so every downstream render/check stays consistent.
+  presetQs.forEach(function(q){
+    if(!q||q.type!=='mcq'||!Array.isArray(q.options)||q.options.length<2||typeof q.correctIndex!=='number')return;
+    var idx=q.options.map(function(_,i){return i;});
+    for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}
+    q.options=idx.map(function(i){return q.options[i];});
+    q.correctIndex=idx.indexOf(q.correctIndex);
+  });
   let userQs=[];
   try{userQs=JSON.parse(localStorage.getItem(qKey(p,st.activeSystem,st.activeTopic))||'[]');}catch{}
   const presetQIds=new Set(presetQs.map(q=>q.id));
