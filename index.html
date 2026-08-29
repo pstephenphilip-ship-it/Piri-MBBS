@@ -8280,7 +8280,11 @@ function restoreFromHash() {
 window.addEventListener('hashchange', restoreFromHash);
 document.addEventListener('DOMContentLoaded', restoreFromHash);
 
+// Close any open annotation note popup / selection tip so an in-progress note isn't left
+// hanging over the next screen when the user navigates away (tab, system, topic or back).
+function daCloseNotePopup(){ if(window.removeAnnotPopup) window.removeAnnotPopup(); var _t=document.getElementById('annot-tip-el'); if(_t) _t.remove(); }
 function switchMainTab(id, el, skipHash) {
+  daCloseNotePopup();
   if (window.__hideInfoPages) window.__hideInfoPages();
   var _view = document.getElementById('tab-' + id);
   if (!_view) { if (window.goHome && id !== 'home') window.goHome(true); return; }   // unknown tab id -> Home instead of throwing
@@ -8363,6 +8367,7 @@ function renderSysList(p, data, filter) {
 }
 
 function selectSystem(p, name, skipHash) {
+  if (typeof daCloseNotePopup === 'function') daCloseNotePopup();
   const cl = document.querySelector('#tab-' + p + ' .condition-list');
   if (cl) cl.style.setProperty('--sc', SYS_COLOR_DEFAULT);
   const st = getState(p); st.activeSystem = name; st.activeTopic = null; ensureSystemLoaded(name);
@@ -8403,6 +8408,7 @@ function checkHasNotes(key) {
 }
 
 async function selectTopic(p, name, skipHash) {
+  if (typeof daCloseNotePopup === 'function') daCloseNotePopup();
   const st = getState(p); st.activeTopic = name; await ensureSystemLoaded(st.activeSystem);
   document.querySelectorAll('#topiclist-' + p + ' .condition-item').forEach(el => el.classList.toggle('active', el.dataset.topic === name));
   document.getElementById('empty-' + p).style.display = 'none';
