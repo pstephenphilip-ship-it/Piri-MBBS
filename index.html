@@ -437,10 +437,10 @@ body{display:flex;flex-direction:column;}
 .annot-popup-colors{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
 .annot-card-nonote{font-style:italic;color:var(--muted);}
 .annot-tooltip:hover{background:var(--gold-dim);}
-.annot-popup{position:fixed;z-index:3000;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:16px;box-shadow:0 8px 32px rgba(0,0,0,0.6);width:280px;}
+.annot-popup{position:fixed;z-index:3000;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:16px;box-shadow:0 8px 32px rgba(0,0,0,0.6);width:280px;max-height:calc(100dvh - 16px);overflow:auto;}
 .annot-popup-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
 .annot-popup-quote{font-size:11px;color:var(--muted);font-style:italic;margin-bottom:10px;border-left:2px solid var(--gold);padding-left:8px;line-height:1.5;word-break:break-word;}
-.annot-popup textarea{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:var(--sans);font-size:13px;padding:8px 10px;resize:none;outline:none;min-height:80px;margin-bottom:10px;line-height:1.6;}
+.annot-popup textarea{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:var(--sans);font-size:13px;padding:8px 10px;resize:vertical;outline:none;min-height:140px;max-height:min(52vh,420px);overflow:auto;margin-bottom:10px;line-height:1.6;}
 .annot-popup textarea:focus{border-color:var(--gold);}
 .annot-popup-btns{display:flex;gap:8px;}
 .btn-annot-save{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
@@ -9255,10 +9255,16 @@ initTab('conditions');
     btns.appendChild(sv); btns.appendChild(cn);
     pop.appendChild(title); pop.appendChild(quote); pop.appendChild(ta); pop.appendChild(annotWireImage(ta,'')); pop.appendChild(btns);
     document.body.appendChild(pop);
+    annotWireGrow(ta);
     setTimeout(function(){ ta.focus(); },40);
   }
 
   window.removeAnnotPopup = function(){ var el=document.getElementById('annot-popup-el'); if(el) el.remove(); };
+
+  // Size the note box to its content (so a long note isn't crammed into a tiny scroll window)
+  // and keep it growing as the user types, capped so the popup still fits on screen.
+  function annotAutoGrow(ta){ if(!ta) return; ta.style.height='auto'; var mx=Math.min(window.innerHeight*0.52,420); ta.style.height=Math.min(ta.scrollHeight+2,mx)+'px'; }
+  function annotWireGrow(ta){ if(!ta) return; annotAutoGrow(ta); ta.addEventListener('input',function(){ annotAutoGrow(ta); }); }
 
   // Show a single annotation's note in a popover anchored next to its highlight
   window.daShowNote = function(p, aid, anchorEl){
@@ -9299,6 +9305,7 @@ initTab('conditions');
     btns.appendChild(sv); btns.appendChild(del); btns.appendChild(cn);
     pop.appendChild(title); pop.appendChild(quote); pop.appendChild(colRow); pop.appendChild(ta); pop.appendChild(btns);
     document.body.appendChild(pop);
+    annotWireGrow(ta);   // open the box tall enough for the existing note, before we measure/position
     // position next to the highlight (viewport-relative, matching position:fixed)
     var r=anchorEl.getBoundingClientRect();
     var pw=pop.offsetWidth||280, ph=pop.offsetHeight||200;
