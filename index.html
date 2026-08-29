@@ -9262,6 +9262,9 @@ initTab('conditions');
     pop.appendChild(title); pop.appendChild(quote); pop.appendChild(ta); pop.appendChild(annotWireImage(ta,'')); pop.appendChild(btns);
     document.body.appendChild(pop);
     annotWireGrow(ta);
+    // Follow the selected text as the page scrolls (capture the range before the textarea steals focus).
+    var _selRange=null; try{ var _s=window.getSelection(); if(_s&&_s.rangeCount) _selRange=_s.getRangeAt(0).cloneRange(); }catch(e){}
+    if(_selRange) annotFollowAnchor(pop, function(){ var r=_selRange.getBoundingClientRect(); return (r&&(r.width||r.height))?r:null; });
     setTimeout(function(){ ta.focus(); },40);
   }
 
@@ -9271,6 +9274,21 @@ initTab('conditions');
   // and keep it growing as the user types, capped so the popup still fits on screen.
   function annotAutoGrow(ta){ if(!ta) return; ta.style.height='auto'; var mx=Math.min(window.innerHeight*0.52,420); ta.style.height=Math.min(ta.scrollHeight+2,mx)+'px'; }
   function annotWireGrow(ta){ if(!ta) return; annotAutoGrow(ta); ta.addEventListener('input',function(){ annotAutoGrow(ta); }); }
+  // Keep an open popup glued to its anchor (the highlight / selection) as the page or notes scroll.
+  // The popup is position:fixed, so without this it stays put while the text moves out from under it.
+  // Call AFTER the popup's initial left/top are set. getRect() returns the anchor's current rect.
+  function annotFollowAnchor(pop, getRect){
+    var r0; try{ r0=getRect(); }catch(e){ r0=null; } if(!r0) return;
+    var left0=parseFloat(pop.style.left)||0, top0=parseFloat(pop.style.top)||0;
+    function place(){
+      if(document.getElementById('annot-popup-el')!==pop){ window.removeEventListener('scroll',place,true); window.removeEventListener('resize',place); return; }
+      var r; try{ r=getRect(); }catch(e){ r=null; } if(!r) return;
+      pop.style.left=(left0 + (r.left - r0.left))+'px';
+      pop.style.top =(top0  + (r.top  - r0.top ))+'px';
+    }
+    window.addEventListener('scroll', place, true);   // capture -> catches scrolls in nested note panes
+    window.addEventListener('resize', place);
+  }
 
   // Show a single annotation's note in a popover anchored next to its highlight
   window.daShowNote = function(p, aid, anchorEl){
@@ -9318,6 +9336,7 @@ initTab('conditions');
     var left=Math.max(8, Math.min(r.left, window.innerWidth-pw-12));
     var top=r.bottom+8; if(top+ph > window.innerHeight-8) top=Math.max(8, r.top-ph-8);
     pop.style.left=left+'px'; pop.style.top=top+'px';
+    annotFollowAnchor(pop, function(){ return anchorEl.getBoundingClientRect(); });  // scroll with the highlight
     setTimeout(function(){ ta.focus(); },40);
     // dismiss on outside click
     setTimeout(function(){ document.addEventListener('mousedown', function h(ev){
