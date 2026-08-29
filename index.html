@@ -9479,11 +9479,14 @@ initTab('conditions');
     var key=annotKey(p,info.sys,info.topic);
     var annots=[];
     try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    annotSetMeta(p, annots.length, (info.sys?info.sys+' · ':'')+info.topic);
-    applyHighlights(p,annots);
-    if(!annots.length){ wrap.innerHTML='<div class="annot-empty">Highlight any text in the note to colour it or add a personal note.</div>'; return; }
+    // Bare highlights (no note text, no image) still colour the page but are NOT listed here —
+    // the notes drawer shows only real notes/images, not every highlight.
+    var noted = annots.filter(function(a){ return (a.note&&a.note.trim()) || a.image; });
+    annotSetMeta(p, noted.length, (info.sys?info.sys+' · ':'')+info.topic);
+    applyHighlights(p,annots);   // colour every highlight on the page, noted or not
+    if(!noted.length){ wrap.innerHTML='<div class="annot-empty">'+(annots.length?'Your highlights are on the page. Add a note to a highlight (or attach an image) to save it here.':'Highlight any text in the note to colour it, or add a personal note.')+'</div>'; return; }
     wrap.innerHTML='';
-    annots.forEach(function(a){
+    noted.forEach(function(a){
       var hasNote=!!(a.note&&a.note.trim());
       var card=document.createElement('div'); card.className='annot-card'; card.dataset.id=a.id;
       card.style.borderLeftColor=hlBorder(a.color);
