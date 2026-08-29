@@ -49,7 +49,7 @@ body{display:flex;flex-direction:column;}
 /* Momentum scrolling + no scroll-chaining on the inner panes. Without overscroll-behavior a
    flick that reaches the end of a pane bubbles out and triggers the mobile browser's URL-bar
    show/hide + rubber-band, which reads as "buggy" scrolling. */
-.system-sidebar,.condition-items,.mode-panel,.calc-main,.calc-sidebar,.wc-host,
+.system-sidebar,.condition-items,.mode-panel,.calc-main,.calc-sidebar,
 .tab-view.home-view.visible,#pharma-detail,.annot-drawer .annot-cards-wrap,
 .mk-wrap,.mk-screen,.mk-run-body{-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
 .da-fav-mark{color:#f5c518;font-size:11px;margin-left:auto;padding-left:6px;flex-shrink:0;line-height:1;}
@@ -684,7 +684,10 @@ body{display:flex;flex-direction:column;}
 <div class="app-body">
 <style>
 .tab-view.home-view.visible{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--rn-bg);}
-.wc-host{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;background:var(--rn-bg);text-align:left;}
+/* Not a scroll container — #tab-home (.home-view) is the single home scroller. A nested auto
+   scroller here would, on stricter browsers, swallow wheel events (it can't scroll, and blocked
+   chaining to the real scroller), so the home page couldn't be scrolled with the mouse wheel. */
+.wc-host{display:block;flex:1 1 auto;min-height:0;overflow:visible;background:var(--rn-bg);text-align:left;}
 .welcome-inner{max-width:720px;margin:0 auto;padding:44px 24px 64px;box-sizing:border-box;}
 .wc-brand{text-align:center;margin-bottom:30px;}
 .wc-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
