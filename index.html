@@ -14994,7 +14994,9 @@ function hideFlyout(p) {
 .m-backbar:active{background:var(--surface2,var(--surface));}
 @media (max-width:820px){
   /* Top bar becomes two rows: [logo ... streak account] then a full-width scrollable tab strip */
-  .topnav{height:auto;flex-wrap:wrap;padding:0;}
+  .topnav{height:auto;flex-wrap:wrap;padding:0;transition:margin-top .25s ease;}
+  /* When reading, the top bar slides up off-screen (JS sets a negative margin-top = its height,
+     which also reclaims the space for the content below). */
   .logo{order:1;padding-left:14px;}
   .logo-text{font-size:15px;}
   .da-streak-chip{order:2;margin-left:auto;}
@@ -15920,6 +15922,34 @@ function hideFlyout(p) {
     PH.deck.splice(PH.i, 0, {id:card.id, front:f, back:b, pk:PH.MYPK});
     renderStudy(el('pharma-fc-body'));
   };
+})();
+</script>
+<script>
+/* Mobile: hide the top bar while reading (scrolling down through the notes), reveal it on
+   scroll-up. Sliding it up with a negative margin-top also reclaims the space for the content. */
+(function(){
+  var nav=document.querySelector('.topnav'); if(!nav) return;
+  var mq=window.matchMedia('(max-width:820px)');
+  var lastY=0, lastEl=null, hidden=false;
+  function show(){ if(!hidden) return; hidden=false; nav.style.marginTop='0px'; }
+  function hide(){ if(hidden) return; hidden=true; nav.style.marginTop=(-nav.offsetHeight)+'px'; }
+  // Only the main content readers should drive this — not sidebars, tab strips or the home page.
+  function isReader(el){ return el && el.nodeType===1 && el.classList &&
+    (el.classList.contains('mode-panel') || el.id==='pharma-detail' || el.classList.contains('mk-run-body')); }
+  function onScroll(e){
+    if(!mq.matches){ show(); return; }        // desktop: always visible
+    var el=e.target; if(!isReader(el)){ return; }
+    var y=el.scrollTop||0;
+    if(el!==lastEl){ lastEl=el; lastY=y; return; }   // switched scroller: reset direction baseline
+    var dy=y-lastY; lastY=y;
+    if(y<48){ show(); return; }               // near the top: keep it visible
+    if(dy>6) hide();                          // scrolling down -> hide
+    else if(dy<-6) show();                    // scrolling up -> reveal
+  }
+  document.addEventListener('scroll', onScroll, true);   // capture -> catches the nested note scrollers
+  if(mq.addEventListener) mq.addEventListener('change', function(){ if(!mq.matches) show(); });
+  // Any in-app navigation should bring the bar back so the tabs are reachable.
+  ['hashchange'].forEach(function(ev){ window.addEventListener(ev, show); });
 })();
 </script>
 </body>
