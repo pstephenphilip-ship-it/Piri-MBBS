@@ -3609,12 +3609,12 @@
    {
     "id": "dic_fc_28",
     "front": "What supportive blood products are given in DIC, and when?",
-    "back": "Only if bleeding or pre-procedure: platelets → keep >50 ×10⁹/L if bleeding; FFP → replaces all clotting factors; cryoprecipitate → replaces fibrinogen (target >1.5 g/L); red cells → for anaemia/blood loss. Treat the patient, not the numbers alone."
+    "back": "Only if bleeding, at high bleeding risk, or pre-procedure: platelets → keep >50 ×10⁹/L if bleeding (>20 ×10⁹/L if not bleeding but at high bleeding risk); FFP → replaces all clotting factors, initial dose 15 mL/kg if PT/APTT >1.5× normal; cryoprecipitate → replaces fibrinogen (target >1.5 g/L, but >2 g/L in ongoing obstetric haemorrhage); red cells → for anaemia/blood loss. Treat the patient, not the numbers alone."
    },
    {
     "id": "dic_fc_29",
     "front": "What does cryoprecipitate replace in DIC, and the target?",
-    "back": "Fibrinogen — target >1.5 g/L."
+    "back": "Fibrinogen — target >1.5 g/L, but >2 g/L in ongoing obstetric haemorrhage."
    },
    {
     "id": "dic_fc_30",
@@ -3709,7 +3709,7 @@
    {
     "id": "piri_fc__conditions__HAEMATOLOGY__DICGAP__0012",
     "front": "Why is 'give tranexamic acid early' correct in traumatic haemorrhage but wrong in DIC?",
-    "back": "They are opposite problems. In trauma, early hyperfibrinolysis is destroying clot the patient needs, so blocking it helps. In DIC the dominant lesion is usually ongoing thrombin generation with microvascular fibrin deposition, so shutting off fibrinolysis removes the only mechanism clearing those microthrombi."
+    "back": "They are opposite problems. In trauma, early hyperfibrinolysis is destroying clot the patient needs, so blocking it helps — and the same applies in postpartum haemorrhage, which keeps its tranexamic acid even once DIC has developed. In DIC outside those two settings the dominant lesion is usually ongoing thrombin generation with microvascular fibrin deposition, so shutting off fibrinolysis removes the only mechanism clearing those microthrombi."
    },
    {
     "id": "piri_fc__conditions__HAEMATOLOGY__DICGAP__0013",
@@ -3816,7 +3816,7 @@
    {
     "id": "btp_fc_15",
     "front": "What do irradiated blood products do, and what do they prevent?",
-    "back": "T-cells in donor blood are depleted by irradiation. Prevents TA-GVHD (Transfusion-Associated Graft-versus-Host Disease) — fatal in immunocompromised patients (haematology, stem cell transplant)."
+    "back": "Donor T-lymphocytes are inactivated by irradiation so they cannot proliferate — they are not removed. Prevents TA-GVHD (Transfusion-Associated Graft-versus-Host Disease) — almost always fatal in immunocompromised patients (haematology, stem cell transplant)."
    },
    {
     "id": "btp_fc_16",
@@ -3851,7 +3851,7 @@
    {
     "id": "btp_fc_22",
     "front": "Febrile non-haemolytic transfusion reaction: cause, features, and management?",
-    "back": "Cause: anti-leucocyte antibodies → cytokine release. Features: fever, chills, rigors — mild, rise ≥1°C. Management: slow/stop; paracetamol; can restart if stable."
+    "back": "Cause: anti-leucocyte antibodies → cytokine release. Features: mild = a temperature rise of 1–2°C to below 39°C with no other features. Management: STOP and assess; paracetamol; may restart cautiously at a slower rate if mild and the patient is stable. Rigors, a temperature ≥39°C or a rise ≥2°C is a moderate reaction — do not simply restart; exclude bacterial contamination and haemolysis first (BSH)."
    },
    {
     "id": "btp_fc_23",
@@ -3861,7 +3861,7 @@
    {
     "id": "btp_fc_24",
     "front": "Anaphylaxis during transfusion: cause, features, and management?",
-    "back": "Cause: allergy to donor plasma proteins — classically severe IgA deficiency with anti-IgA antibodies, though often no antibody is identified. Features: hypotension, bronchospasm, angioedema — rapid onset. Management: STOP; IM adrenaline 0.5mg; ABC; IV fluids."
+    "back": "Cause: allergy to donor plasma proteins — classically severe IgA deficiency with anti-IgA antibodies, though often no antibody is identified. Features: hypotension, bronchospasm, angioedema — rapid onset. Management: STOP; IM adrenaline 0.5 mg (500 micrograms) into the anterolateral thigh, repeated every 5 min if no response; ABC; high-flow O₂; IV fluids. If severe IgA deficiency is confirmed, flag it and use washed or IgA-deficient components in future."
    },
    {
     "id": "btp_fc_25",
@@ -3876,7 +3876,7 @@
    {
     "id": "btp_fc_27",
     "front": "TACO: cause, features, and management?",
-    "back": "Cause: volume overload (too fast / pre-existing HF/renal failure). Features: pulmonary oedema; HYPERtension; raised JVP; orthopnoea — cardiogenic. Management: slow/stop; furosemide + O₂; sit upright."
+    "back": "Cause: volume overload (too fast / pre-existing HF/renal failure). Features: pulmonary oedema; HYPERtension; raised JVP; orthopnoea — cardiogenic. Management: STOP; sit upright; O₂ + IV furosemide; if transfusion must continue afterwards, restart slowly one unit at a time. Largely preventable: do a pre-transfusion TACO risk assessment, especially over 50, under 50 kg, or with heart failure or renal impairment (SHOT)."
    },
    {
     "id": "btp_fc_28",
@@ -3936,7 +3936,7 @@
    {
     "id": "btp_fc_39",
     "front": "EXAM PEARL: What is the transfusion trigger in a stable, asymptomatic patient without cardiac disease?",
-    "back": "Hb <70 g/L → transfuse; Hb 70–100 → clinical judgement; Hb >100 → generally avoid transfusion."
+    "back": "Hb <70 g/L → transfuse, target 70–90 g/L; Hb 70–90 → clinical judgement and symptoms; Hb >90 → generally avoid transfusion in a non-ACS patient (NICE)."
    },
    {
     "id": "btp_fc_40",
@@ -4036,7 +4036,7 @@
    {
     "id": "piri_fc__conditions__HAEMATOLOGY__TFXGAP__0019",
     "front": "What is red cell alloimmunisation and why does it matter?",
-    "back": "Antibodies form against donor red cell antigens the patient lacks (Rh, Kell, Kidd, Duffy). It is usually silent at the time, but it makes future units harder and slower to crossmatch, sets up delayed haemolytic reactions, and risks haemolytic disease of the fetus and newborn in girls and women of childbearing age."
+    "back": "Antibodies form against donor red cell antigens the patient lacks (Rh, Kell, Kidd, Duffy). It is usually silent at the time, but it makes future units harder and slower to crossmatch, sets up delayed haemolytic reactions, and risks haemolytic disease of the fetus and newborn in girls and women of childbearing age. If an RhD-negative girl or woman of childbearing potential is inadvertently given RhD-positive red cells or platelets, give anti-D immunoglobulin and take specialist transfusion advice."
    },
    {
     "id": "piri_fc__conditions__HAEMATOLOGY__TFXGAP__0020",
@@ -4612,7 +4612,7 @@
    {
     "id": "tcp_fc_11",
     "front": "How is ITP managed (stepwise)?",
-    "back": "1. Oral prednisolone — 1st line. 2. IVIG — if urgent (pre-procedure/active bleed); raises count fast. 3. TPO-receptor agonists (eltrombopag/romiplostim) or rituximab — preferred 2nd line. 4. Splenectomy — now usually deferred (≥12 months) given infection/thrombosis risk."
+    "back": "1. Oral prednisolone — 1st line, as a SHORT course (weeks including the taper, not months). 2. IVIG — if urgent (pre-procedure/active bleed); raises count fast. 3. TPO-receptor agonists (eltrombopag/romiplostim) or rituximab — preferred 2nd line. 4. Splenectomy — now usually deferred (≥12 months) given infection/thrombosis risk; vaccinate first (pneumococcal, Hib, meningococcal, annual influenza) and give lifelong penicillin V afterwards."
    },
    {
     "id": "tcp_fc_12",
@@ -4732,17 +4732,17 @@
    {
     "id": "tcp_fc_35",
     "front": "What is the treatment of severe acute ITP?",
-    "back": "First-line: prednisolone 1 mg/kg/day OR IV immunoglobulin (IVIg) 1 g/kg (faster response for bleeding). Second-line: rituximab, romiplostim (TPO receptor agonist), splenectomy (80% response, last resort)."
+    "back": "First-line: prednisolone 1 mg/kg/day as a SHORT course (weeks including the taper, not months) OR IV immunoglobulin (IVIg) 1 g/kg (faster response for bleeding). Second-line: a TPO receptor agonist (eltrombopag or romiplostim) or rituximab. Splenectomy is reserved for refractory chronic disease and usually deferred at least 12 months."
    },
    {
     "id": "tcp_fc_36",
     "front": "What is heparin-induced thrombocytopenia (HIT) and its paradox?",
-    "back": "HIT: anti-PF4/heparin antibody complex → platelet activation → paradoxical THROMBOSIS (not just bleeding) + thrombocytopenia (fall >50% or <100 × 10⁹/L). Stop all heparin; switch to argatroban or fondaparinux."
+    "back": "HIT: anti-PF4/heparin antibody complex → platelet activation → paradoxical THROMBOSIS (not just bleeding) + thrombocytopenia (fall >50% or <100 × 10⁹/L). Stop all heparin including flushes; switch to a non-heparin anticoagulant — argatroban or danaparoid are UK-licensed, fondaparinux or a DOAC are off-licence. Not warfarin acutely, and not platelets."
    },
    {
     "id": "tcp_fc_37",
     "front": "What is thrombotic thrombocytopenic purpura (TTP) and its pentad?",
-    "back": "ADAMTS13 deficiency (acquired or inherited) → uncleaved vWF multimers → platelet microthrombi. Pentad: thrombocytopenia, MAHA (schistocytes), fever, neurological changes, renal impairment. Treat: plasma exchange + steroids."
+    "back": "ADAMTS13 deficiency (acquired or inherited) → uncleaved vWF multimers → platelet microthrombi. Pentad: thrombocytopenia, MAHA (schistocytes), fever, neurological changes, renal impairment. Treat: urgent plasma exchange + steroids (± rituximab, ± caplacizumab). Never transfuse platelets unless there is life-threatening bleeding."
    },
    {
     "id": "tcp_fc_38",
@@ -4772,7 +4772,7 @@
    {
     "id": "piri_fc__conditions__HAEMATOLOGY__TCPGAP__0003",
     "front": "Does the 'do not transfuse platelets' rule apply if the patient is bleeding seriously?",
-    "back": "No. The rule concerns prophylactic transfusion. Serious or life-threatening bleeding changes the calculation in any of the four conditions - you treat the haemorrhage in front of you."
+    "back": "No. The rule concerns prophylactic transfusion. Serious or life-threatening bleeding changes the calculation in any of the four conditions - you treat the haemorrhage in front of you. In ITP that means the interventions are combined rather than tried in sequence: high-dose IV corticosteroid, IVIg, platelet transfusion given after the IVIg, and tranexamic acid."
    },
    {
     "id": "piri_fc__conditions__HAEMATOLOGY__TCPGAP__0004",
@@ -14854,7 +14854,7 @@
     "type": "mcq",
     "question": "What is the guiding principle of transfusion strategy?",
     "options": [
-     "Transfuse to a target Hb of 120 g/L in all patients",
+     "Transfuse to a target Hb of 120 g/L in every patient, whatever the underlying cause of the anaemia",
      "Liberal transfusion strategy → better outcomes",
      "Always transfuse two units before reassessing",
      "Restrictive transfusion strategy (lower thresholds) → better outcomes; one unit at a time, then reassess",
@@ -14899,7 +14899,7 @@
     "type": "mcq",
     "question": "Which set of practical facts is correct for red cell transfusion?",
     "options": [
-     "Infuse over 6 h; stored at 2–6°C; each unit completed within 48 h of leaving the fridge",
+     "Infuse over 6 h; stored at 2–6°C; each unit completed within 48 h of leaving the blood fridge on the ward",
      "Infuse over 30 min; stored at 20–24°C; each unit completed within 24 h",
      "Infuse over 4 h; stored at room temperature; each unit completed within 1 h",
      "Infuse over 10 min; stored at −20°C; each unit completed within 6 h",
@@ -14945,7 +14945,7 @@
     "question": "Which statement about FFP is correct?",
     "options": [
      "Contains all clotting factors; universal donor = AB; avoid in fluid overload (large volume)",
-     "Contains only fibrinogen; universal donor = O",
+     "Contains only fibrinogen; universal donor = O; stored at room temperature in the lab",
      "Contains factors II, VII, IX, X only",
      "Stored at 20–24°C to prevent aggregation",
      "Is the fastest option for warfarin reversal"
@@ -14962,7 +14962,7 @@
      "PCC — factors II, VII, IX, X",
      "FFP — all clotting factors only",
      "Cryoprecipitate — fibrinogen, factor VIII, vWF, factor XIII",
-     "Platelets — raises count ~20–30×10⁹/L",
+     "Platelets — one adult dose raises the count by roughly 20–30×10⁹/L",
      "Red cells — for acute blood loss"
     ],
     "correctIndex": 2,
@@ -15005,7 +15005,7 @@
     "question": "How are platelets stored, and why are they not refrigerated?",
     "options": [
      "Stored at 37°C, to mimic normal body temperature",
-     "Stored at 4°C, which prevents them from aggregating in the pack",
+     "Stored at 4°C, which prevents them from aggregating within the pack itself",
      "Stored frozen at −20°C, which preserves their function best",
      "Stored at 20–24°C, because chilling activates platelets and shortens their survival",
      "Stored at 0°C, to prevent them from clotting during storage"
@@ -15052,7 +15052,7 @@
      "Vitamin K reverses the action of platelets",
      "Vitamin K speeds up PCC infusion",
      "PCC contains no factor VII",
-     "Vitamin K prevents an allergic reaction to PCC",
+     "Vitamin K prevents an allergic reaction to the PCC during the infusion",
      "Factor VII has a short half-life, so without vitamin K the INR creeps back up"
     ],
     "correctIndex": 4,
@@ -15137,9 +15137,9 @@
    {
     "id": "btp_q_20",
     "type": "mcq",
-    "question": "A patient develops fever, chills and rigors with a temperature rise of ≥1°C during transfusion, but is otherwise stable. Which reaction is this, and what is the cause?",
+    "question": "A patient develops a temperature rise of 1.2°C to 38.4°C with mild chills during transfusion, with no rigors and otherwise stable. Which reaction is this, and what is the cause?",
     "options": [
-     "Minor allergic — reaction to donor plasma proteins",
+     "Minor allergic reaction — a response to donor plasma proteins",
      "Febrile non-haemolytic — anti-leucocyte antibodies → cytokine release",
      "Acute haemolytic — ABO incompatibility",
      "Anaphylaxis — IgA deficiency + anti-IgA antibodies",
@@ -15147,7 +15147,7 @@
     ],
     "correctIndex": 1,
     "answer": "Febrile non-haemolytic — anti-leucocyte antibodies → cytokine release",
-    "explanation": "Febrile non-haemolytic reaction is caused by anti-leucocyte antibodies → cytokine release, with fever, chills, rigors (mild, rise ≥1°C); manage by slow/stop, paracetamol, and can restart if stable."
+    "explanation": "Febrile non-haemolytic reaction is caused by anti-leucocyte antibodies → cytokine release. Mild means a temperature rise of 1–2°C to below 39°C with no other features: STOP and assess, give paracetamol, and restart cautiously at a slower rate only if mild and the patient is stable. Rigors, a temperature ≥39°C or a rise ≥2°C is a moderate reaction — do not simply restart; exclude bacterial contamination and haemolysis first (BSH)."
    },
    {
     "id": "btp_q_21",
@@ -15186,13 +15186,13 @@
     "options": [
      "Donor plasma proteins — antihistamine; can restart",
      "Anti-leucocyte antibodies — slow/stop; paracetamol",
-     "ABO incompatibility (wrong blood — human error) — STOP immediately; check patient ID + bag label; Coombs + recross-match; supportive",
+     "ABO incompatibility (wrong blood — human error) — STOP; keep the line open with saline; recheck ID against the bag; telephone the transfusion laboratory at once",
      "Volume overload — furosemide + O₂",
-     "Donor antibodies → capillary leak — O₂; NO diuretics"
+     "Donor antibodies causing a capillary leak — give oxygen and respiratory support, sit the patient up, and give NO diuretics at all in this particular setting"
     ],
     "correctIndex": 2,
-    "answer": "ABO incompatibility (wrong blood — human error) — STOP immediately; check patient ID + bag label; Coombs + recross-match; supportive",
-    "explanation": "Acute haemolytic reaction is due to ABO incompatibility (wrong blood — human error), with fever, loin/back pain, hypotension, dark urine within minutes; STOP immediately, check patient ID + bag label, Coombs + recross-match, and supportive care."
+    "answer": "ABO incompatibility (wrong blood — human error) — STOP; keep the line open with saline; recheck ID against the bag; telephone the transfusion laboratory at once",
+    "explanation": "Acute haemolytic reaction is due to ABO incompatibility (wrong blood — human error), with fever, loin/back pain, hypotension and dark urine within minutes. STOP immediately, keep IV access open with 0.9% saline and resuscitate to maintain urine output, recheck the patient's identity against the bag label, and telephone the transfusion laboratory at once — another patient may be about to receive the swapped unit. Return the unit and giving set with fresh clotted and EDTA samples for DAT, repeat group and crossmatch; monitor for AKI and DIC (BSH)."
    },
    {
     "id": "btp_q_24",
@@ -15215,14 +15215,14 @@
     "question": "A patient with pre-existing heart failure develops pulmonary oedema, HYPERtension, raised JVP and orthopnoea during transfusion. Which reaction is this, and how is it managed?",
     "options": [
      "TRALI — O₂ + supportive; NO diuretics",
-     "TACO — slow/stop; furosemide + O₂; sit upright",
+     "TACO — STOP; sit upright; O₂ + IV furosemide",
      "Anaphylaxis — IM adrenaline; IV fluids",
      "Minor allergic — antihistamine; can restart",
      "Acute haemolytic — check ID + bag label"
     ],
     "correctIndex": 1,
-    "answer": "TACO — slow/stop; furosemide + O₂; sit upright",
-    "explanation": "TACO (volume overload — too fast / pre-existing HF/renal failure) causes pulmonary oedema, HYPERtension, raised JVP and orthopnoea (cardiogenic); manage with slow/stop, furosemide + O₂, and sit upright."
+    "answer": "TACO — STOP; sit upright; O₂ + IV furosemide",
+    "explanation": "TACO (volume overload — too fast / pre-existing HF/renal failure) causes pulmonary oedema, HYPERtension, raised JVP and orthopnoea (cardiogenic). STOP the transfusion, sit the patient upright, and give oxygen with IV furosemide. It is the commonest cause of transfusion-related death and is largely preventable with a pre-transfusion risk assessment, single units transfused slowly, and a prophylactic diuretic where indicated (SHOT)."
    },
    {
     "id": "btp_q_26",
@@ -15231,7 +15231,7 @@
     "options": [
      "Urine colour — TRALI causes dark urine",
      "Fever — only TACO causes fever",
-     "Onset — TRALI is always delayed, TACO is immediate",
+     "Onset — TRALI is always delayed, whereas TACO is immediate",
      "Blood pressure — TRALI causes hypotension, TACO causes hypertension",
      "Both are managed identically"
     ],
@@ -15245,7 +15245,7 @@
     "question": "How do the oedema mechanisms differ between TRALI and TACO?",
     "options": [
      "TRALI = immune-mediated capillary leak (non-cardiogenic); TACO = volume overload (cardiogenic)",
-     "TRALI = volume overload (cardiogenic); TACO = capillary leak (non-cardiogenic)",
+     "TRALI = volume overload (cardiogenic); TACO = a capillary leak (non-cardiogenic)",
      "Both are non-cardiogenic",
      "Both are cardiogenic",
      "TRALI = ABO incompatibility; TACO = IgA deficiency"
@@ -15293,7 +15293,7 @@
      "An older alternative; large volume, avoid in fluid overload",
      "Contains factors II, VII, IX, X only",
      "Replaces the need for vitamin K",
-     "First-line in all warfarin reversal"
+     "First-line in all warfarin reversal, ahead of PCC"
     ],
     "correctIndex": 1,
     "answer": "An older alternative; large volume, avoid in fluid overload",
@@ -15312,7 +15312,7 @@
     ],
     "correctIndex": 3,
     "answer": "Acute haemolytic transfusion reaction (ABO incompatibility)",
-    "explanation": "Acute haemolytic reactions present with fever, loin pain, haemoglobinuria, and hypotension due to ABO incompatibility causing intravascular haemolysis. Stop transfusion immediately and send the bag + patient sample for cross-match."
+    "explanation": "Acute haemolytic reactions present with fever, loin pain, haemoglobinuria and hypotension due to ABO incompatibility causing intravascular haemolysis. Stop the transfusion immediately, keep the line open with saline, recheck identity against the bag, telephone the transfusion laboratory at once (another patient may be at risk), and return the unit and giving set with fresh samples."
    },
    {
     "id": "btp_q_32",
@@ -15321,7 +15321,7 @@
     "options": [
      "Non-cardiogenic pulmonary oedema within 6h of transfusion due to anti-leukocyte antibodies",
      "Cardiogenic pulmonary oedema from volume overload",
-     "Acute haemolytic reaction from ABO incompatibility",
+     "An acute haemolytic reaction from ABO incompatibility missed at the bedside check",
      "Delayed immune haemolysis",
      "Allergic urticaria from plasma proteins"
     ],
@@ -15349,7 +15349,7 @@
     "type": "mcq",
     "question": "A patient needs urgent reversal of warfarin before emergency surgery. What is the first-line treatment?",
     "options": [
-     "Cryoprecipitate",
+     "Cryoprecipitate, given on its own without vitamin K",
      "FFP alone",
      "Vitamin K alone",
      "Platelets",
@@ -15381,13 +15381,13 @@
     "options": [
      "Patients with TACO",
      "All patients over 65",
-     "Patients with ABO incompatibility",
+     "Patients who have had an ABO-incompatible transfusion",
      "Immunocompromised patients at risk of transfusion-associated GvHD",
      "Patients with iron overload"
     ],
     "correctIndex": 3,
     "answer": "Immunocompromised patients at risk of transfusion-associated GvHD",
-    "explanation": "Irradiated products destroy donor T-lymphocytes and are used in patients with severe immunocompromise (SCT, haematological malignancy, congenital immunodeficiency) to prevent TA-GvHD, which is fatal."
+    "explanation": "Irradiation INACTIVATES donor T-lymphocytes so they cannot proliferate — it does not remove them — preventing TA-GvHD, which is almost always fatal. The UK indications are specific: Hodgkin lymphoma (lifelong), purine analogues and alemtuzumab, stem cell transplant, congenital T-cell immunodeficiency, intrauterine and neonatal exchange transfusion, granulocytes, HLA-selected platelets and directed donations from relatives — not a haematological malignancy per se, and not HIV (BSH)."
    },
    {
     "id": "btp_q_37",
@@ -15402,7 +15402,7 @@
     ],
     "correctIndex": 0,
     "answer": "Hb <70 g/L",
-    "explanation": "NICE/BSH guidelines: transfuse at Hb <70 g/L in stable patients. Target 70–90 g/L post-transfusion. Cardiac patients may have a higher threshold of <80 g/L."
+    "explanation": "Transfuse at Hb <70 g/L in stable patients, target 70–90 g/L (NICE). A threshold of <80 g/L with a target of 80–100 g/L applies specifically in acute coronary syndrome — a raised threshold for chronic cardiovascular disease is not a NICE recommendation."
    },
    {
     "id": "btp_q_38",
@@ -15422,7 +15422,7 @@
    {
     "id": "btp_q_39",
     "type": "mcq",
-    "question": "A patient develops a temperature rise of 1.5°C with chills and rigors 30 minutes into a blood transfusion, with no rash, no haemodynamic compromise and no respiratory distress. What is the most likely reaction?",
+    "question": "A patient develops a temperature rise of 1.2°C to 38.4°C with mild chills 30 minutes into a blood transfusion, with no rigors, no rash, no haemodynamic compromise and no respiratory distress. What is the most likely reaction?",
     "options": [
      "Anaphylaxis",
      "Acute haemolytic transfusion reaction",
@@ -15432,7 +15432,7 @@
     ],
     "correctIndex": 4,
     "answer": "Febrile non-haemolytic transfusion reaction",
-    "explanation": "Febrile non-haemolytic reactions are the most common transfusion reaction, caused by cytokines in stored blood or anti-leukocyte antibodies. Mild fever/chills without haemolysis or respiratory compromise. Stop and assess, give paracetamol, and restart cautiously at a slower rate if mild and the patient is stable. Urticaria and pruritus would instead indicate a minor allergic reaction, treated with an antihistamine."
+    "explanation": "Febrile non-haemolytic reactions are the most common transfusion reaction, caused by cytokines in stored blood or anti-leukocyte antibodies. Mild means a 1–2°C rise to below 39°C with no other features; rigors, a temperature ≥39°C or a ≥2°C rise makes it a moderate reaction that should not simply be restarted (BSH). Stop and assess, give paracetamol, and restart cautiously at a slower rate if mild and the patient is stable. Urticaria and pruritus would instead indicate a minor allergic reaction, treated with an antihistamine."
    },
    {
     "id": "btp_q_40",
@@ -15473,7 +15473,7 @@
      "Yes, if it is returned within 2 hours",
      "No — a unit out of controlled-temperature storage for more than 30 minutes cannot be returned",
      "Yes, if the ward fridge is temperature-monitored",
-     "No — no component may ever be returned to the fridge once issued"
+     "No — no component may ever be returned to the fridge once it has been issued at all"
     ],
     "correctIndex": 2,
     "answer": "No — a unit out of controlled-temperature storage for more than 30 minutes cannot be returned",
@@ -15484,7 +15484,7 @@
     "type": "mcq",
     "question": "A unit of red cells left the blood fridge at 08:00 and the transfusion began at 08:30. At 12:15 roughly a third of the unit remains. What should be done?",
     "options": [
-     "Continue — the 4-hour clock starts when the transfusion is connected",
+     "Continue — the 4-hour clock starts when the transfusion is first connected to the patient, not when it leaves storage",
      "Continue at a faster rate to finish the unit",
      "Stop the unit and discard the remainder, because it must be completed within 4 hours of leaving controlled-temperature storage",
      "Return the remainder to the laboratory for reissue later that day",
@@ -15503,7 +15503,7 @@
      "Add the antibiotic to the blood pack",
      "Run the antibiotic in Hartmann's alongside the blood",
      "Do not give drugs or other fluids through the transfusion line — only 0.9% sodium chloride may share it; site a second access or wait",
-     "Pause the transfusion for 30 minutes and give the antibiotic through the same line"
+     "Pause the transfusion for 30 minutes and give the antibiotic through the same line, flushing the line before and afterwards"
     ],
     "correctIndex": 3,
     "answer": "Do not give drugs or other fluids through the transfusion line — only 0.9% sodium chloride may share it; site a second access or wait",
@@ -15518,7 +15518,7 @@
      "The tube label must be handwritten at the bedside after positive patient identification — pre-labelling is the classic route to 'wrong blood in tube'",
      "Labels applied early peel off in transit",
      "Only the phlebotomy team may label transfusion samples",
-     "The label must be applied after the sample reaches the laboratory"
+     "The label must be applied only after the sample has reached the laboratory and been formally booked in by a member of the laboratory staff"
     ],
     "correctIndex": 1,
     "answer": "The tube label must be handwritten at the bedside after positive patient identification — pre-labelling is the classic route to 'wrong blood in tube'",
@@ -15529,7 +15529,7 @@
     "type": "mcq",
     "question": "Twenty minutes into a platelet transfusion, a 62-year-old man develops a temperature of 39.8°C, violent rigors and a blood pressure of 80/45 mmHg. What is the most likely cause and the key immediate step beyond stopping the transfusion?",
     "options": [
-     "Febrile non-haemolytic reaction — give paracetamol and restart",
+     "Febrile non-haemolytic reaction — give paracetamol and restart the same unit at a slower infusion rate afterwards",
      "TACO — give furosemide",
      "Bacterial contamination of the unit — take cultures from the patient and the unit and give broad-spectrum antibiotics",
      "Minor allergic reaction — give an antihistamine",
@@ -15546,7 +15546,7 @@
     "options": [
      "Acute haemolytic transfusion reaction",
      "Delayed haemolytic transfusion reaction from an anamnestic alloantibody response",
-     "Autoimmune haemolytic anaemia triggered by the transfusion",
+     "Autoimmune haemolytic anaemia triggered by the transfusion episode itself",
      "Post-transfusion purpura",
      "Transfusion-associated graft-versus-host disease"
     ],
@@ -15559,7 +15559,7 @@
     "type": "mcq",
     "question": "A patient receives an ABO-incompatible unit because of a bedside identification error and requires intensive care. Beyond informing the hospital transfusion team, which report is a statutory legal requirement?",
     "options": [
-     "A SHOT report only, as SHOT reporting is mandatory in law",
+     "A SHOT report only, since SHOT reporting is itself a legal requirement",
      "A report to the MHRA via SABRE under the Blood Safety and Quality Regulations 2005",
      "A report to NICE",
      "A report to the coroner only if the patient dies",
@@ -16359,7 +16359,7 @@
     "question": "What is the decisive mechanism (the fork) in DIC?",
     "options": [
      "Defective globin chain synthesis",
-     "Marrow failure to produce platelets",
+     "Marrow failure to produce platelets and clotting factors in sufficient numbers to maintain haemostasis",
      "Autoimmune platelet destruction",
      "Consumption — massive coagulation activation consumes platelets and clotting factors faster than they are replaced",
      "Isolated ADAMTS13 deficiency"
@@ -16391,7 +16391,7 @@
      "Only excessive bleeding",
      "Only excessive clotting",
      "Too much clotting and too little clotting simultaneously — microvascular thrombosis plus haemorrhage",
-     "Neither clotting nor bleeding",
+     "Neither excessive clotting nor excessive bleeding occurs at any stage of the illness itself",
      "Isolated thrombocytosis"
     ],
     "correctIndex": 2,
@@ -16449,7 +16449,7 @@
     "question": "Which obstetric causes can trigger DIC?",
     "options": [
      "Amniotic fluid embolism, HELLP syndrome, placental abruption, retained products of conception",
-     "Burns, crush injury, fat embolism",
+     "Burns, crush injury and fat embolism following major trauma, surgery or a crush",
      "Aortic aneurysm, haemangioma",
      "ABO-incompatible transfusion only",
      "Iron deficiency"
@@ -16508,7 +16508,7 @@
     "type": "mcq",
     "question": "Which is a thrombotic (thrombotic end) feature of DIC?",
     "options": [
-     "Venepuncture site oozing",
+     "Persistent oozing from every venepuncture site",
      "Gum bleeding",
      "Haematuria",
      "Purpura fulminans (digital/skin necrosis)",
@@ -16527,7 +16527,7 @@
      "Platelets high; PT/APTT/TT shortened",
      "Platelets normal; PT/APTT/TT normal",
      "Platelets low; PT/APTT/TT normal",
-     "Platelets high; PT/APTT/TT prolonged"
+     "Platelets high; PT/APTT/TT prolonged by consumption of all the clotting factors"
     ],
     "correctIndex": 0,
     "answer": "Platelets low (consumed in microthrombi); PT/APTT/TT prolonged (clotting factors consumed)",
@@ -16568,7 +16568,7 @@
     "type": "mcq",
     "question": "What does the blood film show in DIC, and why?",
     "options": [
-     "Smudge cells — fragile lymphocytes",
+     "Smudge cells — fragile lymphocytes crushed on the slide",
      "Schistocytes — RBCs sheared through fibrin strands in vessels",
      "Auer rods — promyelocyte granules",
      "Teardrop cells — marrow fibrosis",
@@ -16617,7 +16617,7 @@
      "Raised PT/APTT and low fibrinogen",
      "Normal PT/APTT and fibrinogen, with schistocytes present",
      "Low fibrinogen with low Factor VIII",
-     "Markedly raised D-dimer with deranged PT"
+     "Markedly raised D-dimer with a deranged PT and low fibrinogen"
     ],
     "correctIndex": 2,
     "answer": "Normal PT/APTT and fibrinogen, with schistocytes present",
@@ -16647,7 +16647,7 @@
      "Treat the underlying cause — the only thing that reverses DIC",
      "Transfuse platelets routinely",
      "Give FFP regardless of bleeding",
-     "Start cryoprecipitate first-line"
+     "Start cryoprecipitate first-line in every patient"
     ],
     "correctIndex": 1,
     "answer": "Treat the underlying cause — the only thing that reverses DIC",
@@ -16681,7 +16681,7 @@
     ],
     "correctIndex": 0,
     "answer": "Fibrinogen — target >1.5 g/L",
-    "explanation": "Cryoprecipitate replaces fibrinogen, with a target >1.5 g/L; FFP replaces all clotting factors and platelets are kept >50 ×10⁹/L if bleeding."
+    "explanation": "Cryoprecipitate replaces fibrinogen, with a target >1.5 g/L (>2 g/L in ongoing obstetric haemorrhage); FFP replaces all clotting factors at an initial dose of 15 mL/kg, and platelets are kept >50 ×10⁹/L if bleeding."
    },
    {
     "id": "dic_q_23",
@@ -16689,7 +16689,7 @@
     "question": "When is THERAPEUTIC-dose anticoagulation considered in DIC?",
     "options": [
      "When bleeding dominates",
-     "In all patients at presentation",
+     "In all patients at presentation, whatever the phenotype and whatever the bleeding risk might be",
      "Only in thrombosis-predominant DIC (e.g. purpura fulminans), with LMWH preferred over unfractionated heparin",
      "Only after platelet transfusion",
      "Never under any circumstances"
@@ -16705,7 +16705,7 @@
     "options": [
      "All-trans retinoic acid (ATRA)",
      "Tranexamic acid",
-     "Routine prophylactic platelet transfusion",
+     "Routine prophylactic platelet transfusion to a target count above 50, plus FFP",
      "Venesection",
      "Therapeutic-dose anticoagulation (LMWH generally preferred over unfractionated heparin)"
     ],
@@ -16718,7 +16718,7 @@
     "type": "mcq",
     "question": "EXAM PEARL: What is the DIC pentad?",
     "options": [
-     "Fever, neuro signs, thrombocytopenia, MAHA, renal failure",
+     "Fever, neurological signs, thrombocytopenia, MAHA and renal failure",
      "Low platelets, raised PT/APTT, low fibrinogen, raised D-dimer, schistocytes",
      "CRAB tetrad plus paraprotein",
      "Raised K, raised phosphate, low Ca, raised urate, AKI",
@@ -16735,7 +16735,7 @@
     "options": [
      "It means products are always given",
      "It means DIC needs no treatment",
-     "It means heparin is always first-line",
+     "It means heparin is always the first-line treatment in every single case",
      "The most important management step is identifying and treating the underlying cause",
      "It means DIC is inherited"
     ],
@@ -16752,7 +16752,7 @@
      "Both have deranged coagulation screens",
      "Both have normal coagulation screens",
      "TTP/HUS has low fibrinogen; DIC has normal fibrinogen",
-     "TTP/HUS has low Factor VIII; DIC has normal Factor VIII"
+     "TTP/HUS has a low Factor VIII level; DIC has an entirely normal Factor VIII on the assay"
     ],
     "correctIndex": 0,
     "answer": "TTP/HUS has thrombocytopenia + schistocytes but a normal coagulation screen; DIC has a deranged screen",
@@ -16763,7 +16763,7 @@
     "type": "mcq",
     "question": "EXAM PEARL: What is the guiding principle for product replacement in DIC?",
     "options": [
-     "Replace products prophylactically in all",
+     "Replace products prophylactically in all patients, to normalise the numbers",
      "Always normalise every lab value",
      "Treat the patient, not the numbers — replace only if actively bleeding or pre-procedure",
      "Give heparin before products",
@@ -16793,7 +16793,7 @@
     "type": "mcq",
     "question": "What is the range of severity in DIC?",
     "options": [
-     "Always complete haemostatic failure",
+     "Always complete haemostatic failure with catastrophic bleeding",
      "From subclinical (lab abnormalities only) to complete haemostatic failure",
      "Always subclinical",
      "Only thrombotic, never haemorrhagic",
@@ -16854,7 +16854,7 @@
     "question": "Which result on a routine coagulation profile best distinguishes DIC from liver disease?",
     "options": [
      "Factor V normal in DIC",
-     "APTT prolonged only in DIC",
+     "APTT prolonged only in DIC, and never at all in liver disease",
      "PT normal in liver disease",
      "Fibrinogen normal in DIC",
      "D-dimer markedly elevated in DIC but normal/mildly raised in liver disease"
@@ -16868,7 +16868,7 @@
     "type": "mcq",
     "question": "What is the role of cryoprecipitate in DIC management?",
     "options": [
-     "It replaces all the clotting factors, in the way fresh frozen plasma does",
+     "It replaces all the clotting factors, in the way that fresh frozen plasma does",
      "Replaces fibrinogen — give in a BLEEDING (or pre-procedure) patient if fibrinogen <1.5 g/L",
      "It reverses the anticoagulant effect of unfractionated heparin",
      "It corrects the platelet count in a consumptive thrombocytopenia",
@@ -16876,7 +16876,7 @@
     ],
     "correctIndex": 1,
     "answer": "Replaces fibrinogen — give in a BLEEDING (or pre-procedure) patient if fibrinogen <1.5 g/L",
-    "explanation": "Cryoprecipitate is rich in fibrinogen, factor VIII, vWF and factor XIII. In a BLEEDING patient with DIC whose fibrinogen remains <1.5 g/L despite FFP, it is the product of choice to replenish fibrinogen. In a non-bleeding patient a low fibrinogen alone is NOT an indication to transfuse — treat the patient, not the number."
+    "explanation": "Cryoprecipitate is rich in fibrinogen, factor VIII, vWF and factor XIII. In a BLEEDING patient with DIC whose fibrinogen remains <1.5 g/L despite FFP, it is the product of choice to replenish fibrinogen — and in ongoing obstetric haemorrhage the target is higher, >2 g/L. In a non-bleeding patient a low fibrinogen alone is NOT an indication to transfuse — treat the patient, not the number."
    },
    {
     "id": "dic_q_36",
@@ -16906,7 +16906,7 @@
     ],
     "correctIndex": 0,
     "answer": "Leukaemic promyelocytes release pro-coagulant granules containing tissue factor",
-    "explanation": "APML is notorious for life-threatening DIC at presentation. Leukaemic promyelocytes release granules containing tissue factor and other pro-coagulants, triggering systemic thrombin activation. ATRA is used to differentiate cells and reduce DIC risk."
+    "explanation": "APML is notorious for life-threatening DIC at presentation. Leukaemic promyelocytes release granules containing tissue factor and other pro-coagulants, triggering systemic thrombin activation. ATRA is started immediately on clinical suspicion, before genetic confirmation — it drives differentiation and rapidly IMPROVES the coagulopathy, whereas cytotoxic chemotherapy (blast lysis) can transiently worsen it."
    },
    {
     "id": "dic_q_38",
@@ -16928,7 +16928,7 @@
     "type": "mcq",
     "question": "What is the DIC score used to diagnose overt DIC?",
     "options": [
-     "CHA₂DS₂-VASc score",
+     "The CHA₂DS₂-VASc score for stroke risk in atrial fibrillation patients",
      "CURB-65",
      "Wells score",
      "SOFA score",
@@ -16943,7 +16943,7 @@
     "type": "mcq",
     "question": "EXAM PEARL: What is the key lab combination that defines DIC?",
     "options": [
-     "Normal PT, ↑APTT, normal fibrinogen, ↑D-dimer",
+     "Normal PT, ↑APTT, normal fibrinogen, ↑D-dimer, normal platelets",
      "↑PT, ↑APTT, ↓fibrinogen, ↑D-dimer, ↓platelets, schistocytes on film",
      "↑PT, normal APTT, ↑fibrinogen, ↑D-dimer",
      "Normal PT/APTT, ↓fibrinogen, ↑platelets",
@@ -16977,7 +16977,7 @@
      "Therapeutic-dose anticoagulation is appropriate, and LMWH is generally preferred over unfractionated heparin",
      "Anticoagulation is contraindicated in every form of DIC",
      "Tranexamic acid should be co-administered to offset the bleeding risk",
-     "Prophylactic-dose LMWH is sufficient because the thrombosis is microvascular"
+     "Prophylactic-dose LMWH is sufficient here, because the thrombosis is confined to the microvasculature"
     ],
     "correctIndex": 1,
     "answer": "Therapeutic-dose anticoagulation is appropriate, and LMWH is generally preferred over unfractionated heparin",
@@ -17005,7 +17005,7 @@
     "options": [
      "It blocks fibrinolysis while thrombin generation continues, leaving microvascular fibrin undissolved and risking catastrophic thrombosis",
      "It consumes fibrinogen directly and deepens the hypofibrinogenaemia",
-     "It causes an immune thrombocytopenia that compounds the platelet consumption",
+     "It causes an immune thrombocytopenia that compounds the platelet consumption already occurring within the microvasculature",
      "It inactivates antithrombin and so potentiates heparin resistance",
      "It is metabolised to a procoagulant that activates factor VII"
     ],
@@ -17037,7 +17037,7 @@
      "They are the same advice; DIC simply requires a higher dose",
      "Tranexamic acid is only avoided in DIC if the patient is anticoagulated",
      "Different pathophysiology: in trauma, early hyperfibrinolysis is destroying needed clot, whereas in DIC the dominant lesion is ongoing thrombin generation with microvascular fibrin deposition",
-     "Tranexamic acid works only in arterial bleeding, and DIC bleeding is venous"
+     "Tranexamic acid works only in arterial bleeding, whereas the bleeding of DIC is entirely venous in origin, so the drug simply has no target on which it can act in this particular setting"
     ],
     "correctIndex": 3,
     "answer": "Different pathophysiology: in trauma, early hyperfibrinolysis is destroying needed clot, whereas in DIC the dominant lesion is ongoing thrombin generation with microvascular fibrin deposition",
@@ -17049,7 +17049,7 @@
     "question": "Which statement best describes how the ISTH DIC score should be used?",
     "options": [
      "It replaces clinical judgement and establishes the diagnosis on its own",
-     "It is a treatment threshold: a score above the cut-off mandates blood products",
+     "It is a treatment threshold: a score above the cut-off mandates giving blood products regardless of any actual bleeding",
      "It is calculated once at presentation and not repeated",
      "It is calculated from bone marrow and film findings rather than blood tests",
      "DIC remains a clinicopathological diagnosis; the score gives an objective measurement and is scored serially to show trajectory"
@@ -17067,7 +17067,7 @@
      "Repeat FBC, PT/APTT, fibrinogen and D-dimer, and interpret the trend across serial samples rather than any single value",
      "Repeat only the D-dimer, since it is the most specific marker of recovery",
      "Stop testing once the fibrinogen enters the normal range",
-     "Monitor with a daily blood film alone, since schistocytes track disease activity best"
+     "Monitor with a daily blood film alone, since the schistocyte count tracks the disease activity best of all"
     ],
     "correctIndex": 1,
     "answer": "Repeat FBC, PT/APTT, fibrinogen and D-dimer, and interpret the trend across serial samples rather than any single value",
@@ -17682,7 +17682,7 @@
     "type": "mcq",
     "question": "What is the decisive fork in approaching thrombocytopenia?",
     "options": [
-     "Inherited vs acquired",
+     "Inherited versus acquired causes",
      "Acute vs chronic",
      "Myeloid vs lymphoid",
      "Reduced production vs increased destruction",
@@ -17728,7 +17728,7 @@
     "question": "What bleeding pattern does thrombocytopenia cause, and what does deep joint/muscle bleeding indicate instead?",
     "options": [
      "Only retroperitoneal bleeding",
-     "Deep joint/muscle bleeding; mucocutaneous = factor deficiency",
+     "Deep joint and muscle bleeding; mucocutaneous bleeding = factor deficiency",
      "No bleeding at any count",
      "Only intracranial bleeding",
      "Mucocutaneous/platelet-type bleeding; deep joint/muscle bleeding = factor deficiency"
@@ -17773,7 +17773,7 @@
     "question": "How does ITP typically present in children versus adults?",
     "options": [
      "Children: acute, post-viral, self-limiting; adults: chronic, women, can be 2° to SLE/CLL/HIV",
-     "Children: chronic; adults: acute, post-viral",
+     "Children: chronic and relapsing; adults: acute, post-viral and self-limiting in most cases",
      "Both acute and self-limiting",
      "Both chronic and incurable",
      "Children only; never affects adults"
@@ -17787,7 +17787,7 @@
     "type": "mcq",
     "question": "In ITP, when is a bone marrow examination indicated, and what does it show?",
     "options": [
-     "To detect anti-PF4 antibodies",
+     "To detect anti-PF4 antibodies and confirm heparin exposure",
      "To confirm ADAMTS13 deficiency",
      "To exclude leukaemia (it shows raised megakaryocytes in ITP)",
      "To measure ferritin",
@@ -17833,7 +17833,7 @@
     "question": "What is the mechanism of TTP?",
     "options": [
      "Shiga toxin → microangiopathy",
-     "Anti-GPIIb/IIIa antibodies → platelet destruction",
+     "Anti-GPIIb/IIIa antibodies → opsonised platelets destroyed in the spleen → isolated thrombocytopenia",
      "Anti-PF4/heparin antibodies → thrombosis",
      "ADAMTS13 deficiency → uncleaved vWF multimers → platelet microthrombi → consumption + RBC shearing (MAHA)",
      "Consumptive coagulopathy from sepsis"
@@ -17892,7 +17892,7 @@
     "type": "mcq",
     "question": "What is the mechanism of HIT?",
     "options": [
-     "Anti-GPIIb/IIIa antibodies → platelet destruction",
+     "Anti-GPIIb/IIIa antibodies → opsonised platelets cleared in the spleen → isolated thrombocytopenia",
      "Anti-PF4/heparin antibodies → platelet activation → paradoxical thrombosis AND thrombocytopenia",
      "ADAMTS13 deficiency → microthrombi",
      "Shiga toxin → microangiopathy",
@@ -17908,7 +17908,7 @@
     "question": "A patient's platelets fall 7 days after starting heparin and they develop a new thrombosis. What is the key clinical clue, and the diagnosis?",
     "options": [
      "Fall with bleeding only — DIC",
-     "Fall immediately after heparin — ITP",
+     "A fall immediately after the first heparin dose — ITP",
      "Fall after 30 days — TTP",
      "Fall 5–10 days after heparin (timing is the diagnostic clue) — HIT",
      "Fall after viral illness — HUS"
@@ -17923,7 +17923,7 @@
     "question": "How is HIT managed?",
     "options": [
      "Stop ALL heparin including flushes; switch to a non-heparin anticoagulant (argatroban/danaparoid); NOT warfarin acutely; NOT platelets",
-     "Continue heparin and add aspirin",
+     "Continue the heparin at a reduced dose, add aspirin cover, and transfuse platelets to keep the platelet count safely above 50",
      "Start warfarin immediately",
      "Transfuse platelets",
      "Plasma exchange"
@@ -17967,7 +17967,7 @@
     "type": "mcq",
     "question": "In the discriminator table, what is the key treatment for each: ITP, TTP/HUS, HIT, DIC?",
     "options": [
-     "Plasma exchange; steroids; treat cause; stop heparin",
+     "Plasma exchange for all four; steroids only in DIC; treat the cause in HIT; stop heparin in ITP",
      "Steroids/IVIg; plasma exchange for TTP (HUS supportive +/- eculizumab); stop all heparin; treat cause",
      "Stop heparin; treat cause; steroids; plasma exchange",
      "Treat cause; stop heparin; plasma exchange; steroids",
@@ -18029,7 +18029,7 @@
     "options": [
      "All causes equally",
      "DIC; not ITP",
-     "Only ITP; rules out TTP",
+     "Only ITP; it rules out both TTP and also HUS",
      "Only HIT; rules out HUS",
      "Immune (ITP/HIT) or microangiopathic (TTP/HUS); not DIC"
     ],
@@ -18044,7 +18044,7 @@
     "options": [
      "Platelets are normal in DIC",
      "Clotting is normal in ITP/TTP/HIT but deranged in DIC",
-     "Schistocytes are present only in ITP",
+     "Schistocytes are present only in ITP and never in DIC",
      "Bone marrow is abnormal only in HIT",
      "Renal failure is present in all"
     ],
@@ -18058,7 +18058,7 @@
     "question": "EXAM PEARL: Summarise HIT.",
     "options": [
      "Consumptive coagulopathy; treat cause",
-     "Isolated low platelets, anti-GPIIb/IIIa; prednisolone first-line",
+     "Isolated low platelets with anti-GPIIb/IIIa antibodies; prednisolone is first-line, IVIg for urgent bleeding, and splenectomy follows if the disease is refractory",
      "ADAMTS13 deficiency, pentad, plasma exchange",
      "Paradoxical thrombosis, falls 5–10 days post-heparin; stop ALL heparin including flushes, switch to a non-heparin anticoagulant (not warfarin acutely, not platelets)",
      "Shiga toxin; supportive care"
@@ -18073,7 +18073,7 @@
     "question": "EXAM PEARL: Summarise TTP.",
     "options": [
      "ADAMTS13 deficiency, pentad, plasma exchange; do not transfuse platelets prophylactically — worsens thrombosis (life-threatening bleeding overrides)",
-     "Anti-GPIIb/IIIa; steroids first-line",
+     "Anti-GPIIb/IIIa antibodies; steroids first-line, then IVIg, with platelet transfusion given freely for any bleeding at all, at any count",
      "Anti-PF4/heparin; stop heparin",
      "Consumptive; treat cause",
      "Marrow failure; transfuse platelets"
@@ -18102,7 +18102,7 @@
     "type": "mcq",
     "question": "What is the current role of splenectomy in ITP?",
     "options": [
-     "Absolutely contraindicated in ITP",
+     "Absolutely contraindicated in ITP at any stage, because of the lifelong overwhelming infection risk that it confers",
      "First-line in all patients",
      "Indicated in all children with ITP",
      "Performed before any steroid trial",
@@ -18117,7 +18117,7 @@
     "type": "mcq",
     "question": "Which later-line agents are used in ITP?",
     "options": [
-     "Plasma exchange or argatroban",
+     "Plasma exchange, or else an argatroban infusion",
      "TPO-receptor agonists (eltrombopag/romiplostim) or rituximab",
      "Heparin or warfarin",
      "Allopurinol or rasburicase",
@@ -18148,7 +18148,7 @@
     "question": "A patient on heparin VTE prophylaxis has platelets fall from 210 to 75 × 10⁹/L on day 8. There is no bleeding. What is the most important next step?",
     "options": [
      "Suspect HIT — stop all heparin and start non-heparin anticoagulation (argatroban)",
-     "Continue heparin and observe",
+     "Continue the heparin unchanged and simply observe the platelet count",
      "Switch to a lower heparin dose",
      "Transfuse platelets",
      "Check D-dimer only"
@@ -18178,14 +18178,14 @@
     "question": "What is the first-line treatment for TTP?",
     "options": [
      "Splenectomy",
-     "Platelet transfusion",
+     "Platelet transfusion, given first before anything else is started",
      "Aspirin",
      "IVIG",
      "Plasma exchange (plasmapheresis) — removes ULVWF and anti-ADAMTS13 antibodies"
     ],
     "correctIndex": 4,
     "answer": "Plasma exchange (plasmapheresis) — removes ULVWF and anti-ADAMTS13 antibodies",
-    "explanation": "Plasma exchange is the emergency treatment for TTP: removes ultra-large vWF multimers and anti-ADAMTS13 antibodies while replacing ADAMTS13 in the FFP infusion. Platelet transfusion is CONTRAINDICATED in TTP — it fuels further microthrombus formation ('fuel to the fire')."
+    "explanation": "Plasma exchange is the emergency treatment for TTP: it removes ultra-large vWF multimers and anti-ADAMTS13 antibodies while replacing ADAMTS13 in the donor plasma used as the replacement fluid (solvent/detergent-treated plasma in the UK). Start it within 4–8 hours of suspecting TTP and never delay it for the ADAMTS13 result. Platelet transfusion is CONTRAINDICATED in TTP — it fuels further microthrombus formation ('fuel to the fire')."
    },
    {
     "id": "tcp_q_35",
@@ -18194,7 +18194,7 @@
     "options": [
      "Long-term remission",
      "Rapid transient platelet rise within 24–48 h — used for emergency bleeding or pre-procedure",
-     "First-line for all ITP",
+     "First-line treatment for all newly diagnosed ITP, whatever the platelet count",
      "Replaces ADAMTS13",
      "Used only in TTP"
     ],
@@ -18205,7 +18205,7 @@
    {
     "id": "tcp_q_36",
     "type": "mcq",
-    "question": "Which drug is specifically associated with immune-mediated thrombocytopenia leading to thrombosis (not just bleeding)?",
+    "question": "Which drug causes immune thrombocytopenia through antibodies against platelet factor 4, producing paradoxical thrombosis rather than bleeding?",
     "options": [
      "Clopidogrel",
      "Aspirin",
@@ -18225,7 +18225,7 @@
      "Chronic ITP refractory to steroids and IVIg — stimulate megakaryocyte thrombopoiesis",
      "First-line ITP treatment",
      "TTP management",
-     "Drug-induced thrombocytopenia",
+     "Drug-induced immune thrombocytopenia from quinine or from vancomycin use",
      "Prevention of HIT"
     ],
     "correctIndex": 0,
@@ -18237,7 +18237,7 @@
     "type": "mcq",
     "question": "In which conditions does platelet transfusion actively worsen the disease process by fuelling thrombosis?",
     "options": [
-     "In chemotherapy-induced thrombocytopenia",
+     "In chemotherapy-induced thrombocytopenia after marrow suppression",
      "In ITP with active bleeding",
      "In TTP and HIT — where platelet transfusion fuels further thrombosis",
      "Pre-operatively",
@@ -18252,7 +18252,7 @@
     "type": "mcq",
     "question": "A patient develops thrombocytopenia and renal failure following an episode of bloody diarrhoea from E. coli O157:H7. Neurological function is preserved. What is the diagnosis?",
     "options": [
-     "ITP",
+     "Immune thrombocytopenic purpura (ITP)",
      "TTP",
      "DIC",
      "HIT",
@@ -18267,7 +18267,7 @@
     "type": "mcq",
     "question": "EXAM PEARL: What is the key distinction between TTP and HUS?",
     "options": [
-     "TTP: renal predominance; HUS: neurological predominance",
+     "TTP: renal predominance and a normal ADAMTS13; HUS: neurological predominance, with ADAMTS13 below 10%",
      "TTP: neurological predominance, ADAMTS13 <10%; HUS: renal predominance, ADAMTS13 normal, often Shiga-toxin triggered",
      "Both: identical clinical features",
      "TTP: fever absent; HUS: fever present",
@@ -18295,17 +18295,17 @@
    {
     "id": "piri_q__conditions__HAEMATOLOGY__TCPGAP__0002",
     "type": "mcq",
-    "question": "A 34-year-old woman is newly diagnosed with ITP. She has scattered petechiae and mild gum bleeding on brushing, and no other symptoms. What is the most appropriate initial management?",
+    "question": "A 34-year-old woman is newly diagnosed with ITP. Her platelet count is 62 × 10⁹/L. She has scattered petechiae and mild gum bleeding on brushing, and no other symptoms. What is the most appropriate initial management?",
     "options": [
      "Urgent splenectomy",
      "Prophylactic platelet transfusion",
-     "A six-month course of high-dose prednisolone",
+     "A six-month course of high-dose prednisolone with no taper at the end",
      "Observation with monitoring, treating only if bleeding or the count worsens",
      "Immediate rituximab"
     ],
     "correctIndex": 3,
     "answer": "Observation with monitoring, treating only if bleeding or the count worsens",
-    "explanation": "In newly diagnosed adult ITP with only minor mucocutaneous bleeding, observation is appropriate - you treat bleeding and bleeding risk, not the number alone. When steroids are indicated they are given as a short course of weeks including the taper, not six months, because prolonged steroid exposure causes more harm than the thrombocytopenia in most patients. Platelet transfusion is not routinely given in ITP as donor platelets are destroyed by the same antibody, and splenectomy is now usually deferred well beyond 12 months."
+    "explanation": "In newly diagnosed adult ITP with only minor mucocutaneous bleeding and a count above roughly 30 × 10⁹/L, observation is appropriate - you treat bleeding and bleeding risk, not the number alone. Treatment is for bleeding, a count persistently below about 20 × 10⁹/L, or to cover a procedure. When steroids are indicated they are given as a short course of weeks including the taper, not six months, because prolonged steroid exposure causes more harm than the thrombocytopenia in most patients. Platelet transfusion is not routinely given in ITP as donor platelets are destroyed by the same antibody, and splenectomy is usually deferred at least 12 months."
    },
    {
     "id": "piri_q__conditions__HAEMATOLOGY__TCPGAP__0003",
@@ -18313,7 +18313,7 @@
     "question": "A 70-year-old develops profound thrombocytopenia and wet purpura 8 days after starting a new antibiotic. Clotting screen and haemoglobin are normal, and there are no schistocytes. Which drug is most likely responsible, and by what mechanism?",
     "options": [
      "Vancomycin, by hapten-type drug-dependent antibody causing immune destruction",
-     "Amoxicillin, by marrow suppression",
+     "Amoxicillin, by direct suppression of the megakaryocyte lineage",
      "Gentamicin, by direct platelet toxicity",
      "Metronidazole, by folate antagonism",
      "Trimethoprim, by reduced thrombopoietin"
@@ -18357,7 +18357,7 @@
     "type": "mcq",
     "question": "An automated FBC on a well outpatient reports a platelet count of 20 with no bleeding, bruising or petechiae, and an entirely normal examination. What should be done first?",
     "options": [
-     "Admit for urgent platelet transfusion",
+     "Admit for urgent platelet transfusion and close inpatient observation overnight",
      "Start high-dose prednisolone",
      "Arrange urgent bone marrow biopsy",
      "Commence intravenous immunoglobulin",
@@ -18374,7 +18374,7 @@
     "options": [
      "Platelets should be given prophylactically in TTP to prevent bleeding",
      "Platelet transfusion is the definitive treatment for heparin-induced thrombocytopenia",
-     "Platelets should be transfused in ITP because donor platelets are unaffected by the antibody",
+     "Platelets should be transfused in ITP prophylactically, because the donor platelets are unaffected by the antibody",
      "Prophylactic platelets are not routinely given in chronic marrow failure, ITP, HIT or TTP, but serious bleeding overrides this",
      "Alloimmunisation is not a concern with repeated platelet transfusion"
     ],
@@ -18388,7 +18388,7 @@
     "question": "A woman with known ITP is 12 weeks pregnant. Which statement is most accurate?",
     "options": [
      "ITP can require steroids or IVIg, matters for delivery planning, and can affect the neonate's platelet count",
-     "ITP in pregnancy always resolves without treatment, like gestational thrombocytopenia",
+     "ITP in pregnancy always resolves without any treatment, exactly like gestational thrombocytopenia",
      "ITP in pregnancy is treated with plasma exchange",
      "ITP is the commonest cause of thrombocytopenia in pregnancy",
      "A normal blood pressure excludes ITP"
