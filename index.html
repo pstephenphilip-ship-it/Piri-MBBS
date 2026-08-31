@@ -15103,6 +15103,47 @@ function hideFlyout(p) {
   .rn-bm-card,.rn-as-item,.rn-flow-step{padding-left:11px;padding-right:11px;}
   /* Wide tables: smaller cell padding to fit more before needing the horizontal scroll. */
   .rn-table th,.rn-table td,.rich-note table th,.rich-note table td{padding:7px 9px;}
+
+  /* Some note panels carry a column count written inline. Unlike the auto-fill
+     grids these never collapse, so on a phone their columns end up ~110px wide
+     — a vertical stack of one-word lines, with the last column cut off by the
+     section's overflow:hidden. Two- and three-column prose panels drop to a
+     single column; wider mnemonic strips (CURB-65 and the like) keep their
+     letter cards side by side but may wrap onto a second row, which brings
+     back the trailing card that used to sit off-screen. */
+  .rich-note [style*="grid-template-columns:1fr 1fr"],
+  .rich-note [style*="grid-template-columns:repeat(2,"],
+  .rich-note [style*="grid-template-columns:repeat(3,"]{grid-template-columns:1fr!important;}
+  .rich-note [style*="grid-template-columns:repeat(4,"],
+  .rich-note [style*="grid-template-columns:repeat(5,"],
+  .rich-note [style*="grid-template-columns:repeat(6,"]{grid-template-columns:repeat(auto-fit,minmax(62px,1fr))!important;}
+
+  /* The ACS classification grid has four fixed columns (140/1fr/110/130) that
+     cannot fit a phone: Troponin and Vessel were clipped with no way to reach
+     them, and the squeezed ECG column ran one or two words per line. Keep the
+     columns readable and let the panel scroll sideways instead. */
+  .rn-classify-table{overflow-x:auto;}
+  .rn-classify-header,.rn-classify-row{min-width:520px;}
+}
+/* Narrow note column on small laptops, tablets in landscape and split-screen
+   windows. The three-pane desktop layout takes over at 821px and the sidebar
+   plus topic list claim 480px of it, so the note column is *narrower* just
+   above the mobile breakpoint (484px at an 840px viewport) than just below it
+   (726px at 820px) — while every responsive helper above stops at 820px. That
+   left this band with the narrowest reading column on the site and none of the
+   mobile handling: tables ran past the section edge and were clipped by
+   .rn-section's overflow:hidden, with no way to scroll to the rest. Carry the
+   helpers through the band; past ~1100px the column is wide enough without
+   them, so the rules lapse rather than leaving scrollbars on wide screens. */
+@media (min-width:821px) and (max-width:1100px){
+  .rn-table,.note-content table{display:block;overflow-x:auto;max-width:100%;}
+  /* A column that cannot hold its content drops to its own row instead of
+     overflowing the panel. */
+  .rn-two-col > *{min-width:min(220px,100%);}
+  .rn-three-col > *{min-width:min(180px,100%);}
+  .rn-four-col > *{min-width:min(140px,100%);}
+  .rn-classify-table{overflow-x:auto;}
+  .rn-classify-header,.rn-classify-row{min-width:520px;}
 }
 /* Mock runner (single-column mode, <=1080px incl. tablets): show the QUESTION first.
    The number grid (palette) is 1000px+ tall and was placed first (order:-1),
