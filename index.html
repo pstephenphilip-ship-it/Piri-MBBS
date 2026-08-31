@@ -585,6 +585,48 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 .auth-msg.show{display:block;}
 .auth-msg.err{background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.3);color:#ff9b9b;}
 .auth-msg.ok{background:var(--accent-dim);border:1px solid rgba(0,194,168,.3);color:var(--accent);}
+
+/* ---- Prose placed directly inside a flex row -------------------------------
+   .cp-warn / .rn-flow-step / .cp-then exist to lay sibling boxes and pills out
+   in a row, and their own rules live in the per-note stylesheets. When a note
+   puts a sentence straight inside one instead, every text run and every <b>
+   becomes its own flex item and the sentence shatters into narrow columns
+   (worst on a phone, where each column collapses to a word or two).
+
+   A bold or italic run as a *direct* child is the signature of prose rather
+   than of the boxes the row was built for, so fall back to normal block flow
+   there and let the sentence read as a sentence. Everything these rows were
+   actually designed to hold — an icon span, a pill — keeps the flex layout
+   untouched. These selectors are deliberately more specific than the per-note
+   `.cp-warn` rules so they win wherever a note's own <style> block is injected;
+   a browser without :has() drops them and simply gets today's behaviour. */
+.rich-note .cp-warn:has(> b),
+.rich-note .cp-warn:has(> strong),
+.rich-note .cp-warn:has(> em),
+.rich-note .cp-warn:not(:has(> .cp-warn-ic)){display:block;}
+
+.rich-note .rn-flow-step:has(> b),
+.rich-note .rn-flow-step:has(> strong),
+.rich-note .rn-flow-step:has(> em){display:block;}
+
+.rich-note .cp-then:has(> b),
+.rich-note .cp-then:has(> strong),
+.rich-note .cp-then:has(> em),
+.rich-note .cp-then:not(:has(> .cp-dx)){display:block;}
+
+/* ---- Padding on an inline box ---------------------------------------------
+   .cp-kill-desc is authored as a <span> but styled as the card's body, with
+   `padding:11px 13px`. On an inline box that padding only opens up before the
+   first line and after the last: every wrapped line starts hard against the
+   card's left border (and its accent bar), and the vertical padding never
+   renders at all, so the text sits flush on the card edge. Making it a block
+   applies the padding the card was designed with on all four sides. */
+.rich-note .cp-kill-desc{display:block;}
+
+/* .rn-highlight really is inline — a marker-pen span mid-sentence — so it stays
+   inline and instead repeats its padding and rounded ends on each line it
+   wraps onto, rather than dropping them on the wrap. */
+.rich-note .rn-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
