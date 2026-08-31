@@ -585,6 +585,48 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 .auth-msg.show{display:block;}
 .auth-msg.err{background:rgba(255,107,107,.12);border:1px solid rgba(255,107,107,.3);color:#ff9b9b;}
 .auth-msg.ok{background:var(--accent-dim);border:1px solid rgba(0,194,168,.3);color:var(--accent);}
+
+/* ---- Prose placed directly inside a flex row -------------------------------
+   .cp-warn / .rn-flow-step / .cp-then exist to lay sibling boxes and pills out
+   in a row, and their own rules live in the per-note stylesheets. When a note
+   puts a sentence straight inside one instead, every text run and every <b>
+   becomes its own flex item and the sentence shatters into narrow columns
+   (worst on a phone, where each column collapses to a word or two).
+
+   A bold or italic run as a *direct* child is the signature of prose rather
+   than of the boxes the row was built for, so fall back to normal block flow
+   there and let the sentence read as a sentence. Everything these rows were
+   actually designed to hold — an icon span, a pill — keeps the flex layout
+   untouched. These selectors are deliberately more specific than the per-note
+   `.cp-warn` rules so they win wherever a note's own <style> block is injected;
+   a browser without :has() drops them and simply gets today's behaviour. */
+.rich-note .cp-warn:has(> b),
+.rich-note .cp-warn:has(> strong),
+.rich-note .cp-warn:has(> em),
+.rich-note .cp-warn:not(:has(> .cp-warn-ic)){display:block;}
+
+.rich-note .rn-flow-step:has(> b),
+.rich-note .rn-flow-step:has(> strong),
+.rich-note .rn-flow-step:has(> em){display:block;}
+
+.rich-note .cp-then:has(> b),
+.rich-note .cp-then:has(> strong),
+.rich-note .cp-then:has(> em),
+.rich-note .cp-then:not(:has(> .cp-dx)){display:block;}
+
+/* ---- Padding on an inline box ---------------------------------------------
+   .cp-kill-desc is authored as a <span> but styled as the card's body, with
+   `padding:11px 13px`. On an inline box that padding only opens up before the
+   first line and after the last: every wrapped line starts hard against the
+   card's left border (and its accent bar), and the vertical padding never
+   renders at all, so the text sits flush on the card edge. Making it a block
+   applies the padding the card was designed with on all four sides. */
+.rich-note .cp-kill-desc{display:block;}
+
+/* .rn-highlight really is inline — a marker-pen span mid-sentence — so it stays
+   inline and instead repeats its padding and rounded ends on each line it
+   wraps onto, rather than dropping them on the wrap. */
+.rich-note .rn-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 </head>
@@ -790,7 +832,12 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 .wc-act-badge{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.06em;background:rgba(255,255,255,.94);color:#E11D48;padding:2px 7px;border-radius:9px;line-height:1.4;}
 .wc-act-rev .wc-act-badge{color:#0284A8;}
 .wc-act-rev .wc-act-badge.zero{display:none;}
-@media(max-width:560px){.wc-stats{grid-template-columns:repeat(2,1fr);}.wc-best{display:none;}.welcome-inner{padding:28px 16px 56px;}.wc-actions{grid-template-columns:1fr;}}
+@media(max-width:560px){.wc-stats{grid-template-columns:repeat(2,1fr);}.wc-best{display:none;}.welcome-inner{padding:28px 16px 56px;}.wc-actions{grid-template-columns:1fr;}
+  /* The hero strip keeps its three cards across on a phone, but 25px mono
+     numerals need ~108px and each card only gets ~99px there — so "2,000+
+     Topics" was clipped off the right edge. Trim the numerals and the card
+     padding just enough for all three to fit. */
+  .wc-hero3{gap:8px;}.wc-h3{padding:16px 6px;}.wc-h3 .n{font-size:20px;}.wc-h3 .l{font-size:9.5px;letter-spacing:.04em;}}
 </style>
 <div id="tab-home" class="tab-view home-view"><div class="wc-host" id="homeHost"></div></div>
 <script>
@@ -15061,6 +15108,47 @@ function hideFlyout(p) {
   .rn-bm-card,.rn-as-item,.rn-flow-step{padding-left:11px;padding-right:11px;}
   /* Wide tables: smaller cell padding to fit more before needing the horizontal scroll. */
   .rn-table th,.rn-table td,.rich-note table th,.rich-note table td{padding:7px 9px;}
+
+  /* Some note panels carry a column count written inline. Unlike the auto-fill
+     grids these never collapse, so on a phone their columns end up ~110px wide
+     — a vertical stack of one-word lines, with the last column cut off by the
+     section's overflow:hidden. Two- and three-column prose panels drop to a
+     single column; wider mnemonic strips (CURB-65 and the like) keep their
+     letter cards side by side but may wrap onto a second row, which brings
+     back the trailing card that used to sit off-screen. */
+  .rich-note [style*="grid-template-columns:1fr 1fr"],
+  .rich-note [style*="grid-template-columns:repeat(2,"],
+  .rich-note [style*="grid-template-columns:repeat(3,"]{grid-template-columns:1fr!important;}
+  .rich-note [style*="grid-template-columns:repeat(4,"],
+  .rich-note [style*="grid-template-columns:repeat(5,"],
+  .rich-note [style*="grid-template-columns:repeat(6,"]{grid-template-columns:repeat(auto-fit,minmax(62px,1fr))!important;}
+
+  /* The ACS classification grid has four fixed columns (140/1fr/110/130) that
+     cannot fit a phone: Troponin and Vessel were clipped with no way to reach
+     them, and the squeezed ECG column ran one or two words per line. Keep the
+     columns readable and let the panel scroll sideways instead. */
+  .rn-classify-table{overflow-x:auto;}
+  .rn-classify-header,.rn-classify-row{min-width:520px;}
+}
+/* Narrow note column on small laptops, tablets in landscape and split-screen
+   windows. The three-pane desktop layout takes over at 821px and the sidebar
+   plus topic list claim 480px of it, so the note column is *narrower* just
+   above the mobile breakpoint (484px at an 840px viewport) than just below it
+   (726px at 820px) — while every responsive helper above stops at 820px. That
+   left this band with the narrowest reading column on the site and none of the
+   mobile handling: tables ran past the section edge and were clipped by
+   .rn-section's overflow:hidden, with no way to scroll to the rest. Carry the
+   helpers through the band; past ~1100px the column is wide enough without
+   them, so the rules lapse rather than leaving scrollbars on wide screens. */
+@media (min-width:821px) and (max-width:1100px){
+  .rn-table,.note-content table{display:block;overflow-x:auto;max-width:100%;}
+  /* A column that cannot hold its content drops to its own row instead of
+     overflowing the panel. */
+  .rn-two-col > *{min-width:min(220px,100%);}
+  .rn-three-col > *{min-width:min(180px,100%);}
+  .rn-four-col > *{min-width:min(140px,100%);}
+  .rn-classify-table{overflow-x:auto;}
+  .rn-classify-header,.rn-classify-row{min-width:520px;}
 }
 /* Mock runner (single-column mode, <=1080px incl. tablets): show the QUESTION first.
    The number grid (palette) is 1000px+ tall and was placed first (order:-1),
