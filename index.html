@@ -339,6 +339,63 @@ body{display:flex;flex-direction:column;}
 .osce-aud audio{width:100%;height:36px;display:block;}
 
 /* ============================================================================
+   SIGNS & SYMPTOMS — visual pass
+   Scoped to #tab-signs. The .cp-* components are shared with four other tabs,
+   so nothing here reaches Medical Conditions, Anatomy, Histology or
+   Investigations.
+   ========================================================================== */
+
+/* ---- Stage 1: type scale -----------------------------------------------
+   The component sheet uses twelve font sizes (10, 10.5, 11, 11.5, 12, 12.5,
+   13, 13.5, 14, 15, 16, 18) with no relationship between them. These map onto
+   six: 11 / 12 / 13 / 14 / 15 / 18. */
+#tab-signs .cp-warn{font-size:13px;line-height:1.7;}
+#tab-signs .cp-kill-desc{font-size:13px;line-height:1.6;}
+#tab-signs .cp-when{font-size:13px;}
+#tab-signs .cp-pearl{font-size:13px;line-height:1.65;}
+#tab-signs .cp-hand{font-size:13px;line-height:1.7;}
+#tab-signs .cp-node{font-size:13px;}
+#tab-signs .cp-dx{font-size:12px;}
+#tab-signs .cp-read{font-size:12px;line-height:1.45;}
+#tab-signs .cp-node-sub{font-size:11px;}
+#tab-signs .cp-test{font-size:11px;}
+#tab-signs .cp-cdn{font-size:11px;}
+#tab-signs .cp-kill-ic{font-size:14px;}
+#tab-signs .cp-warn .cp-warn-ic{font-size:15px;}
+
+/* ---- Stage 1: spacing on a 4px rhythm ---------------------------------- */
+#tab-signs .cp-kill-top{padding:10px 14px;}
+#tab-signs .cp-kill-desc{padding:12px 14px;}
+#tab-signs .cp-warn{padding:14px 16px;}
+#tab-signs .cp-hand{padding:14px 16px;}
+#tab-signs .cp-pearl{padding:12px 16px;}
+#tab-signs .cp-lead{padding:16px;}
+#tab-signs .cp-bed{padding:12px 14px;}
+#tab-signs .cp-clue{padding:12px 4px;}
+
+/* ---- Stage 4: image scaffolding reads as scaffolding --------------------
+   Every one of the 322 notes on this tab carries an "Image placeholder …"
+   block for artwork not yet uploaded, set as a 22px emoji above bold body
+   text. Bold at full size, it reads as a finding rather than as a gap, and it
+   sits directly under the intro where the eye lands first. Nothing is removed
+   — it is demoted to a quiet dashed placeholder so it reads as pending media.
+   Targeted on the inline sizes the blocks are authored with. */
+#tab-signs .note-content div[style*="font-size:22px"]{
+  font-size:12px!important;color:#7A839B;background:#F7F8FC;
+  border:1px dashed #C7CEDB;border-radius:10px;padding:12px 14px;margin:14px 0;}
+#tab-signs .note-content div[style*="font-size:22px"] div[style*="font-size:22px"]{
+  font-size:15px!important;opacity:.45;background:none;border:none;padding:0;margin:0 0 4px;}
+#tab-signs .note-content div[style*="font-size:22px"] div[style*="font-weight:700"]{
+  font-weight:500!important;font-size:12px!important;color:#7A839B;line-height:1.6;}
+
+/* Colour is deliberately untouched on this tab. Unlike the decorative cycles
+   on Pharmacology and OSCE, the .cp-kill hue here is semantic and consistent —
+   red for must-not-miss, amber for important, blue for benign (Breast Lump:
+   cancer/abscess red, fibroadenoma/cyst amber, fat necrosis/lipoma blue).
+   Flattening it would destroy clinical meaning. */
+
+
+/* ============================================================================
    OSCE — visual pass (stages 1-4)
    ========================================================================== */
 
