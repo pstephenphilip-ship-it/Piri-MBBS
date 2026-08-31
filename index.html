@@ -832,7 +832,12 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 .wc-act-badge{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:800;letter-spacing:.06em;background:rgba(255,255,255,.94);color:#E11D48;padding:2px 7px;border-radius:9px;line-height:1.4;}
 .wc-act-rev .wc-act-badge{color:#0284A8;}
 .wc-act-rev .wc-act-badge.zero{display:none;}
-@media(max-width:560px){.wc-stats{grid-template-columns:repeat(2,1fr);}.wc-best{display:none;}.welcome-inner{padding:28px 16px 56px;}.wc-actions{grid-template-columns:1fr;}}
+@media(max-width:560px){.wc-stats{grid-template-columns:repeat(2,1fr);}.wc-best{display:none;}.welcome-inner{padding:28px 16px 56px;}.wc-actions{grid-template-columns:1fr;}
+  /* The hero strip keeps its three cards across on a phone, but 25px mono
+     numerals need ~108px and each card only gets ~99px there — so "2,000+
+     Topics" was clipped off the right edge. Trim the numerals and the card
+     padding just enough for all three to fit. */
+  .wc-hero3{gap:8px;}.wc-h3{padding:16px 6px;}.wc-h3 .n{font-size:20px;}.wc-h3 .l{font-size:9.5px;letter-spacing:.04em;}}
 </style>
 <div id="tab-home" class="tab-view home-view"><div class="wc-host" id="homeHost"></div></div>
 <script>
