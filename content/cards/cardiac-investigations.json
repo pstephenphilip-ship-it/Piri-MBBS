@@ -25,6 +25,21 @@
         "id": "cvi_ett_fc_05",
         "front": "According to NICE, what is now preferred over ETT for diagnosing stable angina?",
         "back": "CT coronary angiography is the preferred first-line investigation. ETT retains a role in functional and rhythm assessment and some risk stratification."
+      },
+      {
+        "id": "ett_hr_fc_01",
+        "front": "What features on an ETT indicate high-risk coronary disease?",
+        "back": "A <b>positive test at low workload</b> (early/Bruce 1–2), <b>≥2 mm or multi-lead ST depression</b>, <b>exertional hypotension</b>, exercise-induced <b>VT</b>, slow ST recovery, or chronotropic incompetence."
+      },
+      {
+        "id": "ett_next_fc_01",
+        "front": "What is the next step after a positive or high-risk ETT?",
+        "back": "Refer for <b>invasive coronary angiography ± revascularisation (PCI/CABG)</b> and optimise anti-anginal + secondary-prevention therapy. An equivocal/non-diagnostic test → functional imaging or CT coronary angiography."
+      },
+      {
+        "id": "ett_duke_fc_01",
+        "front": "What does the Duke Treadmill Score combine?",
+        "back": "Exercise <b>time</b>, maximum <b>ST deviation</b>, and an <b>angina index</b> (time − 5×ST − 4×angina) to stratify low/intermediate/high risk and guide the need for angiography."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__24h Holter / Event Monitor": [
@@ -170,13 +185,13 @@
         "type": "mcq",
         "question": "A 58-year-old man undergoes an exercise ECG for suspected stable angina. Which finding constitutes a positive test for inducible myocardial ischaemia?",
         "options": [
-          "Horizontal ST-segment depression of 1.5 mm during exercise",
           "Sinus tachycardia reaching the target heart rate",
           "Upsloping ST depression of 0.5 mm that resolves in recovery",
+          "Horizontal ST-segment depression of 1.5 mm during exercise",
           "An appropriate rise in systolic blood pressure with exercise",
           "Isolated T-wave flattening in the inferior leads at rest"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Horizontal ST-segment depression of 1.5 mm during exercise",
         "explanation": "Horizontal or downsloping ST depression of at least 1 mm is the diagnostic criterion for a positive test, indicating inducible ischaemia. A normal tachycardic and blood-pressure response and minor upsloping changes are expected non-ischaemic findings."
       },
@@ -185,13 +200,13 @@
         "type": "mcq",
         "question": "During a Bruce protocol test, a patient's systolic blood pressure falls from 150 to 120 mmHg as the workload increases. What does this indicate and what is the appropriate action?",
         "options": [
-          "Severe coronary disease such as left main stenosis; stop the test immediately",
           "A normal vasodilatory response; continue to target heart rate",
           "Dehydration only; give oral fluids and continue",
           "Beta-blocker effect; increase the treadmill speed",
-          "A submaximal test; repeat at a higher incline"
+          "A submaximal test; repeat at a higher incline",
+          "Severe coronary disease such as left main stenosis; stop the test immediately"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Severe coronary disease such as left main stenosis; stop the test immediately",
         "explanation": "Exertional hypotension is an ominous sign of severe disease, classically left main or triple-vessel involvement, reflecting failure to augment cardiac output. It is an indication to stop the test immediately."
       },
@@ -200,15 +215,30 @@
         "type": "mcq",
         "question": "In which of the following patients is an exercise tolerance test contraindicated?",
         "options": [
-          "A patient with severe symptomatic aortic stenosis",
           "A patient with well-controlled hypertension",
+          "A patient with severe symptomatic aortic stenosis",
           "A patient with stable exertional angina on a beta-blocker",
           "A patient with a remote, fully healed myocardial infarction",
           "A patient with occasional benign ventricular ectopics"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A patient with severe symptomatic aortic stenosis",
         "explanation": "Severe symptomatic aortic stenosis is a contraindication because exercise can precipitate syncope, arrhythmia or sudden death. Stable angina, controlled hypertension and a remote healed infarct are not contraindications to appropriately supervised testing."
+      },
+      {
+        "id": "ett_next_q01",
+        "type": "mcq",
+        "question": "A patient develops 2 mm of ST depression within the first 3 minutes of a Bruce-protocol ETT, with a fall in blood pressure. What is the most appropriate next step?",
+        "options": [
+          "Reassure and discharge",
+          "Repeat the ETT in 6 weeks",
+          "Start a proton pump inhibitor",
+          "Refer for invasive coronary angiography with a view to revascularisation",
+          "Arrange a 24-hour tape"
+        ],
+        "correctIndex": 3,
+        "answer": "Refer for invasive coronary angiography with a view to revascularisation",
+        "explanation": "An early positive test at low workload with exertional hypotension indicates high-risk coronary disease (possible left main/triple-vessel), warranting invasive coronary angiography ± revascularisation and optimisation of medical therapy."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__24h Holter / Event Monitor": [
