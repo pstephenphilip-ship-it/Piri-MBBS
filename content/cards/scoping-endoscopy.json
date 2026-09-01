@@ -253,7 +253,7 @@
       {
         "id": "sc_resp_bronch_fc_05",
         "front": "List three therapeutic uses of flexible bronchoscopy.",
-        "back": "Foreign body removal, control of airway bleeding, clearance of secretions/mucus plugs, tumour debulking (laser/cryotherapy) and airway stent placement."
+        "back": "Control of airway bleeding, clearance of secretions/mucus plugs, tumour debulking (laser/cryotherapy) and airway stent placement. (A significant aspirated foreign body is classically removed by <b>rigid</b> bronchoscopy.)"
       },
       {
         "id": "sc_resp_ebus_fc_01",
@@ -304,6 +304,16 @@
         "id": "sc_resp_thora_fc_05",
         "front": "Key contraindications to medical thoracoscopy?",
         "back": "Obliterated pleural space (no room to work), uncorrected coagulopathy, and respiratory failure or inability to tolerate collapse of the underlying lung."
+      },
+      {
+        "id": "sc_resp_bronch_rigid_fc_01",
+        "front": "When is rigid (rather than flexible) bronchoscopy the tool of choice?",
+        "back": "For a <b>significant or proximal aspirated foreign body</b> (and in children), and to <b>secure the airway in massive haemoptysis</b> — it gives a large-bore airway, better suction and instrument access. Flexible bronchoscopy handles diagnostic sampling and small peripheral foreign bodies."
+      },
+      {
+        "id": "sc_resp_bronch_haemoptysis_fc_01",
+        "front": "How is massive haemoptysis managed endoscopically/radiologically?",
+        "back": "Secure the airway (often <b>rigid</b> bronchoscopy), lie the patient <b>bleeding side down</b>, resuscitate, and arrange <b>bronchial artery embolisation</b> for definitive control; surgery is a last resort."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Urology": [
@@ -356,6 +366,11 @@
         "id": "sc_uro_uretero_fc_05",
         "front": "What is the key infective risk of ureteroscopy and how is it minimised?",
         "back": "Urosepsis. Any UTI must be treated before operating, prophylactic antibiotics are given, and an infected obstructed kidney is decompressed (stent/nephrostomy) before definitive stone treatment."
+      },
+      {
+        "id": "sc_uro_cysto_ctu_fc_01",
+        "front": "What is the investigation pathway for painless visible haematuria?",
+        "back": "Urgent (2-week-wait) referral for <b>flexible cystoscopy PLUS CT urogram</b> — the bladder AND the upper tracts must both be assessed, because cystoscopy alone misses upper-tract urothelial and renal tumours."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Gynae": [
@@ -957,12 +972,12 @@
         "question": "A 68-year-old smoker undergoes flexible bronchoscopy with transbronchial biopsy for suspected interstitial lung disease. Thirty minutes later he becomes acutely breathless with right-sided pleuritic chest pain and falling oxygen saturations. Which complication is most likely?",
         "options": [
           "Laryngospasm",
-          "Pneumothorax",
           "Transient fever",
+          "Pneumothorax",
           "Bronchial washings contamination",
           "Vasovagal syncope"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Pneumothorax",
         "explanation": "Transbronchial biopsy samples peripheral lung parenchyma and is the classic cause of post-bronchoscopy pneumothorax. Acute breathlessness with pleuritic pain and desaturation after this procedure points to pneumothorax, confirmed on chest X-ray."
       },
@@ -972,12 +987,12 @@
         "question": "An immunocompromised patient with HIV presents with breathlessness and bilateral infiltrates, and Pneumocystis pneumonia is suspected. Which bronchoscopic technique is most appropriate to confirm the diagnosis?",
         "options": [
           "Endobronchial biopsy",
-          "Bronchoalveolar lavage",
           "Airway stent placement",
           "Bronchial brushing for cytology",
-          "Laser tumour debulking"
+          "Laser tumour debulking",
+          "Bronchoalveolar lavage"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Bronchoalveolar lavage",
         "explanation": "Bronchoalveolar lavage instils and aspirates saline from the distal airways to sample alveolar contents for microbiology. It is the technique of choice for diagnosing Pneumocystis and other opportunistic infections in the immunocompromised."
       },
@@ -1001,13 +1016,13 @@
         "type": "mcq",
         "question": "A 68-year-old with a suspected non-small-cell lung cancer has enlarged, PET-avid subcarinal and paratracheal lymph nodes. What is the first-line, minimally invasive investigation to stage the mediastinum?",
         "options": [
-          "EBUS-TBNA",
           "Surgical mediastinoscopy",
           "CT-guided percutaneous lung biopsy",
           "Sputum cytology",
+          "EBUS-TBNA",
           "Rigid bronchoscopy with washings"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "EBUS-TBNA",
         "explanation": "EBUS-TBNA is the first-line minimally invasive method for mediastinal N-staging in lung cancer and samples paratracheal and subcarinal nodes under real-time ultrasound guidance. It has largely replaced mediastinoscopy for accessible node stations and allows several stations to be sampled in one procedure."
       },
@@ -1031,13 +1046,13 @@
         "type": "mcq",
         "question": "During staging of lung cancer, a lymph node in the posterior inferior mediastinum cannot be reached by EBUS. Which complementary technique best samples this station?",
         "options": [
-          "Oesophageal EUS-FNA",
           "Repeat EBUS with a larger needle",
           "Transthoracic echocardiography",
+          "Oesophageal EUS-FNA",
           "Bronchoalveolar lavage",
           "Pleural aspiration"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Oesophageal EUS-FNA",
         "explanation": "Oesophageal endoscopic ultrasound with fine-needle aspiration reaches posterior and inferior mediastinal stations that lie beyond the airways. Combining EBUS and EUS gives the most complete mediastinal staging."
       },
@@ -1047,12 +1062,12 @@
         "question": "A 68-year-old ex-smoker has a recurrent exudative right pleural effusion. Pleural fluid cytology performed twice is non-diagnostic. What is the most appropriate next investigation to obtain a tissue diagnosis?",
         "options": [
           "Repeat pleural fluid cytology",
-          "Medical thoracoscopy with direct-vision parietal pleural biopsy",
           "Sputum cytology",
           "Bronchoscopy with washings",
-          "Serial chest radiographs"
+          "Serial chest radiographs",
+          "Medical thoracoscopy with direct-vision parietal pleural biopsy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Medical thoracoscopy with direct-vision parietal pleural biopsy",
         "explanation": "When cytology is repeatedly non-diagnostic in an exudative effusion, medical thoracoscopy allows the pleura to be inspected and biopsied under direct vision. This gives a diagnostic yield above 90% for malignant and tuberculous disease, far exceeding cytology."
       },
@@ -1061,13 +1076,13 @@
         "type": "mcq",
         "question": "Which statement best distinguishes medical thoracoscopy from video-assisted thoracoscopic surgery (VATS)?",
         "options": [
-          "Medical thoracoscopy is typically done under local anaesthetic with conscious sedation by a respiratory physician",
           "Medical thoracoscopy always requires single-lung ventilation",
+          "Medical thoracoscopy is typically done under local anaesthetic with conscious sedation by a respiratory physician",
           "Medical thoracoscopy is performed only under general anaesthesia",
           "VATS cannot obtain pleural biopsies",
           "VATS is performed without any lung collapse"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Medical thoracoscopy is typically done under local anaesthetic with conscious sedation by a respiratory physician",
         "explanation": "Medical thoracoscopy is a physician-led procedure under local anaesthetic and conscious sedation. VATS is a surgical procedure under general anaesthesia with single-lung ventilation for more extensive interventions."
       },
@@ -1076,15 +1091,45 @@
         "type": "mcq",
         "question": "During medical thoracoscopy for a malignant pleural effusion, which therapeutic intervention can be performed in the same sitting to prevent fluid recurrence?",
         "options": [
-          "Talc poudrage pleurodesis",
           "Coronary stenting",
           "Endobronchial valve insertion",
           "Lobectomy",
+          "Talc poudrage pleurodesis",
           "Oesophageal dilatation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Talc poudrage pleurodesis",
         "explanation": "Once a malignant effusion is confirmed and the lung re-expands, talc can be insufflated across the pleural surfaces (poudrage) to induce pleurodesis. This obliterates the pleural space and prevents recurrent effusion."
+      },
+      {
+        "id": "sc_resp_bronch_rigid_q01",
+        "type": "mcq",
+        "question": "A child has inhaled a peanut that is lodged in a main bronchus. Which is the definitive tool for removal?",
+        "options": [
+          "Rigid bronchoscopy",
+          "Flexible bronchoscopy under local anaesthetic",
+          "Chest physiotherapy alone",
+          "CT chest then observation",
+          "EBUS-TBNA"
+        ],
+        "correctIndex": 0,
+        "answer": "Rigid bronchoscopy",
+        "explanation": "A significant or proximal aspirated foreign body — and foreign-body removal in children — is classically performed with rigid bronchoscopy, which secures the airway and allows large-instrument retrieval. Flexible bronchoscopy retrieves only small peripheral objects."
+      },
+      {
+        "id": "sc_resp_bronch_haemoptysis_q01",
+        "type": "mcq",
+        "question": "A patient with massive haemoptysis is hypoxic and unstable. After securing the airway, what is the definitive intervention for ongoing bleeding?",
+        "options": [
+          "A single dose of nebulised saline",
+          "Oral tranexamic acid and discharge",
+          "Bronchial artery embolisation",
+          "Routine outpatient CT in 6 weeks",
+          "EBUS-TBNA of a hilar node"
+        ],
+        "correctIndex": 2,
+        "answer": "Bronchial artery embolisation",
+        "explanation": "Massive haemoptysis is managed by airway protection (often rigid bronchoscopy) with the bleeding side down, resuscitation, and bronchial artery embolisation for definitive control; surgery is reserved for failure of embolisation."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Urology": [
@@ -1093,13 +1138,13 @@
         "type": "mcq",
         "question": "A 68-year-old smoker presents with a single episode of painless visible haematuria. Which investigation is essential to exclude bladder cancer?",
         "options": [
-          "Cystoscopy",
           "Plain abdominal X-ray (KUB)",
           "Urine dipstick",
+          "Cystoscopy",
           "PSA blood test",
           "Renal function tests"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Cystoscopy",
         "explanation": "Cystoscopy directly visualises the bladder mucosa and is the essential test to exclude urothelial carcinoma in visible haematuria. It also allows biopsy of any suspicious lesion identified."
       },
@@ -1108,13 +1153,13 @@
         "type": "mcq",
         "question": "A patient is booked for cystoscopy but a preprocedure dipstick shows nitrites and leucocytes with symptoms of infection. What is the most appropriate action?",
         "options": [
-          "Treat the urinary tract infection before proceeding",
           "Proceed immediately as planned",
           "Proceed but omit antibiotic prophylaxis",
           "Cancel cystoscopy permanently",
-          "Switch to a rigid scope to reduce risk"
+          "Switch to a rigid scope to reduce risk",
+          "Treat the urinary tract infection before proceeding"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Treat the urinary tract infection before proceeding",
         "explanation": "Scoping through an untreated UTI risks precipitating urosepsis by instrumenting infected urine. The infection should be treated first and the procedure rescheduled."
       },
@@ -1123,13 +1168,13 @@
         "type": "mcq",
         "question": "Which procedure performed during rigid cystoscopy carries the greatest specific risk of bladder perforation?",
         "options": [
-          "Transurethral resection of bladder tumour (TURBT)",
           "Diagnostic inspection of the trigone",
+          "Transurethral resection of bladder tumour (TURBT)",
           "Instillation of lidocaine gel",
           "Assessment of ureteric orifice efflux",
           "Withdrawal inspection of the prostate"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Transurethral resection of bladder tumour (TURBT)",
         "explanation": "TURBT resects tumour with a diathermy loop through the bladder wall, and over-resection or an obturator kick can perforate the bladder. Diagnostic-only steps do not breach the wall in this way."
       },
@@ -1138,15 +1183,15 @@
         "type": "mcq",
         "question": "A 45-year-old man has a 7 mm mid-ureteric stone that has failed to pass and is causing persistent pain. Which ureteroscopic technique is most appropriate for stone treatment?",
         "options": [
-          "Semirigid ureteroscopy with holmium laser lithotripsy and basket retrieval",
           "Percutaneous nephrolithotomy via a flank tract",
           "Open ureterolithotomy",
           "Antegrade flexible nephroscopy through a nephrostomy",
+          "Semirigid ureteroscopy with holmium laser lithotripsy and basket retrieval",
           "Transurethral resection of the stone with a diathermy loop"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Semirigid ureteroscopy with holmium laser lithotripsy and basket retrieval",
-        "explanation": "A semirigid ureteroscope reaches the mid ureter, where the stone is fragmented with a holmium laser and the pieces extracted with a basket. This is a first-line, minimally invasive option for many ureteric stones that have not passed spontaneously."
+        "explanation": "A semirigid ureteroscope reaches the mid ureter, where the stone is fragmented with a holmium laser and the pieces extracted with a basket. This is a definitive, minimally invasive option for many ureteric stones that have not passed spontaneously (NICE makes shockwave lithotripsy first-line for many stones <10 mm, with ureteroscopy the alternative)."
       },
       {
         "id": "sc_uro_uretero_q02",
@@ -1168,15 +1213,30 @@
         "type": "mcq",
         "question": "Which of the following is a rare but serious complication of ureteroscopy that may require open surgical repair?",
         "options": [
-          "Ureteric avulsion",
           "Transient stent-related urinary frequency",
           "Self-limiting haematuria",
+          "Ureteric avulsion",
           "Mild post-operative flank discomfort",
           "A small residual stone fragment"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Ureteric avulsion",
         "explanation": "Ureteric avulsion is a rare but serious injury in which the ureter is torn, and it may require open reconstructive surgery. The other options are common, minor and self-limiting consequences of the procedure."
+      },
+      {
+        "id": "sc_uro_cysto_ctu_q01",
+        "type": "mcq",
+        "question": "A 68-year-old presents with painless visible haematuria. Alongside flexible cystoscopy, which investigation completes the standard 2-week-wait workup?",
+        "options": [
+          "Plain KUB radiograph",
+          "PSA only",
+          "Urine dipstick alone",
+          "Renal ultrasound of the bladder only",
+          "CT urogram (upper-tract imaging)"
+        ],
+        "correctIndex": 4,
+        "answer": "CT urogram (upper-tract imaging)",
+        "explanation": "Painless visible haematuria warrants a 2-week-wait referral for flexible cystoscopy (bladder) plus CT urogram (upper tracts). Cystoscopy alone misses upper-tract urothelial and renal tumours, so both must be imaged."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Gynae": [
