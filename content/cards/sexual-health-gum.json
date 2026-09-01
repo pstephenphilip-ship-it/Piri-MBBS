@@ -286,6 +286,16 @@
         "id": "shg_toc_fc_05",
         "front": "What are the two components of partner notification for a current partner?",
         "back": "Trace, test and treat contacts within the relevant look-back period, and offer epidemiological (empirical) treatment to current partners without waiting for their results, while advising abstinence until all are treated."
+      },
+      {
+        "id": "shg_toc_contactscreen_fc_01",
+        "front": "What should be offered to a notified sexual contact — just treatment for the index infection?",
+        "back": "No — offer a <b>full STI screen</b> (chlamydia/gonorrhoea NAAT, <b>HIV</b> and <b>syphilis serology</b>, hepatitis where indicated) PLUS <b>epidemiological (empirical) treatment</b> for the index infection. A contact of one STI is a contact of all."
+      },
+      {
+        "id": "shg_toc_safeguarding_fc_01",
+        "front": "What safeguarding points arise in a sexual-health / partner-notification consultation?",
+        "back": "<b>Under-13s cannot consent</b> to sexual activity (automatic safeguarding referral); assess <b>Fraser competence</b> in under-16s; and stay alert to <b>coercion, exploitation or abuse</b>, which contact tracing may surface. Confidentiality is maintained but is not absolute where a child or vulnerable adult is at risk."
       }
     ]
   },
@@ -762,13 +772,13 @@
         "type": "mcq",
         "question": "A man treated for gonorrhoea returns for follow-up. Why is a test of cure recommended in all cases of gonorrhoea?",
         "options": [
-          "Because rising antimicrobial resistance makes treatment failure a real risk",
           "Because gonorrhoea NAATs are highly inaccurate",
           "Because gonorrhoea cannot be treated with antibiotics",
           "Because a test of cure is legally mandatory for all STIs",
-          "Because symptoms always persist after successful treatment"
+          "Because symptoms always persist after successful treatment",
+          "Because rising antimicrobial resistance makes treatment failure a real risk"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Because rising antimicrobial resistance makes treatment failure a real risk",
         "explanation": "Gonorrhoea has developed widespread antimicrobial resistance, so eradication cannot be assumed after treatment. A test of cure (culture and/or NAAT) is recommended for everyone to confirm cure and detect resistant infection early."
       },
@@ -786,6 +796,21 @@
         "correctIndex": 1,
         "answer": "Residual non-viable nucleic acid can give a false-positive result if tested too early",
         "explanation": "NAATs amplify nucleic acid whether or not the organism is alive, so dead DNA or RNA lingering after successful treatment can produce a false positive. Waiting about 2-5 weeks allows this residual material to clear so the result reflects true infection status."
+      },
+      {
+        "id": "shg_toc_contactscreen_q01",
+        "type": "mcq",
+        "question": "A man is contacted as the sexual partner of someone diagnosed with chlamydia. What should he be offered?",
+        "options": [
+          "Only a chlamydia NAAT, with treatment if positive",
+          "Reassurance and no testing unless symptomatic",
+          "Treatment for chlamydia with no testing offered",
+          "A full STI screen (including HIV and syphilis serology) plus empirical treatment for chlamydia",
+          "A test of cure only"
+        ],
+        "correctIndex": 3,
+        "answer": "A full STI screen (including HIV and syphilis serology) plus empirical treatment for chlamydia",
+        "explanation": "A contact of one STI is a contact of all: offer a full sexual-health screen (chlamydia/gonorrhoea NAAT, HIV and syphilis serology) alongside epidemiological (empirical) treatment for the index infection (chlamydia). Testing for the index organism alone would miss co-infection."
       }
     ]
   }
