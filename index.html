@@ -15979,6 +15979,48 @@ function hideFlyout(p) {
 </style>
 
 <!-- =====================================================================
+     LAYOUT PASS 3 — Signs & Symptoms cross-reference links.
+     Presentation only: no copy changed, no links added or removed.
+     Search this file for "LAYOUT PASS DX" to find it again.
+     ===================================================================== -->
+<style>
+  /* .cp-dx does two different jobs. In a .cp-then row (and at the foot of a
+     .cp-kill card) it is a standalone chip in a flex list, where the filled
+     pill is right — 1,221 of them in this tab. But 1,778 more sit INSIDE
+     running prose (in LI, SPAN, .cp-lead, .cp-pearl), where a filled pill
+     mid-sentence is a lump: it carries its own background, a fixed 12px size
+     against ~13.5px body text, and display:inline-block, so it cannot break
+     across lines and shoves the wrap around it.
+
+     Quiet only the prose ones — matched by excluding the two chip parents —
+     down to a normal underlined link that flows with the sentence. The chips
+     are untouched. */
+  #tab-signs :not(.cp-then):not(.cp-kill) > .cp-dx{
+    display:inline;
+    padding:0;
+    border:0;
+    border-radius:0;
+    background:none;
+    font-size:inherit;          /* sit flush with the surrounding text */
+    font-weight:inherit;        /* colour + underline are signal enough */
+    color:var(--rn-blue,#3B7DD8);
+    text-decoration:underline;
+    text-decoration-color:rgba(59,125,216,.32);
+    text-decoration-thickness:1px;
+    text-underline-offset:2px;
+  }
+  #tab-signs :not(.cp-then):not(.cp-kill) > .cp-dx:hover{
+    text-decoration-color:var(--rn-blue,#3B7DD8);
+  }
+  /* .cp-dx-off marks a reference with no note behind it yet. Keep it muted and
+     unlinked-looking rather than letting the rule above colour it like a link. */
+  #tab-signs :not(.cp-then):not(.cp-kill) > .cp-dx.cp-dx-off{
+    color:var(--rn-sub,#7A8396);
+    text-decoration:none;
+  }
+</style>
+
+<!-- =====================================================================
      LAYOUT PASS 2 — home hierarchy, About tiles, dark-modal fields.
      Presentation only: no copy changed, nothing added or removed.
      Search this file for "LAYOUT PASS B" to find it again.
