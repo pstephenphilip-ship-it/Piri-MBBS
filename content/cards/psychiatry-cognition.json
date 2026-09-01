@@ -331,6 +331,21 @@
         "id": "psy_mha_fc_05",
         "front": "Do holding powers (5(2)/5(4)) allow treatment, and can they be used in A&E?",
         "back": "No. Holding powers only prevent the patient leaving until a full assessment; they do not authorise treatment and cannot be used in A&E or the community (patient must be an admitted inpatient)."
+      },
+      {
+        "id": "psy_mha_s117_fc_01",
+        "front": "Which detained patients get free s117 aftercare, and what is a CTO?",
+        "back": "<b>s117</b> gives <b>free aftercare</b> after <b>s3</b> (and s37/47/48) — a joint ICB/local-authority duty that cannot be charged; <b>s2 patients are not entitled</b>. A <b>CTO (s17A)</b> allows supervised community treatment after s3, with power of recall to hospital."
+      },
+      {
+        "id": "psy_mha_vs_mca_fc_01",
+        "front": "How do you choose between the MHA and MCA/DoLS?",
+        "back": "<b>MHA</b>: compulsory hospital treatment of a <b>mental disorder</b> in a patient who objects/needs detention. <b>MCA/DoLS</b>: a patient who <b>lacks capacity and is not objecting</b>, needing best-interests care (e.g. dementia, physical illness). The MHA cannot treat a physical illness in a capacitous patient."
+      },
+      {
+        "id": "psy_mha_nr_fc_01",
+        "front": "What is the Nearest Relative’s role for Sections 2 and 3?",
+        "back": "For <b>s3</b> the AMHP must <b>consult the NR</b>, who can <b>object</b> (blocking admission unless displaced by court) and can order discharge (72h notice; RC may bar). For <b>s2</b> the NR is <b>informed only</b> and cannot block it."
       }
     ]
   },
@@ -898,12 +913,12 @@
         "question": "A patient with a well-established diagnosis of schizophrenia relapses and needs compulsory hospital admission for ongoing treatment. Which section is most appropriate?",
         "options": [
           "Section 2",
-          "Section 3",
           "Section 4",
           "Section 5(2)",
-          "Section 135"
+          "Section 135",
+          "Section 3"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Section 3",
         "explanation": "Section 3 is admission for treatment, lasting up to 6 months and renewable, and is used when the mental disorder is already known. It requires two doctors and an AMHP."
       },
@@ -913,14 +928,59 @@
         "question": "Police find a distressed man behaving erratically on a busy high street and believe he has a mental disorder. Which power lets them take him to a place of safety for assessment?",
         "options": [
           "Section 135",
+          "Section 136",
           "Section 5(2)",
           "Section 2",
-          "Section 136",
           "Section 4"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "Section 136",
         "explanation": "Section 136 empowers police to remove a person who appears mentally disordered from a public place to a place of safety, for up to 24 hours, to arrange an MHA assessment. Section 135 would be needed for entry to a private dwelling."
+      },
+      {
+        "id": "psy_mha_s2_q01",
+        "type": "mcq",
+        "question": "A young man with no psychiatric history presents with a first episode of possible psychosis; he refuses admission but needs inpatient assessment to clarify the diagnosis. Which section is most appropriate?",
+        "options": [
+          "Section 3",
+          "Section 4",
+          "Section 5(2)",
+          "Section 2",
+          "Section 136"
+        ],
+        "correctIndex": 3,
+        "answer": "Section 2",
+        "explanation": "A first presentation needing admission for assessment of an unclear diagnosis is Section 2 (up to 28 days, 2 doctors + AMHP). Section 3 is for treatment of a known disorder; s5(2) is only for existing inpatients."
+      },
+      {
+        "id": "psy_mha_s117_q01",
+        "type": "mcq",
+        "question": "A patient is discharged after treatment under Section 3. Which is correct regarding aftercare?",
+        "options": [
+          "They are entitled to free s117 aftercare",
+          "They must pay for any aftercare",
+          "Aftercare applies only after Section 2",
+          "No aftercare duty exists",
+          "Aftercare requires a new Mental Health Act assessment"
+        ],
+        "correctIndex": 0,
+        "answer": "They are entitled to free s117 aftercare",
+        "explanation": "Section 117 imposes a joint ICB/local-authority duty to provide free aftercare to patients discharged from s3 (and s37/47/48); it cannot be charged for. Patients detained only under s2 are not entitled to s117 aftercare."
+      },
+      {
+        "id": "psy_mha_physical_q01",
+        "type": "mcq",
+        "question": "A capacitous adult who has taken an overdose but has no mental disorder refuses medical treatment. Can the Mental Health Act be used to treat him against his wishes?",
+        "options": [
+          "Yes — use Section 2 to enforce medical treatment",
+          "Yes — use Section 5(2) on the medical ward",
+          "No — the MHA cannot override a capacitous refusal of treatment for a physical illness",
+          "Yes — Section 136 applies",
+          "Yes — detain under Section 3"
+        ],
+        "correctIndex": 2,
+        "answer": "No — the MHA cannot override a capacitous refusal of treatment for a physical illness",
+        "explanation": "The MHA authorises treatment of mental disorder, not unrelated physical illness. A capacitous patient’s refusal of medical treatment stands; the correct step is to assess capacity, not to section him for a physical problem."
       }
     ]
   }
