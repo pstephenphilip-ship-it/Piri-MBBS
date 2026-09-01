@@ -267,6 +267,21 @@
         "id": "en_hn_rhino_fc_05",
         "front": "What is the correct first-aid for an acute nosebleed?",
         "back": "Sit up and lean forward, pinch the soft (cartilaginous) part of the nose continuously for 10-15 minutes, and breathe through the mouth; avoid tilting the head back."
+      },
+      {
+        "id": "hn_scope_fc_01",
+        "front": "A smoker has hoarseness for 4 weeks — what is the pathway and what are the other mucosal red flags?",
+        "back": "<b>2-week-wait ENT for flexible nasendoscopy/laryngoscopy</b>. Other red flags: persistent sore throat, dysphagia, referred otalgia with a normal ear, non-healing oral ulcer, or a neck node."
+      },
+      {
+        "id": "hn_npc_fc_01",
+        "front": "Why does new unilateral glue ear in an adult need investigation?",
+        "back": "It may be caused by a <b>nasopharyngeal carcinoma</b> (EBV-associated) obstructing the Eustachian tube → examine the postnasal space (nasendoscopy), biopsy, EBV serology and MRI."
+      },
+      {
+        "id": "hn_thy_fc_01",
+        "front": "What do the Thy cytology categories trigger after thyroid FNA?",
+        "back": "<b>Thy1</b> non-diagnostic → repeat; <b>Thy2</b> benign → reassure/discharge; <b>Thy3</b> → diagnostic hemithyroidectomy; <b>Thy4/Thy5</b> malignant → surgery/MDT. USS grades the nodule U1–U5."
       }
     ]
   },
@@ -564,13 +579,13 @@
         "type": "mcq",
         "question": "A 58-year-old with chronic foul-smelling right ear discharge has an attic retraction pocket. HRCT shows a soft-tissue mass in Prussak space with blunting of the scutum and erosion of the ossicles. What is the diagnosis?",
         "options": [
-          "Cholesteatoma",
           "Otosclerosis",
           "Acute suppurative otitis media",
+          "Cholesteatoma",
           "Glomus tympanicum",
           "Vestibular schwannoma"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Cholesteatoma",
         "explanation": "Attic soft tissue in Prussak space with scutum blunting and ossicular erosion is the classic CT signature of cholesteatoma. The keratinising squamous epithelium expands and erodes surrounding bone, producing the conductive hearing loss and chronic discharge seen clinically."
       },
@@ -579,13 +594,13 @@
         "type": "mcq",
         "question": "A 74-year-old man with poorly controlled type 2 diabetes has severe unremitting left otalgia, otorrhoea and granulation tissue on the ear canal floor. Which organism is most commonly responsible for his likely diagnosis?",
         "options": [
-          "Pseudomonas aeruginosa",
           "Streptococcus pneumoniae",
           "Haemophilus influenzae",
           "Staphylococcus epidermidis",
-          "Candida albicans"
+          "Candida albicans",
+          "Pseudomonas aeruginosa"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Pseudomonas aeruginosa",
         "explanation": "This is necrotising (malignant) otitis externa, a skull-base osteomyelitis characteristically caused by Pseudomonas aeruginosa in elderly diabetics. It requires urgent imaging, prolonged IV anti-pseudomonal antibiotics and ENT admission."
       },
@@ -594,13 +609,13 @@
         "type": "mcq",
         "question": "On HRCT for a patient with cholesteatoma, erosion of which structure most directly signals a risk of intracranial extension such as meningitis or abscess?",
         "options": [
-          "Tegmen tympani",
           "Scutum",
+          "Tegmen tympani",
           "Malleus handle",
           "External auditory canal",
           "Eustachian tube"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Tegmen tympani",
         "explanation": "The tegmen tympani forms the bony roof separating the middle ear from the middle cranial fossa. Its erosion creates a direct pathway for infection to spread intracranially, causing meningitis or a temporal-lobe abscess."
       },
@@ -610,12 +625,12 @@
         "question": "A 58-year-old smoker presents with a firm, persistent right level II neck lump. What is the most appropriate first-line investigation?",
         "options": [
           "Excisional biopsy of the node",
-          "Ultrasound-guided fine-needle aspiration cytology",
           "CT-guided drainage of the node",
           "Empirical antibiotics and review in 6 weeks",
+          "Ultrasound-guided fine-needle aspiration cytology",
           "Whole-body PET-CT"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Ultrasound-guided fine-needle aspiration cytology",
         "explanation": "USS-FNAC is the recommended first-line investigation for a persistent adult neck lump on the head-and-neck cancer pathway. It characterises the node sonographically and yields cytology to triage the lump while preserving the surgical field."
       },
@@ -624,13 +639,13 @@
         "type": "mcq",
         "question": "FNAC of an adult's neck node returns squamous cells. What does this indicate and what is the next step?",
         "options": [
-          "Reactive lymphadenopathy; reassure and discharge",
           "Metastatic squamous cell carcinoma; search for the mucosal primary",
+          "Reactive lymphadenopathy; reassure and discharge",
           "Lymphoma; start chemotherapy",
           "Thyroid carcinoma; arrange thyroidectomy",
           "Tuberculous adenitis; start anti-tuberculous therapy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Metastatic squamous cell carcinoma; search for the mucosal primary",
         "explanation": "Squamous cells in a neck node signify metastatic SCC. The next step is to identify the primary through clinical examination and panendoscopy with cross-sectional imaging."
       },
@@ -640,12 +655,12 @@
         "question": "FNAC of an enlarged neck node shows an equivocal lymphoid population and lymphoma is suspected. What is the most appropriate next investigation?",
         "options": [
           "Repeat FNAC of the same node",
-          "Core or excisional biopsy",
           "Serial ultrasound monitoring",
+          "Core or excisional biopsy",
           "Bone marrow aspirate alone",
           "Immediate radiotherapy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Core or excisional biopsy",
         "explanation": "FNAC provides cytology without tissue architecture and cannot subtype lymphoma. A core or excisional biopsy is needed to demonstrate architecture and allow immunophenotyping for definitive classification."
       },
@@ -654,13 +669,13 @@
         "type": "mcq",
         "question": "A 45-year-old man reports recurrent painful swelling of the left submandibular gland that is worst just before and during meals and settles afterwards. What is the most likely underlying cause?",
         "options": [
-          "Obstructing calculus in Wharton duct",
           "Pleomorphic adenoma of the deep parotid lobe",
           "Sjögren syndrome",
           "Acute viral parotitis (mumps)",
-          "Warthin tumour"
+          "Warthin tumour",
+          "Obstructing calculus in Wharton duct"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Obstructing calculus in Wharton duct",
         "explanation": "Meal-related swelling that settles between meals is the hallmark of ductal obstruction, since salivary stimulation distends an obstructed gland. The submandibular gland and its Wharton duct account for about 80% of salivary calculi. First-line imaging is ultrasound."
       },
@@ -669,13 +684,13 @@
         "type": "mcq",
         "question": "A patient presents with an acutely swollen, tender, erythematous parotid gland and pus expressible from the duct orifice. Which investigation is specifically contraindicated at this time?",
         "options": [
-          "Sialography",
           "Ultrasound of the gland",
+          "Sialography",
           "Full blood count",
           "Serum amylase",
           "USS-guided fine-needle aspiration cytology"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Sialography",
         "explanation": "Sialography injects contrast retrogradely into the duct and can worsen infection or perforate the inflamed duct during acute sialadenitis. Ultrasound is safe and preferred in this setting. Sialography is deferred until the acute episode resolves."
       },
@@ -684,13 +699,13 @@
         "type": "mcq",
         "question": "A 60-year-old woman has a slowly enlarging, discrete, mobile lump in the tail of the parotid gland with no facial weakness. Ultrasound shows a well-defined solid mass. What is the most appropriate next step to characterise it?",
         "options": [
-          "USS-guided fine-needle aspiration cytology",
           "Sialography of the parotid duct",
           "Reassure and discharge without further tests",
           "Incisional biopsy through the cheek",
+          "USS-guided fine-needle aspiration cytology",
           "Serum autoantibody screen for Sjögren syndrome"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "USS-guided fine-needle aspiration cytology",
         "explanation": "A solid salivary mass is characterised with USS-guided FNAC to distinguish pleomorphic adenoma, Warthin tumour and malignancy. Sialography images ducts, not solid masses, and open incisional biopsy risks tumour seeding and facial nerve injury. FNAC guides the definitive surgical plan."
       },
@@ -699,13 +714,13 @@
         "type": "mcq",
         "question": "During anterior rhinoscopy for epistaxis, a bleeding vessel is clearly seen on the antero-inferior nasal septum. What is the most appropriate initial management?",
         "options": [
-          "Immediate posterior balloon pack and admission",
           "Silver nitrate cautery of the visible bleeding point",
+          "Immediate posterior balloon pack and admission",
           "Urgent CT angiogram of the head",
           "Ligation of the sphenopalatine artery in theatre",
           "Bilateral septal cautery at the same sitting"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Silver nitrate cautery of the visible bleeding point",
         "explanation": "A visible source on Little area indicates an anterior bleed that is directly accessible. Chemical cautery with silver nitrate is the appropriate first-line treatment once the vessel is identified and topical anaesthetic applied."
       },
@@ -732,12 +747,42 @@
           "Biopsy the mass in clinic to obtain a tissue diagnosis",
           "Cauterise the mass with silver nitrate",
           "Reassure and discharge with first-aid advice",
-          "Arrange imaging and refer to ENT without biopsy",
-          "Prescribe topical antibiotics and review in 6 weeks"
+          "Prescribe topical antibiotics and review in 6 weeks",
+          "Arrange imaging and refer to ENT without biopsy"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Arrange imaging and refer to ENT without biopsy",
         "explanation": "This presentation is typical of a juvenile nasopharyngeal angiofibroma, which is highly vascular. It should be imaged and referred to ENT, and biopsy must be avoided because of the risk of torrential bleeding."
+      },
+      {
+        "id": "hn_scope_q01",
+        "type": "mcq",
+        "question": "A 60-year-old smoker has had a hoarse voice for six weeks with no improvement. What is the most appropriate next step?",
+        "options": [
+          "Reassure and review in 3 months",
+          "Refer on the 2-week-wait pathway for flexible nasendoscopy/laryngoscopy",
+          "Prescribe a proton pump inhibitor and voice rest only",
+          "Arrange a chest X-ray alone",
+          "Start antibiotics"
+        ],
+        "correctIndex": 1,
+        "answer": "Refer on the 2-week-wait pathway for flexible nasendoscopy/laryngoscopy",
+        "explanation": "Persistent hoarseness beyond 3 weeks in a smoker is a red flag for laryngeal cancer and warrants urgent (2-week-wait) ENT assessment with flexible laryngoscopy to visualise the larynx and cord mobility."
+      },
+      {
+        "id": "hn_npc_q01",
+        "type": "mcq",
+        "question": "An adult presents with new unilateral middle-ear effusion (glue ear) and no obvious cause. What must be excluded?",
+        "options": [
+          "Otosclerosis",
+          "Simple wax impaction",
+          "Benign positional vertigo",
+          "Nasopharyngeal carcinoma obstructing the Eustachian tube",
+          "Presbycusis"
+        ],
+        "correctIndex": 3,
+        "answer": "Nasopharyngeal carcinoma obstructing the Eustachian tube",
+        "explanation": "Unilateral serous otitis media in an adult can result from a nasopharyngeal carcinoma blocking the Eustachian tube; the postnasal space must be examined (nasendoscopy) with biopsy, EBV serology and MRI."
       }
     ]
   }

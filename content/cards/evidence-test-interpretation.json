@@ -25,6 +25,11 @@
         "id": "ev_ss_fc_05",
         "front": "What does the ROC AUC tell you, and what values are meaningful?",
         "back": "The area under the ROC curve summarises overall discrimination. AUC near 1.0 = excellent discrimination; AUC of 0.5 = no better than chance (useless test)."
+      },
+      {
+        "id": "dta_combine_fc_01",
+        "front": "How do parallel and serial testing strategies affect net sensitivity and specificity?",
+        "back": "<b>Parallel</b> testing (positive if either test is positive) raises net <b>sensitivity</b> (better for ruling out). <b>Serial</b> testing (positive only if both are positive) raises net <b>specificity</b> (better for ruling in)."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Predictive Values & Prevalence Effect (PPV / NPV)": [
@@ -145,11 +150,11 @@
         "options": [
           "70%",
           "80%",
-          "85%",
           "90%",
+          "85%",
           "95%"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "90%",
         "explanation": "Sensitivity = TP / (TP + FN) = 180 / (180 + 20) = 180/200 = 90%. It measures the proportion of truly diseased people the test correctly identifies as positive."
       },
@@ -159,12 +164,12 @@
         "question": "A GP wants a test to help safely rule OUT deep vein thrombosis in a low-risk patient so that further imaging can be avoided. Which test property is most desirable for this purpose?",
         "options": [
           "High specificity",
-          "High sensitivity",
           "High positive predictive value",
           "Low prevalence",
-          "A high positivity cut-off"
+          "A high positivity cut-off",
+          "High sensitivity"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "High sensitivity",
         "explanation": "A highly sensitive test has few false negatives, so a negative result reliably rules the disease out (SnNOut). This is why a sensitive D-dimer is used to exclude DVT in low-risk patients."
       },
@@ -174,14 +179,29 @@
         "question": "Which statement about sensitivity, specificity and predictive values is correct?",
         "options": [
           "Sensitivity increases as disease prevalence rises",
-          "Positive predictive value is independent of prevalence",
           "Sensitivity and specificity are intrinsic properties of the test and broadly independent of prevalence",
+          "Positive predictive value is independent of prevalence",
           "Specificity is calculated as TP / (TP + FP)",
           "Lowering the cut-off increases both sensitivity and specificity"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Sensitivity and specificity are intrinsic properties of the test and broadly independent of prevalence",
         "explanation": "Sensitivity and specificity are calculated down the columns of the 2x2 table by true disease status, so they describe the test itself and are broadly stable across populations. Predictive values, by contrast, depend on prevalence."
+      },
+      {
+        "id": "dta_spec_q01",
+        "type": "mcq",
+        "question": "In a 2×2 table, a test gives TP=80, FP=30, FN=20, TN=270. What is the specificity?",
+        "options": [
+          "80%",
+          "73%",
+          "78%",
+          "90%",
+          "27%"
+        ],
+        "correctIndex": 3,
+        "answer": "90%",
+        "explanation": "Specificity = TN/(TN+FP) = 270/(270+30) = 270/300 = 90%. The trap answer TP/(TP+FP) = 80/110 ≈ 73% is the positive predictive value, not specificity."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Predictive Values & Prevalence Effect (PPV / NPV)": [
