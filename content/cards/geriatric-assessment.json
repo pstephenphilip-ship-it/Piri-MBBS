@@ -25,6 +25,11 @@
         "id": "geri_cga_fc_05",
         "front": "Which reversible condition must CGA always screen for to avoid mislabelling as dementia?",
         "back": "Delirium. It must be actively screened for (e.g. 4AT) and its precipitants (infection, retention, constipation, hypoxia, pain, drugs) sought; cognition is reassessed once the patient is acutely well."
+      },
+      {
+        "id": "cga_setting_fc_01",
+        "front": "Where is CGA delivered, and where is the evidence strongest?",
+        "back": "Strongest on a dedicated <b>geriatric ward</b>; increasingly at the <b>front door</b> (acute frailty unit / frailty SDEC) to avoid admission, plus orthogeriatrics, perioperative POPS, community and care homes, with follow-up via virtual ward/hospital-at-home."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__Clinical Frailty Scale (Rockwood) & eFI": [
@@ -52,6 +57,16 @@
         "id": "geri_cfs_fc_05",
         "front": "Can a CFS score alone be used to deny critical care or treatment?",
         "back": "No. NICE and the British Geriatrics Society state CFS must never be used in isolation to ration or withhold treatment; it informs shared decisions alongside comorbidities, the whole clinical picture and patient wishes."
+      },
+      {
+        "id": "cfs_fried_fc_01",
+        "front": "What are the two models of frailty, and the Fried phenotype criteria?",
+        "back": "<b>Cumulative-deficit</b> (Rockwood CFS / eFI) vs the <b>Fried phenotype</b>: unintentional weight loss, exhaustion, weak grip, slow gait, low activity — <b>≥3 of 5 = frail</b>, 1–2 = pre-frail."
+      },
+      {
+        "id": "cfs_use_fc_01",
+        "front": "How should a Clinical Frailty Scale score be used in decisions?",
+        "back": "<b>CFS ≥5</b> flags frailty and should trigger a <b>CGA/frailty pathway</b>. The score <b>informs but must not, in isolation, decide</b> treatment escalation, ITU admission or CPR (NICE/BGS)."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__4AT (Delirium Screen)": [
@@ -225,12 +240,12 @@
         "question": "Which statement best characterises a Comprehensive Geriatric Assessment (CGA)?",
         "options": [
           "A single validated numerical score that grades frailty severity",
-          "A multidisciplinary process assessing multiple domains that yields a problem list and coordinated care plan",
           "A blood-test panel used to diagnose the cause of falls",
+          "A multidisciplinary process assessing multiple domains that yields a problem list and coordinated care plan",
           "A one-off cognitive screening test performed by a doctor alone",
           "A radiological staging tool for osteoporosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A multidisciplinary process assessing multiple domains that yields a problem list and coordinated care plan",
         "explanation": "CGA is a multidimensional, multidisciplinary diagnostic and management process, not a single test or score. It evaluates the medical, functional, psychological and social domains and produces a problem list with an individualised, coordinated plan and follow-up."
       },
@@ -240,12 +255,12 @@
         "question": "In which setting is CGA supported by the strongest evidence for improving outcomes?",
         "options": [
           "A single outpatient telephone review",
-          "Inpatient assessment on a dedicated geriatric ward",
           "A community pharmacy medication check",
           "An emergency department triage desk only",
-          "A self-completed postal questionnaire"
+          "A self-completed postal questionnaire",
+          "Inpatient assessment on a dedicated geriatric ward"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Inpatient assessment on a dedicated geriatric ward",
         "explanation": "Trial evidence is strongest for inpatient CGA delivered on a dedicated geriatric ward, where it increases the chance of being alive and in one's own home and reduces institutionalisation. Coordinated delivery with follow-up drives the benefit."
       },
@@ -289,10 +304,10 @@
           "It should score the patient's function at the moment of acute presentation",
           "It can be used as the sole criterion to refuse ITU admission",
           "It is validated for use in a 30-year-old with lifelong cerebral palsy",
-          "It should reflect baseline function in the 2 weeks before the acute illness",
-          "A score is calculated by summing individual deficit points"
+          "A score is calculated by summing individual deficit points",
+          "It should reflect baseline function in the 2 weeks before the acute illness"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "It should reflect baseline function in the 2 weeks before the acute illness",
         "explanation": "The CFS grades the pre-morbid baseline from the fortnight before presentation, capturing reserve rather than the acute state. It is a judgement-based scale, not a summed index, and must not be used alone to deny treatment or applied to stable single-system disability."
       },
@@ -310,6 +325,21 @@
         "correctIndex": 1,
         "answer": "From primary-care coded records as the proportion of ~36 deficits present",
         "explanation": "The eFI is a deficit-accumulation model run automatically over the GP electronic record, dividing the number of coded deficits present by the number measured (~36) to yield a 0–1 score. This distinguishes it from the bedside, judgement-based CFS."
+      },
+      {
+        "id": "cfs_fried_q01",
+        "type": "mcq",
+        "question": "Which set of criteria defines the Fried frailty phenotype?",
+        "options": [
+          "A judgement-based 1–9 scale of overall fitness",
+          "The proportion of ~36 deficits present in the GP record",
+          "A timed 3-metre walk",
+          "Unintentional weight loss, exhaustion, weak grip, slow gait and low activity (≥3 of 5)",
+          "A count of falls in the past year"
+        ],
+        "correctIndex": 3,
+        "answer": "Unintentional weight loss, exhaustion, weak grip, slow gait and low activity (≥3 of 5)",
+        "explanation": "The Fried phenotype is the alternative (phenotype) model of frailty: unintentional weight loss, self-reported exhaustion, weak grip strength, slow gait speed and low physical activity — ≥3 of 5 defines frailty (1–2 = pre-frail). The 1–9 scale is the Rockwood CFS and the ~36-deficit proportion is the eFI (both cumulative-deficit models)."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__4AT (Delirium Screen)": [
