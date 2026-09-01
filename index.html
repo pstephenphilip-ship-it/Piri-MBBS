@@ -13644,6 +13644,22 @@ function hideFlyout(p) {
   function wireAvatar(){ var btn=document.getElementById('da-ep-photo-btn'), rm=document.getElementById('da-ep-photo-rm'), file=document.getElementById('da-ep-photo-file'); if(!btn||!file) return; btn.onclick=function(){ file.click(); }; file.onchange=function(){ var f=file.files&&file.files[0]; processImage(f,function(dataUrl,err){ if(err){ pmsg('da-prof-msg',err,'err'); return; } pendingAvatar=dataUrl; renderEpAvatar(dataUrl,''); }); }; if(rm) rm.onclick=function(){ pendingAvatar=null; renderEpAvatar(null,($('da-ep-username').value)||''); }; }
   function yrOpts(){ return '<option value="">Select…</option>'+YEARS.map(function(y){return '<option>'+y+'</option>';}).join(''); }
 
+  // Referral tracking — partner universities and the societies you work with. Keys are the
+  // universities; each maps to its list of societies. Add new partners here as you sign them up.
+  var REFERRALS={ 'Queen Mary University':['Neurosoc'] };
+  // Best-effort save of a new signup's referral (from da_pending_ref) onto their profile row.
+  // Never blocks or breaks signup: if the columns aren't in the DB yet the key is kept and the
+  // save is retried on the next login, so it "switches on" once the migration is applied.
+  function saveReferral(user){
+    if(!user||!sb) return;
+    var ref=null; try{ ref=JSON.parse(localStorage.getItem('da_pending_ref')||'null'); }catch(e){}
+    if(!ref || (!ref.u && !ref.s)) return;
+    sb.from('profiles').update({ ref_university:ref.u||null, ref_society:ref.s||null }).eq('id',user.id).then(function(r){
+      if(r && r.error){ console.warn('referral save (will retry next login):', r.error.message); return; }
+      try{ localStorage.removeItem('da_pending_ref'); }catch(e){}
+    }).catch(function(e){ console.warn('referral save', e); });
+  }
+
   function injectSignupFields(){
     var form=$('authForm'), btn=$('authSubmitBtn');
     if(!form||!btn||$('da-su-fields')) return;
@@ -13653,8 +13669,17 @@ function hideFlyout(p) {
       '<div class="auth-field"><label for="da-fullname">Full name <span style="opacity:.55">(optional)</span></label><input id="da-fullname" type="text" autocomplete="name"></div>'+
       '<div class="auth-field"><label for="da-university">Medical school / University <span style="opacity:.55">(optional)</span></label><input id="da-university" type="text" placeholder="e.g. QMUL"></div>'+
       '<div class="auth-field"><label for="da-year">Year of study <span style="opacity:.55">(optional)</span></label><select id="da-year">'+yrOpts()+'</select></div>'+
-      '<div class="auth-field"><label for="da-country">Country / region <span style="opacity:.55">(optional)</span></label><input id="da-country" type="text" placeholder="e.g. United Kingdom"></div>';
+      '<div class="auth-field"><label for="da-country">Country / region <span style="opacity:.55">(optional)</span></label><input id="da-country" type="text" placeholder="e.g. United Kingdom"></div>'+
+      '<div class="auth-field"><label for="da-refuni">Referred by a university society? <span style="opacity:.55">(optional)</span></label><select id="da-refuni"><option value="">Select…</option>'+Object.keys(REFERRALS).map(function(u){return '<option>'+u+'</option>';}).join('')+'</select></div>'+
+      '<div class="auth-field" id="da-refsoc-wrap" style="display:none"><label for="da-refsoc">Society</label><select id="da-refsoc"><option value="">Select…</option></select></div>';
     form.insertBefore(wrap, btn);
+    // The society list depends on the chosen university; reveal it only once a partner uni is picked.
+    var _ru=$('da-refuni'), _rsWrap=$('da-refsoc-wrap'), _rs=$('da-refsoc');
+    if(_ru&&_rs&&_rsWrap){ _ru.addEventListener('change', function(){
+      var socs=REFERRALS[_ru.value]||[];
+      _rs.innerHTML='<option value="">Select…</option>'+socs.map(function(s){return '<option>'+s+'</option>';}).join('');
+      _rsWrap.style.display = socs.length ? '' : 'none';
+    }); }
   }
 
   window.__authMode='signin';
@@ -13709,6 +13734,7 @@ function hideFlyout(p) {
       var username=($('da-username').value||'').trim();
       if(!USERNAME_RE.test(username)){ aMsg('Username must be 3–20 letters, numbers or underscores.','err'); return false; }
       var pdata={ username:username, full_name:($('da-fullname').value||'').trim()||null, university:($('da-university').value||'').trim()||null, study_year:$('da-year').value||null, country:($('da-country').value||'').trim()||null };
+      try{ var _ru=($('da-refuni')&&$('da-refuni').value)||'', _rs=($('da-refsoc')&&$('da-refsoc').value)||''; if(_ru||_rs) localStorage.setItem('da_pending_ref', JSON.stringify({u:_ru||null,s:_rs||null})); }catch(e){}
       btn.disabled=true; btn.textContent='Creating account…';
       sb.rpc('is_username_available',{u:username}).then(function(av){
         if(!av.error && av.data===false){ aMsg('That username is taken. Try another.','err'); btn.disabled=false; btn.textContent=restore; return; }
@@ -13898,8 +13924,8 @@ function hideFlyout(p) {
     }
     window.__applyMembership = applyMembership;
     function clearMembership(){ try{ localStorage.setItem('da-member','0'); }catch(e){} window.__member=false; }
-    sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); }); else { clearMembership(); } });
-    sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); }); else { profile=null; clearMembership(); } });
+    sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); saveReferral(currentUser); }); else { clearMembership(); } });
+    sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); saveReferral(currentUser); }); else { profile=null; clearMembership(); } });
   });
 })();
 </script>
@@ -14250,6 +14276,7 @@ function hideFlyout(p) {
                   university:($('da-university')&&$('da-university').value.trim())||null,
                   study_year:($('da-year')&&$('da-year').value)||null,
                   country:($('da-country')&&$('da-country').value.trim())||null };
+      try{ var _ru2=($('da-refuni')&&$('da-refuni').value)||'', _rs2=($('da-refsoc')&&$('da-refsoc').value)||''; if(_ru2||_rs2) localStorage.setItem('da_pending_ref', JSON.stringify({u:_ru2||null,s:_rs2||null})); }catch(e){}
       var btn=$('authSubmitBtn'), r0=btn.textContent; btn.disabled=true; btn.textContent='Creating account…';
       function afterCheck(){
         try{ localStorage.setItem('da_pending_profile', JSON.stringify(pdata)); }catch(e){}
