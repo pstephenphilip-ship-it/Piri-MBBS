@@ -172,12 +172,27 @@
       {
         "id": "psy_scoff_fc_04",
         "front": "Which electrolyte disturbance is classically seen with self-induced vomiting or laxative misuse?",
-        "back": "Hypokalaemia (with a metabolic alkalosis), which carries a risk of cardiac arrhythmia. U&Es and an ECG should be checked."
+        "back": "Hypokalaemia is common to both and risks arrhythmia. <b>Vomiting</b> → metabolic <b>alkalosis</b>; <b>laxative</b> misuse → metabolic <b>acidosis</b> (bicarbonate lost in stool). Check U&Es and an ECG."
       },
       {
         "id": "psy_scoff_fc_05",
         "front": "What is refeeding syndrome and which electrolytes fall?",
         "back": "A dangerous shift on re-nourishing a severely malnourished patient, with falling phosphate, potassium and magnesium. It can cause arrhythmias and cardiac failure; re-feed cautiously and use a risk framework (MEED/MARSIPAN)."
+      },
+      {
+        "id": "psy_scoff_ref_fc_01",
+        "front": "A patient screens SCOFF ≥2 — what are the next steps?",
+        "back": "Do a <b>full eating-disorder assessment</b> and <b>refer to a specialist/community eating-disorder service</b>; if medically unstable (very low BMI, bradycardia, electrolyte derangement, long QTc), <b>refer urgently to acute medicine</b>."
+      },
+      {
+        "id": "psy_scoff_suss_fc_01",
+        "front": "What medical-risk investigations follow a positive eating-disorder screen?",
+        "back": "BMI; the <b>SUSS test</b> (sit-up/squat-stand for proximal myopathy); <b>ECG</b> (bradycardia, prolonged QTc); bloods <b>U&E, phosphate, magnesium, glucose, FBC ± LFTs</b>; risk-stratify with MEED."
+      },
+      {
+        "id": "psy_scoff_tx_fc_01",
+        "front": "What is the first-line treatment for anorexia and for bulimia nervosa?",
+        "back": "<b>Anorexia</b>: psychological therapy first-line (CBT-ED / MANTRA / SSCM; <b>FBT</b> in under-18s). <b>Bulimia</b>: guided self-help / CBT-ED plus <b>fluoxetine</b>."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__AUDIT / CAGE (Alcohol Use)": [
@@ -205,6 +220,16 @@
         "id": "psy_audit_fc_05",
         "front": "Why must thiamine be given before glucose in a dependent drinker?",
         "back": "A glucose load in a thiamine-deficient patient can precipitate Wernicke encephalopathy. Give parenteral thiamine (Pabrinex) first to prevent it."
+      },
+      {
+        "id": "psy_audit_bloods_fc_01",
+        "front": "Which blood tests support a picture of chronic excess alcohol (and what is their limitation)?",
+        "back": "Raised <b>GGT</b>, raised <b>MCV</b> (macrocytosis), <b>AST:ALT >2:1</b>, and raised <b>CDT</b>. They are <b>supportive only</b> — the diagnosis rests on the screening questionnaire plus history, not bloods."
+      },
+      {
+        "id": "psy_audit_withdrawal_fc_01",
+        "front": "What does medically-assisted alcohol withdrawal involve?",
+        "back": "A <b>chlordiazepoxide reducing regimen</b>, dose titrated to withdrawal severity (symptom-triggered, guided by <b>CIWA-Ar</b>), with <b>parenteral thiamine (Pabrinex)</b> throughout; thiamine before glucose to avoid precipitating Wernicke’s."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Cognitive Screens (AMTS / MMSE / MoCA / 6-CIT)": [
@@ -575,12 +600,12 @@
         "question": "A 19-year-old woman answers 'yes' to 3 of the 5 SCOFF questions. What is the most appropriate interpretation?",
         "options": [
           "She definitively has bulimia nervosa",
-          "The screen is positive and warrants further clinical assessment",
           "The screen is negative as she scored below 4",
+          "The screen is positive and warrants further clinical assessment",
           "No action is needed unless her BMI is under 15",
           "She should be discharged with reassurance"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "The screen is positive and warrants further clinical assessment",
         "explanation": "A SCOFF score of ≥2 is a positive screen suggesting a likely eating disorder. SCOFF is a screening tool rather than a diagnostic test, so the next step is full assessment of BMI, physical health and risk."
       },
@@ -591,11 +616,11 @@
         "options": [
           "Hyperkalaemia",
           "Hypernatraemia",
-          "Hypokalaemia",
           "Hypercalcaemia",
-          "Hyperphosphataemia"
+          "Hyperphosphataemia",
+          "Hypokalaemia"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Hypokalaemia",
         "explanation": "Recurrent self-induced vomiting causes loss of potassium and hydrogen ions, producing hypokalaemia with a metabolic alkalosis. Hypokalaemia carries a risk of cardiac arrhythmia, so U&Es and an ECG are important."
       },
@@ -613,6 +638,36 @@
         "correctIndex": 1,
         "answer": "Falling phosphate, potassium and magnesium",
         "explanation": "Reintroducing carbohydrate drives insulin release and cellular uptake of phosphate, potassium and magnesium, causing their plasma levels to fall. This can precipitate arrhythmias and cardiac failure, so feeding is introduced cautiously with a risk framework such as MEED/MARSIPAN."
+      },
+      {
+        "id": "psy_scoff_ref_q01",
+        "type": "mcq",
+        "question": "A 19-year-old scores 3/5 on SCOFF. She is haemodynamically stable. What is the most appropriate next step?",
+        "options": [
+          "Reassure — a single positive screen means nothing",
+          "Start an SSRI and review in 3 months",
+          "Repeat SCOFF in 1 year",
+          "Full eating-disorder assessment and referral to a specialist eating-disorder service",
+          "No action unless BMI is under 15"
+        ],
+        "correctIndex": 3,
+        "answer": "Full eating-disorder assessment and referral to a specialist eating-disorder service",
+        "explanation": "SCOFF ≥2 is a positive screen warranting a full eating-disorder assessment and referral to specialist services. It is a screen, not a diagnosis; medically unstable patients need urgent acute-medical referral."
+      },
+      {
+        "id": "psy_scoff_suss_q01",
+        "type": "mcq",
+        "question": "Which bedside test best assesses medical risk (proximal muscle weakness) in a patient with anorexia nervosa?",
+        "options": [
+          "The sit-up–squat–stand (SUSS) test",
+          "The Whooley questions",
+          "The AMTS",
+          "A peak flow",
+          "The Romberg test"
+        ],
+        "correctIndex": 0,
+        "answer": "The sit-up–squat–stand (SUSS) test",
+        "explanation": "The sit-up–squat–stand (SUSS) test scores the ability to rise from lying and from squatting without using the arms; needing the hands or being unable to rise indicates proximal myopathy and high medical risk (part of MEED risk assessment)."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__AUDIT / CAGE (Alcohol Use)": [
@@ -638,11 +693,11 @@
         "options": [
           "Reassure that this is low-risk drinking",
           "Give a single session of brief advice only",
-          "Refer for specialist assessment as this suggests possible dependence",
           "Repeat the AUDIT in five years",
-          "Start no intervention until liver enzymes are checked"
+          "Start no intervention until liver enzymes are checked",
+          "Refer for specialist assessment as this suggests possible dependence"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Refer for specialist assessment as this suggests possible dependence",
         "explanation": "An AUDIT score of 20 or more suggests possible alcohol dependence and warrants specialist referral. Brief advice alone is insufficient at this level of risk."
       },
@@ -652,14 +707,29 @@
         "question": "A dependent drinker is admitted and stops alcohol abruptly. Which management step is essential to prevent a life-threatening complication?",
         "options": [
           "Give oral glucose immediately to prevent hypoglycaemia",
-          "Withhold all sedatives to monitor consciousness",
           "Prescribe a benzodiazepine and give parenteral thiamine before any glucose",
+          "Withhold all sedatives to monitor consciousness",
           "Give intravenous glucose before thiamine",
           "Restrict fluids to avoid autonomic instability"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Prescribe a benzodiazepine and give parenteral thiamine before any glucose",
         "explanation": "Benzodiazepines control withdrawal seizures and delirium tremens, while parenteral thiamine prevents Wernicke encephalopathy. Giving glucose before thiamine can precipitate Wernicke encephalopathy in a deficient patient."
+      },
+      {
+        "id": "psy_audit_brief_q01",
+        "type": "mcq",
+        "question": "A patient scores AUDIT 12 (hazardous/harmful drinking) but is not dependent. What is the most appropriate next step?",
+        "options": [
+          "Immediate referral for inpatient detoxification",
+          "Reassurance — no action needed",
+          "Start disulfiram",
+          "A structured brief (motivational) intervention",
+          "Admit for IV fluids"
+        ],
+        "correctIndex": 3,
+        "answer": "A structured brief (motivational) intervention",
+        "explanation": "An AUDIT of 8–19 indicates hazardous/harmful drinking, best managed with a structured brief/motivational intervention in primary care. Specialist referral and assisted withdrawal are reserved for likely dependence (higher scores)."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Cognitive Screens (AMTS / MMSE / MoCA / 6-CIT)": [
