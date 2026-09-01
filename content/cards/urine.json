@@ -24,7 +24,7 @@
       {
         "id": "ur_dip_stick_fc_05",
         "front": "How do you interpret bilirubin and urobilinogen together on a dipstick?",
-        "back": "Bilirubin positive with raised urobilinogen suggests hepatocellular/obstructive liver disease; isolated raised urobilinogen with negative bilirubin points to haemolysis; both absent can indicate complete biliary obstruction."
+        "back": "<b>Bilirubin +ve with RAISED urobilinogen</b> &rarr; hepatocellular jaundice (e.g. hepatitis). <b>Bilirubin +ve with LOW/absent urobilinogen</b> &rarr; obstructive (post-hepatic) jaundice &mdash; conjugated bilirubin is water-soluble and spills into urine, but none reaches the gut. <b>Raised urobilinogen with bilirubin NEGATIVE</b> &rarr; pre-hepatic/haemolysis."
       },
       {
         "id": "ur_dip_mcs_fc_01",
@@ -100,6 +100,21 @@
         "id": "ur_dip_cyto_fc_05",
         "front": "Which bladder lesion is urine cytology especially valuable for detecting, and why?",
         "back": "Carcinoma in situ (CIS): it is a flat, high-grade lesion that is often invisible at cystoscopy but sheds highly atypical cells that cytology detects readily."
+      },
+      {
+        "id": "ur_dip_haematuria_2ww_fc_01",
+        "front": "What are the NICE 2-week-wait referral triggers for suspected urological cancer with haematuria?",
+        "back": "<b>Visible (macroscopic) haematuria in anyone &ge;45</b> that is unexplained (or persists/recurs after treating a UTI), and <b>unexplained non-visible haematuria in anyone &ge;60 with dysuria or a raised white-cell count</b>. Refer on a 2-week-wait pathway; flexible <b>cystoscopy</b> plus upper-tract imaging is the workup."
+      },
+      {
+        "id": "ur_dip_glom_vs_urol_fc_01",
+        "front": "How does urine microscopy distinguish glomerular from urological (lower-tract) haematuria?",
+        "back": "<b>Glomerular:</b> dysmorphic red cells, <b>red-cell casts</b>, and significant proteinuria &rarr; refer nephrology for a glomerulonephritis workup. <b>Urological:</b> isolated monomorphic red cells with no casts or protein &rarr; imaging and cystoscopy for a stone or tumour."
+      },
+      {
+        "id": "ur_dip_fatty_cast_fc_01",
+        "front": "Which urinary cast indicates nephrotic syndrome, and how is it identified?",
+        "back": "<b>Fatty casts / oval fat bodies</b>, showing a <b>&ldquo;Maltese cross&rdquo;</b> appearance under polarised light &mdash; a marker of heavy (nephrotic-range) proteinuria and lipiduria. (Contrast the nephritic marker: <b>red-cell casts</b> of glomerulonephritis.)"
       }
     ],
     "investigations__URINE__Renal Function & Electrolytes": [
@@ -227,6 +242,16 @@
         "id": "ur_rf_fena_fc_05",
         "front": "Name settings where FENa is unreliable or misleadingly low despite intrinsic injury.",
         "back": "FENa can be < 1% in contrast nephropathy, rhabdomyolysis, early sepsis, hepatorenal syndrome and acute glomerulonephritis. It is also elevated at baseline in CKD due to adaptive natriuresis."
+      },
+      {
+        "id": "ur_rf_sglt2_fc_01",
+        "front": "Beyond an ACE inhibitor/ARB, what drug class is now added for albuminuric CKD?",
+        "back": "An <b>SGLT2 inhibitor</b> (e.g. dapagliflozin, empagliflozin) provides additional renoprotection in <b>diabetic AND non-diabetic CKD with albuminuria</b> (DAPA-CKD/EMPA-KIDNEY; NICE). Combined with an ACE-i/ARB it slows GFR decline and reduces progression — a high-yield modern finals point."
+      },
+      {
+        "id": "ur_rf_siadh_di_tx_fc_01",
+        "front": "What is the management of SIADH versus cranial and nephrogenic diabetes insipidus?",
+        "back": "<b>SIADH:</b> treat the cause + <b>fluid restriction</b> (hypertonic saline if acutely symptomatic; correct Na slowly to avoid osmotic demyelination). <b>Cranial DI:</b> <b>desmopressin</b>. <b>Nephrogenic DI:</b> treat the cause, low-salt/low-protein diet and a <b>thiazide</b> (paradoxically reduces urine output)."
       }
     ],
     "investigations__URINE__Metabolic & Specialised": [
@@ -329,6 +354,11 @@
         "id": "ur_ms_stone_fc_05",
         "front": "First-line dietary advice given to essentially ALL stone formers, and one counter-intuitive point about calcium.",
         "back": "Increase fluids to keep urine output > 2.5 L/day, moderate sodium and animal protein. Do NOT restrict dietary calcium — low calcium intake increases oxalate absorption and worsens stone risk."
+      },
+      {
+        "id": "ur_met_rta_tx_fc_01",
+        "front": "How is each type of renal tubular acidosis treated?",
+        "back": "<b>Type 1 (distal)</b> and <b>Type 2 (proximal)</b> &rarr; oral <b>alkali</b> (sodium bicarbonate or potassium citrate); type 2 needs high doses plus potassium supplements (&plusmn; a thiazide to reduce dosing). <b>Type 4</b> (hyperkalaemic) &rarr; <b>low-potassium diet + fludrocortisone</b> (or a loop diuretic) and review/stop offending drugs (ACE-i/ARB, NSAIDs, potassium-sparing diuretics)."
       }
     ]
   },
@@ -340,12 +370,12 @@
         "question": "A 68-year-old man with back pain, anaemia and acute kidney injury has a urine dipstick that is negative for protein. Which statement is correct?",
         "options": [
           "A negative protein pad reliably excludes significant proteinuria",
-          "The dipstick may miss Bence-Jones protein, so send urine electrophoresis if myeloma is suspected",
           "The negative result confirms the kidneys are normal",
+          "The dipstick may miss Bence-Jones protein, so send urine electrophoresis if myeloma is suspected",
           "Bence-Jones protein is detected strongly by the protein pad",
           "Proteinuria in myeloma is always albumin-based"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "The dipstick may miss Bence-Jones protein, so send urine electrophoresis if myeloma is suspected",
         "explanation": "The protein pad detects albumin but is insensitive to free light chains (Bence-Jones protein). In suspected myeloma the correct step is urine and serum protein electrophoresis or free light chain assay regardless of a negative dipstick."
       },
@@ -356,11 +386,11 @@
         "options": [
           "UTI is excluded because nitrites are negative",
           "The result is uninterpretable and should be discarded",
-          "UTI remains likely; a negative nitrite does not exclude it",
           "Leucocyte esterase always indicates renal stones",
-          "She must have a fungal infection"
+          "She must have a fungal infection",
+          "UTI remains likely; a negative nitrite does not exclude it"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "UTI remains likely; a negative nitrite does not exclude it",
         "explanation": "Nitrite requires nitrate-reducing bacteria and adequate bladder dwell time, so false negatives are common with frequent voiding or non-reducing organisms. In a symptomatic woman with pyuria, UTI is still likely and should be treated with an MSU sent for culture."
       },
@@ -370,12 +400,12 @@
         "question": "A patient is found to have a strongly blood-positive dipstick, but microscopy shows no red blood cells. Which cause best explains this?",
         "options": [
           "Bladder carcinoma",
-          "Glomerulonephritis",
           "Myoglobinuria from rhabdomyolysis",
+          "Glomerulonephritis",
           "Simple urinary tract infection",
           "Renal calculus"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Myoglobinuria from rhabdomyolysis",
         "explanation": "The blood pad reacts to haem peroxidase activity, so free myoglobin turns it positive without any red cells present. Rhabdomyolysis releases myoglobin, producing a blood-positive dipstick with negative microscopy."
       },
@@ -385,12 +415,12 @@
         "question": "A 25-year-old non-pregnant woman has dysuria and frequency. Her MSU culture grows Escherichia coli at 10⁴ CFU/mL with pyuria on microscopy. How should this result be interpreted?",
         "options": [
           "Contamination, as the count is below 10⁵ CFU/mL",
-          "Clinically significant UTI warranting treatment",
           "Asymptomatic bacteriuria that should be left untreated",
           "Sterile pyuria requiring TB investigation",
+          "Clinically significant UTI warranting treatment",
           "Normal urine with no evidence of infection"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Clinically significant UTI warranting treatment",
         "explanation": "In a symptomatic patient with pyuria, a single-organism count of 10³–10⁴ CFU/mL is accepted as clinically significant. The combination of typical symptoms, pyuria, and a pure uropathogen supports treating this as a genuine UTI."
       },
@@ -399,13 +429,13 @@
         "type": "mcq",
         "question": "A 40-year-old man has persistent frequency and microscopy shows pyuria, but routine urine culture is repeatedly negative. Which investigation is most important to exclude a serious cause?",
         "options": [
+          "Three early-morning urine samples for mycobacterial culture",
           "Repeat midstream urine for routine culture",
           "Random blood glucose",
-          "Three early-morning urine samples for mycobacterial culture",
           "24-hour urinary protein",
           "Serum prostate-specific antigen"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Three early-morning urine samples for mycobacterial culture",
         "explanation": "Persistent sterile pyuria is a classic pointer to renal tuberculosis, which does not grow on standard media. Three early-morning urine samples for acid-fast bacilli and mycobacterial culture are the key test to exclude it."
       },
@@ -430,12 +460,12 @@
         "question": "A 30-year-old man presents with haematuria, hypertension and oedema two weeks after a sore throat. Urine microscopy shows red cell casts. Which diagnosis do these casts point to?",
         "options": [
           "Acute tubular necrosis",
-          "Glomerulonephritis",
           "Lower urinary tract stone",
           "Pyelonephritis",
-          "Simple dehydration"
+          "Simple dehydration",
+          "Glomerulonephritis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Glomerulonephritis",
         "explanation": "Red cell casts form when erythrocytes cross a damaged glomerular basement membrane and are moulded within the tubule. They are pathognomonic of glomerular bleeding and, with the post-streptococcal history and nephritic features, indicate glomerulonephritis."
       },
@@ -444,13 +474,13 @@
         "type": "mcq",
         "question": "A patient develops oliguric acute kidney injury after prolonged hypotension in theatre. Urine microscopy shows 'muddy brown' granular casts. What is the most likely cause?",
         "options": [
-          "Acute tubular necrosis",
           "Minimal change disease",
+          "Acute tubular necrosis",
           "Chronic kidney disease",
           "Acute interstitial nephritis",
           "Prerenal dehydration"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Acute tubular necrosis",
         "explanation": "Ischaemic injury sloughs tubular epithelial cells that degenerate into pigmented granular debris, forming muddy-brown casts. This finding after a hypotensive insult is the classic sediment of acute tubular necrosis."
       },
@@ -474,13 +504,13 @@
         "type": "mcq",
         "question": "A 68-year-old smoker with visible haematuria has a negative urine cytology result. What is the most appropriate next step?",
         "options": [
-          "Reassure the patient that bladder cancer is excluded",
           "Proceed to flexible cystoscopy",
+          "Reassure the patient that bladder cancer is excluded",
           "Repeat urine cytology in 6 months and take no further action now",
           "Start empirical antibiotics for presumed infection",
           "Discharge with no further follow-up"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Proceed to flexible cystoscopy",
         "explanation": "Visible haematuria mandates cystoscopy irrespective of the cytology result. Urine cytology has low sensitivity for low-grade tumours, so a negative result cannot exclude malignancy and cystoscopy remains the essential investigation."
       },
@@ -506,11 +536,11 @@
         "options": [
           "First-void overnight urine sent the following day",
           "A single voided sample after 48 hours at room temperature",
-          "A bladder-wash (barbotage) specimen collected at cystoscopy",
           "Urine from a long-term indwelling catheter bag",
-          "A dilute sample taken immediately after high fluid intake"
+          "A dilute sample taken immediately after high fluid intake",
+          "A bladder-wash (barbotage) specimen collected at cystoscopy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "A bladder-wash (barbotage) specimen collected at cystoscopy",
         "explanation": "Bladder washings provide abundant, well-preserved cells and higher sensitivity than voided urine. Overnight, delayed, catheter, and dilute samples all suffer from cellular degeneration or reactive atypia that degrade accuracy."
       }
@@ -521,13 +551,13 @@
         "type": "mcq",
         "question": "What are the standard reporting units for a urine protein:creatinine ratio (PCR)?",
         "options": [
-          "mg/mmol",
           "mmol/L",
           "g/L",
+          "mg/mmol",
           "mL/min",
           "mOsm/kg"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "mg/mmol",
         "explanation": "PCR is reported as milligrams of protein per millimole of creatinine (mg/mmol). This ratio corrects urinary protein for urine concentration using creatinine."
       },
@@ -536,13 +566,13 @@
         "type": "mcq",
         "question": "A PCR of >300-350 mg/mmol corresponds to which of the following?",
         "options": [
-          "Nephrotic-range proteinuria (>3-3.5 g/24h)",
           "A normal result",
           "Microscopic haematuria",
           "Isolated tubular proteinuria within normal limits",
-          "Physiological orthostatic proteinuria only"
+          "Physiological orthostatic proteinuria only",
+          "Nephrotic-range proteinuria (>3-3.5 g/24h)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Nephrotic-range proteinuria (>3-3.5 g/24h)",
         "explanation": "A PCR above 300-350 mg/mmol equates to more than 3-3.5 g of protein per 24 hours, which defines nephrotic-range proteinuria. This warrants urgent nephrology assessment, especially with oedema and hypoalbuminaemia."
       },
@@ -551,13 +581,13 @@
         "type": "mcq",
         "question": "Which test is preferred over PCR for early screening of diabetic nephropathy and CKD?",
         "options": [
-          "Albumin:creatinine ratio (ACR)",
           "24-hour creatinine clearance",
+          "Albumin:creatinine ratio (ACR)",
           "Serum osmolality",
           "Urine dipstick for glucose",
           "Fractional excretion of sodium"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Albumin:creatinine ratio (ACR)",
         "explanation": "ACR specifically measures albumin and is more sensitive at low levels of urinary protein loss. NICE recommends ACR as the first-line test to detect the early albuminuria of diabetes and CKD, which PCR can miss."
       },
@@ -567,12 +597,12 @@
         "question": "A 58-year-old man with type 2 diabetes attends his annual review. His early-morning urine ACR is 18 mg/mmol, confirmed on a repeat sample. Which KDIGO albuminuria category does this represent?",
         "options": [
           "A1 - normal to mildly increased",
-          "A2 - moderately increased",
           "A3 - severely increased",
           "Nephrotic-range proteinuria",
+          "A2 - moderately increased",
           "Normal, no action needed"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "A2 - moderately increased",
         "explanation": "An ACR of 3-30 mg/mmol defines the A2 band, moderately increased albuminuria (formerly microalbuminuria). This is the earliest detectable sign of diabetic nephropathy and warrants intervention."
       },
@@ -581,13 +611,13 @@
         "type": "mcq",
         "question": "A patient with type 1 diabetes has a persistent ACR of 8 mg/mmol with a normal blood pressure of 118/74 mmHg. What is the most appropriate next step?",
         "options": [
-          "Reassure and repeat in 5 years",
           "Start an ACE inhibitor or ARB",
+          "Reassure and repeat in 5 years",
           "Start a thiazide diuretic",
           "Restrict dietary protein only",
           "Arrange urgent renal biopsy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Start an ACE inhibitor or ARB",
         "explanation": "A confirmed ACR >=3 mg/mmol in diabetes is an indication to start an ACE inhibitor or ARB even when blood pressure is normal, to slow nephropathy progression. These agents reduce intraglomerular pressure and albuminuria."
       },
@@ -612,12 +642,12 @@
         "question": "A 68-year-old on no diuretics has serum Na 122 mmol/L, serum osm 258 mOsm/kg, urine osm 480 mOsm/kg and urine Na 55 mmol/L. He is clinically euvolaemic with normal thyroid and cortisol. What is the diagnosis?",
         "options": [
           "Primary polydipsia",
-          "SIADH",
           "Hypovolaemic hyponatraemia",
           "Beer potomania",
-          "Nephrogenic diabetes insipidus"
+          "Nephrogenic diabetes insipidus",
+          "SIADH"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "SIADH",
         "explanation": "Euvolaemic hyponatraemia with inappropriately concentrated urine (osm >100) and high urine Na (>30) after excluding thyroid and adrenal disease defines SIADH. ADH is being secreted despite low serum osmolality, so the kidney concentrates urine when it should be diluting it."
       },
@@ -627,12 +657,12 @@
         "question": "A patient with polyuria undergoes a water deprivation test. Urine osmolality remains low at 180 mOsm/kg after deprivation, then rises to 620 mOsm/kg after desmopressin. Which condition does this indicate?",
         "options": [
           "Nephrogenic diabetes insipidus",
+          "Cranial (central) diabetes insipidus",
           "Primary polydipsia",
           "SIADH",
-          "Cranial (central) diabetes insipidus",
           "Osmotic diuresis"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "Cranial (central) diabetes insipidus",
         "explanation": "Failure to concentrate on deprivation with a robust rise in urine osmolality after exogenous desmopressin identifies cranial DI, where endogenous ADH is deficient but the kidney responds normally to replacement. A nephrogenic kidney would not respond to DDAVP."
       },
@@ -641,13 +671,13 @@
         "type": "mcq",
         "question": "A young man drinking large volumes of water presents with serum Na 128 mmol/L. Which urine osmolality result best fits primary polydipsia as the cause?",
         "options": [
-          "Urine osm 70 mOsm/kg",
           "Urine osm 350 mOsm/kg",
           "Urine osm 550 mOsm/kg",
           "Urine osm 700 mOsm/kg",
+          "Urine osm 70 mOsm/kg",
           "Urine osm 900 mOsm/kg"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Urine osm 70 mOsm/kg",
         "explanation": "In primary polydipsia ADH is appropriately suppressed, so the kidney produces maximally dilute urine below 100 mOsm/kg. This distinguishes it from SIADH, where urine remains inappropriately concentrated."
       },
@@ -656,13 +686,13 @@
         "type": "mcq",
         "question": "A 78-year-old with vomiting and reduced urine output has an AKI. A spot urine sodium is 12 mmol/L. Which interpretation is most appropriate?",
         "options": [
-          "Acute tubular necrosis",
           "Prerenal AKI with sodium-avid retention",
+          "Acute tubular necrosis",
           "SIADH",
           "Salt-wasting nephropathy",
           "Post-obstructive diuresis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Prerenal AKI with sodium-avid retention",
         "explanation": "A urine sodium below 20 mmol/L indicates the tubule is reabsorbing sodium avidly in response to reduced effective circulating volume. In a hypovolaemic patient with vomiting this is classic prerenal AKI. ATN would instead show a urine sodium above 40 mmol/L."
       },
@@ -672,12 +702,12 @@
         "question": "A patient with recurrent vomiting has a metabolic alkalosis. Urine sodium is 45 mmol/L but urine chloride is 10 mmol/L. What does this indicate?",
         "options": [
           "Chloride-resistant alkalosis from hyperaldosteronism",
-          "Chloride-responsive alkalosis that will correct with IV saline",
           "Acute tubular necrosis",
+          "Chloride-responsive alkalosis that will correct with IV saline",
           "Type 1 renal tubular acidosis",
           "Diuretic abuse requiring potassium-sparing therapy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Chloride-responsive alkalosis that will correct with IV saline",
         "explanation": "In metabolic alkalosis bicarbonaturia drags sodium out, so urine sodium is misleadingly high; urine chloride is the true marker. A urine chloride below 20 mmol/L defines a chloride-responsive alkalosis, consistent with vomiting and volume depletion, which corrects with saline."
       },
@@ -688,11 +718,11 @@
         "options": [
           "Potassium loss is gastrointestinal",
           "Intake is inadequate",
-          "There is inappropriate renal potassium wasting",
           "The result confirms transcellular shift only",
-          "The kidney is conserving potassium appropriately"
+          "The kidney is conserving potassium appropriately",
+          "There is inappropriate renal potassium wasting"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "There is inappropriate renal potassium wasting",
         "explanation": "In hypokalaemia the kidney should conserve potassium and produce a urine potassium below 20 mmol/L. A value above 20 mmol/L indicates inappropriate renal wasting, pointing to diuretics, hyperaldosteronism, renal tubular acidosis, or magnesium depletion."
       },
@@ -701,13 +731,13 @@
         "type": "mcq",
         "question": "A 70-year-old man with vomiting and hypotension has an AKI. Spot indices: urine Na 12 mmol/L, urine osmolality 620 mOsm/kg, FENa 0.4%. Which is the most likely diagnosis and appropriate first step?",
         "options": [
-          "Pre-renal AKI — give a fluid challenge",
           "Acute tubular necrosis — supportive management only",
+          "Pre-renal AKI — give a fluid challenge",
           "Post-renal obstruction — urgent catheterisation",
           "Acute interstitial nephritis — stop the offending drug",
           "Rapidly progressive glomerulonephritis — start steroids"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Pre-renal AKI — give a fluid challenge",
         "explanation": "A FENa < 1% with low urine sodium and concentrated urine (> 500 mOsm/kg) reflects sodium-avid tubules responding to hypoperfusion. The clinical picture of volume loss supports a fluid challenge as first-line management."
       },
@@ -716,13 +746,13 @@
         "type": "mcq",
         "question": "A patient with AKI on regular furosemide has a FENa of 3%. How should this result be interpreted?",
         "options": [
-          "FENa is unreliable here; calculate FEUrea instead",
           "It confirms ATN and diuretics can be ignored",
           "It confirms pre-renal AKI because the value is elevated",
           "It confirms post-renal obstruction",
+          "FENa is unreliable here; calculate FEUrea instead",
           "It indicates the patient is euvolaemic and needs no assessment"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "FENa is unreliable here; calculate FEUrea instead",
         "explanation": "Loop diuretics cause natriuresis that artefactually raises FENa, so a value of 3% cannot be trusted to indicate ATN in this patient. FEUrea is diuretic-independent, and a value below 35% would favour a pre-renal state."
       },
@@ -749,12 +779,12 @@
         "question": "A 68-year-old man with back pain, anaemia and raised creatinine has a urine dipstick that is negative for protein. Myeloma is suspected. Which investigation best detects urinary Bence-Jones protein?",
         "options": [
           "Repeat urine dipstick after fluids",
-          "Urine protein electrophoresis with immunofixation",
           "Urine microscopy for red cell casts",
+          "Urine protein electrophoresis with immunofixation",
           "Serum sodium and osmolality",
           "24-hour urinary creatinine clearance"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Urine protein electrophoresis with immunofixation",
         "explanation": "The dipstick detects only albumin, so it misses free light chains. Urine protein electrophoresis identifies a monoclonal band and immunofixation confirms and types it as kappa or lambda."
       },
@@ -764,12 +794,12 @@
         "question": "Why is a standard urine dipstick unreliable for excluding Bence-Jones proteinuria?",
         "options": [
           "It only reacts with glucose",
-          "It only detects albumin, not free light chains",
           "It is affected by urine pH above 7",
           "It only detects haemoglobin",
-          "It requires a 24-hour sample to work"
+          "It requires a 24-hour sample to work",
+          "It only detects albumin, not free light chains"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "It only detects albumin, not free light chains",
         "explanation": "The dipstick protein pad is designed to bind albumin. Monoclonal free light chains are chemically different, so they are not detected and the dipstick can read negative despite significant light-chain proteinuria."
       },
@@ -793,13 +823,13 @@
         "type": "mcq",
         "question": "A 24-year-old woman has a strongly positive urine pregnancy test but a recent ultrasound showed a molar pregnancy with very high hCG levels. On a repeat clinic device her urine test unexpectedly reads negative. What is the most likely explanation?",
         "options": [
-          "The hook (prozone) effect from extremely high hCG saturating the antibodies",
           "Cross-reaction with luteinising hormone",
           "The pregnancy has spontaneously resolved",
           "The urine was too concentrated",
+          "The hook (prozone) effect from extremely high hCG saturating the antibodies",
           "The device detects only the alpha-subunit of hCG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "The hook (prozone) effect from extremely high hCG saturating the antibodies",
         "explanation": "In molar and multiple pregnancies hCG can be so high that it saturates both capture and detection antibodies, preventing the sandwich complex from forming and giving a false-negative result. Diluting the urine and retesting restores a correct positive."
       },
@@ -823,13 +853,13 @@
         "type": "mcq",
         "question": "A woman with a positive urine pregnancy test attends with left iliac fossa pain and light vaginal bleeding. Her serum beta-hCG has risen only 20% over 48 hours. What does this pattern most strongly suggest?",
         "options": [
-          "An ectopic or non-viable pregnancy",
           "A normally progressing intrauterine pregnancy",
           "A false-positive urine test",
+          "An ectopic or non-viable pregnancy",
           "A completed miscarriage with no remaining hCG",
           "Laboratory contamination of the sample"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "An ectopic or non-viable pregnancy",
         "explanation": "A normal early intrauterine pregnancy raises serum beta-hCG by at least 63% over 48 hours, so a rise of only 20% is abnormal. Combined with pain and bleeding this pattern strongly points to an ectopic pregnancy requiring urgent assessment."
       },
@@ -839,12 +869,12 @@
         "question": "A patient has a hyperchloraemic (normal anion gap) metabolic acidosis. The urine anion gap is calculated as +32. Which mechanism does this most strongly support?",
         "options": [
           "Gastrointestinal bicarbonate loss from diarrhoea",
-          "Impaired renal ammonium excretion (renal tubular acidosis)",
           "Accumulation of unmeasured plasma anions such as lactate",
           "Respiratory compensation for a metabolic alkalosis",
-          "Loss of hydrochloric acid through vomiting"
+          "Loss of hydrochloric acid through vomiting",
+          "Impaired renal ammonium excretion (renal tubular acidosis)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Impaired renal ammonium excretion (renal tubular acidosis)",
         "explanation": "A positive urine anion gap indicates low urinary NH4+ excretion, meaning the kidney is failing to excrete acid appropriately. In the context of a normal anion gap acidosis this points to renal tubular acidosis rather than a gastrointestinal cause."
       },
@@ -854,12 +884,12 @@
         "question": "A woman with recurrent renal calculi is found to have a normal anion gap metabolic acidosis, hypokalaemia, and a urine pH of 6.2 that will not fall below 5.5 despite the systemic acidosis. Which diagnosis fits best?",
         "options": [
           "Type 2 (proximal) renal tubular acidosis",
-          "Type 4 renal tubular acidosis",
           "Type 1 (distal) renal tubular acidosis",
+          "Type 4 renal tubular acidosis",
           "Diarrhoeal bicarbonate loss",
           "Diabetic ketoacidosis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Type 1 (distal) renal tubular acidosis",
         "explanation": "Inability to acidify the urine below pH 5.5 despite systemic acidosis is the hallmark of distal (Type 1) RTA due to failed distal H+ secretion. It is classically associated with hypokalaemia and nephrocalcinosis or stones."
       },
@@ -870,11 +900,11 @@
         "options": [
           "Type 1 (distal) RTA",
           "Type 2 (proximal) RTA",
-          "Type 4 RTA",
           "Combined Type 1 and Type 2 RTA",
+          "Type 4 RTA",
           "No RTA — this is a high anion gap acidosis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Type 4 RTA",
         "explanation": "Type 4 RTA is the hyperkalaemic form, caused by hypoaldosteronism or aldosterone resistance, commonly seen in diabetes and with ACE inhibitors. Reduced ammonium production limits acid excretion, but the distal nephron can still acidify the urine below pH 5.5."
       },
@@ -883,13 +913,13 @@
         "type": "mcq",
         "question": "A 34-year-old man with recurrent renal colic has a plain KUB X-ray reported as normal, but CT KUB shows a 7 mm calculus. His 24h urine pH is consistently 5.2. What is the most likely stone composition?",
         "options": [
+          "Uric acid",
           "Calcium oxalate",
           "Calcium phosphate",
-          "Uric acid",
           "Struvite",
           "Cystine"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Uric acid",
         "explanation": "Uric acid stones are radiolucent and therefore invisible on plain KUB while clearly seen on CT. They form in persistently acidic urine (pH < 5.5), matching this patient's pH of 5.2. Management includes urinary alkalinisation to pH 6.5-7 and allopurinol."
       },
@@ -899,12 +929,12 @@
         "question": "A woman with a chronic Proteus mirabilis urinary tract infection is found to have a large staghorn calculus and a urine pH of 7.8. What is the most appropriate priority in management?",
         "options": [
           "Long-term suppressive antibiotics alone with observation",
-          "Complete surgical removal of the stone",
           "Thiazide diuretic to reduce urinary calcium",
+          "Complete surgical removal of the stone",
           "Allopurinol to lower urate production",
           "Dietary calcium restriction"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Complete surgical removal of the stone",
         "explanation": "This is a struvite infection stone driven by urease-producing Proteus in alkaline urine. Any residual fragment harbours bacteria and acts as a nidus for regrowth and recurrent urosepsis, so complete removal is essential. Antibiotics are adjunctive but cannot sterilise a retained stone."
       },
@@ -916,10 +946,10 @@
           "Calcium",
           "Oxalate",
           "Urate",
-          "Citrate",
-          "Sodium"
+          "Sodium",
+          "Citrate"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Citrate",
         "explanation": "Citrate chelates calcium and inhibits crystal aggregation, making it the urine's main natural stone inhibitor. Low urinary citrate (hypocitraturia) therefore raises risk and is treated with potassium citrate. The other analytes increase stone risk when elevated, not when low."
       }

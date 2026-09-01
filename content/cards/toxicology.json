@@ -25,6 +25,21 @@
         "id": "tox_para_fc_05",
         "front": "State the King's College Criteria for paracetamol-induced acute liver failure (transplant referral).",
         "back": "Arterial pH <7.3 after resuscitation; OR all three of INR >6.5 (PT >100 s), creatinine >300 micromol/L, and grade III/IV encephalopathy."
+      },
+      {
+        "id": "tox_para_nac_reaction_fc_01",
+        "front": "A patient on N-acetylcysteine develops flushing, urticaria and wheeze — what is this and what do you do?",
+        "back": "An <b>anaphylactoid reaction</b> (dose/rate-related histamine release, NOT true allergy). <b>Pause or slow the infusion</b>, give an <b>antihistamine</b> (&plusmn; bronchodilator/nebulised salbutamol for wheeze), then <b>restart at a slower rate</b>. It is not a reason to withhold the antidote."
+      },
+      {
+        "id": "tox_para_stopnac_fc_01",
+        "front": "When can empirically-started NAC be stopped, and what bloods guide end-of-treatment disposition?",
+        "back": "If NAC was started empirically (late/staggered/uncertain) and a <b>valid timed level</b> (single acute, known time) later falls <b>below the treatment line</b> with <b>normal ALT, INR and creatinine</b> in an asymptomatic patient, it can be stopped. At the end of the infusion recheck <b>ALT, INR, creatinine and venous pH/bicarbonate</b> to decide continue vs stop vs liver-unit referral."
+      },
+      {
+        "id": "tox_para_charcoal_fc_01",
+        "front": "What is the role of activated charcoal in paracetamol overdose?",
+        "back": "Consider a single dose <b>only within ~1 hour</b> of a significant ingestion (&ge;150 mg/kg or &ge;12 g) in a patient with a protected airway &mdash; it reduces absorption. It is an adjunct and <b>does not replace NAC</b>; the antidote decision still rests on the timed level / staggered-overdose rules."
       }
     ],
     "investigations__TOXICOLOGY__Salicylate Level": [
@@ -52,6 +67,21 @@
         "id": "tox_sal_fc_05",
         "front": "Why is intubating and ventilating a salicylate-poisoned patient dangerous?",
         "back": "They rely on compensatory hyperventilation to defend blood pH. Sedation/ventilation that reduces minute ventilation abolishes this compensation, causing catastrophic acidaemia and a surge of salicylate into the CNS. Only do so with expert input."
+      },
+      {
+        "id": "tox_sal_ladder_fc_01",
+        "front": "How do salicylate levels map to escalating treatment (the action ladder)?",
+        "back": "<b>&lt;300 mg/L (2.2 mmol/L)</b> = therapeutic/usually asymptomatic. <b>&ge;500 mg/L (3.6 mmol/L)</b> (or clinical toxicity/acidosis) &rarr; IV fluids + <b>urinary alkalinisation</b> with sodium bicarbonate (urine pH 7.5&ndash;8.5). <b>&gt;700 mg/L (5.1 mmol/L)</b>, or renal failure/refractory acidosis/seizures/pulmonary oedema/altered consciousness &rarr; <b>haemodialysis</b>."
+      },
+      {
+        "id": "tox_sal_glucose_fc_01",
+        "front": "Why give glucose in significant salicylate toxicity even when the serum glucose is normal?",
+        "back": "Salicylate can cause <b>neuroglycopenia</b> &mdash; low CSF glucose with a normal or even high blood glucose &mdash; contributing to agitation, seizures and reduced consciousness. Give <b>IV glucose</b> for any altered mental state in salicylate poisoning regardless of the serum reading."
+      },
+      {
+        "id": "tox_sal_charcoal_fc_01",
+        "front": "When is activated charcoal useful in salicylate overdose?",
+        "back": "A single dose <b>within ~1 hour</b> of ingestion (airway protected) reduces absorption; repeat doses may be considered in large or enteric-coated ingestions where absorption is prolonged. It does not replace levels, alkalinisation or dialysis, and salicylate levels must still be <b>repeated</b> because absorption can continue and levels rise."
       }
     ],
     "investigations__TOXICOLOGY__Carboxyhaemoglobin (CO Poisoning)": [
@@ -79,6 +109,16 @@
         "id": "tox_cohb_fc_05",
         "front": "Which features prompt consideration of hyperbaric oxygen in CO poisoning?",
         "back": "Loss of consciousness/syncope, seizures, cardiac ischaemia, neurological signs, pregnancy, or very high COHb levels."
+      },
+      {
+        "id": "tox_co_cyanide_fc_01",
+        "front": "A patient rescued from a house fire has a high lactate and metabolic acidosis despite oxygen — what else must you consider?",
+        "back": "<b>Concurrent cyanide poisoning</b> from combustion of plastics/foam. Cyanide inhibits mitochondrial cytochrome oxidase &rarr; anaerobic metabolism and a <b>high lactate / persistent metabolic acidosis</b>. Give 100% oxygen and consider the antidote <b>hydroxocobalamin</b> (or dicobalt edetate). Treat CO and cyanide together in smoke inhalation."
+      },
+      {
+        "id": "tox_co_pregnancy_fc_01",
+        "front": "Why is pregnancy a lower threshold for hyperbaric oxygen in CO poisoning, and when do you stop oxygen?",
+        "back": "<b>Fetal haemoglobin binds CO even more avidly</b> than adult Hb, so the fetus is at high risk even when maternal COHb looks modest &mdash; give <b>prolonged maternal O&#8322;</b> and lower the threshold for HBO. In general, continue high-flow 100% O&#8322; <b>until the patient is asymptomatic and COHb is normal</b> (roughly <5%)."
       }
     ],
     "investigations__TOXICOLOGY__Osmolar & Anion Gap (Toxic Alcohols)": [
@@ -106,6 +146,16 @@
         "id": "tox_osm_fc_05",
         "front": "Why does a normal osmolar gap not exclude toxic alcohol poisoning?",
         "back": "In late presentation the parent alcohol may already be fully metabolised, so the osmolar gap normalises while the anion gap is now high from accumulated acids. Suspicion should still prompt early fomepizole and dialysis."
+      },
+      {
+        "id": "tox_ta_bicarb_fc_01",
+        "front": "Beyond fomepizole and dialysis, what else is given in toxic alcohol poisoning?",
+        "back": "<b>IV sodium bicarbonate</b> to correct the severe metabolic acidosis (it also traps formate, reducing methanol-induced optic toxicity), plus the cofactors <b>folinic acid</b> (methanol) and <b>thiamine + pyridoxine</b> (ethylene glycol). Always discuss with <b>NPIS/TOXBASE</b> for antidote and haemodialysis thresholds."
+      },
+      {
+        "id": "tox_ta_isopropanol_fc_01",
+        "front": "A patient has a raised osmolar gap with ketosis but little or no metabolic acidosis — which toxic alcohol fits?",
+        "back": "<b>Isopropanol (isopropyl alcohol)</b> — metabolised to <b>acetone</b>, a ketone rather than an acid, so it raises the osmolar gap and causes ketosis WITHOUT a high-anion-gap acidosis. This contrasts with methanol and ethylene glycol, which produce acids and a HAGMA. Isopropanol is usually managed supportively (ADH blockade/dialysis rarely needed)."
       }
     ],
     "investigations__TOXICOLOGY__Blood Gas & Lactate (Overdose)": [
@@ -122,7 +172,7 @@
       {
         "id": "tox_gas_fc_03",
         "front": "Why can SpO₂ be normal in a critically poisoned patient with a high lactate?",
-        "back": "In CO and cyanide poisoning, oxygen delivery is intact but cellular oxygen utilisation is blocked. Pulse oximetry reads normal (and misreads carboxyhaemoglobin as oxyhaemoglobin), so a normal SpO₂ does not exclude lethal poisoning."
+        "back": "<b>Cyanide</b> blocks cellular oxygen <b>utilisation</b> (mitochondrial cytochrome oxidase) while delivery is intact. <b>CO</b> is different: it impairs oxygen <b>carriage and delivery</b> (carboxyhaemoglobin, left-shifted curve). In BOTH, standard pulse oximetry is falsely normal because it cannot distinguish COHb (and poor utilisation) from true oxygenation &mdash; so a normal SpO&#8322; never excludes lethal poisoning; measure lactate and co-oximetry."
       },
       {
         "id": "tox_gas_fc_04",
@@ -133,6 +183,16 @@
         "id": "tox_gas_fc_05",
         "front": "Give three toxicological causes of a high anion gap metabolic acidosis.",
         "back": "Toxic alcohols (methanol, ethylene glycol), metformin, paracetamol, salicylate, cyanide and carbon monoxide (MUDPILES-CAT mnemonic). All generate unmeasured acids or lactate."
+      },
+      {
+        "id": "tox_gas_tca_fc_01",
+        "front": "A tricyclic (amitriptyline) overdose shows a widening QRS and metabolic acidosis on the gas — what is the key treatment?",
+        "back": "<b>IV sodium bicarbonate</b>. Acidosis worsens the sodium-channel blockade that drives TCA cardiotoxicity, so bicarbonate (targeting a QRS narrowing / pH ~7.45&ndash;7.55) is given for <b>QRS &gt;100&ndash;120 ms, ventricular arrhythmia, or significant acidosis/hypotension</b>. It is both an antidote and an acid-base correction."
+      },
+      {
+        "id": "tox_gas_fingerprint_action_fc_01",
+        "front": "Match each blood-gas \"fingerprint\" to its immediate action.",
+        "back": "<b>Salicylate</b> (resp alkalosis + HAGMA) &rarr; alkalinise &plusmn; dialyse. <b>Toxic alcohols</b> (HAGMA + osmolar gap) &rarr; fomepizole/ethanol + dialysis. <b>Cyanide</b> (high lactate, good SpO&#8322;) &rarr; hydroxocobalamin. <b>CO</b> &rarr; high-flow 100% O&#8322;. <b>MALA</b> (metformin + AKI) &rarr; dialysis. <b>Opioid</b> (respiratory acidosis, low GCS) &rarr; naloxone + ventilation."
       }
     ],
     "investigations__TOXICOLOGY__TOXBASE / NPIS Guidance": [
@@ -160,6 +220,21 @@
         "id": "tox_toxbase_fc_05",
         "front": "Match the antidotes: opioids, paracetamol, digoxin, cyanide, toxic alcohols, beta-blocker/CCB toxicity, local anaesthetic cardiotoxicity.",
         "back": "Opioids → naloxone; paracetamol → N-acetylcysteine; digoxin → DigiFab; cyanide → hydroxocobalamin; toxic alcohols → fomepizole; beta-blocker/CCB → high-dose insulin-dextrose; local anaesthetic cardiotoxicity → IV lipid emulsion. (Flumazenil for benzodiazepines is rarely used due to seizure risk.)"
+      },
+      {
+        "id": "tox_npis_psychosocial_fc_01",
+        "front": "After medically managing a deliberate overdose, what assessment must always follow?",
+        "back": "A <b>psychosocial / mental-health risk assessment</b> (risk of further self-harm, intent, safeguarding) for every deliberate overdose &mdash; and a <b>capacity assessment</b>: a patient <b>with</b> capacity may refuse treatment, while emergency treatment can proceed under the Mental Capacity Act (or common law) if they lack it. Involve liaison psychiatry before discharge."
+      },
+      {
+        "id": "tox_npis_wbi_fc_01",
+        "front": "When is whole-bowel irrigation used instead of activated charcoal?",
+        "back": "When charcoal does not bind the toxin or absorption is prolonged: <b>iron, lithium, sustained/modified-release preparations, and body-packers</b>. It uses polyethylene glycol to flush the gut. (Activated charcoal is for most other significant ingestions within ~1 h with a protected airway.)"
+      },
+      {
+        "id": "tox_npis_antidotes2_fc_01",
+        "front": "Name the antidotes for TCA, iron, organophosphate and beta-blocker poisoning.",
+        "back": "<b>TCA</b> &rarr; sodium bicarbonate (for QRS widening/arrhythmia/acidosis). <b>Iron</b> &rarr; desferrioxamine. <b>Organophosphate</b> &rarr; atropine (+ pralidoxime). <b>Beta-blocker</b> &rarr; glucagon and high-dose insulin-dextrose. (Add sulfonylurea &rarr; octreotide/glucose.)"
       }
     ]
   },
@@ -170,13 +245,13 @@
         "type": "mcq",
         "question": "A patient presents 5 hours after a single acute paracetamol overdose with a known ingestion time. Their plasma paracetamol level falls above the treatment line on the nomogram. What is the correct action?",
         "options": [
-          "Start N-acetylcysteine",
           "Repeat the level in 4 hours before deciding",
           "Discharge as the level is uninterpretable",
+          "Start N-acetylcysteine",
           "Give activated charcoal only",
           "Wait until 8 hours post-ingestion to treat"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Start N-acetylcysteine",
         "explanation": "A level on or above the treatment line indicates significant risk of hepatotoxicity and mandates NAC. The 5-hour timed sample is validly plotted on the nomogram for a single acute overdose."
       },
@@ -185,13 +260,13 @@
         "type": "mcq",
         "question": "A patient reports taking paracetamol tablets in several doses over the past two days but cannot give exact times. How should treatment be guided?",
         "options": [
-          "Treat with NAC regardless of the paracetamol level",
           "Plot the single level on the nomogram as usual",
           "Take a level before 4 hours to exclude toxicity",
           "Withhold NAC until liver enzymes rise",
-          "Use the level only if it is above 100 mg/L"
+          "Use the level only if it is above 100 mg/L",
+          "Treat with NAC regardless of the paracetamol level"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Treat with NAC regardless of the paracetamol level",
         "explanation": "The nomogram is only valid for a single acute overdose with a known time. In a staggered overdose or uncertain timing, NAC is given regardless of the measured level."
       },
@@ -200,13 +275,13 @@
         "type": "mcq",
         "question": "Which single finding, after adequate resuscitation, meets the King's College Criteria for transplant referral in paracetamol-induced liver failure?",
         "options": [
-          "Arterial pH <7.3",
           "Creatinine >150 micromol/L",
+          "Arterial pH <7.3",
           "INR >2.0",
           "ALT >1000 IU/L",
           "Grade I encephalopathy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Arterial pH <7.3",
         "explanation": "An arterial pH below 7.3 after fluid resuscitation is a stand-alone King's College Criterion. The alternative pathway requires the triad of INR >6.5, creatinine >300 micromol/L, and grade III/IV encephalopathy together."
       }
@@ -233,12 +308,12 @@
         "question": "A patient with salicylate overdose has a first serum level of 320 mg/L that is only mildly symptomatic. He took enteric-coated tablets. What is the most appropriate next step regarding the level?",
         "options": [
           "Discharge as the level is below the therapeutic threshold",
-          "Repeat the salicylate level in 2-3 hours as absorption may continue",
           "Accept the single level as the definitive peak",
           "Wait 24 hours before any repeat sampling",
-          "Assume the level will fall and stop monitoring"
+          "Assume the level will fall and stop monitoring",
+          "Repeat the salicylate level in 2-3 hours as absorption may continue"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Repeat the salicylate level in 2-3 hours as absorption may continue",
         "explanation": "Enteric-coated tablets are absorbed slowly and erratically, so an early level can rise substantially and underestimate the true burden. Repeating every 2-3 hours until the level is clearly falling is essential to avoid a falsely reassuring result."
       },
@@ -248,12 +323,12 @@
         "question": "A salicylate-poisoned patient is being managed with IV sodium bicarbonate for urinary alkalinisation, but the urine remains acidic. Which electrolyte abnormality is the most likely cause of the failure to alkalinise the urine?",
         "options": [
           "Hypernatraemia",
-          "Hypercalcaemia",
           "Hypokalaemia",
+          "Hypercalcaemia",
           "Hypomagnesaemia",
           "Hyperphosphataemia"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Hypokalaemia",
         "explanation": "When potassium is depleted the kidney reabsorbs K⁺ in exchange for secreting H⁺, acidifying the urine despite bicarbonate therapy. Correcting the hypokalaemia allows the urine to become alkaline so ion-trapping can enhance salicylate excretion."
       }
@@ -265,12 +340,12 @@
         "question": "A family of four presents with headache, nausea and dizziness that began at home. Their pulse oximeter readings are all 99%. What is the most appropriate investigation to confirm the suspected diagnosis?",
         "options": [
           "Repeat pulse oximetry with a different probe",
-          "Blood CO-oximetry to measure %COHb",
           "Arterial blood gas PaO₂ alone",
+          "Blood CO-oximetry to measure %COHb",
           "Chest X-ray",
           "Serum lactate alone"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Blood CO-oximetry to measure %COHb",
         "explanation": "Pulse oximeters cannot distinguish carboxyhaemoglobin from oxyhaemoglobin and read falsely normal in CO poisoning. CO-oximetry measures %COHb directly and confirms the diagnosis. Multiple household members affected together is a classic pointer to CO exposure."
       },
@@ -280,12 +355,12 @@
         "question": "Which statement best explains why patients with carbon monoxide poisoning are hypoxic despite a normal PaO₂?",
         "options": [
           "CO reduces the amount of dissolved oxygen in plasma",
-          "CO binds haemoglobin with high affinity and shifts the O₂ dissociation curve left, impairing oxygen delivery to tissues",
           "CO causes bronchospasm and reduces alveolar ventilation",
           "CO directly damages the alveolar-capillary membrane reducing diffusion",
-          "CO increases metabolic oxygen demand in peripheral tissues"
+          "CO increases metabolic oxygen demand in peripheral tissues",
+          "CO binds haemoglobin with high affinity and shifts the O₂ dissociation curve left, impairing oxygen delivery to tissues"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "CO binds haemoglobin with high affinity and shifts the O₂ dissociation curve left, impairing oxygen delivery to tissues",
         "explanation": "CO binds haemoglobin with roughly 250 times the affinity of oxygen, reducing oxygen-carrying capacity. It also shifts the dissociation curve left, so the remaining oxygen is not released to tissues. PaO₂ measures dissolved oxygen, which is unaffected, so it stays normal."
       },
@@ -312,12 +387,12 @@
         "question": "A patient presents 3 hours after drinking antifreeze. He is alert with normal blood gases, but his serum osmolar gap is markedly raised at 28. Which statement best explains this early finding?",
         "options": [
           "The high anion gap from oxalic acid is driving the osmolar gap",
-          "Unmetabolised ethylene glycol is osmotically active and has not yet been converted to acids",
           "Calcium oxalate crystals in the blood raise measured osmolality",
+          "Unmetabolised ethylene glycol is osmotically active and has not yet been converted to acids",
           "Formic acid accumulation has increased serum osmolality",
           "Acute kidney injury has caused urea retention and a high osmolar gap"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Unmetabolised ethylene glycol is osmotically active and has not yet been converted to acids",
         "explanation": "Early after ingestion the intact parent alcohol is a small osmotically active molecule that raises the osmolar gap before any acidosis develops. Metabolism by alcohol dehydrogenase to acids, which raises the anion gap, occurs later."
       },
@@ -328,11 +403,11 @@
         "options": [
           "Oxalic acid",
           "Glycolic acid",
-          "Formic acid",
           "Lactic acid",
-          "Beta-hydroxybutyrate"
+          "Beta-hydroxybutyrate",
+          "Formic acid"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Formic acid",
         "explanation": "Methanol is metabolised to formic acid, which is directly toxic to the optic nerve and retina, producing visual disturbance, snow-field vision and potentially permanent blindness. A hyperaemic or swollen optic disc is a classic sign."
       },
@@ -358,13 +433,13 @@
         "type": "mcq",
         "question": "A 24-year-old presents with tinnitus, tachypnoea and confusion after an overdose. The blood gas shows a primary respiratory alkalosis combined with a high anion gap metabolic acidosis. Which ingestion does this pattern most strongly suggest?",
         "options": [
-          "Salicylate (aspirin)",
           "Opioid (heroin)",
           "Benzodiazepine",
+          "Salicylate (aspirin)",
           "Tricyclic antidepressant",
           "Iron"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Salicylate (aspirin)",
         "explanation": "Salicylate directly stimulates the respiratory centre producing a respiratory alkalosis, while accumulated acid metabolites cause a high anion gap metabolic acidosis. This mixed pattern with tinnitus and tachypnoea is the classic fingerprint of aspirin poisoning."
       },
@@ -373,13 +448,13 @@
         "type": "mcq",
         "question": "A patient rescued from a house fire has a profound high anion gap lactic acidosis and a very high lactate, yet the SpO₂ reads 99% and PaO₂ is normal. What is the most appropriate empirical antidote?",
         "options": [
-          "Hydroxocobalamin",
           "Naloxone",
           "Flumazenil",
           "N-acetylcysteine",
-          "Sodium bicarbonate alone"
+          "Sodium bicarbonate alone",
+          "Hydroxocobalamin"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Hydroxocobalamin",
         "explanation": "Smoke inhalation with a severe lactic acidosis despite adequate oxygenation points to cyanide toxicity, which blocks cellular oxygen use. Hydroxocobalamin should be given empirically without waiting for confirmatory levels."
       },
@@ -388,13 +463,13 @@
         "type": "mcq",
         "question": "An unresponsive patient has pinpoint pupils. The arterial blood gas shows pH 7.20, PaCO₂ 9.0 kPa and a normal anion gap. Which acid–base disturbance and cause does this represent?",
         "options": [
-          "Respiratory acidosis from opioid-induced hypoventilation",
           "High anion gap metabolic acidosis from cyanide",
+          "Respiratory acidosis from opioid-induced hypoventilation",
           "Respiratory alkalosis from salicylate",
           "Metabolic alkalosis from vomiting",
           "Normal anion gap metabolic acidosis from diarrhoea"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Respiratory acidosis from opioid-induced hypoventilation",
         "explanation": "A raised PaCO₂ with a low pH is a respiratory acidosis, and pinpoint pupils with reduced consciousness indicate opioid toxicity causing hypoventilation. Naloxone is the appropriate antidote to restore ventilation."
       }
