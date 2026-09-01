@@ -118,13 +118,23 @@
       },
       {
         "id": "sc_ugi_dbe_fc_04",
-        "front": "Name four therapeutic uses of double-balloon enteroscopy.",
+        "front": "Name the therapeutic uses of double-balloon enteroscopy.",
         "back": "Argon plasma coagulation/clipping of small-bowel bleeding (angiodysplasia), polypectomy (e.g. Peutz-Jeghers polyps), stricture dilatation, retrieval of a retained capsule, lesion tattooing before surgery, and ERCP in altered anatomy (post-Roux-en-Y)."
       },
       {
         "id": "sc_ugi_dbe_fc_05",
         "front": "Which complication is characteristically linked to the antegrade approach of balloon enteroscopy?",
         "back": "Acute pancreatitis, caused by traction of the pleated bowel on the pancreas. Perforation and bleeding are the other major complications."
+      },
+      {
+        "id": "sc_ugi_ogd_varices_fc_01",
+        "front": "What is the rescue ladder if endoscopic band ligation fails to control variceal bleeding?",
+        "back": "<b>Balloon tamponade</b> (Sengstaken-Blakemore / Minnesota tube) as a temporising bridge, then <b>TIPS</b> (transjugular intrahepatic portosystemic shunt) for definitive rescue of uncontrolled or rebleeding varices. Band ligation + terlipressin + prophylactic antibiotics remain first-line."
+      },
+      {
+        "id": "sc_ugi_ogd_barrett_fc_01",
+        "front": "How is Barrett's oesophagus managed once high-grade dysplasia or early adenocarcinoma is found?",
+        "back": "Endoscopic therapy: <b>endoscopic mucosal resection (EMR)</b> of visible lesions and <b>radiofrequency ablation (RFA)</b> of residual Barrett's. Non-dysplastic Barrett's is monitored by surveillance endoscopy with biopsies."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Lower GI": [
@@ -202,6 +212,21 @@
         "id": "sc_lgi_procto_fc_05",
         "front": "Key safety caveat of a normal proctoscopy / rigid sigmoidoscopy?",
         "back": "They only view the anorectum, so a normal result does NOT exclude a more proximal colorectal cancer. Patients with red-flag symptoms still need colonoscopy."
+      },
+      {
+        "id": "sc_lgi_colon_ctc_fc_01",
+        "front": "What is the alternative when colonoscopy is incomplete or the patient is unfit for it?",
+        "back": "<b>CT colonography</b> (minimal prep, no sedation) &mdash; used after failed caecal intubation or in frail/comorbid patients. It images the colon but <b>cannot biopsy or remove polyps</b>, so a positive finding still needs colonoscopy."
+      },
+      {
+        "id": "sc_lgi_colon_fit_fc_01",
+        "front": "What FIT threshold triggers a colorectal 2-week-wait, and what is the screening cadence?",
+        "back": "A faecal immunochemical test (FIT) of <b>&ge;10 &micro;g Hb/g faeces</b> warrants urgent (2-week-wait) referral. The NHS bowel-cancer screening programme offers <b>FIT every 2 years</b> to the eligible age range."
+      },
+      {
+        "id": "sc_lgi_flexisig_asuc_fc_01",
+        "front": "What is the role of flexible sigmoidoscopy in acute severe ulcerative colitis?",
+        "back": "A cautious, <b>unprepped</b> flexible sigmoidoscopy grades mucosal severity and excludes CMV/infection. <b>Full colonoscopy is avoided</b> in acute severe colitis because of the perforation / toxic megacolon risk."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Respiratory / Thoracic": [
@@ -523,12 +548,12 @@
         "question": "A 58-year-old man presents with a 6-week history of progressive dysphagia to solids and 5 kg weight loss. What is the most appropriate next investigation?",
         "options": [
           "Trial of a proton pump inhibitor for 8 weeks",
-          "Urgent 2-week-wait oesophagogastroduodenoscopy",
           "Barium swallow followed by review in 3 months",
+          "Urgent 2-week-wait oesophagogastroduodenoscopy",
           "H. pylori stool antigen test",
           "Routine referral to dietetics"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Urgent 2-week-wait oesophagogastroduodenoscopy",
         "explanation": "New progressive dysphagia with weight loss is an ALARM feature mandating urgent OGD to exclude oesophageal malignancy. OGD allows direct visualisation and biopsy of any suspicious lesion under the 2-week-wait cancer pathway."
       },
@@ -539,11 +564,11 @@
         "options": [
           "Adrenaline injection alone",
           "Observation and repeat endoscopy in 48 hours",
-          "Adrenaline injection plus a second modality such as clipping or thermal therapy",
           "Band ligation of the ulcer",
-          "Balloon dilatation of the duodenum"
+          "Balloon dilatation of the duodenum",
+          "Adrenaline injection plus a second modality such as clipping or thermal therapy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Adrenaline injection plus a second modality such as clipping or thermal therapy",
         "explanation": "A spurting vessel is a high-risk bleeding lesion requiring dual endoscopic therapy: adrenaline injection combined with a mechanical (clip) or thermal method. This is followed by high-dose intravenous PPI to reduce rebleeding."
       },
@@ -568,12 +593,12 @@
         "question": "A patient with a newly diagnosed mid-oesophageal carcinoma is being assessed for curative treatment. Which imaging modality is most accurate for determining the depth of tumour invasion through the oesophageal wall (T-stage)?",
         "options": [
           "CT chest, abdomen and pelvis",
-          "Endoscopic ultrasound (EUS)",
           "Plain barium swallow",
           "Abdominal transabdominal ultrasound",
+          "Endoscopic ultrasound (EUS)",
           "Chest radiograph"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Endoscopic ultrasound (EUS)",
         "explanation": "EUS places a high-frequency probe directly against the oesophageal wall, resolving its individual layers and showing exactly how deep the tumour penetrates. This makes it the most accurate modality for locoregional T-staging, superior to CT for wall-layer detail."
       },
@@ -598,12 +623,12 @@
         "question": "Which type of echoendoscope allows the operator to watch a needle in real time to perform EUS-guided FNA and pseudocyst drainage?",
         "options": [
           "Radial echoendoscope",
-          "Linear echoendoscope",
           "Capsule endoscope",
+          "Linear echoendoscope",
           "Rigid sigmoidoscope",
           "Duodenoscope with side-viewing optics only"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Linear echoendoscope",
         "explanation": "A linear echoendoscope images in the same plane as the scope's long axis, so an advancing needle stays within the ultrasound field and can be tracked throughout. This real-time guidance underpins EUS-FNA/FNB and therapeutic drainage procedures."
       },
@@ -612,13 +637,13 @@
         "type": "mcq",
         "question": "A 62-year-old undergoes ERCP with sphincterotomy for a CBD stone. Six hours later she has severe epigastric pain radiating to the back and a markedly raised serum amylase. What is the most likely complication?",
         "options": [
-          "Post-ERCP pancreatitis",
           "Retroperitoneal duodenal perforation",
           "Post-sphincterotomy bleeding",
           "Ascending cholangitis",
-          "Contrast anaphylaxis"
+          "Contrast anaphylaxis",
+          "Post-ERCP pancreatitis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Post-ERCP pancreatitis",
         "explanation": "New epigastric pain radiating to the back with a sharply elevated amylase after ERCP is the classic picture of post-ERCP pancreatitis, the commonest complication of the procedure. It arises from irritation of the pancreatic duct/sphincter during cannulation."
       },
@@ -627,13 +652,13 @@
         "type": "mcq",
         "question": "Which intervention is recommended to reduce the risk of the commonest complication of ERCP?",
         "options": [
-          "Prophylactic rectal NSAID (e.g. PR diclofenac)",
           "Routine intravenous corticosteroids",
+          "Prophylactic rectal NSAID (e.g. PR diclofenac)",
           "Prophylactic proton pump infusion",
           "Pre-procedure oral bowel preparation",
           "Intravenous vitamin K before the procedure"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Prophylactic rectal NSAID (e.g. PR diclofenac)",
         "explanation": "A rectal NSAID such as diclofenac or indometacin given at the time of ERCP reduces the incidence and severity of post-ERCP pancreatitis. A temporary pancreatic duct stent is an additional measure in high-risk patients."
       },
@@ -642,13 +667,13 @@
         "type": "mcq",
         "question": "A patient with fever, jaundice and right upper quadrant pain has an obstructing distal CBD stone and confirmed ascending cholangitis. After resuscitation and IV antibiotics, what is the definitive management?",
         "options": [
-          "Urgent ERCP for biliary drainage",
           "Elective MRCP in 6 weeks",
           "Immediate laparoscopic cholecystectomy",
           "Oral ursodeoxycholic acid dissolution therapy",
+          "Urgent ERCP for biliary drainage",
           "Percutaneous liver biopsy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Urgent ERCP for biliary drainage",
         "explanation": "Ascending cholangitis from an obstructing CBD stone requires urgent biliary decompression, and ERCP with sphincterotomy and stone extraction or stenting achieves this. It follows resuscitation and antibiotics as the definitive source-control step."
       },
@@ -657,13 +682,13 @@
         "type": "mcq",
         "question": "A 68-year-old woman has iron-deficiency anaemia. OGD and colonoscopy are both normal. What is the most appropriate next investigation to identify the bleeding source?",
         "options": [
-          "Repeat colonoscopy",
           "Capsule endoscopy",
+          "Repeat colonoscopy",
           "Barium swallow",
           "Abdominal ultrasound",
           "Rigid sigmoidoscopy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Capsule endoscopy",
         "explanation": "Capsule endoscopy is the first-line small-bowel investigation for obscure GI bleeding once OGD and colonoscopy are negative. It can reveal small-bowel angiodysplasia, ulcers or tumours that other modalities miss."
       },
@@ -673,12 +698,12 @@
         "question": "In which patient is capsule endoscopy contraindicated without a preceding patency capsule?",
         "options": [
           "A patient taking oral iron",
-          "A patient with a known small-bowel Crohn's stricture",
           "A patient with well-controlled hypertension",
+          "A patient with a known small-bowel Crohn's stricture",
           "A patient who is fasted overnight",
           "A patient with mild reflux"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A patient with a known small-bowel Crohn's stricture",
         "explanation": "A stricture greatly raises the risk of capsule retention and small-bowel obstruction. A dissolvable patency capsule should be used first to confirm the lumen is passable before the video capsule is given."
       },
@@ -687,13 +712,13 @@
         "type": "mcq",
         "question": "What is the principal limitation of capsule endoscopy compared with conventional endoscopy?",
         "options": [
-          "It cannot take biopsies or deliver therapy",
           "It requires general anaesthesia",
           "It cannot image the small bowel",
           "It exposes the patient to high radiation",
-          "It must be retrieved surgically in every patient"
+          "It must be retrieved surgically in every patient",
+          "It cannot take biopsies or deliver therapy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "It cannot take biopsies or deliver therapy",
         "explanation": "Capsule endoscopy is purely diagnostic: it cannot obtain tissue or perform interventions such as cautery or polypectomy, and localisation of findings is only approximate. Positive findings often require device-assisted enteroscopy for tissue or treatment."
       },
@@ -718,12 +743,12 @@
         "question": "A lesion needs to be reached in the distal ileum. Which approach to double-balloon enteroscopy is most appropriate?",
         "options": [
           "Antegrade (oral) approach",
-          "Retrograde (per anum) approach",
           "Percutaneous transhepatic approach",
           "Transnasal approach",
+          "Retrograde (per anum) approach",
           "Transcutaneous ultrasound-guided approach"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Retrograde (per anum) approach",
         "explanation": "The retrograde route passes through the colon and ileocaecal valve to reach the distal ileum. The antegrade oral route is used for proximal and mid small-bowel lesions."
       },
@@ -741,6 +766,21 @@
         "correctIndex": 0,
         "answer": "Acute pancreatitis",
         "explanation": "Traction of the pleated bowel on the pancreas during the antegrade approach can precipitate acute pancreatitis. It presents with epigastric pain and raised amylase or lipase after the procedure."
+      },
+      {
+        "id": "sc_ugi_ogd_varices_q01",
+        "type": "mcq",
+        "question": "A patient with cirrhosis has variceal bleeding that continues despite endoscopic band ligation, terlipressin and antibiotics. What is the appropriate rescue sequence?",
+        "options": [
+          "Immediate total gastrectomy",
+          "A high-dose PPI infusion alone",
+          "Balloon tamponade (Sengstaken-Blakemore) as a bridge, then TIPS",
+          "Repeat banding weekly as an outpatient",
+          "Oral propranolol as acute rescue"
+        ],
+        "correctIndex": 2,
+        "answer": "Balloon tamponade (Sengstaken-Blakemore) as a bridge, then TIPS",
+        "explanation": "Uncontrolled or refractory variceal bleeding is temporised with balloon tamponade (Sengstaken-Blakemore/Minnesota tube) and definitively rescued with TIPS. Beta-blockers are for prophylaxis, not acute rescue, and PPIs treat non-variceal ulcer bleeding."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Lower GI": [
@@ -749,13 +789,13 @@
         "type": "mcq",
         "question": "A 68-year-old man undergoes colonoscopy with snare polypectomy of a 15 mm sigmoid adenoma. Twelve hours later he develops fresh PR bleeding. Which complication is most likely?",
         "options": [
-          "Post-polypectomy bleeding",
           "Splenic rupture",
           "Acute pancreatitis",
+          "Post-polypectomy bleeding",
           "Ascending cholangitis",
           "Aspiration pneumonia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Post-polypectomy bleeding",
         "explanation": "Bleeding from the polypectomy site is a recognised complication and may occur immediately or be delayed for up to two weeks. Fresh PR bleeding shortly after snare removal of an adenoma points directly to the resection site."
       },
@@ -764,13 +804,13 @@
         "type": "mcq",
         "question": "Before an osmotic bowel-preparation regimen for colonoscopy, which investigation is most important to check, particularly in an elderly patient?",
         "options": [
-          "Renal function and electrolytes (U&amp;Es)",
           "Thyroid function tests",
           "Serum amylase",
           "Fasting lipid profile",
-          "Erythrocyte sedimentation rate"
+          "Erythrocyte sedimentation rate",
+          "Renal function and electrolytes (U&amp;Es)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Renal function and electrolytes (U&amp;Es)",
         "explanation": "Osmotic bowel prep causes significant fluid and electrolyte shifts and can precipitate dehydration and renal impairment. Checking U&amp;Es beforehand is essential in elderly, renal or cardiac patients."
       },
@@ -779,13 +819,13 @@
         "type": "mcq",
         "question": "Which measurement is a recognised quality marker indicating a complete colonoscopy?",
         "options": [
-          "Caecal intubation rate",
           "Door-to-needle time",
+          "Caecal intubation rate",
           "Ankle-brachial pressure index",
           "Peak expiratory flow rate",
           "Corrected QT interval"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Caecal intubation rate",
         "explanation": "Reaching and photographing the caecum confirms the whole colon has been examined, so caecal intubation rate is a core colonoscopy quality standard with a target of at least 90%. Adenoma detection rate is the other headline marker."
       },
@@ -794,13 +834,13 @@
         "type": "mcq",
         "question": "A flexible sigmoidoscopy is most appropriately relied upon as the sole lower-GI investigation in which patient?",
         "options": [
-          "A 28-year-old with intermittent bright red rectal bleeding on the paper, normal bloods and no red-flag features",
           "A 70-year-old with iron-deficiency anaemia and weight loss",
           "A 62-year-old with a FIT-positive result and fatigue",
           "A 55-year-old with a palpable right iliac fossa mass",
+          "A 28-year-old with intermittent bright red rectal bleeding on the paper, normal bloods and no red-flag features",
           "A 68-year-old with unexplained microcytic anaemia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "A 28-year-old with intermittent bright red rectal bleeding on the paper, normal bloods and no red-flag features",
         "explanation": "Bright red outlet-type bleeding in a young, low-risk patient is likely of rectal/left-colonic origin, which flexi-sig visualises well. The other patients have anaemia, a right-sided mass or high-risk features that demand full colonoscopy to examine the proximal colon."
       },
@@ -824,13 +864,13 @@
         "type": "mcq",
         "question": "What is the key limitation of flexible sigmoidoscopy that must be communicated at consent?",
         "options": [
-          "It does not visualise the proximal (right) colon, so a right-sided lesion can be missed",
           "It cannot take biopsies of distal mucosa",
           "It carries a much higher perforation risk than colonoscopy",
+          "It does not visualise the proximal (right) colon, so a right-sided lesion can be missed",
           "It cannot be used to decompress a sigmoid volvulus",
           "It is unable to detect ulcerative proctitis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "It does not visualise the proximal (right) colon, so a right-sided lesion can be missed",
         "explanation": "The scope reaches only to about the splenic flexure, leaving the right colon unexamined. A proximal cancer can therefore be missed, which is why high-risk or anaemic patients need colonoscopy."
       },
@@ -839,13 +879,13 @@
         "type": "mcq",
         "question": "A 45-year-old man is referred with painless bright red rectal bleeding on defaecation. Digital rectal examination is normal. Which instrument is the most appropriate first clinic tool to visualise and potentially treat the likely cause?",
         "options": [
-          "Proctoscope",
           "Colonoscope",
           "Oesophagogastroduodenoscope",
           "Bronchoscope",
-          "Cystoscope"
+          "Cystoscope",
+          "Proctoscope"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Proctoscope",
         "explanation": "A proctoscope examines the anal canal and lower rectum, making it the go-to bedside tool for assessing internal haemorrhoids. It also allows immediate rubber-band ligation of the piles in the same clinic sitting."
       },
@@ -854,13 +894,13 @@
         "type": "mcq",
         "question": "During surgical planning for a newly diagnosed rectal cancer, which measurement is a rigid sigmoidoscope classically used to obtain?",
         "options": [
-          "Height of the tumour from the anal verge",
           "Portal venous pressure",
+          "Height of the tumour from the anal verge",
           "Gastric emptying time",
           "Bronchial wall thickness",
           "Bladder capacity"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Height of the tumour from the anal verge",
         "explanation": "The graduated rigid sigmoidoscope reads depth in centimetres, allowing the tumour's distance from the anal verge to be recorded. This height is decisive in choosing between a sphincter-preserving anterior resection and an abdominoperineal resection."
       },
@@ -869,15 +909,45 @@
         "type": "mcq",
         "question": "A patient has a completely normal proctoscopy and rigid sigmoidoscopy but reports weight loss, a 3-month change in bowel habit and iron-deficiency anaemia. What is the most appropriate next step?",
         "options": [
-          "Refer for colonoscopy to assess the rest of the colon",
           "Reassure and discharge as the examination was normal",
           "Repeat proctoscopy in six months only",
           "Start oral iron and take no further action",
+          "Refer for colonoscopy to assess the rest of the colon",
           "Arrange an urgent chest X-ray"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Refer for colonoscopy to assess the rest of the colon",
         "explanation": "Proctoscopy and rigid sigmoidoscopy view only the anorectum, so a normal result cannot exclude a more proximal colorectal cancer. Red-flag symptoms mandate full colonic assessment with colonoscopy."
+      },
+      {
+        "id": "sc_lgi_colon_ctc_q01",
+        "type": "mcq",
+        "question": "A frail patient has a colonoscopy abandoned after failed caecal intubation. What is the most appropriate next investigation to complete colonic assessment?",
+        "options": [
+          "CT colonography",
+          "Repeat colonoscopy the same day",
+          "Barium enema",
+          "Capsule endoscopy",
+          "No further investigation needed"
+        ],
+        "correctIndex": 0,
+        "answer": "CT colonography",
+        "explanation": "CT colonography (minimal prep, no sedation) is the standard alternative when colonoscopy is incomplete or the patient is unsuitable. It cannot take biopsies or remove polyps, so any suspicious finding still requires colonoscopy."
+      },
+      {
+        "id": "sc_lgi_flexisig_asuc_q01",
+        "type": "mcq",
+        "question": "A patient with acute severe ulcerative colitis needs endoscopic assessment of disease severity. Which is most appropriate?",
+        "options": [
+          "Full colonoscopy with bowel preparation",
+          "Barium enema",
+          "A cautious unprepped flexible sigmoidoscopy",
+          "CT colonography",
+          "Proctoscopy alone"
+        ],
+        "correctIndex": 2,
+        "answer": "A cautious unprepped flexible sigmoidoscopy",
+        "explanation": "A limited, unprepped flexible sigmoidoscopy grades mucosal severity and excludes CMV in acute severe UC. Full colonoscopy (and bowel prep/barium enema) is avoided acutely because of the perforation and toxic megacolon risk."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Respiratory / Thoracic": [
