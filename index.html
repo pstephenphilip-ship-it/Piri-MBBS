@@ -15979,23 +15979,44 @@ function hideFlyout(p) {
 </style>
 
 <!-- =====================================================================
-     LAYOUT PASS 3 — Signs & Symptoms cross-reference links.
+     LAYOUT PASS 3 — in-prose cross-reference links.
      Presentation only: no copy changed, no links added or removed.
      Search this file for "LAYOUT PASS DX" to find it again.
      ===================================================================== -->
 <style>
-  /* .cp-dx does two different jobs. In a .cp-then row (and at the foot of a
-     .cp-kill card) it is a standalone chip in a flex list, where the filled
-     pill is right — 1,221 of them in this tab. But 1,778 more sit INSIDE
-     running prose (in LI, SPAN, .cp-lead, .cp-pearl), where a filled pill
-     mid-sentence is a lump: it carries its own background, a fixed 12px size
-     against ~13.5px body text, and display:inline-block, so it cannot break
-     across lines and shoves the wrap around it.
+  /* .cp-dx does two different jobs. Measured across every note in the four
+     tabs that render it (7,643 of them): 2,970 are standalone chips in a
+     flex row — .cp-then (2,911) and .cp-confirm (59) — where the filled pill
+     is right. The other ~4,670 sit inside running prose (LI, SPAN, .cp-lead,
+     .cp-pearl, .cp-read, .cp-kill-desc, .cp-cfm, .cp-step-body), where a
+     filled pill mid-sentence is a lump: it carries its own background, a
+     fixed 12px size against ~13.5px body text, and display:inline-block, so
+     it cannot break across lines and shoves the wrap around it. On a phone
+     that regularly pushed a long topic name onto a line of its own.
 
-     Quiet only the prose ones — matched by excluding the two chip parents —
-     down to a normal underlined link that flows with the sentence. The chips
-     are untouched. */
-  #tab-signs :not(.cp-then):not(.cp-kill) > .cp-dx{
+     Quiet the prose ones down to an ordinary underlined link that flows with
+     the sentence; leave the chips alone. Matched by excluding the chip
+     parents — plus .cp-kill, whose 6 cp-dx sit alone under the card body as
+     chips even though the parent is a block. */
+  #tab-signs :not(.cp-then):not(.cp-confirm):not(.cp-kill) > .cp-dx,
+  #tab-conditions :not(.cp-then):not(.cp-confirm):not(.cp-kill) > .cp-dx,
+  #tab-investigations :not(.cp-then):not(.cp-confirm):not(.cp-kill) > .cp-dx,
+  #tab-anatomy :not(.cp-then):not(.cp-confirm):not(.cp-kill) > .cp-dx,
+  /* A .cp-then holding a <b>/<strong>/<em> is prose, not a chip row — the
+     rule further up this file turns exactly those into blocks. Same shape
+     here so the two stay in step. */
+  #tab-signs .cp-then:has(> b) > .cp-dx,
+  #tab-signs .cp-then:has(> strong) > .cp-dx,
+  #tab-signs .cp-then:has(> em) > .cp-dx,
+  #tab-conditions .cp-then:has(> b) > .cp-dx,
+  #tab-conditions .cp-then:has(> strong) > .cp-dx,
+  #tab-conditions .cp-then:has(> em) > .cp-dx,
+  #tab-investigations .cp-then:has(> b) > .cp-dx,
+  #tab-investigations .cp-then:has(> strong) > .cp-dx,
+  #tab-investigations .cp-then:has(> em) > .cp-dx,
+  #tab-anatomy .cp-then:has(> b) > .cp-dx,
+  #tab-anatomy .cp-then:has(> strong) > .cp-dx,
+  #tab-anatomy .cp-then:has(> em) > .cp-dx{
     display:inline;
     padding:0;
     border:0;
@@ -16009,15 +16030,16 @@ function hideFlyout(p) {
     text-decoration-thickness:1px;
     text-underline-offset:2px;
   }
-  #tab-signs :not(.cp-then):not(.cp-kill) > .cp-dx:hover{
-    text-decoration-color:var(--rn-blue,#3B7DD8);
-  }
+  #tab-signs .cp-dx:hover,
+  #tab-conditions .cp-dx:hover,
+  #tab-investigations .cp-dx:hover,
+  #tab-anatomy .cp-dx:hover{text-decoration-color:var(--rn-blue,#3B7DD8);}
   /* .cp-dx-off marks a reference with no note behind it yet. Keep it muted and
      unlinked-looking rather than letting the rule above colour it like a link. */
-  #tab-signs :not(.cp-then):not(.cp-kill) > .cp-dx.cp-dx-off{
-    color:var(--rn-sub,#7A8396);
-    text-decoration:none;
-  }
+  #tab-signs .cp-dx.cp-dx-off,
+  #tab-conditions .cp-dx.cp-dx-off,
+  #tab-investigations .cp-dx.cp-dx-off,
+  #tab-anatomy .cp-dx.cp-dx-off{color:var(--rn-sub,#7A8396);text-decoration:none;}
 </style>
 
 <!-- =====================================================================
