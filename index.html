@@ -1064,7 +1064,7 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
     // Multi-note planner (home only). Tabs of notes + one editor; each note is rich text and can
     // hold tick-box tasks. Tabs/editor are filled in by wcPlanRenderAll() after paint.
     var planner = opts.planner ? ('<div class="wc-planner">'
-      +'<div class="wc-nhead"><span>&#128221; My Planner</span><span class="wc-nactions"><button class="wc-nexpand js-plan-expand" type="button" title="Make notes bigger" onclick="wcPlanExpand(event)">&#10530; Expand</button><button class="wc-nsave" type="button" onclick="wcPlanNew()">+ New note</button></span></div>'
+      +'<div class="wc-nhead"><span class="wc-nhead-t"><span class="wc-nhead-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>My Planner</span><span class="wc-nactions"><button class="wc-nexpand js-plan-expand" type="button" title="Make notes bigger" onclick="wcPlanExpand(event)">&#10530; Expand</button><button class="wc-nsave" type="button" onclick="wcPlanNew()">+ New note</button></span></div>'
       +'<div class="wc-plan-tabs"></div>'
       +'<div class="wc-plan-editor"></div>'
       +'</div>') : '';
@@ -15975,6 +15975,59 @@ function hideFlyout(p) {
     background-image:radial-gradient(rgba(30,38,64,.045) 1px, transparent 1.6px);
     background-size:22px 22px;
   }
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 2 — home hierarchy, About tiles, dark-modal fields.
+     Presentation only: no copy changed, nothing added or removed.
+     Search this file for "LAYOUT PASS B" to find it again.
+     ===================================================================== -->
+<style>
+  /* --- HOME: two number walls, one voice ------------------------------
+     .wc-h3 .n (Flashcards/MCQs/Topics) and .wc-pillar .ct (the eight
+     category cards) were drawn identically — same mono face, same 800
+     weight, same teal-to-blue gradient — so the page stacked two rival
+     stat walls and neither led. Nothing is removed; the top strip is
+     demoted to a quiet summary line so the pillars, which are the actual
+     navigation, carry the emphasis. */
+  .wc-h3{padding:13px 10px;border-width:1px;background:#FBFCFE;}
+  .wc-h3 .n{
+    font-size:19px;font-weight:700;
+    background:none;-webkit-text-fill-color:currentColor;color:#5B6472;
+  }
+  .wc-h3 .l{font-size:9.5px;color:#9CA3AF;margin-top:6px;letter-spacing:.07em;}
+  @media(max-width:560px){ .wc-h3 .n{font-size:17px;} }
+
+  /* Planner header icon, replacing the lone emoji among stroke icons. */
+  .wc-nhead-t{display:inline-flex;align-items:center;gap:7px;}
+  .wc-nhead-ic{line-height:0;color:#0EA5E9;flex-shrink:0;}
+  .wc-nhead-ic svg{width:16px;height:16px;display:block;}
+
+  /* --- ABOUT: "What we offer" ----------------------------------------
+     Six tiles carried six pastel backgrounds and six icon hues, none of
+     which meant anything — and they sat directly above the neutral
+     "Meet the team" cards, so one page ran two card languages. Unified
+     on the team-card treatment with the brand teal on the icons. */
+  .da-ab-feat.t1,.da-ab-feat.t2,.da-ab-feat.t3,
+  .da-ab-feat.t4,.da-ab-feat.t5,.da-ab-feat.t6{
+    background:#F5F7FB;border:1px solid #E2E6F0;
+  }
+  .da-ab-feat.t1 .da-ab-feat-ic,.da-ab-feat.t2 .da-ab-feat-ic,
+  .da-ab-feat.t3 .da-ab-feat-ic,.da-ab-feat.t4 .da-ab-feat-ic,
+  .da-ab-feat.t5 .da-ab-feat-ic,.da-ab-feat.t6 .da-ab-feat-ic{color:#0FA894;}
+
+  /* --- DARK MODALS: fields read as holes ------------------------------
+     .auth-field input used var(--bg) #0D0F14 on a var(--surface) #1C2030
+     card — the control was DARKER than the sheet behind it, so the fields
+     read as punched-out voids rather than things you type into. Lift them
+     onto --surface2 with a border that actually shows. The settings modal
+     carries .auth-overlay too, so this covers both; the Contact page uses
+     .da-page and keeps its own light field styling. */
+  .auth-overlay .auth-field input,
+  .auth-overlay .auth-field textarea{background:var(--surface2);border-color:#39405A;}
+  .auth-overlay .auth-field input:focus,
+  .auth-overlay .auth-field textarea:focus{border-color:var(--accent);}
+  .auth-overlay .auth-field input::placeholder{color:#7C859B;}
 </style>
 
 <!-- =====================================================================
