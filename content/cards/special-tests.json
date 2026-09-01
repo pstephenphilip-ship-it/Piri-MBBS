@@ -369,6 +369,16 @@
         "id": "st_gi_sweat_fc_05",
         "front": "What typically prompts a sweat chloride test, and how is a positive result confirmed?",
         "back": "A positive newborn screen (raised immunoreactive trypsinogen, IRT) or clinical suspicion (recurrent chest infections, steatorrhoea/pancreatic insufficiency, failure to thrive, meconium ileus). It is confirmed with CFTR genetic testing."
+      },
+      {
+        "id": "st_gi_felastase_fc_01",
+        "front": "What does faecal elastase-1 measure, and what are the cut-offs?",
+        "back": "A pancreas-specific enzyme not degraded in transit, so stool levels reflect pancreatic output (screen for <b>exocrine pancreatic insufficiency</b>). <b>&gt;200</b> normal; <b>100&ndash;200</b> mild&ndash;moderate; <b>&lt;100 &micro;g/g</b> severe EPI. It stays valid during ongoing PERT."
+      },
+      {
+        "id": "st_gi_felastase_fc_02",
+        "front": "A low faecal elastase confirms exocrine pancreatic insufficiency — what do you do?",
+        "back": "Start <b>pancreatic enzyme replacement therapy (PERT / Creon)</b> with meals and replace <b>fat-soluble vitamins (A, D, E, K)</b>; investigate the cause (chronic pancreatitis, cystic fibrosis, pancreatic cancer). No need to stop PERT to run the test."
       }
     ],
     "investigations__SPECIAL TESTS__Respiratory & Sleep": [
@@ -496,6 +506,16 @@
         "id": "st_resp_mslt_fc_05",
         "front": "What preparation/confounders must be addressed before an MSLT?",
         "back": "Stop REM-suppressing drugs (antidepressants) and stimulants beforehand, ensure adequate sleep, and screen for shift work and sleep deprivation, which cause false-positive short latencies and spurious SOREMPs."
+      },
+      {
+        "id": "st_resp_igra_ltbi_fc_01",
+        "front": "A pre-biologic IGRA is positive and active TB is excluded — what do you do?",
+        "back": "<b>Treat latent TB infection</b>: 3 months isoniazid + rifampicin, or 6 months isoniazid. This should be done <b>before starting anti-TNF/immunosuppression</b>. IGRA cannot itself distinguish latent from active TB — exclude active disease first (symptoms, CXR, sputum)."
+      },
+      {
+        "id": "st_resp_narcolepsy_mgmt_fc_01",
+        "front": "MSLT confirms narcolepsy — what is the management?",
+        "back": "<b>Modafinil</b> first-line for excessive daytime sleepiness, plus <b>sleep hygiene and scheduled daytime naps</b>. <b>Cataplexy</b> is treated with an <b>SNRI</b> or <b>sodium oxybate</b>. Advise the patient about <b>DVLA notification</b> and driving safety."
       }
     ],
     "investigations__SPECIAL TESTS__Hepatology & Biopsy": [
@@ -1239,13 +1259,13 @@
         "type": "mcq",
         "question": "A patient with confirmed low serum B12 has a Schilling test. Stage 1 shows low urinary excretion of labelled B12; on repeating with oral intrinsic factor (Stage 2), excretion normalises. What is the most likely diagnosis?",
         "options": [
-          "Pernicious anaemia",
           "Crohn's disease of the terminal ileum",
           "Small bowel bacterial overgrowth",
+          "Pernicious anaemia",
           "Ileal surgical resection",
           "Dietary B12 deficiency"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Pernicious anaemia",
         "explanation": "Correction of urinary excretion when intrinsic factor is added shows the original defect was lack of intrinsic factor. This is the hallmark of pernicious anaemia (autoimmune parietal cell destruction) or previous gastrectomy."
       },
@@ -1254,13 +1274,13 @@
         "type": "mcq",
         "question": "During a Schilling test, why is a large intramuscular dose of unlabelled B12 administered after the oral radiolabelled dose?",
         "options": [
-          "To saturate B12-binding proteins so absorbed labelled B12 is excreted in the urine",
           "To stimulate intrinsic factor secretion by parietal cells",
           "To correct the deficiency before urine is collected",
           "To radiolabel the systemic B12 pool for imaging",
-          "To accelerate renal clearance of cobalamin"
+          "To accelerate renal clearance of cobalamin",
+          "To saturate B12-binding proteins so absorbed labelled B12 is excreted in the urine"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "To saturate B12-binding proteins so absorbed labelled B12 is excreted in the urine",
         "explanation": "The IM flushing dose saturates plasma and hepatic binding proteins so that any labelled B12 absorbed from the gut is not retained. It instead spills into the urine, allowing 24-hour urinary excretion to reflect absorption."
       },
@@ -1269,13 +1289,13 @@
         "type": "mcq",
         "question": "A Schilling test returns a low urinary excretion result in a patient later found to have chronic kidney disease. What is the most important consideration when interpreting this result?",
         "options": [
-          "Impaired renal function delays urinary excretion and can falsely suggest malabsorption",
           "Renal impairment increases intrinsic factor breakdown",
+          "Impaired renal function delays urinary excretion and can falsely suggest malabsorption",
           "Renal disease causes overestimation of B12 absorption",
           "The oral labelled dose is not absorbed in kidney disease",
           "Bacterial overgrowth is the inevitable cause in these patients"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Impaired renal function delays urinary excretion and can falsely suggest malabsorption",
         "explanation": "The Schilling test relies on urinary excretion, so it is only valid with normal renal function. Reduced GFR delays excretion of the labelled B12 and produces a falsely low result mimicking malabsorption."
       },
@@ -1284,13 +1304,13 @@
         "type": "mcq",
         "question": "A 24-year-old woman has bloating, flatulence and diarrhoea after milk. During a lactose hydrogen breath test, which finding indicates lactose malabsorption?",
         "options": [
-          "A rise in breath hydrogen of ≥ 20 ppm above baseline",
           "A fall in breath hydrogen below baseline",
           "A rise in blood glucose of ≥ 2 mmol/L",
           "A rise in breath carbon dioxide of ≥ 20 ppm",
+          "A rise in breath hydrogen of ≥ 20 ppm above baseline",
           "No change in breath hydrogen with symptom resolution"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "A rise in breath hydrogen of ≥ 20 ppm above baseline",
         "explanation": "Undigested lactose reaching the colon is fermented by bacteria to produce hydrogen, which is absorbed and exhaled. A rise of ≥ 20 ppm above baseline is the standard cut-off confirming malabsorption."
       },
@@ -1314,13 +1334,13 @@
         "type": "mcq",
         "question": "Which factor most classically produces a FALSE-NEGATIVE lactose hydrogen breath test?",
         "options": [
-          "Colonic flora dominated by non-hydrogen-producing methanogens",
           "Small intestinal bacterial overgrowth",
           "Delayed gastric emptying",
+          "Colonic flora dominated by non-hydrogen-producing methanogens",
           "Recent high-fibre meal",
           "Vigorous exercise before the test"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Colonic flora dominated by non-hydrogen-producing methanogens",
         "explanation": "Around 10–15% of people have methanogenic bacteria that consume hydrogen rather than produce it, so breath hydrogen stays low despite malabsorption. Measuring methane alongside hydrogen improves detection in these patients."
       },
@@ -1329,13 +1349,13 @@
         "type": "mcq",
         "question": "A 45-year-old with bloating and diarrhoea undergoes a lactulose hydrogen breath test. Breath hydrogen rises 25 ppm above baseline at 60 minutes. What does this pattern most suggest?",
         "options": [
-          "Small intestinal bacterial overgrowth",
           "Normal colonic fermentation",
           "Lactase deficiency only",
           "Pancreatic exocrine insufficiency",
-          "Active H. pylori infection"
+          "Active H. pylori infection",
+          "Small intestinal bacterial overgrowth"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Small intestinal bacterial overgrowth",
         "explanation": "An early hydrogen rise of ≥20 ppm within about 90 minutes occurs before the substrate would normally reach the colon, indicating fermentation by bacteria in the small bowel. This early peak is the characteristic signature of SIBO."
       },
@@ -1344,13 +1364,13 @@
         "type": "mcq",
         "question": "A patient is booked for a urea breath test to diagnose H. pylori. Which medication history would most likely cause a false-negative result?",
         "options": [
-          "A proton pump inhibitor taken until yesterday",
           "Regular paracetamol",
+          "A proton pump inhibitor taken until yesterday",
           "A statin for hyperlipidaemia",
           "An inhaled corticosteroid",
           "Oral iron supplements"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A proton pump inhibitor taken until yesterday",
         "explanation": "PPIs suppress H. pylori urease activity and bacterial load, reducing labelled CO₂ production and causing false negatives. PPIs should be stopped for 2 weeks before the test."
       },
@@ -1359,13 +1379,13 @@
         "type": "mcq",
         "question": "Which feature explains why the urea breath test is preferred for confirming eradication of H. pylori after treatment?",
         "options": [
-          "It detects active infection via ongoing urease activity",
           "It measures serum antibody titres to H. pylori",
           "It identifies past exposure regardless of current infection",
           "It relies on stool bacterial DNA amplification",
+          "It detects active infection via ongoing urease activity",
           "It requires endoscopic biopsy for the result"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "It detects active infection via ongoing urease activity",
         "explanation": "The test depends on live H. pylori urease splitting labelled urea into detectable CO₂, so it reflects current active infection. Once bacteria are cleared, urease activity falls below threshold, confirming eradication."
       },
@@ -1389,13 +1409,13 @@
         "type": "mcq",
         "question": "A sweat chloride result of 72 mmol/L is obtained in an infant with suspected cystic fibrosis. How should this be interpreted?",
         "options": [
-          "Diagnostic of / consistent with cystic fibrosis",
           "Normal, cystic fibrosis excluded",
           "Intermediate result requiring only reassurance",
+          "Diagnostic of / consistent with cystic fibrosis",
           "Invalid because chloride cannot exceed 60 mmol/L",
           "Diagnostic of a sodium-wasting nephropathy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Diagnostic of / consistent with cystic fibrosis",
         "explanation": "A sweat chloride of ≥60 mmol/L is diagnostic of, or consistent with, cystic fibrosis. The result should be confirmed with CFTR genetic testing and ideally repeated."
       },
@@ -1404,15 +1424,30 @@
         "type": "mcq",
         "question": "Which method is used to stimulate localised sweating for the sweat chloride test?",
         "options": [
-          "Pilocarpine iontophoresis",
           "Intravenous synacthen infusion",
           "Oral glucose loading",
           "Insulin-induced hypoglycaemia",
-          "Hydrogen breath challenge"
+          "Hydrogen breath challenge",
+          "Pilocarpine iontophoresis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Pilocarpine iontophoresis",
         "explanation": "Pilocarpine is driven into the skin by a weak electric current (iontophoresis) to stimulate the local sweat glands. Sweat is then collected and analysed for chloride concentration."
+      },
+      {
+        "id": "st_gi_felastase_q01",
+        "type": "mcq",
+        "question": "A patient with chronic pancreatitis and steatorrhoea has a faecal elastase of 60 µg/g. What does this indicate and what is the management?",
+        "options": [
+          "Normal pancreatic function — no action",
+          "Severe exocrine pancreatic insufficiency — start PERT and fat-soluble vitamins",
+          "A colonic bacterial overgrowth needing rifaximin",
+          "Lactose intolerance — restrict dairy",
+          "Pernicious anaemia — give IM B12"
+        ],
+        "correctIndex": 1,
+        "answer": "Severe exocrine pancreatic insufficiency — start PERT and fat-soluble vitamins",
+        "explanation": "Faecal elastase <100 µg/g indicates severe exocrine pancreatic insufficiency. Management is pancreatic enzyme replacement therapy (PERT/Creon) with meals plus fat-soluble vitamin (A, D, E, K) replacement, and treating the underlying cause."
       }
     ],
     "investigations__SPECIAL TESTS__Respiratory & Sleep": [
@@ -1422,12 +1457,12 @@
         "question": "A 34-year-old is screened with QuantiFERON-TB before starting an anti-TNF-alpha biologic. Why is IGRA preferred over the tuberculin skin test in someone who received BCG as a child?",
         "options": [
           "IGRA can be read immediately without incubation",
-          "The ESAT-6 and CFP-10 antigens are absent from the BCG strain, so prior vaccination does not cause a false-positive",
           "IGRA reliably distinguishes latent from active TB",
+          "The ESAT-6 and CFP-10 antigens are absent from the BCG strain, so prior vaccination does not cause a false-positive",
           "IGRA cannot produce a false-negative result",
           "IGRA measures antibody rather than a T-cell response"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "The ESAT-6 and CFP-10 antigens are absent from the BCG strain, so prior vaccination does not cause a false-positive",
         "explanation": "IGRA uses M. tuberculosis-specific antigens (ESAT-6, CFP-10) that are not present in the BCG vaccine or most environmental mycobacteria. This means prior BCG does not confound the result, unlike the tuberculin skin test."
       },
@@ -1437,12 +1472,12 @@
         "question": "A QuantiFERON-TB assay returns a positive result in an asymptomatic contact with a normal chest radiograph. What is the correct interpretation?",
         "options": [
           "The patient definitely has active pulmonary TB",
-          "TB infection is present; latent versus active must be determined clinically and radiologically",
           "The patient has been successfully vaccinated with BCG",
           "TB infection is excluded",
-          "The test result is indeterminate and must be repeated"
+          "The test result is indeterminate and must be repeated",
+          "TB infection is present; latent versus active must be determined clinically and radiologically"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "TB infection is present; latent versus active must be determined clinically and radiologically",
         "explanation": "A positive IGRA confirms TB infection but cannot distinguish latent from active disease. With no symptoms and a normal chest radiograph, this is consistent with latent TB infection, though clinical and radiological assessment remains essential."
       },
@@ -1467,12 +1502,12 @@
         "question": "A pleural aspirate shows pleural/serum protein ratio 0.4, pleural/serum LDH ratio 0.7, and pleural LDH below two-thirds the upper limit of normal. How is the effusion classified?",
         "options": [
           "Transudate, because the protein ratio is below 0.5",
-          "Exudate, because the LDH ratio exceeds 0.6",
           "Transudate, because two of three criteria are not met",
           "Indeterminate, requiring pleural biopsy",
+          "Exudate, because the LDH ratio exceeds 0.6",
           "Transudate, because pleural LDH is not markedly raised"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Exudate, because the LDH ratio exceeds 0.6",
         "explanation": "Light's criteria classify fluid as an exudate if ANY single criterion is met. A pleural/serum LDH ratio of 0.7 exceeds the 0.6 threshold, so the effusion is an exudate regardless of the other values."
       },
@@ -1481,13 +1516,13 @@
         "type": "mcq",
         "question": "A patient with community-acquired pneumonia has a moderate effusion. Aspiration returns cloudy fluid with pH 7.05 and glucose 2.0 mmol/L. What is the most appropriate next step?",
         "options": [
+          "Insert an intercostal chest drain",
           "Repeat aspiration in 48 hours",
           "Continue oral antibiotics alone and observe",
-          "Insert an intercostal chest drain",
           "Start diuretic therapy",
           "Arrange outpatient CT in two weeks"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Insert an intercostal chest drain",
         "explanation": "A pleural fluid pH below 7.2 in a parapneumonic effusion defines a complicated effusion or empyema and mandates chest-drain insertion with antibiotics. Antibiotics alone are inadequate and delaying drainage worsens the outcome."
       },
@@ -1497,12 +1532,12 @@
         "question": "A patient with known heart failure on high-dose furosemide has an effusion that meets Light's criteria for an exudate, yet the clinical picture strongly suggests a transudate. Which test best clarifies the true classification?",
         "options": [
           "Pleural fluid adenosine deaminase",
-          "Serum-effusion albumin gradient",
           "Pleural fluid triglyceride level",
+          "Serum-effusion albumin gradient",
           "Pleural fluid cytology",
           "Pleural fluid amylase"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Serum-effusion albumin gradient",
         "explanation": "Diuretics concentrate protein and LDH and can push a transudate over Light's thresholds. A serum-effusion albumin gradient greater than 12 g/L identifies the fluid as a true transudate, correctly reclassifying the effusion."
       },
@@ -1511,13 +1546,13 @@
         "type": "mcq",
         "question": "A 34-year-old woman with bilateral hilar lymphadenopathy and reticulonodular infiltrates undergoes bronchoscopy with BAL. The differential shows a marked lymphocytosis with a CD4:CD8 ratio of 6. Which diagnosis does this most strongly support?",
         "options": [
-          "Sarcoidosis",
           "Hypersensitivity pneumonitis",
           "Idiopathic pulmonary fibrosis",
           "Bacterial pneumonia",
-          "Eosinophilic pneumonia"
+          "Eosinophilic pneumonia",
+          "Sarcoidosis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Sarcoidosis",
         "explanation": "BAL lymphocytosis with a raised CD4:CD8 ratio (>3.5-4) is highly specific for sarcoidosis. This fits the clinical picture of bilateral hilar lymphadenopathy in a young adult."
       },
@@ -1526,13 +1561,13 @@
         "type": "mcq",
         "question": "An immunocompromised man with HIV and a low CD4 count has bilateral perihilar infiltrates and hypoxia. Which BAL test is most likely to confirm Pneumocystis jirovecii pneumonia?",
         "options": [
-          "Silver (Grocott) stain and PCR of the lavage fluid",
           "Measurement of the CD4:CD8 ratio",
+          "Silver (Grocott) stain and PCR of the lavage fluid",
           "BAL eosinophil percentage",
           "Haemosiderin-laden macrophage count",
           "PAS staining for amorphous material"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Silver (Grocott) stain and PCR of the lavage fluid",
         "explanation": "Pneumocystis cannot be cultured, so BAL is stained with silver/Grocott (or immunofluorescence) and tested by PCR to demonstrate the organism. This is the standard confirmatory approach in suspected PCP."
       },
@@ -1541,13 +1576,13 @@
         "type": "mcq",
         "question": "Which patient factor is the strongest reason for extreme caution before performing BAL?",
         "options": [
-          "Severe refractory hypoxaemia in a haemodynamically unstable patient",
           "A BAL lymphocytosis on a previous sample",
           "A raised CD4:CD8 ratio",
           "A history of well-controlled asthma",
+          "Severe refractory hypoxaemia in a haemodynamically unstable patient",
           "Recent completion of a course of oral antibiotics"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Severe refractory hypoxaemia in a haemodynamically unstable patient",
         "explanation": "BAL transiently worsens gas exchange and can precipitate acute respiratory deterioration, so severe hypoxaemia and haemodynamic instability are key cautions. The other options do not increase procedural risk."
       },
@@ -1556,13 +1591,13 @@
         "type": "mcq",
         "question": "A 52-year-old obese man with loud snoring undergoes a sleep study showing an AHI of 22 events per hour. How is his obstructive sleep apnoea classified?",
         "options": [
+          "Moderate",
           "Normal",
           "Mild",
-          "Moderate",
           "Severe",
           "Central sleep apnoea"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Moderate",
         "explanation": "An AHI of 15-30 events per hour defines moderate OSA. The value of 22 falls squarely within this band. CPAP is first-line therapy for moderate disease of this kind."
       },
@@ -1572,12 +1607,12 @@
         "question": "Which statement about the Epworth Sleepiness Scale is correct?",
         "options": [
           "It directly measures the apnoea-hypopnoea index",
-          "It scores the likelihood of dozing in 8 situations, each 0-3, with a total >10-11 indicating excessive daytime sleepiness",
           "It requires overnight EEG monitoring to complete",
+          "It scores the likelihood of dozing in 8 situations, each 0-3, with a total >10-11 indicating excessive daytime sleepiness",
           "It is scored from 0 to 100",
           "A score of 5 confirms severe obstructive sleep apnoea"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "It scores the likelihood of dozing in 8 situations, each 0-3, with a total >10-11 indicating excessive daytime sleepiness",
         "explanation": "The ESS is a self-completed questionnaire covering 8 everyday situations rated 0-3, giving a maximum of 24. A total above 10-11 signals excessive daytime sleepiness warranting objective testing."
       },
@@ -1586,13 +1621,13 @@
         "type": "mcq",
         "question": "During a polysomnogram, which finding best distinguishes an obstructive apnoea from a central apnoea?",
         "options": [
-          "Presence of continued chest and abdominal wall effort despite absent airflow",
           "A fall in SpO2 on pulse oximetry",
           "An arousal seen on the EEG",
           "A rise in heart rate on the ECG",
-          "The occurrence of the event during REM sleep"
+          "The occurrence of the event during REM sleep",
+          "Presence of continued chest and abdominal wall effort despite absent airflow"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Presence of continued chest and abdominal wall effort despite absent airflow",
         "explanation": "Obstructive events feature persistent respiratory effort on the chest and abdominal bands against a collapsed upper airway, whereas central events show absent effort. Desaturation, arousals and tachycardia occur with both types and cannot separate them."
       },
@@ -1601,13 +1636,13 @@
         "type": "mcq",
         "question": "A 22-year-old with excessive daytime sleepiness and cataplexy undergoes an MSLT. Which combination of findings best supports a diagnosis of narcolepsy?",
         "options": [
-          "Mean sleep latency ≤8 minutes with ≥2 sleep-onset REM periods",
           "Mean sleep latency ≥15 minutes with no SOREMPs",
+          "Mean sleep latency ≤8 minutes with ≥2 sleep-onset REM periods",
           "Mean sleep latency ≤8 minutes with no SOREMPs",
           "A single SOREMP only on the daytime naps with a normal latency",
           "Absence of any REM sleep across all nap opportunities"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Mean sleep latency ≤8 minutes with ≥2 sleep-onset REM periods",
         "explanation": "Narcolepsy is supported by a mean sleep latency of 8 minutes or less indicating pathological sleepiness, combined with two or more SOREMPs across the naps. This dual criterion reflects both rapid sleep onset and abnormally early REM intrusion."
       },
@@ -1616,13 +1651,13 @@
         "type": "mcq",
         "question": "Why must the MSLT be preceded by an overnight polysomnography?",
         "options": [
-          "To exclude another cause of disrupted nocturnal sleep and confirm adequate prior sleep",
           "To administer intravenous orexin before the daytime naps",
           "To measure CSF hypocretin levels overnight",
           "To provoke cataplexy under controlled conditions",
+          "To exclude another cause of disrupted nocturnal sleep and confirm adequate prior sleep",
           "To load the patient with stimulants before testing"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "To exclude another cause of disrupted nocturnal sleep and confirm adequate prior sleep",
         "explanation": "The preceding PSG rules out other causes of sleep disruption such as obstructive sleep apnoea and documents sufficient nocturnal sleep. Without this, a short daytime sleep latency could simply reflect a poor previous night rather than true pathology."
       },
@@ -1640,6 +1675,21 @@
         "correctIndex": 0,
         "answer": "Idiopathic hypersomnia",
         "explanation": "Idiopathic hypersomnia produces a short mean sleep latency reflecting genuine sleepiness but lacks the SOREMPs seen in narcolepsy. The absence of two or more SOREMPs distinguishes it from narcolepsy."
+      },
+      {
+        "id": "st_resp_igra_ltbi_q01",
+        "type": "mcq",
+        "question": "A patient about to start an anti-TNF biologic has a positive IGRA but is asymptomatic with a normal chest X-ray and negative sputum. What is the appropriate management?",
+        "options": [
+          "Start the biologic immediately with no TB treatment",
+          "Give a full 6-month quadruple anti-TB regimen for active TB",
+          "Treat latent TB (e.g. 3 months isoniazid + rifampicin) before starting the biologic",
+          "Repeat the IGRA in 12 months and defer a decision",
+          "Reassure — a positive IGRA after BCG can be ignored"
+        ],
+        "correctIndex": 2,
+        "answer": "Treat latent TB (e.g. 3 months isoniazid + rifampicin) before starting the biologic",
+        "explanation": "A positive IGRA with active TB excluded indicates latent TB, which must be treated (3 months isoniazid+rifampicin or 6 months isoniazid) before immunosuppression/anti-TNF to prevent reactivation. IGRA is unaffected by prior BCG, so it cannot be dismissed as a BCG effect."
       }
     ],
     "investigations__SPECIAL TESTS__Hepatology & Biopsy": [
