@@ -15905,7 +15905,8 @@ function hideFlyout(p) {
   .da-page{position:fixed;top:52px;left:0;right:0;bottom:0;z-index:8;background-color:#E4E7EE;background-image:radial-gradient(rgba(30,38,64,.055) 1px, transparent 1.6px);background-size:22px 22px;color:#1E2640;overflow-y:auto;display:none;scrollbar-width:thin;scrollbar-color:#CBD2E0 transparent;}
   .da-page.open{display:block;}
   /* Hide the floating action buttons while an info page (About/Contact) is open. */
-  body.da-info-open #daMemFab,body.da-info-open #mockFab,body.da-info-open #daRvTrigger{display:none!important;}
+  body.da-info-open #daMemFab,body.da-info-open #mockFab,body.da-info-open #daRvTrigger,
+  body.da-info-open #note-toc,body.da-info-open .annot-fab,body.da-info-open .annot-drawer{display:none!important;}
   .da-page::-webkit-scrollbar{width:9px;}
   .da-page::-webkit-scrollbar-thumb{background:#CBD2E0;border-radius:8px;}
   /* Centred white "sheet" so the tinted page shows as side margins on either side. */
