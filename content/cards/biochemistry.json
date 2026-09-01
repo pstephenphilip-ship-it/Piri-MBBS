@@ -257,6 +257,11 @@
     "id": "urate_fc_05",
     "front": "A patient has a hot, swollen joint and a raised urate. What must be excluded before assuming gout?",
     "back": "<b>Septic arthritis</b> — always <b>aspirate</b> the joint for crystals AND Gram stain/culture; a raised urate does not confirm gout, and a normal one does not exclude it."
+   },
+   {
+    "id": "ue_fc_08",
+    "front": "How is hypokalaemia managed, and what electrolyte must you also check?",
+    "back": "Replace potassium — <b>oral</b> if mild; <b>IV (max ~10 mmol/h peripherally)</b> if K⁺ <3.0 or symptomatic/arrhythmic (cardiac-monitored; central line for faster rates). Always <b>check and replace magnesium</b> — low Mg²⁺ causes refractory hypokalaemia — and treat the cause."
    }
   ],
   "investigations__BIOCHEMISTRY__Liver & Pancreas": [
@@ -399,6 +404,16 @@
     "id": "wils_fc_06",
     "front": "What biochemical clues suggest Wilson's disease presenting as acute liver failure?",
     "back": "A <b>low ALP</b>, a <b>Coombs-negative haemolytic anaemia</b> and a high bilirubin (a <b>low ALP:bilirubin ratio</b>) — a rapidly fatal presentation needing urgent transplant."
+   },
+   {
+    "id": "lft_fc_10",
+    "front": "Cholestatic LFTs (↑↑ALP/GGT) — what is the immediate next investigation?",
+    "back": "An <b>abdominal ultrasound</b> of the liver and biliary tree. <b>Dilated ducts</b> = extrahepatic obstruction (stone/tumour) → MRCP/ERCP; <b>non-dilated ducts</b> = intrahepatic cholestasis (PBC, PSC, drugs, infiltration)."
+   },
+   {
+    "id": "lft_fc_11",
+    "front": "Unexplained deranged hepatocellular LFTs — what 'non-invasive liver screen' do you send?",
+    "back": "Viral hepatitis serology (B, C); autoantibodies (ANA, SMA, AMA, anti-LKM) + immunoglobulins; ferritin + transferrin saturation (haemochromatosis); caeruloplasmin (Wilson's); α₁-antitrypsin level; ± coeliac serology and TFTs; and fasting lipids/glucose for NAFLD."
    }
   ],
   "investigations__BIOCHEMISTRY__Diabetes & Glucose": [
@@ -1092,12 +1107,12 @@
     "question": "A dehydrated patient has urea 18 mmol/L with a creatinine of 95 µmol/L (only mildly raised). What does this urea:creatinine pattern indicate?",
     "options": [
      "Intrinsic renal failure",
-     "A pre-renal picture (e.g. dehydration or an upper GI bleed)",
      "Post-renal obstruction",
+     "A pre-renal picture (e.g. dehydration or an upper GI bleed)",
      "Liver failure",
      "Rhabdomyolysis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "A pre-renal picture (e.g. dehydration or an upper GI bleed)",
     "explanation": "Urea rising disproportionately to creatinine gives a high urea:creatinine ratio — a pre-renal pattern from dehydration/hypovolaemia, or an upper GI bleed where absorbed protein raises the urea."
    },
@@ -1107,12 +1122,12 @@
     "question": "A patient has a potassium of 6.9 mmol/L with tall tented T waves on the ECG. What is the FIRST drug to give?",
     "options": [
      "Insulin with dextrose",
-     "IV calcium gluconate",
      "Nebulised salbutamol",
      "Oral calcium resonium",
-     "IV furosemide"
+     "IV furosemide",
+     "IV calcium gluconate"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "IV calcium gluconate",
     "explanation": "With ECG changes, IV calcium gluconate is given first to stabilise the myocardium (cardioprotection). It does not lower potassium — insulin/dextrose and salbutamol are then used to shift K⁺ into cells."
    },
@@ -1137,12 +1152,12 @@
     "question": "Which finding is characteristic of hypokalaemia on the ECG?",
     "options": [
      "Tall tented T waves",
-     "U waves and flattened T waves",
      "Widened QRS",
      "Peaked P waves",
+     "U waves and flattened T waves",
      "Short QT interval"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "U waves and flattened T waves",
     "explanation": "Hypokalaemia flattens the T waves and produces U waves (and can prolong the QT). Tall tented T waves and a widened QRS are features of hyperkalaemia."
    },
@@ -1151,13 +1166,13 @@
     "type": "mcq",
     "question": "An acutely septic, hypotensive patient has an eGFR reported as 22 mL/min/1.73m². Their creatinine was normal last month. How should this eGFR be interpreted?",
     "options": [
-     "They have established CKD stage G4",
      "eGFR is invalid here — this is likely AKI, as creatinine is not in steady state",
+     "They have established CKD stage G4",
      "They need immediate dialysis based on the eGFR",
      "The eGFR confirms end-stage kidney disease",
      "Repeat the eGFR in 3 months to stage CKD"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "eGFR is invalid here — this is likely AKI, as creatinine is not in steady state",
     "explanation": "eGFR assumes a steady-state creatinine. In acute illness with a rising creatinine it is invalid and this picture represents AKI, not CKD. Follow the creatinine trend and treat the acute cause."
    },
@@ -1167,14 +1182,14 @@
     "question": "A patient has a stable eGFR of 40 mL/min/1.73m² and an ACR of 45 mg/mmol confirmed over 4 months. How is this classified?",
     "options": [
      "G2 A1",
-     "G3b A3",
      "G4 A2",
+     "G3b A3",
      "G3a A1",
      "Not CKD"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "G3b A3",
-    "explanation": "An eGFR of 40 falls in G3b (30–44) and an ACR >30 is A3. Persisting >3 months, this is CKD stage G3b A3 — a high-risk category warranting referral."
+    "explanation": "An eGFR of 40 falls in G3b (30–44) and an ACR >30 is A3. Persisting >3 months, this is CKD stage G3b A3 — a high-risk (KDIGO red) category needing close monitoring and optimisation."
    },
    {
     "id": "egfr_q03",
@@ -1184,10 +1199,10 @@
      "48 hours",
      "7 days",
      "1 month",
-     "3 months",
-     "1 year"
+     "1 year",
+     "3 months"
     ],
-    "correctIndex": 3,
+    "correctIndex": 4,
     "answer": "3 months",
     "explanation": "CKD requires a reduced GFR or markers of kidney damage present for at least 3 months, distinguishing it from acute kidney injury."
    },
@@ -1212,12 +1227,12 @@
     "question": "An oliguric AKI patient has a potassium of 7.2 mmol/L that is not responding to medical therapy, with a severe metabolic acidosis. What is the appropriate escalation?",
     "options": [
      "More IV fluids",
-     "Urgent renal replacement therapy (dialysis)",
      "Repeat the potassium in 6 hours",
      "Start an ACE inhibitor",
+     "Urgent renal replacement therapy (dialysis)",
      "Give a further dose of oral calcium resonium and wait"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Urgent renal replacement therapy (dialysis)",
     "explanation": "Refractory hyperkalaemia and severe acidosis (two of the AEIOU indications) not responding to medical management require urgent dialysis."
    },
@@ -1226,13 +1241,13 @@
     "type": "mcq",
     "question": "An elderly man with AKI has a palpable bladder and no urine output. What is the most important immediate investigation/action?",
     "options": [
-     "Renal biopsy",
      "Catheterise and arrange a renal tract ultrasound to exclude obstruction",
+     "Renal biopsy",
      "Start high-dose furosemide",
      "Give nephrotoxic contrast CT",
      "Start dialysis immediately"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Catheterise and arrange a renal tract ultrasound to exclude obstruction",
     "explanation": "A palpable bladder with anuria suggests post-renal (obstructive) AKI. Catheterisation may be immediately therapeutic, and ultrasound confirms/excludes obstruction (hydronephrosis) — a reversible cause."
    },
@@ -1242,12 +1257,12 @@
     "question": "A euvolaemic patient has Na⁺ 122 mmol/L, low serum osmolality, urine osmolality 450 mosmol/kg, urine Na 45 mmol/L, with normal thyroid and cortisol. What is the diagnosis?",
     "options": [
      "Hypovolaemic hyponatraemia",
-     "SIADH",
      "Primary polydipsia",
+     "SIADH",
      "Hypervolaemic hyponatraemia",
      "Pseudohyponatraemia"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "SIADH",
     "explanation": "Euvolaemic hyponatraemia with a low serum osmolality but inappropriately concentrated urine (osm >100, urine Na >30) and normal thyroid/adrenal function is SIADH. Treat with fluid restriction."
    },
@@ -1257,12 +1272,12 @@
     "question": "A patient with chronic hyponatraemia (Na 116) is corrected rapidly by 18 mmol/L over 24 hours and days later develops dysarthria, quadriparesis and a reduced conscious level. What has most likely happened?",
     "options": [
      "Cerebral oedema",
-     "Osmotic demyelination syndrome (central pontine myelinolysis)",
      "A further drop in sodium",
      "Wernicke's encephalopathy",
-     "Hepatic encephalopathy"
+     "Hepatic encephalopathy",
+     "Osmotic demyelination syndrome (central pontine myelinolysis)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Osmotic demyelination syndrome (central pontine myelinolysis)",
     "explanation": "Over-rapid correction of chronic hyponatraemia (>8–10 mmol/L/24 h) causes osmotic demyelination — a delayed, often irreversible syndrome. Sodium must be raised slowly with frequent monitoring."
    },
@@ -1287,12 +1302,12 @@
     "question": "A patient with a red, hot, swollen first MTP joint has a serum urate that is within the normal range. What is the correct interpretation?",
     "options": [
      "Gout is excluded by the normal urate",
-     "A normal urate does not exclude gout — urate often falls during an acute attack",
      "The joint pain must be septic arthritis",
      "Start lifelong allopurinol immediately",
+     "A normal urate does not exclude gout — urate often falls during an acute attack",
      "Repeat the urate in 24 hours to confirm"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "A normal urate does not exclude gout — urate often falls during an acute attack",
     "explanation": "Serum urate frequently drops into the normal range during an acute gout flare, so it cannot exclude the diagnosis. Confirm with joint aspiration (negatively birefringent MSU crystals) and recheck urate weeks later."
    },
@@ -1301,13 +1316,13 @@
     "type": "mcq",
     "question": "48 hours after starting chemotherapy for a high-grade lymphoma, a patient has a rising urate, K⁺ 6.3, high phosphate, low calcium and rising creatinine. What is the key urate-directed treatment?",
     "options": [
-     "Allopurinol alone",
      "Rasburicase with IV fluids",
+     "Allopurinol alone",
      "Oral colchicine",
      "Fluid restriction",
      "A thiazide diuretic"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Rasburicase with IV fluids",
     "explanation": "This is tumour lysis syndrome. Rasburicase rapidly breaks down urate and, with aggressive IV hydration, protects the kidneys; electrolytes (K⁺, phosphate, calcium) and renal function are monitored and managed."
    },
@@ -1317,14 +1332,29 @@
     "question": "A 70-year-old with a hot, swollen knee and fever has a raised serum urate. What is the most important immediate step?",
     "options": [
      "Diagnose gout and start NSAIDs",
-     "Aspirate the joint for crystals AND Gram stain/culture to exclude septic arthritis",
      "Start allopurinol",
+     "Aspirate the joint for crystals AND Gram stain/culture to exclude septic arthritis",
      "Request a serum urate in 6 weeks",
      "Start oral antibiotics empirically without aspiration"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Aspirate the joint for crystals AND Gram stain/culture to exclude septic arthritis",
     "explanation": "A hot, swollen joint with fever is septic arthritis until proven otherwise. A raised urate does not confirm gout — joint aspiration for crystals and microbiology is essential before assuming a crystal arthropathy."
+   },
+   {
+    "id": "ue_q08",
+    "type": "mcq",
+    "question": "A patient's potassium of 2.7 mmol/L keeps returning low despite oral and IV potassium replacement. What is the key additional step?",
+    "options": [
+     "Give calcium gluconate for cardioprotection",
+     "Start insulin and dextrose",
+     "Restrict dietary potassium",
+     "Give salbutamol nebulisers",
+     "Check and replace magnesium"
+    ],
+    "correctIndex": 4,
+    "answer": "Check and replace magnesium",
+    "explanation": "Coexisting hypomagnesaemia prevents potassium replacement from working (magnesium is needed for renal potassium handling), causing refractory hypokalaemia — check and correct it. Calcium gluconate, insulin/dextrose and salbutamol are treatments for HYPERkalaemia."
    }
   ],
   "investigations__BIOCHEMISTRY__Liver & Pancreas": [
@@ -1334,12 +1364,12 @@
     "question": "A patient with a long alcohol history has AST 210, ALT 95, ALP 120, GGT very high. What pattern is this and what does the enzyme ratio suggest?",
     "options": [
      "Cholestatic pattern — likely gallstones",
-     "Hepatocellular pattern with AST:ALT >2 — suggestive of alcoholic liver disease",
      "Isolated synthetic dysfunction",
+     "Hepatocellular pattern with AST:ALT >2 — suggestive of alcoholic liver disease",
      "Normal LFTs",
      "Pre-hepatic jaundice"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Hepatocellular pattern with AST:ALT >2 — suggestive of alcoholic liver disease",
     "explanation": "ALT/AST rise predominates over ALP (hepatocellular), and an AST:ALT ratio >2 is characteristic of alcoholic liver disease."
    },
@@ -1349,12 +1379,12 @@
     "question": "A jaundiced patient has ALP 640, GGT 480, ALT 70, with dark urine and pale stools. What pattern and category is this?",
     "options": [
      "Hepatocellular — viral hepatitis",
-     "Cholestatic (obstructive) — e.g. gallstones or tumour",
      "Pre-hepatic — haemolysis",
      "Gilbert's syndrome",
-     "Synthetic failure"
+     "Synthetic failure",
+     "Cholestatic (obstructive) — e.g. gallstones or tumour"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Cholestatic (obstructive) — e.g. gallstones or tumour",
     "explanation": "A marked ALP/GGT rise out of proportion to ALT, with dark urine and pale stools, is an obstructive cholestatic picture (conjugated hyperbilirubinaemia)."
    },
@@ -1379,12 +1409,12 @@
     "question": "A patient with a paracetamol overdose becomes jaundiced with an INR of 2.4 and new confusion. What does this indicate?",
     "options": [
      "Chronic stable liver disease",
-     "Acute liver failure — discuss urgently with a liver unit",
      "Gilbert's syndrome",
      "Simple cholestasis",
+     "Acute liver failure — discuss urgently with a liver unit",
      "Pre-hepatic jaundice"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Acute liver failure — discuss urgently with a liver unit",
     "explanation": "Jaundice with coagulopathy (INR ≥1.5) and encephalopathy defines acute liver failure. Paracetamol is the commonest UK cause; give N-acetylcysteine and involve a liver/transplant unit early."
    },
@@ -1393,13 +1423,13 @@
     "type": "mcq",
     "question": "A patient presents 3 days after the onset of severe epigastric pain. Amylase is normal. What is the best next test to assess for pancreatitis?",
     "options": [
-     "Repeat the amylase",
      "Serum lipase",
+     "Repeat the amylase",
      "Serum ALT",
      "Serum urate",
      "Blood film"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Serum lipase",
     "explanation": "Amylase falls within 24–48 h, so it can be normal in a late presentation. Lipase stays elevated longer and is more sensitive/specific — the better test here."
    },
@@ -1409,12 +1439,12 @@
     "question": "A patient has confirmed acute pancreatitis with an amylase of 2000 U/L. How should severity be assessed?",
     "options": [
      "By the absolute amylase level",
-     "With a validated score (Glasgow/APACHE II) and CRP — the amylase does not reflect severity",
      "By the lipase level",
+     "With a validated score (Glasgow/APACHE II) and CRP — the amylase does not reflect severity",
      "By the AST:ALT ratio",
      "Severity cannot be assessed"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "With a validated score (Glasgow/APACHE II) and CRP — the amylase does not reflect severity",
     "explanation": "The magnitude of the amylase rise does not correlate with severity. Use a validated scoring system and CRP to stratify risk."
    },
@@ -1424,12 +1454,12 @@
     "question": "A patient has a very high amylase but a CT abdomen shows a perforated duodenal ulcer and a normal pancreas. What does this illustrate?",
     "options": [
      "Amylase is specific to the pancreas",
-     "A raised amylase is non-specific and occurs in other intra-abdominal pathology (e.g. perforation)",
      "The CT must be wrong",
      "This confirms pancreatitis",
-     "Amylase is more specific than lipase"
+     "Amylase is more specific than lipase",
+     "A raised amylase is non-specific and occurs in other intra-abdominal pathology (e.g. perforation)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "A raised amylase is non-specific and occurs in other intra-abdominal pathology (e.g. perforation)",
     "explanation": "Amylase is not pancreas-specific — bowel perforation/ischaemia, ectopic pregnancy, DKA and parotitis can all raise it. Correlate with the clinical picture and imaging."
    },
@@ -1454,12 +1484,12 @@
     "question": "A neonate becomes encephalopathic with a markedly raised ammonia but normal LFTs and no liver failure. What class of condition should be suspected?",
     "options": [
      "Hepatic encephalopathy from cirrhosis",
-     "An inborn error of metabolism (e.g. a urea cycle disorder)",
      "Gilbert's syndrome",
      "Acute viral hepatitis",
+     "An inborn error of metabolism (e.g. a urea cycle disorder)",
      "Alcoholic liver disease"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "An inborn error of metabolism (e.g. a urea cycle disorder)",
     "explanation": "Hyperammonaemic encephalopathy in a neonate with normal liver function points to an inborn error of metabolism such as a urea cycle disorder — a metabolic emergency."
    },
@@ -1468,13 +1498,13 @@
     "type": "mcq",
     "question": "A patient on sodium valproate develops confusion with a raised ammonia but normal LFTs. What is the likely mechanism?",
     "options": [
-     "Acute liver failure",
      "Valproate-induced hyperammonaemic encephalopathy",
+     "Acute liver failure",
      "Gilbert's syndrome",
      "Simple dehydration",
      "Cholestasis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Valproate-induced hyperammonaemic encephalopathy",
     "explanation": "Valproate can cause hyperammonaemic encephalopathy independent of liver failure; stopping the drug (± carnitine) reverses it."
    },
@@ -1484,12 +1514,12 @@
     "question": "A 38-year-old lifelong non-smoker develops progressive breathlessness; CT shows basal-predominant emphysema. What diagnosis should be actively excluded and how is it confirmed?",
     "options": [
      "Asthma — spirometry",
-     "α₁-antitrypsin deficiency — serum level and Pi phenotype/genotype",
      "Idiopathic pulmonary fibrosis — biopsy",
+     "α₁-antitrypsin deficiency — serum level and Pi phenotype/genotype",
      "Sarcoidosis — serum ACE",
      "Bronchiectasis — sputum culture"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "α₁-antitrypsin deficiency — serum level and Pi phenotype/genotype",
     "explanation": "Basal-predominant emphysema in a young or non-smoking patient is the classic presentation of α₁-antitrypsin deficiency. Check the serum level and confirm with Pi typing (PiZZ)."
    },
@@ -1499,12 +1529,12 @@
     "question": "A patient with suspected α₁-antitrypsin deficiency has a serum level reported as within the normal range during an acute infection. What is the most appropriate interpretation?",
     "options": [
      "Deficiency is excluded",
-     "A1AT is an acute-phase reactant — a normal level during inflammation may be falsely reassuring; recheck and perform Pi typing",
      "The result confirms PiZZ",
      "No further testing is needed",
-     "Repeat only if symptoms worsen"
+     "Repeat only if symptoms worsen",
+     "A1AT is an acute-phase reactant — a normal level during inflammation may be falsely reassuring; recheck and perform Pi typing"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "A1AT is an acute-phase reactant — a normal level during inflammation may be falsely reassuring; recheck and perform Pi typing",
     "explanation": "Because A1AT rises as an acute-phase protein, an intercurrent illness can mask a deficiency. Interpret with CRP, repeat when well, and confirm the phenotype/genotype."
    },
@@ -1529,12 +1559,12 @@
     "question": "A 25-year-old with abnormal LFTs also has a resting tremor and dysarthria. Caeruloplasmin is low, 24-hour urinary copper is high, and slit-lamp shows Kayser–Fleischer rings. What is the diagnosis?",
     "options": [
      "Haemochromatosis",
-     "Wilson's disease",
      "α₁-antitrypsin deficiency",
      "Autoimmune hepatitis",
+     "Wilson's disease",
      "Primary biliary cholangitis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Wilson's disease",
     "explanation": "A young patient with combined hepatic and neuropsychiatric disease, low caeruloplasmin, high urinary copper and Kayser–Fleischer rings has Wilson's disease (ATP7B copper accumulation)."
    },
@@ -1543,13 +1573,13 @@
     "type": "mcq",
     "question": "A patient with suspected Wilson's has a caeruloplasmin reported as low-normal during an acute illness. How should this be interpreted?",
     "options": [
-     "Wilson's is excluded",
      "Caeruloplasmin is an acute-phase reactant and may be falsely normal — do not exclude Wilson's; use urinary copper, slit-lamp and genetics",
+     "Wilson's is excluded",
      "It confirms Wilson's",
      "Repeat only if symptoms progress",
      "Start chelation immediately"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Caeruloplasmin is an acute-phase reactant and may be falsely normal — do not exclude Wilson's; use urinary copper, slit-lamp and genetics",
     "explanation": "Because caeruloplasmin rises with inflammation, a normal level during illness can be misleading. Diagnosis rests on a combination — urinary copper, KF rings, biopsy copper and ATP7B testing."
    },
@@ -1559,14 +1589,29 @@
     "question": "A young patient presents with acute liver failure, a Coombs-negative haemolytic anaemia and a strikingly LOW alkaline phosphatase. Which diagnosis should be urgently considered?",
     "options": [
      "Paracetamol toxicity",
-     "Wilson's disease",
      "Gilbert's syndrome",
+     "Wilson's disease",
      "Ascending cholangitis",
      "Alcoholic hepatitis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Wilson's disease",
     "explanation": "Acute liver failure with Coombs-negative haemolysis and a low ALP (low ALP:bilirubin ratio) is the classic fulminant presentation of Wilson's disease — rapidly fatal without transplantation."
+   },
+   {
+    "id": "lft_q08",
+    "type": "mcq",
+    "question": "A jaundiced patient has ALP 610, GGT 450 and ALT 60, with dark urine and pale stools. What is the most appropriate next investigation?",
+    "options": [
+     "Serum ammonia",
+     "Anti-mitochondrial antibody as the first-line test",
+     "24-hour urinary copper",
+     "Repeat the LFTs in three months",
+     "Abdominal ultrasound of the biliary tree"
+    ],
+    "correctIndex": 4,
+    "answer": "Abdominal ultrasound of the biliary tree",
+    "explanation": "This is a cholestatic/obstructive pattern (↑↑ALP/GGT with dark urine and pale stools). The immediate next step is an abdominal ultrasound: dilated ducts indicate extrahepatic obstruction (→ MRCP/ERCP), non-dilated suggests intrahepatic cholestasis. AMA and copper studies come later if the USS is non-obstructive."
    }
   ],
   "investigations__BIOCHEMISTRY__Diabetes & Glucose": [
