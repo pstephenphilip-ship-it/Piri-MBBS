@@ -153,6 +153,16 @@
         "id": "shg_syph_fc_05",
         "front": "In what situations do biological false-positive non-treponemal tests occur, and what is the treatment for active syphilis?",
         "back": "Biological false positives (RPR/VDRL) occur in pregnancy, autoimmune disease (e.g. antiphospholipid syndrome/SLE) and other infections. Active syphilis is treated with intramuscular benzathine penicillin."
+      },
+      {
+        "id": "shg_syph_rise_fc_01",
+        "front": "A treated syphilis patient shows a ≥4-fold RISE in RPR titre — what does it mean and what do you do?",
+        "back": "It indicates <b>reinfection or treatment failure</b>. <b>Re-treat</b> and reassess (take a sexual history for reinfection, and consider a lumbar puncture / CSF-VDRL to exclude neurosyphilis)."
+      },
+      {
+        "id": "shg_syph_jhr_fc_01",
+        "front": "What reaction should you warn about when starting penicillin for syphilis?",
+        "back": "The <b>Jarisch-Herxheimer reaction</b> — fever, myalgia, headache and worsening rash within hours of the first dose, caused by release of treponemal antigens as organisms are killed. It is self-limiting; manage with antipyretics/supportive care (not an allergy)."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__Dark-field Microscopy & PCR (Syphilis Lesion)": [
@@ -180,6 +190,11 @@
         "id": "shg_darkfield_fc_05",
         "front": "What clinical ulcer description should prompt direct testing for syphilis?",
         "back": "A painless, indurated genital ulcer is a primary syphilitic chancre until proven otherwise, and should be sampled directly for dark-field microscopy or PCR."
+      },
+      {
+        "id": "shg_darkfield_treat_fc_01",
+        "front": "A genital chancre is dark-field/PCR positive but serology is still negative — what is the next step?",
+        "back": "<b>Diagnose and treat primary syphilis now</b> with IM <b>benzathine penicillin</b>. Direct detection is diagnostic in early primary syphilis, so treatment must not wait for serology to seroconvert. <a class=\"cp-dx\" href=\"#conditions/SEXUAL%20HEALTH/Syphilis\">Syphilis &rsaquo;</a>"
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__HSV PCR (Genital Lesion Swab)": [
@@ -505,12 +520,12 @@
         "question": "A patient treated for syphilis 5 years ago is retested. Treponemal EIA/TPPA are positive but the RPR is non-reactive. How is this best interpreted?",
         "options": [
           "Active untreated secondary syphilis requiring immediate treatment",
-          "A previously treated (or latent) infection, since treponemal tests stay positive for life while RPR reflects activity",
           "A false-positive treponemal test that should be ignored",
+          "A previously treated (or latent) infection, since treponemal tests stay positive for life while RPR reflects activity",
           "Definite neurosyphilis",
           "Acute HIV seroconversion"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A previously treated (or latent) infection, since treponemal tests stay positive for life while RPR reflects activity",
         "explanation": "Treponemal tests remain reactive lifelong and simply confirm past exposure. A non-reactive RPR indicates absent or low current activity, consistent with prior treatment or latent disease when read with the history."
       },
@@ -521,11 +536,11 @@
         "options": [
           "Treatment failure requiring re-treatment",
           "Reinfection with a new strain",
-          "A successful treatment response (≥4-fold fall in titre)",
           "A biological false positive",
-          "Development of tertiary syphilis"
+          "Development of tertiary syphilis",
+          "A successful treatment response (≥4-fold fall in titre)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "A successful treatment response (≥4-fold fall in titre)",
         "explanation": "A fall from 1:32 to 1:2 is a 4-dilution (16-fold) drop, well beyond the ≥4-fold threshold. A ≥4-fold fall in non-treponemal titre signifies a successful response to therapy."
       },
@@ -534,15 +549,30 @@
         "type": "mcq",
         "question": "A patient with a florid secondary syphilis rash has a non-reactive RPR but a strongly positive treponemal test. What explains the negative RPR?",
         "options": [
-          "The prozone phenomenon, corrected by diluting the serum",
           "The patient does not have syphilis",
+          "The prozone phenomenon, corrected by diluting the serum",
           "The treponemal test is falsely positive",
           "Successful prior treatment",
           "A laboratory contamination artefact"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "The prozone phenomenon, corrected by diluting the serum",
         "explanation": "In high-titre secondary syphilis, antibody excess can inhibit agglutination and produce a false-negative RPR. Diluting the serum removes the excess and reveals a positive, appropriately high titre."
+      },
+      {
+        "id": "shg_syph_rise_q01",
+        "type": "mcq",
+        "question": "Twelve months after treatment for syphilis, a patient’s RPR titre has risen from 1:4 to 1:32. What is the most appropriate action?",
+        "options": [
+          "Reassure — this represents a treatment response",
+          "Repeat only the treponemal EIA",
+          "No action as treponemal tests stay positive for life",
+          "Re-treat and reassess for reinfection or treatment failure (consider LP)",
+          "Stop all follow-up"
+        ],
+        "correctIndex": 3,
+        "answer": "Re-treat and reassess for reinfection or treatment failure (consider LP)",
+        "explanation": "A ≥4-fold rise in RPR titre (1:4 → 1:32 is a 3-dilution/8-fold rise) signals reinfection or treatment failure and prompts re-treatment plus reassessment — including a sexual history and consideration of a lumbar puncture to exclude neurosyphilis. A fall, not a rise, indicates response."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__Dark-field Microscopy & PCR (Syphilis Lesion)": [
@@ -552,12 +582,12 @@
         "question": "A 24-year-old man has a solitary painless, indurated genital ulcer of 5 days' duration. Syphilis serology is negative. What is the most appropriate next investigation to confirm the diagnosis?",
         "options": [
           "Repeat serology in 3 months and take no further action now",
-          "Dark-field microscopy or PCR of serous exudate from the ulcer",
           "Bacterial culture of the ulcer for Treponema pallidum",
+          "Dark-field microscopy or PCR of serous exudate from the ulcer",
           "Gram stain of the ulcer exudate",
           "Skin biopsy of the ulcer edge for histology"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Dark-field microscopy or PCR of serous exudate from the ulcer",
         "explanation": "In very early primary syphilis serology may be negative before antibodies develop, so direct detection from the lesion is required. Dark-field microscopy visualises the live motile spirochaete and PCR detects T. pallidum DNA directly from the chancre fluid."
       },
@@ -567,12 +597,12 @@
         "question": "A patient has a moist ulcerating lesion in the mouth and syphilis is suspected. Which direct test is most appropriate and why?",
         "options": [
           "Dark-field microscopy, because oral lesions shed the most motile organisms",
-          "PCR, because commensal oral treponemes cause false positives on dark-field microscopy",
           "Dark-field microscopy, because PCR cannot detect T. pallidum at mucosal sites",
           "Culture, because it distinguishes pathogenic from commensal treponemes",
-          "Neither, because oral lesions cannot be sampled for direct testing"
+          "Neither, because oral lesions cannot be sampled for direct testing",
+          "PCR, because commensal oral treponemes cause false positives on dark-field microscopy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "PCR, because commensal oral treponemes cause false positives on dark-field microscopy",
         "explanation": "The oral cavity harbours non-pathogenic commensal spirochaetes that look like T. pallidum on dark-field, making microscopy unreliable there. PCR targets species-specific DNA, so it is the specific test of choice for oral and rectal lesions."
       },
@@ -582,14 +612,29 @@
         "question": "A dark-field examination of fluid from a genital ulcer is reported as negative. Serology is also negative. What is the correct interpretation?",
         "options": [
           "Syphilis is confidently excluded and no follow-up is needed",
-          "The result is diagnostic of a non-syphilitic ulcer such as herpes",
           "Syphilis is not excluded; repeat sampling and repeat serology",
+          "The result is diagnostic of a non-syphilitic ulcer such as herpes",
           "A positive result would have required culture confirmation anyway",
           "Dark-field microscopy is only valid if performed on dried lesion crusts"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Syphilis is not excluded; repeat sampling and repeat serology",
         "explanation": "A negative direct test does not exclude syphilis, as too little exudate, prior antibiotics, or a healing lesion can all yield false negatives. The correct action is to repeat sampling and repeat serology over the following weeks."
+      },
+      {
+        "id": "shg_darkfield_treat_q01",
+        "type": "mcq",
+        "question": "A patient with a painless indurated genital ulcer has motile spirochaetes on dark-field microscopy, but the treponemal serology is (as yet) negative. What is the most appropriate management?",
+        "options": [
+          "Withhold treatment until serology becomes positive",
+          "Repeat serology in 3 months and review",
+          "Start aciclovir for genital herpes",
+          "Treat for primary syphilis now with IM benzathine penicillin",
+          "Reassure — a negative serology excludes syphilis"
+        ],
+        "correctIndex": 3,
+        "answer": "Treat for primary syphilis now with IM benzathine penicillin",
+        "explanation": "A positive dark-field/PCR from a chancre is diagnostic of primary syphilis even before serology turns positive (direct detection precedes seroconversion). Treat now with IM benzathine penicillin; waiting for serology delays treatment of a confirmed infection."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__HSV PCR (Genital Lesion Swab)": [
