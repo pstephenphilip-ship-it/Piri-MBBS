@@ -7407,6 +7407,21 @@
         "id": "og_ep_kleihauer_fc_05",
         "front": "How does cell-free fetal DNA (cffDNA) genotyping refine anti-D prophylaxis?",
         "back": "It determines the fetal RhD type from maternal blood, allowing TARGETED antenatal prophylaxis — only RhD-negative mothers carrying an RhD-positive fetus are given anti-D, sparing those carrying an RhD-negative fetus."
+      },
+      {
+        "id": "og_ep_misc_mgmt_fc_01",
+        "front": "What are the three management options for a confirmed miscarriage?",
+        "back": "<b>Expectant</b> (wait 7–14 days), <b>medical</b> (misoprostol ± mifepristone), or <b>surgical</b> (MVA under LA / ERPC under GA). Surgical is first-line with heavy bleeding, haemodynamic instability, infection or patient choice; give <b>anti-D if surgically managed</b>."
+      },
+      {
+        "id": "og_ep_ectopic_mtx_fc_01",
+        "front": "What criteria make a stable ectopic suitable for methotrexate rather than surgery?",
+        "back": "Unruptured, minimal/no pain, <b>no fetal heartbeat</b>, mass <b>&lt;35 mm</b>, <b>βhCG &lt;1500</b> (up to ~5000), no IUP, and able to attend follow-up (hCG on days 4 & 7, expecting ≥15% fall). Otherwise surgery (salpingectomy, or salpingotomy if the other tube is damaged)."
+      },
+      {
+        "id": "og_ep_molar_fc_01",
+        "front": "How is a molar pregnancy managed after diagnosis?",
+        "back": "<b>Suction evacuation</b> with histology and registration at a <b>GTD centre</b>; <b>serial βhCG until it normalises</b> to detect persistent GTD/choriocarcinoma; advise <b>avoiding pregnancy until hCG is normal</b>."
       }
     ],
     "investigations__OBSTETRICS & GYNAECOLOGY__Antenatal & Fetal Monitoring": [
@@ -7428,7 +7443,7 @@
       {
         "id": "og_afm_datingscan_fc_04",
         "front": "What test is offered for Down syndrome screening if a woman books too late for the combined test, and what are its markers?",
-        "back": "The quadruple test (offered ~15–20 weeks). Markers: serum AFP, β-hCG, unconjugated oestriol (uE3) and inhibin A."
+        "back": "The quadruple test (offered ~14–20 weeks). Markers: serum AFP, β-hCG, unconjugated oestriol (uE3) and inhibin A."
       },
       {
         "id": "og_afm_datingscan_fc_05",
@@ -7534,6 +7549,21 @@
         "id": "og_afm_plgf_fc_05",
         "front": "List red-flag severe features of pre-eclampsia mandating urgent review.",
         "back": "Severe hypertension, severe headache, visual disturbance, epigastric/RUQ pain, vomiting, brisk reflexes/clonus, rapidly progressive oedema, HELLP syndrome (haemolysis, elevated liver enzymes, low platelets), and eclampsia (seizures)."
+      },
+      {
+        "id": "og_afm_fbs_fc_01",
+        "front": "Give the fetal-scalp-pH thresholds and their actions.",
+        "back": "<b>≥7.25 normal</b>; <b>7.21–7.24 borderline</b> → repeat in ~30 min; <b>≤7.20 abnormal</b> → expedite delivery. Fetal scalp stimulation producing an acceleration is reassuring and may avoid FBS."
+      },
+      {
+        "id": "og_afm_sfh_fc_01",
+        "front": "How is symphysis-fundal height used, and what triggers a growth scan?",
+        "back": "Measure SFH from ~24 weeks and plot on a <b>customised (GROW) chart</b>. <b>SFH <10th centile, static, or crossing centiles</b> → refer for a <b>growth scan + umbilical artery Doppler</b>."
+      },
+      {
+        "id": "og_afm_t18t13_fc_01",
+        "front": "What combined-test biochemistry pattern suggests Edwards (T18) or Patau (T13) rather than Down (T21)?",
+        "back": "All three show <b>raised nuchal translucency</b>. <b>Down (T21)</b>: high βhCG, low PAPP-A. <b>Edwards/Patau (T18/T13)</b>: <b>low βhCG AND low PAPP-A</b>."
       }
     ],
     "investigations__OBSTETRICS & GYNAECOLOGY__Preterm & Peripartum": [
@@ -21823,12 +21853,12 @@
         "question": "A 26-year-old woman presents with 6 weeks of amenorrhoea, left iliac fossa pain and light vaginal bleeding. Urine hCG is positive. Transvaginal ultrasound shows an empty uterus and her serum β-hCG is 2100 IU/L. What is the most appropriate interpretation?",
         "options": [
           "Reassure her that this is a normal early intrauterine pregnancy and rescan in two weeks",
-          "The empty uterus with β-hCG above the discriminatory zone is highly suspicious for an ectopic pregnancy",
           "The positive urine test is likely a false positive and should be repeated",
+          "The empty uterus with β-hCG above the discriminatory zone is highly suspicious for an ectopic pregnancy",
           "This indicates a complete miscarriage and no further action is needed",
           "The β-hCG is too low to be significant and can be ignored"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "The empty uterus with β-hCG above the discriminatory zone is highly suspicious for an ectopic pregnancy",
         "explanation": "With serum β-hCG (2100 IU/L) above the discriminatory zone of ~1500 IU/L, an intrauterine pregnancy should normally be visible on TVUSS. An empty uterus at this level, especially with pain and bleeding, strongly suggests an ectopic pregnancy and mandates urgent early-pregnancy assessment. It is never reassured away on a single value."
       },
@@ -21838,12 +21868,12 @@
         "question": "A woman is being investigated for a pregnancy of unknown location (positive test, nothing seen on scan). Which single feature of serum β-hCG best supports a normally developing intrauterine pregnancy?",
         "options": [
           "A value above 100,000 IU/L on a single test",
-          "A β-hCG that roughly doubles over 48 hours",
           "A β-hCG that halves over 48 hours",
           "A very high value that is greater than expected for dates",
-          "A single positive qualitative urine test"
+          "A single positive qualitative urine test",
+          "A β-hCG that roughly doubles over 48 hours"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "A β-hCG that roughly doubles over 48 hours",
         "explanation": "A normal early intrauterine pregnancy shows serum β-hCG roughly doubling every ~48 hours. A halving trend suggests a failing pregnancy/miscarriage, a very high value suggests molar or multiple pregnancy, and no single value can confirm location or viability — hence serial measurement in PUL."
       },
@@ -21868,12 +21898,12 @@
         "question": "A 27-year-old woman with a positive pregnancy test and a last menstrual period 7 weeks ago undergoes TVUSS for light bleeding. It shows an intrauterine gestational sac containing a fetal pole with a crown-rump length of 9 mm but no visible fetal heartbeat. What is the most appropriate next step?",
         "options": [
           "Diagnose a viable intrauterine pregnancy and reassure",
-          "Diagnose miscarriage (non-viable pregnancy) and discuss management options",
           "Arrange serial serum β-hCG measurements",
           "Perform an urgent laparoscopy",
+          "Diagnose miscarriage (non-viable pregnancy) and discuss management options",
           "Repeat the scan in 7 days before making any diagnosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Diagnose miscarriage (non-viable pregnancy) and discuss management options",
         "explanation": "A CRL ≥7 mm with no fetal heartbeat meets the RCOG threshold for a non-viable pregnancy (miscarriage). Because the CRL exceeds 7 mm the diagnosis can be made; a repeat scan would only be needed if the CRL were <7 mm or findings were borderline. The pregnancy is clearly intrauterine, so ectopic-focused steps (laparoscopy, serial β-hCG for PUL) are not indicated."
       },
@@ -21882,13 +21912,13 @@
         "type": "mcq",
         "question": "A 31-year-old woman presents with left iliac fossa pain and a positive pregnancy test. She is tachycardic (HR 122), hypotensive (BP 88/54) and looks pale and unwell. Bedside assessment suggests a possible ruptured ectopic. What is the most appropriate immediate management?",
         "options": [
+          "Resuscitate (ABC, large-bore IV access, cross-match) and proceed to emergency surgery",
           "Arrange an urgent formal transvaginal ultrasound before doing anything else",
           "Wait for the serum β-hCG result to confirm the diagnosis",
-          "Resuscitate (ABC, large-bore IV access, cross-match) and proceed to emergency surgery",
           "Give a single dose of intramuscular methotrexate",
           "Admit for observation and repeat β-hCG in 48 hours"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Resuscitate (ABC, large-bore IV access, cross-match) and proceed to emergency surgery",
         "explanation": "A haemodynamically unstable woman with a positive pregnancy test and suspected ruptured ectopic is a surgical emergency. Management is immediate resuscitation and emergency surgery (usually laparoscopic or open salpingectomy) WITHOUT waiting for scans or serial bloods. Methotrexate and expectant management require a stable patient and are contraindicated here."
       },
@@ -21914,11 +21944,11 @@
         "options": [
           "Reassure and discharge with a routine dating scan at 12 weeks",
           "Repeat a urine pregnancy test in 2 weeks",
-          "Refer for EPAU senior review with further imaging as a possible ectopic",
           "Arrange immediate laparoscopy and salpingectomy",
-          "Repeat the β-hCG in a further 7 days from primary care"
+          "Repeat the β-hCG in a further 7 days from primary care",
+          "Refer for EPAU senior review with further imaging as a possible ectopic"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Refer for EPAU senior review with further imaging as a possible ectopic",
         "explanation": "The change from 480 to 520 (~8% rise) is a suboptimal change — between a ~50% fall and a ~63% rise. In a PUL this plateau is the pattern most suspicious of an ectopic, so she needs EPAU/senior review and further imaging, not reassurance or a delayed repeat. She is stable, so immediate surgery is not yet indicated."
       },
@@ -21957,13 +21987,13 @@
         "type": "mcq",
         "question": "A 29-year-old RhD-negative woman at 30 weeks' gestation attends after a road traffic collision with abdominal trauma. Her booking antibody screen was negative and she received routine anti-D at 28 weeks. Which investigation most directly determines whether her current anti-D dose is adequate?",
         "options": [
-          "Repeat maternal antibody screen (indirect Coombs)",
           "Kleihauer–Betke acid-elution test",
+          "Repeat maternal antibody screen (indirect Coombs)",
           "Direct antiglobulin test on the neonate",
           "Middle cerebral artery (MCA) peak systolic velocity Doppler",
           "Cell-free fetal DNA RhD genotyping"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Kleihauer–Betke acid-elution test",
         "explanation": "After a potentially sensitising event beyond 20 weeks, the Kleihauer test quantifies the size of the feto-maternal haemorrhage to check whether the standard anti-D dose covers the bleed or whether additional anti-D is required. MCA Doppler assesses established fetal anaemia (in an already-sensitised woman), the neonatal DAT is postnatal, and cffDNA types the fetus rather than sizing a bleed."
       },
@@ -21989,13 +22019,28 @@
         "options": [
           "It is given to RhD-positive mothers carrying an RhD-negative fetus",
           "It reverses sensitisation once maternal anti-D antibodies are present",
-          "It works by mopping up fetal RhD-positive cells before the mother mounts an immune response",
           "It should be delayed until after delivery in all cases",
-          "It is only indicated if the Kleihauer test is positive"
+          "It is only indicated if the Kleihauer test is positive",
+          "It works by mopping up fetal RhD-positive cells before the mother mounts an immune response"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "It works by mopping up fetal RhD-positive cells before the mother mounts an immune response",
         "explanation": "Anti-D immunoglobulin binds and clears fetal RhD-positive cells from the maternal circulation before an active maternal immune response can develop, preventing sensitisation. It is given to non-sensitised RhD-negative women (not RhD-positive mothers), cannot reverse existing sensitisation, and is given prophylactically after sensitising events, at 28 weeks (RAADP) and postnatally — not only when the Kleihauer is positive."
+      },
+      {
+        "id": "og_ep_ectopic_mtx_q01",
+        "type": "mcq",
+        "question": "A stable woman has an unruptured 22 mm tubal ectopic with no fetal heartbeat and a βhCG of 1200 IU/L, and can attend follow-up. What is the most appropriate management?",
+        "options": [
+          "Immediate salpingectomy",
+          "Methotrexate with serial βhCG follow-up",
+          "Expectant management with no follow-up",
+          "ERPC",
+          "Repeat scan in 4 weeks only"
+        ],
+        "correctIndex": 1,
+        "answer": "Methotrexate with serial βhCG follow-up",
+        "explanation": "She meets methotrexate criteria: unruptured, asymptomatic/minimal pain, mass <35 mm, no fetal heartbeat, βhCG <1500 and able to attend follow-up (hCG days 4 and 7, expecting a ≥15% fall). Surgery is reserved for larger masses, higher βhCG, pain, heartbeat, or inability to follow up."
       }
     ],
     "investigations__OBSTETRICS & GYNAECOLOGY__Antenatal & Fetal Monitoring": [
@@ -22005,12 +22050,12 @@
         "question": "A woman attends for her first ultrasound at 12 weeks' gestation. The sonographer measures a specific parameter to accurately establish the gestational age and expected date of delivery. Which measurement is used?",
         "options": [
           "Biparietal diameter",
-          "Crown–rump length",
           "Femur length",
+          "Crown–rump length",
           "Nuchal translucency",
           "Abdominal circumference"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Crown–rump length",
         "explanation": "At the dating scan (~10–14 weeks) the crown–rump length (CRL) is the standard measurement used to accurately date the pregnancy. Once CRL exceeds ~84 mm (beyond ~14 weeks), head circumference/biparietal diameter is used. Nuchal translucency screens for aneuploidy, not dating; femur and abdominal circumference are used for later growth assessment."
       },
@@ -22020,12 +22065,12 @@
         "question": "A 38-year-old woman has a combined test at 12 weeks. Which set of results is most consistent with a higher chance of trisomy 21 (Down syndrome)?",
         "options": [
           "↓ NT, ↓ β-hCG, ↑ PAPP-A",
-          "↑ NT, ↑ β-hCG, ↓ PAPP-A",
           "↑ NT, ↓ β-hCG, ↑ PAPP-A",
           "↓ NT, ↑ β-hCG, ↓ PAPP-A",
-          "Normal NT, ↓ β-hCG, ↓ PAPP-A"
+          "Normal NT, ↓ β-hCG, ↓ PAPP-A",
+          "↑ NT, ↑ β-hCG, ↓ PAPP-A"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "↑ NT, ↑ β-hCG, ↓ PAPP-A",
         "explanation": "The classic Down syndrome pattern on the combined test is increased nuchal translucency, increased β-hCG and decreased PAPP-A (combined with maternal age). Edwards and Patau syndromes typically show low β-hCG and low PAPP-A."
       },
@@ -22035,12 +22080,12 @@
         "question": "A woman first books for antenatal care at 17 weeks' gestation, having missed the window for the combined test. Which test should be offered for Down syndrome screening?",
         "options": [
           "Repeat nuchal translucency scan",
-          "Combined test",
           "Quadruple test",
+          "Combined test",
           "Immediate amniocentesis",
           "Chorionic villus sampling"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Quadruple test",
         "explanation": "When the combined-test window (~11–14 weeks) is missed, the quadruple test (serum AFP, β-hCG, unconjugated oestriol/uE3 and inhibin A) is offered ~15–20 weeks. NT is only reliable at 11–14 weeks; CVS and amniocentesis are diagnostic tests offered after a higher-chance screening result, not first-line screening."
       },
@@ -22051,11 +22096,11 @@
         "options": [
           "Fetal head compression",
           "Umbilical cord compression",
-          "Uteroplacental insufficiency causing fetal hypoxia",
           "Maternal pyrexia",
+          "Uteroplacental insufficiency causing fetal hypoxia",
           "Normal fetal sleep cycle"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Uteroplacental insufficiency causing fetal hypoxia",
         "explanation": "Late decelerations (nadir after the contraction peak) combined with reduced variability indicate uteroplacental insufficiency and fetal hypoxia — the pathological pattern. Head compression causes early decelerations and cord compression causes variable decelerations, neither of which is described here."
       },
@@ -22064,13 +22109,13 @@
         "type": "mcq",
         "question": "Which single CTG feature is considered reassuring and a sign of fetal wellbeing?",
         "options": [
+          "Accelerations of ≥15 bpm lasting ≥15 seconds",
           "Baseline rate of 175 bpm",
           "Variability of 2 bpm sustained for 60 minutes",
-          "Accelerations of ≥15 bpm lasting ≥15 seconds",
           "Decelerations occurring after each contraction peak",
           "A single deceleration lasting 4 minutes"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Accelerations of ≥15 bpm lasting ≥15 seconds",
         "explanation": "Accelerations (transient rises ≥15 bpm for ≥15 s) are reassuring. A baseline of 175 is tachycardia, variability of 2 bpm is reduced, late decelerations are pathological, and a deceleration lasting >3 min is a prolonged deceleration requiring urgent action."
       },
@@ -22095,12 +22140,12 @@
         "question": "A 32-year-old woman at 30 weeks' gestation has a growth scan showing EFW on the 4th centile, having previously tracked the 40th centile. Umbilical artery Doppler shows absent end-diastolic flow and liquor is reduced. What is the most appropriate next step?",
         "options": [
           "Reassure and repeat the growth scan in 3 weeks",
-          "Urgent fetal-medicine review with corticosteroids and consideration of planned early delivery",
           "Advise fetal movement monitoring only and routine follow-up",
           "Commence oral iron and rescan in 4 weeks",
-          "Discharge as constitutionally small-for-gestational-age"
+          "Discharge as constitutionally small-for-gestational-age",
+          "Urgent fetal-medicine review with corticosteroids and consideration of planned early delivery"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Urgent fetal-medicine review with corticosteroids and consideration of planned early delivery",
         "explanation": "Centile crossing from the 40th to the 4th centile with absent end-diastolic flow and oligohydramnios indicates fetal growth restriction from severe placental insufficiency, not constitutional smallness. Absent EDF carries a high stillbirth risk and is a strong indication to escalate: urgent fetal-medicine input, antenatal corticosteroids for lung maturity, and planned early delivery balancing prematurity against intrauterine death. Delaying with a routine 3-4 week rescan or discharging as SGA would be unsafe."
       },
@@ -22110,12 +22155,12 @@
         "question": "Which single ultrasound finding most reliably distinguishes fetal growth restriction (FGR) from a constitutionally small-for-gestational-age (SGA) fetus?",
         "options": [
           "Estimated fetal weight below the 10th centile",
-          "Femur length below the 5th centile",
           "Abnormal umbilical artery Doppler with static growth or centile crossing",
+          "Femur length below the 5th centile",
           "A single deepest liquor pool of 3 cm",
           "Head circumference on the 50th centile"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Abnormal umbilical artery Doppler with static growth or centile crossing",
         "explanation": "An EFW <10th centile defines SGA but does not distinguish healthy constitutional smallness from pathology. FGR is identified by evidence of placental insufficiency and failure to meet growth potential — abnormal umbilical artery Doppler, static growth, or centile crossing (often with oligohydramnios). A normal deepest pool and a normal HC are reassuring, not discriminating, and FL alone does not establish FGR."
       },
@@ -22125,12 +22170,12 @@
         "question": "During umbilical artery Doppler assessment of a growth-restricted fetus, the waveform shows forward flow in systole but blood flowing backwards during diastole. Which statement best describes this finding?",
         "options": [
           "It is a normal variant of umbilical artery flow in the third trimester",
-          "It represents reversed end-diastolic flow, an ominous sign of severe placental compromise",
           "It indicates brain-sparing redistribution and is reassuring",
           "It reflects low placental resistance and normal function",
+          "It represents reversed end-diastolic flow, an ominous sign of severe placental compromise",
           "It is diagnostic of fetal anaemia requiring intrauterine transfusion"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "It represents reversed end-diastolic flow, an ominous sign of severe placental compromise",
         "explanation": "Reversed end-diastolic flow (REDF) means diastolic flow is directed backward due to critically high placental resistance — a late, ominous sign of severe placental insufficiency and impending fetal decompensation, warranting delivery. It is never a normal variant or a sign of low resistance. Brain-sparing is assessed on MCA Doppler (falling MCA PI), not umbilical reversal. Fetal anaemia is suggested by a raised MCA peak systolic velocity, not umbilical REDF."
       },
@@ -22139,13 +22184,13 @@
         "type": "mcq",
         "question": "A 31-year-old woman with a BMI of 33 undergoes a 75g OGTT at 26 weeks' gestation. Her fasting venous plasma glucose is 5.9 mmol/L and her 2-hour value is 7.1 mmol/L. What is the most appropriate interpretation?",
         "options": [
-          "Normal result — no gestational diabetes",
           "Gestational diabetes, because the fasting glucose is ≥5.6 mmol/L",
+          "Normal result — no gestational diabetes",
           "Impaired glucose tolerance only — repeat OGTT in 4 weeks",
           "Gestational diabetes, but only because the 2-hour value is abnormal",
           "Test invalid — both values must be abnormal to diagnose GDM"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Gestational diabetes, because the fasting glucose is ≥5.6 mmol/L",
         "explanation": "NICE diagnoses GDM if EITHER threshold is met: fasting ≥5.6 mmol/L OR 2-hour ≥7.8 mmol/L. Here the fasting value (5.9) exceeds 5.6, so GDM is diagnosed even though the 2-hour value (7.1) is below 7.8. Only one abnormal value is required."
       },
@@ -22170,12 +22215,12 @@
         "question": "A neonate born to a mother with poorly controlled gestational diabetes is noted to be large for gestational age. Which immediate neonatal complication is most characteristic and should be actively monitored for after birth?",
         "options": [
           "Hyperglycaemia",
-          "Hypoglycaemia",
           "Hypernatraemia",
           "Hyperbilirubinaemia due to G6PD deficiency",
-          "Hypocalcaemia from maternal hypoparathyroidism"
+          "Hypocalcaemia from maternal hypoparathyroidism",
+          "Hypoglycaemia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Hypoglycaemia",
         "explanation": "Maternal hyperglycaemia drives fetal hyperinsulinaemia; after the cord is cut the maternal glucose supply stops but the neonate's high insulin persists, causing neonatal hypoglycaemia. Macrosomia (predisposing to shoulder dystocia) and neonatal hypoglycaemia are the classic combination tested in GDM."
       },
@@ -22201,11 +22246,11 @@
         "options": [
           "Confirms pre-eclampsia and mandates immediate delivery",
           "Indicates HELLP syndrome is developing",
-          "Helps rule OUT pre-eclampsia needing delivery in the next 1–2 weeks",
           "Confirms fetal growth restriction",
+          "Helps rule OUT pre-eclampsia needing delivery in the next 1–2 weeks",
           "Indicates gestational diabetes"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Helps rule OUT pre-eclampsia needing delivery in the next 1–2 weeks",
         "explanation": "PlGF-based testing has a high negative predictive value. A normal PlGF between ~20 and 35–37 weeks helps exclude pre-eclampsia requiring delivery imminently. PlGF is LOW (not normal) in established pre-eclampsia, so a normal result does not confirm disease, HELLP, FGR or diabetes."
       },
@@ -22214,15 +22259,30 @@
         "type": "mcq",
         "question": "A 34-year-old at 33 weeks with pre-eclampsia develops a severe frontal headache, epigastric pain and brisk clonus. BP is 172/112. What is the most appropriate immediate priority alongside BP control?",
         "options": [
+          "Give intravenous magnesium sulphate",
           "Start oral aspirin 75 mg",
           "Arrange outpatient PlGF testing",
-          "Give intravenous magnesium sulphate",
           "Commence metformin",
           "Reassure and review in one week"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Give intravenous magnesium sulphate",
         "explanation": "These are severe features with impending eclampsia; magnesium sulphate is given to prevent seizures alongside urgent BP control and senior review, with delivery considered as the definitive treatment. Aspirin is preventive (from 12 weeks), not acute; PlGF/outpatient review and metformin are inappropriate in this emergency."
+      },
+      {
+        "id": "og_afm_fbs_q01",
+        "type": "mcq",
+        "question": "During labour a pathological CTG prompts fetal blood sampling; the scalp pH is 7.19. What is the most appropriate action?",
+        "options": [
+          "Repeat the sample in 30 minutes",
+          "Reassure and continue as normal",
+          "Expedite delivery",
+          "Give maternal oxygen and observe for 2 hours",
+          "Start syntocinon"
+        ],
+        "correctIndex": 2,
+        "answer": "Expedite delivery",
+        "explanation": "A fetal scalp pH ≤7.20 is abnormal and indicates significant hypoxia, mandating expedited delivery. A borderline pH (7.21–7.24) would be repeated in ~30 minutes; ≥7.25 is normal."
       }
     ],
     "investigations__OBSTETRICS & GYNAECOLOGY__Preterm & Peripartum": [
