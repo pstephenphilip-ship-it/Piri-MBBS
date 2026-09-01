@@ -6306,6 +6306,11 @@
     "id": "infm_fc_19",
     "front": "Circulating blasts are TdT⁺, CD19⁺, CD10⁺ and CD3⁻. What is the diagnosis?",
     "back": "<b>B-cell acute lymphoblastic leukaemia (B-ALL)</b> — immature (TdT⁺) B-lineage (CD19⁺/CD10⁺) blasts."
+   },
+   {
+    "id": "infm_fc_20",
+    "front": "A 70-year-old with bone pain, anaemia and an ESR of 120 — what is your next investigation?",
+    "back": "A very high ESR with these features suggests <b>myeloma</b>. Next: <b>serum & urine protein electrophoresis</b> for a <b>paraprotein</b> (urinary Bence Jones protein), supported by serum free light chains."
    }
   ],
   "investigations__HAEMATOLOGY__Transfusion": [
@@ -21346,12 +21351,12 @@
     "question": "A 28-year-old woman has arthralgia, a photosensitive rash and fatigue. Her ESR is markedly raised but her CRP is normal. Which diagnosis does this pattern classically suggest?",
     "options": [
      "Bacterial endocarditis",
-     "Systemic lupus erythematosus (SLE)",
      "Acute appendicitis",
+     "Systemic lupus erythematosus (SLE)",
      "Rheumatoid arthritis flare",
      "Deep abscess"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Systemic lupus erythematosus (SLE)",
     "explanation": "A high ESR with a normal (or only mildly raised) CRP is the classic discordance of SLE. Myeloma can also raise the ESR without the CRP. A markedly raised CRP would instead point to infection or another acute inflammatory process."
    },
@@ -21361,12 +21366,12 @@
     "question": "A 74-year-old presents with a new temporal headache, jaw claudication and transient visual loss. ESR is 95 mm/h. What is the most appropriate immediate action?",
     "options": [
      "Await the temporal-artery biopsy before treating",
-     "Start high-dose corticosteroids immediately",
      "Repeat the ESR in 48 hours",
      "Arrange an urgent CT head and review",
-     "Prescribe high-dose NSAIDs"
+     "Prescribe high-dose NSAIDs",
+     "Start high-dose corticosteroids immediately"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Start high-dose corticosteroids immediately",
     "explanation": "This is giant cell arteritis. A raised ESR/CRP supports it, but treatment must not be delayed for the biopsy or further tests — untreated GCA can cause irreversible sight loss. Start high-dose steroids at once."
    },
@@ -21375,13 +21380,13 @@
     "type": "mcq",
     "question": "Which statement about CRP and ESR kinetics is correct?",
     "options": [
-     "The ESR rises and falls faster than the CRP",
      "The CRP rises within hours and falls quickly, making it better for tracking acute infection",
+     "The ESR rises and falls faster than the CRP",
      "Both markers are specific for bacterial infection",
      "A normal CRP excludes any inflammatory process",
      "The ESR is a direct measure of C-reactive protein"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "The CRP rises within hours and falls quickly, making it better for tracking acute infection",
     "explanation": "CRP is a hepatic acute-phase protein that rises within 6–8 h and falls fast, so it is dynamic and useful for monitoring. The ESR changes slowly over days–weeks. Both are non-specific."
    },
@@ -21420,13 +21425,13 @@
     "type": "mcq",
     "question": "Which component of a bone marrow examination is required to assess marrow architecture, cellularity and infiltration?",
     "options": [
-     "The aspirate",
      "The trephine (core biopsy)",
+     "The aspirate",
      "Peripheral blood film",
      "Flow cytometry of blood",
      "The reticulocyte count"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "The trephine (core biopsy)",
     "explanation": "The trephine is a solid core of bone that preserves architecture, so it shows cellularity, fibrosis and infiltration. The aspirate gives morphology, a differential, iron stores and material for flow/cytogenetics/molecular tests."
    },
@@ -21436,12 +21441,12 @@
     "question": "A bone marrow aspirate shows 40% myeloid blasts with Auer rods. What is the diagnosis?",
     "options": [
      "Chronic lymphocytic leukaemia",
-     "Acute myeloid leukaemia",
      "Myelodysplasia",
+     "Acute myeloid leukaemia",
      "Multiple myeloma",
      "Reactive marrow"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Acute myeloid leukaemia",
     "explanation": "≥20% blasts defines acute leukaemia (WHO); myeloid lineage with Auer rods indicates acute myeloid leukaemia. Myelodysplasia has dysplasia with <20% blasts; myeloma shows excess plasma cells."
    },
@@ -21451,12 +21456,12 @@
     "question": "Flow cytometry on circulating blasts shows TdT⁺, CD19⁺, CD10⁺, CD3⁻, CD13⁻. What is the most likely diagnosis?",
     "options": [
      "Acute myeloid leukaemia",
-     "B-cell acute lymphoblastic leukaemia",
      "Chronic lymphocytic leukaemia",
      "T-cell lymphoma",
-     "Chronic myeloid leukaemia"
+     "Chronic myeloid leukaemia",
+     "B-cell acute lymphoblastic leukaemia"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "B-cell acute lymphoblastic leukaemia",
     "explanation": "TdT marks immature precursors; CD19 and CD10 (CALLA) mark B-lineage; CD3 and myeloid markers are negative — a B-cell acute lymphoblastic leukaemia."
    },
@@ -21481,14 +21486,29 @@
     "question": "Flow cytometry shows loss of the GPI-anchored proteins CD55 and CD59 on red cells and granulocytes. What does this confirm?",
     "options": [
      "Hereditary spherocytosis",
-     "Paroxysmal nocturnal haemoglobinuria (PNH)",
      "Autoimmune haemolytic anaemia",
      "G6PD deficiency",
+     "Paroxysmal nocturnal haemoglobinuria (PNH)",
      "Sickle cell disease"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Paroxysmal nocturnal haemoglobinuria (PNH)",
     "explanation": "PNH is confirmed by flow cytometry showing loss of GPI-anchored CD55/CD59 (FLAER assay) — reflecting the acquired PIGA mutation."
+   },
+   {
+    "id": "infm_q11",
+    "type": "mcq",
+    "question": "A 72-year-old presents with back pain, fatigue and an ESR of 118 mm/hr; the FBC shows anaemia and the calcium is high. Which investigation should you request next?",
+    "options": [
+     "Temporal artery biopsy",
+     "CRP to confirm an occult infection",
+     "A repeat ESR in three months",
+     "Ferritin and transferrin saturation",
+     "Serum and urine protein electrophoresis"
+    ],
+    "correctIndex": 4,
+    "answer": "Serum and urine protein electrophoresis",
+    "explanation": "A very high ESR with anaemia, hypercalcaemia, back pain and older age points to myeloma; the next step is serum and urine protein electrophoresis to detect a paraprotein / Bence Jones protein (with serum free light chains). Temporal artery biopsy is for suspected giant cell arteritis, not this picture."
    }
   ],
   "investigations__HAEMATOLOGY__Transfusion": [
