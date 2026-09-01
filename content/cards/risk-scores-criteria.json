@@ -429,6 +429,21 @@
         "id": "rsc_haem_figo_fc_05",
         "front": "Why does ovarian cancer usually present at an advanced FIGO stage, and how should suspicion be acted on?",
         "back": "Symptoms are vague and non-specific — persistent bloating, early satiety, abdominal distension, pelvic/abdominal pain, urinary urgency — so most present at stage III/IV. Maintain a high index of suspicion (especially women ≥50) and investigate with CA-125 and pelvic ultrasound per NICE."
+      },
+      {
+        "id": "rsc_haem_mascc_fc_01",
+        "front": "What does the MASCC score do in febrile neutropenia, and what is the threshold?",
+        "back": "It risk-stratifies febrile neutropenia into <b>low</b> vs <b>high</b> risk to guide antibiotic route/setting. <b>&ge;21 = low risk</b> (consider oral/outpatient antibiotics once stable); <b>&lt;21 = high risk</b> (admit, IV antibiotics). Higher score = lower risk (max 26)."
+      },
+      {
+        "id": "rsc_haem_mascc_fc_02",
+        "front": "What must happen before you ever calculate a MASCC score in suspected neutropenic sepsis?",
+        "back": "Give empirical IV broad-spectrum antibiotics &mdash; <b>piperacillin-tazobactam within 1 hour</b> (\"door-to-needle\") after taking cultures, <b>without waiting</b> for the neutrophil count. Neutropenic sepsis is an emergency; MASCC is a de-escalation tool used afterwards."
+      },
+      {
+        "id": "rsc_haem_mascc_fc_03",
+        "front": "Name the main MASCC components that carry the most weight.",
+        "back": "Burden of illness (no/mild symptoms +5, moderate +3), no hypotension (+5), no COPD (+4), solid tumour or no previous fungal infection (+4), no dehydration (+3), outpatient at fever onset (+3), age &lt;60 (+2)."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__GI — Bleeding & Bowel": [
@@ -606,6 +621,21 @@
         "id": "rsc_gi_alvarado_fc_05",
         "front": "Does a low Alvarado score exclude appendicitis?",
         "back": "No. A low score does not exclude appendicitis, especially early, atypical or retrocaecal presentations. The score supports but does not replace clinical judgement and serial examination; use imaging (USS/CT) or diagnostic laparoscopy when uncertain."
+      },
+      {
+        "id": "rsc_gi_ugib_drugs_fc_01",
+        "front": "What drug adjuncts are given for a suspected variceal upper GI bleed?",
+        "back": "<b>Terlipressin</b> (splanchnic vasoconstrictor) and <b>prophylactic antibiotics</b> (e.g. IV ceftriaxone) at presentation, <b>before</b> endoscopy; definitive treatment is endoscopic <b>band ligation</b>. Antibiotics reduce mortality in variceal bleeding."
+      },
+      {
+        "id": "rsc_gi_ugib_drugs_fc_02",
+        "front": "When is a PPI given in a non-variceal (peptic ulcer) upper GI bleed?",
+        "back": "<b>After</b> endoscopic haemostasis of high-risk stigmata &mdash; PPIs are not given routinely <b>before</b> endoscopy in NICE guidance. Provide endoscopic dual therapy for active bleeding/visible vessel, then a PPI, and treat H. pylori."
+      },
+      {
+        "id": "rsc_gi_truelove_fc_06",
+        "front": "Which endoscopic investigation is used in acute severe ulcerative colitis, and why not colonoscopy?",
+        "back": "<b>Flexible sigmoidoscopy</b> with biopsy (limited, unprepped) to confirm severity and exclude CMV. <b>Full colonoscopy is avoided</b> in the acute severe setting because of the risk of perforation/toxic megacolon."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__Hepatology": [
@@ -2140,10 +2170,10 @@
           "Age >60 years",
           "Serum LDH above normal",
           "ECOG performance status ≥2",
-          "Haemoglobin <120 g/L",
-          "More than one extranodal site"
+          "More than one extranodal site",
+          "Haemoglobin <120 g/L"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Haemoglobin <120 g/L",
         "explanation": "The IPI factors (APLES) are Age >60, Performance status ECOG ≥2, LDH raised, Extranodal sites >1, and Stage III/IV. Haemoglobin is a component of the FLIPI (follicular lymphoma index), not the standard IPI."
       },
@@ -2153,12 +2183,12 @@
         "question": "A 68-year-old with DLBCL has ECOG performance status 1, raised LDH, Ann Arbor Stage IV disease, and two extranodal sites. What is the IPI score and risk group?",
         "options": [
           "Score 2, low-intermediate",
-          "Score 3, high-intermediate",
           "Score 4, high",
+          "Score 3, high-intermediate",
           "Score 5, high",
           "Score 3, low-intermediate"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Score 4, high",
         "explanation": "Points: Age >60 (+1), LDH raised (+1), Stage III/IV (+1), >1 extranodal site (+1) = 4. Performance status is 1 (not ≥2), so no point. A score of 4–5 is the high-risk group with the poorest overall survival."
       },
@@ -2168,12 +2198,12 @@
         "question": "A 68-year-old with a monoclonal gammopathy has 15% clonal plasma cells on marrow biopsy. Which single additional finding confirms active multiple myeloma requiring treatment?",
         "options": [
           "Serum M-protein of 25 g/L",
-          "Corrected calcium of 2.9 mmol/L",
           "Two stable years of unchanged paraprotein",
           "Absence of Bence Jones protein",
+          "Corrected calcium of 2.9 mmol/L",
           "Normal whole-body MRI"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Corrected calcium of 2.9 mmol/L",
         "explanation": "Corrected calcium >2.75 mmol/L is the 'C' of CRAB — a myeloma-defining event. Combined with ≥10% clonal plasma cells this confirms active myeloma. The other options are precursor/benign features that do not mandate treatment."
       },
@@ -2182,13 +2212,13 @@
         "type": "mcq",
         "question": "Which of the following is a SLiM biomarker rather than a classic CRAB feature?",
         "options": [
+          "Involved:uninvolved serum free light chain ratio of 120",
           "Haemoglobin of 92 g/L",
           "Creatinine of 190 µmol/L",
-          "Involved:uninvolved serum free light chain ratio of 120",
           "Corrected calcium of 2.8 mmol/L",
           "A single lytic lesion on CT"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Involved:uninvolved serum free light chain ratio of 120",
         "explanation": "A free light chain ratio ≥100 is the 'Li' of SLiM (added by the IMWG). The others are all CRAB features: anaemia, renal impairment, hypercalcaemia and bone lesions respectively."
       },
@@ -2197,13 +2227,13 @@
         "type": "mcq",
         "question": "Which renal threshold satisfies the 'R' of the CRAB criteria?",
         "options": [
-          "Creatinine >177 µmol/L or eGFR <40 mL/min",
           "Creatinine >100 µmol/L or eGFR <60 mL/min",
           "Any proteinuria on dipstick",
+          "Creatinine >177 µmol/L or eGFR <40 mL/min",
           "eGFR <90 mL/min",
           "Creatinine >250 µmol/L only"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Creatinine >177 µmol/L or eGFR <40 mL/min",
         "explanation": "Renal impairment in myeloma is defined as creatinine >177 µmol/L (approximately 2 mg/dL) or eGFR <40 mL/min, provided it is attributable to the plasma cell disorder (commonly cast nephropathy from light chains)."
       },
@@ -2214,11 +2244,11 @@
         "options": [
           "4 — non-overt DIC",
           "5 — non-overt DIC",
-          "7 — compatible with overt DIC",
           "8 — compatible with overt DIC",
-          "3 — normal"
+          "3 — normal",
+          "7 — compatible with overt DIC"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "7 — compatible with overt DIC",
         "explanation": "Platelets <50 = 2, strong fibrin-marker rise = 3, PT 3–6 s = 1, fibrinogen <1 g/L = 1, giving a total of 7. A score ≥5 is compatible with overt DIC and should be repeated daily."
       },
@@ -2244,11 +2274,11 @@
         "options": [
           "Transfuse platelets and FFP immediately to normalise the numbers",
           "Give prophylactic cryoprecipitate daily",
-          "Treat the underlying malignancy/precipitant and monitor, reserving blood products for bleeding or high bleeding risk",
           "Start therapeutic anticoagulation for all patients",
+          "Treat the underlying malignancy/precipitant and monitor, reserving blood products for bleeding or high bleeding risk",
           "Stop all further coagulation testing"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Treat the underlying malignancy/precipitant and monitor, reserving blood products for bleeding or high bleeding risk",
         "explanation": "DIC is always secondary — the priority is treating the cause. Blood-product support is guided by bleeding or high bleeding risk, not by abnormal numbers alone. Serial scoring tracks trajectory."
       },
@@ -2257,13 +2287,13 @@
         "type": "mcq",
         "question": "A patient on unfractionated heparin for 7 days develops a platelet fall from 250 to 90 (>50% fall, nadir >=20), a new confirmed DVT, and has an ongoing bacteraemia offering a possible alternative cause. What is their 4T score and category?",
         "options": [
+          "Score 7, high probability",
           "Score 4, intermediate probability",
           "Score 5, intermediate probability",
           "Score 6, high probability",
-          "Score 7, high probability",
           "Score 8, high probability"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "Score 7, high probability",
         "explanation": "Thrombocytopenia >50% fall with nadir >=20 = 2; timing day 5-10 = 2; new confirmed thrombosis = 2; a possible other cause (bacteraemia) = 1. Total = 7, which falls in the high probability band (6-8)."
       },
@@ -2279,7 +2309,7 @@
           "Send a functional serotonin release assay as first-line confirmation"
         ],
         "correctIndex": 2,
-        "answer": "HIT is unlikely; heparin can usually continue and antibody testing is not routinely needed",
+        "answer": "HIT is unlikely; heparin can usually be continued and routine antibody testing is not required",
         "explanation": "A score of 0-3 is low probability (~<5%) with a high negative predictive value, effectively ruling HIT out. Empirically stopping heparin and testing is not warranted; another cause of thrombocytopenia should be sought."
       },
       {
@@ -2289,11 +2319,11 @@
         "options": [
           "HIT typically presents with major bleeding due to the low platelet count",
           "Platelet transfusion is the mainstay of treatment",
-          "HIT is a prothrombotic state and platelet transfusions should be avoided",
           "Warfarin should be started immediately alongside stopping heparin",
-          "LMWH is a safe alternative to continue once unfractionated heparin is stopped"
+          "LMWH is a safe alternative to continue once unfractionated heparin is stopped",
+          "HIT is a prothrombotic state and platelet transfusions should be avoided"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "HIT is a prothrombotic state and platelet transfusions should be avoided",
         "explanation": "Anti-PF4/heparin IgG activates platelets, driving thrombosis despite thrombocytopenia. Platelet transfusions fuel clotting and are avoided; bleeding is uncommon. All heparin (including LMWH/flushes) must stop, warfarin is deferred until platelets recover, and a non-heparin agent is used."
       },
@@ -2318,12 +2348,12 @@
         "question": "Which statement about FIGO staging modality is correct?",
         "options": [
           "Endometrial cancer is staged clinically before any surgery",
-          "Ovarian cancer is staged surgically at laparotomy with peritoneal washings and biopsies",
           "Cervical cancer has never used clinical examination for staging",
           "Ovarian cancer is staged purely on CA-125 level",
+          "Ovarian cancer is staged surgically at laparotomy with peritoneal washings and biopsies",
           "Endometrial cancer stage is assigned by MRI alone"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Ovarian cancer is staged surgically at laparotomy with peritoneal washings and biopsies",
         "explanation": "Ovarian and endometrial cancers are surgically (pathologically) staged. Cervical cancer was classically staged clinically, with the current FIGO revision now incorporating imaging and pathology. CA-125 is a tumour marker used in diagnosis/monitoring, not for assigning FIGO stage."
       },
@@ -2332,15 +2362,45 @@
         "type": "mcq",
         "question": "A woman with cervical carcinoma is found on imaging and biopsy to have tumour extending to the pelvic sidewall with associated hydronephrosis, but no bladder or rectal mucosal involvement and no distant spread. What is the current FIGO stage?",
         "options": [
+          "Stage III",
           "Stage IB",
           "Stage IIB",
-          "Stage III",
           "Stage IVA",
           "Stage IVB"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Stage III",
         "explanation": "Extension to the pelvic wall, involvement of the lower third of the vagina, or hydronephrosis/non-functioning kidney defines Stage III cervical cancer (nodal disease is IIIC). Bladder/rectal mucosal invasion would be IVA, and distant metastasis IVB."
+      },
+      {
+        "id": "rsc_haem_mascc_q01",
+        "type": "mcq",
+        "question": "A patient with febrile neutropenia has been given IV antibiotics, is haemodynamically stable, and scores MASCC 23. What does this permit?",
+        "options": [
+          "Immediate stopping of all antibiotics",
+          "Mandatory ICU admission",
+          "Considering a switch to oral antibiotics and outpatient management",
+          "Withholding antibiotics until cultures return",
+          "Discharge with no antibiotics or follow-up"
+        ],
+        "correctIndex": 2,
+        "answer": "Considering a switch to oral antibiotics and outpatient management",
+        "explanation": "MASCC &ge;21 identifies low-risk febrile neutropenia; in a stable, responding patient this supports early switch to oral antibiotics (co-amoxiclav + ciprofloxacin) and outpatient management with safety-netting. MASCC <21 is high risk needing inpatient IV therapy."
+      },
+      {
+        "id": "rsc_haem_mascc_q02",
+        "type": "mcq",
+        "question": "A patient 10 days into chemotherapy has a temperature of 38.5°C and looks unwell. What is the immediate priority?",
+        "options": [
+          "Calculate the MASCC score before any treatment",
+          "Wait for the full blood count before giving antibiotics",
+          "Give oral co-amoxiclav and review in clinic",
+          "Give paracetamol and reassess in 6 hours",
+          "Empirical IV piperacillin-tazobactam within 1 hour after taking cultures"
+        ],
+        "correctIndex": 4,
+        "answer": "Empirical IV piperacillin-tazobactam within 1 hour after taking cultures",
+        "explanation": "Neutropenic sepsis is a medical emergency: give empirical IV broad-spectrum antibiotics (piperacillin-tazobactam) within 1 hour of presentation after cultures, without waiting for the neutrophil count. Risk stratification with MASCC comes only after the patient is treated and stabilised."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__GI — Bleeding & Bowel": [
@@ -2350,12 +2410,12 @@
         "question": "A 45-year-old man attends with a single episode of coffee-ground vomiting. He is haemodynamically stable, has a normal haemoglobin, normal urea, no melaena, no syncope and no relevant comorbidity. His Glasgow-Blatchford Score is 0. What is the most appropriate management?",
         "options": [
           "Admit for urgent inpatient endoscopy within 2 hours",
-          "Consider outpatient management with early clinic review",
           "Activate the major haemorrhage protocol",
+          "Consider outpatient management with early clinic review",
           "Transfuse two units of packed red cells",
           "Calculate a full Rockall score before any decision"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Consider outpatient management with early clinic review",
         "explanation": "A GBS of 0 identifies a very low-risk patient in whom intervention is very unlikely; NICE supports considering outpatient management. A full Rockall score cannot yet be calculated as it requires endoscopic findings. Transfusion and major haemorrhage protocol are inappropriate in a stable patient with normal Hb."
       },
@@ -2365,12 +2425,12 @@
         "question": "Which of the following is a component of the Glasgow-Blatchford Score but NOT of the pre-endoscopy (clinical) Rockall score?",
         "options": [
           "Age",
-          "Blood urea",
           "Comorbidity",
           "Shock (pulse and blood pressure)",
-          "Stigmata of recent haemorrhage"
+          "Stigmata of recent haemorrhage",
+          "Blood urea"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Blood urea",
         "explanation": "Blood urea and haemoglobin are GBS components but do not feature in the Rockall score. Age, comorbidity and shock are clinical Rockall variables. Stigmata of recent haemorrhage is an endoscopic (full Rockall) variable and appears in neither the GBS nor the clinical Rockall."
       },
@@ -2380,12 +2440,12 @@
         "question": "A 78-year-old woman with ischaemic heart disease presents shocked with haematemesis. After resuscitation she undergoes endoscopy showing a gastric ulcer with an actively bleeding visible vessel. Which score best predicts her risk of rebleeding and death at this point?",
         "options": [
           "Glasgow-Blatchford Score",
-          "Pre-endoscopy (clinical) Rockall score",
           "Full/complete Rockall score",
+          "Pre-endoscopy (clinical) Rockall score",
           "CURB-65 score",
           "MELD score"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Full/complete Rockall score",
         "explanation": "The full Rockall score incorporates the clinical variables (age, shock, comorbidity) plus the endoscopic diagnosis and stigmata of recent haemorrhage, and is used after endoscopy to predict rebleeding and mortality. The GBS is a pre-endoscopy triage tool. CURB-65 (pneumonia) and MELD (chronic liver disease prognosis) are unrelated."
       },
@@ -2396,11 +2456,11 @@
         "options": [
           "4",
           "5",
-          "6",
           "7",
+          "6",
           "8"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "6",
         "explanation": "Age 60-79 = 1; no shock (pulse <100, SBP ≥100) = 0; IHD (major comorbidity) = 2; gastric ulcer (other diagnosis) = 1; non-bleeding visible vessel (high-risk stigmata) = 2. Total = 1 + 0 + 2 + 1 + 2 = 6."
       },
@@ -2425,12 +2485,12 @@
         "question": "Which scoring system is used PRE-endoscopy to identify low-risk UGIB patients who may be managed as outpatients and to predict the need for intervention?",
         "options": [
           "Full Rockall score",
-          "Glasgow-Blatchford score",
           "Forrest classification",
+          "Glasgow-Blatchford score",
           "Child-Pugh score",
           "MELD score"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Glasgow-Blatchford score",
         "explanation": "The Glasgow-Blatchford score uses pre-endoscopy clinical and lab data to predict the need for intervention (transfusion, endoscopy, surgery); a score of 0 may permit outpatient management. The full Rockall requires endoscopy findings. Forrest is a descriptive classification of endoscopic bleeding stigmata."
       },
@@ -2440,12 +2500,12 @@
         "question": "A 40-year-old woman presents with a small amount of fresh PR bleeding. She is haemodynamically stable and her Oakland score is calculated at 6. What is the most appropriate management?",
         "options": [
           "Admit for urgent colonoscopy the same day",
-          "Consider outpatient management / safe discharge",
           "Immediate CT angiography and surgical referral",
           "Admit for a 48-hour period of observation",
-          "Urgent OGD to exclude an upper GI source"
+          "Urgent OGD to exclude an upper GI source",
+          "Consider outpatient management / safe discharge"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Consider outpatient management / safe discharge",
         "explanation": "An Oakland score of ≤8 predicts a >95% probability of no adverse outcome, so a stable patient can be considered for safe outpatient management rather than admission."
       },
@@ -2455,12 +2515,12 @@
         "question": "Which single variable contributes the greatest number of points to the Oakland score?",
         "options": [
           "Age",
+          "Haemoglobin",
           "Systolic blood pressure",
           "Heart rate",
-          "Haemoglobin",
           "Blood on digital rectal examination"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "Haemoglobin",
         "explanation": "Haemoglobin carries the heaviest weighting in the Oakland score (up to ~22 points), so a low Hb alone can push a patient above the discharge threshold."
       },
@@ -2470,12 +2530,12 @@
         "question": "A 70-year-old man presents with copious fresh PR bleeding, a heart rate of 120, systolic BP of 85 mmHg and a markedly raised urea. What is the most important immediate consideration?",
         "options": [
           "Discharge if the Oakland score is ≤8",
-          "Resuscitate and consider an upper GI source with upper endoscopy",
           "Arrange outpatient colonoscopy within two weeks",
           "Reassure — most lower GI bleeds are self-limiting",
+          "Resuscitate and consider an upper GI source with upper endoscopy",
           "Withhold transfusion until colonoscopy is performed"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Resuscitate and consider an upper GI source with upper endoscopy",
         "explanation": "Shock with a raised urea suggests a brisk upper GI bleed presenting as fresh PR bleeding via rapid transit. Unstable patients need resuscitation and admission regardless of score, with OGD to exclude an upper source."
       },
@@ -2484,13 +2544,13 @@
         "type": "mcq",
         "question": "A 24-year-old with known UC has 7 bloody stools/day, temperature 38.1°C, pulse 96 bpm, Hb 118 g/L and CRP 60. Using Truelove & Witts, how is this flare classified?",
         "options": [
+          "Severe (ASUC)",
           "Mild",
           "Moderate",
-          "Severe (ASUC)",
           "Fulminant only if Hb <105 g/L",
           "Cannot be classified without ESR"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Severe (ASUC)",
         "explanation": "He has ≥6 bloody stools/day plus multiple systemic features (fever >37.8°C, pulse >90, raised CRP). Only one systemic marker is required alongside the ≥6 bloody stools, so this is severe disease requiring admission — the normal Hb does not exclude severe UC."
       },
@@ -2516,11 +2576,11 @@
         "options": [
           "Low-molecular-weight heparin for VTE prophylaxis",
           "IV hydrocortisone",
-          "Loperamide to control diarrhoea",
           "Abdominal X-ray to assess colonic diameter",
-          "Stool testing for Clostridioides difficile toxin"
+          "Stool testing for Clostridioides difficile toxin",
+          "Loperamide to control diarrhoea"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Loperamide to control diarrhoea",
         "explanation": "Antimotility, opioid and antispasmodic agents can precipitate toxic megacolon and are avoided in ASUC. VTE prophylaxis with LMWH is given despite rectal bleeding (ASUC is prothrombotic), IV steroids are first-line, AXR excludes toxic megacolon/perforation, and C. difficile testing is part of infection screening."
       },
@@ -2530,12 +2590,12 @@
         "question": "A CT scan in a patient with acute diverticulitis shows generalised peritonitis due to a ruptured abscess, with no communication demonstrated between the peritoneal collection and the bowel lumen. Which Hinchey stage is this?",
         "options": [
           "Stage I",
-          "Stage II",
           "Stage III",
+          "Stage II",
           "Stage IV",
           "Uncomplicated"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Stage III",
         "explanation": "Generalised PURULENT peritonitis from a ruptured abscess with no communication with the bowel lumen is Hinchey III. Stage IV would be faeculent peritonitis from free perforation with faecal contamination. Both III and IV require emergency surgery."
       },
@@ -2546,11 +2606,11 @@
         "options": [
           "Conservative management with oral antibiotics at home",
           "IV antibiotics alone with no drainage",
-          "Antibiotics plus percutaneous (radiological) drainage",
           "Emergency Hartmann's procedure",
+          "Antibiotics plus percutaneous (radiological) drainage",
           "Elective sigmoid colectomy the same week"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Antibiotics plus percutaneous (radiological) drainage",
         "explanation": "A Hinchey I/II abscess larger than roughly 3–4 cm is managed with antibiotics plus radiological percutaneous drainage. Abscesses ≤ 3–4 cm can often be treated with antibiotics alone. Emergency surgery is reserved for Hinchey III/IV (generalised peritonitis)."
       },
@@ -2559,13 +2619,13 @@
         "type": "mcq",
         "question": "Which statement about the Hinchey classification is correct?",
         "options": [
+          "Stage IV (faeculent peritonitis) carries a high mortality and mandates urgent surgery",
           "It is a probability score predicting the risk of developing diverticulitis",
           "The staging investigation of choice is colonoscopy during the acute episode",
-          "Stage IV (faeculent peritonitis) carries a high mortality and mandates urgent surgery",
           "Stage I disease routinely requires emergency Hartmann's procedure",
           "It applies mainly to uncomplicated diverticulitis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Stage IV (faeculent peritonitis) carries a high mortality and mandates urgent surgery",
         "explanation": "Hinchey IV is free perforation with faecal peritonitis, carrying high mortality and requiring resuscitation plus urgent surgery. Hinchey is an anatomical severity grade (not a predictive probability score); CT (not acute colonoscopy) is the staging investigation; it applies to COMPLICATED disease; and stage I is managed non-operatively."
       },
@@ -2575,12 +2635,12 @@
         "question": "A colorectal tumour has invaded through the bowel wall breaching the serosa but there is no lymph node involvement and no distant spread. What is the Dukes stage and approximate 5-year survival?",
         "options": [
           "Dukes A, ~90%",
-          "Dukes B, ~65–70%",
           "Dukes C, ~30–40%",
+          "Dukes B, ~65–70%",
           "Dukes D, ~5–10%",
           "Dukes C2, ~20%"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Dukes B, ~65–70%",
         "explanation": "Dukes B is tumour that has penetrated through the bowel wall (breaching muscularis propria/serosa) but without lymph node involvement, carrying roughly a 65–70% 5-year survival. Dukes A is confined within the wall (~90%), and node involvement would make it Dukes C."
       },
@@ -2591,11 +2651,11 @@
         "options": [
           "Stage I; surgery alone",
           "Stage II; surgery alone",
-          "Stage III; surgery plus adjuvant FOLFOX chemotherapy",
           "Stage IV; palliative chemotherapy only",
-          "Stage 0; endoscopic resection"
+          "Stage 0; endoscopic resection",
+          "Stage III; surgery plus adjuvant FOLFOX chemotherapy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Stage III; surgery plus adjuvant FOLFOX chemotherapy",
         "explanation": "N1 indicates 1–3 involved regional nodes, so any node-positive disease (N1 or N2) with M0 is Stage III, corresponding to Dukes C. Standard management is surgical resection plus adjuvant FOLFOX chemotherapy for node-positive disease."
       },
@@ -2605,12 +2665,12 @@
         "question": "In the TNM staging of colorectal cancer, what does N2 signify?",
         "options": [
           "No regional lymph nodes involved",
-          "1–3 regional lymph nodes involved",
           "4 or more regional lymph nodes involved",
+          "1–3 regional lymph nodes involved",
           "Distant nodal metastasis",
           "Apical node only involved"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "4 or more regional lymph nodes involved",
         "explanation": "N0 = no regional nodes, N1 = 1–3 regional nodes, and N2 = 4 or more regional nodes. Distant spread is captured by the M category (M1), not N, and any node-positive disease places the tumour at least at Stage III."
       },
@@ -2621,11 +2681,11 @@
         "options": [
           "Anorexia",
           "Migration of pain",
-          "Tenderness in the RIF",
           "Rebound tenderness",
+          "Tenderness in the RIF",
           "Elevated temperature"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Tenderness in the RIF",
         "explanation": "Tenderness in the RIF (T) scores 2 points, as does Leukocytosis (L). These are the two most heavily weighted components. Migration, anorexia, rebound and elevated temperature each score only 1 point."
       },
@@ -2634,13 +2694,13 @@
         "type": "mcq",
         "question": "A patient scores 3 on the Alvarado score. What is the most appropriate interpretation and next step?",
         "options": [
+          "Appendicitis unlikely, consider discharge or an alternative diagnosis",
           "Highly likely appendicitis, immediate surgery",
           "Probable appendicitis, surgical referral",
           "Compatible with appendicitis, arrange CT",
-          "Appendicitis unlikely, consider discharge or an alternative diagnosis",
           "Mandatory diagnostic laparoscopy"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "Appendicitis unlikely, consider discharge or an alternative diagnosis",
         "explanation": "A score of 1-4 indicates appendicitis is unlikely, so discharge or pursuit of an alternative diagnosis is reasonable. However, a low score does not exclude appendicitis, and serial examination should be used if concern persists."
       },
@@ -2650,14 +2710,44 @@
         "question": "A 24-year-old woman presents with RIF pain and an Alvarado score of 6. Which action is most important before attributing her symptoms to appendicitis?",
         "options": [
           "Start empirical antibiotics",
-          "Perform a pregnancy test to exclude ectopic pregnancy",
           "Discharge with safety-netting",
+          "Perform a pregnancy test to exclude ectopic pregnancy",
           "Repeat the Alvarado score in 24 hours only",
           "Proceed directly to appendicectomy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Perform a pregnancy test to exclude ectopic pregnancy",
         "explanation": "The Alvarado score has lower specificity in women because gynaecological conditions mimic appendicitis. A pregnancy test is essential to exclude ectopic pregnancy, and ovarian pathology should be considered. Imaging (USS/CT) or diagnostic laparoscopy may be needed where uncertainty remains."
+      },
+      {
+        "id": "rsc_gi_ugib_drugs_q01",
+        "type": "mcq",
+        "question": "A patient with known cirrhosis presents with haematemesis and suspected variceal bleeding. Alongside resuscitation, what drug treatment should be started before endoscopy?",
+        "options": [
+          "A high-dose PPI infusion alone",
+          "Oral tranexamic acid only",
+          "A beta-blocker for acute control",
+          "No drugs until endoscopy is performed",
+          "Terlipressin and prophylactic antibiotics"
+        ],
+        "correctIndex": 4,
+        "answer": "Terlipressin and prophylactic antibiotics",
+        "explanation": "Suspected variceal bleeding warrants terlipressin (splanchnic vasoconstrictor) plus prophylactic antibiotics (e.g. ceftriaxone) at presentation, before endoscopic band ligation. Prophylactic antibiotics reduce mortality; a PPI is used for non-variceal ulcer bleeding after endoscopic haemostasis."
+      },
+      {
+        "id": "rsc_gi_asuc_endo_q01",
+        "type": "mcq",
+        "question": "A patient with acute severe ulcerative colitis needs endoscopic confirmation. Which investigation is most appropriate?",
+        "options": [
+          "Full colonoscopy with bowel preparation",
+          "Flexible sigmoidoscopy with biopsy",
+          "Barium enema",
+          "Immediate colectomy without endoscopy",
+          "CT colonography"
+        ],
+        "correctIndex": 1,
+        "answer": "Flexible sigmoidoscopy with biopsy",
+        "explanation": "A limited, unprepped flexible sigmoidoscopy with biopsy confirms severity and excludes CMV in acute severe UC. Full colonoscopy is avoided acutely because of the perforation/toxic megacolon risk; barium enema is contraindicated in severe colitis."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__Hepatology": [
