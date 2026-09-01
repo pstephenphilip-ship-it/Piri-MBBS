@@ -16223,7 +16223,9 @@ function hideFlyout(p) {
     font-size:19px;font-weight:700;
     background:none;-webkit-text-fill-color:currentColor;color:#5B6472;
   }
-  .wc-h3 .l{font-size:9.5px;color:#9CA3AF;margin-top:6px;letter-spacing:.07em;}
+  /* #9CA3AF at this size measured 2.47:1 — below AA, and a regression from the
+     #6B7280 this rule replaced. Quiet is the point, illegible is not. */
+  .wc-h3 .l{font-size:9.5px;color:#6B7280;margin-top:6px;letter-spacing:.07em;}
   @media(max-width:560px){ .wc-h3 .n{font-size:17px;} }
 
   /* Planner header icon, replacing the lone emoji among stroke icons. */
