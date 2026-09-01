@@ -25,6 +25,16 @@
         "id": "psy_phq9_fc_05",
         "front": "What PHQ-9 change indicates treatment response?",
         "back": "A reduction of roughly 5 points, or dropping into a lower severity band, is used as a marker of a meaningful response to treatment."
+      },
+      {
+        "id": "psy_phq9_mgmt_fc_01",
+        "front": "How does the PHQ-9 band steer treatment (NICE NG222)?",
+        "back": "<b>Less severe (&lt;16)</b>: guided self-help, CBT or behavioural activation (avoid routine antidepressants). <b>More severe (&ge;16)</b>: offer an <b>antidepressant (SSRI first-line, e.g. sertraline) and/or high-intensity psychological therapy</b>, by patient choice. Remission target PHQ-9 &lt;5."
+      },
+      {
+        "id": "psy_phq9_item9_fc_01",
+        "front": "A patient scores low overall but is positive on item 9 — what do you do?",
+        "back": "A positive item 9 (self-harm thoughts) mandates an <b>immediate risk assessment regardless of total</b>: safety plan, means restriction, involve family; <b>urgent same-day crisis-team/CMHT or A&amp;E if high risk</b>. A low total never excludes risk."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__GAD-7 (Anxiety)": [
@@ -52,6 +62,16 @@
         "id": "psy_gad7_fc_05",
         "front": "Why must a raised GAD-7 not be treated as a diagnosis?",
         "back": "It is only a screening/severity tool. A raised score needs clinical assessment to confirm GAD and to exclude organic mimics such as hyperthyroidism, arrhythmia, phaeochromocytoma, caffeine/substance use and medication effects. Co-existing depression should be screened with the PHQ-9."
+      },
+      {
+        "id": "psy_gad7_mgmt_fc_01",
+        "front": "Outline NICE stepped-care drug treatment for GAD.",
+        "back": "<b>SSRI first-line (e.g. sertraline)</b>; if ineffective, an alternative SSRI or an <b>SNRI (duloxetine/venlafaxine)</b>, then <b>pregabalin</b>; specialist referral for marked impairment/risk. <b>Avoid long-term benzodiazepines</b> (short-term crisis use only)."
+      },
+      {
+        "id": "psy_gad2_fc_01",
+        "front": "What is the GAD-2 and how is it used?",
+        "back": "The <b>first two GAD-7 items</b> (score 0–6) as an ultra-brief anxiety screen; a score <b>≥3 prompts the full GAD-7</b>."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Y-BOCS (OCD)": [
@@ -253,11 +273,11 @@
         "options": [
           "None/minimal",
           "Mild",
-          "Moderate",
           "Moderately severe",
+          "Moderate",
           "Severe"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "Moderately severe",
         "explanation": "A PHQ-9 total of 15-19 corresponds to moderately severe depression. A score of 17 sits squarely within this band, above moderate (10-14) but below severe (20-27)."
       },
@@ -268,11 +288,11 @@
         "options": [
           "Reassure that the low total excludes clinically significant depression",
           "Repeat the PHQ-9 in 6 weeks with no further action now",
-          "Perform an immediate suicide risk assessment",
           "Start a high-dose antidepressant on the basis of the total score",
-          "Discharge back to routine follow-up as the score is minimal"
+          "Discharge back to routine follow-up as the score is minimal",
+          "Perform an immediate suicide risk assessment"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Perform an immediate suicide risk assessment",
         "explanation": "A positive item 9 mandates an immediate risk assessment irrespective of the total score. A low total does not exclude significant suicide risk, so the number must never be relied upon alone."
       },
@@ -282,14 +302,44 @@
         "question": "What is the maximum possible total score on the PHQ-9?",
         "options": [
           "9",
+          "27",
           "18",
           "21",
-          "27",
           "36"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "27",
         "explanation": "The PHQ-9 has 9 items each scored 0-3, giving a maximum of 9 x 3 = 27. The total therefore ranges from 0 to 27 across the severity bands."
+      },
+      {
+        "id": "psy_phq9_mgmt_q01",
+        "type": "mcq",
+        "question": "A patient has a PHQ-9 of 22 with no acute risk. According to NICE, what should be offered?",
+        "options": [
+          "Guided self-help alone",
+          "No treatment — repeat in 3 months",
+          "A long-term benzodiazepine",
+          "An antidepressant (SSRI first-line) and/or high-intensity psychological therapy",
+          "Immediate hospital admission"
+        ],
+        "correctIndex": 3,
+        "answer": "An antidepressant (SSRI first-line) and/or high-intensity psychological therapy",
+        "explanation": "A PHQ-9 of 22 is \"more severe\" depression (≥16). NICE NG222 recommends offering an antidepressant (SSRI first-line) and/or a high-intensity psychological therapy (CBT/IPT), guided by patient choice. Guided self-help alone is for less severe depression."
+      },
+      {
+        "id": "psy_phq9_ssri_q01",
+        "type": "mcq",
+        "question": "A 19-year-old is started on an SSRI for moderately severe depression. When should they first be reviewed?",
+        "options": [
+          "Within 1 week",
+          "At 6 weeks",
+          "At 3 months",
+          "Only if symptoms worsen",
+          "After 6 months"
+        ],
+        "correctIndex": 0,
+        "answer": "Within 1 week",
+        "explanation": "Patients under 25 (or at increased suicide risk) starting an antidepressant should be reviewed within 1 week because of the early risk of increased agitation/suicidal ideation; others are reviewed at about 2 weeks."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__GAD-7 (Anxiety)": [
@@ -300,11 +350,11 @@
         "options": [
           "Minimal anxiety",
           "Mild anxiety",
-          "Moderate anxiety",
           "Severe anxiety",
+          "Moderate anxiety",
           "Diagnostic of panic disorder"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "Severe anxiety",
         "explanation": "On the GAD-7 a total of 15-21 falls in the severe anxiety band, so a score of 16 indicates severe anxiety. The cut-offs 5, 10 and 15 mark the mild, moderate and severe boundaries respectively."
       },
@@ -315,11 +365,11 @@
         "options": [
           "7",
           "14",
-          "21",
           "27",
-          "30"
+          "30",
+          "21"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "21",
         "explanation": "Each of the 7 items is scored from 0 to 3, giving a maximum total of 7 x 3 = 21. Totals range from 0 to 21 across four severity bands."
       },
@@ -337,6 +387,21 @@
         "correctIndex": 1,
         "answer": "Perform clinical assessment and investigate for organic causes such as thyroid dysfunction",
         "explanation": "The GAD-7 is a screening tool, not a diagnosis, and her somatic features suggest a possible organic mimic such as hyperthyroidism. Clinical assessment and appropriate investigation (e.g. thyroid function) are needed before anxiety is treated as primary."
+      },
+      {
+        "id": "psy_gad7_mgmt_q01",
+        "type": "mcq",
+        "question": "A patient has moderate GAD (GAD-7 12) with no organic cause and wants drug treatment. What is the first-line medication?",
+        "options": [
+          "A regular benzodiazepine",
+          "An antipsychotic",
+          "A beta-blocker as monotherapy",
+          "An SSRI such as sertraline",
+          "Pregabalin first-line"
+        ],
+        "correctIndex": 3,
+        "answer": "An SSRI such as sertraline",
+        "explanation": "First-line drug treatment for GAD is an SSRI (e.g. sertraline). SNRIs and pregabalin are later steps; regular benzodiazepines are avoided (dependence) and used only short-term in crises."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Y-BOCS (OCD)": [
