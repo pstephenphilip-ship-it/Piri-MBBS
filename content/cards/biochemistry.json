@@ -105,6 +105,11 @@
     "id": "bcp_fc_21",
     "front": "What is the bone profile of primary hyperparathyroidism?",
     "back": "<b>↑Ca · ↓PO₄ · ↑PTH</b> (± raised ALP if there is bone disease / osteitis fibrosa cystica)."
+   },
+   {
+    "id": "bcp_fc_22",
+    "front": "How is osteomalacia / vitamin D deficiency treated, and what confirms response?",
+    "back": "<b>Vitamin D replacement</b> (colecalciferol, ± calcium). Recheck the bone profile — <b>calcium and phosphate rise, ALP and PTH settle</b> as bone remineralises. Correct any underlying cause (malabsorption, CKD)."
    }
   ],
   "investigations__BIOCHEMISTRY__Renal & Electrolytes": [
@@ -491,6 +496,11 @@
     "id": "cpep_fc_05",
     "front": "What is LADA?",
     "back": "<b>Latent Autoimmune Diabetes in Adults</b> — a slowly-progressive autoimmune (antibody-positive) diabetes that presents in adulthood and is often initially misdiagnosed as type 2."
+   },
+   {
+    "id": "dm_fc_extra1",
+    "front": "An acutely unwell patient has a high glucose. Why is HbA1c not the test to reach for, and what should you do?",
+    "back": "HbA1c reflects the last ~3 months and won't guide an acute emergency. In an unwell hyperglycaemic patient <b>check blood/capillary ketones and a venous blood gas</b> to identify <b>DKA</b> (ketones + acidosis) or <b>HHS</b> (marked hyperglycaemia/dehydration, no ketosis) — both are emergencies."
    }
   ],
   "investigations__BIOCHEMISTRY__Cardiac Markers": [
@@ -925,12 +935,12 @@
     "question": "A patient has a total calcium of 2.10 mmol/L (ref 2.20–2.60) and an albumin of 28 g/L. What is the corrected calcium and interpretation?",
     "options": [
      "2.10 mmol/L — hypocalcaemia",
-     "2.34 mmol/L — normal (the low total was due to low albumin)",
      "1.86 mmol/L — severe hypocalcaemia",
+     "2.34 mmol/L — normal (the low total was due to low albumin)",
      "2.60 mmol/L — hypercalcaemia",
      "Cannot be calculated"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "2.34 mmol/L — normal (the low total was due to low albumin)",
     "explanation": "Corrected Ca = 2.10 + 0.02 × (40 − 28) = 2.10 + 0.24 = 2.34 mmol/L, which is within the normal range. The low total calcium simply reflected hypoalbuminaemia — always correct before diagnosing hypocalcaemia."
    },
@@ -940,12 +950,12 @@
     "question": "A 68-year-old with bone pain has an isolated raised ALP; calcium, phosphate and GGT are all normal. What does the normal GGT indicate about the source of the ALP?",
     "options": [
      "A hepatic/cholestatic source",
-     "A bony source (e.g. Paget's disease or osteomalacia)",
      "A haemolysed sample",
      "Normal physiology only",
-     "A renal source"
+     "A renal source",
+     "A bony source (e.g. Paget's disease or osteomalacia)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "A bony source (e.g. Paget's disease or osteomalacia)",
     "explanation": "A normal GGT alongside a raised ALP points away from the liver and towards a bony source. In an older patient with bone pain and an isolated raised ALP, Paget's disease is a classic cause."
    },
@@ -970,12 +980,12 @@
     "question": "Which statement about albumin in the bone profile is correct?",
     "options": [
      "A high albumin causes true hypocalcaemia",
-     "A low albumin lowers the total calcium but not the ionised (active) calcium",
      "Albumin does not affect calcium measurement",
      "Albumin binds phosphate, not calcium",
+     "A low albumin lowers the total calcium but not the ionised (active) calcium",
      "A low albumin raises the corrected calcium falsely"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "A low albumin lowers the total calcium but not the ionised (active) calcium",
     "explanation": "About half of serum calcium is albumin-bound. A low albumin reduces the measured total calcium while the physiologically active ionised fraction is unchanged — hence the need to correct for albumin."
    },
@@ -984,13 +994,13 @@
     "type": "mcq",
     "question": "An asymptomatic 60-year-old has a corrected calcium of 2.85 mmol/L with a PTH at the upper end of normal and a low phosphate. What is the most likely diagnosis?",
     "options": [
-     "Malignancy",
      "Primary hyperparathyroidism",
+     "Malignancy",
      "Vitamin D deficiency",
      "Hypoparathyroidism",
      "Secondary hyperparathyroidism"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Primary hyperparathyroidism",
     "explanation": "Hypercalcaemia with a PTH that is not suppressed (inappropriately normal or high) is primary hyperparathyroidism — the commonest cause of hypercalcaemia in ambulant outpatients. The low phosphate fits PTH excess."
    },
@@ -1000,12 +1010,12 @@
     "question": "A patient with known metastatic breast cancer has a corrected calcium of 3.1 mmol/L. Which PTH result would you expect, and what is the mechanism?",
     "options": [
      "High PTH — primary hyperparathyroidism",
-     "Suppressed (low) PTH — PTHrP / bone metastases",
      "Normal PTH — vitamin D deficiency",
+     "Suppressed (low) PTH — PTHrP / bone metastases",
      "High PTH — secondary hyperparathyroidism",
      "Undetectable calcium"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Suppressed (low) PTH — PTHrP / bone metastases",
     "explanation": "Hypercalcaemia of malignancy is PTH-independent (PTHrP secretion or osteolytic mets), so the parathyroid glands appropriately suppress and the PTH is low."
    },
@@ -1015,12 +1025,12 @@
     "question": "A patient has mild hypercalcaemia with an inappropriately normal PTH, but a 24-hour urine shows a LOW urinary calcium (low calcium:creatinine clearance ratio). What is the diagnosis and key implication?",
     "options": [
      "Primary hyperparathyroidism — refer for parathyroidectomy",
-     "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery",
      "Malignancy — arrange imaging",
      "Vitamin D toxicity — stop supplements",
-     "Hypoparathyroidism — give calcium"
+     "Hypoparathyroidism — give calcium",
+     "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery",
     "explanation": "FHH mimics primary hyperparathyroidism biochemically but has low urinary calcium excretion. It is benign, so distinguishing it prevents an unnecessary parathyroidectomy."
    },
@@ -1030,12 +1040,12 @@
     "question": "A post-thyroidectomy patient has persistent hypocalcaemia despite IV calcium. Which additional electrolyte must be checked and corrected?",
     "options": [
      "Sodium",
-     "Potassium",
      "Magnesium",
+     "Potassium",
      "Chloride",
      "Bicarbonate"
     ],
-    "correctIndex": 2,
+    "correctIndex": 1,
     "answer": "Magnesium",
     "explanation": "Severe hypomagnesaemia causes functional hypoparathyroidism and impairs PTH action, so hypocalcaemia is refractory until the magnesium is replaced."
    },
@@ -1045,12 +1055,12 @@
     "question": "A 68-year-old woman sustains a fragility wrist fracture. Calcium, phosphate, ALP and PTH are all normal. What is the most likely diagnosis and confirmatory test?",
     "options": [
      "Osteomalacia — measure vitamin D",
-     "Osteoporosis — arrange a DEXA scan",
      "Paget's disease — isotope bone scan",
      "Primary hyperparathyroidism — repeat PTH",
+     "Osteoporosis — arrange a DEXA scan",
      "Multiple myeloma — serum electrophoresis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Osteoporosis — arrange a DEXA scan",
     "explanation": "A fragility fracture with an entirely normal bone profile is characteristic of osteoporosis, which is diagnosed on DEXA (T-score ≤ −2.5). Normal bloods help exclude secondary causes."
    },
@@ -1059,13 +1069,13 @@
     "type": "mcq",
     "question": "An older adult with bone pain and proximal muscle weakness has ↓Ca, ↓PO₄, ↑ALP, ↑PTH and a low vitamin D. What is the diagnosis?",
     "options": [
-     "Osteoporosis",
      "Osteomalacia",
+     "Osteoporosis",
      "Paget's disease",
      "Primary hyperparathyroidism",
      "Multiple myeloma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Osteomalacia",
     "explanation": "Low calcium and phosphate with a raised ALP and PTH and low vitamin D is the secondary-hyperparathyroidism pattern of osteomalacia (vitamin D deficiency). Proximal myopathy and Looser's zones support it."
    },
@@ -1075,12 +1085,12 @@
     "question": "An asymptomatic 75-year-old has an isolated ALP of 620 U/L with a normal calcium, phosphate and GGT. He mentions increasing hat size and hearing loss. What is the diagnosis?",
     "options": [
      "Bone metastases",
-     "Paget's disease of bone",
      "Osteomalacia",
+     "Paget's disease of bone",
      "Cholestasis",
      "Primary hyperparathyroidism"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Paget's disease of bone",
     "explanation": "An isolated, markedly raised ALP with normal calcium/phosphate and a normal GGT (excluding a hepatic source), plus skull enlargement and deafness, is classic Paget's disease. Confirm with X-ray/isotope bone scan."
    },
@@ -1091,13 +1101,28 @@
     "options": [
      "Paget's disease",
      "Bone metastases",
-     "Multiple myeloma",
      "Osteomalacia",
-     "Osteoporosis"
+     "Osteoporosis",
+     "Multiple myeloma"
     ],
-    "correctIndex": 2,
+    "correctIndex": 4,
     "answer": "Multiple myeloma",
     "explanation": "Hypercalcaemia, anaemia and renal impairment with bone pain but a NORMAL ALP points to myeloma — its lytic lesions are osteoclastic with no osteoblastic (ALP) response. Send serum/urine electrophoresis and free light chains."
+   },
+   {
+    "id": "bcp_q13",
+    "type": "mcq",
+    "question": "A patient has low calcium, low phosphate, a raised ALP and raised PTH, with a low 25-OH vitamin D (osteomalacia). What is the most appropriate next step?",
+    "options": [
+     "Start an oral bisphosphonate",
+     "Replace vitamin D and recheck the bone profile",
+     "Give IV calcium gluconate",
+     "Refer for parathyroidectomy",
+     "Arrange a DEXA scan to confirm"
+    ],
+    "correctIndex": 1,
+    "answer": "Replace vitamin D and recheck the bone profile",
+    "explanation": "This biochemistry is vitamin D deficiency / osteomalacia (low Ca and phosphate, raised ALP, secondary hyperparathyroidism). Treatment is vitamin D replacement (± calcium); the bone profile normalises with treatment. Bisphosphonates are for osteoporosis/Paget's, and IV calcium is only for acute symptomatic hypocalcaemia."
    }
   ],
   "investigations__BIOCHEMISTRY__Renal & Electrolytes": [
@@ -1621,12 +1646,12 @@
     "question": "An asymptomatic patient has an HbA1c of 50 mmol/mol on a routine screen. What is the correct next step?",
     "options": [
      "Diagnose diabetes now",
-     "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
      "Ignore it — it is normal",
+     "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
      "Diagnose prediabetes",
      "Start insulin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
     "explanation": "HbA1c ≥48 is in the diabetes range, but in an asymptomatic person a single result must be confirmed with a second abnormal test before diagnosing diabetes."
    },
@@ -1637,11 +1662,11 @@
     "options": [
      "Fasting glucose 6.5 mmol/L",
      "HbA1c 45 mmol/mol",
-     "2-hour OGTT glucose 11.5 mmol/L",
      "Random glucose 9.0 mmol/L without symptoms",
-     "HbA1c 44 mmol/mol"
+     "HbA1c 44 mmol/mol",
+     "2-hour OGTT glucose 11.5 mmol/L"
     ],
-    "correctIndex": 2,
+    "correctIndex": 4,
     "answer": "2-hour OGTT glucose 11.5 mmol/L",
     "explanation": "A 2-hour OGTT (or random) glucose ≥11.1 mmol/L meets the threshold. Fasting 6.5 and HbA1c 44–45 are in the prediabetes range; random 9.0 is below threshold."
    },
@@ -1666,12 +1691,12 @@
     "question": "A patient with untreated iron-deficiency anaemia has an HbA1c of 49 mmol/mol but normal fasting glucose. How should the HbA1c be interpreted?",
     "options": [
      "It confirms diabetes",
-     "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
      "It is falsely low",
      "It is unaffected by anaemia",
+     "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
      "Repeat only the HbA1c"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
     "explanation": "Untreated iron/B12/folate deficiency prolongs red-cell survival and raises HbA1c. Diagnose using fasting glucose/OGTT, or repeat HbA1c after treating the anaemia."
    },
@@ -1680,13 +1705,13 @@
     "type": "mcq",
     "question": "Which is the recommended method to diagnose diabetes in pregnancy?",
     "options": [
-     "HbA1c",
      "An oral glucose tolerance test (glucose-based criteria)",
+     "HbA1c",
      "Fructosamine",
      "Random capillary glucose alone",
      "C-peptide"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "An oral glucose tolerance test (glucose-based criteria)",
     "explanation": "HbA1c is unreliable in pregnancy (altered red-cell turnover), so gestational and pregnancy diabetes are diagnosed with glucose-based criteria (OGTT)."
    },
@@ -1696,12 +1721,12 @@
     "question": "A patient with a haemolytic anaemia has a low HbA1c despite documented hyperglycaemia. Why?",
     "options": [
      "Haemolysis raises HbA1c",
-     "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
      "HbA1c is unaffected",
+     "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
      "The glucose meter is faulty",
      "Splenectomy effect"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
     "explanation": "A shortened red-cell lifespan gives less time for glycation, so HbA1c underestimates glycaemia in haemolysis — use glucose or fructosamine."
    },
@@ -1711,12 +1736,12 @@
     "question": "A lean 35-year-old diagnosed with 'type 2 diabetes' responds poorly to metformin and is ketosis-prone. GAD antibodies are positive and C-peptide is low. What is the diagnosis?",
     "options": [
      "Classic type 2 diabetes",
-     "Autoimmune diabetes (LADA / type 1)",
      "MODY",
      "Secondary diabetes from steroids",
-     "Gestational diabetes"
+     "Gestational diabetes",
+     "Autoimmune diabetes (LADA / type 1)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Autoimmune diabetes (LADA / type 1)",
     "explanation": "Positive GAD antibodies with a low C-peptide indicate autoimmune beta-cell destruction — LADA (adult-onset autoimmune diabetes). These patients need insulin."
    },
@@ -1741,14 +1766,29 @@
     "question": "A young patient with a strong family history of diabetes across generations is antibody-negative with a well-preserved C-peptide and mild stable hyperglycaemia. What should be considered?",
     "options": [
      "Type 1 diabetes",
-     "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
      "Insulinoma",
      "LADA",
+     "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
      "Exogenous insulin use"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
     "explanation": "Young-onset, strongly familial diabetes with preserved C-peptide and negative autoantibodies suggests MODY, a monogenic diabetes confirmed by genetic testing (and often managed differently, e.g. sulfonylureas)."
+   },
+   {
+    "id": "dm_q_extra1",
+    "type": "mcq",
+    "question": "A drowsy, dehydrated patient has a capillary glucose of 32 mmol/L. What is the most appropriate immediate investigation?",
+    "options": [
+     "Blood ketones and a venous blood gas",
+     "HbA1c",
+     "Fasting glucose in the morning",
+     "C-peptide and GAD antibodies",
+     "Oral glucose tolerance test"
+    ],
+    "correctIndex": 0,
+    "answer": "Blood ketones and a venous blood gas",
+    "explanation": "An acutely unwell hyperglycaemic patient needs immediate assessment for DKA or HHS — check blood ketones and a venous gas (and U&E). HbA1c, fasting glucose, OGTT and C-peptide/antibodies are for diagnosis/classification, not the acute emergency."
    }
   ],
   "investigations__BIOCHEMISTRY__Cardiac Markers": [
