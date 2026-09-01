@@ -67,6 +67,21 @@
         "id": "cvi_holter_fc_05",
         "front": "Syncope captured with a prolonged pause or complete heart block on ambulatory monitoring indicates what?",
         "back": "A permanent pacemaker is indicated. Unexplained syncope with structural heart disease or a high-risk ECG needs urgent specialist assessment rather than routine outpatient monitoring alone."
+      },
+      {
+        "id": "holter_af_fc_01",
+        "front": "Paroxysmal AF is captured on a Holter — what is the next step?",
+        "back": "Assess stroke risk with <b>CHA₂DS₂-VASc</b> and <b>anticoagulate</b> (DOAC first-line) if indicated, independent of AF burden; weigh bleeding risk (ORBIT/HAS-BLED)."
+      },
+      {
+        "id": "holter_ilr_fc_01",
+        "front": "Why is prolonged/implantable loop monitoring used after a cryptogenic stroke?",
+        "back": "To detect <b>occult paroxysmal AF</b> (embolic stroke of undetermined source) — if found, secondary prevention changes from antiplatelet to <b>anticoagulation</b>."
+      },
+      {
+        "id": "holter_nsvt_fc_01",
+        "front": "Non-sustained VT is seen on a Holter — what should you do?",
+        "back": "Arrange an <b>echocardiogram</b> and specialist/electrophysiology assessment for structural heart disease and SCD risk — not reassurance."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Coronary Angiography": [
@@ -94,6 +109,21 @@
         "id": "cvi_angio_fc_05",
         "front": "What are the main procedural risks of invasive coronary angiography?",
         "back": "Access-site bleeding/haematoma and arterial injury, stroke, MI, arrhythmia, contrast nephropathy, and contrast allergy."
+      },
+      {
+        "id": "angio_dapt_fc_01",
+        "front": "What antiplatelet therapy follows coronary stenting, and what is the danger of stopping it early?",
+        "back": "<b>Dual antiplatelet therapy</b> — aspirin + a P2Y12 inhibitor (e.g. ticagrelor/clopidogrel/prasugrel) for ~12 months. Premature cessation risks <b>stent thrombosis</b> (acute MI)."
+      },
+      {
+        "id": "angio_cabg_fc_01",
+        "front": "Which factors favour CABG over PCI?",
+        "back": "<b>Left main</b> disease, <b>triple-vessel</b> disease, <b>diabetes with multivessel disease</b>, and <b>impaired LV function</b>. The SYNTAX score grades anatomical complexity; the heart team decides."
+      },
+      {
+        "id": "angio_metformin_fc_01",
+        "front": "What is the precaution with metformin around iodinated contrast?",
+        "back": "Withhold metformin around contrast in renal impairment (risk of <b>lactic acidosis</b> if contrast precipitates AKI) and recheck renal function before restarting."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Tilt Table Test": [
@@ -248,12 +278,12 @@
         "question": "A 40-year-old reports palpitations lasting a few minutes roughly once a month. A 24-hour Holter is normal with no symptoms during the recording. What is the most appropriate next step?",
         "options": [
           "Reassure the patient that arrhythmia is excluded",
-          "Arrange a prolonged patient-activated event/loop recorder",
           "Repeat an identical 24-hour Holter the following week",
+          "Arrange a prolonged patient-activated event/loop recorder",
           "Start a beta-blocker empirically and discharge",
           "Perform an exercise tolerance test"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Arrange a prolonged patient-activated event/loop recorder",
         "explanation": "Monthly symptoms are very likely to fall outside a single 24-hour window, so a normal Holter does not exclude a paroxysmal arrhythmia. Matching monitor duration to symptom frequency means escalating to a prolonged external or implantable loop recorder."
       },
@@ -264,11 +294,11 @@
         "options": [
           "Paroxysmal atrial fibrillation is confirmed",
           "The device malfunctioned during the episode",
-          "The symptom is not due to an arrhythmia for that episode",
           "An immediate pacemaker is required",
-          "The recording should be discarded as artefact"
+          "The recording should be discarded as artefact",
+          "The symptom is not due to an arrhythmia for that episode"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "The symptom is not due to an arrhythmia for that episode",
         "explanation": "Correlating the symptom timestamp with a simultaneous normal sinus rhythm demonstrates that the palpitation was not arrhythmic. This is a genuinely useful result that redirects the workup away from a cardiac rhythm cause."
       },
@@ -286,6 +316,21 @@
         "correctIndex": 1,
         "answer": "Urgent specialist assessment for admission and monitoring",
         "explanation": "Syncope with structural heart disease or a high-risk ECG carries a risk of sudden cardiac death and cannot be safely worked up with routine outpatient monitoring. It warrants urgent specialist assessment rather than a delayed ambulatory study."
+      },
+      {
+        "id": "holter_af_q01",
+        "type": "mcq",
+        "question": "A 68-year-old with palpitations has a Holter showing several runs of paroxysmal atrial fibrillation. What is the most important next step?",
+        "options": [
+          "Reassure — the AF is only paroxysmal",
+          "Start a beta-blocker only",
+          "Repeat the Holter in one year",
+          "Assess stroke risk with CHA₂DS₂-VASc and consider anticoagulation",
+          "Refer for pacemaker"
+        ],
+        "correctIndex": 3,
+        "answer": "Assess stroke risk with CHA₂DS₂-VASc and consider anticoagulation",
+        "explanation": "Documented paroxysmal AF carries the same stroke risk implications as persistent AF; assess with CHA₂DS₂-VASc and anticoagulate (DOAC first-line) if indicated, independent of AF burden."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Coronary Angiography": [
@@ -294,13 +339,13 @@
         "type": "mcq",
         "question": "A 62-year-old man undergoes coronary angiography for stable angina. A lesion in the left anterior descending artery is graded at 60% and FFR is measured at 0.75. How should this lesion be interpreted?",
         "options": [
-          "It is functionally significant and should be revascularised",
           "It is not significant and needs no further action",
           "It confirms microvascular angina",
+          "It is functionally significant and should be revascularised",
           "It mandates immediate CABG regardless of other vessels",
           "It is an artefact and should be ignored"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "It is functionally significant and should be revascularised",
         "explanation": "An FFR of 0.75 is ≤0.80, defining the lesion as functionally significant despite the intermediate angiographic appearance. FFR uses a pressure wire under hyperaemia to guide revascularisation of borderline lesions."
       },
@@ -309,13 +354,13 @@
         "type": "mcq",
         "question": "Which arterial access route is first-line for coronary angiography because it reduces bleeding complications?",
         "options": [
-          "Radial artery",
           "Femoral artery",
           "Brachial artery",
           "Axillary artery",
-          "Ulnar artery"
+          "Ulnar artery",
+          "Radial artery"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Radial artery",
         "explanation": "Radial access is the preferred first-line route as it lowers access-site bleeding and vascular complications compared with femoral access. This improves patient safety and allows earlier mobilisation."
       },
@@ -324,15 +369,30 @@
         "type": "mcq",
         "question": "A patient with significant renal impairment is being considered for coronary angiography. Which procedural complication is of particular concern and warrants preventive measures?",
         "options": [
-          "Contrast-induced nephropathy",
           "Contrast allergy anaphylaxis being impossible",
+          "Contrast-induced nephropathy",
           "Guaranteed stroke",
           "Loss of ECG monitoring",
           "Automatic need for CABG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Contrast-induced nephropathy",
         "explanation": "Iodinated contrast can precipitate contrast-induced nephropathy, which is a heightened risk in renal impairment. Hydration and minimising contrast volume are used to reduce this risk."
+      },
+      {
+        "id": "angio_dapt_q01",
+        "type": "mcq",
+        "question": "A patient has a drug-eluting stent placed for stable angina. Two months later they ask their GP to stop one of their two antiplatelet drugs. Why is this potentially dangerous?",
+        "options": [
+          "It increases the risk of contrast nephropathy",
+          "It causes rebound hypertension",
+          "It precipitates heart block",
+          "It risks stent thrombosis causing an acute myocardial infarction",
+          "It has no clinical consequence"
+        ],
+        "correctIndex": 3,
+        "answer": "It risks stent thrombosis causing an acute myocardial infarction",
+        "explanation": "After stenting, dual antiplatelet therapy (aspirin + P2Y12 inhibitor) is continued for ~12 months; stopping early markedly increases the risk of stent thrombosis, which presents as an acute MI."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Tilt Table Test": [
