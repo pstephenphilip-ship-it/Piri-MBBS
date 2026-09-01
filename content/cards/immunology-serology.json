@@ -334,6 +334,26 @@
 "id": "mfs_fc_04",
 "front": "How is Guillain-Barré syndrome (including Miller Fisher) managed and monitored?",
 "back": "<b>IVIG or plasma exchange</b>, with supportive care; monitor <b>FVC</b> (respiratory failure) and autonomic function. Miller Fisher generally has a good prognosis."
+},
+{
+"id": "nmda_fc_01",
+"front": "A young woman has a viral prodrome then psychosis, seizures and orofacial dyskinesias with autonomic instability. Diagnosis and antibody?",
+"back": "<b>Anti-NMDA-receptor encephalitis</b> — anti-<b>NMDA-receptor</b> antibodies. Test <b>CSF</b> (more sensitive than serum). Same &ldquo;antibody → hunt the tumour&rdquo; logic as MG/LEMS."
+},
+{
+"id": "nmda_fc_02",
+"front": "Once anti-NMDA-receptor encephalitis is confirmed, what tumour must you screen for and how?",
+"back": "An <b>ovarian teratoma</b> — pelvic / transvaginal <b>USS</b> ± <b>MRI pelvis</b> (CT abdo/pelvis if needed). Tumour removal plus immunotherapy (steroids, IVIG/PLEX, rituximab) is the treatment."
+},
+{
+"id": "ocb_fc_01",
+"front": "What is the key rule about oligoclonal bands when diagnosing MS?",
+"back": "They must be <b>CSF-restricted</b> — present in the CSF but <b>absent from a paired serum</b> sample (intrathecal synthesis). Always send CSF <b>and</b> serum together; matched bands indicate systemic inflammation, not MS."
+},
+{
+"id": "gm1_fc_01",
+"front": "Which antibody marks the axonal (AMAN) variant of Guillain–Barré syndrome?",
+"back": "<b>Anti-GM1</b> antibodies — the acute motor axonal neuropathy (AMAN) variant, classically <b>post-<i>Campylobacter</i></b>. (Anti-GQ1b = Miller Fisher.)"
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Renal & Post-infectious": [
@@ -365,7 +385,7 @@
 {
 "id": "pla_fc_01",
 "front": "What does anti-PLA2R indicate, and how common is it?",
-"back": "It is the marker of <b>primary membranous nephropathy</b> (the commonest cause of adult nephrotic syndrome), positive in ~<b>70–80%</b> of primary cases (anti-THSD7A in a smaller subset)."
+"back": "It is the marker of <b>primary membranous nephropathy</b> (a leading cause of <b>primary</b> nephrotic syndrome in adults (especially older Caucasian patients)), positive in ~<b>70–80%</b> of primary cases (anti-THSD7A in a smaller subset)."
 },
 {
 "id": "pla_fc_02",
@@ -436,6 +456,31 @@
 "id": "lyme_fc_05",
 "front": "First-line and alternative antibiotics for Lyme disease?",
 "back": "Doxycycline first-line; amoxicillin as an alternative (e.g. pregnancy/children); ceftriaxone (IV) for CNS involvement (neuroborreliosis) or Lyme carditis."
+},
+{
+"id": "anca_fc_01",
+"front": "Match the ANCA pattern/antigen to its vasculitis: c-ANCA/PR3 vs p-ANCA/MPO.",
+"back": "<b>c-ANCA / anti-PR3 → granulomatosis with polyangiitis (GPA)</b>. <b>p-ANCA / anti-MPO → microscopic polyangiitis (MPA) &amp; eosinophilic GPA (EGPA)</b>."
+},
+{
+"id": "anca_fc_02",
+"front": "What is the renal biopsy picture and next step in ANCA-associated GN?",
+"back": "<b>Pauci-immune crescentic GN</b> — few/no immune deposits on immunofluorescence (unlike linear anti-GBM or granular lupus). Urgent <b>steroids + cyclophosphamide/rituximab</b>; <b>plasma exchange</b> if severe renal failure or pulmonary haemorrhage. Check anti-GBM too (~30% double-positive)."
+},
+{
+"id": "ln_fc_01",
+"front": "What serology and immunofluorescence pattern characterise lupus nephritis?",
+"back": "<b>Anti-dsDNA high</b>, <b>C3 AND C4 both low</b> (classical-pathway), ANA positive. Biopsy graded <b>ISN/RPS class I–VI</b>; immunofluorescence is <b>&ldquo;full house&rdquo;</b> (IgG/IgM/IgA/C3/C1q)."
+},
+{
+"id": "urine_fc_01",
+"front": "What urine microscopy finding indicates glomerular (nephritic) bleeding, and how is proteinuria quantified?",
+"back": "<b>Red-cell casts</b> and <b>dysmorphic RBCs</b> = glomerular bleeding. Quantify protein with <b>ACR or PCR</b> on a spot sample; nephrotic-range ≈ PCR &gt;300–350 mg/mmol (~&gt;3.5 g/day)."
+},
+{
+"id": "iga_vasc_fc_01",
+"front": "A child has palpable purpura on the buttocks/legs, colicky abdominal pain, arthralgia and haematuria. Diagnosis and its renal link?",
+"back": "<b>IgA vasculitis (Henoch–Schönlein purpura)</b> — the systemic form of <b>IgA nephropathy</b> (same mesangial IgA on biopsy), usually post-URTI. Mostly supportive; monitor urine dip &amp; BP for renal involvement."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Endocrine & GI Autoimmune": [
@@ -1289,12 +1334,12 @@
 "question": "A woman has drooping eyelids and double vision that worsen through the day and after reading. Anti-AChR antibodies are positive. What is the diagnosis?",
 "options": [
 "Lambert-Eaton myasthenic syndrome",
-"Myasthenia gravis",
 "Multiple sclerosis",
+"Myasthenia gravis",
 "Guillain-Barré syndrome",
 "Miller Fisher syndrome"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Myasthenia gravis",
 "explanation": "Fatigable ptosis and diplopia worsening with activity, with positive anti-AChR antibodies, is myasthenia gravis (postsynaptic NMJ disorder)."
 },
@@ -1304,12 +1349,12 @@
 "question": "A myasthenic patient becomes increasingly breathless with a falling forced vital capacity and bulbar weakness. What is the priority management?",
 "options": [
 "Increase oral pyridostigmine only",
-"Monitor FVC, involve ICU, and give IVIG or plasma exchange",
 "Start a beta-blocker",
 "Reassure and discharge",
-"Give an aminoglycoside for possible infection"
+"Give an aminoglycoside for possible infection",
+"Monitor FVC, involve ICU, and give IVIG or plasma exchange"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Monitor FVC, involve ICU, and give IVIG or plasma exchange",
 "explanation": "This is a myasthenic crisis with respiratory failure — monitor FVC, escalate to critical care and treat with IVIG or plasma exchange; avoid drugs that worsen MG."
 },
@@ -1334,12 +1379,12 @@
 "question": "A 62-year-old smoker has proximal leg weakness that briefly improves after exercise, a dry mouth, and absent knee reflexes that return after sustained contraction. Which antibody and diagnosis?",
 "options": [
 "Anti-AChR — myasthenia gravis",
-"Anti-VGCC — Lambert-Eaton myasthenic syndrome",
 "Aquaporin-4 — neuromyelitis optica",
 "Anti-GQ1b — Miller Fisher syndrome",
+"Anti-VGCC — Lambert-Eaton myasthenic syndrome",
 "Anti-dsDNA — SLE"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Anti-VGCC — Lambert-Eaton myasthenic syndrome",
 "explanation": "Proximal weakness that improves with use, autonomic features and post-exercise return of reflexes in a smoker is LEMS (anti-VGCC), often paraneoplastic to small-cell lung cancer."
 },
@@ -1348,13 +1393,13 @@
 "type": "mcq",
 "question": "Repetitive nerve stimulation in a patient shows an INCREMENTAL response at high frequency. Which condition does this indicate?",
 "options": [
-"Myasthenia gravis",
 "Lambert-Eaton myasthenic syndrome",
+"Myasthenia gravis",
 "Guillain-Barré syndrome",
 "Multiple sclerosis",
 "Motor neurone disease"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Lambert-Eaton myasthenic syndrome",
 "explanation": "An incremental RNS response is characteristic of LEMS (presynaptic), whereas myasthenia gravis shows a decremental response."
 },
@@ -1364,12 +1409,12 @@
 "question": "A patient is newly diagnosed with LEMS but initial imaging shows no malignancy. What is the appropriate approach?",
 "options": [
 "Reassure — no cancer risk",
-"Screen and periodically re-screen for small-cell lung cancer, as LEMS can precede it",
 "Start chemotherapy empirically",
+"Screen and periodically re-screen for small-cell lung cancer, as LEMS can precede it",
 "Only treat symptoms and never re-image",
 "Test for aquaporin-4 antibodies"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Screen and periodically re-screen for small-cell lung cancer, as LEMS can precede it",
 "explanation": "LEMS can predate a detectable small-cell lung cancer by months to years, so ongoing surveillance is warranted even if the initial screen is negative."
 },
@@ -1379,12 +1424,12 @@
 "question": "A patient has severe bilateral optic neuritis and a spinal MRI showing a cord lesion spanning 4 vertebral segments. AQP4-IgG is positive and CSF oligoclonal bands are negative. What is the diagnosis?",
 "options": [
 "Multiple sclerosis",
-"Neuromyelitis optica spectrum disorder (NMOSD)",
 "Guillain-Barré syndrome",
 "Miller Fisher syndrome",
-"Myasthenia gravis"
+"Myasthenia gravis",
+"Neuromyelitis optica spectrum disorder (NMOSD)"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Neuromyelitis optica spectrum disorder (NMOSD)",
 "explanation": "Longitudinally extensive transverse myelitis with severe optic neuritis, positive AQP4-IgG and negative oligoclonal bands is NMOSD, not MS."
 },
@@ -1409,12 +1454,12 @@
 "question": "Which CSF finding helps distinguish NMOSD from multiple sclerosis?",
 "options": [
 "Oligoclonal bands are usually POSITIVE in NMO",
-"Oligoclonal bands are usually NEGATIVE in NMO (positive in MS)",
 "Raised protein with normal cells",
 "Low glucose",
+"Oligoclonal bands are usually NEGATIVE in NMO (positive in MS)",
 "Xanthochromia"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Oligoclonal bands are usually NEGATIVE in NMO (positive in MS)",
 "explanation": "CSF oligoclonal bands are typically absent in NMOSD but present in the majority of MS cases — a useful discriminator alongside AQP4-IgG."
 },
@@ -1423,13 +1468,13 @@
 "type": "mcq",
 "question": "Two weeks after a diarrhoeal illness, a patient develops double vision, an unsteady gait and absent reflexes, without limb weakness. Which antibody is associated?",
 "options": [
-"Anti-AChR",
 "Anti-GQ1b",
+"Anti-AChR",
 "Anti-VGCC",
 "Aquaporin-4",
 "Anti-dsDNA"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Anti-GQ1b",
 "explanation": "Ophthalmoplegia, ataxia and areflexia after a (often Campylobacter) infection is Miller Fisher syndrome, associated with anti-GQ1b antibodies."
 },
@@ -1439,12 +1484,12 @@
 "question": "A patient with Guillain-Barré syndrome has ascending weakness. Which parameter best guides the need for ventilatory support?",
 "options": [
 "Oxygen saturation",
-"Serial forced vital capacity (FVC)",
 "Peak flow",
+"Serial forced vital capacity (FVC)",
 "Respiratory rate alone",
 "Temperature"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Serial forced vital capacity (FVC)",
 "explanation": "Serial FVC is the key monitor in GBS because oxygen saturation falls late; a declining FVC signals impending respiratory failure and the need for ICU/ventilation."
 },
@@ -1454,14 +1499,29 @@
 "question": "A lumbar puncture in suspected GBS shows a raised protein with a normal white cell count. What is this pattern called?",
 "options": [
 "Pleocytosis",
-"Albuminocytological dissociation",
 "Xanthochromia",
 "Hypoglycorrhachia",
-"A traumatic tap"
+"A traumatic tap",
+"Albuminocytological dissociation"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Albuminocytological dissociation",
 "explanation": "Raised CSF protein with a normal cell count (albuminocytological dissociation) is the classic finding in GBS and its Miller Fisher variant."
+},
+{
+"id": "nmda_q_01",
+"type": "mcq",
+"question": "A 24-year-old woman is admitted with 2 weeks of behavioural change and paranoia, then develops seizures, orofacial dyskinesias and labile blood pressure. What is the single most important investigation after antibody testing?",
+"options": [
+"CT head without contrast",
+"Pelvic ultrasound to look for an ovarian teratoma",
+"Serum copper and caeruloplasmin",
+"Muscle biopsy",
+"Nerve conduction studies"
+],
+"correctIndex": 1,
+"answer": "Pelvic ultrasound to look for an ovarian teratoma",
+"explanation": "This is anti-NMDA-receptor encephalitis (test CSF antibodies, more sensitive than serum). It is strongly associated with an ovarian teratoma, so pelvic/transvaginal USS ± MRI pelvis is essential — tumour removal is part of treatment."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Renal & Post-infectious": [
@@ -1471,12 +1531,12 @@
 "question": "A young smoker presents with haemoptysis, AKI and haematuria. Renal biopsy shows crescentic GN with LINEAR IgG on immunofluorescence. What is the diagnosis?",
 "options": [
 "ANCA-associated vasculitis",
-"Anti-GBM (Goodpasture's) disease",
 "Post-streptococcal glomerulonephritis",
+"Anti-GBM (Goodpasture's) disease",
 "Membranous nephropathy",
 "Minimal change disease"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Anti-GBM (Goodpasture's) disease",
 "explanation": "A pulmonary-renal syndrome with crescentic GN and linear IgG deposition is anti-GBM disease (Goodpasture's), targeting type IV collagen."
 },
@@ -1486,12 +1546,12 @@
 "question": "A patient with confirmed anti-GBM disease and rising creatinine needs treatment. What is the key urgent intervention?",
 "options": [
 "Oral prednisolone alone",
-"Plasma exchange plus immunosuppression",
 "A DOAC",
 "ACE inhibitor monotherapy",
-"Watchful waiting"
+"Watchful waiting",
+"Plasma exchange plus immunosuppression"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Plasma exchange plus immunosuppression",
 "explanation": "Anti-GBM disease is treated urgently with plasma exchange (to remove circulating antibody) plus steroids and cyclophosphamide; delay worsens renal outcome."
 },
@@ -1516,27 +1576,27 @@
 "question": "A 50-year-old presents with nephrotic-range proteinuria; biopsy shows a thickened GBM with subepithelial deposits and anti-PLA2R is positive. What is the diagnosis?",
 "options": [
 "Minimal change disease",
-"Primary membranous nephropathy",
 "Post-streptococcal GN",
 "Anti-GBM disease",
+"Primary membranous nephropathy",
 "IgA nephropathy"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Primary membranous nephropathy",
-"explanation": "Subepithelial 'spike and dome' deposits with a positive anti-PLA2R indicate primary membranous nephropathy, the commonest cause of adult nephrotic syndrome."
+"explanation": "Subepithelial 'spike and dome' deposits with a positive anti-PLA2R indicate primary membranous nephropathy, a leading cause of primary nephrotic syndrome in adults (especially older Caucasian patients)."
 },
 {
 "id": "pla_q02",
 "type": "mcq",
 "question": "An older adult with membranous nephropathy is anti-PLA2R NEGATIVE. What does this prompt?",
 "options": [
-"Reassurance — it is always primary",
 "An active search for a secondary cause (e.g. malignancy, hepatitis B, SLE, drugs)",
+"Reassurance — it is always primary",
 "Immediate dialysis",
 "No further action",
 "A diagnosis of minimal change disease"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "An active search for a secondary cause (e.g. malignancy, hepatitis B, SLE, drugs)",
 "explanation": "A negative anti-PLA2R makes primary MN less likely, so secondary causes should be actively sought — particularly malignancy in older patients."
 },
@@ -1545,13 +1605,13 @@
 "type": "mcq",
 "question": "A patient with membranous nephropathy develops acute flank pain, haematuria and worsening renal function. What complication should be suspected?",
 "options": [
-"Renal vein thrombosis",
 "Pyelonephritis",
 "Renal stone",
+"Renal vein thrombosis",
 "Bladder cancer",
 "Acute tubular necrosis"
 ],
-"correctIndex": 0,
+"correctIndex": 2,
 "answer": "Renal vein thrombosis",
 "explanation": "Nephrotic syndrome (especially membranous) is highly thrombogenic due to loss of antithrombin III; renal vein thrombosis presents with flank pain, haematuria and declining function."
 },
@@ -1561,12 +1621,12 @@
 "question": "A 7-year-old boy presents with facial puffiness, dark 'coca-cola' coloured urine and a blood pressure of 138/92 mmHg. Three weeks earlier he had impetigo affecting his legs. Urinalysis shows blood +++ and protein +. Which single investigation pattern best supports the likely diagnosis?",
 "options": [
 "Raised ASO with normal anti-DNase B and normal C3",
-"Raised anti-DNase B with low C3 that normalises by 6–8 weeks",
 "Normal ASO and anti-DNase B with persistently low C3 and low C4",
 "Raised anti-DNase B with low C3 and low C4 persisting beyond 12 weeks",
-"Normal complement with positive anti-GBM antibodies"
+"Normal complement with positive anti-GBM antibodies",
+"Raised anti-DNase B with low C3 that normalises by 6–8 weeks"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Raised anti-DNase B with low C3 that normalises by 6–8 weeks",
 "explanation": "This is post-streptococcal glomerulonephritis following a skin infection. After impetigo/pyoderma, anti-DNase B is the more reliable marker (ASO is often normal after skin infection). PSGN shows a LOW C3 that normalises within 6–8 weeks, with a normal C4 (alternative pathway activation). Persistently low complement or low C4 would suggest another cause (e.g. MPGN or lupus), and anti-GBM would indicate Goodpasture disease."
 },
@@ -1592,11 +1652,11 @@
 "options": [
 "A single markedly raised ASO titre confirms active streptococcal infection requiring antibiotics",
 "ASO rises within hours of the acute pharyngitis and falls before nephritis develops",
-"Rising or paired ASO and anti-DNase B titres are more informative than a single value",
 "Anti-DNase B is the preferred marker after pharyngitis and ASO after skin infection",
+"Rising or paired ASO and anti-DNase B titres are more informative than a single value",
 "A normal ASO titre reliably excludes any recent streptococcal infection"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Rising or paired ASO and anti-DNase B titres are more informative than a single value",
 "explanation": "ASO and anti-DNase B are markers of recent (not active) infection, rising over 1–3 weeks. A single value only proves exposure, as titres persist for months; rising/paired acute-and-convalescent titres are more useful. ASO is the better marker after pharyngitis and anti-DNase B after skin infection (option D reverses this). A normal ASO does not exclude infection, especially after skin infection — hence sending both."
 },
@@ -1605,13 +1665,13 @@
 "type": "mcq",
 "question": "A 34-year-old hiker presents 5 days after a tick bite with a 12 cm expanding annular rash with central clearing on his thigh. He feels systemically well. What is the most appropriate management?",
 "options": [
-"Send two-tier ELISA and immunoblot, and treat only if positive",
 "Start oral doxycycline now on clinical grounds without serology",
+"Send two-tier ELISA and immunoblot, and treat only if positive",
 "Reassure and review in 4 weeks with repeat serology",
 "Admit for IV ceftriaxone",
 "Prescribe topical corticosteroid for the rash"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Start oral doxycycline now on clinical grounds without serology",
 "explanation": "Erythema migrans is a clinical diagnosis. Early serology is frequently falsely negative (antibody window), so treatment should not be delayed — start empirical doxycycline. Serology is unnecessary and potentially misleading at this stage."
 },
@@ -1621,12 +1681,12 @@
 "question": "A patient's Lyme screening ELISA returns positive. Which statement best describes the correct next step and its rationale?",
 "options": [
 "The diagnosis is confirmed; start treatment on the ELISA result alone",
-"Perform a confirmatory immunoblot because ELISA is sensitive but not specific",
 "Repeat the ELISA in 6 weeks before acting",
+"Perform a confirmatory immunoblot because ELISA is sensitive but not specific",
 "Perform PCR on blood, as serology is unreliable",
 "No further testing is needed as ELISA is highly specific"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Perform a confirmatory immunoblot because ELISA is sensitive but not specific",
 "explanation": "In two-tier testing the ELISA is a sensitive screen prone to false positives (cross-reactivity with EBV, syphilis, autoimmune disease). A positive or equivocal ELISA must be confirmed with a specific immunoblot before diagnosis — never diagnose on ELISA alone."
 },
@@ -1637,13 +1697,58 @@
 "options": [
 "Treatment failure requiring a further antibiotic course",
 "Reinfection with Borrelia burgdorferi",
-"Persistent antibodies that do not indicate active infection",
 "A false-positive result requiring PCR confirmation",
-"Progression to neuroborreliosis"
+"Progression to neuroborreliosis",
+"Persistent antibodies that do not indicate active infection"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Persistent antibodies that do not indicate active infection",
 "explanation": "Lyme IgG can remain positive for years after successful treatment. Serology cannot be used as a test of cure or to detect reinfection. A persistently positive IgG in a clinically well, treated patient reflects immunological memory, not ongoing infection."
+},
+{
+"id": "anca_q_01",
+"type": "mcq",
+"question": "A 60-year-old with sinusitis, haemoptysis and an acute rise in creatinine has red-cell casts on urine microscopy and a positive c-ANCA. Which antibody specificity and diagnosis fit best?",
+"options": [
+"Anti-MPO; microscopic polyangiitis",
+"Anti-PR3; granulomatosis with polyangiitis",
+"Anti-GBM; Goodpasture disease",
+"Anti-PLA2R; membranous nephropathy",
+"Anti-dsDNA; lupus nephritis"
+],
+"correctIndex": 1,
+"answer": "Anti-PR3; granulomatosis with polyangiitis",
+"explanation": "c-ANCA corresponds to anti-PR3 and granulomatosis with polyangiitis (ENT + lung + pauci-immune crescentic GN). p-ANCA/anti-MPO fits MPA/EGPA."
+},
+{
+"id": "ln_q_01",
+"type": "mcq",
+"question": "A 28-year-old woman with a malar rash and arthralgia has proteinuria, an active sediment, high anti-dsDNA and low C3 AND C4. What is the most likely renal diagnosis?",
+"options": [
+"Post-streptococcal glomerulonephritis",
+"IgA nephropathy",
+"Anti-GBM disease",
+"Lupus nephritis",
+"Minimal change disease"
+],
+"correctIndex": 3,
+"answer": "Lupus nephritis",
+"explanation": "Low C3 AND C4 (classical-pathway consumption) with high anti-dsDNA and an active sediment indicates lupus nephritis — biopsy grades ISN/RPS class; IF shows a full-house pattern. Post-strep GN gives low C3 with normal C4."
+},
+{
+"id": "urine_q_01",
+"type": "mcq",
+"question": "Which single urine microscopy finding most specifically localises haematuria to a glomerular (nephritic) source?",
+"options": [
+"Red-cell casts",
+"Isomorphic red cells",
+"Calcium oxalate crystals",
+"Hyaline casts",
+"Squamous epithelial cells"
+],
+"correctIndex": 0,
+"answer": "Red-cell casts",
+"explanation": "Red-cell casts (with dysmorphic RBCs) indicate glomerular bleeding and point to a nephritic process — prompting the immune screen and consideration of renal biopsy. Hyaline casts are non-specific; isomorphic RBCs suggest a lower-tract source."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Endocrine & GI Autoimmune": [
