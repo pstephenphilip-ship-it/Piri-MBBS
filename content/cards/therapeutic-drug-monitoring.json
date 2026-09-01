@@ -100,6 +100,21 @@
         "id": "tdm_psy_antidep_fc_05",
         "front": "Which SSRIs prolong the QTc, and which key metabolic disturbance do SSRIs cause?",
         "back": "Citalopram and escitalopram prolong the QTc (dose limits apply). SSRIs commonly cause hyponatraemia via SIADH, especially in the elderly."
+      },
+      {
+        "id": "tdm_psy_cloz_fc_06",
+        "front": "How common is clozapine-induced neutropenia versus agranulocytosis?",
+        "back": "<b>Neutropenia occurs in ~3%</b> of patients and <b>agranulocytosis in &lt;1%</b> (~0.8%). Either can be fatal from overwhelming sepsis, which is why FBC monitoring is <b>mandatory</b> (weekly for 18 weeks, then fortnightly to 1 year, then monthly) with the traffic-light (green/amber/red) neutrophil system."
+      },
+      {
+        "id": "tdm_psy_metab_fc_06",
+        "front": "A patient on olanzapine develops dyslipidaemia on annual monitoring — what is the action?",
+        "back": "Give <b>lifestyle advice</b> and start a <b>statin</b> for cardiovascular-risk reduction, and consider switching to a lower-metabolic-burden antipsychotic (aripiprazole). Lipids are one component of the annual antipsychotic <b>metabolic bundle</b>: weight/BMI, waist, HbA1c/glucose, lipids and blood pressure."
+      },
+      {
+        "id": "tdm_psy_lithium_fc_06",
+        "front": "Is sodium valproate monitored by serum level like lithium?",
+        "back": "<b>No</b> — valproate level correlates poorly with clinical effect, so it is not routinely level-monitored (levels are used mainly to check adherence or toxicity). It is highly <b>teratogenic</b> (neural-tube defects, neurodevelopmental harm), so in anyone able to become pregnant it is only used under the <b>Pregnancy Prevention Programme</b>."
       }
     ],
     "investigations__THERAPEUTIC DRUG MONITORING__Drug Levels & Anticoagulation": [
@@ -252,6 +267,11 @@
         "id": "tdm_dl_anticoag_fc_05",
         "front": "How are LMWH and DOACs monitored, and when is an anti-Xa assay used?",
         "back": "No routine monitoring. Anti-Xa is used for LMWH in renal impairment, extremes of weight or pregnancy (peak 4 h post-dose), and a drug-specific calibrated anti-Xa for apixaban/rivaroxaban when a DOAC level is genuinely needed."
+      },
+      {
+        "id": "tdm_dl_anticoag_fc_06",
+        "front": "How is intravenous unfractionated heparin monitored and reversed?",
+        "back": "Monitor by the <b>APTT ratio</b> (target ~1.5&ndash;2.5) &mdash; or anti-Xa in some units. Reverse with <b>protamine sulphate</b>. Protamine fully reverses UFH but only <b>partially</b> reverses LMWH. (LMWH is usually given at fixed weight-based dose and only needs anti-Xa monitoring in renal impairment, weight extremes or pregnancy.)"
       }
     ]
   },
@@ -263,12 +283,12 @@
         "question": "A patient on maintenance lithium attends for routine monitoring. At what time relative to their dose should the serum lithium sample be taken?",
         "options": [
           "Immediately before the first morning dose regardless of timing",
-          "12 hours after the last dose",
           "1 hour after the dose at peak absorption",
+          "12 hours after the last dose",
           "6 hours after the dose",
           "24 hours after the dose"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "12 hours after the last dose",
         "explanation": "Serum lithium is standardised to a 12-hour post-dose trough sample. The 0.4-1.0 mmol/L therapeutic range is defined against this timing, so consistent 12-hour sampling makes results comparable."
       },
@@ -279,11 +299,11 @@
         "options": [
           "Liver function tests, lipids and HbA1c",
           "Full blood count, CRP and ferritin",
-          "U&Es/eGFR, thyroid function tests and calcium",
           "Chest X-ray, ECG and echocardiogram",
-          "Cortisol, ACTH and prolactin"
+          "Cortisol, ACTH and prolactin",
+          "U&Es/eGFR, thyroid function tests and calcium"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "U&Es/eGFR, thyroid function tests and calcium",
         "explanation": "Lithium is renally cleared and can damage the kidney, thyroid and parathyroid. Baseline and 6-monthly U&Es/eGFR, TFTs and calcium detect nephrotoxicity, hypothyroidism and hyperparathyroidism respectively."
       },
@@ -309,11 +329,11 @@
         "options": [
           "Continue clozapine at the same dose with routine monitoring",
           "Continue clozapine but increase monitoring to twice weekly",
-          "Stop clozapine immediately and seek haematology input",
           "Halve the clozapine dose and repeat the FBC in 4 weeks",
+          "Stop clozapine immediately and seek haematology input",
           "Add a granulocyte colony-stimulating factor and continue clozapine"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Stop clozapine immediately and seek haematology input",
         "explanation": "A neutrophil count below 1.5 x10^9/L is a red result indicating agranulocytosis risk. Clozapine must be stopped immediately with daily FBC monitoring and haematology involvement, as the condition can be fatal."
       },
@@ -322,13 +342,13 @@
         "type": "mcq",
         "question": "A man started on clozapine 3 weeks ago develops tachycardia, chest pain, breathlessness and fever, with raised troponin, CRP and eosinophils. What is the most likely diagnosis?",
         "options": [
+          "Clozapine-induced myocarditis",
           "Agranulocytosis",
           "Neuroleptic malignant syndrome",
-          "Clozapine-induced myocarditis",
           "Pulmonary embolism",
           "Clozapine-induced ileus"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Clozapine-induced myocarditis",
         "explanation": "Myocarditis characteristically occurs within the first 6-8 weeks of clozapine treatment. The combination of tachycardia, chest pain, dyspnoea and fever with elevated troponin, CRP and eosinophils is typical, and clozapine should be stopped with cardiology referral."
       },
@@ -338,12 +358,12 @@
         "question": "According to the standard clozapine monitoring scheme, how often should the FBC be checked during the first 18 weeks of treatment?",
         "options": [
           "Daily",
-          "Weekly",
           "Fortnightly",
+          "Weekly",
           "Monthly",
           "Every three months"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Weekly",
         "explanation": "The risk of neutropenia is greatest early in treatment, so FBC is checked weekly for the first 18 weeks. Monitoring then reduces to fortnightly up to one year and monthly thereafter."
       },
@@ -352,13 +372,13 @@
         "type": "mcq",
         "question": "A 30-year-old man is about to start olanzapine. According to standard UK monitoring practice, after baseline assessment, when should his weight, fasting glucose and lipids next be formally reviewed?",
         "options": [
-          "At 12 weeks, then annually",
           "At 2 weeks only",
           "After 3 years",
           "Only if he reports symptoms",
-          "Every 5 years"
+          "Every 5 years",
+          "At 12 weeks, then annually"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "At 12 weeks, then annually",
         "explanation": "The recognised schedule takes a baseline panel, repeats it at 12 weeks when most weight gain and dysglycaemia emerge, and then continues at least annually. This applies especially to metabolically high-risk agents such as olanzapine."
       },
@@ -367,13 +387,13 @@
         "type": "mcq",
         "question": "A patient on high-dose haloperidol has a routine ECG showing a QTc of 515 ms. What is the most appropriate action?",
         "options": [
-          "Review and change the antipsychotic and check electrolytes",
           "Continue unchanged and repeat the ECG in one year",
+          "Review and change the antipsychotic and check electrolytes",
           "Double the haloperidol dose to improve control",
           "Reassure the patient that this is a normal QTc",
           "Add a second QT-prolonging antipsychotic"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Review and change the antipsychotic and check electrolytes",
         "explanation": "A QTc above 500 ms substantially increases the risk of torsades de pointes and sudden cardiac death. The antipsychotic should be reviewed or changed and electrolytes such as potassium and magnesium corrected."
       },
@@ -382,13 +402,13 @@
         "type": "mcq",
         "question": "A woman on risperidone develops galactorrhoea and amenorrhoea. If a switch is needed to reduce this specific problem, which antipsychotic is the best choice?",
         "options": [
-          "Aripiprazole",
           "Amisulpride",
           "Haloperidol",
           "A higher dose of risperidone",
+          "Aripiprazole",
           "Sulpiride"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Aripiprazole",
         "explanation": "Her symptoms reflect risperidone-induced hyperprolactinaemia. Aripiprazole is a dopamine partial agonist and is prolactin-sparing, making it the appropriate switch, whereas amisulpride, haloperidol and sulpiride all raise prolactin."
       },
@@ -397,13 +417,13 @@
         "type": "mcq",
         "question": "A 42-year-old man started sertraline for moderate depression 5 weeks ago and has been at a therapeutic dose for 4 weeks. He reports no improvement in mood and tolerates the drug well. What is the most appropriate next step?",
         "options": [
-          "Reassure him and review again in 3 months with no change",
           "Optimise the dose or switch to an alternative antidepressant",
+          "Reassure him and review again in 3 months with no change",
           "Stop the sertraline abruptly today",
           "Add a second serotonergic antidepressant immediately",
           "Check a serum sertraline level to confirm adherence"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Optimise the dose or switch to an alternative antidepressant",
         "explanation": "An adequate trial is 4-6 weeks at a therapeutic dose; a clear non-response at this point warrants optimising the dose or switching. He has tolerated the drug, so continuing to titrate or changing agent is the logical, guideline-based action."
       },
@@ -413,12 +433,12 @@
         "question": "A 24-year-old woman on fluoxetine develops confusion, nausea and a fall. Bloods show sodium of 124 mmol/L. Which adverse effect of SSRIs best explains this?",
         "options": [
           "Serotonin syndrome",
-          "Hyponatraemia due to SIADH",
           "QTc prolongation",
+          "Hyponatraemia due to SIADH",
           "Discontinuation syndrome",
           "Gastrointestinal haemorrhage"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Hyponatraemia due to SIADH",
         "explanation": "SSRIs are a recognised cause of hyponatraemia through SIADH, presenting with confusion, nausea and falls. The low sodium with these symptoms points directly to this mechanism."
       },
@@ -427,13 +447,13 @@
         "type": "mcq",
         "question": "A 30-year-old on paroxetine stops it abruptly and 2 days later develops dizziness, flu-like symptoms and electric-shock sensations. What is the most appropriate management?",
         "options": [
-          "Restart and then taper the paroxetine gradually",
           "Reassure that symptoms indicate serotonin syndrome and admit",
           "Start cyproheptadine immediately",
           "Switch straight to a monoamine oxidase inhibitor",
-          "Give intravenous fluids for presumed hyponatraemia"
+          "Give intravenous fluids for presumed hyponatraemia",
+          "Restart and then taper the paroxetine gradually"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Restart and then taper the paroxetine gradually",
         "explanation": "Dizziness, flu-like symptoms and electric-shock sensations after abrupt cessation of a short half-life SSRI are classic discontinuation syndrome. The correct approach is to restart the drug and taper it slowly to prevent recurrence."
       }
@@ -445,12 +465,12 @@
         "question": "A patient on digoxin for AF has a level taken 2 hours after their morning dose reported as 2.6 micrograms/L. They are asymptomatic with a normal ECG and normal U&Es. What is the most appropriate interpretation?",
         "options": [
           "The level confirms toxicity and DigiFab should be given",
-          "The sample was taken too early and is uninterpretable; repeat at least 6 hours post-dose",
           "Digoxin should be stopped permanently",
+          "The sample was taken too early and is uninterpretable; repeat at least 6 hours post-dose",
           "The high level is caused by hypokalaemia",
           "An urgent temporary pacing wire is required"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "The sample was taken too early and is uninterpretable; repeat at least 6 hours post-dose",
         "explanation": "Levels taken during the distribution phase (before 6 hours post-dose) are falsely elevated and cannot be acted on. In an asymptomatic patient with a normal ECG, the correct step is to repeat the level at least 6 hours after the dose."
       },
@@ -460,12 +480,12 @@
         "question": "An elderly woman on digoxin and a thiazide diuretic presents with nausea, confusion and yellow-tinged vision. Her digoxin level is 1.6 micrograms/L. Which factor best explains her presentation?",
         "options": [
           "Hyperkalaemia from the thiazide",
-          "Hypokalaemia potentiating digoxin toxicity",
           "Subtherapeutic digoxin dosing",
           "Hypercalcaemia protecting against toxicity",
-          "The level is normal so toxicity is excluded"
+          "The level is normal so toxicity is excluded",
+          "Hypokalaemia potentiating digoxin toxicity"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Hypokalaemia potentiating digoxin toxicity",
         "explanation": "Thiazides cause hypokalaemia, which potentiates digoxin toxicity because low potassium enhances digoxin binding to the Na+/K+-ATPase. Toxicity can therefore occur despite an in-range serum level, and her xanthopsia and confusion are classic toxic features."
       },
@@ -490,12 +510,12 @@
         "question": "A patient on long-term phenytoin has a total level of 15 mg/L but a serum albumin of 20 g/L (low). They have nystagmus and are unsteady. What best explains this?",
         "options": [
           "The total level overestimates the free active drug",
-          "In hypoalbuminaemia the free (active) phenytoin is higher than the total level suggests",
           "Nystagmus is unrelated to phenytoin at any level",
           "The level is subtherapeutic and the dose should be increased",
+          "In hypoalbuminaemia the free (active) phenytoin is higher than the total level suggests",
           "Phenytoin is not protein-bound so albumin is irrelevant"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "In hypoalbuminaemia the free (active) phenytoin is higher than the total level suggests",
         "explanation": "Phenytoin is around 90% albumin-bound and laboratories report total drug. When albumin is low, less drug is bound so the free active fraction rises above what the total level implies, producing toxicity despite a 'therapeutic' total. The corrected or free level should guide management."
       },
@@ -504,13 +524,13 @@
         "type": "mcq",
         "question": "Which statement best describes phenytoin pharmacokinetics at therapeutic doses?",
         "options": [
-          "It follows first-order kinetics with a constant proportion cleared per hour",
           "It follows zero-order (saturable) kinetics so small dose increases cause disproportionately large level rises",
+          "It follows first-order kinetics with a constant proportion cleared per hour",
           "Its clearance increases as concentration rises",
           "It has a wide therapeutic index requiring no monitoring",
           "Levels are unaffected by dose changes"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "It follows zero-order (saturable) kinetics so small dose increases cause disproportionately large level rises",
         "explanation": "Phenytoin saturates its metabolising enzymes within the therapeutic range, switching elimination to zero-order where a fixed amount is cleared per hour. As a result a small dose increase produces a large, non-linear jump in serum level, which is why dose changes must be small and monitored."
       },
@@ -520,12 +540,12 @@
         "question": "What is the most important safety measure when giving intravenous phenytoin for status epilepticus?",
         "options": [
           "Give a rapid bolus to achieve levels quickly",
-          "Administer slowly with continuous cardiac (ECG) and blood pressure monitoring",
           "Withhold all cardiac monitoring to speed treatment",
+          "Administer slowly with continuous cardiac (ECG) and blood pressure monitoring",
           "Double the dose if the first has no immediate effect",
           "Give it only through a peripheral line without observation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Administer slowly with continuous cardiac (ECG) and blood pressure monitoring",
         "explanation": "Rapid IV phenytoin infusion causes hypotension, bradycardia and arrhythmia, so it must be given slowly with continuous ECG and blood pressure monitoring. This allows early detection of cardiovascular compromise during administration."
       },
@@ -536,11 +556,11 @@
         "options": [
           "Give the loading dose immediately, as the oral dose is negligible",
           "Double the intended loading dose to overcome tolerance",
-          "Check a serum theophylline level first",
           "Withhold all bronchodilators for 6 hours",
-          "Administer intravenous potassium prophylactically"
+          "Administer intravenous potassium prophylactically",
+          "Check a serum theophylline level first"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Check a serum theophylline level first",
         "explanation": "A patient on oral theophylline already has a measurable serum level, so an unadjusted loading dose can push them into the toxic range. Checking the level first prevents precipitating fatal arrhythmias or seizures."
       },
@@ -565,12 +585,12 @@
         "question": "A patient with a theophylline level of 28 mg/L is found to have a serum potassium of 2.9 mmol/L. Which single management step is most directly indicated by this electrolyte finding?",
         "options": [
           "Fluid restriction",
-          "Potassium monitoring and replacement",
           "Immediate loading dose of aminophylline",
           "Commencing rifampicin to lower the level",
+          "Potassium monitoring and replacement",
           "Withholding all intravenous fluids"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Potassium monitoring and replacement",
         "explanation": "Theophylline toxicity causes a beta-agonist-like shift of potassium into cells, producing hypokalaemia. This mandates close potassium monitoring and replacement to prevent arrhythmias."
       },
@@ -579,13 +599,13 @@
         "type": "mcq",
         "question": "A patient on once-daily (extended-interval) gentamicin for Gram-negative sepsis has a pre-dose trough of 2.4 mg/L. What is the most appropriate action?",
         "options": [
-          "Give the next dose at the normal time as planned",
           "Withhold or delay the next dose and extend the dosing interval",
+          "Give the next dose at the normal time as planned",
           "Increase the next dose to improve the peak concentration",
           "Switch immediately to oral gentamicin",
           "Ignore the level as troughs are not clinically relevant"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Withhold or delay the next dose and extend the dosing interval",
         "explanation": "For extended-interval gentamicin the trough should be below 1 mg/L, so 2.4 mg/L indicates accumulation. The safe response is to hold or delay the dose and lengthen the interval, allowing the drug to wash out and reducing toxicity risk."
       },
@@ -611,11 +631,11 @@
         "options": [
           "Stop vancomycin permanently and label the patient penicillin-allergic",
           "Administer intramuscular adrenaline for anaphylaxis",
-          "Slow the infusion rate and give an antihistamine",
           "Give a fluid bolus and start vasopressors",
-          "Increase the infusion rate to complete the dose quickly"
+          "Increase the infusion rate to complete the dose quickly",
+          "Slow the infusion rate and give an antihistamine"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Slow the infusion rate and give an antihistamine",
         "explanation": "This is red man syndrome, a rate-related histamine reaction rather than true anaphylaxis. Slowing the infusion (to at least 60 minutes) and giving an antihistamine manages and prevents recurrence, and vancomycin can usually be continued."
       },
@@ -624,13 +644,13 @@
         "type": "mcq",
         "question": "What sample is used to monitor tacrolimus therapy, and at what time relative to dosing?",
         "options": [
-          "Whole-blood level taken immediately before the next dose (trough)",
           "Plasma level taken 1 hour after the dose (peak)",
+          "Whole-blood level taken immediately before the next dose (trough)",
           "24-hour urinary drug excretion",
           "Serum level taken at any random time of day",
           "Cerebrospinal fluid level taken at steady state"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Whole-blood level taken immediately before the next dose (trough)",
         "explanation": "Tacrolimus is monitored on a whole-blood pre-dose trough (C0) because the drug concentrates in red cells. Trough sampling standardises exposure assessment and guides dose adjustment."
       },
@@ -639,13 +659,13 @@
         "type": "mcq",
         "question": "A kidney transplant patient stable on tacrolimus is started on clarithromycin for a chest infection. What is the most likely effect on their tacrolimus level and the resulting risk?",
         "options": [
-          "Level rises, causing nephrotoxicity and neurotoxicity",
           "Level falls, causing acute graft rejection",
           "Level is unchanged as macrolides do not interact",
           "Level falls, causing hypoglycaemia",
+          "Level rises, causing nephrotoxicity and neurotoxicity",
           "Level rises, causing gum hypertrophy and hirsutism"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Level rises, causing nephrotoxicity and neurotoxicity",
         "explanation": "Clarithromycin is a CYP3A4 inhibitor and reduces tacrolimus metabolism, driving the trough level up. The excess drug produces dose-dependent nephrotoxicity and neurotoxicity such as tremor."
       },
@@ -687,10 +707,10 @@
           "1.0–1.5",
           "1.5–2.0",
           "2.0–3.0",
-          "2.5–3.5",
-          "4.0–5.0"
+          "4.0–5.0",
+          "2.5–3.5"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "2.5–3.5",
         "explanation": "Mechanical heart valves carry a high thrombotic risk and require higher-intensity anticoagulation with a target INR of 2.5–3.5. AF and standard VTE are managed at the lower target of 2.0–3.0. Ranges around or below 2.0 would leave the valve inadequately protected."
       },
@@ -699,13 +719,13 @@
         "type": "mcq",
         "question": "A patient on dabigatran for AF requires emergency neurosurgery for a traumatic intracranial haemorrhage. Which agent specifically reverses dabigatran?",
         "options": [
-          "Idarucizumab",
           "Andexanet alfa",
+          "Idarucizumab",
           "Vitamin K",
           "Protamine sulphate",
           "Tranexamic acid"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Idarucizumab",
         "explanation": "Idarucizumab is a monoclonal antibody fragment that binds dabigatran and rapidly reverses its anticoagulant effect. Andexanet alfa reverses the factor Xa inhibitors apixaban and rivaroxaban, not dabigatran. Vitamin K and protamine target warfarin and heparin respectively."
       }
