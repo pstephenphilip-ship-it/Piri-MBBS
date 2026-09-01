@@ -136,6 +136,21 @@
         "id": "ev_screen_fc_05",
         "front": "Give the UK adult and infant screening programmes with their targets.",
         "back": "Cervical (hrHPV, women 25-64), breast (mammography, 50-71, 3-yearly), bowel (FIT, 50-74, 2-yearly), AAA (one-off ultrasound, men at 65), antenatal (infections, Down's, anomaly scan) and newborn bloodspot (day 5 heel-prick for CF, congenital hypothyroidism, sickle cell and other conditions)."
+      },
+      {
+        "id": "scr_nsc_fc_01",
+        "front": "Which body decides UK screening programmes, and against what?",
+        "back": "The <b>UK National Screening Committee (NSC)</b> appraises evidence against modernised Wilson–Jungner criteria (RCT benefit, cost-effectiveness, acceptable harm–benefit) and advises the four UK governments whether to introduce, modify or stop a programme."
+      },
+      {
+        "id": "scr_consent_fc_01",
+        "front": "Why does screening require informed choice?",
+        "back": "Because it invites <b>well people</b> and carries real harms (false positives, overdiagnosis, overtreatment); participants must understand benefits and harms and may <b>decline</b>."
+      },
+      {
+        "id": "scr_newborn_fc_01",
+        "front": "Name the three UK newborn screening programmes.",
+        "back": "<b>Bloodspot</b> (day 5, 9 conditions), <b>newborn hearing</b> (OAE ± AABR), and <b>NIPE</b> (physical examination at 72 h and 6–8 weeks)."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Notifiable Diseases & Notification Process": [
@@ -163,6 +178,21 @@
         "id": "ev_notify_fc_05",
         "front": "What is the public-health purpose of prompt notification?",
         "back": "To enable contact tracing, prophylaxis of contacts, early outbreak detection, and outbreak control before further spread occurs. Diagnostic laboratories must separately report notifiable causative organisms."
+      },
+      {
+        "id": "notif_not_fc_01",
+        "front": "Which common infections are NOT statutorily notifiable in England?",
+        "back": "<b>HIV/STIs, influenza, chickenpox (varicella), and the common cold</b> — the classic exam traps (people wrongly assume flu/chickenpox are notifiable)."
+      },
+      {
+        "id": "notif_consent_fc_01",
+        "front": "Does statutory notification of a notifiable disease need the patient’s consent?",
+        "back": "<b>No</b> — it is a lawful public-interest/statutory disclosure that overrides the usual duty of confidentiality; you notify even if the patient objects. (HIV is kept confidential precisely because it is non-statutory.)"
+      },
+      {
+        "id": "notif_mening_fc_01",
+        "front": "What follows notification of suspected meningococcal disease?",
+        "back": "Notify <b>same day by phone</b>; UKHSA arranges <b>single-dose ciprofloxacin</b> (or rifampicin) prophylaxis for close/household contacts."
       }
     ]
   },
@@ -360,12 +390,12 @@
         "question": "A new blood test is proposed to screen the general population for a rare cancer. Which single feature is MOST essential before a national screening programme is introduced, according to Wilson & Jungner?",
         "options": [
           "The test is inexpensive to manufacture",
-          "An accepted, effective treatment exists and treating the early stage improves outcome more than treating late",
           "The disease is frequently discussed in the media",
+          "An accepted, effective treatment exists and treating the early stage improves outcome more than treating late",
           "The test can be performed at home",
           "The test has 100% specificity"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "An accepted, effective treatment exists and treating the early stage improves outcome more than treating late",
         "explanation": "Screening is only worthwhile if earlier detection changes outcome, which requires an accepted effective treatment that works better in the latent or early stage. Without this, early detection merely lengthens the time a person knows they are ill."
       },
@@ -376,11 +406,11 @@
         "options": [
           "Recall bias",
           "Confounding by indication",
-          "Lead-time bias",
           "Publication bias",
-          "Attrition bias"
+          "Attrition bias",
+          "Lead-time bias"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Lead-time bias",
         "explanation": "Lead-time bias arises because screening advances the date of diagnosis, so survival measured from diagnosis appears longer even when the date of death is unchanged. This is why programme benefit is judged by mortality in randomised trials rather than survival from detection."
       },
@@ -389,15 +419,30 @@
         "type": "mcq",
         "question": "Which statement about UK national screening programmes is correct?",
         "options": [
-          "Abdominal aortic aneurysm screening offers a one-off ultrasound to men at age 65",
           "Bowel cancer screening uses annual colonoscopy for everyone over 40",
+          "Abdominal aortic aneurysm screening offers a one-off ultrasound to men at age 65",
           "Breast screening uses MRI for all women from age 30",
           "Cervical screening treats women directly on the basis of the screening result",
           "Newborn bloodspot screening is performed within one hour of birth"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Abdominal aortic aneurysm screening offers a one-off ultrasound to men at age 65",
         "explanation": "The UK AAA programme invites men in their 65th year for a single abdominal ultrasound, as aneurysm risk rises with age in men. The other options misstate the modality, age range, or the principle that a positive screen leads to diagnostic follow-up rather than direct treatment."
+      },
+      {
+        "id": "scr_nsc_q01",
+        "type": "mcq",
+        "question": "Which organisation advises the UK governments on whether to introduce or stop a national screening programme?",
+        "options": [
+          "NICE",
+          "UKHSA",
+          "The Care Quality Commission",
+          "The UK National Screening Committee (NSC)",
+          "The General Medical Council"
+        ],
+        "correctIndex": 3,
+        "answer": "The UK National Screening Committee (NSC)",
+        "explanation": "The UK National Screening Committee appraises the evidence against modernised Wilson–Jungner criteria and recommends to the four UK governments whether to introduce, modify or stop a screening programme."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Notifiable Diseases & Notification Process": [
@@ -406,13 +451,13 @@
         "type": "mcq",
         "question": "A GP sees a 6-year-old with fever, coryza, conjunctivitis and a spreading maculopapular rash with Koplik spots, strongly suggesting measles. What is the correct action regarding notification?",
         "options": [
-          "Notify the proper officer promptly on clinical suspicion, without waiting for serology",
           "Await positive measles IgM before notifying, to avoid false alarms",
           "No notification is required as measles is now rare in the UK",
+          "Notify the proper officer promptly on clinical suspicion, without waiting for serology",
           "Notify only if a second case appears in the same school",
           "Refer to the hospital and let the admitting team decide on notification"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Notify the proper officer promptly on clinical suspicion, without waiting for serology",
         "explanation": "Measles is a notifiable disease and the statutory duty is triggered by clinical suspicion, not laboratory confirmation. Prompt notification allows contact tracing and prophylaxis before laboratory results become available."
       },
@@ -421,13 +466,13 @@
         "type": "mcq",
         "question": "Which of the following is NOT a statutorily notifiable disease in the UK?",
         "options": [
-          "HIV infection",
           "Tuberculosis",
           "Meningococcal disease",
           "Cholera",
-          "Acute infectious hepatitis"
+          "Acute infectious hepatitis",
+          "HIV infection"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "HIV infection",
         "explanation": "HIV is deliberately excluded from the statutory notifiable list to protect patient confidentiality, being tracked instead through voluntary confidential surveillance. Tuberculosis, meningococcal disease, cholera and acute infectious hepatitis are all statutorily notifiable."
       },
@@ -436,15 +481,30 @@
         "type": "mcq",
         "question": "Who holds the legal responsibility to notify, and to whom is the notification made?",
         "options": [
-          "The attending registered medical practitioner notifies the proper officer of the local authority / UKHSA",
           "The receptionist notifies the General Medical Council",
+          "The attending registered medical practitioner notifies the proper officer of the local authority / UKHSA",
           "The patient self-reports to their employer",
           "The pharmacist notifies the Care Quality Commission",
           "Only the diagnostic laboratory notifies, and only after confirmation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "The attending registered medical practitioner notifies the proper officer of the local authority / UKHSA",
         "explanation": "The statutory duty rests with the attending registered medical practitioner, who reports to the proper officer of the local authority working with UKHSA. Diagnostic laboratories have a separate parallel duty to report notifiable causative organisms."
+      },
+      {
+        "id": "notif_not_q01",
+        "type": "mcq",
+        "question": "A GP wants to know which of these is NOT a statutorily notifiable disease in England. Which is correct?",
+        "options": [
+          "Measles",
+          "Tuberculosis",
+          "Meningococcal disease",
+          "Influenza",
+          "Food poisoning"
+        ],
+        "correctIndex": 3,
+        "answer": "Influenza",
+        "explanation": "Influenza is not statutorily notifiable (nor are HIV/STIs, chickenpox or the common cold). Measles, TB, meningococcal disease and food poisoning are all on the notifiable list and must be reported on clinical suspicion."
       }
     ]
   }
