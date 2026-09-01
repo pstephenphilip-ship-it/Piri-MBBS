@@ -578,6 +578,21 @@
         "id": "lf_oxy_drain_fc_05",
         "front": "Name key complications of chest drain insertion and management.",
         "back": "Malposition (subcutaneous, in a fissure, or intra-abdominal), organ injury (lung, heart, liver, spleen), re-expansion pulmonary oedema after rapid drainage, infection/empyema, and a blocked, kinked or dislodged drain."
+      },
+      {
+        "id": "lf_oxy_ltot_fc_01",
+        "front": "What are the eligibility criteria for long-term oxygen therapy (LTOT) in COPD?",
+        "back": "Stable PaO&#8322; <b>&le;7.3 kPa</b> on two ABGs &ge;3 weeks apart, OR <b>&le;8 kPa</b> with cor pulmonale, secondary polycythaemia or nocturnal hypoxaemia. Use <b>&ge;15 h/day</b>; the patient must be a <b>non-smoker</b> (fire risk, no survival benefit)."
+      },
+      {
+        "id": "lf_oxy_co_fc_01",
+        "front": "Why is SpO&#8322; unreliable in carbon monoxide poisoning, and what do you do?",
+        "back": "The oximeter reads <b>COHb as if it were O&#8322;Hb</b>, so SpO&#8322; (and PaO&#8322;) look falsely normal. Do an <b>ABG with co-oximetry</b> to measure COHb%, give <b>high-flow 100% O&#8322;</b> (non-rebreathe), and consider <b>hyperbaric O&#8322;</b> in severe cases."
+      },
+      {
+        "id": "lf_oxy_aa_fc_01",
+        "front": "How does the A&ndash;a gradient separate causes of hypoxaemia?",
+        "back": "<b>Raised A&ndash;a gradient</b> = V/Q mismatch, shunt or diffusion defect (PE, pneumonia, oedema). <b>Normal A&ndash;a gradient</b> + hypoxaemia = pure <b>hypoventilation</b> (e.g. opioid overdose, neuromuscular weakness) — treat the cause / support ventilation."
       }
     ]
   },
@@ -1421,13 +1436,13 @@
         "type": "mcq",
         "question": "On a home overnight pulse oximetry study, what does the oxygen desaturation index (ODI) represent?",
         "options": [
-          "The number of ≥4% oxygen desaturations per hour of recording",
           "The mean oxygen saturation across the whole night",
           "The lowest single oxygen saturation reached during sleep",
+          "The number of ≥4% oxygen desaturations per hour of recording",
           "The total number of arousals detected on EEG per hour",
           "The percentage of the night spent below 90% saturation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "The number of ≥4% oxygen desaturations per hour of recording",
         "explanation": "The ODI counts recurrent ≥4% dips in SpO₂ per hour and serves as the oximetry proxy for obstructive events. It parallels the AHI and uses the same severity thresholds."
       },
@@ -1437,12 +1452,12 @@
         "question": "A patient with loud snoring, witnessed apnoeas and an Epworth score of 16 has a home oximetry showing an ODI of 2/hour. What is the most appropriate next step?",
         "options": [
           "Reassure the patient that OSA is excluded",
-          "Proceed to respiratory polygraphy or polysomnography",
           "Start lifelong nocturnal oxygen therapy",
           "Repeat the same oximetry monthly for a year",
-          "Diagnose severe OSA and commence CPAP immediately"
+          "Diagnose severe OSA and commence CPAP immediately",
+          "Proceed to respiratory polygraphy or polysomnography"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Proceed to respiratory polygraphy or polysomnography",
         "explanation": "Oximetry is a limited level-4 screen that misses events without a ≥4% desaturation, so a normal ODI cannot exclude OSA when symptoms are strong. A more detailed study such as polygraphy or full polysomnography is indicated."
       },
@@ -1452,12 +1467,12 @@
         "question": "Which study is regarded as the gold-standard (level 1) investigation for obstructive sleep apnoea?",
         "options": [
           "Overnight pulse oximetry alone",
-          "The Epworth Sleepiness Scale questionnaire",
           "Full attended polysomnography",
+          "The Epworth Sleepiness Scale questionnaire",
           "A single daytime arterial blood gas",
           "Overnight capnography alone"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Full attended polysomnography",
         "explanation": "Full polysomnography adds EEG to stage sleep and score arousals alongside airflow, effort and oximetry, making it the definitive level-1 test. Oximetry is only a level-4 screening tool."
       },
@@ -1467,12 +1482,12 @@
         "question": "A 68-year-old man with a known history of COPD is admitted acutely breathless. Before an arterial blood gas is available, which SpO₂ target range should be prescribed?",
         "options": [
           "94–98%",
-          "88–92%",
           "98–100%",
           "90–94%",
+          "88–92%",
           "85–90%"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "88–92%",
         "explanation": "Patients at risk of hypercapnic respiratory failure, such as those with COPD, are targeted to 88–92% pending a blood gas. This avoids over-oxygenation while still correcting hypoxaemia."
       },
@@ -1481,13 +1496,13 @@
         "type": "mcq",
         "question": "Which device is most appropriate to deliver high-concentration oxygen to a critically ill, peri-arrest adult?",
         "options": [
+          "Non-rebreathe reservoir mask at 15 L/min",
           "Nasal cannulae at 2 L/min",
           "Simple face mask at 4 L/min",
           "24% Venturi mask",
-          "Non-rebreathe reservoir mask at 15 L/min",
           "Room air with observation"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "Non-rebreathe reservoir mask at 15 L/min",
         "explanation": "A non-rebreathe mask at 15 L/min delivers the highest practical FiO₂ (around 60–80%) for an emergency. It is the standard initial device for critically ill or peri-arrest patients before titration."
       },
@@ -1513,11 +1528,11 @@
         "options": [
           "Green 60% valve, target SpO₂ 94–98%",
           "Red 40% valve, target SpO₂ 94–98%",
-          "Blue 24% valve, target SpO₂ 88–92%",
           "Yellow 35% valve, target SpO₂ 96–100%",
-          "White 28% valve, target SpO₂ 98–100%"
+          "White 28% valve, target SpO₂ 98–100%",
+          "Blue 24% valve, target SpO₂ 88–92%"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Blue 24% valve, target SpO₂ 88–92%",
         "explanation": "In hypercapnic-risk patients the aim is a controlled low FiO₂ with a target SpO₂ of 88–92%. The blue 24% valve delivers the lowest fixed FiO₂, making it the safe first choice while awaiting the ABG."
       },
@@ -1541,13 +1556,13 @@
         "type": "mcq",
         "question": "By which physical principle does a Venturi valve entrain a fixed proportion of room air?",
         "options": [
-          "The Bernoulli / jet-entrainment effect",
           "Simple diffusion across a semipermeable membrane",
           "Active mechanical pumping of ambient air",
           "The Frank–Starling mechanism",
+          "The Bernoulli / jet-entrainment effect",
           "Osmotic gradient between gas compartments"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "The Bernoulli / jet-entrainment effect",
         "explanation": "Oxygen driven through a narrow jet speeds up and its lateral pressure falls, which draws in a fixed volume of room air through the side ports. This constant dilution ratio produces the precise FiO₂."
       },
@@ -1571,13 +1586,13 @@
         "type": "mcq",
         "question": "A 68-year-old presents with acute severe cardiogenic pulmonary oedema, SpO₂ 84% on high-flow oxygen, pink frothy sputum and a normal PaCO₂. Which non-invasive modality is most appropriate?",
         "options": [
-          "CPAP",
           "BiPAP with high IPAP",
           "Low-flow nasal cannula",
+          "CPAP",
           "Non-rebreathe mask only",
           "Awaiting response to diuretics before any support"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "CPAP",
         "explanation": "CPAP recruits flooded alveoli and raises intrathoracic pressure, reducing preload and afterload to offload the failing heart. It is the standard non-invasive support for acute cardiogenic pulmonary oedema in type 1 failure."
       },
@@ -1586,13 +1601,13 @@
         "type": "mcq",
         "question": "During a trial of NIV for a hypercapnic patient, the pH falls from 7.30 to 7.20, the patient becomes drowsy and tires visibly. What is the most appropriate next step?",
         "options": [
-          "Escalate to intubation and invasive ventilation",
           "Continue the same NIV settings unchanged",
           "Switch from BiPAP to CPAP",
           "Reduce the IPAP to improve comfort",
-          "Stop all support and give oxygen by nasal cannula"
+          "Stop all support and give oxygen by nasal cannula",
+          "Escalate to intubation and invasive ventilation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Escalate to intubation and invasive ventilation",
         "explanation": "Worsening acidosis to pH <7.25 with a declining conscious level and exhaustion signals NIV failure. Provided it is appropriate to the ceiling of care, the patient should be escalated to intubation and invasive ventilation."
       },
@@ -1618,11 +1633,11 @@
         "options": [
           "Assume the lung has fully re-expanded and remove the drain",
           "Immediately clamp the drain to consolidate progress",
-          "Check for blockage, kinking or dislodgement and obtain a chest radiograph",
           "Increase the wall suction to maximum pressure",
+          "Check for blockage, kinking or dislodgement and obtain a chest radiograph",
           "Flush the pleural space with 500 mL of saline"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Check for blockage, kinking or dislodgement and obtain a chest radiograph",
         "explanation": "Cessation of swinging can mean full re-expansion but can equally mean the drain is blocked, kinked or dislodged, especially when the patient is still symptomatic. Assessing patency and imaging distinguishes a working drain from a failed one before any decision to remove it."
       },
@@ -1631,15 +1646,45 @@
         "type": "mcq",
         "question": "Which pleural collection is the correct indication for a large-bore chest drain with close monitoring of hourly output for ongoing bleeding?",
         "options": [
+          "Haemothorax following blunt chest trauma",
           "Small apical pneumothorax in an asymptomatic patient",
           "Transudative effusion secondary to heart failure",
-          "Haemothorax following blunt chest trauma",
           "Chronic stable pleural plaque",
           "A dry pleuritic chest wall pain with no effusion"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Haemothorax following blunt chest trauma",
         "explanation": "A traumatic haemothorax requires a large-bore drain to evacuate blood and to monitor output, as high or sustained drainage signals ongoing haemorrhage needing surgery. The other options are either not drainage indications or are managed differently."
+      },
+      {
+        "id": "lf_oxy_co_q01",
+        "type": "mcq",
+        "question": "A man is found drowsy at home with his family, all with headaches. His SpO&#8322; reads 99% on air but he looks unwell. What is the most appropriate next step?",
+        "options": [
+          "Reassurance — his oxygen saturations are normal",
+          "A trial of bronchodilators",
+          "Arterial blood gas with co-oximetry and high-flow 100% oxygen",
+          "Titrate oxygen to a target of 88–92%",
+          "Discharge with oral antibiotics"
+        ],
+        "correctIndex": 2,
+        "answer": "Arterial blood gas with co-oximetry and high-flow 100% oxygen",
+        "explanation": "Carbon monoxide poisoning gives a falsely normal SpO&#8322; because pulse oximetry cannot distinguish carboxyhaemoglobin from oxyhaemoglobin. Confirm with an ABG including co-oximetry (COHb%) and give high-flow 100% oxygen; consider hyperbaric oxygen if severe."
+      },
+      {
+        "id": "lf_oxy_ltot_q01",
+        "type": "mcq",
+        "question": "A non-smoking man with stable COPD has a PaO&#8322; of 7.0 kPa on two arterial blood gases taken three weeks apart. What is the most appropriate intervention?",
+        "options": [
+          "Short-burst oxygen as required for breathlessness",
+          "A course of oral corticosteroids",
+          "Immediate non-invasive ventilation",
+          "No intervention as he is stable",
+          "Long-term oxygen therapy for at least 15 hours a day"
+        ],
+        "correctIndex": 4,
+        "answer": "Long-term oxygen therapy for at least 15 hours a day",
+        "explanation": "Stable COPD with PaO&#8322; ≤7.3 kPa on two occasions ≥3 weeks apart meets LTOT criteria; used ≥15 h/day it improves survival. He must be a non-smoker. NIV is for acute hypercapnic acidosis, not chronic hypoxaemia."
       }
     ]
   }
