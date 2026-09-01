@@ -1496,6 +1496,21 @@
         "id": "rsc_msk_gurds_fc_05",
         "front": "How is fat embolism syndrome managed and what is the prognosis?",
         "back": "Largely supportive: oxygen/ventilatory support, fluids, ICU care. Prevention (early fracture fixation, careful operative technique) is key. Prognosis is usually good with supportive care."
+      },
+      {
+        "id": "rsc_msk_cspine_fc_01",
+        "front": "What are the Canadian C-Spine high-risk factors that mandate imaging?",
+        "back": "<b>Age &ge;65</b>, a <b>dangerous mechanism</b> (fall &gt;1 m/5 stairs, axial load, high-speed/rollover/ejection MVC, motorised recreational vehicle, bicycle collision), or <b>paraesthesiae</b> in the limbs. Any one &rarr; CT c-spine, keep immobilised."
+      },
+      {
+        "id": "rsc_msk_cspine_fc_02",
+        "front": "In the Canadian C-Spine Rule, when can you assess neck rotation and clear the spine?",
+        "back": "If there is <b>no high-risk factor</b> and at least one <b>low-risk factor</b> (simple rear-end collision, sitting in ED, ambulatory at any time, delayed neck pain, no midline tenderness), test rotation: able to rotate <b>45&deg; left and right</b> &rarr; no imaging. Unable &rarr; CT."
+      },
+      {
+        "id": "rsc_msk_cspine_fc_03",
+        "front": "To whom does the Canadian C-Spine Rule apply?",
+        "back": "Only <b>alert (GCS 15), stable, non-intoxicated adults</b> with no distracting injury. It is not for children or those with a focal neurological deficit. NEXUS is the US alternative rule."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__Dermatology & Obstetric": [
@@ -1512,7 +1527,7 @@
       {
         "id": "rsc_derm_scorten_fc_03",
         "front": "List the seven SCORTEN variables (1 point each).",
-        "back": "Age ≥40; associated malignancy; heart rate ≥120 bpm; epidermal detachment/BSA >10%; serum urea >10 mmol/L; serum bicarbonate <20 mmol/L; serum glucose >14 mmol/L."
+        "back": "Age >40; associated malignancy; heart rate >120 bpm; epidermal detachment/BSA >10%; serum urea >10 mmol/L; serum bicarbonate <20 mmol/L; serum glucose >14 mmol/L."
       },
       {
         "id": "rsc_derm_scorten_fc_04",
@@ -1623,6 +1638,26 @@
         "id": "rsc_derm_puqe_fc_05",
         "front": "Which vitamin must be given in prolonged pregnancy vomiting, and why?",
         "back": "Thiamine, to prevent Wernicke's encephalopathy."
+      },
+      {
+        "id": "rsc_derm_puqe_vte_fc_01",
+        "front": "Besides fluids, antiemetics and thiamine, what prophylaxis must an admitted hyperemesis patient receive?",
+        "back": "<b>VTE prophylaxis &mdash; LMWH plus anti-embolism (TED) stockings</b>. Pregnancy combined with dehydration and reduced mobility during admission is a recognised venous-thromboembolism risk state (RCOG)."
+      },
+      {
+        "id": "rsc_derm_bishop_fc_01",
+        "front": "What are the five components of the Bishop score?",
+        "back": "Cervical <b>dilatation</b>, <b>effacement/length</b>, <b>station</b> of the presenting part, cervical <b>consistency</b>, and cervical <b>position</b>. Total 0&ndash;13."
+      },
+      {
+        "id": "rsc_derm_bishop_fc_02",
+        "front": "How does the Bishop score guide induction of labour?",
+        "back": "<b>&le;6 (unfavourable)</b> &rarr; ripen the cervix first with <b>vaginal PGE2 (dinoprostone)</b> or a <b>balloon catheter</b>. <b>&ge;8 (favourable)</b> &rarr; proceed to <b>amniotomy (ARM) + IV oxytocin</b>."
+      },
+      {
+        "id": "rsc_derm_bishop_fc_03",
+        "front": "What does a higher Bishop score predict?",
+        "back": "A higher pre-induction Bishop score predicts a greater likelihood of <b>successful vaginal delivery</b> (a more favourable cervix), and means the cervix is ready for ARM + oxytocin rather than needing ripening."
       }
     ]
   },
@@ -4127,10 +4162,10 @@
           "Plain hip X-ray",
           "Serum CRP and ESR",
           "Ultrasound of the hip",
-          "Joint aspiration for Gram stain, culture and synovial WCC",
-          "MRI of the pelvis"
+          "MRI of the pelvis",
+          "Joint aspiration for Gram stain, culture and synovial WCC"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Joint aspiration for Gram stain, culture and synovial WCC",
         "explanation": "Bloods and ultrasound support the diagnosis (an effusion on USS, raised inflammatory markers), but joint aspiration is definitive — frank pus or organisms on Gram stain/culture confirm septic arthritis. X-rays are often normal early."
       },
@@ -4140,12 +4175,12 @@
         "question": "A child has a Kocher score of 0 but the clinician remains concerned about septic arthritis on examination. What is the most appropriate action?",
         "options": [
           "Discharge with safety-netting as septic arthritis is excluded",
-          "Reassure and treat as transient synovitis without further tests",
           "Do not rely on the score alone; proceed to further assessment and consider joint aspiration",
+          "Reassure and treat as transient synovitis without further tests",
           "Start oral antibiotics and review in one week",
           "Arrange an outpatient MRI in two weeks"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Do not rely on the score alone; proceed to further assessment and consider joint aspiration",
         "explanation": "A low Kocher score does not fully exclude septic arthritis when clinical suspicion is high. Because delayed treatment causes irreversible joint destruction and AVN, clinical judgement should override a reassuring score, warranting urgent orthopaedic assessment and aspiration."
       },
@@ -4156,11 +4191,11 @@
         "options": [
           "4",
           "5",
-          "6",
           "7",
+          "6",
           "9"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "6",
         "explanation": "Little fingers (2) + thumbs (2) + elbows (2) = 6. Knees and palms-to-floor score 0. In an adult, ≥5 suggests generalised joint hypermobility, so this is positive."
       },
@@ -4169,13 +4204,13 @@
         "type": "mcq",
         "question": "Which statement about the Beighton score is most accurate?",
         "options": [
-          "A score ≥5 in an adult diagnoses hypermobile Ehlers-Danlos syndrome",
           "It is a screening tool for generalised joint hypermobility, not a diagnosis in itself",
+          "A score ≥5 in an adult diagnoses hypermobile Ehlers-Danlos syndrome",
           "The maximum possible score is 5",
           "Palms-to-floor scores one point per side",
           "It reliably excludes vascular EDS and Marfan syndrome"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "It is a screening tool for generalised joint hypermobility, not a diagnosis in itself",
         "explanation": "The Beighton score (max 9) screens for generalised hypermobility. hEDS requires the full 2017 criteria. Palms-to-floor is a single midline point. A high score neither diagnoses hEDS nor excludes serious disorders like vascular EDS or Marfan syndrome."
       },
@@ -4199,13 +4234,13 @@
         "type": "mcq",
         "question": "A 24-year-old man with no family history of Marfan syndrome has an aortic root Z-score of 2.4 on echocardiography and bilateral ectopia lentis on slit-lamp examination. Under the revised Ghent criteria, what is the correct conclusion?",
         "options": [
-          "Marfan syndrome is confirmed",
           "Genetic testing for FBN1 is mandatory before any diagnosis can be made",
           "A systemic score ≥7 is additionally required",
           "This meets criteria only for MASS phenotype",
-          "Ectopia lentis syndrome should be diagnosed instead"
+          "Ectopia lentis syndrome should be diagnosed instead",
+          "Marfan syndrome is confirmed"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Marfan syndrome is confirmed",
         "explanation": "The two cardinal features — aortic root dilatation (Z-score ≥2) and ectopia lentis — together confirm Marfan syndrome even without family history, FBN1 testing, or a systemic score. This is the highest-weighted combination in Ghent-2."
       },
@@ -4231,11 +4266,11 @@
         "options": [
           "Immediately proceed to prophylactic aortic root replacement",
           "Diagnose Loeys-Dietz syndrome",
-          "Test for homocystinuria, an important mimic",
           "Reassure and discharge, as this excludes connective-tissue disease",
+          "Test for homocystinuria, an important mimic",
           "Apply Ghent criteria and diagnose Marfan on the ectopia lentis alone"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Test for homocystinuria, an important mimic",
         "explanation": "Homocystinuria classically causes DOWNWARD lens dislocation plus thromboembolism and must be excluded before diagnosing Marfan (where lens dislocation is typically upward). Ectopia lentis alone does not confirm Marfan, and testing for the mimic takes priority."
       },
@@ -4244,13 +4279,13 @@
         "type": "mcq",
         "question": "A 30-year-old inverts his ankle playing football. He has pain in the malleolar zone. On examination there is no bony tenderness over either malleolus, and he was able to walk 4 steps immediately after the injury and again in the department. Which is the most appropriate action?",
         "options": [
-          "Request ankle and foot X-rays as pain is present",
           "No X-ray is required — the Ottawa Ankle Rules are negative",
+          "Request ankle and foot X-rays as pain is present",
           "Request an ankle X-ray but not a foot X-ray",
           "Admit for observation and repeat examination in 24 hours",
           "Request MRI to exclude occult fracture"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "No X-ray is required — the Ottawa Ankle Rules are negative",
         "explanation": "An ankle X-ray is only indicated with malleolar-zone pain PLUS malleolar bony tenderness OR inability to weight-bear (4 steps, immediately and in the ED). With no bony tenderness and preserved weight-bearing, the rule is negative and its near-100% sensitivity means fracture is effectively excluded, so imaging can be safely withheld."
       },
@@ -4261,11 +4296,11 @@
         "options": [
           "Age ≥55 years",
           "Isolated tenderness of the patella",
+          "A visible knee effusion on inspection",
           "Tenderness at the head of the fibula",
-          "Inability to flex the knee to 90°",
-          "A visible knee effusion on inspection"
+          "Inability to flex the knee to 90°"
         ],
-        "correctIndex": 4,
+        "correctIndex": 2,
         "answer": "A visible knee effusion on inspection",
         "explanation": "The five Ottawa Knee Rule criteria are: age ≥55, isolated patellar tenderness, fibular-head tenderness, inability to flex to 90°, and inability to weight-bear (4 steps both immediately and in the ED). A visible effusion is not part of the rule."
       },
@@ -4275,12 +4310,12 @@
         "question": "Which statement best describes the diagnostic performance of the Ottawa Rules?",
         "options": [
           "High specificity, so a positive rule confirms a fracture",
-          "High sensitivity, so a negative rule safely excludes a clinically significant fracture",
           "They are equally sensitive and specific and confirm fractures",
           "Low sensitivity, so they miss most significant fractures",
-          "They replace the need for any clinical judgement"
+          "They replace the need for any clinical judgement",
+          "High sensitivity, so a negative rule safely excludes a clinically significant fracture"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "High sensitivity, so a negative rule safely excludes a clinically significant fracture",
         "explanation": "The rules are highly sensitive (approaching 100%) but have low specificity. This makes them an excellent rule-OUT tool: a negative rule reliably excludes clinically significant fracture and allows imaging to be avoided. A positive rule only identifies who needs an X-ray — it does not confirm a fracture is present."
       },
@@ -4306,11 +4341,11 @@
         "options": [
           "Tachycardia >120 bpm",
           "Pyrexia >38.5°C",
-          "Petechial rash",
           "Raised ESR",
+          "Petechial rash",
           "Thrombocytopenia"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Petechial rash",
         "explanation": "The major criteria are respiratory insufficiency, cerebral involvement, and petechial rash. Tachycardia, pyrexia, raised ESR and thrombocytopenia are all minor criteria."
       },
@@ -4319,15 +4354,45 @@
         "type": "mcq",
         "question": "What is the mainstay of treatment for fat embolism syndrome?",
         "options": [
+          "Supportive care with oxygen/ventilatory support and ICU management",
           "Systemic thrombolysis",
           "Therapeutic anticoagulation with heparin",
-          "Supportive care with oxygen/ventilatory support and ICU management",
           "Urgent surgical embolectomy",
           "High-dose broad-spectrum antibiotics"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Supportive care with oxygen/ventilatory support and ICU management",
         "explanation": "There is no specific therapy for FES; management is supportive (oxygen, ventilatory support, fluids, ICU). Prevention through early fracture fixation is key. Thrombolysis, anticoagulation and embolectomy have no established role."
+      },
+      {
+        "id": "rsc_msk_cspine_q01",
+        "type": "mcq",
+        "question": "A 70-year-old is brought in after a low fall with neck pain, GCS 15 and no deficit. Using the Canadian C-Spine Rule, what is the next step?",
+        "options": [
+          "Assess active neck rotation immediately",
+          "Remove the collar and discharge",
+          "CT cervical spine, keeping the neck immobilised",
+          "Plain cervical X-ray only",
+          "No imaging as there is no deficit"
+        ],
+        "correctIndex": 2,
+        "answer": "CT cervical spine, keeping the neck immobilised",
+        "explanation": "Age ≥65 is a high-risk factor in the Canadian C-Spine Rule, mandating imaging (CT) with continued immobilisation. You do not test movement once a high-risk factor is present."
+      },
+      {
+        "id": "rsc_msk_cspine_q02",
+        "type": "mcq",
+        "question": "A 30-year-old with a simple rear-end collision is ambulatory, GCS 15, has no midline C-spine tenderness and can rotate the neck 45° each way. What does the Canadian C-Spine Rule advise?",
+        "options": [
+          "Mandatory CT cervical spine",
+          "Admit for observation",
+          "MRI cervical spine",
+          "Plain film then CT if abnormal",
+          "No imaging — clinically clear the cervical spine"
+        ],
+        "correctIndex": 4,
+        "answer": "No imaging — clinically clear the cervical spine",
+        "explanation": "With no high-risk factor, a low-risk factor present (simple rear-end collision, ambulatory, no midline tenderness), and the ability to rotate 45° left and right, the rule allows safe clinical clearance without imaging."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__Dermatology & Obstetric": [
@@ -4336,13 +4401,13 @@
         "type": "mcq",
         "question": "Which of the following is one of the seven independent variables in the SCORTEN score?",
         "options": [
-          "Serum bicarbonate <20 mmol/L",
           "White cell count >12 ×10⁹/L",
           "Systolic blood pressure <90 mmHg",
+          "Serum bicarbonate <20 mmol/L",
           "Serum sodium >145 mmol/L",
           "Platelet count <100 ×10⁹/L"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Serum bicarbonate <20 mmol/L",
         "explanation": "Serum bicarbonate below 20 mmol/L is one of the seven SCORTEN variables and scores one point. The metabolic variables in the score are urea, bicarbonate, and glucose, alongside age, malignancy, heart rate, and skin detachment."
       },
@@ -4353,11 +4418,11 @@
         "options": [
           "3%",
           "12%",
-          "35%",
           "58%",
-          "90%"
+          "90%",
+          "35%"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "35%",
         "explanation": "A SCORTEN of 3 corresponds to an approximate in-hospital mortality of 35%. The bands rise steeply: 2 points is around 12% and 4 points is around 58%."
       },
@@ -4366,13 +4431,13 @@
         "type": "mcq",
         "question": "When is SCORTEN ideally calculated to give the most accurate prognostic information?",
         "options": [
-          "Within 24 hours of admission and again at 72 hours",
           "Only at the moment of hospital discharge",
+          "Within 24 hours of admission and again at 72 hours",
           "Weekly throughout the admission",
           "At least two weeks after the rash first appears",
           "Only once the epidermis has fully re-epithelialised"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Within 24 hours of admission and again at 72 hours",
         "explanation": "SCORTEN is best calculated within the first 24 hours and repeated at 72 hours, as the day-3 value tracks mortality most accurately. Calculating it outside this early window can underestimate the true risk."
       },
@@ -4381,13 +4446,13 @@
         "type": "mcq",
         "question": "Which single laboratory variable contributes the most points to the LRINEC score?",
         "options": [
-          "CRP ≥150 mg/L",
           "Sodium <135 mmol/L",
           "White cell count >25 ×10⁹/L",
           "Creatinine >141 µmol/L",
+          "CRP ≥150 mg/L",
           "Glucose >10 mmol/L"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "CRP ≥150 mg/L",
         "explanation": "A CRP of 150 mg/L or more scores 4 points, the single largest contribution in the LRINEC score. All other variables score a maximum of 1 or 2 points each, giving an overall maximum of 13."
       },
@@ -4411,13 +4476,13 @@
         "type": "mcq",
         "question": "A septic patient has pain out of proportion to skin findings and rapidly spreading erythema, but a LRINEC score of 3. What is the most appropriate action?",
         "options": [
-          "Proceed to urgent surgical exploration, as the low score does not exclude necrotising fasciitis",
           "Reassure and discharge, since a score of 3 excludes necrotising fasciitis",
           "Withhold antibiotics until the score rises above 6",
+          "Proceed to urgent surgical exploration, as the low score does not exclude necrotising fasciitis",
           "Delay surgical referral and repeat the bloods in 48 hours",
           "Rely on the score alone and treat as simple cellulitis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Proceed to urgent surgical exploration, as the low score does not exclude necrotising fasciitis",
         "explanation": "Necrotising fasciitis is a surgical diagnosis and a low LRINEC score does not exclude it. When clinical suspicion is high, urgent surgical exploration and debridement must proceed regardless of the score, with antibiotics and resuscitation in parallel."
       },
@@ -4427,12 +4492,12 @@
         "question": "A 58-year-old man has cellulitis of the lower leg. He is afebrile with normal observations and feels systemically well, but has longstanding chronic venous insufficiency and morbid obesity. Which Eron class best fits?",
         "options": [
           "Class I",
-          "Class II",
           "Class III",
           "Class IV",
-          "He cannot be classified without a blood culture"
+          "He cannot be classified without a blood culture",
+          "Class II"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Class II",
         "explanation": "Class II includes patients who are systemically well but have a comorbidity such as chronic venous insufficiency or morbid obesity that may complicate or slow resolution. These features raise him above Class I and typically prompt consideration of OPAT or short admission."
       },
@@ -4442,12 +4507,12 @@
         "question": "Which Eron class corresponds to a severe, life-threatening skin infection such as necrotising fasciitis or cellulitis with sepsis?",
         "options": [
           "Class I",
+          "Class IV",
           "Class II",
           "Class III",
-          "Class IV",
           "Class V"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "Class IV",
         "explanation": "Class IV denotes sepsis or a severe life-threatening infection such as necrotising fasciitis. It mandates urgent inpatient admission, sepsis management and immediate surgical assessment."
       },
@@ -4456,13 +4521,13 @@
         "type": "mcq",
         "question": "A 40-year-old woman has a small area of lower-leg cellulitis. She has no systemic toxicity and no uncontrolled comorbidity, placing her in Eron Class I. What is the most appropriate management?",
         "options": [
-          "Community treatment with oral antibiotics and safety-netting",
           "Admission for intravenous antibiotics and cardiac monitoring",
           "Urgent surgical debridement in theatre",
           "Immediate ICU admission for septic shock",
+          "Community treatment with oral antibiotics and safety-netting",
           "Amputation of the affected limb"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Community treatment with oral antibiotics and safety-netting",
         "explanation": "Eron Class I patients have no systemic toxicity and no uncontrolled comorbidity, so they can usually be managed in the community with oral antibiotics such as flucloxacillin. Safety-netting and review ensure escalation if they deteriorate."
       },
@@ -4471,13 +4536,13 @@
         "type": "mcq",
         "question": "A GP examines a changing pigmented lesion using the weighted 7-point checklist. How many points is each MAJOR feature worth?",
         "options": [
-          "1 point",
           "2 points",
+          "1 point",
           "3 points",
           "5 points",
           "10 points"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "2 points",
         "explanation": "In the weighted 7-point checklist the three major features — change in size, irregular shape/border and irregular colour — each score 2 points. This weighting reflects their strong association with melanoma."
       },
@@ -4504,10 +4569,10 @@
           "Change in size of the lesion",
           "Irregular border or shape",
           "Irregular colour",
-          "Largest diameter ≥7 mm",
-          "Presence of more than one major feature"
+          "Presence of more than one major feature",
+          "Largest diameter ≥7 mm"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Largest diameter ≥7 mm",
         "explanation": "Largest diameter ≥7 mm is a minor feature worth 1 point, alongside inflammation, oozing/crusting and change in sensation. Change in size, irregular shape and irregular colour are the major features worth 2 points each."
       },
@@ -4516,13 +4581,13 @@
         "type": "mcq",
         "question": "The PUQE score for nausea and vomiting of pregnancy is calculated from three questions. Which three symptoms do they cover?",
         "options": [
-          "Hours of nausea, number of vomiting episodes, and number of retching episodes",
           "Number of vomiting episodes, weight loss, and degree of ketonuria",
+          "Hours of nausea, number of vomiting episodes, and number of retching episodes",
           "Hours of nausea, serum electrolyte disturbance, and heart rate",
           "Number of vomiting episodes, hours of nausea, and gestational age",
           "Degree of dehydration, hours of nausea, and number of retching episodes"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Hours of nausea, number of vomiting episodes, and number of retching episodes",
         "explanation": "PUQE grades severity over the previous 24 hours using exactly three items: hours of nausea, number of vomiting episodes, and number of retching episodes. Each item is scored 1-5 to give a total of 3-15."
       },
@@ -4531,13 +4596,13 @@
         "type": "mcq",
         "question": "A pregnant woman with NVP has a PUQE score of 14. Into which severity band does this fall?",
         "options": [
-          "Severe",
           "Mild",
           "Moderate",
           "Normal / no significant NVP",
+          "Severe",
           "Borderline between mild and moderate"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Severe",
         "explanation": "A PUQE total of 13 or more indicates severe NVP. A score of 14 therefore falls firmly in the severe band, which prompts consideration of admission for IV fluids and IV antiemetics."
       },
@@ -4555,6 +4620,36 @@
         "correctIndex": 0,
         "answer": "Give thiamine to prevent Wernicke's encephalopathy",
         "explanation": "Prolonged vomiting depletes thiamine, so supplementation is given to prevent Wernicke's encephalopathy. PUQE quantifies severity but assessment must still include dehydration, ketonuria and electrolytes."
+      },
+      {
+        "id": "rsc_derm_bishop_q01",
+        "type": "mcq",
+        "question": "A woman is being induced at 41 weeks. Her Bishop score is 4. What is the most appropriate next step?",
+        "options": [
+          "Immediate amniotomy and IV oxytocin",
+          "Proceed straight to caesarean section",
+          "Cervical ripening with vaginal prostaglandin (PGE2) or a balloon catheter",
+          "No intervention — await spontaneous labour indefinitely",
+          "Start IV oxytocin without amniotomy"
+        ],
+        "correctIndex": 2,
+        "answer": "Cervical ripening with vaginal prostaglandin (PGE2) or a balloon catheter",
+        "explanation": "A Bishop score ≤6 indicates an unfavourable cervix, which should be ripened first with vaginal PGE2 (dinoprostone) or a balloon catheter before amniotomy. Amniotomy + oxytocin is appropriate only once the cervix is favourable (Bishop ≥8)."
+      },
+      {
+        "id": "rsc_derm_bishop_q02",
+        "type": "mcq",
+        "question": "A woman for induction has a Bishop score of 9. What does this favourable score allow?",
+        "options": [
+          "A further course of prostaglandin gel",
+          "Delaying induction for two weeks",
+          "An immediate caesarean section",
+          "Discharge home without induction",
+          "Amniotomy (ARM) followed by IV oxytocin"
+        ],
+        "correctIndex": 4,
+        "answer": "Amniotomy (ARM) followed by IV oxytocin",
+        "explanation": "A Bishop score ≥8 indicates a favourable cervix ready for induction, so you can proceed to amniotomy (ARM) and IV oxytocin. Cervical ripening agents are reserved for an unfavourable (≤6) cervix."
       }
     ]
   }
