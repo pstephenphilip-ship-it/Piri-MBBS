@@ -6380,6 +6380,21 @@
         "id": "nai_fc_05",
         "front": "Why and when is a follow-up skeletal survey performed?",
         "back": "A repeat survey at ~11–14 days increases fracture detection — healing changes (callus, periosteal reaction) make initially subtle or occult fractures visible."
+      },
+      {
+        "id": "paed_nipe_fc_01",
+        "front": "What are the four NIPE screens and the referral each triggers?",
+        "back": "<b>Eyes</b>: absent/white red reflex → urgent ophthalmology (cataract/retinoblastoma). <b>Heart</b>: murmur/absent femoral pulses/cyanosis → echo + cardiology. <b>Hips</b>: Barlow/Ortolani → hip USS + orthopaedics. <b>Testes</b>: undescended → refer (orchidopexy by ~6 months). Done <72h and at 6–8 weeks."
+      },
+      {
+        "id": "paed_ddh_fc_01",
+        "front": "Which babies get a hip ultrasound even with a normal examination?",
+        "back": "Those with DDH risk factors: <b>breech ≥36 weeks</b>, a <b>first-degree family history</b> (± first-born girl) → selective <b>hip USS at ~6 weeks</b>. USS is used <4.5–6 months (before ossification); X-ray thereafter."
+      },
+      {
+        "id": "paed_hearing_fc_01",
+        "front": "Outline the newborn hearing screening pathway.",
+        "back": "<b>OAE</b> first → if no clear response, <b>AABR</b> → a fail goes to <b>audiology for diagnostic ABR</b>. High-risk infants (NICU >48h, family history, congenital infection) go straight to AABR."
       }
     ],
     "investigations__PAEDIATRICS__Paediatric GI / Surgical": [
@@ -6507,6 +6522,21 @@
         "id": "paed_gi_malrot_fc_05",
         "front": "Anatomically, why does malrotation predispose to volvulus?",
         "back": "Failure of normal 270-degree midgut rotation and fixation leaves a short, narrow mesenteric pedicle. This narrow base lets the whole midgut twist around the superior mesenteric artery (SMA) axis, producing volvulus. Ladd's bands can additionally cause duodenal obstruction."
+      },
+      {
+        "id": "paed_nec_fc_01",
+        "front": "What are the AXR findings in NEC and the management?",
+        "back": "AXR: <b>pneumatosis intestinalis</b>, <b>portal venous gas</b>, dilated fixed loops; perforation = free air/Rigler’s/football sign. Manage: <b>NBM, NG decompression, IV broad-spectrum antibiotics, fluids/TPN</b>, serial AXR; <b>laparotomy if perforation or deterioration</b>."
+      },
+      {
+        "id": "paed_biliary_fc_01",
+        "front": "A baby is jaundiced beyond 2 weeks with pale stools — what test and what surgery, by when?",
+        "back": "<b>Split the bilirubin</b>: a <b>conjugated</b> rise suggests biliary atresia (USS triangular cord sign; HIDA shows uptake but no bowel excretion). Treat with <b>Kasai portoenterostomy by ~8 weeks</b> — outcomes fall after 60–90 days."
+      },
+      {
+        "id": "paed_duodatresia_fc_01",
+        "front": "What does a \"double bubble\" on AXR indicate, and its key association?",
+        "back": "<b>Duodenal atresia</b> (gas in stomach + proximal duodenum, gasless distal abdomen), strongly associated with <b>Down syndrome</b>. Manage with NG decompression, fluids and <b>duodenoduodenostomy</b>."
       }
     ],
     "investigations__PAEDIATRICS__Other Paediatric": [
@@ -17067,10 +17097,10 @@
           "Cystic fibrosis",
           "Congenital hypothyroidism",
           "Phenylketonuria (PKU)",
-          "Duchenne muscular dystrophy",
-          "MCADD"
+          "MCADD",
+          "Duchenne muscular dystrophy"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Duchenne muscular dystrophy",
         "explanation": "The 9 UK conditions are sickle cell disease, cystic fibrosis, congenital hypothyroidism, PKU, MCADD, MSUD, isovaleric acidaemia, glutaric aciduria type 1 and homocystinuria. Duchenne muscular dystrophy is not screened for on the blood spot."
       },
@@ -17080,12 +17110,12 @@
         "question": "A baby's newborn blood-spot screen returns as 'positive/abnormal' for congenital hypothyroidism. What is the most appropriate next step?",
         "options": [
           "Start levothyroxine immediately based on the screen alone and take no further action",
-          "Reassure the parents that the diagnosis is confirmed and no further testing is needed",
           "Arrange urgent confirmatory diagnostic testing and specialist referral",
+          "Reassure the parents that the diagnosis is confirmed and no further testing is needed",
           "Repeat the blood spot in 6 weeks and review then",
           "Ignore the result as blood-spot tests are unreliable"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Arrange urgent confirmatory diagnostic testing and specialist referral",
         "explanation": "The blood spot is a screening test, not a diagnosis. An abnormal result requires urgent confirmatory diagnostic testing (e.g. venous thyroid function tests) and specialist referral. Because untreated congenital hypothyroidism causes irreversible neurodevelopmental delay, delay to 6 weeks is inappropriate; equally, treatment should follow confirmation, not the screen alone."
       },
@@ -17095,12 +17125,12 @@
         "question": "A term baby is noted to be visibly jaundiced at 18 hours of age. The baby is feeding but slightly lethargic. A midwife performs a transcutaneous bilirubinometer reading which is below the phototherapy threshold. What is the most appropriate next step?",
         "options": [
           "Reassure and rely on the transcutaneous reading",
-          "Send an urgent serum bilirubin",
           "Start phototherapy immediately based on the TcB reading",
           "Repeat the transcutaneous bilirubinometer in 24 hours",
+          "Send an urgent serum bilirubin",
           "Arrange an outpatient review in one week"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Send an urgent serum bilirubin",
         "explanation": "Jaundice within the first 24 hours of life is always pathological and a medical emergency. The TcB is unreliable below 24 hours of age and must not be relied upon — an urgent serum bilirubin is required, alongside investigation for haemolysis (rhesus/ABO, G6PD, spherocytosis) and sepsis. Reassurance or delayed review would be unsafe."
       },
@@ -17109,13 +17139,13 @@
         "type": "mcq",
         "question": "A 4-week-old breastfed term infant remains jaundiced. The parents report pale, chalky stools and dark urine. Examination shows mild hepatomegaly. Which investigation is most important to guide the diagnosis?",
         "options": [
+          "Conjugated (direct) bilirubin fraction",
           "Transcutaneous bilirubinometer reading",
           "Full blood count and blood film",
           "Total serum bilirubin only",
-          "Conjugated (direct) bilirubin fraction",
           "Serum G6PD level"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "Conjugated (direct) bilirubin fraction",
         "explanation": "This is prolonged jaundice (>14 days in a term baby) with pale stools and dark urine — the classic picture of biliary atresia. The key step is to split the bilirubin and measure the conjugated (direct) fraction; a raised conjugated bilirubin mandates urgent referral for consideration of Kasai portoenterostomy before ~8 weeks. A total bilirubin or TcB alone would miss the conjugated component."
       },
@@ -17140,12 +17170,12 @@
         "question": "A 5-month-old, not yet rolling or sitting, is brought to ED with a swollen thigh. X-ray shows a spiral fracture of the femoral shaft. The parents give a vague account that the leg \"got caught\" in the cot, and presentation was 2 days after the injury. Which single feature is MOST concerning for non-accidental injury?",
         "options": [
           "The fracture is of the femur rather than the tibia",
-          "A spiral femoral fracture in a non-mobile 5-month-old with a vague, delayed history",
           "The child is male",
           "The swelling of the thigh",
-          "The absence of bruising over the fracture site"
+          "The absence of bruising over the fracture site",
+          "A spiral femoral fracture in a non-mobile 5-month-old with a vague, delayed history"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "A spiral femoral fracture in a non-mobile 5-month-old with a vague, delayed history",
         "explanation": "A fracture in a non-ambulant infant, particularly a femoral shaft/spiral fracture, combined with a vague and delayed history that is inconsistent with development, is highly suspicious for NAI. The bone involved, sex, or local swelling are not themselves discriminating; absence of bruising does not reassure."
       },
@@ -17171,13 +17201,43 @@
         "options": [
           "Discharge with head-injury advice and safety-net for review",
           "Reassure the family that retinal haemorrhages are a normal variant",
-          "Escalate immediately to the senior paediatrician and safeguarding team, and do not discharge the child",
           "Arrange an outpatient skeletal survey in 6 weeks",
+          "Escalate immediately to the senior paediatrician and safeguarding team, and do not discharge the child",
           "Prescribe vitamin D and repeat imaging in 3 months"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Escalate immediately to the senior paediatrician and safeguarding team, and do not discharge the child",
         "explanation": "Subdural haematoma with retinal haemorrhages in an infant is the classic picture of abusive head trauma. This is a safeguarding emergency: escalate to the consultant paediatrician and child-protection team, involve social services, document contemporaneously, consider siblings' safety, and ensure the child is not discharged until safety is assured. A skeletal survey and mimic exclusion are needed but must not delay protection."
+      },
+      {
+        "id": "paed_nipe_q01",
+        "type": "mcq",
+        "question": "At the newborn check a baby has an absent red reflex in one eye. What is the most appropriate action?",
+        "options": [
+          "Urgent same-day ophthalmology referral",
+          "Reassure and review at the 6–8 week check",
+          "Routine optician referral in a few months",
+          "Start topical antibiotics",
+          "Repeat the examination in 24 hours"
+        ],
+        "correctIndex": 0,
+        "answer": "Urgent same-day ophthalmology referral",
+        "explanation": "An absent or white red reflex (leukocoria) may indicate congenital cataract or retinoblastoma and requires urgent same-day ophthalmology referral — delay risks vision and, with retinoblastoma, life."
+      },
+      {
+        "id": "paed_ddh_q01",
+        "type": "mcq",
+        "question": "A baby born breech at 38 weeks has a normal hip examination at the newborn check. What is recommended?",
+        "options": [
+          "No further action as the exam is normal",
+          "A hip X-ray now",
+          "A hip ultrasound at around 6 weeks",
+          "Repeat clinical exam only at 1 year",
+          "MRI of the pelvis"
+        ],
+        "correctIndex": 2,
+        "answer": "A hip ultrasound at around 6 weeks",
+        "explanation": "Breech presentation (≥36 weeks), a family history of DDH, and first-born girls are indications for a selective hip ultrasound at ~6 weeks even when the clinical examination is normal, because examination alone misses cases."
       }
     ],
     "investigations__PAEDIATRICS__Paediatric GI / Surgical": [
@@ -17186,13 +17246,13 @@
         "type": "mcq",
         "question": "A 5-week-old firstborn boy is brought in with a 1-week history of forceful vomiting immediately after feeds. The vomit is milky and never green, and he feeds avidly straight afterwards. He has lost weight. On a test feed a firm mobile mass is felt in the epigastrium. Which single investigation is most appropriate to confirm the diagnosis?",
         "options": [
-          "Abdominal ultrasound",
           "Upper GI contrast study",
           "Plain abdominal radiograph",
+          "Abdominal ultrasound",
           "Serum electrolytes and venous blood gas",
           "Abdominal CT"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Abdominal ultrasound",
         "explanation": "The picture is classic infantile hypertrophic pyloric stenosis. Ultrasound is the diagnostic investigation of choice, demonstrating pyloric muscle wall thickness >3-4 mm and canal length >15-17 mm with the 'target' sign. Electrolytes/gas are important for resuscitation but do not confirm the diagnosis; contrast studies and CT/radiographs are not first-line."
       },
@@ -17201,13 +17261,13 @@
         "type": "mcq",
         "question": "A 6-week-old with several days of projectile non-bilious vomiting is dehydrated. Which set of blood results is most consistent with the diagnosis?",
         "options": [
-          "Hypochloraemic, hypokalaemic metabolic alkalosis",
           "Hyperchloraemic metabolic acidosis",
           "Hyponatraemic, hyperkalaemic metabolic acidosis",
           "High anion gap metabolic acidosis",
-          "Respiratory alkalosis with normal electrolytes"
+          "Respiratory alkalosis with normal electrolytes",
+          "Hypochloraemic, hypokalaemic metabolic alkalosis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Hypochloraemic, hypokalaemic metabolic alkalosis",
         "explanation": "Repeated vomiting of gastric hydrochloric acid depletes chloride and hydrogen ions, producing a hypochloraemic, hypokalaemic metabolic alkalosis (with later paradoxical aciduria). This is the textbook derangement of pyloric stenosis and drives the need to correct fluids/electrolytes before surgery."
       },
@@ -17216,13 +17276,13 @@
         "type": "mcq",
         "question": "A 6-week-old boy is diagnosed with hypertrophic pyloric stenosis. He is 8% dehydrated with a chloride of 88 mmol/L, potassium 2.9 mmol/L and a metabolic alkalosis. What is the most appropriate immediate next step?",
         "options": [
-          "IV fluid resuscitation and correction of electrolyte and acid-base abnormalities",
           "Immediate Ramstedt pyloromyotomy",
+          "IV fluid resuscitation and correction of electrolyte and acid-base abnormalities",
           "Emergency laparotomy for suspected volvulus",
           "Start oral rehydration and discharge with review",
           "Commence IV omeprazole and observe"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "IV fluid resuscitation and correction of electrolyte and acid-base abnormalities",
         "explanation": "Pyloric stenosis is not an immediate surgical emergency. The dehydration and hypochloraemic, hypokalaemic metabolic alkalosis must be corrected with IV fluids and electrolyte replacement before anaesthesia, because operating on an alkalotic, hypokalaemic infant risks post-operative apnoea and arrhythmia. Ramstedt pyloromyotomy follows once the baby is optimised."
       },
@@ -17231,13 +17291,13 @@
         "type": "mcq",
         "question": "An 8-month-old boy presents with 6 hours of intermittent screaming episodes during which he draws his knees up, becoming pale and floppy in between. He has vomited twice. On examination he is alert with a soft abdomen and a vague sausage-shaped mass in the right upper quadrant. Observations are stable and there is no peritonism. What is the most appropriate first-line investigation?",
         "options": [
-          "Abdominal ultrasound",
           "Air enema under fluoroscopic guidance",
           "Supine and erect abdominal radiographs",
           "CT abdomen with contrast",
+          "Abdominal ultrasound",
           "Diagnostic laparoscopy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Abdominal ultrasound",
         "explanation": "Ultrasound is first-line for suspected intussusception in a stable child: it is quick, radiation-free and highly sensitive, showing the target/donut sign transversely and pseudokidney sign longitudinally. The air enema is used to reduce a confirmed intussusception but is not the initial diagnostic step. AXR is insensitive, and CT/laparoscopy are not first-line."
       },
@@ -17246,13 +17306,13 @@
         "type": "mcq",
         "question": "A 10-month-old girl has ultrasound-confirmed ileocolic intussusception. She is tachycardic and mottled with cool peripheries, and her abdomen is rigid with guarding. What is the most appropriate next step in management?",
         "options": [
-          "Proceed immediately to air enema reduction",
           "Resuscitate and refer urgently for surgery",
+          "Proceed immediately to air enema reduction",
           "Hydrostatic contrast enema reduction",
           "Trial of conservative management with IV fluids and observation",
           "Repeat ultrasound in 6 hours"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Resuscitate and refer urgently for surgery",
         "explanation": "Signs of shock and peritonitis (rigid, guarding abdomen) are contraindications to enema reduction because of the risk of perforation and the presence of likely bowel compromise. The child needs fluid resuscitation and urgent surgical intervention, not fluoroscopic reduction."
       },
@@ -17262,12 +17322,12 @@
         "question": "A 4-year-old boy has a second episode of intussusception within two months. His first episode reduced successfully with an air enema. Given his age and recurrence, which underlying cause is most likely to be responsible?",
         "options": [
           "Hypertrophied Peyer's patches from a viral illness",
-          "Meckel's diverticulum acting as a lead point",
           "Cow's milk protein allergy",
+          "Meckel's diverticulum acting as a lead point",
           "Hirschsprung's disease",
           "Malrotation with volvulus"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Meckel's diverticulum acting as a lead point",
         "explanation": "Idiopathic intussusception from lymphoid hyperplasia (Peyer's patches) is typical in infants under 2. Outside this age range or with recurrence, a pathological lead point is more likely, and a Meckel's diverticulum is the classic example (others include polyps, HSP and lymphoma)."
       },
@@ -17278,11 +17338,11 @@
         "options": [
           "Abdominal ultrasound",
           "Contrast enema",
-          "Rectal suction biopsy",
           "Anorectal manometry",
-          "Plain abdominal radiograph"
+          "Plain abdominal radiograph",
+          "Rectal suction biopsy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Rectal suction biopsy",
         "explanation": "Rectal suction biopsy is the gold-standard diagnostic test. It demonstrates absence of ganglion cells, hypertrophied nerve fibres and increased acetylcholinesterase staining. Contrast enema and manometry are supportive but not definitive; ultrasound and plain films do not confirm the diagnosis."
       },
@@ -17308,11 +17368,11 @@
         "options": [
           "Simple constipation",
           "Necrotising enterocolitis of prematurity",
-          "Hirschsprung-associated enterocolitis",
           "Intussusception",
+          "Hirschsprung-associated enterocolitis",
           "Pyloric stenosis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Hirschsprung-associated enterocolitis",
         "explanation": "Fever, abdominal distension, explosive/bloody diarrhoea and signs of sepsis in a child with Hirschsprung's indicate Hirschsprung-associated enterocolitis (HAEC), a life-threatening emergency requiring resuscitation, IV antibiotics and rectal decompression. Pyloric stenosis causes non-bilious vomiting without diarrhoea, and intussusception classically gives redcurrant-jelly stool with colicky pain rather than this septic enterocolitic picture."
       },
@@ -17321,13 +17381,13 @@
         "type": "mcq",
         "question": "A 2-year-old boy presents with several episodes of painless, dark-red (maroon) rectal bleeding over the past day. He has no abdominal pain and is apyrexial. Abdominal examination is unremarkable. He is haemodynamically stable after initial assessment. Which investigation is most likely to establish the diagnosis?",
         "options": [
-          "Abdominal ultrasound",
           "Technetium-99m pertechnetate scan",
+          "Abdominal ultrasound",
           "CT abdomen with contrast",
           "Upper GI endoscopy",
           "Colonoscopy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Technetium-99m pertechnetate scan",
         "explanation": "Painless PR bleeding in a young child is the classic presentation of a bleeding Meckel's diverticulum. The Tc-99m pertechnetate (\"Meckel's\") scan is the investigation of choice: pertechnetate is taken up by the ectopic gastric mucosa within the diverticulum, producing a focal RLQ hot spot. Ultrasound and endoscopy are poorly suited to detecting a bleeding Meckel's, and CT carries radiation without being the first-line diagnostic here."
       },
@@ -17337,12 +17397,12 @@
         "question": "A Tc-99m pertechnetate scan is performed for suspected Meckel's diverticulum. Which tissue property explains why an ectopic-mucosa-containing Meckel's becomes visible on the scan?",
         "options": [
           "Pancreatic exocrine tissue concentrates the tracer",
-          "Ectopic gastric mucosa takes up pertechnetate",
           "Inflamed diverticular serosa binds the isotope",
+          "Ectopic gastric mucosa takes up pertechnetate",
           "Ileal lymphoid tissue avidly retains the tracer",
           "Colonic mucosa secretes the radiotracer"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Ectopic gastric mucosa takes up pertechnetate",
         "explanation": "Tc-99m pertechnetate is concentrated by the mucin-secreting cells of gastric mucosa. A symptomatic Meckel's frequently contains ectopic gastric mucosa, which both takes up the tracer (making it visible as a focal hot spot appearing with the stomach) and secretes acid causing the ileal ulceration and bleeding. Pancreatic tissue may also be present but is not what generates the classic scan finding."
       },
@@ -17352,12 +17412,12 @@
         "question": "A 3-year-old girl has a strongly suggestive history of recurrent painless PR bleeding, but her Tc-99m pertechnetate scan is reported as negative. She remains stable. What is the most appropriate next step?",
         "options": [
           "Reassure and discharge as a Meckel's is excluded",
-          "Continue to consider a Meckel's; a negative scan does not exclude one lacking gastric mucosa, so pursue surgical exploration or further imaging if suspicion persists",
           "Immediately give a blood transfusion",
           "Start long-term proton pump inhibitor therapy",
-          "Repeat the identical scan weekly for one month"
+          "Repeat the identical scan weekly for one month",
+          "Continue to consider a Meckel's; a negative scan does not exclude one lacking gastric mucosa, so pursue surgical exploration or further imaging if suspicion persists"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Continue to consider a Meckel's; a negative scan does not exclude one lacking gastric mucosa, so pursue surgical exploration or further imaging if suspicion persists",
         "explanation": "A negative Meckel's scan does not exclude a diverticulum that lacks ectopic gastric mucosa. With a strongly suggestive clinical picture, further evaluation — such as diagnostic laparoscopy or additional imaging — should be pursued rather than discharging the child. Pre-medication with ranitidine or pentagastrin can improve sensitivity if the scan is repeated. Transfusion is only indicated for significant blood loss/haemodynamic compromise."
       },
@@ -17382,12 +17442,12 @@
         "question": "An upper GI contrast study is performed on an infant with bilious vomiting. Which finding is the normal, reassuring position of the duodenojejunal (DJ) flexure?",
         "options": [
           "Right of the midline, below the level of the duodenal bulb",
-          "To the left of the midline, at the level of the duodenal bulb/pylorus",
           "In the midline, low in the pelvis",
           "Overlying the right iliac fossa",
+          "To the left of the midline, at the level of the duodenal bulb/pylorus",
           "To the left of the midline at the level of the umbilicus"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "To the left of the midline, at the level of the duodenal bulb/pylorus",
         "explanation": "Normally the DJ flexure (ligament of Treitz) lies to the LEFT of the midline at the level of the duodenal bulb/pylorus. A DJ flexure that is right of midline or abnormally low suggests malrotation; a 'corkscrew'/Z-shaped spiralling duodenum or a duodenal 'beak' indicates volvulus."
       },
@@ -17405,6 +17465,36 @@
         "correctIndex": 0,
         "answer": "Ladd's procedure",
         "explanation": "The definitive treatment is Ladd's procedure: detorsion (untwisting) of the volvulus, division of Ladd's bands, broadening of the mesenteric base and appendicectomy. Nissen fundoplication treats reflux; Ramstedt's pyloromyotomy treats pyloric stenosis; Duhamel is for Hirschsprung's disease; Kasai is for biliary atresia."
+      },
+      {
+        "id": "paed_nec_q01",
+        "type": "mcq",
+        "question": "A premature formula-fed neonate has abdominal distension and bloody stool; the AXR shows intramural gas (pneumatosis intestinalis). What is the initial management?",
+        "options": [
+          "Continue feeds and observe",
+          "Immediate laparotomy regardless of clinical state",
+          "Stop feeds, NG decompression, IV antibiotics and fluids, with serial films",
+          "Oral rehydration and discharge",
+          "A contrast enema"
+        ],
+        "correctIndex": 2,
+        "answer": "Stop feeds, NG decompression, IV antibiotics and fluids, with serial films",
+        "explanation": "Pneumatosis intestinalis is diagnostic of NEC. Initial management is NBM, NG decompression, IV broad-spectrum antibiotics and fluids/TPN with serial AXR; laparotomy is reserved for perforation (free air/Rigler’s) or clinical deterioration."
+      },
+      {
+        "id": "paed_biliary_q01",
+        "type": "mcq",
+        "question": "A 5-week-old is still jaundiced with pale stools and dark urine; the split bilirubin shows a raised conjugated fraction. What is the priority?",
+        "options": [
+          "Reassurance — this is breast-milk jaundice",
+          "Intensified phototherapy",
+          "A trial of formula feeds",
+          "Repeat bilirubin in one month",
+          "Urgent work-up for biliary atresia and Kasai portoenterostomy by ~8 weeks"
+        ],
+        "correctIndex": 4,
+        "answer": "Urgent work-up for biliary atresia and Kasai portoenterostomy by ~8 weeks",
+        "explanation": "Conjugated (direct) hyperbilirubinaemia with pale stools/dark urine beyond 2 weeks is biliary atresia until proven otherwise. It needs urgent work-up (USS, HIDA) and Kasai portoenterostomy ideally by ~8 weeks, as outcomes fall after 60–90 days. Breast-milk jaundice is unconjugated."
       }
     ],
     "investigations__PAEDIATRICS__Other Paediatric": [
