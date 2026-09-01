@@ -6194,6 +6194,21 @@
     "id": "coag_fc_25",
     "front": "What is the management of suspected HIT?",
     "back": "<b>Stop all heparin</b> (including flushes and LMWH) and start a <b>non-heparin anticoagulant</b> (argatroban, danaparoid, fondaparinux). <b>Do NOT transfuse platelets</b>, and <b>do NOT start warfarin until platelets recover</b> — early warfarin risks <b>venous limb gangrene</b>."
+   },
+   {
+    "id": "coag_fc_26",
+    "front": "A prolonged APTT: how does the mixing study (1:1 with normal plasma) direct the next test?",
+    "back": "<b>Corrects</b> = <b>factor deficiency</b> → send <b>factor VIII/IX assays</b> (haemophilia A/B) and <b>vWF studies</b> (antigen, activity/ristocetin cofactor, factor VIII) for von Willebrand disease. <b>Does not correct</b> = an <b>inhibitor</b> → <b>antiphospholipid screen</b> (lupus anticoagulant) or a <b>Bethesda assay</b> for a factor VIII inhibitor (acquired haemophilia)."
+   },
+   {
+    "id": "coag_fc_27",
+    "front": "A prolonged APTT that does NOT correct on mixing, in a patient with thrombosis or recurrent miscarriage — diagnosis and how to confirm?",
+    "back": "<b>Antiphospholipid syndrome</b> — the lupus anticoagulant paradox (prolongs APTT in vitro, causes thrombosis in vivo). Confirm with <b>lupus anticoagulant (dRVVT), anticardiolipin and anti-β2-glycoprotein-I antibodies, repeated ≥12 weeks apart</b>; persistent positivity + a clinical event = APS → anticoagulate."
+   },
+   {
+    "id": "coag_fc_28",
+    "front": "When should a thrombophilia screen NOT be sent?",
+    "back": "<b>Not during the acute clot and not while on anticoagulant</b> — heparin, warfarin and DOACs all distort the assays. Defer to a steady state (per haematology) and test only if it will change management. Screen: factor V Leiden, prothrombin G20210A, protein C/S, antithrombin + antiphospholipid antibodies."
    }
   ],
   "investigations__HAEMATOLOGY__Inflammation & Marrow": [
@@ -21104,12 +21119,12 @@
     "question": "A 19-year-old man with recurrent haemarthroses has a prolonged APTT with a normal PT, normal platelets and normal fibrinogen. What is the most likely diagnosis?",
     "options": [
      "Disseminated intravascular coagulation",
-     "Haemophilia A",
      "Warfarin therapy",
      "Vitamin K deficiency",
+     "Haemophilia A",
      "Liver failure"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Haemophilia A",
     "explanation": "An isolated prolonged APTT (normal PT) with a bleeding history points to an intrinsic-pathway factor deficiency — factor VIII (haemophilia A) or IX (haemophilia B). DIC, vitamin K deficiency, warfarin and liver failure would also prolong the PT (and often derange platelets/fibrinogen)."
    },
@@ -21118,13 +21133,13 @@
     "type": "mcq",
     "question": "A patient has a prolonged APTT that does NOT correct when mixed 1:1 with normal plasma. What does this indicate?",
     "options": [
+     "A circulating inhibitor (e.g. lupus anticoagulant)",
      "Factor VIII deficiency",
      "Von Willebrand disease",
-     "A circulating inhibitor (e.g. lupus anticoagulant)",
      "Vitamin K deficiency",
      "Warfarin effect"
     ],
-    "correctIndex": 2,
+    "correctIndex": 0,
     "answer": "A circulating inhibitor (e.g. lupus anticoagulant)",
     "explanation": "Correction on mixing = a factor deficiency (replaced by normal plasma). Failure to correct = an inhibitor (lupus anticoagulant or a specific factor inhibitor), which also acts on the added normal factors."
    },
@@ -21135,11 +21150,11 @@
     "options": [
      "Immune thrombocytopenia",
      "Haemophilia B",
-     "Lupus anticoagulant",
      "Disseminated intravascular coagulation (DIC)",
+     "Lupus anticoagulant",
      "Vitamin K deficiency"
     ],
-    "correctIndex": 3,
+    "correctIndex": 2,
     "answer": "Disseminated intravascular coagulation (DIC)",
     "explanation": "Prolonged PT and APTT with consumption of platelets and fibrinogen plus a high D-dimer is the classic consumptive coagulopathy of DIC — treat the underlying cause with supportive blood products."
    },
@@ -21150,11 +21165,11 @@
     "options": [
      "The normal APTT reliably excludes a significant drug level",
      "The INR should be used to monitor rivaroxaban",
-     "DOAC effect is best assessed with a drug-specific anti-Xa assay",
      "The thrombin time is the monitoring test of choice",
-     "No laboratory test can measure any DOAC effect"
+     "No laboratory test can measure any DOAC effect",
+     "DOAC effect is best assessed with a drug-specific anti-Xa assay"
     ],
-    "correctIndex": 2,
+    "correctIndex": 4,
     "answer": "DOAC effect is best assessed with a drug-specific anti-Xa assay",
     "explanation": "DOACs prolong the PT/APTT only variably, so a normal screen does not exclude a clinically important level. Apixaban/rivaroxaban are measured with a calibrated anti-Xa assay (dabigatran with a dilute thrombin time/ecarin assay)."
    },
@@ -21164,12 +21179,12 @@
     "question": "Which factor's short half-life best explains why the PT/INR rises first with warfarin or early vitamin K deficiency?",
     "options": [
      "Factor II",
-     "Factor V",
      "Factor VII",
+     "Factor V",
      "Factor IX",
      "Factor X"
     ],
-    "correctIndex": 2,
+    "correctIndex": 1,
     "answer": "Factor VII",
     "explanation": "Factor VII (extrinsic pathway) has the shortest half-life of the coagulation factors, so its activity falls first — prolonging the PT/INR before the APTT is affected."
    },
@@ -21179,12 +21194,12 @@
     "question": "A 30-year-old with pleuritic chest pain has a LOW Wells score for PE and a NEGATIVE D-dimer. What is the most appropriate next step?",
     "options": [
      "Arrange a CTPA",
-     "VTE is excluded — no imaging needed",
      "Start treatment-dose anticoagulation",
+     "VTE is excluded — no imaging needed",
      "Repeat the D-dimer in 24 hours",
      "Arrange a leg Doppler ultrasound"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "VTE is excluded — no imaging needed",
     "explanation": "With a low (or intermediate) pre-test probability, a negative D-dimer has a high negative predictive value and effectively rules out VTE — imaging is not required."
    },
@@ -21194,12 +21209,12 @@
     "question": "A patient has a HIGH clinical probability of PE. The D-dimer returns normal. What should you do?",
     "options": [
      "Reassure and discharge — PE is excluded",
-     "Proceed to imaging (e.g. CTPA) regardless of the D-dimer",
      "Repeat the D-dimer with an age-adjusted cutoff",
      "Start an oral anticoagulant and review",
-     "Rely on the negative D-dimer to withhold imaging"
+     "Delay imaging and repeat the D-dimer in 24 hours",
+     "Proceed to imaging (e.g. CTPA) regardless of the D-dimer"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Proceed to imaging (e.g. CTPA) regardless of the D-dimer",
     "explanation": "In a high pre-test probability patient the D-dimer must NOT be used to rule out VTE — a normal result cannot exclude it. Image directly."
    },
@@ -21225,11 +21240,11 @@
     "options": [
      "A raised D-dimer confirms venous thromboembolism",
      "It is a rule-in test for PE",
-     "It is a rule-out test — a positive result only prompts further imaging",
      "A normal D-dimer excludes VTE regardless of pre-test probability",
+     "It is a rule-out test — a positive result only prompts further imaging",
      "It is specific to venous thromboembolism"
     ],
-    "correctIndex": 2,
+    "correctIndex": 3,
     "answer": "It is a rule-out test — a positive result only prompts further imaging",
     "explanation": "D-dimer is non-specific (raised by infection, surgery, pregnancy, malignancy, DIC, etc.), so a positive result never confirms VTE — it only mandates imaging. Its power is the negative result in a low/intermediate-probability patient."
    },
@@ -21238,13 +21253,13 @@
     "type": "mcq",
     "question": "A patient on unfractionated heparin for 7 days has a platelet fall from 250 to 90 ×10⁹/L and a new DVT. What is the most appropriate immediate management?",
     "options": [
-     "Continue heparin and transfuse platelets",
      "Stop all heparin and start a non-heparin anticoagulant (e.g. argatroban)",
+     "Continue heparin and transfuse platelets",
      "Stop heparin and start warfarin",
      "Switch from unfractionated heparin to LMWH",
      "Give a platelet transfusion and observe"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Stop all heparin and start a non-heparin anticoagulant (e.g. argatroban)",
     "explanation": "This is HIT (thrombocytopenia + new thrombosis, day 5–10). Stop ALL heparin (including LMWH and flushes) and anticoagulate with a non-heparin agent (argatroban, danaparoid or fondaparinux). Switching to LMWH is inadequate — cross-reactivity occurs."
    },
@@ -21254,12 +21269,12 @@
     "question": "In confirmed heparin-induced thrombocytopenia, which action is contraindicated?",
     "options": [
      "Starting argatroban",
-     "Starting warfarin while the platelet count is still low",
      "Sending anti-PF4 antibodies",
      "Stopping heparin flushes",
-     "Starting danaparoid"
+     "Starting danaparoid",
+     "Starting warfarin while the platelet count is still low"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Starting warfarin while the platelet count is still low",
     "explanation": "Warfarin must be withheld until the platelet count recovers — starting it early, in the prothrombotic state of HIT, can precipitate venous limb gangrene / skin necrosis. Platelet transfusions are also avoided."
    },
@@ -21284,14 +21299,44 @@
     "question": "A patient with an intermediate 4T score has a positive anti-PF4 antibody immunoassay. What is the appropriate next step to confirm HIT?",
     "options": [
      "The immunoassay alone confirms HIT",
-     "A functional assay (e.g. serotonin release assay)",
      "Repeat the platelet count in 1 week",
      "A bone marrow biopsy",
+     "A functional assay (e.g. serotonin release assay)",
      "No further testing — start warfarin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "A functional assay (e.g. serotonin release assay)",
     "explanation": "The anti-PF4 immunoassay is sensitive but not specific (many positives are not clinically significant). A functional assay (serotonin release assay / HIPA) confirms pathogenic, platelet-activating antibodies."
+   },
+   {
+    "id": "coag_q14",
+    "type": "mcq",
+    "question": "A young man with recurrent haemarthroses has an isolated prolonged APTT that fully corrects on a 1:1 mix with normal plasma. What is the most appropriate next test?",
+    "options": [
+     "Factor VIII and IX assays",
+     "Lupus anticoagulant (dRVVT)",
+     "Bethesda assay for a factor inhibitor",
+     "Reptilase time",
+     "D-dimer"
+    ],
+    "correctIndex": 0,
+    "answer": "Factor VIII and IX assays",
+    "explanation": "Correction on mixing indicates a factor deficiency rather than an inhibitor; an isolated prolonged APTT with haemarthroses points to haemophilia, so factor VIII/IX assays are the next step (with vWF studies if factor VIII is low with mucocutaneous bleeding)."
+   },
+   {
+    "id": "coag_q15",
+    "type": "mcq",
+    "question": "A woman with two unprovoked DVTs and recurrent miscarriage has a prolonged APTT that does NOT correct on mixing. Which result confirms the diagnosis?",
+    "options": [
+     "A single positive anticardiolipin today",
+     "A low factor VIII level",
+     "Antiphospholipid antibodies (lupus anticoagulant, anticardiolipin, anti-β2GPI) persistently positive ≥12 weeks apart",
+     "A prolonged reptilase time",
+     "Low protein C activity measured during the acute clot"
+    ],
+    "correctIndex": 2,
+    "answer": "Antiphospholipid antibodies (lupus anticoagulant, anticardiolipin, anti-β2GPI) persistently positive ≥12 weeks apart",
+    "explanation": "The picture is antiphospholipid syndrome. Diagnosis requires PERSISTENT antiphospholipid positivity confirmed on repeat testing ≥12 weeks apart; a single test, or measuring protein C during an acute clot or on anticoagulant, is misleading."
    }
   ],
   "investigations__HAEMATOLOGY__Inflammation & Marrow": [
