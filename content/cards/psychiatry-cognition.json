@@ -257,6 +257,16 @@
         "id": "psy_cog_fc_05",
         "front": "What must be excluded before diagnosing dementia from a low screen score?",
         "back": "Delirium (assess attention, e.g. 4AT) and reversible causes: B12/folate, thyroid, calcium, infection, depression (pseudodementia) and medication. Screens are not diagnostic and are confounded by education, language and sensory impairment."
+      },
+      {
+        "id": "psy_cog_bloods_fc_01",
+        "front": "What reversible-cause work-up follows a positive cognitive screen?",
+        "back": "Bloods: <b>FBC, U&E, glucose/HbA1c, calcium, LFTs, TFTs, B12/folate</b> (± HIV/syphilis if young-onset/atypical); <b>CT/MRI head</b> to exclude subdural, tumour or NPH; then refer to a <b>memory clinic</b>."
+      },
+      {
+        "id": "psy_cog_triad_fc_01",
+        "front": "Distinguish delirium, dementia and depressive pseudodementia.",
+        "back": "<b>Delirium</b>: acute onset, fluctuating, inattentive (screen 4AT, treat first). <b>Dementia</b>: chronic, progressive. <b>Depressive pseudodementia</b>: low mood, poor effort/\"don’t know\" answers. Always exclude delirium before diagnosing dementia."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Capacity Assessment (MCA 2-Stage)": [
@@ -284,6 +294,16 @@
         "id": "psy_mca_fc_05",
         "front": "What should you check for once someone is found to lack capacity for a decision?",
         "back": "A Lasting Power of Attorney (health & welfare), a valid and applicable Advance Decision to Refuse Treatment (ADRT), and whether an IMCA is needed; then act in the person's best interests using the least restrictive option."
+      },
+      {
+        "id": "psy_mca_emergency_fc_01",
+        "front": "An incapacitated patient needs urgent treatment and there is no time to assess capacity or find an ADRT/LPA — what do you do?",
+        "back": "Treat in <b>best interests under the doctrine of necessity</b>, giving only what cannot safely wait, and reassess when possible. Care does not halt while capacity is documented."
+      },
+      {
+        "id": "psy_mca_bestinterest_fc_01",
+        "front": "How is a best-interests decision made for someone lacking capacity?",
+        "back": "Check for a valid <b>ADRT</b>, then a health-and-welfare <b>LPA or court-appointed deputy</b>; otherwise the clinician decides, <b>consulting family/carers</b> (or an <b>IMCA</b> if unbefriended + serious decision), choosing the <b>least-restrictive</b> option and <b>documenting</b>."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Mental Health Act Sections (2 / 3 / 4 / 5 / 136)": [
@@ -738,13 +758,13 @@
         "type": "mcq",
         "question": "An 82-year-old inpatient scores 5/10 on the AMTS. What is the most appropriate interpretation?",
         "options": [
-          "The score suggests cognitive impairment and warrants further assessment",
           "The result confirms a diagnosis of Alzheimer's disease",
           "The score is normal for age and needs no action",
+          "The score suggests cognitive impairment and warrants further assessment",
           "The result proves the patient has capacity for all decisions",
           "The score reliably distinguishes delirium from dementia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "The score suggests cognitive impairment and warrants further assessment",
         "explanation": "An AMTS of &le;6/10 flags likely cognitive impairment and triggers formal assessment, collateral history, bloods and imaging. It is a screening tool, so it neither confirms a specific diagnosis nor distinguishes delirium from dementia."
       },
@@ -753,13 +773,13 @@
         "type": "mcq",
         "question": "Which cognitive screen is most sensitive for detecting mild cognitive impairment and executive/visuospatial deficits?",
         "options": [
-          "MoCA",
           "AMTS",
           "MMSE",
           "6-CIT",
-          "GCS"
+          "GCS",
+          "MoCA"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "MoCA",
         "explanation": "The MoCA includes trail-making, cube and clock drawing and abstraction tasks, giving it greater sensitivity for mild cognitive impairment and executive/visuospatial domains. The MMSE is comparatively weak in these areas and for mild cases."
       },
@@ -768,15 +788,30 @@
         "type": "mcq",
         "question": "A patient with acute confusion after a hip fracture scores poorly on the MMSE. What should be done before diagnosing dementia?",
         "options": [
-          "Exclude and treat delirium and reversible causes first",
           "Immediately start a cholinesterase inhibitor",
+          "Exclude and treat delirium and reversible causes first",
           "Record dementia as the confirmed diagnosis",
           "Repeat the MMSE hourly until it improves",
           "Refer directly for end-of-life care planning"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Exclude and treat delirium and reversible causes first",
         "explanation": "A screen cannot separate delirium from dementia, so acute delirium must be assessed (e.g. attention/4AT) and treated first. Reversible causes such as B12/folate, thyroid, calcium, infection, depression and medication must also be excluded before diagnosing dementia."
+      },
+      {
+        "id": "psy_cog_next_q01",
+        "type": "mcq",
+        "question": "An 80-year-old scores below threshold on a cognitive screen with no acute confusion. What is the most appropriate next step?",
+        "options": [
+          "Diagnose Alzheimer’s disease and start a cholinesterase inhibitor",
+          "Reassure — screens are unreliable",
+          "Repeat the same screen in 2 years",
+          "Reversible-cause bloods and CT/MRI head, then refer to a memory clinic",
+          "Start an antipsychotic"
+        ],
+        "correctIndex": 3,
+        "answer": "Reversible-cause bloods and CT/MRI head, then refer to a memory clinic",
+        "explanation": "A positive screen is not a diagnosis. Exclude reversible causes (bloods: TFTs, B12/folate, calcium, glucose, U&E, LFTs) and structural mimics (CT/MRI head — subdural, tumour, NPH), then refer to a memory clinic for formal assessment. First exclude delirium if onset is acute/fluctuating."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Capacity Assessment (MCA 2-Stage)": [
@@ -786,12 +821,12 @@
         "question": "A 78-year-old man with early dementia insists on going home despite clear risks. He understands and retains the information, weighs it, and clearly communicates his choice. Under the MCA 2005, how should this be interpreted?",
         "options": [
           "He lacks capacity because he has a diagnosis of dementia",
-          "He has capacity for this decision; an unwise choice does not equal incapacity",
           "He can be detained in his best interests without further assessment",
+          "He has capacity for this decision; an unwise choice does not equal incapacity",
           "He automatically lacks capacity for all decisions",
           "Capacity cannot be assessed while dementia is present"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "He has capacity for this decision; an unwise choice does not equal incapacity",
         "explanation": "He satisfies all four functional abilities, so Stage 2 is not met and he retains capacity for this decision. A diagnosis alone never removes capacity, and the third statutory principle confirms an unwise decision does not indicate incapacity."
       },
@@ -801,12 +836,12 @@
         "question": "Which sequence correctly describes the two-stage MCA capacity test?",
         "options": [
           "First assess best interests, then check for an impairment of mind or brain",
-          "First confirm an impairment of mind/brain, then whether the person can Understand, Retain, Use/Weigh or Communicate",
           "First test Gillick competence, then apply the four functional abilities",
           "First obtain an IMCA, then assess understanding only",
-          "First check for a Lasting Power of Attorney, then presume incapacity"
+          "First check for a Lasting Power of Attorney, then presume incapacity",
+          "First confirm an impairment of mind/brain, then whether the person can Understand, Retain, Use/Weigh or Communicate"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "First confirm an impairment of mind/brain, then whether the person can Understand, Retain, Use/Weigh or Communicate",
         "explanation": "Stage 1 is the diagnostic test for an impairment or disturbance of the mind or brain. Stage 2 is the functional test asking whether, because of that impairment, the person is unable to understand, retain, use/weigh, or communicate the decision."
       },
@@ -824,6 +859,21 @@
         "correctIndex": 1,
         "answer": "Respect the ADRT and withhold the transfusion",
         "explanation": "A valid and applicable ADRT is legally binding and must be respected even when the refusal risks death. It represents the capacitous wishes of the person and takes precedence over a best-interests transfusion."
+      },
+      {
+        "id": "psy_mca_emergency_q01",
+        "type": "mcq",
+        "question": "An unconscious patient in resus needs an immediate life-saving procedure; no ADRT, LPA or family is available. What is the correct action?",
+        "options": [
+          "Wait until a formal capacity assessment is documented",
+          "Withhold treatment until a next of kin consents",
+          "Apply for a court order first",
+          "Provide the necessary treatment in best interests under the doctrine of necessity",
+          "Refer to psychiatry for a capacity opinion"
+        ],
+        "correctIndex": 3,
+        "answer": "Provide the necessary treatment in best interests under the doctrine of necessity",
+        "explanation": "When a patient lacks capacity and treatment cannot safely wait, the doctrine of necessity permits acting in their best interests, giving only what is immediately required. A valid, applicable ADRT would override this, but none is available here."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__Mental Health Act Sections (2 / 3 / 4 / 5 / 136)": [
