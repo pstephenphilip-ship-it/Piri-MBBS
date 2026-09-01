@@ -57,6 +57,16 @@
         "id": "ev_pv_fc_05",
         "front": "Why does screening a low-prevalence population produce so many false positives?",
         "back": "With few truly diseased people, even a small false-positive rate applied to the large well population outnumbers the true positives, so PPV falls and most positives are false alarms."
+      },
+      {
+        "id": "ppv_confirm_fc_01",
+        "front": "A screening test is positive in a low-prevalence population — what should you do, and what do you tell the patient?",
+        "back": "Because PPV is low, treat it as <b>provisional</b> and confirm with a <b>definitive diagnostic test</b> before diagnosis/treatment. Counsel that a positive screen is <b>not a diagnosis</b> and most positives in this setting are false."
+      },
+      {
+        "id": "npv_apply_fc_01",
+        "front": "How is a negative test used in a low-prevalence setting?",
+        "back": "NPV is very high, so a negative result <b>reliably excludes</b> disease and permits reassurance/discharge without further testing."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Likelihood Ratios (LR+/LR−, SpPIn / SnNOut)": [
@@ -84,6 +94,21 @@
         "id": "ev_lr_fc_05",
         "front": "What do SpPIn and SnNOut mean?",
         "back": "SpPIn: a Specific test with a Positive result rules the disease IN (high LR+). SnNOut: a Sensitive test with a Negative result rules the disease OUT (low LR−)."
+      },
+      {
+        "id": "lr_ladder_fc_01",
+        "front": "Give the full likelihood-ratio interpretation ladder.",
+        "back": "<b>LR+</b>: >10 large, 5–10 moderate, 2–5 small (rule-in). <b>LR−</b>: <0.1 large, 0.1–0.2 moderate, 0.2–0.5 small (rule-out). <b>LR ~0.5–2 = negligible</b> shift; LR = 1 useless."
+      },
+      {
+        "id": "lr_mcgee_fc_01",
+        "front": "What is the bedside (nomogram-free) rule for how much an LR shifts probability?",
+        "back": "McGee’s rule: LRs of <b>2/5/10</b> add roughly <b>+15/+30/+45</b> percentage points; LRs of <b>0.5/0.2/0.1</b> subtract ~15/30/45 points (in the mid-probability range)."
+      },
+      {
+        "id": "lr_multilevel_fc_01",
+        "front": "Why are multi-level (stratum-specific) likelihood ratios more useful than a single cut-off?",
+        "back": "Each result band has its own LR, so a strongly positive result shifts probability far more than a weakly positive one. Dichotomising a graded test (e.g. D-dimer level, troponin band) discards this information — an advantage LR has over sens/spec/PPV."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Screening Principles (Wilson–Jungner)": [
@@ -210,13 +235,13 @@
         "type": "mcq",
         "question": "A test with fixed sensitivity and specificity is used first in a symptomatic hospital clinic and later in a general-public screening programme. Compared with the clinic, what happens to the PPV in the screening setting?",
         "options": [
-          "PPV falls because prevalence is lower",
           "PPV rises because prevalence is lower",
           "PPV is unchanged because it is intrinsic to the test",
+          "PPV falls because prevalence is lower",
           "PPV falls because sensitivity decreases",
           "PPV rises because specificity increases"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "PPV falls because prevalence is lower",
         "explanation": "PPV depends on pre-test probability, which is lower in a screening population. With fewer true cases, false positives dominate the positive results, so PPV falls even though the test itself is unchanged."
       },
@@ -225,13 +250,13 @@
         "type": "mcq",
         "question": "A test has sensitivity 99% and specificity 95%. Applied to 100,000 people with a disease prevalence of 0.1%, roughly what is the PPV?",
         "options": [
-          "About 2%",
           "About 50%",
           "About 95%",
           "About 99%",
-          "About 0.1%"
+          "About 0.1%",
+          "About 2%"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "About 2%",
         "explanation": "Of 100 diseased people, ~99 are true positives; of 99,900 well people, ~4,995 are false positives. PPV = 99/(99+4995), which is roughly 2%, so most positives are false."
       },
@@ -240,15 +265,30 @@
         "type": "mcq",
         "question": "Which statement about predictive values is correct?",
         "options": [
-          "Sensitivity and specificity are independent of prevalence, whereas PPV and NPV are not",
           "PPV and NPV are independent of prevalence, whereas sensitivity and specificity are not",
+          "Sensitivity and specificity are independent of prevalence, whereas PPV and NPV are not",
           "All four measures rise as prevalence rises",
           "PPV equals TN/(TN+FN)",
           "NPV increases as prevalence increases"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Sensitivity and specificity are independent of prevalence, whereas PPV and NPV are not",
         "explanation": "Sensitivity and specificity are intrinsic properties measured down the disease columns and do not change with prevalence. PPV and NPV combine test accuracy with pre-test probability, so they shift as prevalence changes."
+      },
+      {
+        "id": "npv_apply_q01",
+        "type": "mcq",
+        "question": "A widely-used screening test has 99% sensitivity and 98% specificity and is applied to a low-prevalence population. A patient tests NEGATIVE. What is the best interpretation?",
+        "options": [
+          "The negative result is unreliable because prevalence is low",
+          "A confirmatory test is mandatory before excluding disease",
+          "The result cannot be interpreted without the likelihood ratio",
+          "The high NPV means disease is reliably excluded — reassure",
+          "Specificity determines the negative predictive value directly"
+        ],
+        "correctIndex": 3,
+        "answer": "The high NPV means disease is reliably excluded — reassure",
+        "explanation": "In a low-prevalence population NPV is very high, so a negative result reliably excludes disease and supports reassurance/discharge. (By contrast a POSITIVE result would have low PPV and need confirmation.)"
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Likelihood Ratios (LR+/LR−, SpPIn / SnNOut)": [
@@ -259,11 +299,11 @@
         "options": [
           "0.95",
           "1.05",
-          "9.0",
           "18",
+          "9.0",
           "19"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "18",
         "explanation": "LR+ = sensitivity / (1 − specificity) = 0.90 / (1 − 0.95) = 0.90 / 0.05 = 18. A value of 18 exceeds 10, so a positive result is strong evidence to rule the disease in."
       },
@@ -274,11 +314,11 @@
         "options": [
           "0.10",
           "0.25",
-          "0.40",
           "0.63",
-          "1.60"
+          "1.60",
+          "0.40"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "0.40",
         "explanation": "LR− = (1 − sensitivity) / specificity = (1 − 0.80) / 0.50 = 0.20 / 0.50 = 0.40. As this is well above 0.1, a negative result only modestly lowers the odds of disease."
       },
@@ -288,14 +328,29 @@
         "question": "A patient has a pre-test probability of disease of 20%. A test with an LR+ of 6 returns positive. What is the approximate post-test probability?",
         "options": [
           "20%",
-          "40%",
           "60%",
+          "40%",
           "80%",
           "95%"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "60%",
         "explanation": "Pre-test odds = 0.20 / 0.80 = 0.25; post-test odds = 0.25 × 6 = 1.5; post-test probability = 1.5 / (1 + 1.5) = 0.6, i.e. 60%. This demonstrates converting probability to odds, applying the LR, and converting back."
+      },
+      {
+        "id": "lr_ladder_q01",
+        "type": "mcq",
+        "question": "A diagnostic test result carries a positive likelihood ratio of 3. How should this be interpreted?",
+        "options": [
+          "A large, near-diagnostic increase in probability",
+          "No change in probability",
+          "A strong rule-out result",
+          "A small increase in probability that often does not cross a decision threshold",
+          "The test is useless"
+        ],
+        "correctIndex": 3,
+        "answer": "A small increase in probability that often does not cross a decision threshold",
+        "explanation": "An LR+ of 2–5 produces only a small shift in probability (roughly +15–20 points mid-range) and frequently does not cross a clinical decision threshold — LR+ needs to be >10 for a large, near-diagnostic rule-in."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Screening Principles (Wilson–Jungner)": [
