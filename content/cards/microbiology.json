@@ -169,7 +169,7 @@
 {
 "id": "gbs_fc_03",
 "front": "How does the UK approach GBS prevention, and what is the key intervention?",
-"back": "Risk-factor-based (RCOG), NOT universal antenatal screening. The intervention is intrapartum antibiotic prophylaxis (IAP): IV benzylpenicillin during labour, or clindamycin if penicillin-allergic. Antenatal treatment of carriage is not used as it does not prevent recolonisation by delivery."
+"back": "Risk-factor-based (RCOG), NOT universal antenatal screening. The intervention is intrapartum antibiotic prophylaxis (IAP): IV benzylpenicillin during labour, or, if penicillin-allergic, a cephalosporin (non-severe allergy) or vancomycin (high anaphylaxis risk) per RCOG. Antenatal treatment of carriage is not used as it does not prevent recolonisation by delivery."
 },
 {
 "id": "gbs_fc_04",
@@ -180,6 +180,16 @@
 "id": "gbs_fc_05",
 "front": "How does early-onset neonatal GBS disease present, and how is a septic-appearing neonate managed?",
 "back": "First week of life: respiratory distress, temperature instability, poor feeding/lethargy; can progress rapidly to sepsis and meningitis. Manage a septic-appearing neonate as early-onset GBS until proven otherwise &mdash; take cultures and start empirical IV antibiotics immediately."
+},
+{
+"id": "genital_fc_01",
+"front": "What is the testing strategy for suspected gonorrhoea/chlamydia, and why still culture gonorrhoea?",
+"back": "<b>NAAT</b> first-line to diagnose both (self-taken vulvovaginal swab / first-void urine ± rectal/pharyngeal). For <b>gonorrhoea</b>, also take a <b>charcoal-swab culture</b> before treatment to get <b>antibiotic sensitivities</b> (resistance — never treat GC blind)."
+},
+{
+"id": "mrsa_fc_01",
+"front": "What is an MRSA screen and what follows a positive result?",
+"back": "A <b>nasal ± groin/perineal swab</b> on admission/pre-op detecting <b>carriage</b> (colonisation, not infection). Positive carriers get <b>decolonisation</b> (nasal mupirocin + chlorhexidine body wash)."
 }
 ],
 "investigations__MICROBIOLOGY__Stains & Microscopy": [
@@ -317,6 +327,26 @@
 "id": "csf_fc_06",
 "front": "Before performing an LP in suspected meningitis, what two rules must you follow?",
 "back": "(1) NEVER delay empirical antibiotics (± IV aciclovir for encephalitis) for the LP or imaging. (2) Check for contraindications/raised ICP — CT head first if reduced GCS, focal deficit, seizures or signs of raised ICP, due to coning risk."
+},
+{
+"id": "malaria_fc_01",
+"front": "What do thick and thin Giemsa blood films each tell you in malaria?",
+"back": "<b>Thick film</b> = concentrated, more sensitive → detects/screens for parasites. <b>Thin film</b> = species ID and <b>% parasitaemia</b> (P. falciparum rings, banana-shaped gametocytes)."
+},
+{
+"id": "malaria_fc_02",
+"front": "How many blood films are needed to exclude malaria, and over what period?",
+"back": "<b>Three films over 48–72 hours</b> — a single negative film does NOT exclude malaria (cyclical parasitaemia). A rapid antigen test (RDT) is a useful adjunct."
+},
+{
+"id": "darkfield_fc_01",
+"front": "How is Treponema pallidum seen on microscopy, and why is serology used in practice?",
+"back": "<b>Dark-field</b> microscopy of chancre exudate shows <b>motile corkscrew spirochaetes</b> — but it needs an active lesion and expertise, so <b>serology</b> (treponemal EIA/TPPA + RPR/VDRL titre) is the practical mainstay."
+},
+{
+"id": "wetmount_fc_01",
+"front": "What does a vaginal wet mount show in bacterial vaginosis vs Trichomonas?",
+"back": "<b>Clue cells</b> (epithelial cells with stippled, obscured borders) = <b>BV</b> (pH >4.5, positive whiff test). <b>Motile flagellated trophozoites</b> = <b>Trichomonas vaginalis</b>."
 }
 ],
 "investigations__MICROBIOLOGY__Molecular / PCR": [
@@ -557,12 +587,12 @@
 "question": "A 68-year-old man with a central venous catheter has one of two blood culture sets grow coagulase-negative staphylococci after 3 days (long time-to-positivity). He is clinically well and afebrile. What is the most appropriate interpretation?",
 "options": [
 "Definite catheter-related bloodstream infection requiring immediate line removal",
-"Likely skin contaminant given single positive set and long time-to-positivity",
 "Candidaemia requiring ophthalmology review",
+"Likely skin contaminant given single positive set and long time-to-positivity",
 "Staph aureus bacteraemia requiring echocardiography",
 "Confirmed infective endocarditis"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Likely skin contaminant given single positive set and long time-to-positivity",
 "explanation": "Coagulase-negative staphylococci growing in only 1 of 2 sets with a long time-to-positivity, in a well patient, is the classic picture of a skin contaminant rather than a true pathogen. True infection is more likely when both sets grow the same organism with short time-to-positivity."
 },
@@ -573,11 +603,11 @@
 "options": [
 "Repeat cultures only if the patient deteriorates",
 "Treat with a short oral course and discharge",
-"Search for endocarditis/deep focus, remove lines, and repeat cultures to confirm clearance",
 "Dismiss it as a probable skin contaminant",
-"Stop antibiotics as one positive set is insufficient"
+"Stop antibiotics as one positive set is insufficient",
+"Search for endocarditis/deep focus, remove lines, and repeat cultures to confirm clearance"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Search for endocarditis/deep focus, remove lines, and repeat cultures to confirm clearance",
 "explanation": "Staph aureus bacteraemia is never ignored: it mandates a search for a deep focus or endocarditis (echocardiography), removal of any lines, and repeat cultures to document clearance. Staph aureus is almost never a contaminant."
 },
@@ -603,11 +633,11 @@
 "options": [
 "No antibiotics as she is asymptomatic",
 "Repeat the MSU in 4 weeks and treat only if still positive",
-"Treat with an appropriate antibiotic now",
 "Reassure and treat only if she develops dysuria",
+"Treat with an appropriate antibiotic now",
 "Send early-morning urines for AFB"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Treat with an appropriate antibiotic now",
 "explanation": "Asymptomatic bacteriuria is normally not treated, but pregnancy is a key exception: untreated bacteriuria increases the risk of pyelonephritis and preterm birth, so it should be treated with a pregnancy-safe antibiotic guided by sensitivities."
 },
@@ -616,13 +646,13 @@
 "type": "mcq",
 "question": "A 30-year-old man has persistent dysuria and frequency. Urine microscopy shows marked pyuria but routine culture is repeatedly negative. Which investigation is most important to exclude a specific, treatable cause?",
 "options": [
-"Cystoscopy",
 "Early-morning urines for acid-fast bacilli",
+"Cystoscopy",
 "Serum PSA",
 "24-hour urinary protein",
 "Renal ultrasound only"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Early-morning urines for acid-fast bacilli",
 "explanation": "Sterile pyuria (pyuria with negative routine culture) should prompt consideration of renal tract TB. Three early-morning urine specimens for AFB microscopy and mycobacterial culture are the classic investigation; chlamydia/urethritis is also a common cause."
 },
@@ -647,12 +677,12 @@
 "question": "A 68-year-old man with COPD produces a sputum sample. The laboratory Gram film report reads: 'Numerous squamous epithelial cells, scanty neutrophils, mixed oral flora.' What is the most appropriate interpretation?",
 "options": [
 "The sample is a good lower-respiratory specimen and culture results can be relied upon",
-"The sample is contaminated with saliva/upper-airway flora and is of poor diagnostic quality",
 "This confirms a polymicrobial pneumonia requiring broad-spectrum antibiotics",
 "This is diagnostic of aspiration pneumonia",
-"The epithelial cells indicate active alveolar infection"
+"The epithelial cells indicate active alveolar infection",
+"The sample is contaminated with saliva/upper-airway flora and is of poor diagnostic quality"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "The sample is contaminated with saliva/upper-airway flora and is of poor diagnostic quality",
 "explanation": "Many squamous epithelial cells with few neutrophils indicates the specimen is largely saliva/upper-airway secretions, not lower-respiratory purulent sputum. Culture from such a sample is unreliable and a repeat deep-cough specimen should be requested. Abundant neutrophils with few epithelial cells would indicate a good sample."
 },
@@ -678,11 +708,11 @@
 "options": [
 "Ziehl-Neelsen (AFB) smear",
 "Solid Lowenstein-Jensen mycobacterial culture",
-"Nucleic acid amplification test (GeneXpert MTB/RIF)",
 "Routine bacterial culture and sensitivity",
+"Nucleic acid amplification test (GeneXpert MTB/RIF)",
 "Tuberculin skin (Mantoux) test"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Nucleic acid amplification test (GeneXpert MTB/RIF)",
 "explanation": "NAAT/GeneXpert gives a result within hours, confirms M. tuberculosis and simultaneously detects rifampicin resistance, guiding early therapy and isolation decisions. AFB smear is rapid but non-specific and less sensitive; mycobacterial culture is the gold standard for full sensitivities but takes weeks; Mantoux indicates exposure, not active disease."
 },
@@ -691,13 +721,13 @@
 "type": "mcq",
 "question": "A 4-year-old girl presents with 3 days of bloody diarrhoea and abdominal pain after a farm visit. She is now pale and lethargic with reduced urine output. Bloods show Hb 78 g/L, platelets 45 x10^9/L, and creatinine markedly raised for age. A blood film shows fragmented red cells. Which organism is most likely responsible, and what is the key management principle?",
 "options": [
-"Campylobacter jejuni — start clarithromycin promptly",
 "E. coli O157 (STEC) — supportive care, AVOID antibiotics and antimotility agents",
+"Campylobacter jejuni — start clarithromycin promptly",
 "Shigella dysenteriae — start ciprofloxacin",
 "Salmonella enteritidis — start intravenous ceftriaxone",
 "Clostridioides difficile — start oral vancomycin"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "E. coli O157 (STEC) — supportive care, AVOID antibiotics and antimotility agents",
 "explanation": "The picture is haemolytic uraemic syndrome (microangiopathic haemolytic anaemia, thrombocytopenia, AKI) following bloody diarrhoea, classically due to Shiga toxin-producing E. coli O157 after farm/animal contact. Management is supportive with monitoring of renal function; antibiotics and antimotility agents are avoided as they may increase toxin release and the risk of HUS."
 },
@@ -722,12 +752,12 @@
 "question": "A 25-year-old man returns from a 3-week trip to India with 4 weeks of intermittent bloating, foul-smelling loose stools and flatulence. He is systemically well and afebrile. A single stool culture is negative. What is the most appropriate next investigation?",
 "options": [
 "Repeat routine bacterial culture once",
-"Send 3 separate stool samples for microscopy (ova, cysts and parasites)",
 "Request C. difficile toxin testing",
 "Faecal calprotectin and urgent colonoscopy",
-"Blood cultures for enteric fever"
+"Blood cultures for enteric fever",
+"Send 3 separate stool samples for microscopy (ova, cysts and parasites)"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Send 3 separate stool samples for microscopy (ova, cysts and parasites)",
 "explanation": "Prolonged, non-bloody, travel-associated diarrhoea with bloating and flatulence is characteristic of giardiasis. Parasite shedding is intermittent, so 3 separate samples should be sent for OC&P microscopy to improve sensitivity. C. diff is not suggested (no antibiotic exposure), and he is systemically well making enteric fever less likely as the immediate priority."
 },
@@ -737,12 +767,12 @@
 "question": "A 7-year-old presents with a 2-day sore throat, fever, tonsillar exudate and tender anterior cervical nodes but no cough. His parents ask for antibiotics. What is the most appropriate initial approach in UK practice?",
 "options": [
 "Send a throat swab and withhold all treatment until culture returns",
-"Prescribe amoxicillin immediately",
 "Use a clinical score (Centor/FeverPAIN); with a high score, consider phenoxymethylpenicillin",
+"Prescribe amoxicillin immediately",
 "Prescribe a macrolide as first-line for everyone with a sore throat",
 "Reassure and discharge with no assessment as all sore throats are viral"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Use a clinical score (Centor/FeverPAIN); with a high score, consider phenoxymethylpenicillin",
 "explanation": "NICE recommends using Centor or FeverPAIN to guide antibiotic decisions rather than routinely swabbing. This child scores highly (exudate, nodes, fever, no cough = Centor 4), so phenoxymethylpenicillin is appropriate. Amoxicillin is avoided because of the EBV rash risk; macrolides are reserved for penicillin allergy."
 },
@@ -752,12 +782,12 @@
 "question": "A 19-year-old with a severe sore throat, marked cervical lymphadenopathy and lethargy is given amoxicillin and develops a widespread maculopapular rash. What is the most likely underlying diagnosis?",
 "options": [
 "True penicillin (IgE-mediated) allergy",
-"Infectious mononucleosis (EBV)",
 "Scarlet fever",
 "Diphtheria",
+"Infectious mononucleosis (EBV)",
 "Gonococcal pharyngitis"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Infectious mononucleosis (EBV)",
 "explanation": "A maculopapular rash after amoxicillin/ampicillin in a young person with pharyngitis and lymphadenopathy is classic for glandular fever (EBV). It is not a true penicillin allergy. This is why phenoxymethylpenicillin, not amoxicillin, is preferred when EBV is possible; confirm with Monospot/atypical lymphocytes."
 },
@@ -766,13 +796,13 @@
 "type": "mcq",
 "question": "An unvaccinated traveller returns with a sore throat and a firm, adherent grey membrane over the tonsils and pharynx. What is the most important action regarding the throat swab?",
 "options": [
-"Send a routine throat swab; no special handling is required",
 "Inform the laboratory of suspected diphtheria so appropriate selective media are used",
+"Send a routine throat swab; no special handling is required",
 "Rely on a rapid strep antigen test alone to confirm the diagnosis",
 "Send the swab for EBV serology",
 "Delay swabbing until antibiotics have been started"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Inform the laboratory of suspected diphtheria so appropriate selective media are used",
 "explanation": "A grey pseudomembrane in an unvaccinated traveller suggests diphtheria (Corynebacterium diphtheriae), which requires special charcoal/tellurite selective media — routine culture will miss it, so the lab must be told. Diphtheria is a notifiable, potentially airway-threatening emergency and does not present as EBV or GAS on rapid antigen testing."
 },
@@ -782,12 +812,12 @@
 "question": "A 68-year-old man with a chronic venous leg ulcer attends for a routine dressing change. The ulcer is granulating, non-tender, with no surrounding erythema, warmth or discharge. He is systemically well and afebrile. A wound swab taken at a previous visit grew Staphylococcus aureus sensitive to flucloxacillin. What is the most appropriate management?",
 "options": [
 "Prescribe a 7-day course of oral flucloxacillin",
-"Continue standard wound care and dressings without antibiotics",
 "Refer urgently for surgical debridement",
+"Continue standard wound care and dressings without antibiotics",
 "Start oral ciprofloxacin to cover Pseudomonas",
 "Apply a topical antibiotic to the ulcer bed"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Continue standard wound care and dressings without antibiotics",
 "explanation": "The ulcer is colonised, not infected — there are no clinical signs of infection. A positive swab in a clinically uninfected ulcer reflects colonisation and should not be treated. Antibiotics are only indicated when there are clinical signs of infection. Treat the patient, not the swab."
 },
@@ -798,11 +828,11 @@
 "options": [
 "Take a superficial wound swab and await sensitivities before treating",
 "Prescribe oral flucloxacillin and review in 48 hours",
-"Resuscitate, give IV broad-spectrum antibiotics and call surgery for urgent debridement",
 "Elevate the limb and apply a compression bandage",
-"Arrange an outpatient MRI to confirm the diagnosis"
+"Arrange an outpatient MRI to confirm the diagnosis",
+"Resuscitate, give IV broad-spectrum antibiotics and call surgery for urgent debridement"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Resuscitate, give IV broad-spectrum antibiotics and call surgery for urgent debridement",
 "explanation": "Pain out of proportion, rapidly spreading dusky erythema, crepitus and systemic toxicity indicate necrotising fasciitis — a surgical emergency. Management is aggressive resuscitation, urgent broad-spectrum IV antibiotics and immediate surgical debridement. Do not delay for swab results or imaging; delay increases mortality."
 },
@@ -812,12 +842,12 @@
 "question": "A 40-year-old woman has a clinically infected surgical wound with spreading erythema and purulent discharge. The team wants a wound sample to guide antibiotic therapy. Which sampling approach gives the most reliable microbiological result?",
 "options": [
 "A quick swab of the dry, intact skin adjacent to the wound",
-"Swabbing the surface slough without cleansing the wound first",
 "Cleansing/debriding first, then sampling deep tissue or aspirated pus from the advancing edge",
+"Swabbing the surface slough without cleansing the wound first",
 "Sending the removed dressing to the laboratory",
 "Swabbing only after a full course of empirical antibiotics has finished"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Cleansing/debriding first, then sampling deep tissue or aspirated pus from the advancing edge",
 "explanation": "A superficial swab mostly grows surface colonisers and skin flora. Cleansing/debriding first and then sampling deep tissue or aspirated pus from the advancing edge (e.g. Levine technique) gives results most representative of the true pathogen. Tissue biopsy or aspirated pus is superior to a dry surface swab, and samples should ideally be taken before antibiotics."
 },
@@ -827,12 +857,12 @@
 "question": "A 29-year-old woman at 36 weeks' gestation has an incidental positive low vaginal-rectal swab for Group B Streptococcus after a swab taken for another reason. She is well and asymptomatic. What is the most appropriate management regarding GBS?",
 "options": [
 "Start oral amoxicillin now for 7 days to eradicate carriage before delivery",
-"Offer intrapartum IV benzylpenicillin during labour",
 "Arrange elective caesarean section to avoid vertical transmission",
 "Repeat the swab weekly and treat only if it remains positive at term",
+"Offer intrapartum IV benzylpenicillin during labour",
 "No action is needed as GBS carriage is harmless"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Offer intrapartum IV benzylpenicillin during labour",
 "explanation": "GBS detected in the current pregnancy is an indication for intrapartum antibiotic prophylaxis (IAP) with IV benzylpenicillin, given during labour to reduce vertical transmission and early-onset neonatal disease. Antenatal antibiotics do not prevent recolonisation by delivery, so they are not used to 'eradicate' carriage. Caesarean is not indicated purely for GBS colonisation, and the UK does not use a repeat-screen-and-treat-antenatally strategy."
 },
@@ -841,30 +871,45 @@
 "type": "mcq",
 "question": "A 32-year-old woman is in established labour at 39 weeks. She reports a genuine anaphylactic allergy to penicillin. Her notes show GBS bacteriuria was treated earlier in this pregnancy. Which intrapartum antibiotic is most appropriate for GBS prophylaxis?",
 "options": [
+"IV vancomycin",
 "IV benzylpenicillin",
 "IV clindamycin",
-"IV gentamicin",
 "Oral erythromycin",
 "No prophylaxis is required as the bacteriuria was already treated"
 ],
-"correctIndex": 1,
-"answer": "IV clindamycin",
-"explanation": "GBS bacteriuria in pregnancy is treated at the time and also flags the need for intrapartum antibiotic prophylaxis. The first-line IAP agent is IV benzylpenicillin, but in a penicillin-allergic woman (particularly with anaphylaxis) IV clindamycin is the appropriate alternative. Earlier treatment of the bacteriuria does not remove the need for intrapartum prophylaxis."
+"correctIndex": 0,
+"answer": "IV vancomycin",
+"explanation": "GBS bacteriuria in pregnancy is treated at the time and flags the need for intrapartum antibiotic prophylaxis. First-line IAP is IV benzylpenicillin; for a genuine anaphylactic penicillin allergy RCOG advises IV vancomycin (a cephalosporin is used for non-severe allergy). Clindamycin is only appropriate if the GBS isolate is known to be susceptible, given rising clindamycin resistance."
 },
 {
 "id": "gbs_q03",
 "type": "mcq",
 "question": "A term baby is 18 hours old. The mother had GBS detected this pregnancy but delivered precipitously before IV antibiotics could be given. The baby now has grunting, tachypnoea, temperature instability and is feeding poorly. What is the single most important immediate action?",
 "options": [
-"Take blood cultures and start empirical IV antibiotics without delay",
 "Send a superficial ear and skin swab and await results before treating",
 "Reassure and observe for a further 12 hours as symptoms are often benign",
+"Take blood cultures and start empirical IV antibiotics without delay",
 "Start oral antibiotics and discharge with community midwife follow-up",
 "Perform an urgent lumbar puncture before giving any antibiotics"
 ],
-"correctIndex": 0,
+"correctIndex": 2,
 "answer": "Take blood cultures and start empirical IV antibiotics without delay",
 "explanation": "This is early-onset neonatal GBS sepsis until proven otherwise: respiratory distress, temperature instability and poor feeding in the first week, with maternal GBS and no intrapartum prophylaxis. It can progress rapidly to septic shock and meningitis. The priority is to take cultures and start empirical IV antibiotics immediately; investigations such as lumbar puncture should not delay antibiotics, and observation alone or oral antibiotics with discharge would be dangerous."
+},
+{
+"id": "genital_q01",
+"type": "mcq",
+"question": "A woman has a NAAT positive for Neisseria gonorrhoeae. Why should an additional charcoal-swab culture be taken before she is treated?",
+"options": [
+"To confirm the NAAT result",
+"To exclude chlamydia co-infection",
+"Because NAAT cannot detect rectal infection",
+"To quantify the bacterial load",
+"To obtain antibiotic sensitivities given gonococcal resistance"
+],
+"correctIndex": 4,
+"answer": "To obtain antibiotic sensitivities given gonococcal resistance",
+"explanation": "NAAT diagnoses gonorrhoea but gives no sensitivities. Because of widespread gonococcal antimicrobial resistance, a charcoal-swab culture is taken before treatment so susceptibilities can guide/adjust therapy — you never treat gonorrhoea blind."
 }
 ],
 "investigations__MICROBIOLOGY__Stains & Microscopy": [
@@ -874,12 +919,12 @@
 "question": "A 19-year-old presents with fever, neck stiffness and a non-blanching purpuric rash. A CSF Gram stain shows Gram-negative diplococci. Which is the most likely causative organism?",
 "options": [
 "Streptococcus pneumoniae",
-"Neisseria meningitidis",
 "Listeria monocytogenes",
+"Neisseria meningitidis",
 "Haemophilus influenzae",
 "Staphylococcus aureus"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Neisseria meningitidis",
 "explanation": "Gram-negative diplococci in CSF with a purpuric rash in a young adult is classic meningococcal disease (Neisseria meningitidis). Pneumococcus is Gram-positive diplococci; Listeria is Gram-positive bacilli. Antibiotics must be given immediately without waiting for confirmation."
 },
@@ -890,11 +935,11 @@
 "options": [
 "Streptococcus pyogenes",
 "Enterococcus faecalis",
-"Staphylococcus aureus",
 "Neisseria gonorrhoeae",
-"Escherichia coli"
+"Escherichia coli",
+"Staphylococcus aureus"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Staphylococcus aureus",
 "explanation": "Gram-positive cocci in clusters that are catalase positive indicate Staphylococcus (S. aureus). Streptococci and enterococci form chains/pairs and are catalase negative. Neisseria is Gram-negative diplococci and E. coli is a Gram-negative bacillus."
 },
@@ -919,12 +964,12 @@
 "question": "A 34-year-old man with 6 weeks of cough, weight loss and night sweats has a chest X-ray showing right upper-lobe cavitation. A ZN stain of sputum shows numerous red bacilli against a blue background. Which single statement best describes the significance of this result?",
 "options": [
 "It confirms drug-sensitive TB, so no further tests are needed",
-"He is likely to be highly infectious and needs airborne isolation and notification",
 "A negative culture would now exclude TB",
 "The red colour indicates the organism is Gram-positive",
+"He is likely to be highly infectious and needs airborne isolation and notification",
 "It rules out non-tuberculous mycobacteria as the cause"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "He is likely to be highly infectious and needs airborne isolation and notification",
 "explanation": "A positive AFB smear indicates a high bacillary load; smear-positive pulmonary TB patients are the most infectious and require airborne/respiratory precautions plus notification. The smear does not confirm species or drug sensitivity (culture/NAAT are needed), ZN is not a Gram stain, and other acid-fast mycobacteria can also be smear-positive."
 },
@@ -933,13 +978,13 @@
 "type": "mcq",
 "question": "A 40-year-old woman with HIV has 3 weeks of cough. Two sputum ZN smears are negative for AFB. What is the most appropriate next step?",
 "options": [
+"Send sputum for mycobacterial culture and NAAT/GeneXpert",
 "Reassure her that TB is excluded and discharge",
 "Repeat only the ZN smear in one month",
-"Send sputum for mycobacterial culture and NAAT/GeneXpert",
 "Start broad-spectrum antibiotics and take no further TB action",
 "Perform a Gram stain to look for the organism"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Send sputum for mycobacterial culture and NAAT/GeneXpert",
 "explanation": "Smear microscopy is insensitive and a negative smear does NOT exclude TB, especially in HIV where bacillary loads may be lower. Culture (gold standard, gives drug-susceptibility) and NAAT/GeneXpert (rapid, detects rifampicin resistance) are required. Gram staining does not reliably show mycobacteria."
 },
@@ -964,12 +1009,12 @@
 "question": "A 34-year-old man with newly diagnosed HIV (CD4 count 48) presents with a 10-day history of worsening headache, low-grade fever and confusion. A lumbar puncture shows a high opening pressure, lymphocytic pleocytosis, raised protein and low glucose. Which single investigation on the CSF is the MOST sensitive for confirming the likely diagnosis?",
 "options": [
 "India ink stain",
-"Cryptococcal antigen (CrAg) lateral flow assay",
 "Ziehl–Neelsen stain",
 "Gram stain",
-"Bacterial antigen latex agglutination for meningococcus"
+"Bacterial antigen latex agglutination for meningococcus",
+"Cryptococcal antigen (CrAg) lateral flow assay"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Cryptococcal antigen (CrAg) lateral flow assay",
 "explanation": "The picture is cryptococcal meningitis in advanced HIV. India ink is quick but insensitive, so a negative result cannot exclude disease. The CrAg lateral flow assay on CSF (and serum) has the highest sensitivity and specificity and is the test of choice; fungal culture confirms. Ziehl–Neelsen (TB) and Gram stain (bacteria) target different organisms."
 },
@@ -994,12 +1039,12 @@
 "question": "A patient with confirmed cryptococcal meningitis has a CSF opening pressure of 38 cmH2O and a persistent headache despite starting amphotericin B and flucytosine. What is the MOST appropriate additional intervention?",
 "options": [
 "Add high-dose corticosteroids",
-"Repeated therapeutic lumbar punctures to reduce CSF pressure",
 "Switch antifungal to fluconazole monotherapy immediately",
 "Start empirical anti-tuberculous therapy",
+"Repeated therapeutic lumbar punctures to reduce CSF pressure",
 "Restrict all intravenous fluids"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Repeated therapeutic lumbar punctures to reduce CSF pressure",
 "explanation": "Raised intracranial pressure is a major cause of death and visual loss in cryptococcal meningitis and must be managed directly with repeated therapeutic LPs (or drainage), independent of antifungal therapy. Corticosteroids are not routinely beneficial and may worsen outcomes; fluconazole monotherapy is inadequate for induction; there is no evidence for TB here."
 },
@@ -1008,13 +1053,13 @@
 "type": "mcq",
 "question": "A 24-year-old man has an itchy, annular scaly rash on his trunk. A skin scraping from the active edge is treated with 20% KOH and examined microscopically. What is the mechanism by which KOH aids visualisation of fungal elements?",
 "options": [
+"It digests keratin and human cellular debris while the fungal wall remains intact",
 "It stains fungal chitin bright purple",
 "It lyses fungal cell walls to release intracellular pigment",
-"It digests keratin and human cellular debris while the fungal wall remains intact",
 "It fixes and preserves human epithelial cells for contrast",
 "It fluoresces under ultraviolet light"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "It digests keratin and human cellular debris while the fungal wall remains intact",
 "explanation": "KOH dissolves keratin and cellular debris, clearing the background. The chitinous fungal wall resists digestion, so hyphae and spores stand out. It is not a stain and does not fluoresce (that is Wood's lamp)."
 },
@@ -1024,12 +1069,12 @@
 "question": "A 62-year-old woman with thickened, discoloured toenails is being considered for a 12-week course of oral terbinafine. Her KOH microscopy of subungual debris is negative, but the appearance is strongly suggestive of onychomycosis. What is the most appropriate next step?",
 "options": [
 "Start oral terbinafine immediately as clinical suspicion is high",
-"Send nail clippings and subungual debris for fungal culture before starting systemic treatment",
 "Reassure her that fungal infection is excluded and discharge",
+"Send nail clippings and subungual debris for fungal culture before starting systemic treatment",
 "Prescribe topical antifungal only and review in 12 months without further tests",
 "Repeat the KOH daily for one week before any treatment"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Send nail clippings and subungual debris for fungal culture before starting systemic treatment",
 "explanation": "KOH has false negatives and does not identify species. Before committing to a long, potentially hepatotoxic oral antifungal course, the diagnosis should be confirmed mycologically by culture. A negative KOH with ongoing suspicion warrants culture, not reassurance."
 },
@@ -1040,11 +1085,11 @@
 "options": [
 "Trichophyton rubrum",
 "Candida albicans",
-"Malassezia species",
 "Corynebacterium minutissimum",
-"Epidermophyton floccosum"
+"Epidermophyton floccosum",
+"Malassezia species"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Malassezia species",
 "explanation": "The 'spaghetti and meatballs' pattern of short hyphae plus round spores is characteristic of Malassezia in pityriasis versicolor. Trichophyton/Epidermophyton (dermatophytes) show branching septate hyphae, Candida shows pseudohyphae with budding yeasts, and Corynebacterium (erythrasma) is bacterial and gives coral-red Wood's lamp fluorescence."
 },
@@ -1070,11 +1115,11 @@
 "options": [
 "Viral meningitis",
 "Bacterial meningitis",
-"Tuberculous meningitis",
 "Multiple sclerosis",
+"Tuberculous meningitis",
 "Traumatic tap"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Tuberculous meningitis",
 "explanation": "Insidious onset with lymphocytic CSF, a fibrin web, very high protein and LOW glucose is the classic TB pattern. Viral meningitis would have NORMAL glucose, and a bacterial cause would show neutrophils with an acute course. MS does not cause this picture and a traumatic tap does not lower glucose."
 },
@@ -1083,15 +1128,45 @@
 "type": "mcq",
 "question": "A 52-year-old has a sudden-onset severe 'thunderclap' headache. CT head at 5 hours is normal. What is the single most appropriate next step?",
 "options": [
+"Perform an LP at ≥12 hours from headache onset to look for xanthochromia",
 "Discharge with analgesia as CT excludes haemorrhage",
 "Perform an LP immediately and measure red cell count only",
-"Perform an LP at ≥12 hours from headache onset to look for xanthochromia",
 "Start empirical IV antibiotics and aciclovir",
 "Repeat the CT head in 24 hours"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Perform an LP at ≥12 hours from headache onset to look for xanthochromia",
 "explanation": "A normal early CT does not exclude SAH. LP is delayed to ≥12 hours to allow red cells to lyse and haemoglobin to be converted to bilirubin, producing xanthochromia detectable on spectrophotometry; this also distinguishes true SAH from a traumatic tap (which shows a falling RBC count tube 1→4 and no xanthochromia). Empirical antibiotics/aciclovir treat meningitis/encephalitis, not this thunderclap presentation."
+},
+{
+"id": "malaria_q01",
+"type": "mcq",
+"question": "A traveller returns from West Africa with fever; the first malaria blood film is negative. What is the most appropriate next step?",
+"options": [
+"Exclude malaria and investigate other causes",
+"Start empirical antibiotics for typhoid",
+"Repeat blood films — three over 48–72 hours before excluding malaria",
+"Arrange a bone marrow aspirate",
+"Reassure and discharge"
+],
+"correctIndex": 2,
+"answer": "Repeat blood films — three over 48–72 hours before excluding malaria",
+"explanation": "A single negative film does not exclude malaria because parasitaemia is cyclical. Send three thick/thin films over 48–72 hours (± rapid antigen test) before excluding the diagnosis."
+},
+{
+"id": "wetmount_q01",
+"type": "mcq",
+"question": "Wet-mount microscopy of vaginal discharge shows epithelial cells studded with coccobacilli giving stippled, obscured borders. What is the diagnosis?",
+"options": [
+"Trichomonas vaginalis",
+"Vulvovaginal candidiasis",
+"Gonorrhoea",
+"Chlamydia",
+"Bacterial vaginosis"
+],
+"correctIndex": 4,
+"answer": "Bacterial vaginosis",
+"explanation": "These are clue cells — epithelial cells coated with coccobacilli (Gardnerella) with stippled borders — diagnostic of bacterial vaginosis (supported by pH >4.5 and a positive whiff test). Motile trophozoites would indicate Trichomonas."
 }
 ],
 "investigations__MICROBIOLOGY__Molecular / PCR": [
