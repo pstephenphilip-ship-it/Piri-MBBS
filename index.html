@@ -13670,7 +13670,7 @@ function hideFlyout(p) {
       '<div class="auth-field"><label for="da-university">Medical school / University <span style="opacity:.55">(optional)</span></label><input id="da-university" type="text" placeholder="e.g. QMUL"></div>'+
       '<div class="auth-field"><label for="da-year">Year of study <span style="opacity:.55">(optional)</span></label><select id="da-year">'+yrOpts()+'</select></div>'+
       '<div class="auth-field"><label for="da-country">Country / region <span style="opacity:.55">(optional)</span></label><input id="da-country" type="text" placeholder="e.g. United Kingdom"></div>'+
-      '<div class="auth-field"><label for="da-refuni">Referred by a university society? <span style="opacity:.55">(optional)</span></label><select id="da-refuni"><option value="">Select…</option>'+Object.keys(REFERRALS).map(function(u){return '<option>'+u+'</option>';}).join('')+'</select></div>'+
+      '<div class="auth-field"><label for="da-refuni">Referred by a university society? <span style="opacity:.55">(optional)</span></label><select id="da-refuni"><option value="">Select…</option>'+Object.keys(REFERRALS).map(function(u){return '<option>'+u+'</option>';}).join('')+'</select><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">Support the society that referred you by selecting a referral.</div></div>'+
       '<div class="auth-field" id="da-refsoc-wrap" style="display:none"><label for="da-refsoc">Society</label><select id="da-refsoc"><option value="">Select…</option></select></div>';
     form.insertBefore(wrap, btn);
     // The society list depends on the chosen university; reveal it only once a partner uni is picked.
@@ -13845,8 +13845,17 @@ function hideFlyout(p) {
       '<div class="auth-field"><label>Medical school / University</label><input id="da-ep-university" type="text"></div>'+
       '<div class="auth-field"><label>Year of study</label><select id="da-ep-year">'+yrOpts()+'</select></div>'+
       '<div class="auth-field"><label>Country / region</label><input id="da-ep-country" type="text"></div>'+
+      '<div class="auth-field"><label>Referred by a university society?</label><select id="da-ep-refuni"><option value="">Select…</option>'+Object.keys(REFERRALS).map(function(u){return '<option>'+u+'</option>';}).join('')+'</select><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">Support the society that referred you by selecting a referral.</div></div>'+
+      '<div class="auth-field" id="da-ep-refsoc-wrap" style="display:none"><label>Society</label><select id="da-ep-refsoc"><option value="">Select…</option></select></div>'+
       '<button class="auth-submit" id="da-ep-save">Save changes</button></div>';
     document.body.appendChild(ov); $('da-ep-save').onclick=saveProfile; wireAvatar();
+    // Society list depends on the chosen university (same behaviour as the sign-up form).
+    var _epru=$('da-ep-refuni'), _eprsWrap=$('da-ep-refsoc-wrap'), _eprs=$('da-ep-refsoc');
+    if(_epru&&_eprs&&_eprsWrap){ _epru.addEventListener('change', function(){
+      var socs=REFERRALS[_epru.value]||[];
+      _eprs.innerHTML='<option value="">Select…</option>'+socs.map(function(s){return '<option>'+s+'</option>';}).join('');
+      _eprsWrap.style.display = socs.length ? '' : 'none';
+    }); }
     var ov2=document.createElement('div'); ov2.className='auth-overlay'; ov2.id='da-pw-overlay'; ov2.onclick=function(e){ if(e.target===ov2) ov2.classList.remove('open'); };
     ov2.innerHTML='<div class="auth-card"><button class="auth-close" onclick="document.getElementById(\'da-pw-overlay\').classList.remove(\'open\')">&times;</button>'+
       '<div class="auth-sub" style="font-weight:800;font-size:16px;color:var(--text)">Change password</div>'+
@@ -13857,7 +13866,9 @@ function hideFlyout(p) {
     document.body.appendChild(ov2); $('da-pw-save').onclick=changePassword;
   }
   function pmsg(id,t,k){ var m=$(id); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
-  function fillEditForm(){ var p=profile||{}; var u=$('da-ep-username'); if(!u) return; u.value=p.username||''; $('da-ep-fullname').value=p.full_name||''; $('da-ep-university').value=p.university||''; $('da-ep-year').value=p.study_year||''; $('da-ep-country').value=p.country||''; pendingAvatar=undefined; renderEpAvatar(p.avatar_url, p.username||((currentUser&&currentUser.email)||'')); }
+  function fillEditForm(){ var p=profile||{}; var u=$('da-ep-username'); if(!u) return; u.value=p.username||''; $('da-ep-fullname').value=p.full_name||''; $('da-ep-university').value=p.university||''; $('da-ep-year').value=p.study_year||''; $('da-ep-country').value=p.country||'';
+    var _ru=$('da-ep-refuni'); if(_ru){ _ru.value=p.ref_university||''; var _socs=REFERRALS[_ru.value]||[]; var _rs=$('da-ep-refsoc'); if(_rs){ _rs.innerHTML='<option value="">Select…</option>'+_socs.map(function(s){return '<option>'+s+'</option>';}).join(''); _rs.value=p.ref_society||''; } var _w=$('da-ep-refsoc-wrap'); if(_w) _w.style.display=_socs.length?'':'none'; }
+    pendingAvatar=undefined; renderEpAvatar(p.avatar_url, p.username||((currentUser&&currentUser.email)||'')); }
   function openEditProfile(){ buildModals(); var m=$('da-prof-msg'); if(m) m.className='auth-msg'; fillEditForm(); $('da-profile-overlay').classList.add('open'); if(sb&&currentUser){ sb.from('profiles').select('*').eq('id',currentUser.id).maybeSingle().then(function(r){ if(!r.error&&r.data){ profile=r.data; fillEditForm(); } }); } }
   function openChangePw(){ buildModals(); $('da-pw-new').value=''; $('da-pw-conf').value=''; var m=$('da-pw-msg'); if(m) m.className='auth-msg'; $('da-pw-overlay').classList.add('open'); }
 
@@ -13869,7 +13880,11 @@ function hideFlyout(p) {
     var patch={ username:uname, full_name:($('da-ep-fullname').value||'').trim()||null, university:($('da-ep-university').value||'').trim()||null, study_year:$('da-ep-year').value||null, country:($('da-ep-country').value||'').trim()||null, updated_at:new Date().toISOString() }; if(pendingAvatar!==undefined) patch.avatar_url=pendingAvatar;
     function doUpdate(){ sb.from('profiles').update(patch).eq('id',profile.id).then(function(r){
       if(r.error){ pmsg('da-prof-msg', /duplicate|unique/i.test(r.error.message)?'That username is taken.':r.error.message,'err'); }
-      else { profile=Object.assign({},profile,patch); applyDisplay(); pmsg('da-prof-msg','Saved ✓','ok'); setTimeout(function(){ $('da-profile-overlay').classList.remove('open'); },700); }
+      else { profile=Object.assign({},profile,patch); applyDisplay(); pmsg('da-prof-msg','Saved ✓','ok');
+        // Referral saved separately/best-effort so a missing column can't fail the main save.
+        var _ru=($('da-ep-refuni')&&$('da-ep-refuni').value)||null, _rs=($('da-ep-refsoc')&&$('da-ep-refsoc').value)||null;
+        sb.from('profiles').update({ref_university:_ru,ref_society:_rs}).eq('id',profile.id).then(function(rr){ if(rr&&rr.error) console.warn('referral save',rr.error.message); else { profile.ref_university=_ru; profile.ref_society=_rs; } }).catch(function(){});
+        setTimeout(function(){ $('da-profile-overlay').classList.remove('open'); },700); }
     }).finally(function(){ btn.disabled=false; btn.textContent=restore; }); }
     if(uname.toLowerCase()!==(profile.username||'').toLowerCase()){
       sb.rpc('is_username_available',{u:uname}).then(function(av){ if(!av.error&&av.data===false){ pmsg('da-prof-msg','That username is taken.','err'); btn.disabled=false; btn.textContent=restore; } else doUpdate(); });
