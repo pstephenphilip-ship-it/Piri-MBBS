@@ -1923,6 +1923,11 @@
         "id": "oph_fluor_fc_05",
         "front": "What does fine scattered punctate fluorescein staining suggest, and why remove contact lenses first?",
         "back": "Punctate epithelial erosions suggest dry eye, exposure or toxicity. Soft contact lenses absorb fluorescein and stain permanently, so they must be removed before the dye is instilled."
+      },
+      {
+        "id": "oph_core_cn3_fc_01",
+        "front": "How do you tell a surgical from a medical third-nerve palsy, and why does it matter?",
+        "back": "<b>Pupil-involving</b> (fixed dilated) + painful CN III palsy = <b>compressive</b> (posterior communicating artery aneurysm) — peripheral parasympathetic fibres are hit early → <b>urgent CT/MR angiography</b>. <b>Pupil-sparing</b> CN III = microvascular (diabetes/hypertension)."
       }
     ],
     "investigations__OPHTHALMOLOGY__Imaging & Visual Fields": [
@@ -2075,6 +2080,11 @@
         "id": "oph_drs_fc_05",
         "front": "Why does diabetic retinopathy screening matter clinically?",
         "back": "Diabetic retinopathy is the commonest cause of blindness in working-age adults and is asymptomatic early; screening enables timely laser (PRP) or anti-VEGF before vision is lost."
+      },
+      {
+        "id": "oph_img_bitemp_fc_01",
+        "front": "A new bitemporal hemianopia is found — what are the next steps?",
+        "back": "Chiasmal compression, usually a <b>pituitary adenoma</b>: arrange <b>urgent MRI pituitary/brain</b> AND a <b>pituitary hormone profile</b> (prolactin, IGF-1, cortisol/ACTH, TFTs, LH/FSH), with <b>endocrinology and neurosurgery referral</b>."
       }
     ],
     "investigations__OPHTHALMOLOGY__Fundoscopy Signs & Special": [
@@ -5855,13 +5865,13 @@
         "type": "mcq",
         "question": "A patient's visual acuity is 6/36 unaided. Through a pinhole it improves to 6/9. What is the most likely explanation?",
         "options": [
-          "Uncorrected refractive error",
           "Central retinal artery occlusion",
           "Dense cataract",
+          "Uncorrected refractive error",
           "Optic neuritis",
           "Vitreous haemorrhage"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Uncorrected refractive error",
         "explanation": "A pinhole admits only central, axial rays and so eliminates refractive blur. Marked improvement in acuity through the pinhole indicates the deficit is refractive and correctable with glasses, and the patient should be referred to optometry."
       },
@@ -5870,13 +5880,13 @@
         "type": "mcq",
         "question": "A patient cannot read the largest (6/60) letter on the Snellen chart even at 6 m but can count the examiner's fingers held up in front of them. How should the visual acuity be recorded?",
         "options": [
-          "Counting fingers (CF)",
           "6/60",
           "Perception of light (PL)",
           "Hand movements (HM)",
-          "No perception of light (NPL)"
+          "No perception of light (NPL)",
+          "Counting fingers (CF)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Counting fingers (CF)",
         "explanation": "When acuity is below 6/60, vision is graded down the sequence counting fingers, hand movements, then perception of light. A patient who can accurately count fingers is recorded as CF, which is better than hand movements or perception of light."
       },
@@ -5885,13 +5895,13 @@
         "type": "mcq",
         "question": "During slit-lamp examination of a red, painful eye you observe leucocytes and a hazy protein 'flare' floating in the anterior chamber. Which diagnosis does this finding indicate?",
         "options": [
-          "Acute anterior uveitis",
           "Cataract",
+          "Acute anterior uveitis",
           "Bacterial conjunctivitis",
           "Refractive error",
           "Posterior vitreous detachment"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Acute anterior uveitis",
         "explanation": "Cells and flare in the anterior chamber reflect leucocytes and leaked protein from an inflamed iris and ciliary body, the hallmark of active anterior uveitis. This is best seen with a narrow, bright slit beam in a darkened room."
       },
@@ -5915,13 +5925,13 @@
         "type": "mcq",
         "question": "You are about to perform dilated fundoscopy but the patient reports a painful red eye with haloes around lights, nausea, and has a fixed mid-dilated pupil. What is the correct next step?",
         "options": [
-          "Instil tropicamide 1% to improve the view",
           "Withhold mydriatics and arrange same-day ophthalmology review",
+          "Instil tropicamide 1% to improve the view",
           "Add phenylephrine 2.5% for a wider pupil",
           "Proceed with dilation but examine only the macula",
           "Give oral analgesia and review in one week"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Withhold mydriatics and arrange same-day ophthalmology review",
         "explanation": "These features suggest acute angle-closure glaucoma, where mydriatics can dangerously raise intraocular pressure. It is a sight-threatening emergency requiring same-day referral, so dilation must be avoided."
       },
@@ -5945,13 +5955,13 @@
         "type": "mcq",
         "question": "Goldmann applanation tonometry is described as the gold standard for measuring intraocular pressure. Which physical principle underlies it?",
         "options": [
-          "The Imbert-Fick principle, relating flattening force to internal pressure",
           "The Doppler shift of reflected ultrasound",
           "The Snellen principle of angular resolution",
           "The Purkinje reflex from the corneal surface",
-          "The Frank-Starling relationship of wall tension"
+          "The Frank-Starling relationship of wall tension",
+          "The Imbert-Fick principle, relating flattening force to internal pressure"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "The Imbert-Fick principle, relating flattening force to internal pressure",
         "explanation": "Goldmann tonometry applies the Imbert-Fick principle, where the force required to flatten a fixed corneal area is proportional to the internal pressure. At the standardised 3.06 mm applanation diameter, corneal rigidity and tear surface tension approximately cancel, so the force reads directly as IOP."
       },
@@ -5960,13 +5970,13 @@
         "type": "mcq",
         "question": "A 62-year-old attends for glaucoma screening. His Goldmann IOP is 24 mmHg but his central corneal thickness is measured at 620 micrometres. How does the thick cornea affect the reading?",
         "options": [
-          "It causes overestimation, so true IOP is likely lower than measured",
           "It causes underestimation, so true IOP is likely higher than measured",
+          "It causes overestimation, so true IOP is likely lower than measured",
           "It has no effect because Goldmann corrects automatically",
           "It makes the reading invalid and unmeasurable",
           "It converts the reading into a normal-tension result by definition"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "It causes overestimation, so true IOP is likely lower than measured",
         "explanation": "Goldmann tonometry is calibrated to a central corneal thickness of about 520 micrometres. A thicker cornea requires more force to applanate and therefore overestimates the true IOP, meaning the real pressure is likely lower than the measured value. CCT must always be considered when interpreting readings."
       },
@@ -5975,13 +5985,13 @@
         "type": "mcq",
         "question": "A 68-year-old woman presents with a sudden red, painful right eye, a hazy cornea, a fixed mid-dilated pupil and haloes around lights. Tonometry shows an IOP of 52 mmHg. What is the most appropriate immediate action?",
         "options": [
-          "Urgent same-day ophthalmology referral without pharmacological dilation",
           "Instil tropicamide to dilate the pupil and examine the fundus",
           "Reassure and review in the routine optometry clinic in 6 weeks",
           "Prescribe topical antibiotics for presumed bacterial conjunctivitis",
+          "Urgent same-day ophthalmology referral without pharmacological dilation",
           "Patch the eye and advise simple analgesia at home"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Urgent same-day ophthalmology referral without pharmacological dilation",
         "explanation": "This is acute angle-closure glaucoma, a sight-threatening emergency indicated by the very high IOP with a red painful eye, hazy cornea and fixed mid-dilated pupil. It requires urgent same-day ophthalmology referral for IOP-lowering treatment. Pharmacological dilation is contraindicated as it can worsen the angle closure."
       },
@@ -5990,13 +6000,13 @@
         "type": "mcq",
         "question": "During gonioscopy, which single structure, when clearly visible, most reliably confirms that the angle is open?",
         "options": [
+          "Scleral spur",
           "Schwalbe's line",
           "Anterior trabecular meshwork",
-          "Scleral spur",
           "Corneal endothelium",
           "Iris crypts"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Scleral spur",
         "explanation": "The scleral spur is the pivotal landmark: if it is visible the iris is not occluding the drainage angle, confirming an open angle. Schwalbe's line and anterior meshwork can still be seen when the angle is dangerously narrow, so they do not confirm openness."
       },
@@ -6006,12 +6016,12 @@
         "question": "A patient presents with a painful red eye, a fixed mid-dilated pupil, corneal haze and IOP of 52 mmHg. Regarding assessment, which action is contraindicated?",
         "options": [
           "Measuring the intraocular pressure",
-          "Instilling a mydriatic dilating drop",
           "Performing gonioscopy of the fellow eye",
+          "Instilling a mydriatic dilating drop",
           "Starting IOP-lowering treatment",
           "Making an urgent ophthalmology referral"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Instilling a mydriatic dilating drop",
         "explanation": "The picture is acute angle-closure glaucoma, where dilating the pupil can precipitate or worsen angle closure and further raise IOP. Immediate pressure-lowering treatment and urgent referral are appropriate, and examining the fellow eye helps confirm an occludable angle."
       },
@@ -6022,11 +6032,11 @@
         "options": [
           "A wide-open Shaffer grade 4 angle",
           "Reversible appositional closure only",
-          "Peripheral anterior synechiae (synechial closure)",
           "Pigment dispersion syndrome",
-          "Normal physiological iris contact"
+          "Normal physiological iris contact",
+          "Peripheral anterior synechiae (synechial closure)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Peripheral anterior synechiae (synechial closure)",
         "explanation": "Indentation forces aqueous into the angle and opens purely appositional closure; if the iris stays adherent the closure is synechial, caused by peripheral anterior synechiae. This signifies permanent, chronic angle damage rather than a reversible narrow angle."
       },
@@ -6035,13 +6045,13 @@
         "type": "mcq",
         "question": "During a swinging-light test, when the light is swung onto the left eye its pupil dilates, while the right pupil constricts briskly when illuminated. What does this indicate?",
         "options": [
-          "A left relative afferent pupillary defect",
           "A right relative afferent pupillary defect",
+          "A left relative afferent pupillary defect",
           "A left third-nerve palsy",
           "Bilateral symmetric optic neuropathy",
           "A normal pupillary response"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A left relative afferent pupillary defect",
         "explanation": "The pupil that dilates as the light swings onto it marks the abnormal afferent side. Here the left pupil dilates, localising the defect to the left optic nerve or retina."
       },
@@ -6050,13 +6060,13 @@
         "type": "mcq",
         "question": "Which condition would NOT produce a relative afferent pupillary defect?",
         "options": [
-          "Dense cataract",
           "Central retinal artery occlusion",
           "Optic neuritis",
           "Large retinal detachment",
+          "Dense cataract",
           "Ischaemic optic neuropathy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Dense cataract",
         "explanation": "A cataract is a media opacity that blurs the image but does not reduce optic nerve conduction, so afferent signalling stays intact. The other options all impair the retina or optic nerve and cause a RAPD."
       },
@@ -6080,13 +6090,13 @@
         "type": "mcq",
         "question": "A 34-year-old contact-lens wearer has a red, painful, photophobic left eye. Fluorescein under cobalt-blue light shows a branching linear pattern of green uptake with small bulbous swellings at the tips of each branch. What is the most likely diagnosis?",
         "options": [
-          "Herpes simplex dendritic keratitis",
           "Bacterial corneal ulcer",
           "Dry eye disease",
+          "Herpes simplex dendritic keratitis",
           "Traumatic corneal abrasion",
           "Acute angle-closure glaucoma"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Herpes simplex dendritic keratitis",
         "explanation": "A branching linear ulcer with terminal end-bulbs is the classic fluorescein appearance of HSV epithelial keratitis. The terminal bulbs distinguish a true dendrite from the pseudodendrites of herpes zoster, and management is topical aciclovir with avoidance of steroids alone."
       },
@@ -6095,13 +6105,13 @@
         "type": "mcq",
         "question": "During examination of a patient with a penetrating eye injury, concentrated fluorescein is applied over the cornea. Under cobalt-blue light a bright stream of fluid is seen diluting the dye into a dark rivulet. What does this finding indicate?",
         "options": [
-          "A full-thickness corneal leak of aqueous (positive Seidel test)",
           "Normal tear-film distribution",
           "Superficial punctate keratopathy",
           "A healing corneal abrasion",
-          "Contact-lens-related dye retention"
+          "Contact-lens-related dye retention",
+          "A full-thickness corneal leak of aqueous (positive Seidel test)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "A full-thickness corneal leak of aqueous (positive Seidel test)",
         "explanation": "A positive Seidel test shows aqueous streaming through a full-thickness wound and diluting the concentrated dye. This signifies globe perforation, an emergency requiring an eye shield and urgent surgical review."
       },
@@ -6110,15 +6120,30 @@
         "type": "mcq",
         "question": "Which step is most important to perform before instilling fluorescein when assessing a soft contact-lens wearer with a red eye?",
         "options": [
-          "Remove the contact lens",
           "Dilate the pupil with tropicamide",
+          "Remove the contact lens",
           "Measure the intraocular pressure by applanation",
           "Instil topical corticosteroid drops",
           "Perform a swinging-flashlight test"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Remove the contact lens",
         "explanation": "Soft contact lenses absorb fluorescein and become permanently stained, so the lens must be removed before the dye is applied. This also allows proper inspection for a lens-related microbial ulcer, which needs urgent microbiology and intensive antibiotics."
+      },
+      {
+        "id": "oph_core_cn3_q01",
+        "type": "mcq",
+        "question": "A patient has sudden painful diplopia with ptosis, a fixed dilated pupil and a down-and-out eye. What is the most appropriate immediate investigation?",
+        "options": [
+          "Reassurance — this is a microvascular palsy",
+          "Fasting glucose and blood pressure only",
+          "A visual field test",
+          "Urgent CT/MR angiography for a posterior communicating artery aneurysm",
+          "Tonometry"
+        ],
+        "correctIndex": 3,
+        "answer": "Urgent CT/MR angiography for a posterior communicating artery aneurysm",
+        "explanation": "A pupil-involving, painful third-nerve palsy suggests compression of the peripherally-located parasympathetic fibres, classically by a posterior communicating artery aneurysm — an emergency requiring urgent CT/MR angiography. Pupil-sparing palsies are usually microvascular."
       }
     ],
     "investigations__OPHTHALMOLOGY__Imaging & Visual Fields": [
@@ -6128,12 +6153,12 @@
         "question": "A 45-year-old woman reports bumping into objects on both sides. Perimetry shows a bitemporal hemianopia respecting the vertical midline. Where is the lesion?",
         "options": [
           "Left optic nerve",
-          "Optic chiasm",
           "Right optic tract",
+          "Optic chiasm",
           "Left occipital cortex",
           "Right temporal lobe"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Optic chiasm",
         "explanation": "A bitemporal hemianopia results from compression of the decussating nasal retinal fibres at the optic chiasm, classically by a pituitary adenoma. The defect respects the vertical midline, confirming a chiasmal location."
       },
@@ -6144,11 +6169,11 @@
         "options": [
           "Central scotoma",
           "Bitemporal hemianopia",
-          "Arcuate scotoma with a nasal step",
           "Homonymous hemianopia with macular sparing",
-          "Complete altitudinal defect"
+          "Complete altitudinal defect",
+          "Arcuate scotoma with a nasal step"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Arcuate scotoma with a nasal step",
         "explanation": "Glaucoma damages the retinal nerve fibre layer in an arcuate distribution, producing arcuate scotomata and nasal steps that respect the horizontal midline. These are detected and monitored with automated static (Humphrey) perimetry."
       },
@@ -6157,13 +6182,13 @@
         "type": "mcq",
         "question": "A patient has a left homonymous hemianopia with macular sparing following a sudden event. Which lesion best explains this?",
         "options": [
-          "Right occipital cortex infarction",
           "Left optic nerve compression",
+          "Right occipital cortex infarction",
           "Optic chiasm tumour",
           "Right temporal lobe lesion",
           "Bilateral retinal detachment"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Right occipital cortex infarction",
         "explanation": "A left homonymous hemianopia localises to the contralateral (right) post-chiasmal pathway, and macular sparing points specifically to the occipital cortex, where the macular region has a dual blood supply. Sudden onset is typical of an occipital infarct."
       },
@@ -6173,12 +6198,12 @@
         "question": "A 78-year-old with sudden central visual distortion has a macular OCT showing cystoid intraretinal fluid and subretinal fluid. What is the most appropriate management?",
         "options": [
           "Reassure and review in one year",
-          "Start intravitreal anti-VEGF therapy",
           "Prescribe topical antibiotics",
           "Arrange urgent cataract surgery",
+          "Start intravitreal anti-VEGF therapy",
           "Commence oral prednisolone"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Start intravitreal anti-VEGF therapy",
         "explanation": "Intraretinal and subretinal fluid on macular OCT indicates active wet (neovascular) AMD. Anti-VEGF injection is the standard treatment to resolve fluid and preserve vision, and OCT is used to monitor response and re-treatment."
       },
@@ -6187,13 +6212,13 @@
         "type": "mcq",
         "question": "Which OCT scan protocol is most useful for diagnosing and monitoring glaucoma?",
         "options": [
+          "Peripapillary retinal nerve fibre layer scan around the optic disc",
           "Macular cube centred on the fovea",
           "Anterior-segment scan of the cornea",
-          "Peripapillary retinal nerve fibre layer scan around the optic disc",
           "Choroidal thickness enhanced-depth scan",
           "Fluorescein angiographic transit scan"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Peripapillary retinal nerve fibre layer scan around the optic disc",
         "explanation": "The peripapillary RNFL scan measures nerve fibre layer thickness and disc parameters against a normative database, detecting glaucomatous thinning. Serial scans quantify progression, making it central to glaucoma diagnosis and monitoring."
       },
@@ -6203,12 +6228,12 @@
         "question": "What is a key limitation of relying on OCT retinal nerve fibre layer analysis?",
         "options": [
           "It requires intravenous contrast that can cause anaphylaxis",
-          "High myopia and tilted discs can produce false abnormal readings",
           "It exposes the patient to ionising radiation",
+          "High myopia and tilted discs can produce false abnormal readings",
           "It can only be performed under general anaesthesia",
           "It directly measures intraocular pressure"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "High myopia and tilted discs can produce false abnormal readings",
         "explanation": "OCT normative databases assume an average axial length, so long myopic eyes and large or tilted discs fall outside those norms and generate false 'red' RNFL results. Results must be interpreted alongside the disc appearance, intraocular pressure and visual fields."
       },
@@ -6217,13 +6242,13 @@
         "type": "mcq",
         "question": "During an FFA, a lesion appears bright in the early phase and steadily becomes brighter and more blurred in the late images. What does this pattern represent?",
         "options": [
-          "Active leakage from a choroidal neovascular membrane",
           "A window defect from retinal pigment epithelium atrophy",
           "Blockage by overlying retinal haemorrhage",
           "Capillary non-perfusion from ischaemia",
-          "Normal laminar venous filling"
+          "Normal laminar venous filling",
+          "Active leakage from a choroidal neovascular membrane"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Active leakage from a choroidal neovascular membrane",
         "explanation": "Leakage is defined by fluorescence that increases in intensity and expands with blurred margins over the course of the study as dye escapes through a broken blood-retinal barrier. This progressive pattern is characteristic of active CNV and macular oedema and identifies treatable wet disease."
       },
@@ -6232,13 +6257,13 @@
         "type": "mcq",
         "question": "A patient is being consented for FFA. Which counselling point is most important to give beforehand?",
         "options": [
-          "Their skin and urine will turn transiently yellow for a day or two",
           "The dye permanently stains the retina",
+          "Their skin and urine will turn transiently yellow for a day or two",
           "They must stop all oral medications for a week afterwards",
           "The test uses ionising radiation with a cumulative dose",
           "Vision will be permanently blurred after the injection"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Their skin and urine will turn transiently yellow for a day or two",
         "explanation": "Fluorescein is renally excreted and almost always causes harmless transient yellow discolouration of the skin and bright yellow urine for 24-48 hours. Forewarning the patient prevents alarm. FFA uses visible light, not ionising radiation, and does not stain the retina."
       },
@@ -6247,13 +6272,13 @@
         "type": "mcq",
         "question": "On an FFA, an area of the retina remains dark throughout the study, and this corresponds to a region of retinal capillary dropout in a patient with a retinal vein occlusion. This finding is best described as which of the following?",
         "options": [
-          "Hypofluorescence due to non-perfusion, indicating ischaemia",
           "Hyperfluorescence due to leakage",
           "A window defect from RPE atrophy",
           "Late staining of a fibrous scar",
+          "Hypofluorescence due to non-perfusion, indicating ischaemia",
           "Blockage by overlying pigment"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Hypofluorescence due to non-perfusion, indicating ischaemia",
         "explanation": "Capillary dropout means dye never reaches the tissue, so the area stays dark as a filling defect rather than being masked by overlying material. In retinal vein occlusion, extensive non-perfusion defines the ischaemic subtype, which carries a high risk of neovascularisation and needs close monitoring."
       },
@@ -6262,13 +6287,13 @@
         "type": "mcq",
         "question": "A 74-year-old with known dry age-related macular degeneration uses an Amsler grid at home and now reports that the central lines look wavy in her right eye. What is the most appropriate next step?",
         "options": [
-          "Reassure her and review routinely in 12 months",
           "Arrange urgent macular assessment with OCT for possible wet AMD",
+          "Reassure her and review routinely in 12 months",
           "Prescribe stronger reading glasses and reassess",
           "Instil dilating drops and discharge her",
           "Refer for cataract surgery"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Arrange urgent macular assessment with OCT for possible wet AMD",
         "explanation": "New metamorphopsia in a patient with dry AMD signals possible conversion to wet AMD from choroidal neovascularisation. Urgent OCT and macular clinic review are needed, as early anti-VEGF treatment preserves vision and delay risks irreversible loss."
       },
@@ -6278,12 +6303,12 @@
         "question": "How should a patient be positioned to perform the Amsler grid test correctly?",
         "options": [
           "Both eyes open, at arm's length, looking around the whole grid",
-          "One eye covered, wearing reading glasses, at ~30 cm, fixating the central dot",
           "One eye covered, at 6 metres, reading the smallest line",
+          "One eye covered, wearing reading glasses, at ~30 cm, fixating the central dot",
           "Both eyes open in a darkened room after dilating drops",
           "One eye covered while following a moving target across the grid"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "One eye covered, wearing reading glasses, at ~30 cm, fixating the central dot",
         "explanation": "The test is monocular, uses the patient's reading correction, and is held at a normal reading distance of about 30 cm. Steady fixation on the central dot lets the grid fall on the macula so distortions or scotomas can be perceived."
       },
@@ -6293,12 +6318,12 @@
         "question": "A patient reports a distinct missing patch just off-centre on the Amsler grid, with the surrounding squares intact. What does this scotoma most directly indicate?",
         "options": [
           "A refractive error correctable with glasses",
-          "Localised loss of macular function such as a macular hole or dense oedema",
           "Raised intraocular pressure from angle closure",
           "An optic nerve lesion causing an arcuate defect",
-          "A posterior vitreous detachment"
+          "A posterior vitreous detachment",
+          "Localised loss of macular function such as a macular hole or dense oedema"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Localised loss of macular function such as a macular hole or dense oedema",
         "explanation": "A central or paracentral scotoma on the Amsler grid reflects loss of functioning macular photoreceptors, as seen with a macular hole, geographic atrophy or dense macular oedema. It should be correlated with OCT to define the cause."
       },
@@ -6324,11 +6349,11 @@
         "options": [
           "Collar-stud mass",
           "Funnel-shaped membrane",
-          "T-sign",
           "Acoustic shadowing from calcium",
+          "T-sign",
           "Swirling low-reflective opacities"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "T-sign",
         "explanation": "The T-sign is fluid in Tenon's space meeting the optic nerve shadow at a right angle, producing a T-shaped anechoic zone with scleral thickening. It is the classic B-scan feature of posterior scleritis."
       },
@@ -6337,13 +6362,13 @@
         "type": "mcq",
         "question": "Which clinical scenario is a contraindication to performing contact B-scan ultrasonography directly on the eye?",
         "options": [
-          "Dense cataract obscuring the fundus",
           "Suspected open (ruptured) globe injury",
+          "Dense cataract obscuring the fundus",
           "Vitreous haemorrhage in a diabetic patient",
           "Suspected choroidal melanoma",
           "Non-resolving hyphaema"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Suspected open (ruptured) globe injury",
         "explanation": "Applying probe pressure to a suspected open or ruptured globe can express intraocular contents and cause irreversible sight loss. The eye should be shielded and assessed with urgent ophthalmology review and CT imaging instead of contact ultrasound."
       },
@@ -6368,12 +6393,12 @@
         "question": "From what age are people with diabetes entered into the UK national diabetic eye screening programme?",
         "options": [
           "From diagnosis at any age",
-          "From age 12",
           "From age 16",
           "From age 18",
-          "From age 40"
+          "From age 40",
+          "From age 12"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "From age 12",
         "explanation": "The UK Diabetic Eye Screening Programme invites people with diabetes for annual retinal photography from the age of 12. This captures sight-threatening retinopathy across the working-age population where it is the leading cause of blindness."
       },
@@ -6391,6 +6416,21 @@
         "correctIndex": 1,
         "answer": "Tropicamide 1%",
         "explanation": "Tropicamide 1% is a short-acting mydriatic that dilates the pupil to give a clear view of the posterior pole and periphery for photography. Pilocarpine constricts the pupil, while timolol and latanoprost lower intraocular pressure."
+      },
+      {
+        "id": "oph_img_bitemp_q01",
+        "type": "mcq",
+        "question": "A 40-year-old has a bitemporal hemianopia respecting the vertical midline. Besides urgent MRI pituitary, what else is essential?",
+        "options": [
+          "Only reassurance and a repeat field in a year",
+          "Immediate anti-VEGF injection",
+          "Tonometry and gonioscopy",
+          "A pituitary hormone profile with endocrinology referral",
+          "A B-scan ultrasound"
+        ],
+        "correctIndex": 3,
+        "answer": "A pituitary hormone profile with endocrinology referral",
+        "explanation": "Bitemporal hemianopia indicates chiasmal compression, most often a pituitary adenoma, which may be functioning or non-functioning. Alongside urgent MRI pituitary, a pituitary hormone profile (prolactin, IGF-1, cortisol/ACTH, TFTs, LH/FSH) and endocrine/neurosurgical referral are needed."
       }
     ],
     "investigations__OPHTHALMOLOGY__Fundoscopy Signs & Special": [
