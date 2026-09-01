@@ -339,6 +339,57 @@ body{display:flex;flex-direction:column;}
 .osce-aud audio{width:100%;height:36px;display:block;}
 
 /* ============================================================================
+   HISTOLOGY — visual pass
+   Scoped to #tab-histology. This tab was already the most disciplined of the
+   set — it uses only .rn-* components (no .cp-*, no .tt-* subtabs), its image
+   slots are already quiet dashed placeholders, and across all 69 notes there
+   are just two inline font sizes and two inline colours. So this is a light
+   pass: type scale and spacing only. No colour change and no icon change —
+   the six emoji here are 247 microscopes marking image slots, used
+   consistently, which is the opposite of the problem on other tabs.
+   ========================================================================== */
+
+/* ---- Type scale --------------------------------------------------------
+   The shared .rn-* sheet carries fourteen font sizes. Six of them (10, 10.5,
+   11, 11.5, 12.5, 13.5) sit within a 3.5px band doing the same three jobs —
+   label, caption, body — so a card head and a table header differ by half a
+   pixel for no reason. They resolve to 11 / 12 / 13. The 16-32px values are
+   left alone: those are icon and letter glyphs, not text. */
+#tab-histology .rn-card-head,
+#tab-histology .rn-diagram-caption,
+#tab-histology .rn-tl-time,
+#tab-histology .rn-terr-tag,
+#tab-histology .rn-classify-header,
+#tab-histology .rn-rf-label{font-size:11px;}
+
+#tab-histology .rn-small,
+#tab-histology .rn-pill-sub,
+#tab-histology .rn-inv-detail,
+#tab-histology .rn-flow-sub,
+#tab-histology .rn-list-sm li{font-size:12px;}
+
+#tab-histology .rn-body p,
+#tab-histology .rn-body li,
+#tab-histology .rn-list li,
+#tab-histology .rn-table td,
+#tab-histology .rn-flow-label,
+#tab-histology .rn-callout,
+#tab-histology .rn-pearl{font-size:13px;line-height:1.7;}
+
+/* The image slots are the one inline size on this tab that sits off the scale
+   (12.5px); they carry real descriptive content, so they join body text. */
+#tab-histology .note-content div[style*="border:2px dashed"]{font-size:13px!important;line-height:1.65;}
+
+/* ---- Spacing on a 4px rhythm ------------------------------------------- */
+#tab-histology .rn-section{margin-bottom:16px;}
+#tab-histology .rn-body{padding:20px;}
+#tab-histology .rn-card-head{padding:10px 16px;}
+#tab-histology .rn-table th,
+#tab-histology .rn-table td{padding:10px 14px;}
+#tab-histology .rn-callout{padding:14px 16px;}
+
+
+/* ============================================================================
    SIGNS & SYMPTOMS — visual pass
    Scoped to #tab-signs. The .cp-* components are shared with four other tabs,
    so nothing here reaches Medical Conditions, Anatomy, Histology or
