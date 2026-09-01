@@ -125,6 +125,11 @@
         "id": "lf_spir_pef_fc_05",
         "front": "State the acute asthma severity thresholds based on PEF (% best/predicted).",
         "back": "Moderate: PEF ≥50–75%. Acute severe: PEF 33–50%. Life-threatening: PEF <33%. Below 50% requires urgent treatment; below 33% is a medical emergency."
+      },
+      {
+        "id": "lf_spir_ci_fc_01",
+        "front": "List the main contraindications/cautions to forced spirometry.",
+        "back": "Recent <b>MI/unstable angina</b> (~1 month), <b>pneumothorax</b>, recent <b>thoracic/abdominal/eye surgery</b>, <b>thoracic/abdominal/cerebral aneurysm</b>, and <b>active haemoptysis</b> or acute respiratory infection — the forced blow raises intrathoracic, intra-abdominal and intra-ocular pressure."
       }
     ],
     "investigations__LUNG FUNCTION__Provocation & Inflammation": [
@@ -202,6 +207,11 @@
         "id": "lf_prov_feno_fc_05",
         "front": "What are the clinical uses of FeNO in asthma?",
         "back": "Supporting the diagnosis, predicting inhaled corticosteroid responsiveness, and monitoring treatment adherence (a high FeNO despite ICS suggests poor adherence or technique)."
+      },
+      {
+        "id": "lf_prov_eos_fc_01",
+        "front": "What do blood eosinophils add to FeNO, and how do they guide treatment?",
+        "back": "They are the paired <b>T2/eosinophilic</b> biomarker. A raised count predicts <b>ICS responsiveness</b> and, in severe asthma, guides <b>biologic</b> choice: high eosinophils → <b>anti-IL5</b> (mepolizumab/benralizumab); high IgE/atopy → <b>anti-IgE</b> (omalizumab)."
       }
     ],
     "investigations__LUNG FUNCTION__Gas Transfer & Volumes": [
@@ -568,13 +578,13 @@
         "type": "mcq",
         "question": "A 68-year-old smoker has post-bronchodilator spirometry showing FEV₁ 55% predicted and FEV₁/FVC 0.58. Which pattern does this represent?",
         "options": [
-          "Obstructive pattern",
           "Restrictive pattern",
           "Mixed pattern with reduced TLC",
+          "Obstructive pattern",
           "Normal spirometry",
           "Isolated reduced gas transfer"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Obstructive pattern",
         "explanation": "An FEV₁/FVC ratio below 0.70 with a reduced FEV₁ defines an obstructive defect. In a long-term smoker this pattern is consistent with COPD."
       },
@@ -584,12 +594,12 @@
         "question": "Which spirometry result best suggests a restrictive process?",
         "options": [
           "Reduced FEV₁ with FEV₁/FVC 0.55",
-          "Reduced FVC with FEV₁/FVC 0.85",
           "Normal FVC with FEV₁/FVC 0.60",
           "Raised FVC with reduced FEV₁",
-          "Reduced FEV₁ with normal FVC and low ratio"
+          "Reduced FEV₁ with normal FVC and low ratio",
+          "Reduced FVC with FEV₁/FVC 0.85"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Reduced FVC with FEV₁/FVC 0.85",
         "explanation": "Restriction produces a reduced FVC with a preserved or raised FEV₁/FVC ratio because both volumes fall proportionately. This pattern should be confirmed by a reduced TLC on lung volume testing."
       },
@@ -614,12 +624,12 @@
         "question": "A patient's spirometry report gives an FEV1/FVC z-score of -1.90. How should this be interpreted?",
         "options": [
           "Within the normal range",
-          "Below the lower limit of normal, indicating airflow obstruction",
           "Above the upper limit of normal",
           "Consistent with a restrictive defect",
+          "Below the lower limit of normal, indicating airflow obstruction",
           "Uninterpretable without the percent-predicted value"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Below the lower limit of normal, indicating airflow obstruction",
         "explanation": "The LLN corresponds to a z-score of -1.64, so a value of -1.90 lies below the 5th centile. A reduced FEV1/FVC below the LLN defines airflow obstruction. The z-score alone is sufficient because it is already age, height and sex independent."
       },
@@ -628,13 +638,13 @@
         "type": "mcq",
         "question": "Why does applying a fixed FEV1/FVC cut-off of 0.70 tend to over-diagnose airflow obstruction in elderly patients?",
         "options": [
-          "Elderly patients cannot perform a valid forced expiration",
           "The FEV1/FVC ratio physiologically declines with age, so a fixed line falls below the true LLN in older people",
+          "Elderly patients cannot perform a valid forced expiration",
           "Height decreases with age, artificially raising the ratio",
           "GLI equations are not validated above age 80",
           "Bronchodilators lose efficacy with age"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "The FEV1/FVC ratio physiologically declines with age, so a fixed line falls below the true LLN in older people",
         "explanation": "The FEV1/FVC ratio normally falls as lungs age, so in older people the true LLN drops below 0.70. A rigid 0.70 threshold therefore labels many healthy ageing lungs as obstructed. Interpreting against the age-adjusted GLI LLN corrects this over-diagnosis."
       },
@@ -658,13 +668,13 @@
         "type": "mcq",
         "question": "A patient has obstructive spirometry. After 400 mcg salbutamol, FEV₁ rises from 2.00 L to 2.40 L (predicted FEV₁ 3.00 L). Which statement best describes this result?",
         "options": [
-          "It is significant reversibility, meeting both the ≥12% and ≥200 mL criteria",
           "It is non-significant because FVC did not change",
           "It is non-significant because the rise is under 200 mL",
           "It cannot be interpreted without a bronchial challenge test",
-          "It confirms COPD because obstruction was present at baseline"
+          "It confirms COPD because obstruction was present at baseline",
+          "It is significant reversibility, meeting both the ≥12% and ≥200 mL criteria"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "It is significant reversibility, meeting both the ≥12% and ≥200 mL criteria",
         "explanation": "The FEV₁ rise is 400 mL, which is 20% of the baseline of 2.00 L. This exceeds both the ≥12% and the ≥200 mL thresholds and represents significant reversibility, strongly favouring asthma."
       },
@@ -673,13 +683,13 @@
         "type": "mcq",
         "question": "Which agent and repeat-timing combination is standard for bronchodilator reversibility testing?",
         "options": [
-          "400 mcg salbutamol, repeat spirometry at 15-20 minutes",
           "Oral prednisolone, repeat spirometry at 24 hours",
+          "400 mcg salbutamol, repeat spirometry at 15-20 minutes",
           "Long-acting beta-agonist, repeat spirometry at 5 minutes",
           "Nebulised saline, repeat spirometry at 60 minutes",
           "Intravenous aminophylline, repeat spirometry immediately"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "400 mcg salbutamol, repeat spirometry at 15-20 minutes",
         "explanation": "A short-acting beta-agonist such as 400 mcg inhaled salbutamol is given and spirometry is repeated at 15-20 minutes. This interval allows the drug to reach peak bronchodilator effect before reassessment."
       },
@@ -688,20 +698,20 @@
         "type": "mcq",
         "question": "A patient with suspected asthma has a negative bronchodilator reversibility test. What is the most appropriate next step?",
         "options": [
-          "Pursue further objective testing such as peak-flow variability or FeNO",
           "Confidently exclude asthma and stop the workup",
           "Diagnose COPD regardless of smoking history",
           "Immediately start long-term oral corticosteroids",
+          "Pursue further objective testing such as peak-flow variability or FeNO",
           "Repeat the test after giving intravenous fluids"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Pursue further objective testing such as peak-flow variability or FeNO",
         "explanation": "Asthmatic airflow limitation is variable, so a single negative reversibility test does not exclude asthma. Additional objective evidence such as peak-flow variability, FeNO, or a bronchial challenge should be sought before the diagnosis is discarded."
       },
       {
         "id": "lf_spir_fvl_q01",
         "type": "mcq",
-        "question": "A 54-year-old with progressive stridor has a flow-volume loop showing a plateau of the expiratory limb only, with a normal-shaped inspiratory limb. Where is the lesion?",
+        "question": "A 54-year-old with a progressive monophonic wheeze has a flow-volume loop showing a plateau of the expiratory limb only, with a normal-shaped inspiratory limb. Where is the lesion?",
         "options": [
           "Variable intrathoracic large airway",
           "Variable extrathoracic large airway",
@@ -719,12 +729,12 @@
         "question": "Which flow-volume loop appearance is most characteristic of a large fixed upper-airway obstruction such as tracheal stenosis?",
         "options": [
           "Scooped concave expiratory limb with normal inspiration",
-          "Plateau of both inspiratory and expiratory limbs giving a box-like loop",
           "Tall narrow loop shifted to low volume",
+          "Plateau of both inspiratory and expiratory limbs giving a box-like loop",
           "Inspiratory plateau with normal expiratory limb",
           "Normal loop with an exaggerated peak expiratory flow"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Plateau of both inspiratory and expiratory limbs giving a box-like loop",
         "explanation": "A fixed lesion has a rigid calibre that cannot vary with the changing transmural pressures of inspiration and expiration. Flow is therefore capped in both directions, flattening both limbs into a box shape. This dual plateau is the classic signature of fixed obstruction."
       },
@@ -735,11 +745,11 @@
         "options": [
           "The finding confirms severe small-airways asthma",
           "It indicates a restrictive ventilatory defect",
-          "It points to a large-airway (extrathoracic) obstruction that must not be missed",
           "It is a normal variant of forced inspiration",
-          "It reflects reversible bronchoconstriction responsive to salbutamol"
+          "It reflects reversible bronchoconstriction responsive to salbutamol",
+          "It points to a large-airway (extrathoracic) obstruction that must not be missed"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "It points to a large-airway (extrathoracic) obstruction that must not be missed",
         "explanation": "Flattening of the inspiratory limb signals variable extrathoracic large-airway obstruction such as vocal cord dysfunction or a laryngeal lesion, which is frequently mislabelled as asthma. Recognising the plateau redirects investigation toward direct airway visualisation and prevents dangerous mismanagement."
       },
@@ -748,13 +758,13 @@
         "type": "mcq",
         "question": "A 24-year-old with suspected asthma keeps a 2-week PEF diary. His highest reading is 500 L/min and his lowest is 380 L/min on a typical day. What is his diurnal variability, and does it support asthma?",
         "options": [
-          "24% — supports asthma",
           "24% — argues against asthma",
+          "24% — supports asthma",
           "32% — supports asthma",
           "12% — supports asthma",
           "12% — argues against asthma"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "24% — supports asthma",
         "explanation": "Variability is (500 − 380) ÷ 500 × 100 = 24%. A value greater than 20% on repeated days indicates variable airflow obstruction and supports a diagnosis of asthma."
       },
@@ -765,11 +775,11 @@
         "options": [
           "Moderate acute asthma",
           "Acute severe asthma",
-          "Life-threatening asthma",
           "Near-fatal asthma requiring only observation",
+          "Life-threatening asthma",
           "Well-controlled chronic asthma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Life-threatening asthma",
         "explanation": "A PEF below 33% of best or predicted defines life-threatening asthma, and a silent chest with SpO₂ under 92% confirms this category. It mandates immediate senior support, oxygen, nebulised bronchodilators and critical care review."
       },
@@ -778,15 +788,30 @@
         "type": "mcq",
         "question": "Which feature of a serial PEF record most specifically points towards occupational asthma?",
         "options": [
-          "A PEF that is consistently lowest on waking every morning",
           "A fall in PEF during work days with recovery on days off",
+          "A PEF that is consistently lowest on waking every morning",
           "A single PEF reading below 80% of predicted",
           "PEF that rises by 15% after inhaled bronchodilator",
           "PEF that is identical at every time point through the day"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "A fall in PEF during work days with recovery on days off",
         "explanation": "Occupational asthma is identified when serial PEF falls during work periods and recovers away from work, linking symptoms to a workplace sensitiser. This work-versus-rest pattern is the hallmark that distinguishes it from non-occupational asthma."
+      },
+      {
+        "id": "lf_spir_ci_q01",
+        "type": "mcq",
+        "question": "A 63-year-old is booked for spirometry but had an ST-elevation MI three weeks ago. What is the most appropriate action?",
+        "options": [
+          "Proceed as normal — spirometry is always safe",
+          "Perform only the inspiratory manoeuvre",
+          "Defer spirometry until he is more than ~1 month post-MI and stable",
+          "Give GTN then proceed immediately",
+          "Replace it with a chest X-ray as the diagnostic test"
+        ],
+        "correctIndex": 2,
+        "answer": "Defer spirometry until he is more than ~1 month post-MI and stable",
+        "explanation": "Recent MI (within ~1 month) is a caution/contraindication to forced spirometry because the forced expiratory effort raises intrathoracic pressure and cardiac strain. Defer until the patient is stable and beyond the recovery window."
       }
     ],
     "investigations__LUNG FUNCTION__Provocation & Inflammation": [
@@ -796,12 +821,12 @@
         "question": "A 26-year-old with intermittent cough and wheeze has normal spirometry and no bronchodilator reversibility. Which parameter defines a positive methacholine challenge?",
         "options": [
           "A 12% and 200 mL rise in FEV₁ after methacholine",
-          "A 20% fall in FEV₁ from baseline",
           "A 15% rise in peak expiratory flow",
+          "A 20% fall in FEV₁ from baseline",
           "A fall in FVC of 10% with preserved FEV₁",
           "A 20% rise in FEV₁ after bronchodilator"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A 20% fall in FEV₁ from baseline",
         "explanation": "A positive bronchial provocation test is defined by a 20% fall in FEV₁ from baseline. The provocative dose or concentration producing this fall is reported as the PD20 or PC20."
       },
@@ -810,13 +835,13 @@
         "type": "mcq",
         "question": "Which statement best explains why bronchial provocation is most useful for excluding asthma?",
         "options": [
-          "It has very high negative predictive value, so a negative test largely rules out asthma",
           "It is highly specific, so a positive test confirms asthma",
           "It directly measures airway eosinophilia",
           "It quantifies bronchodilator reversibility",
-          "It is diagnostic only when FEV₁ rises after methacholine"
+          "It is diagnostic only when FEV₁ rises after methacholine",
+          "It has very high negative predictive value, so a negative test largely rules out asthma"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "It has very high negative predictive value, so a negative test largely rules out asthma",
         "explanation": "Airway hyper-responsiveness testing is sensitive with a high negative predictive value, meaning a negative result effectively excludes current asthma. It is less specific, as hyper-responsiveness also occurs in COPD and rhinitis."
       },
@@ -841,12 +866,12 @@
         "question": "A 22-year-old competitive swimmer reports cough and breathlessness only during hard training, with normal resting spirometry. Which test most specifically confirms exercise-induced bronchoconstriction and predicts steroid responsiveness?",
         "options": [
           "Methacholine challenge",
-          "Inhaled mannitol challenge",
           "Skin-prick allergen testing",
           "Serum total IgE",
+          "Inhaled mannitol challenge",
           "Peak flow variability over one week"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Inhaled mannitol challenge",
         "explanation": "Mannitol is an indirect osmotic provocation test that triggers endogenous mediator release from inflamed airways, making it specific for asthma/EIB. A positive result reflects airway inflammation and predicts a good response to inhaled corticosteroids."
       },
@@ -855,13 +880,13 @@
         "type": "mcq",
         "question": "During a standardised exercise challenge, which fall in FEV₁ from baseline is the accepted threshold for a positive test for exercise-induced bronchoconstriction?",
         "options": [
-          "≥5%",
           "≥10%",
+          "≥5%",
           "≥20%",
           "≥30%",
           "≥50%"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "≥10%",
         "explanation": "A ≥10% fall in FEV₁ after exercise defines a positive exercise challenge for EIB. Eucapnic voluntary hyperpnoea often uses a ≥15% cut-off to increase specificity."
       },
@@ -871,12 +896,12 @@
         "question": "Which statement best explains why indirect provocation tests are preferred over methacholine for confirming asthma in an athlete?",
         "options": [
           "They act directly on smooth-muscle muscarinic receptors",
-          "They reflect airway inflammation and better predict inhaled-steroid response",
           "They can be safely performed regardless of baseline FEV₁",
+          "They reflect airway inflammation and better predict inhaled-steroid response",
           "They are more sensitive but far less specific than methacholine",
           "They diagnose inducible laryngeal obstruction rather than asthma"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "They reflect airway inflammation and better predict inhaled-steroid response",
         "explanation": "Indirect tests such as mannitol and exercise provoke endogenous mediator release from inflamed airways, so a positive result mirrors active inflammation. This specificity means the result predicts responsiveness to inhaled corticosteroids, guiding treatment."
       },
@@ -887,11 +912,11 @@
         "options": [
           "≥ 15 ppb",
           "≥ 25 ppb",
-          "≥ 40 ppb",
           "≥ 60 ppb",
-          "≥ 100 ppb"
+          "≥ 100 ppb",
+          "≥ 40 ppb"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "≥ 40 ppb",
         "explanation": "NICE defines an adult FeNO of 40 ppb or greater as positive, adding weight to an asthma diagnosis. In children aged 5–16 the corresponding threshold is 35 ppb."
       },
@@ -916,14 +941,29 @@
         "question": "What is the underlying biochemical mechanism that causes FeNO to rise in eosinophilic airway inflammation?",
         "options": [
           "Neutrophil elastase release breaking down elastin",
-          "IL-13-driven upregulation of inducible nitric oxide synthase (iNOS) in airway epithelium",
           "Increased carbon monoxide production from haem breakdown",
           "Mast cell histamine causing bronchial smooth muscle contraction",
+          "IL-13-driven upregulation of inducible nitric oxide synthase (iNOS) in airway epithelium",
           "Reduced surfactant production by type II pneumocytes"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "IL-13-driven upregulation of inducible nitric oxide synthase (iNOS) in airway epithelium",
         "explanation": "Type-2 cytokines such as IL-13 upregulate iNOS in bronchial epithelial cells, increasing nitric oxide that diffuses into the airway and is exhaled. This makes FeNO a marker of corticosteroid-responsive eosinophilic inflammation."
+      },
+      {
+        "id": "lf_prov_eos_q01",
+        "type": "mcq",
+        "question": "A patient with severe asthma on maximal inhaled therapy has a persistently raised blood eosinophil count. Which add-on treatment class does this phenotype most support?",
+        "options": [
+          "An anti-IL5 biologic (e.g. mepolizumab)",
+          "A long-term macrolide antibiotic",
+          "An inhaled long-acting muscarinic antagonist only",
+          "A leukotriene receptor antagonist",
+          "A short course of antibiotics"
+        ],
+        "correctIndex": 0,
+        "answer": "An anti-IL5 biologic (e.g. mepolizumab)",
+        "explanation": "A raised blood eosinophil count marks the eosinophilic/T2-high phenotype, which predicts response to anti-IL5 biologics (mepolizumab, benralizumab). High IgE/atopy would instead point to anti-IgE (omalizumab)."
       }
     ],
     "investigations__LUNG FUNCTION__Gas Transfer & Volumes": [
