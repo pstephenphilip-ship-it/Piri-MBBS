@@ -916,13 +916,13 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
       <div class="auth-field">
         <label for="authEmail">Email</label>
         <input type="email" id="authEmail" autocomplete="email" placeholder="you@example.com" required>
-        <div id="authEmailHint" style="display:none;font-size:11.5px;line-height:1.5;color:var(--muted,#6B7280);margin-top:7px;padding:8px 10px;background:rgba(0,194,168,.08);border:1px solid rgba(0,194,168,.25);border-radius:8px;">💡 Use a <strong>personal email</strong> (Gmail, Outlook, etc.) — university servers often block our verification code.</div>
+        <div id="authEmailHint" style="display:none;font-size:11.5px;line-height:1.5;color:var(--muted,#6B7280);margin-top:7px;padding:8px 10px;background:#FFFFFF;border:1px solid #B7DDE0;border-radius:8px;">💡 Use a <strong>personal email</strong> (Gmail, Outlook, etc.) — university servers often block our verification code.</div>
       </div>
       <div class="auth-field">
         <label for="authPassword">Password</label>
         <input type="password" id="authPassword" autocomplete="current-password" placeholder="••••••••" minlength="6" required>
-        <div id="authPwReq" style="display:none;font-size:11.5px;line-height:1.7;color:var(--muted,#6B7280);margin-top:7px;">
-          <div id="pwReqBar" style="height:5px;border-radius:3px;background:var(--border2,#E2E6F0);overflow:hidden;margin-bottom:8px;"><div id="pwReqBarFill" style="height:100%;width:0;background:#EF4444;transition:width .2s,background .2s;"></div></div>
+        <div id="authPwReq" style="display:none;font-size:11.5px;line-height:1.7;color:#5A6480;margin-top:7px;">
+          <div id="pwReqBar" style="height:5px;border-radius:3px;background:#D3E4E6;overflow:hidden;margin-bottom:8px;"><div id="pwReqBarFill" style="height:100%;width:0;background:#EF4444;transition:width .2s,background .2s;"></div></div>
           <div data-req="len">• At least 8 characters</div>
           <div data-req="case">• Upper &amp; lower-case letters</div>
           <div data-req="num">• At least one number</div>
@@ -14017,7 +14017,7 @@ function hideFlyout(p) {
     if($('da-profile-overlay')) return;
     var ov=document.createElement('div'); ov.className='auth-overlay'; ov.id='da-profile-overlay'; ov.onclick=function(e){ if(e.target===ov) ov.classList.remove('open'); };
     ov.innerHTML='<div class="auth-card"><button class="auth-close" onclick="document.getElementById(\'da-profile-overlay\').classList.remove(\'open\')">&times;</button>'+
-      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:var(--text)">Edit profile</div>'+
+      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:#1E2640">Edit profile</div>'+
       '<div class="auth-msg" id="da-prof-msg"></div>'+
       '<div style="display:flex;align-items:center;gap:14px;margin:4px 0 16px;"><span id="da-ep-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#00C2A8,#0EA5E9);color:#04121a;font-weight:700;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;"></span><div><button type="button" class="da-lock-btn" id="da-ep-photo-btn" style="padding:7px 12px;font-size:12.5px;">Upload photo</button> <button type="button" class="da-lock-btn" id="da-ep-photo-rm" style="padding:7px 12px;font-size:12.5px;">Remove</button><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:6px;">JPG/PNG &middot; square works best</div></div><input type="file" id="da-ep-photo-file" accept="image/*" style="display:none;"></div>'+
       '<div class="auth-field"><label>Username</label><input id="da-ep-username" type="text"></div>'+
@@ -14038,7 +14038,7 @@ function hideFlyout(p) {
     }); }
     var ov2=document.createElement('div'); ov2.className='auth-overlay'; ov2.id='da-pw-overlay'; ov2.onclick=function(e){ if(e.target===ov2) ov2.classList.remove('open'); };
     ov2.innerHTML='<div class="auth-card"><button class="auth-close" onclick="document.getElementById(\'da-pw-overlay\').classList.remove(\'open\')">&times;</button>'+
-      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:var(--text)">Change password</div>'+
+      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:#1E2640">Change password</div>'+
       '<div class="auth-msg" id="da-pw-msg"></div>'+
       '<div class="auth-field"><label>New password</label><input id="da-pw-new" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
       '<div class="auth-field"><label>Confirm new password</label><input id="da-pw-conf" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
@@ -14136,7 +14136,7 @@ function hideFlyout(p) {
     if($('da-recover-overlay')) return;
     var ov=document.createElement('div'); ov.className='auth-overlay'; ov.id='da-recover-overlay';
     ov.innerHTML='<div class="auth-card">'+
-      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:var(--text)">Set a new password</div>'+
+      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:#1E2640">Set a new password</div>'+
       '<div class="auth-msg" id="da-rec-msg"></div>'+
       '<div class="auth-field"><label>New password</label><input id="da-rec-new" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
       '<div class="auth-field"><label>Confirm new password</label><input id="da-rec-conf" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
@@ -14255,7 +14255,7 @@ function hideFlyout(p) {
     ov.onclick=function(e){ if(e.target===ov) closeMfa(); };
     ov.innerHTML='<div class="auth-card"><button class="auth-close" onclick="window.__closeMfa&&window.__closeMfa()">&times;</button>'+
       '<div class="auth-logo"><span class="logo-text">DoctoRise</span></div>'+
-      '<div class="auth-sub">Enter the 6-digit code we emailed to <span id="da-mfa-email" style="color:var(--text)"></span></div>'+
+      '<div class="auth-sub">Enter the 6-digit code we emailed to <span id="da-mfa-email" style="color:#1E2640"></span></div>'+
       '<div class="auth-msg" id="da-mfa-msg"></div>'+
       '<div class="auth-field"><label for="da-mfa-code">Verification code</label><input id="da-mfa-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456"></div>'+
       '<button class="auth-submit" id="da-mfa-verify">Verify &amp; sign in</button>'+
@@ -14407,7 +14407,7 @@ function hideFlyout(p) {
   function openOverlay(email, type, sub, after, needsSend){
     buildOverlay(); vEmail=email; vType=type||'email'; vAfter=after||function(){ (window.__authReload||function(){location.reload();})(); };
     window.__mfaPending=true;
-    $('dv-sub').innerHTML=sub||('Enter the code we emailed to <span style="color:var(--text)">'+email+'</span>');
+    $('dv-sub').innerHTML=sub||('Enter the code we emailed to <span style="color:#1E2640">'+email+'</span>');
     $('dv-code').value=''; var m=$('dv-msg'); if(m) m.className='auth-msg';
     if(needsSend){ showSend(); } else { showEntry(); }
     $('dv-overlay').classList.add('open');
@@ -14494,7 +14494,7 @@ function hideFlyout(p) {
             setTimeout(function(){ (window.__authReload||function(){location.reload();})(); }, 300);
           } else {                                              // confirmation ON: verify the emailed code
             if(typeof closeAuthModal==='function') closeAuthModal();
-            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:var(--text)">'+email+'</span>. Enter it to verify your new account.', function(){ (window.__authReload||function(){location.reload();})(); });
+            openOverlay(email,'signup','Check your email — we sent a code to <span style="color:#1E2640">'+email+'</span>. Enter it to verify your new account.', function(){ (window.__authReload||function(){location.reload();})(); });
           }
         }).catch(function(err){                                  // network / rate-limit: never leave the shared button stuck disabled
           btn.disabled=false; btn.textContent=r0;
@@ -14533,7 +14533,7 @@ function hideFlyout(p) {
         window.__mfaPending=true;
         // After verifying, the user is already signed in — just close the overlay (no reload).
         // The trusted-device claim runs in the background; on the next fresh load it's remembered.
-        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:var(--text)">'+u.email+'</span> to use DoctoRise here.', function(){ var ov=document.getElementById('dv-overlay'); if(ov) ov.classList.remove('open'); try{ if(window.__applyMembership) window.__applyMembership(); }catch(e){} setTimeout(function(){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(e){} }, 200); }); }
+        function show(){ openOverlay(u.email,'email','New device detected. Enter the code we emailed to <span style="color:#1E2640">'+u.email+'</span> to use DoctoRise here.', function(){ var ov=document.getElementById('dv-overlay'); if(ov) ov.classList.remove('open'); try{ if(window.__applyMembership) window.__applyMembership(); }catch(e){} setTimeout(function(){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(e){} }, 200); }); }
         if(sentRecently(u.email)) { show(); return; }   // auto-send the code (rate-limited to once / 90s)
         sb.auth.signInWithOtp({ email:u.email, options:{ shouldCreateUser:false } }).then(function(){ show(); }).catch(function(){ show(); });
       }).catch(function(){});
@@ -14571,13 +14571,13 @@ function hideFlyout(p) {
     var ov=document.createElement('div'); ov.className='auth-overlay'; ov.id='da-settings-overlay';
     ov.onclick=function(e){ if(e.target===ov) ov.classList.remove('open'); };
     ov.innerHTML='<div class="auth-card da-set-card"><button class="auth-close" onclick="document.getElementById(\'da-settings-overlay\').classList.remove(\'open\')">&times;</button>'+
-      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:var(--text)">Settings</div>'+
+      '<div class="auth-sub" style="font-weight:800;font-size:16px;color:#1E2640">Settings</div>'+
       '<div class="da-set-tabs">'+
         '<button class="da-set-tab active" data-pane="account">Account</button>'+
         '<button class="da-set-tab" data-pane="membership">Membership</button>'+
       '</div>'+
       '<div class="da-set-pane active" id="da-pane-account">'+
-        '<div style="font-weight:700;font-size:13.5px;margin-bottom:10px;color:var(--text)">Change password</div>'+
+        '<div style="font-weight:700;font-size:13.5px;margin-bottom:10px;color:#1E2640">Change password</div>'+
         '<div class="auth-msg" id="da-cp-msg"></div>'+
         '<div class="auth-field"><label>Current password</label><input id="da-cp-cur" type="password" autocomplete="current-password" placeholder="••••••••"></div>'+
         '<div class="auth-field"><label>New password</label><input id="da-cp-new" type="password" autocomplete="new-password" placeholder="••••••••"></div>'+
@@ -16752,5 +16752,75 @@ function hideFlyout(p) {
   ['hashchange'].forEach(function(ev){ window.addEventListener(ev, show); });
 })();
 </script>
+
+<!-- =====================================================================
+     LAYOUT PASS 5 — account surfaces go light.
+     Sign in, sign up, settings, membership and the topic lock were the only
+     dark surfaces in the app besides the nav — so it read light and friendly
+     while you study, then went dark exactly where it asks for your email,
+     your password or your money. About and Contact are already light sheets
+     with a light form, so the product was answering the same question two
+     ways. All five now share one tinted sheet.
+     Must sit after LAYOUT PASS 2, which styles .auth-overlay .auth-field
+     input at equal specificity — order, not weight, decides between them.
+     Search this file for "LAYOUT PASS TINT" to find it again.
+     ===================================================================== -->
+<style>
+  /* Card is tinted, fields stay white — that separation is what stops a light
+     form going flat, and it is why the fields are not tinted with the card. */
+  .auth-overlay{background:rgba(30,38,64,.45);}
+  .auth-card{
+    background:#EAF6F7;
+    border:1px solid #C7E2E6;
+    box-shadow:0 24px 64px rgba(30,38,64,.22);
+  }
+  .auth-card .auth-close{color:#8B95A8;}
+  .auth-card .auth-close:hover{color:#1E2640;}
+  .auth-sub{color:#5A6480;}
+  .auth-field label{color:#5A6480;}
+  /* select is included: the dark build styled input and textarea but not
+     select, so the three signup dropdowns sat darker than the fields above. */
+  .auth-overlay .auth-field input,
+  .auth-overlay .auth-field select,
+  .auth-overlay .auth-field textarea,
+  .auth-card select{
+    background:#FFFFFF;border:1px solid #C2DBDF;color:#1E2640;
+  }
+  .auth-overlay .auth-field input::placeholder,
+  .auth-overlay .auth-field textarea::placeholder{color:#9AA3B2;}
+  .auth-overlay .auth-field input:focus,
+  .auth-overlay .auth-field select:focus,
+  .auth-overlay .auth-field textarea:focus{border-color:#0B8A79;}
+  /* the accent teal measures 2.26:1 as text on a light ground; the About page
+     link teal passes. */
+  .auth-toggle{color:#5A6480;}
+  /* #0B8A79 passes on white but measures 3.86:1 on the tint. */
+  .auth-toggle a{color:#0A7568;}
+  /* status messages had dark-mode palettes (#ff9b9b, accent-dim). */
+  .auth-msg.err{background:#FDEAEA;border:1px solid #F2BABA;color:#C93535;}
+  .auth-msg.ok{background:#E7F8F4;border:1px solid #B9E2CD;color:#0B8A79;}
+  .da-set-row{color:#1E2640;border-bottom-color:#D3E4E6;}
+  .da-set-tabs{border-bottom-color:#D3E4E6;}
+  .da-set-tab{color:#5A6480;}
+  .da-set-tab.active{color:#0B8A79;}
+  .da-set-muted{color:#5A6480;}
+
+  /* The topic lock was brought onto the dark modal treatment earlier today, so
+     it comes across with them — otherwise this re-splits what that pass
+     unified. */
+  .da-lock-wrap{background:rgba(30,38,64,.45);}
+  .da-lock{background:#EAF6F7;border:1px solid #C7E2E6;
+    box-shadow:0 24px 64px rgba(30,38,64,.22);}
+  .da-lock-title{color:#1E2640;}
+  .da-lock-sub{color:#5A6480;}
+  .da-lock-foot{color:#5A6480;}
+  .da-lock-btn{background:#FFFFFF;border:1px solid #C2DBDF;color:#1E2640;}
+  .da-lock-btn:hover{background:#F4FBFB;}
+  .da-lock-btn.primary{border:none;color:#04121a;}
+  .da-lock-x{color:#8B95A8;}
+  .da-lock-x:hover{color:#1E2640;background:rgba(30,38,64,.07);}
+  .da-study-blur-card{background:#EAF6F7;border:1px solid #C7E2E6;}
+  .da-study-blur-title{color:#1E2640;}
+</style>
 </body>
 </html>
