@@ -109,6 +109,16 @@
         "id": "tox_cohb_fc_05",
         "front": "Which features prompt consideration of hyperbaric oxygen in CO poisoning?",
         "back": "Loss of consciousness/syncope, seizures, cardiac ischaemia, neurological signs, pregnancy, or very high COHb levels."
+      },
+      {
+        "id": "tox_co_cyanide_fc_01",
+        "front": "A patient rescued from a house fire has a high lactate and metabolic acidosis despite oxygen — what else must you consider?",
+        "back": "<b>Concurrent cyanide poisoning</b> from combustion of plastics/foam. Cyanide inhibits mitochondrial cytochrome oxidase &rarr; anaerobic metabolism and a <b>high lactate / persistent metabolic acidosis</b>. Give 100% oxygen and consider the antidote <b>hydroxocobalamin</b> (or dicobalt edetate). Treat CO and cyanide together in smoke inhalation."
+      },
+      {
+        "id": "tox_co_pregnancy_fc_01",
+        "front": "Why is pregnancy a lower threshold for hyperbaric oxygen in CO poisoning, and when do you stop oxygen?",
+        "back": "<b>Fetal haemoglobin binds CO even more avidly</b> than adult Hb, so the fetus is at high risk even when maternal COHb looks modest &mdash; give <b>prolonged maternal O&#8322;</b> and lower the threshold for HBO. In general, continue high-flow 100% O&#8322; <b>until the patient is asymptomatic and COHb is normal</b> (roughly <5%)."
       }
     ],
     "investigations__TOXICOLOGY__Osmolar & Anion Gap (Toxic Alcohols)": [
@@ -136,6 +146,16 @@
         "id": "tox_osm_fc_05",
         "front": "Why does a normal osmolar gap not exclude toxic alcohol poisoning?",
         "back": "In late presentation the parent alcohol may already be fully metabolised, so the osmolar gap normalises while the anion gap is now high from accumulated acids. Suspicion should still prompt early fomepizole and dialysis."
+      },
+      {
+        "id": "tox_ta_bicarb_fc_01",
+        "front": "Beyond fomepizole and dialysis, what else is given in toxic alcohol poisoning?",
+        "back": "<b>IV sodium bicarbonate</b> to correct the severe metabolic acidosis (it also traps formate, reducing methanol-induced optic toxicity), plus the cofactors <b>folinic acid</b> (methanol) and <b>thiamine + pyridoxine</b> (ethylene glycol). Always discuss with <b>NPIS/TOXBASE</b> for antidote and haemodialysis thresholds."
+      },
+      {
+        "id": "tox_ta_isopropanol_fc_01",
+        "front": "A patient has a raised osmolar gap with ketosis but little or no metabolic acidosis — which toxic alcohol fits?",
+        "back": "<b>Isopropanol (isopropyl alcohol)</b> — metabolised to <b>acetone</b>, a ketone rather than an acid, so it raises the osmolar gap and causes ketosis WITHOUT a high-anion-gap acidosis. This contrasts with methanol and ethylene glycol, which produce acids and a HAGMA. Isopropanol is usually managed supportively (ADH blockade/dialysis rarely needed)."
       }
     ],
     "investigations__TOXICOLOGY__Blood Gas & Lactate (Overdose)": [
@@ -295,12 +315,12 @@
         "question": "A family of four presents with headache, nausea and dizziness that began at home. Their pulse oximeter readings are all 99%. What is the most appropriate investigation to confirm the suspected diagnosis?",
         "options": [
           "Repeat pulse oximetry with a different probe",
-          "Blood CO-oximetry to measure %COHb",
           "Arterial blood gas PaO₂ alone",
+          "Blood CO-oximetry to measure %COHb",
           "Chest X-ray",
           "Serum lactate alone"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Blood CO-oximetry to measure %COHb",
         "explanation": "Pulse oximeters cannot distinguish carboxyhaemoglobin from oxyhaemoglobin and read falsely normal in CO poisoning. CO-oximetry measures %COHb directly and confirms the diagnosis. Multiple household members affected together is a classic pointer to CO exposure."
       },
@@ -310,12 +330,12 @@
         "question": "Which statement best explains why patients with carbon monoxide poisoning are hypoxic despite a normal PaO₂?",
         "options": [
           "CO reduces the amount of dissolved oxygen in plasma",
-          "CO binds haemoglobin with high affinity and shifts the O₂ dissociation curve left, impairing oxygen delivery to tissues",
           "CO causes bronchospasm and reduces alveolar ventilation",
           "CO directly damages the alveolar-capillary membrane reducing diffusion",
-          "CO increases metabolic oxygen demand in peripheral tissues"
+          "CO increases metabolic oxygen demand in peripheral tissues",
+          "CO binds haemoglobin with high affinity and shifts the O₂ dissociation curve left, impairing oxygen delivery to tissues"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "CO binds haemoglobin with high affinity and shifts the O₂ dissociation curve left, impairing oxygen delivery to tissues",
         "explanation": "CO binds haemoglobin with roughly 250 times the affinity of oxygen, reducing oxygen-carrying capacity. It also shifts the dissociation curve left, so the remaining oxygen is not released to tissues. PaO₂ measures dissolved oxygen, which is unaffected, so it stays normal."
       },
@@ -342,12 +362,12 @@
         "question": "A patient presents 3 hours after drinking antifreeze. He is alert with normal blood gases, but his serum osmolar gap is markedly raised at 28. Which statement best explains this early finding?",
         "options": [
           "The high anion gap from oxalic acid is driving the osmolar gap",
-          "Unmetabolised ethylene glycol is osmotically active and has not yet been converted to acids",
           "Calcium oxalate crystals in the blood raise measured osmolality",
+          "Unmetabolised ethylene glycol is osmotically active and has not yet been converted to acids",
           "Formic acid accumulation has increased serum osmolality",
           "Acute kidney injury has caused urea retention and a high osmolar gap"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Unmetabolised ethylene glycol is osmotically active and has not yet been converted to acids",
         "explanation": "Early after ingestion the intact parent alcohol is a small osmotically active molecule that raises the osmolar gap before any acidosis develops. Metabolism by alcohol dehydrogenase to acids, which raises the anion gap, occurs later."
       },
@@ -358,11 +378,11 @@
         "options": [
           "Oxalic acid",
           "Glycolic acid",
-          "Formic acid",
           "Lactic acid",
-          "Beta-hydroxybutyrate"
+          "Beta-hydroxybutyrate",
+          "Formic acid"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Formic acid",
         "explanation": "Methanol is metabolised to formic acid, which is directly toxic to the optic nerve and retina, producing visual disturbance, snow-field vision and potentially permanent blindness. A hyperaemic or swollen optic disc is a classic sign."
       },
