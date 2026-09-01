@@ -94,6 +94,21 @@
         "id": "geri_4at_fc_05",
         "front": "Why is the 4AT preferred over the MMSE/MoCA for delirium screening?",
         "back": "It needs no special training, takes under 2 minutes, and can be completed in drowsy or uncooperative patients — abnormal alertness scores positive rather than making the test impossible."
+      },
+      {
+        "id": "4at_manage_fc_01",
+        "front": "A 4AT is positive — outline management.",
+        "back": "Treat the <b>precipitant</b>; first-line <b>non-pharmacological</b> (reorientation, glasses/hearing aids, familiar environment, hydration, mobilise, minimise ward moves) and <b>review deliriogenic drugs</b>. Sedate only for severe distress/risk."
+      },
+      {
+        "id": "4at_sedation_fc_01",
+        "front": "When sedation is needed in agitated delirium, what is the drug of choice — and the key exception?",
+        "back": "Short-term <b>low-dose haloperidol</b>. <b>Exception: Parkinson’s disease / Lewy body dementia</b> — antipsychotics worsen these, so use <b>lorazepam</b> instead."
+      },
+      {
+        "id": "4at_subtype_fc_01",
+        "front": "Name the three motor subtypes of delirium and which is most missed.",
+        "back": "<b>Hyperactive, hypoactive, mixed</b>. <b>Hypoactive</b> (quiet, withdrawn) is the commonest and most missed, with the worst prognosis."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__Timed Up-and-Go & Gait Assessment": [
@@ -121,6 +136,21 @@
         "id": "geri_tug_fc_05",
         "front": "What is the key safety consideration when administering the TUG?",
         "back": "The patient can fall during the test. Stay within arm's reach and guard particularly during the turn (highest-risk phase); do not attempt it in someone acutely unwell or clearly too unsafe to stand."
+      },
+      {
+        "id": "gait_pattern_fc_01",
+        "front": "Match four abnormal gaits to their lesion.",
+        "back": "<b>Antalgic</b> = pain/OA; <b>Trendelenburg/waddle</b> = hip abductor/proximal myopathy; <b>Parkinsonian</b> (shuffling, reduced arm swing, en-bloc turn) = basal ganglia; <b>high-steppage/foot drop</b> = common peroneal/L5."
+      },
+      {
+        "id": "gait_nph_fc_01",
+        "front": "A patient has a magnetic/apraxic gait, urinary incontinence and cognitive decline. Diagnosis and next step?",
+        "back": "<b>Normal pressure hydrocephalus</b> (the \"wet, wacky, wobbly\" triad) → <b>CT/MRI head</b> (ventriculomegaly) and a <b>large-volume LP / tap test</b>; shunt if responsive."
+      },
+      {
+        "id": "gait_romberg_fc_01",
+        "front": "How does Romberg’s test separate sensory from cerebellar ataxia, and what gait speed is adverse?",
+        "back": "<b>Romberg-positive</b> (much worse with eyes closed) = <b>sensory</b> (dorsal-column/proprioceptive) ataxia; cerebellar ataxia is unsteady even with eyes open. Gait speed <b><0.8 m/s</b> is an adverse marker of falls/frailty/mortality."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__Barthel Index (Function)": [
@@ -349,12 +379,12 @@
         "question": "An 82-year-old post-operative patient scores 0 on alertness, 1 on AMT4 (one error), 1 on attention, and 4 on acute change/fluctuating course. What is the total 4AT score and its interpretation?",
         "options": [
           "2 — possible cognitive impairment",
-          "6 — possible delirium ± cognitive impairment",
           "6 — delirium excluded",
+          "6 — possible delirium ± cognitive impairment",
           "5 — possible cognitive impairment only",
           "10 — severe dementia confirmed"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "6 — possible delirium ± cognitive impairment",
         "explanation": "The items sum to 0 + 1 + 1 + 4 = 6, which is ≥4 and therefore falls in the possible-delirium band. Any total of 4 or more prompts a full delirium assessment and search for the precipitating cause."
       },
@@ -365,11 +395,11 @@
         "options": [
           "Serial sevens; a score of 0 requires 5 correct subtractions",
           "Spelling WORLD backwards; a score of 0 requires all 5 letters correct",
-          "Reciting the months of the year backwards; a score of 0 requires ≥7 correct",
           "Digit span forwards; a score of 0 requires 7 digits",
-          "Naming the days of the week backwards; a score of 0 requires all 7"
+          "Naming the days of the week backwards; a score of 0 requires all 7",
+          "Reciting the months of the year backwards; a score of 0 requires ≥7 correct"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Reciting the months of the year backwards; a score of 0 requires ≥7 correct",
         "explanation": "The 4AT attention task is months of the year said backwards from December. Achieving 7 or more correct scores 0, fewer than 7 or refusal scores 1, and being untestable scores 2."
       },
@@ -378,15 +408,30 @@
         "type": "mcq",
         "question": "A patient with known moderate Alzheimer's dementia is admitted with a chest infection and scores 5 on the 4AT. Which single item most helps distinguish new delirium from the patient's baseline dementia?",
         "options": [
-          "Item 4 — acute change or fluctuating course",
           "Item 1 — alertness observation",
+          "Item 4 — acute change or fluctuating course",
           "Item 2 — the AMT4 questions",
           "Item 3 — months backwards",
           "The overall total score alone"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Item 4 — acute change or fluctuating course",
         "explanation": "Item 4 specifically asks whether there is an acute change or fluctuation relative to the patient's usual state, which is the defining feature that separates superimposed delirium from stable baseline dementia. Collateral history establishing the change from baseline is essential here."
+      },
+      {
+        "id": "4at_sedation_q01",
+        "type": "mcq",
+        "question": "An agitated delirious patient with Parkinson’s disease poses a risk to himself and non-drug measures have failed. Which medication is most appropriate for short-term sedation?",
+        "options": [
+          "Haloperidol",
+          "Olanzapine",
+          "Risperidone",
+          "Lorazepam",
+          "Quetiapine at high dose"
+        ],
+        "correctIndex": 3,
+        "answer": "Lorazepam",
+        "explanation": "Antipsychotics (including haloperidol) worsen Parkinson’s disease and Lewy body dementia, so a short-acting benzodiazepine such as lorazepam is preferred when sedation is unavoidable. In other patients low-dose haloperidol would be first-line."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__Timed Up-and-Go & Gait Assessment": [
@@ -396,12 +441,12 @@
         "question": "An 80-year-old woman is assessed after a fall. She rises from the armchair pushing up with both arms, walks 3 metres and returns, taking 15 seconds with an unsteady turn. What does her TUG result indicate?",
         "options": [
           "Normal functional mobility requiring no further action",
-          "Increased falls risk warranting a multifactorial assessment and referral",
           "A definitive diagnosis of Parkinson's disease",
+          "Increased falls risk warranting a multifactorial assessment and referral",
           "That she has normal lower-limb strength",
           "That cognitive impairment is the sole cause"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Increased falls risk warranting a multifactorial assessment and referral",
         "explanation": "A time of 15 seconds exceeds both the ≥12s and ≥14s thresholds, and using the arms to rise with an unsteady turn are qualitatively abnormal signs. Together these indicate increased falls risk and should trigger a full multifactorial assessment and referral for strength-and-balance work."
       },
@@ -412,11 +457,11 @@
         "options": [
           "The patient must run the 3 metres as fast as possible",
           "The chair should be a low stool without armrests",
-          "The patient rises from a standard armchair and walks a marked 3-metre course",
           "Timing stops the moment the patient begins to turn",
-          "The distance walked is 10 metres"
+          "The distance walked is 10 metres",
+          "The patient rises from a standard armchair and walks a marked 3-metre course"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "The patient rises from a standard armchair and walks a marked 3-metre course",
         "explanation": "The standard test uses an armchair and a 3-metre marked distance walked at a comfortable, safe pace. Timing runs from 'go' until the patient is seated again, and standardising these elements makes repeat measurements comparable."
       },
@@ -434,6 +479,21 @@
         "correctIndex": 1,
         "answer": "Staying within arm's reach to guard the patient, especially during the turn",
         "explanation": "The patient can fall during the test itself, and the 180° turn is the highest-risk phase. The examiner must stay within arm's reach to guard against a fall while still observing gait quality and time."
+      },
+      {
+        "id": "gait_nph_q01",
+        "type": "mcq",
+        "question": "An older patient has a broad-based \"magnetic\" shuffling gait, urinary incontinence and cognitive decline. Which investigation pathway is most appropriate?",
+        "options": [
+          "DaT scan for Parkinson’s disease",
+          "Nerve conduction studies for foot drop",
+          "Echocardiogram for cardiac syncope",
+          "CT/MRI head then a large-volume lumbar puncture (tap test) for normal pressure hydrocephalus",
+          "Reassurance — this is normal ageing"
+        ],
+        "correctIndex": 3,
+        "answer": "CT/MRI head then a large-volume lumbar puncture (tap test) for normal pressure hydrocephalus",
+        "explanation": "The triad of gait apraxia (magnetic gait), urinary incontinence and cognitive decline (\"wet, wacky, wobbly\") suggests normal pressure hydrocephalus; image the brain for ventriculomegaly and perform a large-volume LP/tap test, with shunting if gait improves."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__Barthel Index (Function)": [
