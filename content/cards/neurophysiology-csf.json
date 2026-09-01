@@ -125,6 +125,21 @@
         "id": "nc_np_eeg_fc_05",
         "front": "Does a normal routine EEG exclude epilepsy?",
         "back": "No. Routine interictal EEG has limited sensitivity (~30-50%); epilepsy is a clinical diagnosis supported by EEG, and a normal study does not rule it out. EEG also has no role in diagnosing syncope."
+      },
+      {
+        "id": "nc_np_carpal_fc_01",
+        "front": "Median neuropathy at the wrist is confirmed on NCS — what is the management ladder?",
+        "back": "<b>Nocturnal wrist splint</b> → <b>corticosteroid injection</b> → <b>surgical decompression</b> for severe/refractory disease (thenar wasting, denervation). Screen for secondary causes: hypothyroidism, pregnancy, acromegaly, RA, diabetes."
+      },
+      {
+        "id": "nc_np_gbs_fc_01",
+        "front": "A demyelinating polyneuropathy on NCS suggests GBS — how is it managed?",
+        "back": "<b>IVIG or plasma exchange</b>; <b>corticosteroids do NOT help in GBS</b>. Monitor <b>serial FVC</b> for respiratory failure (ITU/ventilation) and give VTE prophylaxis. A chronic, relapsing, steroid-responsive form is <b>CIDP</b>."
+      },
+      {
+        "id": "nc_np_mg_fc_01",
+        "front": "Once decremental RNS confirms myasthenia gravis, what two next steps follow?",
+        "back": "Send <b>anti-AChR</b> (then <b>anti-MuSK</b> if negative) and <b>image the thymus (CT/MRI mediastinum)</b> for thymoma (~10–15%, resectable)."
       }
     ],
     "investigations__NEUROPHYSIOLOGY & CSF__CSF Analysis": [
@@ -252,6 +267,21 @@
         "id": "nc_csf_op_fc_05",
         "front": "When is LP to measure opening pressure contraindicated?",
         "back": "When raised ICP is due to a suspected mass lesion or there are focal neurological signs/reduced GCS — draining CSF risks tonsillar herniation (coning). Image the brain first."
+      },
+      {
+        "id": "nc_csf_enceph_fc_01",
+        "front": "A febrile, confused patient has a lymphocytic CSF — what must you do?",
+        "back": "Suspect <b>HSV encephalitis</b>: send <b>CSF HSV PCR</b> and start <b>empirical IV aciclovir immediately</b>, before the result returns (untreated HSV encephalitis has ~70% mortality)."
+      },
+      {
+        "id": "nc_csf_bact_fc_01",
+        "front": "What is the empirical treatment for a bacterial CSF picture?",
+        "back": "<b>IV ceftriaxone</b> (add <b>amoxicillin</b> if >60, immunocompromised or pregnant, for Listeria) + <b>IV dexamethasone</b>; blood cultures + meningococcal PCR. Do NOT delay antibiotics for the LP; meningococcal/bacterial meningitis is notifiable."
+      },
+      {
+        "id": "nc_csf_sah_fc_01",
+        "front": "Xanthochromia confirms subarachnoid haemorrhage — what are the next steps?",
+        "back": "<b>CT angiography</b> to localise the aneurysm and <b>urgent neurosurgery/interventional referral</b>; start <b>nimodipine</b> to reduce vasospasm."
       }
     ],
     "investigations__NEUROPHYSIOLOGY & CSF__CSF — Specialised": [
@@ -339,13 +369,13 @@
         "type": "mcq",
         "question": "A patient with a length-dependent sensory neuropathy has nerve conduction studies showing markedly reduced sensory and motor amplitudes but conduction velocities that are only mildly reduced and remain above 80% of normal. Which process does this pattern indicate?",
         "options": [
-          "Primary axonal neuropathy",
           "Primary demyelinating neuropathy",
           "Neuromuscular junction disorder",
+          "Primary axonal neuropathy",
           "Pure myopathy",
           "Conduction block from focal compression"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Primary axonal neuropathy",
         "explanation": "Amplitude reflects the number of functioning axons, so reduced CMAP/SNAP amplitude with preserved velocity is the signature of axon loss. Demyelination instead produces slowed velocity and prolonged latency."
       },
@@ -354,13 +384,13 @@
         "type": "mcq",
         "question": "A 24-year-old develops ascending weakness over several days. Nerve conduction studies show prolonged distal latencies, slowed conduction velocities, conduction block and prolonged/absent F-waves. Which diagnosis do these findings best support?",
         "options": [
-          "Guillain-Barré syndrome",
           "Diabetic axonal polyneuropathy",
           "Inclusion body myositis",
           "Lambert-Eaton myasthenic syndrome",
-          "Small-fibre neuropathy"
+          "Small-fibre neuropathy",
+          "Guillain-Barré syndrome"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Guillain-Barré syndrome",
         "explanation": "Slowed velocity, prolonged latency, conduction block and early F-wave abnormalities define an acquired demyelinating polyneuropathy, characteristic of GBS. F-wave changes are among the earliest findings because they test the proximal nerve segments and roots."
       },
@@ -369,13 +399,13 @@
         "type": "mcq",
         "question": "During needle EMG on a patient taking warfarin, which precaution is most important?",
         "options": [
-          "Limit sampling to avoid deep muscles and account for the bleeding risk from coagulopathy",
           "Cool the limb below 30°C before inserting the needle",
+          "Limit sampling to avoid deep muscles and account for the bleeding risk from coagulopathy",
           "Perform the study only within 24 hours of symptom onset",
           "Avoid all sensory nerve conduction studies",
           "Give a prophylactic dose of neuromuscular blocker"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Limit sampling to avoid deep muscles and account for the bleeding risk from coagulopathy",
         "explanation": "Needle EMG penetrates muscle and can cause haematoma in anticoagulated patients, so the study is planned carefully with limited, superficial muscle sampling and attention to the INR. Cooling the limb would spuriously slow conduction and is never done deliberately."
       },
@@ -384,13 +414,13 @@
         "type": "mcq",
         "question": "A 40-year-old woman with fatigable ptosis and diplopia undergoes repetitive nerve stimulation. Which finding best supports a diagnosis of myasthenia gravis?",
         "options": [
-          "A decrement of more than 10% in CMAP amplitude on 2-3 Hz stimulation",
           "An increment of more than 60% after high-frequency stimulation",
           "A small resting CMAP that facilitates after exercise",
           "Absent sensory nerve action potentials",
+          "A decrement of more than 10% in CMAP amplitude on 2-3 Hz stimulation",
           "Fibrillation potentials at rest on needle EMG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "A decrement of more than 10% in CMAP amplitude on 2-3 Hz stimulation",
         "explanation": "MG is a postsynaptic AChR antibody disorder with a low safety factor, so repeated low-frequency stimulation depletes ACh and produces a decremental response exceeding 10%. This decrement on 2-3 Hz stimulation is the classic RNS signature of myasthenia gravis."
       },
@@ -414,13 +444,13 @@
         "type": "mcq",
         "question": "Which statement about the electrophysiological evaluation of neuromuscular junction disorders is correct?",
         "options": [
-          "Single-fibre EMG is the most sensitive test but is not specific for a particular cause",
           "High-frequency stimulation is the standard screening test for myasthenia gravis",
           "A normal low-frequency RNS study reliably excludes ocular myasthenia gravis",
+          "Single-fibre EMG is the most sensitive test but is not specific for a particular cause",
           "LEMS produces a decremental response on low-frequency stimulation and no facilitation",
           "Cooling the limb increases the sensitivity of the decrement in MG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Single-fibre EMG is the most sensitive test but is not specific for a particular cause",
         "explanation": "Single-fibre EMG detects increased jitter and is the most sensitive test for an NMJ transmission defect, though increased jitter also occurs in other neuromuscular disease so it is not specific. Low-frequency RNS is the MG screen and may be normal in ocular disease, while LEMS shows increment, not decrement."
       },
@@ -430,12 +460,12 @@
         "question": "What physiological parameter does single-fibre EMG primarily quantify?",
         "options": [
           "The conduction velocity of the fastest motor axons",
-          "The variability in the interpotential interval between two muscle fibres of the same motor unit (jitter)",
           "The amplitude decrement of the compound muscle action potential on repetitive stimulation",
           "The number of motor units recruited during maximal contraction",
-          "The resting membrane potential of the muscle fibre"
+          "The resting membrane potential of the muscle fibre",
+          "The variability in the interpotential interval between two muscle fibres of the same motor unit (jitter)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "The variability in the interpotential interval between two muscle fibres of the same motor unit (jitter)",
         "explanation": "SFEMG isolates two fibres from one motor unit and measures jitter, the discharge-to-discharge variability in their firing interval. This variability reflects fluctuation in neuromuscular synaptic delay and rises when the safety factor of transmission falls."
       },
@@ -460,12 +490,12 @@
         "question": "Which statement best describes the specificity of an abnormal SFEMG result?",
         "options": [
           "Increased jitter is specific for myasthenia gravis and confirms the diagnosis alone",
-          "Increased jitter is non-specific and also occurs in LEMS, motor neurone disease, neuropathies and myopathies",
           "Increased jitter only ever occurs in Lambert-Eaton myasthenic syndrome",
           "Jitter is normal in all neurogenic disorders",
+          "Increased jitter is non-specific and also occurs in LEMS, motor neurone disease, neuropathies and myopathies",
           "Blocking is seen exclusively in healthy muscle"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Increased jitter is non-specific and also occurs in LEMS, motor neurone disease, neuropathies and myopathies",
         "explanation": "Increased jitter signals any unstable neuromuscular transmission, not myasthenia specifically. Because it is raised in LEMS, botulism, motor neurone disease, neuropathies, myopathies and reinnervation, the result must be combined with clinical and antibody data."
       },
@@ -489,13 +519,13 @@
         "type": "mcq",
         "question": "Which VEP finding best distinguishes demyelination from axonal loss?",
         "options": [
-          "Delayed latency with preserved amplitude",
           "Reduced amplitude with normal latency",
           "Complete absence of any waveform",
+          "Delayed latency with preserved amplitude",
           "A shortened P100 latency",
           "An enlarged, early cortical response"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Delayed latency with preserved amplitude",
         "explanation": "Demyelination slows conduction, prolonging latency while leaving axons and amplitude largely intact. Axonal loss instead reduces amplitude with relatively preserved latency."
       },
@@ -504,13 +534,13 @@
         "type": "mcq",
         "question": "A patient has a delayed P100 on VEP. Which statement is correct about its interpretation?",
         "options": [
-          "It confirms optic nerve demyelination but is not specific to MS",
           "It is diagnostic of multiple sclerosis on its own",
           "It proves an acute, currently active lesion",
           "It excludes any compressive optic nerve cause",
-          "It reflects a primary occipital cortex lesion"
+          "It reflects a primary occipital cortex lesion",
+          "It confirms optic nerve demyelination but is not specific to MS"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "It confirms optic nerve demyelination but is not specific to MS",
         "explanation": "A delayed P100 indicates demyelination of the optic nerve but the same pattern occurs in other optic neuropathies and compressive lesions. It contributes evidence toward MS without being diagnostic alone, and it can persist long after recovery."
       },
@@ -519,13 +549,13 @@
         "type": "mcq",
         "question": "A 7-year-old has frequent brief staring episodes with eyelid flutter. During hyperventilation at EEG she has a typical event. What EEG pattern is expected?",
         "options": [
-          "Generalised 3Hz spike-and-wave",
           "Temporal lobe PLEDs",
+          "Generalised 3Hz spike-and-wave",
           "Periodic sharp-wave complexes",
           "Generalised triphasic waves",
           "Hypsarrhythmia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Generalised 3Hz spike-and-wave",
         "explanation": "Childhood absence epilepsy produces generalised, symmetrical 3Hz spike-and-wave discharges. Hyperventilation is the classic activation manoeuvre that provokes the discharges and clinical absences."
       },
@@ -534,13 +564,13 @@
         "type": "mcq",
         "question": "A 62-year-old presents with fever, confusion and seizures. EEG shows periodic lateralised epileptiform discharges over the temporal region. Which diagnosis does this most strongly suggest?",
         "options": [
-          "Herpes simplex encephalitis",
           "Childhood absence epilepsy",
           "Hepatic encephalopathy",
           "Sporadic CJD",
+          "Herpes simplex encephalitis",
           "Vasovagal syncope"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Herpes simplex encephalitis",
         "explanation": "HSV encephalitis has a predilection for the temporal lobes, and temporal PLEDs are the classic EEG correlate. The febrile encephalopathic presentation with focal temporal discharges fits HSV encephalitis, warranting urgent aciclovir."
       },
@@ -558,6 +588,36 @@
         "correctIndex": 0,
         "answer": "Sporadic Creutzfeldt-Jakob disease",
         "explanation": "Rapidly progressive dementia with myoclonus and periodic sharp-wave complexes at ~1Hz is the classic EEG picture of sporadic CJD. This pattern, alongside supportive MRI and CSF markers, supports the diagnosis."
+      },
+      {
+        "id": "nc_np_gbs_q01",
+        "type": "mcq",
+        "question": "A patient with an ascending flaccid paralysis has a demyelinating pattern on nerve conduction studies. Which treatment is appropriate?",
+        "options": [
+          "High-dose corticosteroids",
+          "A long-acting benzodiazepine",
+          "IVIG or plasma exchange",
+          "Broad-spectrum antibiotics",
+          "Bronchodilators"
+        ],
+        "correctIndex": 2,
+        "answer": "IVIG or plasma exchange",
+        "explanation": "Guillain-Barré syndrome is treated with IVIG or plasma exchange; corticosteroids are NOT effective. Serial FVC must be monitored for neuromuscular respiratory failure, with escalation to ITU/ventilation as needed."
+      },
+      {
+        "id": "nc_np_mg_q01",
+        "type": "mcq",
+        "question": "Repetitive nerve stimulation shows a decremental response, confirming myasthenia gravis. Besides acetylcholine-receptor antibodies, which investigation is most important?",
+        "options": [
+          "A muscle biopsy",
+          "A DEXA scan",
+          "An echocardiogram",
+          "Nerve conduction velocity of the sural nerve",
+          "CT/MRI of the thymus to look for a thymoma"
+        ],
+        "correctIndex": 4,
+        "answer": "CT/MRI of the thymus to look for a thymoma",
+        "explanation": "Myasthenia gravis is associated with thymoma (~10–15%) and thymic hyperplasia, so imaging the mediastinum (CT/MRI thymus) is a key next step; thymoma is resectable. Anti-AChR (then anti-MuSK if negative) antibodies are also sent."
       }
     ],
     "investigations__NEUROPHYSIOLOGY & CSF__CSF Analysis": [
@@ -566,13 +626,13 @@
         "type": "mcq",
         "question": "A 19-year-old presents with fever, neck stiffness and photophobia. LP shows turbid CSF, 2000 neutrophils/mm3, protein 2.1 g/L, CSF glucose 1.2 mmol/L with paired serum glucose 6.0 mmol/L. Which is the most likely diagnosis?",
         "options": [
-          "Bacterial meningitis",
           "Viral meningitis",
           "Guillain-Barre syndrome",
+          "Bacterial meningitis",
           "Multiple sclerosis",
           "Normal CSF"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Bacterial meningitis",
         "explanation": "Turbid fluid with a marked neutrophil pleocytosis, high protein and a CSF:serum glucose ratio of 0.2 (<0.5) is the classic pyogenic picture. Neutrophils plus low glucose define bacterial meningitis."
       },
@@ -581,13 +641,13 @@
         "type": "mcq",
         "question": "CSF from a patient shows lymphocytic pleocytosis, protein 4.0 g/L and a very low glucose, with a fibrin web forming in the sample. Which diagnosis fits best?",
         "options": [
-          "Tuberculous meningitis",
           "Viral meningitis",
           "Bacterial meningitis",
           "Subarachnoid haemorrhage",
-          "Traumatic tap"
+          "Traumatic tap",
+          "Tuberculous meningitis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Tuberculous meningitis",
         "explanation": "Lymphocytes with very high protein, very low glucose and a fibrin web are characteristic of TB meningitis. The low glucose separates it from viral meningitis, which shows normal glucose."
       },
@@ -596,13 +656,13 @@
         "type": "mcq",
         "question": "Which single CSF finding most reliably distinguishes viral meningitis from tuberculous meningitis, given both show a lymphocytic pleocytosis?",
         "options": [
-          "A normal CSF glucose in viral versus a low glucose in TB",
           "The presence of lymphocytes",
+          "A normal CSF glucose in viral versus a low glucose in TB",
           "A raised opening pressure",
           "A mildly elevated protein",
           "A clear appearance of the fluid"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A normal CSF glucose in viral versus a low glucose in TB",
         "explanation": "Both viral and TB meningitis are lymphocytic, so cell type does not separate them. CSF glucose is the discriminator: normal in viral, markedly reduced in TB."
       },
@@ -612,12 +672,12 @@
         "question": "A patient presents with a thunderclap headache and has a negative CT head. When should the lumbar puncture ideally be performed to reliably detect xanthochromia?",
         "options": [
           "Immediately on arrival",
-          "At least 12 hours after headache onset",
           "Within 3 hours of onset",
           "Only after 4 weeks",
+          "At least 12 hours after headache onset",
           "At exactly 48 hours regardless of onset"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "At least 12 hours after headache onset",
         "explanation": "Bilirubin is formed by the in-vivo breakdown of haemoglobin, a process that takes time. Delaying the LP to at least 12 hours after onset ensures enough bilirubin has formed for detection."
       },
@@ -626,13 +686,13 @@
         "type": "mcq",
         "question": "Which CSF finding best distinguishes a genuine subarachnoid haemorrhage from a traumatic lumbar puncture?",
         "options": [
-          "A high opening pressure",
           "Presence of bilirubin (xanthochromia) in the supernatant",
+          "A high opening pressure",
           "Red cells in the first bottle",
           "A raised CSF glucose",
           "Turbid appearance of the fluid"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Presence of bilirubin (xanthochromia) in the supernatant",
         "explanation": "Bilirubin forms only in vivo and so indicates blood that was present in the subarachnoid space, confirming SAH. A traumatic tap introduces fresh blood with no bilirubin and shows a falling red-cell count between bottles."
       },
@@ -642,12 +702,12 @@
         "question": "What is the recommended laboratory method for confirming xanthochromia in suspected subarachnoid haemorrhage?",
         "options": [
           "Holding the tube against a white card by eye",
-          "Spectrophotometry of the supernatant",
           "Gram stain of the CSF",
+          "Spectrophotometry of the supernatant",
           "Measuring CSF lactate",
           "Counting red cells in a haemocytometer"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Spectrophotometry of the supernatant",
         "explanation": "Spectrophotometry measures net bilirubin absorbance across the visible spectrum and detects small amounts reliably. It outperforms subjective visual inspection and separates bilirubin from oxyhaemoglobin and other interferents."
       },
@@ -657,12 +717,12 @@
         "question": "A 30-year-old woman with a first episode of optic neuritis has CSF and serum sent for oligoclonal bands by isoelectric focusing. Which result best supports a diagnosis of multiple sclerosis?",
         "options": [
           "No bands detected in either CSF or serum",
-          "Two or more bands in CSF that are absent from the paired serum",
           "Identical bands present in both CSF and serum",
           "A single faint band shared by CSF and serum",
-          "Bands present in serum only, not in CSF"
+          "Bands present in serum only, not in CSF",
+          "Two or more bands in CSF that are absent from the paired serum"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Two or more bands in CSF that are absent from the paired serum",
         "explanation": "CSF-restricted bands (present in CSF but absent from serum) demonstrate intrathecal IgG synthesis, the finding that supports MS. Bands shared with serum reflect a systemic process, and absent bands do not support the diagnosis."
       },
@@ -671,13 +731,13 @@
         "type": "mcq",
         "question": "The IgG index is calculated from paired CSF and serum samples. Which value indicates raised intrathecal IgG production?",
         "options": [
-          "IgG index greater than 0.7",
           "IgG index less than 0.3",
+          "IgG index greater than 0.7",
           "IgG index of exactly zero",
           "Serum albumin greater than 40 g/L",
           "CSF protein greater than 0.45 g/L"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "IgG index greater than 0.7",
         "explanation": "The IgG index corrects CSF IgG for serum IgG and for blood-brain barrier integrity using albumin ratios. A value above 0.7 quantitatively indicates intrathecal IgG production consistent with a CNS inflammatory process such as MS."
       },
@@ -687,12 +747,12 @@
         "question": "A patient's CSF shows oligoclonal bands. Why is finding the same bands in the paired serum important to note?",
         "options": [
           "It confirms the bands are due to multiple sclerosis",
-          "It indicates a systemic rather than intrathecal source, arguing against MS",
           "It proves an active CNS infection is present",
           "It means the isoelectric focusing gel was faulty",
+          "It indicates a systemic rather than intrathecal source, arguing against MS",
           "It quantifies the degree of demyelination"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "It indicates a systemic rather than intrathecal source, arguing against MS",
         "explanation": "Bands mirrored in both CSF and serum reflect systemic immune activation with immunoglobulin crossing into CSF, not local production. Only bands unique to the CSF indicate intrathecal synthesis and support MS."
       },
@@ -716,13 +776,13 @@
         "type": "mcq",
         "question": "A patient with suspected GBS has a lumbar puncture on day 3 of symptoms showing normal protein and normal cell count. What is the most appropriate interpretation?",
         "options": [
-          "A normal early CSF does not exclude GBS; protein often rises after 1–2 weeks",
           "GBS is excluded and an alternative diagnosis must be found",
           "The result confirms bacterial meningitis",
+          "A normal early CSF does not exclude GBS; protein often rises after 1–2 weeks",
           "Immediate corticosteroids are indicated",
           "The lumbar puncture must have been technically inadequate"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "A normal early CSF does not exclude GBS; protein often rises after 1–2 weeks",
         "explanation": "CSF protein may be normal in the first week of GBS and typically rises after 1–2 weeks. With a strong clinical picture, management should proceed and the lumbar puncture can be repeated later."
       },
@@ -731,13 +791,13 @@
         "type": "mcq",
         "question": "A patient with suspected GBS has CSF showing raised protein but a white cell count of 60 cells/mm³. What does the elevated cell count most appropriately prompt?",
         "options": [
-          "Investigation for infection, malignant infiltration, or HIV",
           "Immediate confirmation of the GBS diagnosis",
           "Reassurance that this is the expected GBS pattern",
           "Starting high-dose corticosteroids",
-          "Stopping FVC monitoring"
+          "Stopping FVC monitoring",
+          "Investigation for infection, malignant infiltration, or HIV"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Investigation for infection, malignant infiltration, or HIV",
         "explanation": "A raised CSF cell count argues against GBS, in which the count should be normal. Pleocytosis should prompt investigation for infection, malignant meningitis, or HIV seroconversion."
       },
@@ -746,13 +806,13 @@
         "type": "mcq",
         "question": "A 28-year-old obese woman has headache, papilloedema and blurred vision. CT and MRI are normal. At LP in the lateral decubitus position the opening pressure is 34 cmH₂O and CSF constituents are normal. What is the diagnosis?",
         "options": [
-          "Idiopathic intracranial hypertension",
           "Bacterial meningitis",
+          "Idiopathic intracranial hypertension",
           "Spontaneous intracranial hypotension",
           "Normal-pressure hydrocephalus",
           "Subarachnoid haemorrhage"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Idiopathic intracranial hypertension",
         "explanation": "An opening pressure >25 cmH₂O with normal imaging and normal CSF in an obese young woman with papilloedema is diagnostic of IIH. Draining CSF at the same LP also lowers the pressure therapeutically."
       },
@@ -761,13 +821,13 @@
         "type": "mcq",
         "question": "Which opening pressure value is within the accepted normal adult range?",
         "options": [
-          "14 cmH₂O",
           "2 cmH₂O",
           "28 cmH₂O",
           "40 cmH₂O",
+          "14 cmH₂O",
           "55 cmH₂O"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "14 cmH₂O",
         "explanation": "The normal adult CSF opening pressure is 6–20 cmH₂O, so 14 cmH₂O is normal. Values below 6 suggest hypotension/leak and values above 25 suggest raised intracranial pressure."
       },
@@ -785,6 +845,36 @@
         "correctIndex": 0,
         "answer": "A normal opening pressure with objective gait improvement after large-volume CSF removal",
         "explanation": "NPH characteristically has a normal opening pressure, and the diagnosis is supported by measurable gait improvement after a large-volume tap. This response also predicts benefit from shunt insertion."
+      },
+      {
+        "id": "nc_csf_enceph_q01",
+        "type": "mcq",
+        "question": "A 40-year-old with fever, confusion and a seizure has a lymphocytic CSF with normal glucose. What is the most important immediate action?",
+        "options": [
+          "Await the PCR result before treating",
+          "Start IV ceftriaxone alone and observe",
+          "Start empirical IV aciclovir and send CSF HSV PCR",
+          "Give oral antivirals on discharge",
+          "Reassure — this is viral meningitis"
+        ],
+        "correctIndex": 2,
+        "answer": "Start empirical IV aciclovir and send CSF HSV PCR",
+        "explanation": "Fever, encephalopathy/seizures and a lymphocytic CSF suggest HSV encephalitis, which has high mortality if untreated. Start empirical IV aciclovir immediately and send CSF HSV PCR; do not wait for the result."
+      },
+      {
+        "id": "nc_csf_bact_q01",
+        "type": "mcq",
+        "question": "A 68-year-old has a turbid CSF with neutrophils, high protein and low glucose. Which empirical antibiotic regimen is most appropriate?",
+        "options": [
+          "IV ceftriaxone alone",
+          "Oral doxycycline",
+          "IV aciclovir alone",
+          "No antibiotics until culture results",
+          "IV ceftriaxone plus amoxicillin (for Listeria) and dexamethasone"
+        ],
+        "correctIndex": 4,
+        "answer": "IV ceftriaxone plus amoxicillin (for Listeria) and dexamethasone",
+        "explanation": "This is bacterial meningitis. Empirical IV ceftriaxone is given, with added amoxicillin for Listeria cover in those over 60, immunocompromised or pregnant, plus IV dexamethasone. Antibiotics must not be delayed for the LP."
       }
     ],
     "investigations__NEUROPHYSIOLOGY & CSF__CSF — Specialised": [
