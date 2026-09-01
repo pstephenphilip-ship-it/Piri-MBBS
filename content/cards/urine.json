@@ -354,6 +354,11 @@
         "id": "ur_ms_stone_fc_05",
         "front": "First-line dietary advice given to essentially ALL stone formers, and one counter-intuitive point about calcium.",
         "back": "Increase fluids to keep urine output > 2.5 L/day, moderate sodium and animal protein. Do NOT restrict dietary calcium — low calcium intake increases oxalate absorption and worsens stone risk."
+      },
+      {
+        "id": "ur_met_rta_tx_fc_01",
+        "front": "How is each type of renal tubular acidosis treated?",
+        "back": "<b>Type 1 (distal)</b> and <b>Type 2 (proximal)</b> &rarr; oral <b>alkali</b> (sodium bicarbonate or potassium citrate); type 2 needs high doses plus potassium supplements (&plusmn; a thiazide to reduce dosing). <b>Type 4</b> (hyperkalaemic) &rarr; <b>low-potassium diet + fludrocortisone</b> (or a loop diuretic) and review/stop offending drugs (ACE-i/ARB, NSAIDs, potassium-sparing diuretics)."
       }
     ]
   },
@@ -774,12 +779,12 @@
         "question": "A 68-year-old man with back pain, anaemia and raised creatinine has a urine dipstick that is negative for protein. Myeloma is suspected. Which investigation best detects urinary Bence-Jones protein?",
         "options": [
           "Repeat urine dipstick after fluids",
-          "Urine protein electrophoresis with immunofixation",
           "Urine microscopy for red cell casts",
+          "Urine protein electrophoresis with immunofixation",
           "Serum sodium and osmolality",
           "24-hour urinary creatinine clearance"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Urine protein electrophoresis with immunofixation",
         "explanation": "The dipstick detects only albumin, so it misses free light chains. Urine protein electrophoresis identifies a monoclonal band and immunofixation confirms and types it as kappa or lambda."
       },
@@ -789,12 +794,12 @@
         "question": "Why is a standard urine dipstick unreliable for excluding Bence-Jones proteinuria?",
         "options": [
           "It only reacts with glucose",
-          "It only detects albumin, not free light chains",
           "It is affected by urine pH above 7",
           "It only detects haemoglobin",
-          "It requires a 24-hour sample to work"
+          "It requires a 24-hour sample to work",
+          "It only detects albumin, not free light chains"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "It only detects albumin, not free light chains",
         "explanation": "The dipstick protein pad is designed to bind albumin. Monoclonal free light chains are chemically different, so they are not detected and the dipstick can read negative despite significant light-chain proteinuria."
       },
@@ -818,13 +823,13 @@
         "type": "mcq",
         "question": "A 24-year-old woman has a strongly positive urine pregnancy test but a recent ultrasound showed a molar pregnancy with very high hCG levels. On a repeat clinic device her urine test unexpectedly reads negative. What is the most likely explanation?",
         "options": [
-          "The hook (prozone) effect from extremely high hCG saturating the antibodies",
           "Cross-reaction with luteinising hormone",
           "The pregnancy has spontaneously resolved",
           "The urine was too concentrated",
+          "The hook (prozone) effect from extremely high hCG saturating the antibodies",
           "The device detects only the alpha-subunit of hCG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "The hook (prozone) effect from extremely high hCG saturating the antibodies",
         "explanation": "In molar and multiple pregnancies hCG can be so high that it saturates both capture and detection antibodies, preventing the sandwich complex from forming and giving a false-negative result. Diluting the urine and retesting restores a correct positive."
       },
@@ -848,13 +853,13 @@
         "type": "mcq",
         "question": "A woman with a positive urine pregnancy test attends with left iliac fossa pain and light vaginal bleeding. Her serum beta-hCG has risen only 20% over 48 hours. What does this pattern most strongly suggest?",
         "options": [
-          "An ectopic or non-viable pregnancy",
           "A normally progressing intrauterine pregnancy",
           "A false-positive urine test",
+          "An ectopic or non-viable pregnancy",
           "A completed miscarriage with no remaining hCG",
           "Laboratory contamination of the sample"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "An ectopic or non-viable pregnancy",
         "explanation": "A normal early intrauterine pregnancy raises serum beta-hCG by at least 63% over 48 hours, so a rise of only 20% is abnormal. Combined with pain and bleeding this pattern strongly points to an ectopic pregnancy requiring urgent assessment."
       },
@@ -864,12 +869,12 @@
         "question": "A patient has a hyperchloraemic (normal anion gap) metabolic acidosis. The urine anion gap is calculated as +32. Which mechanism does this most strongly support?",
         "options": [
           "Gastrointestinal bicarbonate loss from diarrhoea",
-          "Impaired renal ammonium excretion (renal tubular acidosis)",
           "Accumulation of unmeasured plasma anions such as lactate",
           "Respiratory compensation for a metabolic alkalosis",
-          "Loss of hydrochloric acid through vomiting"
+          "Loss of hydrochloric acid through vomiting",
+          "Impaired renal ammonium excretion (renal tubular acidosis)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Impaired renal ammonium excretion (renal tubular acidosis)",
         "explanation": "A positive urine anion gap indicates low urinary NH4+ excretion, meaning the kidney is failing to excrete acid appropriately. In the context of a normal anion gap acidosis this points to renal tubular acidosis rather than a gastrointestinal cause."
       },
@@ -879,12 +884,12 @@
         "question": "A woman with recurrent renal calculi is found to have a normal anion gap metabolic acidosis, hypokalaemia, and a urine pH of 6.2 that will not fall below 5.5 despite the systemic acidosis. Which diagnosis fits best?",
         "options": [
           "Type 2 (proximal) renal tubular acidosis",
-          "Type 4 renal tubular acidosis",
           "Type 1 (distal) renal tubular acidosis",
+          "Type 4 renal tubular acidosis",
           "Diarrhoeal bicarbonate loss",
           "Diabetic ketoacidosis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Type 1 (distal) renal tubular acidosis",
         "explanation": "Inability to acidify the urine below pH 5.5 despite systemic acidosis is the hallmark of distal (Type 1) RTA due to failed distal H+ secretion. It is classically associated with hypokalaemia and nephrocalcinosis or stones."
       },
@@ -895,11 +900,11 @@
         "options": [
           "Type 1 (distal) RTA",
           "Type 2 (proximal) RTA",
-          "Type 4 RTA",
           "Combined Type 1 and Type 2 RTA",
+          "Type 4 RTA",
           "No RTA — this is a high anion gap acidosis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Type 4 RTA",
         "explanation": "Type 4 RTA is the hyperkalaemic form, caused by hypoaldosteronism or aldosterone resistance, commonly seen in diabetes and with ACE inhibitors. Reduced ammonium production limits acid excretion, but the distal nephron can still acidify the urine below pH 5.5."
       },
@@ -908,13 +913,13 @@
         "type": "mcq",
         "question": "A 34-year-old man with recurrent renal colic has a plain KUB X-ray reported as normal, but CT KUB shows a 7 mm calculus. His 24h urine pH is consistently 5.2. What is the most likely stone composition?",
         "options": [
+          "Uric acid",
           "Calcium oxalate",
           "Calcium phosphate",
-          "Uric acid",
           "Struvite",
           "Cystine"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Uric acid",
         "explanation": "Uric acid stones are radiolucent and therefore invisible on plain KUB while clearly seen on CT. They form in persistently acidic urine (pH < 5.5), matching this patient's pH of 5.2. Management includes urinary alkalinisation to pH 6.5-7 and allopurinol."
       },
@@ -924,12 +929,12 @@
         "question": "A woman with a chronic Proteus mirabilis urinary tract infection is found to have a large staghorn calculus and a urine pH of 7.8. What is the most appropriate priority in management?",
         "options": [
           "Long-term suppressive antibiotics alone with observation",
-          "Complete surgical removal of the stone",
           "Thiazide diuretic to reduce urinary calcium",
+          "Complete surgical removal of the stone",
           "Allopurinol to lower urate production",
           "Dietary calcium restriction"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Complete surgical removal of the stone",
         "explanation": "This is a struvite infection stone driven by urease-producing Proteus in alkaline urine. Any residual fragment harbours bacteria and acts as a nidus for regrowth and recurrent urosepsis, so complete removal is essential. Antibiotics are adjunctive but cannot sterilise a retained stone."
       },
@@ -941,10 +946,10 @@
           "Calcium",
           "Oxalate",
           "Urate",
-          "Citrate",
-          "Sodium"
+          "Sodium",
+          "Citrate"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Citrate",
         "explanation": "Citrate chelates calcium and inhibits crystal aggregation, making it the urine's main natural stone inhibitor. Low urinary citrate (hypocitraturia) therefore raises risk and is treated with potassium citrate. The other analytes increase stone risk when elevated, not when low."
       }
