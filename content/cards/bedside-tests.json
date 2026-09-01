@@ -175,6 +175,21 @@
         "id": "bt_vs_crt_fc_05",
         "front": "List factors that can falsely prolong CRT.",
         "back": "Cold ambient temperature, peripheral vascular disease, poor lighting, nail varnish, and observer variability. CRT has poor sensitivity/specificity in adults and must not be used alone."
+      },
+      {
+        "id": "vs_sep_fc_01",
+        "front": "What is the Sepsis Six and its time target?",
+        "back": "Deliver within <b>1 hour</b>. <b>Take 3</b>: blood cultures, lactate, urine output. <b>Give 3</b>: oxygen, IV antibiotics, IV fluids. Lactate &gt;2 = hypoperfusion, &ge;4 = septic-shock territory."
+      },
+      {
+        "id": "vs_pos_fc_01",
+        "front": "How is postural hypotension defined and measured?",
+        "back": "Supine &ge;5 min, then BP at 1 and 3 min standing. <b>Positive = systolic fall &ge;20 mmHg or diastolic fall &ge;10 mmHg within 3 min</b> of standing."
+      },
+      {
+        "id": "vs_oli_fc_01",
+        "front": "What defines oliguria and why does it matter?",
+        "back": "Urine output <b>&lt;0.5 mL/kg/hr</b> — an early marker of hypoperfusion and a KDIGO AKI criterion. Assess fluid status, exclude retention (bladder scan), treat the cause."
       }
     ],
     "investigations__BEDSIDE TESTS__Point-of-Care Tests": [
@@ -327,6 +342,31 @@
         "id": "bt_poc_gcs_fc_05",
         "front": "Why should you always report the GCS breakdown rather than the total alone?",
         "back": "The best motor response is the most prognostic component, and the E–V–M breakdown reveals trends, localising signs and errors that a single total conceals."
+      },
+      {
+        "id": "poc_dip_fc_01",
+        "front": "How do you interpret nitrites and leukocytes on a urine dipstick?",
+        "back": "<b>Nitrites</b> (coliforms reduce nitrate) + <b>leukocyte esterase</b> with symptoms → UTI; send an <b>MSU</b> for culture. Nitrites are fairly specific; leukocytes alone are non-specific."
+      },
+      {
+        "id": "poc_dip_fc_02",
+        "front": "A dipstick shows proteinuria, or non-visible haematuria — what are the next steps?",
+        "back": "<b>Proteinuria</b> → quantify with an <b>ACR</b> (persistent = CKD/glomerular). <b>Persistent non-visible (or any visible) haematuria</b> without infection → <b>2-week-wait urology</b> referral."
+      },
+      {
+        "id": "poc_preg_fc_01",
+        "front": "When must a urine β-hCG be done, and what does a positive result with pain mean?",
+        "back": "In <b>every woman of reproductive age</b> with abdominal pain, PV bleeding, collapse, or before imaging/prescribing. Positive + pain/bleeding = <b>ectopic until proven otherwise</b> → urgent EPAU/TVUSS."
+      },
+      {
+        "id": "poc_pf_fc_01",
+        "front": "What peak-flow values define acute severe and life-threatening asthma?",
+        "back": "<b>&lt;50%</b> predicted/best = acute severe; <b>&lt;33%</b> (or normal/rising CO₂, silent chest, exhaustion) = life-threatening → senior/ITU."
+      },
+      {
+        "id": "poc_hhs_fc_01",
+        "front": "How does the bedside glucose/ketone picture of HHS differ from DKA?",
+        "back": "<b>HHS</b>: very high glucose (often &gt;30) with <b>minimal/absent ketones</b> and <b>no significant acidosis</b>, older T2DM. <b>DKA</b>: glucose &gt;11, ketones ≥3, acidosis."
       }
     ],
     "investigations__BEDSIDE TESTS__Cardiovascular Bedside": [
@@ -745,11 +785,11 @@
         "options": [
           "0",
           "1",
-          "2",
           "3",
+          "2",
           "4"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "3",
         "explanation": "A respiratory rate of ≥25 breaths/min scores the maximum 3 points for that parameter. Respiratory rate is the most sensitive early indicator of deterioration, and any single parameter scoring 3 is itself an escalation trigger."
       },
@@ -760,11 +800,11 @@
         "options": [
           "≥2",
           "≥3",
-          "≥5",
           "≥9",
-          "≥11"
+          "≥11",
+          "≥5"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "≥5",
         "explanation": "A total NEWS2 of 5 or more indicates a medium risk of clinical deterioration and should trigger urgent review with consideration of a sepsis screen. The mnemonic '5 = think sepsis' captures this threshold."
       },
@@ -790,11 +830,11 @@
         "options": [
           "Sinus arrhythmia",
           "Second-degree heart block (Mobitz I)",
-          "Atrial fibrillation",
           "Ventricular bigeminy",
+          "Atrial fibrillation",
           "Complete heart block"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Atrial fibrillation",
         "explanation": "An irregularly irregular pulse with no repeating pattern is the hallmark of atrial fibrillation. The apex-radial deficit (apical 112 vs radial 96) occurs because weak beats fail to transmit to the wrist, confirming AF."
       },
@@ -803,13 +843,13 @@
         "type": "mcq",
         "question": "During a cardiovascular examination you palpate a low-volume pulse with a delayed, sustained upstroke best appreciated at the carotid. Which valvular lesion does this most strongly suggest?",
         "options": [
+          "Aortic stenosis",
           "Aortic regurgitation",
           "Mitral stenosis",
-          "Aortic stenosis",
           "Mitral regurgitation",
           "Tricuspid regurgitation"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Aortic stenosis",
         "explanation": "A slow-rising, low-volume (plateau) pulse reflects obstructed left-ventricular outflow across a stenosed aortic valve. The delayed, sustained upstroke is characteristic and is best assessed centrally at the carotid."
       },
@@ -819,12 +859,12 @@
         "question": "A breathless patient with distended neck veins and muffled heart sounds has a systolic blood pressure that falls by 18 mmHg during inspiration. What is this pulse sign, and what does it indicate here?",
         "options": [
           "Pulsus alternans, indicating severe LV failure",
-          "Pulsus paradoxus, indicating cardiac tamponade",
           "Collapsing pulse, indicating aortic regurgitation",
+          "Pulsus paradoxus, indicating cardiac tamponade",
           "Radio-femoral delay, indicating coarctation",
           "Slow-rising pulse, indicating aortic stenosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Pulsus paradoxus, indicating cardiac tamponade",
         "explanation": "An inspiratory fall in systolic pressure greater than 10 mmHg defines pulsus paradoxus. Combined with raised JVP and muffled heart sounds (Beck's triad), it points to cardiac tamponade."
       },
@@ -835,11 +875,11 @@
         "options": [
           "The first appearance of tapping Korotkoff sounds",
           "The muffling of Korotkoff sounds (phase IV)",
-          "The disappearance of Korotkoff sounds (phase V)",
           "The pressure at which the radial pulse returns on palpation",
-          "The mean of the highest and lowest cuff pressures"
+          "The mean of the highest and lowest cuff pressures",
+          "The disappearance of Korotkoff sounds (phase V)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "The disappearance of Korotkoff sounds (phase V)",
         "explanation": "Diastolic pressure is read at Korotkoff phase V, when the sounds disappear as flow becomes fully laminar. Phase I marks systolic pressure, when pulsatile flow first returns."
       },
@@ -848,13 +888,13 @@
         "type": "mcq",
         "question": "A patient with a large arm has BP measured using a standard adult cuff that is too small. What is the likely effect on the reading?",
         "options": [
-          "It will overestimate the blood pressure",
           "It will underestimate the blood pressure",
+          "It will overestimate the blood pressure",
           "It will have no effect on accuracy",
           "It will only affect the diastolic reading",
           "It will only affect the heart rate"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "It will overestimate the blood pressure",
         "explanation": "A cuff that is too small requires higher pressure to occlude the artery, spuriously raising the recorded values. The cuff bladder should encircle about 80% of the arm circumference for accuracy."
       },
@@ -864,12 +904,12 @@
         "question": "According to NICE, a clinic reading of 150/95 mmHg should be followed by which step to confirm the diagnosis of hypertension?",
         "options": [
           "Immediate initiation of antihypertensive drugs",
-          "Ambulatory or home blood pressure monitoring",
           "Same-day admission to hospital",
           "Repeat clinic reading in 12 months",
+          "Ambulatory or home blood pressure monitoring",
           "Urgent CT head to exclude a cause"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Ambulatory or home blood pressure monitoring",
         "explanation": "NICE advises confirming a raised clinic BP (≥140/90) with ABPM or HBPM, which use the lower ≥135/85 threshold and exclude the white-coat effect. Stage 1 hypertension is diagnosed only after this out-of-clinic confirmation."
       },
@@ -878,13 +918,13 @@
         "type": "mcq",
         "question": "A 19-year-old with type 1 diabetes presents drowsy with deep, rapid, sighing breaths and a fruity odour on the breath. Which breathing pattern is described and what does it indicate?",
         "options": [
-          "Cheyne-Stokes breathing indicating heart failure",
           "Kussmaul breathing indicating metabolic acidosis",
+          "Cheyne-Stokes breathing indicating heart failure",
           "Agonal breathing indicating imminent arrest",
           "Pursed-lip breathing indicating COPD",
           "Apnoeic pauses indicating raised intracranial pressure"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Kussmaul breathing indicating metabolic acidosis",
         "explanation": "Deep, rapid, sighing respiration is Kussmaul breathing, a respiratory compensation for a metabolic acidosis. In a young type 1 diabetic who is drowsy with ketotic breath, this points to diabetic ketoacidosis."
       },
@@ -909,12 +949,12 @@
         "question": "A patient with a severe acute asthma attack was audibly wheezing but now has a quiet chest, a falling respiratory rate and increasing drowsiness. What does this most likely represent?",
         "options": [
           "Successful response to bronchodilators",
-          "Exhaustion and a pre-arrest silent chest",
           "Simple anxiety resolving",
           "Normal recovery of respiratory rate",
-          "Development of a pneumothorax only"
+          "Development of a pneumothorax only",
+          "Exhaustion and a pre-arrest silent chest"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Exhaustion and a pre-arrest silent chest",
         "explanation": "A silent chest with a falling respiratory rate and reduced consciousness in acute asthma signals such poor air movement that no wheeze is generated. This is a life-threatening pre-arrest state requiring immediate senior and critical-care input."
       },
@@ -939,12 +979,12 @@
         "question": "What is the recommended target SpO₂ range for a patient with known COPD who is at risk of hypercapnic respiratory failure?",
         "options": [
           "94–98%",
-          "88–92%",
           "≥96%",
           "82–86%",
+          "88–92%",
           "98–100%"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "88–92%",
         "explanation": "Patients at risk of type 2 respiratory failure are targeted at 88–92% to avoid excessive oxygen abolishing hypoxic respiratory drive and worsening CO₂ retention. The standard 94–98% range applies to most other acutely ill adults."
       },
@@ -953,13 +993,13 @@
         "type": "mcq",
         "question": "A patient's finger probe shows SpO₂ 90% but the palpated pulse rate does not match the number displayed. Which statement about pulse oximetry limitations is correct?",
         "options": [
+          "SpO₂ measures oxygenation but not ventilation, so a normal value can coexist with dangerous CO₂ retention",
           "Pulse oximetry directly measures arterial CO₂ and reliably detects ventilatory failure",
           "Darker skin pigmentation tends to under-estimate the true oxygen saturation",
-          "SpO₂ measures oxygenation but not ventilation, so a normal value can coexist with dangerous CO₂ retention",
           "A good reading is guaranteed regardless of peripheral perfusion",
           "Nail varnish improves the accuracy of the plethysmographic signal"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "SpO₂ measures oxygenation but not ventilation, so a normal value can coexist with dangerous CO₂ retention",
         "explanation": "Pulse oximetry reflects arterial oxygen saturation only and gives no information about CO₂ or ventilation. A patient on oxygen can maintain a normal SpO₂ while retaining CO₂ and becoming acidotic, which only an arterial blood gas reveals. A pulse rate mismatch also signals the plethysmographic signal is unreliable."
       },
@@ -969,12 +1009,12 @@
         "question": "An 84-year-old care-home resident is drowsy, hypotensive and tachypnoeic with a tympanic temperature of 35.6°C. Which interpretation is most appropriate?",
         "options": [
           "The low temperature reliably excludes sepsis as a cause",
-          "Hypothermia in this unwell patient is an ominous sign that is consistent with, and worsens the prognosis of, sepsis",
           "Antipyretics should be given to correct the temperature",
+          "Hypothermia in this unwell patient is an ominous sign that is consistent with, and worsens the prognosis of, sepsis",
           "The reading proves the ear probe was used incorrectly",
           "Sepsis can only be diagnosed if the temperature is ≥38°C"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Hypothermia in this unwell patient is an ominous sign that is consistent with, and worsens the prognosis of, sepsis",
         "explanation": "Elderly and frail patients frequently fail to mount a fever, so a low or normal temperature never excludes sepsis. Hypothermia in an acutely unwell patient signals a dysregulated response and is associated with worse outcomes, mandating urgent assessment and treatment."
       },
@@ -983,13 +1023,13 @@
         "type": "mcq",
         "question": "A nurse records an oral temperature of 35.9°C in a patient who looks flushed and unwell. Which factor is the most likely cause of a falsely LOW oral reading?",
         "options": [
-          "The patient drank iced water a few minutes before measurement",
           "The patient has a high haemoglobin concentration",
           "The room was warmer than the patient",
           "The probe was left in place for too long",
-          "The patient had just finished exercising"
+          "The patient had just finished exercising",
+          "The patient drank iced water a few minutes before measurement"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "The patient drank iced water a few minutes before measurement",
         "explanation": "Recent cold drinks cool the sublingual pocket and transiently lower oral readings, so measurement should be delayed 15–30 minutes or another site used. Hot drinks and smoking similarly distort oral values."
       },
@@ -999,12 +1039,12 @@
         "question": "Which core temperature value meets the definition of hyperpyrexia?",
         "options": [
           "37.5°C",
+          "40.5°C",
           "38.2°C",
           "39.0°C",
-          "40.5°C",
           "34.8°C"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "40.5°C",
         "explanation": "Hyperpyrexia is defined as a core temperature above 40°C and is a medical emergency, prompting consideration of CNS infection, drug toxicity, heat stroke or thyroid storm. Values of 38–40°C represent ordinary fever, and 34.8°C is mild hypothermia."
       },
@@ -1014,12 +1054,12 @@
         "question": "What is the accepted normal upper limit for central capillary refill time?",
         "options": [
           "Less than 1 second",
-          "Less than 2 seconds",
           "Less than 4 seconds",
           "Less than 6 seconds",
+          "Less than 2 seconds",
           "Less than 10 seconds"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Less than 2 seconds",
         "explanation": "A normal central CRT is under 2 seconds. A value of 2 seconds or more is regarded as prolonged and prompts assessment for impaired perfusion."
       },
@@ -1028,13 +1068,13 @@
         "type": "mcq",
         "question": "A 3-year-old with fever has a central CRT of 4 seconds, tachycardia, mottled cool peripheries and normal blood pressure. What does this picture most likely represent?",
         "options": [
-          "Normal findings for age",
           "Compensated shock",
+          "Normal findings for age",
           "Isolated fever with no circulatory concern",
           "Peripheral vascular disease",
           "Anaphylaxis excluded by normal blood pressure"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Compensated shock",
         "explanation": "Children maintain blood pressure until late, so prolonged central CRT with tachycardia and cool mottled peripheries indicates compensated shock. This warrants fluid resuscitation and urgent reassessment before hypotension develops."
       },
@@ -1043,15 +1083,45 @@
         "type": "mcq",
         "question": "Which factor most commonly causes a falsely prolonged peripheral CRT in an otherwise well-perfused patient?",
         "options": [
-          "Cold ambient temperature",
           "Hyperthermia",
           "Warm well-lit environment",
+          "Cold ambient temperature",
           "High cardiac output",
           "Recent exercise"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Cold ambient temperature",
         "explanation": "A cold environment causes peripheral vasoconstriction that slows refill at the fingertip independently of shock. This is why central CRT is preferred when assessing a potentially shocked patient."
+      },
+      {
+        "id": "vs_sep_q01",
+        "type": "mcq",
+        "question": "A patient has a NEWS2 of 6 with a suspected chest infection. Which bundle should be completed within one hour?",
+        "options": [
+          "Full septic screen then await results",
+          "CT chest and echocardiography",
+          "A fluid challenge only",
+          "Repeat NEWS2 in 4 hours",
+          "The Sepsis Six (blood cultures, lactate, urine output; oxygen, IV antibiotics, IV fluids)"
+        ],
+        "correctIndex": 4,
+        "answer": "The Sepsis Six (blood cultures, lactate, urine output; oxygen, IV antibiotics, IV fluids)",
+        "explanation": "NEWS2 ≥5 with suspected infection should trigger the Sepsis Six within one hour: Take 3 (cultures, lactate, urine output) and Give 3 (oxygen, IV antibiotics, IV fluids)."
+      },
+      {
+        "id": "vs_pos_q01",
+        "type": "mcq",
+        "question": "An elderly patient reports dizziness on standing. Lying BP is 140/84; after 2 minutes standing it is 116/78. How is this best interpreted?",
+        "options": [
+          "Normal physiological response",
+          "Postural (orthostatic) hypotension",
+          "Isolated systolic hypertension",
+          "White-coat effect",
+          "Malignant hypertension"
+        ],
+        "correctIndex": 1,
+        "answer": "Postural (orthostatic) hypotension",
+        "explanation": "A systolic fall of 24 mmHg (≥20) within 3 minutes of standing meets the definition of postural hypotension; review medications, hydration and consider autonomic causes."
       }
     ],
     "investigations__BEDSIDE TESTS__Point-of-Care Tests": [
@@ -1061,12 +1131,12 @@
         "question": "A 62-year-old man with central chest pain has ST-segment elevation in leads II, III and aVF. Which coronary artery is most likely occluded?",
         "options": [
           "Left anterior descending artery",
-          "Right coronary artery",
           "Left circumflex artery",
+          "Right coronary artery",
           "Left main stem",
           "Diagonal branch"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Right coronary artery",
         "explanation": "Leads II, III and aVF view the inferior surface of the heart, which is supplied by the right coronary artery in most people. Inferior ST elevation therefore points to an RCA occlusion."
       },
@@ -1077,11 +1147,11 @@
         "options": [
           "0.04 s",
           "0.1 s",
-          "0.2 s",
           "0.5 s",
-          "1.0 s"
+          "1.0 s",
+          "0.2 s"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "0.2 s",
         "explanation": "At 25 mm/s each small 1 mm square is 0.04 s, and a large square contains five small squares, giving 0.2 s. Five large squares therefore equal 1 second."
       },
@@ -1106,12 +1176,12 @@
         "question": "A capillary blood ketone (β-hydroxybutyrate) meter reads 3.4 mmol/L in an unwell type 1 diabetic. What does this value indicate?",
         "options": [
           "A normal result requiring no action",
-          "Significant ketonaemia suggestive of DKA",
           "A falsely high reading due to anaemia",
           "The upper limit of normal fasting range",
+          "Significant ketonaemia suggestive of DKA",
           "Hypoglycaemia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Significant ketonaemia suggestive of DKA",
         "explanation": "A capillary β-hydroxybutyrate of ≥3 mmol/L represents significant ketonaemia and is one arm of the DKA triad. In an unwell type 1 diabetic this mandates urgent assessment for acidosis and hyperglycaemia."
       },
@@ -1120,13 +1190,13 @@
         "type": "mcq",
         "question": "A bedside glucose reads 2.9 mmol/L in a drowsy patient. What is the most appropriate immediate action?",
         "options": [
+          "Treat the hypoglycaemia immediately",
           "Repeat the test in one hour",
           "Await the formal laboratory venous glucose before acting",
-          "Treat the hypoglycaemia immediately",
           "Give intravenous insulin",
           "Reassure the patient this is within normal limits"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Treat the hypoglycaemia immediately",
         "explanation": "A capillary glucose below 4 mmol/L defines hypoglycaemia and requires immediate treatment. In a drowsy patient this means IM glucagon or IV glucose without waiting for laboratory confirmation."
       },
@@ -1137,11 +1207,11 @@
         "options": [
           "Blood glucose greater than 11 mmol/L",
           "Ketonaemia ≥3 mmol/L",
+          "Serum sodium greater than 145 mmol/L",
           "Acidosis with pH less than 7.3",
-          "Bicarbonate less than 15 mmol/L",
-          "Serum sodium greater than 145 mmol/L"
+          "Bicarbonate less than 15 mmol/L"
         ],
-        "correctIndex": 4,
+        "correctIndex": 2,
         "answer": "Serum sodium greater than 145 mmol/L",
         "explanation": "The DKA triad is hyperglycaemia (>11 mmol/L), ketonaemia (≥3 mmol/L) and metabolic acidosis (pH <7.3 or bicarbonate <15 mmol/L). Serum sodium is not a diagnostic criterion for DKA."
       },
@@ -1150,13 +1220,13 @@
         "type": "mcq",
         "question": "A patient's VBG shows a pCO₂ of 6.5 kPa. Which statement best guides your interpretation?",
         "options": [
-          "The venous pCO₂ is typically about 1 kPa higher than arterial, so confirm suspected CO₂ retention with an ABG",
           "Venous pCO₂ is identical to arterial pCO₂ and needs no adjustment",
           "Venous pCO₂ is about 1 kPa lower than arterial, so true arterial CO₂ is higher",
           "Venous pCO₂ reliably measures oxygenation status",
-          "A raised venous pCO₂ can be ignored because VBGs never reflect respiratory function"
+          "A raised venous pCO₂ can be ignored because VBGs never reflect respiratory function",
+          "The venous pCO₂ is typically about 1 kPa higher than arterial, so confirm suspected CO₂ retention with an ABG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "The venous pCO₂ is typically about 1 kPa higher than arterial, so confirm suspected CO₂ retention with an ABG",
         "explanation": "Venous pCO₂ runs roughly 1 kPa above the arterial value, so it works well as a screen but overstates true arterial CO₂. A genuinely high value should be confirmed with an ABG before diagnosing hypercapnic respiratory failure."
       },
@@ -1165,13 +1235,13 @@
         "type": "mcq",
         "question": "A septic patient has a VBG lactate of 4.5 mmol/L. What does this most indicate?",
         "options": [
-          "Significant tissue hypoperfusion warranting urgent resuscitation as part of the Sepsis Six",
           "A normal finding requiring no action",
+          "Significant tissue hypoperfusion warranting urgent resuscitation as part of the Sepsis Six",
           "Reliable evidence of adequate oxygenation",
           "Respiratory alkalosis",
           "Laboratory error, as lactate cannot be measured on a VBG"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Significant tissue hypoperfusion warranting urgent resuscitation as part of the Sepsis Six",
         "explanation": "A lactate of ≥4 mmol/L reflects severe tissue hypoperfusion and anaerobic metabolism, marking a high-risk septic patient. It triggers aggressive resuscitation and repeat measurement to assess lactate clearance."
       },
@@ -1180,43 +1250,43 @@
         "type": "mcq",
         "question": "Which limitation of the VBG most strongly mandates an arterial blood gas instead?",
         "options": [
-          "The need to assess oxygenation in a patient with suspected hypoxia",
           "The need to measure venous potassium",
           "The need to measure lactate in sepsis",
           "The need to measure pH in diabetic ketoacidosis",
+          "The need to assess oxygenation in a patient with suspected hypoxia",
           "The need to measure haemoglobin at the bedside"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "The need to assess oxygenation in a patient with suspected hypoxia",
         "explanation": "Venous pO₂ reflects tissue extraction rather than pulmonary gas exchange, so a VBG cannot assess oxygenation. Suspected hypoxia or significant CO₂ retention therefore requires an arterial sample."
       },
       {
         "id": "bt_poc_bmi_q01",
         "type": "mcq",
-        "question": "A patient weighs 96 kg and is 1.60 m tall. Which WHO category does their BMI fall into?",
+        "question": "A patient weighs 103 kg and is 1.60 m tall. Which WHO category does their BMI fall into?",
         "options": [
+          "Obesity class III",
           "Healthy weight",
           "Overweight",
           "Obesity class I",
-          "Obesity class II",
-          "Obesity class III"
+          "Obesity class II"
         ],
-        "correctIndex": 4,
+        "correctIndex": 0,
         "answer": "Obesity class III",
-        "explanation": "BMI = 96 / (1.60 × 1.60) = 96 / 2.56 = 37.5 kg/m². A value of 37.5 lies in the 35–39.9 band. Correcting the arithmetic: 96/2.56 = 37.5, which is class II; the intended figure of ≥40 defines class III."
+        "explanation": "BMI = 103 / (1.60²) = 103 / 2.56 = 40.2 kg/m², which is ≥40 = Obesity class III. (35–39.9 would be class II.)"
       },
       {
         "id": "bt_poc_bmi_q02",
         "type": "mcq",
         "question": "A 30-year-old elite rugby player has a BMI of 31 kg/m² but 12% body fat and no metabolic abnormality. What best explains this discrepancy?",
         "options": [
-          "BMI overestimates adiposity because high muscle mass raises weight",
           "He has undiagnosed ascites inflating his weight",
           "The WHO thresholds do not apply under age 40",
+          "BMI overestimates adiposity because high muscle mass raises weight",
           "BMI is only valid in women",
           "His height was measured incorrectly"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "BMI overestimates adiposity because high muscle mass raises weight",
         "explanation": "BMI uses total weight and cannot distinguish lean muscle from fat. Muscular athletes carry high lean mass, which raises weight and BMI despite low body fat. This is a classic limitation requiring interpretation alongside body composition."
       },
@@ -1226,12 +1296,12 @@
         "question": "Which threshold is used to define the overweight category in South Asian adults, reflecting their higher cardiometabolic risk?",
         "options": [
           "BMI ≥ 18.5 kg/m²",
-          "BMI ≥ 23 kg/m²",
           "BMI ≥ 25 kg/m²",
           "BMI ≥ 30 kg/m²",
-          "BMI ≥ 35 kg/m²"
+          "BMI ≥ 35 kg/m²",
+          "BMI ≥ 23 kg/m²"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "BMI ≥ 23 kg/m²",
         "explanation": "South Asian and Chinese populations develop excess visceral fat and type 2 diabetes at lower BMI values. WHO and NICE therefore lower the overweight threshold to ≥23 kg/m² for these groups. This prompts earlier lifestyle and risk-factor intervention."
       },
@@ -1240,13 +1310,13 @@
         "type": "mcq",
         "question": "A fine-bore NG feeding tube is newly inserted. Aspirate tested on pH paper reads 4.5. What is the correct action?",
         "options": [
-          "Feed may commence — gastric placement is confirmed",
           "Obtain a chest X-ray before feeding",
+          "Feed may commence — gastric placement is confirmed",
           "Withdraw the tube and reinsert",
           "Confirm with the auscultation whoosh test",
           "Wait 1 hour and re-aspirate"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Feed may commence — gastric placement is confirmed",
         "explanation": "A pH of 4.5 is at or below the NPSA safe cut-off of 5.5, confirming the tube tip is in the acidic stomach. The tube can be used safely for feed, fluids and medication without further imaging."
       },
@@ -1256,12 +1326,12 @@
         "question": "An NG aspirate from a patient on omeprazole reads pH 6.5. What is the most appropriate next step?",
         "options": [
           "Commence feed as the tube is likely gastric",
-          "Do not feed; reposition/wait and if still >5.5 obtain a chest X-ray",
           "Use blue litmus paper to recheck acidity",
           "Confirm position by auscultation over the epigastrium",
+          "Do not feed; reposition/wait and if still >5.5 obtain a chest X-ray",
           "Flush with 50 mL water and re-test immediately"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Do not feed; reposition/wait and if still >5.5 obtain a chest X-ray",
         "explanation": "A pH above 5.5 does not confirm gastric placement, so feeding is unsafe. The tube should be repositioned and re-tested, escalating to a chest X-ray as the definitive check, especially as PPIs commonly raise gastric pH."
       },
@@ -1270,13 +1340,13 @@
         "type": "mcq",
         "question": "Why is misplacement of a nasogastric feeding tube classified as a Never Event in the NHS?",
         "options": [
-          "Because the tube frequently causes nasal bleeding",
           "Because feeding into a lung-sited tube causes catastrophic, often fatal, aspiration",
+          "Because the tube frequently causes nasal bleeding",
           "Because it always requires surgical removal",
           "Because it invariably triggers gastric perforation",
           "Because it commonly causes electrolyte imbalance"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Because feeding into a lung-sited tube causes catastrophic, often fatal, aspiration",
         "explanation": "A tube that has passed into the trachea or bronchus can deliver feed directly into the lungs, causing severe aspiration pneumonitis and death. Because this harm is serious and wholly preventable with correct pH/X-ray checks, it is designated a Never Event."
       },
@@ -1285,13 +1355,13 @@
         "type": "mcq",
         "question": "A patient opens their eyes to a painful stimulus, makes incomprehensible sounds, and withdraws their limb from pain. What is their GCS?",
         "options": [
-          "E2 V2 M4, total 8",
           "E1 V2 M4, total 7",
           "E2 V3 M5, total 10",
+          "E2 V2 M4, total 8",
           "E2 V2 M3, total 7",
           "E3 V2 M4, total 9"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "E2 V2 M4, total 8",
         "explanation": "Eyes open to pain scores 2, incomprehensible sounds score 2 verbally, and withdrawal from pain scores 4 for motor. Summing gives a total GCS of 8."
       },
@@ -1300,13 +1370,13 @@
         "type": "mcq",
         "question": "A head injury patient's GCS falls from 14 to 8 over 20 minutes. What is the most important immediate action?",
         "options": [
-          "Secure the airway and arrange urgent CT head with neurosurgical discussion",
           "Reassess the GCS again in one hour",
           "Give oral analgesia and reassure the patient",
           "Discharge with head injury advice",
-          "Repeat routine observations only"
+          "Repeat routine observations only",
+          "Secure the airway and arrange urgent CT head with neurosurgical discussion"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Secure the airway and arrange urgent CT head with neurosurgical discussion",
         "explanation": "A GCS of 8 means the airway is at risk and must be secured with anaesthetic support. A rapid fall suggests an expanding intracranial lesion, mandating urgent CT and neurosurgical referral."
       },
@@ -1315,15 +1385,45 @@
         "type": "mcq",
         "question": "Which statement about the AVPU scale is correct?",
         "options": [
-          "A patient responding only to Pain corresponds to roughly GCS 8",
           "AVPU replaces the need for a full GCS in all patients",
+          "A patient responding only to Pain corresponds to roughly GCS 8",
           "The 'V' in AVPU refers to a verbal score out of 5",
           "Unresponsive on AVPU corresponds to a GCS of 15",
           "AVPU has six response levels"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A patient responding only to Pain corresponds to roughly GCS 8",
         "explanation": "On AVPU, responding only to Pain maps to approximately GCS 8, the threshold at which the airway becomes at risk. AVPU is a four-point rapid triage tool that should be converted to a full GCS when time allows."
+      },
+      {
+        "id": "poc_dip_q01",
+        "type": "mcq",
+        "question": "A woman with dysuria and frequency has a urine dipstick positive for nitrites and leukocytes. What is the most appropriate next step?",
+        "options": [
+          "Start IV antibiotics immediately",
+          "Arrange CT urogram",
+          "Refer for cystoscopy",
+          "Send an MSU for culture and treat as a UTI",
+          "Repeat the dipstick in one week"
+        ],
+        "correctIndex": 3,
+        "answer": "Send an MSU for culture and treat as a UTI",
+        "explanation": "Nitrites plus leukocytes with urinary symptoms indicate a UTI; send an MSU for culture (to confirm organism and sensitivities) and treat. Imaging/cystoscopy are not first-line for uncomplicated UTI."
+      },
+      {
+        "id": "poc_pf_q01",
+        "type": "mcq",
+        "question": "A known asthmatic in the emergency department has a peak flow of 30% of predicted, a silent chest and rising CO₂. How should this be classified?",
+        "options": [
+          "Life-threatening asthma",
+          "Moderate asthma",
+          "Acute severe asthma",
+          "Well-controlled asthma",
+          "Chronic bronchitis"
+        ],
+        "correctIndex": 0,
+        "answer": "Life-threatening asthma",
+        "explanation": "Peak flow <33% predicted, a silent chest and a normal/rising CO₂ are life-threatening features requiring immediate senior/ICU input. <50% would be acute severe."
       }
     ],
     "investigations__BEDSIDE TESTS__Cardiovascular Bedside": [
