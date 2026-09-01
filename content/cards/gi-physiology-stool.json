@@ -104,6 +104,16 @@
         "id": "gi_calpro_fc_05",
         "front": "When should a patient with bowel symptoms bypass calprotectin and go straight to colonoscopy?",
         "back": "When alarm features are present: weight loss, PR bleeding, iron-deficiency anaemia, age >50, or a family history of bowel cancer/IBD. These mandate direct referral regardless of the calprotectin result."
+      },
+      {
+        "id": "gi_calpro_fc_06",
+        "front": "How is faecal calprotectin used in a patient with KNOWN IBD?",
+        "back": "To <b>monitor disease activity</b>, assess <b>mucosal healing</b> (treat-to-target), <b>predict relapse</b> in remission, and judge <b>response to steroids/biologics</b> — a falling level after induction indicates a responder."
+      },
+      {
+        "id": "gi_calpro_fc_07",
+        "front": "How does faecal calprotectin differ from FIT?",
+        "back": "<b>Calprotectin</b> = neutrophil protein → marker of mucosal <b>inflammation</b> (IBD vs IBS), NOT a cancer test. <b>FIT</b> = detects human <b>haemoglobin</b> → occult bleeding / colorectal-cancer risk. Different marker, different pathway."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__FIT (Faecal Immunochemical Test)": [
@@ -131,6 +141,11 @@
         "id": "gi_fit_fc_05",
         "front": "Why is FIT relatively insensitive to upper-GI bleeding?",
         "back": "The globin protein from upper-GI (stomach/small bowel) bleeding is digested during intestinal transit, so it is not detected. FIT therefore preferentially detects lower-GI (colorectal) bleeding."
+      },
+      {
+        "id": "gi_fit_fc_06",
+        "front": "What FIT threshold is used in NHS bowel-cancer screening, and how does it differ from the symptomatic threshold?",
+        "back": "<b>Screening</b> (England, ages 50–74, 2-yearly): <b>≥120 µg Hb/g</b> → colonoscopy. <b>Symptomatic</b> (NICE NG12/DG56): <b>≥10 µg Hb/g</b> → urgent 2-week-wait referral. Screening uses a higher cut-off to balance detection against colonoscopy capacity in a low-prevalence, asymptomatic population."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__C. difficile Toxin & GDH": [
@@ -320,12 +335,12 @@
         "question": "A 24-year-old with 3 months of loose stool and cramping, no weight loss or PR bleeding, has a faecal calprotectin of 22 micrograms/g. What is the most appropriate interpretation?",
         "options": [
           "Significant intestinal inflammation is likely; refer urgently for colonoscopy",
-          "The result supports IBS and colonoscopy can usually be avoided",
           "The result confirms a diagnosis of Crohn's disease",
+          "The result supports IBS and colonoscopy can usually be avoided",
           "The test must be repeated because this value is borderline",
           "The result indicates colorectal cancer until proven otherwise"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "The result supports IBS and colonoscopy can usually be avoided",
         "explanation": "A calprotectin below 50 micrograms/g indicates significant intestinal inflammation is unlikely. In a young patient without alarm features this supports a functional diagnosis of IBS and spares an unnecessary colonoscopy."
       },
@@ -336,11 +351,11 @@
         "options": [
           "It is specific for IBD and confirms the diagnosis when raised",
           "It is raised only in ulcerative colitis, not Crohn's disease",
-          "It is sensitive but non-specific and is also raised by NSAIDs, infection, coeliac disease and colorectal cancer",
           "It is unaffected by NSAID use",
-          "A normal value reliably excludes colorectal cancer"
+          "A normal value reliably excludes colorectal cancer",
+          "It is sensitive but non-specific and is also raised by NSAIDs, infection, coeliac disease and colorectal cancer"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "It is sensitive but non-specific and is also raised by NSAIDs, infection, coeliac disease and colorectal cancer",
         "explanation": "Calprotectin reflects neutrophilic inflammation from any cause, so a raised level is non-specific. NSAIDs, gastroenteritis, coeliac disease and colorectal cancer all elevate it, which is why a high result needs endoscopic confirmation before diagnosing IBD."
       },
@@ -349,15 +364,30 @@
         "type": "mcq",
         "question": "A 58-year-old presents with several weeks of altered bowel habit, PR bleeding and unintentional weight loss. What is the most appropriate management regarding faecal calprotectin?",
         "options": [
-          "Refer directly for colonoscopy regardless of any calprotectin result",
           "Reassure and treat as IBS if calprotectin is normal",
+          "Refer directly for colonoscopy regardless of any calprotectin result",
           "Use a normal calprotectin to safely exclude the need for further investigation",
           "Repeat calprotectin twice before deciding on referral",
           "Start an NSAID and recheck the calprotectin"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Refer directly for colonoscopy regardless of any calprotectin result",
         "explanation": "Alarm features such as PR bleeding, weight loss and age over 50 mandate direct referral for colonoscopy. Calprotectin is a triage test only for patients without red flags, so it must not be used to delay or avoid investigation here."
+      },
+      {
+        "id": "gi_calpro_q04",
+        "type": "mcq",
+        "question": "A patient with established Crohn’s disease in clinical remission has a faecal calprotectin that has risen from 40 to 600 µg/g. What does this most likely indicate?",
+        "options": [
+          "A new colorectal cancer",
+          "Definite irritable bowel syndrome",
+          "A normal, reassuring result",
+          "Subclinical mucosal inflammation / impending relapse",
+          "Coeliac disease"
+        ],
+        "correctIndex": 3,
+        "answer": "Subclinical mucosal inflammation / impending relapse",
+        "explanation": "In known IBD a rising calprotectin reflects returning mucosal inflammation and predicts relapse, prompting review of therapy — often before symptoms return. It is not specific for cancer, and this magnitude of rise is not consistent with IBS or a normal result."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__FIT (Faecal Immunochemical Test)": [
@@ -367,12 +397,12 @@
         "question": "A 62-year-old man reports a 3-month change in bowel habit with no visible rectal bleeding. His GP requests a FIT, which returns 24 µg Hb/g. What is the most appropriate next step?",
         "options": [
           "Reassure and repeat FIT in 2 years",
-          "Refer on the urgent suspected-cancer (2-week-wait) pathway for colonoscopy",
           "Advise a red-meat-free diet and repeat the test",
+          "Refer on the urgent suspected-cancer (2-week-wait) pathway for colonoscopy",
           "Prescribe a trial of oral iron and review in 3 months",
           "Arrange an upper-GI endoscopy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Refer on the urgent suspected-cancer (2-week-wait) pathway for colonoscopy",
         "explanation": "A symptomatic patient with a FIT of ≥10 µg Hb/g meets the threshold for urgent referral. At 24 µg Hb/g this patient should be referred on the 2-week-wait pathway for colonoscopy to investigate for colorectal cancer."
       },
@@ -382,12 +412,12 @@
         "question": "Which feature distinguishes the modern Faecal Immunochemical Test (FIT) from the older guaiac faecal occult blood test (gFOBT)?",
         "options": [
           "FIT requires the patient to avoid red meat and vitamin C beforehand",
-          "FIT detects human haemoglobin specifically and needs no dietary restriction",
           "FIT relies on a peroxidase colour-change reaction",
           "FIT is a purely qualitative positive-or-negative result",
-          "FIT preferentially detects upper-GI bleeding"
+          "FIT preferentially detects upper-GI bleeding",
+          "FIT detects human haemoglobin specifically and needs no dietary restriction"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "FIT detects human haemoglobin specifically and needs no dietary restriction",
         "explanation": "FIT uses an antibody against human globin, so it does not react with dietary animal blood or plant peroxidases and requires no dietary preparation. It is also quantitative, reporting the haemoglobin concentration in µg Hb/g."
       },
@@ -397,14 +427,29 @@
         "question": "A 70-year-old woman has unexplained iron-deficiency anaemia and a palpable rectal mass. Her FIT returns as negative (below threshold). What is the correct interpretation and action?",
         "options": [
           "The negative FIT excludes colorectal cancer, so reassure her",
-          "Repeat the FIT before taking any further action",
           "Refer urgently for colonoscopy despite the negative FIT, given the red-flag features",
+          "Repeat the FIT before taking any further action",
           "The mass is confirmed benign because there is no occult bleeding",
           "Switch to a guaiac test as it is more sensitive"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Refer urgently for colonoscopy despite the negative FIT, given the red-flag features",
         "explanation": "A negative FIT does not exclude colorectal cancer; it stratifies risk rather than ruling out disease. A rectal mass with unexplained iron-deficiency anaemia is a strong red flag mandating urgent referral regardless of the FIT result."
+      },
+      {
+        "id": "gi_fit_q04",
+        "type": "mcq",
+        "question": "An asymptomatic 62-year-old returns a positive home FIT kit (above threshold) through the NHS bowel-cancer screening programme. What is the appropriate next step?",
+        "options": [
+          "Reassurance and repeat FIT in 2 years",
+          "Faecal calprotectin",
+          "Start a proton-pump inhibitor",
+          "Colonoscopy",
+          "No action as she is asymptomatic"
+        ],
+        "correctIndex": 3,
+        "answer": "Colonoscopy",
+        "explanation": "A positive screening FIT (≥120 µg Hb/g in England) is followed by colonoscopy to look for colorectal cancer or adenomas. Repeating in 2 years or reassurance would inappropriately delay diagnosis; calprotectin assesses inflammation, not cancer risk."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__C. difficile Toxin & GDH": [
