@@ -908,7 +908,7 @@
    {
     "id": "ref_fc_03",
     "front": "Who is at high risk of refeeding syndrome (NICE)?",
-    "back": "Little/no intake <b>&gt;5 days</b>, <b>BMI &lt;16</b>, unintentional weight loss <b>&gt;15%</b>, low baseline K/PO₄/Mg, and alcohol/drug misuse or chemotherapy."
+    "back": "Little/no intake <b>&gt;10 days</b>, <b>BMI &lt;16</b>, unintentional weight loss <b>&gt;15%</b>, low baseline K/PO₄/Mg, and alcohol/drug misuse or chemotherapy."
    },
    {
     "id": "ref_fc_04",
@@ -944,6 +944,11 @@
     "id": "dem_fc_05",
     "front": "What features of dementia warrant urgent/further investigation?",
     "back": "<b>Rapid progression</b>, <b>young onset</b>, or <b>focal neurology</b> — consider CJD, autoimmune encephalitis, or a structural lesion (imaging with CT/MRI)."
+   },
+   {
+    "id": "crp_fc_extra1",
+    "front": "You find an unexplained raised CRP — what is the next step?",
+    "back": "<b>Hunt for the source</b> — blood and urine cultures, a CXR ± targeted imaging — and <b>trend the CRP</b> to monitor the response. Treat the patient clinically (e.g. Sepsis 6 if septic); don't wait for the level. Procalcitonin can help judge whether it's bacterial and when to stop antibiotics."
    }
   ]
  },
@@ -2197,12 +2202,12 @@
     "question": "A patient who had a colorectal cancer resected 1 year ago now has a steadily rising CEA. What does this most likely indicate?",
     "options": [
      "A false positive from smoking",
-     "Disease recurrence — confirm with imaging",
      "A normal finding",
+     "Disease recurrence — confirm with imaging",
      "That CEA should be used to screen relatives",
      "Pancreatic cancer"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Disease recurrence — confirm with imaging",
     "explanation": "A rising CEA trend after curative resection suggests recurrence and should prompt restaging imaging. CEA is a monitoring tool, not a screening/diagnostic test."
    },
@@ -2212,12 +2217,12 @@
     "question": "A patient with obstructive jaundice from a gallstone has a markedly raised CA19-9. What is the correct interpretation?",
     "options": [
      "This confirms pancreatic cancer",
-     "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic",
      "It excludes malignancy",
      "Start chemotherapy",
-     "Screen the family"
+     "Screen the family",
+     "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic",
     "explanation": "Obstructive jaundice/cholestasis raises CA19-9 independent of malignancy. Interpret it cautiously and repeat after relieving the obstruction; it cannot diagnose cancer on its own."
    },
@@ -2242,12 +2247,12 @@
     "question": "A patient with known cirrhosis on surveillance has a rising AFP and a new 3 cm arterially-enhancing liver lesion. What is the diagnosis until proven otherwise?",
     "options": [
      "A benign regenerative nodule",
-     "Hepatocellular carcinoma — urgent imaging and MDT referral",
      "A simple cyst",
      "Metastasis from colorectal cancer",
+     "Hepatocellular carcinoma — urgent imaging and MDT referral",
      "Cholangiocarcinoma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Hepatocellular carcinoma — urgent imaging and MDT referral",
     "explanation": "A rising AFP with a new arterially-enhancing lesion in a cirrhotic liver is HCC until proven otherwise; classic imaging can be diagnostic without biopsy. Refer urgently to the MDT."
    },
@@ -2256,13 +2261,13 @@
     "type": "mcq",
     "question": "What is the recommended HCC surveillance strategy in a patient with cirrhosis?",
     "options": [
-     "Annual CT scan",
      "6-monthly ultrasound (± AFP)",
+     "Annual CT scan",
      "AFP alone every 3 months",
      "No surveillance needed",
      "MRI only when symptomatic"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "6-monthly ultrasound (± AFP)",
     "explanation": "HCC surveillance in cirrhosis/chronic hepatitis B is 6-monthly ultrasound, sometimes with AFP. Ultrasound is the mainstay because AFP alone has limited sensitivity."
    },
@@ -2272,12 +2277,12 @@
     "question": "A young man with a testicular mass has a raised AFP. What does this tell you about the tumour type?",
     "options": [
      "It is a pure seminoma",
-     "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
      "It is benign",
+     "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
      "It must be lymphoma",
      "AFP is irrelevant to testicular tumours"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
     "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue (yolk-sac/embryonal). Pure seminomas do not produce AFP, so its elevation changes classification and management."
    },
@@ -2287,12 +2292,12 @@
     "question": "A man attends for a PSA test. He had a UTI last week and a urinary catheter inserted 2 days ago. What is the most appropriate action?",
     "options": [
      "Take the PSA now and act on the result",
-     "Defer the PSA — recent UTI and catheterisation transiently raise it",
      "Proceed straight to biopsy",
      "Start antibiotics indefinitely",
-     "Reassure that PSA is unaffected"
+     "Reassure that PSA is unaffected",
+     "Defer the PSA — recent UTI and catheterisation transiently raise it"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Defer the PSA — recent UTI and catheterisation transiently raise it",
     "explanation": "UTI, catheterisation, ejaculation and DRE all transiently raise PSA. Defer testing until these have resolved to avoid a falsely elevated result and unnecessary referral."
    },
@@ -2317,12 +2322,12 @@
     "question": "Which PSA-derived measure specifically favours cancer over benign prostatic hyperplasia?",
     "options": [
      "A HIGH free:total PSA ratio",
-     "A LOW free:total PSA ratio",
      "A low PSA density",
      "A slow PSA velocity",
+     "A LOW free:total PSA ratio",
      "A normal DRE"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "A LOW free:total PSA ratio",
     "explanation": "Prostate cancer binds more PSA, lowering the free fraction, so a low free:total ratio favours malignancy. High PSA density and velocity also favour cancer."
    },
@@ -2331,13 +2336,13 @@
     "type": "mcq",
     "question": "A young man has a testicular germ-cell tumour with a clearly raised AFP. What does this tell you about classification and management?",
     "options": [
-     "It is a pure seminoma — treat as such",
      "It is (or contains) a non-seminomatous element — manage as NSGCT",
+     "It is a pure seminoma — treat as such",
      "AFP is irrelevant here",
      "It is benign",
      "It is a lymphoma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "It is (or contains) a non-seminomatous element — manage as NSGCT",
     "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue; pure seminoma never raises AFP. Even 'seminoma' histology with a raised AFP is treated as a non-seminomatous germ-cell tumour."
    },
@@ -2347,12 +2352,12 @@
     "question": "A 28-year-old has a hard, painless testicular lump. Ultrasound suggests a tumour. What is the correct next step regarding tissue diagnosis?",
     "options": [
      "Percutaneous biopsy of the testis",
-     "Radical inguinal orchidectomy (do not biopsy the testis)",
      "Trans-scrotal biopsy",
+     "Radical inguinal orchidectomy (do not biopsy the testis)",
      "Watchful waiting",
      "Aspiration cytology"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Radical inguinal orchidectomy (do not biopsy the testis)",
     "explanation": "A testicular mass is treated as cancer until proven otherwise; the testis is not biopsied (seeding risk). Diagnosis and treatment are by radical inguinal orchidectomy, with markers taken before and after."
    },
@@ -2362,12 +2367,12 @@
     "question": "After orchidectomy for a germ-cell tumour, the β-hCG fails to fall in line with its expected half-life. What does this suggest?",
     "options": [
      "Complete cure",
-     "Residual or metastatic disease",
      "A laboratory artefact only",
      "Pure seminoma",
-     "Normal post-operative recovery"
+     "Normal post-operative recovery",
+     "Residual or metastatic disease"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Residual or metastatic disease",
     "explanation": "Tumour markers should fall predictably by their half-lives after orchidectomy (β-hCG ~24–36 h). Failure to fall appropriately indicates residual or metastatic disease requiring further treatment."
    }
@@ -2379,12 +2384,12 @@
     "question": "A patient with an acute febrile illness has a moderately raised CRP. The team want to know if it is bacterial to decide on antibiotics. Which test best helps distinguish bacterial from viral infection?",
     "options": [
      "A higher CRP threshold",
-     "Procalcitonin",
      "ESR",
+     "Procalcitonin",
      "Serum ACE",
      "Lactate"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Procalcitonin",
     "explanation": "Procalcitonin rises more specifically with bacterial infection than CRP, and can help distinguish bacterial from viral illness and guide antibiotic decisions/duration."
    },
@@ -2394,12 +2399,12 @@
     "question": "A patient meets clinical criteria for sepsis but their CRP has come back normal. What is the correct action?",
     "options": [
      "Withhold antibiotics as CRP is normal",
-     "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted",
      "Wait 24 hours and repeat CRP",
      "Discharge the patient",
-     "Only give fluids"
+     "Only give fluids",
+     "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted",
     "explanation": "CRP lags and can be normal early or blunted (elderly/immunosuppressed). Suspected sepsis is treated clinically with the Sepsis 6 — do not wait for markers."
    },
@@ -2424,12 +2429,12 @@
     "question": "A septic, hypotensive patient has a lactate of 5.2 mmol/L. What does this indicate and what is the priority?",
     "options": [
      "Mild illness — observe",
-     "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
      "A benign finding",
      "A type B cause needing no fluids",
+     "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
      "Chronic elevation"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
     "explanation": "A lactate >4 mmol/L in an unwell patient signals significant tissue hypoperfusion (type A). It is part of the Sepsis 6 and mandates aggressive resuscitation and escalation."
    },
@@ -2438,13 +2443,13 @@
     "type": "mcq",
     "question": "A patient on metformin with an AKI develops a high lactate and metabolic acidosis but is well perfused and not septic. What type of lactic acidosis is this?",
     "options": [
-     "Type A (hypoxic)",
      "Type B (non-hypoxic) — metformin accumulation",
+     "Type A (hypoxic)",
      "Neither",
      "Respiratory acidosis",
      "A spurious result"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Type B (non-hypoxic) — metformin accumulation",
     "explanation": "Metformin causes a type B lactic acidosis (impaired lactate metabolism), especially when it accumulates in renal impairment, without tissue hypoperfusion."
    },
@@ -2454,12 +2459,12 @@
     "question": "During resuscitation of a septic patient, serial lactates fall from 5.0 to 2.2 mmol/L. What does this trend indicate?",
     "options": [
      "Worsening prognosis",
-     "Good response — lactate clearance is a favourable prognostic sign",
      "Type B lactic acidosis",
+     "Good response — lactate clearance is a favourable prognostic sign",
      "The need to stop fluids",
      "A laboratory error"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Good response — lactate clearance is a favourable prognostic sign",
     "explanation": "A falling lactate (lactate clearance) with treatment indicates improving perfusion and is associated with better outcomes; a persistent or rising lactate is ominous."
    },
@@ -2469,12 +2474,12 @@
     "question": "A severely malnourished patient (BMI 14) is started on full-rate nasogastric feeding. Two days later they develop a low phosphate, low potassium, low magnesium and an arrhythmia. What has happened?",
     "options": [
      "Sepsis",
-     "Refeeding syndrome",
      "Diabetic ketoacidosis",
      "Dehydration",
-     "Hypercalcaemia"
+     "Hypercalcaemia",
+     "Refeeding syndrome"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Refeeding syndrome",
     "explanation": "Reintroducing feed too quickly in a high-risk malnourished patient drives an insulin-mediated intracellular shift of phosphate, potassium and magnesium — refeeding syndrome, with hypophosphataemia causing arrhythmia."
    },
@@ -2499,12 +2504,12 @@
     "question": "Before starting nutritional support in a high-risk malnourished patient, which treatment must be given to prevent Wernicke's encephalopathy?",
     "options": [
      "High-dose glucose",
-     "Thiamine (± B vitamins)",
      "A statin",
      "Antibiotics",
+     "Thiamine (± B vitamins)",
      "Insulin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Thiamine (± B vitamins)",
     "explanation": "Thiamine must be given before/with feeding: a carbohydrate load in a thiamine-deficient patient can precipitate Wernicke's encephalopathy."
    },
@@ -2513,13 +2518,13 @@
     "type": "mcq",
     "question": "A 72-year-old is referred with gradual cognitive decline. Which set of blood tests is most appropriate to exclude reversible causes?",
     "options": [
-     "Troponin and D-dimer",
      "TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose (± HIV/syphilis)",
+     "Troponin and D-dimer",
      "Amylase and lipase",
      "PSA and CA19-9",
      "Serum ACE only"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose (± HIV/syphilis)",
     "explanation": "A dementia screen looks for reversible contributors — hypothyroidism, hypercalcaemia, B12/folate deficiency, metabolic derangement and treatable infections (HIV/neurosyphilis)."
    },
@@ -2529,12 +2534,12 @@
     "question": "An older patient has cognitive decline, an unsteady 'magnetic' gait and urinary incontinence. What potentially reversible diagnosis should be considered?",
     "options": [
      "Alzheimer's disease",
-     "Normal-pressure hydrocephalus",
      "Vascular dementia",
+     "Normal-pressure hydrocephalus",
      "Lewy body dementia",
      "Delirium"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Normal-pressure hydrocephalus",
     "explanation": "The triad of dementia, gait apraxia and urinary incontinence suggests normal-pressure hydrocephalus, which can improve with CSF shunting — a reversible cause not to miss."
    },
@@ -2544,12 +2549,12 @@
     "question": "An 80-year-old develops confusion over 2 days that fluctuates and worsens at night, with reduced attention, shortly after a urinary tract infection. What is the most likely diagnosis?",
     "options": [
      "Alzheimer's dementia",
-     "Delirium",
      "Depression",
      "Normal-pressure hydrocephalus",
-     "Vascular dementia"
+     "Vascular dementia",
+     "Delirium"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Delirium",
     "explanation": "An acute, fluctuating disturbance of attention and cognition with an identifiable trigger (UTI) is delirium — not dementia. It must be excluded before diagnosing a dementia."
    }
