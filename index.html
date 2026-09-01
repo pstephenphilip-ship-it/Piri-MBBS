@@ -14786,7 +14786,7 @@ function hideFlyout(p) {
     }
     // Signed in, not a member.
     var live = livePlans();
-    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:rgba(14,165,233,.08);border-radius:10px;font-size:12.5px;line-height:1.55;color:var(--text,#E8EAF0);"><b style="color:#0EA5E9;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at the current price. As the platform is fully completed, prices may go up — but you&rsquo;ll lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
+    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:#FFFFFF;border-radius:10px;font-size:12.5px;line-height:1.55;color:#1E2640;"><b style="color:#0EA5E9;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at the current price. As the platform is fully completed, prices may go up — but you&rsquo;ll lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
     if(live.length){
       body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
         betaNote+
@@ -16821,6 +16821,19 @@ function hideFlyout(p) {
   .da-lock-x:hover{color:#1E2640;background:rgba(30,38,64,.07);}
   .da-study-blur-card{background:#EAF6F7;border:1px solid #C7E2E6;}
   .da-study-blur-title{color:#1E2640;}
+
+  /* Membership pricing. These plan cards use --surface2 / --border / --text,
+     so they stayed dark navy inside the light sheet. They only render for a
+     signed-in user, which is why the signed-out membership pane audited clean
+     and this was missed. */
+  .da-plan{background:#FFFFFF;border:1px solid #C2DBDF;}
+  .da-plan-best{border-color:#00C2A8;box-shadow:0 0 0 1px #00C2A8;}
+  .da-plan-name{color:#1E2640;}
+  .da-plan-price{color:#1E2640;}
+  .da-plan-per{color:#5A6480;}
+  .da-plan-permo{color:#0A7568;}
+  .da-plan-note{color:#5A6480;}
+  .da-plan-lead{color:#5A6480;}
 </style>
 </body>
 </html>
