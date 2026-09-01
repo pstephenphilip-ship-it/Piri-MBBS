@@ -423,6 +423,16 @@
         "id": "sc_gyn_colpo_fc_05",
         "front": "What is the key obstetric complication of LLETZ?",
         "back": "Increased risk of preterm birth and preterm rupture of membranes in future pregnancies, with risk rising with the depth and number of excisions; cervical stenosis is another complication."
+      },
+      {
+        "id": "sc_gyn_lap_fc_01",
+        "front": "What is the role of laparoscopy in gynaecology and its headline diagnostic use?",
+        "back": "Key-hole access to the peritoneal cavity, tubes and ovaries &mdash; diagnostic and therapeutic. It is the <b>gold standard for diagnosing endometriosis</b> (visualise ± biopsy deposits) and the operative route for ectopic pregnancy, ovarian torsion, chronic pelvic pain and tubal/subfertility assessment."
+      },
+      {
+        "id": "sc_gyn_lap_fc_02",
+        "front": "What are the key complications of gynaecological laparoscopy?",
+        "back": "<b>Entry injury</b> to bowel/bladder or major vessels is the key serious risk; also gas embolism, surgical emphysema, and <b>shoulder-tip pain</b> (referred diaphragmatic irritation from residual CO&#8322;). Always consent for <b>conversion to laparotomy</b>."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__ENT": [
@@ -475,6 +485,11 @@
         "id": "sc_ent_laryngo_fc_05",
         "front": "What are the key complications of rigid microlaryngoscopy?",
         "back": "Dental and lip trauma from the rigid scope, airway compromise/laryngospasm, post-operative glottic oedema causing stridor, altered or lost voice, bleeding, and airway fire when using laser in an oxygen-rich field."
+      },
+      {
+        "id": "sc_ent_panendoscopy_fc_01",
+        "front": "What is panendoscopy and why is it done in head & neck cancer?",
+        "back": "A single-GA endoscopic examination of the whole <b>upper aerodigestive tract</b> (naso-, pharyngo-, laryngo-, oesophago- ± bronchoscopy) to <b>map tumour extent (T-stage)</b> and detect a <b>synchronous second primary</b> (field change from smoking/alcohol) before MDT treatment planning."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Ortho & Surgical": [
@@ -1260,13 +1275,13 @@
         "type": "mcq",
         "question": "During operative hysteroscopy under general anaesthetic, which complication is most directly related to absorption of hypotonic distension media?",
         "options": [
-          "Dilutional hyponatraemia",
           "Deep vein thrombosis",
           "Hyperkalaemia",
           "Cervical stenosis",
-          "Vaginal candidiasis"
+          "Vaginal candidiasis",
+          "Dilutional hyponatraemia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Dilutional hyponatraemia",
         "explanation": "Hypotonic distension fluid absorbed through open vessels lowers the serum sodium, producing dilutional hyponatraemia and fluid overload. Close monitoring of the fluid deficit is essential to prevent cerebral oedema."
       },
@@ -1275,13 +1290,13 @@
         "type": "mcq",
         "question": "Which operative hysteroscopic procedure uses a resectoscope loop to ablate or resect the endometrial lining for heavy menstrual bleeding?",
         "options": [
-          "Transcervical resection of the endometrium (TCRE)",
           "Salpingo-oophorectomy",
+          "Transcervical resection of the endometrium (TCRE)",
           "Loop excision of the cervix (LLETZ)",
           "Bartholin marsupialisation",
           "Anterior colporrhaphy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Transcervical resection of the endometrium (TCRE)",
         "explanation": "TCRE uses an electrosurgical resectoscope loop to remove the endometrium via the hysteroscope. It is an established operative treatment for heavy menstrual bleeding resistant to medical therapy."
       },
@@ -1291,12 +1306,12 @@
         "question": "A woman's cervical screening sample is high-risk HPV positive with high-grade (severe) dyskaryosis on cytology. What is the most appropriate next step?",
         "options": [
           "Repeat the HPV test in 12 months",
-          "Urgent referral for colposcopy",
           "Reassure and return to routine 3-yearly recall",
           "Start empirical antibiotics",
+          "Urgent referral for colposcopy",
           "Total abdominal hysterectomy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Urgent referral for colposcopy",
         "explanation": "High-risk HPV positivity with high-grade dyskaryosis meets the threshold for urgent colposcopy, usually within 2 weeks. Colposcopy allows the abnormal transformation zone to be assessed and biopsied or treated."
       },
@@ -1305,13 +1320,13 @@
         "type": "mcq",
         "question": "During colposcopy, Lugol iodine is applied to the cervix. Which finding indicates abnormal (potentially dysplastic) epithelium?",
         "options": [
-          "An area that stains dark brown",
           "An area that fails to take up iodine and stays pale",
+          "An area that stains dark brown",
           "Uniform brown staining of the whole cervix",
           "Bright red staining of the endocervix",
           "Green discolouration under the filter"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "An area that fails to take up iodine and stays pale",
         "explanation": "Normal glycogen-rich squamous epithelium stains dark brown with Lugol iodine, whereas dysplastic epithelium lacks glycogen and does not stain (Schiller positive). A pale, non-staining area is therefore suspicious and should be biopsied."
       },
@@ -1320,15 +1335,30 @@
         "type": "mcq",
         "question": "When counselling a woman before LLETZ treatment, which future risk is most important to discuss?",
         "options": [
-          "Increased risk of preterm birth in future pregnancies",
           "Permanent infertility in all cases",
           "Immediate ovarian failure",
+          "Increased risk of preterm birth in future pregnancies",
           "Guaranteed recurrence of CIN",
           "Development of ovarian cancer"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Increased risk of preterm birth in future pregnancies",
         "explanation": "LLETZ removes cervical tissue and is associated with an increased risk of preterm birth and preterm rupture of membranes, with risk rising with the depth and number of excisions. This must be part of informed consent, alongside bleeding, infection and cervical stenosis."
+      },
+      {
+        "id": "sc_gyn_lap_q01",
+        "type": "mcq",
+        "question": "A haemodynamically stable woman has a confirmed tubal ectopic pregnancy with a healthy contralateral tube. What is the standard operative management?",
+        "options": [
+          "Laparoscopic ovarian cystectomy",
+          "Hysteroscopic resection",
+          "Colposcopy and LLETZ",
+          "Diagnostic laparoscopy with no intervention",
+          "Laparoscopic salpingectomy"
+        ],
+        "correctIndex": 4,
+        "answer": "Laparoscopic salpingectomy",
+        "explanation": "For a tubal ectopic with a healthy contralateral tube, laparoscopic salpingectomy is standard (equivalent future fertility with lower persistent-trophoblast risk than salpingotomy). Salpingotomy is reserved for when the other tube is damaged."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__ENT": [
@@ -1337,13 +1367,13 @@
         "type": "mcq",
         "question": "A 58-year-old smoker is referred with hoarseness persisting for 6 weeks. Which single feature most strongly mandates urgent flexible nasendoscopy under the head and neck cancer pathway?",
         "options": [
-          "Persistent hoarseness lasting more than three weeks",
           "A sore throat for two days",
           "Bilateral nasal congestion in spring",
+          "Persistent hoarseness lasting more than three weeks",
           "Occasional clearing of the throat after meals",
           "A single episode of self-limiting anterior epistaxis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Persistent hoarseness lasting more than three weeks",
         "explanation": "Hoarseness lasting three weeks or more, especially in a smoker, is a red-flag symptom for laryngeal malignancy and triggers an urgent two-week-wait referral. Flexible nasendoscopy directly visualises the vocal cords to identify a causative lesion."
       },
@@ -1352,13 +1382,13 @@
         "type": "mcq",
         "question": "Which preparation is routinely applied to the nostril before passing a flexible nasendoscope in clinic?",
         "options": [
-          "A combined topical decongestant and local anaesthetic spray",
           "Intravenous midazolam sedation",
           "General anaesthesia with endotracheal intubation",
           "Prophylactic intravenous antibiotics",
-          "A six-hour period of fasting"
+          "A six-hour period of fasting",
+          "A combined topical decongestant and local anaesthetic spray"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "A combined topical decongestant and local anaesthetic spray",
         "explanation": "A topical decongestant plus local anaesthetic (such as co-phenylcaine) shrinks the nasal mucosa and numbs the passage, making the awake procedure comfortable. Nasendoscopy needs neither sedation, fasting nor antibiotics as it is a clean, low-risk clinic procedure."
       },
@@ -1367,13 +1397,13 @@
         "type": "mcq",
         "question": "During nasendoscopy for hoarseness after a thyroidectomy, the left vocal cord is seen fixed in the paramedian position while the right moves normally. What does this indicate?",
         "options": [
-          "Left recurrent laryngeal nerve palsy",
           "Reinke's oedema of both cords",
+          "Left recurrent laryngeal nerve palsy",
           "Acute bacterial epiglottitis",
           "A normal dynamic laryngeal examination",
           "Bilateral vocal cord nodules"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Left recurrent laryngeal nerve palsy",
         "explanation": "A single immobile cord fixed in the paramedian position indicates a recurrent laryngeal nerve palsy, a recognised complication of thyroid surgery. The intact movement of the opposite cord confirms the lesion is unilateral."
       },
@@ -1383,12 +1413,12 @@
         "question": "A 62-year-old smoker has had hoarseness for 6 weeks. Flexible nasendoscopy in clinic shows an irregular lesion on the right true vocal cord. What is the definitive next step to establish a diagnosis?",
         "options": [
           "Repeat flexible nasendoscopy in 6 weeks",
-          "Direct microlaryngoscopy and biopsy under general anaesthesia",
           "Empirical proton pump inhibitor and voice rest",
           "Indirect mirror laryngoscopy in clinic",
+          "Direct microlaryngoscopy and biopsy under general anaesthesia",
           "Speech and language therapy referral"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Direct microlaryngoscopy and biopsy under general anaesthesia",
         "explanation": "An irregular cord lesion in a smoker with persistent hoarseness is suspicious for carcinoma and requires tissue diagnosis. Direct microlaryngoscopy under GA allows magnified assessment and representative biopsy to confirm histology and guide staging."
       },
@@ -1397,13 +1427,13 @@
         "type": "mcq",
         "question": "During suspension microlaryngoscopy, why is the laryngoscope fixed to a chest support?",
         "options": [
-          "To reduce the depth of anaesthesia required",
           "To free both of the surgeon's hands for microsurgery",
+          "To reduce the depth of anaesthesia required",
           "To eliminate the need for a general anaesthetic",
           "To allow the patient to swallow during the procedure",
           "To prevent dental trauma entirely"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "To free both of the surgeon's hands for microsurgery",
         "explanation": "Fixing the scope to a suspension support makes it self-retaining and maintains a stable glottic view. This leaves both hands free for bimanual instrumentation such as microdissection, biopsy and laser work."
       },
@@ -1413,14 +1443,29 @@
         "question": "Which precaution is essential when using a CO2 laser during microlaryngoscopy?",
         "options": [
           "Increase the inspired oxygen to 100%",
-          "Use a laser-resistant tube and keep FiO2 low",
           "Remove the endotracheal tube for the whole case",
+          "Use a laser-resistant tube and keep FiO2 low",
           "Apply topical adrenaline to the cords first",
           "Avoid any suction near the field"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Use a laser-resistant tube and keep FiO2 low",
         "explanation": "Laser energy can ignite an ordinary tube in an oxygen-enriched airway, causing an airway fire. Using a laser-safe tube and minimising the inspired oxygen concentration reduces this catastrophic risk."
+      },
+      {
+        "id": "sc_ent_panendoscopy_q01",
+        "type": "mcq",
+        "question": "A biopsy confirms laryngeal squamous cell carcinoma. What is the purpose of panendoscopy under the same anaesthetic?",
+        "options": [
+          "To deliver the first cycle of chemotherapy",
+          "To create a feeding gastrostomy",
+          "To perform a therapeutic tracheostomy in all cases",
+          "To screen for distant bone metastases",
+          "To map tumour extent and exclude a synchronous second primary"
+        ],
+        "correctIndex": 4,
+        "answer": "To map tumour extent and exclude a synchronous second primary",
+        "explanation": "Panendoscopy examines the whole upper aerodigestive tract under one GA to define T-stage and detect a synchronous second primary tumour (a recognised risk from the shared smoking/alcohol field change) before MDT staging and treatment planning."
       }
     ],
     "investigations__SCOPING / ENDOSCOPY__Ortho & Surgical": [
