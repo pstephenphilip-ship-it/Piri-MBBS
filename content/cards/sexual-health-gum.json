@@ -9,7 +9,7 @@
       {
         "id": "shg_hiv_fc_02",
         "front": "After a possible HIV exposure, when is a negative 4th-generation test considered reliable?",
-        "back": "At 45 days (6 weeks) after the exposure. A negative 4th-gen assay at this point reliably excludes HIV for that exposure."
+        "back": "At 45 days (about 6–7 weeks) after the exposure. A negative 4th-gen assay at this point reliably excludes HIV for that exposure."
       },
       {
         "id": "shg_hiv_fc_03",
@@ -25,6 +25,11 @@
         "id": "shg_hiv_fc_05",
         "front": "What is the time window for post-exposure prophylaxis (PEP/PEPSE) after a significant HIV exposure?",
         "back": "Within 72 hours of the exposure, started as soon as possible and never delayed."
+      },
+      {
+        "id": "shg_hiv_art_fc_01",
+        "front": "What is the key action once HIV is confirmed on the supplementary assay?",
+        "back": "Refer to <b>specialist HIV care</b> and <b>start antiretroviral therapy (ART) promptly at diagnosis, regardless of CD4 count</b> (universal ART), aiming for an undetectable viral load. Add opportunistic-infection prophylaxis (e.g. co-trimoxazole) if CD4 &lt;200."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__STI NAAT — Multi-site (Chlamydia, Gonorrhoea, M. genitalium)": [
@@ -52,6 +57,16 @@
         "id": "shg_naat_fc_05",
         "front": "Which organism should be tested for in persistent non-gonococcal urethritis/cervicitis, and what caveat applies?",
         "back": "Mycoplasma genitalium &mdash; test with macrolide-resistance markers and do not treat blindly with azithromycin because of widespread macrolide resistance."
+      },
+      {
+        "id": "shg_naat_chlam_tx_fc_01",
+        "front": "What is the first-line treatment for a positive chlamydia NAAT, and what else must happen?",
+        "back": "<b>Doxycycline 100 mg twice daily for 7 days</b> (first-line, having displaced azithromycin; azithromycin if doxycycline is contraindicated or in pregnancy). Arrange <b>partner notification</b>."
+      },
+      {
+        "id": "shg_naat_gono_tx_fc_01",
+        "front": "After a positive gonorrhoea NAAT and culture, what is the treatment?",
+        "back": "<b>IM ceftriaxone</b> (single dose) &mdash; a culture for sensitivities is always taken first because of rising antimicrobial resistance. Arrange partner notification and a test of cure."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__Gonorrhoea Culture & Sensitivities (Charcoal Swab)": [
@@ -252,12 +267,12 @@
         "question": "A man has a possible HIV exposure and attends 10 days later requesting reassurance. His 4th-generation Ag/Ab assay is negative. What is the most appropriate advice?",
         "options": [
           "The negative result reliably excludes HIV",
-          "Repeat the 4th-generation test at 45 days after exposure",
           "No further testing is ever required after any negative result",
+          "Repeat the 4th-generation test at 45 days after exposure",
           "Start lifelong antiretroviral therapy immediately",
           "A CD4 count is the correct test to exclude infection"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Repeat the 4th-generation test at 45 days after exposure",
         "explanation": "A test at 10 days falls within the window period, so a negative result cannot exclude very recent infection. A 4th-generation assay repeated at 45 days after exposure is needed to reliably exclude HIV."
       },
@@ -267,12 +282,12 @@
         "question": "A patient with newly diagnosed HIV has a CD4 count of 150 cells/mm3. What does this value indicate?",
         "options": [
           "Normal immune function requiring no action",
-          "An AIDS-defining threshold warranting opportunistic-infection prophylaxis",
           "That the person is not infected with HIV",
           "That the viral load must be undetectable",
-          "That antiretroviral therapy should be stopped"
+          "That antiretroviral therapy should be stopped",
+          "An AIDS-defining threshold warranting opportunistic-infection prophylaxis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "An AIDS-defining threshold warranting opportunistic-infection prophylaxis",
         "explanation": "A CD4 count below 200 cells/mm3 defines AIDS-level immune risk with high susceptibility to opportunistic infection. Prophylaxis such as co-trimoxazole against PCP should be started."
       },
@@ -290,6 +305,21 @@
         "correctIndex": 1,
         "answer": "Perform a supplementary confirmatory assay",
         "explanation": "A reactive screening assay must be verified with a second, supplementary confirmatory assay before a diagnosis is made. This guards against false-positive screening results."
+      },
+      {
+        "id": "shg_hiv_art_q01",
+        "type": "mcq",
+        "question": "A patient has HIV confirmed on a supplementary assay; their CD4 count is 480 cells/mm3. What is the most appropriate management?",
+        "options": [
+          "Withhold ART until the CD4 count falls below 350",
+          "Start ART only once the CD4 count is below 200",
+          "Give co-trimoxazole prophylaxis and defer ART",
+          "Refer to specialist care and start ART promptly regardless of CD4",
+          "Repeat the screening assay in 3 months before acting"
+        ],
+        "correctIndex": 3,
+        "answer": "Refer to specialist care and start ART promptly regardless of CD4",
+        "explanation": "UK/BHIVA practice is to offer ART to everyone with HIV at diagnosis, irrespective of CD4 count, aiming for viral suppression (undetectable = untransmittable). Opportunistic-infection prophylaxis is added only when CD4 <200; it does not replace ART."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__STI NAAT — Multi-site (Chlamydia, Gonorrhoea, M. genitalium)": [
@@ -299,12 +329,12 @@
         "question": "A 22-year-old asymptomatic woman attends for opportunistic chlamydia screening. Which specimen gives the most sensitive NAAT result?",
         "options": [
           "First-void urine",
-          "Self-taken vulvovaginal swab",
           "Endocervical culture",
+          "Self-taken vulvovaginal swab",
           "Mid-stream urine",
           "Serum antibody test"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Self-taken vulvovaginal swab",
         "explanation": "In women the self-taken vulvovaginal swab is the most sensitive genital specimen for NAAT and is preferred over urine. NAAT detects pathogen nucleic acid with far greater sensitivity than culture."
       },
@@ -315,11 +345,11 @@
         "options": [
           "First-void urine only",
           "Vulvovaginal swab",
-          "First-void urine plus pharyngeal and rectal NAAT swabs",
           "Blood cultures",
-          "Urethral culture alone"
+          "Urethral culture alone",
+          "First-void urine plus pharyngeal and rectal NAAT swabs"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "First-void urine plus pharyngeal and rectal NAAT swabs",
         "explanation": "Genital-only testing misses extragenital infection, so pharyngeal and rectal swabs must be added according to the sexual history. Sampling every exposed site is essential to detect infection and interrupt transmission."
       },
@@ -337,6 +367,21 @@
         "correctIndex": 1,
         "answer": "Take a culture to test antibiotic sensitivities",
         "explanation": "A positive gonorrhoea NAAT should be backed by culture before treatment because NAAT provides no sensitivity data. Culture guides antibiotic choice, which is critical given rising gonococcal antimicrobial resistance."
+      },
+      {
+        "id": "shg_naat_chlam_tx_q01",
+        "type": "mcq",
+        "question": "A 24-year-old woman has a positive chlamydia NAAT on a vulvovaginal swab. What is the first-line treatment?",
+        "options": [
+          "A single 1 g dose of azithromycin",
+          "IM ceftriaxone",
+          "Oral metronidazole",
+          "Doxycycline 100 mg BD for 7 days",
+          "No treatment unless symptomatic"
+        ],
+        "correctIndex": 3,
+        "answer": "Doxycycline 100 mg BD for 7 days",
+        "explanation": "First-line treatment for uncomplicated chlamydia is doxycycline 100 mg BD for 7 days (it has displaced single-dose azithromycin, which is now reserved for when doxycycline is contraindicated or in pregnancy). Partner notification should also be arranged."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__Gonorrhoea Culture & Sensitivities (Charcoal Swab)": [
