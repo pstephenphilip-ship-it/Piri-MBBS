@@ -5788,6 +5788,16 @@
     "id": "abg_fc_21",
     "front": "What does the base excess (BE) tell you?",
     "back": "It is the quantitative partner to HCO₃⁻ — how much acid/base would be needed to return the blood to a normal pH. A <b>base deficit (BE more negative than &minus;2)</b> indicates a <b>metabolic acidosis</b> (added acid / lost bicarbonate); a <b>BE above +2</b> indicates a <b>metabolic alkalosis</b>."
+   },
+   {
+    "id": "abg_fc_22",
+    "front": "Co-oximetry confirms a high carboxyhaemoglobin (CO poisoning). What is the immediate treatment?",
+    "back": "<b>High-flow 100% oxygen via a non-rebreather mask</b> — it shortens the carboxyhaemoglobin half-life (from ~4–5 h on air to ~1 h). Pulse oximetry is falsely normal in CO poisoning, so treat on the co-oximetry/clinical picture. Consider <b>hyperbaric oxygen</b> in severe cases (coma, cardiac/neurological signs, pregnancy)."
+   },
+   {
+    "id": "abg_fc_23",
+    "front": "You find a raised anion-gap metabolic acidosis. What do you check next to identify the cause?",
+    "back": "Find the acid: <b>lactate</b> (sepsis/ischaemia), <b>glucose & ketones</b> (DKA/alcoholic/starvation), <b>U&E</b> (renal failure/urate), and if a toxin is possible a <b>salicylate level and the osmolar gap</b> (methanol/ethylene glycol). Directs treatment (MUDPILES/GOLD-MARK causes)."
    }
   ],
   "investigations__HAEMATOLOGY__Blood Count & Film": [
@@ -20558,12 +20568,12 @@
     "question": "A 70-year-old with a COPD exacerbation has: pH 7.28, PaCO₂ 8.4 kPa, HCO₃⁻ 26 mmol/L, PaO₂ 7.5 kPa on air. What is the acid-base disturbance?",
     "options": [
      "Metabolic acidosis",
-     "Acute respiratory acidosis",
      "Respiratory alkalosis",
      "Metabolic alkalosis",
+     "Acute respiratory acidosis",
      "Fully compensated respiratory acidosis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Acute respiratory acidosis",
     "explanation": "Low pH with a high PaCO₂ and a still-normal HCO₃⁻ is an ACUTE respiratory acidosis — the kidney has not yet had time to retain bicarbonate. (A chronic/compensated picture would show a raised HCO₃⁻ and a near-normal pH.)"
    },
@@ -20573,12 +20583,12 @@
     "question": "A 19-year-old with type 1 diabetes has: pH 7.14, HCO₃⁻ 8 mmol/L, PaCO₂ 2.8 kPa, glucose 28 mmol/L, ketones raised. Which best describes the ABG?",
     "options": [
      "Respiratory acidosis",
-     "Normal-anion-gap metabolic acidosis",
      "Raised-anion-gap metabolic acidosis with respiratory compensation",
+     "Normal-anion-gap metabolic acidosis",
      "Metabolic alkalosis",
      "Respiratory alkalosis"
     ],
-    "correctIndex": 2,
+    "correctIndex": 1,
     "answer": "Raised-anion-gap metabolic acidosis with respiratory compensation",
     "explanation": "DKA produces a raised-anion-gap metabolic acidosis (low pH, low HCO₃⁻ from ketoacids). The low PaCO₂ is respiratory (Kussmaul) compensation. Glucose and ketones confirm the cause."
    },
@@ -20588,12 +20598,12 @@
     "question": "A patient with several days of profuse vomiting has: pH 7.52, HCO₃⁻ 34 mmol/L, PaCO₂ 6.3 kPa, K⁺ 3.0 mmol/L. What is the disturbance?",
     "options": [
      "Respiratory alkalosis",
-     "Metabolic alkalosis",
      "Raised-anion-gap metabolic acidosis",
      "Respiratory acidosis",
-     "Normal ABG"
+     "Normal ABG",
+     "Metabolic alkalosis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Metabolic alkalosis",
     "explanation": "High pH with a high HCO₃⁻ is a metabolic alkalosis; the slightly high PaCO₂ is respiratory compensation. Vomiting causes loss of gastric acid and a hypokalaemic, hypochloraemic metabolic alkalosis."
    },
@@ -20602,13 +20612,13 @@
     "type": "mcq",
     "question": "A young woman with pleuritic chest pain and breathlessness has: pH 7.49, PaCO₂ 3.6 kPa, HCO₃⁻ 23 mmol/L, PaO₂ 9.0 kPa on air. Which pattern is this, and what should you consider?",
     "options": [
-     "Metabolic alkalosis; consider vomiting",
      "Respiratory alkalosis with mild hypoxia; consider pulmonary embolism",
+     "Metabolic alkalosis; consider vomiting",
      "Respiratory acidosis; consider COPD",
      "Raised-anion-gap acidosis; consider DKA",
      "Fully normal gas"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Respiratory alkalosis with mild hypoxia; consider pulmonary embolism",
     "explanation": "High pH with a low PaCO₂ is a respiratory alkalosis from hyperventilation; the mild hypoxia (PaO₂ below the normal 10–13 kPa, though not yet the <8 kPa of type 1 failure) in a patient with pleuritic pain should raise suspicion of a pulmonary embolism."
    },
@@ -20618,12 +20628,12 @@
     "question": "A patient with acute severe asthma has been deteriorating for an hour. ABG: pH 7.36, PaCO₂ 5.6 kPa (was 3.4 earlier), PaO₂ 8.2 kPa on 60% O₂. What does the PaCO₂ indicate?",
     "options": [
      "Reassuring improvement",
-     "A life-threatening sign of exhaustion needing urgent senior/ICU input",
      "Primary metabolic alkalosis",
+     "A life-threatening sign of exhaustion needing urgent senior/ICU input",
      "A measurement error",
      "Chronic CO₂ retention"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "A life-threatening sign of exhaustion needing urgent senior/ICU input",
     "explanation": "A breathless asthmatic should be hyperventilating with a LOW CO₂. A rising/normalising PaCO₂ means they are tiring and failing to ventilate — a life-threatening feature (a marker of near-fatal asthma) requiring immediate senior and ICU involvement."
    },
@@ -20648,12 +20658,12 @@
     "question": "A patient with profuse diarrhoea has a metabolic acidosis. Na⁺ 140, Cl⁻ 115, HCO₃⁻ 15 mmol/L. What does the anion gap tell you?",
     "options": [
      "Raised anion gap — added acid such as lactate or ketones",
-     "Normal anion gap (10) — bicarbonate loss consistent with diarrhoea",
      "The anion gap cannot be calculated",
      "Respiratory cause is likely",
-     "Metabolic alkalosis"
+     "Metabolic alkalosis",
+     "Normal anion gap (10) — bicarbonate loss consistent with diarrhoea"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Normal anion gap (10) — bicarbonate loss consistent with diarrhoea",
     "explanation": "Anion gap = 140 − (115 + 15) = 10, i.e. normal. A normal-anion-gap (hyperchloraemic) metabolic acidosis fits GI bicarbonate loss from diarrhoea."
    },
@@ -20663,12 +20673,12 @@
     "question": "A man rescued from a house fire is confused. SpO₂ reads 99% on the pulse oximeter, but he is clearly unwell. What is the best next step?",
     "options": [
      "Trust the SpO₂ and reassure",
-     "Measure carboxyhaemoglobin on an ABG co-oximeter",
      "Give a diuretic",
+     "Measure carboxyhaemoglobin on an ABG co-oximeter",
      "Repeat the pulse oximetry on the other hand",
      "Discharge with follow-up"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Measure carboxyhaemoglobin on an ABG co-oximeter",
     "explanation": "Pulse oximetry cannot distinguish carboxyhaemoglobin from oxyhaemoglobin, so SpO₂ is falsely normal in CO poisoning. An ABG co-oximeter measures the true carboxyhaemoglobin level."
    },
@@ -20677,13 +20687,13 @@
     "type": "mcq",
     "question": "An ABG shows PaO₂ 6.8 kPa and PaCO₂ 9.2 kPa. How is this respiratory failure classified?",
     "options": [
-     "Type 1 respiratory failure",
      "Type 2 respiratory failure",
+     "Type 1 respiratory failure",
      "Metabolic acidosis",
      "Normal oxygenation",
      "Respiratory alkalosis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Type 2 respiratory failure",
     "explanation": "Type 2 respiratory failure = hypoxia (PaO₂ <8 kPa) WITH hypercapnia (PaCO₂ >6 kPa), reflecting ventilatory failure. Type 1 would have a normal or low PaCO₂."
    },
@@ -20693,12 +20703,12 @@
     "question": "A hypotensive, febrile patient has a lactate of 5.2 mmol/L on the ABG. What does this most likely indicate?",
     "options": [
      "A normal finding",
-     "Tissue hypoperfusion — consider sepsis/shock and escalate",
      "Respiratory alkalosis",
      "Chronic kidney disease only",
+     "Tissue hypoperfusion — consider sepsis/shock and escalate",
      "Laboratory artefact"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Tissue hypoperfusion — consider sepsis/shock and escalate",
     "explanation": "A lactate >4 mmol/L in an unwell, hypotensive, febrile patient indicates tissue hypoperfusion/anaerobic metabolism — a red flag for sepsis/shock that should prompt escalation and resuscitation, with lactate trended to assess response."
    },
@@ -20716,6 +20726,21 @@
     "correctIndex": 2,
     "answer": "Metabolic acidosis with respiratory compensation",
     "explanation": "The pH is acidaemic (<7.35). HCO₃⁻ is low and moves the SAME way as the pH → metabolic acidosis is primary. The low PaCO₂ moves opposite to pH, i.e. it is respiratory compensation, not the primary problem."
+   },
+   {
+    "id": "abg_q12",
+    "type": "mcq",
+    "question": "A house-fire victim is drowsy; the SpO₂ reads 99% but co-oximetry shows a carboxyhaemoglobin of 28%. What is the immediate management?",
+    "options": [
+     "High-flow 100% oxygen via a non-rebreather mask",
+     "Titrate oxygen to an SpO₂ of 88–92%",
+     "Reassure — the SpO₂ is normal",
+     "Immediate exchange transfusion",
+     "Nebulised salbutamol"
+    ],
+    "correctIndex": 0,
+    "answer": "High-flow 100% oxygen via a non-rebreather mask",
+    "explanation": "CO poisoning gives a falsely normal SpO₂ (the oximeter cannot distinguish carboxyhaemoglobin), so co-oximetry is needed. Treatment is high-flow 100% oxygen via a non-rebreather, which shortens the carboxyhaemoglobin half-life; hyperbaric oxygen is considered in severe cases. The 88–92% target is for CO₂ retainers, not CO poisoning."
    }
   ],
   "investigations__HAEMATOLOGY__Blood Count & Film": [
