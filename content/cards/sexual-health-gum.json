@@ -88,12 +88,17 @@
       {
         "id": "shg_gcculture_fc_04",
         "front": "What is the current first-line treatment for gonorrhoea?",
-        "back": "A single intramuscular dose of ceftriaxone, tailored to culture sensitivities, followed by a test of cure."
+        "back": "A single intramuscular dose of ceftriaxone 1 g, tailored to culture sensitivities, followed by a test of cure."
       },
       {
         "id": "shg_gcculture_fc_05",
         "front": "Name two serious complications of gonococcal infection.",
         "back": "Disseminated gonococcal infection (arthritis, tenosynovitis, pustular rash) and gonococcal ophthalmia neonatorum in the newborn."
+      },
+      {
+        "id": "shg_gcculture_negcx_fc_01",
+        "front": "If the gonorrhoea culture is negative but the NAAT is positive, what do you do?",
+        "back": "<b>Still treat</b> for gonorrhoea. Culture is <b>less sensitive than NAAT</b> (particularly at pharyngeal and rectal sites and if the swab was delayed/dry), so a negative culture does not exclude infection when the NAAT is positive."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__Urethral Smear & Gram Stain (GNID / PMNs)": [
@@ -390,13 +395,13 @@
         "type": "mcq",
         "question": "A man with urethral discharge has a positive gonorrhoea NAAT. What is the most important reason to also take a charcoal swab for culture before starting antibiotics?",
         "options": [
-          "To obtain antibiotic sensitivities given escalating resistance",
           "To confirm the presence of gonococcal DNA",
           "To screen simultaneously for chlamydia",
+          "To obtain antibiotic sensitivities given escalating resistance",
           "To measure the patient's antibody titres",
           "To assess the patient's white cell count"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "To obtain antibiotic sensitivities given escalating resistance",
         "explanation": "NAAT confirms infection but cannot provide sensitivities. Because N. gonorrhoeae is increasingly resistant, a culture taken before treatment is essential to guide effective therapy and allow a test of cure."
       },
@@ -405,13 +410,13 @@
         "type": "mcq",
         "question": "What is the specific role of the charcoal in a charcoal transport swab used for gonorrhoea culture?",
         "options": [
-          "It neutralises toxic substances and preserves the fragile organism in transit",
           "It amplifies the gonococcal DNA for detection",
           "It stains the diplococci for microscopy",
           "It provides antibiotic to suppress contaminants",
-          "It fixes the sample to prevent any bacterial growth"
+          "It fixes the sample to prevent any bacterial growth",
+          "It neutralises toxic substances and preserves the fragile organism in transit"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "It neutralises toxic substances and preserves the fragile organism in transit",
         "explanation": "N. gonorrhoeae is fastidious and delicate and dies quickly outside the body. The charcoal in Amies medium neutralises toxic metabolites, keeping the organism viable until it can be plated on selective media."
       },
@@ -420,15 +425,30 @@
         "type": "mcq",
         "question": "A patient is diagnosed with gonorrhoea and cultures confirm sensitivity. What is the recommended first-line treatment?",
         "options": [
-          "A single intramuscular dose of ceftriaxone",
           "A 7-day course of oral doxycycline",
+          "A single intramuscular dose of ceftriaxone",
           "A single oral dose of ciprofloxacin",
           "Intravenous benzylpenicillin for 5 days",
           "Topical chloramphenicol ointment"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A single intramuscular dose of ceftriaxone",
         "explanation": "First-line treatment for gonorrhoea is a single IM dose of ceftriaxone, tailored to sensitivities. A test of cure is arranged afterwards because of the risk of antimicrobial resistance."
+      },
+      {
+        "id": "shg_gcculture_negcx_q01",
+        "type": "mcq",
+        "question": "A patient has a positive gonorrhoea NAAT but the charcoal-swab culture returns no growth. What is the correct interpretation?",
+        "options": [
+          "The NAAT must be a false positive; do not treat",
+          "Repeat the NAAT in three months before acting",
+          "Only treat if symptoms are present",
+          "Treat for gonorrhoea anyway — culture is less sensitive than NAAT",
+          "Gonorrhoea is excluded by the negative culture"
+        ],
+        "correctIndex": 3,
+        "answer": "Treat for gonorrhoea anyway — culture is less sensitive than NAAT",
+        "explanation": "Culture is less sensitive than NAAT (and the organism is fragile, so a delayed or dry swab readily fails to grow). A negative culture alongside a positive NAAT does not exclude infection — treat for gonorrhoea; the culture is valuable for sensitivities, not for ruling out."
       }
     ],
     "investigations__SEXUAL HEALTH / GUM__Urethral Smear & Gram Stain (GNID / PMNs)": [
