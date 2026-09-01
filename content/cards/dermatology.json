@@ -5267,6 +5267,21 @@
 "id": "abpi_fc_05",
 "front": "What ABPI value signals critical limb ischaemia and requires urgent referral?",
 "back": "ABPI <0.5 = severe PAD / critical limb ischaemia. Do NOT apply compression; arrange urgent vascular referral."
+},
+{
+"id": "bx_bcc_fc_01",
+"front": "How is a basal cell carcinoma managed, and when is Mohs used?",
+"back": "Default <b>surgical excision (~4 mm margin)</b>; <b>Mohs micrographic surgery</b> for high-risk/recurrent/ill-defined lesions and the facial H-zone. Low-risk superficial: curettage &amp; cautery, cryotherapy, imiquimod or PDT. BCC rarely metastasises."
+},
+{
+"id": "bx_scc_fc_01",
+"front": "How does SCC management differ from BCC, and what are its high-risk features?",
+"back": "SCC needs <b>wider margins</b> and — because it <b>can metastasise</b> — <b>regional node assessment</b>. High-risk: lip/ear, large/deep, poorly differentiated, perineural invasion, recurrence, and immunosuppression/transplant."
+},
+{
+"id": "bx_ak_fc_01",
+"front": "Contrast actinic keratosis and Bowen’s disease, and state when to biopsy.",
+"back": "<b>AK</b> = pre-malignant field change (sun protection, cryo, topical 5-FU/imiquimod/diclofenac). <b>Bowen’s = SCC in situ</b> (cryo/5-FU/imiquimod/PDT). Biopsy any indurated, tender, ulcerated or rapidly growing lesion — suspect invasive SCC."
 }
 ]
 },
@@ -16735,12 +16750,12 @@
 "question": "A 72-year-old woman presents with tense blisters on erythematous skin over her trunk and limbs; the blisters do not rupture easily. You plan a biopsy for direct immunofluorescence to confirm bullous pemphigoid. Which sample and transport is correct?",
 "options": [
 "Biopsy the centre of an intact blister, sent in formalin",
-"Biopsy perilesional skin, sent fresh/unfixed in saline or Michel's medium",
 "Biopsy perilesional skin, sent in formalin",
+"Biopsy perilesional skin, sent fresh/unfixed in saline or Michel's medium",
 "Biopsy a completely uninvolved area on the opposite limb, sent in formalin",
 "Aspirate blister fluid and send it fresh"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Biopsy perilesional skin, sent fresh/unfixed in saline or Michel's medium",
 "explanation": "DIF requires PERILESIONAL skin (the blister itself is often devoid of antigen and full of inflammatory debris) transported FRESH/UNFIXED in saline or Michel's medium. Formalin destroys the immunoreactants, so any formalin option is wrong. This sample would show linear IgG and C3 along the basement membrane zone in bullous pemphigoid."
 },
@@ -16751,11 +16766,11 @@
 "options": [
 "Bullous pemphigoid",
 "Dermatitis herpetiformis",
-"Pemphigus vulgaris",
 "IgA vasculitis",
-"Linear IgA disease"
+"Linear IgA disease",
+"Pemphigus vulgaris"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Pemphigus vulgaris",
 "explanation": "Intercellular ('chicken-wire'/fishnet) IgG, with C3, reflects autoantibodies against desmoglein in the desmosomes between keratinocytes — characteristic of pemphigus vulgaris, which produces superficial, flaccid, easily ruptured blisters. Bullous pemphigoid gives a LINEAR BMZ pattern; dermatitis herpetiformis gives GRANULAR IgA in dermal papillae; IgA vasculitis shows IgA in vessel walls."
 },
@@ -16781,11 +16796,11 @@
 "options": [
 "Skin-prick testing",
 "Serum specific IgE (RAST)",
-"Patch testing",
 "Total serum IgE",
+"Patch testing",
 "Skin scraping for microscopy"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Patch testing",
 "explanation": "Allergic contact dermatitis is a Type IV delayed hypersensitivity reaction, and patch testing is the investigation of choice. Skin-prick testing and specific IgE (RAST) assess Type I immediate (IgE) hypersensitivity (urticaria/anaphylaxis) and would not identify a contact allergen. Total IgE is non-specific, and skin scraping is used to detect fungal infection."
 },
@@ -16794,13 +16809,13 @@
 "type": "mcq",
 "question": "A patient undergoes patch testing. The chambers are applied on day 0 and removed with a first reading on day 2, which is negative. What is the most appropriate next step?",
 "options": [
-"Conclude the test is negative and discharge",
 "Perform a further (delayed) reading at day 4",
+"Conclude the test is negative and discharge",
 "Repeat the entire series on the opposite arm immediately",
 "Start a prednisolone course before re-reading",
 "Convert to skin-prick testing"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Perform a further (delayed) reading at day 4",
 "explanation": "Patch test reactions are delayed, so a second reading at day 4 (72–96 h) is essential — some positives only appear at this later reading, and stopping at day 2 risks a false-negative conclusion. Systemic steroids would suppress the reaction and cause false negatives, and skin-prick testing assesses a different (Type I) mechanism."
 },
@@ -16810,12 +16825,12 @@
 "question": "A patient with facial eczema has a strongly positive patch test to nickel. However, they have no history of nickel exposure to the face and the eyelid rash is worst. What is the single most important principle in interpreting this result?",
 "options": [
 "Any positive patch test confirms the cause and warrants total nickel avoidance",
-"The result must be judged for clinical relevance against the patient's exposure and rash distribution",
 "A positive nickel test always indicates an irritant, not allergic, reaction",
+"The result must be judged for clinical relevance against the patient's exposure and rash distribution",
 "Nickel positivity excludes all other allergens as the cause",
 "The test should be repeated with skin-prick testing to confirm"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "The result must be judged for clinical relevance against the patient's exposure and rash distribution",
 "explanation": "A positive patch test is only meaningful if it is clinically relevant — it must fit the patient's exposure history and the distribution of dermatitis. Here nickel positivity does not explain an eyelid-predominant rash, so other allergens (e.g. cosmetics, preservatives, MI in wipes) should be considered. Skin-prick testing is inappropriate as it detects Type I, not Type IV, hypersensitivity."
 },
@@ -16826,11 +16841,11 @@
 "options": [
 "Shave biopsy of the raised area",
 "Incisional biopsy of the darkest part",
-"Excisional biopsy with a 2 mm margin including a cuff of subcutaneous fat",
 "4 mm punch biopsy of the centre",
-"Curettage and cautery of the lesion"
+"Curettage and cautery of the lesion",
+"Excisional biopsy with a 2 mm margin including a cuff of subcutaneous fat"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Excisional biopsy with a 2 mm margin including a cuff of subcutaneous fat",
 "explanation": "Suspected melanoma is diagnosed by complete excisional biopsy with a narrow 2 mm margin, so the whole lesion is available to measure Breslow thickness accurately. Shave, incisional, punch or curettage approaches sample only part of the lesion, can transect the tumour and under-stage the Breslow depth, so they are avoided."
 },
@@ -16856,11 +16871,11 @@
 "options": [
 "No further excision required",
 "0.5 cm",
-"1–2 cm",
 "4 cm",
+"1–2 cm",
 "Amputation of the affected limb"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "1–2 cm",
 "explanation": "WLE margins are guided by Breslow thickness (approximate values): melanoma in situ ~0.5 cm, <1 mm ~1 cm, 1–2 mm ~1–2 cm, and >2 mm ~2 cm. A 1.6 mm melanoma therefore warrants an approximate 1–2 cm margin. No further excision would leave inadequate clearance, 0.5 cm is for in situ disease, and 4 cm or amputation are excessive."
 },
@@ -16869,13 +16884,13 @@
 "type": "mcq",
 "question": "A 52-year-old man has a melanoma excised from his back. Histology shows a Breslow thickness of 1.6 mm with no ulceration. Examination of the regional nodal basins is normal and nodal ultrasound is negative. What is the main purpose of offering him a sentinel lymph node biopsy?",
 "options": [
-"To surgically clear all involved nodes and improve overall survival",
 "To stage the disease by detecting subclinical nodal micrometastasis",
+"To surgically clear all involved nodes and improve overall survival",
 "To obtain tissue to confirm the primary diagnosis of melanoma",
 "To directly treat established palpable nodal metastases",
 "To screen for distant visceral metastases"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "To stage the disease by detecting subclinical nodal micrometastasis",
 "explanation": "SLNB is a staging/prognostic procedure in clinically node-negative intermediate-thickness melanoma (Breslow >0.8–1.0 mm). It samples the first draining node to detect micrometastasis and refine prognosis; it is not itself therapeutic, does not establish the primary diagnosis (that is the excisional biopsy), and does not detect distant disease."
 },
@@ -16885,12 +16900,12 @@
 "question": "A patient with a newly diagnosed melanoma is due to have a sentinel lymph node biopsy. Which combination of methods is used to localise the sentinel node?",
 "options": [
 "Contrast-enhanced CT plus fine-needle aspiration",
-"Technetium-99m colloid with lymphoscintigraphy, patent blue dye and a gamma probe",
 "Whole-body PET-CT followed by open node dissection",
+"Technetium-99m colloid with lymphoscintigraphy, patent blue dye and a gamma probe",
 "Palpation alone with excision of the largest node",
 "MRI lymphangiography and methylene blue tattoo"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Technetium-99m colloid with lymphoscintigraphy, patent blue dye and a gamma probe",
 "explanation": "The sentinel node is localised using a radiolabelled tracer (technetium-99m colloid) with pre-operative lymphoscintigraphy, intra-operative patent blue dye, and an intra-operative hand-held gamma probe. The 'hot and blue' node(s) are then excised for histology."
 },
@@ -16900,12 +16915,12 @@
 "question": "A 60-year-old woman with a previously excised melanoma is found to have a firm, palpable, biopsy-proven metastatic lymph node in the ipsilateral groin. What is the most appropriate next step?",
 "options": [
 "Sentinel lymph node biopsy at the primary site",
-"Cross-sectional staging imaging and therapeutic lymph node dissection",
 "Repeat wide local excision of the scar only",
 "Lymphoscintigraphy with blue dye mapping",
-"Reassurance and routine clinical follow-up"
+"Reassurance and routine clinical follow-up",
+"Cross-sectional staging imaging and therapeutic lymph node dissection"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Cross-sectional staging imaging and therapeutic lymph node dissection",
 "explanation": "SLNB is only for clinically and radiologically node-negative patients. Clinically palpable or biopsy-proven nodal disease is beyond the remit of SLNB — the patient needs staging imaging (CT/PET) and a therapeutic lymph node dissection, with consideration of systemic/adjuvant therapy."
 },
@@ -16930,12 +16945,12 @@
 "question": "A patient with a venous-appearing leg ulcer has an ABPI of 0.6. What is the most appropriate management regarding compression?",
 "options": [
 "Apply full high compression immediately",
-"Withhold compression and obtain vascular input before any compression",
 "Apply compression only at night",
 "Double the compression to overcome the arterial disease",
+"Withhold compression and obtain vascular input before any compression",
 "Reassure and discharge with no follow-up"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Withhold compression and obtain vascular input before any compression",
 "explanation": "ABPI <0.8 indicates a significant arterial component. Full high compression is unsafe; the patient needs vascular assessment, and any compression (reduced/modified) should only be under specialist guidance."
 },
@@ -16944,15 +16959,45 @@
 "type": "mcq",
 "question": "A 72-year-old man with type 2 diabetes and CKD has a leg ulcer and an ABPI of 1.4. Which statement is correct?",
 "options": [
-"The high value confirms the limb is well perfused and safe for compression",
 "The value is likely falsely elevated by calcified vessels and is unreliable",
+"The high value confirms the limb is well perfused and safe for compression",
 "This confirms severe arterial disease requiring amputation",
 "Compression should be applied at maximal pressure",
 "The Doppler machine is faulty and no further action is needed"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "The value is likely falsely elevated by calcified vessels and is unreliable",
 "explanation": "In diabetes and CKD, arterial calcification makes vessels incompressible, giving a falsely high ABPI (>1.3). The result cannot be trusted to indicate a safe limb; consider toe pressures/TBPI or duplex and seek vascular assessment."
+},
+{
+"id": "bx_scc_q01",
+"type": "mcq",
+"question": "A renal transplant recipient has a biopsy-confirmed cutaneous squamous cell carcinoma of the lower lip. Compared with a basal cell carcinoma, what additional step is most important?",
+"options": [
+"No difference in management",
+"Only topical imiquimod is needed",
+"Assessment of regional lymph nodes because SCC can metastasise",
+"Reassurance and discharge",
+"Routine 6-monthly photography only"
+],
+"correctIndex": 2,
+"answer": "Assessment of regional lymph nodes because SCC can metastasise",
+"explanation": "Unlike BCC (which essentially never metastasises), SCC can spread to regional nodes — especially with high-risk features (lip/ear site, perineural invasion, immunosuppression). Regional node assessment ± imaging/MDT is therefore essential."
+},
+{
+"id": "bx_bcc_q01",
+"type": "mcq",
+"question": "A patient has a recurrent, ill-defined basal cell carcinoma on the nasal ala. Which treatment offers the best margin control at this high-risk cosmetic site?",
+"options": [
+"Cryotherapy",
+"Topical 5-fluorouracil",
+"Curettage and cautery",
+"Radiotherapy alone",
+"Mohs micrographic surgery"
+],
+"correctIndex": 4,
+"answer": "Mohs micrographic surgery",
+"explanation": "Mohs micrographic surgery gives complete margin assessment with maximal tissue preservation and is preferred for high-risk, recurrent or ill-defined BCCs at cosmetically sensitive facial sites such as the H-zone."
 }
 ]
 }
