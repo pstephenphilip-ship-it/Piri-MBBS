@@ -6062,6 +6062,11 @@
     "id": "hly_fc_22",
     "front": "Why can a normal haptoglobin fail to exclude haemolysis?",
     "back": "Haptoglobin is an <b>acute-phase protein</b>, so coexisting infection, inflammation or malignancy can keep it in the normal range despite ongoing haemolysis. Interpret it alongside reticulocytes, LDH and bilirubin."
+   },
+   {
+    "id": "hly_fc_23",
+    "front": "You have confirmed autoimmune haemolysis (positive DAT). What work-up looks for the underlying cause?",
+    "back": "<b>Warm AIHA (IgG):</b> blood film + immunophenotyping ± CT for <b>CLL/lymphoma</b>, ANA/dsDNA for <b>SLE</b>, and a drug history (e.g. methyldopa). <b>Cold AIHA (IgM/C3):</b> <b>Mycoplasma/EBV</b> serology if post-infective; if chronic or relapsing, screen for a lymphoproliferative disorder (serum electrophoresis ± marrow)."
    }
   ],
   "investigations__HAEMATOLOGY__Coagulation & Thrombosis": [
@@ -20917,12 +20922,12 @@
     "question": "A patient has a normocytic anaemia, jaundice, a high reticulocyte count, raised LDH and unconjugated bilirubin, and a low haptoglobin. What do these results indicate?",
     "options": [
      "Iron-deficiency anaemia",
-     "Haemolysis",
      "Megaloblastic anaemia from B12 deficiency",
      "Anaemia of chronic disease",
+     "Haemolysis",
      "Acute blood loss only"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Haemolysis",
     "explanation": "The combination of a raised reticulocyte count, unconjugated bilirubin and LDH with a low haptoglobin is the classic haemolysis screen. The next steps are a blood film and a DAT to find the cause."
    },
@@ -20948,11 +20953,11 @@
     "options": [
      "Warm autoimmune haemolytic anaemia",
      "Haemolytic transfusion reaction",
-     "Hereditary spherocytosis",
      "Haemolytic disease of the newborn",
-     "Cold agglutinin disease"
+     "Cold agglutinin disease",
+     "Hereditary spherocytosis"
     ],
-    "correctIndex": 2,
+    "correctIndex": 4,
     "answer": "Hereditary spherocytosis",
     "explanation": "A negative DAT points to non-immune haemolysis — hereditary spherocytosis is a membrane defect with a negative DAT. The other options are all immune (DAT-positive) causes."
    },
@@ -20961,13 +20966,13 @@
     "type": "mcq",
     "question": "What is the key difference between the direct and indirect antiglobulin (Coombs) tests?",
     "options": [
-     "The direct test uses serum; the indirect uses red cells",
      "The direct test detects antibody already on the red cell; the indirect detects antibody free in the serum",
+     "The direct test uses serum; the indirect uses red cells",
      "They are identical",
      "The indirect test is only used in haemolysis",
      "The direct test is for crossmatching"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "The direct test detects antibody already on the red cell; the indirect detects antibody free in the serum",
     "explanation": "The direct antiglobulin test detects antibody/complement already bound to the patient's red cells (haemolysis work-up); the indirect test detects free serum antibodies, used for crossmatching and antenatal antibody screening."
    },
@@ -20977,12 +20982,12 @@
     "question": "A patient develops a cold-type autoimmune haemolysis after a respiratory illness. On the DAT, what is typically detected on the red cells, and what is a classic trigger?",
     "options": [
      "IgG; methyldopa",
-     "Complement (C3) with cold agglutinins; Mycoplasma or EBV",
      "IgA; penicillin",
+     "Complement (C3) with cold agglutinins; Mycoplasma or EBV",
      "No antibody; mechanical valve",
      "IgG; SLE"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Complement (C3) with cold agglutinins; Mycoplasma or EBV",
     "explanation": "Cold AIHA is IgM-mediated; the IgM fixes complement and often only C3 is detected on the DAT. Classic triggers are Mycoplasma pneumoniae and EBV (and lymphoma). Warm AIHA (IgG) is the one linked to methyldopa and SLE."
    },
@@ -21007,12 +21012,12 @@
     "question": "A haemolysis screen shows a very high LDH but a NORMAL haptoglobin, no reticulocytosis, and the patient has bulky lymphadenopathy. What does the raised LDH most likely reflect?",
     "options": [
      "Definite intravascular haemolysis",
-     "High cell turnover / tumour burden from lymphoma",
      "G6PD deficiency",
      "A laboratory error",
-     "Iron deficiency"
+     "Iron deficiency",
+     "High cell turnover / tumour burden from lymphoma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "High cell turnover / tumour burden from lymphoma",
     "explanation": "LDH is non-specific. Without a low haptoglobin or reticulocytosis the picture is not haemolysis; with bulky nodes, the raised LDH more likely reflects lymphoma cell turnover (and is a prognostic marker)."
    },
@@ -21022,12 +21027,12 @@
     "question": "A patient has an AKI, deranged electrolytes (high K⁺, high phosphate, high urate, low Ca²⁺) and a very high LDH shortly after starting chemotherapy for a high-grade lymphoma. What is the diagnosis?",
     "options": [
      "Haemolytic anaemia",
-     "Tumour lysis syndrome",
      "TTP",
+     "Tumour lysis syndrome",
      "DIC",
      "Rhabdomyolysis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Tumour lysis syndrome",
     "explanation": "Rapid tumour-cell breakdown releases intracellular contents: high LDH, urate, potassium and phosphate with a low calcium, threatening AKI and arrhythmia — tumour lysis syndrome, an oncological emergency."
    },
@@ -21036,13 +21041,13 @@
     "type": "mcq",
     "question": "A previously well woman presents with a microangiopathic haemolytic anaemia (schistocytes), thrombocytopenia, confusion and a mildly raised creatinine. The PT, APTT and fibrinogen are normal. What is the most likely diagnosis?",
     "options": [
-     "Disseminated intravascular coagulation (DIC)",
      "Thrombotic thrombocytopenic purpura (TTP)",
+     "Disseminated intravascular coagulation (DIC)",
      "Immune thrombocytopenia (ITP)",
      "Haemolytic disease of the newborn",
      "Iron-deficiency anaemia"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Thrombotic thrombocytopenic purpura (TTP)",
     "explanation": "MAHA + thrombocytopenia + neurological features with NORMAL clotting is TTP (severe ADAMTS13 deficiency). DIC would show deranged PT/APTT and a low fibrinogen; the prominent neurology favours TTP over HUS."
    },
@@ -21052,12 +21057,12 @@
     "question": "In suspected TTP, when should the ADAMTS13 sample be taken relative to treatment?",
     "options": [
      "After plasma exchange has finished",
-     "Before starting plasma exchange, but without delaying treatment",
      "Only if the platelets are normal",
      "It is not needed if schistocytes are present",
+     "Before starting plasma exchange, but without delaying treatment",
      "A week after presentation"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Before starting plasma exchange, but without delaying treatment",
     "explanation": "Send ADAMTS13 activity (and inhibitor) before plasma exchange so the result reflects the untreated state — but treatment must not be delayed waiting for it, because untreated TTP has a high mortality."
    },
@@ -21067,12 +21072,12 @@
     "question": "A patient with a microangiopathic haemolytic anaemia has a prolonged PT and APTT, a low fibrinogen and a raised D-dimer in the context of severe sepsis. What is the diagnosis?",
     "options": [
      "TTP",
-     "Disseminated intravascular coagulation (DIC)",
      "HUS",
+     "Disseminated intravascular coagulation (DIC)",
      "Hereditary spherocytosis",
      "Warm AIHA"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Disseminated intravascular coagulation (DIC)",
     "explanation": "MAHA with DERANGED clotting (prolonged PT/APTT, low fibrinogen, high D-dimer) in sepsis is DIC — a consumptive coagulopathy. TTP and HUS have normal coagulation screens."
    },
@@ -21081,13 +21086,13 @@
     "type": "mcq",
     "question": "Why is platelet transfusion generally avoided in TTP despite the low platelet count?",
     "options": [
-     "Platelets are contraindicated in all anaemias",
      "It can fuel further microthrombi and worsen ischaemia",
+     "Platelets are contraindicated in all anaemias",
      "It causes iron overload",
      "It interferes with the ADAMTS13 assay",
      "Platelets raise the LDH"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "It can fuel further microthrombi and worsen ischaemia",
     "explanation": "In TTP, giving platelets can worsen the microvascular thrombosis and end-organ damage. They are avoided unless there is life-threatening bleeding; the definitive treatment is urgent plasma exchange."
    }
