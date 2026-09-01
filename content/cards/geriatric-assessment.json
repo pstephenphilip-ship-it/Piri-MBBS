@@ -178,6 +178,16 @@
         "id": "geri_barthel_fc_05",
         "front": "Which two Barthel domains carry the most weight, and why does it matter?",
         "back": "Transfers and mobility each score up to 15 (vs 0-10 for most others), so they dominate the total. This reflects the strong influence of mobility on overall dependency and discharge feasibility."
+      },
+      {
+        "id": "geri_barthel_fc_06",
+        "front": "A patient’s Barthel score is low or falling — outline the next steps.",
+        "back": "Refer to <b>OT/PT</b> for rehabilitation, provide <b>equipment and home adaptations</b> (grab rails, raised toilet seat, perching stool), <b>match the care package</b> to the score, and <b>search for reversible causes</b> (delirium, infection, pain, polypharmacy, malnutrition)."
+      },
+      {
+        "id": "geri_barthel_fc_07",
+        "front": "Which scale complements the Barthel by measuring instrumental ADLs, and what does it include?",
+        "back": "The <b>Lawton IADL scale</b>: using the telephone, shopping, food preparation, housekeeping, laundry, transport, responsibility for medications and handling finances."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__STOPP/START & Anticholinergic Burden Review": [
@@ -205,6 +215,26 @@
         "id": "geri_stopp_fc_05",
         "front": "Why must deprescribing after a STOPP/ACB review be staged rather than abrupt?",
         "back": "Abrupt cessation of benzodiazepines, opioids, beta-blockers or SSRIs can cause withdrawal syndromes, seizures or rebound hypertension/angina. Drugs should be tapered with follow-up to confirm safety and watch for return of the original indication."
+      },
+      {
+        "id": "geri_stopp_fc_06",
+        "front": "What is a prescribing cascade? Give an example and the correct response.",
+        "back": "A drug&rsquo;s side effect is mistaken for a new illness and treated with a further drug (e.g. amlodipine &rarr; ankle oedema &rarr; furosemide). Correct response: recognise the ADR and <b>stop/adjust the original drug</b> rather than adding another."
+      },
+      {
+        "id": "geri_stopp_fc_07",
+        "front": "What are FRIDs, and which classes should you review after a fall?",
+        "back": "<b>Falls-Risk-Increasing Drugs</b>: benzodiazepines/Z-drugs and sedatives, antihypertensives/nitrates/alpha-blockers (orthostasis), anticholinergics, opioids and antipsychotics. Check <b>lying/standing BP</b> and deprescribe."
+      },
+      {
+        "id": "geri_stopp_fc_08",
+        "front": "How do the Beers criteria differ from STOPP/START?",
+        "back": "<b>Beers</b> (US) is an explicit list of potentially inappropriate medications only; <b>STOPP/START</b> (European) adds the START <b>omissions</b> half, so it also detects under-prescribing."
+      },
+      {
+        "id": "geri_stopp_fc_09",
+        "front": "Describe the anticholinergic syndrome and name some ACB-3 drugs.",
+        "back": "Peripheral: dry mouth, constipation, urinary retention, blurred vision; central: confusion/delirium &mdash; &ldquo;mad, dry, red, hot, blind&rdquo;. ACB-3 drugs: amitriptyline, oxybutynin, chlorphenamine, promethazine, hydroxyzine, tolterodine/solifenacin."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__ADRT / DNACPR / ReSPECT (Advance Care Planning)": [
@@ -502,13 +532,13 @@
         "type": "mcq",
         "question": "An 82-year-old woman scores 100/100 on the Barthel Index before discharge. Which conclusion is justified?",
         "options": [
-          "She is independent in basic activities of daily living",
           "She is safe to live alone without further assessment",
           "She has no cognitive impairment",
+          "She is independent in basic activities of daily living",
           "She can manage her own medications and finances",
           "She requires no follow-up of any kind"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "She is independent in basic activities of daily living",
         "explanation": "A maximum Barthel score confirms independence in the 10 basic ADLs only. It does not assess cognition, instrumental ADLs or home safety, so living alone cannot be assumed from the score alone."
       },
@@ -519,11 +549,11 @@
         "options": [
           "Preparing a meal",
           "Managing personal finances",
-          "Transferring from bed to chair",
           "Using the telephone",
-          "Doing the shopping"
+          "Doing the shopping",
+          "Transferring from bed to chair"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Transferring from bed to chair",
         "explanation": "Transfers (bed to chair) is one of the 10 basic ADLs in the Barthel Index. Meal preparation, finances, telephone use and shopping are instrumental ADLs and lie outside the scale."
       },
@@ -533,14 +563,29 @@
         "question": "A rehabilitation patient's Barthel Index falls from 75 to 45 over two weeks. What is the most appropriate action?",
         "options": [
           "Discharge home as the score is still above 40",
+          "Investigate for reversible causes of functional decline",
           "Reassure that this is expected with ageing",
           "Repeat the score in three months",
-          "Investigate for reversible causes of functional decline",
           "Stop scoring as the tool is unreliable"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "Investigate for reversible causes of functional decline",
         "explanation": "A falling serial Barthel score indicates functional deterioration and should trigger a search for reversible causes such as infection, delirium, medication effects or a new event. The care package and rehabilitation plan should then be reviewed."
+      },
+      {
+        "id": "geri_barthel_q04",
+        "type": "mcq",
+        "question": "An 80-year-old scores 100/100 on the Barthel Index but the team is unsure she can manage at home alone. Which tool best assesses the instrumental activities the Barthel omits?",
+        "options": [
+          "The Barthel Index repeated",
+          "The 4AT",
+          "The Clinical Frailty Scale",
+          "The Lawton IADL scale",
+          "The Timed Up-and-Go test"
+        ],
+        "correctIndex": 3,
+        "answer": "The Lawton IADL scale",
+        "explanation": "The Barthel covers only basic ADLs; instrumental ADLs (shopping, cooking, finances, medications, telephone, transport) are captured by the Lawton IADL scale. The 4AT screens for delirium, the CFS grades frailty and the TUG assesses mobility/falls risk."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__STOPP/START & Anticholinergic Burden Review": [
@@ -550,12 +595,12 @@
         "question": "An 82-year-old with atrial fibrillation and a CHA₂DS₂-VASc score of 4 is not prescribed any anticoagulation. Which screening criterion does this represent?",
         "options": [
           "A STOPP criterion for an inappropriate medication",
-          "A START criterion for a prescribing omission",
           "A high Anticholinergic Burden score",
+          "A START criterion for a prescribing omission",
           "A contraindication captured by STOPP",
           "An acceptable finding requiring no action"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A START criterion for a prescribing omission",
         "explanation": "START flags evidence-based treatments that have been wrongly omitted. Anticoagulation for stroke prevention in AF is a classic START criterion, prompting the clinician to consider starting it."
       },
@@ -564,13 +609,13 @@
         "type": "mcq",
         "question": "Which combination of drugs would give the highest Anticholinergic Burden score using the standard ACB scale?",
         "options": [
-          "Amitriptyline plus oxybutynin",
           "Codeine plus furosemide",
           "Paracetamol plus atorvastatin",
           "Ramipril plus bisphosphonate",
-          "Metformin plus amlodipine"
+          "Metformin plus amlodipine",
+          "Amitriptyline plus oxybutynin"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Amitriptyline plus oxybutynin",
         "explanation": "Amitriptyline and oxybutynin each score 3 on the ACB scale, giving a total of 6 and a clearly high burden. Codeine and furosemide score only 1 each, and the other listed drugs have negligible anticholinergic activity."
       },
@@ -588,6 +633,36 @@
         "correctIndex": 1,
         "answer": "The flag is a prompt to review the drug's benefit versus harm and consider deprescribing",
         "explanation": "STOPP criteria are explicit prompts that support, not replace, clinical judgement. An NSAID with eGFR <50 raises AKI risk, so it should be reviewed for deprescribing while weighing benefit against harm and the patient's goals."
+      },
+      {
+        "id": "geri_stopp_q04",
+        "type": "mcq",
+        "question": "A 78-year-old started on amlodipine develops ankle oedema, for which a GP then prescribes furosemide. What does this best illustrate?",
+        "options": [
+          "An appropriate START criterion",
+          "A high anticholinergic burden",
+          "A drug allergy",
+          "A prescribing cascade",
+          "Correct management of heart failure"
+        ],
+        "correctIndex": 3,
+        "answer": "A prescribing cascade",
+        "explanation": "Amlodipine commonly causes dose-dependent ankle oedema; treating it with furosemide rather than reviewing the calcium-channel blocker is a classic prescribing cascade. The correct step is to reduce or switch the amlodipine."
+      },
+      {
+        "id": "geri_stopp_q05",
+        "type": "mcq",
+        "question": "An older patient is reviewed after a fall. Which medication on the list is the priority falls-risk-increasing drug (FRID) to review?",
+        "options": [
+          "Nitrazepam",
+          "Paracetamol",
+          "Nitrofurantoin",
+          "Atorvastatin",
+          "Metformin"
+        ],
+        "correctIndex": 0,
+        "answer": "Nitrazepam",
+        "explanation": "Nitrazepam is a long-acting benzodiazepine — a classic FRID causing sedation, impaired balance and falls. Sedatives, orthostasis-inducing antihypertensives/nitrates, anticholinergics, opioids and antipsychotics are the drug classes to review after a fall."
       }
     ],
     "investigations__GERIATRIC ASSESSMENT__ADRT / DNACPR / ReSPECT (Advance Care Planning)": [
