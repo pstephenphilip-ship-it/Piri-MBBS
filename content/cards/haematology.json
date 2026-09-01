@@ -5656,6 +5656,21 @@
     "id": "inv_haem_anh_ov_fc_06",
     "front": "Two rules that govern how haematinics are interpreted and replaced.",
     "back": "Interpret <b>ferritin alongside CRP</b> (it is an acute-phase reactant — inflammation raises it and can mask iron deficiency), and always check/replace <b>B12 before folate</b> (folate alone in B12 deficiency risks subacute combined degeneration)."
+   },
+   {
+    "id": "inv_haem_anh_ov_fc_07",
+    "front": "An anaemia with a HIGH reticulocyte count — what does it point to, and what screen comes next?",
+    "back": "A high reticulocyte count means the marrow is responding, so think <b>haemolysis or blood loss</b> rather than production failure. Send a <b>haemolysis screen</b>: blood film, <b>LDH ↑</b>, <b>haptoglobin ↓</b>, <b>unconjugated bilirubin ↑</b>, then a <b>DAT (Coombs)</b> to separate immune from non-immune causes; exclude overt bleeding."
+   },
+   {
+    "id": "inv_haem_anh_ov_fc_08",
+    "front": "Iron studies show a raised ferritin and raised transferrin saturation, but the patient IS anaemic (often microcytic/dimorphic). Diagnosis and confirmation?",
+    "back": "<b>Sideroblastic anaemia</b> — iron <b>overload with anaemia</b> (unlike haemochromatosis, which has overload but no anaemia). The film is dimorphic ± basophilic stippling; <b>bone marrow shows ring sideroblasts</b>. Seek a cause: alcohol, lead, isoniazid, myelodysplasia, or congenital."
+   },
+   {
+    "id": "inv_haem_anh_ov_fc_09",
+    "front": "α-thalassaemia trait is electrophoresis-normal — but which α-thalassaemias DO show on HPLC?",
+    "back": "The <b>severe</b> α-thalassaemias: <b>3-gene deletion = HbH disease</b> (HbH = β₄ band, with a haemolytic anaemia); <b>4-gene deletion = Hb Bart’s</b> (γ₄) → <b>hydrops fetalis</b> (fatal in utero; antenatal significance). Trait (1–2 genes) is HPLC-normal and needs DNA analysis."
    }
   ],
   "investigations__HAEMATOLOGY__Arterial Blood Gas (ABG)": [
@@ -20433,17 +20448,32 @@
    {
     "id": "inv_haem_anh_ov_q03",
     "type": "mcq",
-    "question": "A patient with a macrocytic anaemia is found to have a low folate and a low-normal B12. Why should B12 be replaced before folate?",
+    "question": "An anaemia is found to have a HIGH reticulocyte count. Which set of results best confirms haemolysis as the cause?",
     "options": [
-     "Folate blocks B12 absorption",
-     "Correcting folate alone can precipitate or worsen subacute combined degeneration of the cord",
-     "Folate falsely raises the MCV",
-     "B12 must be low for folate to be effective",
-     "They can never be replaced together"
+     "Low LDH, high haptoglobin and a hypochromic microcytic film",
+     "High LDH, low haptoglobin and raised unconjugated bilirubin, with a DAT to classify it",
+     "Low reticulocytes with oval macrocytes and hypersegmented neutrophils",
+     "Raised HbA₂ (>3.5%) on electrophoresis",
+     "Low B12 with a raised methylmalonic acid"
     ],
     "correctIndex": 1,
-    "answer": "Correcting folate alone can precipitate or worsen subacute combined degeneration of the cord",
-    "explanation": "Giving folate alone in unrecognised B12 deficiency can improve the anaemia while allowing neurological damage (subacute combined degeneration) to progress. Always check and replace B12 first."
+    "answer": "High LDH, low haptoglobin and raised unconjugated bilirubin, with a DAT to classify it",
+    "explanation": "A high reticulocyte count points to haemolysis or blood loss rather than marrow failure. Haemolysis releases LDH and unconjugated bilirubin and consumes haptoglobin (low); the direct antiglobulin test (DAT/Coombs) then separates immune from non-immune causes. Low haptoglobin + high LDH + raised bilirubin is the classic screen."
+   },
+   {
+    "id": "inv_haem_anh_ov_q04",
+    "type": "mcq",
+    "question": "Iron studies show a HIGH ferritin and HIGH transferrin saturation, yet the blood count shows a microcytic/dimorphic anaemia. Which diagnosis do these results best suggest?",
+    "options": [
+     "Iron-deficiency anaemia",
+     "Hereditary haemochromatosis",
+     "Sideroblastic anaemia",
+     "Anaemia of chronic disease",
+     "β-thalassaemia trait"
+    ],
+    "correctIndex": 2,
+    "answer": "Sideroblastic anaemia",
+    "explanation": "Iron overload (high ferritin and saturation) together WITH an anaemia points to sideroblastic anaemia — iron is present but cannot be built into haem, so it accumulates. Haemochromatosis causes overload without anaemia; iron deficiency and anaemia of chronic disease both have a low or normal saturation. Confirm with a marrow showing ring sideroblasts; causes include alcohol, lead, isoniazid, myelodysplasia and congenital forms."
    }
   ],
   "investigations__HAEMATOLOGY__Arterial Blood Gas (ABG)": [
