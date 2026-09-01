@@ -25,6 +25,21 @@
         "id": "tox_para_fc_05",
         "front": "State the King's College Criteria for paracetamol-induced acute liver failure (transplant referral).",
         "back": "Arterial pH <7.3 after resuscitation; OR all three of INR >6.5 (PT >100 s), creatinine >300 micromol/L, and grade III/IV encephalopathy."
+      },
+      {
+        "id": "tox_para_nac_reaction_fc_01",
+        "front": "A patient on N-acetylcysteine develops flushing, urticaria and wheeze — what is this and what do you do?",
+        "back": "An <b>anaphylactoid reaction</b> (dose/rate-related histamine release, NOT true allergy). <b>Pause or slow the infusion</b>, give an <b>antihistamine</b> (&plusmn; bronchodilator/nebulised salbutamol for wheeze), then <b>restart at a slower rate</b>. It is not a reason to withhold the antidote."
+      },
+      {
+        "id": "tox_para_stopnac_fc_01",
+        "front": "When can empirically-started NAC be stopped, and what bloods guide end-of-treatment disposition?",
+        "back": "If NAC was started empirically (late/staggered/uncertain) and a <b>valid timed level</b> (single acute, known time) later falls <b>below the treatment line</b> with <b>normal ALT, INR and creatinine</b> in an asymptomatic patient, it can be stopped. At the end of the infusion recheck <b>ALT, INR, creatinine and venous pH/bicarbonate</b> to decide continue vs stop vs liver-unit referral."
+      },
+      {
+        "id": "tox_para_charcoal_fc_01",
+        "front": "What is the role of activated charcoal in paracetamol overdose?",
+        "back": "Consider a single dose <b>only within ~1 hour</b> of a significant ingestion (&ge;150 mg/kg or &ge;12 g) in a patient with a protected airway &mdash; it reduces absorption. It is an adjunct and <b>does not replace NAC</b>; the antidote decision still rests on the timed level / staggered-overdose rules."
       }
     ],
     "investigations__TOXICOLOGY__Salicylate Level": [
@@ -52,6 +67,21 @@
         "id": "tox_sal_fc_05",
         "front": "Why is intubating and ventilating a salicylate-poisoned patient dangerous?",
         "back": "They rely on compensatory hyperventilation to defend blood pH. Sedation/ventilation that reduces minute ventilation abolishes this compensation, causing catastrophic acidaemia and a surge of salicylate into the CNS. Only do so with expert input."
+      },
+      {
+        "id": "tox_sal_ladder_fc_01",
+        "front": "How do salicylate levels map to escalating treatment (the action ladder)?",
+        "back": "<b>&lt;300 mg/L (2.2 mmol/L)</b> = therapeutic/usually asymptomatic. <b>&ge;500 mg/L (3.6 mmol/L)</b> (or clinical toxicity/acidosis) &rarr; IV fluids + <b>urinary alkalinisation</b> with sodium bicarbonate (urine pH 7.5&ndash;8.5). <b>&gt;700 mg/L (5.1 mmol/L)</b>, or renal failure/refractory acidosis/seizures/pulmonary oedema/altered consciousness &rarr; <b>haemodialysis</b>."
+      },
+      {
+        "id": "tox_sal_glucose_fc_01",
+        "front": "Why give glucose in significant salicylate toxicity even when the serum glucose is normal?",
+        "back": "Salicylate can cause <b>neuroglycopenia</b> &mdash; low CSF glucose with a normal or even high blood glucose &mdash; contributing to agitation, seizures and reduced consciousness. Give <b>IV glucose</b> for any altered mental state in salicylate poisoning regardless of the serum reading."
+      },
+      {
+        "id": "tox_sal_charcoal_fc_01",
+        "front": "When is activated charcoal useful in salicylate overdose?",
+        "back": "A single dose <b>within ~1 hour</b> of ingestion (airway protected) reduces absorption; repeat doses may be considered in large or enteric-coated ingestions where absorption is prolonged. It does not replace levels, alkalinisation or dialysis, and salicylate levels must still be <b>repeated</b> because absorption can continue and levels rise."
       }
     ],
     "investigations__TOXICOLOGY__Carboxyhaemoglobin (CO Poisoning)": [
@@ -170,13 +200,13 @@
         "type": "mcq",
         "question": "A patient presents 5 hours after a single acute paracetamol overdose with a known ingestion time. Their plasma paracetamol level falls above the treatment line on the nomogram. What is the correct action?",
         "options": [
-          "Start N-acetylcysteine",
           "Repeat the level in 4 hours before deciding",
           "Discharge as the level is uninterpretable",
+          "Start N-acetylcysteine",
           "Give activated charcoal only",
           "Wait until 8 hours post-ingestion to treat"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Start N-acetylcysteine",
         "explanation": "A level on or above the treatment line indicates significant risk of hepatotoxicity and mandates NAC. The 5-hour timed sample is validly plotted on the nomogram for a single acute overdose."
       },
@@ -185,13 +215,13 @@
         "type": "mcq",
         "question": "A patient reports taking paracetamol tablets in several doses over the past two days but cannot give exact times. How should treatment be guided?",
         "options": [
-          "Treat with NAC regardless of the paracetamol level",
           "Plot the single level on the nomogram as usual",
           "Take a level before 4 hours to exclude toxicity",
           "Withhold NAC until liver enzymes rise",
-          "Use the level only if it is above 100 mg/L"
+          "Use the level only if it is above 100 mg/L",
+          "Treat with NAC regardless of the paracetamol level"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Treat with NAC regardless of the paracetamol level",
         "explanation": "The nomogram is only valid for a single acute overdose with a known time. In a staggered overdose or uncertain timing, NAC is given regardless of the measured level."
       },
@@ -200,13 +230,13 @@
         "type": "mcq",
         "question": "Which single finding, after adequate resuscitation, meets the King's College Criteria for transplant referral in paracetamol-induced liver failure?",
         "options": [
-          "Arterial pH <7.3",
           "Creatinine >150 micromol/L",
+          "Arterial pH <7.3",
           "INR >2.0",
           "ALT >1000 IU/L",
           "Grade I encephalopathy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Arterial pH <7.3",
         "explanation": "An arterial pH below 7.3 after fluid resuscitation is a stand-alone King's College Criterion. The alternative pathway requires the triad of INR >6.5, creatinine >300 micromol/L, and grade III/IV encephalopathy together."
       }
@@ -233,12 +263,12 @@
         "question": "A patient with salicylate overdose has a first serum level of 320 mg/L that is only mildly symptomatic. He took enteric-coated tablets. What is the most appropriate next step regarding the level?",
         "options": [
           "Discharge as the level is below the therapeutic threshold",
-          "Repeat the salicylate level in 2-3 hours as absorption may continue",
           "Accept the single level as the definitive peak",
           "Wait 24 hours before any repeat sampling",
-          "Assume the level will fall and stop monitoring"
+          "Assume the level will fall and stop monitoring",
+          "Repeat the salicylate level in 2-3 hours as absorption may continue"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Repeat the salicylate level in 2-3 hours as absorption may continue",
         "explanation": "Enteric-coated tablets are absorbed slowly and erratically, so an early level can rise substantially and underestimate the true burden. Repeating every 2-3 hours until the level is clearly falling is essential to avoid a falsely reassuring result."
       },
@@ -248,12 +278,12 @@
         "question": "A salicylate-poisoned patient is being managed with IV sodium bicarbonate for urinary alkalinisation, but the urine remains acidic. Which electrolyte abnormality is the most likely cause of the failure to alkalinise the urine?",
         "options": [
           "Hypernatraemia",
-          "Hypercalcaemia",
           "Hypokalaemia",
+          "Hypercalcaemia",
           "Hypomagnesaemia",
           "Hyperphosphataemia"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Hypokalaemia",
         "explanation": "When potassium is depleted the kidney reabsorbs K⁺ in exchange for secreting H⁺, acidifying the urine despite bicarbonate therapy. Correcting the hypokalaemia allows the urine to become alkaline so ion-trapping can enhance salicylate excretion."
       }
