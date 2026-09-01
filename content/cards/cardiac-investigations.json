@@ -230,6 +230,16 @@
         "id": "cvi_biopsy_fc_05",
         "front": "Why can an endomyocardial biopsy be falsely negative?",
         "back": "Myocardial involvement is often patchy/focal, so the small samples may miss affected tissue (sampling error) &mdash; a negative biopsy does not exclude the disease."
+      },
+      {
+        "id": "eb_iron_fc_01",
+        "front": "What does iron on a Perls (Prussian-blue) stain of an endomyocardial biopsy indicate, and the next step?",
+        "back": "<b>Cardiac iron overload (haemochromatosis)</b> → venesection / iron chelation. Cardiac MRI T2* usually detects this non-invasively first."
+      },
+      {
+        "id": "eb_amyloid_fc_01",
+        "front": "Congo red is positive on a cardiac biopsy — what is the essential next step?",
+        "back": "Type the amyloid: <b>AL</b> (light-chain — serum free light chains, urgent chemotherapy) vs <b>ATTR</b> (transthyretin — bone scintigraphy, tafamidis); treatment differs completely."
       }
     ]
   },
@@ -550,13 +560,13 @@
         "type": "mcq",
         "question": "A patient 6 weeks after orthotopic heart transplantation undergoes a routine surveillance endomyocardial biopsy. Histology shows a lymphocytic infiltrate with associated myocyte damage. What is the most appropriate management?",
         "options": [
-          "Escalate immunosuppression for acute cellular rejection",
           "Reassure and continue current regimen",
           "Start broad-spectrum antibiotics for infective myocarditis",
+          "Escalate immunosuppression for acute cellular rejection",
           "Reduce immunosuppression to prevent malignancy",
           "List urgently for re-transplantation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Escalate immunosuppression for acute cellular rejection",
         "explanation": "A lymphocytic infiltrate with myocyte damage on a post-transplant surveillance biopsy is the histological hallmark of acute cellular rejection. The correct response is to escalate immunosuppression to treat the rejection episode."
       },
@@ -565,13 +575,13 @@
         "type": "mcq",
         "question": "A young patient presents with fulminant heart failure, ventricular arrhythmia and rapid haemodynamic deterioration. Endomyocardial biopsy shows multinucleate giant cells within a diffuse inflammatory infiltrate. What is the diagnosis?",
         "options": [
-          "Giant-cell myocarditis",
           "Cardiac amyloidosis",
           "Cardiac sarcoidosis",
           "Acute cellular rejection",
-          "Hypertrophic cardiomyopathy"
+          "Hypertrophic cardiomyopathy",
+          "Giant-cell myocarditis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Giant-cell myocarditis",
         "explanation": "Giant cells with a diffuse inflammatory infiltrate on biopsy in a patient with fulminant myocarditis define giant-cell myocarditis. It carries a poor prognosis and requires aggressive immunosuppression."
       },
@@ -580,15 +590,30 @@
         "type": "mcq",
         "question": "Which biopsy finding, seen under polarised light, confirms cardiac amyloidosis?",
         "options": [
-          "Apple-green birefringence of Congo red-stained deposits",
           "Non-caseating granulomas",
+          "Apple-green birefringence of Congo red-stained deposits",
           "Multinucleate giant cells",
           "Lymphocytic infiltrate with myocyte necrosis",
           "Fibrofatty replacement of myocytes"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Apple-green birefringence of Congo red-stained deposits",
         "explanation": "Amyloid deposits stained with Congo red show characteristic apple-green birefringence under polarised light. This finding confirms cardiac amyloidosis."
+      },
+      {
+        "id": "eb_eos_q01",
+        "type": "mcq",
+        "question": "An endomyocardial biopsy in a patient with new heart failure after starting a drug shows a dense eosinophilic infiltrate. What is the diagnosis and management?",
+        "options": [
+          "Acute cellular rejection; escalate immunosuppression",
+          "Cardiac amyloidosis; start chemotherapy",
+          "Cardiac sarcoidosis; implant an ICD",
+          "Eosinophilic (hypersensitivity) myocarditis; withdraw the culprit drug and give corticosteroids",
+          "Iron overload; venesection"
+        ],
+        "correctIndex": 3,
+        "answer": "Eosinophilic (hypersensitivity) myocarditis; withdraw the culprit drug and give corticosteroids",
+        "explanation": "An eosinophilic infiltrate indicates eosinophilic/hypersensitivity myocarditis, often drug-induced; management is to withdraw the culprit drug and give corticosteroids."
       }
     ]
   }

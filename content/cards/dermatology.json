@@ -5120,6 +5120,21 @@
 "id": "koh_fc_05",
 "front": "What is tinea incognito and how does it affect scrapings?",
 "back": "A dermatophyte infection modified by topical steroid use — it looks atypical/less inflamed and may be smear- and culture-negative. Stop the steroid and re-scrape."
+},
+{
+"id": "db_tzanck_fc_01",
+"front": "What does a Tzanck smear show in HSV/VZV versus pemphigus?",
+"back": "From a fresh vesicle base (Giemsa/Wright): <b>multinucleated giant cells</b> = HSV/VZV; <b>acantholytic cells</b> = pemphigus. It cannot separate HSV from VZV → confirm with viral PCR."
+},
+{
+"id": "db_patch_fc_01",
+"front": "Contrast patch testing and skin prick testing.",
+"back": "<b>Patch testing</b> (allergens on back, read at <b>48h and 96h</b>) diagnoses <b>type IV</b> delayed allergic contact dermatitis. <b>Skin prick / specific IgE</b> diagnoses <b>type I</b> immediate hypersensitivity."
+},
+{
+"id": "db_dermo_fc_01",
+"front": "What is dermatographism and what does it indicate?",
+"back": "Firmly stroking the skin produces a <b>linear wheal-and-flare</b> within minutes = <b>inducible (physical) urticaria</b> → treat with a non-sedating antihistamine."
 }
 ],
 "investigations__DERMATOLOGY__Biopsy & Skin Cancer": [
@@ -16463,12 +16478,12 @@
 "question": "A 62-year-old man presents with a 9 mm pigmented lesion on his back that his wife says has darkened and enlarged over 3 months. On dermoscopy you see asymmetry of structure, an irregular broadened pigment network, a structureless blue-white area, and four colours including grey and blue. Which single dermoscopic feature is the strongest predictor of melanoma here?",
 "options": [
 "Regular symmetric pigment network",
-"Blue-white veil",
 "Milia-like cysts",
+"Blue-white veil",
 "Comedo-like openings",
 "Arborising telangiectasia"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Blue-white veil",
 "explanation": "A blue-white veil (structureless blue-white area) is a strong dermoscopic predictor of melanoma. A regular symmetric network is benign; milia-like cysts and comedo-like openings indicate seborrhoeic keratosis; arborising telangiectasia indicates BCC."
 },
@@ -16478,12 +16493,12 @@
 "question": "A 75-year-old woman has a slowly growing, pearly nodule on her nose. Dermoscopy shows branching (arborising) telangiectatic vessels and blue-grey ovoid nests, with no pigment network. What is the most likely diagnosis?",
 "options": [
 "Melanoma",
-"Basal cell carcinoma",
 "Seborrhoeic keratosis",
 "Actinic keratosis",
-"Benign melanocytic naevus"
+"Benign melanocytic naevus",
+"Basal cell carcinoma"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Basal cell carcinoma",
 "explanation": "Arborising (branching) telangiectasia plus blue-grey ovoid nests and absence of a pigment network are classic dermoscopic features of basal cell carcinoma. Melanoma shows a pigment network with atypia; seborrhoeic keratosis shows milia-like cysts/comedo-like openings; AK shows a strawberry pattern with white follicular circles."
 },
@@ -16493,12 +16508,12 @@
 "question": "A GP with a dermatoscope reviews a changing pigmented lesion in a patient with many naevi. The lesion stands out from the patient's other moles ('ugly duckling') but the dermoscopic pattern looks broadly reassuring. What is the most appropriate management?",
 "options": [
 "Reassure and discharge as the dermoscopy is reassuring",
-"Review again in 12 months with no further action",
 "Refer on the 2-week-wait suspected skin cancer pathway for excision/assessment",
+"Review again in 12 months with no further action",
 "Prescribe a topical corticosteroid and review",
 "Treat with cryotherapy in primary care"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Refer on the 2-week-wait suspected skin cancer pathway for excision/assessment",
 "explanation": "Dermoscopy aids but does not replace histology and is operator-dependent. A changing or 'ugly duckling' lesion should be referred on the 2-week-wait pathway for excision/histological assessment regardless of a reassuring dermoscopic view. Cryotherapy or steroids would be inappropriate for a possible melanoma and could destroy diagnostic tissue."
 },
@@ -16508,12 +16523,12 @@
 "question": "A 34-year-old man presents with well-demarcated red-brown patches in both groins and the axillae. Under a Wood's lamp in a darkened room the affected areas show a striking coral-red fluorescence. What is the most likely diagnosis?",
 "options": [
 "Tinea cruris",
-"Erythrasma",
 "Pityriasis versicolor",
 "Inverse psoriasis",
+"Erythrasma",
 "Candidal intertrigo"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Erythrasma",
 "explanation": "Coral-red fluorescence in flexural sites is diagnostic of erythrasma, caused by Corynebacterium minutissimum producing coproporphyrin III. Tinea cruris (usually Trichophyton) does not fluoresce, and versicolor gives yellow-gold on the trunk."
 },
@@ -16522,13 +16537,13 @@
 "type": "mcq",
 "question": "A 6-year-old girl has a scaly patch of hair loss on the scalp with broken hairs. Under Wood's lamp some hairs fluoresce green. Which organism does this finding most strongly suggest?",
 "options": [
-"Trichophyton tonsurans",
 "Microsporum canis",
+"Trichophyton tonsurans",
 "Malassezia furfur",
 "Corynebacterium minutissimum",
 "Staphylococcus aureus"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Microsporum canis",
 "explanation": "Green/blue-green fluorescence of infected hairs in tinea capitis points to a Microsporum species such as M. canis (often acquired from cats/dogs). Trichophyton species, the commonest UK cause, do not fluoresce — so a negative lamp cannot exclude tinea."
 },
@@ -16553,12 +16568,12 @@
 "question": "A 62-year-old woman has flaccid blisters and painful oral erosions. Gentle lateral pressure on normal-looking skin beside a blister causes the superficial epidermis to shear away. Which antibody is most likely responsible?",
 "options": [
 "Anti-BP180 (hemidesmosome) antibodies",
-"Anti-desmoglein antibodies",
 "Anti-tissue transglutaminase antibodies",
 "Anti-collagen VII antibodies",
-"Anti-Ro/SSA antibodies"
+"Anti-Ro/SSA antibodies",
+"Anti-desmoglein antibodies"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Anti-desmoglein antibodies",
 "explanation": "A positive Nikolsky sign with flaccid blisters and mucosal erosions is pemphigus vulgaris, caused by anti-desmoglein (Dsg 1/3) autoantibodies producing an intraepidermal acantholytic split. Anti-BP180 causes bullous pemphigoid (sub-epidermal, tense, Nikolsky negative). Anti-tTG is coeliac/dermatitis herpetiformis, anti-collagen VII is epidermolysis bullosa acquisita, and anti-Ro/SSA is lupus/Sjogren."
 },
@@ -16597,13 +16612,13 @@
 "type": "mcq",
 "question": "A 4-year-old is brought to the emergency department with fever, lethargy and a spreading rash. Pressing a glass slide over the rash shows that the purple macules do not fade. What is the most appropriate immediate action?",
 "options": [
+"Administer empirical intravenous antibiotics without delay",
 "Reassure the parents and arrange outpatient dermatology review",
 "Perform a lumbar puncture before giving any treatment",
-"Administer empirical intravenous antibiotics without delay",
 "Take a skin biopsy of the rash for histology",
 "Apply a topical steroid and observe for 24 hours"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Administer empirical intravenous antibiotics without delay",
 "explanation": "A non-blanching purpuric rash in a febrile, unwell child is meningococcal sepsis until proven otherwise. Diascopy confirms the rash is non-blanching (extravasated blood), but management is empirical IV antibiotics immediately — do not delay for lumbar puncture or biopsy."
 },
@@ -16613,12 +16628,12 @@
 "question": "A 30-year-old woman has multiple small red lesions on her face. On diascopy each lesion blanches completely and a central vessel is seen. Which lesion is most consistent with this finding?",
 "options": [
 "Petechiae",
-"Spider naevus",
 "Palpable purpura of vasculitis",
+"Spider naevus",
 "Ecchymosis",
 "Apple-jelly nodule of lupus vulgaris"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Spider naevus",
 "explanation": "Blanching indicates blood within dilated vessels (intravascular). A spider naevus is a dilated central arteriole with radiating vessels that blanches with pressure and refills from the centre. Petechiae, palpable purpura and ecchymoses are extravasated blood and do NOT blanch; apple-jelly nodules are granulomatous."
 },
@@ -16630,10 +16645,10 @@
 "Urticaria",
 "Cherry angioma",
 "Henoch-Schonlein purpura",
-"Lupus vulgaris (cutaneous tuberculosis)",
-"Telangiectasia"
+"Telangiectasia",
+"Lupus vulgaris (cutaneous tuberculosis)"
 ],
-"correctIndex": 3,
+"correctIndex": 4,
 "answer": "Lupus vulgaris (cutaneous tuberculosis)",
 "explanation": "An apple-jelly appearance on diascopy indicates a granulomatous infiltrate. It is classically described in lupus vulgaris (cutaneous TB) and is also seen in sarcoidosis and granulomatous rosacea. Urticaria, cherry angioma and telangiectasia all blanch (intravascular); HSP causes non-blanching palpable purpura, not apple-jelly nodules."
 },
@@ -16658,12 +16673,12 @@
 "question": "A GP performs a KOH wet mount on scrapings from a suspected tinea corporis lesion, which is negative. The clinical picture is still convincing. What is the most appropriate next step?",
 "options": [
 "Confidently exclude fungal infection and treat as eczema",
-"Send scrapings for fungal culture, as KOH negativity does not exclude infection",
 "Start a 3-month course of oral terbinafine immediately",
 "Prescribe a potent topical corticosteroid",
+"Send scrapings for fungal culture, as KOH negativity does not exclude infection",
 "Reassure and discharge with no treatment"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Send scrapings for fungal culture, as KOH negativity does not exclude infection",
 "explanation": "KOH microscopy is only ~60–80% sensitive and operator-dependent, so a negative result cannot rule out dermatophytosis. Culture on Sabouraud agar is the gold standard — it is more sensitive, speciates the organism and confirms viability, though it takes weeks. A potent steroid risks tinea incognito."
 },
@@ -16672,15 +16687,45 @@
 "type": "mcq",
 "question": "A 7-year-old has a scaly patch of scalp with broken hairs and localised alopecia. Before starting treatment for suspected tinea capitis, which principle should most guide your management?",
 "options": [
+"Obtain hairs, brushings and scale for microscopy and culture to confirm before oral therapy",
 "Start oral griseofulvin/terbinafine immediately without sampling",
 "Treat with a topical antifungal cream only and review",
-"Obtain hairs, brushings and scale for microscopy and culture to confirm before oral therapy",
 "Apply a topical corticosteroid to reduce the inflammation first",
 "Reassure that scalp ringworm resolves spontaneously without investigation"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Obtain hairs, brushings and scale for microscopy and culture to confirm before oral therapy",
 "explanation": "Tinea capitis requires systemic antifungals (topical alone is inadequate), and these are long courses with hepatotoxicity and drug-interaction risk. Mycological confirmation — plucked hairs, broken stubs and brushings for KOH and culture — should precede committing a child to oral therapy, and culture speciation can guide drug choice."
+},
+{
+"id": "db_tzanck_q01",
+"type": "mcq",
+"question": "A child with atopic eczema develops clustered painful vesicles; a scrape of a vesicle base stained with Giemsa shows multinucleated giant cells. What is the diagnosis and immediate action?",
+"options": [
+"Pemphigus vulgaris; start steroids",
+"Impetigo; topical antibiotics",
+"Herpes simplex (eczema herpeticum); confirm with viral PCR and start aciclovir",
+"Bullous pemphigoid; take a biopsy",
+"Contact dermatitis; patch test"
+],
+"correctIndex": 2,
+"answer": "Herpes simplex (eczema herpeticum); confirm with viral PCR and start aciclovir",
+"explanation": "Multinucleated giant cells on a Tzanck smear indicate HSV/VZV; in a child with eczema and vesicles this is eczema herpeticum (a dermatological emergency) — confirm with viral PCR and start aciclovir without delay."
+},
+{
+"id": "db_patch_q01",
+"type": "mcq",
+"question": "A patient with chronic hand dermatitis is suspected of having an allergy to a specific chemical. Which test identifies the culprit and when is it read?",
+"options": [
+"Skin prick test, read at 15 minutes",
+"Total IgE, single sample",
+"Skin biopsy for direct immunofluorescence",
+"Wood’s lamp examination",
+"Patch testing, read at 48 and 96 hours"
+],
+"correctIndex": 4,
+"answer": "Patch testing, read at 48 and 96 hours",
+"explanation": "Allergic contact dermatitis is a type IV delayed hypersensitivity; patch testing applies allergens to the back and is read at 48h and 96h. Skin prick testing (read at ~15 min) detects type I immediate hypersensitivity."
 }
 ],
 "investigations__DERMATOLOGY__Biopsy & Skin Cancer": [
