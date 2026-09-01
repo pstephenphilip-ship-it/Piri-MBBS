@@ -862,6 +862,21 @@
 "id": "vac_fc_05",
 "front": "Two key safety caveats when performing/interpreting test vaccination in suspected immunodeficiency?",
 "back": "1) Do NOT interpret responses during immunosuppression (steroids, rituximab, chemotherapy blunt titres). 2) Live vaccines are contraindicated in significant immunodeficiency — use only inactivated/toxoid and polysaccharide/conjugate vaccines for testing."
+},
+{
+"id": "idw_fc_01",
+"front": "What is the first-line antibody-arm test in suspected immunodeficiency, and how do you read it?",
+"back": "Serum <b>IgG/IgA/IgM</b>. All low = XLA/CVID; <b>isolated low IgA</b> = selective IgA deficiency; <b>high IgM + low IgG/IgA</b> = hyper-IgM. Then test <b>function</b> with vaccine responses."
+},
+{
+"id": "idw_fc_02",
+"front": "A patient has recurrent or disseminated Neisseria infections. Which screen and what result?",
+"back": "Screen complement: <b>CH50</b> (classical) and <b>AH50</b> (alternative). Low CH50 <b>and</b> AH50 → a terminal-pathway (<b>C5–C9/MAC</b>) defect; vaccinate against meningococcus + prophylaxis."
+},
+{
+"id": "idw_fc_03",
+"front": "How is SCID screened for before symptoms, and what is the golden rule in any new immunodeficiency?",
+"back": "Newborn bloodspot <b>TRECs</b> (absent/low = absent T cells) → confirm with lymphocyte subsets. Always <b>exclude HIV</b> (secondary immunodeficiency) first in any new/unexplained case."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Infection & Immunobullous": [
@@ -944,6 +959,26 @@
 "id": "bull_fc_05",
 "front": "What are serum anti-Dsg and anti-BP ELISA antibodies used for beyond diagnosis?",
 "back": "They confirm the target antigen (anti-Dsg1/3 in pemphigus, anti-BP180/BP230 in pemphigoid) and are used to MONITOR disease activity and predict relapse — anti-Dsg3 and anti-BP180 titres in particular track disease severity."
+},
+{
+"id": "syph_fc_01",
+"front": "Explain the two-tier syphilis serology algorithm.",
+"back": "<b>Treponemal</b> test (EIA/TPPA) = screen, stays <b>positive for life</b> = exposure. <b>Non-treponemal</b> (RPR/VDRL) = a <b>titre</b> reflecting activity; a <b>4-fold fall</b> = successful treatment."
+},
+{
+"id": "syph_fc_02",
+"front": "What is the prozone effect in syphilis testing?",
+"back": "Very high antibody titres (e.g. secondary syphilis) can give a <b>false-negative RPR/VDRL</b>. The fix is to <b>dilute</b> the serum before re-testing."
+},
+{
+"id": "hbv_fc_01",
+"front": "What does an isolated anti-HBc (HBsAg negative, anti-HBs negative) result mean, and why does it matter?",
+"back": "Resolved infection with waned anti-HBs, occult HBV, or a false positive — check <b>HBV DNA</b>. It matters because of <b>reactivation risk</b> before immunosuppression/chemotherapy."
+},
+{
+"id": "dh_fc_01",
+"front": "How does dermatitis herpetiformis appear on direct immunofluorescence, and how is it treated?",
+"back": "<b>Granular IgA</b> in the dermal papillae (vs linear IgG/C3 in pemphigoid). It is coeliac-associated — check anti-tTG/anti-endomysial and treat with <b>dapsone + gluten-free diet</b>."
 }
 ]
 },
@@ -2182,12 +2217,12 @@
 "question": "A patient with a convincing anaphylaxis history has a tryptase measured at 1.5 hours that is within the normal reference range. What is the correct interpretation?",
 "options": [
 "Anaphylaxis is excluded and no adrenaline auto-injector is needed",
-"A normal tryptase does not exclude anaphylaxis; manage clinically and still refer to allergy",
 "The result confirms a diagnosis of mastocytosis",
 "The sample must have been taken at the wrong time and is uninterpretable",
-"Repeat sampling is contraindicated"
+"Repeat sampling is contraindicated",
+"A normal tryptase does not exclude anaphylaxis; manage clinically and still refer to allergy"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "A normal tryptase does not exclude anaphylaxis; manage clinically and still refer to allergy",
 "explanation": "Tryptase can remain normal in anaphylaxis, particularly food-triggered or normotensive reactions. Anaphylaxis is a clinical diagnosis; a normal result does not exclude it, and the patient still needs adrenaline auto-injector provision and allergy referral."
 },
@@ -2197,12 +2232,12 @@
 "question": "During follow-up after a venom-induced anaphylaxis, a patient's convalescent baseline tryptase remains persistently elevated. What does this most likely indicate?",
 "options": [
 "A laboratory error requiring no action",
-"Ongoing active anaphylaxis",
 "An underlying mast cell disorder such as systemic mastocytosis, warranting referral",
+"Ongoing active anaphylaxis",
 "That adrenaline was given unnecessarily",
 "Complete resolution of the allergic event"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "An underlying mast cell disorder such as systemic mastocytosis, warranting referral",
 "explanation": "A persistently raised baseline tryptase (that does not settle in convalescence) suggests an underlying mast cell disorder — systemic mastocytosis or hereditary alpha-tryptasaemia — and should prompt specialist allergy/immunology referral. It is a commonly missed follow-up."
 },
@@ -2212,12 +2247,12 @@
 "question": "A 24-year-old woman with severe atopic eczema covering her arms and trunk, and daily cetirizine for chronic urticaria, is referred with suspected peanut allergy. Which is the most appropriate first-line investigation?",
 "options": [
 "Skin prick testing to peanut extract",
-"Serum peanut-specific IgE",
 "Intradermal peanut testing",
 "Total serum IgE alone",
+"Serum peanut-specific IgE",
 "Immediate open oral peanut challenge"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Serum peanut-specific IgE",
 "explanation": "Her extensive eczema (no interpretable skin) and ongoing antihistamine use (false-negative SPT) both make skin prick testing unsuitable. Specific IgE bloods are unaffected by antihistamines and need no healthy skin. Total IgE cannot identify the culprit allergen, and an unsupervised open challenge in suspected peanut allergy is unsafe."
 },
@@ -2226,13 +2261,13 @@
 "type": "mcq",
 "question": "During skin prick testing, a patient shows no wheal to any allergen AND no wheal to the histamine positive control. What is the correct interpretation?",
 "options": [
-"The patient has no allergic sensitisation",
 "The result is invalid — likely recent antihistamine use",
+"The patient has no allergic sensitisation",
 "The saline negative control has failed",
 "The patient has dermatographism",
 "Anaphylaxis is imminent"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "The result is invalid — likely recent antihistamine use",
 "explanation": "A non-reactive histamine control means the skin cannot mount a wheal, most often because antihistamines were not stopped. The whole test is uninterpretable and must be repeated after stopping antihistamines; you cannot conclude the patient is non-sensitised."
 },
@@ -2256,13 +2291,13 @@
 "type": "mcq",
 "question": "A 34-year-old woman with long-standing asthma has become increasingly difficult to control despite escalating inhaled therapy, with frequent exacerbations and cough productive of thick brownish plugs. Bloods show eosinophilia and a total IgE of 2400 IU/mL. Which additional investigation result would most strongly confirm the underlying diagnosis?",
 "options": [
-"Positive Aspergillus fumigatus-specific IgE and positive skin prick test",
 "Positive Aspergillus IgG precipitins in isolation",
 "Sputum culture growing Candida albicans",
 "Raised serum ACE level",
-"Positive anti-CCP antibodies"
+"Positive anti-CCP antibodies",
+"Positive Aspergillus fumigatus-specific IgE and positive skin prick test"
 ],
-"correctIndex": 0,
+"correctIndex": 4,
 "answer": "Positive Aspergillus fumigatus-specific IgE and positive skin prick test",
 "explanation": "The picture is ABPA. Positive Aspergillus-specific IgE with a positive skin prick test demonstrates the type I hypersensitivity that is the diagnostic entry criterion, alongside the raised total IgE and eosinophilia. Aspergillus IgG alone is not specific (also seen in aspergilloma/chronic aspergillosis); the other options point to unrelated conditions."
 },
@@ -2271,13 +2306,13 @@
 "type": "mcq",
 "question": "A patient with a healed tuberculous cavity has haemoptysis. CT shows a rounded mass within the cavity that moves with position. Aspergillus IgG (precipitins) is strongly positive, but total IgE and Aspergillus-specific IgE are normal. Which is the most likely diagnosis?",
 "options": [
-"Aspergilloma (mycetoma)",
 "Allergic bronchopulmonary aspergillosis",
+"Aspergilloma (mycetoma)",
 "Acute eosinophilic pneumonia",
 "Sarcoidosis",
 "Churg-Strauss syndrome (EGPA)"
 ],
-"correctIndex": 0,
+"correctIndex": 1,
 "answer": "Aspergilloma (mycetoma)",
 "explanation": "A fungal ball within a pre-existing cavity with positive Aspergillus IgG/precipitins but normal total and specific IgE is an aspergilloma. This illustrates that Aspergillus IgG is not specific for ABPA — ABPA requires raised total IgE and positive Aspergillus-specific IgE, which are absent here."
 },
@@ -2286,13 +2321,13 @@
 "type": "mcq",
 "question": "A 27-year-old with cystic fibrosis has a documented decline in lung function. ABPA is confirmed and oral corticosteroids are started. Which single blood test is most useful for monitoring the response to treatment over the following months?",
 "options": [
-"Total serum IgE",
 "Aspergillus IgG precipitins",
 "C-reactive protein",
 "Serum IgA",
+"Total serum IgE",
 "Absolute neutrophil count"
 ],
-"correctIndex": 0,
+"correctIndex": 3,
 "answer": "Total serum IgE",
 "explanation": "Total IgE reflects ABPA disease activity: it falls with successful corticosteroid treatment and rises with relapse, making it the standard monitoring marker. Aspergillus IgG and the other tests do not track ABPA activity reliably."
 },
@@ -2317,12 +2352,12 @@
 "question": "A 6-month-old boy has had persistent thrush, chronic diarrhoea and a severe reaction after BCG. Flow cytometry shows very low T cells with normal B and NK cells. What is the most appropriate immediate action?",
 "options": [
 "Reassure and repeat testing at 12 months",
-"Urgent referral as this suggests SCID, a paediatric emergency",
 "Start regular immunoglobulin replacement and discharge",
+"Urgent referral as this suggests SCID, a paediatric emergency",
 "Give a further dose of live rotavirus vaccine",
 "Diagnose HIV and start antiretroviral therapy"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Urgent referral as this suggests SCID, a paediatric emergency",
 "explanation": "Absent/very low T cells (here T−B+NK+) with severe early infections and a live-vaccine (BCG) complication is the classic picture of severe combined immunodeficiency. SCID is a paediatric emergency needing urgent immunology referral, avoidance of live vaccines and irradiated/CMV-negative blood; delay risks fatal infection."
 },
@@ -2333,11 +2368,11 @@
 "options": [
 "DiGeorge syndrome",
 "HIV infection",
-"X-linked (Bruton's) agammaglobulinaemia",
 "Severe combined immunodeficiency (SCID)",
-"Chronic granulomatous disease"
+"Chronic granulomatous disease",
+"X-linked (Bruton's) agammaglobulinaemia"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "X-linked (Bruton's) agammaglobulinaemia",
 "explanation": "Absent/low B cells with low immunoglobulins but preserved T and NK cells, and recurrent pyogenic bacterial infections in a boy after maternal antibody wanes, is typical of X-linked (Bruton's) agammaglobulinaemia. DiGeorge affects T cells, SCID depletes T cells (± B/NK), and CGD is a neutrophil oxidative-burst defect with normal subsets."
 },
@@ -2346,13 +2381,13 @@
 "type": "mcq",
 "question": "A 3-year-old boy has recurrent skin and lymph node abscesses and a liver abscess growing Staphylococcus aureus. A nitroblue tetrazolium test is performed: his neutrophils fail to turn the dye blue, remaining yellow. Which is the single most likely underlying defect?",
 "options": [
-"Defective NADPH oxidase in phagocytes",
 "Absent Bruton tyrosine kinase (BTK)",
+"Defective NADPH oxidase in phagocytes",
 "Deficiency of the C5–C9 membrane attack complex",
 "Defective LFA-1 (CD18) integrin",
 "Deficient IL-12 receptor"
 ],
-"correctIndex": 0,
+"correctIndex": 1,
 "answer": "Defective NADPH oxidase in phagocytes",
 "explanation": "A negative NBT test (dye stays yellow) indicates failure of the neutrophil oxidative burst, diagnostic of chronic granulomatous disease due to defective NADPH oxidase. BTK deficiency causes X-linked agammaglobulinaemia; C5–C9 deficiency predisposes to Neisseria; CD18 defect causes leukocyte adhesion deficiency; IL-12 receptor deficiency predisposes to mycobacteria/Salmonella."
 },
@@ -2362,12 +2397,12 @@
 "question": "A boy with X-linked chronic granulomatous disease is most susceptible to which of the following organisms?",
 "options": [
 "Streptococcus pneumoniae",
-"Aspergillus fumigatus",
 "Neisseria meningitidis",
 "Giardia lamblia",
+"Aspergillus fumigatus",
 "Group A Streptococcus"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Aspergillus fumigatus",
 "explanation": "CGD patients are vulnerable to catalase-positive organisms; Aspergillus is a classic catalase-positive fungus and invasive aspergillosis is a leading cause of death. Catalase-negative organisms such as Streptococcus pneumoniae and Group A Strep can be handled because they generate hydrogen peroxide the phagocyte can co-opt. Neisseria relates to complement deficiency and Giardia to antibody/IgA deficiency."
 },
@@ -2376,13 +2411,13 @@
 "type": "mcq",
 "question": "You suspect chronic granulomatous disease and want the most sensitive, quantitative confirmatory test of neutrophil oxidative burst activity. Which is the best choice?",
 "options": [
-"Nitroblue tetrazolium slide test",
 "Dihydrorhodamine (DHR) flow cytometry",
+"Nitroblue tetrazolium slide test",
 "Serum immunoglobulin levels",
 "CH50 complement assay",
 "Absolute neutrophil count"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Dihydrorhodamine (DHR) flow cytometry",
 "explanation": "DHR flow cytometry is the modern, more sensitive and quantitative test: normal neutrophils oxidise DHR to fluorescent rhodamine, which is absent/reduced in CGD. NBT is the older, qualitative test. Immunoglobulins and CH50 assess humoral and complement function respectively, and the neutrophil count is normal in CGD (the defect is functional, not numerical)."
 },
@@ -2392,12 +2427,12 @@
 "question": "A 34-year-old woman has recurrent pneumonia and sinusitis. Total IgG, IgA and IgM are within the normal range. To assess whether her humoral immune system is functional, she is given a test vaccine and specific antibody titres are re-measured after 4 weeks. What is the primary rationale for this test rather than relying on the immunoglobulin levels alone?",
 "options": [
 "Immunoglobulin levels cannot be measured accurately during infection",
-"Normal total immunoglobulin levels do not confirm that the patient can produce functioning protective specific antibody",
 "It is cheaper than measuring immunoglobulin subclasses",
+"Normal total immunoglobulin levels do not confirm that the patient can produce functioning protective specific antibody",
 "Vaccination boosts total IgM which is diagnostic of deficiency",
 "It directly measures T-cell cytotoxic function"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Normal total immunoglobulin levels do not confirm that the patient can produce functioning protective specific antibody",
 "explanation": "Test immunisation assesses the FUNCTION of the antibody response. Total IgG reflects quantity, not quality — a patient can have normal immunoglobulins yet fail to mount protective specific antibody, indicating a functional antibody deficiency (e.g. CVID, specific antibody deficiency). Function matters more than level."
 },
@@ -2407,12 +2442,12 @@
 "question": "During work-up for suspected antibody deficiency, a patient shows a robust rise in anti-tetanus antibody but no rise in anti-pneumococcal antibody after unconjugated pneumococcal polysaccharide (PPV23) vaccination. Which mechanism best explains the selective defect?",
 "options": [
 "Failure of the T-cell-dependent response to protein antigens",
-"Failure of the T-cell-independent response to polysaccharide antigens",
 "Complete absence of B cells (agammaglobulinaemia)",
 "A defect in neutrophil oxidative burst",
-"Isolated IgA deficiency at mucosal surfaces"
+"Isolated IgA deficiency at mucosal surfaces",
+"Failure of the T-cell-independent response to polysaccharide antigens"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Failure of the T-cell-independent response to polysaccharide antigens",
 "explanation": "Tetanus toxoid is a protein (T-cell-dependent) antigen and the normal response shows that arm is intact. Unconjugated pneumococcal polysaccharide elicits a T-cell-independent response; isolated failure here indicates specific polysaccharide antibody deficiency, which predisposes to infection with encapsulated organisms."
 },
@@ -2422,14 +2457,44 @@
 "question": "A 40-year-old man is under active investigation for a suspected significant antibody deficiency because of recurrent encapsulated bacterial infections. Which vaccine would be contraindicated as part of his management?",
 "options": [
 "Tetanus/diphtheria toxoid (inactivated)",
+"Live attenuated MMR vaccine",
 "Conjugate pneumococcal vaccine (Prevenar)",
 "Unconjugated pneumococcal polysaccharide (Pneumovax/PPV23)",
-"Live attenuated MMR vaccine",
 "Inactivated influenza vaccine"
 ],
-"correctIndex": 3,
+"correctIndex": 1,
 "answer": "Live attenuated MMR vaccine",
 "explanation": "Live vaccines are contraindicated in significant immunodeficiency because they can cause disseminated vaccine-strain infection. Toxoid, conjugate and unconjugated polysaccharide and other inactivated vaccines are safe and are precisely the antigens used for test immunisation; live vaccines must be avoided until immune competence is confirmed."
+},
+{
+"id": "idw_q01",
+"type": "mcq",
+"question": "A young man has had two episodes of meningococcal meningitis and a disseminated gonococcal infection. Which investigation is most likely to reveal the underlying defect?",
+"options": [
+"Serum immunoglobulins",
+"NBT/DHR test",
+"Lymphocyte subsets",
+"Complement CH50 and AH50",
+"Serum tryptase"
+],
+"correctIndex": 3,
+"answer": "Complement CH50 and AH50",
+"explanation": "Recurrent or disseminated Neisseria infection points to a complement (terminal C5–C9/MAC) defect — screen with CH50 and AH50, then confirm the component and vaccinate against meningococcus."
+},
+{
+"id": "idw_q02",
+"type": "mcq",
+"question": "A 6-month-old has severe early infections and absent T cells. Which newborn screening test would have flagged this before symptoms?",
+"options": [
+"TRECs (T-cell receptor excision circles) on the bloodspot",
+"Guthrie TSH",
+"Serum IgE",
+"NBT test",
+"Sweat test"
+],
+"correctIndex": 0,
+"answer": "TRECs (T-cell receptor excision circles) on the bloodspot",
+"explanation": "SCID is screened for by measuring TRECs on the newborn bloodspot — absent/low TRECs indicate absent T-cell output, prompting urgent confirmation with lymphocyte subsets and referral."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Infection & Immunobullous": [
@@ -2439,12 +2504,12 @@
 "question": "A 34-year-old nurse attends occupational health for pre-employment screening. Her hepatitis B results are: HBsAg negative, anti-HBs positive, anti-HBc (total) positive, anti-HBc IgM negative. What is the correct interpretation?",
 "options": [
 "Immunity due to hepatitis B vaccination",
-"Immunity following past, naturally cleared hepatitis B infection",
 "Acute hepatitis B infection",
+"Immunity following past, naturally cleared hepatitis B infection",
 "Chronic hepatitis B infection",
 "Susceptible — no immunity, requires vaccination"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Immunity following past, naturally cleared hepatitis B infection",
 "explanation": "The presence of anti-HBc (core antibody) means natural infection occurred at some point — the vaccine never produces anti-HBc. HBsAg is negative and anti-HBs is positive, so the infection has resolved and she is now immune. Vaccine-only immunity would show anti-HBs positive with anti-HBc negative. Acute infection would show HBsAg and anti-HBc IgM positive; chronic infection would show HBsAg positive for over 6 months."
 },
@@ -2455,11 +2520,11 @@
 "options": [
 "Active chronic hepatitis C requiring antiviral therapy",
 "A false-positive antibody test with no prior exposure",
-"Past hepatitis C exposure that has now cleared",
 "Acute hepatitis C within the window period",
-"Co-infection with hepatitis D"
+"Co-infection with hepatitis D",
+"Past hepatitis C exposure that has now cleared"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Past hepatitis C exposure that has now cleared",
 "explanation": "Anti-HCV antibody indicates exposure (past or present), but active infection is confirmed by detectable HCV RNA. A persistently negative RNA with positive antibody means the infection has cleared — spontaneously or after treatment — and there is no active replication. Antiviral therapy is only indicated when RNA is detectable."
 },
@@ -2469,12 +2534,12 @@
 "question": "A 19-year-old presents with fever, sore throat, cervical lymphadenopathy and splenomegaly. A heterophile antibody (Monospot) test is negative, but blood film shows atypical lymphocytes. Which serological result would best confirm the most likely alternative cause?",
 "options": [
 "Hepatitis B surface antigen (HBsAg) positive",
-"EBV VCA IgG and EBNA IgG positive",
 "CMV IgM positive",
+"EBV VCA IgG and EBNA IgG positive",
 "HIV antibody positive with negative p24 antigen",
 "Anti-HAV IgG positive"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "CMV IgM positive",
 "explanation": "A glandular-fever picture that is heterophile (Monospot) negative is classically caused by CMV, which produces a mononucleosis-like illness. Acute CMV is confirmed by CMV IgM positivity. EBV VCA IgG with EBNA IgG indicates past EBV infection/immunity rather than acute illness (and would not explain a Monospot-negative acute presentation as the answer sought). HBsAg and anti-HAV IgG relate to hepatitis, not this syndrome."
 },
@@ -2485,11 +2550,11 @@
 "options": [
 "Repeat Mantoux test in 6 weeks",
 "Sputum acid-fast bacilli smear",
-"Interferon-gamma release assay (IGRA)",
 "Serum M. tuberculosis IgG antibody",
+"Interferon-gamma release assay (IGRA)",
 "Bronchoalveolar lavage for culture"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Interferon-gamma release assay (IGRA)",
 "explanation": "IGRA uses TB-specific antigens (ESAT-6, CFP-10) that are absent from BCG, so it is not confounded by prior vaccination. A positive Mantoux in a BCG-vaccinated person is often a false positive; IGRA distinguishes true infection. Sputum smear and BAL are for active disease (she is well with a normal CXR), and serology is not used for TB diagnosis."
 },
@@ -2498,13 +2563,13 @@
 "type": "mcq",
 "question": "A 52-year-old man with a productive cough, weight loss and night sweats has a chest X-ray showing an upper-lobe cavity. His IGRA is negative. He is not known to be immunosuppressed. What is the most appropriate next step?",
 "options": [
+"Send sputum for smear, culture and nucleic acid amplification testing",
 "Reassure and discharge as active TB is excluded by the negative IGRA",
 "Start latent TB chemoprophylaxis with isoniazid",
-"Send sputum for smear, culture and nucleic acid amplification testing",
 "Repeat the IGRA in 8 weeks before any further action",
 "Commence a course of broad-spectrum antibiotics and review in 6 weeks"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Send sputum for smear, culture and nucleic acid amplification testing",
 "explanation": "A negative IGRA does NOT exclude active TB — false negatives occur, and IGRA is a test of infection, not of disease. This clinical and radiological picture is highly suggestive of active pulmonary TB, so microbiological confirmation via sputum smear, culture and NAAT is essential. Chemoprophylaxis is for latent (asymptomatic) TB, not active disease."
 },
@@ -2515,11 +2580,11 @@
 "options": [
 "Erythema, not induration, is measured to interpret the result",
 "A single fixed cut-off of 15 mm applies to all patients regardless of risk",
-"The result is read immediately after injection",
 "Induration is measured at 48-72 hours and interpreted against risk-stratified thresholds",
+"The result is read immediately after injection",
 "A positive result confirms active pulmonary tuberculosis"
 ],
-"correctIndex": 3,
+"correctIndex": 2,
 "answer": "Induration is measured at 48-72 hours and interpreted against risk-stratified thresholds",
 "explanation": "The Mantoux is read by measuring induration (not erythema) at 48-72 hours, with thresholds (e.g. ≥5, ≥10, ≥15 mm) varying by risk group and immune status. A positive result indicates TB infection, usually latent, and cannot confirm active disease on its own."
 },
@@ -2529,12 +2594,12 @@
 "question": "A 55-year-old woman has a 2-month history of painful mouth erosions followed by flaccid skin blisters that rupture easily, leaving raw areas. Gentle lateral pressure on normal-looking skin causes the epidermis to shear away. Which autoantibody is most likely responsible?",
 "options": [
 "Anti-BP180 (BPAG2)",
-"Anti-desmoglein 3",
 "Anti-tissue transglutaminase",
 "Anti-BP230 (BPAG1)",
-"Anti-collagen VII"
+"Anti-collagen VII",
+"Anti-desmoglein 3"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Anti-desmoglein 3",
 "explanation": "Painful mucosal erosions, flaccid easily-ruptured blisters and a positive Nikolsky sign are classic for pemphigus vulgaris, driven by antibodies to desmoglein 3 (± Dsg1) at desmosomes, producing an intra-epidermal acantholytic split. Anti-BP180/BP230 cause bullous pemphigoid (tense blisters, negative Nikolsky). Anti-tTG is coeliac/dermatitis herpetiformis; anti-collagen VII is epidermolysis bullosa acquisita."
 },
@@ -2544,12 +2609,12 @@
 "question": "An 80-year-old man has tense, itchy blisters on erythematous and urticarial skin of the trunk and limbs; the mouth is spared and Nikolsky sign is negative. Direct immunofluorescence of perilesional skin is most likely to show which pattern?",
 "options": [
 "Intercellular IgG in a chicken-wire pattern",
-"Granular IgA in the dermal papillae",
 "Linear IgG and C3 along the basement membrane",
+"Granular IgA in the dermal papillae",
 "IgG deposition around dermal blood vessels",
 "Negative immunofluorescence"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Linear IgG and C3 along the basement membrane",
 "explanation": "Tense blisters in an elderly patient with mucosal sparing and a negative Nikolsky sign indicate bullous pemphigoid. DIF shows linear IgG and C3 along the basement membrane (antibodies to BP180/BP230). Intercellular chicken-wire IgG is pemphigus; granular IgA in dermal papillae is dermatitis herpetiformis."
 },
@@ -2560,13 +2625,43 @@
 "options": [
 "Serum anti-desmoglein ELISA",
 "H&E histology of a blister showing the level of split",
-"Direct immunofluorescence on perilesional skin",
 "Indirect immunofluorescence on monkey oesophagus",
+"Direct immunofluorescence on perilesional skin",
 "Bacterial swab of the blister fluid"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Direct immunofluorescence on perilesional skin",
 "explanation": "DIF on perilesional (not blister-centre) skin is the gold standard: it localises immune deposits (intercellular chicken-wire IgG in pemphigus; linear IgG/C3 at the basement membrane in pemphigoid). Histology shows the level of split and ELISA confirms the antigen and monitors activity, but neither is the definitive confirmatory test; indirect IF is an adjunct."
+},
+{
+"id": "syph_q01",
+"type": "mcq",
+"question": "A man treated for syphilis returns for follow-up. Which test is used to confirm the diagnosis was active and to monitor his response to treatment?",
+"options": [
+"Non-treponemal RPR/VDRL titre",
+"Treponemal EIA/TPPA",
+"HBsAg",
+"Mantoux test",
+"Anti-endomysial antibody"
+],
+"correctIndex": 0,
+"answer": "Non-treponemal RPR/VDRL titre",
+"explanation": "The treponemal test stays positive for life (exposure only). Disease activity and treatment response are tracked with the non-treponemal RPR/VDRL titre — a 4-fold fall indicates successful treatment."
+},
+{
+"id": "hbv_q01",
+"type": "mcq",
+"question": "A patient is HBsAg negative, anti-HBs negative and anti-HBc positive. What is the most appropriate interpretation and next step?",
+"options": [
+"Immune from vaccination; no action",
+"Acute hepatitis B; isolate",
+"Isolated anti-HBc — check HBV DNA and note reactivation risk before immunosuppression",
+"Never exposed; offer vaccination",
+"Chronic hepatitis B; start antivirals now"
+],
+"correctIndex": 2,
+"answer": "Isolated anti-HBc — check HBV DNA and note reactivation risk before immunosuppression",
+"explanation": "Isolated anti-HBc positivity means resolved infection with waned anti-HBs, occult HBV, or a false positive. Check HBV DNA; importantly, there is a reactivation risk before immunosuppression or chemotherapy."
 }
 ]
 }
