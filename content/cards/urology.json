@@ -2013,7 +2013,7 @@
       {
         "id": "uro_bscan_fc_05",
         "front": "What PVR volume suggests retention needing catheterisation?",
-        "back": "A large residual, e.g. >300-500 mL, indicates retention and prompts consideration of catheterisation; painless volumes around 1 L suggest chronic high-pressure retention needing catheter and U&E check for obstructive nephropathy."
+        "back": "A large residual, e.g. >300-500 mL, indicates retention and prompts consideration of catheterisation; painless volumes around 1 L suggest <b>chronic retention (which may be high-pressure)</b> &mdash; catheterise and check U&amp;Es for obstructive nephropathy."
       },
       {
         "id": "uro_uroflow_fc_01",
@@ -2114,6 +2114,16 @@
         "id": "uro_twoc_fc_05",
         "front": "What key complication follows relief of chronic high-volume retention?",
         "back": "Post-obstructive diuresis: large urine output risking dehydration and electrolyte disturbance; monitor urine output, fluid balance and U&Es."
+      },
+      {
+        "id": "uro_urodyn_cisc_fc_01",
+        "front": "What is the management option when TWOC repeatedly fails or the detrusor is underactive?",
+        "back": "<b>Clean intermittent self-catheterisation (CISC)</b> or a <b>long-term catheter</b>, with urology follow-up. Outflow surgery (TURP) does not help a weak/underactive detrusor, so relieving the bladder mechanically is the answer. CISC is preferred where the patient can manage it (lower infection/trauma risk than an indwelling catheter)."
+      },
+      {
+        "id": "uro_urodyn_ssi_fc_01",
+        "front": "How is urodynamically confirmed stress incontinence managed?",
+        "back": "<b>Pelvic floor muscle training</b> (supervised, &ge;3 months) first line; then <b>duloxetine</b> (an SNRI) or <b>surgery</b> &mdash; mid-urethral sling / colposuspension / autologous fascial sling. This contrasts with overactive bladder (detrusor overactivity), managed by bladder training + antimuscarinics/mirabegron."
       }
     ],
     "investigations__UROLOGY__Cancer Imaging & Biopsy": [
@@ -7659,13 +7669,13 @@
         "type": "mcq",
         "question": "A 68-year-old man with prostatic symptoms voids and then has a bladder scan showing a residual of 30 mL. How should this be interpreted?",
         "options": [
-          "Normal, complete bladder emptying",
           "Significant incomplete emptying requiring catheterisation",
           "Chronic high-pressure retention",
+          "Normal, complete bladder emptying",
           "Acute urinary retention",
           "Diagnostic of bladder outlet obstruction"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Normal, complete bladder emptying",
         "explanation": "A post-void residual below 50 mL is within the normal range and indicates the bladder empties completely. No catheterisation or further action is needed on the basis of this volume alone."
       },
@@ -7674,13 +7684,13 @@
         "type": "mcq",
         "question": "To obtain an accurate post-void residual, when should the bladder scan be performed?",
         "options": [
-          "Immediately after the patient voids",
           "One hour after voiding",
           "Before the patient voids",
           "Only after inserting a catheter",
-          "After a large oral fluid load"
+          "After a large oral fluid load",
+          "Immediately after the patient voids"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Immediately after the patient voids",
         "explanation": "The PVR must be measured right after voiding because the kidneys continuously refill the bladder at roughly 1-2 mL/min. A delayed scan overestimates the true residual and can prompt unnecessary intervention."
       },
@@ -7689,13 +7699,13 @@
         "type": "mcq",
         "question": "A patient with tense ascites has a bladder scan reporting 600 mL despite having just voided a good stream and feeling comfortable. What is the most likely explanation?",
         "options": [
-          "The scanner has over-read by counting ascitic fluid as urine",
           "The patient is in acute painful retention",
+          "The scanner has over-read by counting ascitic fluid as urine",
           "The bladder is genuinely holding 600 mL and needs urgent catheterisation",
           "The device measured chronic high-pressure retention",
           "The reading confirms complete bladder emptying"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "The scanner has over-read by counting ascitic fluid as urine",
         "explanation": "Bladder scanners give a fluid-based estimate and cannot reliably distinguish urine from other pelvic or abdominal fluid. Ascites, cysts and diverticula are classic causes of a falsely elevated residual, so the number must be judged against the clinical picture."
       },
@@ -7705,12 +7715,12 @@
         "question": "A 68-year-old man with LUTS undergoes uroflowmetry and voids 220 mL with a Q_max of 8 mL/s. What does this most appropriately indicate?",
         "options": [
           "Definite benign prostatic obstruction requiring immediate TURP",
-          "A low flow rate consistent with either outflow obstruction or detrusor underactivity",
           "A normal study needing no further action",
           "An invalid study because the voided volume is too low",
+          "A low flow rate consistent with either outflow obstruction or detrusor underactivity",
           "Proof of a urethral stricture"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "A low flow rate consistent with either outflow obstruction or detrusor underactivity",
         "explanation": "A Q_max below 10 mL/s on an adequate void (>150 mL) signifies a low flow rate but cannot identify its cause. Both a high-resistance outlet and a weak detrusor produce this pattern, so pressure-flow studies are required before deciding on surgery."
       },
@@ -7719,13 +7729,13 @@
         "type": "mcq",
         "question": "Which voided volume is the minimum generally required for a uroflowmetry trace to be considered valid?",
         "options": [
+          "150 mL",
           "50 mL",
           "100 mL",
-          "150 mL",
           "300 mL",
           "500 mL"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "150 mL",
         "explanation": "A voided volume of at least 150 mL is needed for reliable interpretation. Volumes below this artificially depress Q_max and are the commonest cause of a falsely low reading."
       },
@@ -7734,13 +7744,13 @@
         "type": "mcq",
         "question": "A uroflowmetry trace shows a persistently flat, low, plateau (box-shaped) curve with an adequate voided volume. Which diagnosis does this pattern most classically suggest?",
         "options": [
-          "Urethral stricture",
           "Overactive bladder",
           "Normal voiding",
+          "Urethral stricture",
           "Vesicoureteric reflux",
           "Acute pyelonephritis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Urethral stricture",
         "explanation": "A flat plateau curve reflects a fixed, constant outflow resistance throughout voiding, which is the hallmark of a urethral stricture. A normal void instead produces a smooth bell-shaped curve with a clear peak."
       },
@@ -7749,13 +7759,13 @@
         "type": "mcq",
         "question": "During a filling cystometrogram a 68-year-old man voids with a maximum detrusor pressure of 95 cmH₂O but a maximum flow rate of only 6 mL/s. What does this pressure-flow pattern indicate?",
         "options": [
-          "Bladder outflow obstruction",
           "Detrusor underactivity",
           "Urodynamic stress incontinence",
           "Normal voiding function",
-          "Poor bladder compliance"
+          "Poor bladder compliance",
+          "Bladder outflow obstruction"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Bladder outflow obstruction",
         "explanation": "A high voiding detrusor pressure combined with a low flow rate means the bladder generates strong contractile force but cannot empty freely, which is the signature of outflow obstruction. In a man of this age it typically reflects benign prostatic obstruction, and confirming it supports proceeding with prostate surgery."
       },
@@ -7764,13 +7774,13 @@
         "type": "mcq",
         "question": "Why is a rectal (abdominal) pressure line essential in pressure-flow urodynamics?",
         "options": [
-          "It allows detrusor pressure to be derived by subtracting abdominal pressure from intravesical pressure",
           "It directly measures the maximum urinary flow rate",
+          "It allows detrusor pressure to be derived by subtracting abdominal pressure from intravesical pressure",
           "It fills the bladder with contrast for fluoroscopic imaging",
           "It measures urethral sphincter electromyographic activity",
           "It records the post-void residual volume automatically"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "It allows detrusor pressure to be derived by subtracting abdominal pressure from intravesical pressure",
         "explanation": "Detrusor pressure is calculated as intravesical pressure minus abdominal pressure, so the rectal line supplies the abdominal component. Without it, a rise in bladder pressure from straining could be mistaken for a genuine detrusor contraction."
       },
@@ -7779,13 +7789,13 @@
         "type": "mcq",
         "question": "Which single precaution most directly reduces the principal safety risk of invasive urodynamics?",
         "options": [
-          "Treating a symptomatic urinary tract infection before performing the study",
           "Using low-osmolar contrast to protect renal function",
           "Limiting the radiation dose during the voiding phase",
           "Pre-hydrating the patient to prevent contrast nephropathy",
+          "Treating a symptomatic urinary tract infection before performing the study",
           "Warming the saline to avoid a vasovagal response"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Treating a symptomatic urinary tract infection before performing the study",
         "explanation": "The principal hazard of urodynamics is introducing or spreading infection during catheterisation, which can lead to UTI or urosepsis. Screening for and treating symptomatic infection beforehand, together with aseptic technique, directly addresses this risk. Contrast and radiation are not features of standard (non-video) cystometry."
       },
@@ -7809,13 +7819,13 @@
         "type": "mcq",
         "question": "Which single value on a frequency-volume chart best represents the functional bladder capacity?",
         "options": [
-          "The largest single voided volume recorded",
           "The total 24-hour voided volume",
           "The average voided volume across all voids",
+          "The largest single voided volume recorded",
           "The nocturnal urine volume",
           "The total daily fluid intake"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "The largest single voided volume recorded",
         "explanation": "Functional bladder capacity is taken as the maximum volume the bladder holds in normal life, read directly as the largest single void on the chart. A markedly reduced value points to a storage disorder such as overactive bladder or reduced bladder compliance."
       },
@@ -7824,13 +7834,13 @@
         "type": "mcq",
         "question": "A bladder diary suggests detrusor overactivity in a patient with troublesome storage symptoms. What is the appropriate first-line management before invasive urodynamic testing?",
         "options": [
-          "Bladder training with caffeine reduction",
           "Immediate cystoscopy under general anaesthesia",
           "Long-term indwelling urethral catheter",
           "Radical prostatectomy",
-          "Intravesical BCG instillation"
+          "Intravesical BCG instillation",
+          "Bladder training with caffeine reduction"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Bladder training with caffeine reduction",
         "explanation": "NICE recommends conservative measures first for overactive bladder identified on a diary, namely bladder training and reducing caffeine and other irritant fluids, with antimuscarinics or mirabegron added if needed. Invasive tests and surgery are reserved for refractory or diagnostically unclear cases."
       },
@@ -7839,13 +7849,13 @@
         "type": "mcq",
         "question": "A 68-year-old man is admitted with acute urinary retention due to benign prostatic hyperplasia and is catheterised. Which intervention before a trial without catheter most improves the chance of successful voiding?",
         "options": [
-          "Starting an alpha-blocker such as tamsulosin",
           "A single dose of intravenous furosemide",
+          "Starting an alpha-blocker such as tamsulosin",
           "Prophylactic anticholinergic therapy",
           "A course of finasteride started the same day",
           "Immediate transurethral prostatectomy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Starting an alpha-blocker such as tamsulosin",
         "explanation": "An alpha-blocker relaxes prostatic and bladder-neck smooth muscle, reducing outflow resistance. Given 24-48 hours before the TWOC it significantly increases the likelihood of successful spontaneous voiding."
       },
@@ -7854,13 +7864,13 @@
         "type": "mcq",
         "question": "During a trial without catheter, which combination best indicates a successful trial?",
         "options": [
-          "Adequate spontaneous voiding with a low post-void residual",
           "Passing small volumes frequently with a high residual",
           "Inability to void with a painful distended bladder",
           "No urge to void six hours after catheter removal",
+          "Adequate spontaneous voiding with a low post-void residual",
           "A high drained volume at the time of catheter removal"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Adequate spontaneous voiding with a low post-void residual",
         "explanation": "Success is judged on effective emptying, shown by good voided volumes and a low PVR on bladder scan. High residuals or inability to void indicate a failed trial needing re-catheterisation."
       },
