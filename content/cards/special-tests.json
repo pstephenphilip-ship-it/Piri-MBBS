@@ -175,6 +175,16 @@
         "id": "st_adr_meta_fc_05",
         "front": "Before surgery for a confirmed phaeochromocytoma, in what order must blockade be given?",
         "back": "Alpha-blockade FIRST (e.g. phenoxybenzamine), then add beta-blockade only afterwards. Unopposed beta-blockade leaves alpha-mediated vasoconstriction unopposed and can trigger a hypertensive crisis."
+      },
+      {
+        "id": "st_adr_ghexcess_fc_01",
+        "front": "The ITT assesses GH deficiency — what is the diagnostic test for GH excess (acromegaly)?",
+        "back": "<b>IGF-1</b> as the screen, then an <b>OGTT with GH suppression</b>: in acromegaly GH <b>fails to suppress below ~0.4 &micro;g/L</b> after 75 g glucose (a positive test), followed by <b>pituitary MRI</b> to find the adenoma."
+      },
+      {
+        "id": "st_adr_synacthen_tx_fc_01",
+        "front": "A short Synacthen test confirms adrenal insufficiency — what is the standing treatment?",
+        "back": "Start <b>lifelong glucocorticoid replacement</b> (hydrocortisone), and add <b>fludrocortisone</b> if it is <b>primary</b> adrenal insufficiency (Addison's). Paired ACTH localises primary (high ACTH) vs secondary (low/normal ACTH); give parenteral hydrocortisone immediately in a suspected adrenal crisis."
       }
     ],
     "investigations__SPECIAL TESTS__Endocrine — Glucose & Water": [
@@ -252,6 +262,11 @@
         "id": "st_glu_water_fc_05",
         "front": "What is copeptin and why is it useful here?",
         "back": "Copeptin is the stable C-terminal fragment of the ADH (vasopressin) precursor and acts as a surrogate marker of endogenous ADH secretion. Measured at baseline or after hypertonic saline stimulation, it more reliably discriminates DI subtypes and partial forms than the classic water deprivation test."
+      },
+      {
+        "id": "st_glu_insulinoma_mgmt_fc_01",
+        "front": "Once a 72-hour fast biochemically confirms an insulinoma, what happens next?",
+        "back": "<b>Localise</b> the tumour — CT/MRI pancreas and <b>endoscopic ultrasound</b> (selective venous sampling if occult) — then <b>surgical enucleation/resection</b>. <b>Diazoxide</b> controls hypoglycaemia if the tumour is unresectable or while awaiting surgery."
       }
     ],
     "investigations__SPECIAL TESTS__GI Absorption & Breath Tests": [
@@ -1088,12 +1103,12 @@
         "question": "A 52-year-old asymptomatic man has an OGTT. Fasting plasma glucose is 6.5 mmol/L and 2-hour glucose is 9.0 mmol/L. How is this best classified?",
         "options": [
           "Normal glucose tolerance",
-          "Impaired fasting glucose and impaired glucose tolerance",
           "Diabetes mellitus",
+          "Impaired fasting glucose and impaired glucose tolerance",
           "Gestational diabetes",
           "Acromegaly"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Impaired fasting glucose and impaired glucose tolerance",
         "explanation": "A fasting value of 6.1-6.9 mmol/L defines impaired fasting glucose, and a 2-hour value of 7.8-11.0 mmol/L defines impaired glucose tolerance. Neither value reaches the diabetes thresholds of fasting ≥7.0 or 2-hour ≥11.1 mmol/L."
       },
@@ -1104,11 +1119,11 @@
         "options": [
           "GH rises above 10 µg/L when fasting",
           "GH suppresses below 0.4 µg/L after the glucose load",
-          "GH fails to suppress below 0.4 µg/L after the glucose load",
           "GH doubles after an insulin injection",
-          "GH is undetectable at 2 hours"
+          "GH is undetectable at 2 hours",
+          "GH fails to suppress below 0.4 µg/L after the glucose load"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "GH fails to suppress below 0.4 µg/L after the glucose load",
         "explanation": "Glucose normally suppresses growth hormone secretion. In acromegaly the autonomous GH secretion fails to suppress below 0.4 µg/L (<1 mIU/L) after the oral glucose load, and may even rise paradoxically."
       },
@@ -1134,11 +1149,11 @@
         "options": [
           "Exogenous (factitious) insulin administration",
           "Sulphonylurea misuse",
-          "Insulinoma",
           "Normal physiological fasting response",
+          "Insulinoma",
           "Adrenal insufficiency"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Insulinoma",
         "explanation": "Hypoglycaemia with non-suppressed insulin, HIGH C-peptide and raised proinsulin indicates endogenous pancreatic insulin secretion. Low ketones confirm insulin action, and a negative drug screen excludes sulphonylurea, leaving insulinoma."
       },
@@ -1147,13 +1162,13 @@
         "type": "mcq",
         "question": "A patient has hypoglycaemia during the fast with insulin 30 microU/mL but a suppressed C-peptide of 0.05 nmol/L. Which cause does this pattern indicate?",
         "options": [
-          "Insulinoma",
           "Exogenous insulin administration",
+          "Insulinoma",
           "Sulphonylurea abuse",
           "Nesidioblastosis",
           "Reactive (postprandial) hypoglycaemia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Exogenous insulin administration",
         "explanation": "Injected insulin raises measured insulin but bypasses the pancreas, so endogenous C-peptide is suppressed. A high insulin with LOW/suppressed C-peptide is the signature of exogenous (factitious) insulin."
       },
@@ -1177,13 +1192,13 @@
         "type": "mcq",
         "question": "During the deprivation phase of a water deprivation test, a patient's urine remains dilute (osmolality 180 mOsm/kg) while plasma osmolality rises. After administration of desmopressin (DDAVP), the urine osmolality rises to 720 mOsm/kg. What is the diagnosis?",
         "options": [
-          "Cranial (central) diabetes insipidus",
           "Nephrogenic diabetes insipidus",
           "Primary polydipsia",
           "Normal physiological response",
-          "Osmotic diuresis from hyperglycaemia"
+          "Osmotic diuresis from hyperglycaemia",
+          "Cranial (central) diabetes insipidus"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Cranial (central) diabetes insipidus",
         "explanation": "Failure to concentrate urine during deprivation indicates diabetes insipidus. The substantial rise in urine osmolality after exogenous ADH (desmopressin) confirms the kidney can respond, localising the defect to deficient ADH secretion, i.e. cranial DI."
       },
@@ -1192,13 +1207,13 @@
         "type": "mcq",
         "question": "A patient with chronic polyuria undergoes a water deprivation test. During deprivation the urine stays dilute and plasma osmolality rises; after desmopressin the urine osmolality remains low at 200 mOsm/kg. Which mechanism explains this pattern?",
         "options": [
-          "Renal collecting-duct resistance to ADH",
           "Deficient hypothalamic ADH production",
+          "Renal collecting-duct resistance to ADH",
           "Compulsive excessive water intake",
           "Excess aldosterone secretion",
           "Impaired thirst osmoreceptor sensitivity"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Renal collecting-duct resistance to ADH",
         "explanation": "The urine fails to concentrate both during deprivation and after exogenous ADH, so the problem lies at the kidney rather than in ADH supply. This ADH resistance at the collecting duct is the hallmark of nephrogenic diabetes insipidus."
       },
@@ -1207,13 +1222,13 @@
         "type": "mcq",
         "question": "Midway through a water deprivation test, a patient has lost 3.5% of body weight and plasma sodium has risen to 149 mmol/L. What is the most appropriate action?",
         "options": [
-          "Stop the test and allow the patient to drink",
           "Continue deprivation for the full 8 hours regardless",
           "Withhold fluids and repeat plasma osmolality in 4 hours",
           "Give intravenous 5% dextrose and continue deprivation",
+          "Stop the test and allow the patient to drink",
           "Administer a thiazide diuretic and continue"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Stop the test and allow the patient to drink",
         "explanation": "Weight loss exceeding 3% or a rising plasma sodium/osmolality signals dangerous dehydration and impending hypernatraemia. The test must be terminated immediately and rehydration permitted under supervision to prevent harm."
       }
