@@ -13578,16 +13578,40 @@ function hideFlyout(p) {
   function renderWall(p, name, html, skipHash){
     var st = getState(p); st.activeTopic = name;
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){ el.classList.toggle('active', el.dataset.topic===name); });
-    var empty=document.getElementById('empty-'+p); if(empty) empty.style.display='none';
-    var bar=document.getElementById('modeBar-'+p); if(bar) bar.classList.remove('visible');
-    var na=document.getElementById('notearea-'+p); if(na){ na.querySelectorAll('.mode-panel').forEach(function(x){ x.classList.remove('visible'); }); }
-    var panel=document.getElementById('notes-panel-'+p);
-    if(panel){ panel.classList.add('visible'); panel.style.position='relative'; }
+    // The lock is a modal over the app, not a takeover, so the view behind it is
+    // left exactly as it was — the previous note, or the empty-state prompt on a
+    // cold open. (This used to blank the note area and show notes-panel, which
+    // left an empty 'Add your notes here...' scratchpad sitting behind the lock.)
     var pw=document.getElementById('da-paywall-'+p);
-    if(!pw){ pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap'; document.body.appendChild(pw); }
+    if(!pw){
+      pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap';
+      // Clicking the dimmed area behind the card closes the lock, as it does on
+      // the Flashcards / MCQ lock.
+      pw.addEventListener('click', function(e){ if(e.target===pw) dismissWall(p); });
+      document.body.appendChild(pw);
+    }
     pw.innerHTML=html; pw.style.display='flex';
+    pw.setAttribute('data-tab', p);
+    // Every lock state gets a visible way out. The signed-out paywall had none at
+    // all — only its two sign-in buttons — so a visitor who opened a locked topic
+    // could leave only via the browser's Back button.
+    (function(){
+      var card=pw.querySelector('.da-lock'); if(!card || card.querySelector('.da-lock-x')) return;
+      var x=document.createElement('button');
+      x.type='button'; x.className='da-lock-x'; x.setAttribute('aria-label','Close');
+      x.innerHTML='<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>';
+      x.onclick=function(){ dismissWall(p); };
+      card.insertBefore(x, card.firstChild);
+    })();
     if(!skipHash && typeof updateHash==='function') updateHash(p, st.activeSystem, name, 'notes');
   }
+  document.addEventListener('keydown', function(e){
+    if(e.key!=='Escape') return;
+    // NB: offsetParent is always null on a position:fixed element, so the open
+    // test is on display, not on offsetParent.
+    var open=document.querySelector('[id^="da-paywall-"]');
+    if(open && getComputedStyle(open).display!=='none') dismissWall(open.getAttribute('data-tab'));
+  });
   function showLocked(p, name, skipHash){ renderWall(p, name, paywallHTML(), skipHash); }
   function clearMini(p, name){
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
@@ -13698,11 +13722,17 @@ function hideFlyout(p) {
     window.renderTopicList = function(p, topics, filter){
       _renderTopicList.call(this, p, topics, filter);
       var st = getState(p);
-      document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
-        var locked = !isUnlocked(p, st.activeSystem, el.dataset.topic);
+      var items = [].slice.call(document.querySelectorAll('#topiclist-'+p+' .condition-item'));
+      var lockedOf = function(el){ return !isUnlocked(p, st.activeSystem, el.dataset.topic); };
+      // A padlock on every row carries no information — it only earns its place
+      // when it distinguishes locked rows from free ones. When the whole section
+      // is locked the dimming already says so, so the row markers are dropped.
+      var allLocked = items.length > 0 && items.every(lockedOf);
+      items.forEach(function(el){
+        var locked = lockedOf(el);
         el.classList.toggle('da-locked-item', locked);
         var mini = el.querySelector('.da-lock-mini');
-        if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
+        if(locked && !allLocked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
         else if(mini){ mini.remove(); }
       });
     };
@@ -16072,6 +16102,42 @@ function hideFlyout(p) {
     background-image:radial-gradient(rgba(30,38,64,.045) 1px, transparent 1.6px);
     background-size:22px 22px;
   }
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 4 — the topic lock becomes a modal, not a takeover.
+     Search this file for "LAYOUT PASS LOCK" to find it again.
+     ===================================================================== -->
+<style>
+  /* .da-lock-wrap was an opaque full-screen takeover: position:fixed, inset:0,
+     z-index 2000, painted with var(--bg) — which resolves to #0D0F14, so the
+     #F7F8FB light fallback in that declaration never applied and a light app
+     dropped the reader into a near-black void. The nav, the sidebar and the
+     topic list all disappeared with it.
+
+     The Flashcards / MCQ lock already solved this the other way, as a frosted
+     modal over the page — its own source comment reads "not an opaque
+     full-page takeover". Same moment, so the same treatment. */
+  .da-lock-wrap{
+    background:rgba(6,12,20,.62);
+    -webkit-backdrop-filter:blur(4px);
+    backdrop-filter:blur(4px);
+    align-items:center;
+    justify-content:center;
+  }
+  /* The card needs a corner for the close button to sit in. */
+  .da-lock{position:relative;}
+  .da-lock-x{
+    position:absolute;top:10px;right:10px;
+    width:30px;height:30px;padding:0;
+    display:flex;align-items:center;justify-content:center;
+    background:none;border:0;border-radius:50%;
+    color:var(--muted,#6B7280);cursor:pointer;
+    transition:color .15s,background .15s;
+  }
+  .da-lock-x:hover{color:var(--text,#1E2640);background:rgba(127,140,170,.14);}
+  .da-lock-x svg{width:15px;height:15px;}
+  .da-lock-icon{margin-top:4px;}
 </style>
 
 <!-- =====================================================================
