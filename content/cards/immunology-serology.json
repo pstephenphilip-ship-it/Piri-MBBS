@@ -593,6 +593,26 @@
 "id": "igg4_fc_05",
 "front": "Name four extra-pancreatic manifestations of IgG4-related disease.",
 "back": "IgG4-related sclerosing cholangitis, sialadenitis/dacryoadenitis (Mikulicz syndrome), retroperitoneal fibrosis, and tubulointerstitial nephritis."
+},
+{
+"id": "t1dm_fc_01",
+"front": "Which antibodies and which C-peptide result confirm autoimmune Type 1 diabetes?",
+"back": "<b>Anti-GAD</b> (best in adults), <b>anti-IA2</b>, <b>anti-ZnT8</b>, islet-cell antibodies, with a <b>low C-peptide</b>. A preserved C-peptide points to Type 2 / MODY."
+},
+{
+"id": "t1dm_fc_02",
+"front": "Once autoimmune Type 1 diabetes is confirmed, which associated autoimmune conditions should you screen for?",
+"back": "<b>Coeliac disease</b> (anti-tTG + total IgA) and <b>autoimmune thyroid disease</b> (TFTs / anti-TPO) — they cluster with T1DM."
+},
+{
+"id": "ail_fc_01",
+"front": "How do the serology and LFT patterns differ between autoimmune hepatitis and PBC?",
+"back": "<b>AIH</b> = hepatitic (raised <b>ALT</b>, raised <b>IgG</b>) with <b>ASMA/ANA</b> or <b>anti-LKM1</b>; biopsy shows interface hepatitis. <b>PBC</b> = cholestatic (raised <b>ALP</b>, raised <b>IgM</b>) with <b>AMA (M2)</b>."
+},
+{
+"id": "ail_fc_02",
+"front": "A patient has cholestatic LFTs, is AMA-negative and has ulcerative colitis. Which diagnosis and next test?",
+"back": "<b>Primary sclerosing cholangitis (PSC)</b> — associated with UC/IBD, often <b>pANCA</b> positive; next test <b>MRCP</b> showing &ldquo;beaded&rdquo; multifocal strictures."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Immunoglobulins & Paraproteins": [
@@ -675,6 +695,26 @@
 "id": "c1_fc_05",
 "front": "Which common drug class is contraindicated in HAE and why?",
 "back": "ACE inhibitors — they block breakdown of bradykinin, potentiating it, and can precipitate or worsen angioedema attacks. They should be avoided lifelong."
+},
+{
+"id": "mye_fc_01",
+"front": "A paraprotein and CRAB features are confirmed on screening — what are the definitive next investigations?",
+"back": "<b>Bone marrow aspirate &amp; trephine</b> (clonal plasma cells ≥10%) and <b>whole-body MRI or low-dose CT</b> for lytic lesions (skeletal survey is now superseded)."
+},
+{
+"id": "mye_fc_02",
+"front": "What are the classic first clues to myeloma on routine bloods and film?",
+"back": "Normocytic anaemia, <b>rouleaux</b> on the blood film, a very high <b>ESR/plasma viscosity</b>, and raised total protein (high globulin, low albumin) — these prompt the SPEP."
+},
+{
+"id": "bjp_fc_01",
+"front": "Why can a standard urine dipstick be negative in myeloma, and what should you request instead?",
+"back": "The dipstick detects <b>albumin only</b>, not free light chains — so it can be negative despite heavy Bence-Jones proteinuria. Request <b>urine electrophoresis / immunofixation</b>; a normal dipstick does NOT exclude myeloma kidney."
+},
+{
+"id": "igdef_fc_01",
+"front": "Give two practical consequences of selective IgA deficiency.",
+"back": "(1) <b>False-negative IgA-based coeliac serology</b> — use IgG-based tTG. (2) Risk of <b>anaphylactic transfusion reactions</b> from anti-IgA antibodies — give <b>washed / IgA-deficient</b> blood products."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Allergy & Immunodeficiency": [
@@ -1783,12 +1823,12 @@
 "question": "A 34-year-old woman has fatigue, weight gain and cold intolerance. TSH is 12 mU/L (raised) and free T4 is low. Which antibody result would best confirm the underlying cause?",
 "options": [
 "Positive TRAb (TSH-receptor antibodies)",
-"Positive TPO (anti-thyroid peroxidase) antibodies",
 "Positive anti-nuclear antibody",
+"Positive TPO (anti-thyroid peroxidase) antibodies",
 "Positive anti-mitochondrial antibody",
 "Positive anti-tissue transglutaminase antibody"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Positive TPO (anti-thyroid peroxidase) antibodies",
 "explanation": "The biochemistry shows primary hypothyroidism. Positive TPO antibodies confirm autoimmune thyroiditis (Hashimoto's) as the cause. TRAb causes Graves' hyperthyroidism, not hypothyroidism; the other antibodies relate to unrelated autoimmune conditions."
 },
@@ -1799,11 +1839,11 @@
 "options": [
 "TPO antibodies to assess Hashimoto's risk",
 "Thyroglobulin antibodies",
-"TRAb, because it crosses the placenta and can cause fetal/neonatal thyrotoxicosis",
 "No antibody testing is needed as she is euthyroid",
-"Anti-nuclear antibodies to screen for lupus"
+"Anti-nuclear antibodies to screen for lupus",
+"TRAb, because it crosses the placenta and can cause fetal/neonatal thyrotoxicosis"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "TRAb, because it crosses the placenta and can cause fetal/neonatal thyrotoxicosis",
 "explanation": "Despite definitive treatment and current euthyroidism, maternal TRAb can persist, cross the placenta and stimulate the fetal thyroid, causing fetal/neonatal thyrotoxicosis. TRAb should be measured and the fetus monitored. Her own thyroid status is irrelevant to this placental-transfer risk."
 },
@@ -1827,13 +1867,13 @@
 "type": "mcq",
 "question": "A 34-year-old woman presents with 6 months of fatigue, weight loss and dizziness on standing. Examination shows pigmentation of the buccal mucosa and palmar creases. Bloods: Na⁺ 128 mmol/L, K⁺ 5.7 mmol/L. A short Synacthen test shows an inadequate cortisol response. Which antibody would most likely confirm the underlying aetiology?",
 "options": [
-"Anti-21-hydroxylase antibodies",
 "Anti-thyroid peroxidase (TPO) antibodies",
 "Anti-glutamic acid decarboxylase (GAD) antibodies",
 "Anti-tissue transglutaminase (tTG) antibodies",
+"Anti-21-hydroxylase antibodies",
 "Anti-intrinsic factor antibodies"
 ],
-"correctIndex": 0,
+"correctIndex": 3,
 "answer": "Anti-21-hydroxylase antibodies",
 "explanation": "The clinical and biochemical picture (fatigue, weight loss, hyperpigmentation, hyponatraemia, hyperkalaemia, failed short Synacthen test) is autoimmune primary adrenal insufficiency. Anti-21-hydroxylase antibodies confirm the autoimmune aetiology. The other antibodies mark associated APS conditions (thyroid, T1DM, coeliac, pernicious anaemia) but not Addison's itself."
 },
@@ -1857,13 +1897,13 @@
 "type": "mcq",
 "question": "A patient newly diagnosed with autoimmune Addison's disease is being counselled. Which piece of advice about 'sick-day rules' is correct?",
 "options": [
-"Double the usual oral glucocorticoid dose during acute illness or fever",
 "Stop steroids during infection to avoid immunosuppression",
 "Halve the fludrocortisone dose whenever unwell",
+"Double the usual oral glucocorticoid dose during acute illness or fever",
 "Take an extra dose only if the blood pressure rises",
 "Steroids can be safely omitted for up to a week if feeling well"
 ],
-"correctIndex": 0,
+"correctIndex": 2,
 "answer": "Double the usual oral glucocorticoid dose during acute illness or fever",
 "explanation": "During intercurrent illness the body's cortisol demand rises, so patients on replacement should double their oral glucocorticoid (hydrocortisone) dose. Steroids must never be stopped abruptly — this risks adrenal crisis. Patients should carry a steroid emergency card and have IM hydrocortisone for emergencies such as vomiting."
 },
@@ -1873,12 +1913,12 @@
 "question": "A 28-year-old woman with iron-deficiency anaemia and bloating is investigated for coeliac disease. Her IgA anti-tTG is negative, but her total IgA is markedly low. What is the most appropriate next step?",
 "options": [
 "Reassure her that coeliac disease is excluded",
-"Request an IgG-based serological test (e.g. IgG anti-tTG or IgG-DGP)",
 "Repeat the IgA anti-tTG in 3 months",
 "Start a gluten-free diet and reassess symptoms",
-"Arrange HLA-DQ2/DQ8 testing as the definitive diagnostic test"
+"Arrange HLA-DQ2/DQ8 testing as the definitive diagnostic test",
+"Request an IgG-based serological test (e.g. IgG anti-tTG or IgG-DGP)"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Request an IgG-based serological test (e.g. IgG anti-tTG or IgG-DGP)",
 "explanation": "Selective IgA deficiency makes IgA-based serology unreliable (false negative). With a low total IgA, an IgG-based test (IgG anti-tTG, IgG-DGP or IgG-EMA) should be used. HLA testing has high negative predictive value but is not the definitive diagnostic test, and a gluten-free diet before diagnosis would mask disease."
 },
@@ -1888,12 +1928,12 @@
 "question": "A 35-year-old man reports that he started a gluten-free diet 3 months ago and feels much better. His GP requests coeliac serology, which is negative. He is keen to know if he has coeliac disease. What is the most appropriate advice?",
 "options": [
 "The negative serology reliably excludes coeliac disease",
-"Proceed directly to duodenal biopsy while gluten-free",
 "Reintroduce a gluten-containing diet for at least 6 weeks, then re-test",
+"Proceed directly to duodenal biopsy while gluten-free",
 "Start lifelong gluten-free diet as he clearly has coeliac disease",
 "Measure faecal calprotectin instead"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Reintroduce a gluten-containing diet for at least 6 weeks, then re-test",
 "explanation": "Both serology and duodenal biopsy normalise on a gluten-free diet, producing false negatives. To validly test, the patient should undergo a gluten challenge — gluten in more than one meal per day for at least 6 weeks — before repeat serology and, if positive, biopsy."
 },
@@ -1903,12 +1943,12 @@
 "question": "A 42-year-old woman with type 1 diabetes has a strongly positive IgA anti-tTG on screening. She is currently eating a normal gluten-containing diet. What is the most appropriate next step to confirm the diagnosis in this adult?",
 "options": [
 "Start a gluten-free diet immediately without further tests",
-"Refer for duodenal biopsy",
 "Repeat the anti-tTG in 6 months",
 "Measure anti-DGP IgG to confirm",
+"Refer for duodenal biopsy",
 "Perform HLA-DQ2/DQ8 typing to confirm the diagnosis"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Refer for duodenal biopsy",
 "explanation": "In adults, positive serology should be confirmed with duodenal biopsy (the gold standard) showing villous atrophy, crypt hyperplasia and intraepithelial lymphocytes, performed while the patient is still on gluten. HLA typing cannot confirm the diagnosis (only exclude it), and starting a gluten-free diet before biopsy would invalidate the result."
 },
@@ -1917,13 +1957,13 @@
 "type": "mcq",
 "question": "A 68-year-old man presents with two weeks of painless jaundice, dark urine and weight loss. CT shows a diffusely enlarged pancreas with a low-density peripheral rim and no discrete mass. Serum IgG4 is raised. What is the single most important next step before starting corticosteroids?",
 "options": [
-"Start high-dose prednisolone immediately and review in 6 weeks",
 "Exclude pancreatic malignancy with cross-sectional imaging, EUS +/- biopsy and CA 19-9",
+"Start high-dose prednisolone immediately and review in 6 weeks",
 "Reassure and discharge as the raised IgG4 confirms autoimmune pancreatitis",
 "Arrange urgent Whipple's procedure",
 "Commence rituximab as first-line therapy"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Exclude pancreatic malignancy with cross-sectional imaging, EUS +/- biopsy and CA 19-9",
 "explanation": "AIP mimics pancreatic cancer and a raised IgG4 is non-specific (it can also be mildly elevated in cancer). Malignancy must be reasonably excluded before attributing an obstructive-jaundice pancreatic mass to AIP or giving a steroid trial. Immediate steroids risk treating undiagnosed cancer; Whipple's and rituximab are premature."
 },
@@ -1933,12 +1973,12 @@
 "question": "A pancreatic resection specimen from a patient with suspected autoimmune pancreatitis is examined. Which histological triad is most characteristic of type 1 (IgG4-related) AIP?",
 "options": [
 "Caseating granulomas, Langhans giant cells and acid-fast bacilli",
-"Lymphoplasmacytic infiltrate, storiform fibrosis and obliterative phlebitis with IgG4+ plasma cells",
 "Pseudocysts, calcification and fat necrosis",
+"Lymphoplasmacytic infiltrate, storiform fibrosis and obliterative phlebitis with IgG4+ plasma cells",
 "Ductal adenocarcinoma with perineural invasion",
 "Non-caseating granulomas and asteroid bodies"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Lymphoplasmacytic infiltrate, storiform fibrosis and obliterative phlebitis with IgG4+ plasma cells",
 "explanation": "The hallmark histology of type 1 AIP is a dense lymphoplasmacytic infiltrate, storiform (cartwheel) fibrosis and obliterative phlebitis, with abundant IgG4-positive plasma cells. The other options describe TB, chronic/acute pancreatitis, adenocarcinoma and sarcoidosis respectively."
 },
@@ -1949,13 +1989,43 @@
 "options": [
 "It is a localised disease confined to the pancreas",
 "It is a paraneoplastic manifestation of an occult tumour",
-"It is a multi-system IgG4-related disease that can affect many organs",
 "It represents disseminated tuberculosis",
-"It is an inevitable progression to pancreatic adenocarcinoma"
+"It is an inevitable progression to pancreatic adenocarcinoma",
+"It is a multi-system IgG4-related disease that can affect many organs"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "It is a multi-system IgG4-related disease that can affect many organs",
 "explanation": "Type 1 AIP is the pancreatic manifestation of systemic IgG4-related disease, which also causes sclerosing cholangitis, sialadenitis/dacryoadenitis (Mikulicz syndrome), retroperitoneal (peri-aortic) fibrosis and tubulointerstitial nephritis. Recognising synchronous organ involvement supports the diagnosis and distinguishes it from an isolated pancreatic tumour."
+},
+{
+"id": "t1dm_q_01",
+"type": "mcq",
+"question": "A 30-year-old with a lean build and osmotic symptoms has newly diagnosed diabetes; the team is unsure if it is Type 1 or Type 2. Which combination best confirms autoimmune Type 1 diabetes?",
+"options": [
+"High C-peptide with negative islet antibodies",
+"Positive anti-GAD antibodies with a low C-peptide",
+"A raised HbA1c alone",
+"Positive anti-tTG antibodies",
+"A positive short Synacthen test"
+],
+"correctIndex": 1,
+"answer": "Positive anti-GAD antibodies with a low C-peptide",
+"explanation": "Positive islet autoantibodies (anti-GAD/IA2/ZnT8) with a low C-peptide confirm autoimmune Type 1 diabetes. Preserved C-peptide with negative antibodies favours Type 2/MODY."
+},
+{
+"id": "ail_q_01",
+"type": "mcq",
+"question": "A 55-year-old woman has months of fatigue and pruritus, a cholestatic LFT pattern (raised ALP), a raised IgM and positive anti-mitochondrial (M2) antibodies. What is the diagnosis?",
+"options": [
+"Autoimmune hepatitis",
+"Primary sclerosing cholangitis",
+"Hepatitis C",
+"Primary biliary cholangitis",
+"Wilson disease"
+],
+"correctIndex": 3,
+"answer": "Primary biliary cholangitis",
+"explanation": "Cholestatic LFTs with raised IgM and AMA (M2) in a middle-aged woman with pruritus indicate primary biliary cholangitis. AIH is hepatitic (raised ALT/IgG, ASMA/LKM1); PSC associates with UC and is diagnosed on MRCP."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Immunoglobulins & Paraproteins": [
@@ -1965,14 +2035,14 @@
 "question": "A 68-year-old man presents with back pain, fatigue and recurrent chest infections. SPEP shows a discrete band in the gamma region; IgG is markedly raised while IgA and IgM are both below the reference range. Which single finding best explains the low IgA and IgM?",
 "options": [
 "Selective IgA deficiency",
-"Immune paresis",
 "Chronic liver disease",
+"Immune paresis",
 "Polyclonal gammopathy",
 "Nephrotic syndrome"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Immune paresis",
-"explanation": "A monoclonal clone (here IgG) suppresses production of the uninvolved immunoglobulin classes, lowering background IgA and IgM. This immune paresis is characteristic of myeloma (not MGUS) and contributes to the recurrent infections. Selective IgA deficiency would not lower IgM, and a polyclonal gammopathy is a broad rise, not a discrete band with suppression."
+"explanation": "A monoclonal clone (here IgG) suppresses production of the uninvolved immunoglobulin classes, lowering background IgA and IgM. This immune paresis is characteristic of myeloma (more so than in MGUS) and contributes to the recurrent infections. Selective IgA deficiency would not lower IgM, and a polyclonal gammopathy is a broad rise, not a discrete band with suppression."
 },
 {
 "id": "ig_q02",
@@ -1980,12 +2050,12 @@
 "question": "A 72-year-old woman has headache, blurred vision, epistaxis and confusion. Fundoscopy shows dilated tortuous retinal veins. SPEP demonstrates a large monoclonal IgM band. What is the most appropriate immediate management?",
 "options": [
 "High-dose oral corticosteroids",
-"Plasmapheresis",
 "IV bisphosphonate",
 "Broad-spectrum antibiotics",
-"Therapeutic anticoagulation"
+"Therapeutic anticoagulation",
+"Plasmapheresis"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Plasmapheresis",
 "explanation": "A large monoclonal IgM (Waldenström's macroglobulinaemia) causes hyperviscosity syndrome — neurological symptoms, visual changes with retinal vein engorgement, and mucosal bleeding. Plasmapheresis rapidly removes the IgM and relieves viscosity as a bridge to definitive therapy. Bisphosphonates target hypercalcaemia, not viscosity."
 },
@@ -2010,12 +2080,12 @@
 "question": "A 68-year-old man presents with fatigue, back pain and an acute kidney injury (creatinine 280 µmol/L). Serum protein electrophoresis shows no monoclonal band. Which investigation is most likely to reveal the underlying diagnosis?",
 "options": [
 "Repeat serum protein electrophoresis in 6 weeks",
-"Serum free light chain assay",
 "Serum vitamin B12 and folate",
 "Rheumatoid factor and anti-CCP antibodies",
+"Serum free light chain assay",
 "Serum ferritin and transferrin saturation"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Serum free light chain assay",
 "explanation": "The picture suggests myeloma, but a normal SPEP points to a light-chain-only (Bence Jones) or non-secretory clone that produces free light chains without an intact paraprotein. The sFLC assay quantifies free κ and λ and reveals a skewed ratio, catching disease SPEP misses. B12/folate, RF/anti-CCP and iron studies do not address a monoclonal process."
 },
@@ -2024,13 +2094,13 @@
 "type": "mcq",
 "question": "A patient with stage 4 chronic kidney disease has serum free light chains measured: both kappa and lambda are elevated, with a κ:λ ratio of 1.9 (standard reference 0.26–1.65). How should this be interpreted?",
 "options": [
-"Definite evidence of a kappa-restricted monoclonal clone",
 "A polyclonal rise; interpret against the renal (modified) reference range before calling clonality",
+"Definite evidence of a kappa-restricted monoclonal clone",
 "Diagnostic of lambda light-chain myeloma",
 "A laboratory error requiring an immediate repeat",
 "Evidence of AL amyloidosis regardless of the ratio"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "A polyclonal rise; interpret against the renal (modified) reference range before calling clonality",
 "explanation": "Free light chains are renally cleared, so in CKD both κ and λ rise and the ratio shifts modestly upward (κ accumulates relatively more). A renal reference range (roughly 0.37–3.1) is applied; a ratio of 1.9 falls within it, so clonality should not be over-called on the standard range alone."
 },
@@ -2040,12 +2110,12 @@
 "question": "A woman with known kappa light-chain myeloma is being monitored 2 weeks after starting chemotherapy. Which marker changes most rapidly to indicate an early treatment response?",
 "options": [
 "Serum IgG paraprotein on electrophoresis",
-"Serum free kappa light chains",
 "Total serum protein",
+"Serum free kappa light chains",
 "Serum albumin",
 "Erythrocyte sedimentation rate"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Serum free kappa light chains",
 "explanation": "Free light chains have a serum half-life of only a few hours, versus weeks for intact IgG, so the sFLC level falls quickly and reflects treatment response much earlier than the paraprotein on SPEP. Total protein, albumin and ESR are non-specific and change slowly."
 },
@@ -2055,12 +2125,12 @@
 "question": "A 26-year-old man has recurrent episodes of non-itchy facial and lip swelling and several admissions with unexplained severe abdominal pain. There are never any wheals, and the swelling does not respond to antihistamines. His father had similar episodes. Which single investigation is the most appropriate first-line screening test?",
 "options": [
 "Serum tryptase",
-"Serum C4",
 "Serum IgE",
 "Skin-prick allergy testing",
-"Serum C1-INH function"
+"Serum C1-INH function",
+"Serum C4"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Serum C4",
 "explanation": "The picture (recurrent angioedema without urticaria/itch, poor antihistamine response, abdominal attacks, positive family history) is hereditary angioedema. Serum C4 is the recommended screening test because it is low both during and between attacks. C1-INH level and function are confirmatory second-line tests once C4 is low. Tryptase and IgE relate to mast-cell/allergic disease."
 },
@@ -2085,14 +2155,29 @@
 "question": "A 62-year-old woman presents with a first ever episode of tongue and throat swelling causing stridor. She takes ramipril for hypertension. She has been given IM adrenaline, IV chlorphenamine and IV hydrocortisone with little improvement. What is the most appropriate immediate priority?",
 "options": [
 "Repeat IM adrenaline and observe",
-"Secure the airway and give a bradykinin-targeted therapy such as C1-INH concentrate or icatibant",
 "Give a further dose of IV hydrocortisone",
 "Arrange urgent skin-prick allergy testing",
+"Secure the airway and give a bradykinin-targeted therapy such as C1-INH concentrate or icatibant",
 "Start a broad-spectrum antibiotic for suspected Ludwig's angina"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Secure the airway and give a bradykinin-targeted therapy such as C1-INH concentrate or icatibant",
 "explanation": "Laryngeal oedema is an airway emergency. The poor response to adrenaline, antihistamine and steroid together with ACE inhibitor use points to bradykinin-mediated angioedema, which does not reliably respond to standard anaphylaxis drugs. The priority is early airway management plus bradykinin-directed treatment (C1-INH concentrate or icatibant), and stopping the ACE inhibitor. Repeating adrenaline or steroids alone is unlikely to reverse it."
+},
+{
+"id": "mye_q_01",
+"type": "mcq",
+"question": "A serum paraprotein with anaemia, hypercalcaemia and renal impairment has been identified. What is the most appropriate next investigation to confirm multiple myeloma?",
+"options": [
+"Bone marrow biopsy plus whole-body MRI or low-dose CT",
+"Repeat serum electrophoresis in 6 months",
+"Plain skeletal survey alone",
+"Serum ferritin and iron studies",
+"Urine dipstick for protein"
+],
+"correctIndex": 0,
+"answer": "Bone marrow biopsy plus whole-body MRI or low-dose CT",
+"explanation": "Once a paraprotein with CRAB features is found, confirm with a bone marrow biopsy (clonal plasma cells) and whole-body MRI or low-dose CT for lytic lesions. A urine dipstick misses light chains, and skeletal survey is now superseded."
 }
 ],
 "investigations__IMMUNOLOGY / SEROLOGY__Allergy & Immunodeficiency": [
