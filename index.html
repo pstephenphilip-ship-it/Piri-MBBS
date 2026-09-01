@@ -15935,9 +15935,78 @@ function hideFlyout(p) {
   }
 </style>
 
+<!-- =====================================================================
+     LAYOUT PASS — top nav fit + About/Contact sheet.
+     Presentation only: no copy changed, no content added or removed.
+     Search this file for "LAYOUT PASS AUX" to find it again.
+     ===================================================================== -->
+<style>
+  /* --- TOP NAV -------------------------------------------------------
+     The eight tabs measure 1147px, but the strip only ever gets the space
+     left over after the logo, streak chip and account button — and once it
+     overflows, the two 30px scroll arrows appear and take 60px more. The
+     result was a permanently arrow-scrolled nav with "Pharmacology" cut
+     mid-word on every viewport below ~1920px.
+     Two steps of tightening let the full set fit from 1280px up. Below
+     that there genuinely isn't room for eight labels, so the arrows stay. */
+  @media (min-width:821px) and (max-width:1560px){
+    .nav-tab{padding:0 10px;font-size:13px;gap:6px;}
+  }
+  @media (min-width:821px) and (max-width:1400px){
+    .nav-tab{padding:0 11px;gap:0;}
+    .nav-tab .nav-tab-icon{display:none;}   /* labels carry the meaning */
+  }
+
+  /* --- ABOUT / CONTACT SHEET -----------------------------------------
+     Both pages use .da-info-card, but Contact pinned itself to 520px with
+     an inline style, so the same component framed the two pages at two
+     different widths. The inline cap is gone; Contact now sits on the same
+     880px sheet with its form centred in a narrower column, so the fields
+     don't stretch to the full width. */
+  .da-ct-inner{max-width:560px;margin:0 auto;}
+
+  /* The sheet was square-cornered and min-height:100vh, so it read as two
+     hard vertical seams cut through the dotted backdrop, and left a large
+     blank white area below short pages. Round it, inset it, and let it end
+     where its content ends. */
+  .da-info-card{
+    max-width:min(880px,calc(100% - 24px));
+    min-height:0;
+    margin:22px auto 44px;
+    border-radius:16px;
+    border:1px solid #E2E6F0;
+    box-shadow:0 6px 28px rgba(30,38,64,.09);
+  }
+
+  /* Close control. There was no visible way out of either page — only the
+     Escape key or the browser Back button. Zero-height sticky row so it
+     pins to the top of the sheet without displacing anything. */
+  /* height 32 with negative margins nets to zero flow space, so the button sits
+     in the sheet's top-right corner without displacing anything. It sticks via
+     `top`, not a transform — a transform would carry it above the scrollport's
+     top edge once pinned and get it clipped. */
+  .da-info-bar{position:sticky;top:10px;z-index:3;display:flex;justify-content:flex-end;
+    height:32px;margin:-18px -6px -14px 0;}
+  .da-info-close{
+    width:32px;height:32px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid #E2E6F0;border-radius:50%;
+    background:#FFFFFF;color:#6B7280;cursor:pointer;padding:0;
+    box-shadow:0 2px 8px rgba(30,38,64,.10);
+    transition:color .15s,border-color .15s,background .15s;
+  }
+  .da-info-close:hover{color:#1E2640;border-color:#CBD2E0;background:#F5F7FB;}
+  .da-info-close svg{width:15px;height:15px;}
+  @media (max-width:560px){
+    .da-info-card{margin:12px auto 28px;border-radius:14px;}
+    .da-info-bar{margin:-8px -4px -24px 0;}
+  }
+</style>
+
 <!-- ===================== ABOUT US PAGE ===================== -->
 <div class="da-page" id="da-about-page">
   <div class="da-info-card">
+    <div class="da-info-bar"><button type="button" class="da-info-close" aria-label="Close" onclick="window.__closeInfoPage&&window.__closeInfoPage()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
 
     <!-- EDIT: logo + tagline -->
     <div class="da-ab-hero">
@@ -16004,7 +16073,9 @@ function hideFlyout(p) {
 
 <!-- ===================== CONTACT PAGE ===================== -->
 <div class="da-page" id="da-contact-page">
-  <div class="da-info-card" style="max-width:520px;">
+  <div class="da-info-card">
+    <div class="da-info-bar"><button type="button" class="da-info-close" aria-label="Close" onclick="window.__closeInfoPage&&window.__closeInfoPage()"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg></button></div>
+    <div class="da-ct-inner">
     <div class="auth-sub" style="font-weight:800;font-size:18px;color:#1E2640;margin-bottom:4px;">Contact us</div>
     <p style="font-size:13.5px;line-height:1.6;color:#6B7280;margin:0 0 4px;">Questions, feedback, or spotted an error? We&rsquo;d love to hear from you &mdash; send a message below or reach us directly, and we&rsquo;ll get back to you.</p>
 
@@ -16020,6 +16091,7 @@ function hideFlyout(p) {
     <div class="auth-field"><label>Message</label><textarea id="da-ct-msg" rows="4" style="width:100%;background:#FFFFFF;border:1px solid #D8DAE5;border-radius:8px;color:#1E2640;font-family:var(--sans,inherit);font-size:13.5px;padding:10px 12px;outline:none;resize:vertical;" placeholder="How can we help?"></textarea></div>
     <button class="auth-submit" onclick="window.daContactSend&&window.daContactSend()">Send message</button>
     <div id="da-ct-status" style="display:none;font-size:12.5px;line-height:1.5;margin-top:12px;"></div>
+  </div>
   </div>
 </div>
 
