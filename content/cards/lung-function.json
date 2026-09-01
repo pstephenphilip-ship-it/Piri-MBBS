@@ -314,6 +314,11 @@
         "id": "lf_gas_lci_fc_05",
         "front": "Which tracer gases are used in multiple-breath washout, and how is LCI value affected by disease?",
         "back": "Resident nitrogen (washed out with 100% oxygen) or exogenous SF6 (washed in then out). A higher LCI indicates worse ventilation distribution / more inhomogeneity."
+      },
+      {
+        "id": "lf_gas_tlco_fc_21",
+        "front": "An isolated low TLCO with normal spirometry, lung volumes and Hb — what should you suspect and do next?",
+        "back": "Suspect <b>pulmonary vascular disease</b>. Exclude <b>anaemia</b> (correct for Hb) first, then investigate with <b>CTPA</b> for pulmonary embolism or <b>echocardiography</b> for pulmonary hypertension. A normal TLCO does not exclude PE."
       }
     ],
     "investigations__LUNG FUNCTION__Muscle & Exercise": [
@@ -441,6 +446,11 @@
         "id": "lf_musc_cpet_fc_05",
         "front": "What peak VO2 supports listing for heart transplantation?",
         "back": "A peak VO2 of 14 mL/kg/min or less (or 12 or less in patients on beta-blockers) indicates poor prognosis in heart failure and supports transplant listing."
+      },
+      {
+        "id": "lf_musc_mg_fc_01",
+        "front": "How is a myasthenic crisis monitored and managed, and what is the pattern that points to a fatigable NMJ disorder?",
+        "back": "Monitor <b>serial FVC</b> (not SpO&#8322;/ABG, which fall late); the ~&lt;15&ndash;20 mL/kg / &lt;1 L danger zone → <b>ITU + airway support</b>. Treat with <b>IVIG or plasma exchange</b>. A fatigable pattern = strength/FVC/MIP that <b>declines on repeated effort</b>."
       }
     ],
     "investigations__LUNG FUNCTION__Oxygenation & Respiratory Support": [
@@ -972,13 +982,13 @@
         "type": "mcq",
         "question": "A 60-year-old smoker has airflow obstruction on spirometry. Which transfer factor pattern most strongly favours emphysema over asthma as the cause?",
         "options": [
-          "Reduced TLCO and reduced KCO",
           "Raised TLCO with normal KCO",
           "Normal TLCO with raised KCO",
+          "Reduced TLCO and reduced KCO",
           "Reduced TLCO with markedly raised KCO",
           "Normal TLCO and normal KCO"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Reduced TLCO and reduced KCO",
         "explanation": "Emphysema destroys the alveolar-capillary surface area, so both the whole-lung transfer factor and the transfer coefficient per litre fall. Asthma characteristically preserves or raises TLCO, so a reduced TLCO and KCO discriminates emphysema from asthma."
       },
@@ -987,13 +997,13 @@
         "type": "mcq",
         "question": "A patient with restrictive spirometry has a low TLCO but a preserved (indeed high) KCO. Which cause does this pattern most suggest?",
         "options": [
-          "Chest-wall or neuromuscular (extraparenchymal) restriction",
           "Idiopathic pulmonary fibrosis",
           "Emphysema",
           "Pulmonary embolism",
-          "Alveolar haemorrhage"
+          "Alveolar haemorrhage",
+          "Chest-wall or neuromuscular (extraparenchymal) restriction"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Chest-wall or neuromuscular (extraparenchymal) restriction",
         "explanation": "When the lung tissue is normal but under-inflated, total CO transfer falls yet transfer per litre of ventilated lung is preserved or elevated. A low TLCO with high KCO therefore points to an extraparenchymal cause such as chest-wall deformity or neuromuscular weakness rather than intrinsic lung disease."
       },
@@ -1002,13 +1012,13 @@
         "type": "mcq",
         "question": "A transfer factor report shows a reduced TLCO. Before attributing this to lung disease, which correction is essential?",
         "options": [
-          "Correction for the patient's haemoglobin",
           "Correction for body surface area",
+          "Correction for the patient's haemoglobin",
           "Correction for arterial oxygen saturation",
           "Correction for FEV1/FVC ratio",
           "Correction for resting heart rate"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Correction for the patient's haemoglobin",
         "explanation": "CO uptake depends on the haemoglobin available in the pulmonary capillaries, so TLCO must be corrected for measured Hb. Uncorrected anaemia falsely lowers the value and can be mislabelled as fibrosis or pulmonary vascular disease."
       },
@@ -1017,13 +1027,13 @@
         "type": "mcq",
         "question": "A patient with severe bullous emphysema has lung volumes measured by both helium dilution and body plethysmography on the same day. How will the results compare?",
         "options": [
-          "Helium dilution will give a lower TLC than plethysmography",
           "Helium dilution will give a higher TLC than plethysmography",
           "Both methods will give identical values",
           "Plethysmography will fail to detect the trapped gas",
+          "Helium dilution will give a lower TLC than plethysmography",
           "Helium dilution measures gas in the bullae more accurately"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Helium dilution will give a lower TLC than plethysmography",
         "explanation": "Helium only equilibrates into airspaces communicating with open airways, so the gas trapped inside bullae is not sampled and TLC is underestimated. Plethysmography measures all compressible intrathoracic gas via Boyle's law and reads higher, which is why it is the gold standard in bullous disease."
       },
@@ -1047,13 +1057,13 @@
         "type": "mcq",
         "question": "Body plethysmography derives thoracic gas volume by applying which physical principle?",
         "options": [
-          "Boyle's law relating pressure and volume of the trapped gas",
           "Fick's principle of gas diffusion across the alveolar membrane",
           "Henry's law of gas solubility in blood",
+          "Boyle's law relating pressure and volume of the trapped gas",
           "Graham's law of gas diffusion rates",
           "Dalton's law of partial pressures"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Boyle's law relating pressure and volume of the trapped gas",
         "explanation": "During panting against a closed shutter the trapped thoracic gas is compressed and expanded, and the reciprocal pressure and volume changes are solved using Boyle's law (P1V1 = P2V2). This yields the thoracic gas volume at FRC including non-communicating gas."
       },
@@ -1063,12 +1073,12 @@
         "question": "During body plethysmography, what does closing a shutter at the mouthpiece while the patient pants allow the system to determine?",
         "options": [
           "The forced expiratory volume in one second",
-          "Alveolar pressure, since mouth pressure equilibrates with it during occlusion",
           "The diffusing capacity for carbon monoxide",
           "The maximal inspiratory mouth pressure of the respiratory muscles",
-          "The residual volume by nitrogen washout"
+          "The residual volume by nitrogen washout",
+          "Alveolar pressure, since mouth pressure equilibrates with it during occlusion"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Alveolar pressure, since mouth pressure equilibrates with it during occlusion",
         "explanation": "When the shutter occludes the airway there is no flow, so mouth pressure equilibrates with alveolar pressure. Measuring this alongside airflow (with the shutter open) lets the box calculate airway resistance."
       },
@@ -1093,12 +1103,12 @@
         "question": "Why is specific airway conductance (sGaw) preferred over raw airway resistance (Raw) alone when comparing measurements?",
         "options": [
           "It measures only the small peripheral airways",
-          "It is normalised to lung volume, since resistance varies with the volume at which it is measured",
           "It requires a forced maximal expiratory effort",
           "It reflects alveolar-capillary gas transfer",
+          "It is normalised to lung volume, since resistance varies with the volume at which it is measured",
           "It is unaffected by bronchodilator therapy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "It is normalised to lung volume, since resistance varies with the volume at which it is measured",
         "explanation": "Airway resistance falls as lung volume rises because airways are tethered open, so Raw is uninterpretable without its volume. Dividing conductance by lung volume gives sGaw, a volume-corrected index allowing valid comparison between patients and over time."
       },
@@ -1107,13 +1117,13 @@
         "type": "mcq",
         "question": "The Lung Clearance Index is calculated from a multiple-breath washout as the cumulative expired volume divided by which parameter?",
         "options": [
-          "Forced vital capacity (FVC)",
           "Functional residual capacity (FRC)",
+          "Forced vital capacity (FVC)",
           "Total lung capacity (TLC)",
           "Peak expiratory flow rate (PEFR)",
           "Residual volume (RV)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Functional residual capacity (FRC)",
         "explanation": "LCI equals cumulative expired volume divided by FRC, representing the number of lung turnovers needed to clear the tracer. FRC is itself derived from the dilution of the inert tracer gas during the washout."
       },
@@ -1139,13 +1149,28 @@
         "options": [
           "It requires a maximal forced expiratory effort",
           "It becomes abnormal only after FEV1 has already fallen",
-          "It is more sensitive and detects small-airways disease earlier, while being feasible during tidal breathing",
           "It specifically identifies the causative organism of infection",
-          "It measures large-airway obstruction more accurately than FEV1"
+          "It measures large-airway obstruction more accurately than FEV1",
+          "It is more sensitive and detects small-airways disease earlier, while being feasible during tidal breathing"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "It is more sensitive and detects small-airways disease earlier, while being feasible during tidal breathing",
         "explanation": "LCI detects peripheral ventilation inhomogeneity and can be abnormal when spirometry is still normal, marking it the earliest sign of CF lung disease. Because it uses effort-independent tidal breathing it is also achievable in young children."
+      },
+      {
+        "id": "lf_gas_tlco_q13",
+        "type": "mcq",
+        "question": "A breathless patient has normal spirometry and lung volumes, a normal haemoglobin, but an isolated low TLCO. Which is the most appropriate next investigation?",
+        "options": [
+          "High-resolution CT for interstitial lung disease",
+          "CTPA / echocardiography to look for pulmonary vascular disease",
+          "Bronchial provocation testing",
+          "Reassurance — this is a normal variant",
+          "Repeat spirometry after bronchodilator"
+        ],
+        "correctIndex": 1,
+        "answer": "CTPA / echocardiography to look for pulmonary vascular disease",
+        "explanation": "An isolated low transfer factor with normal mechanics, volumes and Hb points to the pulmonary vasculature — pulmonary embolism (CTPA) or pulmonary hypertension (echocardiography). HRCT would be indicated if volumes were restrictive with a low KCO (ILD)."
       }
     ],
     "investigations__LUNG FUNCTION__Muscle & Exercise": [
@@ -1154,13 +1179,13 @@
         "type": "mcq",
         "question": "A 62-year-old man with MND reports breathlessness on lying flat. His erect FVC is 2.8 L and supine FVC is 2.0 L. Which measurement change best explains his orthopnoea?",
         "options": [
-          "A supine FVC drop of >20%, indicating diaphragmatic weakness",
           "An isolated reduction in MEP indicating expiratory weakness",
           "An improvement in FVC when supine, indicating airway collapse",
+          "A supine FVC drop of >20%, indicating diaphragmatic weakness",
           "A raised MIP indicating strong inspiratory effort",
           "A fall in SpO2 only during exercise"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "A supine FVC drop of >20%, indicating diaphragmatic weakness",
         "explanation": "His FVC falls from 2.8 L to 2.0 L supine, a drop of about 29%, which exceeds the 20% threshold for diaphragmatic weakness. When the diaphragm is weak, lying flat removes its postural advantage and abdominal contents impede inspiration, producing orthopnoea."
       },
@@ -1169,13 +1194,13 @@
         "type": "mcq",
         "question": "Which single test is most appropriate for assessing inspiratory muscle strength when a patient with bulbar MND cannot form an adequate seal around a mouthpiece?",
         "options": [
-          "Sniff nasal inspiratory pressure (SNIP)",
           "Maximal expiratory pressure (MEP)",
           "Peak expiratory flow rate (PEFR)",
           "Single-breath diffusing capacity (DLCO)",
-          "Erect maximal inspiratory pressure (MIP) alone"
+          "Erect maximal inspiratory pressure (MIP) alone",
+          "Sniff nasal inspiratory pressure (SNIP)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Sniff nasal inspiratory pressure (SNIP)",
         "explanation": "SNIP uses a natural sniff through an occluded nostril and does not depend on a competent mouth seal, so it remains reliable when bulbar or facial weakness causes mouth leak. It directly reflects inspiratory (diaphragm) strength, making it the appropriate choice here."
       },
@@ -1184,13 +1209,13 @@
         "type": "mcq",
         "question": "A patient with Guillain-Barre syndrome is being monitored on the ward. Which combination of results should most prompt urgent escalation for possible ventilation?",
         "options": [
-          "FVC 18 mL/kg with MIP of -25 cmH2O",
           "FVC 45 mL/kg with MIP of -90 cmH2O",
+          "FVC 18 mL/kg with MIP of -25 cmH2O",
           "FVC 60 mL/kg with normal SNIP",
           "SpO2 98% on air with strong cough",
           "MEP of 90 cmH2O with normal FVC trend"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "FVC 18 mL/kg with MIP of -25 cmH2O",
         "explanation": "An FVC below 20 mL/kg and an MIP less negative than -30 cmH2O both meet the 20/30/40 warning criteria for impending respiratory failure. These bedside pressure and volume trends deteriorate before oxygen saturation falls, mandating early critical care escalation."
       },
@@ -1200,12 +1225,12 @@
         "question": "A 58-year-old man with motor neurone disease has a stable-state peak cough flow of 240 L/min in clinic. What does this value most appropriately indicate?",
         "options": [
           "A completely normal, effective cough requiring no intervention",
-          "Impaired airway clearance that will become ineffective during a chest infection, warranting cough-assist techniques",
           "An immediate indication for tracheostomy",
           "Evidence of upper airway obstruction rather than muscle weakness",
+          "Impaired airway clearance that will become ineffective during a chest infection, warranting cough-assist techniques",
           "That the measurement is invalid and PCF cannot be used in this disease"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Impaired airway clearance that will become ineffective during a chest infection, warranting cough-assist techniques",
         "explanation": "A PCF below 270 L/min measured when well signals impaired clearance that fails during intercurrent infection. This mandates introduction of cough augmentation such as breath-stacking, manual assisted cough or mechanical insufflation-exsufflation."
       },
@@ -1214,13 +1239,13 @@
         "type": "mcq",
         "question": "Which peak cough flow threshold is generally used to define an ineffective cough with high risk of secretion retention and respiratory failure?",
         "options": [
+          "Below 160 L/min",
           "Below 400 L/min",
           "Below 360 L/min",
           "Below 270 L/min",
-          "Below 160 L/min",
           "Below 50 L/min"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "Below 160 L/min",
         "explanation": "A PCF below 160 L/min denotes an ineffective cough unable to clear secretions, carrying high aspiration and respiratory failure risk. Mechanical insufflation-exsufflation is indicated at this level."
       },
@@ -1230,12 +1255,12 @@
         "question": "Why is a face mask preferred over a mouthpiece when measuring peak cough flow in a neuromuscular patient with bulbar involvement?",
         "options": [
           "It measures inspiratory rather than expiratory flow",
-          "Bulbar weakness impairs lip seal, so a mouthpiece gives falsely low readings",
           "A mask eliminates the need for patient effort",
+          "Bulbar weakness impairs lip seal, so a mouthpiece gives falsely low readings",
           "It converts the value automatically to a percentage predicted",
           "A mask prevents the glottis from closing during the cough"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Bulbar weakness impairs lip seal, so a mouthpiece gives falsely low readings",
         "explanation": "Bulbar weakness prevents an adequate lip seal on a mouthpiece, causing air leak and an underestimated PCF. A tight-fitting face mask maintains the seal and gives a more accurate measurement of cough flow."
       },
@@ -1245,12 +1270,12 @@
         "question": "A patient with ILD completes a 6-minute walk test. Which finding indicates significant exertional desaturation?",
         "options": [
           "Heart rate rising from 78 to 110 bpm",
-          "SpO₂ falling from 96% to 87%",
           "Borg dyspnoea score rising by 1 point",
           "The patient stopping to rest twice",
-          "Walking distance of 450 m"
+          "Walking distance of 450 m",
+          "SpO₂ falling from 96% to 87%"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "SpO₂ falling from 96% to 87%",
         "explanation": "Significant exertional desaturation is defined as an SpO₂ fall of ≥4% from baseline or a nadir below 88%. A drop from 96% to 87% satisfies both criteria and flags gas-exchange limitation."
       },
@@ -1276,11 +1301,11 @@
         "options": [
           "Resting oxygen saturation of 93%",
           "Use of a walking aid such as a frame",
-          "Myocardial infarction three weeks ago",
           "A resting heart rate of 88 bpm",
+          "Myocardial infarction three weeks ago",
           "A diagnosis of interstitial lung disease"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Myocardial infarction three weeks ago",
         "explanation": "Myocardial infarction within the previous month, and unstable angina, are absolute contraindications to the 6MWT. A recent infarct three weeks ago falls within this window and the test should be deferred."
       },
@@ -1289,13 +1314,13 @@
         "type": "mcq",
         "question": "Which statement best captures how the ISWT differs from the 6-minute walk test (6MWT)?",
         "options": [
-          "The ISWT is self-paced and submaximal, while the 6MWT is externally paced",
           "The ISWT is externally paced and drives a maximal effort, while the 6MWT is self-paced and submaximal",
+          "The ISWT is self-paced and submaximal, while the 6MWT is externally paced",
           "Both tests are externally paced but the 6MWT uses a 10 m shuttle",
           "The ISWT measures endurance at a constant speed, while the 6MWT is incremental",
           "The ISWT is performed on a treadmill, while the 6MWT is a field test"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "The ISWT is externally paced and drives a maximal effort, while the 6MWT is self-paced and submaximal",
         "explanation": "In the ISWT the walking speed is dictated by audio beeps that progressively accelerate, forcing a symptom-limited maximal effort. The 6MWT allows the patient to choose their own constant pace, producing a submaximal result."
       },
@@ -1305,12 +1330,12 @@
         "question": "During the ISWT, how far apart are the two cones and what does one completed shuttle represent?",
         "options": [
           "10 m apart, one shuttle = 20 m",
-          "9 m apart, one shuttle = 10 m",
           "5 m apart, one shuttle = 5 m",
+          "9 m apart, one shuttle = 10 m",
           "9 m apart, one shuttle = 9 m",
           "20 m apart, one shuttle = 40 m"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "9 m apart, one shuttle = 10 m",
         "explanation": "The cones are set 9 m apart with a 0.5 m turning allowance at each end, making each shuttle a standardised 10 m. Total distance is recorded in metres as the number of completed shuttles times 10."
       },
@@ -1321,11 +1346,11 @@
         "options": [
           "About 10 m",
           "About 25 m",
-          "About 47.5 m",
           "About 100 m",
-          "About 350 m"
+          "About 350 m",
+          "About 47.5 m"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "About 47.5 m",
         "explanation": "The minimal clinically important difference for the ISWT is approximately 47.5 m. An increase of at least this magnitude indicates a genuine, clinically meaningful gain in exercise capacity rather than test-to-test variation."
       },
@@ -1334,13 +1359,13 @@
         "type": "mcq",
         "question": "A 68-year-old man undergoes CPET before major open aortic aneurysm repair. His anaerobic threshold is 9 mL/kg/min and peak VO2 is 13 mL/kg/min with an RER of 1.18. Which conclusion is best supported?",
         "options": [
-          "He is at higher perioperative risk and should be considered for critical-care planning and optimisation",
           "The test is invalid because effort was submaximal",
+          "He is at higher perioperative risk and should be considered for critical-care planning and optimisation",
           "He has an isolated ventilatory limitation to exercise",
           "His result is reassuring and no further planning is needed",
           "He meets criteria for heart transplant listing"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "He is at higher perioperative risk and should be considered for critical-care planning and optimisation",
         "explanation": "An AT below approximately 11 mL/kg/min identifies patients at increased perioperative cardiac risk who benefit from optimisation and postoperative critical-care planning. The RER of 1.18 confirms a valid maximal effort."
       },
@@ -1349,13 +1374,13 @@
         "type": "mcq",
         "question": "Which single CPET variable is the most effort-independent and therefore most useful in a deconditioned patient who cannot exercise to exhaustion?",
         "options": [
-          "Anaerobic threshold",
           "Peak VO2",
           "Maximum heart rate",
           "Peak work rate in watts",
+          "Anaerobic threshold",
           "Peak respiratory exchange ratio"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Anaerobic threshold",
         "explanation": "The anaerobic threshold occurs at submaximal exercise and is derived from gas-exchange kinetics, making it effort-independent. This lets it be measured reliably even when a patient stops before reaching maximal exertion."
       },
@@ -1373,6 +1398,21 @@
         "correctIndex": 0,
         "answer": "Cardiac / circulatory limitation",
         "explanation": "A low, early-plateauing O2 pulse reflects a limited stroke volume, and a high VE/VCO2 slope indicates ventilatory inefficiency typical of heart failure. Preserved breathing reserve and oxygen saturation argue against a respiratory cause."
+      },
+      {
+        "id": "lf_musc_mg_q01",
+        "type": "mcq",
+        "question": "A woman with myasthenia gravis is admitted with worsening bulbar and limb weakness. Her FVC is falling on serial measurement though her SpO2 remains 97% on air. What is the most appropriate management?",
+        "options": [
+          "Reassure and discharge as her oxygen saturations are normal",
+          "Start high-dose inhaled corticosteroid",
+          "Escalate to critical care for airway support and give IVIG or plasma exchange",
+          "Arrange outpatient nerve conduction studies",
+          "Give a bronchodilator and repeat spirometry in a week"
+        ],
+        "correctIndex": 2,
+        "answer": "Escalate to critical care for airway support and give IVIG or plasma exchange",
+        "explanation": "In myasthenic crisis the falling serial FVC — not the SpO2, which drops late — signals impending ventilatory failure; escalate to ITU for airway/ventilatory support and treat the crisis with IVIG or plasma exchange."
       }
     ],
     "investigations__LUNG FUNCTION__Oxygenation & Respiratory Support": [
