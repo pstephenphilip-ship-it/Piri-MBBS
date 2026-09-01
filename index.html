@@ -13723,17 +13723,16 @@ function hideFlyout(p) {
     window.renderTopicList = function(p, topics, filter){
       _renderTopicList.call(this, p, topics, filter);
       var st = getState(p);
-      var items = [].slice.call(document.querySelectorAll('#topiclist-'+p+' .condition-item'));
-      var lockedOf = function(el){ return !isUnlocked(p, st.activeSystem, el.dataset.topic); };
-      // A padlock on every row carries no information — it only earns its place
-      // when it distinguishes locked rows from free ones. When the whole section
-      // is locked the dimming already says so, so the row markers are dropped.
-      var allLocked = items.length > 0 && items.every(lockedOf);
-      items.forEach(function(el){
-        var locked = lockedOf(el);
+      // Every locked row carries the padlock, including when the whole section is
+      // locked. It was briefly dropped in that case on the grounds that a marker
+      // on every row adds no information — but the padlock is what explains the
+      // dimming and shows a visitor that there is gated content here; dimming on
+      // its own just reads as disabled.
+      document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
+        var locked = !isUnlocked(p, st.activeSystem, el.dataset.topic);
         el.classList.toggle('da-locked-item', locked);
         var mini = el.querySelector('.da-lock-mini');
-        if(locked && !allLocked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
+        if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
         else if(mini){ mini.remove(); }
       });
     };
