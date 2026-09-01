@@ -359,6 +359,16 @@
         "id": "nc_sp_orexin_fc_05",
         "front": "Name the REM-dissociation symptoms seen in narcolepsy besides cataplexy.",
         "back": "Sleep paralysis and hypnagogic (sleep-onset) hallucinations, along with excessive daytime sleepiness."
+      },
+      {
+        "id": "nc_sp_narco_mgmt_fc_01",
+        "front": "Narcolepsy type 1 is confirmed (low CSF orexin) — what are the next steps?",
+        "back": "<b>Refer to sleep medicine</b>; sleep hygiene + scheduled naps, <b>modafinil</b> for excessive daytime sleepiness and <b>sodium oxybate</b> for cataplexy. Safety: <b>advise not to drive and to notify the DVLA</b> until symptoms are controlled."
+      },
+      {
+        "id": "nc_sp_cjd_mgmt_fc_01",
+        "front": "A positive RT-QuIC confirms probable CJD — what follows?",
+        "back": "There is <b>no cure</b>: <b>supportive/palliative care</b> with MDT input, maintain <b>prion precautions</b> (single-use or quarantined instruments) and <b>notify the national CJD surveillance unit</b>. Definitive diagnosis is neuropathological."
       }
     ]
   },
@@ -884,12 +894,12 @@
         "question": "A 62-year-old man develops progressive cognitive decline over 8 weeks with prominent startle-induced myoclonus. CSF is sent for prion diagnostics. Which finding is MOST specific for Creutzfeldt-Jakob disease?",
         "options": [
           "Raised CSF 14-3-3 protein",
-          "Positive CSF RT-QuIC",
           "Elevated CSF protein",
+          "Positive CSF RT-QuIC",
           "CSF lymphocytic pleocytosis",
           "Raised CSF lactate"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Positive CSF RT-QuIC",
         "explanation": "RT-QuIC directly detects misfolded prion protein by seeded aggregation and is highly specific (>98%) for CJD, making it a diagnostic criterion. The other findings are non-specific and 14-3-3 in particular rises in many causes of rapid neuronal loss."
       },
@@ -900,11 +910,11 @@
         "options": [
           "It is only positive in variant, not sporadic, CJD",
           "It becomes positive only at end-stage disease",
-          "It is also raised in stroke, encephalitis and other acute neuronal injury",
           "It requires brain biopsy to interpret",
-          "It is falsely lowered by blood contamination"
+          "It is falsely lowered by blood contamination",
+          "It is also raised in stroke, encephalitis and other acute neuronal injury"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "It is also raised in stroke, encephalitis and other acute neuronal injury",
         "explanation": "14-3-3 is a marker of rapid neuronal destruction and is therefore released in stroke, viral encephalitis, hypoxia and status epilepticus. This poor specificity means a positive result supports but cannot confirm CJD."
       },
@@ -929,12 +939,12 @@
         "question": "A 40-year-old presents with fever, confusion, dysphasia and a seizure. HSV encephalitis is suspected. What is the single most appropriate immediate management step?",
         "options": [
           "Await the CSF HSV PCR result before starting any antiviral",
-          "Start empirical IV aciclovir immediately",
           "Start oral valaciclovir and discharge with review",
           "Give IV dexamethasone alone",
+          "Start empirical IV aciclovir immediately",
           "Withhold treatment until MRI is performed"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Start empirical IV aciclovir immediately",
         "explanation": "HSV encephalitis is a treatable emergency where every hour of delay increases mortality and disability. Empirical IV aciclovir is started on clinical suspicion, and the CSF PCR serves only to confirm the diagnosis afterwards."
       },
@@ -943,13 +953,13 @@
         "type": "mcq",
         "question": "A patient with strong clinical and MRI features of HSV encephalitis has a CSF HSV PCR taken 18 hours after symptom onset that returns negative. What is the correct interpretation and action?",
         "options": [
+          "An early negative PCR does not exclude HSE; continue aciclovir and repeat the PCR",
           "HSV encephalitis is excluded; stop aciclovir",
           "The result confirms bacterial meningitis",
-          "An early negative PCR does not exclude HSE; continue aciclovir and repeat the PCR",
           "The lumbar puncture must have been technically failed",
           "Switch to oral aciclovir as the risk is now low"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "An early negative PCR does not exclude HSE; continue aciclovir and repeat the PCR",
         "explanation": "Viral DNA may be undetectable in the first 24-72 hours, giving false-negative PCR results. With ongoing clinical suspicion, aciclovir is continued and the PCR is repeated after 72 hours to a week."
       },
@@ -959,12 +969,12 @@
         "question": "Which CSF pattern is most consistent with herpes simplex encephalitis?",
         "options": [
           "Neutrophilic pleocytosis with very low glucose and very high protein",
-          "Lymphocytic pleocytosis with normal glucose and mildly raised protein",
           "Acellular CSF with markedly low glucose",
+          "Lymphocytic pleocytosis with normal glucose and mildly raised protein",
           "Eosinophilic pleocytosis with normal protein",
           "High neutrophils with normal protein and normal glucose"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Lymphocytic pleocytosis with normal glucose and mildly raised protein",
         "explanation": "HSV encephalitis produces a viral CSF picture of lymphocytic pleocytosis, mildly to moderately raised protein and normal glucose. Red cells may also be seen owing to the haemorrhagic temporal-lobe necrosis, whereas low glucose with neutrophils points to bacterial infection."
       },
@@ -973,13 +983,13 @@
         "type": "mcq",
         "question": "A 22-year-old with excessive daytime sleepiness and episodes of knee-buckling triggered by laughter has an equivocal MSLT. CSF orexin-A is measured at 55 pg/mL. What is the diagnosis?",
         "options": [
-          "Narcolepsy type 1",
           "Narcolepsy type 2",
           "Idiopathic hypersomnia",
           "Obstructive sleep apnoea",
-          "Kleine-Levin syndrome"
+          "Kleine-Levin syndrome",
+          "Narcolepsy type 1"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Narcolepsy type 1",
         "explanation": "A CSF orexin-A ≤ 110 pg/mL is diagnostic of narcolepsy type 1. The emotion-triggered loss of muscle tone describes cataplexy, the clinical hallmark of type 1."
       },
@@ -988,13 +998,13 @@
         "type": "mcq",
         "question": "Which HLA allele is most strongly associated with narcolepsy type 1?",
         "options": [
-          "HLA-DQB1*06:02",
           "HLA-B27",
+          "HLA-DQB1*06:02",
           "HLA-DR3",
           "HLA-B51",
           "HLA-DQ2"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "HLA-DQB1*06:02",
         "explanation": "Narcolepsy type 1 shows a very strong association with HLA-DQB1*06:02, consistent with an autoimmune mechanism destroying orexin neurons. This underlies the low CSF orexin that defines the condition."
       },
@@ -1003,15 +1013,30 @@
         "type": "mcq",
         "question": "In the diagnostic work-up of suspected narcolepsy, when is CSF orexin-A measurement most appropriately used?",
         "options": [
-          "When the MSLT result is equivocal or unreliable",
           "As the first-line screening test for all daytime sleepiness",
           "To monitor response to stimulant therapy",
           "To exclude obstructive sleep apnoea",
+          "When the MSLT result is equivocal or unreliable",
           "As a routine test before starting any sedative"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "When the MSLT result is equivocal or unreliable",
         "explanation": "CSF orexin measurement is invasive and reserved for cases where the MSLT is equivocal or cannot be reliably interpreted. The MSLT with prior polysomnography remains the usual first-line investigation."
+      },
+      {
+        "id": "nc_sp_narco_q01",
+        "type": "mcq",
+        "question": "A 22-year-old is diagnosed with narcolepsy type 1 after a low CSF orexin and positive MSLT. Besides referral to sleep medicine, which advice is essential?",
+        "options": [
+          "Advise not to drive and to notify the DVLA until symptoms are controlled",
+          "No restrictions are needed",
+          "Start lifelong anticoagulation",
+          "Avoid all caffeine permanently",
+          "Arrange a CT head"
+        ],
+        "correctIndex": 0,
+        "answer": "Advise not to drive and to notify the DVLA until symptoms are controlled",
+        "explanation": "Excessive daytime sleepiness impairs driving safety, so a patient with symptomatic narcolepsy must be advised not to drive and to notify the DVLA until symptoms are controlled. Management otherwise includes modafinil for sleepiness and sodium oxybate for cataplexy."
       }
     ]
   }
