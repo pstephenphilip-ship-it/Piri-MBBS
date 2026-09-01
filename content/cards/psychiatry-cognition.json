@@ -99,6 +99,21 @@
         "id": "psy_ybocs_fc_05",
         "front": "First-line treatment for OCD?",
         "back": "CBT with exposure and response prevention (ERP) and/or an SSRI, often at higher doses and for longer than in depression."
+      },
+      {
+        "id": "psy_ybocs_mgmt_fc_01",
+        "front": "Map Y-BOCS severity to management (NICE).",
+        "back": "<b>Mild (8–15)</b>: CBT with ERP. <b>Moderate (16–23)</b>: SSRI or intensive CBT/ERP. <b>Severe/extreme (≥24)</b>: <b>combined SSRI + CBT/ERP + specialist OCD referral</b>."
+      },
+      {
+        "id": "psy_ybocs_drug_fc_01",
+        "front": "What is the drug treatment of OCD, including the second-line agent and trial length?",
+        "back": "<b>SSRI first-line</b>, often at higher dose with a longer trial — judge response at <b>~12 weeks</b>. If ineffective/not tolerated, <b>clomipramine</b> (TCA) is second-line."
+      },
+      {
+        "id": "psy_ybocs_erp_fc_01",
+        "front": "What is exposure and response prevention (ERP)?",
+        "back": "Graded <b>exposure</b> to the feared stimulus while <b>preventing the compulsive response</b>, allowing the anxiety to habituate without performing the ritual — the core psychological treatment for OCD."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__EPDS / Whooley (Postnatal Depression)": [
@@ -126,6 +141,16 @@
         "id": "psy_epds_fc_05",
         "front": "What features suggest postpartum psychosis and how is it managed?",
         "back": "Abrupt onset within days to 2 weeks of delivery with confusion, mania, fluctuating mood, delusions/hallucinations, or thoughts of harming self or baby. It is a psychiatric emergency needing same-day specialist assessment and usually admission to a mother-and-baby unit."
+      },
+      {
+        "id": "psy_epds_treat_fc_01",
+        "front": "How is postnatal depression treated, and which antidepressant is preferred in breastfeeding?",
+        "back": "Mild → guided self-help/CBT in primary care; moderate–severe → specialist perinatal MH referral + an SSRI. <b>Sertraline is the preferred SSRI in a breastfeeding mother</b> (low breast-milk transfer)."
+      },
+      {
+        "id": "psy_epds_ppp_fc_01",
+        "front": "Who is at highest risk of puerperal psychosis, and what follows?",
+        "back": "Women with <b>bipolar disorder</b>, a <b>previous puerperal psychosis</b>, or a family history (recurrence ~1 in 2). They should have <b>antenatal perinatal mental-health planning</b>; puerperal psychosis itself is a same-day emergency (MBU admission)."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__SCOFF (Eating Disorders)": [
@@ -428,10 +453,10 @@
           "Subclinical",
           "Mild",
           "Moderate",
-          "Severe",
-          "Extreme"
+          "Extreme",
+          "Severe"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Severe",
         "explanation": "A score of 24-31 corresponds to severe OCD. Scores of 32-40 would indicate extreme OCD, and 16-23 moderate."
       },
@@ -441,14 +466,44 @@
         "question": "Which statement about the Y-BOCS is correct?",
         "options": [
           "It establishes the diagnosis of OCD",
-          "It provides a formal suicide risk assessment",
           "It rates the severity of OCD independently of symptom content",
+          "It provides a formal suicide risk assessment",
           "It scores only compulsions, not obsessions",
           "It is a patient-completed depression screen"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "It rates the severity of OCD independently of symptom content",
         "explanation": "The Y-BOCS is a clinician-administered severity scale that grades OCD regardless of the specific obsessions or compulsions. It is not diagnostic and does not assess risk, so depression and suicidality must be evaluated separately."
+      },
+      {
+        "id": "psy_ybocs_mgmt_q01",
+        "type": "mcq",
+        "question": "A patient has a Y-BOCS of 28 (severe OCD). What is the most appropriate management?",
+        "options": [
+          "Reassurance and review in 6 months",
+          "Low-intensity guided self-help alone",
+          "A regular benzodiazepine",
+          "Combined SSRI and CBT with ERP, plus referral to specialist OCD services",
+          "No treatment as Y-BOCS is only a research tool"
+        ],
+        "correctIndex": 3,
+        "answer": "Combined SSRI and CBT with ERP, plus referral to specialist OCD services",
+        "explanation": "Severe/extreme OCD (Y-BOCS ≥24) warrants combined treatment — an SSRI plus CBT with ERP — and referral to specialist OCD services. Self-help alone is for mild disease; benzodiazepines are not a treatment for OCD."
+      },
+      {
+        "id": "psy_ybocs_drug_q01",
+        "type": "mcq",
+        "question": "How long should an SSRI be trialled in OCD before judging response?",
+        "options": [
+          "About 12 weeks",
+          "About 1 week",
+          "About 3 days",
+          "About 6 months minimum",
+          "It works within 48 hours"
+        ],
+        "correctIndex": 0,
+        "answer": "About 12 weeks",
+        "explanation": "OCD often needs higher SSRI doses and a longer trial than depression — response is judged at around 12 weeks. Clomipramine is the second-line agent if an SSRI is ineffective or not tolerated."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__EPDS / Whooley (Postnatal Depression)": [
@@ -458,12 +513,12 @@
         "question": "A woman is 5 days postpartum. Her partner reports she is suddenly confused, elated with pressured speech, expressing bizarre delusional beliefs about the baby, and not sleeping. What is the most appropriate action?",
         "options": [
           "Reassure that this is normal baby blues and review in one week",
-          "Arrange same-day specialist perinatal mental-health assessment",
           "Ask her to complete the EPDS and refer routinely if it is above 13",
+          "Arrange same-day specialist perinatal mental-health assessment",
           "Start a low-dose SSRI and review in the community in four weeks",
           "Advise the third Whooley help question and offer self-referral to talking therapy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Arrange same-day specialist perinatal mental-health assessment",
         "explanation": "Abrupt onset within days of delivery with confusion, mania, and delusions is postpartum psychosis, a psychiatric emergency. It requires same-day specialist assessment and usually admission, ideally to a mother-and-baby unit."
       },
@@ -473,12 +528,12 @@
         "question": "Which statement best describes the scoring of the Edinburgh Postnatal Depression Scale?",
         "options": [
           "5 items each scored 0-4, total 0-20",
-          "10 items each scored 0-3, total 0-30, with a cut-off around 10-13",
           "9 items each scored 0-3, total 0-27, diagnostic of depression above 15",
           "2 yes/no questions with a third help question",
-          "21 items each scored 0-3, total 0-63"
+          "21 items each scored 0-3, total 0-63",
+          "10 items each scored 0-3, total 0-30, with a cut-off around 10-13"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "10 items each scored 0-3, total 0-30, with a cut-off around 10-13",
         "explanation": "The EPDS has 10 items each scored 0-3, giving a maximum of 30. A cut-off around 10-13 indicates possible depression warranting further assessment."
       },
@@ -496,6 +551,21 @@
         "correctIndex": 1,
         "answer": "The positive self-harm item mandates an urgent risk assessment despite the low total",
         "explanation": "EPDS item 10 asks about self-harm, and any positive answer overrides the total score. It requires an immediate risk assessment regardless of whether the overall total reaches the depression cut-off."
+      },
+      {
+        "id": "psy_epds_treat_q01",
+        "type": "mcq",
+        "question": "A breastfeeding mother has moderate postnatal depression needing an antidepressant. Which SSRI is preferred?",
+        "options": [
+          "Fluoxetine",
+          "Paroxetine is absolutely contraindicated",
+          "Any antidepressant must be avoided while breastfeeding",
+          "Sertraline",
+          "Citalopram is contraindicated"
+        ],
+        "correctIndex": 3,
+        "answer": "Sertraline",
+        "explanation": "Sertraline is the preferred SSRI in breastfeeding because of its low breast-milk levels. Antidepressants are not contraindicated in breastfeeding, and the treatment decision should weigh the benefits of treating depression against minimal infant exposure."
       }
     ],
     "investigations__PSYCHIATRY & COGNITION__SCOFF (Eating Disorders)": [
