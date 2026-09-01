@@ -606,6 +606,34 @@ body{display:flex;flex-direction:column;}
 .btn-annot-save{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
+/* ── Redesigned note card: light, colour-coded, reads first then edit on demand ── */
+.annot-popup.nc{background:#FFFFFF;border:1px solid #E7EAF1;border-radius:15px;padding:0;width:300px;box-shadow:0 1px 2px rgba(20,30,50,.05),0 18px 44px rgba(20,30,50,.22);overflow:hidden;color:#232C42;}
+.nc-accent{height:5px;background:var(--hl,#F0B429);}
+.nc-head{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 0 16px;}
+.nc-label{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8A93A6;}
+.nc-label .nc-dot{width:9px;height:9px;border-radius:3px;background:var(--hl,#F0B429);flex-shrink:0;}
+.nc-actions{display:flex;align-items:center;gap:2px;}
+.nc-edit{border:none;background:transparent;color:#586074;font-size:12.5px;font-weight:600;cursor:pointer;padding:5px 9px;border-radius:8px;display:flex;align-items:center;gap:6px;font-family:var(--sans);}
+.nc-edit:hover{background:#F1F3F7;color:#20283A;}
+.nc-x{width:28px;height:28px;border:none;background:transparent;color:#A6AEBF;font-size:15px;line-height:1;border-radius:8px;cursor:pointer;flex-shrink:0;}
+.nc-x:hover{background:#F1F3F7;color:#4A5064;}
+.nc-quote{margin:12px 16px 0;background:var(--hl-tint,#FCF3D9);color:#4a4636;border-left:3px solid var(--hl,#F0B429);border-radius:0 8px 8px 0;padding:8px 11px;font-size:12.5px;line-height:1.5;font-style:italic;word-break:break-word;}
+.nc-note{padding:14px 17px 18px;font-size:14.5px;line-height:1.7;color:#232C42;white-space:pre-wrap;word-break:break-word;max-height:min(50vh,340px);overflow:auto;}
+.nc-empty{padding:14px 17px 18px;font-size:14px;line-height:1.6;color:#98A2B6;font-style:italic;}
+.nc-sw{display:flex;gap:10px;padding:15px 16px 4px;}
+.nc-sw button{width:24px;height:24px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0;box-shadow:0 0 0 1px #E1E5EE;transition:transform .1s;}
+.nc-sw button:hover{transform:scale(1.12);}
+.nc-sw button.on{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--hl,#F0B429);}
+.nc-body{padding:8px 16px 0;}
+.nc-ta{width:100%;min-height:96px;max-height:min(52vh,420px);overflow:auto;background:#FBFBFD;border:1px solid #E7EAF1;border-radius:10px;color:#20283A;font-family:var(--sans);font-size:14px;line-height:1.65;padding:11px 12px;resize:vertical;outline:none;box-sizing:border-box;}
+.nc-ta:focus{border-color:var(--hl,#F0B429);}
+.nc-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 15px;gap:10px;}
+.nc-del{border:none;background:transparent;color:#C2543F;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
+.nc-del:hover{background:#FBE9E4;}
+.nc-cancel{border:none;background:transparent;color:#6B7280;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
+.nc-cancel:hover{background:#F1F3F7;color:#374151;}
+.nc-save{border:none;background:var(--accent,#00A892);color:#04211d;font-size:13.5px;font-weight:700;cursor:pointer;padding:9px 20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,168,146,.28);font-family:var(--sans);}
+.nc-save:hover{filter:brightness(1.06);}
 /* ── My Notes: floating button opens an inline side panel (main notes stay visible) ── */
 /* Shared sizing so My Notes / Review / Custom Mock buttons look identical */
 .annot-fab,.da-rv-fab,.mock-fab{width:150px;box-sizing:border-box;justify-content:flex-start;}
@@ -9609,19 +9637,28 @@ initTab('conditions');
 
   function showPopup(cx,cy){
     window.removeAnnotPopup();
+    var col=(window.__pendingColor||'yellow');
     var pop = document.createElement('div');
-    pop.id = 'annot-popup-el'; pop.className = 'annot-popup';
-    pop.style.left = Math.min(cx+10,window.innerWidth-295)+'px';
-    pop.style.top = Math.min(cy+10,window.innerHeight-240)+'px';
-    var qt = _pendingText.length>80 ? _pendingText.substring(0,80)+'...' : _pendingText;
-    var title = document.createElement('div'); title.className='annot-popup-title'; title.textContent='Add Personal Note';
-    var quote = document.createElement('div'); quote.className='annot-popup-quote'; quote.textContent='"'+qt+'"';
-    var ta = document.createElement('textarea'); ta.id='annot-pop-ta'; ta.placeholder='Type your note here...';
-    var btns = document.createElement('div'); btns.className='annot-popup-btns';
-    var sv = document.createElement('button'); sv.className='btn-annot-save'; sv.textContent='Save Note'; sv.onclick=window.annotCommit;
-    var cn = document.createElement('button'); cn.className='btn-annot-cancel'; cn.textContent='Cancel'; cn.onclick=window.removeAnnotPopup;
-    btns.appendChild(sv); btns.appendChild(cn);
-    pop.appendChild(title); pop.appendChild(quote); pop.appendChild(ta); pop.appendChild(annotWireImage(ta,'')); pop.appendChild(btns);
+    pop.id = 'annot-popup-el'; pop.className = 'annot-popup nc';
+    pop.style.setProperty('--hl', hlBorder(col)); pop.style.setProperty('--hl-tint', hlBg(col));
+    pop.style.left = Math.min(cx+10,window.innerWidth-315)+'px';
+    pop.style.top = Math.min(cy+10,window.innerHeight-260)+'px';
+    var qt = _pendingText.length>90 ? _pendingText.substring(0,90)+'…' : _pendingText;
+    var acc=document.createElement('div'); acc.className='nc-accent';
+    var head=document.createElement('div'); head.className='nc-head';
+    var label=document.createElement('span'); label.className='nc-label'; label.innerHTML='<span class="nc-dot"></span>New note';
+    var acts=document.createElement('div'); acts.className='nc-actions';
+    var x=document.createElement('button'); x.type='button'; x.className='nc-x'; x.setAttribute('aria-label','Close'); x.innerHTML='&times;'; x.onclick=window.removeAnnotPopup; acts.appendChild(x);
+    head.appendChild(label); head.appendChild(acts);
+    var quote = document.createElement('div'); quote.className='nc-quote'; quote.textContent='“'+qt+'”';
+    var body=document.createElement('div'); body.className='nc-body';
+    var ta = document.createElement('textarea'); ta.id='annot-pop-ta'; ta.className='nc-ta'; ta.placeholder='Type your note here…';
+    body.appendChild(ta); body.appendChild(annotWireImage(ta,''));
+    var foot = document.createElement('div'); foot.className='nc-foot';
+    var cn = document.createElement('button'); cn.type='button'; cn.className='nc-cancel'; cn.textContent='Cancel'; cn.onclick=window.removeAnnotPopup;
+    var sv = document.createElement('button'); sv.type='button'; sv.className='nc-save'; sv.textContent='Save note'; sv.onclick=window.annotCommit;
+    foot.appendChild(cn); foot.appendChild(sv);
+    pop.appendChild(acc); pop.appendChild(head); pop.appendChild(quote); pop.appendChild(body); pop.appendChild(foot);
     document.body.appendChild(pop);
     annotWireGrow(ta);
     // Follow the selected text as the page scrolls (capture the range before the textarea steals focus).
@@ -9660,47 +9697,61 @@ initTab('conditions');
     var annots=[]; try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
     var a=annots.filter(function(x){ return String(x.id)===String(aid); })[0];
     if(!a) return;
-    var pop=document.createElement('div'); pop.id='annot-popup-el'; pop.className='annot-popup';
-    var title=document.createElement('div'); title.className='annot-popup-title'; title.textContent=(a.note&&a.note.trim())?'Your Note':'Highlight';
-    var qt=(a.selectedText||''); if(qt.length>90) qt=qt.slice(0,90)+'…';
-    var quote=document.createElement('div'); quote.className='annot-popup-quote'; quote.textContent='“'+qt+'”';
-    // Colour-picker row — recolour the highlight in place, instantly
-    var colRow=document.createElement('div'); colRow.className='annot-popup-colors';
-    ANNOT_COLORS.forEach(function(c){
-      var sw=document.createElement('button'); sw.type='button'; sw.className='annot-swatch'+((a.color||'yellow')===c.key?' sel':'');
-      sw.title='Highlight ('+c.key+')'; sw.style.background=c.dot; sw.dataset.col=c.key;
-      sw.onclick=function(){ var arr=[]; try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-        var it=arr.filter(function(x){ return String(x.id)===String(aid); })[0];
-        if(it){ it.color=c.key; localStorage.setItem(key,JSON.stringify(arr)); a.color=c.key; }
-        colRow.querySelectorAll('.annot-swatch').forEach(function(s){ s.classList.toggle('sel', s.dataset.col===c.key); });
-        applyHighlights(p, arr);
-      };
-      colRow.appendChild(sw);
-    });
-    var ta=document.createElement('textarea'); ta.id='annot-pop-ta'; ta.value=a.note||''; ta.placeholder='Type your note here…';
-    var btns=document.createElement('div'); btns.className='annot-popup-btns';
-    var sv=document.createElement('button'); sv.className='btn-annot-save'; sv.textContent='Save';
-    sv.onclick=function(){ var v=ta.value.trim(); var arr=[]; try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-      var it=arr.filter(function(x){ return String(x.id)===String(aid); })[0]; if(it) it.note=v;
-      localStorage.setItem(key,JSON.stringify(arr)); window.removeAnnotPopup(); annotRender(p); };
-    var del=document.createElement('button'); del.className='btn-annot-cancel'; del.textContent='Delete'; del.style.color='var(--danger,#E0566B)';
-    del.onclick=function(){ var arr=[]; try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-      arr=arr.filter(function(x){ return String(x.id)!==String(aid); });
-      localStorage.setItem(key,JSON.stringify(arr)); window.removeAnnotPopup(); annotRender(p); };
-    var cn=document.createElement('button'); cn.className='btn-annot-cancel'; cn.textContent='Close'; cn.onclick=window.removeAnnotPopup;
-    btns.appendChild(sv); btns.appendChild(del); btns.appendChild(cn);
-    pop.appendChild(title); pop.appendChild(quote); pop.appendChild(colRow); pop.appendChild(ta); pop.appendChild(btns);
+    var pop=document.createElement('div'); pop.id='annot-popup-el'; pop.className='annot-popup nc';
+    function paintColor(){ pop.style.setProperty('--hl', hlBorder(a.color)); pop.style.setProperty('--hl-tint', hlBg(a.color)); }
+    paintColor();
+    // Read current array, mutate the matching note, persist. Returns the array.
+    function persist(fn){ var arr=[]; try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){} var it=arr.filter(function(x){return String(x.id)===String(aid);})[0]; if(it) fn(it, arr); try{ localStorage.setItem(key, JSON.stringify(arr)); }catch(e){} return arr; }
+    function place(){
+      if(document.getElementById('annot-popup-el')!==pop){ window.removeEventListener('scroll',place,true); window.removeEventListener('resize',place); return; }
+      var r=anchorEl.getBoundingClientRect(); var pw=pop.offsetWidth||300, ph=pop.offsetHeight||160;
+      var left=Math.max(8, Math.min(r.left, window.innerWidth-pw-12));
+      var top=r.bottom+8; if(top+ph > window.innerHeight-8) top=Math.max(8, r.top-ph-8);
+      pop.style.left=left+'px'; pop.style.top=top+'px';
+    }
+    function head(showEdit){
+      var hasNote=!!(a.note&&a.note.trim());
+      var h=document.createElement('div'); h.className='nc-head';
+      var label=document.createElement('span'); label.className='nc-label'; label.innerHTML='<span class="nc-dot"></span>'+(hasNote?'Note':'Highlight');
+      var act=document.createElement('div'); act.className='nc-actions';
+      if(showEdit){ var e=document.createElement('button'); e.type='button'; e.className='nc-edit'; e.innerHTML='<span>&#9998;</span>'+(hasNote?'Edit':'Add note'); e.onclick=function(){ render('edit'); }; act.appendChild(e); }
+      var x=document.createElement('button'); x.type='button'; x.className='nc-x'; x.setAttribute('aria-label','Close'); x.innerHTML='&times;'; x.onclick=window.removeAnnotPopup; act.appendChild(x);
+      h.appendChild(label); h.appendChild(act); return h;
+    }
+    function quoteEl(){ var qt=(a.selectedText||''); if(qt.length>90) qt=qt.slice(0,90)+'…'; var q=document.createElement('div'); q.className='nc-quote'; q.textContent='“'+qt+'”'; return q; }
+    function render(mode){
+      pop.innerHTML=''; paintColor();
+      var acc=document.createElement('div'); acc.className='nc-accent'; pop.appendChild(acc);
+      pop.appendChild(head(mode!=='edit'));
+      pop.appendChild(quoteEl());
+      if(mode!=='edit'){
+        if(a.note&&a.note.trim()){ var n=document.createElement('div'); n.className='nc-note'; n.textContent=a.note; pop.appendChild(n); }
+        else { var em=document.createElement('div'); em.className='nc-empty'; em.textContent='No note yet — tap “Add note” to write one.'; pop.appendChild(em); }
+        place(); return;
+      }
+      // ---- edit mode: colour swatches + textarea + Save/Delete ----
+      var sw=document.createElement('div'); sw.className='nc-sw';
+      ANNOT_COLORS.forEach(function(c){
+        var b=document.createElement('button'); b.type='button'; b.className=((a.color||'yellow')===c.key?'on':''); b.style.background=c.dot; b.dataset.col=c.key; b.title='Highlight ('+c.key+')';
+        b.onclick=function(){ a.color=c.key; var arr=persist(function(it){ it.color=c.key; }); paintColor(); applyHighlights(p, arr); sw.querySelectorAll('button').forEach(function(s){ s.classList.toggle('on', s.dataset.col===c.key); }); };
+        sw.appendChild(b);
+      });
+      pop.appendChild(sw);
+      var body=document.createElement('div'); body.className='nc-body';
+      var ta=document.createElement('textarea'); ta.id='annot-pop-ta'; ta.className='nc-ta'; ta.value=a.note||''; ta.placeholder='Type your note here…';
+      body.appendChild(ta); pop.appendChild(body);
+      var foot=document.createElement('div'); foot.className='nc-foot';
+      var del=document.createElement('button'); del.type='button'; del.className='nc-del'; del.textContent='Delete';
+      del.onclick=function(){ persist(function(it,arr){ var i=arr.indexOf(it); if(i>=0) arr.splice(i,1); }); window.removeAnnotPopup(); annotRender(p); };
+      var save=document.createElement('button'); save.type='button'; save.className='nc-save'; save.textContent='Save note';
+      save.onclick=function(){ a.note=ta.value.trim(); persist(function(it){ it.note=a.note; }); window.removeAnnotPopup(); annotRender(p); };
+      foot.appendChild(del); foot.appendChild(save); pop.appendChild(foot);
+      annotWireGrow(ta); place(); setTimeout(function(){ ta.focus(); },40);
+    }
     document.body.appendChild(pop);
-    annotWireGrow(ta);   // open the box tall enough for the existing note, before we measure/position
-    // position next to the highlight (viewport-relative, matching position:fixed)
-    var r=anchorEl.getBoundingClientRect();
-    var pw=pop.offsetWidth||280, ph=pop.offsetHeight||200;
-    var left=Math.max(8, Math.min(r.left, window.innerWidth-pw-12));
-    var top=r.bottom+8; if(top+ph > window.innerHeight-8) top=Math.max(8, r.top-ph-8);
-    pop.style.left=left+'px'; pop.style.top=top+'px';
-    annotFollowAnchor(pop, function(){ return anchorEl.getBoundingClientRect(); });  // scroll with the highlight
-    setTimeout(function(){ ta.focus(); },40);
-    // dismiss on outside click
+    render('read');   // read-first; Edit reveals the controls
+    window.addEventListener('scroll', place, true); window.addEventListener('resize', place);
+    // dismiss on outside click (but not when clicking the highlight itself)
     setTimeout(function(){ document.addEventListener('mousedown', function h(ev){
       var el=document.getElementById('annot-popup-el');
       if(!el){ document.removeEventListener('mousedown',h); return; }
