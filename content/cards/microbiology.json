@@ -449,6 +449,21 @@
 "id": "mgc_fc_05",
 "front": "Two public-health actions required once meningococcal disease is suspected/confirmed?",
 "back": "Notify public health (notifiable disease) and arrange contact prophylaxis (e.g. ciprofloxacin) for close contacts."
+},
+{
+"id": "vl_fc_01",
+"front": "What does a quantitative viral load (HIV RNA, HBV DNA, HCV RNA) tell you?",
+"back": "A number (copies or IU/mL) you <b>trend</b> to monitor treatment: <b>falling/undetectable</b> = response (HIV undetectable = untransmissible); <b>rising</b> = treatment failure, resistance or non-adherence."
+},
+{
+"id": "vl_fc_02",
+"front": "What is the exception to \"PCR gives no antibiotic sensitivities\"?",
+"back": "PCR can detect <b>specific resistance genes</b> it targets — <b>rifampicin resistance</b> (GeneXpert MTB/RIF) and <b>mecA</b> (MRSA screen) — but still gives no full phenotypic susceptibilities."
+},
+{
+"id": "vl_fc_03",
+"front": "A C. difficile PCR (or GDH) is positive but the toxin EIA is negative in a patient with diarrhoea. What does this mean?",
+"back": "PCR/GDH detects the toxin <b>gene/organism</b> = <b>carriage, not disease</b>. Diagnose active CDI only when the <b>toxin EIA</b> is positive in a symptomatic patient — do not treat on PCR alone."
 }
 ],
 "investigations__MICROBIOLOGY__TB, Atypicals & Sensitivity": [
@@ -576,6 +591,21 @@
 "id": "mic_fc_05",
 "front": "Give three reasons an organism reported \"Susceptible\" in vitro may still fail to cure the patient.",
 "back": "1) Poor antibiotic penetration to the infection site (CNS, bone, prostate, biofilm). 2) Lack of source control (undrained abscess, infected line/device). 3) Wrong drug-bug-site match (e.g. daptomycin inactivated by pulmonary surfactant in pneumonia). Failure to de-escalate/dose correctly also matters."
+},
+{
+"id": "tbx_fc_01",
+"front": "Why is IGRA preferred over Mantoux for screening a BCG-vaccinated TB contact?",
+"back": "IGRA uses TB-specific antigens (<b>ESAT-6/CFP-10</b>) absent from BCG, so it is <b>not affected by prior BCG</b>. Mantoux (read at 48–72h as induration) can be BCG false-positive; both can be false-negative in immunosuppression/miliary TB."
+},
+{
+"id": "tbx_fc_02",
+"front": "Give the classic result patterns for extrapulmonary TB.",
+"back": "Pleural/ascitic fluid &amp; CSF: <b>raised ADA</b>. TB meningitis CSF: <b>lymphocytic, high protein, low glucose</b>. Renal TB: <b>sterile pyuria</b> → send early-morning urine for AFB. Lymph node: <b>caseating granuloma</b>."
+},
+{
+"id": "tbx_fc_03",
+"front": "What baseline investigations are needed before starting RIPE therapy?",
+"back": "<b>Baseline LFTs</b> (rifampicin/isoniazid/pyrazinamide hepatotoxicity) and <b>visual acuity + colour vision</b> (ethambutol optic neuritis); check renal function; consider DOT. Also <b>offer an HIV test to every TB patient</b>."
 }
 ]
 },
@@ -1176,12 +1206,12 @@
 "question": "A 3-year-old with vomiting and watery diarrhoea has a stool multiplex PCR panel that returns positive for norovirus. Ten days later the child is clinically well and back to normal, but a repeat stool PCR (sent before school return) is still positive for norovirus. What is the most likely explanation?",
 "options": [
 "Ongoing active norovirus infection requiring isolation until symptom-free for 14 days",
-"Prolonged viral shedding of nucleic acid after clinical recovery",
 "A false-positive result from cross-reaction with rotavirus primers",
+"Prolonged viral shedding of nucleic acid after clinical recovery",
 "Secondary bacterial superinfection masking as norovirus",
 "Chronic norovirus carriage causing an immunodeficiency syndrome"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Prolonged viral shedding of nucleic acid after clinical recovery",
 "explanation": "PCR detects nucleic acid, not viable virus. Norovirus (like SARS-CoV-2) is well recognised to shed detectable RNA for days to weeks after symptoms resolve. A persistent positive in a well child reflects shedding, not ongoing active disease, and does not by itself mandate continued exclusion. It is not a cross-reaction artefact or evidence of superinfection/immunodeficiency."
 },
@@ -1191,12 +1221,12 @@
 "question": "A 68-year-old man is admitted with sepsis and a suspected respiratory source. A rapid respiratory PCR panel is positive for influenza A. Which single statement best reflects correct use and limitation of this result?",
 "options": [
 "The panel result gives the antibiotic sensitivities needed to guide therapy",
-"A positive influenza A result should prompt isolation/cohorting and consideration of oseltamivir, but gives no bacterial susceptibilities",
 "Culture is now unnecessary because PCR is more sensitive than culture in every situation",
 "The positive PCR excludes any bacterial co-infection",
-"Antivirals should be withheld until viral culture confirms viability"
+"Antivirals should be withheld until viral culture confirms viability",
+"A positive influenza A result should prompt isolation/cohorting and consideration of oseltamivir, but gives no bacterial susceptibilities"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "A positive influenza A result should prompt isolation/cohorting and consideration of oseltamivir, but gives no bacterial susceptibilities",
 "explanation": "Rapid respiratory PCR guides infection control (isolation/cohorting) and antiviral decisions (oseltamivir for influenza). However, panels provide no antibiotic susceptibility data, and a viral positive does not exclude bacterial co-infection — culture is still needed where susceptibilities or bacteraemia matter. Waiting for viral culture would inappropriately delay antivirals."
 },
@@ -1206,12 +1236,12 @@
 "question": "Compared with conventional bacterial culture, which of the following is the principal advantage that culture still holds over a multiplex PCR panel?",
 "options": [
 "Faster turnaround time",
-"Ability to detect non-culturable organisms",
 "Provision of antimicrobial susceptibility testing",
+"Ability to detect non-culturable organisms",
 "Higher analytical sensitivity for viral pathogens",
 "Simultaneous detection of many targets from one sample"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Provision of antimicrobial susceptibility testing",
 "explanation": "PCR panels are faster, highly sensitive, multi-target, and can detect fastidious/non-culturable organisms — all advantages over culture. The one thing culture still provides that PCR does not is antimicrobial susceptibility (sensitivity) testing on a viable isolate, which is why culture remains necessary when guiding targeted therapy."
 },
@@ -1221,12 +1251,12 @@
 "question": "A 22-year-old man attends the sexual health clinic worried about urethral discharge after unprotected sex. Which sample is the preferred specimen for chlamydia and gonorrhoea NAAT?",
 "options": [
 "Midstream urine",
-"First-catch (first-void) urine",
 "Vulvovaginal swab",
 "Blood for serology",
+"First-catch (first-void) urine",
 "Rectal swab only"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "First-catch (first-void) urine",
 "explanation": "In men the first-catch urine is the preferred NAAT sample as the first fraction carries the highest organism load; a midstream sample is used for urinary tract infection, not STI NAAT. Vulvovaginal swab is the sample of choice in women. Serology has no role in acute chlamydia/gonorrhoea diagnosis."
 },
@@ -1235,13 +1265,13 @@
 "type": "mcq",
 "question": "A 25-year-old woman has a positive gonorrhoea NAAT from a vulvovaginal swab. What is the most important additional microbiological step before starting antibiotics?",
 "options": [
-"Repeat the NAAT to confirm",
 "Take a culture (charcoal swab) for antimicrobial sensitivities",
+"Repeat the NAAT to confirm",
 "Send blood cultures",
 "Start empirical doxycycline immediately",
 "Request gonococcal serology"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Take a culture (charcoal swab) for antimicrobial sensitivities",
 "explanation": "NAAT confirms the diagnosis but provides no antibiotic sensitivities. Because of rising gonococcal resistance, a culture on a charcoal swab must be taken before treatment to allow sensitivity testing and guide/confirm therapy (IM ceftriaxone). Repeating the NAAT and serology do not give sensitivities."
 },
@@ -1266,12 +1296,12 @@
 "question": "A 4-year-old with known atopic eczema presents with a 2-day history of fever and a rapidly spreading rash of clustered, monomorphic, punched-out erosions over the face and flexures. He is miserable and off his feeds. Which is the single most appropriate immediate management step?",
 "options": [
 "Take a viral PCR swab and await the result before starting any antiviral therapy",
-"Start empirical aciclovir immediately and take a viral PCR swab from a deroofed vesicle",
 "Apply a potent topical corticosteroid to settle the eczema flare",
 "Prescribe oral flucloxacillin alone and review in 48 hours",
-"Reassure and advise emollients, as this is a routine eczema exacerbation"
+"Reassure and advise emollients, as this is a routine eczema exacerbation",
+"Start empirical aciclovir immediately and take a viral PCR swab from a deroofed vesicle"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Start empirical aciclovir immediately and take a viral PCR swab from a deroofed vesicle",
 "explanation": "This is eczema herpeticum, a dermatological emergency due to disseminated HSV. Aciclovir must be started empirically without waiting for the PCR result; the swab confirms the diagnosis. Watch for bacterial superinfection. Topical steroids alone or antibiotics alone are inadequate, and delaying treatment for the result is dangerous."
 },
@@ -1296,12 +1326,12 @@
 "question": "A 68-year-old presents with a 3-day fever, progressive confusion, and a witnessed seizure. MRI suggests temporal lobe involvement. Regarding CSF HSV PCR, which statement is correct?",
 "options": [
 "IV aciclovir should be withheld until the CSF HSV PCR result returns",
-"Empirical IV aciclovir should be started immediately, without waiting for the PCR",
 "A negative Tzanck smear reliably excludes HSV encephalitis",
 "CSF HSV PCR is unhelpful and lumbar puncture should be avoided entirely",
+"Empirical IV aciclovir should be started immediately, without waiting for the PCR",
 "Oral aciclovir is sufficient once the PCR confirms HSV"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Empirical IV aciclovir should be started immediately, without waiting for the PCR",
 "explanation": "HSV encephalitis is a life-threatening emergency. CSF HSV PCR is the confirmatory investigation, but empirical IV aciclovir must be started immediately as delay increases mortality and morbidity. The test does not replace clinical urgency, a Tzanck smear plays no role, and oral therapy is inadequate for encephalitis."
 },
@@ -1310,13 +1340,13 @@
 "type": "mcq",
 "question": "A 4-year-old is brought in with fever, drowsiness and a spreading non-blanching purpuric rash. The GP gave IM benzylpenicillin 90 minutes ago. In hospital he receives IV ceftriaxone and is resuscitated. Blood cultures and CSF culture are subsequently reported as no growth. Which investigation is most likely to confirm the causative organism?",
 "options": [
-"Repeat blood cultures off antibiotics",
 "EDTA blood and CSF meningococcal/pneumococcal PCR",
+"Repeat blood cultures off antibiotics",
 "CSF Gram stain only",
 "Serum procalcitonin",
 "Throat swab culture"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "EDTA blood and CSF meningococcal/pneumococcal PCR",
 "explanation": "Pre-hospital and hospital antibiotics rapidly sterilise cultures, producing culture-negative disease. PCR detects bacterial DNA and remains positive after antibiotics, so it is the best test to confirm the organism retrospectively. Repeating cultures off antibiotics is unsafe and low-yield; Gram stain is often negative post-antibiotics; procalcitonin and throat swab do not confirm the pathogen."
 },
@@ -1326,12 +1356,12 @@
 "question": "A CSF meningococcal PCR returns positive with serogroup B in a confirmed case of meningococcal sepsis. Which statement about this result is correct?",
 "options": [
 "It provides antibiotic sensitivities to guide definitive therapy",
-"It should prompt notification to public health and contact prophylaxis",
 "A positive PCR means culture must have also been positive",
+"It should prompt notification to public health and contact prophylaxis",
 "It excludes pneumococcal co-infection definitively",
 "It replaces the need to give antibiotics"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "It should prompt notification to public health and contact prophylaxis",
 "explanation": "Meningococcal disease is notifiable; a positive PCR with serogroup drives public-health action and contact prophylaxis (e.g. ciprofloxacin), and informs vaccination. PCR gives no sensitivities (culture needed for that), can be positive when culture is negative, does not exclude other pathogens, and antibiotics must always be given at first suspicion."
 },
@@ -1342,13 +1372,28 @@
 "options": [
 "PCR is cheaper than culture",
 "PCR provides full antibiotic susceptibility data",
-"PCR remains positive after antibiotics have been administered",
 "PCR can be performed at the bedside in minutes",
-"PCR requires no laboratory processing"
+"PCR requires no laboratory processing",
+"PCR remains positive after antibiotics have been administered"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "PCR remains positive after antibiotics have been administered",
 "explanation": "Because antibiotics are given immediately (never delayed for LP), cultures are frequently sterile. PCR detects DNA and stays positive post-antibiotics, so it confirms the organism when culture cannot. PCR does not give susceptibilities, is not a bedside test, and still requires lab processing; cost is not the reason."
+},
+{
+"id": "vl_q01",
+"type": "mcq",
+"question": "A patient on antiretroviral therapy has a rising HIV RNA viral load after months of being undetectable. What does this most likely indicate?",
+"options": [
+"A cure of the infection",
+"Treatment failure from resistance or non-adherence",
+"Laboratory contamination",
+"Normal immune reconstitution",
+"That the assay is qualitative only"
+],
+"correctIndex": 1,
+"answer": "Treatment failure from resistance or non-adherence",
+"explanation": "The viral load is a quantitative marker trended over time: undetectable indicates good response (and untransmissibility), while a rising load signals treatment failure — resistance or, commonly, poor adherence — and prompts review."
 }
 ],
 "investigations__MICROBIOLOGY__TB, Atypicals & Sensitivity": [
@@ -1358,12 +1403,12 @@
 "question": "A 34-year-old man with 6 weeks of cough, weight loss and night sweats has a chest X-ray showing a right upper-lobe cavity. Three sputum samples are sent. The AFB smear (Ziehl-Neelsen) is reported as NEGATIVE. What is the most appropriate next step?",
 "options": [
 "Reassure the patient that pulmonary TB is excluded and discharge",
-"Continue full investigation for active TB (culture and NAAT) and manage as suspected infectious TB with isolation",
 "Perform a Mantoux test to confirm active tuberculosis",
+"Continue full investigation for active TB (culture and NAAT) and manage as suspected infectious TB with isolation",
 "Repeat the chest X-ray in 6 weeks before any further action",
 "Start broad-spectrum antibiotics for community-acquired pneumonia only"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Continue full investigation for active TB (culture and NAAT) and manage as suspected infectious TB with isolation",
 "explanation": "AFB smear has low sensitivity (needs ~10,000 bacilli/mL), so a negative smear does NOT exclude TB. With a classic history and a cavitating upper-lobe lesion, TB remains highly likely: send culture (gold standard) and NAAT/GeneXpert, isolate, and treat as suspected infectious TB. Mantoux tests latent infection, not active disease, and cannot confirm active TB."
 },
@@ -1374,11 +1419,11 @@
 "options": [
 "It confirms the patient has latent rather than active TB",
 "It indicates the smear must have been falsely positive",
-"It is a surrogate marker for multi-drug-resistant TB (MDR-TB) and should prompt specialist regimen adjustment and infection control",
 "It means the culture will be negative",
-"It rules out the need for drug-susceptibility testing on culture"
+"It rules out the need for drug-susceptibility testing on culture",
+"It is a surrogate marker for multi-drug-resistant TB (MDR-TB) and should prompt specialist regimen adjustment and infection control"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "It is a surrogate marker for multi-drug-resistant TB (MDR-TB) and should prompt specialist regimen adjustment and infection control",
 "explanation": "GeneXpert detects rpoB mutations conferring rifampicin resistance, which is used as a surrogate marker for MDR-TB (resistance to at least rifampicin and isoniazid). This rapid flag guides early escalation to a specialist regimen and reinforces infection-control measures. Full culture-based drug-susceptibility testing is still performed to define the complete resistance profile."
 },
@@ -1403,12 +1448,12 @@
 "question": "A 68-year-old man is admitted with severe community-acquired pneumonia after returning from a hotel spa holiday. He is confused, has profuse diarrhoea, sodium 126 mmol/L and ALT 180 U/L. His Legionella urinary antigen test is negative. What is the single most appropriate interpretation and action?",
 "options": [
 "A negative test reliably excludes Legionella, so continue amoxicillin alone",
-"The test only detects L. pneumophila serogroup 1, so Legionella is not excluded — cover with a macrolide or quinolone",
 "Repeat the pneumococcal antigen instead, as Legionella is now ruled out",
 "Stop all antibiotics as no pathogen has been confirmed",
+"The test only detects L. pneumophila serogroup 1, so Legionella is not excluded — cover with a macrolide or quinolone",
 "Switch to a beta-lactam alone as it adequately covers Legionella"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "The test only detects L. pneumophila serogroup 1, so Legionella is not excluded — cover with a macrolide or quinolone",
 "explanation": "The Legionella urinary antigen detects serogroup 1 ONLY, so a negative result does not exclude infection with other serogroups/species. With a highly suggestive picture (severe CAP, hyponatraemia, deranged LFTs, diarrhoea, confusion, spa exposure) empirical atypical cover with a macrolide or fluoroquinolone is essential — beta-lactams alone do not cover Legionella. Legionnaires' is also notifiable."
 },
@@ -1417,13 +1462,13 @@
 "type": "mcq",
 "question": "A patient with moderate CAP was started on antibiotics 48 hours ago before samples were taken; blood and sputum cultures are now negative. Which investigation is most likely to still identify a causative organism?",
 "options": [
+"Urinary antigen tests for pneumococcus and Legionella",
 "Repeat blood cultures",
 "Sputum Gram stain and culture",
-"Urinary antigen tests for pneumococcus and Legionella",
 "Serum procalcitonin",
 "Full blood count and CRP"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Urinary antigen tests for pneumococcus and Legionella",
 "explanation": "The defining advantage of urinary antigen tests is that they remain positive after antibiotics have been started, whereas cultures are rapidly rendered negative. Procalcitonin and CRP are non-specific inflammatory markers and do not identify an organism."
 },
@@ -1448,12 +1493,12 @@
 "question": "A 22-year-old, previously well student presents with 10 days of gradually worsening dry cough, malaise and low-grade fever. Chest X-ray shows patchy bilateral consolidation that appears more extensive than his relatively mild clinical state. Bloods show a mild anaemia with jaundice, and the FBC analyser flags red-cell clumping. Which single investigation would best confirm the underlying respiratory pathogen?",
 "options": [
 "Cold agglutinin titre",
-"Mycoplasma PCR of a respiratory sample",
 "Sputum Gram stain and culture",
 "Blood film for red-cell agglutination",
-"Direct antiglobulin (Coombs) test"
+"Direct antiglobulin (Coombs) test",
+"Mycoplasma PCR of a respiratory sample"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Mycoplasma PCR of a respiratory sample",
 "explanation": "The picture is atypical pneumonia with a cold AIHA, strongly suggesting Mycoplasma. Cold agglutinins and a blood film are non-specific supportive clues only and can be positive in EBV/lymphoproliferative disease. Gram stain/culture is unreliable as Mycoplasma has no cell wall and is not easily cultured. Confirmation is by Mycoplasma serology (paired titres) or PCR, of which PCR is the single best rapid confirmatory test here."
 },
@@ -1479,11 +1524,11 @@
 "options": [
 "It is specific for Mycoplasma pneumoniae and confirms the diagnosis",
 "It excludes EBV as a cause of the illness",
-"It is a non-specific supportive clue that can also occur in EBV and lymphoproliferative disease",
 "It indicates warm autoimmune haemolytic anaemia",
+"It is a non-specific supportive clue that can also occur in EBV and lymphoproliferative disease",
 "It rules out any need for antibiotic treatment"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "It is a non-specific supportive clue that can also occur in EBV and lymphoproliferative disease",
 "explanation": "Cold agglutinins are a classic but non-specific and largely historical clue to Mycoplasma. They are IgM antibodies causing a cold (not warm) AIHA and can also be positive in EBV, other infections and lymphoproliferative disease, so they neither confirm Mycoplasma nor exclude other causes. Confirmation requires serology or PCR."
 },
@@ -1492,13 +1537,13 @@
 "type": "mcq",
 "question": "A 34-year-old man with epigastric pain is being investigated for H. pylori. He has been taking omeprazole 20 mg daily for the last 3 weeks. His GP requests a urea breath test. What is the most appropriate advice?",
 "options": [
-"Proceed with the breath test today as PPIs do not affect the result",
 "Stop the omeprazole for at least 2 weeks before the breath test",
+"Proceed with the breath test today as PPIs do not affect the result",
 "Perform serology instead as it is unaffected by PPIs",
 "Start eradication therapy empirically without any test",
 "Switch to an H2-receptor antagonist and test the same day"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "Stop the omeprazole for at least 2 weeks before the breath test",
 "explanation": "PPIs suppress H. pylori and cause false-negative urea breath, stool antigen and CLO tests. PPIs should be stopped for at least 2 weeks (and antibiotics/bismuth for at least 4 weeks) before testing. Serology is not recommended as it cannot distinguish current from past infection."
 },
@@ -1508,12 +1553,12 @@
 "question": "A 41-year-old woman completed 7 days of triple therapy (PPI + amoxicillin + clarithromycin) for a duodenal ulcer 6 weeks ago. Her GP wants to confirm eradication. Which is the most appropriate test of cure?",
 "options": [
 "Serology for H. pylori IgG antibodies",
-"Urea breath test",
 "Repeat OGD with CLO test as first choice",
+"Urea breath test",
 "Full blood count and CRP",
 "Fasting gastrin level"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Urea breath test",
 "explanation": "The urea breath test (or stool antigen test) is the preferred non-invasive test of cure, performed at least 4–8 weeks after completing eradication therapy. Serology is inappropriate because antibodies remain positive after successful eradication. Endoscopy is invasive and not required as first-line test of cure here."
 },
@@ -1524,11 +1569,11 @@
 "options": [
 "Non-invasive H. pylori stool antigen test and treat if positive",
 "Empirical triple eradication therapy",
-"Urgent (2-week-wait) upper GI endoscopy",
 "Trial of over-the-counter antacids and review in 3 months",
-"Serology for H. pylori and PPI trial"
+"Serology for H. pylori and PPI trial",
+"Urgent (2-week-wait) upper GI endoscopy"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Urgent (2-week-wait) upper GI endoscopy",
 "explanation": "Alarm features — age ≥55 with new persistent dyspepsia, weight loss and GI bleeding (melaena) — mandate an urgent 2-week-wait upper GI endoscopy to exclude malignancy, rather than a test-and-treat strategy. H. pylori testing is reserved for uninvestigated dyspepsia without alarm features."
 },
@@ -1554,11 +1599,11 @@
 "options": [
 "The EUCAST breakpoint was set too low",
 "The organism must have been mis-identified by the laboratory",
-"Poor antibiotic penetration into bone at the site of infection",
 "Susceptibility testing is unreliable for Gram-positive organisms",
+"Poor antibiotic penetration into bone at the site of infection",
 "The MIC was higher than the MBC for this isolate"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Poor antibiotic penetration into bone at the site of infection",
 "explanation": "In-vitro susceptibility does not guarantee clinical cure. Bone (like CNS, prostate and biofilm) is a poorly penetrated site, so an agent labelled \"S\" may not reach adequate concentrations there. Interpretation must always account for the site of infection, penetration and the need for source control — not just the S/I/R label."
 },
@@ -1567,15 +1612,45 @@
 "type": "mcq",
 "question": "A urine sample sent for PCR returns positive for a carbapenemase gene, but no organism has been cultured. The FY1 asks which antibiotics the bug is sensitive to. What is the most accurate response?",
 "options": [
-"Report the isolate as pan-sensitive since PCR was positive",
 "No sensitivities are available — susceptibility testing requires a viable cultured isolate",
+"Report the isolate as pan-sensitive since PCR was positive",
 "Start empirical carbapenem therapy as the gene predicts susceptibility",
 "The PCR result gives a full EUCAST S/I/R panel automatically",
 "Sensitivities can be inferred directly from the zone of inhibition on the PCR plate"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "No sensitivities are available — susceptibility testing requires a viable cultured isolate",
 "explanation": "Molecular tests identify organisms or specific resistance genes but cannot produce a susceptibility panel — that needs a viable isolate exposed to antibiotics in culture. A carbapenemase gene actually flags likely carbapenem RESISTANCE, warranting escalation to microbiology/ID rather than empirical carbapenem use. Only culture yields sensitivities."
+},
+{
+"id": "tbx_q01",
+"type": "mcq",
+"question": "A 24-year-old BCG-vaccinated healthcare worker needs screening after a TB contact. Which test best distinguishes latent TB infection from a BCG reaction?",
+"options": [
+"Mantoux (tuberculin skin test)",
+"Sputum smear for AFB",
+"Interferon-gamma release assay (IGRA)",
+"Chest X-ray",
+"GeneXpert MTB/RIF"
+],
+"correctIndex": 2,
+"answer": "Interferon-gamma release assay (IGRA)",
+"explanation": "IGRA uses M. tuberculosis-specific antigens (ESAT-6/CFP-10) not present in BCG, so it is not confounded by prior BCG vaccination — unlike Mantoux, which can be falsely positive after BCG. Smear/GeneXpert/CXR test for active disease, not latent infection."
+},
+{
+"id": "tbx_q02",
+"type": "mcq",
+"question": "A patient with a lymphocytic CSF, high protein and low glucose has a raised CSF adenosine deaminase (ADA). Which diagnosis does this pattern most support?",
+"options": [
+"Bacterial meningitis",
+"Viral meningitis",
+"Subarachnoid haemorrhage",
+"Guillain-Barre syndrome",
+"Tuberculous meningitis"
+],
+"correctIndex": 4,
+"answer": "Tuberculous meningitis",
+"explanation": "A lymphocytic CSF with high protein, low glucose and raised ADA is characteristic of tuberculous meningitis. Bacterial meningitis is neutrophilic; viral meningitis has normal glucose; ADA is a useful pointer to TB in CSF and serosal fluids."
 }
 ]
 }
