@@ -1106,7 +1106,7 @@
       {
         "id": "rsc_periop_ipss_fc_03",
         "front": "Which LUTS are 'storage/irritative' vs 'voiding/obstructive'?",
-        "back": "Storage/irritative: frequency, urgency, nocturia. Voiding/obstructive: weak stream, straining, intermittency, incomplete emptying, hesitancy. Distinguishing them helps guide treatment (e.g. anticholinergic/mirabegron for storage symptoms)."
+        "back": "Storage/irritative: frequency, urgency, nocturia. Voiding/obstructive: weak stream, straining, intermittency, incomplete emptying. Distinguishing them helps guide treatment (e.g. anticholinergic/mirabegron for storage symptoms)."
       },
       {
         "id": "rsc_periop_ipss_fc_04",
@@ -1167,6 +1167,16 @@
         "id": "rsc_periop_imdc_fc_05",
         "front": "Why is systemic RCC treatment based on immunotherapy and targeted agents rather than chemotherapy?",
         "back": "RCC is relatively chemo- and radio-resistant, so mainstays are immune checkpoint inhibitors and targeted anti-VEGF / TKI therapies rather than conventional cytotoxic chemotherapy."
+      },
+      {
+        "id": "rsc_periop_asa_fc_06",
+        "front": "What does a high ASA grade prompt in practice?",
+        "back": "ASA <b>III or above</b>, or an emergency (<b>&ldquo;E&rdquo;</b>) case, should prompt <b>early senior anaesthetic review</b>, <b>preoperative optimisation</b> of comorbidities, and consideration of <b>HDU/ITU</b> booking and <b>prehabilitation</b> &mdash; interpreted alongside surgical severity, METs and frailty."
+      },
+      {
+        "id": "rsc_periop_ipss_turp_fc_01",
+        "front": "What surgery is used for BPH refractory to medical therapy, and what is the classic complication?",
+        "back": "<b>TURP</b> is first-line surgery; very large glands or refractory retention may need open or laser (<b>HoLEP</b>) prostatectomy. The classic complication is <b>TURP syndrome</b> &mdash; dilutional hyponatraemia and fluid overload from absorption of glycine irrigation fluid."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__Neurology": [
@@ -1344,6 +1354,21 @@
         "id": "rsc_neuro_avm_fc_05",
         "front": "What is the main clinical danger of a cerebral AVM and what is the gold-standard diagnostic test?",
         "back": "Haemorrhage (intracerebral/subarachnoid) is the main danger, with ~2-4% annual risk; can be fatal or disabling. Catheter angiography is the gold standard for defining vascular architecture (CT/CTA and MRI are also used)."
+      },
+      {
+        "id": "rsc_neuro_abcd2_fc_01",
+        "front": "What are the components of the ABCD2 score (TIA)?",
+        "back": "<b>A</b>ge &ge;60 (1); <b>B</b>P &ge;140/90 (1); <b>C</b>linical &mdash; unilateral weakness (2) or speech disturbance without weakness (1); <b>D</b>uration &ge;60 min (2) or 10&ndash;59 min (1); <b>D</b>iabetes (1). Maximum 7."
+      },
+      {
+        "id": "rsc_neuro_abcd2_fc_02",
+        "front": "What is the current NICE position on ABCD2, and how is suspected TIA managed?",
+        "back": "NICE (2019) <b>no longer uses ABCD2 to risk-stratify</b> TIA. <b>All</b> suspected TIA is treated as high-risk: <b>aspirin 300 mg immediately</b> (unless contraindicated) and <b>specialist assessment within 24 hours</b>. If on an anticoagulant, exclude haemorrhage on imaging first."
+      },
+      {
+        "id": "rsc_neuro_abcd2_fc_03",
+        "front": "What did the ABCD2 score originally predict?",
+        "back": "The short-term (notably <b>2-day</b>) risk of stroke after a TIA, using Age, BP, Clinical features, Duration and Diabetes. The bands (0&ndash;3/4&ndash;5/6&ndash;7) are now historical and are not used to decide urgency."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__MSK & Trauma": [
@@ -3392,11 +3417,11 @@
         "options": [
           "Female sex",
           "Non-smoker status",
+          "Duration of surgery over two hours",
           "History of PONV or motion sickness",
-          "Anticipated post-operative opioid use",
-          "Duration of surgery over two hours"
+          "Anticipated post-operative opioid use"
         ],
-        "correctIndex": 4,
+        "correctIndex": 2,
         "answer": "Duration of surgery over two hours",
         "explanation": "The simplified Apfel score uses exactly four factors, each worth 1 point: female sex, non-smoker, prior PONV/motion sickness, and anticipated post-operative opioid use. Duration of surgery is a recognised risk factor for PONV but is not part of the Apfel score."
       },
@@ -3408,10 +3433,10 @@
           "~10%",
           "~20%",
           "~40%",
-          "~60%",
-          "~80%"
+          "~80%",
+          "~60%"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "~60%",
         "explanation": "Apfel scores of 0, 1, 2, 3 and 4 correspond to predicted PONV risks of approximately 10%, 20%, 40%, 60% and 80% respectively. A score of 3 therefore predicts about a 60% risk, warranting combination prophylaxis and modification of anaesthetic technique."
       },
@@ -3421,12 +3446,12 @@
         "question": "For a high-risk patient, which prophylaxis approach is most appropriate?",
         "options": [
           "Repeated doses of a single 5-HT₃ antagonist",
-          "A single dose of ondansetron only",
           "Combination antiemetics from different receptor classes plus baseline risk reduction",
+          "A single dose of ondansetron only",
           "Withholding all antiemetics until symptoms occur",
           "High-dose volatile anaesthesia to ensure depth"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Combination antiemetics from different receptor classes plus baseline risk reduction",
         "explanation": "Higher Apfel scores call for multimodal prophylaxis: combining agents that act on different receptors (e.g. ondansetron + dexamethasone ± a dopamine antagonist) is more effective than repeating one class. This is paired with baseline risk reduction such as propofol TIVA, avoiding volatiles/nitrous oxide and minimising opioids."
       },
@@ -3437,11 +3462,11 @@
         "options": [
           "ASA I",
           "ASA II",
-          "ASA III",
           "ASA IV",
+          "ASA III",
           "ASA V"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "ASA III",
         "explanation": "COPD on home oxygen and a BMI ≥40 (morbid obesity) represent severe systemic disease with substantive functional limitation, placing him at ASA III. Well-controlled hypertension and smoking alone would only reach ASA II, but the more severe features dictate the higher grade."
       },
@@ -3450,13 +3475,13 @@
         "type": "mcq",
         "question": "Which patient is best classified as ASA IV?",
         "options": [
+          "A patient with septic shock requiring vasopressors",
           "A non-smoking, healthy 30-year-old",
           "A pregnant woman with an uncomplicated pregnancy",
           "A patient who had a myocardial infarction 8 months ago and is now asymptomatic",
-          "A patient with septic shock requiring vasopressors",
           "A brain-dead patient undergoing organ retrieval"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "A patient with septic shock requiring vasopressors",
         "explanation": "ASA IV is severe systemic disease that is a constant threat to life — sepsis/DIC, recent (<3-month) MI/CVA/stent, or ESRD not on dialysis. Septic shock fits this. A healthy 30-year-old is ASA I, uncomplicated pregnancy is ASA II, an MI >3 months ago (now stable) is ASA III, and the brain-dead donor is ASA VI."
       },
@@ -3481,12 +3506,12 @@
         "question": "A patient with moderate cancer pain is inadequately controlled on regular paracetamol. According to the WHO analgesic ladder, what is the most appropriate next step?",
         "options": [
           "Stop paracetamol and start morphine",
-          "Add a weak opioid such as codeine to the paracetamol",
           "Switch paracetamol to an NSAID only",
           "Add gabapentin and stop paracetamol",
-          "Start a fentanyl patch immediately"
+          "Start a fentanyl patch immediately",
+          "Add a weak opioid such as codeine to the paracetamol"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Add a weak opioid such as codeine to the paracetamol",
         "explanation": "Moving from step 1 to step 2 means adding a weak opioid (codeine, dihydrocodeine or tramadol) to the existing non-opioid — the non-opioid is continued, not replaced. Jumping straight to a strong opioid (step 3) is not indicated when the step-2 option has not been tried, and adjuvants are added on top rather than substituted for baseline analgesia."
       },
@@ -3525,13 +3550,13 @@
         "type": "mcq",
         "question": "A 68-year-old with AKI has a serum potassium of 7.1 mmol/L with peaked T waves on ECG. He has received calcium gluconate, insulin-dextrose and nebulised salbutamol but the potassium remains 6.9 mmol/L with persisting ECG changes. Which AEIOU indication does this represent?",
         "options": [
-          "A — Acidosis",
           "E — Electrolytes",
+          "A — Acidosis",
           "I — Intoxication",
           "O — Overload",
           "U — Uraemia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "E — Electrolytes",
         "explanation": "Refractory hyperkalaemia (K⁺ >6.5, or with ECG changes, not responding to medical management) is the 'E' indication for emergency RRT. Medical measures — calcium gluconate to protect the myocardium, insulin-dextrose and salbutamol to shift potassium — have failed, so dialysis is indicated."
       },
@@ -3556,12 +3581,12 @@
         "question": "A patient with AKI develops a pericardial friction rub and confusion with a markedly elevated urea. What does AEIOU indicate?",
         "options": [
           "Continue conservative management as this will resolve spontaneously",
-          "This is uraemia — an urgent indication for RRT",
           "Give high-dose diuretics only",
           "This represents fluid overload requiring ultrafiltration alone",
-          "Start antibiotics for infective pericarditis"
+          "Start antibiotics for infective pericarditis",
+          "This is uraemia — an urgent indication for RRT"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "This is uraemia — an urgent indication for RRT",
         "explanation": "Uraemic pericarditis (friction rub) and uraemic encephalopathy (confusion) are emergency 'U' indications for renal replacement therapy. They mandate urgent dialysis rather than continued conservative management, and are not treated by diuretics or antibiotics."
       },
@@ -3571,12 +3596,12 @@
         "question": "A 64-year-old man completes the IPSS and scores a total of 22 on the seven symptom questions. Into which severity band does this fall?",
         "options": [
           "Mild",
-          "Moderate",
           "Severe",
+          "Moderate",
           "Normal",
           "Cannot be classified without the QoL score"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Severe",
         "explanation": "The IPSS symptom bands are 0-7 mild, 8-19 moderate, and 20-35 severe. A total of 22 falls in the severe band. The separate QoL/bother question (0-6) is reported alongside but is not required to classify the symptom band."
       },
@@ -3587,11 +3612,11 @@
         "options": [
           "Weak stream",
           "Straining",
-          "Urgency",
           "Intermittency",
+          "Urgency",
           "Incomplete emptying"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Urgency",
         "explanation": "Storage/irritative symptoms are frequency, urgency and nocturia. The others listed (weak stream, straining, intermittency, incomplete emptying) are voiding/obstructive symptoms. Distinguishing the predominant symptom group helps guide treatment choice."
       },
@@ -3600,13 +3625,13 @@
         "type": "mcq",
         "question": "A man with BPH is started on finasteride. Which statement about this drug is correct?",
         "options": [
-          "It provides rapid symptom relief within days",
           "It shrinks the prostate over months and lowers PSA",
+          "It provides rapid symptom relief within days",
           "It commonly causes first-dose postural hypotension",
           "It is an anticholinergic used for storage symptoms",
           "It should be avoided in men with large prostates"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "It shrinks the prostate over months and lowers PSA",
         "explanation": "Finasteride is a 5-alpha-reductase inhibitor that shrinks the prostate gradually over months and is most useful in larger glands. It roughly halves PSA, which must be accounted for when interpreting PSA. Rapid relief and first-dose hypotension are features of alpha-blockers like tamsulosin."
       },
@@ -3616,12 +3641,12 @@
         "question": "A contrast-enhanced CT shows a cystic renal lesion with multiple thin septa and minimal smooth septal thickening, but no measurable enhancement. What is the appropriate management?",
         "options": [
           "Discharge, no follow-up required",
-          "Surveillance follow-up imaging",
           "Immediate radical nephrectomy",
+          "Surveillance follow-up imaging",
           "Percutaneous aspiration for cytology",
           "Urgent partial nephrectomy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Surveillance follow-up imaging",
         "explanation": "These non-enhancing features (multiple thin septa, minimal smooth thickening) with no enhancement define Bosniak IIF (~5–10% malignant). IIF lesions are followed with surveillance imaging and should not be discharged, but do not warrant immediate surgery."
       },
@@ -3632,11 +3657,11 @@
         "options": [
           "Presence of any septa",
           "Presence of calcification",
-          "Measurable enhancement of walls/septa",
           "Cyst diameter greater than 3 cm",
-          "Hyperdense contents on non-contrast imaging"
+          "Hyperdense contents on non-contrast imaging",
+          "Measurable enhancement of walls/septa"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Measurable enhancement of walls/septa",
         "explanation": "Enhancement is the critical discriminator. Non-enhancing complexity (septa, calcification, minimal thickening) is IIF; measurable enhancement of thick/irregular walls or septa defines category III (~50% malignant), which mandates surgical management."
       },
@@ -3646,12 +3671,12 @@
         "question": "A renal cyst has an enhancing soft-tissue nodule adjacent to but independent of its wall. What is the Bosniak category and approximate malignancy risk?",
         "options": [
           "Category II, benign",
+          "Category IV, ~90%+",
           "Category IIF, ~5–10%",
           "Category III, ~50%",
-          "Category IV, ~90%+",
           "Category I, ~0%"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "Category IV, ~90%+",
         "explanation": "An enhancing soft-tissue/solid component adjacent to but independent of the wall/septa defines Bosniak IV, with ~90%+ malignant risk. Management is surgical resection, and most renal cancers are clear cell RCC."
       },
@@ -3662,11 +3687,11 @@
         "options": [
           "Karnofsky performance status <80%",
           "Hypercalcaemia (corrected calcium > upper limit of normal)",
-          "Elevated lactate dehydrogenase (LDH)",
           "Anaemia (haemoglobin < lower limit of normal)",
+          "Elevated lactate dehydrogenase (LDH)",
           "Thrombocytosis (platelets > upper limit of normal)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Elevated lactate dehydrogenase (LDH)",
         "explanation": "The six IMDC factors are performance status <80%, <1 year to systemic treatment, anaemia, hypercalcaemia, neutrophilia and thrombocytosis. LDH is a component of the older MSKCC (Motzer) criteria, not the IMDC model."
       },
@@ -3675,13 +3700,13 @@
         "type": "mcq",
         "question": "A patient with metastatic clear cell RCC has 2 IMDC risk factors. Which risk group and approximate median overall survival does this correspond to?",
         "options": [
-          "Favourable risk; ~43 months",
           "Intermediate risk; ~23 months",
+          "Favourable risk; ~43 months",
           "Poor risk; ~8 months",
           "Favourable risk; ~23 months",
           "Poor risk; ~23 months"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Intermediate risk; ~23 months",
         "explanation": "1-2 factors defines the intermediate risk group, with a median overall survival of approximately 23 months. 0 factors is favourable (~43 months) and 3-6 factors is poor (~8 months)."
       },
@@ -3699,6 +3724,36 @@
         "correctIndex": 2,
         "answer": "Prognostication and selecting first-line systemic therapy in metastatic RCC",
         "explanation": "The IMDC (Heng) model stratifies patients with metastatic RCC to predict survival and guide first-line systemic therapy (e.g. ipilimumab+nivolumab for intermediate/poor risk, or TKI-based regimens). It does not apply to localised disease, tumour grading or screening."
+      },
+      {
+        "id": "rsc_periop_ipss_turp_q01",
+        "type": "mcq",
+        "question": "A man with severe BPH (IPSS 24) fails medical therapy and undergoes TURP. He becomes confused with a low serum sodium intra-operatively. What is the likely cause?",
+        "options": [
+          "Acute blood loss anaemia",
+          "An anaphylactic reaction to the anaesthetic",
+          "Hospital-acquired pneumonia",
+          "A vasovagal episode",
+          "TURP syndrome from absorption of glycine irrigation fluid"
+        ],
+        "correctIndex": 4,
+        "answer": "TURP syndrome from absorption of glycine irrigation fluid",
+        "explanation": "TURP syndrome is dilutional hyponatraemia and fluid overload caused by systemic absorption of hypotonic (glycine) irrigation fluid during resection, producing confusion, visual disturbance and cardiovascular upset. It is the classic complication of TURP."
+      },
+      {
+        "id": "rsc_periop_asa_q07",
+        "type": "mcq",
+        "question": "A patient graded ASA IV is listed for major surgery. Which management step is most appropriate?",
+        "options": [
+          "Proceed with no additional planning as ASA does not affect management",
+          "Early senior anaesthetic review with preoperative optimisation and HDU/ITU planning",
+          "Cancel all surgery permanently",
+          "Downgrade to ASA II to simplify booking",
+          "Avoid anaesthetic review to save time"
+        ],
+        "correctIndex": 1,
+        "answer": "Early senior anaesthetic review with preoperative optimisation and HDU/ITU planning",
+        "explanation": "A high ASA grade (III+/IV) flags substantial perioperative risk and should trigger senior anaesthetic review, optimisation of comorbidities, and consideration of higher-care (HDU/ITU) booking and prehabilitation. ASA is read alongside surgical severity and functional capacity."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__Neurology": [
@@ -3708,12 +3763,12 @@
         "question": "A 72-year-old arrives in ED with sudden right arm and facial weakness and slurred speech. Before calculating a ROSIER score, what is the single most important test to perform?",
         "options": [
           "Non-contrast CT head",
-          "Capillary blood glucose",
           "12-lead ECG",
+          "Capillary blood glucose",
           "Serum troponin",
           "Carotid Doppler ultrasound"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Capillary blood glucose",
         "explanation": "Hypoglycaemia is a classic stroke mimic that can reproduce focal neurological deficits. Glucose must be checked and corrected before relying on the ROSIER score. CT follows to exclude haemorrhage, but glucose is the immediate bedside step."
       },
@@ -3723,12 +3778,12 @@
         "question": "A patient scores +1 for asymmetric arm weakness and +1 for speech disturbance, but had a witnessed seizure at onset (−1). What is the ROSIER total and its interpretation?",
         "options": [
           "+2, stroke likely",
-          "+1, stroke likely",
           "0, stroke excluded",
           "−1, stroke unlikely",
-          "+3, stroke likely"
+          "+3, stroke likely",
+          "+1, stroke likely"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "+1, stroke likely",
         "explanation": "Points: +1 (arm) +1 (speech) −1 (seizure) = +1. A total > 0 means stroke is likely and the stroke pathway should be activated. Note that a low or negative score does not exclude stroke."
       },
@@ -3738,12 +3793,12 @@
         "question": "A confirmed ischaemic stroke patient has an NIHSS of 18. Which band and clinical significance does this represent?",
         "options": [
           "Minor stroke (1–4)",
-          "Moderate stroke (5–15)",
           "Moderate–severe stroke (16–20)",
+          "Moderate stroke (5–15)",
           "Severe stroke (21–42)",
           "No stroke symptoms (0)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Moderate–severe stroke (16–20)",
         "explanation": "An NIHSS of 18 falls in the 16–20 band (moderate–severe). NIHSS quantifies severity and, alongside imaging and time from onset, helps guide thrombolysis and thrombectomy decisions and ongoing monitoring."
       },
@@ -3754,11 +3809,11 @@
         "options": [
           "Dissemination in space only",
           "Dissemination in time only",
-          "Both dissemination in space and dissemination in time",
           "Two further clinical attacks",
+          "Both dissemination in space and dissemination in time",
           "A positive aquaporin-4 antibody"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Both dissemination in space and dissemination in time",
         "explanation": "A clinically isolated syndrome (1 attack, 1 lesion) requires both DIS and DIT to be shown — via MRI and/or CSF — before MS can be diagnosed."
       },
@@ -3767,13 +3822,13 @@
         "type": "mcq",
         "question": "Which of the following can substitute for dissemination in time (DIT) under the 2017 McDonald Criteria revision?",
         "options": [
+          "CSF-specific oligoclonal bands",
           "Delayed visual evoked potentials",
           "Elevated serum IgG",
-          "CSF-specific oligoclonal bands",
           "A raised CSF white cell count",
           "Positive MOG antibody"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "CSF-specific oligoclonal bands",
         "explanation": "The 2017 revision allows CSF-specific oligoclonal bands (present in CSF but not serum) to substitute for DIT, reflecting intrathecal IgG synthesis."
       },
@@ -3783,12 +3838,12 @@
         "question": "Which set correctly lists the four characteristic CNS locations used to establish dissemination in space?",
         "options": [
           "Cortex, thalamus, pons, cauda equina",
-          "Periventricular, (juxta)cortical, infratentorial, spinal cord",
           "Optic nerve, basal ganglia, cerebellum, medulla",
+          "Periventricular, (juxta)cortical, infratentorial, spinal cord",
           "Frontal lobe, hippocampus, brainstem, conus",
           "Periventricular, optic nerve, thalamus, spinal cord"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Periventricular, (juxta)cortical, infratentorial, spinal cord",
         "explanation": "DIS requires ≥1 T2 lesion in ≥2 of these four areas: periventricular, (juxta)cortical, infratentorial, and spinal cord."
       },
@@ -3800,10 +3855,10 @@
           "Clinically Possible ALS",
           "Clinically Probable ALS",
           "Clinically Probable, lab-supported ALS",
-          "Clinically Definite ALS",
-          "Diagnosis excluded — sensory testing needed first"
+          "Diagnosis excluded — sensory testing needed first",
+          "Clinically Definite ALS"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "Clinically Definite ALS",
         "explanation": "He has combined UMN + LMN signs in bulbar, cervical and lumbosacral regions — that is ≥3 regions, meeting the threshold for Clinically Definite ALS. Normal sensation is consistent with MND."
       },
@@ -3829,11 +3884,11 @@
         "options": [
           "Fasciculations in the calves",
           "Brisk reflexes with extensor plantars",
-          "A clear sensory level with saddle anaesthesia and urinary retention",
           "Progressive dysphagia",
+          "A clear sensory level with saddle anaesthesia and urinary retention",
           "Muscle wasting of the hand"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "A clear sensory level with saddle anaesthesia and urinary retention",
         "explanation": "MND characteristically SPARES sensation and sphincters. A sensory level with saddle anaesthesia and retention points to a structural/compressive lesion (e.g. cervical or cord pathology) — a mimic that must be excluded. The other findings are compatible with MND."
       },
@@ -3842,13 +3897,13 @@
         "type": "mcq",
         "question": "A 34-year-old presents with acute right-sided facial droop. He cannot raise his right eyebrow or wrinkle his forehead, and cannot fully close the right eye. Which statement is most accurate?",
         "options": [
-          "Forehead involvement indicates a UMN lesion such as a stroke",
           "This is a lower motor neurone palsy consistent with Bell's palsy",
+          "Forehead involvement indicates a UMN lesion such as a stroke",
           "The eye can be left unprotected as it will recover quickly",
           "Corticosteroids are contraindicated in this presentation",
           "Complete eye closure would be expected in a House-Brackmann Grade VI"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "This is a lower motor neurone palsy consistent with Bell's palsy",
         "explanation": "Forehead involvement (inability to raise the brow) indicates an LMN lesion, as in Bell's palsy - the whole half of the face is affected. A UMN lesion spares the forehead. Incomplete eye closure mandates eye protection, and prednisolone within 72h is indicated."
       },
@@ -3859,11 +3914,11 @@
         "options": [
           "Grade I",
           "Grade II",
-          "Grade III",
           "Grade IV",
+          "Grade III",
           "Grade VI only"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "Grade IV",
         "explanation": "Grades II and III retain complete eye closure (with minimal effort, then with effort). Grade IV (moderately severe) is defined by obvious disfiguring weakness, asymmetry at rest and incomplete eye closure - the key threshold at which corneal protection becomes critical."
       },
@@ -3872,13 +3927,13 @@
         "type": "mcq",
         "question": "A patient with a facial palsy is noted to have vesicles in the external auditory canal and severe ear pain. What is the most appropriate addition to management?",
         "options": [
-          "Antivirals, as this suggests Ramsay Hunt syndrome (VZV)",
           "Immediate thrombolysis for presumed stroke",
           "Withhold all corticosteroids indefinitely",
           "No change - manage identically to idiopathic Bell's palsy",
-          "Urgent surgical facial nerve decompression as first line"
+          "Urgent surgical facial nerve decompression as first line",
+          "Antivirals, as this suggests Ramsay Hunt syndrome (VZV)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Antivirals, as this suggests Ramsay Hunt syndrome (VZV)",
         "explanation": "Ear-canal vesicles and pain suggest Ramsay Hunt syndrome from varicella-zoster virus reactivation. Management adds antivirals to corticosteroids. Eye protection remains essential, and it typically carries a worse prognosis than idiopathic Bell's palsy."
       },
@@ -3917,13 +3972,13 @@
         "type": "mcq",
         "question": "Which statement about complete versus incomplete spinal cord injury classification is correct?",
         "options": [
-          "The neurological level of injury alone determines completeness",
           "Preservation of any sacral sparing (S4–5 sensation, deep anal pressure, or voluntary anal contraction) defines an incomplete injury",
+          "The neurological level of injury alone determines completeness",
           "AIS grade A means normal neurological function",
           "High-dose steroids are routinely recommended to improve AIS grade",
           "Neurogenic shock is defined by hypotension with tachycardia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Preservation of any sacral sparing (S4–5 sensation, deep anal pressure, or voluntary anal contraction) defines an incomplete injury",
         "explanation": "Sacral sparing is the pivotal finding separating incomplete (AIS B–D, better prognosis) from complete (AIS A) injury. AIS A is complete injury; AIS E is normal. Steroids are controversial and not routine. Neurogenic shock is hypotension WITH bradycardia (sympathetic disruption), not tachycardia."
       },
@@ -3932,13 +3987,13 @@
         "type": "mcq",
         "question": "A 28-year-old obese woman presents with headache, pulsatile tinnitus and papilloedema. Fundoscopy confirms bilateral disc swelling; she has a bilateral sixth nerve palsy but no other focal signs. MRI brain is normal. Which further step is essential BEFORE confidently diagnosing IIH?",
         "options": [
-          "CT venography or MR venography to exclude cerebral venous sinus thrombosis",
           "EEG to exclude seizure activity",
           "Carotid Doppler ultrasound",
+          "CT venography or MR venography to exclude cerebral venous sinus thrombosis",
           "Immediate optic nerve sheath fenestration",
           "Muscle biopsy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "CT venography or MR venography to exclude cerebral venous sinus thrombosis",
         "explanation": "Normal standard imaging is required, but cerebral venous sinus thrombosis can mimic IIH and must be actively excluded with venography before the diagnosis is made. The sixth nerve palsy is a false localising sign and does not exclude IIH."
       },
@@ -3947,13 +4002,13 @@
         "type": "mcq",
         "question": "According to the modified Dandy criteria, what is the expected CSF finding in IIH?",
         "options": [
-          "Raised opening pressure (>25 cm CSF) with normal CSF composition",
           "Raised opening pressure with high protein and low glucose",
           "Low opening pressure with lymphocytosis",
           "Normal opening pressure with xanthochromia",
-          "Raised opening pressure with neutrophilia"
+          "Raised opening pressure with neutrophilia",
+          "Raised opening pressure (>25 cm CSF) with normal CSF composition"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Raised opening pressure (>25 cm CSF) with normal CSF composition",
         "explanation": "IIH requires a raised CSF opening pressure on lumbar puncture (>25 cm CSF / >250 mm) but with otherwise normal CSF constituents. Abnormal composition points to an alternative cause such as infection, inflammation or haemorrhage."
       },
@@ -3962,13 +4017,13 @@
         "type": "mcq",
         "question": "Which of the following is the definitive, first-line management for idiopathic intracranial hypertension?",
         "options": [
-          "Weight loss",
           "Long-term high-dose corticosteroids",
+          "Weight loss",
           "Ventriculoperitoneal shunt in all patients",
           "Prophylactic craniotomy",
           "Lifelong oral contraceptive therapy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Weight loss",
         "explanation": "Weight loss is the definitive first-line treatment and can be curative. Acetazolamide reduces CSF production as pharmacological support; surgery (optic nerve sheath fenestration or CSF shunt) is reserved for threatened vision. Steroids and oral contraceptives can actually precipitate IIH."
       },
@@ -3979,11 +4034,11 @@
         "options": [
           "Grade II",
           "Grade III",
-          "Grade IV",
           "Grade V",
+          "Grade IV",
           "Grade I"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Grade IV",
         "explanation": "Size 3-6 cm = 2 points; internal capsule is eloquent = 1 point; deep venous drainage = 1 point. Total 4 = Grade IV, indicating high surgical morbidity."
       },
@@ -3992,13 +4047,13 @@
         "type": "mcq",
         "question": "Which of the following contributes 1 point (eloquent location) in the Spetzler-Martin grading system?",
         "options": [
+          "Brainstem",
           "Frontal pole white matter",
           "Non-dominant anterior temporal tip",
-          "Brainstem",
           "Cerebellar hemisphere (superficial)",
           "Occipital pole beyond visual cortex"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Brainstem",
         "explanation": "Eloquent areas include sensorimotor, language and visual cortex, thalamus, hypothalamus, internal capsule, brainstem, cerebellar peduncles and deep cerebellar nuclei. The brainstem qualifies; the other listed sites are considered non-eloquent."
       },
@@ -4008,14 +4063,44 @@
         "question": "What does the Spetzler-Martin grade primarily predict?",
         "options": [
           "Annual risk of AVM haemorrhage",
-          "Risk/morbidity of surgical resection",
           "Likelihood of seizure control after treatment",
+          "Risk/morbidity of surgical resection",
           "Response to stereotactic radiosurgery",
           "Overall 5-year mortality"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Risk/morbidity of surgical resection",
         "explanation": "The scale estimates operative risk to guide whether an AVM is a good surgical candidate. It does not estimate rupture risk (roughly 2-4%/year independently) and does not replace multidisciplinary judgement."
+      },
+      {
+        "id": "rsc_neuro_abcd2_q01",
+        "type": "mcq",
+        "question": "A patient has a suspected TIA that fully resolved. According to current NICE guidance, what is the correct management?",
+        "options": [
+          "Calculate ABCD2 and only refer if it is 4 or more",
+          "Reassure and arrange a routine outpatient appointment",
+          "No treatment as symptoms have resolved",
+          "Start warfarin immediately in all cases",
+          "Aspirin 300 mg immediately and specialist assessment within 24 hours"
+        ],
+        "correctIndex": 4,
+        "answer": "Aspirin 300 mg immediately and specialist assessment within 24 hours",
+        "explanation": "NICE (2019) treats all suspected TIA as high-risk and no longer uses ABCD2 to triage. Give aspirin 300 mg immediately (unless contraindicated) and refer for specialist assessment within 24 hours; if the patient is on an anticoagulant, exclude haemorrhage with imaging first."
+      },
+      {
+        "id": "rsc_neuro_abcd2_q02",
+        "type": "mcq",
+        "question": "Which statement about the ABCD2 score is correct for UK finals?",
+        "options": [
+          "A low ABCD2 safely allows routine (non-urgent) referral",
+          "NICE no longer recommends it to risk-stratify TIA; all suspected TIA is treated as high-risk",
+          "It is used to decide thrombolysis in acute stroke",
+          "It includes cholesterol and smoking as components",
+          "A high score contraindicates aspirin"
+        ],
+        "correctIndex": 1,
+        "answer": "NICE no longer recommends it to risk-stratify TIA; all suspected TIA is treated as high-risk",
+        "explanation": "ABCD2 (Age, BP, Clinical features, Duration, Diabetes) once triaged TIA by 2-day stroke risk, but NICE (2019) abandoned it as a gatekeeper: every suspected TIA gets aspirin 300 mg and specialist review within 24 hours. It plays no role in thrombolysis decisions."
       }
     ],
     "investigations__RISK SCORES & CRITERIA__MSK & Trauma": [
