@@ -68,8 +68,8 @@
       },
       {
         "id": "en_ot_pta_fc_04",
-        "front": "Give the four classic audiogram patterns: noise-induced, presbycusis, and Meniere's.",
-        "back": "Noise-induced = bilateral notch at 4 kHz with recovery at 8 kHz. Presbycusis = symmetrical down-sloping high-frequency SNHL in the elderly. Meniere's = fluctuating LOW-frequency SNHL."
+        "front": "Give four classic audiogram patterns.",
+        "back": "Noise-induced = bilateral notch at 4 kHz with recovery at 8 kHz. Presbycusis = symmetrical down-sloping high-frequency SNHL in the elderly. Meniere's = fluctuating LOW-frequency SNHL. Otosclerosis = conductive air-bone gap with a bone-conduction dip at 2 kHz (Carhart notch)."
       },
       {
         "id": "en_ot_pta_fc_05",
@@ -150,6 +150,21 @@
         "id": "en_ot_mri_fc_05",
         "front": "Which cranial nerve sign suggests a large acoustic neuroma?",
         "back": "Loss of the corneal reflex and facial numbness, indicating compression of the trigeminal nerve (CN V) by a large tumour."
+      },
+      {
+        "id": "en_hints_fc_01",
+        "front": "How does the HINTS exam separate peripheral from central acute vertigo?",
+        "back": "<b>Peripheral</b>: positive (corrective-saccade) head impulse + unidirectional horizontal nystagmus + no skew. <b>Central (stroke)</b>: normal head impulse, OR direction-changing/vertical nystagmus, OR skew deviation → urgent stroke imaging."
+      },
+      {
+        "id": "en_oae_fc_01",
+        "front": "Outline the UK newborn hearing screening pathway and what OAE/ABR test.",
+        "back": "Automated <b>OAE</b> (outer hair cells) → if refer, automated <b>ABR</b> → audiology referral. ABR also gives objective thresholds when PTA is unreliable and screens for retrocochlear disease."
+      },
+      {
+        "id": "en_carhart_fc_01",
+        "front": "What audiogram sign suggests otosclerosis?",
+        "back": "A conductive air-bone gap with a dip in the <b>bone-conduction</b> threshold at ~2 kHz (the <b>Carhart notch</b>) → ENT for stapedectomy or hearing aid."
       }
     ],
     "investigations__ENT / AUDIOVESTIBULAR__Head & Neck / Rhinology": [
@@ -262,13 +277,13 @@
         "type": "mcq",
         "question": "A 3-year-old needs otoscopy. To obtain the best view of the tympanic membrane, how should the pinna be positioned?",
         "options": [
-          "Pulled down and back",
           "Pulled up and back",
           "Pushed forward toward the face",
+          "Pulled down and back",
           "Held still in the neutral position",
           "Pressed firmly against the skull"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Pulled down and back",
         "explanation": "In young children the ear canal is short and angled, so pulling the pinna down and back straightens it for the best view. In adults the pinna is instead pulled up and back."
       },
@@ -278,12 +293,12 @@
         "question": "Otoscopy of a child with conductive hearing loss shows a dull, retracted tympanic membrane with a visible air-fluid level and bubbles, and no fever. What is the most likely diagnosis?",
         "options": [
           "Acute otitis media",
-          "Otitis media with effusion (glue ear)",
           "Otitis externa",
           "Cholesteatoma",
-          "Chronic suppurative otitis media"
+          "Chronic suppurative otitis media",
+          "Otitis media with effusion (glue ear)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Otitis media with effusion (glue ear)",
         "explanation": "A retracted dull drum with a fluid level or bubbles and no acute inflammation is the classic picture of otitis media with effusion. Reduced drum mobility on pneumatic otoscopy supports the diagnosis."
       },
@@ -293,12 +308,12 @@
         "question": "During otoscopy you see a crust and a retraction pocket filled with keratin debris in the pars flaccida (attic) of the drum. What is the most appropriate action?",
         "options": [
           "Reassure the patient that it is wax and no action is needed",
-          "Syringe the ear to wash out the debris",
           "Refer to ENT to exclude cholesteatoma",
+          "Syringe the ear to wash out the debris",
           "Prescribe topical antifungal drops",
           "Repeat otoscopy in one year"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Refer to ENT to exclude cholesteatoma",
         "explanation": "An attic retraction pocket with keratin or crust is the hallmark of cholesteatoma, which erodes bone and risks serious complications. It must never be dismissed as wax and warrants ENT referral."
       },
@@ -307,13 +322,13 @@
         "type": "mcq",
         "question": "A patient has a left Rinne negative (bone conduction > air conduction) result and the Weber lateralises to the left ear. What does this indicate?",
         "options": [
-          "Left conductive hearing loss",
           "Left sensorineural hearing loss",
           "Right sensorineural hearing loss",
           "Normal hearing bilaterally",
+          "Left conductive hearing loss",
           "Bilateral symmetric sensorineural loss"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Left conductive hearing loss",
         "explanation": "A Rinne negative result (BC > AC) with Weber lateralising to the same ear is the classic pattern of conductive hearing loss on that side. The conductive ear is shielded from masking noise and hears bone-conducted sound better, drawing Weber towards it."
       },
@@ -322,13 +337,13 @@
         "type": "mcq",
         "question": "Why is a 512 Hz fork preferred over a 256 Hz or 128 Hz fork for these tests?",
         "options": [
-          "It is loud enough to be heard across the room",
           "It sustains a long tone yet is not felt as vibration, giving reliable results",
+          "It is loud enough to be heard across the room",
           "It selectively tests high-frequency cochlear function only",
           "It eliminates the need to also perform the Weber test",
           "It quantifies the exact decibel loss present"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "It sustains a long tone yet is not felt as vibration, giving reliable results",
         "explanation": "The 512 Hz fork produces a tone long enough to compare air and bone conduction while remaining above the range where vibration is perceived as touch. Lower-frequency forks (128/256 Hz) are felt tactilely and yield false-positive bone-conduction results."
       },
@@ -352,13 +367,13 @@
         "type": "mcq",
         "question": "A 40-year-old man has an audiogram showing air-conduction thresholds of 45 dB HL but bone-conduction thresholds of 10 dB HL in the left ear. What type of hearing loss does this pattern represent?",
         "options": [
-          "Conductive hearing loss",
           "Sensorineural hearing loss",
           "Mixed hearing loss",
           "Central auditory processing disorder",
-          "Normal hearing"
+          "Normal hearing",
+          "Conductive hearing loss"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Conductive hearing loss",
         "explanation": "Bone conduction is normal (10 dB HL) while air conduction is markedly worse (45 dB HL), creating a large air-bone gap. Because bone conduction bypasses the outer and middle ear and is normal, the cochlea is healthy and the lesion lies in the conductive apparatus."
       },
@@ -384,11 +399,11 @@
         "options": [
           "Tympanometry",
           "Repeat audiogram in 6 months",
-          "MRI of the internal auditory meatus",
           "CT of the paranasal sinuses",
+          "MRI of the internal auditory meatus",
           "Otoacoustic emissions testing"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "MRI of the internal auditory meatus",
         "explanation": "Asymmetric sensorineural hearing loss with unilateral tinnitus raises concern for a vestibular schwannoma. MRI of the internal auditory meatus is the gold-standard imaging to detect or exclude this retrocochlear tumour."
       },
@@ -412,13 +427,13 @@
         "type": "mcq",
         "question": "A tympanogram shows a flat trace with an abnormally large ear-canal volume. Which conclusion is correct?",
         "options": [
-          "There is a tympanic membrane perforation or patent grommet",
           "There is a middle-ear effusion",
           "The Eustachian tube is dysfunctional",
+          "There is a tympanic membrane perforation or patent grommet",
           "The middle-ear pressure is negative",
           "The ossicular chain is fixed"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "There is a tympanic membrane perforation or patent grommet",
         "explanation": "A large measured volume means the probe tone is sampling the combined ear-canal and middle-ear/mastoid air space, which only communicate when the TM is not intact. This indicates a perforation or a patent grommet rather than an effusion."
       },
@@ -427,13 +442,13 @@
         "type": "mcq",
         "question": "A patient with unilateral hearing loss and tinnitus has absent stapedial reflexes with reflex decay on the affected side and normal tympanometry. Which investigation is most appropriate?",
         "options": [
-          "MRI of the internal acoustic meatus",
           "Insertion of a grommet",
           "Tympanic membrane repair",
           "Reassurance and discharge",
-          "A course of topical antibiotic drops"
+          "A course of topical antibiotic drops",
+          "MRI of the internal acoustic meatus"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "MRI of the internal acoustic meatus",
         "explanation": "Reflex decay with absent reflexes points to a retrocochlear lesion such as a vestibular schwannoma. MRI of the internal acoustic meatus is the definitive investigation to identify it."
       },
@@ -459,11 +474,11 @@
         "options": [
           "Perform the Epley manoeuvre",
           "Reassure and discharge with a diagnosis of BPPV",
-          "Arrange urgent neuro-imaging for a central cause",
           "Prescribe long-term vestibular sedatives",
+          "Arrange urgent neuro-imaging for a central cause",
           "Repeat the manoeuvre daily as home exercises"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Arrange urgent neuro-imaging for a central cause",
         "explanation": "Immediate-onset, persistent, non-fatiguing, purely vertical/down-beating nystagmus signals a central lesion such as a cerebellar stroke. This requires urgent neuro-imaging rather than repositioning treatment."
       },
@@ -472,13 +487,13 @@
         "type": "mcq",
         "question": "A patient has typical positional vertigo but a negative Dix-Hallpike bilaterally. The supine roll (Pagnini-McClure) test reproduces horizontal, direction-changing nystagmus. Which canal is affected?",
         "options": [
+          "Horizontal (lateral) semicircular canal",
           "Posterior semicircular canal",
           "Superior (anterior) semicircular canal",
-          "Horizontal (lateral) semicircular canal",
           "The cochlea",
           "The utricular macula only"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Horizontal (lateral) semicircular canal",
         "explanation": "The supine roll test targets the horizontal canal, which lies in the plane moved by rolling the head side to side. Horizontal, direction-changing nystagmus on this manoeuvre confirms horizontal-canal BPPV."
       },
@@ -487,13 +502,13 @@
         "type": "mcq",
         "question": "A 52-year-old presents with 6 months of progressive left-sided hearing loss and left-sided tinnitus. Audiometry confirms asymmetric sensorineural hearing loss. Which is the most appropriate investigation?",
         "options": [
-          "Gadolinium-enhanced MRI of the internal auditory meatus",
           "Non-contrast CT of the petrous temporal bone",
           "Plain skull radiograph",
+          "Gadolinium-enhanced MRI of the internal auditory meatus",
           "Carotid Doppler ultrasound",
           "Tympanometry alone"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Gadolinium-enhanced MRI of the internal auditory meatus",
         "explanation": "Asymmetric sensorineural hearing loss with unilateral tinnitus is a red flag for a vestibular schwannoma. Gadolinium-enhanced MRI IAM is the gold standard and detects small intracanalicular tumours that CT would miss."
       },
@@ -502,13 +517,13 @@
         "type": "mcq",
         "question": "MRI IAM in a young patient shows enhancing lesions in both cerebellopontine angles arising from the eighth nerves. What is the diagnosis?",
         "options": [
-          "Neurofibromatosis type 2",
           "Neurofibromatosis type 1",
           "Bilateral meningiomas",
           "Cholesteatoma",
-          "Presbycusis"
+          "Presbycusis",
+          "Neurofibromatosis type 2"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Neurofibromatosis type 2",
         "explanation": "Bilateral vestibular schwannomas are pathognomonic of neurofibromatosis type 2. The finding mandates genetic testing and assessment of family members."
       },
@@ -517,15 +532,30 @@
         "type": "mcq",
         "question": "On MRI IAM, which appearance is the classic description of a vestibular schwannoma?",
         "options": [
-          "An 'ice-cream-cone' with an intracanalicular stalk and a rounded CPA component",
           "A broad dural-based mass with a dural tail centred away from the IAM",
+          "An 'ice-cream-cone' with an intracanalicular stalk and a rounded CPA component",
           "A ring-enhancing lesion with surrounding oedema in the temporal lobe",
           "A fluid level within the mastoid air cells",
           "A hyperdense clot in the transverse sinus"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "An 'ice-cream-cone' with an intracanalicular stalk and a rounded CPA component",
         "explanation": "The vestibular schwannoma classically shows an intracanalicular stalk widening the IAM plus a rounded cerebellopontine-angle mass, giving the ice-cream-cone shape. A dural tail centred off the IAM instead favours a meningioma."
+      },
+      {
+        "id": "en_hints_q01",
+        "type": "mcq",
+        "question": "A patient has acute, continuous vertigo with nystagmus. On HINTS, the head impulse test is NORMAL and there is a skew deviation. What does this indicate?",
+        "options": [
+          "Benign peripheral vestibular neuronitis",
+          "Benign paroxysmal positional vertigo",
+          "Ménière disease",
+          "A central cause (posterior-circulation stroke) needing urgent imaging",
+          "Normal examination"
+        ],
+        "correctIndex": 3,
+        "answer": "A central cause (posterior-circulation stroke) needing urgent imaging",
+        "explanation": "In acute vestibular syndrome a NORMAL head impulse test, direction-changing or vertical nystagmus, or a skew deviation are central (stroke) signs — HINTS out-performs early MRI. A peripheral lesion gives a positive (abnormal) head impulse with unidirectional nystagmus and no skew."
       }
     ],
     "investigations__ENT / AUDIOVESTIBULAR__Head & Neck / Rhinology": [
