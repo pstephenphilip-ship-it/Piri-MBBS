@@ -409,6 +409,21 @@
         "id": "gm_canc_braf_fc_05",
         "front": "Name two non-melanoma cancers where BRAF V600E is important.",
         "back": "Colorectal cancer (V600E indicates poorer prognosis and anti-EGFR resistance), papillary thyroid carcinoma, and hairy cell leukaemia (which is almost universally BRAF V600E-mutated)."
+      },
+      {
+        "id": "gm_lynch_fc_01",
+        "front": "How is Lynch syndrome identified and managed?",
+        "back": "MMR genes (MLH1/MSH2/MSH6/PMS2/EPCAM) → MSI. Tumour <b>MMR-IHC/MSI</b> screen → <b>BRAF + MLH1 methylation</b> to exclude sporadic → germline test. Surveillance: 2-yearly colonoscopy from ~25, <b>aspirin</b> prophylaxis, endometrial awareness, cascade testing."
+      },
+      {
+        "id": "gm_fap_fc_01",
+        "front": "What is FAP and its definitive management?",
+        "back": "<b>APC</b> tumour-suppressor, autosomal dominant; hundreds of colonic polyps with near-100% cancer penetrance → <b>prophylactic colectomy</b> + upper-GI surveillance; predictive testing of at-risk children. MUTYH-associated polyposis is the recessive mimic."
+      },
+      {
+        "id": "gm_phaeo_germ_fc_01",
+        "front": "What genetic work-up should every phaeochromocytoma/paraganglioma have?",
+        "back": "Referral for a <b>germline panel</b> (SDHB/C/D, VHL, RET, NF1) — ~30–40% are hereditary. <b>SDHB</b> mutations flag higher malignant/metastatic potential and drive extended surveillance and cascade testing."
       }
     ],
     "investigations__GENETICS / MOLECULAR__Neuro, Connective Tissue & Prenatal": [
@@ -486,6 +501,21 @@
         "id": "gm_neuro_prenatal_fc_05",
         "front": "What causes a 'no result' or unreliable NIPT/cfDNA test?",
         "back": "A low fetal fraction, typically due to early gestation or high maternal BMI. This can give an uninformative result requiring a repeat sample, or risk a falsely reassuring result, and may prompt escalation to diagnostic invasive testing."
+      },
+      {
+        "id": "gm_combined_fc_01",
+        "front": "Outline the UK aneuploidy screening pathway before NIPT/invasive testing.",
+        "back": "<b>Combined test</b> (11–14 wk): nuchal translucency + PAPP-A + free β-hCG. <b>Quadruple test</b> (14–20 wk): AFP, hCG, uE3, inhibin A. A <b>high chance (≥1:150)</b> result → offer NIPT (cffDNA) or invasive CVS/amniocentesis."
+      },
+      {
+        "id": "gm_dmd_fc_01",
+        "front": "What interventions alter outcome in Duchenne muscular dystrophy?",
+        "back": "<b>Corticosteroids</b> slow progression; lifelong <b>cardiac</b> (annual echo/ECG for dilated cardiomyopathy → ACEi/beta-blocker) and <b>respiratory</b> (FVC, NIV) surveillance. Female carriers need cardiac screening."
+      },
+      {
+        "id": "gm_fragilex_fc_01",
+        "front": "What is Fragile X syndrome and who should be tested?",
+        "back": "<b>FMR1</b> CGG repeat expansion (>200 = full mutation, 55–200 = premutation) — the commonest inherited cause of learning disability; premutation → FXTAS/premature ovarian insufficiency. Test in unexplained LD/autism → cascade + reproductive counselling."
       }
     ]
   },
@@ -996,12 +1026,12 @@
         "question": "A 4-year-old is found to carry a germline RET C634 mutation identified in the family. What is the key management step this genetic result mandates?",
         "options": [
           "Reassurance with no further action as the child is asymptomatic",
-          "Prophylactic total thyroidectomy, typically by around age 5",
           "Immediate lifelong chemotherapy",
+          "Prophylactic total thyroidectomy, typically by around age 5",
           "Radioactive iodine ablation of the thyroid",
           "Bilateral adrenalectomy at diagnosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Prophylactic total thyroidectomy, typically by around age 5",
         "explanation": "A C634 mutation is high-risk MEN2A, and nearly all carriers develop medullary thyroid carcinoma. Prophylactic total thyroidectomy by about age 5 removes the gland before malignancy develops. Calcitonin surveillance can bring surgery forward if it rises."
       },
@@ -1012,11 +1042,11 @@
         "options": [
           "Medullary thyroid carcinoma",
           "Phaeochromocytoma",
-          "Mucosal neuromas with a marfanoid habitus",
           "Autosomal dominant inheritance",
-          "RET proto-oncogene mutation"
+          "RET proto-oncogene mutation",
+          "Mucosal neuromas with a marfanoid habitus"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Mucosal neuromas with a marfanoid habitus",
         "explanation": "Mucosal neuromas and a marfanoid habitus define MEN2B and are absent in MEN2A. Both syndromes share MTC, phaeochromocytoma, autosomal dominant RET mutations; MEN2B additionally lacks hyperparathyroidism."
       },
@@ -1025,13 +1055,13 @@
         "type": "mcq",
         "question": "A patient with newly diagnosed MEN2A is scheduled for prophylactic thyroidectomy. Which investigation is most important to perform BEFORE surgery?",
         "options": [
-          "Plasma/urinary metanephrines to exclude phaeochromocytoma",
           "Serum vitamin B12",
+          "Plasma/urinary metanephrines to exclude phaeochromocytoma",
           "Chest radiograph",
           "Fasting lipid profile",
           "Echocardiogram"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Plasma/urinary metanephrines to exclude phaeochromocytoma",
         "explanation": "An unrecognised phaeochromocytoma can trigger a fatal intra-operative hypertensive crisis. Plasma or urinary metanephrines screen for it, and any phaeo must be resected first with alpha- then beta-blockade. This step precedes even prophylactic thyroid surgery in MEN2."
       },
@@ -1040,13 +1070,13 @@
         "type": "mcq",
         "question": "Which endocrine abnormality is typically the earliest and most common manifestation of MEN1?",
         "options": [
-          "Primary hyperparathyroidism from parathyroid hyperplasia",
           "Insulinoma causing fasting hypoglycaemia",
           "Prolactinoma causing galactorrhoea",
           "Phaeochromocytoma causing paroxysmal hypertension",
+          "Primary hyperparathyroidism from parathyroid hyperplasia",
           "Medullary thyroid carcinoma"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Primary hyperparathyroidism from parathyroid hyperplasia",
         "explanation": "Parathyroid involvement is the first of the 3 Ps and affects around 90% of MEN1 patients by age 50, usually presenting earliest as hypercalcaemia. Phaeochromocytoma and medullary thyroid carcinoma belong to MEN2, not MEN1."
       },
@@ -1070,13 +1100,13 @@
         "type": "mcq",
         "question": "A 35-year-old with recurrent primary hyperparathyroidism is found to have a gastrinoma. Which single investigation best confirms the underlying syndrome?",
         "options": [
-          "MEN1 germline gene sequencing",
           "RET proto-oncogene testing",
           "24-hour urinary metanephrines",
+          "MEN1 germline gene sequencing",
           "Serum calcitonin",
           "Short Synacthen test"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "MEN1 germline gene sequencing",
         "explanation": "The combination of parathyroid and entero-pancreatic tumours is the classic MEN1 picture, confirmed by identifying a germline MEN1 mutation. RET testing and calcitonin relate to MEN2/medullary thyroid cancer, and metanephrines assess phaeochromocytoma."
       },
@@ -1085,13 +1115,13 @@
         "type": "mcq",
         "question": "A 58-year-old man with metastatic castration-resistant prostate cancer is found to have a germline BRCA2 mutation. Which targeted therapy is most appropriate?",
         "options": [
-          "Olaparib (PARP inhibitor)",
           "Trastuzumab",
           "Imatinib",
           "Rituximab",
-          "Cetuximab"
+          "Cetuximab",
+          "Olaparib (PARP inhibitor)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Olaparib (PARP inhibitor)",
         "explanation": "BRCA2 loss impairs homologous recombination repair, making the tumour sensitive to PARP inhibition through synthetic lethality. Olaparib is licensed for BRCA-mutated metastatic castration-resistant prostate cancer. These tumours are also platinum sensitive."
       },
@@ -1100,13 +1130,13 @@
         "type": "mcq",
         "question": "A patient has bilateral clear cell renal cell carcinomas, a phaeochromocytoma and a cerebellar haemangioblastoma. Which germline syndrome is responsible?",
         "options": [
-          "Von Hippel-Lindau (VHL)",
           "Birt-Hogg-Dubé (FLCN)",
+          "Von Hippel-Lindau (VHL)",
           "Hereditary leiomyomatosis (FH)",
           "Neurofibromatosis type 1",
           "Lynch syndrome"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Von Hippel-Lindau (VHL)",
         "explanation": "VHL causes clear cell RCC together with phaeochromocytoma and CNS/retinal haemangioblastomas. Bilateral clear cell tumours in a young patient are highly suggestive. It follows autosomal dominant inheritance."
       },
@@ -1115,13 +1145,13 @@
         "type": "mcq",
         "question": "A 40-year-old woman presents with an aggressive papillary type 2 renal cell carcinoma and has cutaneous and uterine leiomyomas. Which germline mutation is most likely?",
         "options": [
-          "FH (fumarate hydratase)",
           "FLCN",
           "VHL",
           "BRCA2",
+          "FH (fumarate hydratase)",
           "ATM"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "FH (fumarate hydratase)",
         "explanation": "FH mutations cause hereditary leiomyomatosis and renal cell cancer (HLRCC), presenting with cutaneous and uterine leiomyomas plus aggressive papillary type 2 RCC. These tumours metastasise early even when small. Wide surgical excision is preferred over nephron-sparing approaches."
       },
@@ -1130,13 +1160,13 @@
         "type": "mcq",
         "question": "A 34-year-old woman with a confirmed BRCA1 pathogenic variant wants to reduce her cancer risk while preserving fertility for now. Which single intervention is most effective at reducing her ovarian cancer risk?",
         "options": [
-          "Annual transvaginal ultrasound and CA-125 screening",
           "Risk-reducing bilateral salpingo-oophorectomy",
+          "Annual transvaginal ultrasound and CA-125 screening",
           "Annual breast MRI surveillance",
           "Combined oral contraceptive pill alone",
           "Bilateral risk-reducing mastectomy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Risk-reducing bilateral salpingo-oophorectomy",
         "explanation": "There is no reliable screening test for early ovarian cancer, so surgical removal of the ovaries and tubes is the definitive risk-reducing measure. BSO also lowers breast cancer risk through oestrogen withdrawal, making it the single most effective ovarian intervention."
       },
@@ -1145,13 +1175,13 @@
         "type": "mcq",
         "question": "Which cellular repair mechanism is directly impaired by loss of functional BRCA1/BRCA2, explaining their role as tumour-suppressor genes?",
         "options": [
-          "Homologous recombination repair of double-strand breaks",
           "Nucleotide excision repair of UV dimers",
           "Base excision repair of oxidised bases",
+          "Homologous recombination repair of double-strand breaks",
           "Mismatch repair of replication errors",
           "Non-homologous end joining of blunt ends"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Homologous recombination repair of double-strand breaks",
         "explanation": "BRCA proteins are essential for error-free homologous recombination, which repairs double-strand breaks using the sister chromatid as a template. Loss of this pathway causes genomic instability that drives carcinogenesis."
       },
@@ -1161,12 +1191,12 @@
         "question": "Which feature in a patient's history most strongly supports referral for germline BRCA testing?",
         "options": [
           "A single second-cousin with cervical cancer at age 70",
-          "Male breast cancer in a first-degree relative",
           "Post-menopausal hormone replacement therapy use",
           "A benign fibroadenoma removed at age 25",
-          "Late menarche and early menopause"
+          "Late menarche and early menopause",
+          "Male breast cancer in a first-degree relative"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Male breast cancer in a first-degree relative",
         "explanation": "Male breast cancer at any age is a strong indicator of a BRCA (particularly BRCA2) variant and warrants genetic referral. It is one of the recognised eligibility criteria alongside young-onset, triple-negative, and ovarian cancers and Ashkenazi Jewish ancestry."
       },
@@ -1175,13 +1205,13 @@
         "type": "mcq",
         "question": "A 52-year-old with metastatic cutaneous melanoma has tumour testing showing a BRAF V600E mutation. Which treatment approach is most appropriate?",
         "options": [
-          "A BRAF inhibitor combined with a MEK inhibitor",
           "A BRAF inhibitor used alone as monotherapy",
+          "A BRAF inhibitor combined with a MEK inhibitor",
           "Anti-EGFR monoclonal antibody therapy",
           "High-dose germline gene replacement therapy",
           "No systemic therapy as BRAF status has no treatment relevance"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A BRAF inhibitor combined with a MEK inhibitor",
         "explanation": "A BRAF V600E mutation makes the tumour sensitive to targeted therapy with a BRAF inhibitor such as dabrafenib. Combining it with a MEK inhibitor like trametinib improves efficacy and prevents paradoxical MAPK activation, making the combination standard care in advanced BRAF-mutant melanoma."
       },
@@ -1190,13 +1220,13 @@
         "type": "mcq",
         "question": "Why is BRAF-inhibitor monotherapy generally avoided in favour of combination with a MEK inhibitor?",
         "options": [
-          "Monotherapy can cause paradoxical MAPK activation leading to secondary skin cancers",
           "Monotherapy is completely ineffective against any melanoma",
           "MEK inhibitors are required to make the tumour BRAF-positive",
           "BRAF inhibitors alone cause irreversible germline mutations",
+          "Monotherapy can cause paradoxical MAPK activation leading to secondary skin cancers",
           "Monotherapy converts the mutation from V600E to V600K"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Monotherapy can cause paradoxical MAPK activation leading to secondary skin cancers",
         "explanation": "In BRAF wild-type cells, single-agent BRAF inhibitors can paradoxically activate the MAPK pathway, driving cutaneous squamous cell carcinomas and keratoacanthomas. Adding a MEK inhibitor suppresses this downstream signalling and also improves anti-tumour efficacy."
       },
@@ -1214,6 +1244,21 @@
         "correctIndex": 0,
         "answer": "It favours sporadic MMR deficiency and helps exclude Lynch syndrome",
         "explanation": "BRAF V600E in an MLH1-deficient colorectal tumour points to sporadic MMR loss from MLH1 promoter methylation rather than an inherited defect. Because BRAF mutation is essentially absent in Lynch-associated cancers, its presence helps exclude Lynch syndrome."
+      },
+      {
+        "id": "gm_lynch_q01",
+        "type": "mcq",
+        "question": "A 45-year-old’s colorectal cancer shows loss of MSH2 on immunohistochemistry. What does this most likely indicate and what follows?",
+        "options": [
+          "Sporadic cancer — no further action",
+          "FAP — arrange prophylactic colectomy",
+          "Possible Lynch syndrome — proceed to germline MMR testing and colonoscopic surveillance/cascade testing",
+          "Li-Fraumeni syndrome — avoid radiotherapy",
+          "BRCA-related cancer — start a PARP inhibitor"
+        ],
+        "correctIndex": 2,
+        "answer": "Possible Lynch syndrome — proceed to germline MMR testing and colonoscopic surveillance/cascade testing",
+        "explanation": "Loss of an MMR protein (MSH2) on IHC indicates mismatch-repair deficiency suggesting Lynch syndrome; MLH1 loss would prompt BRAF/methylation testing to exclude sporadic disease first, but MSH2 loss points to germline testing, colonoscopic surveillance, aspirin prophylaxis and cascade testing."
       }
     ],
     "investigations__GENETICS / MOLECULAR__Neuro, Connective Tissue & Prenatal": [
@@ -1223,12 +1268,12 @@
         "question": "A 35-year-old man with a family history of adult-onset chorea and cognitive decline has genetic testing. Which result confirms Huntington disease?",
         "options": [
           "A CTG repeat expansion in DMPK",
-          "A CAG repeat of ≥40 in the HTT gene",
           "A duplication of PMP22 on chromosome 17",
+          "A CAG repeat of ≥40 in the HTT gene",
           "An out-of-frame deletion in the dystrophin gene",
           "A pathogenic variant in the NF1 gene"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A CAG repeat of ≥40 in the HTT gene",
         "explanation": "Huntington disease is caused by a CAG trinucleotide expansion in HTT, with ≥40 repeats fully penetrant. It is autosomal dominant and demonstrates anticipation."
       },
@@ -1239,11 +1284,11 @@
         "options": [
           "An in-frame deletion in the dystrophin gene",
           "A CAG expansion in HTT",
-          "An out-of-frame deletion in the dystrophin gene",
           "A TSC2 point mutation",
-          "A PMP22 duplication"
+          "A PMP22 duplication",
+          "An out-of-frame deletion in the dystrophin gene"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "An out-of-frame deletion in the dystrophin gene",
         "explanation": "Duchenne results from out-of-frame (frameshift) dystrophin deletions that abolish functional protein, producing severe X-linked myopathy with very high CK. In-frame deletions instead cause the milder Becker phenotype."
       },
@@ -1253,12 +1298,12 @@
         "question": "Before predictive genetic testing for Huntington disease in an asymptomatic at-risk adult, which principle is most important?",
         "options": [
           "Testing should proceed immediately as an effective cure exists",
-          "Asymptomatic children should be tested early to plan care",
           "It requires a formal multi-session genetic-counselling protocol with informed consent",
+          "Asymptomatic children should be tested early to plan care",
           "A raised creatine kinase must be confirmed first",
           "The result has no bearing on reproductive or insurance decisions"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "It requires a formal multi-session genetic-counselling protocol with informed consent",
         "explanation": "There is no cure and the result carries major psychological, reproductive and insurance consequences, so predictive testing follows a structured counselling pathway with informed consent. Presymptomatic testing of minors is not undertaken."
       },
@@ -1267,13 +1312,13 @@
         "type": "mcq",
         "question": "A tall 19-year-old man with long fingers, a positive thumb sign and pectus excavatum is found to have a dilated aortic root on echocardiography. Ophthalmology reports upward dislocation of both lenses. Which gene is most likely mutated?",
         "options": [
-          "FBN1",
           "COL3A1",
           "COL1A1",
           "COL5A1",
+          "FBN1",
           "FBN2"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "FBN1",
         "explanation": "The combination of tall marfanoid habitus, aortic root dilatation and upward ectopia lentis is diagnostic of Marfan syndrome. Marfan syndrome results from mutations in FBN1 encoding fibrillin-1."
       },
@@ -1297,13 +1342,13 @@
         "type": "mcq",
         "question": "A 4-year-old boy has sustained several fractures from minor falls. Examination shows blue sclerae, and his father has early-onset hearing loss and short stature. Which diagnosis best fits?",
         "options": [
-          "Osteogenesis imperfecta",
           "Marfan syndrome",
           "Vascular Ehlers-Danlos syndrome",
+          "Osteogenesis imperfecta",
           "Homocystinuria",
           "Achondroplasia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Osteogenesis imperfecta",
         "explanation": "Recurrent low-trauma fractures with blue sclerae and a family history of hearing loss are the classic triad of osteogenesis imperfecta. It arises from defective type I collagen (COL1A1/COL1A2) and is inherited in an autosomal dominant pattern."
       },
@@ -1313,12 +1358,12 @@
         "question": "An RhD-negative pregnant woman has fetal RHD genotyping on maternal plasma at 12 weeks. The result is 'RHD positive'. What is the correct management?",
         "options": [
           "Withhold anti-D as the fetus is RhD negative",
-          "Offer routine antenatal anti-D prophylaxis",
           "Perform immediate amniocentesis to confirm",
           "Give intrauterine transfusion",
-          "Repeat the test at 34 weeks before any action"
+          "Repeat the test at 34 weeks before any action",
+          "Offer routine antenatal anti-D prophylaxis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Offer routine antenatal anti-D prophylaxis",
         "explanation": "A 'RHD positive' cfDNA result means the fetus carries the RHD gene and is RhD positive, so the mother is at risk of sensitisation and should receive antenatal anti-D. Fetal RHD genotyping exists precisely to target prophylaxis to these pregnancies and spare RHD-negative fetuses."
       },
@@ -1328,12 +1373,12 @@
         "question": "A woman receives a 'high chance' NIPT result for trisomy 21. What is the most appropriate next step before any irreversible decision?",
         "options": [
           "Proceed directly to termination of pregnancy",
-          "Repeat the NIPT on a second maternal sample as definitive proof",
           "Offer invasive diagnostic testing such as CVS or amniocentesis for karyotype",
+          "Repeat the NIPT on a second maternal sample as definitive proof",
           "Reassure that the diagnosis of Down syndrome is confirmed",
           "Arrange fetal RHD genotyping"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Offer invasive diagnostic testing such as CVS or amniocentesis for karyotype",
         "explanation": "NIPT is a screening test with high sensitivity but is not diagnostic, so a positive result requires confirmation. Invasive testing (CVS or amniocentesis) provides a definitive karyotype needed before any irreversible decision."
       },
@@ -1351,6 +1396,21 @@
         "correctIndex": 3,
         "answer": "Both CVS and amniocentesis carry a procedure-related miscarriage risk of about 0.5-1%",
         "explanation": "CVS (11-14 weeks) and amniocentesis (>=15 weeks) are diagnostic procedures that both carry a small procedure-related miscarriage risk of roughly 0.5-1%. This risk is central to counselling because the tests are invasive and definitive rather than screening."
+      },
+      {
+        "id": "gm_dmd_q01",
+        "type": "mcq",
+        "question": "A boy is confirmed to have Duchenne muscular dystrophy. Which combination best reflects essential ongoing management?",
+        "options": [
+          "Corticosteroids plus annual cardiac (echo) and respiratory monitoring",
+          "Reassurance and no surveillance",
+          "Antibiotics and physiotherapy only",
+          "Immediate wheelchair provision and no drug therapy",
+          "Statin therapy and lipid monitoring"
+        ],
+        "correctIndex": 0,
+        "answer": "Corticosteroids plus annual cardiac (echo) and respiratory monitoring",
+        "explanation": "Corticosteroids slow progression in DMD, and dilated cardiomyopathy and respiratory failure are the leading causes of death — so lifelong cardiac (echo/ECG) and respiratory (FVC/NIV) surveillance is essential; female carriers also need cardiac screening."
       }
     ]
   }
