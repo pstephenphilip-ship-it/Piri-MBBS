@@ -151,6 +151,21 @@
         "id": "cvi_tilt_fc_05",
         "front": "Why must a cardiac cause be excluded before a tilt test?",
         "back": "Arrhythmic and structural cardiac syncope (complete heart block, VT, long QT, structural disease) are life-threatening. Red-flag features (exertional or lying-down syncope, palpitations, family history of sudden death, abnormal ECG) need cardiac work-up, not a tilt test."
+      },
+      {
+        "id": "tilt_vv_fc_01",
+        "front": "What are the three vasovagal response subtypes on tilt testing, and which is treated with a pacemaker?",
+        "back": "<b>Vasodepressor</b> (BP fall), <b>cardioinhibitory</b> (bradycardia/asystole), and <b>mixed</b>. A pacemaker helps only the <b>cardioinhibitory (asystolic)</b> type in older patients; it is useless for the vasodepressor type."
+      },
+      {
+        "id": "tilt_mgmt_fc_01",
+        "front": "What is the first-line management of vasovagal (reflex) syncope?",
+        "back": "<b>Education, trigger avoidance, physical counter-pressure manoeuvres, and fluid/salt loading</b> first-line; midodrine or fludrocortisone if refractory."
+      },
+      {
+        "id": "tilt_pots_fc_01",
+        "front": "State the diagnostic criteria for PoTS on standing/tilt.",
+        "back": "A <b>sustained HR rise ≥30 bpm</b> (≥40 in adolescents) within <b>10 minutes</b>, with symptoms, and <b>without orthostatic hypotension</b>."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Electrophysiology (EP) Study": [
@@ -178,6 +193,16 @@
         "id": "cvi_ep_fc_05",
         "front": "Which serious complication is especially associated with ablation near the AV node (septal pathways)?",
         "back": "Complete (third-degree) heart block, which may require a permanent pacemaker. Other risks include cardiac perforation/tamponade, vascular access complications, and thromboembolism/stroke."
+      },
+      {
+        "id": "ep_abl_fc_01",
+        "front": "Match the arrhythmia to its catheter-ablation target.",
+        "back": "<b>AVNRT</b> → slow AV-nodal pathway; <b>AVRT/WPW</b> → accessory pathway; <b>typical atrial flutter</b> → cavotricuspid isthmus line; <b>AF</b> → pulmonary vein isolation."
+      },
+      {
+        "id": "ep_dev_fc_01",
+        "front": "Distinguish the three cardiac device destinations from an EP finding.",
+        "back": "<b>Pacemaker</b> — bradycardia/AV block (e.g. infra-His block with syncope + bifascicular block). <b>ICD</b> — VT/VF/SCD prevention. <b>CRT</b> — heart failure with a broad QRS."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Endomyocardial Biopsy": [
@@ -417,12 +442,12 @@
         "question": "Which patient with syncope is most appropriately investigated with a tilt table test rather than urgent cardiac work-up?",
         "options": [
           "A 65-year-old man with syncope during exertion and an abnormal ECG",
-          "A 22-year-old with recurrent fainting on prolonged standing, a normal ECG, and normal examination",
           "A 50-year-old with syncope while lying flat and palpitations",
           "A 40-year-old with syncope and a family history of sudden cardiac death",
-          "A 70-year-old with syncope and documented ventricular tachycardia"
+          "A 70-year-old with syncope and documented ventricular tachycardia",
+          "A 22-year-old with recurrent fainting on prolonged standing, a normal ECG, and normal examination"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "A 22-year-old with recurrent fainting on prolonged standing, a normal ECG, and normal examination",
         "explanation": "A tilt test is appropriate for recurrent syncope with features suggesting a reflex or orthostatic cause once cardiac causes are excluded by a normal ECG and examination. The other patients have red-flag features that mandate cardiac investigation first."
       },
@@ -432,14 +457,29 @@
         "question": "During a tilt table test a patient's systolic blood pressure falls sharply with a simultaneous drop in heart rate to 38 bpm, reproducing their typical faint. What is the diagnosis?",
         "options": [
           "Orthostatic hypotension due to autonomic failure",
-          "Postural orthostatic tachycardia syndrome",
           "Vasovagal (neurally-mediated reflex) syncope",
+          "Postural orthostatic tachycardia syndrome",
           "Long QT syndrome",
           "Psychogenic pseudosyncope"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Vasovagal (neurally-mediated reflex) syncope",
         "explanation": "A fall in blood pressure combined with bradycardia that reproduces the patient's symptoms is the hallmark of vasovagal, neurally-mediated reflex syncope. The concurrent bradycardia distinguishes it from orthostatic hypotension and from the tachycardia of PoTS."
+      },
+      {
+        "id": "tilt_vv_q01",
+        "type": "mcq",
+        "question": "A tilt test reproduces an older patient’s faint with an abrupt fall in heart rate to asystole (cardioinhibitory vasovagal response). Which treatment is most specifically indicated for this subtype?",
+        "options": [
+          "Fludrocortisone",
+          "Beta-blocker",
+          "Reassurance only",
+          "A permanent pacemaker",
+          "Midodrine"
+        ],
+        "correctIndex": 3,
+        "answer": "A permanent pacemaker",
+        "explanation": "Pacing is reserved for documented cardioinhibitory/asystolic reflex syncope, particularly in older patients; the vasodepressor subtype does not benefit from pacing and is managed with counter-pressure manoeuvres and fluids/salt."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Electrophysiology (EP) Study": [
@@ -449,12 +489,12 @@
         "question": "A 24-year-old with recurrent paroxysmal SVT and a delta wave on ECG undergoes an EP study. Programmed stimulation induces an orthodromic re-entrant tachycardia using an accessory pathway. What is the most appropriate management identified by the study?",
         "options": [
           "Lifelong beta-blocker with no further intervention",
-          "Map and ablate the accessory pathway, which is often curative",
           "Implant a permanent pacemaker",
+          "Map and ablate the accessory pathway, which is often curative",
           "Implant an ICD for sudden death prevention",
           "Reassure and discharge with no treatment"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Map and ablate the accessory pathway, which is often curative",
         "explanation": "An inducible re-entrant SVT using an accessory pathway (AVRT/WPW) is mapped and ablated during the EP study, which is frequently curative. Catheter ablation abolishes the re-entry circuit and removes the substrate for recurrent tachycardia."
       },
@@ -464,12 +504,12 @@
         "question": "During an EP study for unexplained syncope in a patient with previous myocardial infarction, programmed stimulation induces sustained monomorphic ventricular tachycardia. What does this finding indicate?",
         "options": [
           "The patient has a structurally normal heart and low risk",
-          "A substrate for ventricular arrhythmia is present, and an ICD should be considered",
           "The syncope is definitely vasovagal in origin",
           "Immediate permanent pacemaker implantation is required",
-          "The result is a false positive and can be ignored"
+          "The result is a false positive and can be ignored",
+          "A substrate for ventricular arrhythmia is present, and an ICD should be considered"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "A substrate for ventricular arrhythmia is present, and an ICD should be considered",
         "explanation": "Inducible sustained VT in structural heart disease demonstrates a substrate for life-threatening ventricular arrhythmia and marks elevated arrhythmic risk. This finding supports consideration of an ICD, with or without VT ablation."
       },
@@ -478,15 +518,30 @@
         "type": "mcq",
         "question": "Which complication of EP study and catheter ablation is particularly associated with ablating a septal accessory pathway close to the AV node?",
         "options": [
-          "Complete heart block requiring a permanent pacemaker",
           "Acute pulmonary embolism",
+          "Complete heart block requiring a permanent pacemaker",
           "Aortic dissection",
           "Hyperkalaemia",
           "Pericardial effusion from an autoimmune reaction"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Complete heart block requiring a permanent pacemaker",
         "explanation": "Delivering ablation energy near the AV node risks damaging the conduction system and producing complete heart block, which may necessitate a permanent pacemaker. This is why septal pathways adjacent to the AV node are ablated with particular caution."
+      },
+      {
+        "id": "ep_abl_q01",
+        "type": "mcq",
+        "question": "A patient has symptomatic typical (isthmus-dependent) atrial flutter. What is the definitive catheter-ablation target?",
+        "options": [
+          "Pulmonary vein isolation",
+          "Slow AV-nodal pathway modification",
+          "The accessory pathway",
+          "A linear ablation of the cavotricuspid isthmus",
+          "AV node ablation with pacemaker"
+        ],
+        "correctIndex": 3,
+        "answer": "A linear ablation of the cavotricuspid isthmus",
+        "explanation": "Typical atrial flutter is a macro-re-entrant circuit dependent on the cavotricuspid isthmus; a linear ablation across this isthmus interrupts the circuit with a high cure rate. PV isolation is for AF; slow-pathway modification is for AVNRT."
       }
     ],
     "investigations__CARDIAC INVESTIGATIONS__Endomyocardial Biopsy": [
