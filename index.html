@@ -9355,7 +9355,36 @@ initTab('conditions');
     }catch(e){ return 0; }
   }
 
-  function annotKey(p, sys, topic){ return 'piri_annot__'+p+'__'+(sys||'')+'__'+topic; }
+  // The active in-note subtab: the .tt-btn.tt-act's data-pane. Topics with subtabs get a
+  // separate notes set per subtab; topics without subtabs return '' (legacy key unchanged).
+  function activeSubtab(p){
+    var panel=getContentPanel(p); if(!panel) return '';
+    var act=panel.querySelector('.tt-btn.tt-act');
+    return act ? (act.getAttribute('data-pane')||'') : '';
+  }
+  function annotKeyBase(p, sys, topic){ return 'piri_annot__'+p+'__'+(sys||'')+'__'+topic; }
+  function annotKey(p, sys, topic){ var base=annotKeyBase(p,sys,topic); var pane=activeSubtab(p); return pane ? base+'__'+pane : base; }
+  // One-time, idempotent migration: when a topic has subtabs, move any legacy topic-level notes
+  // (made before notes were per-subtab) into the active (first) subtab so they're never lost.
+  // Dedupe by note id so running it on several synced devices can't duplicate a note.
+  function migrateLegacyNotes(p, sys, topic){
+    var pane=activeSubtab(p); if(!pane) return;                 // no subtabs -> keep the legacy key
+    var legacyKey=annotKeyBase(p,sys,topic);
+    var legacy=[]; try{ legacy=JSON.parse(localStorage.getItem(legacyKey)||'[]'); }catch(e){}
+    if(!legacy.length) return;
+    var paneKey=legacyKey+'__'+pane;
+    var cur=[]; try{ cur=JSON.parse(localStorage.getItem(paneKey)||'[]'); }catch(e){}
+    var seen={}, merged=[];
+    cur.concat(legacy).forEach(function(a){ if(!a) return; if(a.id==null){ merged.push(a); return; } if(seen[a.id]) return; seen[a.id]=1; merged.push(a); });
+    try{ localStorage.setItem(paneKey, JSON.stringify(merged)); localStorage.removeItem(legacyKey); }catch(e){}
+  }
+  // Switching subtab -> reload that subtab's notes/highlights for the panel the tab lives in.
+  document.addEventListener('click', function(e){
+    var b=e.target&&e.target.closest?e.target.closest('.tt-btn'):null; if(!b) return;
+    var panel=b.closest('#pharma-detail, [id^="notes-panel-"]'); if(!panel) return;
+    var p = panel.id==='pharma-detail' ? 'pharmacology' : panel.id.replace('notes-panel-','');
+    setTimeout(function(){ if(window.annotRender) window.annotRender(p); }, 20);   // after the inline pane switch
+  }, false);
   function sbId(p){ return 'annot-sb-'+p; }
   function wrapId(p){ return 'annot-wrap-'+p; }
 
@@ -9703,6 +9732,9 @@ initTab('conditions');
       // highlight <mark> gets wrapped inside <style> (0×0, never rendered).
       // Also skip already-highlighted text. (Mirrors the drug-linker's SKIP_ELEM.)
       if(n.parentElement && n.parentElement.closest && n.parentElement.closest('style,script,.annot-highlight')) continue;
+      // Skip hidden subtab panes so a note applies only within its own (visible) subtab.
+      var _pane=n.parentElement && n.parentElement.closest && n.parentElement.closest('.tt-pane');
+      if(_pane && _pane.offsetParent===null) continue;
       var v=n.nodeValue;
       for(var i=0;i<v.length;i++){
         var c=v[i];
@@ -9829,6 +9861,7 @@ initTab('conditions');
       annotSetMeta(p, 0, '');
       applyHighlights(p,[]); return;
     }
+    migrateLegacyNotes(p, info.sys, info.topic);   // preserve pre-subtab notes on the first subtab
     var key=annotKey(p,info.sys,info.topic);
     var annots=[];
     try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
