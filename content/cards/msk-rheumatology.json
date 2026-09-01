@@ -4507,6 +4507,31 @@
 "id": "gca_fc_05",
 "front": "How does management differ when a patient with suspected GCA has visual symptoms?",
 "back": "Visual symptoms (amaurosis fugax, sudden visual loss, diplopia) signal impending irreversible blindness — give IV methylprednisolone immediately, rather than oral prednisolone, as an emergency."
+},
+{
+"id": "ctv_ana_fc_01",
+"front": "How is ANA used in suspected SLE, and what does a negative result mean?",
+"back": "<b>ANA</b> is a <b>sensitive but non-specific</b> screen; a <b>negative ANA makes SLE very unlikely</b>. A positive ANA reflexes to specific antibodies (anti-dsDNA + ENA panel); low-titre positives are common and non-specific."
+},
+{
+"id": "ctv_dsdna_fc_01",
+"front": "What do a rising anti-dsDNA and falling C3/C4 indicate, and what do you do?",
+"back": "Active <b>SLE / lupus nephritis</b> (anti-dsDNA is specific and tracks activity; low complement = consumption). Check <b>urine protein:creatinine ratio</b> + urinalysis for red-cell casts and refer for <b>renal assessment ± biopsy</b>."
+},
+{
+"id": "ctv_ena_fc_01",
+"front": "Map the ENA antibodies to their diseases.",
+"back": "<b>Anti-Sm</b> → SLE (specific). <b>Anti-Ro/La</b> → Sjögren’s (+ neonatal lupus/congenital heart block). <b>Anti-U1-RNP</b> → mixed CTD. <b>Anti-Jo-1</b> → poly/dermatomyositis. <b>Anti-centromere</b> → limited SSc/CREST. <b>Anti-Scl-70</b> → diffuse SSc."
+},
+{
+"id": "ctv_anca_fc_01",
+"front": "How do the ANCA subtypes map, and what is the urgent work-up?",
+"back": "<b>c-ANCA/PR3</b> → GPA; <b>p-ANCA/MPO</b> → microscopic polyangiitis & eosinophilic GPA. Same-day: <b>urinalysis (red-cell casts), U&E/creatinine, CXR</b> for pulmonary–renal syndrome; treat with steroids + cyclophosphamide/rituximab."
+},
+{
+"id": "ctv_ssc_fc_01",
+"front": "What organ surveillance do the systemic sclerosis antibodies trigger?",
+"back": "<b>Anti-centromere</b> (limited/CREST) → annual <b>echo + PFT</b> for pulmonary hypertension. <b>Anti-Scl-70</b> (diffuse) → <b>HRCT + PFT (DLCO)</b> for ILD, and BP monitoring for scleroderma renal crisis."
 }
 ],
 "investigations__MSK / RHEUMATOLOGY__Fractures & Trauma": [
@@ -4618,7 +4643,7 @@
 {
 "id": "avn_fc_02",
 "front": "What is the 'double-line sign' and where is it seen?",
-"back": "An MRI finding (best on T2) of femoral-head AVN: a low-signal outer sclerotic rim with a high-signal inner line at the reactive necrotic/viable interface. It is essentially pathognomonic and is the earliest sensitive sign."
+"back": "An MRI finding (best on T2) of femoral-head AVN: a low-signal outer sclerotic rim with a high-signal inner line at the reactive necrotic/viable interface. It is essentially pathognomonic (though marrow oedema is the earliest MRI change)."
 },
 {
 "id": "avn_fc_03",
@@ -4684,6 +4709,16 @@
 "id": "comp_fc_05",
 "front": "What are the commonest cause and the main complications of untreated acute compartment syndrome?",
 "back": "Commonest cause: tibial (and forearm) fractures. Complications of delay: Volkmann's ischaemic contracture, rhabdomyolysis with AKI, and amputation/limb loss."
+},
+{
+"id": "fx_nai_fc_01",
+"front": "Which fracture patterns should raise suspicion of non-accidental injury, and what do you do?",
+"back": "<b>Metaphyseal corner/bucket-handle</b>, <b>posterior rib</b> fractures, <b>multiple fractures of differing ages</b>, or <b>any fracture in a non-ambulant infant</b>, plus a delayed/inconsistent history. Action: senior/paediatric input, <b>skeletal survey</b>, document, <b>urgent safeguarding referral</b> — do not discharge."
+},
+{
+"id": "fx_nai_fc_02",
+"front": "Why is a long-bone fracture in a non-ambulant infant a red flag?",
+"back": "A child who cannot yet walk or cruise should not sustain a long-bone (e.g. spiral femoral) fracture from normal handling; it implies applied force and mandates a <b>safeguarding assessment</b> and skeletal survey."
 }
 ],
 "investigations__MSK / RHEUMATOLOGY__Ultrasound, Infection & Screening": [
@@ -13154,12 +13189,12 @@
 "question": "A 26-year-old woman reports her fingers turning white then blue then red in the cold since her teens, symmetrically in both hands, with no ulcers or skin changes. Nailfold capillaroscopy shows regular, evenly spaced uniform hairpin loops and ANA is negative. What is the most appropriate management?",
 "options": [
 "Start oral prednisolone for suspected systemic sclerosis",
-"Reassure and advise conservative measures (keep warm, avoid triggers)",
 "Urgent vascular surgery referral for digital sympathectomy",
+"Reassure and advise conservative measures (keep warm, avoid triggers)",
 "Commence anti-Scl-70 directed immunosuppression",
 "Admit for IV iloprost infusion"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Reassure and advise conservative measures (keep warm, avoid triggers)",
 "explanation": "Young age, symmetry, absence of tissue damage, NORMAL capillaroscopy and negative ANA all indicate benign PRIMARY Raynaud's phenomenon. Management is conservative — reassurance, keeping warm and avoiding triggers (calcium-channel blockers such as nifedipine if troublesome). Immunosuppression, iloprost and surgery are for severe secondary disease, and there is nothing here to suggest systemic sclerosis."
 },
@@ -13170,11 +13205,11 @@
 "options": [
 "Uniform hairpin loops with regular spacing",
 "Increased capillary density with no haemorrhage",
-"Giant capillaries, microhaemorrhages and avascular dropout",
 "Complete absence of any visible capillaries in a healthy young person",
-"Slightly tortuous loops with normal calibre and no dropout"
+"Slightly tortuous loops with normal calibre and no dropout",
+"Giant capillaries, microhaemorrhages and avascular dropout"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Giant capillaries, microhaemorrhages and avascular dropout",
 "explanation": "The \"scleroderma pattern\" — giant (dilated) capillaries, microhaemorrhages, and capillary loss/avascular areas with architectural disorganisation — is the hallmark of secondary Raynaud's and evolving systemic sclerosis. Uniform hairpin loops are normal, and mild non-specific tortuosity does not constitute the scleroderma pattern."
 },
@@ -13199,12 +13234,12 @@
 "question": "A 72-year-old woman presents with a 2-week history of new right-sided temporal headache, scalp tenderness when combing her hair, and pain in her jaw when chewing. ESR is 88 mm/hr and CRP is markedly raised. She has no visual symptoms. What is the single most appropriate immediate management step?",
 "options": [
 "Arrange an urgent temporal artery biopsy and withhold treatment until the result is available",
-"Start high-dose oral prednisolone immediately and arrange urgent investigation",
 "Request an MRI brain before starting any treatment",
 "Prescribe high-dose NSAIDs and review in one week",
+"Start high-dose oral prednisolone immediately and arrange urgent investigation",
 "Start IV methylprednisolone and admit for emergency plasma exchange"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Start high-dose oral prednisolone immediately and arrange urgent investigation",
 "explanation": "This is classic GCA (age >50, new temporal headache, scalp tenderness, jaw claudication, very high ESR/CRP). Treatment must never be delayed for investigations. Without visual symptoms, oral prednisolone 40–60 mg/day is appropriate; IV methylprednisolone is reserved for visual involvement. The biopsy remains positive for ~1–2 weeks after steroids, so it can be arranged after treatment starts."
 },
@@ -13213,13 +13248,13 @@
 "type": "mcq",
 "question": "A temporal artery duplex ultrasound is performed on a patient with suspected giant cell arteritis. Which finding most strongly supports the diagnosis?",
 "options": [
-"A brightly hyperechoic ring around the lumen that disappears on compression",
 "A hypoechoic circumferential wall thickening (halo sign) that persists on compression",
+"A brightly hyperechoic ring around the lumen that disappears on compression",
 "Absent arterial flow with a normal vessel wall",
 "A calcified atherosclerotic plaque narrowing the lumen",
 "Increased vessel wall echogenicity with a normal wall thickness"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "A hypoechoic circumferential wall thickening (halo sign) that persists on compression",
 "explanation": "The halo sign is a hypoechoic (dark) circumferential ring of inflammatory wall oedema around the lumen. When the halo remains as the artery is compressed by the probe (non-compressible artery / positive compression sign), this strongly indicates vasculitis. Hyperechoic calcified plaque reflects atherosclerosis, not GCA."
 },
@@ -13229,14 +13264,59 @@
 "question": "A temporal artery biopsy from a patient clinically diagnosed with GCA returns as normal, showing no inflammation. Inflammatory markers were very high and the patient had jaw claudication and a raised, tender temporal artery. What is the best interpretation?",
 "options": [
 "The diagnosis of GCA is excluded and steroids should be stopped",
-"A negative biopsy does not exclude GCA because of skip lesions; continue treatment based on the clinical picture",
 "The biopsy must be repeated on the contralateral side before any treatment decision",
+"A negative biopsy does not exclude GCA because of skip lesions; continue treatment based on the clinical picture",
 "The high ESR is more consistent with infection, so start antibiotics",
 "The result confirms polymyalgia rheumatica rather than GCA"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "A negative biopsy does not exclude GCA because of skip lesions; continue treatment based on the clinical picture",
 "explanation": "GCA inflammation is patchy with skip lesions, so a biopsy can sample an uninvolved segment and appear normal. A negative biopsy does not exclude GCA — the diagnosis is ultimately clinical, supported by inflammatory markers and imaging. With a convincing clinical picture and raised markers, treatment should continue."
+},
+{
+"id": "ctv_ana_q01",
+"type": "mcq",
+"question": "A patient with vague arthralgia has a negative ANA. What does this most reliably tell you?",
+"options": [
+"SLE is confirmed",
+"She has anti-dsDNA antibodies",
+"She has an ANCA-associated vasculitis",
+"Complement levels must be low",
+"Systemic lupus erythematosus is very unlikely"
+],
+"correctIndex": 4,
+"answer": "Systemic lupus erythematosus is very unlikely",
+"explanation": "ANA is a highly sensitive screen for SLE, so a negative ANA has a high negative predictive value and makes SLE very unlikely. A positive ANA is non-specific and would need reflex testing (dsDNA, ENA)."
+},
+{
+"id": "ctv_anca_q01",
+"type": "mcq",
+"question": "A 60-year-old presents with haemoptysis, an active urinary sediment with red-cell casts and rising creatinine; c-ANCA/anti-PR3 is positive. Which is the most appropriate immediate management?",
+"options": [
+"Reassurance and repeat ANCA in 3 months",
+"High-dose corticosteroids with cyclophosphamide or rituximab",
+"Oral antibiotics for a chest infection",
+"A bisphosphonate",
+"Topical therapy only"
+],
+"correctIndex": 1,
+"answer": "High-dose corticosteroids with cyclophosphamide or rituximab",
+"explanation": "This is a pulmonary–renal syndrome from ANCA-associated vasculitis (PR3/GPA). It is an emergency requiring urgent immunosuppression — high-dose steroids plus cyclophosphamide or rituximab — alongside renal/respiratory support."
+},
+{
+"id": "ctv_ssc_q01",
+"type": "mcq",
+"question": "A woman with Raynaud’s and skin tightening is anti-centromere positive (limited cutaneous systemic sclerosis). Which surveillance is most appropriate?",
+"options": [
+"Annual colonoscopy",
+"No surveillance is needed",
+"Serial DEXA scans",
+"Annual echocardiography and pulmonary function tests for pulmonary hypertension",
+"Repeated ANA titres only"
+],
+"correctIndex": 3,
+"answer": "Annual echocardiography and pulmonary function tests for pulmonary hypertension",
+"explanation": "Limited cutaneous SSc (anti-centromere) carries a risk of pulmonary arterial hypertension, so annual echocardiography and PFTs are recommended. Anti-Scl-70 (diffuse) instead prompts HRCT/PFT surveillance for interstitial lung disease."
 }
 ],
 "investigations__MSK / RHEUMATOLOGY__Fractures & Trauma": [
@@ -13262,11 +13342,11 @@
 "options": [
 "Weber A — stable",
 "Weber B — variable stability",
-"Weber C — unstable",
 "Salter-Harris II — stable",
-"Schatzker I — stable"
+"Schatzker I — stable",
+"Weber C — unstable"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Weber C — unstable",
 "explanation": "The Weber system classifies the fibular fracture by its level relative to the syndesmosis: A below (stable), B at the level (variable), C above (syndesmosis disrupted, unstable). A fracture above the syndesmosis with medial clear space widening/talar shift is Weber C and unstable, typically requiring ORIF with possible syndesmotic fixation. Feel the proximal fibula to exclude a Maisonneuve injury."
 },
@@ -13291,12 +13371,12 @@
 "question": "A 22-year-old man attends the emergency department after falling onto his outstretched right hand while skateboarding. He has marked tenderness in the anatomical snuffbox and pain on axial loading of the thumb. Dedicated scaphoid-view radiographs are reported as normal. What is the most appropriate next step?",
 "options": [
 "Reassure and discharge with simple analgesia",
-"Apply a scaphoid cast/splint and arrange repeat radiographs or MRI",
 "Apply a below-elbow backslab and discharge with no follow-up",
 "Refer for immediate open reduction and internal fixation",
+"Apply a scaphoid cast/splint and arrange repeat radiographs or MRI",
 "Prescribe a wrist support and advise return only if symptoms persist beyond 6 weeks"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Apply a scaphoid cast/splint and arrange repeat radiographs or MRI",
 "explanation": "Snuffbox tenderness with a normal X-ray is a suspected occult scaphoid fracture. A normal film does not exclude a fracture, so the patient must be immobilised and re-imaged — MRI (most sensitive) or repeat radiographs at 10–14 days. Discharging without follow-up risks non-union and AVN."
 },
@@ -13305,13 +13385,13 @@
 "type": "mcq",
 "question": "A scaphoid fracture through which region carries the highest risk of avascular necrosis, and why?",
 "options": [
+"Proximal pole, because the retrograde blood supply enters distally",
 "Distal pole, because it is closest to the radial styloid",
 "Scaphoid tubercle, because of high mechanical load",
-"Proximal pole, because the retrograde blood supply enters distally",
 "Waist, because it is the widest part of the bone",
 "Distal pole, because the blood supply enters proximally"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Proximal pole, because the retrograde blood supply enters distally",
 "explanation": "The scaphoid is supplied in a retrograde fashion by branches of the radial artery entering distally. Proximal pole fractures interrupt this supply to the proximal fragment, giving the highest risk of avascular necrosis and non-union."
 },
@@ -13321,12 +13401,12 @@
 "question": "When requesting radiographs for a suspected scaphoid fracture, which specific view best profiles the scaphoid to reveal a waist fracture?",
 "options": [
 "Lateral wrist in neutral",
-"PA in ulnar deviation",
 "AP forearm including the elbow",
+"PA in ulnar deviation",
 "Oblique view of the fifth metacarpal",
 "PA in radial deviation"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "PA in ulnar deviation",
 "explanation": "Dedicated 'scaphoid views' include a PA projection in ulnar deviation, which elongates and profiles the scaphoid and improves detection of a waist fracture line. Standard neutral views often foreshorten the bone and can miss the fracture."
 },
@@ -13336,12 +13416,12 @@
 "question": "A 32-year-old man falls onto an outstretched hand and presents with a painful, swollen elbow. A lateral radiograph shows an elevated anterior fat pad (sail sign) and a visible posterior fat pad, but you cannot identify a definite fracture line. What is the most likely underlying injury?",
 "options": [
 "Olecranon fracture",
-"Radial head fracture",
 "Medial epicondyle avulsion",
 "Supracondylar fracture",
-"Distal humeral shaft fracture"
+"Distal humeral shaft fracture",
+"Radial head fracture"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "Radial head fracture",
 "explanation": "In adults, the commonest occult intra-articular elbow fracture producing a fat pad sign without a visible line is a radial head fracture. The fat pads are displaced by the haemarthrosis. Supracondylar fractures are the paediatric equivalent, not the adult one."
 },
@@ -13351,12 +13431,12 @@
 "question": "Which of the following statements about elbow fat pads on a lateral radiograph is correct?",
 "options": [
 "A visible posterior fat pad is a normal finding in most adults",
-"A small anterior fat pad is always pathological",
 "Any visible posterior fat pad indicates a joint effusion and is abnormal",
+"A small anterior fat pad is always pathological",
 "Fat pads are best assessed on the AP (anteroposterior) view",
 "The sail sign refers to elevation of the posterior fat pad"
 ],
-"correctIndex": 2,
+"correctIndex": 1,
 "answer": "Any visible posterior fat pad indicates a joint effusion and is abnormal",
 "explanation": "The posterior fat pad is normally hidden within the olecranon fossa, so any visualisation is abnormal and signifies an effusion/haemarthrosis. A small anterior fat pad can be normal; the sail sign is elevation of the ANTERIOR fat pad; fat pads are assessed on the LATERAL view."
 },
@@ -13366,12 +13446,12 @@
 "question": "A 6-year-old falls off monkey bars and has a displaced supracondylar fracture. Which single examination finding most specifically tests the anterior interosseous nerve (AIN)?",
 "options": [
 "Sensation over the first dorsal web space",
-"Ability to make an 'OK' sign (thumb IP and index DIP flexion)",
 "Wrist extension against resistance",
 "Abduction of the fingers",
+"Ability to make an 'OK' sign (thumb IP and index DIP flexion)",
 "Sensation over the little finger"
 ],
-"correctIndex": 1,
+"correctIndex": 3,
 "answer": "Ability to make an 'OK' sign (thumb IP and index DIP flexion)",
 "explanation": "The AIN (a branch of the median nerve) supplies flexor pollicis longus and the lateral half of flexor digitorum profundus; inability to flex the thumb IP and index DIP joints (failure of the 'OK' sign) indicates AIN injury, classically threatened in supracondylar fractures. Web-space sensation/wrist extension test the radial nerve, finger abduction tests the ulnar nerve."
 },
@@ -13380,13 +13460,13 @@
 "type": "mcq",
 "question": "An 82-year-old woman falls at home and attends ED with right groin pain and inability to weight-bear. The leg is not obviously shortened or rotated. AP pelvis and lateral hip radiographs are reported as normal. What is the most appropriate next step?",
 "options": [
+"Arrange MRI of the hip to exclude an occult fracture",
 "Discharge with analgesia and outpatient physiotherapy",
 "Repeat plain hip X-ray in 10 days",
-"Arrange MRI of the hip to exclude an occult fracture",
 "Encourage mobilisation and review if pain persists",
 "Request a DEXA scan to assess bone density"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Arrange MRI of the hip to exclude an occult fracture",
 "explanation": "A normal X-ray does not exclude a hip fracture in an elderly faller who cannot weight-bear. NICE/BOAST guidance requires further imaging, and MRI is the investigation of choice as it is the most sensitive — detecting the fracture line and marrow oedema within hours. Discharging or mobilising risks displacement of an occult NOF fracture."
 },
@@ -13395,13 +13475,13 @@
 "type": "mcq",
 "question": "A frail 79-year-old man with a suspected occult hip fracture and a normal X-ray has a permanent pacemaker that is not MRI-conditional, so MRI cannot be performed. What is the most appropriate alternative imaging?",
 "options": [
-"CT of the hip",
 "Bone scintigraphy the same day",
 "Ultrasound of the hip",
+"CT of the hip",
 "Repeat X-ray with additional oblique views",
 "No further imaging; mobilise as tolerated"
 ],
-"correctIndex": 0,
+"correctIndex": 2,
 "answer": "CT of the hip",
 "explanation": "When MRI is unavailable or contraindicated within 24 hours, CT is the recommended alternative. CT is fast and widely available but can miss non-displaced or impacted fractures, so a negative CT with strong clinical suspicion may still warrant senior orthopaedic review or delayed MRI."
 },
@@ -13411,12 +13491,12 @@
 "question": "Which single feature best explains why MRI is preferred over CT for detecting an occult neck-of-femur fracture in the first hours after injury?",
 "options": [
 "MRI uses ionising radiation to highlight the fracture",
-"MRI detects bone-marrow oedema before any cortical disruption is visible",
 "MRI is quicker to perform than CT in the acute setting",
 "MRI reliably shows the fracture only after 10–14 days",
-"MRI is less affected by patient movement than CT"
+"MRI is less affected by patient movement than CT",
+"MRI detects bone-marrow oedema before any cortical disruption is visible"
 ],
-"correctIndex": 1,
+"correctIndex": 4,
 "answer": "MRI detects bone-marrow oedema before any cortical disruption is visible",
 "explanation": "MRI (STIR/T1) shows bone-marrow oedema and the fracture line within hours of injury, before radiographic or even CT-visible cortical/trabecular changes appear. It uses no ionising radiation. CT and plain films depend on visible bony disruption, so they can miss undisplaced fractures early."
 },
@@ -13442,11 +13522,11 @@
 "options": [
 "Ficat stage I",
 "Ficat stage II",
-"Ficat stage III",
 "Ficat stage IV",
+"Ficat stage III",
 "Ficat stage 0"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Ficat stage III",
 "explanation": "The crescent sign indicates subchondral collapse and, with head flattening but preserved joint space, defines Ficat stage III. Stage I is a normal X-ray with positive MRI; stage II is sclerosis/cysts without collapse; stage IV adds joint-space narrowing and secondary OA."
 },
@@ -13455,13 +13535,13 @@
 "type": "mcq",
 "question": "A 52-year-old man with sickle cell disease is diagnosed with femoral-head AVN. Imaging shows crescent sign with flattening of the femoral head and early joint-space narrowing with secondary osteoarthritic change. What is the most appropriate definitive management?",
 "options": [
+"Total hip arthroplasty",
 "Core decompression",
 "Bisphosphonate therapy and protected weight-bearing",
-"Total hip arthroplasty",
 "Intra-articular corticosteroid injection",
 "Observation with serial MRI"
 ],
-"correctIndex": 2,
+"correctIndex": 0,
 "answer": "Total hip arthroplasty",
 "explanation": "The head has collapsed with secondary OA (Ficat III–IV), which is post-collapse disease. Joint-preserving options such as core decompression and bisphosphonates are only useful pre-collapse (Ficat I–II). Once the head is collapsed with OA, total hip arthroplasty is the definitive treatment."
 },
@@ -13471,12 +13551,12 @@
 "question": "A 24-year-old man has a manipulation under sedation for an anterior shoulder dislocation. Before you send him home, which single finding, if newly present compared with the pre-reduction assessment, most requires urgent action?",
 "options": [
 "Mild residual shoulder ache on movement",
-"Loss of sensation over the lateral deltoid (regimental badge area) that was intact before reduction",
 "A small Hill-Sachs defect noted on the check film",
+"Loss of sensation over the lateral deltoid (regimental badge area) that was intact before reduction",
 "Bruising over the anterior shoulder",
 "Restricted external rotation due to pain"
 ],
-"correctIndex": 1,
+"correctIndex": 2,
 "answer": "Loss of sensation over the lateral deltoid (regimental badge area) that was intact before reduction",
 "explanation": "New numbness over the regimental badge area indicates an axillary nerve deficit that has appeared since the pre-reduction baseline — a red flag requiring immediate re-assessment and senior review. A Hill-Sachs defect is a common associated finding, and pain/bruising/stiffness are expected. The value of the pre-reduction exam is precisely to detect a NEW post-reduction deficit."
 },
@@ -13487,11 +13567,11 @@
 "options": [
 "Discharge with a knee brace and outpatient MRI",
 "Reassure — palpable pulses exclude vascular injury",
-"Assess ABPI and have a low threshold for CT angiography of the popliteal vessels",
 "Apply a full plaster cylinder and repeat X-ray in 2 weeks",
-"Immediate above-knee amputation planning"
+"Immediate above-knee amputation planning",
+"Assess ABPI and have a low threshold for CT angiography of the popliteal vessels"
 ],
-"correctIndex": 2,
+"correctIndex": 4,
 "answer": "Assess ABPI and have a low threshold for CT angiography of the popliteal vessels",
 "explanation": "A knee dislocation is a popliteal artery injury until proven otherwise. Palpable pulses do NOT exclude an intimal tear that can thrombose later, so ABPI and CT angiography are warranted. This is limb-threatening and requires urgent vascular assessment, not discharge or false reassurance."
 },
@@ -13517,11 +13597,11 @@
 "options": [
 "Reassure and continue regular opioid analgesia",
 "Elevate the limb well above the level of the heart",
-"Split the backslab down to skin and urgently escalate for fasciotomy",
 "Arrange an urgent CT angiogram of the lower limb",
+"Split the backslab down to skin and urgently escalate for fasciotomy",
 "Wait until distal pulses are lost before intervening"
 ],
-"correctIndex": 2,
+"correctIndex": 3,
 "answer": "Split the backslab down to skin and urgently escalate for fasciotomy",
 "explanation": "Pain out of proportion and pain on passive stretch with intact pulses is classic early acute compartment syndrome — pulselessness is a late sign. The first steps are to relieve external constriction (split the cast to skin) and arrange urgent fasciotomy. Elevation above the heart reduces perfusion and worsens ischaemia; angiography and waiting for pulselessness both cause dangerous delay."
 },
@@ -13530,13 +13610,13 @@
 "type": "mcq",
 "question": "An unconscious, ventilated polytrauma patient has a swollen, tense right leg following a crush injury. Because he cannot report symptoms, intracompartmental pressure is measured. His diastolic blood pressure is 70 mmHg and the anterior compartment pressure is 45 mmHg. Which finding best indicates the need for fasciotomy?",
 "options": [
-"Absolute compartment pressure of 45 mmHg alone",
 "A delta pressure of 25 mmHg",
+"Absolute compartment pressure of 45 mmHg alone",
 "A delta pressure of 55 mmHg",
 "Compartment pressure equal to systolic blood pressure",
 "Serum creatine kinase within normal limits"
 ],
-"correctIndex": 1,
+"correctIndex": 0,
 "answer": "A delta pressure of 25 mmHg",
 "explanation": "Delta pressure = diastolic BP − compartment pressure = 70 − 45 = 25 mmHg. A delta pressure <30 mmHg is the more reliable indication for fasciotomy because it accounts for the patient's perfusion pressure. Although the absolute pressure of 45 mmHg exceeds the 30–40 mmHg threshold, the delta pressure is the preferred criterion; a normal CK does not exclude the diagnosis."
 },
@@ -13547,13 +13627,28 @@
 "options": [
 "It is primarily a radiological diagnosis requiring MRI confirmation",
 "The affected limb should be elevated well above the heart to reduce swelling",
-"Paralysis and pulselessness are early, sensitive signs that should prompt diagnosis",
 "It is a surgical emergency and a largely clinical diagnosis requiring urgent fasciotomy",
+"Paralysis and pulselessness are early, sensitive signs that should prompt diagnosis",
 "A single normal compartment pressure reading reliably excludes the diagnosis"
 ],
-"correctIndex": 3,
+"correctIndex": 2,
 "answer": "It is a surgical emergency and a largely clinical diagnosis requiring urgent fasciotomy",
 "explanation": "Acute compartment syndrome is a surgical emergency diagnosed clinically (pain out of proportion and pain on passive stretch are earliest). Paralysis and pulselessness are late signs. The limb should be kept at heart level, not elevated above it. A single normal pressure reading does not exclude the diagnosis in a suggestive limb — treat the patient, not the number."
+},
+{
+"id": "fx_nai_q01",
+"type": "mcq",
+"question": "A 4-month-old (not yet mobile) has a spiral femoral fracture; the history is vague and changes. Alongside treating the fracture, what is the most appropriate action?",
+"options": [
+"Discharge with a follow-up fracture-clinic appointment",
+"Reassure the parents and give analgesia only",
+"Arrange an outpatient bone-density scan",
+"Repeat the X-ray in two weeks and review",
+"Urgent safeguarding referral and a skeletal survey"
+],
+"correctIndex": 4,
+"answer": "Urgent safeguarding referral and a skeletal survey",
+"explanation": "A femoral fracture in a non-ambulant infant with an inconsistent history is a classic non-accidental injury red flag. Involve seniors/paediatrics, perform a skeletal survey to look for other/older fractures, document carefully and make an urgent safeguarding referral."
 }
 ],
 "investigations__MSK / RHEUMATOLOGY__Ultrasound, Infection & Screening": [
