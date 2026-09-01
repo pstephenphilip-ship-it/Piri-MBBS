@@ -556,7 +556,7 @@
       {
         "id": "sc_orth_medstino_fc_03",
         "front": "Why has EBUS-TBNA largely replaced mediastinoscopy as first-line mediastinal staging?",
-        "back": "EBUS-TBNA is minimally invasive with no incision, no general anaesthesia and real-time ultrasound-guided sampling; mediastinoscopy is now second-line/confirmatory when EBUS is negative, inaccessible, or when a larger tissue block is needed."
+        "back": "EBUS-TBNA is minimally invasive with no incision, usually under conscious sedation rather than general anaesthesia, and real-time ultrasound-guided sampling; mediastinoscopy is now second-line/confirmatory when EBUS is negative, inaccessible, or when a larger tissue block is needed."
       },
       {
         "id": "sc_orth_medstino_fc_04",
@@ -567,6 +567,11 @@
         "id": "sc_orth_medstino_fc_05",
         "front": "Which nerve injury classically causes hoarseness after mediastinoscopy?",
         "back": "Injury to the (left) recurrent laryngeal nerve, producing vocal cord palsy and hoarseness."
+      },
+      {
+        "id": "sc_orth_arthro_mri_fc_01",
+        "front": "When is MRI preferred over arthroscopy in suspected internal knee/shoulder derangement?",
+        "back": "Suspected <b>meniscal, ACL or rotator-cuff injury</b> is imaged with <b>MRI first</b> (non-invasive). Arthroscopy is reserved for a <b>therapeutic target</b> (repair/reconstruction), an <b>MRI-equivocal</b> case, or a <b>mechanically locked</b> knee needing urgent intervention."
       }
     ]
   },
@@ -1474,13 +1479,13 @@
         "type": "mcq",
         "question": "A 24-year-old footballer has a locked knee with a fixed springy block to full extension after a twisting injury. Which arthroscopic finding is most likely responsible?",
         "options": [
-          "Bucket-handle meniscal tear",
           "Chondral softening of the patella",
           "Small effusion without internal derangement",
+          "Bucket-handle meniscal tear",
           "Isolated synovial inflammation",
           "Superficial cartilage fibrillation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Bucket-handle meniscal tear",
         "explanation": "A displaced bucket-handle meniscal fragment flips into the intercondylar notch and physically blocks full extension, producing a true mechanical lock. This is a recognised indication for urgent knee arthroscopy to reduce or resect the fragment."
       },
@@ -1489,13 +1494,13 @@
         "type": "mcq",
         "question": "During knee arthroscopy a pneumatic thigh tourniquet is used. What is its main purpose?",
         "options": [
-          "To provide a bloodless field for clear visualisation",
           "To prevent venous thromboembolism",
           "To deliver antibiotics into the limb",
           "To distend the joint cavity",
-          "To provide surgical anaesthesia"
+          "To provide surgical anaesthesia",
+          "To provide a bloodless field for clear visualisation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "To provide a bloodless field for clear visualisation",
         "explanation": "The tourniquet exsanguinates the limb and occludes arterial inflow, giving a bloodless field that improves the arthroscopic view. Inflation time and pressure are limited to avoid nerve palsy and ischaemic injury."
       },
@@ -1504,13 +1509,13 @@
         "type": "mcq",
         "question": "Three days after knee arthroscopy a patient returns with a hot, tensely swollen, exquisitely painful knee and fever. What is the most appropriate immediate management?",
         "options": [
-          "Urgent joint aspiration for Gram stain and culture with plans for washout",
           "Reassurance and simple oral analgesia at home",
+          "Urgent joint aspiration for Gram stain and culture with plans for washout",
           "Routine outpatient MRI in six weeks",
           "Start oral iron for presumed haemarthrosis",
           "Apply a compression bandage and discharge"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Urgent joint aspiration for Gram stain and culture with plans for washout",
         "explanation": "A hot, swollen, painful febrile joint after arthroscopy is septic arthritis until proven otherwise. Urgent aspiration for microscopy and culture guides treatment, and prompt washout with antibiotics prevents rapid cartilage destruction."
       },
@@ -1520,12 +1525,12 @@
         "question": "A 24-year-old woman undergoes diagnostic laparoscopy for equivocal right iliac fossa pain. Which entry technique is specifically preferred when a patient has had previous abdominal surgery with likely adhesions?",
         "options": [
           "Veress needle at the umbilicus",
-          "Open Hasson cut-down under direct vision",
           "Blind trocar insertion in the right iliac fossa",
           "Percutaneous drain placement first",
+          "Open Hasson cut-down under direct vision",
           "Subxiphoid needle insufflation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Open Hasson cut-down under direct vision",
         "explanation": "The open Hasson technique places the first port under direct vision, avoiding blind puncture of adherent bowel. It is the preferred entry when adhesions from prior surgery are anticipated."
       },
@@ -1534,13 +1539,13 @@
         "type": "mcq",
         "question": "Which gas is used to create the pneumoperitoneum in laparoscopy, and for what principal reason?",
         "options": [
+          "Carbon dioxide, because it is non-combustible and highly soluble",
           "Oxygen, because it supports tissue perfusion",
           "Nitrous oxide, because it provides analgesia",
-          "Carbon dioxide, because it is non-combustible and highly soluble",
           "Room air, because it is freely available",
           "Helium, because it is the least dense gas"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Carbon dioxide, because it is non-combustible and highly soluble",
         "explanation": "CO₂ does not support combustion, making it safe alongside diathermy, and its high blood solubility limits the risk of gas embolism. This makes it the standard insufflation gas."
       },
@@ -1565,12 +1570,12 @@
         "question": "A 68-year-old with non-small-cell lung cancer has enlarged subcarinal nodes on PET-CT, and EBUS-TBNA was negative but suspicion of N2 disease remains high before planned curative resection. What is the most appropriate next step?",
         "options": [
           "Proceed directly to lobectomy without further staging",
-          "Confirmatory cervical mediastinoscopy to biopsy the nodes",
           "Repeat the chest CT in three months",
           "Start palliative chemotherapy",
-          "Commence broad-spectrum antibiotics"
+          "Commence broad-spectrum antibiotics",
+          "Confirmatory cervical mediastinoscopy to biopsy the nodes"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Confirmatory cervical mediastinoscopy to biopsy the nodes",
         "explanation": "When EBUS-TBNA is negative but pre-test probability of mediastinal nodal disease is high, mediastinoscopy provides confirmatory tissue before curative surgery. Accurate nodal staging determines whether resection or chemoradiotherapy is appropriate."
       },
@@ -1595,14 +1600,29 @@
         "question": "Before taking a biopsy of a structure seen through the mediastinoscope, what should the operator do first to reduce the risk of catastrophic bleeding?",
         "options": [
           "Inject adrenaline into the structure",
-          "Aspirate the structure with a needle to exclude a vessel",
           "Apply diathermy blindly to the field",
           "Take the biopsy as quickly as possible",
+          "Aspirate the structure with a needle to exclude a vessel",
           "Instil saline to float the node away"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Aspirate the structure with a needle to exclude a vessel",
         "explanation": "Needle aspiration before biopsy confirms the target is a lymph node and not a great vessel or vascular structure. This simple step guards against the feared complication of major haemorrhage requiring sternotomy."
+      },
+      {
+        "id": "sc_orth_arthro_mri_q01",
+        "type": "mcq",
+        "question": "A young footballer has a painful, swollen knee after a twisting injury with suspected meniscal tear but no mechanical locking. What is the most appropriate first investigation?",
+        "options": [
+          "MRI of the knee",
+          "Immediate diagnostic arthroscopy",
+          "Plain knee radiograph only",
+          "Joint aspiration for culture",
+          "CT knee"
+        ],
+        "correctIndex": 0,
+        "answer": "MRI of the knee",
+        "explanation": "Suspected meniscal/ligamentous injury is investigated with MRI first — it is non-invasive and highly sensitive. Arthroscopy is reserved for therapeutic repair, an MRI-equivocal result, or a mechanically locked knee (e.g. a displaced bucket-handle tear) needing urgent intervention."
       }
     ]
   }
