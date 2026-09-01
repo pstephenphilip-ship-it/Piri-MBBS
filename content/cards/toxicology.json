@@ -172,7 +172,7 @@
       {
         "id": "tox_gas_fc_03",
         "front": "Why can SpO₂ be normal in a critically poisoned patient with a high lactate?",
-        "back": "In CO and cyanide poisoning, oxygen delivery is intact but cellular oxygen utilisation is blocked. Pulse oximetry reads normal (and misreads carboxyhaemoglobin as oxyhaemoglobin), so a normal SpO₂ does not exclude lethal poisoning."
+        "back": "<b>Cyanide</b> blocks cellular oxygen <b>utilisation</b> (mitochondrial cytochrome oxidase) while delivery is intact. <b>CO</b> is different: it impairs oxygen <b>carriage and delivery</b> (carboxyhaemoglobin, left-shifted curve). In BOTH, standard pulse oximetry is falsely normal because it cannot distinguish COHb (and poor utilisation) from true oxygenation &mdash; so a normal SpO&#8322; never excludes lethal poisoning; measure lactate and co-oximetry."
       },
       {
         "id": "tox_gas_fc_04",
@@ -183,6 +183,16 @@
         "id": "tox_gas_fc_05",
         "front": "Give three toxicological causes of a high anion gap metabolic acidosis.",
         "back": "Toxic alcohols (methanol, ethylene glycol), metformin, paracetamol, salicylate, cyanide and carbon monoxide (MUDPILES-CAT mnemonic). All generate unmeasured acids or lactate."
+      },
+      {
+        "id": "tox_gas_tca_fc_01",
+        "front": "A tricyclic (amitriptyline) overdose shows a widening QRS and metabolic acidosis on the gas — what is the key treatment?",
+        "back": "<b>IV sodium bicarbonate</b>. Acidosis worsens the sodium-channel blockade that drives TCA cardiotoxicity, so bicarbonate (targeting a QRS narrowing / pH ~7.45&ndash;7.55) is given for <b>QRS &gt;100&ndash;120 ms, ventricular arrhythmia, or significant acidosis/hypotension</b>. It is both an antidote and an acid-base correction."
+      },
+      {
+        "id": "tox_gas_fingerprint_action_fc_01",
+        "front": "Match each blood-gas \"fingerprint\" to its immediate action.",
+        "back": "<b>Salicylate</b> (resp alkalosis + HAGMA) &rarr; alkalinise &plusmn; dialyse. <b>Toxic alcohols</b> (HAGMA + osmolar gap) &rarr; fomepizole/ethanol + dialysis. <b>Cyanide</b> (high lactate, good SpO&#8322;) &rarr; hydroxocobalamin. <b>CO</b> &rarr; high-flow 100% O&#8322;. <b>MALA</b> (metformin + AKI) &rarr; dialysis. <b>Opioid</b> (respiratory acidosis, low GCS) &rarr; naloxone + ventilation."
       }
     ],
     "investigations__TOXICOLOGY__TOXBASE / NPIS Guidance": [
@@ -210,6 +220,21 @@
         "id": "tox_toxbase_fc_05",
         "front": "Match the antidotes: opioids, paracetamol, digoxin, cyanide, toxic alcohols, beta-blocker/CCB toxicity, local anaesthetic cardiotoxicity.",
         "back": "Opioids → naloxone; paracetamol → N-acetylcysteine; digoxin → DigiFab; cyanide → hydroxocobalamin; toxic alcohols → fomepizole; beta-blocker/CCB → high-dose insulin-dextrose; local anaesthetic cardiotoxicity → IV lipid emulsion. (Flumazenil for benzodiazepines is rarely used due to seizure risk.)"
+      },
+      {
+        "id": "tox_npis_psychosocial_fc_01",
+        "front": "After medically managing a deliberate overdose, what assessment must always follow?",
+        "back": "A <b>psychosocial / mental-health risk assessment</b> (risk of further self-harm, intent, safeguarding) for every deliberate overdose &mdash; and a <b>capacity assessment</b>: a patient <b>with</b> capacity may refuse treatment, while emergency treatment can proceed under the Mental Capacity Act (or common law) if they lack it. Involve liaison psychiatry before discharge."
+      },
+      {
+        "id": "tox_npis_wbi_fc_01",
+        "front": "When is whole-bowel irrigation used instead of activated charcoal?",
+        "back": "When charcoal does not bind the toxin or absorption is prolonged: <b>iron, lithium, sustained/modified-release preparations, and body-packers</b>. It uses polyethylene glycol to flush the gut. (Activated charcoal is for most other significant ingestions within ~1 h with a protected airway.)"
+      },
+      {
+        "id": "tox_npis_antidotes2_fc_01",
+        "front": "Name the antidotes for TCA, iron, organophosphate and beta-blocker poisoning.",
+        "back": "<b>TCA</b> &rarr; sodium bicarbonate (for QRS widening/arrhythmia/acidosis). <b>Iron</b> &rarr; desferrioxamine. <b>Organophosphate</b> &rarr; atropine (+ pralidoxime). <b>Beta-blocker</b> &rarr; glucagon and high-dose insulin-dextrose. (Add sulfonylurea &rarr; octreotide/glucose.)"
       }
     ]
   },
@@ -408,13 +433,13 @@
         "type": "mcq",
         "question": "A 24-year-old presents with tinnitus, tachypnoea and confusion after an overdose. The blood gas shows a primary respiratory alkalosis combined with a high anion gap metabolic acidosis. Which ingestion does this pattern most strongly suggest?",
         "options": [
-          "Salicylate (aspirin)",
           "Opioid (heroin)",
           "Benzodiazepine",
+          "Salicylate (aspirin)",
           "Tricyclic antidepressant",
           "Iron"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Salicylate (aspirin)",
         "explanation": "Salicylate directly stimulates the respiratory centre producing a respiratory alkalosis, while accumulated acid metabolites cause a high anion gap metabolic acidosis. This mixed pattern with tinnitus and tachypnoea is the classic fingerprint of aspirin poisoning."
       },
@@ -423,13 +448,13 @@
         "type": "mcq",
         "question": "A patient rescued from a house fire has a profound high anion gap lactic acidosis and a very high lactate, yet the SpO₂ reads 99% and PaO₂ is normal. What is the most appropriate empirical antidote?",
         "options": [
-          "Hydroxocobalamin",
           "Naloxone",
           "Flumazenil",
           "N-acetylcysteine",
-          "Sodium bicarbonate alone"
+          "Sodium bicarbonate alone",
+          "Hydroxocobalamin"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Hydroxocobalamin",
         "explanation": "Smoke inhalation with a severe lactic acidosis despite adequate oxygenation points to cyanide toxicity, which blocks cellular oxygen use. Hydroxocobalamin should be given empirically without waiting for confirmatory levels."
       },
@@ -438,13 +463,13 @@
         "type": "mcq",
         "question": "An unresponsive patient has pinpoint pupils. The arterial blood gas shows pH 7.20, PaCO₂ 9.0 kPa and a normal anion gap. Which acid–base disturbance and cause does this represent?",
         "options": [
-          "Respiratory acidosis from opioid-induced hypoventilation",
           "High anion gap metabolic acidosis from cyanide",
+          "Respiratory acidosis from opioid-induced hypoventilation",
           "Respiratory alkalosis from salicylate",
           "Metabolic alkalosis from vomiting",
           "Normal anion gap metabolic acidosis from diarrhoea"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Respiratory acidosis from opioid-induced hypoventilation",
         "explanation": "A raised PaCO₂ with a low pH is a respiratory acidosis, and pinpoint pupils with reduced consciousness indicate opioid toxicity causing hypoventilation. Naloxone is the appropriate antidote to restore ventilation."
       }
