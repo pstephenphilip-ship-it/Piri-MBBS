@@ -378,7 +378,7 @@
       {
         "id": "bt_cv_abpi_fc_02",
         "front": "What is the normal ABPI range?",
-        "back": "0.9-1.3. Values of 0.5-0.9 indicate mild-to-moderate PAD (claudication), and <0.5 indicates severe PAD / critical limb ischaemia."
+        "back": "0.9-1.3. Values of 0.5-0.9 indicate mild-to-moderate PAD (claudication), and <0.5 indicates severe PAD (rest pain), with ≤0.4 = critical limb ischaemia (tissue loss)."
       },
       {
         "id": "bt_cv_abpi_fc_03",
@@ -596,6 +596,21 @@
         "id": "bt_fe_suss_fc_05",
         "front": "Why must SUSS results prompt caution beyond the muscle finding?",
         "back": "A markedly weak, severely malnourished patient is at high risk of refeeding syndrome; feeding must be cautious with monitoring/replacement of phosphate, potassium and magnesium to avoid fatal hypophosphataemia and cardiac failure."
+      },
+      {
+        "id": "fx_dh_fc_01",
+        "front": "What does a positive Dix-Hallpike show and how is it treated?",
+        "back": "<b>Latent, transient, fatigable torsional/upbeat nystagmus</b> with vertigo = posterior-canal <b>BPPV</b> → treat with the <b>Epley</b> manoeuvre. Vertical/non-fatiguing nystagmus suggests a central cause → image."
+      },
+      {
+        "id": "fx_slr_fc_01",
+        "front": "What does a positive straight leg raise indicate, and what is the safety net?",
+        "back": "Reproduction of <b>below-knee</b> radicular pain at <b>30–70°</b> = L5/S1 <b>radiculopathy</b> (crossed-SLR highly specific). Bilateral signs + saddle anaesthesia/urinary symptoms → <b>cauda equina</b> → emergency MRI."
+      },
+      {
+        "id": "fx_rapd_fc_01",
+        "front": "How is a relative afferent pupillary defect (RAPD) elicited and what does it mean?",
+        "back": "<b>Swinging-light test</b>: the affected pupil paradoxically <b>dilates</b> to direct light → an optic-nerve or large retinal lesion (optic neuritis, CRAO) → urgent referral."
       }
     ],
     "investigations__BEDSIDE TESTS__Auscultation": [
@@ -1432,13 +1447,13 @@
         "type": "mcq",
         "question": "A 68-year-old man with intermittent claudication has an ankle systolic pressure of 80 mmHg (highest of DP/PT) and a highest brachial pressure of 130 mmHg. What is his ABPI and interpretation?",
         "options": [
-          "0.62 — mild-to-moderate PAD",
           "1.63 — incompressible calcified vessels",
           "0.62 — normal supply",
+          "0.62 — mild-to-moderate PAD",
           "0.40 — critical limb ischaemia",
           "1.00 — normal supply"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "0.62 — mild-to-moderate PAD",
         "explanation": "ABPI = 80 ÷ 130 = 0.62. A value between 0.5 and 0.9 indicates mild-to-moderate peripheral arterial disease, which fits his claudication."
       },
@@ -1447,13 +1462,13 @@
         "type": "mcq",
         "question": "A patient with a venous-appearing leg ulcer is being assessed for compression bandaging. Which ABPI result should prevent application of high-compression bandaging?",
         "options": [
-          "ABPI 0.75",
           "ABPI 0.95",
           "ABPI 1.1",
           "ABPI 1.25",
-          "ABPI 0.90"
+          "ABPI 0.90",
+          "ABPI 0.75"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "ABPI 0.75",
         "explanation": "An ABPI below 0.8 indicates significant arterial compromise, and compression on such a limb risks tissue necrosis. Compression is considered safe in the 0.8-1.3 range."
       },
@@ -1462,13 +1477,13 @@
         "type": "mcq",
         "question": "A 60-year-old man with long-standing type 2 diabetes has absent foot pulses and calf claudication, yet his ABPI is 1.4. What is the most appropriate next investigation?",
         "options": [
-          "Toe-brachial index",
           "Reassure — normal arterial supply",
+          "Toe-brachial index",
           "Repeat ABPI after exercise only",
           "Immediate amputation referral",
           "Venous duplex scan"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Toe-brachial index",
         "explanation": "An ABPI >1.3 reflects incompressible, calcified calf vessels in diabetes and is falsely elevated. The toe-brachial index uses the calcification-spared digital arteries, where a TBI <0.7 confirms peripheral arterial disease."
       },
@@ -1479,11 +1494,11 @@
         "options": [
           "Monophasic",
           "Biphasic",
-          "Triphasic",
           "Absent signal",
+          "Triphasic",
           "Continuous non-pulsatile flow"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Triphasic",
         "explanation": "A healthy, elastic, unobstructed artery gives a triphasic waveform: forward systolic flow, a brief early-diastolic reverse component, then late forward diastolic flow. This multiphasic pattern reflects normal vessel compliance and downstream resistance."
       },
@@ -1492,13 +1507,13 @@
         "type": "mcq",
         "question": "A patient with claudication has a dampened, single-phase forward Doppler signal over the posterior tibial artery. What does this monophasic waveform indicate?",
         "options": [
-          "A normal finding in a young athlete",
           "Significant proximal arterial stenosis or PAD",
+          "A normal finding in a young athlete",
           "Venous rather than arterial flow",
           "Complete arterial occlusion with no flow",
           "Incompressible calcified vessels"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Significant proximal arterial stenosis or PAD",
         "explanation": "A monophasic signal shows loss of both the reverse and late forward components, leaving a single dampened forward flow. This indicates significant proximal stenosis or established peripheral arterial disease and warrants further assessment."
       },
@@ -1523,12 +1538,12 @@
         "question": "A 16-year-old with hypertension has BP 165/95 in the arms and 120/70 in the legs, with palpable radio-femoral delay. What is the most likely diagnosis?",
         "options": [
           "Essential hypertension",
-          "Aortic coarctation",
           "Takayasu arteritis",
           "Aortic dissection",
-          "Renal artery stenosis"
+          "Renal artery stenosis",
+          "Aortic coarctation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Aortic coarctation",
         "explanation": "Arm BP exceeding leg BP with radio-femoral delay in a young hypertensive is the classic picture of aortic coarctation. The narrowing distal to the left subclavian raises upper-body pressure while reducing flow to the lower limbs."
       },
@@ -1554,11 +1569,11 @@
         "options": [
           "Aortic coarctation",
           "Takayasu arteritis",
-          "Aortic dissection",
           "Peripheral arterial disease",
+          "Aortic dissection",
           "White-coat hypertension"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Aortic dissection",
         "explanation": "An inter-arm systolic difference greater than 20 mmHg with acute tearing chest-to-back pain strongly suggests aortic dissection compromising a subclavian or brachiocephalic vessel. This mandates urgent CT aortogram."
       },
@@ -1582,13 +1597,13 @@
         "type": "mcq",
         "question": "How should the lying-and-standing BP be performed correctly?",
         "options": [
-          "Supine ≥​5 minutes, then standing BP at 1 and 3 minutes",
           "Sitting for 1 minute, then immediately standing once",
           "Standing first, then lying for 5 minutes",
+          "Supine ≥​5 minutes, then standing BP at 1 and 3 minutes",
           "Supine for 30 seconds, then a single standing reading",
           "Standing BP measured only after 10 minutes upright"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Supine ≥​5 minutes, then standing BP at 1 and 3 minutes",
         "explanation": "The patient rests supine for at least 5 minutes to stabilise, then BP is measured at 1 and 3 minutes of standing. The 3-minute reading captures delayed drops that an early measurement would miss."
       },
@@ -1597,13 +1612,13 @@
         "type": "mcq",
         "question": "A 78-year-old on furosemide has a 25 mmHg systolic drop on standing with dizziness. What is the most appropriate next step?",
         "options": [
-          "Review medications and assess volume status",
           "Start a beta-blocker to raise the pressure",
           "Reassure and take no further action",
           "Restrict oral fluid intake",
-          "Arrange urgent CT head as first-line"
+          "Arrange urgent CT head as first-line",
+          "Review medications and assess volume status"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Review medications and assess volume status",
         "explanation": "Symptomatic orthostatic hypotension in a patient on a diuretic points to a reversible, drug- and volume-related cause and a real falls risk. Reviewing culprit medication and correcting any volume depletion is the key first step."
       },
@@ -1613,12 +1628,12 @@
         "question": "A 52-year-old man has a clinic BP of 146/92 mmHg. According to NICE, what daytime ambulatory/home average confirms stage 1 hypertension?",
         "options": [
           "≥120/80 mmHg",
-          "≥130/80 mmHg",
           "≥135/85 mmHg",
+          "≥130/80 mmHg",
           "≥140/90 mmHg",
           "≥150/95 mmHg"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "≥135/85 mmHg",
         "explanation": "The out-of-office threshold for stage 1 hypertension is a daytime ABPM/HBPM average of 135/85 mmHg, corresponding to a clinic reading of 140/90. It is set lower than the clinic figure because the white-coat effect is removed."
       },
@@ -1628,12 +1643,12 @@
         "question": "Which description correctly matches a standard ABPM protocol used to diagnose hypertension?",
         "options": [
           "A single reading taken after 30 minutes of rest",
-          "Automated readings at least twice per hour while awake, averaging ≥14 daytime readings",
           "Continuous intra-arterial recording over 48 hours",
           "One reading every 6 hours over 3 days",
+          "Automated readings at least twice per hour while awake, averaging ≥14 daytime readings",
           "Two readings a week apart in clinic"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Automated readings at least twice per hour while awake, averaging ≥14 daytime readings",
         "explanation": "ABPM takes automated cuff readings at least twice hourly during waking hours across 24 hours. The daytime mean, based on at least 14 measurements, is used to confirm the diagnosis."
       },
@@ -1642,13 +1657,13 @@
         "type": "mcq",
         "question": "A patient with normal clinic BP is found to have hypertensive left ventricular hypertrophy. HBPM shows an average of 148/92 mmHg. What does this represent?",
         "options": [
-          "White-coat hypertension",
           "Masked hypertension",
+          "White-coat hypertension",
           "Non-dipping only",
           "Normal blood pressure",
           "Postural hypotension"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Masked hypertension",
         "explanation": "Masked hypertension is a normal clinic BP with a raised out-of-office average. It is clinically important because reassuring clinic readings conceal ongoing end-organ damage, here evidenced by left ventricular hypertrophy."
       },
@@ -1658,12 +1673,12 @@
         "question": "A 28-year-old woman presents with a regular narrow-complex tachycardia at 190 bpm. She is alert with a BP of 118/74 mmHg and no chest pain. What is the most appropriate first step?",
         "options": [
           "Immediate synchronised DC cardioversion",
-          "Modified Valsalva manoeuvre",
           "IV amiodarone infusion",
+          "Modified Valsalva manoeuvre",
           "Bilateral simultaneous carotid sinus massage",
           "IV verapamil bolus"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Modified Valsalva manoeuvre",
         "explanation": "She has stable SVT, so a vagal manoeuvre is the correct first-line intervention. The modified Valsalva (strain semi-recumbent then flat with passive leg raise) has roughly 43% success and is performed before drug therapy."
       },
@@ -1674,11 +1689,11 @@
         "options": [
           "Atrioventricular nodal re-entrant tachycardia",
           "Sinus tachycardia",
-          "Atrial flutter",
           "Ventricular tachycardia",
-          "Wolff-Parkinson-White with orthodromic AVRT"
+          "Wolff-Parkinson-White with orthodromic AVRT",
+          "Atrial flutter"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Atrial flutter",
         "explanation": "Increased AV block from the vagal manoeuvre unmasks the underlying atrial activity rather than terminating the rhythm. Regular sawtooth flutter waves at around 300 per minute are diagnostic of atrial flutter, in which the AV node is not part of the re-entry circuit."
       },
@@ -1688,12 +1703,12 @@
         "question": "Which finding is an absolute contraindication to carotid sinus massage?",
         "options": [
           "Blood pressure of 150/90 mmHg",
-          "Age over 65 years",
           "An audible carotid bruit",
+          "Age over 65 years",
           "A heart rate above 180 bpm",
           "A history of asthma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "An audible carotid bruit",
         "explanation": "A carotid bruit signals atheromatous disease, and massage risks dislodging a plaque and causing an embolic stroke. Auscultation for a bruit must always precede the procedure, and its presence prohibits massage."
       }
@@ -1720,12 +1735,12 @@
         "question": "A 40-year-old man presents with back pain, bilateral leg weakness and urinary retention. Which single examination finding on DRE most strongly supports cauda equina syndrome requiring emergency MRI?",
         "options": [
           "A smooth enlarged prostate",
-          "Reduced anal tone with perianal sensory loss",
           "Fresh red blood on the glove",
           "A tender boggy prostate",
-          "Hard stool filling the rectum"
+          "Hard stool filling the rectum",
+          "Reduced anal tone with perianal sensory loss"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Reduced anal tone with perianal sensory loss",
         "explanation": "Cauda equina compression disrupts the S2–S4 roots, producing reduced resting anal tone and saddle (perianal) anaesthesia. These findings mandate emergency MRI and urgent surgical referral to prevent irreversible sphincter and sexual dysfunction. The other findings point to unrelated prostatic or bowel pathology."
       },
@@ -1735,12 +1750,12 @@
         "question": "Which statement about the correct performance and limitations of DRE is accurate?",
         "options": [
           "A normal DRE reliably excludes colorectal cancer",
-          "The examination is best performed in the supine position",
           "A chaperone should be offered and the finding documented",
+          "The examination is best performed in the supine position",
           "PSA should always be taken immediately after DRE for accuracy",
           "The prostate is palpated posteriorly through the rectal wall"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "A chaperone should be offered and the finding documented",
         "explanation": "A chaperone should always be offered for this intimate examination, with their presence documented. DRE reaches only the distal rectum so it cannot exclude proximal colorectal disease, is performed in the left lateral position, and can transiently raise PSA so bloods are ideally taken beforehand. The prostate is palpated anteriorly."
       },
@@ -1750,12 +1765,12 @@
         "question": "A 28-year-old obese woman presents with headache and transient visual obscurations. Fundoscopy shows bilateral blurred disc margins with obscuration of vessels crossing the disc and loss of venous pulsation. What is the most appropriate immediate management step?",
         "options": [
           "Immediate lumbar puncture to measure opening pressure",
-          "Urgent neuroimaging (CT/MRI head) before any lumbar puncture",
           "Start oral acetazolamide and discharge with GP follow-up",
           "Reassure and arrange routine outpatient optician review",
+          "Urgent neuroimaging (CT/MRI head) before any lumbar puncture",
           "Intravenous mannitol followed by immediate LP"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Urgent neuroimaging (CT/MRI head) before any lumbar puncture",
         "explanation": "Papilloedema indicates raised intracranial pressure and mandates urgent imaging to exclude a mass lesion or hydrocephalus. Lumbar puncture before imaging risks fatal herniation if an obstructing lesion is present, so CT/MRI must precede any LP."
       },
@@ -1780,12 +1795,12 @@
         "question": "A 34-year-old woman has sudden loss of vision in one eye with pain on eye movement and a relative afferent pupillary defect. Fundoscopy shows unilateral disc swelling. Which diagnosis best fits this picture?",
         "options": [
           "Papilloedema from raised intracranial pressure",
-          "Optic neuritis (papillitis)",
           "Hypertensive retinopathy",
+          "Optic neuritis (papillitis)",
           "Optic disc drusen (pseudopapilloedema)",
           "Proliferative diabetic retinopathy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Optic neuritis (papillitis)",
         "explanation": "Unilateral disc swelling with painful eye movements, marked visual loss and an RAPD is the classic picture of optic neuritis. Papilloedema is bilateral with vision preserved early, distinguishing it clearly from this presentation."
       },
@@ -1795,12 +1810,12 @@
         "question": "What does the Sit-Up-Squat-Stand (SUSS) test primarily evaluate in a patient with a severe eating disorder?",
         "options": [
           "Distal sensory neuropathy",
-          "Proximal muscle strength (proximal myopathy)",
           "Cerebellar coordination",
           "Resting cardiac rhythm",
-          "Cognitive impairment"
+          "Cognitive impairment",
+          "Proximal muscle strength (proximal myopathy)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Proximal muscle strength (proximal myopathy)",
         "explanation": "Severe undernutrition causes wasting and weakness of proximal antigravity muscles used to sit up and to stand from a squat. The SUSS test unmasks this proximal myopathy as an objective bedside marker of medical risk."
       },
@@ -1824,15 +1839,45 @@
         "type": "mcq",
         "question": "Which additional danger must be anticipated when a severely malnourished patient with a low SUSS score begins nutritional treatment?",
         "options": [
-          "Refeeding syndrome with hypophosphataemia",
           "Contrast-induced nephropathy",
           "Serotonin syndrome",
           "Tumour lysis syndrome",
+          "Refeeding syndrome with hypophosphataemia",
           "Malignant hyperthermia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Refeeding syndrome with hypophosphataemia",
         "explanation": "Reintroducing nutrition in a severely malnourished patient drives an insulin surge that shifts phosphate, potassium and magnesium into cells, causing refeeding syndrome. Unmonitored, the resulting hypophosphataemia can precipitate cardiac failure and death, so feeding is cautious with electrolyte monitoring and replacement."
+      },
+      {
+        "id": "fx_dh_q01",
+        "type": "mcq",
+        "question": "A patient has brief rotational vertigo on rolling over in bed. Dix-Hallpike reproduces transient, fatigable torsional nystagmus after a short latency. What is the diagnosis and treatment?",
+        "options": [
+          "Posterior-canal BPPV; Epley manoeuvre",
+          "Vestibular neuritis; vestibular sedatives",
+          "Ménière disease; low-salt diet",
+          "Central vertigo; urgent MRI",
+          "Labyrinthitis; antibiotics"
+        ],
+        "correctIndex": 0,
+        "answer": "Posterior-canal BPPV; Epley manoeuvre",
+        "explanation": "Latent, transient, fatigable torsional nystagmus on Dix-Hallpike is diagnostic of posterior-canal BPPV, treated with the Epley repositioning manoeuvre. Non-fatiguing/vertical nystagmus would suggest a central cause needing imaging."
+      },
+      {
+        "id": "fx_slr_q01",
+        "type": "mcq",
+        "question": "A patient with back pain has a straight leg raise that reproduces pain radiating below the knee at 40 degrees. What does this most likely indicate?",
+        "options": [
+          "Mechanical low back pain",
+          "Hip osteoarthritis",
+          "Lumbosacral nerve-root compression (radiculopathy)",
+          "Sacroiliac joint dysfunction",
+          "Malingering"
+        ],
+        "correctIndex": 2,
+        "answer": "Lumbosacral nerve-root compression (radiculopathy)",
+        "explanation": "SLR reproducing pain below the knee between 30–70° indicates L5/S1 nerve-root tension (radiculopathy); a positive crossed-SLR is highly specific. Bilateral signs with saddle anaesthesia would raise cauda equina."
       }
     ],
     "investigations__BEDSIDE TESTS__Auscultation": [
