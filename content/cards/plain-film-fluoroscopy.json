@@ -868,7 +868,7 @@
       {
         "id": "pf_ugi_swallow_fc_01",
         "front": "When is barium contraindicated in a swallow study, and what is used instead?",
-        "back": "If oesophageal perforation or an anastomotic leak is suspected. Barium leaking into the mediastinum/peritoneum is inert but causes severe granulomatous inflammation. Use water-soluble contrast instead (non-ionic if there is also aspiration risk)."
+        "back": "If oesophageal perforation or an anastomotic leak is suspected. Barium leaking into the mediastinum/peritoneum causes severe granulomatous inflammation. Use water-soluble contrast instead (non-ionic if there is also aspiration risk)."
       },
       {
         "id": "pf_ugi_swallow_fc_02",
@@ -913,7 +913,7 @@
       {
         "id": "pf_ugi_meal_fc_05",
         "front": "Which contrast agent should be used if perforation is suspected, and what is the caveat with aspiration risk?",
-        "back": "Use water-soluble Gastrografin if perforation is suspected (barium causes chemical peritonitis). BUT Gastrografin is hyperosmolar and dangerous if aspirated (pulmonary oedema) — so with high aspiration risk, barium is preferred."
+        "back": "Use water-soluble contrast if perforation is suspected (barium causes chemical mediastinitis/peritonitis). Gastrografin is hyperosmolar and dangerous if aspirated (pulmonary oedema), so if aspiration risk is ALSO high, use a <b>low-osmolar non-ionic iodinated agent</b> (safe if it leaks and if aspirated) &mdash; never barium when perforation is suspected."
       },
       {
         "id": "pf_ugi_ft_fc_01",
@@ -989,6 +989,16 @@
         "id": "pf_ugi_vfss_fc_05",
         "front": "How does FEES differ from videofluoroscopy?",
         "back": "FEES uses a nasendoscope for direct fibreoptic views of the pharynx/larynx with no radiation and can be done at the bedside, but has a 'white-out' blind spot during the swallow itself. VFSS uses radiation but visualises the entire swallow including the oral phase and cricopharyngeus."
+      },
+      {
+        "id": "pf_ugi_achalasia_mgmt_fc_01",
+        "front": "A barium swallow shows a dilated oesophagus with a smooth &lsquo;bird-beak&rsquo; taper at the GOJ &mdash; how is the diagnosis confirmed and treated?",
+        "back": "The barium appearance suggests <b>achalasia</b> but is not confirmatory: confirm with <b>oesophageal manometry</b> (gold standard &mdash; aperistalsis + failure of LOS relaxation) and do <b>endoscopy to exclude a GOJ tumour (pseudoachalasia)</b>. Treat with <b>pneumatic (endoscopic) dilatation, Heller myotomy or POEM</b>; botulinum toxin for those unfit for these."
+      },
+      {
+        "id": "pf_ugi_pseudoachalasia_fc_01",
+        "front": "Why must every suspected achalasia have an endoscopy before treatment?",
+        "back": "To exclude <b>pseudoachalasia</b> &mdash; a tumour at the gastro-oesophageal junction (or infiltrating malignancy) can mimic the manometric and barium picture of achalasia. Endoscopy &plusmn; biopsy rules out cancer before dilatation or myotomy. Suspect it especially with a short history, marked weight loss, or older age."
       }
     ],
     "investigations__PLAIN FILM & FLUOROSCOPY__Fluoroscopy — Lower GI": [
@@ -3032,11 +3042,11 @@
         "options": [
           "High-density barium sulphate",
           "Ionic water-soluble contrast (Gastrografin) regardless of airway status",
-          "Water-soluble contrast, choosing non-ionic if aspiration is also a risk",
           "No contrast — proceed straight to dilatation",
-          "Effervescent granules alone for double contrast"
+          "Effervescent granules alone for double contrast",
+          "Water-soluble contrast, choosing non-ionic if aspiration is also a risk"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Water-soluble contrast, choosing non-ionic if aspiration is also a risk",
         "explanation": "Barium is contraindicated when perforation is suspected as extravasated barium causes severe mediastinitis. Water-soluble contrast is used; however ionic Gastrografin causes pulmonary oedema if aspirated, so a non-ionic iso-osmolar agent is chosen when aspiration is also a concern."
       },
@@ -3060,13 +3070,13 @@
         "type": "mcq",
         "question": "A 68-year-old man who cannot tolerate endoscopy has a double-contrast barium meal. A gastric ulcer crater is seen projecting beyond the expected line of the gastric wall, with smooth mucosal folds radiating symmetrically to its edge. What is the most appropriate interpretation?",
         "options": [
-          "Features are typical of a benign ulcer, but endoscopic biopsy is still required to exclude malignancy",
           "Features are diagnostic of malignancy and warrant urgent surgery",
           "This is a Carman meniscus sign indicating carcinoma",
           "The appearances confirm a benign ulcer and no further investigation is needed",
+          "Features are typical of a benign ulcer, but endoscopic biopsy is still required to exclude malignancy",
           "This represents linitis plastica"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Features are typical of a benign ulcer, but endoscopic biopsy is still required to exclude malignancy",
         "explanation": "A crater projecting beyond the lumen with symmetrical radiating folds favours a benign ulcer. However, barium appearances can never confirm benignity — gastric ulcers require endoscopic biopsy to exclude malignancy, which is a key reason endoscopy is now first-line."
       },
@@ -3090,13 +3100,13 @@
         "type": "mcq",
         "question": "IV Buscopan (hyoscine butylbromide) is routinely given during a barium meal. In which patient is it most clearly contraindicated?",
         "options": [
-          "A patient with untreated angle-closure glaucoma",
           "A patient with well-controlled asthma",
           "A patient with type 2 diabetes",
+          "A patient with untreated angle-closure glaucoma",
           "A patient with mild iron-deficiency anaemia",
           "A patient with a previous appendicectomy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "A patient with untreated angle-closure glaucoma",
         "explanation": "Buscopan is an antimuscarinic that reduces peristalsis for a still, distended stomach, but its anticholinergic effects contraindicate it in untreated angle-closure glaucoma and warrant caution in significant cardiac disease and prostatic outflow obstruction (risk of acute urinary retention)."
       },
@@ -3106,12 +3116,12 @@
         "question": "A 24-year-old with chronic diarrhoea and right iliac fossa pain has a barium follow-through showing a thin ribbon of contrast through a narrowed terminal ileum with skip lesions elsewhere. What is the most likely diagnosis?",
         "options": [
           "Ulcerative colitis",
-          "Crohn's disease",
           "Coeliac disease",
           "Small bowel lymphoma",
-          "Intussusception"
+          "Intussusception",
+          "Crohn's disease"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Crohn's disease",
         "explanation": "The string sign of Kantor (ribbon of barium through a strictured terminal ileum) together with skip lesions is characteristic of Crohn's disease. Ulcerative colitis is a continuous colonic disease and does not cause these small bowel signs; coeliac disease causes fold/malabsorption changes rather than strictures."
       },
@@ -3121,12 +3131,12 @@
         "question": "A patient with suspected bowel perforation needs a contrast study of the bowel. Which contrast agent is most appropriate?",
         "options": [
           "High-density barium sulphate",
-          "Dilute barium sulphate",
           "Water-soluble iodinated contrast (Gastrografin)",
+          "Dilute barium sulphate",
           "Intravenous gadolinium",
           "No contrast is ever safe"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Water-soluble iodinated contrast (Gastrografin)",
         "explanation": "If perforation or leak is suspected, barium is contraindicated because extravasation causes severe granulomatous (barium) peritonitis. A water-soluble iodinated agent is safely resorbed and is used instead. Gadolinium is an IV MRI agent, not a luminal contrast."
       },
@@ -3137,11 +3147,11 @@
         "options": [
           "Gastric emptying rate",
           "Oesophageal peristalsis",
-          "Terminal ileal strictures, ulceration and cobblestoning",
           "Colonic haustral pattern",
+          "Terminal ileal strictures, ulceration and cobblestoning",
           "Biliary tree filling"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Terminal ileal strictures, ulceration and cobblestoning",
         "explanation": "Compression (spot) views separate overlapping loops so the terminal ileum — the commonest site of Crohn's and the study's key target — can be assessed for strictures, ulceration, cobblestoning and separation of loops. The stomach, oesophagus, colon and biliary tree are not the focus of the follow-through."
       },
@@ -3150,13 +3160,13 @@
         "type": "mcq",
         "question": "A 60-year-old man develops severe chest pain and surgical emphysema after a difficult upper GI endoscopy. Oesophageal perforation is suspected and a contrast swallow is requested. Which contrast agent is most appropriate?",
         "options": [
+          "Low-osmolar non-ionic iodinated contrast",
           "Barium sulphate for best mucosal detail",
           "Ionic hyperosmolar gastrografin",
-          "Low-osmolar non-ionic iodinated contrast",
           "No contrast — plain film only",
           "High-density barium paste"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Low-osmolar non-ionic iodinated contrast",
         "explanation": "A leak is suspected, so barium is contraindicated (mediastinitis). This unwell post-instrumentation patient also carries aspiration risk; gastrografin could cause pulmonary oedema if aspirated. Low-osmolar non-ionic contrast is safe both in the mediastinum and in the airway, making it the compromise agent."
       },
@@ -3166,12 +3176,12 @@
         "question": "What is the principal hazard of giving ionic hyperosmolar water-soluble contrast (gastrografin) to a patient at risk of aspiration?",
         "options": [
           "Anaphylaxis from iodine",
-          "Acute pulmonary oedema and chemical pneumonitis",
           "Barium peritonitis",
+          "Acute pulmonary oedema and chemical pneumonitis",
           "Nephrotoxicity from oral contrast",
           "Constipation and bowel obstruction"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Acute pulmonary oedema and chemical pneumonitis",
         "explanation": "The high osmolarity of gastrografin draws fluid into the alveoli if aspirated, causing acute pulmonary oedema and chemical pneumonitis. This is why a low-osmolar non-ionic agent is preferred whenever aspiration risk is present."
       },
@@ -3182,11 +3192,11 @@
         "options": [
           "Mucosal detail of a suspected malignancy",
           "Gastro-oesophageal reflux severity",
-          "Contrast extravasation indicating an anastomotic leak",
           "Oesophageal motility abnormalities",
-          "Hiatus hernia size"
+          "Hiatus hernia size",
+          "Contrast extravasation indicating an anastomotic leak"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Contrast extravasation indicating an anastomotic leak",
         "explanation": "Post-operative swallows assess anastomotic integrity. The key finding is contrast escaping the lumen (extravasation) at the anastomosis, which signals a leak and would delay feeding. Barium is avoided because a leak is exactly what is being excluded."
       },
@@ -3212,11 +3222,11 @@
         "options": [
           "Detection of oesophageal strictures",
           "Measurement of gastric emptying",
-          "Identification of silent aspiration",
           "Diagnosis of a pharyngeal pouch",
+          "Identification of silent aspiration",
           "Assessment of vocal cord anatomy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Identification of silent aspiration",
         "explanation": "Silent aspiration (below-cord aspiration with no cough) is invisible on a bedside assessment because there is no clinical warning sign. VFSS visualises it directly, guiding safe feeding decisions."
       },
@@ -3225,15 +3235,45 @@
         "type": "mcq",
         "question": "Regarding contrast choice and safety in videofluoroscopy, which statement is correct?",
         "options": [
+          "High-osmolar agents are avoided as aspiration can cause pulmonary oedema",
           "High-osmolar water-soluble contrast (e.g. gastrografin) is preferred because aspiration is harmless",
           "Barium is dangerous even in trace amounts and is never used for swallow studies",
           "It is an anatomical rather than functional study",
-          "High-osmolar agents are avoided as aspiration can cause pulmonary oedema",
           "The study delivers no radiation dose"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "High-osmolar agents are avoided as aspiration can cause pulmonary oedema",
         "explanation": "High-osmolar water-soluble agents (gastrografin) draw fluid into the lungs and cause pulmonary oedema if aspirated, so they are avoided when aspiration is likely; low/iso-osmolar agents or barium are used instead. VFSS is a functional study that does involve ionising radiation."
+      },
+      {
+        "id": "pf_ugi_q_perf_contrast",
+        "type": "mcq",
+        "question": "A patient with severe chest pain after vomiting is suspected of having an oesophageal perforation but also has a reduced conscious level and aspiration risk. Which contrast agent should be used for the swallow study?",
+        "options": [
+          "Barium sulphate",
+          "High-osmolar Gastrografin",
+          "A low-osmolar non-ionic iodinated agent",
+          "No contrast &mdash; barium enema instead",
+          "Gadolinium"
+        ],
+        "correctIndex": 2,
+        "answer": "A low-osmolar non-ionic iodinated agent",
+        "explanation": "Perforation contraindicates barium (chemical mediastinitis). Standard Gastrografin (hyperosmolar) is dangerous if aspirated (pulmonary oedema). When BOTH perforation and aspiration risk coexist, use a low-osmolar non-ionic iodinated agent, which is safe if it leaks into the mediastinum AND if aspirated."
+      },
+      {
+        "id": "pf_ugi_q_achalasia_confirm",
+        "type": "mcq",
+        "question": "A barium swallow shows a dilated oesophageal body tapering to a smooth bird-beak at the gastro-oesophageal junction. What is the most appropriate next step?",
+        "options": [
+          "Start a proton pump inhibitor and reassess in 6 weeks",
+          "Immediate Heller myotomy",
+          "Barium follow-through",
+          "Reassurance, no further investigation",
+          "Oesophageal manometry and endoscopy"
+        ],
+        "correctIndex": 4,
+        "answer": "Oesophageal manometry and endoscopy",
+        "explanation": "The bird-beak sign suggests achalasia, but barium is not confirmatory. Manometry is the diagnostic gold standard (aperistalsis + failed LOS relaxation) and endoscopy is needed to exclude a GOJ tumour (pseudoachalasia) before definitive treatment (dilatation, Heller myotomy/POEM)."
       }
     ],
     "investigations__PLAIN FILM & FLUOROSCOPY__Fluoroscopy — Lower GI": [
