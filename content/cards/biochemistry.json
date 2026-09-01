@@ -608,6 +608,11 @@
     "id": "lip_fc_05",
     "front": "What is the danger of very high triglycerides (>10 mmol/L)?",
     "back": "<b>Acute pancreatitis.</b> Treat with a <b>fibrate</b> and lifestyle change, and look for secondary causes (alcohol, diabetes, obesity, hypothyroidism)."
+   },
+   {
+    "id": "lip_fc_06",
+    "front": "How are statins monitored for safety (liver and muscle)?",
+    "back": "Check <b>baseline LFTs</b> before starting, then <b>recheck at 3 and 12 months</b> — only stop if transaminases rise <b>&gt;3× the upper limit of normal</b>. Check <b>CK</b> only if the patient has muscle symptoms (not routinely)."
    }
   ],
   "investigations__BIOCHEMISTRY__Endocrine": [
@@ -715,6 +720,21 @@
     "id": "ace_fc_05",
     "front": "What drug interferes with serum ACE measurement?",
     "back": "<b>ACE inhibitors</b> lower the serum ACE level (they inhibit the enzyme being measured)."
+   },
+   {
+    "id": "tft_fc_extra1",
+    "front": "How do you manage subclinical hypothyroidism (↑TSH, normal fT4)?",
+    "back": "<b>Repeat the TSH in ~3 months</b> to confirm it persists. Treat with <b>levothyroxine</b> if <b>TSH ≥10 mU/L</b>, or if <b>symptomatic</b>, <b>TPO-antibody positive</b>, or <b>pregnant/planning pregnancy</b>. Otherwise monitor."
+   },
+   {
+    "id": "hyp_fc_extra1",
+    "front": "A Cushing's screen (e.g. failed overnight dexamethasone suppression) is positive — what is the next biochemical step?",
+    "back": "Measure <b>ACTH</b> to split <b>ACTH-dependent</b> (pituitary Cushing's disease / ectopic) from <b>ACTH-independent</b> (adrenal tumour), then refer for localisation."
+   },
+   {
+    "id": "hyp_fc_extra2",
+    "front": "How is a raised aldosterone:renin ratio (screening positive for Conn's) confirmed?",
+    "back": "With a <b>saline / salt-loading suppression test</b> — aldosterone <b>fails to suppress</b> — then <b>CT adrenals</b> (± specialist referral). Stop interfering antihypertensives before testing where possible."
    }
   ],
   "investigations__BIOCHEMISTRY__Tumour Markers": [
@@ -1798,12 +1818,12 @@
     "question": "A septic patient with a fast AF and anaemia has a mildly raised troponin but no chest pain and a non-ischaemic ECG. How is this best interpreted?",
     "options": [
      "Type 1 (atherothrombotic) MI",
-     "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
      "Definitely a STEMI",
+     "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
      "A laboratory error",
      "Unstable angina"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
     "explanation": "Troponin marks injury, not necessarily a plaque event. In sepsis with tachyarrhythmia and anaemia, a raised troponin usually reflects supply-demand mismatch (type 2) — treat the underlying illness rather than as a type 1 MI."
    },
@@ -1813,12 +1833,12 @@
     "question": "A patient has ST elevation in leads II, III and aVF with ongoing chest pain. The first troponin is still normal. What should happen?",
     "options": [
      "Wait for a positive troponin before acting",
-     "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG",
      "Discharge as troponin is normal",
      "Repeat troponin at 6 hours and review",
-     "Start treatment only if CK-MB rises"
+     "Start treatment only if CK-MB rises",
+     "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG",
     "explanation": "STEMI is an ECG diagnosis and troponin may not yet have risen. Do not delay reperfusion waiting for biomarkers."
    },
@@ -1843,12 +1863,12 @@
     "question": "A patient presents 45 minutes after the onset of chest pain with a single low hs-troponin and a non-diagnostic ECG. What is the safest next step?",
     "options": [
      "Rule out MI and discharge immediately",
-     "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
      "Diagnose STEMI",
      "Start thrombolysis",
+     "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
      "Ignore the troponin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
     "explanation": "Very early after pain onset troponin may not have risen. A single low value cannot rule out MI in this window — repeat per a validated pathway and interpret with the ECG and risk score."
    },
@@ -1857,13 +1877,13 @@
     "type": "mcq",
     "question": "When can a rapid hs-troponin pathway be used to rule OUT myocardial infarction?",
     "options": [
-     "In any patient regardless of ECG",
      "Only with a low-risk clinical assessment AND a non-ischaemic ECG",
+     "In any patient regardless of ECG",
      "Whenever the first troponin is normal",
      "In patients with ongoing severe chest pain",
      "Only if CK-MB is also sent"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Only with a low-risk clinical assessment AND a non-ischaemic ECG",
     "explanation": "Rapid rule-out is valid only alongside a low-risk clinical picture and a non-ischaemic ECG. It must never be used to rule out MI in high-risk patients or those with ongoing pain, and STEMI is treated on the ECG."
    },
@@ -1873,12 +1893,12 @@
     "question": "A patient with ischaemic-sounding chest pain has entirely normal serial hs-troponins and a non-ischaemic ECG. How is this best classified?",
     "options": [
      "NSTEMI",
-     "Unstable angina",
      "STEMI",
+     "Unstable angina",
      "Type 2 MI",
      "Myocarditis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Unstable angina",
     "explanation": "Ischaemic symptoms with a normal troponin (no rise) is unstable angina; a troponin rise/fall would reclassify it as NSTEMI."
    },
@@ -1888,12 +1908,12 @@
     "question": "A breathless patient has a normal NT-proBNP (well below the rule-out threshold) and is not on heart-failure treatment. What does this indicate?",
     "options": [
      "Heart failure is confirmed",
-     "Heart failure is unlikely — look for another cause",
      "An urgent echo is mandatory",
      "They need a diuretic",
-     "The test is unreliable"
+     "The test is unreliable",
+     "Heart failure is unlikely — look for another cause"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Heart failure is unlikely — look for another cause",
     "explanation": "BNP/NT-proBNP have a high negative predictive value; a normal level in an untreated patient effectively excludes heart failure, so an alternative cause of breathlessness should be sought."
    },
@@ -1918,12 +1938,12 @@
     "question": "A patient established on sacubitril/valsartan for heart failure has a rising BNP. Which natriuretic peptide should be used to monitor them, and why?",
     "options": [
      "BNP — it is unaffected by the drug",
-     "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
      "CK-MB",
      "Troponin",
+     "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
      "Neither is useful"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
     "explanation": "Sacubitril inhibits neprilysin, which normally degrades BNP, so BNP rises artefactually. NT-proBNP is not a neprilysin substrate and remains the reliable marker to monitor."
    },
@@ -1932,13 +1952,13 @@
     "type": "mcq",
     "question": "A 58-year-old with no established cardiovascular disease has a QRISK3 of 16%. What is the appropriate lipid-lowering step?",
     "options": [
-     "No statin needed",
      "Offer atorvastatin 20 mg (primary prevention)",
+     "No statin needed",
      "Atorvastatin 80 mg",
      "A fibrate",
      "Ezetimibe alone"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Offer atorvastatin 20 mg (primary prevention)",
     "explanation": "A QRISK3 ≥10% warrants primary-prevention atorvastatin 20 mg, alongside lifestyle advice."
    },
@@ -1948,12 +1968,12 @@
     "question": "A patient 6 weeks post-myocardial infarction needs lipid management. What is the recommended statin intensity?",
     "options": [
      "Atorvastatin 20 mg",
-     "Atorvastatin 80 mg (high-intensity secondary prevention)",
      "A fibrate",
+     "Atorvastatin 80 mg (high-intensity secondary prevention)",
      "No statin",
      "Ezetimibe alone"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Atorvastatin 80 mg (high-intensity secondary prevention)",
     "explanation": "Established CVD warrants high-intensity secondary prevention with atorvastatin 80 mg, aiming for a ≥40% reduction in non-HDL cholesterol."
    },
@@ -1963,12 +1983,12 @@
     "question": "A 30-year-old with a total cholesterol of 9.5 mmol/L has tendon xanthomata and a father who had an MI at 44. What should be suspected and done?",
     "options": [
      "Normal variant — reassure",
-     "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
      "Secondary hypertriglyceridaemia",
      "Start a fibrate only",
-     "No family screening needed"
+     "No family screening needed",
+     "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
     "explanation": "A very high cholesterol with tendon xanthomata and premature family CVD is familial hypercholesterolaemia — needs specialist care, high-intensity statin and cascade screening of first-degree relatives."
    }
@@ -1980,12 +2000,12 @@
     "question": "A patient has TSH 12 mU/L (high) with a low free T4. What is the diagnosis?",
     "options": [
      "Primary hyperthyroidism",
-     "Primary hypothyroidism",
      "Subclinical hyperthyroidism",
+     "Primary hypothyroidism",
      "Central hypothyroidism",
      "Sick euthyroid"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Primary hypothyroidism",
     "explanation": "A raised TSH with a low free T4 is primary hypothyroidism (the pituitary drives TSH up in response to low thyroid output), most commonly Hashimoto's."
    },
@@ -1995,12 +2015,12 @@
     "question": "An acutely unwell ICU patient has a low TSH and low T3/T4 during their illness. What is the most appropriate action?",
     "options": [
      "Start levothyroxine",
-     "Recognise likely sick euthyroid syndrome and re-test after recovery",
      "Start carbimazole",
      "Diagnose central hypothyroidism",
-     "Give IV T3 urgently"
+     "Give IV T3 urgently",
+     "Recognise likely sick euthyroid syndrome and re-test after recovery"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Recognise likely sick euthyroid syndrome and re-test after recovery",
     "explanation": "Non-thyroidal illness distorts TFTs (sick euthyroid). Thyroid function should not be tested/treated during acute illness — repeat once the patient recovers."
    },
@@ -2025,12 +2045,12 @@
     "question": "A 34-year-old with resistant hypertension and a potassium of 3.0 mmol/L is being screened for a secondary cause. Which test is most appropriate first?",
     "options": [
      "24-hour urinary metanephrines",
-     "Aldosterone:renin ratio",
      "Overnight dexamethasone suppression test",
      "Renal ultrasound",
+     "Aldosterone:renin ratio",
      "Thyroid function tests"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Aldosterone:renin ratio",
     "explanation": "Young, resistant hypertension with hypokalaemia strongly suggests primary hyperaldosteronism (Conn's) — screen with the aldosterone:renin ratio."
    },
@@ -2039,13 +2059,13 @@
     "type": "mcq",
     "question": "A patient has paroxysms of severe headache, sweating and palpitations with episodic hypertensive spikes. Which screening test is indicated?",
     "options": [
-     "Aldosterone:renin ratio",
      "Plasma or urinary metanephrines",
+     "Aldosterone:renin ratio",
      "Dexamethasone suppression test",
      "Serum ACE",
      "Renin alone"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Plasma or urinary metanephrines",
     "explanation": "Episodic headache, sweating and palpitations with paroxysmal hypertension is the classic triad of phaeochromocytoma — screen with plasma/urinary metanephrines."
    },
@@ -2055,12 +2075,12 @@
     "question": "A patient with a confirmed phaeochromocytoma needs blood-pressure control before surgery. What is the correct sequence of drugs?",
     "options": [
      "Beta-blocker first, then alpha-blocker",
-     "Alpha-blocker first, then beta-blocker",
      "Beta-blocker alone",
+     "Alpha-blocker first, then beta-blocker",
      "ACE inhibitor first",
      "Diuretic first"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Alpha-blocker first, then beta-blocker",
     "explanation": "Alpha-blockade (e.g. phenoxybenzamine) must precede beta-blockade; starting a beta-blocker first leaves unopposed alpha vasoconstriction and risks a hypertensive crisis."
    },
@@ -2070,12 +2090,12 @@
     "question": "A patient has enlarging hands, coarsening facial features and headaches. What is the best initial screening test for acromegaly?",
     "options": [
      "A single random growth hormone level",
-     "Serum IGF-1",
      "Pituitary MRI first",
      "Random cortisol",
-     "Serum ACE"
+     "Serum ACE",
+     "Serum IGF-1"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Serum IGF-1",
     "explanation": "GH is pulsatile so a random level is unreliable. IGF-1 is a stable, integrated marker of GH activity and is the screening test for acromegaly."
    },
@@ -2100,12 +2120,12 @@
     "question": "An acromegaly patient develops difficulty seeing to the sides. Which visual field defect and mechanism is most likely?",
     "options": [
      "Homonymous hemianopia — occipital stroke",
-     "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
      "Central scotoma — optic neuritis",
      "Tunnel vision — retinitis pigmentosa",
+     "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
      "Monocular blindness — retinal detachment"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
     "explanation": "A pituitary macroadenoma compresses the optic chiasm, classically producing a bitemporal hemianopia — an indication for urgent assessment."
    },
@@ -2114,13 +2134,13 @@
     "type": "mcq",
     "question": "A patient with suspected sarcoidosis has a NORMAL serum ACE. What does this mean?",
     "options": [
-     "Sarcoidosis is excluded",
      "It does not exclude sarcoidosis — ACE is only raised in ~60% and is non-diagnostic",
+     "Sarcoidosis is excluded",
      "It confirms sarcoidosis",
      "ACE inhibitors must be the cause",
      "No further work-up is needed"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "It does not exclude sarcoidosis — ACE is only raised in ~60% and is non-diagnostic",
     "explanation": "Serum ACE has limited sensitivity and specificity. A normal level cannot exclude sarcoidosis; diagnosis rests on clinical, radiological and histological findings (non-caseating granulomas)."
    },
@@ -2130,12 +2150,12 @@
     "question": "A patient with sarcoidosis develops hypercalcaemia. What is the mechanism?",
     "options": [
      "Excess PTH secretion",
-     "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
      "Bony metastases",
+     "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
      "Low albumin",
      "Thiazide use"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
     "explanation": "In sarcoidosis, activated macrophages convert vitamin D to its active 1,25 form independent of PTH, increasing gut calcium absorption and causing hypercalcaemia (and, more commonly, hypercalciuria)."
    },
@@ -2145,14 +2165,29 @@
     "question": "A patient being monitored with serum ACE for sarcoidosis is started on an ACE inhibitor for hypertension. How will this affect the serum ACE result?",
     "options": [
      "It will rise",
-     "It will fall (ACE inhibitors lower serum ACE)",
      "No effect",
      "It becomes diagnostic",
-     "It causes a false positive"
+     "It causes a false positive",
+     "It will fall (ACE inhibitors lower serum ACE)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "It will fall (ACE inhibitors lower serum ACE)",
     "explanation": "ACE inhibitors inhibit the very enzyme being measured, lowering the serum ACE and confounding its use as an activity marker."
+   },
+   {
+    "id": "tft_q_extra1",
+    "type": "mcq",
+    "question": "An asymptomatic patient has TSH 12 mU/L with a normal free T4, confirmed on a repeat sample. What is the most appropriate management?",
+    "options": [
+     "Reassure and take no further action",
+     "Start levothyroxine",
+     "Start carbimazole",
+     "Arrange a thyroid isotope uptake scan",
+     "Check metanephrines"
+    ],
+    "correctIndex": 1,
+    "answer": "Start levothyroxine",
+    "explanation": "This is subclinical hypothyroidism (raised TSH, normal fT4). With TSH ≥10 mU/L (persisting on repeat), levothyroxine is indicated even if asymptomatic. Below 10, treat only if symptomatic, TPO-positive, or pregnant/planning pregnancy. Carbimazole is for hyperthyroidism."
    }
   ],
   "investigations__BIOCHEMISTRY__Tumour Markers": [
