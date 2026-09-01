@@ -105,6 +105,11 @@
     "id": "bcp_fc_21",
     "front": "What is the bone profile of primary hyperparathyroidism?",
     "back": "<b>↑Ca · ↓PO₄ · ↑PTH</b> (± raised ALP if there is bone disease / osteitis fibrosa cystica)."
+   },
+   {
+    "id": "bcp_fc_22",
+    "front": "How is osteomalacia / vitamin D deficiency treated, and what confirms response?",
+    "back": "<b>Vitamin D replacement</b> (colecalciferol, ± calcium). Recheck the bone profile — <b>calcium and phosphate rise, ALP and PTH settle</b> as bone remineralises. Correct any underlying cause (malabsorption, CKD)."
    }
   ],
   "investigations__BIOCHEMISTRY__Renal & Electrolytes": [
@@ -491,6 +496,11 @@
     "id": "cpep_fc_05",
     "front": "What is LADA?",
     "back": "<b>Latent Autoimmune Diabetes in Adults</b> — a slowly-progressive autoimmune (antibody-positive) diabetes that presents in adulthood and is often initially misdiagnosed as type 2."
+   },
+   {
+    "id": "dm_fc_extra1",
+    "front": "An acutely unwell patient has a high glucose. Why is HbA1c not the test to reach for, and what should you do?",
+    "back": "HbA1c reflects the last ~3 months and won't guide an acute emergency. In an unwell hyperglycaemic patient <b>check blood/capillary ketones and a venous blood gas</b> to identify <b>DKA</b> (ketones + acidosis) or <b>HHS</b> (marked hyperglycaemia/dehydration, no ketosis) — both are emergencies."
    }
   ],
   "investigations__BIOCHEMISTRY__Cardiac Markers": [
@@ -598,6 +608,11 @@
     "id": "lip_fc_05",
     "front": "What is the danger of very high triglycerides (>10 mmol/L)?",
     "back": "<b>Acute pancreatitis.</b> Treat with a <b>fibrate</b> and lifestyle change, and look for secondary causes (alcohol, diabetes, obesity, hypothyroidism)."
+   },
+   {
+    "id": "lip_fc_06",
+    "front": "How are statins monitored for safety (liver and muscle)?",
+    "back": "Check <b>baseline LFTs</b> before starting, then <b>recheck at 3 and 12 months</b> — only stop if transaminases rise <b>&gt;3× the upper limit of normal</b>. Check <b>CK</b> only if the patient has muscle symptoms (not routinely)."
    }
   ],
   "investigations__BIOCHEMISTRY__Endocrine": [
@@ -705,6 +720,21 @@
     "id": "ace_fc_05",
     "front": "What drug interferes with serum ACE measurement?",
     "back": "<b>ACE inhibitors</b> lower the serum ACE level (they inhibit the enzyme being measured)."
+   },
+   {
+    "id": "tft_fc_extra1",
+    "front": "How do you manage subclinical hypothyroidism (↑TSH, normal fT4)?",
+    "back": "<b>Repeat the TSH in ~3 months</b> to confirm it persists. Treat with <b>levothyroxine</b> if <b>TSH ≥10 mU/L</b>, or if <b>symptomatic</b>, <b>TPO-antibody positive</b>, or <b>pregnant/planning pregnancy</b>. Otherwise monitor."
+   },
+   {
+    "id": "hyp_fc_extra1",
+    "front": "A Cushing's screen (e.g. failed overnight dexamethasone suppression) is positive — what is the next biochemical step?",
+    "back": "Measure <b>ACTH</b> to split <b>ACTH-dependent</b> (pituitary Cushing's disease / ectopic) from <b>ACTH-independent</b> (adrenal tumour), then refer for localisation."
+   },
+   {
+    "id": "hyp_fc_extra2",
+    "front": "How is a raised aldosterone:renin ratio (screening positive for Conn's) confirmed?",
+    "back": "With a <b>saline / salt-loading suppression test</b> — aldosterone <b>fails to suppress</b> — then <b>CT adrenals</b> (± specialist referral). Stop interfering antihypertensives before testing where possible."
    }
   ],
   "investigations__BIOCHEMISTRY__Tumour Markers": [
@@ -878,7 +908,7 @@
    {
     "id": "ref_fc_03",
     "front": "Who is at high risk of refeeding syndrome (NICE)?",
-    "back": "Little/no intake <b>&gt;5 days</b>, <b>BMI &lt;16</b>, unintentional weight loss <b>&gt;15%</b>, low baseline K/PO₄/Mg, and alcohol/drug misuse or chemotherapy."
+    "back": "Little/no intake <b>&gt;10 days</b>, <b>BMI &lt;16</b>, unintentional weight loss <b>&gt;15%</b>, low baseline K/PO₄/Mg, and alcohol/drug misuse or chemotherapy."
    },
    {
     "id": "ref_fc_04",
@@ -914,6 +944,11 @@
     "id": "dem_fc_05",
     "front": "What features of dementia warrant urgent/further investigation?",
     "back": "<b>Rapid progression</b>, <b>young onset</b>, or <b>focal neurology</b> — consider CJD, autoimmune encephalitis, or a structural lesion (imaging with CT/MRI)."
+   },
+   {
+    "id": "crp_fc_extra1",
+    "front": "You find an unexplained raised CRP — what is the next step?",
+    "back": "<b>Hunt for the source</b> — blood and urine cultures, a CXR ± targeted imaging — and <b>trend the CRP</b> to monitor the response. Treat the patient clinically (e.g. Sepsis 6 if septic); don't wait for the level. Procalcitonin can help judge whether it's bacterial and when to stop antibiotics."
    }
   ]
  },
@@ -925,12 +960,12 @@
     "question": "A patient has a total calcium of 2.10 mmol/L (ref 2.20–2.60) and an albumin of 28 g/L. What is the corrected calcium and interpretation?",
     "options": [
      "2.10 mmol/L — hypocalcaemia",
-     "2.34 mmol/L — normal (the low total was due to low albumin)",
      "1.86 mmol/L — severe hypocalcaemia",
+     "2.34 mmol/L — normal (the low total was due to low albumin)",
      "2.60 mmol/L — hypercalcaemia",
      "Cannot be calculated"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "2.34 mmol/L — normal (the low total was due to low albumin)",
     "explanation": "Corrected Ca = 2.10 + 0.02 × (40 − 28) = 2.10 + 0.24 = 2.34 mmol/L, which is within the normal range. The low total calcium simply reflected hypoalbuminaemia — always correct before diagnosing hypocalcaemia."
    },
@@ -940,12 +975,12 @@
     "question": "A 68-year-old with bone pain has an isolated raised ALP; calcium, phosphate and GGT are all normal. What does the normal GGT indicate about the source of the ALP?",
     "options": [
      "A hepatic/cholestatic source",
-     "A bony source (e.g. Paget's disease or osteomalacia)",
      "A haemolysed sample",
      "Normal physiology only",
-     "A renal source"
+     "A renal source",
+     "A bony source (e.g. Paget's disease or osteomalacia)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "A bony source (e.g. Paget's disease or osteomalacia)",
     "explanation": "A normal GGT alongside a raised ALP points away from the liver and towards a bony source. In an older patient with bone pain and an isolated raised ALP, Paget's disease is a classic cause."
    },
@@ -970,12 +1005,12 @@
     "question": "Which statement about albumin in the bone profile is correct?",
     "options": [
      "A high albumin causes true hypocalcaemia",
-     "A low albumin lowers the total calcium but not the ionised (active) calcium",
      "Albumin does not affect calcium measurement",
      "Albumin binds phosphate, not calcium",
+     "A low albumin lowers the total calcium but not the ionised (active) calcium",
      "A low albumin raises the corrected calcium falsely"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "A low albumin lowers the total calcium but not the ionised (active) calcium",
     "explanation": "About half of serum calcium is albumin-bound. A low albumin reduces the measured total calcium while the physiologically active ionised fraction is unchanged — hence the need to correct for albumin."
    },
@@ -984,13 +1019,13 @@
     "type": "mcq",
     "question": "An asymptomatic 60-year-old has a corrected calcium of 2.85 mmol/L with a PTH at the upper end of normal and a low phosphate. What is the most likely diagnosis?",
     "options": [
-     "Malignancy",
      "Primary hyperparathyroidism",
+     "Malignancy",
      "Vitamin D deficiency",
      "Hypoparathyroidism",
      "Secondary hyperparathyroidism"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Primary hyperparathyroidism",
     "explanation": "Hypercalcaemia with a PTH that is not suppressed (inappropriately normal or high) is primary hyperparathyroidism — the commonest cause of hypercalcaemia in ambulant outpatients. The low phosphate fits PTH excess."
    },
@@ -1000,12 +1035,12 @@
     "question": "A patient with known metastatic breast cancer has a corrected calcium of 3.1 mmol/L. Which PTH result would you expect, and what is the mechanism?",
     "options": [
      "High PTH — primary hyperparathyroidism",
-     "Suppressed (low) PTH — PTHrP / bone metastases",
      "Normal PTH — vitamin D deficiency",
+     "Suppressed (low) PTH — PTHrP / bone metastases",
      "High PTH — secondary hyperparathyroidism",
      "Undetectable calcium"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Suppressed (low) PTH — PTHrP / bone metastases",
     "explanation": "Hypercalcaemia of malignancy is PTH-independent (PTHrP secretion or osteolytic mets), so the parathyroid glands appropriately suppress and the PTH is low."
    },
@@ -1015,12 +1050,12 @@
     "question": "A patient has mild hypercalcaemia with an inappropriately normal PTH, but a 24-hour urine shows a LOW urinary calcium (low calcium:creatinine clearance ratio). What is the diagnosis and key implication?",
     "options": [
      "Primary hyperparathyroidism — refer for parathyroidectomy",
-     "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery",
      "Malignancy — arrange imaging",
      "Vitamin D toxicity — stop supplements",
-     "Hypoparathyroidism — give calcium"
+     "Hypoparathyroidism — give calcium",
+     "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Familial hypocalciuric hypercalcaemia (FHH) — avoid unnecessary surgery",
     "explanation": "FHH mimics primary hyperparathyroidism biochemically but has low urinary calcium excretion. It is benign, so distinguishing it prevents an unnecessary parathyroidectomy."
    },
@@ -1030,12 +1065,12 @@
     "question": "A post-thyroidectomy patient has persistent hypocalcaemia despite IV calcium. Which additional electrolyte must be checked and corrected?",
     "options": [
      "Sodium",
-     "Potassium",
      "Magnesium",
+     "Potassium",
      "Chloride",
      "Bicarbonate"
     ],
-    "correctIndex": 2,
+    "correctIndex": 1,
     "answer": "Magnesium",
     "explanation": "Severe hypomagnesaemia causes functional hypoparathyroidism and impairs PTH action, so hypocalcaemia is refractory until the magnesium is replaced."
    },
@@ -1045,12 +1080,12 @@
     "question": "A 68-year-old woman sustains a fragility wrist fracture. Calcium, phosphate, ALP and PTH are all normal. What is the most likely diagnosis and confirmatory test?",
     "options": [
      "Osteomalacia — measure vitamin D",
-     "Osteoporosis — arrange a DEXA scan",
      "Paget's disease — isotope bone scan",
      "Primary hyperparathyroidism — repeat PTH",
+     "Osteoporosis — arrange a DEXA scan",
      "Multiple myeloma — serum electrophoresis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Osteoporosis — arrange a DEXA scan",
     "explanation": "A fragility fracture with an entirely normal bone profile is characteristic of osteoporosis, which is diagnosed on DEXA (T-score ≤ −2.5). Normal bloods help exclude secondary causes."
    },
@@ -1059,13 +1094,13 @@
     "type": "mcq",
     "question": "An older adult with bone pain and proximal muscle weakness has ↓Ca, ↓PO₄, ↑ALP, ↑PTH and a low vitamin D. What is the diagnosis?",
     "options": [
-     "Osteoporosis",
      "Osteomalacia",
+     "Osteoporosis",
      "Paget's disease",
      "Primary hyperparathyroidism",
      "Multiple myeloma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Osteomalacia",
     "explanation": "Low calcium and phosphate with a raised ALP and PTH and low vitamin D is the secondary-hyperparathyroidism pattern of osteomalacia (vitamin D deficiency). Proximal myopathy and Looser's zones support it."
    },
@@ -1075,12 +1110,12 @@
     "question": "An asymptomatic 75-year-old has an isolated ALP of 620 U/L with a normal calcium, phosphate and GGT. He mentions increasing hat size and hearing loss. What is the diagnosis?",
     "options": [
      "Bone metastases",
-     "Paget's disease of bone",
      "Osteomalacia",
+     "Paget's disease of bone",
      "Cholestasis",
      "Primary hyperparathyroidism"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Paget's disease of bone",
     "explanation": "An isolated, markedly raised ALP with normal calcium/phosphate and a normal GGT (excluding a hepatic source), plus skull enlargement and deafness, is classic Paget's disease. Confirm with X-ray/isotope bone scan."
    },
@@ -1091,13 +1126,28 @@
     "options": [
      "Paget's disease",
      "Bone metastases",
-     "Multiple myeloma",
      "Osteomalacia",
-     "Osteoporosis"
+     "Osteoporosis",
+     "Multiple myeloma"
     ],
-    "correctIndex": 2,
+    "correctIndex": 4,
     "answer": "Multiple myeloma",
     "explanation": "Hypercalcaemia, anaemia and renal impairment with bone pain but a NORMAL ALP points to myeloma — its lytic lesions are osteoclastic with no osteoblastic (ALP) response. Send serum/urine electrophoresis and free light chains."
+   },
+   {
+    "id": "bcp_q13",
+    "type": "mcq",
+    "question": "A patient has low calcium, low phosphate, a raised ALP and raised PTH, with a low 25-OH vitamin D (osteomalacia). What is the most appropriate next step?",
+    "options": [
+     "Start an oral bisphosphonate",
+     "Replace vitamin D and recheck the bone profile",
+     "Give IV calcium gluconate",
+     "Refer for parathyroidectomy",
+     "Arrange a DEXA scan to confirm"
+    ],
+    "correctIndex": 1,
+    "answer": "Replace vitamin D and recheck the bone profile",
+    "explanation": "This biochemistry is vitamin D deficiency / osteomalacia (low Ca and phosphate, raised ALP, secondary hyperparathyroidism). Treatment is vitamin D replacement (± calcium); the bone profile normalises with treatment. Bisphosphonates are for osteoporosis/Paget's, and IV calcium is only for acute symptomatic hypocalcaemia."
    }
   ],
   "investigations__BIOCHEMISTRY__Renal & Electrolytes": [
@@ -1621,12 +1671,12 @@
     "question": "An asymptomatic patient has an HbA1c of 50 mmol/mol on a routine screen. What is the correct next step?",
     "options": [
      "Diagnose diabetes now",
-     "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
      "Ignore it — it is normal",
+     "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
      "Diagnose prediabetes",
      "Start insulin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Repeat the HbA1c (a second abnormal result is needed in an asymptomatic person)",
     "explanation": "HbA1c ≥48 is in the diabetes range, but in an asymptomatic person a single result must be confirmed with a second abnormal test before diagnosing diabetes."
    },
@@ -1637,11 +1687,11 @@
     "options": [
      "Fasting glucose 6.5 mmol/L",
      "HbA1c 45 mmol/mol",
-     "2-hour OGTT glucose 11.5 mmol/L",
      "Random glucose 9.0 mmol/L without symptoms",
-     "HbA1c 44 mmol/mol"
+     "HbA1c 44 mmol/mol",
+     "2-hour OGTT glucose 11.5 mmol/L"
     ],
-    "correctIndex": 2,
+    "correctIndex": 4,
     "answer": "2-hour OGTT glucose 11.5 mmol/L",
     "explanation": "A 2-hour OGTT (or random) glucose ≥11.1 mmol/L meets the threshold. Fasting 6.5 and HbA1c 44–45 are in the prediabetes range; random 9.0 is below threshold."
    },
@@ -1666,12 +1716,12 @@
     "question": "A patient with untreated iron-deficiency anaemia has an HbA1c of 49 mmol/mol but normal fasting glucose. How should the HbA1c be interpreted?",
     "options": [
      "It confirms diabetes",
-     "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
      "It is falsely low",
      "It is unaffected by anaemia",
+     "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
      "Repeat only the HbA1c"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Iron deficiency can falsely raise HbA1c — do not diagnose diabetes on it; use glucose testing",
     "explanation": "Untreated iron/B12/folate deficiency prolongs red-cell survival and raises HbA1c. Diagnose using fasting glucose/OGTT, or repeat HbA1c after treating the anaemia."
    },
@@ -1680,13 +1730,13 @@
     "type": "mcq",
     "question": "Which is the recommended method to diagnose diabetes in pregnancy?",
     "options": [
-     "HbA1c",
      "An oral glucose tolerance test (glucose-based criteria)",
+     "HbA1c",
      "Fructosamine",
      "Random capillary glucose alone",
      "C-peptide"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "An oral glucose tolerance test (glucose-based criteria)",
     "explanation": "HbA1c is unreliable in pregnancy (altered red-cell turnover), so gestational and pregnancy diabetes are diagnosed with glucose-based criteria (OGTT)."
    },
@@ -1696,12 +1746,12 @@
     "question": "A patient with a haemolytic anaemia has a low HbA1c despite documented hyperglycaemia. Why?",
     "options": [
      "Haemolysis raises HbA1c",
-     "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
      "HbA1c is unaffected",
+     "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
      "The glucose meter is faulty",
      "Splenectomy effect"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Haemolysis shortens red-cell lifespan, falsely LOWERING HbA1c",
     "explanation": "A shortened red-cell lifespan gives less time for glycation, so HbA1c underestimates glycaemia in haemolysis — use glucose or fructosamine."
    },
@@ -1711,12 +1761,12 @@
     "question": "A lean 35-year-old diagnosed with 'type 2 diabetes' responds poorly to metformin and is ketosis-prone. GAD antibodies are positive and C-peptide is low. What is the diagnosis?",
     "options": [
      "Classic type 2 diabetes",
-     "Autoimmune diabetes (LADA / type 1)",
      "MODY",
      "Secondary diabetes from steroids",
-     "Gestational diabetes"
+     "Gestational diabetes",
+     "Autoimmune diabetes (LADA / type 1)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Autoimmune diabetes (LADA / type 1)",
     "explanation": "Positive GAD antibodies with a low C-peptide indicate autoimmune beta-cell destruction — LADA (adult-onset autoimmune diabetes). These patients need insulin."
    },
@@ -1741,14 +1791,29 @@
     "question": "A young patient with a strong family history of diabetes across generations is antibody-negative with a well-preserved C-peptide and mild stable hyperglycaemia. What should be considered?",
     "options": [
      "Type 1 diabetes",
-     "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
      "Insulinoma",
      "LADA",
+     "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
      "Exogenous insulin use"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "MODY (maturity-onset diabetes of the young) — arrange genetic testing",
     "explanation": "Young-onset, strongly familial diabetes with preserved C-peptide and negative autoantibodies suggests MODY, a monogenic diabetes confirmed by genetic testing (and often managed differently, e.g. sulfonylureas)."
+   },
+   {
+    "id": "dm_q_extra1",
+    "type": "mcq",
+    "question": "A drowsy, dehydrated patient has a capillary glucose of 32 mmol/L. What is the most appropriate immediate investigation?",
+    "options": [
+     "Blood ketones and a venous blood gas",
+     "HbA1c",
+     "Fasting glucose in the morning",
+     "C-peptide and GAD antibodies",
+     "Oral glucose tolerance test"
+    ],
+    "correctIndex": 0,
+    "answer": "Blood ketones and a venous blood gas",
+    "explanation": "An acutely unwell hyperglycaemic patient needs immediate assessment for DKA or HHS — check blood ketones and a venous gas (and U&E). HbA1c, fasting glucose, OGTT and C-peptide/antibodies are for diagnosis/classification, not the acute emergency."
    }
   ],
   "investigations__BIOCHEMISTRY__Cardiac Markers": [
@@ -1758,12 +1823,12 @@
     "question": "A septic patient with a fast AF and anaemia has a mildly raised troponin but no chest pain and a non-ischaemic ECG. How is this best interpreted?",
     "options": [
      "Type 1 (atherothrombotic) MI",
-     "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
      "Definitely a STEMI",
+     "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
      "A laboratory error",
      "Unstable angina"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Myocardial injury / type 2 MI from supply-demand mismatch — treat the sepsis",
     "explanation": "Troponin marks injury, not necessarily a plaque event. In sepsis with tachyarrhythmia and anaemia, a raised troponin usually reflects supply-demand mismatch (type 2) — treat the underlying illness rather than as a type 1 MI."
    },
@@ -1773,12 +1838,12 @@
     "question": "A patient has ST elevation in leads II, III and aVF with ongoing chest pain. The first troponin is still normal. What should happen?",
     "options": [
      "Wait for a positive troponin before acting",
-     "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG",
      "Discharge as troponin is normal",
      "Repeat troponin at 6 hours and review",
-     "Start treatment only if CK-MB rises"
+     "Start treatment only if CK-MB rises",
+     "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Arrange immediate reperfusion (primary PCI) — STEMI is diagnosed on the ECG",
     "explanation": "STEMI is an ECG diagnosis and troponin may not yet have risen. Do not delay reperfusion waiting for biomarkers."
    },
@@ -1803,12 +1868,12 @@
     "question": "A patient presents 45 minutes after the onset of chest pain with a single low hs-troponin and a non-diagnostic ECG. What is the safest next step?",
     "options": [
      "Rule out MI and discharge immediately",
-     "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
      "Diagnose STEMI",
      "Start thrombolysis",
+     "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
      "Ignore the troponin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Repeat the troponin (per the 0/1-h or 0/3-h pathway) as it may be too early",
     "explanation": "Very early after pain onset troponin may not have risen. A single low value cannot rule out MI in this window — repeat per a validated pathway and interpret with the ECG and risk score."
    },
@@ -1817,13 +1882,13 @@
     "type": "mcq",
     "question": "When can a rapid hs-troponin pathway be used to rule OUT myocardial infarction?",
     "options": [
-     "In any patient regardless of ECG",
      "Only with a low-risk clinical assessment AND a non-ischaemic ECG",
+     "In any patient regardless of ECG",
      "Whenever the first troponin is normal",
      "In patients with ongoing severe chest pain",
      "Only if CK-MB is also sent"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Only with a low-risk clinical assessment AND a non-ischaemic ECG",
     "explanation": "Rapid rule-out is valid only alongside a low-risk clinical picture and a non-ischaemic ECG. It must never be used to rule out MI in high-risk patients or those with ongoing pain, and STEMI is treated on the ECG."
    },
@@ -1833,12 +1898,12 @@
     "question": "A patient with ischaemic-sounding chest pain has entirely normal serial hs-troponins and a non-ischaemic ECG. How is this best classified?",
     "options": [
      "NSTEMI",
-     "Unstable angina",
      "STEMI",
+     "Unstable angina",
      "Type 2 MI",
      "Myocarditis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Unstable angina",
     "explanation": "Ischaemic symptoms with a normal troponin (no rise) is unstable angina; a troponin rise/fall would reclassify it as NSTEMI."
    },
@@ -1848,12 +1913,12 @@
     "question": "A breathless patient has a normal NT-proBNP (well below the rule-out threshold) and is not on heart-failure treatment. What does this indicate?",
     "options": [
      "Heart failure is confirmed",
-     "Heart failure is unlikely — look for another cause",
      "An urgent echo is mandatory",
      "They need a diuretic",
-     "The test is unreliable"
+     "The test is unreliable",
+     "Heart failure is unlikely — look for another cause"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Heart failure is unlikely — look for another cause",
     "explanation": "BNP/NT-proBNP have a high negative predictive value; a normal level in an untreated patient effectively excludes heart failure, so an alternative cause of breathlessness should be sought."
    },
@@ -1878,12 +1943,12 @@
     "question": "A patient established on sacubitril/valsartan for heart failure has a rising BNP. Which natriuretic peptide should be used to monitor them, and why?",
     "options": [
      "BNP — it is unaffected by the drug",
-     "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
      "CK-MB",
      "Troponin",
+     "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
      "Neither is useful"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "NT-proBNP — because neprilysin inhibition raises BNP but not NT-proBNP",
     "explanation": "Sacubitril inhibits neprilysin, which normally degrades BNP, so BNP rises artefactually. NT-proBNP is not a neprilysin substrate and remains the reliable marker to monitor."
    },
@@ -1892,13 +1957,13 @@
     "type": "mcq",
     "question": "A 58-year-old with no established cardiovascular disease has a QRISK3 of 16%. What is the appropriate lipid-lowering step?",
     "options": [
-     "No statin needed",
      "Offer atorvastatin 20 mg (primary prevention)",
+     "No statin needed",
      "Atorvastatin 80 mg",
      "A fibrate",
      "Ezetimibe alone"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Offer atorvastatin 20 mg (primary prevention)",
     "explanation": "A QRISK3 ≥10% warrants primary-prevention atorvastatin 20 mg, alongside lifestyle advice."
    },
@@ -1908,12 +1973,12 @@
     "question": "A patient 6 weeks post-myocardial infarction needs lipid management. What is the recommended statin intensity?",
     "options": [
      "Atorvastatin 20 mg",
-     "Atorvastatin 80 mg (high-intensity secondary prevention)",
      "A fibrate",
+     "Atorvastatin 80 mg (high-intensity secondary prevention)",
      "No statin",
      "Ezetimibe alone"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Atorvastatin 80 mg (high-intensity secondary prevention)",
     "explanation": "Established CVD warrants high-intensity secondary prevention with atorvastatin 80 mg, aiming for a ≥40% reduction in non-HDL cholesterol."
    },
@@ -1923,12 +1988,12 @@
     "question": "A 30-year-old with a total cholesterol of 9.5 mmol/L has tendon xanthomata and a father who had an MI at 44. What should be suspected and done?",
     "options": [
      "Normal variant — reassure",
-     "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
      "Secondary hypertriglyceridaemia",
      "Start a fibrate only",
-     "No family screening needed"
+     "No family screening needed",
+     "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Familial hypercholesterolaemia — refer and arrange cascade screening of relatives",
     "explanation": "A very high cholesterol with tendon xanthomata and premature family CVD is familial hypercholesterolaemia — needs specialist care, high-intensity statin and cascade screening of first-degree relatives."
    }
@@ -1940,12 +2005,12 @@
     "question": "A patient has TSH 12 mU/L (high) with a low free T4. What is the diagnosis?",
     "options": [
      "Primary hyperthyroidism",
-     "Primary hypothyroidism",
      "Subclinical hyperthyroidism",
+     "Primary hypothyroidism",
      "Central hypothyroidism",
      "Sick euthyroid"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Primary hypothyroidism",
     "explanation": "A raised TSH with a low free T4 is primary hypothyroidism (the pituitary drives TSH up in response to low thyroid output), most commonly Hashimoto's."
    },
@@ -1955,12 +2020,12 @@
     "question": "An acutely unwell ICU patient has a low TSH and low T3/T4 during their illness. What is the most appropriate action?",
     "options": [
      "Start levothyroxine",
-     "Recognise likely sick euthyroid syndrome and re-test after recovery",
      "Start carbimazole",
      "Diagnose central hypothyroidism",
-     "Give IV T3 urgently"
+     "Give IV T3 urgently",
+     "Recognise likely sick euthyroid syndrome and re-test after recovery"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Recognise likely sick euthyroid syndrome and re-test after recovery",
     "explanation": "Non-thyroidal illness distorts TFTs (sick euthyroid). Thyroid function should not be tested/treated during acute illness — repeat once the patient recovers."
    },
@@ -1985,12 +2050,12 @@
     "question": "A 34-year-old with resistant hypertension and a potassium of 3.0 mmol/L is being screened for a secondary cause. Which test is most appropriate first?",
     "options": [
      "24-hour urinary metanephrines",
-     "Aldosterone:renin ratio",
      "Overnight dexamethasone suppression test",
      "Renal ultrasound",
+     "Aldosterone:renin ratio",
      "Thyroid function tests"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Aldosterone:renin ratio",
     "explanation": "Young, resistant hypertension with hypokalaemia strongly suggests primary hyperaldosteronism (Conn's) — screen with the aldosterone:renin ratio."
    },
@@ -1999,13 +2064,13 @@
     "type": "mcq",
     "question": "A patient has paroxysms of severe headache, sweating and palpitations with episodic hypertensive spikes. Which screening test is indicated?",
     "options": [
-     "Aldosterone:renin ratio",
      "Plasma or urinary metanephrines",
+     "Aldosterone:renin ratio",
      "Dexamethasone suppression test",
      "Serum ACE",
      "Renin alone"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Plasma or urinary metanephrines",
     "explanation": "Episodic headache, sweating and palpitations with paroxysmal hypertension is the classic triad of phaeochromocytoma — screen with plasma/urinary metanephrines."
    },
@@ -2015,12 +2080,12 @@
     "question": "A patient with a confirmed phaeochromocytoma needs blood-pressure control before surgery. What is the correct sequence of drugs?",
     "options": [
      "Beta-blocker first, then alpha-blocker",
-     "Alpha-blocker first, then beta-blocker",
      "Beta-blocker alone",
+     "Alpha-blocker first, then beta-blocker",
      "ACE inhibitor first",
      "Diuretic first"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Alpha-blocker first, then beta-blocker",
     "explanation": "Alpha-blockade (e.g. phenoxybenzamine) must precede beta-blockade; starting a beta-blocker first leaves unopposed alpha vasoconstriction and risks a hypertensive crisis."
    },
@@ -2030,12 +2095,12 @@
     "question": "A patient has enlarging hands, coarsening facial features and headaches. What is the best initial screening test for acromegaly?",
     "options": [
      "A single random growth hormone level",
-     "Serum IGF-1",
      "Pituitary MRI first",
      "Random cortisol",
-     "Serum ACE"
+     "Serum ACE",
+     "Serum IGF-1"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Serum IGF-1",
     "explanation": "GH is pulsatile so a random level is unreliable. IGF-1 is a stable, integrated marker of GH activity and is the screening test for acromegaly."
    },
@@ -2060,12 +2125,12 @@
     "question": "An acromegaly patient develops difficulty seeing to the sides. Which visual field defect and mechanism is most likely?",
     "options": [
      "Homonymous hemianopia — occipital stroke",
-     "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
      "Central scotoma — optic neuritis",
      "Tunnel vision — retinitis pigmentosa",
+     "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
      "Monocular blindness — retinal detachment"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Bitemporal hemianopia — pituitary macroadenoma compressing the optic chiasm",
     "explanation": "A pituitary macroadenoma compresses the optic chiasm, classically producing a bitemporal hemianopia — an indication for urgent assessment."
    },
@@ -2074,13 +2139,13 @@
     "type": "mcq",
     "question": "A patient with suspected sarcoidosis has a NORMAL serum ACE. What does this mean?",
     "options": [
-     "Sarcoidosis is excluded",
      "It does not exclude sarcoidosis — ACE is only raised in ~60% and is non-diagnostic",
+     "Sarcoidosis is excluded",
      "It confirms sarcoidosis",
      "ACE inhibitors must be the cause",
      "No further work-up is needed"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "It does not exclude sarcoidosis — ACE is only raised in ~60% and is non-diagnostic",
     "explanation": "Serum ACE has limited sensitivity and specificity. A normal level cannot exclude sarcoidosis; diagnosis rests on clinical, radiological and histological findings (non-caseating granulomas)."
    },
@@ -2090,12 +2155,12 @@
     "question": "A patient with sarcoidosis develops hypercalcaemia. What is the mechanism?",
     "options": [
      "Excess PTH secretion",
-     "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
      "Bony metastases",
+     "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
      "Low albumin",
      "Thiazide use"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Granuloma macrophages producing 1,25-(OH)₂ vitamin D",
     "explanation": "In sarcoidosis, activated macrophages convert vitamin D to its active 1,25 form independent of PTH, increasing gut calcium absorption and causing hypercalcaemia (and, more commonly, hypercalciuria)."
    },
@@ -2105,14 +2170,29 @@
     "question": "A patient being monitored with serum ACE for sarcoidosis is started on an ACE inhibitor for hypertension. How will this affect the serum ACE result?",
     "options": [
      "It will rise",
-     "It will fall (ACE inhibitors lower serum ACE)",
      "No effect",
      "It becomes diagnostic",
-     "It causes a false positive"
+     "It causes a false positive",
+     "It will fall (ACE inhibitors lower serum ACE)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "It will fall (ACE inhibitors lower serum ACE)",
     "explanation": "ACE inhibitors inhibit the very enzyme being measured, lowering the serum ACE and confounding its use as an activity marker."
+   },
+   {
+    "id": "tft_q_extra1",
+    "type": "mcq",
+    "question": "An asymptomatic patient has TSH 12 mU/L with a normal free T4, confirmed on a repeat sample. What is the most appropriate management?",
+    "options": [
+     "Reassure and take no further action",
+     "Start levothyroxine",
+     "Start carbimazole",
+     "Arrange a thyroid isotope uptake scan",
+     "Check metanephrines"
+    ],
+    "correctIndex": 1,
+    "answer": "Start levothyroxine",
+    "explanation": "This is subclinical hypothyroidism (raised TSH, normal fT4). With TSH ≥10 mU/L (persisting on repeat), levothyroxine is indicated even if asymptomatic. Below 10, treat only if symptomatic, TPO-positive, or pregnant/planning pregnancy. Carbimazole is for hyperthyroidism."
    }
   ],
   "investigations__BIOCHEMISTRY__Tumour Markers": [
@@ -2122,12 +2202,12 @@
     "question": "A patient who had a colorectal cancer resected 1 year ago now has a steadily rising CEA. What does this most likely indicate?",
     "options": [
      "A false positive from smoking",
-     "Disease recurrence — confirm with imaging",
      "A normal finding",
+     "Disease recurrence — confirm with imaging",
      "That CEA should be used to screen relatives",
      "Pancreatic cancer"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Disease recurrence — confirm with imaging",
     "explanation": "A rising CEA trend after curative resection suggests recurrence and should prompt restaging imaging. CEA is a monitoring tool, not a screening/diagnostic test."
    },
@@ -2137,12 +2217,12 @@
     "question": "A patient with obstructive jaundice from a gallstone has a markedly raised CA19-9. What is the correct interpretation?",
     "options": [
      "This confirms pancreatic cancer",
-     "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic",
      "It excludes malignancy",
      "Start chemotherapy",
-     "Screen the family"
+     "Screen the family",
+     "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "CA19-9 is raised by cholestasis itself — recheck after biliary drainage; it is not diagnostic",
     "explanation": "Obstructive jaundice/cholestasis raises CA19-9 independent of malignancy. Interpret it cautiously and repeat after relieving the obstruction; it cannot diagnose cancer on its own."
    },
@@ -2167,12 +2247,12 @@
     "question": "A patient with known cirrhosis on surveillance has a rising AFP and a new 3 cm arterially-enhancing liver lesion. What is the diagnosis until proven otherwise?",
     "options": [
      "A benign regenerative nodule",
-     "Hepatocellular carcinoma — urgent imaging and MDT referral",
      "A simple cyst",
      "Metastasis from colorectal cancer",
+     "Hepatocellular carcinoma — urgent imaging and MDT referral",
      "Cholangiocarcinoma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Hepatocellular carcinoma — urgent imaging and MDT referral",
     "explanation": "A rising AFP with a new arterially-enhancing lesion in a cirrhotic liver is HCC until proven otherwise; classic imaging can be diagnostic without biopsy. Refer urgently to the MDT."
    },
@@ -2181,13 +2261,13 @@
     "type": "mcq",
     "question": "What is the recommended HCC surveillance strategy in a patient with cirrhosis?",
     "options": [
-     "Annual CT scan",
      "6-monthly ultrasound (± AFP)",
+     "Annual CT scan",
      "AFP alone every 3 months",
      "No surveillance needed",
      "MRI only when symptomatic"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "6-monthly ultrasound (± AFP)",
     "explanation": "HCC surveillance in cirrhosis/chronic hepatitis B is 6-monthly ultrasound, sometimes with AFP. Ultrasound is the mainstay because AFP alone has limited sensitivity."
    },
@@ -2197,12 +2277,12 @@
     "question": "A young man with a testicular mass has a raised AFP. What does this tell you about the tumour type?",
     "options": [
      "It is a pure seminoma",
-     "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
      "It is benign",
+     "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
      "It must be lymphoma",
      "AFP is irrelevant to testicular tumours"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "It contains a non-seminomatous (e.g. yolk-sac) element — pure seminoma does not raise AFP",
     "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue (yolk-sac/embryonal). Pure seminomas do not produce AFP, so its elevation changes classification and management."
    },
@@ -2212,12 +2292,12 @@
     "question": "A man attends for a PSA test. He had a UTI last week and a urinary catheter inserted 2 days ago. What is the most appropriate action?",
     "options": [
      "Take the PSA now and act on the result",
-     "Defer the PSA — recent UTI and catheterisation transiently raise it",
      "Proceed straight to biopsy",
      "Start antibiotics indefinitely",
-     "Reassure that PSA is unaffected"
+     "Reassure that PSA is unaffected",
+     "Defer the PSA — recent UTI and catheterisation transiently raise it"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Defer the PSA — recent UTI and catheterisation transiently raise it",
     "explanation": "UTI, catheterisation, ejaculation and DRE all transiently raise PSA. Defer testing until these have resolved to avoid a falsely elevated result and unnecessary referral."
    },
@@ -2242,12 +2322,12 @@
     "question": "Which PSA-derived measure specifically favours cancer over benign prostatic hyperplasia?",
     "options": [
      "A HIGH free:total PSA ratio",
-     "A LOW free:total PSA ratio",
      "A low PSA density",
      "A slow PSA velocity",
+     "A LOW free:total PSA ratio",
      "A normal DRE"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "A LOW free:total PSA ratio",
     "explanation": "Prostate cancer binds more PSA, lowering the free fraction, so a low free:total ratio favours malignancy. High PSA density and velocity also favour cancer."
    },
@@ -2256,13 +2336,13 @@
     "type": "mcq",
     "question": "A young man has a testicular germ-cell tumour with a clearly raised AFP. What does this tell you about classification and management?",
     "options": [
-     "It is a pure seminoma — treat as such",
      "It is (or contains) a non-seminomatous element — manage as NSGCT",
+     "It is a pure seminoma — treat as such",
      "AFP is irrelevant here",
      "It is benign",
      "It is a lymphoma"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "It is (or contains) a non-seminomatous element — manage as NSGCT",
     "explanation": "A raised AFP indicates non-seminomatous germ-cell tissue; pure seminoma never raises AFP. Even 'seminoma' histology with a raised AFP is treated as a non-seminomatous germ-cell tumour."
    },
@@ -2272,12 +2352,12 @@
     "question": "A 28-year-old has a hard, painless testicular lump. Ultrasound suggests a tumour. What is the correct next step regarding tissue diagnosis?",
     "options": [
      "Percutaneous biopsy of the testis",
-     "Radical inguinal orchidectomy (do not biopsy the testis)",
      "Trans-scrotal biopsy",
+     "Radical inguinal orchidectomy (do not biopsy the testis)",
      "Watchful waiting",
      "Aspiration cytology"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Radical inguinal orchidectomy (do not biopsy the testis)",
     "explanation": "A testicular mass is treated as cancer until proven otherwise; the testis is not biopsied (seeding risk). Diagnosis and treatment are by radical inguinal orchidectomy, with markers taken before and after."
    },
@@ -2287,12 +2367,12 @@
     "question": "After orchidectomy for a germ-cell tumour, the β-hCG fails to fall in line with its expected half-life. What does this suggest?",
     "options": [
      "Complete cure",
-     "Residual or metastatic disease",
      "A laboratory artefact only",
      "Pure seminoma",
-     "Normal post-operative recovery"
+     "Normal post-operative recovery",
+     "Residual or metastatic disease"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Residual or metastatic disease",
     "explanation": "Tumour markers should fall predictably by their half-lives after orchidectomy (β-hCG ~24–36 h). Failure to fall appropriately indicates residual or metastatic disease requiring further treatment."
    }
@@ -2304,12 +2384,12 @@
     "question": "A patient with an acute febrile illness has a moderately raised CRP. The team want to know if it is bacterial to decide on antibiotics. Which test best helps distinguish bacterial from viral infection?",
     "options": [
      "A higher CRP threshold",
-     "Procalcitonin",
      "ESR",
+     "Procalcitonin",
      "Serum ACE",
      "Lactate"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Procalcitonin",
     "explanation": "Procalcitonin rises more specifically with bacterial infection than CRP, and can help distinguish bacterial from viral illness and guide antibiotic decisions/duration."
    },
@@ -2319,12 +2399,12 @@
     "question": "A patient meets clinical criteria for sepsis but their CRP has come back normal. What is the correct action?",
     "options": [
      "Withhold antibiotics as CRP is normal",
-     "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted",
      "Wait 24 hours and repeat CRP",
      "Discharge the patient",
-     "Only give fluids"
+     "Only give fluids",
+     "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Deliver the Sepsis 6 within 1 hour — sepsis is a clinical diagnosis and CRP can be normal early or blunted",
     "explanation": "CRP lags and can be normal early or blunted (elderly/immunosuppressed). Suspected sepsis is treated clinically with the Sepsis 6 — do not wait for markers."
    },
@@ -2349,12 +2429,12 @@
     "question": "A septic, hypotensive patient has a lactate of 5.2 mmol/L. What does this indicate and what is the priority?",
     "options": [
      "Mild illness — observe",
-     "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
      "A benign finding",
      "A type B cause needing no fluids",
+     "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
      "Chronic elevation"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Tissue hypoperfusion / shock — aggressive fluid resuscitation and urgent escalation",
     "explanation": "A lactate >4 mmol/L in an unwell patient signals significant tissue hypoperfusion (type A). It is part of the Sepsis 6 and mandates aggressive resuscitation and escalation."
    },
@@ -2363,13 +2443,13 @@
     "type": "mcq",
     "question": "A patient on metformin with an AKI develops a high lactate and metabolic acidosis but is well perfused and not septic. What type of lactic acidosis is this?",
     "options": [
-     "Type A (hypoxic)",
      "Type B (non-hypoxic) — metformin accumulation",
+     "Type A (hypoxic)",
      "Neither",
      "Respiratory acidosis",
      "A spurious result"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Type B (non-hypoxic) — metformin accumulation",
     "explanation": "Metformin causes a type B lactic acidosis (impaired lactate metabolism), especially when it accumulates in renal impairment, without tissue hypoperfusion."
    },
@@ -2379,12 +2459,12 @@
     "question": "During resuscitation of a septic patient, serial lactates fall from 5.0 to 2.2 mmol/L. What does this trend indicate?",
     "options": [
      "Worsening prognosis",
-     "Good response — lactate clearance is a favourable prognostic sign",
      "Type B lactic acidosis",
+     "Good response — lactate clearance is a favourable prognostic sign",
      "The need to stop fluids",
      "A laboratory error"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Good response — lactate clearance is a favourable prognostic sign",
     "explanation": "A falling lactate (lactate clearance) with treatment indicates improving perfusion and is associated with better outcomes; a persistent or rising lactate is ominous."
    },
@@ -2394,12 +2474,12 @@
     "question": "A severely malnourished patient (BMI 14) is started on full-rate nasogastric feeding. Two days later they develop a low phosphate, low potassium, low magnesium and an arrhythmia. What has happened?",
     "options": [
      "Sepsis",
-     "Refeeding syndrome",
      "Diabetic ketoacidosis",
      "Dehydration",
-     "Hypercalcaemia"
+     "Hypercalcaemia",
+     "Refeeding syndrome"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Refeeding syndrome",
     "explanation": "Reintroducing feed too quickly in a high-risk malnourished patient drives an insulin-mediated intracellular shift of phosphate, potassium and magnesium — refeeding syndrome, with hypophosphataemia causing arrhythmia."
    },
@@ -2424,12 +2504,12 @@
     "question": "Before starting nutritional support in a high-risk malnourished patient, which treatment must be given to prevent Wernicke's encephalopathy?",
     "options": [
      "High-dose glucose",
-     "Thiamine (± B vitamins)",
      "A statin",
      "Antibiotics",
+     "Thiamine (± B vitamins)",
      "Insulin"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Thiamine (± B vitamins)",
     "explanation": "Thiamine must be given before/with feeding: a carbohydrate load in a thiamine-deficient patient can precipitate Wernicke's encephalopathy."
    },
@@ -2438,13 +2518,13 @@
     "type": "mcq",
     "question": "A 72-year-old is referred with gradual cognitive decline. Which set of blood tests is most appropriate to exclude reversible causes?",
     "options": [
-     "Troponin and D-dimer",
      "TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose (± HIV/syphilis)",
+     "Troponin and D-dimer",
      "Amylase and lipase",
      "PSA and CA19-9",
      "Serum ACE only"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "TFTs, calcium, B12/folate, FBC, U&E, LFTs, glucose (± HIV/syphilis)",
     "explanation": "A dementia screen looks for reversible contributors — hypothyroidism, hypercalcaemia, B12/folate deficiency, metabolic derangement and treatable infections (HIV/neurosyphilis)."
    },
@@ -2454,12 +2534,12 @@
     "question": "An older patient has cognitive decline, an unsteady 'magnetic' gait and urinary incontinence. What potentially reversible diagnosis should be considered?",
     "options": [
      "Alzheimer's disease",
-     "Normal-pressure hydrocephalus",
      "Vascular dementia",
+     "Normal-pressure hydrocephalus",
      "Lewy body dementia",
      "Delirium"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Normal-pressure hydrocephalus",
     "explanation": "The triad of dementia, gait apraxia and urinary incontinence suggests normal-pressure hydrocephalus, which can improve with CSF shunting — a reversible cause not to miss."
    },
@@ -2469,12 +2549,12 @@
     "question": "An 80-year-old develops confusion over 2 days that fluctuates and worsens at night, with reduced attention, shortly after a urinary tract infection. What is the most likely diagnosis?",
     "options": [
      "Alzheimer's dementia",
-     "Delirium",
      "Depression",
      "Normal-pressure hydrocephalus",
-     "Vascular dementia"
+     "Vascular dementia",
+     "Delirium"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Delirium",
     "explanation": "An acute, fluctuating disturbance of attention and cognition with an identifiable trigger (UTI) is delirium — not dementia. It must be excluded before diagnosing a dementia."
    }
