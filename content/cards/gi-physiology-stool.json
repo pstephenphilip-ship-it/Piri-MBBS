@@ -173,6 +173,21 @@
         "id": "gi_cdiff_fc_05",
         "front": "Which features signal severe/fulminant C. difficile colitis needing urgent surgical review?",
         "back": "Rising WCC, rising lactate, abdominal distension, and ileus suggest severe/fulminant colitis with toxic megacolon. This mandates urgent senior and surgical review. Pseudomembranous colitis is the classic underlying picture."
+      },
+      {
+        "id": "gi_cdiff_fc_06",
+        "front": "How is recurrent C. difficile infection managed?",
+        "back": "<b>Fidaxomicin</b> for a first recurrence; consider <b>faecal microbiota transplant (FMT)</b> for multiple or refractory recurrences. (Oral vancomycin remains first-line for the initial episode.)"
+      },
+      {
+        "id": "gi_cdiff_fc_07",
+        "front": "What are the key infection-control measures for C. difficile?",
+        "back": "<b>Side-room isolation</b>, contact precautions (gloves/apron), <b>hand-washing with soap and water</b> (alcohol gel does NOT kill spores), and <b>chlorine-based</b> environmental cleaning. CDI is under mandatory surveillance."
+      },
+      {
+        "id": "gi_cdiff_fc_08",
+        "front": "Why can a positive C. difficile PCR/NAAT not confirm active infection on its own?",
+        "back": "PCR detects the toxin <b>gene</b>, not the toxin itself. Colonised carriers are gene-positive, so a positive PCR must be interpreted with the <b>toxin EIA and clinical picture</b> — this is why the UK uses a two-step algorithm."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__Faecal Elastase (Pancreatic Exocrine Insufficiency)": [
@@ -200,6 +215,16 @@
         "id": "gi_elastase_fc_05",
         "front": "Key pitfall of faecal elastase and required next step?",
         "back": "A watery/loose stool dilutes the sample and can give a falsely low result. It also does not identify the cause, so image the pancreas (CT/MRI) for chronic pancreatitis or malignancy."
+      },
+      {
+        "id": "gi_elast_fc_06",
+        "front": "What dietary advice is correct in pancreatic exocrine insufficiency?",
+        "back": "Do <b>NOT</b> fat-restrict. Maintain adequate fat and calories and take <b>PERT (Creon) with every meal and snack</b>, plus fat-soluble vitamins A/D/E/K. Fat restriction worsens malnutrition."
+      },
+      {
+        "id": "gi_elast_fc_07",
+        "front": "List the causes of PEI and the key red flag on finding a new low elastase.",
+        "back": "Causes: <b>chronic pancreatitis (commonest)</b>, cystic fibrosis, pancreatic cancer, pancreatic resection, coeliac disease, advanced diabetes. Red flag: a <b>new low elastase in an older patient with weight loss → exclude pancreatic cancer</b> (CT/MRCP/EUS)."
       }
     ]
   },
@@ -459,12 +484,12 @@
         "question": "A 74-year-old inpatient develops profuse watery diarrhoea 6 days after starting co-amoxiclav. Stool testing returns GDH positive and toxin A/B positive. What is the most appropriate first-line management?",
         "options": [
           "Reassure and continue current antibiotics as this reflects colonisation only",
-          "Stop the precipitating antibiotic and start oral vancomycin",
           "Start intravenous metronidazole and repeat stool testing daily",
+          "Stop the precipitating antibiotic and start oral vancomycin",
           "Give a stat dose of loperamide to control the diarrhoea",
           "Send a formed stool sample in one week to confirm cure"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Stop the precipitating antibiotic and start oral vancomycin",
         "explanation": "GDH-positive with toxin-positive confirms active C. difficile infection. First-line management is to stop the precipitating antibiotic where possible and give oral vancomycin. Antimotility agents such as loperamide are avoided as they can precipitate toxic megacolon."
       },
@@ -475,11 +500,11 @@
         "options": [
           "Definite C. difficile infection requiring immediate treatment",
           "C. difficile completely excluded, so no further action",
-          "Potential carrier or early/low-toxin disease; interpret clinically and consider PCR",
           "Laboratory error requiring a repeat GDH screen only",
-          "Diagnostic of pseudomembranous colitis on its own"
+          "Diagnostic of pseudomembranous colitis on its own",
+          "Potential carrier or early/low-toxin disease; interpret clinically and consider PCR"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Potential carrier or early/low-toxin disease; interpret clinically and consider PCR",
         "explanation": "GDH detects the organism but not toxin, so a GDH-positive, toxin-negative result is ambiguous. The patient may be a carrier or have early/low-toxin disease, and the result must be interpreted with the clinical picture. A NAAT/PCR for the toxin gene can help clarify."
       },
@@ -497,6 +522,21 @@
         "correctIndex": 1,
         "answer": "A liquid, unformed stool that takes the shape of its container",
         "explanation": "Only liquid or unformed diarrhoeal stool should be tested, as a positive result on formed stool reflects colonisation rather than infection. Testing formed stool or re-testing for cure leads to over-treatment because toxin can persist after recovery."
+      },
+      {
+        "id": "gi_cdiff_q04",
+        "type": "mcq",
+        "question": "A patient successfully treated for C. difficile infection returns two weeks later with a further episode of confirmed CDI. What is the most appropriate treatment?",
+        "options": [
+          "A further identical course of the same first-line agent",
+          "IV metronidazole alone",
+          "Loperamide to control the diarrhoea",
+          "Fidaxomicin",
+          "No antibiotics — this is expected"
+        ],
+        "correctIndex": 3,
+        "answer": "Fidaxomicin",
+        "explanation": "For a first recurrence of CDI, fidaxomicin is preferred; multiple/refractory recurrences are an indication for faecal microbiota transplant. Antimotility agents such as loperamide are avoided as they risk toxic megacolon."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__Faecal Elastase (Pancreatic Exocrine Insufficiency)": [
@@ -522,11 +562,11 @@
         "options": [
           "Stop Creon for 7 days beforehand",
           "Stop Creon for 24 hours beforehand",
-          "Continue Creon as normal",
           "Double the Creon dose before the test",
-          "Switch to a non-porcine enzyme first"
+          "Switch to a non-porcine enzyme first",
+          "Continue Creon as normal"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Continue Creon as normal",
         "explanation": "The faecal elastase assay is human-specific and does not cross-react with porcine-derived enzyme replacement. Supplements can therefore be continued without affecting the result."
       },
@@ -544,6 +584,21 @@
         "correctIndex": 1,
         "answer": "Dilution may cause a falsely low result; repeat on a formed stool",
         "explanation": "Watery stool dilutes the sample and can produce a falsely low elastase concentration. Testing a formed stool gives a more reliable measure of exocrine function."
+      },
+      {
+        "id": "gi_elast_q04",
+        "type": "mcq",
+        "question": "A man with chronic pancreatitis has faecal elastase <100 µg/g, steatorrhoea and weight loss. Alongside pancreatic enzyme replacement, what dietary advice is correct?",
+        "options": [
+          "Adopt a strict low-fat diet to reduce steatorrhoea",
+          "Avoid all dietary fat and rely on carbohydrate",
+          "Fast before meals to reduce enzyme demand",
+          "Maintain a normal-fat diet and dose PERT to meals",
+          "Restrict protein intake"
+        ],
+        "correctIndex": 3,
+        "answer": "Maintain a normal-fat diet and dose PERT to meals",
+        "explanation": "PEI is treated by replacing enzymes (PERT with meals) and maintaining adequate fat and calories, not by restricting fat. Fat restriction worsens weight loss and fat-soluble-vitamin deficiency; fat-soluble vitamins A/D/E/K are also replaced."
       }
     ]
   }
