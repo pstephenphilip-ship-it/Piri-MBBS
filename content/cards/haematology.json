@@ -5935,6 +5935,21 @@
     "id": "bcf_fc_29",
     "front": "An isolated low platelet count in a well, non-bleeding patient — what artefact must you exclude?",
     "back": "<b>EDTA-induced pseudothrombocytopenia</b> — platelet clumping in the EDTA sample gives a falsely low automated count. Confirm on the <b>blood film</b> (clumps) and repeat in a <b>citrate</b> tube."
+   },
+   {
+    "id": "inv_haem_bcf_fc_30",
+    "front": "A film shows schistocytes; platelets are low and there are neurological/renal signs. Diagnosis and immediate action?",
+    "back": "Microangiopathic haemolytic anaemia — the combination of <b>schistocytes + thrombocytopenia + neuro/renal features</b> suggests <b>TTP</b>. This is an emergency: <b>urgent haematology referral for plasma exchange</b> (do NOT give platelets). DAT is negative (non-immune); LDH is high, haptoglobin low."
+   },
+   {
+    "id": "inv_haem_bcf_fc_31",
+    "front": "Rouleaux on the film with a high ESR — what screen comes next?",
+    "back": "Rouleaux (red cells stacked like coins) reflect a high plasma protein. Screen for a paraprotein: <b>serum & urine protein electrophoresis + serum free light chains</b> (± immunofixation) — the myeloma screen."
+   },
+   {
+    "id": "inv_haem_bcf_fc_32",
+    "front": "A mature lymphocytosis with smear (smudge) cells on the film — what confirms the diagnosis?",
+    "back": "This suggests <b>chronic lymphocytic leukaemia (CLL)</b>. Confirm with <b>peripheral-blood immunophenotyping / flow cytometry</b> showing a clonal B-cell population (CD5+, CD23+, weak surface Ig)."
    }
   ],
   "investigations__HAEMATOLOGY__Haemolysis": [
@@ -20675,12 +20690,12 @@
     "question": "A 30-year-old on chemotherapy has a temperature of 38.5°C. The FBC shows a neutrophil count of 0.3 ×10⁹/L. What is the priority?",
     "options": [
      "Repeat the FBC in 24 hours",
-     "Treat as neutropenic sepsis — a medical emergency",
      "Reassure; this is expected",
      "Send a blood film first and wait",
+     "Treat as neutropenic sepsis — a medical emergency",
      "Start oral iron"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Treat as neutropenic sepsis — a medical emergency",
     "explanation": "Fever with a neutrophil count <0.5 ×10⁹/L after chemotherapy is neutropenic sepsis — a medical emergency requiring urgent assessment and empirical broad-spectrum antibiotics (within an hour), not delay."
    },
@@ -20689,13 +20704,13 @@
     "type": "mcq",
     "question": "A previously well 68-year-old has Hb 88 g/L, WCC 2.1 ×10⁹/L and platelets 60 ×10⁹/L. Which single term best describes this, and what does it imply?",
     "options": [
-     "Isolated anaemia; likely dietary",
      "Pancytopenia; points to a marrow problem needing referral",
+     "Isolated anaemia; likely dietary",
      "Polycythaemia; venesect",
      "Isolated thrombocytopenia; likely immune (ITP)",
      "Neutrophilia; likely bacterial infection"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Pancytopenia; points to a marrow problem needing referral",
     "explanation": "All three cell lines are reduced = pancytopenia, which points to a marrow problem (failure, infiltration, myelodysplasia, megaloblastic anaemia) or hypersplenism and warrants a film and haematology referral, usually with a marrow biopsy."
    },
@@ -20705,12 +20720,12 @@
     "question": "A blood film shows numerous schistocytes (red-cell fragments) and the platelet count is low. What is the underlying process?",
     "options": [
      "Iron-deficiency anaemia",
-     "Microangiopathic haemolysis (e.g. DIC, TTP/HUS)",
      "Megaloblastic anaemia",
+     "Microangiopathic haemolysis (e.g. DIC, TTP/HUS)",
      "Chronic lymphocytic leukaemia",
      "Hereditary spherocytosis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Microangiopathic haemolysis (e.g. DIC, TTP/HUS)",
     "explanation": "Schistocytes with thrombocytopenia indicate a microangiopathic haemolytic anaemia — red cells sheared through fibrin/abnormal surfaces, as in DIC or TTP/HUS. This is an urgent finding requiring further work-up."
    },
@@ -20720,12 +20735,12 @@
     "question": "A film shows spherocytes. Which test best distinguishes autoimmune haemolytic anaemia from hereditary spherocytosis?",
     "options": [
      "Haemoglobin electrophoresis",
-     "Direct antiglobulin test (DAT/Coombs)",
      "Serum ferritin",
      "Reticulocyte count",
-     "Bone marrow biopsy"
+     "Bone marrow biopsy",
+     "Direct antiglobulin test (DAT/Coombs)"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "Direct antiglobulin test (DAT/Coombs)",
     "explanation": "Both show spherocytes; the DAT is positive in autoimmune haemolytic anaemia (antibody-coated red cells) and negative in hereditary spherocytosis, so it separates the two."
    },
@@ -20750,12 +20765,12 @@
     "question": "An elderly patient has a lymphocytosis of 30 ×10⁹/L and the film shows numerous smear (smudge) cells. What is the most likely diagnosis?",
     "options": [
      "Acute myeloid leukaemia",
-     "Chronic lymphocytic leukaemia (CLL)",
      "Reactive viral lymphocytosis",
+     "Chronic lymphocytic leukaemia (CLL)",
      "Myelofibrosis",
      "Megaloblastic anaemia"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "answer": "Chronic lymphocytic leukaemia (CLL)",
     "explanation": "A mature lymphocytosis with smear/smudge cells (fragile lymphocytes) is characteristic of CLL. Auer rods would instead suggest AML."
    },
@@ -20765,12 +20780,12 @@
     "question": "A macrocytic anaemia film shows oval macrocytes and hypersegmented neutrophils. What is the most likely cause?",
     "options": [
      "Alcohol excess",
-     "B12 or folate (megaloblastic) deficiency",
      "Hypothyroidism",
      "Myelodysplasia",
-     "Reticulocytosis"
+     "Reticulocytosis",
+     "B12 or folate (megaloblastic) deficiency"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "B12 or folate (megaloblastic) deficiency",
     "explanation": "Oval macrocytes plus hypersegmented neutrophils (≥6 lobes) are the hallmark of a megaloblastic anaemia from B12 or folate deficiency. The other causes give a non-megaloblastic macrocytosis without hypersegmentation."
    },
@@ -20795,12 +20810,12 @@
     "question": "A patient with a haemolytic anaemia and a patient with iron-deficiency anaemia both have Hb 90 g/L. How does the reticulocyte count typically differ?",
     "options": [
      "Both are low",
-     "High in haemolysis, low/inappropriately normal in iron deficiency",
      "Low in haemolysis, high in iron deficiency",
      "Both are high",
+     "High in haemolysis, low/inappropriately normal in iron deficiency",
      "The reticulocyte count is unaffected by either"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "High in haemolysis, low/inappropriately normal in iron deficiency",
     "explanation": "Haemolysis drives a compensatory rise in reticulocytes (the marrow responds), whereas iron deficiency is a production-failure state with a low or inappropriately normal reticulocyte count."
    },
@@ -20809,13 +20824,13 @@
     "type": "mcq",
     "question": "A traveller returns from West Africa with a fever. The first malaria film is negative. What is the correct approach?",
     "options": [
-     "Malaria is excluded; look elsewhere",
      "Send three films over 48–72 hours before excluding malaria",
+     "Malaria is excluded; look elsewhere",
      "Start antibiotics for a bacterial cause only",
      "Repeat the film in one week",
      "A rapid antigen test alone is sufficient to exclude it"
     ],
-    "correctIndex": 1,
+    "correctIndex": 0,
     "answer": "Send three films over 48–72 hours before excluding malaria",
     "explanation": "A single negative film does not exclude malaria because parasitaemia fluctuates. Three negative films over 48–72 hours are required, with a high index of suspicion for falciparum given West African travel."
    },
@@ -20825,12 +20840,12 @@
     "question": "In diagnosing malaria, what is the specific role of the THIN blood film?",
     "options": [
      "It is the most sensitive test for detecting parasites",
-     "It identifies the species and quantifies the % parasitaemia",
      "It replaces the need for a thick film",
      "It detects parasite antigen",
-     "It measures the haemoglobin"
+     "It measures the haemoglobin",
+     "It identifies the species and quantifies the % parasitaemia"
     ],
-    "correctIndex": 1,
+    "correctIndex": 4,
     "answer": "It identifies the species and quantifies the % parasitaemia",
     "explanation": "The thin film preserves red-cell morphology, allowing species identification and calculation of the % parasitaemia (which guides severity). The thick film is the more sensitive test for simply detecting parasites."
    },
@@ -20855,14 +20870,44 @@
     "question": "A film shows teardrop cells, nucleated red cells and immature white cells (a leukoerythroblastic picture). What does this most suggest?",
     "options": [
      "Iron-deficiency anaemia",
-     "Marrow infiltration or fibrosis (e.g. myelofibrosis, metastatic infiltration)",
      "Autoimmune haemolysis",
      "Acute blood loss",
+     "Marrow infiltration or fibrosis (e.g. myelofibrosis, metastatic infiltration)",
      "Reactive thrombocytosis"
     ],
-    "correctIndex": 1,
+    "correctIndex": 3,
     "answer": "Marrow infiltration or fibrosis (e.g. myelofibrosis, metastatic infiltration)",
     "explanation": "A leukoerythroblastic film with teardrop cells indicates that normal marrow is being crowded out by fibrosis or infiltration, forcing immature red and white cells into the circulation."
+   },
+   {
+    "id": "inv_haem_bcf_q14",
+    "type": "mcq",
+    "question": "A blood film shows red-cell fragments (schistocytes) with a platelet count of 22 ×10⁹/L, confusion and rising creatinine. What is the most appropriate immediate step?",
+    "options": [
+     "Urgent haematology referral for plasma exchange",
+     "Transfuse platelets and observe",
+     "Start oral iron and repeat the film",
+     "Reassure — this is a normal post-viral picture",
+     "Give vitamin K and repeat clotting"
+    ],
+    "correctIndex": 0,
+    "answer": "Urgent haematology referral for plasma exchange",
+    "explanation": "Schistocytes + thrombocytopenia + neurological and renal involvement point to a thrombotic microangiopathy, notably TTP. It is a haematological emergency treated with urgent plasma exchange; platelet transfusion is generally avoided as it can worsen microthrombi."
+   },
+   {
+    "id": "inv_haem_bcf_q15",
+    "type": "mcq",
+    "question": "A blood film is reported as showing marked rouleaux, and the ESR is very high. Which test best follows this up?",
+    "options": [
+     "Bone-marrow biopsy for ring sideroblasts",
+     "Direct antiglobulin test (DAT)",
+     "Serum and urine protein electrophoresis with serum free light chains",
+     "Haemoglobin electrophoresis",
+     "JAK2 mutation analysis"
+    ],
+    "correctIndex": 2,
+    "answer": "Serum and urine protein electrophoresis with serum free light chains",
+    "explanation": "Rouleaux reflect a raised plasma protein; with a high ESR this should prompt a paraprotein/myeloma screen — serum and urine protein electrophoresis plus serum free light chains (± immunofixation)."
    }
   ],
   "investigations__HAEMATOLOGY__Haemolysis": [
