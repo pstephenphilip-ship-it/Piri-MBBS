@@ -150,6 +150,21 @@
         "id": "gm_haem_g6pd_fc_05",
         "front": "Which two blood-film findings are characteristic of G6PD-related haemolysis?",
         "back": "Bite cells (and blister cells) and Heinz bodies. Heinz bodies are denatured haemoglobin seen with a supravital stain, not on routine staining."
+      },
+      {
+        "id": "gm_aml_fc_01",
+        "front": "How do NPM1 and FLT3-ITD stratify AML risk and treatment?",
+        "back": "<b>NPM1-mutated / FLT3-ITD-negative</b> = favourable (chemotherapy). <b>FLT3-ITD</b> = adverse → allogeneic SCT + a FLT3 inhibitor (midostaurin). Core-binding-factor AML (t(8;21), inv(16)) is favourable."
+      },
+      {
+        "id": "gm_cll_fc_01",
+        "front": "What is the significance of del(17p)/TP53 in CLL, and what does it change?",
+        "back": "It predicts resistance to chemoimmunotherapy and poor prognosis → treat with a <b>BTK inhibitor</b> (ibrutinib) or <b>venetoclax</b>, not FCR. Test by FISH before each treatment line; unmutated IGHV is also adverse."
+      },
+      {
+        "id": "gm_mye_fc_01",
+        "front": "How is myeloma risk-stratified genetically at diagnosis?",
+        "back": "FISH: high-risk = <b>t(4;14), t(14;16), del(17p), gain(1q)</b>; standard-risk = hyperdiploidy. This guides prognosis and treatment intensity."
       }
     ],
     "investigations__GENETICS / MOLECULAR__Metabolic, Liver & Renal": [
@@ -252,6 +267,21 @@
         "id": "gm_met_adpkd_fc_05",
         "front": "List the key extrarenal features of ADPKD and the first-line antihypertensive.",
         "back": "Hepatic (polycystic liver) cysts, berry intracranial aneurysms (SAH risk), mitral valve prolapse, and early hypertension. First-line BP treatment is an ACE inhibitor/ARB, target <=130/80 mmHg."
+      },
+      {
+        "id": "gm_fh_fc_01",
+        "front": "What is familial hypercholesterolaemia, and what are the key next steps?",
+        "back": "<b>Autosomal dominant</b> LDLR/APOB/PCSK9 defect → premature CVD, tendon xanthomata. Diagnose on Simon Broome/DLCN criteria → <b>cascade-test first-degree relatives</b> and start a <b>high-intensity statin</b> (± ezetimibe/PCSK9 inhibitor)."
+      },
+      {
+        "id": "gm_alport_fc_01",
+        "front": "What gene and triad characterise Alport syndrome, and how is it managed?",
+        "back": "<b>COL4A5</b> (X-linked, type IV collagen): <b>haematuria + sensorineural deafness + ocular signs (lenticonus)</b> progressing to ESRF. Manage with audiometry, ophthalmology, <b>ACEi/ARB</b>, and family screening."
+      },
+      {
+        "id": "gm_gilbert_fc_01",
+        "front": "A patient has isolated mild unconjugated hyperbilirubinaemia during a fast, with normal LFTs and no haemolysis. Diagnosis and management?",
+        "back": "<b>Gilbert’s syndrome</b> (UGT1A1) — benign; <b>reassure</b>, no treatment or further investigation needed."
       }
     ],
     "investigations__GENETICS / MOLECULAR__Cancer & Endocrine Germline": [
@@ -467,12 +497,12 @@
         "question": "A 58-year-old man has haematocrit 0.58, a suppressed serum erythropoietin, and splenomegaly. Which single molecular test is the best first-line investigation to confirm the likely diagnosis?",
         "options": [
           "BCR-ABL1 fusion transcript",
-          "JAK2 V617F mutation",
           "CALR exon 9 mutation",
+          "JAK2 V617F mutation",
           "MPL exon 10 mutation",
           "FLT3 internal tandem duplication"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "JAK2 V617F mutation",
         "explanation": "A raised haematocrit with low erythropoietin indicates primary (clonal) polycythaemia, and JAK2 V617F is present in about 95% of polycythaemia vera. It is the recommended first-line molecular test in suspected PV."
       },
@@ -483,11 +513,11 @@
         "options": [
           "BCR-ABL1",
           "JAK2 exon 12",
-          "CALR exon 9",
           "PML-RARA",
-          "JAK2 V617F repeat"
+          "JAK2 V617F repeat",
+          "CALR exon 9"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "CALR exon 9",
         "explanation": "In JAK2 V617F-negative essential thrombocythaemia or primary myelofibrosis, CALR exon 9 mutations are the next most common driver, found in around 20-25% of cases. MPL is tested if CALR is also negative."
       },
@@ -496,13 +526,13 @@
         "type": "mcq",
         "question": "A 44-year-old woman presents with Budd-Chiari syndrome. Her full blood count is close to normal. Which investigation is most important to identify a common underlying cause?",
         "options": [
-          "JAK2 V617F mutation analysis",
           "Serum ferritin",
+          "JAK2 V617F mutation analysis",
           "Antinuclear antibody",
           "Haemoglobin electrophoresis",
           "Serum ACE level"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "JAK2 V617F mutation analysis",
         "explanation": "Occult myeloproliferative neoplasms are a leading cause of splanchnic-vein thrombosis such as Budd-Chiari syndrome, and JAK2 V617F may be positive even when the blood count is near-normal due to portal hypertension and haemodilution. Testing for it can reveal the underlying clonal disorder."
       },
@@ -511,13 +541,13 @@
         "type": "mcq",
         "question": "Which chromosomal translocation creates the BCR-ABL1 fusion gene characteristic of chronic myeloid leukaemia?",
         "options": [
-          "t(9;22)(q34;q11)",
-          "t(15;17)(q22;q12)",
+          "t(15;17)(q24;q21)",
           "t(8;14)(q24;q32)",
           "t(11;14)(q13;q32)",
+          "t(9;22)(q34;q11)",
           "t(14;18)(q32;q21)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "t(9;22)(q34;q11)",
         "explanation": "The t(9;22)(q34;q11) translocation fuses BCR on chromosome 22 to ABL1 on chromosome 9, forming the Philadelphia chromosome. The resulting fusion protein is a constitutively active tyrosine kinase that drives CML."
       },
@@ -541,13 +571,13 @@
         "type": "mcq",
         "question": "A CML patient on imatinib develops a confirmed, sustained rise in BCR-ABL1 transcripts with loss of prior response. Which mutation, if found, would confer resistance to imatinib and most second-generation inhibitors?",
         "options": [
-          "T315I kinase domain mutation",
           "JAK2 V617F mutation",
           "BRAF V600E mutation",
+          "T315I kinase domain mutation",
           "FLT3 internal tandem duplication",
           "Factor V Leiden mutation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "T315I kinase domain mutation",
         "explanation": "The T315I gatekeeper mutation in the BCR-ABL1 kinase domain prevents imatinib and most second-generation tyrosine kinase inhibitors from binding. Its detection mandates a change of therapy, such as to ponatinib."
       },
@@ -556,13 +586,13 @@
         "type": "mcq",
         "question": "A 34-year-old presents with bruising, epistaxis and pancytopenia. The film shows hypergranular promyelocytes with bundles of Auer rods. Which genetic abnormality is most likely?",
         "options": [
-          "t(15;17) producing PML-RARα",
           "t(9;22) producing BCR-ABL1",
           "t(8;14) producing MYC-IGH",
           "inv(16) producing CBFB-MYH11",
-          "t(12;21) producing ETV6-RUNX1"
+          "t(12;21) producing ETV6-RUNX1",
+          "t(15;17) producing PML-RARα"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "t(15;17) producing PML-RARα",
         "explanation": "Faggot cells (promyelocytes with bundled Auer rods) plus coagulopathy are pathognomonic of acute promyelocytic leukaemia. APML is defined by the t(15;17) translocation fusing PML and RARα."
       },
@@ -571,13 +601,13 @@
         "type": "mcq",
         "question": "A patient has strong morphological features of APML but the confirmatory PCR result is still pending. What is the most appropriate immediate action?",
         "options": [
-          "Start ATRA immediately on clinical suspicion and support coagulation",
           "Withhold all treatment until PCR confirms PML-RARα",
+          "Start ATRA immediately on clinical suspicion and support coagulation",
           "Give high-dose cytarabine chemotherapy alone first",
           "Arrange urgent allogeneic stem cell transplant",
           "Start therapeutic heparin infusion and observe"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Start ATRA immediately on clinical suspicion and support coagulation",
         "explanation": "The DIC of APML can be fatal within hours, so ATRA is started on clinical or morphological suspicion before genetic confirmation. Coagulation is supported with cryoprecipitate, platelets and FFP while awaiting results."
       },
@@ -586,13 +616,13 @@
         "type": "mcq",
         "question": "Three days after starting ATRA for confirmed APML, a patient develops fever, dyspnoea, pulmonary infiltrates, weight gain and hypotension. What is the most appropriate treatment for this complication?",
         "options": [
-          "High-dose dexamethasone",
           "Broad-spectrum antifungal therapy alone",
           "Immediate platelet transfusion",
           "Urgent pericardiocentesis",
+          "High-dose dexamethasone",
           "Escalation to high-dose cytarabine"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "High-dose dexamethasone",
         "explanation": "This is differentiation (ATRA) syndrome, caused by a cytokine surge as promyelocytes mature. It is treated urgently with high-dose dexamethasone, with consideration of temporarily pausing the differentiating agent."
       },
@@ -601,13 +631,13 @@
         "type": "mcq",
         "question": "A lymph node biopsy shows a diffuse infiltrate of intermediate-sized cells with a 'starry-sky' appearance and a Ki-67 of nearly 100%. FISH is most likely to show which translocation?",
         "options": [
-          "t(14;18) BCL2–IGH",
           "t(8;14) MYC–IGH",
+          "t(14;18) BCL2–IGH",
           "t(11;14) CCND1–IGH",
           "t(9;22) BCR–ABL1",
           "t(15;17) PML–RARA"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "t(8;14) MYC–IGH",
         "explanation": "The starry-sky pattern and extremely high proliferation fraction are hallmarks of Burkitt lymphoma. Burkitt is defined by t(8;14), which places MYC under the control of the IGH enhancer to drive rapid proliferation."
       },
@@ -631,13 +661,13 @@
         "type": "mcq",
         "question": "A patient with a bulky, rapidly enlarging abdominal lymphoma is about to start chemotherapy. Which complication most urgently requires prophylaxis with IV fluids and rasburicase?",
         "options": [
-          "Tumour lysis syndrome",
           "Superior vena cava obstruction",
           "Neutropenic sepsis",
           "Anthracycline cardiotoxicity",
-          "Spinal cord compression"
+          "Spinal cord compression",
+          "Tumour lysis syndrome"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Tumour lysis syndrome",
         "explanation": "Burkitt lymphoma proliferates extremely fast, so chemotherapy triggers massive cell death and tumour lysis syndrome with hyperkalaemia, hyperphosphataemia, hyperuricaemia and acute kidney injury. Prophylactic hydration and rasburicase are given before treatment to prevent this."
       },
@@ -647,12 +677,12 @@
         "question": "A 30-year-old man presents with an unprovoked proximal DVT and is started on heparin then warfarin. Two days into admission the team requests a full thrombophilia panel. Which single result is most likely to be spuriously abnormal and misleading in this setting?",
         "options": [
           "Factor V Leiden PCR",
-          "Prothrombin G20210A PCR",
           "Protein C activity",
+          "Prothrombin G20210A PCR",
           "Full blood count",
           "Blood group"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Protein C activity",
         "explanation": "Protein C is a vitamin-K-dependent natural anticoagulant, so warfarin lowers it, and it is also consumed during acute clot formation, giving a falsely low result. The genetic PCR tests for Factor V Leiden and prothrombin G20210A are DNA-based and remain valid regardless of anticoagulation or acute thrombosis."
       },
@@ -663,11 +693,11 @@
         "options": [
           "Antithrombin deficiency",
           "Protein S deficiency",
-          "Factor V Leiden",
           "Prothrombin G20210A",
+          "Factor V Leiden",
           "Lupus anticoagulant"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Factor V Leiden",
         "explanation": "Factor V Leiden is the most common inherited thrombophilia and results from a mutation that makes factor V resistant to cleavage by activated protein C. This activated protein C resistance leaves factor V active for longer, promoting thrombin generation."
       },
@@ -676,13 +706,13 @@
         "type": "mcq",
         "question": "A woman with recurrent miscarriage and a prior DVT has a positive lupus anticoagulant and anticardiolipin antibody. What is the correct next step before diagnosing antiphospholipid syndrome?",
         "options": [
-          "Diagnose immediately on this single positive result",
           "Repeat the antibody testing after at least 12 weeks",
+          "Diagnose immediately on this single positive result",
           "Perform a Factor V Leiden PCR to confirm",
           "Start lifelong steroids at once",
           "Measure antithrombin activity during the acute clot"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Repeat the antibody testing after at least 12 weeks",
         "explanation": "Antiphospholipid antibodies can appear transiently, so the laboratory criterion requires persistence confirmed on repeat testing at least 12 weeks apart. Only a persistently positive result with appropriate clinical features establishes the syndrome."
       },
@@ -692,12 +722,12 @@
         "question": "A 24-year-old man of Mediterranean descent develops jaundice and dark urine two days after eating broad beans. His blood film shows bite cells. A G6PD assay taken during this acute episode returns within the normal range. What is the most appropriate next step?",
         "options": [
           "Exclude G6PD deficiency and investigate for another cause",
-          "Repeat the G6PD assay 2-3 months after recovery",
           "Start lifelong folic acid and take no further action",
+          "Repeat the G6PD assay 2-3 months after recovery",
           "Diagnose hereditary spherocytosis and arrange splenectomy",
           "Perform a bone marrow biopsy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Repeat the G6PD assay 2-3 months after recovery",
         "explanation": "During acute haemolysis the oldest enzyme-depleted cells are destroyed and enzyme-rich reticulocytes are released, giving a falsely normal assay. The clinical picture strongly suggests G6PD deficiency, so the assay should be repeated once the reticulocytosis has settled after recovery."
       },
@@ -706,13 +736,13 @@
         "type": "mcq",
         "question": "What is the underlying biochemical mechanism by which G6PD deficiency predisposes red cells to haemolysis?",
         "options": [
-          "Reduced NADPH generation impairing regeneration of reduced glutathione",
           "Defective spectrin in the red-cell membrane cytoskeleton",
           "Abnormal beta-globin chain production",
           "Deficiency of pyruvate kinase reducing ATP supply",
-          "Autoantibodies directed against red-cell surface antigens"
+          "Autoantibodies directed against red-cell surface antigens",
+          "Reduced NADPH generation impairing regeneration of reduced glutathione"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Reduced NADPH generation impairing regeneration of reduced glutathione",
         "explanation": "G6PD is the rate-limiting enzyme of the pentose phosphate pathway and produces NADPH. Without adequate NADPH, glutathione cannot be kept in its reduced form, leaving haemoglobin vulnerable to oxidative denaturation into Heinz bodies."
       },
@@ -730,6 +760,21 @@
         "correctIndex": 1,
         "answer": "Primaquine",
         "explanation": "Primaquine is a strong oxidant antimalarial that can precipitate severe acute haemolysis in G6PD-deficient individuals. Screening for G6PD deficiency before prescribing is standard practice, as it is for dapsone and rasburicase."
+      },
+      {
+        "id": "gm_cll_q01",
+        "type": "mcq",
+        "question": "A patient with CLL requiring treatment is found on FISH to have a del(17p)/TP53 abnormality. How does this change management?",
+        "options": [
+          "Standard FCR chemoimmunotherapy is preferred",
+          "No treatment is ever required",
+          "Allogeneic transplant is contraindicated",
+          "Chemoimmunotherapy is likely to fail — use a BTK inhibitor (e.g. ibrutinib) or venetoclax",
+          "It has no prognostic significance"
+        ],
+        "correctIndex": 3,
+        "answer": "Chemoimmunotherapy is likely to fail — use a BTK inhibitor (e.g. ibrutinib) or venetoclax",
+        "explanation": "del(17p)/TP53-disrupted CLL is refractory to chemoimmunotherapy and has a poor prognosis; targeted agents (BTK inhibitors or venetoclax) are used instead. FISH for del(17p) is checked before each line of therapy."
       }
     ],
     "investigations__GENETICS / MOLECULAR__Metabolic, Liver & Renal": [
@@ -738,13 +783,13 @@
         "type": "mcq",
         "question": "A 52-year-old man has fatigue, arthralgia and abnormal LFTs. His ferritin and transferrin saturation are both markedly raised. Which HFE genotype is the classic finding in hereditary haemochromatosis?",
         "options": [
-          "C282Y homozygous",
           "H63D heterozygous",
           "Simple C282Y heterozygous (carrier)",
+          "C282Y homozygous",
           "No HFE mutation detected",
           "H63D homozygous"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "C282Y homozygous",
         "explanation": "C282Y homozygosity is the classic disease-causing genotype of hereditary haemochromatosis. It reduces hepcidin, driving unregulated intestinal iron absorption and progressive tissue iron overload."
       },
@@ -753,13 +798,13 @@
         "type": "mcq",
         "question": "Which single result most appropriately prompts HFE genotyping when iron overload is suspected?",
         "options": [
-          "A raised transferrin saturation together with a raised ferritin",
           "A raised ferritin in isolation",
           "A low serum iron",
           "A raised CRP",
-          "A raised MCV alone"
+          "A raised MCV alone",
+          "A raised transferrin saturation together with a raised ferritin"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "A raised transferrin saturation together with a raised ferritin",
         "explanation": "Transferrin saturation is the most specific early marker of iron overload and should be raised alongside ferritin before genotyping. Ferritin alone is unreliable because it also rises with inflammation, alcohol and malignancy."
       },
@@ -768,13 +813,13 @@
         "type": "mcq",
         "question": "A patient is confirmed as a C282Y homozygote with a ferritin of 900 µg/L and no cirrhosis. What is the first-line treatment?",
         "options": [
-          "Regular venesection",
           "Oral iron chelation with deferasirox lifelong",
+          "Regular venesection",
           "High-dose vitamin C to mobilise iron",
           "Immediate liver transplantation",
           "Ferrous sulphate supplementation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Regular venesection",
         "explanation": "Venesection removes iron directly and is the first-line treatment, normalising life expectancy when started before cirrhosis. Chelation is reserved for those who cannot tolerate venesection, and iron or vitamin C would worsen overload."
       },
@@ -784,12 +829,12 @@
         "question": "A 19-year-old presents with a resting tremor, dysarthria and a two-year history of worsening mood. Examination shows hepatomegaly and brownish rings at the corneal margin. Which biochemical finding best supports the likely diagnosis?",
         "options": [
           "Raised serum caeruloplasmin",
-          "Low serum caeruloplasmin with raised 24-hour urinary copper",
           "Low 24-hour urinary copper",
           "Raised serum iron with high transferrin saturation",
+          "Low serum caeruloplasmin with raised 24-hour urinary copper",
           "Low serum copper with low urinary copper"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Low serum caeruloplasmin with raised 24-hour urinary copper",
         "explanation": "Wilson disease characteristically shows a low serum caeruloplasmin because copper-free apo-caeruloplasmin is degraded rapidly, while free copper spills into urine, raising 24-hour urinary copper. The combination in a young patient with hepatic, neurological and eye signs is highly supportive."
       },
@@ -814,12 +859,12 @@
         "question": "A patient with confirmed Wilson disease is started on drug treatment. Which agent is a first-line copper chelator?",
         "options": [
           "Deferasirox",
-          "Penicillamine",
           "Ferrous sulfate",
+          "Penicillamine",
           "Ursodeoxycholic acid",
           "Calcium resonium"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Penicillamine",
         "explanation": "Penicillamine is a first-line copper-chelating agent that promotes urinary copper excretion. Trientine is an alternative chelator and zinc blocks intestinal copper absorption for maintenance therapy."
       },
@@ -829,12 +874,12 @@
         "question": "A 38-year-old lifelong non-smoker has breathlessness and CT showing basal-predominant panacinar emphysema, plus mildly deranged LFTs. Which single test best confirms the underlying diagnosis?",
         "options": [
           "Serum ACE level",
-          "α₁-antitrypsin Pi phenotyping/genotyping",
           "Sweat chloride test",
           "Anti-nuclear antibody",
-          "Serum IgE level"
+          "Serum IgE level",
+          "α₁-antitrypsin Pi phenotyping/genotyping"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "α₁-antitrypsin Pi phenotyping/genotyping",
         "explanation": "Basal panacinar emphysema in a young non-smoker with liver derangement is the classic presentation of α₁-antitrypsin deficiency. Phenotyping or genotyping identifies the variant alleles and confirms a PiZZ result definitively."
       },
@@ -843,13 +888,13 @@
         "type": "mcq",
         "question": "What is the inheritance pattern of the SERPINA1 alleles responsible for α₁-antitrypsin deficiency?",
         "options": [
-          "Autosomal co-dominant",
           "X-linked recessive",
+          "Autosomal co-dominant",
           "Mitochondrial",
           "Autosomal dominant with complete penetrance",
           "Y-linked"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Autosomal co-dominant",
         "explanation": "Both SERPINA1 alleles are expressed, so the circulating protein and phenotype reflect the specific combination inherited (e.g. MM, MZ, SZ, ZZ). This co-dominant pattern is why heterozygotes have intermediate A1AT levels."
       },
@@ -860,11 +905,11 @@
         "options": [
           "It is consumed rapidly by hepatic metabolism",
           "It rises with high dietary protein intake",
-          "It is an acute-phase reactant that increases during inflammation",
           "It is falsely elevated by haemolysis of the sample",
+          "It is an acute-phase reactant that increases during inflammation",
           "It binds strongly to albumin and is over-measured"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "It is an acute-phase reactant that increases during inflammation",
         "explanation": "As an acute-phase protein, A1AT rises during infection or inflammation, which can lift a deficient patient's level into the normal range. Checking a concurrent CRP and confirming with phenotyping/genotyping avoids this false reassurance."
       },
@@ -873,13 +918,13 @@
         "type": "mcq",
         "question": "A 30-year-old man with a father affected by ADPKD wants to donate a kidney to his brother. His renal ultrasound shows no cysts. What is the most appropriate next step to exclude ADPKD before donation?",
         "options": [
+          "Molecular genetic testing for PKD1/PKD2 mutations",
           "Accept him as a donor as the ultrasound is negative",
           "Repeat the ultrasound in 10 years",
-          "Molecular genetic testing for PKD1/PKD2 mutations",
           "Measure serum creatinine only",
           "Proceed directly to nephrectomy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Molecular genetic testing for PKD1/PKD2 mutations",
         "explanation": "Ultrasound has poor negative predictive value under age 40, so a normal scan cannot exclude ADPKD in a young at-risk donor. Molecular genetic testing definitively identifies or excludes the familial mutation, which is essential before living-related donation."
       },
@@ -903,15 +948,45 @@
         "type": "mcq",
         "question": "An ADPKD patient whose mother died of a subarachnoid haemorrhage asks about screening. Which investigation is most appropriate?",
         "options": [
-          "MR angiography of the cerebral vessels",
           "Echocardiography",
           "24-hour urinary protein",
           "Renal artery Doppler",
-          "Lumbar puncture"
+          "Lumbar puncture",
+          "MR angiography of the cerebral vessels"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "MR angiography of the cerebral vessels",
         "explanation": "ADPKD is associated with berry aneurysms in the circle of Willis, and a family history of subarachnoid haemorrhage markedly raises the risk. MR angiography is the recommended non-invasive screening test to detect intracranial aneurysms."
+      },
+      {
+        "id": "gm_alport_q01",
+        "type": "mcq",
+        "question": "A teenage boy has persistent microscopic haematuria, progressive sensorineural hearing loss and a family history of kidney failure in males. Which inherited condition is most likely?",
+        "options": [
+          "Autosomal dominant polycystic kidney disease",
+          "Alport syndrome",
+          "Gilbert’s syndrome",
+          "Wilson’s disease",
+          "Familial hypercholesterolaemia"
+        ],
+        "correctIndex": 1,
+        "answer": "Alport syndrome",
+        "explanation": "Haematuria plus sensorineural deafness (± ocular signs such as lenticonus) with X-linked inheritance is Alport syndrome (COL4A5, type IV collagen). Management includes audiometry, ophthalmology, ACEi/ARB and family screening."
+      },
+      {
+        "id": "gm_fh_q01",
+        "type": "mcq",
+        "question": "A 30-year-old with tendon xanthomata, an LDL of 6 mmol/L and a father who had an MI at 40 is diagnosed with familial hypercholesterolaemia. What are the two most important actions?",
+        "options": [
+          "Reassurance and dietary advice only",
+          "A low-dose statin and annual review",
+          "Fibrate therapy and no family testing",
+          "A high-intensity statin plus cascade testing of first-degree relatives",
+          "PCSK9 inhibitor as sole first-line therapy"
+        ],
+        "correctIndex": 3,
+        "answer": "A high-intensity statin plus cascade testing of first-degree relatives",
+        "explanation": "FH is autosomal dominant, so first-degree relatives should undergo cascade genetic/lipid testing, and the patient needs a high-intensity statin (adding ezetimibe/PCSK9 inhibitor if targets are not met) to reduce premature cardiovascular risk."
       }
     ],
     "investigations__GENETICS / MOLECULAR__Cancer & Endocrine Germline": [
