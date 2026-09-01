@@ -25,6 +25,21 @@
         "id": "gi_mano_fc_05",
         "front": "What is pseudoachalasia and why must endoscopy precede manometry?",
         "back": "Pseudoachalasia is a tumour at the gastro-oesophageal junction that mimics achalasia manometrically. Endoscopy must be done first to exclude malignancy or mechanical obstruction, particularly with new dysphagia and weight loss."
+      },
+      {
+        "id": "oeso_mano_fc_06",
+        "front": "Achalasia is confirmed on manometry — what are the definitive treatment options?",
+        "back": "<b>Pneumatic (balloon) dilatation</b>, laparoscopic <b>Heller myotomy</b> (± partial fundoplication) or <b>POEM</b>. <b>Botulinum toxin</b> injection is reserved for patients unfit for these."
+      },
+      {
+        "id": "oeso_mano_fc_07",
+        "front": "Give the management of distal oesophageal spasm and of scleroderma oesophagus.",
+        "back": "<b>DES</b> → smooth-muscle relaxants (calcium-channel blocker or nitrate) + reassurance. <b>Scleroderma oesophagus</b> (absent contractility + hypotensive LOS) → aggressive high-dose PPI; fundoplication is high-risk with such poor peristalsis."
+      },
+      {
+        "id": "oeso_mano_fc_08",
+        "front": "A patient has dysphagia — how do you route among endoscopy, pH study and manometry?",
+        "back": "<b>Structure/mucosa</b> (stricture, tumour, oesophagitis) → endoscopy first; <b>reflux quantification</b> → 24h pH/impedance; <b>motility</b> (achalasia, spasm) → manometry. Manometry does not diagnose reflux or cancer."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__24h pH / Impedance Monitoring": [
@@ -52,6 +67,16 @@
         "id": "gi_ph_fc_05",
         "front": "What does a normal pH study with ongoing symptoms and no reflux correlation suggest?",
         "back": "Functional heartburn rather than GORD; this argues against anti-reflux surgery, which will not relieve non-reflux symptoms."
+      },
+      {
+        "id": "ph_imp_fc_06",
+        "front": "Normal acid exposure time — how do functional heartburn and reflux hypersensitivity differ, and how are they managed?",
+        "back": "Both have <b>normal AET</b>. <b>Reflux hypersensitivity</b> = symptoms coincide with physiological reflux (positive symptom index/SAP); <b>functional heartburn</b> = no symptom–reflux link. Manage with reassurance and a <b>neuromodulator</b> (low-dose amitriptyline/SSRI), NOT more acid suppression or surgery."
+      },
+      {
+        "id": "ph_imp_fc_07",
+        "front": "Which pH/impedance findings predict a good fundoplication outcome?",
+        "back": "<b>Pathological AET / DeMeester + a positive symptom index + a prior symptom response to PPI.</b> Operating on a normal study or PPI non-responders gives poor results."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__Faecal Calprotectin (IBD vs IBS)": [
@@ -170,13 +195,13 @@
         "type": "mcq",
         "question": "A 48-year-old with progressive dysphagia to solids and liquids has a normal endoscopy. Manometry shows absent peristalsis and a lower oesophageal sphincter that fails to relax on swallowing with raised resting pressure. What is the diagnosis?",
         "options": [
-          "Achalasia",
           "Diffuse oesophageal spasm",
           "Systemic sclerosis oesophagus",
+          "Achalasia",
           "Ineffective oesophageal motility",
           "Normal study"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Achalasia",
         "explanation": "The combination of absent peristalsis with a hypertensive, non-relaxing LOS is the defining manometric picture of achalasia. Dysphagia to both solids and liquids from the outset is characteristic. Barium swallow typically shows a birds-beak tapering."
       },
@@ -185,13 +210,13 @@
         "type": "mcq",
         "question": "Before which surgical procedure is oesophageal manometry considered a mandatory part of the work-up?",
         "options": [
-          "Anti-reflux fundoplication surgery",
           "Laparoscopic cholecystectomy",
           "Emergency appendicectomy",
           "Inguinal hernia repair",
-          "Elective total hip replacement"
+          "Elective total hip replacement",
+          "Anti-reflux fundoplication surgery"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Anti-reflux fundoplication surgery",
         "explanation": "Manometry is required before fundoplication to exclude achalasia or a severe motility disorder that would be worsened by a wrap. It also confirms adequate peristaltic reserve and helps site the pH probe accurately."
       },
@@ -200,15 +225,30 @@
         "type": "mcq",
         "question": "A 70-year-old presents with a 3-month history of dysphagia and 8 kg weight loss. Manometry appears to show an achalasia-like pattern. What is the most important next step in reasoning?",
         "options": [
-          "Ensure endoscopy has excluded a gastro-oesophageal junction tumour (pseudoachalasia)",
           "Start high-dose calcium-channel blockers immediately",
+          "Ensure endoscopy has excluded a gastro-oesophageal junction tumour (pseudoachalasia)",
           "Proceed directly to pneumatic dilatation",
           "Reassure and discharge as benign achalasia",
           "Repeat manometry in 12 months"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Ensure endoscopy has excluded a gastro-oesophageal junction tumour (pseudoachalasia)",
         "explanation": "Short history, older age and marked weight loss are red flags for pseudoachalasia caused by a malignancy at the gastro-oesophageal junction. Endoscopy must exclude a tumour before attributing the picture to primary achalasia. Treating as benign achalasia risks missing a cancer."
+      },
+      {
+        "id": "oeso_mano_q04",
+        "type": "mcq",
+        "question": "Manometry confirms achalasia in a fit 48-year-old. Which is an appropriate definitive treatment?",
+        "options": [
+          "Lifelong high-dose proton-pump inhibitor",
+          "A calcium-channel blocker to cure the disease",
+          "Reassurance and discharge",
+          "Pneumatic (balloon) dilatation",
+          "A course of broad-spectrum antibiotics"
+        ],
+        "correctIndex": 3,
+        "answer": "Pneumatic (balloon) dilatation",
+        "explanation": "Achalasia is treated by disrupting the non-relaxing lower oesophageal sphincter: pneumatic dilatation, Heller myotomy or POEM (botulinum toxin if unfit). PPIs treat acid, not the sphincter; CCBs give only weak, temporary relief and are not curative."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__24h pH / Impedance Monitoring": [
@@ -217,13 +257,13 @@
         "type": "mcq",
         "question": "A patient with typical heartburn but normal endoscopy is referred for 24-hour pH monitoring to confirm GORD before considering surgery. To confirm whether pathological acid reflux exists, how should the study be timed relative to PPI therapy?",
         "options": [
-          "Off PPI therapy, stopped about 7 days beforehand",
           "On a doubled PPI dose throughout the study",
           "Immediately after a single PPI dose on the morning of testing",
+          "Off PPI therapy, stopped about 7 days beforehand",
           "On the patient's usual PPI, unchanged",
           "PPI timing makes no difference to interpretation"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Off PPI therapy, stopped about 7 days beforehand",
         "explanation": "To establish whether GORD exists, acid suppression must be withdrawn so that true acid exposure can be measured. PPIs are typically stopped around 7 days before the study. Testing on therapy is reserved for assessing treatment failure, not for confirming the diagnosis."
       },
@@ -232,13 +272,13 @@
         "type": "mcq",
         "question": "A 24-hour pH-impedance study shows an acid exposure time of 2% with a normal DeMeester score, but the patient's heartburn episodes consistently coincide with non-acid reflux events on impedance. What is the correct interpretation?",
         "options": [
-          "Non-acid (weakly-acidic) reflux causing symptoms",
           "Severe erosive GORD requiring urgent surgery",
           "Pathological acid reflux confirming classic GORD",
           "Achalasia of the lower oesophageal sphincter",
-          "A technically failed study requiring repeat testing"
+          "A technically failed study requiring repeat testing",
+          "Non-acid (weakly-acidic) reflux causing symptoms"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Non-acid (weakly-acidic) reflux causing symptoms",
         "explanation": "The acid exposure time and DeMeester score are normal, so acid reflux is not the problem. Impedance detects the non-acid reflux events, and their consistent coincidence with symptoms identifies weakly-acidic reflux as the cause. This is exactly the scenario pH monitoring alone would miss."
       },
@@ -247,15 +287,30 @@
         "type": "mcq",
         "question": "Which single parameter is the core quantitative measure of acid reflux burden in a 24-hour pH study?",
         "options": [
-          "Acid exposure time (percentage of study with pH < 4)",
           "Lower oesophageal sphincter resting pressure",
+          "Acid exposure time (percentage of study with pH < 4)",
           "Number of transient LOS relaxations per hour",
           "Gastric emptying half-time",
           "Total number of swallows recorded"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Acid exposure time (percentage of study with pH < 4)",
         "explanation": "Acid exposure time, the proportion of the recording with oesophageal pH below 4, is the fundamental measure of acid reflux burden. A value above roughly 4-6% is pathological. Sphincter pressures and relaxations are manometric measures, not pH-study outputs."
+      },
+      {
+        "id": "ph_imp_q04",
+        "type": "mcq",
+        "question": "A patient with heartburn unresponsive to PPI has a pH/impedance study OFF PPI showing normal acid exposure time and no correlation between symptoms and reflux episodes. What is the most appropriate management?",
+        "options": [
+          "Refer for laparoscopic fundoplication",
+          "Double the proton-pump inhibitor dose",
+          "Long-term twice-daily H2 antagonist",
+          "Reassurance and a low-dose neuromodulator (e.g. amitriptyline)",
+          "Urgent endoscopic mucosal resection"
+        ],
+        "correctIndex": 3,
+        "answer": "Reassurance and a low-dose neuromodulator (e.g. amitriptyline)",
+        "explanation": "Normal AET with no symptom–reflux association is functional heartburn. It is managed with reassurance and a neuromodulator (low-dose TCA or SSRI); escalating acid suppression or operating is inappropriate because there is no pathological reflux to treat."
       }
     ],
     "investigations__GI PHYSIOLOGY & STOOL__Faecal Calprotectin (IBD vs IBS)": [
