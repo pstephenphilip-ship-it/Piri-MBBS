@@ -606,34 +606,35 @@ body{display:flex;flex-direction:column;}
 .btn-annot-save{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(240,180,41,0.3);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
-/* ── Redesigned note card: light, colour-coded, reads first then edit on demand ── */
-.annot-popup.nc{background:#FFFFFF;border:1px solid #E7EAF1;border-radius:15px;padding:0;width:300px;box-shadow:0 1px 2px rgba(20,30,50,.05),0 18px 44px rgba(20,30,50,.22);overflow:hidden;color:#232C42;}
+/* ── Redesigned note card: dark navy (app theme), colour-coded, reads first then edit on demand ── */
+.annot-popup.nc{background:#172433;border:1px solid #2C3D4E;border-radius:15px;padding:0;width:300px;box-shadow:0 1px 2px rgba(0,0,0,.35),0 20px 46px rgba(0,0,0,.55);overflow:hidden;color:#E7EEF4;}
 .nc-accent{height:5px;background:var(--hl,#F0B429);}
 .nc-head{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 0 16px;}
-.nc-label{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8A93A6;}
+.nc-label{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8DA0B4;}
 .nc-label .nc-dot{width:9px;height:9px;border-radius:3px;background:var(--hl,#F0B429);flex-shrink:0;}
 .nc-actions{display:flex;align-items:center;gap:2px;}
-.nc-edit{border:none;background:transparent;color:#586074;font-size:12.5px;font-weight:600;cursor:pointer;padding:5px 9px;border-radius:8px;display:flex;align-items:center;gap:6px;font-family:var(--sans);}
-.nc-edit:hover{background:#F1F3F7;color:#20283A;}
-.nc-x{width:28px;height:28px;border:none;background:transparent;color:#A6AEBF;font-size:15px;line-height:1;border-radius:8px;cursor:pointer;flex-shrink:0;}
-.nc-x:hover{background:#F1F3F7;color:#4A5064;}
-.nc-quote{margin:12px 16px 0;background:var(--hl-tint,#FCF3D9);color:#4a4636;border-left:3px solid var(--hl,#F0B429);border-radius:0 8px 8px 0;padding:8px 11px;font-size:12.5px;line-height:1.5;font-style:italic;word-break:break-word;}
-.nc-note{padding:14px 17px 18px;font-size:14.5px;line-height:1.7;color:#232C42;white-space:pre-wrap;word-break:break-word;max-height:min(50vh,340px);overflow:auto;}
-.nc-empty{padding:14px 17px 18px;font-size:14px;line-height:1.6;color:#98A2B6;font-style:italic;}
+.nc-edit{border:none;background:transparent;color:#AEBBC9;font-size:12.5px;font-weight:600;cursor:pointer;padding:5px 9px;border-radius:8px;display:flex;align-items:center;gap:6px;font-family:var(--sans);}
+.nc-edit:hover{background:#21313F;color:#EAF0F6;}
+.nc-x{width:28px;height:28px;border:none;background:transparent;color:#7E8EA0;font-size:15px;line-height:1;border-radius:8px;cursor:pointer;flex-shrink:0;}
+.nc-x:hover{background:#21313F;color:#D6DEE6;}
+.nc-quote{margin:12px 16px 0;background:color-mix(in srgb,var(--hl,#F0B429) 16%,#1B2A38);color:#C6D2DF;border-left:3px solid var(--hl,#F0B429);border-radius:0 8px 8px 0;padding:8px 11px;font-size:12.5px;line-height:1.5;font-style:italic;word-break:break-word;}
+.nc-note{padding:14px 17px 18px;font-size:14.5px;line-height:1.7;color:#E3E9F0;white-space:pre-wrap;word-break:break-word;max-height:min(50vh,340px);overflow:auto;}
+.nc-empty{padding:14px 17px 18px;font-size:14px;line-height:1.6;color:#7E8EA0;font-style:italic;}
 .nc-sw{display:flex;gap:10px;padding:15px 16px 4px;}
-.nc-sw button{width:24px;height:24px;border-radius:50%;border:2px solid #fff;cursor:pointer;padding:0;box-shadow:0 0 0 1px #E1E5EE;transition:transform .1s;}
+.nc-sw button{width:24px;height:24px;border-radius:50%;border:2px solid #172433;cursor:pointer;padding:0;box-shadow:0 0 0 1px #33465A;transition:transform .1s;}
 .nc-sw button:hover{transform:scale(1.12);}
-.nc-sw button.on{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--hl,#F0B429);}
+.nc-sw button.on{box-shadow:0 0 0 2px #172433,0 0 0 4px var(--hl,#F0B429);}
 .nc-body{padding:8px 16px 0;}
-.nc-ta{width:100%;min-height:96px;max-height:min(52vh,420px);overflow:auto;background:#FBFBFD;border:1px solid #E7EAF1;border-radius:10px;color:#20283A;font-family:var(--sans);font-size:14px;line-height:1.65;padding:11px 12px;resize:vertical;outline:none;box-sizing:border-box;}
-.nc-ta:focus{border-color:var(--hl,#F0B429);}
+.annot-popup.nc .nc-ta{width:100%;min-height:96px;max-height:min(52vh,420px);overflow:auto;background:#0F1B29;border:1px solid #2C3D4E;border-radius:10px;color:#E7EEF4;font-family:var(--sans);font-size:14px;line-height:1.65;padding:11px 12px;resize:vertical;outline:none;box-sizing:border-box;}
+.annot-popup.nc .nc-ta::placeholder{color:#67788B;}
+.annot-popup.nc .nc-ta:focus{border-color:var(--hl,#F0B429);}
 .nc-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 15px;gap:10px;}
-.nc-del{border:none;background:transparent;color:#C2543F;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
-.nc-del:hover{background:#FBE9E4;}
-.nc-cancel{border:none;background:transparent;color:#6B7280;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
-.nc-cancel:hover{background:#F1F3F7;color:#374151;}
-.nc-save{border:none;background:var(--accent,#00A892);color:#04211d;font-size:13.5px;font-weight:700;cursor:pointer;padding:9px 20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,168,146,.28);font-family:var(--sans);}
-.nc-save:hover{filter:brightness(1.06);}
+.nc-del{border:none;background:transparent;color:#EA7A63;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
+.nc-del:hover{background:#2E1A15;}
+.nc-cancel{border:none;background:transparent;color:#93A3B1;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
+.nc-cancel:hover{background:#21313F;color:#D6DEE6;}
+.nc-save{border:none;background:var(--accent,#00C2A8);color:#04211d;font-size:13.5px;font-weight:700;cursor:pointer;padding:9px 20px;border-radius:10px;box-shadow:0 2px 10px rgba(0,194,168,.32);font-family:var(--sans);}
+.nc-save:hover{filter:brightness(1.08);}
 /* ── My Notes: floating button opens an inline side panel (main notes stay visible) ── */
 /* Shared sizing so My Notes / Review / Custom Mock buttons look identical */
 .annot-fab,.da-rv-fab,.mock-fab{width:150px;box-sizing:border-box;justify-content:flex-start;}
@@ -13578,16 +13579,40 @@ function hideFlyout(p) {
   function renderWall(p, name, html, skipHash){
     var st = getState(p); st.activeTopic = name;
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){ el.classList.toggle('active', el.dataset.topic===name); });
-    var empty=document.getElementById('empty-'+p); if(empty) empty.style.display='none';
-    var bar=document.getElementById('modeBar-'+p); if(bar) bar.classList.remove('visible');
-    var na=document.getElementById('notearea-'+p); if(na){ na.querySelectorAll('.mode-panel').forEach(function(x){ x.classList.remove('visible'); }); }
-    var panel=document.getElementById('notes-panel-'+p);
-    if(panel){ panel.classList.add('visible'); panel.style.position='relative'; }
+    // The lock is a modal over the app, not a takeover, so the view behind it is
+    // left exactly as it was — the previous note, or the empty-state prompt on a
+    // cold open. (This used to blank the note area and show notes-panel, which
+    // left an empty 'Add your notes here...' scratchpad sitting behind the lock.)
     var pw=document.getElementById('da-paywall-'+p);
-    if(!pw){ pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap'; document.body.appendChild(pw); }
+    if(!pw){
+      pw=document.createElement('div'); pw.id='da-paywall-'+p; pw.className='da-lock-wrap';
+      // Clicking the dimmed area behind the card closes the lock, as it does on
+      // the Flashcards / MCQ lock.
+      pw.addEventListener('click', function(e){ if(e.target===pw) dismissWall(p); });
+      document.body.appendChild(pw);
+    }
     pw.innerHTML=html; pw.style.display='flex';
+    pw.setAttribute('data-tab', p);
+    // Every lock state gets a visible way out. The signed-out paywall had none at
+    // all — only its two sign-in buttons — so a visitor who opened a locked topic
+    // could leave only via the browser's Back button.
+    (function(){
+      var card=pw.querySelector('.da-lock'); if(!card || card.querySelector('.da-lock-x')) return;
+      var x=document.createElement('button');
+      x.type='button'; x.className='da-lock-x'; x.setAttribute('aria-label','Close');
+      x.innerHTML='<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>';
+      x.onclick=function(){ dismissWall(p); };
+      card.insertBefore(x, card.firstChild);
+    })();
     if(!skipHash && typeof updateHash==='function') updateHash(p, st.activeSystem, name, 'notes');
   }
+  document.addEventListener('keydown', function(e){
+    if(e.key!=='Escape') return;
+    // NB: offsetParent is always null on a position:fixed element, so the open
+    // test is on display, not on offsetParent.
+    var open=document.querySelector('[id^="da-paywall-"]');
+    if(open && getComputedStyle(open).display!=='none') dismissWall(open.getAttribute('data-tab'));
+  });
   function showLocked(p, name, skipHash){ renderWall(p, name, paywallHTML(), skipHash); }
   function clearMini(p, name){
     document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
@@ -13698,11 +13723,17 @@ function hideFlyout(p) {
     window.renderTopicList = function(p, topics, filter){
       _renderTopicList.call(this, p, topics, filter);
       var st = getState(p);
-      document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
-        var locked = !isUnlocked(p, st.activeSystem, el.dataset.topic);
+      var items = [].slice.call(document.querySelectorAll('#topiclist-'+p+' .condition-item'));
+      var lockedOf = function(el){ return !isUnlocked(p, st.activeSystem, el.dataset.topic); };
+      // A padlock on every row carries no information — it only earns its place
+      // when it distinguishes locked rows from free ones. When the whole section
+      // is locked the dimming already says so, so the row markers are dropped.
+      var allLocked = items.length > 0 && items.every(lockedOf);
+      items.forEach(function(el){
+        var locked = lockedOf(el);
         el.classList.toggle('da-locked-item', locked);
         var mini = el.querySelector('.da-lock-mini');
-        if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
+        if(locked && !allLocked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
         else if(mini){ mini.remove(); }
       });
     };
@@ -16072,6 +16103,42 @@ function hideFlyout(p) {
     background-image:radial-gradient(rgba(30,38,64,.045) 1px, transparent 1.6px);
     background-size:22px 22px;
   }
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 4 — the topic lock becomes a modal, not a takeover.
+     Search this file for "LAYOUT PASS LOCK" to find it again.
+     ===================================================================== -->
+<style>
+  /* .da-lock-wrap was an opaque full-screen takeover: position:fixed, inset:0,
+     z-index 2000, painted with var(--bg) — which resolves to #0D0F14, so the
+     #F7F8FB light fallback in that declaration never applied and a light app
+     dropped the reader into a near-black void. The nav, the sidebar and the
+     topic list all disappeared with it.
+
+     The Flashcards / MCQ lock already solved this the other way, as a frosted
+     modal over the page — its own source comment reads "not an opaque
+     full-page takeover". Same moment, so the same treatment. */
+  .da-lock-wrap{
+    background:rgba(6,12,20,.62);
+    -webkit-backdrop-filter:blur(4px);
+    backdrop-filter:blur(4px);
+    align-items:center;
+    justify-content:center;
+  }
+  /* The card needs a corner for the close button to sit in. */
+  .da-lock{position:relative;}
+  .da-lock-x{
+    position:absolute;top:10px;right:10px;
+    width:30px;height:30px;padding:0;
+    display:flex;align-items:center;justify-content:center;
+    background:none;border:0;border-radius:50%;
+    color:var(--muted,#6B7280);cursor:pointer;
+    transition:color .15s,background .15s;
+  }
+  .da-lock-x:hover{color:var(--text,#1E2640);background:rgba(127,140,170,.14);}
+  .da-lock-x svg{width:15px;height:15px;}
+  .da-lock-icon{margin-top:4px;}
 </style>
 
 <!-- =====================================================================
