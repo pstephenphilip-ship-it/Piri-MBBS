@@ -9394,33 +9394,36 @@ initTab('conditions');
     var act=panel.querySelector('.tt-btn.tt-act');
     return act ? (act.getAttribute('data-pane')||'') : '';
   }
+  // ONE key per topic (never split by subtab). Each note optionally carries a.pane = the subtab it
+  // belongs to; display is filtered by that. This avoids the fragile key-renaming that dumped notes
+  // onto the first subtab.
   function annotKeyBase(p, sys, topic){ return 'piri_annot__'+p+'__'+(sys||'')+'__'+topic; }
-  function annotKey(p, sys, topic){ var base=annotKeyBase(p,sys,topic); var pane=activeSubtab(p); return pane ? base+'__'+pane : base; }
-  // Put each note on the RIGHT subtab. A note stores the text that was highlighted, and that text
-  // lives in exactly one subtab's pane — so we file each note under the pane whose content contains
-  // its text. This both migrates legacy topic-level notes AND repairs an earlier migration that
-  // dumped every note onto the first subtab. Idempotent (stable assignment, dedupe by id), and it
-  // only writes a key when its contents actually change.
-  function reconcileSubtabNotes(p, sys, topic){
+  function annotKey(p, sys, topic){ return annotKeyBase(p, sys, topic); }
+  // Should this note show on the currently-active subtab?  A note with no pane tag (old notes we
+  // couldn't confidently place, or topics without subtabs) shows everywhere.
+  function noteOnActiveSubtab(a, pane){ return !pane || !a || !a.pane || a.pane===pane; }
+  // Migrate to the single-key model and tag each note with its subtab where we can be sure:
+  //  - pull any notes that earlier versions filed under per-pane keys back into the one base key;
+  //  - for an untagged note, tag it with a subtab ONLY if its highlighted text appears in exactly
+  //    one pane. If the text is in several panes (shared wording) or none, leave it untagged so it
+  //    shows on every subtab — never silently dumped onto the first one.
+  function consolidateSubtabNotes(p, sys, topic){
     var panel=getContentPanel(p); if(!panel) return;
     var panes=[].slice.call(panel.querySelectorAll('.tt-pane'));
-    if(!panes.length) return;                                   // no subtabs -> leave the legacy key
+    if(!panes.length) return;                                   // no subtabs -> single key, nothing to do
     var base=annotKeyBase(p,sys,topic);
-    var paneInfo=panes.map(function(pane){ return { id:pane.id, key:base+'__'+pane.id, text:(pane.textContent||'').replace(/\s+/g,'') }; });
-    var seen={}, pool=[];
-    function addFrom(key){ var arr=[]; try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){} arr.forEach(function(a){ if(!a) return; if(a.id==null){ pool.push(a); return; } if(seen[a.id]) return; seen[a.id]=1; pool.push(a); }); }
-    addFrom(base);                                              // legacy (pre-subtab) notes
-    paneInfo.forEach(function(pi){ addFrom(pi.key); });         // + whatever is already filed per pane
-    if(!pool.length){ if(localStorage.getItem(base)!==null){ try{ localStorage.removeItem(base); }catch(e){} } return; }
-    var buckets={}; paneInfo.forEach(function(pi){ buckets[pi.id]=[]; });
-    pool.forEach(function(a){
-      var t=(a.selectedText||'').replace(/\s+/g,''), dest=null;
-      if(t){ for(var i=0;i<paneInfo.length;i++){ if(paneInfo[i].text.indexOf(t)>=0){ dest=paneInfo[i].id; break; } } }
-      if(!dest) dest=paneInfo[0].id;                            // text not found in any pane -> first subtab
-      buckets[dest].push(a);
+    var paneInfo=panes.map(function(pane){ return { id:pane.id, text:(pane.textContent||'').replace(/\s+/g,'') }; });
+    var seen={}, all=[], sources=[base].concat(paneInfo.map(function(pi){ return base+'__'+pi.id; }));
+    sources.forEach(function(key){ var arr=[]; try{ arr=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){} arr.forEach(function(a){ if(!a) return; if(a.id!=null){ if(seen[a.id]) return; seen[a.id]=1; } all.push(a); }); });
+    all.forEach(function(a){
+      if(a.pane) return;                                        // already tagged (new notes keep their tag)
+      var t=(a.selectedText||'').replace(/\s+/g,''); if(!t) return;
+      var hits=[]; for(var i=0;i<paneInfo.length;i++){ if(paneInfo[i].text.indexOf(t)>=0) hits.push(paneInfo[i].id); }
+      if(hits.length===1) a.pane=hits[0];                       // unique match -> confident tag
     });
-    paneInfo.forEach(function(pi){ var nv=JSON.stringify(buckets[pi.id]); if(nv!==(localStorage.getItem(pi.key)||'[]')){ try{ localStorage.setItem(pi.key, nv); }catch(e){} } });
-    if(localStorage.getItem(base)!==null){ try{ localStorage.removeItem(base); }catch(e){} }
+    var nv=JSON.stringify(all);
+    if(nv!==(localStorage.getItem(base)||'[]')){ try{ localStorage.setItem(base, nv); }catch(e){} }
+    paneInfo.forEach(function(pi){ var k=base+'__'+pi.id; if(localStorage.getItem(k)!==null){ try{ localStorage.removeItem(k); }catch(e){} } });
   }
   // Switching subtab -> reload that subtab's notes/highlights for the panel the tab lives in.
   document.addEventListener('click', function(e){
@@ -9631,7 +9634,8 @@ initTab('conditions');
     var key = annotKey(p, info.sys, info.topic);
     var annots = [];
     try{ annots = JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    annots.push({ id:daUid(), selectedText:_pendingText, occ:_pendingOcc, note:'', color:color||'yellow' });
+    var _hn={ id:daUid(), selectedText:_pendingText, occ:_pendingOcc, note:'', color:color||'yellow' }; var _hp=activeSubtab(p); if(_hp) _hn.pane=_hp;
+    annots.push(_hn);
     localStorage.setItem(key, JSON.stringify(annots));
     removeTip();
     _pendingText = '';
@@ -9774,7 +9778,7 @@ initTab('conditions');
     var key=annotKey(p,info.sys,info.topic);
     var annots=[];
     try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
-    var _o={ id:daUid(), selectedText:_pendingText, occ:_pendingOcc, note:ta.value.trim(), color:'yellow' }; if(_im){ _o.image=_im; }
+    var _o={ id:daUid(), selectedText:_pendingText, occ:_pendingOcc, note:ta.value.trim(), color:'yellow' }; if(_im){ _o.image=_im; } var _op=activeSubtab(p); if(_op) _o.pane=_op;
     annots.push(_o);
     annotStore(key,annots);
     window.removeAnnotPopup();
@@ -9928,10 +9932,13 @@ initTab('conditions');
       annotSetMeta(p, 0, '');
       applyHighlights(p,[]); return;
     }
-    reconcileSubtabNotes(p, info.sys, info.topic);   // file each note under the subtab its text lives in
+    consolidateSubtabNotes(p, info.sys, info.topic);   // one key per topic + tag notes by subtab
     var key=annotKey(p,info.sys,info.topic);
     var annots=[];
     try{ annots=JSON.parse(localStorage.getItem(key)||'[]'); }catch(e){}
+    // Show only notes for the active subtab (untagged notes show on every subtab).
+    var _pane=activeSubtab(p);
+    annots = annots.filter(function(a){ return noteOnActiveSubtab(a, _pane); });
     // Bare highlights (no note text, no image) still colour the page but are NOT listed here —
     // the notes drawer shows only real notes/images, not every highlight.
     var noted = annots.filter(function(a){ return (a.note&&a.note.trim()) || a.image; });
