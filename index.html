@@ -14643,6 +14643,8 @@ function hideFlyout(p) {
 .da-plan-name{font-size:13px;font-weight:700;color:var(--text,#E8EAF0);}
 .da-plan-price{font-size:24px;font-weight:800;color:var(--text,#E8EAF0);margin-top:3px;line-height:1.1;}
 .da-plan-per{font-size:13px;font-weight:600;color:var(--muted,#6B7280);}
+.da-plan-was{font-size:15px;font-weight:700;color:var(--muted,#6B7280);text-decoration:line-through;text-decoration-thickness:2px;margin-right:7px;opacity:.9;}
+.da-plan-off{color:var(--accent,#00C2A8);font-weight:800;}
 .da-plan-permo{font-size:12px;font-weight:700;color:var(--accent,#00C2A8);margin-top:3px;}
 .da-plan-note{font-size:11.5px;color:var(--muted,#6B7280);margin-top:4px;}
 .da-plan-btn{margin-top:12px;}
@@ -14662,14 +14664,14 @@ function hideFlyout(p) {
     functionsBase: "https://ynkyqovqlfmnpkdsaonu.functions.supabase.co",
     portalEnabled: true, // billing-portal function deployed + Stripe Customer Portal activated
     plans: [
-      { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,
+      { key:"monthly",   label:"Monthly",  amount:8.99,  period:"month",    perMonth:8.99,  launch:13.49,
         billedNote:"Billed £8.99 each month",
         paymentLink:"https://buy.stripe.com/00wdRaem8ghf5ZJgTbaMU00", priceId:"price_1U3zzXKYP48oXmxAfJbKutkx" },
-      { key:"quarterly", label:"3 months", amount:20.00, period:"3 months", perMonth:6.67,
-        billedNote:"Billed £20 every 3 months", tag:"Save ~26%",
+      { key:"quarterly", label:"3 months", amount:20.00, period:"3 months", perMonth:6.67,  launch:30.00,
+        billedNote:"Billed £20 every 3 months",
         paymentLink:"https://buy.stripe.com/9B68wQ1zm2qp2NxauNaMU01", priceId:"price_1U3zzxKYP48oXmxA0zYPLIlb" },
-      { key:"yearly",    label:"Yearly",   amount:60.00, period:"year",     perMonth:5.00,
-        billedNote:"Billed £60 every 12 months", tag:"Best value · Save ~44%", highlight:true,
+      { key:"yearly",    label:"Yearly",   amount:60.00, period:"year",     perMonth:5.00,  launch:90.00,
+        billedNote:"Billed £60 every 12 months", tag:"Best value", highlight:true,
         paymentLink:"https://buy.stripe.com/9B6eVe1zm6GF4VFauNaMU02", priceId:"price_1U400GKYP48oXmxAXPlzstij" }
     ]
   };
@@ -14762,11 +14764,15 @@ function hideFlyout(p) {
     return p ? p.label : 'Premium';
   }
   function planCardHTML(p){
+    var pct = p.launch && p.launch>p.amount ? Math.round((1 - p.amount/p.launch)*100) : 0;
     return '<div class="da-plan'+(p.highlight?' da-plan-best':'')+'">'+
       (p.tag ? '<div class="da-plan-tag">'+p.tag+'</div>' : '')+
       '<div class="da-plan-name">'+p.label+'</div>'+
-      '<div class="da-plan-price">'+money(p.amount)+'<span class="da-plan-per"> / '+p.period+'</span></div>'+
-      '<div class="da-plan-permo">'+money(p.perMonth)+' / month</div>'+
+      '<div class="da-plan-price">'+
+        (pct ? '<span class="da-plan-was">'+money(p.launch)+'</span>' : '')+
+        money(p.amount)+'<span class="da-plan-per"> / '+p.period+'</span></div>'+
+      '<div class="da-plan-permo">'+money(p.perMonth)+' / month'+
+        (pct ? ' &middot; <span class="da-plan-off">'+pct+'% off at launch</span>' : '')+'</div>'+
       '<div class="da-plan-note">'+p.billedNote+'</div>'+
       '<button class="auth-submit da-plan-btn" data-plan="'+p.key+'">Choose '+p.label+'</button>'+
     '</div>';
@@ -14793,7 +14799,7 @@ function hideFlyout(p) {
     }
     // Signed in, not a member.
     var live = livePlans();
-    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:#FFFFFF;border-radius:10px;font-size:12.5px;line-height:1.55;color:#1E2640;"><b style="color:#0EA5E9;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at the current price. As the platform is fully completed, prices may go up — but you&rsquo;ll lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
+    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:#FFFFFF;border-radius:10px;font-size:12.5px;line-height:1.55;color:#1E2640;"><b style="color:#0EA5E9;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at a beta discount &mdash; the crossed-out price is the full rate once the platform is complete. Lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
     if(live.length){
       body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
         betaNote+
