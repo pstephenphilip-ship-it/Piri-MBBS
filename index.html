@@ -16870,8 +16870,10 @@ function hideFlyout(p) {
      Signs' .cp-then are genuine chip rows with no loose text (measured 0),
      and turning those into blocks would drop their flex gap for nothing. */
   #tab-investigations .cp-then{display:block;}
-  /* the chips inside then need their own spacing, since the flex gap is gone */
-  #tab-investigations .cp-then > .cp-dx{margin:2px 4px 2px 0;}
+  /* the chips inside then need their own spacing, since the flex gap is gone.
+     Horizontal only: these are inline links here, and a vertical margin on an
+     inline box is silently dropped. */
+  #tab-investigations .cp-then > .cp-dx{margin-right:5px;}
   /* .cp-reads is deliberately left as a flex chip row. Only 6 of its 1,090
      instances in this tab hold loose text; blocking the container to fix those
      six turns the other 1,084 chip rows into full-width stacked strips, which
