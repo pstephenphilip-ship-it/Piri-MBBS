@@ -1134,6 +1134,11 @@
         "id": "us_sp_softtissue_fc_05",
         "front": "What is the correct management of a lump with red-flag/sarcoma features, and why not just excise it?",
         "back": "Refer to a specialist sarcoma centre for MRI and image-guided core biopsy BEFORE any excision. Unplanned (\"whoops\") excision contaminates tissue planes, mandates wider re-excision, and worsens outcomes."
+      },
+      {
+        "id": "us_sp_pleomorphic_fc_01",
+        "front": "How is a pleomorphic adenoma of the parotid managed, and why not simply enucleate it?",
+        "back": "By <b>superficial parotidectomy</b> (with facial-nerve preservation), NOT enucleation &mdash; the tumour has microscopic capsular pseudopods, so enucleation leaves tumour behind and <b>recurs</b>, and shelling it out risks <b>facial-nerve injury</b>. Left untreated it can undergo <b>malignant transformation</b>. (Contrast: Warthin’s tumour is benign, often just observed.)"
       }
     ],
     "investigations__ULTRASOUND__MSK": [
@@ -1261,6 +1266,16 @@
         "id": "us_msk_hernia_fc_05",
         "front": "Which ultrasound features suggest a strangulated hernia requiring emergency surgery?",
         "back": "An irreducible, tender sac; ABSENT Doppler flow in the contained bowel wall; wall thickening; surrounding free fluid; and dilated obstructed proximal bowel loops — indicating ischaemia and needing urgent surgical referral."
+      },
+      {
+        "id": "us_msk_bakers_fc_01",
+        "front": "What is a Baker&rsquo;s cyst and why does it matter on a leg ultrasound?",
+        "back": "A <b>popliteal (Baker&rsquo;s) cyst</b> is fluid in the gastrocnemius-semimembranosus bursa that <b>communicates with the knee joint</b> (often with an effusion/OA). A <b>ruptured Baker&rsquo;s cyst</b> causes acute calf pain and swelling and classically <b>mimics a DVT</b> &mdash; ultrasound distinguishes the two."
+      },
+      {
+        "id": "us_msk_achilles_fc_01",
+        "front": "How is a suspected Achilles tendon rupture diagnosed and initially managed?",
+        "back": "It is a <b>clinical</b> diagnosis &mdash; a palpable gap and a positive <b>Simmonds/Thompson calf-squeeze test</b> (no plantarflexion); US/MRI confirm and size the gap. Initially <b>immobilise in equinus (plantarflexion)</b> and refer to orthopaedics; conservative functional bracing and surgery have comparable re-rupture rates."
       }
     ],
     "investigations__ULTRASOUND__Point-of-Care (POCUS)": [
@@ -1413,6 +1428,16 @@
         "id": "us_pocus_drainage_fc_05",
         "front": "What is the management principle for an infected collection under pressure (e.g. pyonephrosis, empyema, septic abscess)?",
         "back": "Urgent drainage for source control ALONGSIDE antibiotics. Antibiotics alone are insufficient for an undrained infected/obstructed pocket; tense collections causing organ compromise (e.g. tamponade) need emergency drainage."
+      },
+      {
+        "id": "us_pocus_blines_fc_01",
+        "front": "What do bilateral B-lines on lung ultrasound mean, and what should you do?",
+        "back": "&ge;3 vertical comet-tail <b>B-lines</b> per field that are bilateral and diffuse indicate an <b>interstitial syndrome &mdash; usually cardiogenic pulmonary oedema</b> (also ARDS). Action: treat the oedema (<b>sit up, oxygen, IV nitrate, IV furosemide</b>) and <b>do NOT give fluid</b>. Focal B-lines suggest pneumonia/contusion instead."
+      },
+      {
+        "id": "us_pocus_paracentesis_fc_01",
+        "front": "What must accompany a large-volume ascitic drain (paracentesis)?",
+        "back": "<b>Human albumin solution (HAS)</b> replacement &mdash; roughly 8 g albumin per litre drained beyond ~5 L &mdash; to prevent <b>post-paracentesis circulatory dysfunction</b>. Mark/scan the site (usually left iliac fossa), avoiding the inferior epigastric vessels, organs and bowel."
       }
     ],
     "investigations__ULTRASOUND__Paediatric": [
@@ -1515,6 +1540,16 @@
         "id": "us_paed_intuss_fc_05",
         "front": "What are the contraindications to enema reduction that mandate urgent surgery?",
         "back": "Peritonitis, perforation (free air), and shock. Surgery is also required if the enema fails or a pathological lead point is present."
+      },
+      {
+        "id": "us_paed_hydro_fc_01",
+        "front": "How are neonatal intraventricular haemorrhage and its main complication managed?",
+        "back": "There is <b>no acute cure</b> for the bleed &mdash; management is <b>supportive</b> with <b>serial cranial ultrasound</b> to detect <b>post-haemorrhagic hydrocephalus</b>. Rising ventricular size/head circumference is managed by <b>serial LPs or a ventricular access device</b>, progressing to a <b>VP shunt</b> if it persists. Periventricular leukomalacia needs developmental follow-up."
+      },
+      {
+        "id": "us_paed_ddh_timing_fc_01",
+        "front": "Why is hip ultrasound for DDH done at around 6 weeks rather than at birth?",
+        "back": "Before ~6 weeks many hips are physiologically <b>immature</b>, so early scanning <b>over-calls dysplasia</b> and leads to unnecessary treatment. US is used <b>under ~4&ndash;6 months</b> (before the femoral head ossifies); after that an X-ray is used. Selective scanning is offered for breech presentation and a family history (UK NIPE)."
       }
     ]
   },
@@ -3325,12 +3360,12 @@
         "question": "A thyroid nodule is reported as U4 on ultrasound. What is the most appropriate next step?",
         "options": [
           "Reassure and discharge as the nodule is benign",
-          "Arrange ultrasound-guided fine-needle aspiration cytology",
           "Start levothyroxine to suppress the nodule",
           "Proceed straight to total thyroidectomy",
-          "Request a radionuclide uptake scan to assess function"
+          "Request a radionuclide uptake scan to assess function",
+          "Arrange ultrasound-guided fine-needle aspiration cytology"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Arrange ultrasound-guided fine-needle aspiration cytology",
         "explanation": "U3–U5 nodules require US-guided FNA for cytological (Thy) assessment before any surgical decision. U4 is 'suspicious', so tissue sampling and MDT discussion — not reassurance, suppression or immediate surgery — is the correct next step. Radionuclide scanning assesses function, not malignant risk."
       },
@@ -3369,13 +3404,13 @@
         "type": "mcq",
         "question": "A 34-year-old presents with a tender neck lump after a sore throat. Ultrasound shows a 12 mm oval node with an axis ratio of 2.6, a clear echogenic central hilum and central hilar Doppler flow. What is the most appropriate interpretation?",
         "options": [
-          "Metastatic squamous cell carcinoma requiring urgent FNA",
           "A benign reactive node",
+          "Metastatic squamous cell carcinoma requiring urgent FNA",
           "Lymphoma requiring core biopsy",
           "Tuberculous lymphadenitis",
           "Papillary thyroid metastasis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "A benign reactive node",
         "explanation": "Oval shape (ratio >2), a preserved echogenic fatty hilum and central hilar vascularity are the classic reassuring features of a benign reactive node, fitting the post-infective history."
       },
@@ -3386,11 +3421,11 @@
         "options": [
           "Long-to-short axis ratio greater than 2",
           "Preserved echogenic fatty hilum",
-          "Central hilar vascularity",
           "Loss of the fatty hilum with peripheral/chaotic vascularity",
+          "Central hilar vascularity",
           "Smooth thin cortex"
         ],
-        "correctIndex": 3,
+        "correctIndex": 2,
         "answer": "Loss of the fatty hilum with peripheral/chaotic vascularity",
         "explanation": "Loss of the fatty hilum and peripheral (capsular) chaotic flow indicate abnormal architecture and neovascularity typical of metastatic/malignant nodes; the other options are benign features."
       },
@@ -3401,11 +3436,11 @@
         "options": [
           "Reassure and discharge as reactive nodes",
           "Ultrasound-guided FNA cytology only",
-          "Core (or excision) biopsy",
           "Start empirical anti-tuberculous therapy",
-          "Repeat ultrasound in 6 months"
+          "Repeat ultrasound in 6 months",
+          "Core (or excision) biopsy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Core (or excision) biopsy",
         "explanation": "The appearances plus B-symptoms suggest lymphoma. Persisting hilar flow can falsely reassure, and FNA is usually insufficient to subtype lymphoma, so core or excision biopsy is required."
       },
@@ -3444,13 +3479,13 @@
         "type": "mcq",
         "question": "A 22-year-old has 2 days of gradually worsening right scrotal pain and dysuria. Doppler shows an enlarged, hyperaemic epididymis and testis with INCREASED flow and a small reactive hydrocele. Most likely diagnosis?",
         "options": [
-          "Testicular torsion",
           "Epididymo-orchitis",
+          "Testicular torsion",
           "Seminoma",
           "Varicocele",
           "Testicular rupture"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Epididymo-orchitis",
         "explanation": "Increased colour Doppler flow with a hyperaemic epididymis/testis and reactive hydrocele is epididymo-orchitis, the main mimic of torsion. Torsion shows the opposite — reduced or absent flow — which is why Doppler is the decisive discriminator."
       },
@@ -3460,12 +3495,12 @@
         "question": "A 32-year-old woman presents with a palpable, mobile breast lump. What is the most appropriate first-line imaging investigation?",
         "options": [
           "Mammography",
-          "Ultrasound",
           "MRI breast",
+          "Ultrasound",
           "CT thorax",
           "No imaging, clinical follow-up only"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Ultrasound",
         "explanation": "In women under ~40 the breasts are denser, limiting mammographic sensitivity. Ultrasound is first-line, radiation-free, characterises the lesion, and can guide biopsy. Mammography is added in older women."
       },
@@ -3476,11 +3511,11 @@
         "options": [
           "Oval, wider-than-tall, well-circumscribed, hypoechoic",
           "Anechoic with a thin wall and posterior acoustic enhancement",
-          "Taller-than-wide, irregular spiculated margins with posterior acoustic shadowing",
           "Smooth thin capsule with gentle lobulation",
-          "Homogeneous hypoechoic mass that is freely mobile"
+          "Homogeneous hypoechoic mass that is freely mobile",
+          "Taller-than-wide, irregular spiculated margins with posterior acoustic shadowing"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Taller-than-wide, irregular spiculated margins with posterior acoustic shadowing",
         "explanation": "Malignant lesions grow vertically (taller-than-wide, non-parallel), have irregular/spiculated margins and cause posterior acoustic shadowing. Oval, wider-than-tall, circumscribed features and anechoic thin-walled cysts are benign."
       },
@@ -3490,12 +3525,12 @@
         "question": "A 48-year-old woman has an irregular, taller-than-wide hypoechoic mass with posterior shadowing on US, plus an axillary node with cortical thickening and loss of the fatty hilum. What is the most appropriate next step?",
         "options": [
           "Reassure and repeat US in one year",
-          "Aspirate the lesion and discharge",
           "2-week-wait referral for triple assessment and US-guided core biopsy",
+          "Aspirate the lesion and discharge",
           "Start antibiotics for likely abscess",
           "MRI only, with no tissue sampling"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "2-week-wait referral for triple assessment and US-guided core biopsy",
         "explanation": "These are suspicious (U5) features with abnormal nodes — breast cancer until proven otherwise. Urgent 2-week-wait referral for triple assessment with US-guided core biopsy (± FNA of the node) is required. Any persistent suspicious lesion needs a tissue diagnosis."
       },
@@ -3505,12 +3540,12 @@
         "question": "A 45-year-old presents with recurrent left submandibular pain and swelling that worsen at mealtimes. Ultrasound shows a bright echogenic focus with posterior acoustic shadowing and a dilated proximal duct. What is the diagnosis?",
         "options": [
           "Pleomorphic adenoma",
-          "Sialolithiasis",
           "Warthin's tumour",
           "Sjögren's syndrome",
+          "Sialolithiasis",
           "Parotid abscess"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Sialolithiasis",
         "explanation": "Mealtime pain/swelling with an echogenic shadowing focus and proximal ductal dilatation is the classic picture of a submandibular stone — the commonest site because of viscous mucinous secretions draining uphill."
       },
@@ -3519,13 +3554,13 @@
         "type": "mcq",
         "question": "A 68-year-old male smoker has a cystic, well-defined parotid mass; the contralateral parotid contains a similar lesion. Which tumour is most likely?",
         "options": [
+          "Warthin's tumour",
           "Pleomorphic adenoma",
           "Mucoepidermoid carcinoma",
-          "Warthin's tumour",
           "Adenoid cystic carcinoma",
           "Lymphoma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Warthin's tumour",
         "explanation": "Warthin's tumour is characteristically cystic, frequently bilateral, and occurs in older male smokers. Pleomorphic adenoma is commoner overall but is typically solid, unilateral and lobulated."
       },
@@ -3550,12 +3585,12 @@
         "question": "A 45-year-old man has a soft, mobile lump on his back. Ultrasound shows a well-defined, compressible, elongated mass lying parallel to the skin, hyperechoic to fat with thin internal striations and no significant vascularity. What is the most appropriate management?",
         "options": [
           "Urgent referral to a sarcoma MDT",
-          "Reassure and discharge with no follow-up",
           "Immediate wide local excision",
           "MRI and image-guided core biopsy",
-          "Incision and drainage"
+          "Incision and drainage",
+          "Reassure and discharge with no follow-up"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Reassure and discharge with no follow-up",
         "explanation": "These are classic ultrasound features of a benign lipoma. When appearances are typical, no follow-up or intervention is required and the patient can be reassured. Sarcoma pathways are reserved for indeterminate or red-flag lumps."
       },
@@ -3565,12 +3600,12 @@
         "question": "Which ultrasound/clinical feature of a soft-tissue lump is MOST concerning for a soft-tissue sarcoma?",
         "options": [
           "Compressibility with anechoic contents",
+          "A mass measuring 6 cm and lying deep to the fascia",
           "A visible punctum in the overlying skin",
           "A preserved central echogenic fatty hilum",
-          "A mass measuring 6 cm and lying deep to the fascia",
           "Posterior acoustic enhancement"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "A mass measuring 6 cm and lying deep to the fascia",
         "explanation": "Size >5 cm and location deep to the deep fascia are among the strongest predictors of malignancy. Compressible anechoic contents suggest a cyst/ganglion, a punctum suggests a sebaceous cyst, a fatty hilum indicates a lymph node, and posterior enhancement is typical of cystic lesions."
       },
@@ -3597,12 +3632,12 @@
         "question": "A 68-year-old presents with a painful weak shoulder. Shoulder ultrasound shows non-visualisation of the supraspinatus tendon, fluid tracking into the gap, and the deltoid muscle lying directly on a bare greater tuberosity. What is the diagnosis?",
         "options": [
           "Partial-thickness (articular surface) tear",
-          "Full-thickness rotator cuff tear",
           "Calcific tendinitis",
+          "Full-thickness rotator cuff tear",
           "Subacromial-subdeltoid bursitis",
           "Supraspinatus tendinopathy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Full-thickness rotator cuff tear",
         "explanation": "A defect spanning the whole tendon with retraction/non-visualisation, fluid in the gap and a \"naked\" greater tuberosity (deltoid sagging onto bone) is the classic picture of a full-thickness tear. A partial tear would be a focal defect not crossing the full width; the other options do not produce a tendon gap."
       },
@@ -3612,12 +3647,12 @@
         "question": "Which single feature best explains why ultrasound is chosen as the FIRST-LINE test for suspected subacromial impingement?",
         "options": [
           "Superior visualisation of the glenoid labrum",
-          "Ability to scan the tendons dynamically during active movement",
           "Better assessment of muscle fatty infiltration than MRI",
           "Ability to demonstrate bony oedema",
-          "Higher sensitivity for cervical referred pain"
+          "Higher sensitivity for cervical referred pain",
+          "Ability to scan the tendons dynamically during active movement"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Ability to scan the tendons dynamically during active movement",
         "explanation": "Ultrasound's key advantage over MRI here is that it is dynamic: scanning during abduction reveals bunching of the cuff/bursa under the acromion (impingement). Labral, bony and fatty-infiltration/deep detail are actually MRI strengths, and referred pain is a clinical, not ultrasound, consideration."
       },
@@ -3643,11 +3678,11 @@
         "options": [
           "Mid-portion tendinopathy",
           "A partial-thickness tear",
-          "Anisotropy artefact — a normal tendon",
           "Insertional enthesitis",
+          "Anisotropy artefact — a normal tendon",
           "A complete rupture with retraction"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Anisotropy artefact — a normal tendon",
         "explanation": "True pathology (tendinopathy, tear) persists regardless of probe angle. A hypoechoic area that resolves into normal fibrillar echotexture when the beam is made perpendicular is anisotropy — an artefact from a non-perpendicular beam, not disease. Recognising this prevents overcalling normal tendons as abnormal."
       },
@@ -3656,13 +3691,13 @@
         "type": "mcq",
         "question": "A 45-year-old presents after a sudden 'pop' in the calf during tennis. On dynamic ultrasound of the Achilles tendon, the two tendon ends are seen to separate and fail to move together when the ankle is passively plantarflexed. Which finding does this confirm?",
         "options": [
+          "A complete (full-thickness) rupture",
           "Tendinopathy with neovascularity",
           "A partial-thickness tear",
           "Tenosynovitis",
-          "A complete (full-thickness) rupture",
           "Retrocalcaneal bursitis"
         ],
-        "correctIndex": 3,
+        "correctIndex": 0,
         "answer": "A complete (full-thickness) rupture",
         "explanation": "Dynamic scanning is key: in a complete rupture the tendon ends separate and do not move together during movement, with a gap and retracted refractile ends. A partial tear retains some intact fibres bridging the defect, so the ends stay connected on movement."
       },
@@ -3688,11 +3723,11 @@
         "options": [
           "Start empirical IV antibiotics immediately and review in 24 hours",
           "Arrange an outpatient MRI to characterise the effusion before intervening",
-          "Perform urgent joint aspiration, send fluid for Gram stain, culture, WCC and crystals, then start antibiotics",
           "Prescribe oral NSAIDs and colchicine for presumed gout",
-          "Reassure and discharge as the ultrasound shows only a simple effusion"
+          "Reassure and discharge as the ultrasound shows only a simple effusion",
+          "Perform urgent joint aspiration, send fluid for Gram stain, culture, WCC and crystals, then start antibiotics"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Perform urgent joint aspiration, send fluid for Gram stain, culture, WCC and crystals, then start antibiotics",
         "explanation": "A hot, swollen, painful joint is septic arthritis until proven otherwise. Fluid must be obtained for urgent Gram stain, culture, WCC and crystals BEFORE antibiotics, since antibiotics reduce culture yield. Septic arthritis is a joint-destroying emergency requiring prompt washout and IV antibiotics — not delayed imaging or empirical treatment without a sample."
       },
@@ -3718,11 +3753,11 @@
         "options": [
           "Hyperechoic deposits within the substance of the cartilage",
           "A compressible anechoic collection in the recess",
-          "The double contour sign — a hyperechoic line over the cartilage surface",
           "Absence of any Doppler signal in the synovium",
+          "The double contour sign — a hyperechoic line over the cartilage surface",
           "Uniform thinning of the articular cartilage"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "The double contour sign — a hyperechoic line over the cartilage surface",
         "explanation": "In gout, urate is deposited ON the surface of the hyaline cartilage, producing the double contour sign — a hyperechoic line parallel to and above the bright bony cortex. In pseudogout (CPPD), the hyperechoic deposits lie WITHIN the cartilage substance (chondrocalcinosis), not on its surface."
       },
@@ -3731,13 +3766,13 @@
         "type": "mcq",
         "question": "During an ultrasound-guided subacromial injection you use an in-plane approach. Which appearance confirms you are visualising the needle correctly?",
         "options": [
-          "A single bright dot crossing the ultrasound beam",
           "A continuous bright line running along the long axis of the probe showing the whole shaft and tip",
+          "A single bright dot crossing the ultrasound beam",
           "Loss of all needle echo with only tissue movement seen",
           "Acoustic shadowing beneath the bursa",
           "Colour Doppler signal filling the bursa"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "A continuous bright line running along the long axis of the probe showing the whole shaft and tip",
         "explanation": "In-plane technique aligns the needle with the probe's long axis so the entire shaft and tip appear as one continuous bright line — the preferred method because tip position is always known. A single bright dot is the out-of-plane appearance."
       },
@@ -3747,12 +3782,12 @@
         "question": "A patient presents with a hot, swollen, painful knee. The most important step before any corticosteroid injection is to:",
         "options": [
           "Inject corticosteroid plus local anaesthetic to settle the inflammation",
-          "Aspirate the joint and send fluid for culture to exclude septic arthritis",
           "Give hyaluronic acid to protect the cartilage",
+          "Aspirate the joint and send fluid for culture to exclude septic arthritis",
           "Proceed with a blind injection to avoid delay",
           "Arrange fluoroscopy to guide the needle"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Aspirate the joint and send fluid for culture to exclude septic arthritis",
         "explanation": "Corticosteroid must never be injected into a potentially infected joint. A hot swollen joint may be septic arthritis — aspirate and culture first. Injecting steroid into an infected joint is catastrophic."
       },
@@ -3763,11 +3798,11 @@
         "options": [
           "To reduce the cost of the procedure",
           "To avoid ionising radiation exposure",
-          "Because intratendinous corticosteroid risks tendon rupture (e.g. Achilles)",
           "Because tendons are anechoic and hard to see",
-          "To ensure the local anaesthetic works faster"
+          "To ensure the local anaesthetic works faster",
+          "Because intratendinous corticosteroid risks tendon rupture (e.g. Achilles)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Because intratendinous corticosteroid risks tendon rupture (e.g. Achilles)",
         "explanation": "Corticosteroid injected directly into a tendon weakens it and can precipitate rupture, classically the Achilles. US allows you to confirm the injectate spreads around the tendon/within the sheath rather than into the tendon substance."
       },
@@ -3793,11 +3828,11 @@
         "options": [
           "Femoral hernia",
           "Femoral artery aneurysm",
-          "Saphena varix",
           "Inguinal lymph node",
+          "Saphena varix",
           "Lipoma of the cord"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Saphena varix",
         "explanation": "A saphena varix is a dilatation of the great saphenous vein at the sapheno-femoral junction. It classically collapses on lying flat, refills on standing/Valsalva, and demonstrates venous flow on Doppler — the key features that separate it from a hernia."
       },
@@ -3806,15 +3841,30 @@
         "type": "mcq",
         "question": "A 70-year-old woman attends A&E with a tender, irreducible lump below and lateral to the pubic tubercle. Ultrasound shows a sac with a thickened bowel wall, no Doppler flow within that wall, surrounding free fluid, and dilated proximal bowel loops. What is the most appropriate action?",
         "options": [
+          "Urgent surgical referral for suspected strangulation",
           "Reassure and arrange routine outpatient hernia repair",
           "Attempt firm manual reduction in the department",
-          "Urgent surgical referral for suspected strangulation",
           "Discharge with analgesia and safety-netting advice",
           "Arrange an outpatient CT and review in two weeks"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Urgent surgical referral for suspected strangulation",
         "explanation": "An irreducible, tender femoral hernia with absent Doppler flow in the bowel wall, free fluid, and obstructive features indicates strangulation with ischaemic bowel — a surgical emergency. Reduction should not be forced; urgent surgical referral is required. Femoral hernias strangulate more readily due to their narrow neck."
+      },
+      {
+        "id": "us_msk_q_septic",
+        "type": "mcq",
+        "question": "A patient has a hot, swollen, painful knee with a joint effusion on ultrasound. The fluid looks anechoic. What is the priority?",
+        "options": [
+          "Reassure &mdash; anechoic fluid excludes infection",
+          "Ultrasound-guided steroid injection",
+          "Urgent joint aspiration for Gram stain, culture and crystals",
+          "Oral anti-inflammatories and review in 2 weeks",
+          "MRI of the knee first"
+        ],
+        "correctIndex": 2,
+        "answer": "Urgent joint aspiration for Gram stain, culture and crystals",
+        "explanation": "Anechoic fluid does NOT exclude septic arthritis. A hot joint needs urgent aspiration (cell count, Gram stain, culture, crystals) before antibiotics, plus orthopaedic involvement. Never inject steroid into a possibly septic joint."
       }
     ],
     "investigations__ULTRASOUND__Point-of-Care (POCUS)": [
@@ -3824,12 +3874,12 @@
         "question": "A 24-year-old man is brought in after a stabbing to the abdomen. He is tachycardic 130, BP 82/50, and not responding to fluids. FAST shows free fluid in Morison's pouch. What is the most appropriate next step?",
         "options": [
           "Urgent CT abdomen/pelvis with contrast to grade the injury",
-          "Immediate laparotomy",
           "Repeat FAST in 30 minutes",
+          "Immediate laparotomy",
           "Diagnostic peritoneal lavage",
           "Admit for serial observation and repeat bloods"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Immediate laparotomy",
         "explanation": "A positive FAST in a haemodynamically unstable trauma patient indicates life-threatening haemorrhage and mandates immediate laparotomy. CT would dangerously delay definitive haemorrhage control; the patient is too unstable to leave the resuscitation area."
       },
@@ -3840,11 +3890,11 @@
         "options": [
           "Splenorenal recess",
           "Pouch of Douglas",
-          "Morison's pouch (hepatorenal recess)",
           "Subxiphoid pericardial space",
-          "Rectovesical pouch"
+          "Rectovesical pouch",
+          "Morison's pouch (hepatorenal recess)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Morison's pouch (hepatorenal recess)",
         "explanation": "In the supine position, the hepatorenal recess (Morison's pouch) is the most dependent intraperitoneal space, so free fluid accumulates there first, making the RUQ view the most sensitive of the FAST windows."
       },
@@ -3854,12 +3904,12 @@
         "question": "A stable trauma patient has a completely negative FAST scan. Which statement is correct regarding interpretation?",
         "options": [
           "A negative FAST reliably excludes all significant intra-abdominal injury",
-          "A negative FAST can be used to grade the severity of a splenic laceration",
           "A negative FAST does not exclude retroperitoneal, hollow viscus, or small-volume bleeding",
+          "A negative FAST can be used to grade the severity of a splenic laceration",
           "A negative FAST means CT is never indicated",
           "A negative FAST excludes pericardial tamponade with certainty"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "A negative FAST does not exclude retroperitoneal, hollow viscus, or small-volume bleeding",
         "explanation": "FAST is insensitive to retroperitoneal bleeds, hollow viscus (bowel) injury, small-volume free fluid, and solid-organ injury without free fluid. If clinical suspicion persists despite a negative scan, CT or serial scanning/observation is required. FAST does not grade injury — that is CT's role."
       },
@@ -3883,13 +3933,13 @@
         "type": "mcq",
         "question": "A 72-year-old woman presents with acute breathlessness and orthopnoea. Bedside lung ultrasound shows numerous vertical hyperechoic lines arising from the pleura, extending to the bottom of the screen, moving with lung sliding, and present bilaterally in multiple fields. What do these findings most likely represent?",
         "options": [
-          "Pneumothorax",
           "Cardiogenic pulmonary oedema",
+          "Pneumothorax",
           "Normal aerated lung",
           "Pleural effusion",
           "Lobar pneumonia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Cardiogenic pulmonary oedema",
         "explanation": "These are B-lines. Bilateral, diffuse B-lines (≥3 per field) indicate interstitial syndrome / \"wet lung\", most commonly cardiogenic pulmonary oedema (or ARDS). Pneumothorax abolishes B-lines; normal lung shows A-lines; effusion is an anechoic collection; pneumonia typically gives focal consolidation with hepatisation rather than diffuse bilateral B-lines."
       },
@@ -3914,12 +3964,12 @@
         "question": "A 68-year-old man presents with hypotension, muffled heart sounds and raised JVP. Subcostal POCUS shows a dilated IVC that does not collapse with respiration, plus a large pericardial effusion. What is the most appropriate immediate action?",
         "options": [
           "Give a rapid 2-litre crystalloid bolus to correct the hypotension",
-          "Recognise likely cardiac tamponade and arrange urgent pericardiocentesis",
           "Start a noradrenaline infusion and observe",
           "Commence systemic thrombolysis for presumed massive PE",
-          "Insert a chest drain for tension pneumothorax"
+          "Insert a chest drain for tension pneumothorax",
+          "Recognise likely cardiac tamponade and arrange urgent pericardiocentesis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Recognise likely cardiac tamponade and arrange urgent pericardiocentesis",
         "explanation": "A dilated, non-collapsing (plethoric) IVC with hypotension and a pericardial effusion is the classic POCUS picture of cardiac tamponade. The obstructed venous return means large fluid boluses will not fix the problem and may harm; definitive treatment is relieving the effusion. Thrombolysis and chest drain address different diagnoses not supported here (no RV strain or absent lung sliding described)."
       },
@@ -3929,12 +3979,12 @@
         "question": "In a spontaneously breathing patient, which set of IVC findings best predicts that the patient is likely to be fluid-responsive?",
         "options": [
           "IVC 2.5 cm, collapses 10% with inspiration",
-          "IVC 2.2 cm, plethoric, no respiratory variation",
           "IVC 1.0 cm, collapses more than 50% with inspiration",
+          "IVC 2.2 cm, plethoric, no respiratory variation",
           "IVC 3.0 cm, distends with inspiration",
           "IVC 2.0 cm, collapses 20% with inspiration"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "IVC 1.0 cm, collapses more than 50% with inspiration",
         "explanation": "A small IVC (<1–1.5 cm) that collapses more than 50% during spontaneous inspiration indicates low right atrial pressure and hypovolaemia, correlating with a higher likelihood of fluid responsiveness. Large, plethoric, poorly-collapsing IVCs indicate high RAP/venous congestion and warn against further fluid."
       },
@@ -3945,11 +3995,11 @@
         "options": [
           "It reliably measures right atrial pressure in all mechanically ventilated patients",
           "A dilated IVC in a young athlete always indicates fluid overload",
-          "Respiratory collapsibility interpretation is confounded by high-pressure mechanical ventilation and raised intra-abdominal pressure",
           "The IVC diameter alone is sufficient to decide fluid therapy without other assessment",
+          "Respiratory collapsibility interpretation is confounded by high-pressure mechanical ventilation and raised intra-abdominal pressure",
           "IVC assessment replaces cardiac and lung POCUS in the RUSH protocol"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Respiratory collapsibility interpretation is confounded by high-pressure mechanical ventilation and raised intra-abdominal pressure",
         "explanation": "IVC respiratory variation is confounded by high-pressure mechanical ventilation, raised intra-abdominal pressure, isolated RV failure and athletic physiology (athletes may have benignly dilated IVCs). It is a trend and adjunct, integrated with cardiac and lung POCUS within RUSH/FoCUS — never a standalone number to treat in isolation."
       },
@@ -3958,13 +4008,13 @@
         "type": "mcq",
         "question": "A 78-year-old man on the ward has passed no urine for 8 hours and is becoming confused. Before catheterising, a nurse performs a bladder scan showing an estimated volume of 30 mL. What is the most appropriate interpretation?",
         "options": [
-          "He is in acute urinary retention and needs immediate catheterisation",
           "The bladder is essentially empty, so this is not retention — investigate a pre-renal or renal cause of oliguria/anuria",
+          "He is in acute urinary retention and needs immediate catheterisation",
           "The scan is unreliable and should be ignored in favour of immediate catheterisation",
           "He has high-pressure chronic retention requiring urgent urology referral",
           "The reading confirms normal bladder emptying and no further action is needed"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "The bladder is essentially empty, so this is not retention — investigate a pre-renal or renal cause of oliguria/anuria",
         "explanation": "An empty bladder in an anuric patient excludes retention. A catheter would add infection risk with no benefit; the problem lies with the kidneys or circulation, so assess volume status, perfusion and renal function instead."
       },
@@ -3973,13 +4023,13 @@
         "type": "mcq",
         "question": "Which post-void residual volume is within the normal range for complete bladder emptying?",
         "options": [
-          "30 mL",
           "150 mL",
           "300 mL",
+          "30 mL",
           "500 mL",
           "700 mL"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "30 mL",
         "explanation": "A normal PVR is <50 mL. Up to ~100 mL may be acceptable in the elderly, but persistently raised residuals indicate incomplete emptying from outlet obstruction, neurogenic bladder or medications."
       },
@@ -3989,12 +4039,12 @@
         "question": "A bladder scanner reports 900 mL in a woman who has just fully voided and has no suprapubic discomfort. Real-time ultrasound shows a large adjacent cystic structure. What is the most likely explanation?",
         "options": [
           "Genuine acute urinary retention despite recent voiding",
-          "The scanner has over-read because a large ovarian cyst was included in the measured field",
           "Post-obstructive diuresis",
           "A calibration fault making all readings invalid",
-          "Bilateral hydronephrosis being counted as bladder"
+          "Bilateral hydronephrosis being counted as bladder",
+          "The scanner has over-read because a large ovarian cyst was included in the measured field"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "The scanner has over-read because a large ovarian cyst was included in the measured field",
         "explanation": "Automated scanners can over-read when another fluid-filled structure — an ovarian cyst, ascites or a gravid uterus — lies in the field. An implausible volume should be confirmed with real-time imaging before acting."
       },
@@ -4020,11 +4070,11 @@
         "options": [
           "Blind landmark technique",
           "Fluoroscopic guidance",
-          "2D ultrasound guidance",
           "Palpation of the carotid pulse alone",
+          "2D ultrasound guidance",
           "CT-guided insertion"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "2D ultrasound guidance",
         "explanation": "NICE recommends 2D ultrasound as the first-line, preferred method for CVC insertion, particularly the internal jugular route, because it improves first-pass success and reduces complications such as arterial puncture and pneumothorax."
       },
@@ -4033,13 +4083,13 @@
         "type": "mcq",
         "question": "A large-bore catheter is discovered to have been placed in the carotid artery rather than the internal jugular vein. What is the correct management?",
         "options": [
+          "Leave the catheter in situ and seek urgent vascular/surgical advice",
           "Immediately remove the catheter and apply firm compression for 10 minutes",
           "Remove the catheter and observe for haematoma",
-          "Leave the catheter in situ and seek urgent vascular/surgical advice",
           "Flush the catheter and re-site on the opposite side",
           "Withdraw the catheter halfway and secure it"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Leave the catheter in situ and seek urgent vascular/surgical advice",
         "explanation": "Pulling out a large-bore arterial catheter and compressing risks catastrophic haemorrhage, stroke and airway compromise. It should be left in place while urgent vascular/surgical help is arranged. Confirming venous placement of the guidewire before dilating prevents this."
       },
@@ -4049,12 +4099,12 @@
         "question": "In the short-axis (out-of-plane) approach to ultrasound-guided cannulation, how does the needle typically appear?",
         "options": [
           "As the full length of the shaft within one plane",
-          "As a bright dot representing the needle tip crossing the beam",
           "As a continuous anechoic line",
+          "As a bright dot representing the needle tip crossing the beam",
           "It is not visible at all",
           "As a pulsatile echogenic structure"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "As a bright dot representing the needle tip crossing the beam",
         "explanation": "In short-axis the vessel is seen as a circle and the needle crosses the scan plane, so only a bright dot (the point where the needle intersects the beam) is seen. The operator must fan/track to ensure this dot is the true tip. Long-axis shows the whole shaft."
       },
@@ -4064,12 +4114,12 @@
         "question": "Which complication is specifically reduced by using ultrasound guidance for internal jugular and subclavian central line insertion compared with the landmark technique?",
         "options": [
           "Catheter-related bloodstream infection",
-          "Pneumothorax",
           "Air embolism",
           "Catheter fracture",
-          "Contrast nephropathy"
+          "Contrast nephropathy",
+          "Pneumothorax"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Pneumothorax",
         "explanation": "Real-time ultrasound reduces inadvertent arterial puncture, haematoma and — for IJ/subclavian access — pneumothorax, by allowing the operator to avoid the pleura and confirm the needle path. A post-procedure CXR or lung ultrasound still checks tip position and excludes pneumothorax."
       },
@@ -4094,12 +4144,12 @@
         "question": "During US-guided insertion of a pigtail chest drain using the Seldinger technique, what is the correct order of steps after skin puncture?",
         "options": [
           "Dilator → needle → guidewire → catheter",
-          "Needle → guidewire → dilator → pigtail catheter",
           "Catheter → guidewire → dilator → needle",
           "Guidewire → needle → catheter → dilator",
+          "Needle → guidewire → dilator → pigtail catheter",
           "Needle → dilator → catheter → guidewire"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Needle → guidewire → dilator → pigtail catheter",
         "explanation": "In the Seldinger technique the collection is punctured with a needle, a guidewire is passed through it, the needle is removed, a dilator widens the track over the wire, and finally the pigtail catheter is railroaded over the wire before the wire is removed."
       },
@@ -4108,13 +4158,13 @@
         "type": "mcq",
         "question": "According to the British Thoracic Society, what is the main advantage of using ultrasound guidance for pleural procedures such as thoracocentesis?",
         "options": [
+          "It markedly reduces the risk of organ puncture and related complications",
           "It speeds up the procedure so no consent is needed",
           "It removes the need for aseptic technique",
-          "It markedly reduces the risk of organ puncture and related complications",
           "It allows the procedure to be done without checking coagulation",
           "It guarantees the fluid is always malignant"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "It markedly reduces the risk of organ puncture and related complications",
         "explanation": "BTS recommends US guidance for pleural procedures because it identifies a safe window and depth, markedly reducing the risk of puncturing the liver, spleen or lung and lowering complications such as bleeding and pneumothorax. Consent, asepsis and coagulation checks are still required."
       }
@@ -4141,12 +4191,12 @@
         "question": "Which of the following is the single strongest indication for routine screening cranial ultrasound?",
         "options": [
           "Term infant with mild jaundice",
-          "Preterm infant born at 28 weeks / 1200 g",
           "Term infant with a single febrile episode",
           "Infant aged 2 years with headache",
-          "Adolescent following minor head injury"
+          "Adolescent following minor head injury",
+          "Preterm infant born at 28 weeks / 1200 g"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Preterm infant born at 28 weeks / 1200 g",
         "explanation": "Routine cranial US screening targets preterm infants, especially those <32 weeks or <1500 g, for GMH-IVH and PVL. In older children and adults the fontanelle has closed, so US via that window is not possible."
       },
@@ -4156,12 +4206,12 @@
         "question": "A cranial ultrasound is normal but the neonatal team remains concerned about a possible cerebellar (posterior fossa) injury and wants prognostic information after hypoxic-ischaemic encephalopathy. What is the most appropriate next imaging step?",
         "options": [
           "Repeat cranial ultrasound in 24 hours",
-          "CT head with contrast",
           "MRI brain",
+          "CT head with contrast",
           "Skull radiograph",
           "No further imaging is indicated"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "MRI brain",
         "explanation": "Cranial US is poor for the posterior fossa and subtle/cortical lesions and gives limited prognostic detail in HIE. MRI is superior for anatomical detail, posterior fossa imaging and HIE prognostication, making it the correct next step."
       },
@@ -4171,12 +4221,12 @@
         "question": "A 3-week-old girl born breech at 38 weeks is referred for hip imaging after a suspicious NIPE. Why is ultrasound preferred over plain radiography at this age?",
         "options": [
           "The ossific nucleus produces excessive scatter on X-ray",
-          "The femoral head is largely cartilaginous and invisible on radiograph",
           "Ultrasound is the only way to measure leg-length discrepancy",
           "Radiographs cannot be performed in infants under 6 months",
+          "The femoral head is largely cartilaginous and invisible on radiograph",
           "The acetabulum is fully ossified and better seen on ultrasound"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "The femoral head is largely cartilaginous and invisible on radiograph",
         "explanation": "In young infants the femoral head has no ossific nucleus and is cartilaginous, so it does not show on X-ray. Ultrasound images cartilage directly and permits dynamic assessment. Around 4-6 months the ossific nucleus appears and radiographs then become the modality of choice."
       },
@@ -4201,12 +4251,12 @@
         "question": "A 6-week-old with ultrasound-confirmed DDH and a stable but shallow acetabulum is reviewed. What is the most appropriate first-line management?",
         "options": [
           "Immediate open reduction and spica cast",
-          "Pavlik harness holding the hips flexed and abducted",
           "Reassurance and repeat NIPE at 1 year",
+          "Pavlik harness holding the hips flexed and abducted",
           "Broomstick plaster in extension and adduction",
           "Total hip replacement referral"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Pavlik harness holding the hips flexed and abducted",
         "explanation": "First-line treatment of DDH in a young infant is a Pavlik harness, which holds the hips flexed and abducted so the head sits deep in the socket and the acetabulum develops. Reduction and spica are reserved for failed harness treatment or later presentation. Extension/adduction would worsen dislocation."
       },
@@ -4215,13 +4265,13 @@
         "type": "mcq",
         "question": "A 5-week-old first-born boy has a 1-week history of non-bilious projectile vomiting and remains hungry after each vomit. He is losing weight. Which single investigation is most appropriate to confirm the diagnosis?",
         "options": [
-          "Abdominal ultrasound of the pylorus",
           "Upper GI contrast series",
           "Plain abdominal radiograph",
           "Serum urea and electrolytes alone",
-          "Upper GI endoscopy"
+          "Upper GI endoscopy",
+          "Abdominal ultrasound of the pylorus"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Abdominal ultrasound of the pylorus",
         "explanation": "Ultrasound is the non-invasive investigation of choice for IHPS, directly measuring pyloric wall thickness (≥3 mm) and channel length (≥15–17 mm) without radiation or contrast. Bloods are essential for management but do not confirm the anatomical diagnosis; contrast studies and endoscopy are not first-line."
       },
@@ -4230,13 +4280,13 @@
         "type": "mcq",
         "question": "An infant with suspected pyloric stenosis has an arterial blood gas and electrolytes taken. Which pattern is most consistent with the diagnosis?",
         "options": [
-          "Hypochloraemic hypokalaemic metabolic alkalosis",
           "Hyperchloraemic metabolic acidosis",
+          "Hypochloraemic hypokalaemic metabolic alkalosis",
           "High anion gap metabolic acidosis",
           "Respiratory alkalosis with hypernatraemia",
           "Hyperkalaemic metabolic acidosis"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Hypochloraemic hypokalaemic metabolic alkalosis",
         "explanation": "Persistent vomiting of gastric HCl produces loss of hydrogen and chloride, giving a hypochloraemic metabolic alkalosis; renal handling then drives potassium loss, producing the classic hypochloraemic hypokalaemic metabolic alkalosis."
       },
@@ -4245,13 +4295,13 @@
         "type": "mcq",
         "question": "A 6-week-old with ultrasound-confirmed IHPS is lethargic and clinically dehydrated, with a chloride of 88 mmol/L and potassium of 2.9 mmol/L. What is the most appropriate immediate management step?",
         "options": [
-          "IV fluid resuscitation with potassium and chloride replacement",
           "Immediate Ramstedt pyloromyotomy",
           "Oral rehydration and discharge with review",
           "Start regular thickened feeds",
+          "IV fluid resuscitation with potassium and chloride replacement",
           "Urgent upper GI endoscopy"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "IV fluid resuscitation with potassium and chloride replacement",
         "explanation": "IHPS is a medical emergency first, not a surgical one. The fluid, electrolyte and acid-base derangement must be corrected before theatre, because hypokalaemia and alkalosis raise the risk of post-operative apnoea. Ramstedt pyloromyotomy is definitive but only once the infant is fully resuscitated."
       },
@@ -4260,13 +4310,13 @@
         "type": "mcq",
         "question": "A 7-month-old infant presents with episodes of inconsolable crying during which he draws up his legs, settling in between, with two episodes of vomiting. Which imaging test should be performed first?",
         "options": [
-          "Abdominal X-ray",
           "Ultrasound of the abdomen",
+          "Abdominal X-ray",
           "CT abdomen with contrast",
           "Immediate contrast enema",
           "MRI abdomen"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Ultrasound of the abdomen",
         "explanation": "Ultrasound is the first-line and diagnostic imaging test for suspected intussusception — it is quick, radiation-free and highly sensitive, showing the target/doughnut and pseudokidney signs. Enema is reserved for treatment once diagnosis and stability are confirmed."
       },
@@ -4276,12 +4326,12 @@
         "question": "An ultrasound in a 9-month-old shows concentric rings of bowel-within-bowel on the transverse view. The child is haemodynamically stable with a soft, non-peritonitic abdomen and no free air. What is the most appropriate next step?",
         "options": [
           "Immediate laparotomy",
-          "Air (pneumatic) enema reduction under radiological guidance",
           "Observe and rescan in 24 hours",
+          "Air (pneumatic) enema reduction under radiological guidance",
           "Broad-spectrum antibiotics alone",
           "Discharge with safety-netting advice"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Air (pneumatic) enema reduction under radiological guidance",
         "explanation": "In a stable child without perforation or peritonitis, air enema reduction is the first-line therapeutic option and is both diagnostic and therapeutic. Surgery is reserved for failed enema, perforation, peritonitis, shock, or a lead point."
       },
@@ -4292,11 +4342,11 @@
         "options": [
           "Air enema reduction",
           "Contrast enema reduction",
-          "Urgent resuscitation and surgical referral",
           "Repeat ultrasound in 6 hours",
-          "Oral rehydration and reassess"
+          "Oral rehydration and reassess",
+          "Urgent resuscitation and surgical referral"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Urgent resuscitation and surgical referral",
         "explanation": "Peritonitis, perforation (free air) and shock are absolute contraindications to enema reduction. This child needs immediate resuscitation and urgent surgery — attempting an enema would be dangerous."
       }
