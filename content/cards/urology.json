@@ -2301,6 +2301,21 @@
         "id": "uro_psma_fc_05",
         "front": "How does PSMA PET-CT compare with conventional staging in high-risk prostate cancer?",
         "back": "It is significantly more accurate than combined conventional CT plus bone scintigraphy for detecting nodal and distant metastases, and changed management in many patients."
+      },
+      {
+        "id": "uro_ci_testis_fc_01",
+        "front": "A scrotal ultrasound shows a solid intratesticular mass. What are the next steps, and what must you NOT do?",
+        "back": "Treat it as testicular cancer: send <b>tumour markers (AFP, &beta;hCG, LDH)</b>, stage with a <b>CT chest/abdomen/pelvis</b>, and perform a <b>radical INGUINAL orchidectomy</b> (which is both diagnostic and therapeutic). <b>NEVER</b> perform a <b>trans-scrotal biopsy or aspiration</b> &mdash; it risks tumour seeding and disrupts the lymphatic drainage."
+      },
+      {
+        "id": "uro_ci_nmibc_fc_01",
+        "front": "How does the depth of invasion on TURBT change bladder-cancer management?",
+        "back": "A specimen must contain <b>detrusor muscle</b> to stage adequately. <b>NMIBC</b> (Ta/T1/CIS, above the muscle) &rarr; intravesical therapy + surveillance cystoscopy: <b>mitomycin</b> for low/intermediate-risk, <b>BCG</b> for <b>high-risk</b> (high-grade T1, CIS). <b>MIBC</b> (&ge;T2, into detrusor) &rarr; <b>radical cystectomy or chemoradiotherapy</b>."
+      },
+      {
+        "id": "uro_ci_uttcc_fc_01",
+        "front": "A CT urogram shows an enhancing filling defect in the renal pelvis. What is it and how is it treated?",
+        "back": "An <b>upper-tract urothelial carcinoma (TCC)</b> &mdash; it <b>enhances</b> (unlike a non-enhancing clot) and is soft-tissue density (unlike a dense stone). Confirm with <b>ureteroscopy and biopsy</b>; the definitive treatment is a <b>radical nephroureterectomy with a bladder cuff</b> (kidney-sparing options for low-grade/solitary-kidney cases)."
       }
     ]
   },
@@ -7897,12 +7912,12 @@
         "question": "What is the single most important reason detrusor (muscularis propria) must be included in a TURBT specimen?",
         "options": [
           "To confirm the tumour is urothelial in origin",
-          "To distinguish non-muscle-invasive from muscle-invasive disease",
           "To assess for concurrent bladder stones",
+          "To distinguish non-muscle-invasive from muscle-invasive disease",
           "To measure the tumour's diameter accurately",
           "To exclude a prostatic cause of haematuria"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "To distinguish non-muscle-invasive from muscle-invasive disease",
         "explanation": "The presence of detrusor allows the pathologist to determine whether tumour has invaded the muscularis propria. This single distinction separates NMIBC (Ta/T1/CIS) from MIBC (T2), which drives the entire treatment pathway."
       },
@@ -7913,11 +7928,11 @@
         "options": [
           "Single dose of intravesical mitomycin C alone",
           "Cystoscopic surveillance every 3 months",
-          "Radical cystectomy or radical chemoradiotherapy",
           "Intravesical BCG induction course",
-          "Reassurance and discharge"
+          "Reassurance and discharge",
+          "Radical cystectomy or radical chemoradiotherapy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Radical cystectomy or radical chemoradiotherapy",
         "explanation": "T2 disease is muscle-invasive bladder cancer requiring radical treatment. The standard options are radical cystectomy or radical (chemo)radiotherapy for bladder preservation."
       },
@@ -7926,13 +7941,13 @@
         "type": "mcq",
         "question": "Following TURBT for a suspected non-muscle-invasive tumour with no perforation and minimal bleeding, which immediate post-operative measure reduces recurrence?",
         "options": [
-          "A single intravesical dose of mitomycin C within 24 hours",
           "A 6-week course of intravenous cisplatin",
+          "A single intravesical dose of mitomycin C within 24 hours",
           "Immediate radiotherapy to the bladder",
           "Long-term oral antibiotics",
           "Bilateral ureteric stenting"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "A single intravesical dose of mitomycin C within 24 hours",
         "explanation": "A single immediate intravesical dose of mitomycin C after resection significantly lowers recurrence in NMIBC. It is given within 24 hours provided there is no suspected perforation or heavy haematuria."
       },
@@ -7941,13 +7956,13 @@
         "type": "mcq",
         "question": "A 40-year-old man has acute right loin-to-groin pain. Plain KUB X-ray is normal but colic persists. Which investigation is most appropriate and why?",
         "options": [
-          "Non-contrast CT KUB, because it detects radiolucent stones missed on X-ray",
           "Contrast-enhanced CT, to assess split renal function",
           "Repeat plain KUB X-ray in 24 hours",
           "Abdominal MRI, as first-line for all renal stones",
+          "Non-contrast CT KUB, because it detects radiolucent stones missed on X-ray",
           "Retrograde pyelography under general anaesthetic"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Non-contrast CT KUB, because it detects radiolucent stones missed on X-ray",
         "explanation": "A normal plain film with persistent colic strongly suggests a radiolucent uric-acid stone. Non-contrast CT KUB is the first-line gold standard and visualises these stones that X-ray cannot. Contrast is unnecessary and would add nephrotoxicity risk."
       },
@@ -7971,13 +7986,13 @@
         "type": "mcq",
         "question": "A CT KUB shows a 9 mm obstructing ureteric stone with hydronephrosis. The patient has a fever of 39°C, rigors and raised CRP. What is the priority?",
         "options": [
-          "Urgent decompression with nephrostomy or stent plus IV antibiotics",
           "Discharge with oral tamsulosin and outpatient review",
           "Elective extracorporeal shock wave lithotripsy next week",
+          "Urgent decompression with nephrostomy or stent plus IV antibiotics",
           "Oral antibiotics alone and repeat scan in one month",
           "Increase oral fluids and reassess in 24 hours"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Urgent decompression with nephrostomy or stent plus IV antibiotics",
         "explanation": "An obstructed, infected system is a urological emergency that can progress to pyonephrosis and sepsis. It requires urgent decompression by nephrostomy or ureteric stent alongside IV antibiotics. Definitive stone treatment follows once the infection is controlled."
       },
@@ -7988,11 +8003,11 @@
         "options": [
           "CT urogram alone",
           "Flexible cystoscopy alone",
-          "CT urogram plus flexible cystoscopy",
           "Renal ultrasound plus urine culture",
-          "Plain abdominal radiograph plus urine cytology"
+          "Plain abdominal radiograph plus urine cytology",
+          "CT urogram plus flexible cystoscopy"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "CT urogram plus flexible cystoscopy",
         "explanation": "Urothelial carcinoma can arise anywhere from calyx to urethra, so both the upper and lower tract must be examined. CT urogram evaluates the kidneys, collecting systems and ureters, while flexible cystoscopy directly inspects the bladder, which CTU under-detects."
       },
@@ -8017,12 +8032,12 @@
         "question": "Before performing a CT urogram with intravenous iodinated contrast, which patient factor most needs to be checked to reduce the risk of harm?",
         "options": [
           "Serum potassium",
-          "Renal function (eGFR)",
           "Random blood glucose",
           "Prostate-specific antigen",
+          "Renal function (eGFR)",
           "Resting heart rate"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Renal function (eGFR)",
         "explanation": "Iodinated contrast carries a risk of contrast-induced nephropathy, which is greatest in impaired renal function. Checking eGFR (alongside allergy history and hydration) guides whether contrast is safe or an alternative such as MR urography is needed."
       },
@@ -8031,13 +8046,13 @@
         "type": "mcq",
         "question": "A 63-year-old man with a raised PSA has a prostate mpMRI reported as PI-RADS 2. What is the most appropriate next step according to the mpMRI-first (NICE) pathway?",
         "options": [
-          "Proceed directly to radical prostatectomy",
           "Discuss avoiding biopsy with PSA surveillance",
+          "Proceed directly to radical prostatectomy",
           "Perform systematic 12-core TRUS biopsy immediately",
           "Start androgen deprivation therapy",
           "Arrange a bone scan for staging"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Discuss avoiding biopsy with PSA surveillance",
         "explanation": "A PI-RADS 1-2 scan indicates clinically significant cancer is unlikely, so biopsy may be safely avoided after a shared decision. The man continues PSA monitoring, sparing him the risks of biopsy."
       },
@@ -8047,12 +8062,12 @@
         "question": "Which mpMRI sequence is the dominant sequence for detecting a clinically significant cancer in the peripheral zone of the prostate?",
         "options": [
           "T1-weighted imaging",
-          "Diffusion-weighted imaging with ADC",
           "Dynamic contrast-enhanced imaging",
+          "Diffusion-weighted imaging with ADC",
           "Gradient-echo fat suppression",
           "T2-weighted imaging"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Diffusion-weighted imaging with ADC",
         "explanation": "In the peripheral zone, DWI/ADC is the dominant sequence because cancer restricts water diffusion, giving high DWI signal and low ADC. T2 dominates instead in the transition zone."
       },
@@ -8064,10 +8079,10 @@
           "T1c",
           "T2a",
           "T3a (extracapsular extension)",
-          "T3b (seminal vesicle invasion)",
-          "T4"
+          "T4",
+          "T3b (seminal vesicle invasion)"
         ],
-        "correctIndex": 3,
+        "correctIndex": 4,
         "answer": "T3b (seminal vesicle invasion)",
         "explanation": "Tumour signal within the seminal vesicles defines seminal vesicle invasion, which is stage T3b. This finding alters surgical planning and prognosis."
       },
@@ -8077,12 +8092,12 @@
         "question": "A prostate biopsy report reads Gleason 4+3=7. Which ISUP Grade Group does this correspond to?",
         "options": [
           "Grade Group 1",
-          "Grade Group 2",
           "Grade Group 3",
+          "Grade Group 2",
           "Grade Group 4",
           "Grade Group 5"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Grade Group 3",
         "explanation": "Gleason 4+3=7 has the poorly-differentiated pattern 4 as the dominant pattern, defining it as unfavourable intermediate-risk disease. This maps to ISUP Grade Group 3, distinct from the more favourable 3+4=7 which is Grade Group 2."
       },
@@ -8091,13 +8106,13 @@
         "type": "mcq",
         "question": "Four hours after a transrectal ultrasound-guided prostate biopsy, a man develops fever and rigors. What is the most important complication to consider?",
         "options": [
-          "Urosepsis",
           "Haematospermia",
           "Vasovagal syncope",
           "Chronic pelvic pain",
+          "Urosepsis",
           "Erectile dysfunction"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Urosepsis",
         "explanation": "Fever and rigors after a transrectal biopsy signal infection introduced across the rectal mucosa, the procedure's most serious risk. This requires urgent assessment and antibiotics for urosepsis."
       },
@@ -8121,13 +8136,13 @@
         "type": "mcq",
         "question": "A 16-year-old presents with 3 hours of sudden severe left testicular pain, nausea, and a high-riding tender testis with absent cremasteric reflex. What is the most appropriate management?",
         "options": [
-          "Immediate surgical exploration without waiting for ultrasound",
           "Urgent scrotal Doppler ultrasound before any decision",
           "Oral antibiotics and outpatient review",
+          "Immediate surgical exploration without waiting for ultrasound",
           "Analgesia and reassurance",
           "MRI of the scrotum"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Immediate surgical exploration without waiting for ultrasound",
         "explanation": "The clinical picture is classic testicular torsion, which is a clinical diagnosis requiring emergency exploration within the ischaemic window of about 6 hours. Waiting for imaging risks testicular loss, so surgery takes priority."
       },
@@ -8136,13 +8151,13 @@
         "type": "mcq",
         "question": "A scrotal ultrasound shows a discrete solid hypoechoic lesion arising within the body of the testis, with internal vascularity. What is the correct interpretation?",
         "options": [
-          "Testicular tumour until proven otherwise",
           "Simple epididymal cyst",
           "Hydrocele",
           "Varicocele",
-          "Normal testicular tissue"
+          "Normal testicular tissue",
+          "Testicular tumour until proven otherwise"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Testicular tumour until proven otherwise",
         "explanation": "Any solid intratesticular lesion is treated as malignant until histology proves otherwise. This mandates urgent referral, serum tumour markers and staging, since ultrasound cannot reliably exclude cancer."
       },
@@ -8151,13 +8166,13 @@
         "type": "mcq",
         "question": "A 28-year-old man has a tender, swollen left hemiscrotum with dysuria over several days. Doppler ultrasound shows an enlarged epididymis with markedly increased blood flow and preserved testicular perfusion. What is the most likely diagnosis?",
         "options": [
-          "Epididymo-orchitis",
           "Testicular torsion",
+          "Epididymo-orchitis",
           "Testicular seminoma",
           "Hydrocele",
           "Inguinal hernia"
         ],
-        "correctIndex": 0,
+        "correctIndex": 1,
         "answer": "Epididymo-orchitis",
         "explanation": "Hyperaemia with an enlarged tender epididymis and preserved testicular flow is the hallmark of epididymo-orchitis. Increased rather than absent flow distinguishes it from torsion."
       },
@@ -8167,12 +8182,12 @@
         "question": "A 64-year-old man with newly diagnosed Gleason 9 prostate cancer and PSA 28 ng/mL undergoes PSMA PET-CT for staging. What is the principal biological basis for tumour visualisation on this scan?",
         "options": [
           "Increased glucose metabolism trapping fluorodeoxyglucose in tumour cells",
-          "A ligand binding prostate-specific membrane antigen overexpressed on cancer cell membranes",
           "Osteoblastic reaction incorporating a bone-seeking phosphonate tracer",
           "Passive leakage of iodinated contrast through leaky tumour vasculature",
+          "A ligand binding prostate-specific membrane antigen overexpressed on cancer cell membranes",
           "Antibody binding to prostate-specific antigen circulating in serum"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "A ligand binding prostate-specific membrane antigen overexpressed on cancer cell membranes",
         "explanation": "PSMA PET uses a small-molecule ligand that binds the extracellular domain of prostate-specific membrane antigen, which is massively overexpressed on prostate cancer cells. The ligand is internalised, concentrating the positron-emitter within tumour deposits."
       },
@@ -8181,13 +8196,13 @@
         "type": "mcq",
         "question": "A man with prior radical prostatectomy has a rising PSA of 0.4 ng/mL. CT and bone scan are normal. Why is PSMA PET-CT the preferred next investigation?",
         "options": [
-          "It reliably excludes micrometastatic disease when negative",
           "It detects recurrence sites at low PSA far better than conventional CT and bone scan",
+          "It reliably excludes micrometastatic disease when negative",
           "It avoids all radiation exposure to the patient",
           "It is cheaper and more widely available than a standard CT",
           "It quantifies serum PSA more accurately than a blood test"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "It detects recurrence sites at low PSA far better than conventional CT and bone scan",
         "explanation": "PSMA PET-CT localises recurrent disease at PSA levels well below the threshold at which CT or bone scintigraphy become positive. This lets clinicians target salvage therapy to the actual relapse site."
       },
@@ -8197,14 +8212,29 @@
         "question": "A staging PSMA PET-CT reports symmetrical mild tracer uptake in the retroperitoneum at the level of the coeliac axis, with no CT nodal enlargement. What is the most appropriate interpretation?",
         "options": [
           "Definite nodal metastatic disease requiring systemic therapy",
-          "Likely benign uptake in coeliac ganglia, a recognised node mimic",
           "Physiological bladder tracer excretion",
+          "Likely benign uptake in coeliac ganglia, a recognised node mimic",
           "Loss of PSMA expression from neuroendocrine dedifferentiation",
           "Contrast nephrotoxicity affecting the kidneys"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Likely benign uptake in coeliac ganglia, a recognised node mimic",
         "explanation": "Symmetrical uptake in the coeliac/sympathetic ganglia is a well-known benign PSMA pitfall that mimics retroperitoneal nodes. The absence of a corresponding enlarged node on CT supports a benign ganglionic source rather than metastasis."
+      },
+      {
+        "id": "uro_ci_q_testis",
+        "type": "mcq",
+        "question": "A young man has a painless solid intratesticular mass on ultrasound. What is the correct management?",
+        "options": [
+          "Trans-scrotal biopsy for histology",
+          "Trans-scrotal fine-needle aspiration",
+          "A trial of antibiotics",
+          "Reassurance and repeat scan in 6 months",
+          "Tumour markers, staging CT and radical inguinal orchidectomy"
+        ],
+        "correctIndex": 4,
+        "answer": "Tumour markers, staging CT and radical inguinal orchidectomy",
+        "explanation": "A solid intratesticular mass is testicular cancer until proven otherwise: send AFP/bHCG/LDH, stage with CT, and perform a radical INGUINAL orchidectomy. A trans-scrotal biopsy/aspiration is contraindicated because it seeds tumour and alters lymphatic drainage."
       }
     ]
   }
