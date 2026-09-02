@@ -1296,6 +1296,16 @@
         "id": "mri_breast_occult_fc_05",
         "front": "What safety checks are needed before gadolinium-enhanced breast MRI?",
         "back": "Check renal function (avoid high-risk gadolinium agents in severe renal impairment due to nephrogenic systemic fibrosis), screen for MRI-incompatible implants/devices, ask about pregnancy, and ideally scan in cycle days 7-14 to reduce background enhancement."
+      },
+      {
+        "id": "mri_breast_screening_fc_01",
+        "front": "Who gets breast MRI screening, and at what age/frequency?",
+        "back": "High-risk women get <b>annual MRI</b> alongside mammography: <b>BRCA1/2</b> carriers (and untested first-degree relatives), <b>TP53/Li-Fraumeni</b>, a strong family history/high lifetime risk, and <b>prior chest (mantle) radiotherapy</b> (e.g. Hodgkin&rsquo;s). Typically from <b>age 30&ndash;49</b> (from <b>20</b> for TP53). MRI is NOT used to screen average-risk women (low specificity &rarr; false positives)."
+      },
+      {
+        "id": "mri_breast_biopsy_fc_01",
+        "front": "A breast MRI shows a suspicious lesion. Can you act on the MRI alone?",
+        "back": "No &mdash; breast MRI is very <b>sensitive but not specific</b>, so a suspicious lesion needs <b>tissue confirmation</b>: a <b>second-look ultrasound</b> and <b>image-guided (US or MRI) core biopsy</b> before any change in surgical management. This avoids over-treatment from MRI false positives."
       }
     ],
     "investigations__MRI__Vascular (MRA / MRV)": [
@@ -1327,7 +1337,7 @@
       {
         "id": "mri_vasc_carotid_fc_01",
         "front": "Which carotid should be assessed for endarterectomy after an ischaemic stroke/TIA, and what grading criteria are used?",
-        "back": "The symptomatic side — the carotid ipsilateral to the ischaemic event. Stenosis is graded by NASCET criteria; ≥50–70% symptomatic stenosis benefits from endarterectomy."
+        "back": "The symptomatic side — the carotid ipsilateral to the ischaemic event. Stenosis is graded by NASCET criteria; ≥50% (50–99%; 70–99% = greatest benefit) symptomatic stenosis benefits from endarterectomy."
       },
       {
         "id": "mri_vasc_carotid_fc_02",
@@ -1423,6 +1433,11 @@
         "id": "mri_vasc_aorta_fc_05",
         "front": "For acute aortic dissection or a ruptured/suspected AAA, why is CT preferred over MRA?",
         "back": "CT angiography is faster and more readily available in the emergency setting. MRA can show the intimal flap (true vs false lumen) or size an aneurysm, but is too slow for acute, unstable presentations."
+      },
+      {
+        "id": "mri_vasc_aneurysm_fc_01",
+        "front": "How is an incidental unruptured intracranial aneurysm managed?",
+        "back": "By a <b>neurovascular MDT</b>, weighing <b>size and site</b>: <b>small (&lt;7 mm) anterior-circulation</b> aneurysms are often <b>surveilled</b> with interval imaging; <b>larger, posterior-circulation, symptomatic or growing</b> aneurysms are treated by <b>endovascular coiling or surgical clipping</b>. Modify risk factors (BP, smoking)."
       }
     ],
     "investigations__MRI__Pelvis": [
@@ -1575,6 +1590,16 @@
         "id": "mri_pelvis_ovarian_fc_05",
         "front": "What is the Risk of Malignancy Index (RMI) and what are its three components?",
         "back": "RMI is a clinical score used alongside imaging to triage referral of an ovarian mass. RMI = US features score × Menopausal status × serum CA-125. A raised RMI prompts referral to the gynae-oncology MDT."
+      },
+      {
+        "id": "mri_pelvis_goodsall_fc_01",
+        "front": "What is Goodsall&rsquo;s rule for a fistula-in-ano?",
+        "back": "It predicts the internal opening from the external opening: an external opening <b>anterior</b> to the transverse anal line usually tracks in a <b>straight radial line</b> to the internal opening; a <b>posterior</b> external opening usually tracks in a <b>curved</b> path to an internal opening at the <b>posterior midline</b> (6 o&rsquo;clock). MRI maps the tract and any abscess before surgery."
+      },
+      {
+        "id": "mri_pelvis_gynae_ca_fc_01",
+        "front": "How does MRI staging change the treatment of cervical vs endometrial cancer?",
+        "back": "<b>Cervical:</b> confined to the cervix (up to IB) &rarr; radical hysterectomy (or trachelectomy to preserve fertility); <b>parametrial invasion</b> (loss of the stromal ring) &rarr; chemoradiotherapy, NOT surgery. <b>Endometrial:</b> the primary treatment is <b>TAH + BSO</b>; MRI-assessed <b>deep (&gt;50%) myometrial invasion</b> or cervical involvement raises the stage and prompts lymphadenectomy &plusmn; adjuvant therapy."
       }
     ],
     "investigations__MRI__Whole Body / Functional": [
@@ -1702,6 +1727,11 @@
         "id": "mri_wbf_dti_fc_05",
         "front": "What are the main limitations of DTI?",
         "back": "It struggles with crossing fibres within a single voxel (the simple tensor model misrepresents them), it is an indirect model-based reconstruction (tracts are inferences, not direct images of axons), and it is specialised and research-heavy — requiring dedicated acquisition and post-processing rather than being a routine sequence."
+      },
+      {
+        "id": "mri_wb_myeloma_fc_01",
+        "front": "Why has whole-body MRI replaced the skeletal survey for myeloma?",
+        "back": "Myeloma lesions are <b>lytic/osteoclastic</b>, so a plain X-ray needs ~30&ndash;50% trabecular bone loss before a lesion shows &mdash; a <b>normal skeletal survey does not exclude myeloma</b>, and a bone scan is falsely negative (no osteoblastic uptake). WB-MRI (NICE) detects <b>focal marrow lesions and diffuse infiltration</b> early; more than one focal lesion is a myeloma-defining event."
       }
     ]
   },
@@ -3920,11 +3950,11 @@
         "options": [
           "Type 1 — progressive persistent enhancement",
           "Type 2 — plateau enhancement",
-          "Type 3 — rapid uptake followed by washout",
           "A curve showing no enhancement at all",
-          "Slow, gradual linear enhancement over 8 minutes"
+          "Slow, gradual linear enhancement over 8 minutes",
+          "Type 3 — rapid uptake followed by washout"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Type 3 — rapid uptake followed by washout",
         "explanation": "Angiogenic cancers show rapid avid gadolinium uptake then washout (a type 3 curve), the hallmark suspicious pattern. Type 1 (persistent) is usually benign and type 2 (plateau) is indeterminate. Curves are assessed together with morphology and reported using BI-RADS."
       },
@@ -3934,12 +3964,12 @@
         "question": "Which statement best describes the principal disadvantage of breast MRI relative to mammography?",
         "options": [
           "It delivers a high dose of ionising radiation",
-          "It cannot image dense breast tissue",
           "It has lower specificity, leading to more false positives and biopsies",
+          "It cannot image dense breast tissue",
           "It is far cheaper and quicker to perform",
           "It requires no intravenous contrast"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "It has lower specificity, leading to more false positives and biopsies",
         "explanation": "MRI's very high sensitivity is offset by lower specificity: benign parenchyma also enhances, producing false positives, extra recalls and biopsies. It is also costly, needs gadolinium contrast, and involves MRI safety considerations — hence it is usually combined with mammography in surveillance."
       },
@@ -3949,12 +3979,12 @@
         "question": "To reduce background parenchymal enhancement and improve accuracy, when should breast MRI ideally be scheduled in a pre-menopausal woman?",
         "options": [
           "Days 1–3 of the cycle (during menstruation)",
-          "Days 7–14 of the cycle (follicular phase)",
           "Days 21–28 of the cycle (luteal phase)",
           "Only during ovulation",
+          "Days 7–14 of the cycle (follicular phase)",
           "Timing has no effect on the images"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Days 7–14 of the cycle (follicular phase)",
         "explanation": "Background parenchymal enhancement is lowest in the follicular phase (roughly days 7–14), so scanning then reduces false positives and makes suspicious lesions easier to detect. This cycle-timing is a practical requirement unique to pre-menopausal women."
       },
@@ -3963,13 +3993,13 @@
         "type": "mcq",
         "question": "A 54-year-old woman has an invasive ductal carcinoma confirmed on core biopsy after triple assessment. Which statement best describes the role of breast MRI at this point?",
         "options": [
+          "It is a selective problem-solving tool used to refine surgical planning in specific situations",
           "It is required routinely for every newly diagnosed breast cancer to confirm the histological subtype",
           "It replaces mammography and ultrasound for staging the local disease",
-          "It is a selective problem-solving tool used to refine surgical planning in specific situations",
           "It is used to make the initial diagnosis in place of core biopsy",
           "It is contraindicated once a cancer has already been diagnosed"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "It is a selective problem-solving tool used to refine surgical planning in specific situations",
         "explanation": "MRI has no role in making the diagnosis (triple assessment does that) and does not replace mammography/US. Once cancer is confirmed it is used selectively to answer surgical questions such as extent, multifocality and neoadjuvant response — not routinely for all patients."
       },
@@ -3978,13 +4008,13 @@
         "type": "mcq",
         "question": "Which histological type of breast cancer is a classic indication for MRI because it is frequently mammographically occult and has its extent underestimated by conventional imaging?",
         "options": [
-          "Invasive lobular carcinoma",
           "Invasive ductal carcinoma of no special type",
           "Mucinous (colloid) carcinoma",
+          "Invasive lobular carcinoma",
           "Ductal carcinoma in situ, low grade",
           "Tubular carcinoma"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "Invasive lobular carcinoma",
         "explanation": "Invasive lobular carcinoma grows in a diffuse, single-file pattern that is often occult or size-underestimated on mammography. MRI defines its true extent far better, which is why it is a recognised indication for pre-operative MRI."
       },
@@ -3995,11 +4025,11 @@
         "options": [
           "Proceed directly to mastectomy based on the MRI finding",
           "Ignore the finding as MRI enhancement is always benign",
-          "Obtain histological confirmation, usually via second-look ultrasound and targeted biopsy, before changing the surgical plan",
           "Start neoadjuvant chemotherapy immediately",
-          "Repeat the MRI in six months without further action"
+          "Repeat the MRI in six months without further action",
+          "Obtain histological confirmation, usually via second-look ultrasound and targeted biopsy, before changing the surgical plan"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Obtain histological confirmation, usually via second-look ultrasound and targeted biopsy, before changing the surgical plan",
         "explanation": "MRI can detect incidental benign enhancement and overestimate disease. An additional lesion must be biopsy-confirmed before escalating surgery — converting to mastectomy on MRI alone risks overtreatment without survival benefit."
       },
@@ -4024,27 +4054,27 @@
         "question": "Which statement about MRI assessment of silicone implant integrity is correct?",
         "options": [
           "IV gadolinium contrast is essential to detect rupture",
-          "Silicone-specific sequences are used and no contrast is required",
           "Ultrasound is superior to MRI for shell integrity",
           "Radial folds indicate rupture and mandate explant",
+          "Silicone-specific sequences are used and no contrast is required",
           "Saline implants require silicone-selective sequences to detect deflation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Silicone-specific sequences are used and no contrast is required",
         "explanation": "MRI is the best test for silicone implant integrity using silicone-selective/water-suppressed sequences; no contrast is needed. Radial folds are normal, and saline implant rupture is seen as visible deflation without special sequences."
       },
       {
         "id": "mri_breast_implant_q03",
         "type": "mcq",
-        "question": "An 8-months-post-op... a woman presents 3 years after textured implant insertion with a new peri-implant fluid collection. What is the most appropriate next step?",
+        "question": "A woman presents 3 years after textured implant insertion with a new peri-implant fluid collection. What is the most appropriate next step?",
         "options": [
+          "Aspirate the fluid and send for cytology and CD30",
           "Reassure and rescan in 5 years",
           "Immediate bilateral explant without further tests",
-          "Aspirate the fluid and send for cytology and CD30",
           "Start empirical antibiotics for infection",
           "Diagnose intracapsular rupture and observe"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Aspirate the fluid and send for cytology and CD30",
         "explanation": "A new late peri-implant seroma around a textured implant must raise suspicion of BIA-ALCL. The correct step is ultrasound-guided aspiration with fluid sent for cytology and CD30 immunostaining, not observation or blind explant."
       },
@@ -4054,12 +4084,12 @@
         "question": "A 54-year-old woman presents with a firm right axillary lymph node. Core biopsy shows metastatic adenocarcinoma that is ER-positive, PR-positive and GATA3-positive. Bilateral mammography and whole-breast ultrasound are normal. What is the most appropriate next investigation?",
         "options": [
           "Repeat mammography in 6 months",
-          "Contrast-enhanced breast MRI",
           "CT chest, abdomen and pelvis only",
+          "Contrast-enhanced breast MRI",
           "Bilateral mastectomy",
           "Reassurance and discharge"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Contrast-enhanced breast MRI",
         "explanation": "The picture is an occult breast primary: breast-type nodal adenocarcinoma (ER/PR/GATA3 positive) with negative mammography and ultrasound. Contrast-enhanced breast MRI is highly sensitive and identifies the occult primary in the majority of cases, enabling targeted biopsy and breast conservation."
       },
@@ -4069,12 +4099,12 @@
         "question": "In a patient with a proven occult breast primary, why is locating the tumour on MRI clinically important?",
         "options": [
           "It confirms the node is benign",
-          "It allows breast-conserving surgery and targeted treatment instead of empirical whole-breast radiotherapy or mastectomy",
           "It removes the need for any surgery",
           "It replaces the need for histological receptor testing",
-          "It rules out distant metastatic disease"
+          "It rules out distant metastatic disease",
+          "It allows breast-conserving surgery and targeted treatment instead of empirical whole-breast radiotherapy or mastectomy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "It allows breast-conserving surgery and targeted treatment instead of empirical whole-breast radiotherapy or mastectomy",
         "explanation": "When no primary is found, patients are often treated with whole-breast radiotherapy or mastectomy for presumed disease. Finding the primary permits precise, breast-conserving surgery and tailored adjuvant therapy, and refines staging."
       },
@@ -4084,12 +4114,12 @@
         "question": "A woman is due to undergo gadolinium-enhanced breast MRI to search for an occult primary. Which statement is correct regarding safety and technique?",
         "options": [
           "Renal function need not be checked before gadolinium",
-          "High-risk gadolinium agents are preferred in severe renal impairment",
           "Imaging is ideally performed on days 7-14 of the menstrual cycle to reduce background parenchymal enhancement",
+          "High-risk gadolinium agents are preferred in severe renal impairment",
           "MRI-incompatible implants do not need screening",
           "Pregnancy status is irrelevant to the scan"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Imaging is ideally performed on days 7-14 of the menstrual cycle to reduce background parenchymal enhancement",
         "explanation": "Scanning in the second week of the cycle minimises hormonally-driven background enhancement that can mask a small primary. Renal function must be checked (high-risk agents avoided in severe impairment due to nephrogenic systemic fibrosis), implants/devices screened, and pregnancy asked about."
       }
@@ -4101,12 +4131,12 @@
         "question": "A 42-year-old woman with autosomal dominant polycystic kidney disease and two first-degree relatives who had \"brain bleeds\" is referred for elective intracranial aneurysm screening. She has no symptoms and normal renal function. Which imaging investigation is most appropriate first-line?",
         "options": [
           "Non-contrast CT head",
-          "Time-of-flight MR angiography",
           "Digital subtraction angiography",
+          "Time-of-flight MR angiography",
           "Gadolinium-enhanced MRI brain with contrast",
           "Lumbar puncture for xanthochromia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Time-of-flight MR angiography",
         "explanation": "For asymptomatic elective aneurysm screening (e.g. ADPKD, family history), non-contrast TOF-MRA is the preferred first-line test — no radiation, no contrast. DSA is invasive and reserved for characterisation/treatment; CT and LP belong to the acute SAH pathway."
       },
@@ -4116,12 +4146,12 @@
         "question": "A 55-year-old man presents with a sudden \"worst-ever\" headache that peaked within seconds, with neck stiffness. What is the correct initial imaging pathway?",
         "options": [
           "Time-of-flight MRA of the Circle of Willis",
-          "Non-contrast CT head, then CT angiography if aneurysm suspected",
           "Contrast-enhanced MRI brain",
           "Carotid Doppler ultrasound",
-          "Reassure and arrange outpatient MRA"
+          "Reassure and arrange outpatient MRA",
+          "Non-contrast CT head, then CT angiography if aneurysm suspected"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Non-contrast CT head, then CT angiography if aneurysm suspected",
         "explanation": "This is a thunderclap headache — subarachnoid haemorrhage until proven otherwise. Immediate non-contrast CT head is first; if negative, LP for xanthochromia, and CTA/DSA to find the aneurysm. Elective MRA is not the acute pathway."
       },
@@ -4131,12 +4161,12 @@
         "question": "On a TOF-MRA an intracranial vessel appears to show a very tight, near-complete stenosis. Which statement best reflects a recognised limitation of the technique?",
         "options": [
           "TOF underestimates stenosis because slow flow appears bright",
+          "TOF can overestimate stenosis because turbulent/slow flow causes signal loss",
           "TOF cannot image the posterior circulation",
           "TOF requires gadolinium, so contrast reactions cause artefact",
-          "TOF can overestimate stenosis because turbulent/slow flow causes signal loss",
           "TOF is unaffected by patient motion"
         ],
-        "correctIndex": 3,
+        "correctIndex": 1,
         "answer": "TOF can overestimate stenosis because turbulent/slow flow causes signal loss",
         "explanation": "Turbulent or slow flow causes spin dephasing and signal loss, so TOF-MRA tends to overestimate the degree of stenosis (or make a near-occlusion look complete). It is also motion-sensitive. Confirm with CTA or DSA when it will alter management."
       },
@@ -4146,12 +4176,12 @@
         "question": "A 68-year-old man has a right-sided TIA. Duplex suggests a tight left internal carotid stenosis and a moderate right stenosis. MRA confirms 80% stenosis on the right and 65% on the left. Which lesion most warrants urgent carotid endarterectomy?",
         "options": [
           "The left carotid, because it is the tighter absolute stenosis",
-          "The right carotid, because it is symptomatic (ipsilateral to the TIA)",
           "Neither, as both are below the treatment threshold",
           "The left carotid, because bilateral disease is treated left-first",
+          "The right carotid, because it is symptomatic (ipsilateral to the TIA)",
           "Both simultaneously in one operation"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "The right carotid, because it is symptomatic (ipsilateral to the TIA)",
         "explanation": "Benefit from endarterectomy is greatest for symptomatic stenosis on the side ipsilateral to the ischaemic event. A right-sided TIA localises to the right carotid; its 80% symptomatic stenosis is the priority, done within ~2 weeks."
       },
@@ -4160,13 +4190,13 @@
         "type": "mcq",
         "question": "A 34-year-old woman presents with left neck pain, partial left ptosis and miosis, and transient right arm weakness after a yoga session. Which finding on neck MRI/MRA best supports the likely diagnosis?",
         "options": [
-          "Atheromatous calcified plaque at the carotid bifurcation",
           "A bright crescent of intramural haematoma on fat-saturated T1",
+          "Atheromatous calcified plaque at the carotid bifurcation",
           "Diffuse small-vessel white matter change",
           "Bilateral vertebral artery hypoplasia",
           "A berry aneurysm at the anterior communicating artery"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "A bright crescent of intramural haematoma on fat-saturated T1",
         "explanation": "A young patient with neck pain, a painful Horner's syndrome and cerebral ischaemia after neck movement suggests carotid dissection. The crescent sign — bright methaemoglobin in the wall on fat-sat T1 — is the classic finding; atheroma would be unusual at this age."
       },
@@ -4191,12 +4221,12 @@
         "question": "A 28-year-old woman, 10 days postpartum, presents with a worsening headache and a focal seizure. CT shows a right parietal haemorrhage that crosses arterial territory boundaries. What is the most appropriate next investigation?",
         "options": [
           "Digital subtraction cerebral angiography for aneurysm",
-          "MR venography (MRV)",
           "Carotid Doppler ultrasound",
           "Lumbar puncture for xanthochromia",
-          "Repeat non-contrast CT in 24 hours"
+          "Repeat non-contrast CT in 24 hours",
+          "MR venography (MRV)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "MR venography (MRV)",
         "explanation": "A haemorrhagic infarct crossing arterial territories in a peripartum woman with headache and seizure is the classic picture of cerebral venous sinus thrombosis. MRV (or CT venography) is the key test, demonstrating absent flow in the affected sinus."
       },
@@ -4221,12 +4251,12 @@
         "question": "On a contrast-enhanced scan of a patient with headache and papilloedema, a triangular non-enhancing filling defect is seen within the enhancing walls of the superior sagittal sinus. What does this sign represent?",
         "options": [
           "A normal arachnoid granulation",
-          "The empty delta sign of sinus thrombosis",
           "An enhancing meningioma",
           "A hypoplastic transverse sinus variant",
+          "The empty delta sign of sinus thrombosis",
           "Cortical laminar necrosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "The empty delta sign of sinus thrombosis",
         "explanation": "The empty delta (or empty triangle) sign is non-enhancing thrombus surrounded by enhancing dura in the superior sagittal sinus and indicates sinus thrombosis. Arachnoid granulations are rounded, and a hypoplastic transverse sinus is a different, unilateral flow variant."
       },
@@ -4235,13 +4265,13 @@
         "type": "mcq",
         "question": "A 34-year-old woman has resistant hypertension. MRA shows a \"string of beads\" appearance in the mid-to-distal segment of the right renal artery. What is the most likely diagnosis and appropriate first-line intervention?",
         "options": [
-          "Atherosclerotic RAS; lifelong medical therapy only",
           "Fibromuscular dysplasia; balloon angioplasty",
+          "Atherosclerotic RAS; lifelong medical therapy only",
           "Renal artery aneurysm; open surgical repair",
           "Polyarteritis nodosa; high-dose corticosteroids",
           "Takayasu arteritis; renal artery stenting"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Fibromuscular dysplasia; balloon angioplasty",
         "explanation": "A young woman with a mid/distal \"string of beads\" appearance has fibromuscular dysplasia, which characteristically responds well to plain balloon angioplasty, unlike ostial atherosclerotic disease."
       },
@@ -4251,12 +4281,12 @@
         "question": "A 70-year-old man with bilateral atherosclerotic renal artery stenosis is started on ramipril for hypertension. Two weeks later his creatinine has risen sharply. What is the mechanism?",
         "options": [
           "Direct nephrotoxicity of the ACE inhibitor on tubular cells",
-          "Loss of angiotensin-II-mediated efferent arteriolar constriction, reducing glomerular filtration pressure",
           "Acute interstitial nephritis from the drug",
+          "Loss of angiotensin-II-mediated efferent arteriolar constriction, reducing glomerular filtration pressure",
           "Rhabdomyolysis precipitated by the medication",
           "Contrast-induced nephropathy from prior imaging"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Loss of angiotensin-II-mediated efferent arteriolar constriction, reducing glomerular filtration pressure",
         "explanation": "In bilateral RAS, filtration depends on angiotensin-II-driven efferent arteriolar tone. RAAS blockade removes this, dropping intraglomerular pressure and causing acute kidney injury — the classic creatinine rise after ACE inhibitor/ARB."
       },
@@ -4266,12 +4296,12 @@
         "question": "When imaging a patient with severe renal impairment for suspected renal artery stenosis, which is the most important contrast-related safety consideration?",
         "options": [
           "Iodinated contrast allergy causing anaphylaxis",
-          "Gadolinium causing nephrogenic systemic fibrosis",
           "Barium aspiration during the scan",
           "Radiation dose to the kidneys",
-          "Contrast extravasation at the injection site"
+          "Contrast extravasation at the injection site",
+          "Gadolinium causing nephrogenic systemic fibrosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Gadolinium causing nephrogenic systemic fibrosis",
         "explanation": "MRA uses gadolinium, not iodinated contrast, and involves no ionising radiation. In severe renal impairment gadolinium is associated with nephrogenic systemic fibrosis, so non-contrast MRA techniques or alternative imaging are preferred."
       },
@@ -4296,12 +4326,12 @@
         "question": "A 55-year-old woman with an iodinated-contrast allergy needs peripheral arterial mapping. Which single factor most strongly limits the use of gadolinium-enhanced MRA in this decision?",
         "options": [
           "Presence of intermittent claudication",
-          "Severe renal impairment (eGFR <30)",
           "A calcified abdominal aorta",
           "Prior lower-limb angioplasty",
+          "Severe renal impairment (eGFR <30)",
           "Age under 60"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Severe renal impairment (eGFR <30)",
         "explanation": "Gadolinium is associated with nephrogenic systemic fibrosis in severe renal impairment, so renal function must be checked before CE-MRA. Contrast allergy actually favours MRA over iodinated CT; the other options do not contraindicate it."
       },
@@ -4310,13 +4340,13 @@
         "type": "mcq",
         "question": "A 72-year-old man presents with a sudden, painful, cold, pale, pulseless right leg with new paraesthesia. What is the most appropriate immediate action?",
         "options": [
-          "Arrange urgent CE-MRA run-off before any treatment",
           "Give IV heparin and refer for emergency revascularisation",
+          "Arrange urgent CE-MRA run-off before any treatment",
           "Prescribe supervised exercise therapy",
           "Measure ABPI and review in clinic in 2 weeks",
           "Start a statin and aspirin and discharge"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Give IV heparin and refer for emergency revascularisation",
         "explanation": "This is acute limb ischaemia (the 6 Ps) — a surgical emergency. Immediate IV heparin and urgent revascularisation are required; you must NOT delay for MRA. Exercise therapy and outpatient review apply to stable claudication, not acute ischaemia."
       },
@@ -4326,12 +4356,12 @@
         "question": "Regarding imaging of suspected ACUTE aortic dissection, why is CT angiography generally preferred over MRA?",
         "options": [
           "CT avoids all ionising radiation",
-          "CT is faster and more readily available for unstable patients",
           "MRA cannot demonstrate an intimal flap",
+          "CT is faster and more readily available for unstable patients",
           "MRA uses iodinated contrast that is nephrotoxic",
           "CT requires no contrast at all"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "CT is faster and more readily available for unstable patients",
         "explanation": "CT angiography is quicker and more accessible, which is decisive in acute, potentially unstable dissection. MRA can show the flap and true/false lumens but is slower. Note CT does use ionising radiation and iodinated contrast — it is MRA that avoids both."
       },
@@ -4341,14 +4371,29 @@
         "question": "Before a patient undergoes MRA, which safety check is essential?",
         "options": [
           "Confirm the patient has fasted for 12 hours",
-          "Screen for pacemakers, ferromagnetic implants and metallic foreign bodies",
           "Measure serum potassium",
           "Stop all antiplatelet drugs 5 days beforehand",
-          "Perform a chest radiograph in every patient"
+          "Perform a chest radiograph in every patient",
+          "Screen for pacemakers, ferromagnetic implants and metallic foreign bodies"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Screen for pacemakers, ferromagnetic implants and metallic foreign bodies",
         "explanation": "MRI safety screening for non-MR-conditional devices and ferromagnetic material is mandatory before any MR scan. Prolonged fasting, potassium levels, stopping antiplatelets and routine chest films are not standard prerequisites for MRA."
+      },
+      {
+        "id": "mri_vasc_q_cvst",
+        "type": "mcq",
+        "question": "A pregnant woman has headache and a seizure; MRV shows thrombosis of the superior sagittal sinus with a small venous haemorrhagic infarct. What is the management?",
+        "options": [
+          "Withhold anticoagulation because of the haemorrhage",
+          "Anticoagulation (even with the venous haemorrhage)",
+          "Aspirin only",
+          "Immediate craniotomy",
+          "Thrombolysis via lumbar drain"
+        ],
+        "correctIndex": 1,
+        "answer": "Anticoagulation (even with the venous haemorrhage)",
+        "explanation": "Cerebral venous sinus thrombosis is treated with anticoagulation (LMWH then warfarin/continue LMWH in pregnancy) EVEN in the presence of venous haemorrhagic infarction — the haemorrhage is a consequence of venous congestion, and anticoagulation prevents propagation."
       }
     ],
     "investigations__MRI__Pelvis": [
@@ -4358,12 +4403,12 @@
         "question": "A 64-year-old man with a PSA of 8 ng/mL undergoes mpMRI before biopsy. A 1.2 cm focus in the left peripheral zone shows low T2 signal, marked restriction on DWI with low ADC, and early enhancement. Which sequence is the primary determinant of the PI-RADS score for this lesion?",
         "options": [
           "T2-weighted imaging",
-          "Diffusion-weighted imaging (DWI/ADC)",
           "Dynamic contrast enhancement",
+          "Diffusion-weighted imaging (DWI/ADC)",
           "T1-weighted imaging",
           "Gradient-echo susceptibility imaging"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Diffusion-weighted imaging (DWI/ADC)",
         "explanation": "In the peripheral zone, DWI/ADC is the dominant sequence for PI-RADS scoring. In the transition zone, T2-weighted imaging is dominant. DCE acts as a tie-breaker."
       },
@@ -4373,12 +4418,12 @@
         "question": "A man with a raised PSA has an mpMRI reported as PI-RADS 4 in the right peripheral zone. What is the most appropriate next step?",
         "options": [
           "Reassure and repeat PSA in 12 months",
-          "Proceed to targeted MRI-fusion biopsy and discuss at MDT",
           "Start empirical antibiotics for prostatitis",
           "Immediate radical prostatectomy without biopsy",
-          "Commence androgen deprivation therapy"
+          "Commence androgen deprivation therapy",
+          "Proceed to targeted MRI-fusion biopsy and discuss at MDT"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Proceed to targeted MRI-fusion biopsy and discuss at MDT",
         "explanation": "PI-RADS 4 indicates a high likelihood of clinically significant cancer. This warrants histological confirmation via targeted (fusion) biopsy and MDT discussion, not reassurance or blind treatment."
       },
@@ -4403,12 +4448,12 @@
         "question": "On prostate mpMRI, which finding would most strongly favour radiotherapy or non-nerve-sparing surgery over a nerve-sparing radical prostatectomy?",
         "options": [
           "A well-defined transition-zone nodule",
-          "Seminal vesicle invasion with extracapsular extension",
           "High peripheral-zone T2 signal",
           "A simple prostatic cyst",
+          "Seminal vesicle invasion with extracapsular extension",
           "Diffuse benign prostatic hyperplasia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Seminal vesicle invasion with extracapsular extension",
         "explanation": "Extracapsular extension and seminal vesicle invasion indicate non-organ-confined disease and involvement near the neurovascular bundle, arguing against nerve-sparing surgery and favouring radiotherapy or wider resection."
       },
@@ -4433,12 +4478,12 @@
         "question": "A 34-year-old woman with heavy periods has an ultrasound showing a bulky uterus but no discrete mass. MRI shows diffuse thickening of the junctional zone to 15 mm with scattered small T2-hyperintense foci and ill-defined margins. What is the most likely diagnosis?",
         "options": [
           "Submucosal fibroid",
-          "Adenomyosis",
           "Endometrial carcinoma",
+          "Adenomyosis",
           "Endometrioma",
           "Bicornuate uterus"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Adenomyosis",
         "explanation": "Diffuse junctional-zone thickening >12 mm with small T2-bright foci and an ill-defined, globular uterus is the hallmark of adenomyosis. A fibroid would be a focal, sharply-marginated dark-T2 mass rather than diffuse thickening."
       },
@@ -4449,11 +4494,11 @@
         "options": [
           "Mature cystic teratoma (dermoid)",
           "Simple functional cyst",
-          "Endometrioma",
           "Serous cystadenoma",
-          "Fibroid undergoing red degeneration"
+          "Fibroid undergoing red degeneration",
+          "Endometrioma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Endometrioma",
         "explanation": "An endometrioma contains old blood, so it is T1 hyperintense and does NOT suppress on fat-sat (a dermoid's fat WOULD suppress), and shows T2 shading. These features distinguish it from dermoids, functional cysts and cystadenomas."
       },
@@ -4479,11 +4524,11 @@
         "options": [
           "A single 3 cm subserosal fibroid",
           "A T1-bright endometrioma that suppresses on fat-sat",
-          "Ureteric involvement causing hydronephrosis",
           "A normal junctional zone of 6 mm",
+          "Ureteric involvement causing hydronephrosis",
           "A convex fundal contour"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Ureteric involvement causing hydronephrosis",
         "explanation": "Deep endometriosis involving the ureter (with hydronephrosis) or bowel requires multidisciplinary planning because resection carries significant risk. An endometrioma that suppresses on fat-sat would actually argue against endometrioma, and the other options are benign/normal."
       },
@@ -4492,13 +4537,13 @@
         "type": "mcq",
         "question": "A 52-year-old woman with biopsy-proven cervical squamous cell carcinoma undergoes staging MRI. The low-signal cervical stromal ring is disrupted with tumour signal extending into the parametrial fat. What is the most important management implication?",
         "options": [
+          "She should be managed with chemoradiotherapy rather than primary surgery",
           "Simple hysterectomy remains the treatment of choice",
           "Radical trachelectomy to preserve fertility is now indicated",
-          "She should be managed with chemoradiotherapy rather than primary surgery",
           "No further staging is required as the tumour is early stage",
           "Cone biopsy alone is sufficient treatment"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "She should be managed with chemoradiotherapy rather than primary surgery",
         "explanation": "Loss of the intact low-signal stromal ring with tumour in parametrial fat indicates parametrial invasion. This upstages the disease and moves the patient from a surgical pathway to chemoradiotherapy — the pivotal decision MRI informs in cervical cancer."
       },
@@ -4508,12 +4553,12 @@
         "question": "MRI is performed for staging endometrial adenocarcinoma. Which single MRI finding is the key factor guiding whether lymphadenectomy is performed?",
         "options": [
           "Endometrial cavity distension",
-          "Depth of myometrial invasion (<50% vs ≥50%)",
           "Presence of a fibroid",
+          "Depth of myometrial invasion (<50% vs ≥50%)",
           "Junctional zone thickness alone",
           "Volume of endometrial fluid"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Depth of myometrial invasion (<50% vs ≥50%)",
         "explanation": "Depth of myometrial invasion is the key prognostic and staging factor. Invasion ≥50% carries a higher risk of nodal spread and guides the decision to perform lymphadenectomy."
       },
@@ -4523,12 +4568,12 @@
         "question": "A 66-year-old woman reports a single episode of postmenopausal vaginal bleeding. What is the most appropriate initial approach?",
         "options": [
           "Reassure her as bleeding is common after menopause",
-          "Investigate as endometrial cancer until proven otherwise, starting with transvaginal ultrasound and biopsy",
           "Proceed directly to staging MRI without tissue diagnosis",
           "Start hormone replacement therapy",
-          "Arrange PET-CT as the first-line investigation"
+          "Arrange PET-CT as the first-line investigation",
+          "Investigate as endometrial cancer until proven otherwise, starting with transvaginal ultrasound and biopsy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Investigate as endometrial cancer until proven otherwise, starting with transvaginal ultrasound and biopsy",
         "explanation": "Postmenopausal bleeding must be treated as endometrial cancer until excluded. First-line assessment is transvaginal ultrasound for endometrial thickness, with endometrial biopsy/hysteroscopy for tissue diagnosis. MRI is reserved for local staging once cancer is confirmed."
       },
@@ -4554,11 +4599,11 @@
         "options": [
           "T1",
           "T2",
-          "T3",
           "T4a",
+          "T3",
           "T4b"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "T3",
         "explanation": "T3 is invasion through the muscularis propria into the perirectal (mesorectal) fat. T1/T2 remain confined to the wall. T4a is breach of the peritoneal surface and T4b is invasion of an adjacent organ — neither is present here."
       },
@@ -4567,13 +4612,13 @@
         "type": "mcq",
         "question": "Which MRI feature is the strongest indicator that a mesorectal lymph node is malignant in rectal cancer staging?",
         "options": [
-          "A node measuring greater than 5 mm in short axis",
           "An irregular spiculated border with mixed heterogeneous signal",
+          "A node measuring greater than 5 mm in short axis",
           "A smooth round node with homogeneous low signal",
           "Any node visible within the mesorectum",
           "A node located more than 3 cm from the primary tumour"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "An irregular spiculated border with mixed heterogeneous signal",
         "explanation": "Nodal assessment on rectal MRI relies on morphology rather than size: an irregular/spiculated border and mixed heterogeneous internal signal (with round shape) are the most reliable predictors of malignancy. Size alone is unreliable — small nodes can be involved and large nodes can be reactive."
       },
@@ -4583,12 +4628,12 @@
         "question": "A 34-year-old man has a recurrent perianal fistula. MRI shows a tract crossing both the internal and external anal sphincter into the ischioanal fossa. Which Parks type is this?",
         "options": [
           "Intersphincteric",
-          "Transsphincteric",
           "Suprasphincteric",
+          "Transsphincteric",
           "Extrasphincteric",
           "Submucosal"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Transsphincteric",
         "explanation": "A transsphincteric fistula crosses both the internal and external sphincter to reach the ischioanal fossa. Intersphincteric crosses only the internal sphincter; suprasphincteric loops over puborectalis; extrasphincteric bypasses the sphincter complex entirely."
       },
@@ -4598,12 +4643,12 @@
         "question": "On a dedicated anal fistula MRI protocol, which finding best indicates an ACTIVE fistula tract?",
         "options": [
           "Low signal throughout the tract on all sequences",
-          "High T2/STIR signal with enhancement of the tract wall after gadolinium",
           "Absence of any enhancement after gadolinium",
           "Fat signal within the tract that suppresses on STIR",
-          "Gas locules with no surrounding change"
+          "Gas locules with no surrounding change",
+          "High T2/STIR signal with enhancement of the tract wall after gadolinium"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "High T2/STIR signal with enhancement of the tract wall after gadolinium",
         "explanation": "An active tract contains fluid (bright on T2/STIR) and is lined by vascular granulation tissue that enhances with gadolinium. A purely fibrotic, inactive tract is low signal and enhances little."
       },
@@ -4628,12 +4673,12 @@
         "question": "MRI of a young woman with multiple, branching perianal fistulae and features of proctitis most strongly suggests which underlying diagnosis?",
         "options": [
           "Simple cryptoglandular fistula",
-          "Crohn's disease",
           "Ulcerative colitis",
           "Diverticular disease",
+          "Crohn's disease",
           "Irritable bowel syndrome"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Crohn's disease",
         "explanation": "Multiple, complex or branching fistulae with proctitis point to perianal Crohn's disease, which requires combined medical and surgical MDT management. Ulcerative colitis rarely causes fistulae; a single simple tract is typically cryptoglandular."
       },
@@ -4642,13 +4687,13 @@
         "type": "mcq",
         "question": "For which MRI finding is a simple fistulotomy (laying open the tract) generally the SAFEST surgical option?",
         "options": [
+          "A low intersphincteric tract crossing minimal sphincter",
           "A high transsphincteric tract crossing most of the external sphincter",
           "A suprasphincteric tract with supralevator extension",
-          "A low intersphincteric tract crossing minimal sphincter",
           "A complex fistula with a horseshoe extension",
           "An extrasphincteric fistula in Crohn's disease"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "A low intersphincteric tract crossing minimal sphincter",
         "explanation": "Fistulotomy divides the tissue overlying the tract, so it is only safe when little sphincter is crossed, as in a low intersphincteric fistula. High, suprasphincteric, extrasphincteric or complex/Crohn's tracts risk incontinence and need sphincter-preserving techniques."
       },
@@ -4658,12 +4703,12 @@
         "question": "A 34-year-old woman has a 5 cm left adnexal cyst that is indeterminate on transvaginal ultrasound. Pelvic MRI shows the lesion is uniformly hyperintense on T1 and remains bright on fat-saturated sequences, with low signal ('shading') on T2. What is the most likely diagnosis?",
         "options": [
           "Mature cystic teratoma (dermoid)",
-          "Endometrioma",
           "Simple functional cyst",
+          "Endometrioma",
           "Ovarian fibroma",
           "Epithelial ovarian carcinoma"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Endometrioma",
         "explanation": "T1 hyperintensity that does NOT suppress on fat-sat indicates blood (not fat), and low-signal 'T2 shading' is the classic endometrioma fingerprint. A dermoid would lose signal on fat-sat (macroscopic fat); a simple cyst is T2 bright with no shading; a fibroma is very low T2 and solid; carcinoma shows enhancing solid tissue."
       },
@@ -4674,11 +4719,11 @@
         "options": [
           "Endometrioma",
           "Serous cystadenocarcinoma",
-          "Mature cystic teratoma (dermoid)",
           "Fibrothecoma",
-          "Haemorrhagic corpus luteum cyst"
+          "Haemorrhagic corpus luteum cyst",
+          "Mature cystic teratoma (dermoid)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Mature cystic teratoma (dermoid)",
         "explanation": "Signal dropout on fat-sat/chemical-shift proves macroscopic fat, the hallmark of a mature cystic teratoma; a Rokitansky (dermoid) nodule further supports it. Blood-containing lesions (endometrioma, haemorrhagic cyst) stay bright on fat-sat, a fibrothecoma is very low T2, and carcinoma shows enhancing solid tissue."
       },
@@ -4705,12 +4750,12 @@
         "question": "A 68-year-old man with fatigue, bone pain and renal impairment has a monoclonal paraprotein. According to NICE, what is the recommended first-line whole-body imaging for suspected multiple myeloma?",
         "options": [
           "Plain-film skeletal survey",
-          "Whole-body MRI (including diffusion-weighted imaging)",
           "Radionuclide (technetium) bone scan",
+          "Whole-body MRI (including diffusion-weighted imaging)",
           "Plain chest and pelvic radiographs only",
           "DEXA bone densitometry"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Whole-body MRI (including diffusion-weighted imaging)",
         "explanation": "NICE recommends WB-MRI (or whole-body DWI) as first-line whole-body imaging for suspected myeloma because it is far more sensitive for marrow disease than the old skeletal survey, detecting lesions before lytic bone destruction is visible."
       },
@@ -4720,12 +4765,12 @@
         "question": "A patient with biopsy-proven multiple myeloma and widespread bone pain has a technetium bone scan reported as normal. What best explains this?",
         "options": [
           "The dose of radiotracer was too low",
-          "Myeloma is purely lytic/osteoclastic and produces little osteoblastic activity",
           "Bone scans cannot image the vertebral column",
           "The lesions are too small to detect by any modality",
-          "The patient moved during acquisition"
+          "The patient moved during acquisition",
+          "Myeloma is purely lytic/osteoclastic and produces little osteoblastic activity"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Myeloma is purely lytic/osteoclastic and produces little osteoblastic activity",
         "explanation": "Bone scans depend on osteoblastic (bone-forming) uptake. Myeloma is a lytic, osteoclast-driven process with minimal reactive new bone, so it is classically falsely negative on bone scan — assess it with WB-MRI or CT instead."
       },
@@ -4751,11 +4796,11 @@
         "options": [
           "Chronic small-vessel ischaemic change",
           "T2 shine-through artefact",
-          "Acute ischaemic infarction",
           "Vasogenic oedema from a tumour",
+          "Acute ischaemic infarction",
           "Normal appearance"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Acute ischaemic infarction",
         "explanation": "Bright DWI with dark (low) ADC is true restricted diffusion from cytotoxic oedema — the earliest, most sensitive sign of acute infarction, positive within minutes and before CT changes. This patient should enter the acute stroke/reperfusion pathway."
       },
@@ -4764,13 +4809,13 @@
         "type": "mcq",
         "question": "A lesion is bright on DWI. Which single finding best confirms it represents TRUE restricted diffusion rather than T2 shine-through?",
         "options": [
-          "It is also bright on T2/FLAIR",
           "The ADC map is dark (low signal)",
+          "It is also bright on T2/FLAIR",
           "The ADC map is bright (high signal)",
           "It enhances with gadolinium",
           "It is dark on T1"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "The ADC map is dark (low signal)",
         "explanation": "DWI is built on a T2 image, so a T2-bright lesion can shine through as bright DWI without restriction. The ADC map is the arbiter: true restriction is DARK on ADC; shine-through is bright/normal on ADC."
       },
@@ -4779,13 +4824,13 @@
         "type": "mcq",
         "question": "A ring-enhancing intracranial lesion is found. Which DWI finding most supports a pyogenic abscess rather than a necrotic high-grade tumour?",
         "options": [
-          "The centre of the lesion shows restricted diffusion (bright DWI, dark ADC)",
           "The centre shows no restriction with bright ADC",
           "The rim is dark on DWI",
+          "The centre of the lesion shows restricted diffusion (bright DWI, dark ADC)",
           "The lesion is bright on T1 before contrast",
           "There is no diffusion signal anywhere"
         ],
-        "correctIndex": 0,
+        "correctIndex": 2,
         "answer": "The centre of the lesion shows restricted diffusion (bright DWI, dark ADC)",
         "explanation": "Viscous, cellular pus in an abscess cavity restricts diffusion, giving a bright DWI and dark ADC centre. The necrotic core of a tumour typically does not restrict — a key discriminator in the exam and on the ward."
       },
@@ -4795,12 +4840,12 @@
         "question": "Which physiological change underlies the BOLD signal that fMRI detects in an activated cortical region?",
         "options": [
           "A direct electrical recording of neuronal action potentials",
-          "Increased local blood flow delivering excess oxyhaemoglobin, reducing paramagnetic deoxyhaemoglobin",
           "Accumulation of paramagnetic oxyhaemoglobin that increases field distortion",
           "Gadolinium contrast leaking across a disrupted blood-brain barrier",
-          "A drop in regional cerebral blood flow to active neurons"
+          "A drop in regional cerebral blood flow to active neurons",
+          "Increased local blood flow delivering excess oxyhaemoglobin, reducing paramagnetic deoxyhaemoglobin"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Increased local blood flow delivering excess oxyhaemoglobin, reducing paramagnetic deoxyhaemoglobin",
         "explanation": "Neuronal activity triggers a local increase in blood flow that over-supplies oxyhaemoglobin (diamagnetic) and washes out deoxyhaemoglobin (paramagnetic). This lowers field distortion and raises the T2*-weighted BOLD signal. It is indirect and haemodynamic, not a direct electrical recording, and does not depend on gadolinium."
       },
@@ -4839,13 +4884,13 @@
         "type": "mcq",
         "question": "A 26-week fetus has isolated ventriculomegaly on ultrasound. Fetal MRI is arranged for further characterisation. Which statement about the choice of MRI here is correct?",
         "options": [
+          "MRI is used as a second-line problem-solving test after ultrasound",
           "MRI is the first-line screening test for fetal anomalies",
           "Intravenous gadolinium should be given to improve brain contrast",
-          "MRI is used as a second-line problem-solving test after ultrasound",
           "MRI is preferred because ultrasound involves ionising radiation",
           "MRI must be delayed until after delivery to be safe"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "MRI is used as a second-line problem-solving test after ultrasound",
         "explanation": "Ultrasound is first-line for fetal assessment; MRI is second-line to characterise an abnormality US has already found — here, to seek associated anomalies such as agenesis of the corpus callosum. Gadolinium is avoided as it crosses the placenta, and neither US nor MRI uses ionising radiation."
       },
@@ -4855,12 +4900,12 @@
         "question": "Why is gadolinium contrast avoided in fetal MRI?",
         "options": [
           "It is ferromagnetic and heats the fetus",
-          "It crosses the placenta and enters the fetal/amniotic compartment",
           "It causes ionising radiation exposure to the fetus",
+          "It crosses the placenta and enters the fetal/amniotic compartment",
           "It is only avoided in the first trimester and safe later",
           "It prevents the amniotic fluid from providing contrast"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "It crosses the placenta and enters the fetal/amniotic compartment",
         "explanation": "Gadolinium crosses the placenta, is excreted into amniotic fluid and recirculates, and is associated with adverse fetal outcomes, so fetal MRI is performed without contrast. MRI itself uses no ionising radiation, and gadolinium is avoided throughout pregnancy."
       },
@@ -4870,12 +4915,12 @@
         "question": "A fetus has a large anterior neck mass on ultrasound that appears to threaten the airway. Fetal MRI is requested. What is the main way MRI alters management?",
         "options": [
           "It confirms the mass is benign so no intervention is needed",
-          "It allows planning of an EXIT procedure to secure the airway at delivery",
           "It replaces the need for a fetal-medicine MDT discussion",
           "It is used to deliver gadolinium directly to the mass",
-          "It determines the fetal karyotype"
+          "It determines the fetal karyotype",
+          "It allows planning of an EXIT procedure to secure the airway at delivery"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "It allows planning of an EXIT procedure to secure the airway at delivery",
         "explanation": "MRI defines the extent of an airway-threatening neck mass and its relationship to the airway, enabling the fetal-medicine MDT to plan an EXIT (ex-utero intrapartum treatment) procedure, securing the airway while the fetus remains on placental circulation. It does not give contrast or determine karyotype."
       },
@@ -4885,12 +4930,12 @@
         "question": "A neurosurgeon requests DTI tractography before resecting a left peri-Rolandic glioma. On the colour-coded fibre map, the corticospinal tract adjacent to the tumour is displayed in blue. What does the blue colour indicate about the fibres' orientation?",
         "options": [
           "The fibres run predominantly left–right (transverse)",
-          "The fibres run predominantly anterior–posterior",
           "The fibres run predominantly superior–inferior (cranio-caudal)",
+          "The fibres run predominantly anterior–posterior",
           "The fibres have low fractional anisotropy and are disorganised",
           "The fibres contain CSF and diffuse isotropically"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "The fibres run predominantly superior–inferior (cranio-caudal)",
         "explanation": "By the standard DTI convention, blue encodes superior–inferior orientation, green anterior–posterior, and red left–right. The corticospinal tract runs cranio-caudally and is therefore blue — consistent, not incidental, and it is the pathway the surgeon must preserve to avoid a motor deficit."
       },
@@ -4914,13 +4959,13 @@
         "type": "mcq",
         "question": "Which of the following is a recognised limitation of diffusion tensor imaging?",
         "options": [
-          "It cannot be performed on an MRI scanner",
           "The simple tensor model struggles to resolve crossing fibres within a single voxel",
+          "It cannot be performed on an MRI scanner",
           "It directly images individual axons without any modelling",
           "It provides higher spatial resolution than any other MRI sequence",
           "It is the fastest routine sequence acquired in every brain MRI"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "The simple tensor model struggles to resolve crossing fibres within a single voxel",
         "explanation": "A key weakness of DTI is that the single-tensor model cannot faithfully represent multiple fibre populations crossing within one voxel. It is also an indirect, model-based reconstruction (tracts are inferred, not literally imaged) and is a specialised, research-heavy technique requiring dedicated acquisition and post-processing — not a routine sequence."
       }
