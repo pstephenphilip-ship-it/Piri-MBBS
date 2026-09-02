@@ -175,6 +175,16 @@
         "id": "mri_brain_infection_fc_05",
         "front": "In an HIV patient with multiple ring-enhancing lesions, what are the two main differentials and the discriminator?",
         "back": "Cerebral toxoplasmosis vs primary CNS lymphoma. Toxoplasmosis: multiple lesions favouring basal ganglia/grey–white junction. Lymphoma: tends to be solitary, periventricular, homogeneously enhancing and restricts on DWI (hypercellular)."
+      },
+      {
+        "id": "mri_brain_thrombectomy_fc_01",
+        "front": "Beyond thrombolysis, what reperfusion option does MRI/perfusion imaging enable in stroke?",
+        "back": "<b>Mechanical thrombectomy</b> for a <b>proximal large-vessel occlusion</b> (e.g. M1/ICA). With DWI/perfusion showing a small core but large salvageable penumbra (mismatch), the window extends to <b>up to 24 hours</b>. IV thrombolysis (&lt;4.5 h) and thrombectomy are complementary."
+      },
+      {
+        "id": "mri_brain_abscess_fc_01",
+        "front": "How does MRI distinguish a cerebral abscess from a necrotic tumour, and how is an abscess managed?",
+        "back": "An <b>abscess</b> has a <b>thin smooth ring</b> and <b>central DWI restriction</b> (viscous pus, low ADC); a necrotic <b>tumour</b> has a thicker irregular wall and a non-restricting (high-ADC) centre. Manage an abscess with <b>neurosurgical aspiration/drainage + prolonged IV antibiotics</b> and hunt the source (endocarditis, sinus/dental, right-to-left shunt)."
       }
     ],
     "investigations__MRI__Skull Base & Special": [
@@ -277,6 +287,16 @@
         "id": "mri_sb_orbits_fc_05",
         "front": "When is MRI orbits contraindicated, and what is used instead?",
         "back": "Contraindicated with an intra-orbital ferromagnetic foreign body (the field can move it and cause blindness). CT is preferred for acute trauma, bony orbit and to screen for a metal foreign body before MRI."
+      },
+      {
+        "id": "mri_skull_prolactinoma_fc_01",
+        "front": "How is a prolactinoma managed &mdash; does a large (macro) one need surgery?",
+        "back": "No &mdash; <b>both micro- and macroprolactinomas are treated MEDICALLY first with a dopamine agonist (cabergoline)</b>, which lowers prolactin AND shrinks the tumour. Surgery (trans-sphenoidal) or radiotherapy is <b>second-line</b> (intolerance, resistance, or apoplexy). This is unusual &mdash; most pituitary macroadenomas of other types are resected."
+      },
+      {
+        "id": "mri_skull_acoustic_fc_01",
+        "front": "A patient has unilateral sensorineural hearing loss and an ice-cream-cone CPA mass. Diagnosis and management?",
+        "back": "A <b>vestibular schwannoma (acoustic neuroma)</b> at the internal acoustic meatus (bilateral suggests NF2). Managed by a <b>skull-base MDT</b>: <b>observe with serial MRI</b> (small/elderly), <b>microsurgery</b>, or <b>stereotactic radiosurgery</b> depending on size, hearing and age."
       }
     ],
     "investigations__MRI__Head & Neck": [
@@ -404,6 +424,16 @@
         "id": "mri_hn_tmj_fc_05",
         "front": "Name MRI findings in the TMJ beyond disc position.",
         "back": "T2-bright joint effusion; degenerative/osteoarthritic change (condylar flattening, osteophytes, subchondral cysts); inflammatory arthritis with synovial thickening and marrow oedema."
+      },
+      {
+        "id": "mri_hn_pleomorphic_fc_01",
+        "front": "What is the commonest salivary gland tumour on MRI, and how is it managed?",
+        "back": "A <b>pleomorphic adenoma</b> (benign mixed tumour) &mdash; typically a lobulated, very T2-bright superficial parotid mass. Treat by <b>superficial parotidectomy with facial-nerve preservation</b>, NOT enucleation (capsular pseudopods &rarr; recurrence; shelling out risks the facial nerve). Untreated it can undergo malignant transformation."
+      },
+      {
+        "id": "mri_hn_hpv_fc_01",
+        "front": "What is distinctive about HPV/p16-positive oropharyngeal squamous cell carcinoma?",
+        "back": "It is a rising cause of oropharyngeal (tonsil/base-of-tongue) SCC in <b>younger, often non-smoking</b> patients, frequently presenting with a <b>cystic neck node</b>. It is <b>p16-positive</b>, has its own (down-staged) TNM staging, and carries a <b>better prognosis</b> and good response to chemoradiotherapy."
       }
     ],
     "investigations__MRI__Spine": [
@@ -581,6 +611,16 @@
         "id": "mri_spine_discitis_fc_05",
         "front": "What clinical triad signals a spinal epidural abscess, and what is the management priority?",
         "back": "Back pain + fever + neurology (weakness, sensory level, bladder/bowel dysfunction). It is a surgical emergency: urgent whole-spine MRI, blood cultures, IV antibiotics, and emergency decompression/drainage — do not wait for markers or biopsy."
+      },
+      {
+        "id": "mri_spine_mscc_fc_01",
+        "front": "What is the emergency management of metastatic spinal cord compression (MSCC)?",
+        "back": "<b>Urgent whole-spine MRI within 24 hours</b>, <b>dexamethasone 16 mg daily</b> (with a PPI), and referral to the <b>MSCC coordinator/MDT</b> for definitive treatment (radiotherapy or surgical decompression) within 24 hours. Lie flat until spinal stability is assessed; give analgesia and VTE prophylaxis."
+      },
+      {
+        "id": "mri_spine_discitis_mgmt_fc_01",
+        "front": "How is discitis/vertebral osteomyelitis managed, and what must you avoid?",
+        "back": "Get the <b>organism first</b> &mdash; <b>blood cultures &plusmn; CT-guided biopsy</b> &mdash; then <b>prolonged IV antibiotics (~6 weeks)</b>. <b>Avoid empirical steroids.</b> Look for an <b>epidural abscess</b> (needs urgent decompression) and a source (IVDU, endocarditis, distant sepsis)."
       }
     ],
     "investigations__MRI__Musculoskeletal — Joints": [
@@ -1648,12 +1688,12 @@
         "question": "On an axial brain MRI, the CSF within the lateral ventricles appears bright (high signal) and periventricular white matter lesions are conspicuous, while the CSF signal has been nulled on a companion image. Which pair of sequences is being described?",
         "options": [
           "T1 and post-gadolinium T1",
-          "T2 and FLAIR",
           "DWI and ADC",
           "GRE and SWI",
-          "T1 and T2"
+          "T1 and T2",
+          "T2 and FLAIR"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "T2 and FLAIR",
         "explanation": "Bright CSF indicates a T2-weighted image (Water is White on T2). FLAIR is a T2 sequence with the CSF signal suppressed (nulled) so periventricular lesions stand out. The described combination of bright-CSF T2 plus a CSF-suppressed companion is therefore T2 and FLAIR."
       },
@@ -1663,12 +1703,12 @@
         "question": "A patient is referred for a routine brain MRI. Which finding in the safety screening should most strongly prompt further investigation before entering the scanner?",
         "options": [
           "A history of well-controlled hypertension",
-          "Previous appendicectomy",
           "A history of metal grinding with possible retained intra-orbital metallic fragment",
+          "Previous appendicectomy",
           "A titanium dental crown",
           "Mild anxiety about enclosed spaces"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "A history of metal grinding with possible retained intra-orbital metallic fragment",
         "explanation": "A ferromagnetic intra-orbital foreign body can move within the strong magnetic field and cause globe injury or blindness, so a grinding/metalwork history mandates screening imaging (e.g. orbital radiographs) before MRI. Titanium is non-ferromagnetic and MR-safe; the other options are not MRI hazards."
       },
@@ -1678,12 +1718,12 @@
         "question": "A 68-year-old presents 90 minutes after sudden right-sided weakness and dysphasia. MRI shows a wedge of high signal on DWI in the left hemisphere. Which finding on the ADC map confirms this is TRUE acute diffusion restriction rather than T2 shine-through?",
         "options": [
           "High (bright) signal on ADC",
-          "Low (dark) signal on ADC",
           "No change on ADC",
           "Blooming low signal on GRE",
+          "Low (dark) signal on ADC",
           "Ring enhancement on post-contrast imaging"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Low (dark) signal on ADC",
         "explanation": "True acute restriction is DWI bright WITH ADC dark (low). If the ADC were bright/normal, the DWI signal would represent T2 shine-through, not acute cytotoxic restriction. GRE blooming indicates haemorrhage and ring enhancement suggests abscess/tumour."
       },
@@ -1692,13 +1732,13 @@
         "type": "mcq",
         "question": "A patient wakes with a hemiparesis and cannot say when symptoms began. MRI shows a lesion that is DWI positive but FLAIR negative. What does this DWI–FLAIR mismatch most likely indicate?",
         "options": [
+          "The stroke onset is likely within the last 4.5 hours",
           "The stroke is more than 24 hours old",
           "The lesion is a chronic infarct",
-          "The stroke onset is likely within the last 4.5 hours",
           "The lesion is haemorrhagic",
           "The lesion represents a tumour rather than infarct"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "The stroke onset is likely within the last 4.5 hours",
         "explanation": "DWI turns positive within minutes while FLAIR lags ~4.5–6 h. DWI+/FLAIR− (mismatch) implies onset is probably <4.5 h, supporting thrombolysis in wake-up or unknown-onset stroke."
       },
@@ -1708,12 +1748,12 @@
         "question": "Which statement about MRI in the hyperacute stroke pathway is CORRECT?",
         "options": [
           "MRI should always be performed before CT to save time",
-          "A non-contrast CT head is done first to exclude haemorrhage so reperfusion is not delayed",
           "DWI is unable to detect posterior fossa infarcts",
+          "A non-contrast CT head is done first to exclude haemorrhage so reperfusion is not delayed",
           "GRE/SWI sequences are insensitive to haemorrhage",
           "ADC remains low permanently after infarction"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A non-contrast CT head is done first to exclude haemorrhage so reperfusion is not delayed",
         "explanation": "CT is fast and universally available and reliably excludes haemorrhage before thrombolysis; MRI must not delay time-critical reperfusion. DWI is in fact superior for posterior fossa infarcts, GRE/SWI are highly sensitive to blood, and ADC pseudonormalises over days."
       },
@@ -1722,13 +1762,13 @@
         "type": "mcq",
         "question": "A DWI-restricting lesion is seen but the clinical picture is atypical for stroke (fever, no vascular territory pattern). Which of the following is a recognised NON-stroke cause of diffusion restriction?",
         "options": [
-          "Cerebral abscess",
           "Simple arachnoid cyst",
           "Chronic lacunar scar",
           "Normal choroid plexus",
-          "Fat within a dermoid"
+          "Fat within a dermoid",
+          "Cerebral abscess"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Cerebral abscess",
         "explanation": "Central pus in a cerebral abscess restricts diffusion (bright DWI, dark ADC) and shows a ring-enhancing wall; hypercellular tumours (lymphoma, high-grade glioma) can also restrict. These mimics are why lesion shape, enhancement pattern and clinical context matter, not DWI alone."
       },
@@ -1754,11 +1794,11 @@
         "options": [
           "Optic neuritis alone is diagnostic of MS",
           "The perpendicular orientation of lesions is pathognomonic and sufficient",
-          "Simultaneous enhancing and non-enhancing lesions satisfy dissemination in time, and ≥2 typical sites satisfy dissemination in space",
           "Any white-matter lesion on FLAIR confirms demyelination",
+          "Simultaneous enhancing and non-enhancing lesions satisfy dissemination in time, and ≥2 typical sites satisfy dissemination in space",
           "Enhancement excludes MS because it indicates infection"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Simultaneous enhancing and non-enhancing lesions satisfy dissemination in time, and ≥2 typical sites satisfy dissemination in space",
         "explanation": "McDonald criteria require dissemination in space (≥2 of the four typical locations — here periventricular + juxtacortical) and in time. An enhancing lesion coexisting with a non-enhancing lesion demonstrates lesions of differing age on one scan, satisfying DIT without a follow-up study."
       },
@@ -1767,13 +1807,13 @@
         "type": "mcq",
         "question": "Which MRI feature would most strongly suggest an alternative diagnosis rather than typical multiple sclerosis?",
         "options": [
+          "A longitudinally extensive spinal cord lesion spanning several vertebral segments",
           "Short-segment peripheral cervical cord lesion",
           "Ovoid periventricular lesions on sagittal FLAIR",
-          "A longitudinally extensive spinal cord lesion spanning several vertebral segments",
           "A juxtacortical lesion touching the cortex",
           "An open-ring enhancing white-matter lesion"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "A longitudinally extensive spinal cord lesion spanning several vertebral segments",
         "explanation": "MS cord lesions are characteristically short (<2 vertebral bodies) and peripheral. A longitudinally extensive transverse myelitis lesion points instead to neuromyelitis optica spectrum disorder (aquaporin-4 antibody), a red flag against typical MS. The other features are all typical of MS."
       },
@@ -1783,12 +1823,12 @@
         "question": "What does gadolinium enhancement of a white-matter plaque on T1 imaging indicate in multiple sclerosis?",
         "options": [
           "Chronic axonal loss (a 'black hole')",
-          "Active demyelination with blood–brain barrier breakdown",
           "Small-vessel ischaemic change",
+          "Active demyelination with blood–brain barrier breakdown",
           "Cerebral atrophy",
           "An artefact from CSF suppression on FLAIR"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Active demyelination with blood–brain barrier breakdown",
         "explanation": "Gadolinium cannot cross an intact blood–brain barrier. In acute demyelination the BBB is disrupted, allowing contrast to leak into the lesion, so enhancement marks an active/acute plaque (usually for ~2–6 weeks). Non-enhancing lesions are old; black holes reflect chronic axonal loss."
       },
@@ -1798,12 +1838,12 @@
         "question": "A 58-year-old presents with headache and left-arm weakness. MRI+gadolinium shows a solitary intra-axial mass with thick irregular ring enhancement, central necrosis and extensive surrounding T2/FLAIR oedema, crossing the corpus callosum to the contralateral hemisphere. Which is the most likely diagnosis?",
         "options": [
           "Meningioma",
-          "Glioblastoma",
           "Cerebral abscess",
           "Acute infarct",
-          "Tumefactive multiple sclerosis"
+          "Tumefactive multiple sclerosis",
+          "Glioblastoma"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Glioblastoma",
         "explanation": "Thick irregular ring enhancement with central necrosis, marked vasogenic oedema and midline crossing through the corpus callosum (butterfly appearance) is the classic pattern of glioblastoma. Meningioma is extra-axial with a dural tail; an abscess would show a thin smooth ring with central restricted diffusion; infarct follows a vascular territory; tumefactive MS classically shows an open (incomplete) enhancing ring."
       },
@@ -1813,12 +1853,12 @@
         "question": "A ring-enhancing lesion is seen on MRI. On diffusion-weighted imaging the centre of the lesion shows marked restricted diffusion (bright on DWI, low ADC). Which diagnosis does this most strongly suggest?",
         "options": [
           "Glioblastoma",
-          "Solitary metastasis",
           "Cerebral abscess",
+          "Solitary metastasis",
           "Radiation necrosis",
           "Meningioma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Cerebral abscess",
         "explanation": "Central restricted diffusion within a ring-enhancing lesion reflects viscous, cellular pus and is the classic feature of a cerebral abscess. Most necrotic tumours (glioblastoma, metastasis) have a non-restricting central cavity. This single sequence critically changes management from biopsy/resection to antibiotics and neurosurgical drainage."
       },
@@ -1829,11 +1869,11 @@
         "options": [
           "Metastasis",
           "Glioblastoma",
-          "Meningioma",
           "Cerebral abscess",
+          "Meningioma",
           "Low-grade astrocytoma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Meningioma",
         "explanation": "A broad dural base, dural tail sign, CSF cleft and homogeneous avid enhancement are hallmark features of an extra-axial meningioma. Metastases and gliomas are intra-axial (within brain parenchyma) and lack a CSF cleft; an abscess shows a ring with central restricted diffusion. Identifying the extra-axial location first narrows the differential decisively."
       },
@@ -1842,13 +1882,13 @@
         "type": "mcq",
         "question": "A 24-year-old with drug-resistant seizures and rising epigastric aura undergoes an epilepsy-protocol MRI. Coronal FLAIR shows a small right hippocampus with high signal and loss of internal architecture. What is the most likely diagnosis?",
         "options": [
-          "Focal cortical dysplasia",
           "Hippocampal (mesial temporal) sclerosis",
+          "Focal cortical dysplasia",
           "Dysembryoplastic neuroepithelial tumour (DNET)",
           "Cavernoma",
           "Cortical heterotopia"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Hippocampal (mesial temporal) sclerosis",
         "explanation": "Hippocampal atrophy, increased T2/FLAIR signal and loss of internal architecture are the diagnostic triad of hippocampal sclerosis, the commonest substrate of temporal lobe epilepsy and one that is potentially curable with anterior temporal lobectomy. The other options are alternative substrates but do not produce this hippocampal triad."
       },
@@ -1874,11 +1914,11 @@
         "options": [
           "Reassure and arrange routine outpatient EEG only",
           "Start lifelong sodium valproate without imaging",
-          "Arrange urgent neuroimaging to exclude a structural lesion such as a tumour",
           "Discharge with no follow-up as most first seizures are benign",
-          "Repeat clinical review in six months before any investigation"
+          "Repeat clinical review in six months before any investigation",
+          "Arrange urgent neuroimaging to exclude a structural lesion such as a tumour"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Arrange urgent neuroimaging to exclude a structural lesion such as a tumour",
         "explanation": "A first seizure with a focal neurological deficit is a red flag that may indicate an underlying tumour or other serious structural pathology, so urgent imaging is required rather than reassurance. Driving advice (stop driving, notify the DVLA) and screening for MRI contraindications should also be addressed."
       },
@@ -1903,12 +1943,12 @@
         "question": "A 68-year-old has a gait disturbance, urinary incontinence and cognitive decline. MRI shows enlarged ventricles out of proportion to cortical atrophy with tight high-convexity sulci. What is the most important reason to recognise this pattern?",
         "options": [
           "It confirms irreversible Alzheimer's disease",
-          "It indicates a potentially shunt-responsive condition",
           "It is diagnostic of Creutzfeldt-Jakob disease",
           "It represents normal age-related change",
+          "It indicates a potentially shunt-responsive condition",
           "It requires immediate craniotomy"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "It indicates a potentially shunt-responsive condition",
         "explanation": "The triad plus ventriculomegaly out of proportion to atrophy (DESH pattern) is normal pressure hydrocephalus, a treatable/reversible cause of dementia that may respond to CSF shunting — hence the importance of not missing it. CJD is suggested by DWI cortical ribboning, not this pattern."
       },
@@ -1917,13 +1957,13 @@
         "type": "mcq",
         "question": "A 59-year-old develops rapidly progressive cognitive decline over weeks with myoclonus. Which MRI sequence and finding would most support Creutzfeldt-Jakob disease?",
         "options": [
+          "DWI showing cortical ribboning and basal ganglia restricted diffusion",
           "T1 showing hippocampal atrophy",
           "FLAIR showing confluent white-matter hyperintensities",
-          "DWI showing cortical ribboning and basal ganglia restricted diffusion",
           "T2* showing multiple microbleeds",
           "Post-gadolinium showing meningeal enhancement"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "DWI showing cortical ribboning and basal ganglia restricted diffusion",
         "explanation": "Rapidly progressive dementia should trigger urgent imaging for reversible/serious causes; in CJD, DWI classically shows restricted diffusion as cortical ribboning and in the basal ganglia. Hippocampal atrophy suggests AD, confluent white-matter change suggests small-vessel disease, and microbleeds relate to amyloid/hypertensive angiopathy."
       },
@@ -1933,12 +1973,12 @@
         "question": "A 34-year-old presents with fever, confusion and expressive dysphasia. MRI shows asymmetric FLAIR hyperintensity and swelling of the left medial temporal lobe and insula, sparing the basal ganglia. What is the single most appropriate immediate management step?",
         "options": [
           "Await CSF HSV PCR before starting any treatment",
-          "Start empirical IV aciclovir immediately",
           "Arrange urgent CT angiogram for stroke thrombolysis",
+          "Start empirical IV aciclovir immediately",
           "Start IV dexamethasone alone and observe",
           "Repeat MRI in 48 hours to confirm progression"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Start empirical IV aciclovir immediately",
         "explanation": "The pattern is classic for HSV encephalitis. Treatment is time-critical and must not wait for PCR or repeat imaging — empirical IV aciclovir is started at once. PCR can be falsely negative early, and delay worsens outcome. Basal ganglia sparing helps distinguish it from MCA infarction, so thrombolysis is inappropriate."
       },
@@ -1947,13 +1987,13 @@
         "type": "mcq",
         "question": "A patient has a ring-enhancing cerebral lesion with surrounding oedema. Which single MRI feature best supports a pyogenic abscess over a necrotic high-grade tumour?",
         "options": [
-          "Central restricted diffusion (bright DWI, low ADC)",
           "A thick, irregular, nodular enhancing wall",
           "Absence of surrounding vasogenic oedema",
           "Facilitated diffusion in the lesion centre",
-          "Homogeneous enhancement of the whole lesion"
+          "Homogeneous enhancement of the whole lesion",
+          "Central restricted diffusion (bright DWI, low ADC)"
         ],
-        "correctIndex": 0,
+        "correctIndex": 4,
         "answer": "Central restricted diffusion (bright DWI, low ADC)",
         "explanation": "Viscous pus in an abscess restricts diffusion centrally — bright on DWI with low ADC — whereas a necrotic tumour core typically does not restrict (facilitated diffusion, high ADC) and has a thicker, more irregular wall. Both may show oedema, so that is not discriminatory."
       },
@@ -1978,12 +2018,12 @@
         "question": "Which MRI finding is most characteristic of CNS tuberculosis?",
         "options": [
           "Bilateral non-haemorrhagic medial temporal signal only",
-          "Basal leptomeningeal enhancement with tuberculomas and hydrocephalus",
           "Solitary periventricular homogeneously enhancing mass",
           "Central restricted diffusion in a thin-walled cystic lesion",
+          "Basal leptomeningeal enhancement with tuberculomas and hydrocephalus",
           "Isolated gyral petechial haemorrhage of the frontal lobes"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Basal leptomeningeal enhancement with tuberculomas and hydrocephalus",
         "explanation": "TB meningitis characteristically produces thick basal leptomeningeal enhancement, parenchymal tuberculomas (ring or nodular enhancing), communicating hydrocephalus and infarcts from associated vasculitis. Bilateral medial temporal signal suggests autoimmune/HSV encephalitis; a solitary periventricular enhancing mass suggests lymphoma."
       },
@@ -2001,6 +2041,21 @@
         "correctIndex": 0,
         "answer": "Screening for pacemakers and ferromagnetic implants/foreign bodies",
         "explanation": "MRI safety screening for ferromagnetic and electronic implants (pacemakers, cochlear implants, metallic foreign bodies) is mandatory because the static magnetic field can cause device malfunction or projectile injury. Gadolinium is weighed against renal function (eGFR), not sodium, and fasting/prone positioning are not routine requirements."
+      },
+      {
+        "id": "mri_brain_q_thrombectomy",
+        "type": "mcq",
+        "question": "A patient with a dense MCA syndrome at 8 hours has MRI showing a small diffusion core but a large perfusion deficit (mismatch) and a proximal M1 occlusion. What is the appropriate treatment?",
+        "options": [
+          "IV thrombolysis only",
+          "Aspirin and admit",
+          "Mechanical thrombectomy",
+          "No intervention — outside all windows",
+          "Decompressive craniectomy"
+        ],
+        "correctIndex": 2,
+        "answer": "Mechanical thrombectomy",
+        "explanation": "A proximal large-vessel occlusion with a small core and large salvageable penumbra (mismatch) can be treated by mechanical thrombectomy up to 24 hours from onset. Thrombolysis alone is limited to <4.5 h; here thrombectomy is the key intervention."
       }
     ],
     "investigations__MRI__Skull Base & Special": [
@@ -2010,12 +2065,12 @@
         "question": "A 68-year-old man develops sudden vertigo, gait ataxia and vomiting. Non-contrast CT head is reported as normal. What is the most appropriate next investigation?",
         "options": [
           "Repeat CT head in 24 hours",
-          "MRI brain including diffusion-weighted imaging",
           "CT venogram",
+          "MRI brain including diffusion-weighted imaging",
           "Lumbar puncture",
           "Carotid Doppler ultrasound"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "MRI brain including diffusion-weighted imaging",
         "explanation": "Posterior circulation (cerebellar) strokes are frequently missed on early CT due to bone beam-hardening artefact and small lesion size. MRI-DWI detects acute infarction within minutes and is the investigation of choice for the posterior fossa. A normal CT does not exclude a cerebellar stroke."
       },
@@ -2026,11 +2081,11 @@
         "options": [
           "Meningioma",
           "Epidermoid cyst",
-          "Vestibular schwannoma (acoustic neuroma)",
           "Medulloblastoma",
-          "Haemangioblastoma"
+          "Haemangioblastoma",
+          "Vestibular schwannoma (acoustic neuroma)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Vestibular schwannoma (acoustic neuroma)",
         "explanation": "A vestibular schwannoma is the commonest CPA lesion and characteristically widens the internal acoustic meatus, giving an \"ice-cream cone\" appearance with unilateral sensorineural hearing loss. Meningiomas are centred off the meatus with a dural tail and no meatal expansion; epidermoids show restricted diffusion and follow CSF signal."
       },
@@ -2054,13 +2109,13 @@
         "type": "mcq",
         "question": "A teenager has cough-induced occipital headache. Sagittal MRI shows peg-like cerebellar tonsils extending 8 mm below the foramen magnum. Which additional finding should be specifically sought?",
         "options": [
-          "Cervical cord syrinx (syringomyelia)",
           "Bilateral acoustic neuromas",
           "Cerebellar mural nodule with cyst",
           "Dural tail sign",
+          "Cervical cord syrinx (syringomyelia)",
           "Restricted diffusion within a CPA cyst"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Cervical cord syrinx (syringomyelia)",
         "explanation": "Tonsillar herniation >5 mm below the foramen magnum defines a Chiari I malformation. It disrupts CSF flow at the craniocervical junction and is classically associated with a cervical cord syrinx, so the whole spinal cord should be imaged. The other options describe schwannoma, haemangioblastoma/pilocytic astrocytoma, meningioma and epidermoid respectively."
       },
@@ -2069,13 +2124,13 @@
         "type": "mcq",
         "question": "Which of the following is an absolute contraindication to MRI that must be excluded before scanning the posterior fossa?",
         "options": [
-          "Titanium hip prosthesis",
           "Non-MRI-conditional cardiac pacemaker",
+          "Titanium hip prosthesis",
           "Dental amalgam fillings",
           "Recent intravenous cannula",
           "Tattoos on the forearm"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Non-MRI-conditional cardiac pacemaker",
         "explanation": "A non-MRI-conditional pacemaker/ICD is a classic contraindication due to risk of device malfunction and lead heating. Other true contraindications include cochlear implants, intraocular/intracranial metallic foreign bodies and certain ferromagnetic aneurysm clips. Titanium prostheses, dental amalgam and tattoos are generally MRI-safe (tattoos may rarely warm slightly)."
       },
@@ -2085,12 +2140,12 @@
         "question": "A 34-year-old woman presents with sudden severe headache, reduced vision and drooping of one eyelid with a dilated pupil. She is hypotensive and drowsy. MRI shows a haemorrhagic sellar mass. What is the most important immediate management step?",
         "options": [
           "Urgent transsphenoidal surgery before any medical treatment",
-          "Intravenous hydrocortisone for presumed secondary adrenal insufficiency",
           "Start a dopamine agonist such as cabergoline",
+          "Intravenous hydrocortisone for presumed secondary adrenal insufficiency",
           "IV mannitol to reduce intracranial pressure",
           "Lumbar puncture to exclude subarachnoid haemorrhage"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Intravenous hydrocortisone for presumed secondary adrenal insufficiency",
         "explanation": "This is pituitary apoplexy. The life-threatening component is secondary adrenal insufficiency (adrenal crisis), so IV hydrocortisone must be given immediately, ahead of imaging delays or surgery. Endocrine and neurosurgical teams are then involved urgently; surgery may follow but does not precede steroid replacement."
       },
@@ -2100,12 +2155,12 @@
         "question": "A pituitary macroadenoma extends upward out of the sella. Which structure is compressed to produce the classic bitemporal hemianopia?",
         "options": [
           "Optic tract",
-          "Optic chiasm",
           "Lateral geniculate nucleus",
           "Cavernous segment of the internal carotid artery",
-          "Oculomotor nerve"
+          "Oculomotor nerve",
+          "Optic chiasm"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Optic chiasm",
         "explanation": "Suprasellar extension compresses the optic chiasm, damaging the crossing nasal-retinal fibres that carry the temporal visual fields, giving a bitemporal hemianopia. The optic tract, when affected, produces a homonymous defect, and the cavernous carotid/oculomotor nerve relate to lateral extension, not the field defect."
       },
@@ -2115,12 +2170,12 @@
         "question": "Which cranial nerves are at risk when a pituitary macroadenoma invades the cavernous sinus laterally?",
         "options": [
           "II only",
-          "I, II and VIII",
           "III, IV, V1, V2 and VI",
+          "I, II and VIII",
           "VII and VIII",
           "IX, X, XI and XII"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "III, IV, V1, V2 and VI",
         "explanation": "The cavernous sinus, lateral to the sella, transmits cranial nerves III, IV, V1, V2 and VI (along with the internal carotid artery). Lateral tumour extension can therefore cause ophthalmoplegia and facial sensory disturbance. The optic nerve (II) lies above, related to the chiasm, not within the sinus."
       },
@@ -2130,12 +2185,12 @@
         "question": "A dedicated pituitary MRI is requested for a suspected microadenoma. Which protocol best characterises the lesion?",
         "options": [
           "Non-contrast axial CT of the whole brain",
-          "Thin-slice coronal and sagittal T1 and T2 through the sella with dynamic gadolinium",
           "Whole-brain FLAIR and diffusion-weighted imaging only",
           "MR angiography of the circle of Willis",
+          "Thin-slice coronal and sagittal T1 and T2 through the sella with dynamic gadolinium",
           "Standard 5 mm axial T1 brain sequences without contrast"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Thin-slice coronal and sagittal T1 and T2 through the sella with dynamic gadolinium",
         "explanation": "A dedicated pituitary study uses thin (~2-3 mm) coronal and sagittal T1 and T2 focused on the sella, with dynamic post-gadolinium imaging. This exploits the slower enhancement of adenomas relative to normal gland to detect small microadenomas that routine thick-slice brain sequences would miss."
       },
@@ -2144,13 +2199,13 @@
         "type": "mcq",
         "question": "A 9-year-old presents with growth failure and visual problems. MRI shows a suprasellar cystic and solid mass, and plain imaging shows calcification. What is the most likely diagnosis?",
         "options": [
+          "Craniopharyngioma",
           "Prolactinoma",
           "Rathke cleft cyst",
-          "Craniopharyngioma",
           "Empty sella syndrome",
           "Non-functioning pituitary macroadenoma"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Craniopharyngioma",
         "explanation": "A suprasellar, mixed cystic/solid, calcified mass in a child is the classic craniopharyngioma, presenting with endocrine (growth) and visual disturbance. Prolactinomas and non-functioning adenomas are typically not calcified, a Rathke cleft cyst is a simple non-enhancing cyst, and empty sella is CSF flattening the gland, not a mass."
       },
@@ -2160,12 +2215,12 @@
         "question": "A 52-year-old presents with 6 months of progressive left-sided hearing loss and tinnitus. Pure-tone audiometry shows asymmetric sensorineural loss on the left. What is the single most appropriate investigation?",
         "options": [
           "CT temporal bones without contrast",
-          "MRI internal auditory meatus with heavily T2-weighted and post-gadolinium sequences",
           "Tympanometry and reflex testing",
+          "MRI internal auditory meatus with heavily T2-weighted and post-gadolinium sequences",
           "Repeat audiogram in 12 months",
           "Plain skull radiograph"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "MRI internal auditory meatus with heavily T2-weighted and post-gadolinium sequences",
         "explanation": "Unilateral/asymmetric SNHL requires MRI IAM to exclude a vestibular schwannoma. CISS/FIESTA shows a filling defect in the CSF and post-gadolinium T1 shows avid enhancement. It should not be dismissed or merely rescanned by audiogram."
       },
@@ -2175,12 +2230,12 @@
         "question": "On a heavily T2-weighted CISS/FIESTA sequence of the IAM, how does a small intracanalicular vestibular schwannoma typically appear?",
         "options": [
           "A bright hyperintense mass filling the whole IAM",
-          "A dark filling defect replacing the bright CSF around the nerves",
           "An area of restricted diffusion with no CSF signal",
           "A calcified lesion with a broad dural base",
-          "A flow void within the basilar artery"
+          "A flow void within the basilar artery",
+          "A dark filling defect replacing the bright CSF around the nerves"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "A dark filling defect replacing the bright CSF around the nerves",
         "explanation": "On heavily T2-weighted sequences CSF is bright and the nerves appear as thin dark strands. A schwannoma is a soft-tissue filling defect within that bright CSF; it then enhances avidly on post-gadolinium T1. Restricted diffusion and a broad dural base point to epidermoid and meningioma respectively."
       },
@@ -2205,12 +2260,12 @@
         "question": "A 28-year-old woman presents with painful loss of vision in her right eye over 3 days, with red desaturation. MRI orbits shows a swollen, enhancing right optic nerve on fat-suppressed post-gadolinium imaging. Which is the most appropriate next investigation?",
         "options": [
           "Orbital CT with contrast",
-          "MRI brain to assess for demyelination",
           "Carotid Doppler ultrasound",
           "Temporal artery biopsy",
+          "MRI brain to assess for demyelination",
           "Fluorescein angiography"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "MRI brain to assess for demyelination",
         "explanation": "The picture is optic neuritis, which is strongly associated with multiple sclerosis. An MRI brain looks for periventricular white-matter demyelinating lesions, which predict conversion to MS and guide disease-modifying therapy. The orbital findings alone are already established."
       },
@@ -2219,13 +2274,13 @@
         "type": "mcq",
         "question": "A 45-year-old man with Graves disease and proptosis has MRI orbits. Which finding is most characteristic of thyroid eye disease?",
         "options": [
-          "Enlargement of extraocular muscles including the tendinous insertions",
           "Enlargement of extraocular muscle bellies with sparing of the tendinous insertions",
+          "Enlargement of extraocular muscles including the tendinous insertions",
           "A well-defined enhancing intraconal mass separate from the muscles",
           "'Tram-track' enhancement around the optic nerve",
           "Diffuse enhancement of the lacrimal gland only"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Enlargement of extraocular muscle bellies with sparing of the tendinous insertions",
         "explanation": "Thyroid eye disease enlarges the muscle bellies (worst in inferior and medial recti) while sparing the tendons. Tendon involvement instead suggests orbital myositis. Apical crowding from enlarged muscles risks compressive optic neuropathy."
       },
@@ -2252,12 +2307,12 @@
         "question": "A 62-year-old smoker has a tongue-base SCC. On MRI, the imaging feature that most specifically upstages disease by indicating perineural spread is:",
         "options": [
           "Bright T2 signal within the tumour",
-          "Enhancing tumour signal tracking along a nerve into a skull-base foramen with widening of that foramen",
           "A 0.8 cm oval level II node with a fatty hilum",
+          "Enhancing tumour signal tracking along a nerve into a skull-base foramen with widening of that foramen",
           "Restricted diffusion within the primary tumour",
           "Fat stranding in the subcutaneous tissues"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Enhancing tumour signal tracking along a nerve into a skull-base foramen with widening of that foramen",
         "explanation": "Perineural spread is seen as abnormal enhancement and thickening of a nerve, often with foraminal widening and loss of the normal fat around the foramen. It upstages disease, worsens prognosis and changes radiotherapy planning. Bright T2 and restricted diffusion are non-specific; an 0.8 cm node with a fatty hilum is benign-appearing."
       },
@@ -2267,12 +2322,12 @@
         "question": "Which single MRI nodal feature is the most specific for metastatic involvement in head & neck cancer?",
         "options": [
           "Short-axis diameter greater than 1 cm",
-          "Central necrosis (non-enhancing core)",
           "Homogeneous enhancement",
           "Presence of a fatty hilum",
-          "Oval (reniform) shape"
+          "Oval (reniform) shape",
+          "Central necrosis (non-enhancing core)"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Central necrosis (non-enhancing core)",
         "explanation": "A necrotic (non-enhancing) centre is highly specific for nodal metastasis. Size alone is unreliable, a fatty hilum and oval shape suggest a benign node, and homogeneous enhancement is non-specific. Extranodal extension is the other strongly prognostic feature."
       },
@@ -2282,12 +2337,12 @@
         "question": "A patient with a bulky supraglottic tumour presents with stridor and increasing respiratory distress, and is booked for a staging MRI neck. The most appropriate immediate action is:",
         "options": [
           "Proceed with the MRI to define the tumour before intervening",
-          "Give oral contrast and rescan",
           "Secure the airway with senior anaesthetic/ENT support before imaging",
+          "Give oral contrast and rescan",
           "Arrange an outpatient PET-CT instead",
           "Start high-dose IV gadolinium and steroids and continue to the scanner"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Secure the airway with senior anaesthetic/ENT support before imaging",
         "explanation": "Stridor with respiratory distress signals critical airway obstruction — a supine MRI could precipitate complete obstruction. Airway is the priority: senior anaesthetic and ENT input for awake fibreoptic intubation or a surgical airway. Imaging follows once the airway is safe."
       },
@@ -2297,12 +2352,12 @@
         "question": "A 46-year-old man of southern Chinese descent presents with a 6-week history of a painless left-sided neck lump and left-sided reduced hearing with a middle-ear effusion. Which single investigation best assesses the likely primary site and its local extent?",
         "options": [
           "Plain lateral neck radiograph",
-          "MRI of the nasopharynx and neck with contrast",
           "Tympanometry alone",
           "Pure-tone audiometry",
+          "MRI of the nasopharynx and neck with contrast",
           "Ultrasound of the thyroid gland"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "MRI of the nasopharynx and neck with contrast",
         "explanation": "The combination of a cervical node and unilateral serous otitis media in an at-risk adult is highly suggestive of NPC. Contrast MRI is the primary modality for assessing the nasopharyngeal primary, depth of invasion, skull-base/perineural spread and nodal disease."
       },
@@ -2311,13 +2366,13 @@
         "type": "mcq",
         "question": "Which anatomical site is the characteristic location of nasopharyngeal carcinoma?",
         "options": [
-          "Pyriform fossa",
           "Fossa of Rosenmüller",
+          "Pyriform fossa",
           "Vallecula",
           "Torus tubarius apex only",
           "Vocal cords"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Fossa of Rosenmüller",
         "explanation": "NPC characteristically arises in the fossa of Rosenmüller (the lateral pharyngeal recess of the nasopharynx). The pyriform fossa and vallecula are hypopharyngeal/laryngeal sites, not nasopharyngeal."
       },
@@ -2327,12 +2382,12 @@
         "question": "On MRI, which finding most specifically indicates early skull-base invasion by NPC and demonstrates the advantage of MRI over CT?",
         "options": [
           "Enlarged jugulodigastric node",
-          "Loss of normal high-signal fatty marrow in the clivus on T1",
           "Mucosal thickening of the maxillary sinus",
+          "Loss of normal high-signal fatty marrow in the clivus on T1",
           "A retention cyst in the sphenoid sinus",
           "Symmetrical adenoidal enlargement"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Loss of normal high-signal fatty marrow in the clivus on T1",
         "explanation": "Replacement of bright fatty marrow signal on T1-weighted images signals tumour infiltration of the skull base. MRI detects this marrow change earlier and more sensitively than CT, which relies on cortical bone destruction."
       },
@@ -2342,12 +2397,12 @@
         "question": "A 45-year-old woman has a slow-growing, painless lump at the angle of the jaw. MRI shows a well-defined, lobulated, homogeneously T2-bright lesion confined to the superficial lobe of the parotid. What is the most likely diagnosis?",
         "options": [
           "Warthin tumour",
-          "Pleomorphic adenoma",
           "Mucoepidermoid carcinoma",
           "Adenoid cystic carcinoma",
-          "Sjögren's syndrome"
+          "Sjögren's syndrome",
+          "Pleomorphic adenoma"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "Pleomorphic adenoma",
         "explanation": "A well-defined, lobulated, strikingly T2-bright superficial parotid lesion in a middle-aged patient is the classic pleomorphic adenoma — the commonest parotid tumour. It is benign but excised due to risk of malignant transformation. Warthin tumour typically occurs in older male smokers and is often bilateral with lower T2 signal."
       },
@@ -2357,12 +2412,12 @@
         "question": "A 60-year-old man presents with a parotid mass and ipsilateral facial weakness. Which single feature most strongly indicates malignancy?",
         "options": [
           "Well-defined margins",
-          "High T2 signal",
           "Facial nerve palsy",
+          "High T2 signal",
           "Location in the superficial lobe",
           "Slow growth over years"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Facial nerve palsy",
         "explanation": "Facial nerve (CN VII) palsy with a parotid mass strongly suggests malignant infiltration of the nerve and mandates urgent referral. Well-defined margins, high T2 signal, superficial location and slow growth are more typical of benign disease; malignant features include ill-defined margins, low T2 signal, perineural spread and nodes."
       },
@@ -2372,12 +2427,12 @@
         "question": "Which statement about MRI safety in salivary gland imaging is correct?",
         "options": [
           "The main magnetic field is switched off between scans",
-          "A cardiac pacemaker is generally a contraindication to MRI",
           "Gadolinium is completely safe in severe renal failure",
           "Metallic intra-ocular foreign bodies are irrelevant to screening",
+          "A cardiac pacemaker is generally a contraindication to MRI",
           "Ferromagnetic objects pose no projectile risk near the scanner"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "A cardiac pacemaker is generally a contraindication to MRI",
         "explanation": "Traditional cardiac pacemakers/ICDs are generally contraindications (though some are MR-conditional). The magnet is always on, so ferromagnetic objects are a projectile hazard and zoning is enforced. Metallic intra-ocular foreign bodies must be screened for, and gadolinium carries nephrogenic systemic fibrosis risk in severe renal impairment."
       },
@@ -2386,13 +2441,13 @@
         "type": "mcq",
         "question": "A 68-year-old diabetic man has 3 weeks of severe left otalgia, granulation tissue in the external auditory canal, and now a new left facial and tongue weakness. MRI shows loss of normal T1 marrow signal in the left petrous apex and clivus with avid enhancement of adjacent soft tissue. What is the most likely diagnosis?",
         "options": [
-          "Clival chordoma",
           "Skull-base osteomyelitis (malignant otitis externa)",
+          "Clival chordoma",
           "Glomus jugulare paraganglioma",
           "Nasopharyngeal carcinoma with perineural spread",
           "Cavernous sinus meningioma"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Skull-base osteomyelitis (malignant otitis externa)",
         "explanation": "The classic picture — elderly diabetic, severe otalgia, canal granulation tissue, evolving lower cranial neuropathies, plus MRI marrow replacement and enhancement spreading from the ear — is skull-base osteomyelitis, usually Pseudomonas. It is a medical emergency needing urgent IV anti-pseudomonal therapy."
       },
@@ -2402,12 +2457,12 @@
         "question": "A patient with known maxillary sinus squamous cell carcinoma develops new right cheek numbness. Which MRI sequence and finding would best confirm perineural tumour spread along V2?",
         "options": [
           "Non-contrast T2 showing a bright sinus",
-          "Fat-suppressed post-gadolinium T1 showing loss of foraminal fat with an enhancing, thickened nerve",
           "Diffusion-weighted imaging showing restricted diffusion in the globe",
+          "Fat-suppressed post-gadolinium T1 showing loss of foraminal fat with an enhancing, thickened nerve",
           "Time-of-flight MR angiography of the internal carotid",
           "Gradient-echo showing susceptibility artefact in the sinus"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Fat-suppressed post-gadolinium T1 showing loss of foraminal fat with an enhancing, thickened nerve",
         "explanation": "Perineural spread is best shown on fat-suppressed post-contrast T1: normal fat within the foramen (e.g. foramen rotundum for V2) is replaced, and the nerve becomes thickened and enhancing. This upstages the cancer and MRI detects it before CT shows bony change."
       },
@@ -2418,11 +2473,11 @@
         "options": [
           "Clival chordoma",
           "Esthesioneuroblastoma",
-          "Glomus jugulare (paraganglioma)",
           "Pituitary macroadenoma",
-          "Chondrosarcoma"
+          "Chondrosarcoma",
+          "Glomus jugulare (paraganglioma)"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Glomus jugulare (paraganglioma)",
         "explanation": "A hypervascular jugular foramen mass with a 'salt-and-pepper' pattern (salt = subacute haemorrhage/slow flow bright foci, pepper = signal voids from high-flow vessels) is the classic MRI appearance of a glomus jugulare paraganglioma, often presenting with pulsatile tinnitus."
       },
@@ -2447,12 +2502,12 @@
         "question": "Which single feature makes MRI superior to CT for assessing the TMJ?",
         "options": [
           "Better depiction of condylar cortical bone",
-          "Direct visualisation of the articular disc",
           "Lower cost and faster acquisition",
           "Ability to use iodinated contrast",
+          "Direct visualisation of the articular disc",
           "Superior detection of osteophytes"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Direct visualisation of the articular disc",
         "explanation": "The fibrocartilaginous disc is the key structure in internal derangement and is not seen on X-ray or CT. MRI images it directly. CT is actually better for cortical bone detail such as osteophytes."
       },
@@ -2461,13 +2516,13 @@
         "type": "mcq",
         "question": "A 45-year-old reports progressively worsening restricted mouth opening (\"locking\"). MRI shows the disc anteriorly displaced on the closed-mouth view and STILL anteriorly displaced on the open-mouth view. Which statement is correct?",
         "options": [
-          "This is disc displacement with reduction and typically causes clicking",
           "This is disc displacement without reduction and typically causes limited opening",
+          "This is disc displacement with reduction and typically causes clicking",
           "This finding is a normal variant needing no follow-up",
           "A joint effusion excludes internal derangement",
           "The condyle has translated normally onto the disc"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "This is disc displacement without reduction and typically causes limited opening",
         "explanation": "Failure of the disc to recapture on opening is displacement WITHOUT reduction — a mechanical block (\"closed lock\") that limits mouth opening, in contrast to the clicking seen when a displaced disc reduces."
       }
@@ -2494,12 +2549,12 @@
         "question": "On a sagittal T1-weighted whole-spine MRI, a vertebral metastasis is typically seen as:",
         "options": [
           "A bright (high-signal) lesion because tumour contains fat",
-          "A dark (low-signal) lesion replacing normal bright fatty marrow",
           "No change, as T1 does not show marrow",
           "A bright lesion only after fat suppression",
-          "A signal void identical to cortical bone"
+          "A signal void identical to cortical bone",
+          "A dark (low-signal) lesion replacing normal bright fatty marrow"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "A dark (low-signal) lesion replacing normal bright fatty marrow",
         "explanation": "Normal vertebral marrow is bright on T1 due to fat. Metastatic tumour replaces this fatty marrow, so deposits appear as focal areas of low (dark) signal against the bright background."
       },
@@ -2524,12 +2579,12 @@
         "question": "A 68-year-old man reports 8 months of increasingly clumsy hands and an unsteady gait. Examination shows brisk reflexes in all four limbs, bilateral upgoing plantars and a positive Hoffmann's sign. Which MRI finding best explains his presentation?",
         "options": [
           "Foraminal narrowing compressing a single C6 nerve root with a normal cord",
-          "Multilevel canal stenosis with cord compression and high T2 signal within the cord",
           "A bright T2 CSF collar preserved around a normal-calibre cord",
           "Pannus at C1–C2 with an intact transverse ligament and no subluxation",
+          "Multilevel canal stenosis with cord compression and high T2 signal within the cord",
           "Loss of vertebral body height with marrow oedema but no canal compromise"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "Multilevel canal stenosis with cord compression and high T2 signal within the cord",
         "explanation": "The picture is degenerative cervical myelopathy: UMN signs below the level plus clumsy hands and gait disturbance. The MRI correlate is multilevel stenosis compressing the cord with intrinsic high T2 signal (myelomalacia). A single-root lesion would give dermatomal arm pain, not diffuse UMN signs."
       },
@@ -2538,13 +2593,13 @@
         "type": "mcq",
         "question": "A 25-year-old is brought in after a diving accident with tetraparesis. CT shows no fracture. Which statement about cervical MRI is correct?",
         "options": [
-          "MRI is contraindicated because CT has already excluded significant injury",
           "MRI can demonstrate cord contusion/oedema and ligamentous injury not seen on CT",
+          "MRI is contraindicated because CT has already excluded significant injury",
           "MRI cannot assess the spinal cord and is only useful for bony detail",
           "A normal CT reliably excludes cord injury, so MRI adds nothing",
           "MRI should be delayed to an outpatient appointment given the normal CT"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "MRI can demonstrate cord contusion/oedema and ligamentous injury not seen on CT",
         "explanation": "Neurology out of keeping with a normal CT is a classic indication for urgent MRI. MRI shows intrinsic cord signal change (contusion/oedema, high T2) and ligamentous disruption that CT misses. Traumatic cord injury is an emergency requiring urgent imaging and spinal referral."
       },
@@ -2554,12 +2609,12 @@
         "question": "An 80-year-old with known cervical spondylosis falls forwards and hyperextends the neck. She has weakness that is markedly worse in the arms than the legs. CT shows no fracture. What is the most likely diagnosis?",
         "options": [
           "Cervical radiculopathy from a single foraminal disc",
-          "Central cord syndrome",
           "Complete cord transection",
+          "Central cord syndrome",
           "Rheumatoid atlantoaxial subluxation",
           "Guillain-Barré syndrome"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Central cord syndrome",
         "explanation": "Central cord syndrome typically occurs in older patients with a spondylotic canal after a hyperextension injury, often without fracture. The central cord fibres serving the arms are preferentially affected, so weakness is worse in the upper than lower limbs, with central cord high T2 signal on MRI."
       },
@@ -2570,11 +2625,11 @@
         "options": [
           "CT of the thoracic spine only",
           "Plain radiographs of the whole spine",
-          "Urgent MRI of the whole spine",
           "Bone scintigraphy (isotope bone scan)",
-          "Lumbar puncture for CSF analysis"
+          "Lumbar puncture for CSF analysis",
+          "Urgent MRI of the whole spine"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Urgent MRI of the whole spine",
         "explanation": "This is metastatic spinal cord compression. MRI is the investigation of choice and must cover the WHOLE spine because MSCC is frequently multi-level; imaging only the symptomatic level risks missing further deposits. CT and plain films underdetect epidural disease and cord signal change; a bone scan and LP would delay definitive treatment."
       },
@@ -2584,12 +2639,12 @@
         "question": "Which MRI feature most reliably points to a MALIGNANT rather than an osteoporotic thoracic vertebral compression fracture?",
         "options": [
           "Retropulsion of a posterior bony fragment",
-          "A thin band of subchondral marrow oedema",
           "Complete replacement of the vertebral body marrow with pedicle involvement and a convex posterior cortex",
+          "A thin band of subchondral marrow oedema",
           "Preserved normal fatty (T1-bright) marrow in adjacent vertebrae",
           "Multiple old wedge deformities at other levels"
         ],
-        "correctIndex": 2,
+        "correctIndex": 1,
         "answer": "Complete replacement of the vertebral body marrow with pedicle involvement and a convex posterior cortex",
         "explanation": "Malignant collapse shows complete T1 marrow replacement, pedicle (posterior element) involvement, a bulging/convex posterior cortex and often an epidural or paraspinal soft-tissue mass. Retropulsion of a fragment, band-like oedema, preserved fatty marrow and multiple old wedge deformities all favour a benign osteoporotic fracture."
       },
@@ -2598,13 +2653,13 @@
         "type": "mcq",
         "question": "A 72-year-old man has 6 months of progressive leg weakness and a spastic gait. MRI shows diffuse high T2 signal and swelling of the lower thoracic cord with serpiginous flow voids along its dorsal surface. What is the most likely diagnosis?",
         "options": [
-          "Spinal dural arteriovenous fistula",
           "Metastatic spinal cord compression",
           "Idiopathic transverse myelitis",
           "Thoracic disc herniation",
+          "Spinal dural arteriovenous fistula",
           "Osteoporotic vertebral compression fracture"
         ],
-        "correctIndex": 0,
+        "correctIndex": 3,
         "answer": "Spinal dural arteriovenous fistula",
         "explanation": "Dorsal serpiginous flow voids with diffuse lower thoracic cord oedema in an elderly man are classic for a spinal dural AV fistula — a treatable but easily missed cause of progressive myelopathy. There is no vertebral marrow lesion or epidural mass (against MSCC/fracture), the signal change is not the discrete long central plaque of transverse myelitis, and there is no herniated disc compressing the cord."
       },
@@ -2613,13 +2668,13 @@
         "type": "mcq",
         "question": "A 46-year-old presents with acute right-leg sciatica following lifting. MRI shows a right paracentral disc protrusion at the L5/S1 level. Which nerve root is most likely compressed?",
         "options": [
+          "Right S1 root",
           "Right L4 root",
           "Right L5 root",
-          "Right S1 root",
           "Right S2 root",
           "Bilateral cauda equina roots"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Right S1 root",
         "explanation": "A paracentral (posterolateral) disc compresses the traversing root, which at the L5/S1 level is the S1 root. This fits S1 features: lateral foot/sole sensory loss, weak plantarflexion and a reduced ankle jerk. A far-lateral L5/S1 disc would instead catch the exiting L5 root."
       },
@@ -2629,12 +2684,12 @@
         "question": "A 72-year-old describes bilateral aching leg pain and heaviness after walking 100 metres, eased by leaning forward on a shopping trolley or sitting. Foot pulses are palpable. What is the most likely diagnosis?",
         "options": [
           "Peripheral vascular (intermittent) claudication",
-          "Neurogenic claudication from lumbar central canal stenosis",
           "Bilateral acute disc extrusion at L4/5",
+          "Neurogenic claudication from lumbar central canal stenosis",
           "Cauda equina syndrome",
           "Trochanteric bursitis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Neurogenic claudication from lumbar central canal stenosis",
         "explanation": "Posture-dependent relief (flexion/sitting), the shopping-trolley sign and preserved pulses point to neurogenic claudication from central stenosis. Vascular claudication is relieved by stopping regardless of posture with absent pulses. There are no cauda equina red flags (no saddle anaesthesia, retention or reduced anal tone)."
       },
@@ -2645,11 +2700,11 @@
         "options": [
           "Reassure and advise conservative management with analgesia for 6 weeks",
           "Arrange routine outpatient lumbar MRI within 6 weeks",
-          "Arrange emergency same-day MRI of the whole lumbosacral spine",
           "Request plain lumbar spine radiographs",
-          "Refer for outpatient physiotherapy"
+          "Refer for outpatient physiotherapy",
+          "Arrange emergency same-day MRI of the whole lumbosacral spine"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Arrange emergency same-day MRI of the whole lumbosacral spine",
         "explanation": "Bilateral sciatica with urinary dysfunction, saddle numbness and bowel incontinence is cauda equina syndrome — a surgical emergency. It requires immediate MRI of the whole lumbosacral spine and urgent decompression; any delay risks permanent bladder, bowel and sexual dysfunction. Conservative management, routine imaging or plain films are inappropriate."
       },
@@ -2674,12 +2729,12 @@
         "question": "Which drug should be given immediately to a patient with confirmed or strongly suspected MSCC, alongside a proton pump inhibitor?",
         "options": [
           "Intravenous ceftriaxone",
-          "High-dose dexamethasone",
           "Subcutaneous low-molecular-weight heparin as treatment dose",
           "Oral gabapentin",
+          "High-dose dexamethasone",
           "Intravenous mannitol"
         ],
-        "correctIndex": 1,
+        "correctIndex": 3,
         "answer": "High-dose dexamethasone",
         "explanation": "High-dose dexamethasone reduces peri-tumoural cord oedema and is started immediately while definitive treatment (surgery or radiotherapy) is arranged. A PPI is co-prescribed for gastric protection. It is given in parallel with, not after, imaging and referral."
       },
@@ -2688,13 +2743,13 @@
         "type": "mcq",
         "question": "Which statement about MSCC best explains why treatment is time-critical?",
         "options": [
-          "MRI signal change resolves within hours so scanning must be immediate",
           "Neurological function present at the time of treatment is the strongest predictor of outcome, and paraplegia rarely recovers",
+          "MRI signal change resolves within hours so scanning must be immediate",
           "Dexamethasone loses efficacy if given more than 6 hours after symptom onset",
           "Back pain is always the last symptom to appear",
           "Radiotherapy can only be delivered within 24 hours of diagnosis"
         ],
-        "correctIndex": 1,
+        "correctIndex": 0,
         "answer": "Neurological function present at the time of treatment is the strongest predictor of outcome, and paraplegia rarely recovers",
         "explanation": "Outcome tracks the patient's neurological status at treatment: an ambulant patient treated promptly usually stays mobile, whereas once a patient is paraplegic, recovery is rare. This is why whole-spine MRI and treatment are needed urgently, ideally within 24 hours."
       },
@@ -2704,12 +2759,12 @@
         "question": "A cancer patient is scheduled for urgent spinal MRI. Which finding on safety screening is the most important absolute contraindication to check for?",
         "options": [
           "A titanium hip replacement inserted 5 years ago",
-          "A non-MRI-conditional cardiac pacemaker",
           "Dental amalgam fillings",
+          "A non-MRI-conditional cardiac pacemaker",
           "A history of claustrophobia",
           "Recent contrast-enhanced CT"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "A non-MRI-conditional cardiac pacemaker",
         "explanation": "An older/non-conditional pacemaker or ICD is a key MRI contraindication and must be screened for, along with cochlear implants, some aneurysm clips and metallic intra-ocular foreign bodies. Modern orthopaedic implants and dental amalgam are generally MRI-safe; claustrophobia is a practical issue, not an absolute contraindication."
       },
@@ -2719,12 +2774,12 @@
         "question": "Which feature in the history most strongly suggests early MSCC and should prompt urgent MRI even before weakness develops?",
         "options": [
           "Mechanical low back pain relieved by rest",
-          "New progressive thoracic back pain that is worse at night and on coughing",
           "Unilateral sciatica improving over 2 weeks",
           "Chronic stable back pain of 10 years' duration",
-          "Localised muscular tenderness after heavy lifting"
+          "Localised muscular tenderness after heavy lifting",
+          "New progressive thoracic back pain that is worse at night and on coughing"
         ],
-        "correctIndex": 1,
+        "correctIndex": 4,
         "answer": "New progressive thoracic back pain that is worse at night and on coughing",
         "explanation": "Progressive, nocturnal back pain worsened by coughing or lying flat is the classic early red-flag symptom of MSCC and typically precedes weakness by weeks. In a cancer patient this warrants urgent whole-spine MRI before neurological deficit becomes established."
       },
@@ -2750,11 +2805,11 @@
         "options": [
           "Metastatic tumour compressing the thecal sac",
           "Epidural abscess",
-          "Large central intervertebral disc herniation at L4/5 or L5/S1",
           "Traumatic burst fracture with retropulsion",
+          "Large central intervertebral disc herniation at L4/5 or L5/S1",
           "Ankylosing spondylitis"
         ],
-        "correctIndex": 2,
+        "correctIndex": 3,
         "answer": "Large central intervertebral disc herniation at L4/5 or L5/S1",
         "explanation": "A large central disc prolapse at L4/5 or L5/S1 is the single commonest cause. Tumour, epidural abscess/haematoma, and trauma are important but less common differentials that the MRI also helps identify or exclude."
       },
@@ -2763,13 +2818,13 @@
         "type": "mcq",
         "question": "A patient with suspected cauda equina syndrome is confirmed on MRI to have a compressive central disc. Regarding definitive management, which statement is most accurate?",
         "options": [
+          "Urgent surgical decompression, ideally within 48 hours of onset",
           "Treat conservatively with analgesia and review in clinic in 2 weeks",
           "Start high-dose oral steroids and repeat MRI in 72 hours",
-          "Urgent surgical decompression, ideally within 48 hours of onset",
           "Refer for elective physiotherapy and a lumbar corset",
           "Await development of urinary retention before referring to surgery"
         ],
-        "correctIndex": 2,
+        "correctIndex": 0,
         "answer": "Urgent surgical decompression, ideally within 48 hours of onset",
         "explanation": "Confirmed CES requires urgent surgical decompression, ideally within 48 hours of onset and sooner for incomplete CES, to preserve bladder, bowel and sexual function. Conservative measures, steroids alone, physiotherapy, or waiting for retention all risk permanent, irreversible deficit."
       },
@@ -2779,12 +2834,12 @@
         "question": "A 54-year-old man who injects drugs presents with 3 weeks of worsening lower back pain and fever. MRI lumbar spine shows high T2/STIR signal in the L3/4 disc with marrow oedema (low T1, high STIR) in the L3 and L4 vertebral endplates, and post-gadolinium enhancement crossing the disc space. Which is the most likely diagnosis?",
         "options": [
           "Metastatic vertebral disease",
-          "Pyogenic spondylodiscitis",
           "Osteoporotic wedge fracture",
+          "Pyogenic spondylodiscitis",
           "Schmorl's node",
           "Degenerative Modic type II change"
         ],
-        "correctIndex": 1,
+        "correctIndex": 2,
         "answer": "Pyogenic spondylodiscitis",
         "explanation": "Infection crossing the disc space with endplate marrow oedema in two adjacent vertebrae and enhancement is the hallmark of pyogenic spondylodiscitis. Malignancy typically spares the disc; the IVDU risk factor and fever further support infection (commonest organism S. aureus)."
       },
@@ -2795,11 +2850,11 @@
         "options": [
           "Discharge on oral antibiotics and review in clinic",
           "Await disc biopsy results before any intervention",
-          "Urgent surgical decompression/drainage plus IV antibiotics",
           "Start physiotherapy and repeat MRI in 6 weeks",
-          "Reassure — epidural collections resolve spontaneously"
+          "Reassure — epidural collections resolve spontaneously",
+          "Urgent surgical decompression/drainage plus IV antibiotics"
         ],
-        "correctIndex": 2,
+        "correctIndex": 4,
         "answer": "Urgent surgical decompression/drainage plus IV antibiotics",
         "explanation": "An epidural abscess causing cord compression with new neurology is a surgical emergency. Emergency decompression/drainage plus IV antibiotics is required; delaying for biopsy results or conservative management risks permanent neurological damage."
       },
