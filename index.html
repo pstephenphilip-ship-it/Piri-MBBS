@@ -16848,5 +16848,42 @@ function hideFlyout(p) {
   .da-plan-note{color:#5A6480;}
   .da-plan-lead{color:#5A6480;}
 </style>
+
+<!-- =====================================================================
+     LAYOUT PASS 6 — Investigations: the .cp-rooted notes.
+     Search this file for "LAYOUT PASS INV" to find it again.
+     ===================================================================== -->
+<style>
+  /* The four correctness rules near the top of this file are scoped to
+     .rich-note. Measured across every note: Anatomy and Histology are wholly
+     .rich-note-rooted, Signs is wholly .cp-rooted, and Investigations is
+     SPLIT — 146 notes wrap in .rich-note and 49 do not. Those 49 get none of
+     the fixes, which is why every one of their 214 .cp-kill-desc renders as
+     a padded inline box with its wrapped lines hanging outside the card. */
+
+  /* An element styled as a card body but left inline is broken wherever it
+     appears: padding opens only before the first line and after the last, so
+     wrapped text sits hard against the border. Unscoping this is a no-op
+     where the markup already uses a block element (Signs authors these as
+     divs, so 0 of its 1,945 change) and repairs all 214 in Investigations. */
+  .cp-kill-desc{display:block;}
+  .cp-warn:not(:has(> .cp-warn-ic)){display:block;}
+
+  /* Loose text in a flex row becomes an anonymous flex item, which breaks a
+     sentence into separately-wrapped fragments. The .rich-note rule catches
+     the cases holding a <b>/<strong>/<em>; these notes write prose with an
+     inline .cp-dx link and no bold, so they fell through. Scoped to this tab:
+     Signs' .cp-then are genuine chip rows with no loose text (measured 0),
+     and turning those into blocks would drop their flex gap for nothing. */
+  #tab-investigations .cp-then{display:block;}
+  /* the chips inside then need their own spacing, since the flex gap is gone.
+     Horizontal only: these are inline links here, and a vertical margin on an
+     inline box is silently dropped. */
+  #tab-investigations .cp-then > .cp-dx{margin-right:5px;}
+  /* .cp-reads is deliberately left as a flex chip row. Only 6 of its 1,090
+     instances in this tab hold loose text; blocking the container to fix those
+     six turns the other 1,084 chip rows into full-width stacked strips, which
+     is a far bigger change than the fault. Same call as the original pass. */
+</style>
 </body>
 </html>
