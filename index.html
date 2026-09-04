@@ -16905,6 +16905,7 @@ function hideFlyout(p) {
   function load(){ try{ var v=localStorage.getItem(KEY); if(v){ var a=JSON.parse(v); if(Array.isArray(a)) return a; } }catch(e){} return []; }
   var DATA=load();
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(DATA)); }catch(e){} }
+  window.__owntData=DATA; window.__owntSave=save;   // shared with the pharmacology module
   function uid(){ return 'own_'+(window.daUid?window.daUid():(Date.now()+''+Math.floor(Math.random()*1e6))); }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   function forTab(p){ return DATA.filter(function(t){ return t.tab===p; }); }
@@ -16914,7 +16915,7 @@ function hideFlyout(p) {
   // ---- inject each custom note into the tab's native note bank so loadNote renders it with the tab's template ----
   function bankFor(p){ return p==='osce' ? RICH_NOTES_OSCE : RICH_NOTES; }
   function injectAll(){
-    DATA.forEach(function(t){ try{ bankFor(t.tab)[sysOf(t)+'__'+t.name]=t.notesHtml||''; }catch(e){} });
+    DATA.forEach(function(t){ if(TABS.indexOf(t.tab)<0) return; try{ bankFor(t.tab)[sysOf(t)+'__'+t.name]=t.notesHtml||''; }catch(e){} });
     // stop ensureSystemLoaded from firing a 404 fetch for the synthetic system
     try{ if(typeof __ensure!=='undefined'){ __ensure[MYSYS]=Promise.resolve(); } }catch(e){}
   }
@@ -17135,6 +17136,172 @@ function hideFlyout(p) {
   // re-mount if a tab initialises its sidebar later
   var _initTab=(typeof initTab==='function')?initTab:null;
   if(_initTab){ initTab=window.initTab=function(p){ var r=_initTab.apply(this,arguments); try{ mountButtons(); }catch(e){} return r; }; }
+})();
+</script>
+
+<!-- ===================== ADD YOUR OWN DRUG (Pharmacology — follows the drug-detail template) ===================== -->
+<script>
+(function(){
+  var MYSEC='★ My Drugs', MYSUB='My drugs', NESTSUB='My additions';
+  function all(){ return window.__owntData||[]; }
+  function save(){ if(window.__owntSave) window.__owntSave(); }
+  function uid(){ return 'own_'+(window.daUid?window.daUid():(Date.now()+''+Math.floor(Math.random()*1e6))); }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function mine(){ return all().filter(function(t){ return t.tab==='pharmacology'; }); }
+
+  var FIELDS=[
+    ['drug_class','Drug class','e.g. ACE inhibitor'],
+    ['mechanism','Mechanism',''],
+    ['uses','Indications',''],
+    ['dosing','Typical dosing',''],
+    ['contraindications','Contraindications & cautions',''],
+    ['side_effects','Side effects',''],
+    ['individual','Individual drug differences',''],
+    ['monitoring','Monitoring',''],
+    ['interactions','Key interactions',''],
+    ['pearl','Exam pearl','']
+  ];
+
+  function toDrug(t){
+    var d=t.drug||{};
+    return { drugs:t.name, display_drugs:t.name, drug_class:d.drug_class||'', section:t.section, subsection:t.subsection,
+      mechanism:d.mechanism||'', uses:d.uses||'', dosing:d.dosing||'', contraindications:d.contraindications||'',
+      side_effects:d.side_effects||'', individual:d.individual||'', monitoring:d.monitoring||'', interactions:d.interactions||'', pearl:d.pearl||'',
+      __ownId:t.id };
+  }
+  function inject(){
+    if(typeof PHARMA_SECTIONS==='undefined') return;
+    Object.keys(PHARMA_SECTIONS).forEach(function(sec){
+      var subs=PHARMA_SECTIONS[sec].subsections||{};
+      Object.keys(subs).forEach(function(sub){ subs[sub]=subs[sub].filter(function(d){ return !d.__ownId; }); if(subs[sub].length===0 && (sub===MYSUB||sub===NESTSUB)) delete subs[sub]; });
+      if(sec===MYSEC && Object.keys(PHARMA_SECTIONS[sec].subsections).length===0) delete PHARMA_SECTIONS[sec];
+    });
+    mine().forEach(function(t){
+      var sec=t.section||MYSEC, sub=t.subsection||MYSUB;
+      if(!PHARMA_SECTIONS[sec]) PHARMA_SECTIONS[sec]={icon:'⭐',subsections:{}};
+      if(!PHARMA_SECTIONS[sec].subsections[sub]) PHARMA_SECTIONS[sec].subsections[sub]=[];
+      PHARMA_SECTIONS[sec].subsections[sub].push(toDrug(t));
+    });
+  }
+  inject();
+
+  function refresh(navTo){
+    inject();
+    var list=document.getElementById('pharma-section-list');
+    if(list){ list.innerHTML=''; if(typeof initPharma==='function') initPharma(); }
+    if(navTo) navigate(navTo);
+  }
+  function navigate(t){
+    var navEl=document.querySelector('.nav-tab[onclick*="\'pharmacology\'"]');
+    if(navEl && typeof switchMainTab==='function') switchMainTab('pharmacology', navEl, true);
+    var sec=t.section||MYSEC;
+    if(typeof pharmaSelectSection==='function') pharmaSelectSection(sec, true);
+    var drug=null; try{ (PHARMA_SECTIONS[sec].subsections[t.subsection||MYSUB]||[]).forEach(function(d){ if(d.__ownId===t.id) drug=d; }); }catch(e){}
+    if(drug && typeof pharmaShowDrug==='function') pharmaShowDrug(drug);
+  }
+
+  function mountBtn(){
+    var bar=document.querySelector('#tab-pharmacology .pharma-search-bar > div'); if(!bar) return;
+    if(document.getElementById('ownt-pharma-add')) return;
+    var b=document.createElement('button'); b.id='ownt-pharma-add'; b.type='button';
+    b.style.cssText='flex-shrink:0;cursor:pointer;border:1.5px dashed var(--border2,#CBD2E0);border-radius:var(--radius,9px);padding:10px 16px;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--muted,#6B7280);background:none;white-space:nowrap;';
+    b.textContent='＋ Add your own drug';
+    b.onmouseover=function(){ b.style.borderColor='#00C2A8'; b.style.color='#059E8C'; };
+    b.onmouseout=function(){ b.style.borderColor='var(--border2,#CBD2E0)'; b.style.color='var(--muted,#6B7280)'; };
+    b.onclick=function(){ openCreate(); };
+    bar.appendChild(b);
+  }
+
+  var placeSel='solo';
+  function openCreate(){
+    placeSel='solo';
+    var sections=(typeof PHARMA_SECTIONS!=='undefined')?Object.keys(PHARMA_SECTIONS).filter(function(s){ return s!==MYSEC; }):[];
+    var opts=sections.map(function(s){ return '<option value="'+esc(s)+'">'+esc(s)+'</option>'; }).join('');
+    var ov=document.createElement('div'); ov.className='ownt-ov'; ov.id='ownt-ov-pharma';
+    ov.innerHTML='<div class="ownt-modal"><h3>Add your own drug</h3>'
+      +'<div class="ownt-sub">Create a drug in <b>Pharmacology</b>. It follows the pharmacology template (mechanism, indications, cautions&hellip;) and shows in the drug-detail view like any other.</div>'
+      +'<label class="ownt-lbl">Drug name</label><input class="ownt-inp" id="ownt-pname" placeholder="e.g. My revision drug" autocomplete="off">'
+      +'<label class="ownt-lbl">Where should it live?</label>'
+      +'<div class="ownt-place"><div class="ownt-radio on" data-v="solo">On its own<br><span style="font-weight:500;font-size:11px;color:var(--muted,#6B7280);">under &ldquo;My Drugs&rdquo;</span></div>'
+      +'<div class="ownt-radio" data-v="nest">In a class<br><span style="font-weight:500;font-size:11px;color:var(--muted,#6B7280);">nested in an existing one</span></div></div>'
+      +'<div id="ownt-pwrap" style="display:none;"><label class="ownt-lbl">Drug class / section</label><select class="ownt-sel" id="ownt-psys">'+opts+'</select></div>'
+      +'<div class="ownt-modal-actions"><button class="ownt-btn" id="ownt-pcancel">Cancel</button><button class="ownt-btn primary" id="ownt-pcreate" disabled>Create &amp; write</button></div></div>';
+    document.body.appendChild(ov);
+    var name=ov.querySelector('#ownt-pname'), createBtn=ov.querySelector('#ownt-pcreate');
+    name.oninput=function(){ createBtn.disabled=!name.value.trim(); };
+    ov.querySelectorAll('.ownt-radio').forEach(function(r){ r.onclick=function(){ ov.querySelectorAll('.ownt-radio').forEach(function(x){ x.classList.remove('on'); }); r.classList.add('on'); placeSel=r.dataset.v; ov.querySelector('#ownt-pwrap').style.display=(placeSel==='nest')?'':'none'; }; });
+    ov.querySelector('#ownt-pcancel').onclick=function(){ ov.remove(); };
+    ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
+    createBtn.onclick=function(){
+      var nm=name.value.trim(); if(!nm) return;
+      var section=(placeSel==='nest')?ov.querySelector('#ownt-psys').value:MYSEC;
+      var subsection=(placeSel==='nest')?NESTSUB:MYSUB;
+      var t={id:uid(),tab:'pharmacology',name:nm,section:section,subsection:subsection,drug:{},updated:Date.now()};
+      window.__owntData.push(t); save();
+      ov.remove(); openEditor(t, true);
+    };
+    setTimeout(function(){ name.focus(); },30);
+  }
+
+  function openEditor(t, isNew){
+    closeEditor();
+    var ov=document.createElement('div'); ov.className='ownt-edit'; ov.id='ownt-pharma-edit';
+    var fields=FIELDS.map(function(f){
+      var v=(t.drug&&t.drug[f[0]])||'';
+      if(f[0]==='drug_class') return '<label class="ownt-lbl">'+f[1]+'</label><input class="ownt-inp" id="pf_'+f[0]+'" placeholder="'+esc(f[2])+'" value="'+esc(v)+'">';
+      return '<label class="ownt-lbl">'+f[1]+'</label><textarea class="ownt-inp" id="pf_'+f[0]+'" rows="3" style="resize:vertical;line-height:1.5;">'+esc(v)+'</textarea>';
+    }).join('');
+    ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">Pharmacology &middot; '+esc(t.section)+'</div><div class="n">'+esc(t.name)+'</div></div>'
+      +'<button class="ownt-btn" id="pf-cancel">Cancel</button><button class="ownt-btn primary" id="pf-save">Save drug</button></div>'
+      +'<div class="ownt-edit-body"><div style="max-width:760px;margin:0 auto;">'
+      +'<div style="font-size:12.5px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.55;">Tip: wrap a phrase in <b>**stars**</b> to bold it, put <b>[square brackets]</b> around a danger / red-flag point, and give each point its <b>own line</b> for a bulleted list. Leave a field blank to hide that card.</div>'
+      +fields+'</div></div>';
+    document.body.appendChild(ov);
+    ov.querySelector('#pf-cancel').onclick=function(){ if(isNew){ removeTopic(t, true); } closeEditor(); };
+    ov.querySelector('#pf-save').onclick=function(){
+      if(!t.drug) t.drug={};
+      FIELDS.forEach(function(f){ var el=document.getElementById('pf_'+f[0]); t.drug[f[0]]=el?el.value.trim():''; });
+      t.updated=Date.now(); save(); closeEditor(); refresh(t);
+    };
+    setTimeout(function(){ var fe=document.getElementById('pf_mechanism'); if(fe) fe.focus(); },30);
+  }
+  function closeEditor(){ var ov=document.getElementById('ownt-pharma-edit'); if(ov) ov.remove(); }
+
+  function removeTopic(t, silent){
+    if(!silent && !confirm('Delete your drug “'+t.name+'”?')) return;
+    var arr=window.__owntData; var i=arr.indexOf(t); if(i>=0) arr.splice(i,1); save();
+    if(silent) return;
+    refresh(); if(typeof pharmaShowEmpty==='function') pharmaShowEmpty();
+  }
+
+  var _origShow=(typeof pharmaShowDrug==='function')?pharmaShowDrug:null;
+  if(_origShow){
+    pharmaShowDrug=window.pharmaShowDrug=function(drug){
+      var r=_origShow.apply(this,arguments);
+      try{
+        var head=document.querySelector('#pharma-detail .pharma-detail-header');
+        var old=head&&head.querySelector('.ownt-pbar'); if(old) old.remove();
+        if(drug&&drug.__ownId&&head){
+          var t=null; window.__owntData.forEach(function(x){ if(x.id===drug.__ownId) t=x; });
+          if(t){
+            var bar=document.createElement('div'); bar.className='ownt-pbar'; bar.style.cssText='display:flex;gap:10px;margin-top:12px;';
+            bar.innerHTML='<span style="flex:1;font-family:var(--mono,monospace);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#0EA5E9;align-self:center;">&#9998; Your own drug</span>'
+              +'<button class="ownt-btn" style="padding:7px 14px;font-size:12.5px;">Edit</button>'
+              +'<button class="ownt-btn danger" style="padding:7px 14px;font-size:12.5px;">Delete</button>';
+            bar.children[1].onclick=function(){ openEditor(t); };
+            bar.children[2].onclick=function(){ removeTopic(t); };
+            head.appendChild(bar);
+          }
+        }
+      }catch(e){}
+      return r;
+    };
+  }
+
+  function boot(){ mountBtn(); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  var _initPharma=(typeof initPharma==='function')?initPharma:null;
+  if(_initPharma){ initPharma=window.initPharma=function(){ var r=_initPharma.apply(this,arguments); try{ mountBtn(); }catch(e){} return r; }; }
 })();
 </script>
 
