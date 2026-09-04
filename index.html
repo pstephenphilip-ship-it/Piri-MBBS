@@ -16941,6 +16941,12 @@ function hideFlyout(p) {
   .ownt-blockbar button{border:none;background:none;color:#fff;font-family:inherit;font-size:11.5px;font-weight:700;padding:4px 8px;border-radius:5px;cursor:pointer;white-space:nowrap;}
   .ownt-blockbar button:hover{background:rgba(255,255,255,.16);}
   .ownt-blockbar button.del:hover{background:#C93535;}
+  .ownt-tb:disabled{opacity:.32;cursor:default;}
+  /* undo toast after deleting a section */
+  .ownt-toast{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:4300;display:flex;align-items:center;gap:14px;
+    background:#1E2640;color:#fff;border-radius:11px;padding:11px 14px 11px 18px;box-shadow:0 10px 30px rgba(0,0,0,.34);font-size:13.5px;font-weight:600;}
+  .ownt-toast button{border:none;background:#00C2A8;color:#04231F;font-family:inherit;font-size:13px;font-weight:800;padding:7px 15px;border-radius:8px;cursor:pointer;}
+  .ownt-toast button:hover{filter:brightness(1.06);}
 </style>
 
 <script>
@@ -17148,6 +17154,25 @@ function hideFlyout(p) {
   function canvasEl(){ return document.getElementById('ownt-canvas'); }
   function saveSel(){ var c=canvasEl(); if(!c) return; var s=window.getSelection(); if(s&&s.rangeCount){ var r=s.getRangeAt(0); if(c.contains(r.commonAncestorContainer)) SAVED_RANGE=r.cloneRange(); } }
   function restoreSel(){ var c=canvasEl(); if(!c) return; c.focus(); var s=window.getSelection(); if(SAVED_RANGE){ try{ s.removeAllRanges(); s.addRange(SAVED_RANGE); return; }catch(e){} } var r=document.createRange(); r.selectNodeContents(c); r.collapse(false); s.removeAllRanges(); s.addRange(r); }
+  // ---- undo / redo: a snapshot history so any change (incl. deleting a section) is reversible ----
+  var HIST=[], HIDX=-1, HTIMER=null;
+  function histInit(html){ HIST=[html||'']; HIDX=0; updateUndoBtns(); }
+  function histPush(){ var c=canvasEl(); if(!c) return; clearTimeout(HTIMER); var h=c.innerHTML; if(HIDX>=0 && HIST[HIDX]===h) return; HIST=HIST.slice(0,HIDX+1); HIST.push(h); if(HIST.length>150) HIST.shift(); HIDX=HIST.length-1; updateUndoBtns(); }
+  function histSnap(){ clearTimeout(HTIMER); HTIMER=setTimeout(histPush, 350); }
+  function applyHist(){ var c=canvasEl(); if(!c) return; c.innerHTML=HIST[HIDX]||''; if(TBAR)TBAR.style.display='none'; if(IMGBAR)hideImgbar(); if(BLOCKBAR)BLOCKBAR.style.display='none'; c.focus(); try{ var r=document.createRange(); r.selectNodeContents(c); r.collapse(false); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){} SAVED_RANGE=null; saveSel(); updateActive(); updateUndoBtns(); }
+  function undo(){ clearTimeout(HTIMER); histPush(); if(HIDX>0){ HIDX--; applyHist(); } }
+  function redo(){ if(HIDX<HIST.length-1){ HIDX++; applyHist(); } }
+  function updateUndoBtns(){ var u=document.getElementById('ownt-undo'), r=document.getElementById('ownt-redo'); if(u) u.disabled=(HIDX<=0); if(r) r.disabled=(HIDX>=HIST.length-1); }
+  var TOASTT=null;
+  function showUndoToast(){
+    var ov=document.getElementById('ownt-edit'); if(!ov) return;
+    var old=document.getElementById('ownt-toast'); if(old) old.remove();
+    var t=document.createElement('div'); t.id='ownt-toast'; t.className='ownt-toast';
+    t.innerHTML='<span>Section deleted</span><button>Undo</button>';
+    t.querySelector('button').onclick=function(){ undo(); t.remove(); };
+    ov.appendChild(t);
+    clearTimeout(TOASTT); TOASTT=setTimeout(function(){ if(t.parentNode) t.remove(); }, 6000);
+  }
   // image selection toolbar (resize / align / delete) — works for inserted AND pasted images
   function hideImgbar(){ if(IMGBAR){ IMGBAR.style.display='none'; if(IMGBAR.__img){ IMGBAR.__img.classList.remove('ownt-selimg'); IMGBAR.__img=null; } } }
   function positionImgbar(){ if(!IMGBAR||!IMGBAR.__img) return; var r=IMGBAR.__img.getBoundingClientRect(); IMGBAR.style.display='flex'; IMGBAR.style.top=Math.max(112, r.top-40)+'px'; IMGBAR.style.left=r.left+'px'; }
@@ -17245,7 +17270,7 @@ function hideFlyout(p) {
     nodes.forEach(function(nd){ parent.insertBefore(nd, ref); });
     var first=nodes[0];
     if(first && first.nodeType===1){ var r=document.createRange(); r.selectNodeContents(first); r.collapse(true); var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
-    saveSel();
+    saveSel(); histPush();
   }
   function insertTable(){ insertBlock('<table><thead><tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>'); }
   function insertLink(){
@@ -17307,6 +17332,9 @@ function hideFlyout(p) {
     ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">'+esc(tabLabel(p))+' · '+esc(sysOf(t))+'</div><div class="n">'+esc(t.name)+'</div></div>'
       +'<button class="ownt-btn" id="ownt-ecancel">Cancel</button><button class="ownt-btn primary" id="ownt-esave">Save note</button></div>'
       +'<div class="ownt-toolbar">'
+        +'<button class="ownt-tb" id="ownt-undo" title="Undo (Ctrl+Z)">↶</button>'
+        +'<button class="ownt-tb" id="ownt-redo" title="Redo (Ctrl+Shift+Z)">↷</button>'
+        +'<span class="ownt-tb-div"></span>'
         +'<button class="ownt-tb" data-cmd="bold" title="Bold"><b>B</b></button>'
         +'<button class="ownt-tb" data-cmd="italic" title="Italic"><i>I</i></button>'
         +'<button class="ownt-tb" data-cmd="underline" title="Underline"><u>U</u></button>'
@@ -17343,12 +17371,22 @@ function hideFlyout(p) {
         else if(btn.dataset.bi!=null){ insertBlock(blocksFor(p)[+btn.dataset.bi][1]); }
       };
     });
+    // undo / redo
+    ov.querySelector('#ownt-undo').onclick=function(){ undo(); };
+    ov.querySelector('#ownt-redo').onclick=function(){ redo(); };
+    histInit(canvas.innerHTML);
+    canvas.addEventListener('input', function(){ histSnap(); });
+    canvas.addEventListener('keydown', function(e){
+      var z=(e.key==='z'||e.key==='Z'), y=(e.key==='y'||e.key==='Y');
+      if((e.ctrlKey||e.metaKey) && z && !e.shiftKey){ e.preventDefault(); undo(); }
+      else if((e.ctrlKey||e.metaKey) && (y || (z && e.shiftKey))){ e.preventDefault(); redo(); }
+    });
     // table contextual toolbar
     TBAR=document.createElement('div'); TBAR.className='ownt-tablebar'; TBAR.style.display='none';
     TBAR.innerHTML='<button data-t="row+">＋ Row</button><button data-t="col+">＋ Col</button>'
       +'<button data-t="row-">－ Row</button><button data-t="col-">－ Col</button><button class="del" data-t="del">✕ Table</button>';
     TBAR.onmousedown=function(e){ e.preventDefault(); };
-    TBAR.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ var cell=TBAR.__cell; if(!cell) return; var op=b.dataset.t; if(op==='row+')tblAddRow(cell); else if(op==='col+')tblAddCol(cell); else if(op==='row-')tblDelRow(cell); else if(op==='col-')tblDelCol(cell); else if(op==='del')tblDelete(cell); var nc=cellFromSel(); positionTBar(nc||(document.querySelector('#ownt-canvas table td, #ownt-canvas table th'))); }; });
+    TBAR.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ var cell=TBAR.__cell; if(!cell) return; var op=b.dataset.t; if(op==='row+')tblAddRow(cell); else if(op==='col+')tblAddCol(cell); else if(op==='row-')tblDelRow(cell); else if(op==='col-')tblDelCol(cell); else if(op==='del')tblDelete(cell); var nc=cellFromSel(); positionTBar(nc||(document.querySelector('#ownt-canvas table td, #ownt-canvas table th'))); histPush(); }; });
     document.body.appendChild(TBAR);
     // image contextual toolbar
     IMGBAR=document.createElement('div'); IMGBAR.className='ownt-imgbar'; IMGBAR.style.display='none';
@@ -17356,7 +17394,7 @@ function hideFlyout(p) {
       +'<span class="sep"></span><button data-a="left">⤎</button><button data-a="center">⤢</button><button data-a="right">⤏</button>'
       +'<span class="sep"></span><button class="del" data-a="del">✕</button>';
     IMGBAR.onmousedown=function(e){ e.preventDefault(); };
-    IMGBAR.querySelectorAll('button').forEach(function(bt){ bt.onclick=function(){ if(bt.dataset.w) imgSetWidth(bt.dataset.w); else if(bt.dataset.a==='del'){ if(IMGBAR.__img) IMGBAR.__img.remove(); hideImgbar(); } else if(bt.dataset.a) imgAlign(bt.dataset.a); }; });
+    IMGBAR.querySelectorAll('button').forEach(function(bt){ bt.onclick=function(){ if(bt.dataset.w) imgSetWidth(bt.dataset.w); else if(bt.dataset.a==='del'){ if(IMGBAR.__img) IMGBAR.__img.remove(); hideImgbar(); } else if(bt.dataset.a) imgAlign(bt.dataset.a); histPush(); }; });
     document.body.appendChild(IMGBAR);
     canvas.addEventListener('click', function(e){ if(e.target && e.target.tagName==='IMG'){ selectImg(e.target); } else { hideImgbar(); } });
     // section (block) toolbar: delete / move the block the caret is in
@@ -17366,8 +17404,8 @@ function hideFlyout(p) {
     BLOCKBAR.querySelectorAll('button').forEach(function(bt){ bt.onclick=function(){ var blk=BLOCKBAR.__blk; if(!blk) return; var op=bt.dataset.b;
       if(op==='up'){ var pv=blk.previousElementSibling; if(pv) blk.parentNode.insertBefore(blk, pv); }
       else if(op==='down'){ var nx=blk.nextElementSibling; if(nx) blk.parentNode.insertBefore(nx, blk); }
-      else if(op==='del'){ var focusTarget=blk.nextElementSibling||blk.previousElementSibling; blk.remove(); BLOCKBAR.style.display='none'; BLOCKBAR.__blk=null; if(focusTarget){ var r=document.createRange(); r.selectNodeContents(focusTarget); r.collapse(true); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); } canvas.focus(); saveSel(); return; }
-      positionBlockBar(false);
+      else if(op==='del'){ var focusTarget=blk.nextElementSibling||blk.previousElementSibling; blk.remove(); BLOCKBAR.style.display='none'; BLOCKBAR.__blk=null; if(focusTarget){ var r=document.createRange(); r.selectNodeContents(focusTarget); r.collapse(true); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); } canvas.focus(); saveSel(); histPush(); showUndoToast(); return; }
+      positionBlockBar(false); histPush();
     }; });
     document.body.appendChild(BLOCKBAR);
     SELH=function(){ saveSel(); updateActive(); var c=cellFromSel(); positionTBar(c); positionBlockBar(!!c); };
@@ -17379,7 +17417,7 @@ function hideFlyout(p) {
     setTimeout(function(){ canvas.focus(); },30);
   }
   function saveEditor(){ if(!EDIT) return; var canvas=document.getElementById('ownt-canvas'); EDIT.t.notesHtml=canvas.innerHTML.trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
-  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(IMGBAR){ IMGBAR.remove(); IMGBAR=null; } if(BLOCKBAR){ BLOCKBAR.remove(); BLOCKBAR=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } SAVED_RANGE=null; EDIT=null; }
+  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(IMGBAR){ IMGBAR.remove(); IMGBAR=null; } if(BLOCKBAR){ BLOCKBAR.remove(); BLOCKBAR=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } clearTimeout(HTIMER); clearTimeout(TOASTT); HIST=[]; HIDX=-1; SAVED_RANGE=null; EDIT=null; }
 
   function navigateTo(p,t){
     var navEl=document.querySelector('.nav-tab[onclick*="\''+p+'\'"]');
