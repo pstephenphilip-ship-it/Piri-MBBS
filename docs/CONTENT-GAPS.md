@@ -57,6 +57,19 @@ and contact tracing, and the metronidazole alcohol advice.
 
 ## Cross-module inconsistencies (not gaps — defects to fix)
 
+### C. "Screen every unwell patient with NEWS2 and qSOFA"
+`content/notes/general-systemic.json` (`GENERAL / SYSTEMIC__Sepsis / The Septic Patient`)
+tells students to screen with qSOFA, contradicting the corrected sepsis topic, which
+states qSOFA is not the screening tool. That file is in the **Signs & Symptoms tab**,
+which is out of scope for this review, so it has been left alone.
+- Status: NOT FIXED — out of agreed scope. Flagged for a decision.
+
+### D. "High-flow O2" and "antibiotics after cultures" in the risk-scores note
+`content/notes/risk-scores-criteria.json` gives the Sepsis Six as "High-flow O2" (pre-dates
+target saturations, conflicts with 94–98% / 88–92%) and "IV antibiotics: broad-spectrum,
+after cultures" as an unqualified rule (conflicts with "never delay antibiotics in shock").
+- Status: NOT FIXED — separate module. Flagged for a decision.
+
 ### A. Asymptomatic BV in pregnancy — obstetrics carries the error Sexual Health just lost
 `content/notes/obstetrics-gynaecology.json` and its cards say "do NOT routinely
 treat **asymptomatic BV** outside pregnancy", which implies treating it in
