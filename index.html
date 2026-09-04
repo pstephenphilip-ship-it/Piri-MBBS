@@ -845,7 +845,6 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
   <button class="nav-arrow nav-arrow-left" id="navArrowL" type="button" aria-label="Scroll tabs left" onclick="scrollNavTabs(-1)">&#8249;</button>
   <div class="nav-tabs" id="navTabs">
     <div class="nav-tab" onclick="switchMainTab('conditions',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15C9 15 3 11 3 7a4 4 0 018 0 4 4 0 018 0c0 4-6 8-6 8z"/><path d="M9 7v3m-1.5-1.5h3"/></svg></span>Medical Conditions</div>
-    <div class="nav-tab" onclick="switchMainTab('mycurric',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5A1.5 1.5 0 014.5 3H8l1.5 2H15a1.5 1.5 0 011.5 1.5V13A1.5 1.5 0 0115 14.5H4.5A1.5 1.5 0 013 13z"/><path d="M9 8v4M7 10h4"/></svg></span>My Curriculum</div>
     <div class="nav-tab" onclick="switchMainTab('anatomy',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2C6 2 4 4 4 7c0 2 1 3 2 4v3h6v-3c1-1 2-2 2-4 0-3-2-5-5-5z"/><path d="M7 14v1.5a2 2 0 004 0V14"/><path d="M6.5 8C7.5 8 8 8.5 9 9.5 10 8.5 10.5 8 11.5 8"/></svg></span>Anatomy</div>
     <div class="nav-tab" onclick="switchMainTab('histology',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="5"/><circle cx="9" cy="9" r="2"/><path d="M9 4v2m0 6v2M4 9h2m6 0h2"/></svg></span>Histology</div>
     <div class="nav-tab" onclick="switchMainTab('signs',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14L6 6l3 5 2-3 2 4 2-6"/></svg></span>Signs & Symptoms</div>
@@ -8661,7 +8660,6 @@ function switchMainTab(id, el, skipHash) {
   }
   if (id === 'mock') { initMock(); return; }
   if (id === 'pharmacology') { initPharma(); return; }
-  if (id === 'mycurric') { if (window.__mcInit) window.__mcInit(); return; }
   const st = getState(id);
   if (!st.initialised) { initTab(id); st.initialised = true; }
   else if (!skipHash) {
@@ -16851,350 +16849,294 @@ function hideFlyout(p) {
   .da-plan-lead{color:#5A6480;}
 </style>
 
-<!-- ===================== MY CURRICULUM (user-authored systems / topics / subtopics) ===================== -->
-<style id="mc-styles">
-  #tab-mycurric{padding:0;}
-  .mc-wrap{display:flex;height:100%;min-height:0;}
-  .mc-col{display:flex;flex-direction:column;min-height:0;}
-  .mc-side{width:236px;border-right:1px solid var(--border,#E2E6F0);background:var(--surface,#fff);flex-shrink:0;}
-  .mc-mid{width:290px;border-right:1px solid var(--border,#E2E6F0);background:var(--surface,#fff);flex-shrink:0;}
-  .mc-main{flex:1;min-width:0;overflow-y:auto;background:var(--bg,#F7F8FB);}
-  .mc-colhead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px 10px;font-family:var(--mono,monospace);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#6B7280);}
-  .mc-list{overflow-y:auto;padding:0 10px 16px;flex:1;min-height:0;}
-  .mc-item{display:flex;align-items:center;gap:9px;padding:10px 11px;border-radius:9px;cursor:pointer;color:var(--text,#1E2640);font-size:13.5px;font-weight:600;transition:background .12s;position:relative;}
-  .mc-item:hover{background:var(--surface2,#EEF1F6);}
-  .mc-item.active{background:rgba(0,194,168,.12);color:#059E8C;}
-  .mc-item .mc-ic{width:20px;text-align:center;flex-shrink:0;font-size:15px;}
-  .mc-item .mc-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .mc-item .mc-ct{font-family:var(--mono,monospace);font-size:11px;font-weight:700;color:var(--muted2,#9CA3AF);}
-  .mc-item .mc-kebab{opacity:0;color:var(--muted2,#9CA3AF);padding:2px 4px;border-radius:6px;font-size:15px;line-height:1;}
-  .mc-item:hover .mc-kebab{opacity:1;}
-  .mc-item .mc-kebab:hover{background:var(--border,#E2E6F0);color:var(--text,#1E2640);}
-  .mc-sub{margin-left:16px;}
-  .mc-add{display:flex;align-items:center;gap:8px;width:100%;padding:9px 11px;margin-top:4px;border:1.5px dashed var(--border2,#CBD2E0);border-radius:9px;background:none;color:var(--muted,#6B7280);font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:border-color .12s,color .12s;}
-  .mc-add:hover{border-color:#00C2A8;color:#059E8C;}
-  .mc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:48px 32px;color:var(--muted,#6B7280);gap:6px;}
-  .mc-empty-ic{font-size:44px;margin-bottom:6px;}
-  .mc-empty-t{font-size:18px;font-weight:800;color:var(--text,#1E2640);}
-  .mc-empty-s{font-size:13.5px;line-height:1.6;max-width:360px;}
-  .mc-contentwrap{max-width:980px;margin:0 auto;padding:26px 32px 80px;}
-  .mc-note-surface{background:var(--rn-bg,#F7F8FC);border:1px solid var(--border,#E2E6F0);border-radius:12px;padding:22px 28px;}
-  .mc-crumb{font-family:var(--mono,monospace);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);margin-bottom:8px;}
-  .mc-title{font-size:26px;font-weight:800;color:var(--text,#1E2640);letter-spacing:-.01em;margin-bottom:18px;}
-  .mc-modebar{display:flex;gap:4px;border-bottom:1px solid var(--border,#E2E6F0);margin-bottom:22px;}
-  .mc-modetab{padding:10px 18px;font-size:13.5px;font-weight:700;color:var(--muted,#6B7280);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;}
-  .mc-modetab:hover{color:var(--text,#1E2640);}
-  .mc-modetab.active{color:#059E8C;border-bottom-color:#00C2A8;}
-  .mc-modetab .mc-badge{margin-left:6px;font-family:var(--mono,monospace);font-size:10px;background:var(--surface2,#EEF1F6);color:var(--muted,#6B7280);border-radius:20px;padding:1px 7px;font-weight:700;}
-  .mc-btn{cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface,#fff);color:var(--text,#374151);border-radius:9px;padding:9px 16px;font-size:13px;font-weight:700;font-family:inherit;}
-  .mc-btn:hover{border-color:#00C2A8;}
-  .mc-btn.primary{border:none;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);}
-  .mc-btn.sm{padding:6px 12px;font-size:12px;}
-  .mc-btn.danger{color:#DC2626;border-color:#F3C7C7;}
-  .mc-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
-  /* Notes editor */
-  .mc-etoolbar{display:flex;flex-wrap:wrap;gap:3px;padding:7px;background:var(--surface,#fff);border:1px solid var(--border,#E2E6F0);border-bottom:none;border-radius:11px 11px 0 0;}
-  .mc-tb{min-width:32px;height:32px;padding:0 9px;border:none;background:none;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;color:var(--text,#374151);font-family:inherit;}
-  .mc-tb:hover{background:var(--surface2,#EEF1F6);}
-  .mc-tb-div{width:1px;background:var(--border,#E2E6F0);margin:3px 4px;}
-  .mc-editor{min-height:340px;border:1px solid var(--border,#E2E6F0);border-radius:0 0 11px 11px;padding:20px 24px;background:#fff;color:#1E2640;font-size:15px;line-height:1.7;outline:none;overflow-y:auto;}
-  .mc-editor:focus{border-color:#00C2A8;}
-  .mc-editor h2,.mc-editor h3{color:#14212E;}
-  .mc-editor:empty:before{content:attr(data-ph);color:var(--muted2,#9CA3AF);}
-  .mc-savebar{display:flex;gap:10px;justify-content:flex-end;margin-top:14px;}
-  /* Cards */
-  .mc-card{background:var(--surface,#fff);border:1px solid var(--border,#E2E6F0);border-radius:12px;padding:14px 16px;margin-bottom:10px;}
-  .mc-card-fb{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px;}
-  .mc-card-k{font-family:var(--mono,monospace);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);padding-top:3px;}
-  .mc-inp,.mc-ta{width:100%;box-sizing:border-box;border:1px solid var(--border,#E2E6F0);border-radius:9px;padding:10px 12px;font-family:inherit;font-size:14px;color:#1E2640;background:#fff;}
-  .mc-ta{min-height:70px;resize:vertical;line-height:1.5;}
-  .mc-inp:focus,.mc-ta:focus{outline:none;border-color:#00C2A8;}
-  .mc-form{background:var(--surface,#fff);border:1px solid var(--border,#E2E6F0);border-radius:12px;padding:16px;margin-bottom:16px;display:flex;flex-direction:column;gap:10px;}
-  .mc-flabel{font-family:var(--mono,monospace);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);}
-  /* MCQ */
-  .mc-opt-row{display:flex;align-items:center;gap:9px;}
-  .mc-opt-row input[type=text]{flex:1;}
-  .mc-opt-pick{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted,#6B7280);white-space:nowrap;cursor:pointer;}
-  /* Player (review/practice) */
-  .mc-player{max-width:640px;margin:10px auto 0;}
-  .mc-flash{perspective:1400px;height:340px;margin:18px 0;cursor:pointer;}
-  .mc-flash-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;}
-  .mc-flash.flip .mc-flash-in{transform:rotateY(180deg);}
-  .mc-flash-f,.mc-flash-b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;border-radius:16px;border:1px solid var(--border,#E2E6F0);background:#fff;font-size:20px;line-height:1.5;color:#1E2640;overflow-y:auto;}
-  .mc-flash-b{transform:rotateY(180deg);background:#F3FbFA;border-color:#BEE7E1;}
-  .mc-flash-tag{position:absolute;top:12px;left:14px;font-family:var(--mono,monospace);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted2,#9CA3AF);}
-  .mc-quiz-opt{display:block;width:100%;text-align:left;border:1.5px solid var(--border,#E2E6F0);background:#fff;border-radius:11px;padding:14px 16px;margin-bottom:9px;font-size:14.5px;color:#1E2640;cursor:pointer;font-family:inherit;transition:border-color .12s,background .12s;}
-  .mc-quiz-opt:hover{border-color:#00C2A8;}
-  .mc-quiz-opt.pick{border-color:#0EA5E9;background:#EFF9FF;}
-  .mc-quiz-opt.right{border-color:#16A34A;background:#EFFdF3;}
-  .mc-quiz-opt.wrong{border-color:#DC2626;background:#FEF1F1;}
-  .mc-expl{background:#F3FbFA;border:1px solid #BEE7E1;border-radius:11px;padding:14px 16px;margin-top:10px;font-size:14px;line-height:1.6;color:#1E2640;}
-  .mc-progress{font-family:var(--mono,monospace);font-size:12px;font-weight:700;color:var(--muted,#6B7280);text-align:center;margin-bottom:4px;}
-  @media (max-width:820px){ .mc-side{width:170px;} .mc-mid{width:200px;} .mc-contentwrap{padding:20px 16px 70px;} }
+<!-- ===================== ADD YOUR OWN TOPIC (per-tab, notes only, follows each tab's template) ===================== -->
+<style id="ownt-styles">
+  .ownt-addbtn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:8px;padding:9px 12px;
+    border:1.5px dashed var(--border2,#CBD2E0);border-radius:9px;background:none;color:var(--muted,#6B7280);
+    font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:border-color .12s,color .12s,background .12s;}
+  .ownt-addbtn:hover{border-color:#00C2A8;color:#059E8C;background:rgba(0,194,168,.06);}
+  .ownt-addbtn svg{width:15px;height:15px;flex-shrink:0;}
+  /* mark user-authored topics in the list */
+  .condition-item.ownt-item .condition-name:after{content:'✎';margin-left:7px;font-size:11px;color:#0EA5E9;opacity:.8;}
+  /* modal */
+  .ownt-ov{position:fixed;inset:0;z-index:4000;background:rgba(10,16,24,.55);display:flex;align-items:center;justify-content:center;padding:20px;}
+  .ownt-modal{background:var(--surface,#fff);border:1px solid var(--border2,#E2E6F0);border-radius:16px;max-width:460px;width:100%;padding:26px 26px 22px;box-shadow:0 20px 60px rgba(0,0,0,.3);}
+  .ownt-modal h3{margin:0 0 4px;font-size:19px;font-weight:800;color:var(--text,#1E2640);}
+  .ownt-modal .ownt-sub{font-size:13px;color:var(--muted,#6B7280);margin-bottom:18px;line-height:1.5;}
+  .ownt-lbl{display:block;font-family:var(--mono,monospace);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);margin:14px 0 6px;}
+  .ownt-inp,.ownt-sel{width:100%;box-sizing:border-box;border:1px solid var(--border,#E2E6F0);border-radius:9px;padding:11px 12px;font-family:inherit;font-size:14px;color:var(--text,#1E2640);background:var(--surface,#fff);}
+  .ownt-inp:focus,.ownt-sel:focus{outline:none;border-color:#00C2A8;}
+  .ownt-place{display:flex;gap:8px;margin-top:2px;}
+  .ownt-radio{flex:1;border:1.5px solid var(--border,#E2E6F0);border-radius:10px;padding:11px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text,#374151);text-align:center;}
+  .ownt-radio.on{border-color:#00C2A8;background:rgba(0,194,168,.08);color:#059E8C;}
+  .ownt-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;}
+  .ownt-btn{cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface,#fff);color:var(--text,#374151);border-radius:9px;padding:10px 18px;font-size:13.5px;font-weight:700;font-family:inherit;}
+  .ownt-btn.primary{border:none;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);}
+  .ownt-btn.danger{color:#DC2626;border-color:#F3C7C7;}
+  .ownt-btn:disabled{opacity:.45;cursor:default;}
+  /* editor overlay */
+  .ownt-edit{position:fixed;inset:0;z-index:4000;background:var(--bg,#F7F8FB);display:flex;flex-direction:column;}
+  .ownt-edit-head{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border,#E2E6F0);background:var(--surface,#fff);flex-shrink:0;}
+  .ownt-edit-head .t{flex:1;min-width:0;}
+  .ownt-edit-head .t .k{font-family:var(--mono,monospace);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);}
+  .ownt-edit-head .t .n{font-size:17px;font-weight:800;color:var(--text,#1E2640);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ownt-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding:9px 20px;border-bottom:1px solid var(--border,#E2E6F0);background:var(--surface,#fff);flex-shrink:0;}
+  .ownt-tb{min-width:34px;height:34px;padding:0 10px;border:none;background:none;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;color:var(--text,#374151);font-family:inherit;}
+  .ownt-tb:hover{background:var(--surface2,#EEF1F6);}
+  .ownt-tb.block{border:1px solid var(--border,#E2E6F0);font-size:12px;font-weight:700;height:32px;color:#059E8C;}
+  .ownt-tb.block:hover{background:rgba(0,194,168,.08);border-color:#00C2A8;}
+  .ownt-tb-div{width:1px;height:20px;background:var(--border,#E2E6F0);margin:0 5px;}
+  .ownt-tb-label{font-family:var(--mono,monospace);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted2,#9CA3AF);margin:0 4px 0 6px;}
+  .ownt-edit-body{flex:1;overflow-y:auto;padding:26px 20px 90px;}
+  .ownt-canvas{max-width:960px;margin:0 auto;background:var(--rn-bg,#F7F8FC);border:1px solid var(--border,#E2E6F0);border-radius:12px;padding:24px 30px;min-height:60vh;outline:none;color:#1E2640;}
+  .ownt-canvas:focus{border-color:#00C2A8;}
+  .ownt-canvas [contenteditable]{outline:none;}
+  .ownt-canvas [data-ph]:empty:before{content:attr(data-ph);color:#9CA3AF;font-style:italic;}
 </style>
-
-<div id="tab-mycurric" class="tab-view"><div id="mc-root" style="height:100%;"></div></div>
 
 <script>
 (function(){
-  // The tab-views live inside .app-body; this module's markup is authored at end of <body>,
-  // so relocate it into .app-body so it flexes to full height like every other tab.
-  try{ var _host=document.querySelector('.app-body'); var _tv=document.getElementById('tab-mycurric'); if(_host&&_tv&&_tv.parentNode!==_host){ _host.appendChild(_tv); } }catch(e){}
-  var KEY='piri_custom_curriculum_v1';
-  var S={ sysId:null, topicId:null, nodeKind:'topic', nodeId:null, mode:'notes', view:'content' };
-  var RV=null, DIRTY=false;
-  function uid(pre){ return (pre||'mc')+'_'+(window.daUid?window.daUid():(Date.now()+''+Math.floor(Math.random()*1e6))); }
-  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  function load(){ try{ var v=localStorage.getItem(KEY); if(v){ var o=JSON.parse(v); if(o&&Array.isArray(o.systems)) return o; } }catch(e){} return {systems:[]}; }
+  var KEY='piri_own_topics_v1';
+  var MYSYS='★ My Topics';
+  var TABS=['conditions','anatomy','histology','signs','investigations','osce'];
+  var FAMILY={conditions:'cp',signs:'cp',investigations:'cp',anatomy:'gen',histology:'gen',osce:'osce'};
+  var STAR='<svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2l2.2 5.3 5.8.5-4.4 3.8 1.3 5.6L10 15.9 5.1 17.8l1.3-5.6L2 8.4l5.8-.5z"/></svg>';
+
+  function load(){ try{ var v=localStorage.getItem(KEY); if(v){ var a=JSON.parse(v); if(Array.isArray(a)) return a; } }catch(e){} return []; }
   var DATA=load();
-  function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(DATA)); }catch(e){} }
-  function findSys(id){ for(var i=0;i<DATA.systems.length;i++) if(DATA.systems[i].id===id) return DATA.systems[i]; return null; }
-  function findTopic(s,id){ if(!s)return null; var a=s.topics||[]; for(var i=0;i<a.length;i++) if(a[i].id===id) return a[i]; return null; }
-  function curSys(){ return findSys(S.sysId); }
-  function curTopic(){ return findTopic(curSys(), S.topicId); }
-  function curNode(){ var t=curTopic(); if(!t) return null; if(S.nodeKind==='sub'){ var a=t.subtopics||[]; for(var i=0;i<a.length;i++) if(a[i].id===S.nodeId) return a[i]; return null; } return t; }
-  function ensureContent(n){ if(!n)return n; if(typeof n.notesHtml!=='string') n.notesHtml=''; if(!Array.isArray(n.cards)) n.cards=[]; if(!Array.isArray(n.mcqs)) n.mcqs=[]; return n; }
-  function root(){ return document.getElementById('mc-root'); }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(DATA)); }catch(e){} }
+  function uid(){ return 'own_'+(window.daUid?window.daUid():(Date.now()+''+Math.floor(Math.random()*1e6))); }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function forTab(p){ return DATA.filter(function(t){ return t.tab===p; }); }
+  function sysOf(t){ return t.system || MYSYS; }
+  function findTopic(p,system,name){ return DATA.find(function(t){ return t.tab===p && sysOf(t)===system && t.name===name; }); }
 
-  // ---------- entry ----------
-  window.__mcInit=function(){
-    var r=root(); if(!r) return;
-    if(!window.__member){ r.innerHTML=gateHTML(); return; }
-    if(!S.sysId && DATA.systems[0]){ S.sysId=DATA.systems[0].id; }
-    if(S.sysId && !S.topicId){ var s0=curSys(); if(s0 && (s0.topics||[])[0]){ S.topicId=s0.topics[0].id; S.nodeKind='topic'; } }
-    renderApp();
-  };
-  function gateHTML(){
-    return '<div class="mc-empty"><div class="mc-empty-ic">🔒</div>'
-      +'<div class="mc-empty-t">My Curriculum is a member feature</div>'
-      +'<div class="mc-empty-s">Build your own systems, topics and subtopics — with your own notes, flashcards and MCQs — that live right alongside the DoctoRise curriculum and sync across your devices.</div>'
-      +'<div style="margin-top:16px;"><button class="mc-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Unlock with membership</button></div></div>';
+  // ---- inject each custom note into the tab's native note bank so loadNote renders it with the tab's template ----
+  function bankFor(p){ return p==='osce' ? RICH_NOTES_OSCE : RICH_NOTES; }
+  function injectAll(){
+    DATA.forEach(function(t){ try{ bankFor(t.tab)[sysOf(t)+'__'+t.name]=t.notesHtml||''; }catch(e){} });
+    // stop ensureSystemLoaded from firing a 404 fetch for the synthetic system
+    try{ if(typeof __ensure!=='undefined'){ __ensure[MYSYS]=Promise.resolve(); } }catch(e){}
   }
+  injectAll();
 
-  // ---------- render: 3 columns ----------
-  function renderApp(){
-    var r=root(); if(!r) return;
-    r.innerHTML='<div class="mc-wrap">'
-      +'<div class="mc-col mc-side"><div class="mc-colhead"><span>My Systems</span></div><div class="mc-list" id="mc-syslist"></div></div>'
-      +'<div class="mc-col mc-mid"><div class="mc-colhead" id="mc-midhead"><span>Topics</span></div><div class="mc-list" id="mc-topiclist"></div></div>'
-      +'<div class="mc-col mc-main" id="mc-main"></div>'
-      +'</div>';
-    renderSys(); renderMid(); renderMain();
-  }
-
-  function renderSys(){
-    var el=document.getElementById('mc-syslist'); if(!el) return;
-    var h='';
-    DATA.systems.forEach(function(s){
-      var tc=(s.topics||[]).length;
-      h+='<div class="mc-item'+(s.id===S.sysId?' active':'')+'" onclick="window.mcSelSys(\''+s.id+'\')">'
-        +'<span class="mc-ic">'+esc(s.icon||'📘')+'</span><span class="mc-nm">'+esc(s.name)+'</span>'
-        +'<span class="mc-ct">'+tc+'</span>'
-        +'<span class="mc-kebab" onclick="event.stopPropagation();window.mcSysMenu(\''+s.id+'\')">⋯</span></div>';
+  // ---- merge custom topics into each tab's systems data ----
+  var _origGetTabData=getTabData;
+  getTabData=window.getTabData=function(p){
+    var base=_origGetTabData(p)||{};
+    var mine=forTab(p); if(!mine.length) return base;
+    var out={}; var standalone=mine.filter(function(t){return !t.system;});
+    if(standalone.length){ out[MYSYS]={icon:STAR, topics:standalone.map(function(t){return t.name;})}; }
+    Object.keys(base).forEach(function(sys){
+      var sd=base[sys]; var clone={}; for(var k in sd) clone[k]=sd[k];
+      var listKey=('conditions' in sd)?'conditions':'topics';
+      var arr=(sd[listKey]||[]).slice();
+      mine.forEach(function(t){ if(t.system===sys && arr.indexOf(t.name)<0) arr.push(t.name); });
+      clone[listKey]=arr; out[sys]=clone;
     });
-    h+='<button class="mc-add" onclick="window.mcNewSys()">＋ New system</button>';
-    el.innerHTML=h;
+    return out;
+  };
+
+  // ---- keep custom notes fresh in the bank whenever a note loads; add an edit/delete bar for custom topics ----
+  var _origLoadNote=loadNote;
+  loadNote=window.loadNote=function(p,name){
+    var st=getState(p); var t=findTopic(p, st.activeSystem, name);
+    if(t){ try{ bankFor(p)[sysOf(t)+'__'+name]=t.notesHtml||''; }catch(e){} }
+    var r=_origLoadNote.apply(this,arguments);
+    if(t){ setTimeout(function(){ addEditBar(p,t); },0); }
+    return r;
+  };
+  function dispEl(p){ if(p==='conditions') return document.getElementById('rich-note-display'); if(p==='osce') return document.getElementById('rich-note-display-osce'); return document.getElementById('rich-note-display-'+p); }
+  function addEditBar(p,t){
+    var el=dispEl(p); if(!el || el.style.display==='none') return;
+    if(el.querySelector('.ownt-editbar')) return;
+    var bar=document.createElement('div'); bar.className='ownt-editbar';
+    bar.style.cssText='display:flex;gap:10px;justify-content:flex-end;margin:0 0 14px;';
+    bar.innerHTML='<span style="flex:1;font-family:var(--mono,monospace);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#0EA5E9;align-self:center;">✎ Your own topic</span>'
+      +'<button class="ownt-btn" style="padding:7px 14px;font-size:12.5px;">Edit note</button>'
+      +'<button class="ownt-btn danger" style="padding:7px 14px;font-size:12.5px;">Delete</button>';
+    bar.children[1].onclick=function(){ openEditor(p, t); };
+    bar.children[2].onclick=function(){ deleteTopic(p, t); };
+    el.insertBefore(bar, el.firstChild);
   }
 
-  function renderMid(){
-    var el=document.getElementById('mc-topiclist'); var head=document.getElementById('mc-midhead');
-    if(!el) return;
-    var s=curSys();
-    if(head) head.innerHTML='<span>'+(s?esc(s.name):'Topics')+'</span>';
-    if(!s){ el.innerHTML='<div style="padding:14px 11px;color:var(--muted,#6B7280);font-size:12.5px;">Create a system to begin.</div>'; return; }
-    var h='';
-    (s.topics||[]).forEach(function(t){
-      var subs=t.subtopics||[];
-      var isActiveTopic=(S.topicId===t.id && S.nodeKind==='topic');
-      h+='<div class="mc-item'+(isActiveTopic?' active':'')+'" onclick="window.mcSelTopic(\''+t.id+'\')">'
-        +'<span class="mc-ic">📄</span><span class="mc-nm">'+esc(t.name)+'</span>'
-        +(subs.length?'<span class="mc-ct">'+subs.length+'</span>':'')
-        +'<span class="mc-kebab" onclick="event.stopPropagation();window.mcTopicMenu(\''+t.id+'\')">⋯</span></div>';
-      subs.forEach(function(sub){
-        var isA=(S.topicId===t.id && S.nodeKind==='sub' && S.nodeId===sub.id);
-        h+='<div class="mc-item mc-sub'+(isA?' active':'')+'" onclick="window.mcSelSub(\''+t.id+'\',\''+sub.id+'\')">'
-          +'<span class="mc-ic">•</span><span class="mc-nm">'+esc(sub.name)+'</span>'
-          +'<span class="mc-kebab" onclick="event.stopPropagation();window.mcSubMenu(\''+t.id+'\',\''+sub.id+'\')">⋯</span></div>';
+  // ---- custom topics are the user's own notes: never gate them behind the free-tier paywall ----
+  var _gatedSelectTopic=window.selectTopic;
+  window.selectTopic=function(p,name,skipHash){
+    var t=findTopic(p, getState(p).activeSystem, name);
+    if(!t) return _gatedSelectTopic.apply(this,arguments);
+    var prev=window.__member;
+    try{ window.__member=true; return _gatedSelectTopic.call(this,p,name,skipHash); }
+    finally{ window.__member=prev; }
+  };
+
+  // ---- mark custom items in the topic list ----
+  var _origRenderTopicList=renderTopicList;
+  renderTopicList=window.renderTopicList=function(p,topics,filter){
+    _origRenderTopicList.apply(this,arguments);
+    try{
+      var st=getState(p);
+      document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(it){
+        if(findTopic(p, st.activeSystem, it.dataset.topic)) it.classList.add('ownt-item');
       });
-      if(isActiveTopic || (S.topicId===t.id && S.nodeKind==='sub')){
-        h+='<button class="mc-add mc-sub" onclick="window.mcNewSub(\''+t.id+'\')">＋ Subtopic</button>';
-      }
-    });
-    h+='<button class="mc-add" onclick="window.mcNewTopic()">＋ New topic</button>';
-    el.innerHTML=h;
-  }
-
-  function crumb(){ var s=curSys(), t=curTopic(); var parts=[]; if(s)parts.push(esc(s.name)); if(t)parts.push(esc(t.name)); if(S.nodeKind==='sub'){ var n=curNode(); if(n&&n!==t)parts.push(esc(n.name)); } return parts.join(' &nbsp;›&nbsp; '); }
-
-  function renderMain(){
-    var el=document.getElementById('mc-main'); if(!el) return;
-    if(!DATA.systems.length){ el.innerHTML='<div class="mc-empty"><div class="mc-empty-ic">🗂️</div><div class="mc-empty-t">Start your own curriculum</div><div class="mc-empty-s">Add a system (e.g. “Cardiology revision” or “Finals weak spots”), then topics and subtopics inside it. Each one holds your own notes, flashcards and MCQs.</div><div style="margin-top:16px;"><button class="mc-btn primary" onclick="window.mcNewSys()">＋ Create your first system</button></div></div>'; return; }
-    var node=curNode();
-    if(!node){ el.innerHTML='<div class="mc-empty"><div class="mc-empty-ic">📄</div><div class="mc-empty-t">Pick or add a topic</div><div class="mc-empty-s">Select a topic or subtopic on the left to write its notes, flashcards and MCQs.</div></div>'; return; }
-    ensureContent(node);
-    if(S.view==='reviewCards'){ el.innerHTML=reviewCardsHTML(node); return; }
-    if(S.view==='practiceMcq'){ el.innerHTML=practiceMcqHTML(node); return; }
-    var body='';
-    if(S.mode==='notes') body=notesHTML(node);
-    else if(S.mode==='cards') body=cardsHTML(node);
-    else body=mcqsHTML(node);
-    el.innerHTML='<div class="mc-contentwrap">'
-      +'<div class="mc-crumb">'+crumb()+'</div>'
-      +'<div class="mc-title">'+esc(node.name)+'</div>'
-      +'<div class="mc-modebar">'
-        +'<div class="mc-modetab'+(S.mode==='notes'?' active':'')+'" onclick="window.mcMode(\'notes\')">Notes</div>'
-        +'<div class="mc-modetab'+(S.mode==='cards'?' active':'')+'" onclick="window.mcMode(\'cards\')">Flashcards<span class="mc-badge">'+node.cards.length+'</span></div>'
-        +'<div class="mc-modetab'+(S.mode==='mcqs'?' active':'')+'" onclick="window.mcMode(\'mcqs\')">MCQs<span class="mc-badge">'+node.mcqs.length+'</span></div>'
-      +'</div>'+body+'</div>';
-  }
-
-  // ---------- NOTES ----------
-  function notesHTML(node){
-    if(S.editing){
-      return '<div class="mc-etoolbar">'
-        +tb('bold','<b>B</b>','Bold')+tb('italic','<i>I</i>','Italic')+tb('underline','<u>U</u>','Underline')
-        +'<span class="mc-tb-div"></span>'
-        +tbBlock('h2','H2','Heading')+tbBlock('h3','H3','Subheading')
-        +'<span class="mc-tb-div"></span>'
-        +tb('insertUnorderedList','•','Bullets')+tb('insertOrderedList','1.','Numbered')
-        +'<span class="mc-tb-div"></span>'
-        +'<button class="mc-tb" title="Highlight" onmousedown="event.preventDefault()" onclick="window.mcHilite()">🖍️</button>'
-        +'<button class="mc-tb" title="Insert image" onmousedown="event.preventDefault()" onclick="window.mcImg()">🖼️</button>'
-        +tb('removeFormat','⌫','Clear formatting')
-      +'</div>'
-      +'<div class="mc-editor" id="mc-editor" contenteditable="true" data-ph="Write your notes here… use the toolbar for headings, lists and highlights.">'+(node.notesHtml||'')+'</div>'
-      +'<div class="mc-savebar"><button class="mc-btn" onclick="window.mcNotesCancel()">Cancel</button><button class="mc-btn primary" onclick="window.mcNotesSave()">Save notes</button></div>';
-    }
-    if(!node.notesHtml){
-      return '<div class="mc-empty" style="height:auto;padding:56px 24px;"><div class="mc-empty-ic">✍️</div><div class="mc-empty-t">No notes yet</div><div class="mc-empty-s">Write your own notes for “'+esc(node.name)+'”. They render just like DoctoRise notes — and you can highlight and annotate them.</div><div style="margin-top:16px;"><button class="mc-btn primary" onclick="window.mcNotesEdit()">Write notes</button></div></div>';
-    }
-    return '<div class="mc-row" style="justify-content:flex-end;margin-bottom:12px;"><button class="mc-btn sm" onclick="window.mcNotesEdit()">✎ Edit notes</button></div>'
-      +'<div class="mc-note-surface"><div class="rich-note">'+node.notesHtml+'</div></div>';
-  }
-  function tb(cmd,label,title){ return '<button class="mc-tb" title="'+title+'" onmousedown="event.preventDefault()" onclick="window.mcExec(\''+cmd+'\')">'+label+'</button>'; }
-  function tbBlock(tag,label,title){ return '<button class="mc-tb" title="'+title+'" onmousedown="event.preventDefault()" onclick="window.mcBlock(\''+tag+'\')">'+label+'</button>'; }
-
-  window.mcNotesEdit=function(){ S.editing=true; renderMain(); var e=document.getElementById('mc-editor'); if(e) e.focus(); };
-  window.mcNotesCancel=function(){ S.editing=false; renderMain(); };
-  window.mcNotesSave=function(){ var e=document.getElementById('mc-editor'); var n=curNode(); if(e&&n){ n.notesHtml=e.innerHTML.trim(); persist(); } S.editing=false; renderMain(); };
-  window.mcExec=function(cmd){ document.execCommand(cmd,false,null); var e=document.getElementById('mc-editor'); if(e) e.focus(); };
-  window.mcBlock=function(tag){ document.execCommand('formatBlock',false,'<'+tag+'>'); var e=document.getElementById('mc-editor'); if(e) e.focus(); };
-  window.mcHilite=function(){ try{ document.execCommand('styleWithCSS',false,true); }catch(e){} document.execCommand('hiliteColor',false,'#FFF3A3'); var el=document.getElementById('mc-editor'); if(el) el.focus(); };
-  window.mcImg=function(){ var u=prompt('Image URL (https://…):'); if(u&&/^https?:\/\//i.test(u)){ document.execCommand('insertImage',false,u); } var e=document.getElementById('mc-editor'); if(e) e.focus(); };
-
-  // ---------- FLASHCARDS ----------
-  function cardsHTML(node){
-    var h='';
-    if(node.cards.length){
-      h+='<div class="mc-row" style="justify-content:space-between;margin-bottom:16px;"><div style="font-size:13.5px;color:var(--muted,#6B7280);font-weight:600;">'+node.cards.length+' card'+(node.cards.length!==1?'s':'')+'</div><button class="mc-btn primary sm" onclick="window.mcReview()">▶ Review all</button></div>';
-    }
-    h+='<div class="mc-form"><div class="mc-flabel">Add a flashcard</div>'
-      +'<input class="mc-inp" id="mc-cf" placeholder="Front (question / prompt)">'
-      +'<textarea class="mc-ta" id="mc-cb" placeholder="Back (answer)"></textarea>'
-      +'<div class="mc-row" style="justify-content:flex-end;"><button class="mc-btn primary sm" onclick="window.mcAddCard()">＋ Add card</button></div></div>';
-    node.cards.forEach(function(c,i){
-      h+='<div class="mc-card"><div class="mc-card-fb"><span class="mc-card-k">Front</span><div>'+esc(c.front)+'</div>'
-        +'<span class="mc-card-k">Back</span><div>'+esc(c.back)+'</div></div>'
-        +'<div class="mc-row" style="justify-content:flex-end;margin-top:8px;"><button class="mc-btn sm danger" onclick="window.mcDelCard('+i+')">Delete</button></div></div>';
-    });
-    return h;
-  }
-  window.mcAddCard=function(){ var f=document.getElementById('mc-cf'), b=document.getElementById('mc-cb'); var n=curNode(); if(!n)return; var fv=(f.value||'').trim(), bv=(b.value||'').trim(); if(!fv||!bv){ alert('Add both a front and a back.'); return; } n.cards.push({id:uid('c'),front:fv,back:bv}); persist(); renderMain(); renderMid(); };
-  window.mcDelCard=function(i){ var n=curNode(); if(!n)return; if(!confirm('Delete this flashcard?'))return; n.cards.splice(i,1); persist(); renderMain(); renderMid(); };
-  window.mcReview=function(){ var n=curNode(); if(!n||!n.cards.length)return; RV={i:0,flip:false}; S.view='reviewCards'; renderMain(); };
-  function reviewCardsHTML(node){
-    var c=node.cards[RV.i];
-    return '<div class="mc-contentwrap"><div class="mc-row" style="justify-content:space-between;margin-bottom:6px;"><button class="mc-btn sm" onclick="window.mcReviewClose()">‹ Back</button><div class="mc-progress">Card '+(RV.i+1)+' / '+node.cards.length+'</div><div style="width:60px;"></div></div>'
-      +'<div class="mc-player"><div class="mc-flash'+(RV.flip?' flip':'')+'" onclick="window.mcFlip()">'
-        +'<div class="mc-flash-in"><div class="mc-flash-f"><span class="mc-flash-tag">Front · tap to flip</span>'+esc(c.front)+'</div>'
-        +'<div class="mc-flash-b"><span class="mc-flash-tag">Back</span>'+esc(c.back)+'</div></div></div>'
-      +'<div class="mc-row" style="justify-content:center;gap:12px;margin-top:8px;">'
-        +'<button class="mc-btn" onclick="window.mcRvPrev()" '+(RV.i===0?'disabled style=opacity:.4':'')+'>‹ Prev</button>'
-        +'<button class="mc-btn primary" onclick="window.mcRvNext()">'+(RV.i===node.cards.length-1?'Finish':'Next ›')+'</button>'
-      +'</div></div></div>';
-  }
-  window.mcFlip=function(){ RV.flip=!RV.flip; renderMain(); };
-  window.mcRvNext=function(){ var n=curNode(); if(RV.i>=n.cards.length-1){ window.mcReviewClose(); return; } RV.i++; RV.flip=false; renderMain(); };
-  window.mcRvPrev=function(){ if(RV.i>0){ RV.i--; RV.flip=false; renderMain(); } };
-  window.mcReviewClose=function(){ S.view='content'; RV=null; renderMain(); };
-
-  // ---------- MCQs ----------
-  function mcqsHTML(node){
-    var h='';
-    if(node.mcqs.length){
-      h+='<div class="mc-row" style="justify-content:space-between;margin-bottom:16px;"><div style="font-size:13.5px;color:var(--muted,#6B7280);font-weight:600;">'+node.mcqs.length+' question'+(node.mcqs.length!==1?'s':'')+'</div><button class="mc-btn primary sm" onclick="window.mcPractice()">▶ Practice all</button></div>';
-    }
-    h+='<div class="mc-form"><div class="mc-flabel">Add an MCQ</div>'
-      +'<textarea class="mc-ta" id="mc-qstem" placeholder="Question stem / clinical vignette"></textarea>'
-      +'<div class="mc-flabel">Options (tick the correct one)</div>'
-      +'<div id="mc-qopts">'+optRow(0)+optRow(1)+optRow(2)+optRow(3)+'</div>'
-      +'<textarea class="mc-ta" id="mc-qexpl" placeholder="Explanation (shown after answering) — optional"></textarea>'
-      +'<div class="mc-row" style="justify-content:flex-end;"><button class="mc-btn primary sm" onclick="window.mcAddMcq()">＋ Add question</button></div></div>';
-    node.mcqs.forEach(function(q,i){
-      h+='<div class="mc-card"><div style="font-weight:700;margin-bottom:8px;color:#1E2640;">'+esc(q.stem)+'</div><ul style="margin:0 0 4px;padding-left:20px;">';
-      q.options.forEach(function(o,oi){ h+='<li style="margin:3px 0;'+(oi===q.answer?'color:#059E8C;font-weight:700;':'color:#374151;')+'">'+esc(o)+(oi===q.answer?' ✓':'')+'</li>'; });
-      h+='</ul>'+(q.explanation?'<div style="font-size:13px;color:var(--muted,#6B7280);margin-top:6px;">'+esc(q.explanation)+'</div>':'')
-        +'<div class="mc-row" style="justify-content:flex-end;margin-top:8px;"><button class="mc-btn sm danger" onclick="window.mcDelMcq('+i+')">Delete</button></div></div>';
-    });
-    return h;
-  }
-  function optRow(i){ return '<div class="mc-opt-row" style="margin-bottom:7px;"><input type="text" class="mc-inp mc-qopt" placeholder="Option '+(i+1)+'"><label class="mc-opt-pick"><input type="radio" name="mc-qans" value="'+i+'"'+(i===0?' checked':'')+'> correct</label></div>'; }
-  window.mcAddMcq=function(){
-    var n=curNode(); if(!n)return;
-    var stem=(document.getElementById('mc-qstem').value||'').trim();
-    var opts=[].map.call(document.querySelectorAll('#mc-qopts .mc-qopt'),function(x){return (x.value||'').trim();}).filter(function(x){return x;});
-    var ansEl=document.querySelector('input[name=mc-qans]:checked'); var ans=ansEl?parseInt(ansEl.value,10):0;
-    var expl=(document.getElementById('mc-qexpl').value||'').trim();
-    if(!stem){ alert('Add a question stem.'); return; }
-    if(opts.length<2){ alert('Add at least two options.'); return; }
-    if(ans>opts.length-1) ans=0;
-    n.mcqs.push({id:uid('q'),stem:stem,options:opts,answer:ans,explanation:expl}); persist(); renderMain(); renderMid();
+    }catch(e){}
   };
-  window.mcDelMcq=function(i){ var n=curNode(); if(!n)return; if(!confirm('Delete this question?'))return; n.mcqs.splice(i,1); persist(); renderMain(); renderMid(); };
-  window.mcPractice=function(){ var n=curNode(); if(!n||!n.mcqs.length)return; RV={i:0,chosen:null,checked:false,score:0}; S.view='practiceMcq'; renderMain(); };
-  function practiceMcqHTML(node){
-    var q=node.mcqs[RV.i];
-    var opts='';
-    q.options.forEach(function(o,oi){
-      var cls='mc-quiz-opt';
-      if(RV.checked){ if(oi===q.answer) cls+=' right'; else if(oi===RV.chosen) cls+=' wrong'; }
-      else if(oi===RV.chosen) cls+=' pick';
-      opts+='<button class="'+cls+'" onclick="window.mcPick('+oi+')">'+esc(o)+'</button>';
+
+  // ---- the "add your own topic" button next to each tab's search ----
+  function mountButtons(){
+    TABS.forEach(function(p){
+      var inp=document.getElementById('search-'+p); if(!inp) return;
+      var wrap=inp.closest('.search-wrap')||inp.parentNode; if(!wrap) return;
+      if(wrap.parentNode.querySelector('.ownt-addbtn[data-tab="'+p+'"]')) return;
+      var b=document.createElement('button');
+      b.className='ownt-addbtn'; b.setAttribute('data-tab',p);
+      b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 4v10M4 9h10"/></svg> Add your own topic';
+      b.onclick=function(){ openCreate(p); };
+      wrap.parentNode.insertBefore(b, wrap.nextSibling);
     });
-    var foot;
-    if(RV.checked){
-      var last=(RV.i===node.mcqs.length-1);
-      foot=(q.explanation?'<div class="mc-expl"><b>'+(RV.chosen===q.answer?'Correct.':'Not quite.')+'</b> '+esc(q.explanation)+'</div>':'<div class="mc-expl"><b>'+(RV.chosen===q.answer?'Correct.':'Not quite — the highlighted option is right.')+'</b></div>')
-        +'<div class="mc-row" style="justify-content:center;margin-top:12px;"><button class="mc-btn primary" onclick="window.mcQNext()">'+(last?'See score':'Next question ›')+'</button></div>';
-    } else {
-      foot='<div class="mc-row" style="justify-content:center;margin-top:6px;"><button class="mc-btn primary" onclick="window.mcCheck()"'+(RV.chosen==null?' disabled style=opacity:.4':'')+'>Check answer</button></div>';
-    }
-    return '<div class="mc-contentwrap"><div class="mc-row" style="justify-content:space-between;margin-bottom:6px;"><button class="mc-btn sm" onclick="window.mcPracticeClose()">‹ Back</button><div class="mc-progress">Question '+(RV.i+1)+' / '+node.mcqs.length+'</div><div style="width:60px;"></div></div>'
-      +'<div class="mc-player"><div style="font-size:17px;font-weight:700;color:var(--text,#1E2640);line-height:1.5;margin:8px 0 16px;">'+esc(q.stem)+'</div>'+opts+foot+'</div></div>';
   }
-  window.mcPick=function(i){ if(RV.checked)return; RV.chosen=i; renderMain(); };
-  window.mcCheck=function(){ if(RV.chosen==null)return; RV.checked=true; var q=curNode().mcqs[RV.i]; if(RV.chosen===q.answer) RV.score++; renderMain(); };
-  window.mcQNext=function(){ var n=curNode(); if(RV.i>=n.mcqs.length-1){ alert('You scored '+RV.score+' / '+n.mcqs.length+'.'); window.mcPracticeClose(); return; } RV.i++; RV.chosen=null; RV.checked=false; renderMain(); };
-  window.mcPracticeClose=function(){ S.view='content'; RV=null; renderMain(); };
 
-  // ---------- structure CRUD ----------
-  window.mcNewSys=function(){ var name=(prompt('Name your system (e.g. “Cardiology revision”):')||'').trim(); if(!name)return; var icon=(prompt('Pick an emoji icon (optional):','📘')||'📘').trim()||'📘'; var s={id:uid('sys'),name:name,icon:icon.slice(0,3),topics:[]}; DATA.systems.push(s); S.sysId=s.id; S.topicId=null; S.nodeKind='topic'; S.nodeId=null; persist(); renderApp(); };
-  window.mcSysMenu=function(id){ var s=findSys(id); if(!s)return; var a=prompt('Rename system, or type "delete" to remove it:', s.name); if(a==null)return; a=a.trim(); if(a.toLowerCase()==='delete'){ if(confirm('Delete “'+s.name+'” and everything in it?')){ DATA.systems=DATA.systems.filter(function(x){return x.id!==id;}); if(S.sysId===id){ S.sysId=DATA.systems[0]?DATA.systems[0].id:null; S.topicId=null; } persist(); renderApp(); } return; } if(a){ s.name=a; persist(); renderApp(); } };
-  window.mcSelSys=function(id){ S.sysId=id; S.nodeKind='topic'; S.nodeId=null; S.editing=false; S.view='content'; var s=curSys(); S.topicId=(s&&(s.topics||[])[0])?s.topics[0].id:null; renderApp(); };
+  // ---- create modal ----
+  var placeSel='solo';
+  function openCreate(p){
+    placeSel='solo';
+    var systems=Object.keys(_origGetTabData(p)||{});
+    var opts=systems.map(function(s){ return '<option value="'+esc(s)+'">'+esc(s)+'</option>'; }).join('');
+    var ov=document.createElement('div'); ov.className='ownt-ov'; ov.id='ownt-ov';
+    ov.innerHTML='<div class="ownt-modal">'
+      +'<h3>Add your own topic</h3>'
+      +'<div class="ownt-sub">Create a topic in <b>'+esc(tabLabel(p))+'</b>. Your note follows this tab&rsquo;s template, and you can highlight &amp; annotate it like any other.</div>'
+      +'<label class="ownt-lbl">Topic name</label>'
+      +'<input class="ownt-inp" id="ownt-name" placeholder="e.g. My revision summary" autocomplete="off">'
+      +'<label class="ownt-lbl">Where should it live?</label>'
+      +'<div class="ownt-place"><div class="ownt-radio on" data-v="solo">On its own<br><span style="font-weight:500;font-size:11px;color:var(--muted,#6B7280);">under “My Topics”</span></div>'
+      +'<div class="ownt-radio" data-v="nest">Inside a system<br><span style="font-weight:500;font-size:11px;color:var(--muted,#6B7280);">nested in an existing one</span></div></div>'
+      +'<div id="ownt-syswrap" style="display:none;"><label class="ownt-lbl">System</label><select class="ownt-sel" id="ownt-sys">'+opts+'</select></div>'
+      +'<div class="ownt-modal-actions"><button class="ownt-btn" id="ownt-cancel">Cancel</button><button class="ownt-btn primary" id="ownt-create" disabled>Create &amp; write note</button></div>'
+      +'</div>';
+    document.body.appendChild(ov);
+    var name=ov.querySelector('#ownt-name'), createBtn=ov.querySelector('#ownt-create');
+    name.oninput=function(){ createBtn.disabled=!name.value.trim(); };
+    ov.querySelectorAll('.ownt-radio').forEach(function(r){ r.onclick=function(){ ov.querySelectorAll('.ownt-radio').forEach(function(x){x.classList.remove('on');}); r.classList.add('on'); placeSel=r.dataset.v; ov.querySelector('#ownt-syswrap').style.display=(placeSel==='nest')?'':'none'; }; });
+    ov.querySelector('#ownt-cancel').onclick=function(){ ov.remove(); };
+    ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
+    createBtn.onclick=function(){
+      var nm=name.value.trim(); if(!nm) return;
+      var system=(placeSel==='nest')?ov.querySelector('#ownt-sys').value:null;
+      if(findTopic(p, system||MYSYS, nm)){ alert('You already have a topic called “'+nm+'” there.'); return; }
+      var t={id:uid(),tab:p,name:nm,system:system,notesHtml:starter(p,nm),updated:Date.now()};
+      DATA.push(t); save(); injectAll();
+      ov.remove(); openEditor(p, t, true);
+    };
+    setTimeout(function(){ name.focus(); },30);
+  }
+  function tabLabel(p){ return {conditions:'Medical Conditions',anatomy:'Anatomy',histology:'Histology',signs:'Signs & Symptoms',investigations:'Investigations',osce:'OSCE'}[p]||p; }
 
-  window.mcNewTopic=function(){ var s=curSys(); if(!s){ alert('Create a system first.'); return; } var name=(prompt('New topic name:')||'').trim(); if(!name)return; var t={id:uid('top'),name:name,notesHtml:'',cards:[],mcqs:[],subtopics:[]}; s.topics.push(t); S.topicId=t.id; S.nodeKind='topic'; S.nodeId=null; S.mode='notes'; S.editing=false; S.view='content'; persist(); renderMid(); renderMain(); renderSys(); };
-  window.mcTopicMenu=function(id){ var s=curSys(); var t=findTopic(s,id); if(!t)return; var a=prompt('Rename topic, or type "delete" to remove it:', t.name); if(a==null)return; a=a.trim(); if(a.toLowerCase()==='delete'){ if(confirm('Delete topic “'+t.name+'” and its content?')){ s.topics=s.topics.filter(function(x){return x.id!==id;}); if(S.topicId===id){ S.topicId=null; S.nodeId=null; } persist(); renderApp(); } return; } if(a){ t.name=a; persist(); renderMid(); renderMain(); } };
-  window.mcSelTopic=function(id){ S.topicId=id; S.nodeKind='topic'; S.nodeId=null; S.editing=false; S.view='content'; if(!['notes','cards','mcqs'].includes(S.mode))S.mode='notes'; renderMid(); renderMain(); };
+  // ---- per-tab starter template (the tab's own note structure) ----
+  function starter(p,name){
+    var fam=FAMILY[p];
+    if(fam==='cp'){
+      return '<div class="cp"><div class="cp-lead"><b>'+esc(name)+'</b> &mdash; write the one-line summary of what this is and why it matters.</div>'
+        +'<div class="cp-warn"><span class="cp-warn-ic">🚨</span><span>Add the key safety point / red flag here (or delete this box).</span></div>'
+        +'<div class="cp-step"><div class="cp-step-h"><span class="cp-num">1</span><span class="cp-title">First step / heading</span></div><div class="cp-step-body">Write the detail for this step here…</div></div>'
+        +'<div class="cp-step"><div class="cp-step-h"><span class="cp-num">2</span><span class="cp-title">Second step / heading</span></div><div class="cp-step-body">…</div></div></div>';
+    }
+    if(fam==='osce'){
+      return '<div class="osce-intro">Write a short introduction to this station or skill.</div>'
+        +'<section class="osce-sec" style="--osce-c:#4F6BED;--osce-tint:#EEF1FD"><div class="osce-section-h">Section heading</div>'
+        +'<details class="osce-step" open><summary><span class="osce-step-t">Step or point</span><span class="osce-chev">&#9656;</span></summary><div class="osce-detail"><ul><li>Write the detail here…</li></ul></div></details></section>';
+    }
+    return '<div class="rn-highlight"><strong>Why this matters:</strong> write a short framing sentence here.</div>'
+      +'<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p>Write your notes for this section here. Use the toolbar to add headings, lists and highlights.</p></div></div>';
+  }
 
-  window.mcNewSub=function(topicId){ var s=curSys(); var t=findTopic(s,topicId); if(!t)return; if(!Array.isArray(t.subtopics))t.subtopics=[]; var name=(prompt('New subtopic name:')||'').trim(); if(!name)return; var sub={id:uid('sub'),name:name,notesHtml:'',cards:[],mcqs:[]}; t.subtopics.push(sub); S.topicId=t.id; S.nodeKind='sub'; S.nodeId=sub.id; S.editing=false; S.view='content'; S.mode='notes'; persist(); renderMid(); renderMain(); };
-  window.mcSubMenu=function(topicId,subId){ var s=curSys(); var t=findTopic(s,topicId); if(!t)return; var sub=(t.subtopics||[]).find(function(x){return x.id===subId;}); if(!sub)return; var a=prompt('Rename subtopic, or type "delete" to remove it:', sub.name); if(a==null)return; a=a.trim(); if(a.toLowerCase()==='delete'){ if(confirm('Delete subtopic “'+sub.name+'”?')){ t.subtopics=t.subtopics.filter(function(x){return x.id!==subId;}); if(S.nodeId===subId){ S.nodeKind='topic'; S.nodeId=null; } persist(); renderMid(); renderMain(); } return; } if(a){ sub.name=a; persist(); renderMid(); renderMain(); } };
-  window.mcSelSub=function(topicId,subId){ S.topicId=topicId; S.nodeKind='sub'; S.nodeId=subId; S.editing=false; S.view='content'; if(!['notes','cards','mcqs'].includes(S.mode))S.mode='notes'; renderMid(); renderMain(); };
+  // ---- insert blocks (match the tab's family) ----
+  function blocksFor(p){
+    var fam=FAMILY[p];
+    if(fam==='cp') return [
+      ['Lead','<div class="cp-lead">Write a lead summary…</div>'],
+      ['Warning','<div class="cp-warn"><span class="cp-warn-ic">🚨</span><span>Key safety point…</span></div>'],
+      ['Step','<div class="cp-step"><div class="cp-step-h"><span class="cp-num">•</span><span class="cp-title">Heading</span></div><div class="cp-step-body">Detail…</div></div>'],
+      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
+    ];
+    if(fam==='osce') return [
+      ['Section','<section class="osce-sec" style="--osce-c:#2F84C7;--osce-tint:#EAF3FB"><div class="osce-section-h">Section heading</div></section>'],
+      ['Step','<details class="osce-step" open><summary><span class="osce-step-t">Step</span><span class="osce-chev">&#9656;</span></summary><div class="osce-detail"><ul><li>Detail…</li></ul></div></details>'],
+      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
+    ];
+    return [
+      ['Section','<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p>Write here…</p></div></div>'],
+      ['Callout','<div class="rn-callout">Highlight a key idea here…</div>'],
+      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
+    ];
+  }
 
-  window.mcMode=function(m){ S.mode=m; S.editing=false; S.view='content'; renderMain(); };
+  // ---- editor overlay ----
+  var EDIT=null;
+  function openEditor(p, t, isNew){
+    closeEditor();
+    var ov=document.createElement('div'); ov.className='ownt-edit'; ov.id='ownt-edit';
+    var tb=blocksFor(p).map(function(b,i){ return '<button class="ownt-tb block" data-bi="'+i+'">+ '+b[0]+'</button>'; }).join('');
+    ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">'+esc(tabLabel(p))+' · '+esc(sysOf(t))+'</div><div class="n">'+esc(t.name)+'</div></div>'
+      +'<button class="ownt-btn" id="ownt-ecancel">Cancel</button><button class="ownt-btn primary" id="ownt-esave">Save note</button></div>'
+      +'<div class="ownt-toolbar">'
+        +'<button class="ownt-tb" data-cmd="bold" title="Bold"><b>B</b></button>'
+        +'<button class="ownt-tb" data-cmd="italic" title="Italic"><i>I</i></button>'
+        +'<button class="ownt-tb" data-cmd="underline" title="Underline"><u>U</u></button>'
+        +'<button class="ownt-tb" data-block="h3" title="Heading">H</button>'
+        +'<button class="ownt-tb" data-cmd="insertUnorderedList" title="Bullets">•</button>'
+        +'<button class="ownt-tb" data-hilite="1" title="Highlight">🖍️</button>'
+        +'<span class="ownt-tb-div"></span><span class="ownt-tb-label">Insert</span>'+tb
+      +'</div>'
+      +'<div class="ownt-edit-body"><div class="ownt-canvas rich-note" id="ownt-canvas" contenteditable="true">'+(t.notesHtml||'')+'</div></div>';
+    document.body.appendChild(ov);
+    EDIT={p:p,t:t,isNew:!!isNew};
+    var canvas=ov.querySelector('#ownt-canvas');
+    ov.querySelectorAll('.ownt-toolbar .ownt-tb').forEach(function(btn){
+      btn.onmousedown=function(e){ e.preventDefault(); };
+      btn.onclick=function(){
+        if(btn.dataset.cmd) document.execCommand(btn.dataset.cmd,false,null);
+        else if(btn.dataset.block) document.execCommand('formatBlock',false,'<'+btn.dataset.block+'>');
+        else if(btn.dataset.hilite){ try{document.execCommand('styleWithCSS',false,true);}catch(e){} document.execCommand('hiliteColor',false,'#FFF3A3'); }
+        else if(btn.dataset.bi!=null){ insertBlock(canvas, blocksFor(p)[+btn.dataset.bi][1]); }
+        canvas.focus();
+      };
+    });
+    ov.querySelector('#ownt-ecancel').onclick=function(){ if(EDIT.isNew){ /* discard the just-created empty topic */ deleteTopic(p, t, true); } closeEditor(); };
+    ov.querySelector('#ownt-esave').onclick=function(){ saveEditor(); };
+    setTimeout(function(){ canvas.focus(); },30);
+  }
+  function insertBlock(canvas, html){ canvas.focus(); try{ document.execCommand('insertHTML',false,'<p><br></p>'+html); }catch(e){ canvas.insertAdjacentHTML('beforeend', html); } }
+  function saveEditor(){ if(!EDIT) return; var canvas=document.getElementById('ownt-canvas'); EDIT.t.notesHtml=canvas.innerHTML.trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
+  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); EDIT=null; }
 
-  // expose custom MCQs so the Custom Mock builder can include them later
-  window.mcAllMcqs=function(){ var out=[]; DATA.systems.forEach(function(s){ (s.topics||[]).forEach(function(t){ function pull(n,path){ (n.mcqs||[]).forEach(function(q){ out.push({stem:q.stem,options:q.options,answer:q.answer,explanation:q.explanation,source:'My Curriculum · '+path}); }); } pull(t, s.name+' › '+t.name); (t.subtopics||[]).forEach(function(sub){ pull(sub, s.name+' › '+t.name+' › '+sub.name); }); }); }); return out; };
+  function navigateTo(p,t){
+    var navEl=document.querySelector('.nav-tab[onclick*="\''+p+'\'"]');
+    if(navEl && typeof switchMainTab==='function') switchMainTab(p, navEl, true);
+    var st=getState(p); if(!st.initialised){ if(typeof initTab==='function'){ initTab(p); st.initialised=true; } }
+    if(typeof selectSystem==='function') selectSystem(p, sysOf(t), true);
+    if(typeof selectTopic==='function') selectTopic(p, t.name);
+  }
+
+  function deleteTopic(p, t, silent){
+    if(!silent && !confirm('Delete your topic “'+t.name+'”? This removes your note for it.')) return;
+    var i=DATA.indexOf(t); if(i>=0) DATA.splice(i,1); save();
+    try{ delete bankFor(p)[sysOf(t)+'__'+t.name]; }catch(e){}
+    if(silent) return;
+    // refresh the current tab view
+    var st=getState(p); var sys=st.activeSystem;
+    if(sys && typeof selectSystem==='function'){ if(forTab(p).filter(function(x){return sysOf(x)===MYSYS;}).length===0 && sys===MYSYS){ if(typeof initTab==='function') initTab(p); } else selectSystem(p, sys, true); }
+    if(typeof showEmpty==='function') showEmpty(p);
+  }
+
+  // ---- boot ----
+  function boot(){ mountButtons(); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+  // re-mount if a tab initialises its sidebar later
+  var _initTab=(typeof initTab==='function')?initTab:null;
+  if(_initTab){ initTab=window.initTab=function(p){ var r=_initTab.apply(this,arguments); try{ mountButtons(); }catch(e){} return r; }; }
 })();
 </script>
+
 </body>
 </html>
