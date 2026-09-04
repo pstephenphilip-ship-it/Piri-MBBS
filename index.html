@@ -5251,7 +5251,7 @@ window.MOCK_BANK = {
         "Insert a permanent pacemaker",
         "Start an isoprenaline infusion",
         "Stop the rate-limiting drugs and monitor",
-        "Give atropine 500 mcg and discharge him",
+        "Give atropine 500 micrograms and discharge him",
         "Immediate transcutaneous pacing"],
       correctIndex:2,
       explanation:[
@@ -6046,27 +6046,27 @@ window.MOCK_BANK = {
       question:"A 68-year-old man is found to be bradycardic. He looks pale and is confused, and his observations are shown. What is the most appropriate first-line treatment?",
       options:[
         "Immediate permanent pacemaker",
-        "IV atropine 500 mcg",
+        "IV atropine 500 micrograms",
         "Reassurance and observation",
         "IV fluids alone",
         "A beta-blocker"],
       correctIndex:1,
       explanation:[
-        "He has an ADVERSE FEATURE – shock (hypotension with pallor and confusion) – so the first-line treatment in the peri-arrest bradycardia algorithm is IV ATROPINE 500 mcg.",
+        "He has an ADVERSE FEATURE – shock (hypotension with pallor and confusion) – so the first-line treatment in the peri-arrest bradycardia algorithm is IV ATROPINE 500 micrograms.",
         "A permanent pacemaker (A) is not the immediate step, reassurance (C) is unsafe, fluids alone (D) do not treat the bradycardia, and a beta-blocker (E) would worsen it."
       ] },
     { id:"brady-066", type:"mcq", objective:"acute-atropine-regimen",
       question:"In a bradycardia with adverse features, what is the correct atropine regimen?",
       options:[
         "3 mg IV as a single bolus, with no repeat doses given",
-        "100 mcg IV once only, without any repeat dosing",
+        "100 micrograms IV once only, without any repeat dosing",
         "1 mg IV, repeated every 3–5 minutes to a maximum of 10 mg",
-        "500 mcg IV, repeated every 3–5 minutes to a maximum of 3 mg",
-        "500 mcg orally, repeated every 3–5 minutes as required"],
+        "500 micrograms IV, repeated every 3–5 minutes to a maximum of 3 mg",
+        "500 micrograms orally, repeated every 3–5 minutes as required"],
       correctIndex:3,
       explanation:[
-        "The correct regimen is ATROPINE 500 mcg IV, repeated every 3–5 minutes up to a MAXIMUM total of 3 mg.",
-        "A single 3 mg bolus (A), 100 mcg (B), a 1 mg dose to a 10 mg maximum (C) and the oral route (E) are all wrong doses or routes."
+        "The correct regimen is ATROPINE 500 micrograms IV, repeated every 3–5 minutes up to a MAXIMUM total of 3 mg.",
+        "A single 3 mg bolus (A), 100 micrograms (B), a 1 mg dose to a 10 mg maximum (C) and the oral route (E) are all wrong doses or routes."
       ] },
     { id:"brady-067", type:"mcq", objective:"acute-asystole-risk",
       data:'<div class="mk-obs-h">Observations</div><table class="mk-labs"><tr><td>Heart rate</td><td><b>44 bpm</b></td><td>60&ndash;100</td></tr><tr><td>Blood pressure</td><td><b>128/80 mmHg</b></td><td></td></tr><tr><td>SpO<sub>2</sub></td><td><b>98% (air)</b></td><td>94&ndash;98</td></tr></table>',
@@ -6142,10 +6142,10 @@ window.MOCK_BANK = {
       accept:["3","3 mg","3mg","3 milligrams"],
       markPoints:[
         "A maximum total of 3 mg of atropine",
-        "Given as 500 mcg IV boluses repeated every 3–5 minutes",
+        "Given as 500 micrograms IV boluses repeated every 3–5 minutes",
         "Beyond 3 mg there is no added benefit – move to second-line measures"],
       explanation:[
-        "Atropine is given as 500 mcg IV, repeated every 3–5 minutes up to a MAXIMUM total of 3 mg.",
+        "Atropine is given as 500 micrograms IV, repeated every 3–5 minutes up to a MAXIMUM total of 3 mg.",
         "Beyond 3 mg it confers no further benefit, so move to transcutaneous pacing or an isoprenaline/adrenaline infusion."
       ] },
     { id:"brady-073", type:"mcq", objective:"pacer-indication",
@@ -6496,7 +6496,7 @@ window.MOCK_BANK = {
       options:[
         "Give atropine 3 mg IV once",
         "Atropine is no longer recommended in asystole or PEA",
-        "Give atropine 500 mcg every 3–5 minutes",
+        "Give atropine 500 micrograms every 3–5 minutes",
         "Give atropine only if the asystole follows a bradycardia",
         "Give atropine together with adrenaline"],
       correctIndex:1,
@@ -17445,5 +17445,41 @@ function hideFlyout(p) {
 })();
 </script>
 
+<!-- =====================================================================
+     LAYOUT PASS 6 — Investigations: the .cp-rooted notes.
+     Search this file for "LAYOUT PASS INV" to find it again.
+     ===================================================================== -->
+<style>
+  /* The four correctness rules near the top of this file are scoped to
+     .rich-note. Measured across every note: Anatomy and Histology are wholly
+     .rich-note-rooted, Signs is wholly .cp-rooted, and Investigations is
+     SPLIT — 146 notes wrap in .rich-note and 49 do not. Those 49 get none of
+     the fixes, which is why every one of their 214 .cp-kill-desc renders as
+     a padded inline box with its wrapped lines hanging outside the card. */
+
+  /* An element styled as a card body but left inline is broken wherever it
+     appears: padding opens only before the first line and after the last, so
+     wrapped text sits hard against the border. Unscoping this is a no-op
+     where the markup already uses a block element (Signs authors these as
+     divs, so 0 of its 1,945 change) and repairs all 214 in Investigations. */
+  .cp-kill-desc{display:block;}
+  .cp-warn:not(:has(> .cp-warn-ic)){display:block;}
+
+  /* Loose text in a flex row becomes an anonymous flex item, which breaks a
+     sentence into separately-wrapped fragments. The .rich-note rule catches
+     the cases holding a <b>/<strong>/<em>; these notes write prose with an
+     inline .cp-dx link and no bold, so they fell through. Scoped to this tab:
+     Signs' .cp-then are genuine chip rows with no loose text (measured 0),
+     and turning those into blocks would drop their flex gap for nothing. */
+  #tab-investigations .cp-then{display:block;}
+  /* the chips inside then need their own spacing, since the flex gap is gone.
+     Horizontal only: these are inline links here, and a vertical margin on an
+     inline box is silently dropped. */
+  #tab-investigations .cp-then > .cp-dx{margin-right:5px;}
+  /* .cp-reads is deliberately left as a flex chip row. Only 6 of its 1,090
+     instances in this tab hold loose text; blocking the container to fix those
+     six turns the other 1,084 chip rows into full-width stacked strips, which
+     is a far bigger change than the fault. Same call as the original pass. */
+</style>
 </body>
 </html>
