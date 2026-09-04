@@ -13374,6 +13374,8 @@ function hideFlyout(p) {
 .da-lock-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 .da-lock-btn{cursor:pointer;border:1px solid var(--border2,#E2E6F0);background:var(--surface2,#EEF1F6);color:var(--text,#374151);border-radius:9px;padding:11px 20px;font-size:13.5px;font-weight:700;font-family:inherit;}
 .da-lock-btn.primary{border:none;color:#fff;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);}
+.da-lock-btn.mem{border:1.5px solid #00C2A8;color:#059E8C;background:rgba(0,194,168,.08);}
+.da-lock-btn.mem:hover{background:rgba(0,194,168,.16);}
 .da-lock-btn.trial{border:none;color:#3A2A00;background:linear-gradient(135deg,#FBBF24 0%,#F0B429 100%);}
 .da-lock-foot{font-size:11.5px;color:var(--muted2,#9CA3AF);margin-top:20px;line-height:1.5;}
 .da-locked-item{opacity:.62;}
@@ -13547,6 +13549,7 @@ function hideFlyout(p) {
       + '<div class="da-lock-title">This topic is locked</div>'
       + '<div class="da-lock-sub">Create a <strong>free account</strong> to unlock locked topic <strong>notes</strong> &mdash; up to <strong>6 a day</strong> (max 3 per section). Flashcards, MCQs &amp; mock exams come with membership.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
+      + '<button class="da-lock-btn mem" onclick="if(window.__openMembership)window.__openMembership();">✨ Get membership</button>'
       + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button></div>'
       + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
   }
@@ -13557,8 +13560,9 @@ function hideFlyout(p) {
       + '<div class="da-lock-title">Unlock this topic for 24 hours?</div>'
       + '<div class="da-lock-sub">Opens the notes for <strong>'+esc(name)+'</strong> for the next <strong>24 hours</strong>, then it locks again. You have <strong>'+dpRemainingTotal()+' of '+DP_TOTAL+'</strong> daily unlocks left &mdash; <strong>'+dpRemainingTab(p)+' of '+DP_PER_TAB+'</strong> in '+esc(sec)+'.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpUnlock&&window.__dpUnlock()">Use 1 unlock</button>'
+      + '<button class="da-lock-btn mem" onclick="if(window.__dpCancel)window.__dpCancel(); if(window.__openMembership)window.__openMembership();">✨ Get membership</button>'
       + '<button class="da-lock-btn" onclick="window.__dpCancel&&window.__dpCancel()">Not now</button></div>'
-      + '<div class="da-lock-foot">Up to '+DP_TOTAL+' topics per 24 hours, max '+DP_PER_TAB+' from any one section &mdash; each frees up 24h after you use it. Unlimited access is coming with membership.</div></div>';
+      + '<div class="da-lock-foot">Up to '+DP_TOTAL+' topics per 24 hours, max '+DP_PER_TAB+' from any one section &mdash; each frees up 24h after you use it. Unlimited access with membership.</div></div>';
   }
   function limitHTML(p){
     var tabFull = p && dpRemainingTab(p)===0 && dpRemainingTotal()>0;
