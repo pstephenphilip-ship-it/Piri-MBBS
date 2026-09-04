@@ -17290,15 +17290,25 @@ function hideFlyout(p) {
     }
     return null;
   }
-  // Insert a block as a sibling AFTER the current section (in the same container), not at the caret.
+  function anchorEl(){ var c=canvasEl(); var s=window.getSelection(); if(!c||!s||!s.rangeCount) return null; var n=s.anchorNode; if(n&&n.nodeType===3) n=n.parentNode; return (n&&c.contains(n))?n:null; }
+  function climbTo(sel){ var c=canvasEl(); var n=anchorEl(); while(n&&n!==c){ if(n.matches&&n.matches(sel)) return n; n=n.parentNode; } return null; }
+  // Insert a block at the level it belongs to: a section goes at the top level, a step goes INSIDE
+  // its section (after the current step), other blocks go after the current element.
   function insertBlock(html){
     var c=canvasEl(); if(!c) return; c.focus(); restoreSel();
-    var blk=currentBlock();
     var tmp=document.createElement('div'); tmp.innerHTML=html;
-    var nodes=[].slice.call(tmp.childNodes);
-    if(!nodes.length) return;
-    var parent = blk ? blk.parentNode : c;
-    var ref = blk ? blk.nextSibling : null;
+    var nodes=[].slice.call(tmp.childNodes); if(!nodes.length) return;
+    var root=tmp.querySelector('*'); var cls=root?(' '+(root.className||'')+' '):' '; var tag=root?root.tagName:'';
+    var parent=null, ref=null;
+    if(/ (osce-sec|rn-section) /.test(cls) || tag==='SECTION'){
+      // top-level container: insert after the current top-level block (direct child of canvas)
+      var top=currentBlock(); var t=top; while(t && t.parentNode!==c) t=t.parentNode; parent=c; ref=t?t.nextSibling:null;
+    } else if(/ osce-step /.test(cls)){
+      var sec=climbTo('.osce-sec'); if(sec){ var cs=climbTo('.osce-step'); parent=sec; ref=(cs&&cs.parentNode===sec)?cs.nextSibling:null; }
+    } else if(/ cp-(lead|warn|step|kill|then) /.test(cls)){
+      var cp=climbTo('.cp'); if(cp){ var ch=anchorEl(); while(ch&&ch.parentNode!==cp) ch=ch.parentNode; parent=cp; ref=ch?ch.nextSibling:null; }
+    }
+    if(!parent){ var u=nearestUnit(anchorEl()); if(u){ parent=u.parentNode; ref=u.nextSibling; } else { parent=c; ref=null; } }
     nodes.forEach(function(nd){ parent.insertBefore(nd, ref); });
     var first=nodes[0];
     if(first && first.nodeType===1){ var r=document.createRange(); r.selectNodeContents(first); r.collapse(true); var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
