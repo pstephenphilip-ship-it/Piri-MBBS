@@ -13565,13 +13565,14 @@ function hideFlyout(p) {
     var sec = SECTION_NAME[p] || 'this section';
     var title = tabFull ? 'Section limit reached' : 'Daily limit reached';
     var sub = tabFull
-      ? 'You&rsquo;ve used all <strong>'+DP_PER_TAB+'</strong> unlocks for <strong>'+esc(sec)+'</strong> in the last 24 hours. You can still unlock topics in other sections (up to <strong>'+DP_TOTAL+'</strong>/day total) &mdash; or unlock everything with membership.'
-      : 'You&rsquo;ve used all <strong>'+DP_TOTAL+'</strong> of your daily unlocks. Each one frees up again <strong>24 hours</strong> after you used it &mdash; or unlock everything with membership (coming soon).';
+      ? 'You&rsquo;ve used all <strong>'+DP_PER_TAB+'</strong> free unlocks for <strong>'+esc(sec)+'</strong> today. Skip the wait and unlock <strong>every topic, flashcard, MCQ &amp; mock exam</strong> with membership.'
+      : 'You&rsquo;ve used all <strong>'+DP_TOTAL+'</strong> of your free daily unlocks. Unlock <strong>everything, instantly</strong> with membership &mdash; no daily limits.';
     return '<div class="da-lock"><div class="da-lock-icon">⏳</div>'
       + '<div class="da-lock-title">'+title+'</div>'
       + '<div class="da-lock-sub">'+sub+'</div>'
-      + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpCancel&&window.__dpCancel()">OK</button></div>'
-      + '<div class="da-lock-foot">Topics you already unlocked stay open for their 24 hours.</div></div>';
+      + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="if(window.__dpCancel)window.__dpCancel(); if(window.__openMembership)window.__openMembership();">✨ Unlock everything &mdash; Get membership</button>'
+      + '<button class="da-lock-btn" onclick="window.__dpCancel&&window.__dpCancel()">Not now</button></div>'
+      + '<div class="da-lock-foot">Topics you already unlocked stay open for their 24 hours &mdash; and a free unlock frees up 24 h after you use it.</div></div>';
   }
   function hidePaywall(p){ var el=document.getElementById('da-paywall-'+p); if(el) el.style.display='none'; }
   // Dismissing a paywall ("Not now" / "OK") returns the visitor to the page they were on,
