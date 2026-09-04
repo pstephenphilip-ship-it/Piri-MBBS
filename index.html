@@ -941,7 +941,7 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 /* Not a scroll container — #tab-home (.home-view) is the single home scroller. A nested auto
    scroller here would, on stricter browsers, swallow wheel events (it can't scroll, and blocked
    chaining to the real scroller), so the home page couldn't be scrolled with the mouse wheel. */
-.wc-host{display:block;flex:1 1 auto;min-height:0;overflow:visible;background:var(--rn-bg);text-align:left;}
+.wc-host{display:block;flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--rn-bg);text-align:left;}
 .welcome-inner{max-width:720px;margin:0 auto;padding:44px 24px 64px;box-sizing:border-box;}
 .wc-brand{text-align:center;margin-bottom:30px;}
 .wc-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
