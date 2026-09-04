@@ -16892,6 +16892,36 @@ function hideFlyout(p) {
   .ownt-canvas:focus{border-color:#00C2A8;}
   .ownt-canvas [contenteditable]{outline:none;}
   .ownt-canvas [data-ph]:empty:before{content:attr(data-ph);color:#9CA3AF;font-style:italic;}
+  .ownt-toolbar{position:relative;}
+  .ownt-tb.wide{min-width:auto;padding:0 9px;gap:5px;display:inline-flex;align-items:center;}
+  .ownt-tb .caret{font-size:9px;opacity:.6;margin-left:1px;}
+  .ownt-tb .swdot{width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.15);display:inline-block;}
+  /* colour / insert popovers */
+  .ownt-pop{position:fixed;z-index:4200;background:var(--surface,#fff);border:1px solid var(--border2,#E2E6F0);border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.22);padding:10px;}
+  .ownt-swgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+  .ownt-sw{width:30px;height:30px;border-radius:7px;border:1px solid rgba(0,0,0,.12);cursor:pointer;position:relative;}
+  .ownt-sw:hover{transform:scale(1.08);}
+  .ownt-sw.none{background:#fff;}
+  .ownt-sw.none:after{content:'⦸';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:16px;}
+  .ownt-pop-menu{min-width:200px;display:flex;flex-direction:column;gap:2px;}
+  .ownt-pop-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--text,#1E2640);background:none;border:none;font-family:inherit;text-align:left;width:100%;}
+  .ownt-pop-item:hover{background:var(--surface2,#EEF1F6);}
+  .ownt-pop-item .ic{width:22px;text-align:center;font-size:15px;flex-shrink:0;}
+  .ownt-pop-item small{display:block;font-weight:500;font-size:11.5px;color:var(--muted,#6B7280);}
+  /* table contextual toolbar */
+  .ownt-tablebar{position:fixed;z-index:4100;display:flex;gap:3px;background:#1E2640;border-radius:9px;padding:4px;box-shadow:0 6px 20px rgba(0,0,0,.32);}
+  .ownt-tablebar button{border:none;background:none;color:#fff;font-family:inherit;font-size:11.5px;font-weight:700;padding:5px 9px;border-radius:6px;cursor:pointer;white-space:nowrap;}
+  .ownt-tablebar button:hover{background:rgba(255,255,255,.16);}
+  .ownt-tablebar button.del:hover{background:#C93535;}
+  /* editor canvas: make inserted media/tables editable-friendly */
+  .ownt-canvas img{max-width:100%;border-radius:8px;margin:8px 0;}
+  .ownt-canvas figure{margin:12px 0;}
+  .ownt-canvas figure figcaption{font-size:12.5px;color:var(--rn-muted,#6B7280);text-align:center;margin-top:6px;}
+  .ownt-canvas hr{border:none;border-top:2px solid var(--rn-border,#E2E6F0);margin:20px 0;}
+  .ownt-canvas table{min-width:60%;}
+  .ownt-canvas td,.ownt-canvas th{min-width:44px;}
+  .ownt-filerow{display:flex;align-items:center;gap:10px;margin-top:8px;}
+  .ownt-hint{font-size:12px;color:var(--muted,#6B7280);margin-top:8px;line-height:1.5;}
 </style>
 
 <script>
@@ -16914,8 +16944,10 @@ function hideFlyout(p) {
 
   // ---- inject each custom note into the tab's native note bank so loadNote renders it with the tab's template ----
   function bankFor(p){ return p==='osce' ? RICH_NOTES_OSCE : RICH_NOTES; }
+  // wrap in .rich-note so note-scoped styles (tables, figures, etc.) apply wherever the tab renders it
+  function wrapNote(html){ return '<div class="rich-note">'+(html||'')+'</div>'; }
   function injectAll(){
-    DATA.forEach(function(t){ if(TABS.indexOf(t.tab)<0) return; try{ bankFor(t.tab)[sysOf(t)+'__'+t.name]=t.notesHtml||''; }catch(e){} });
+    DATA.forEach(function(t){ if(TABS.indexOf(t.tab)<0) return; try{ bankFor(t.tab)[sysOf(t)+'__'+t.name]=wrapNote(t.notesHtml); }catch(e){} });
     // stop ensureSystemLoaded from firing a 404 fetch for the synthetic system
     try{ if(typeof __ensure!=='undefined'){ __ensure[MYSYS]=Promise.resolve(); } }catch(e){}
   }
@@ -16942,7 +16974,7 @@ function hideFlyout(p) {
   var _origLoadNote=loadNote;
   loadNote=window.loadNote=function(p,name){
     var st=getState(p); var t=findTopic(p, st.activeSystem, name);
-    if(t){ try{ bankFor(p)[sysOf(t)+'__'+name]=t.notesHtml||''; }catch(e){} }
+    if(t){ try{ bankFor(p)[sysOf(t)+'__'+name]=wrapNote(t.notesHtml); }catch(e){} }
     var r=_origLoadNote.apply(this,arguments);
     if(t){ setTimeout(function(){ addEditBar(p,t); },0); }
     return r;
@@ -17074,6 +17106,89 @@ function hideFlyout(p) {
 
   // ---- editor overlay ----
   var EDIT=null;
+  var TEXT_COLS=[['#1E2640','Ink'],['#3B7DD8','Blue'],['#1F8B5E','Green'],['#C93535','Red'],['#B86B00','Amber'],['#6B45B8','Purple'],['#1A9BA8','Teal'],['#0F1720','Black']];
+  var HL_COLS=[['#FFF3A3','Yellow'],['#EBF2FF','Blue'],['#E6F6EF','Green'],['#FDEAEA','Red'],['#FEF5E4','Amber'],['#F0EBFF','Purple'],['#E3F6F9','Teal'],['transparent','None']];
+  var POP=null, TBAR=null, SELH=null;
+  function closePop(){ if(POP){ POP.remove(); POP=null; } }
+  function openPop(btn, node){
+    closePop();
+    var pop=document.createElement('div'); pop.className='ownt-pop'; pop.appendChild(node);
+    pop.onmousedown=function(e){ e.preventDefault(); };
+    document.body.appendChild(pop); POP=pop;
+    var r=btn.getBoundingClientRect();
+    pop.style.top=(r.bottom+6)+'px';
+    pop.style.left=Math.max(8, Math.min(r.left, window.innerWidth-pop.offsetWidth-10))+'px';
+    setTimeout(function(){ document.addEventListener('mousedown', function h(e){ if(POP && !POP.contains(e.target)){ closePop(); document.removeEventListener('mousedown',h); } }); },0);
+  }
+  function swatchGrid(cols, apply){
+    var g=document.createElement('div'); g.className='ownt-swgrid';
+    cols.forEach(function(c){
+      var s=document.createElement('div'); s.title=c[1];
+      s.className='ownt-sw'+(c[0]==='transparent'?' none':''); if(c[0]!=='transparent') s.style.background=c[0];
+      s.onclick=function(){ apply(c[0]); closePop(); focusCanvas(); };
+      g.appendChild(s);
+    });
+    return g;
+  }
+  function focusCanvas(){ var c=document.getElementById('ownt-canvas'); if(c) c.focus(); }
+  function exec(cmd,val){ document.execCommand(cmd,false,val||null); }
+  function applyText(col){ exec('foreColor', col); }
+  function applyHL(col){ try{exec('styleWithCSS',true);}catch(e){} exec('hiliteColor', col==='transparent'?'transparent':col); }
+
+  function insertBlock(html){ var c=document.getElementById('ownt-canvas'); if(!c) return; c.focus(); try{ document.execCommand('insertHTML',false,html+'<p><br></p>'); }catch(e){ c.insertAdjacentHTML('beforeend', html); } }
+  function insertTable(){ insertBlock('<table><thead><tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>'); }
+  function insertLink(){
+    var url=prompt('Link URL (https://…):'); if(!url) return; if(!/^https?:\/\//i.test(url)) url='https://'+url;
+    var sel=window.getSelection();
+    if(sel && !sel.isCollapsed){ exec('createLink', url); }
+    else { var txt=prompt('Link text:', url)||url; insertBlock('<a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(txt)+'</a>'); }
+  }
+  function insertImage(){
+    var ov=document.createElement('div'); ov.className='ownt-ov';
+    ov.innerHTML='<div class="ownt-modal"><h3>Insert image</h3>'
+      +'<label class="ownt-lbl">Image URL</label><input class="ownt-inp" id="ownt-imgurl" placeholder="https://…">'
+      +'<div class="ownt-filerow"><span class="ownt-lbl" style="margin:0;">or upload</span><input type="file" id="ownt-imgfile" accept="image/*"></div>'
+      +'<label class="ownt-lbl">Caption (optional)</label><input class="ownt-inp" id="ownt-imgcap" placeholder="Short caption shown under the image">'
+      +'<div class="ownt-hint">Uploaded images are stored with your note and sync across devices — keep them small (large images can slow syncing).</div>'
+      +'<div class="ownt-modal-actions"><button class="ownt-btn" id="ownt-imgcancel">Cancel</button><button class="ownt-btn primary" id="ownt-imgok">Insert</button></div></div>';
+    document.body.appendChild(ov);
+    function done(src){ var cap=(ov.querySelector('#ownt-imgcap').value||'').trim(); var h=cap?('<figure><img src="'+src+'" alt="'+esc(cap)+'"><figcaption>'+esc(cap)+'</figcaption></figure>'):('<img src="'+src+'" alt="">'); ov.remove(); insertBlock(h); }
+    ov.querySelector('#ownt-imgcancel').onclick=function(){ ov.remove(); };
+    ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
+    ov.querySelector('#ownt-imgfile').onchange=function(e){
+      var f=e.target.files&&e.target.files[0]; if(!f) return;
+      if(f.size>1500000 && !confirm('That image is '+Math.round(f.size/1024)+' KB. Large images make your notes slower to sync. Insert anyway?')) return;
+      var rd=new FileReader(); rd.onload=function(){ done(rd.result); }; rd.readAsDataURL(f);
+    };
+    ov.querySelector('#ownt-imgok').onclick=function(){ var u=(ov.querySelector('#ownt-imgurl').value||'').trim(); if(!u){ alert('Enter an image URL or choose a file.'); return; } if(!/^https?:\/\//i.test(u)&&u.indexOf('data:')!==0) u='https://'+u; done(esc(u)); };
+    setTimeout(function(){ ov.querySelector('#ownt-imgurl').focus(); },30);
+  }
+
+  // ---- table editing (contextual bar) ----
+  function cellFromSel(){
+    var s=window.getSelection(); if(!s || !s.rangeCount) return null;
+    var n=s.anchorNode, canvas=document.getElementById('ownt-canvas'); if(!canvas) return null;
+    while(n && n!==document){ if(n.nodeType===1 && (n.tagName==='TD'||n.tagName==='TH')){ var q=n, ok=false; while(q){ if(q===canvas){ok=true;break;} q=q.parentNode; } return ok?n:null; } n=n.parentNode; }
+    return null;
+  }
+  function tableOf(cell){ var n=cell; while(n && n.tagName!=='TABLE') n=n.parentNode; return n; }
+  function eachRow(table, fn){ Array.prototype.forEach.call(table.querySelectorAll('tr'), fn); }
+  function tblAddRow(cell){ var row=cell.parentNode, nr=document.createElement('tr'); for(var i=0;i<row.children.length;i++){ var td=document.createElement('td'); td.innerHTML='&nbsp;'; nr.appendChild(td); } row.parentNode.insertBefore(nr, row.nextSibling); }
+  function tblAddCol(cell){ var table=tableOf(cell), idx=cell.cellIndex; eachRow(table,function(tr){ var isHead=tr.parentNode.tagName==='THEAD'||tr.querySelector('th'); var c=document.createElement(isHead?'th':'td'); c.innerHTML=isHead?'Header':'&nbsp;'; var ref=tr.children[idx]; tr.insertBefore(c, ref?ref.nextSibling:null); }); }
+  function tblDelRow(cell){ var table=tableOf(cell); if(table.querySelectorAll('tr').length<=1){ table.remove(); positionTBar(null); return; } cell.parentNode.remove(); }
+  function tblDelCol(cell){ var table=tableOf(cell), idx=cell.cellIndex; if(table.querySelectorAll('tr')[0].children.length<=1){ table.remove(); positionTBar(null); return; } eachRow(table,function(tr){ if(tr.children[idx]) tr.children[idx].remove(); }); }
+  function tblDelete(cell){ var table=tableOf(cell); if(table) table.remove(); positionTBar(null); }
+  function positionTBar(cell){
+    if(!TBAR) return;
+    if(!cell){ TBAR.style.display='none'; return; }
+    var table=tableOf(cell); if(!table){ TBAR.style.display='none'; return; }
+    var r=table.getBoundingClientRect();
+    TBAR.style.display='flex';
+    TBAR.style.top=Math.max(112, r.top-40)+'px';
+    TBAR.style.left=r.left+'px';
+    TBAR.__cell=cell;
+  }
+
   function openEditor(p, t, isNew){
     closeEditor();
     var ov=document.createElement('div'); ov.className='ownt-edit'; ov.id='ownt-edit';
@@ -17084,10 +17199,20 @@ function hideFlyout(p) {
         +'<button class="ownt-tb" data-cmd="bold" title="Bold"><b>B</b></button>'
         +'<button class="ownt-tb" data-cmd="italic" title="Italic"><i>I</i></button>'
         +'<button class="ownt-tb" data-cmd="underline" title="Underline"><u>U</u></button>'
-        +'<button class="ownt-tb" data-block="h3" title="Heading">H</button>'
-        +'<button class="ownt-tb" data-cmd="insertUnorderedList" title="Bullets">•</button>'
-        +'<button class="ownt-tb" data-hilite="1" title="Highlight">🖍️</button>'
+        +'<button class="ownt-tb" data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>'
+        +'<button class="ownt-tb wide" data-pop="text" title="Text colour"><span class="swdot" id="ownt-textdot" style="background:#3B7DD8"></span>A<span class="caret">▾</span></button>'
+        +'<button class="ownt-tb wide" data-pop="hl" title="Highlight">🖍️<span class="caret">▾</span></button>'
+        +'<span class="ownt-tb-div"></span>'
+        +'<button class="ownt-tb" data-block="h2" title="Big heading">H₁</button>'
+        +'<button class="ownt-tb" data-block="h3" title="Sub-heading">H₂</button>'
+        +'<button class="ownt-tb" data-cmd="insertUnorderedList" title="Bulleted list">•</button>'
+        +'<button class="ownt-tb" data-cmd="insertOrderedList" title="Numbered list">1.</button>'
+        +'<button class="ownt-tb" data-act="link" title="Link">🔗</button>'
+        +'<button class="ownt-tb" data-cmd="removeFormat" title="Clear formatting">⌫</button>'
         +'<span class="ownt-tb-div"></span><span class="ownt-tb-label">Insert</span>'+tb
+        +'<button class="ownt-tb block" data-act="table">+ Table</button>'
+        +'<button class="ownt-tb block" data-act="image">+ Image</button>'
+        +'<button class="ownt-tb block" data-act="divider">+ Divider</button>'
       +'</div>'
       +'<div class="ownt-edit-body"><div class="ownt-canvas rich-note" id="ownt-canvas" contenteditable="true">'+(t.notesHtml||'')+'</div></div>';
     document.body.appendChild(ov);
@@ -17096,20 +17221,35 @@ function hideFlyout(p) {
     ov.querySelectorAll('.ownt-toolbar .ownt-tb').forEach(function(btn){
       btn.onmousedown=function(e){ e.preventDefault(); };
       btn.onclick=function(){
-        if(btn.dataset.cmd) document.execCommand(btn.dataset.cmd,false,null);
-        else if(btn.dataset.block) document.execCommand('formatBlock',false,'<'+btn.dataset.block+'>');
-        else if(btn.dataset.hilite){ try{document.execCommand('styleWithCSS',false,true);}catch(e){} document.execCommand('hiliteColor',false,'#FFF3A3'); }
-        else if(btn.dataset.bi!=null){ insertBlock(canvas, blocksFor(p)[+btn.dataset.bi][1]); }
+        if(btn.dataset.cmd){ exec(btn.dataset.cmd); }
+        else if(btn.dataset.block){ exec('formatBlock','<'+btn.dataset.block+'>'); }
+        else if(btn.dataset.pop==='text'){ openPop(btn, swatchGrid(TEXT_COLS, applyText)); return; }
+        else if(btn.dataset.pop==='hl'){ openPop(btn, swatchGrid(HL_COLS, applyHL)); return; }
+        else if(btn.dataset.act==='link'){ insertLink(); }
+        else if(btn.dataset.act==='table'){ insertTable(); }
+        else if(btn.dataset.act==='image'){ insertImage(); return; }
+        else if(btn.dataset.act==='divider'){ insertBlock('<hr>'); }
+        else if(btn.dataset.bi!=null){ insertBlock(blocksFor(p)[+btn.dataset.bi][1]); }
         canvas.focus();
       };
     });
-    ov.querySelector('#ownt-ecancel').onclick=function(){ if(EDIT.isNew){ /* discard the just-created empty topic */ deleteTopic(p, t, true); } closeEditor(); };
+    // table contextual toolbar
+    TBAR=document.createElement('div'); TBAR.className='ownt-tablebar'; TBAR.style.display='none';
+    TBAR.innerHTML='<button data-t="row+">＋ Row</button><button data-t="col+">＋ Col</button>'
+      +'<button data-t="row-">－ Row</button><button data-t="col-">－ Col</button><button class="del" data-t="del">✕ Table</button>';
+    TBAR.onmousedown=function(e){ e.preventDefault(); };
+    TBAR.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ var cell=TBAR.__cell; if(!cell) return; var op=b.dataset.t; if(op==='row+')tblAddRow(cell); else if(op==='col+')tblAddCol(cell); else if(op==='row-')tblDelRow(cell); else if(op==='col-')tblDelCol(cell); else if(op==='del')tblDelete(cell); var nc=cellFromSel(); positionTBar(nc||(document.querySelector('#ownt-canvas table td, #ownt-canvas table th'))); }; });
+    document.body.appendChild(TBAR);
+    SELH=function(){ var c=cellFromSel(); positionTBar(c); };
+    document.addEventListener('selectionchange', SELH);
+    canvas.addEventListener('scroll', function(){ var c=cellFromSel(); if(c) positionTBar(c); });
+
+    ov.querySelector('#ownt-ecancel').onclick=function(){ if(EDIT.isNew){ deleteTopic(p, t, true); } closeEditor(); };
     ov.querySelector('#ownt-esave').onclick=function(){ saveEditor(); };
     setTimeout(function(){ canvas.focus(); },30);
   }
-  function insertBlock(canvas, html){ canvas.focus(); try{ document.execCommand('insertHTML',false,'<p><br></p>'+html); }catch(e){ canvas.insertAdjacentHTML('beforeend', html); } }
   function saveEditor(){ if(!EDIT) return; var canvas=document.getElementById('ownt-canvas'); EDIT.t.notesHtml=canvas.innerHTML.trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
-  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); EDIT=null; }
+  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } EDIT=null; }
 
   function navigateTo(p,t){
     var navEl=document.querySelector('.nav-tab[onclick*="\''+p+'\'"]');
