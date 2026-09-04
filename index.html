@@ -16922,6 +16922,15 @@ function hideFlyout(p) {
   .ownt-canvas td,.ownt-canvas th{min-width:44px;}
   .ownt-filerow{display:flex;align-items:center;gap:10px;margin-top:8px;}
   .ownt-hint{font-size:12px;color:var(--muted,#6B7280);margin-top:8px;line-height:1.5;}
+  .ownt-addbtn .lk{margin-left:1px;font-size:11px;}
+  /* image contextual toolbar */
+  .ownt-imgbar{position:fixed;z-index:4100;display:flex;align-items:center;gap:2px;background:#1E2640;border-radius:9px;padding:4px;box-shadow:0 6px 20px rgba(0,0,0,.32);}
+  .ownt-imgbar button{border:none;background:none;color:#fff;font-family:inherit;font-size:12px;font-weight:700;min-width:26px;padding:5px 8px;border-radius:6px;cursor:pointer;white-space:nowrap;}
+  .ownt-imgbar button:hover{background:rgba(255,255,255,.16);}
+  .ownt-imgbar button.del:hover{background:#C93535;}
+  .ownt-imgbar .sep{width:1px;align-self:stretch;background:rgba(255,255,255,.18);margin:2px 3px;}
+  .ownt-canvas img{cursor:pointer;}
+  .ownt-canvas img.ownt-selimg{outline:2px solid #00C2A8;outline-offset:2px;}
 </style>
 
 <script>
@@ -17015,6 +17024,22 @@ function hideFlyout(p) {
     }catch(e){}
   };
 
+  // ---- premium gate: creating your own topics is a member feature ----
+  function ownGate(){
+    if(window.__openMembership){ window.__openMembership(); }
+    else if(window.openAuthModal){ window.openAuthModal('signup'); }
+    else { alert('Creating your own topics is a membership feature. Please upgrade to unlock it.'); }
+  }
+  function refreshOwnLocks(){
+    var locked=!window.__member;
+    document.querySelectorAll('.ownt-addbtn').forEach(function(b){
+      var lk=b.querySelector('.lk');
+      if(locked){ if(!lk){ var s=document.createElement('span'); s.className='lk'; s.textContent=' 🔒'; b.appendChild(s); } }
+      else if(lk){ lk.remove(); }
+    });
+  }
+  window.__owntRefreshLocks=refreshOwnLocks;
+
   // ---- the "add your own topic" button next to each tab's search ----
   function mountButtons(){
     TABS.forEach(function(p){
@@ -17024,9 +17049,10 @@ function hideFlyout(p) {
       var b=document.createElement('button');
       b.className='ownt-addbtn'; b.setAttribute('data-tab',p);
       b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 4v10M4 9h10"/></svg> Add your own topic';
-      b.onclick=function(){ openCreate(p); };
+      b.onclick=function(){ if(!window.__member){ ownGate(); return; } openCreate(p); };
       wrap.parentNode.insertBefore(b, wrap.nextSibling);
     });
+    refreshOwnLocks();
   }
 
   // ---- create modal ----
@@ -17108,7 +17134,16 @@ function hideFlyout(p) {
   var EDIT=null;
   var TEXT_COLS=[['#1E2640','Ink'],['#3B7DD8','Blue'],['#1F8B5E','Green'],['#C93535','Red'],['#B86B00','Amber'],['#6B45B8','Purple'],['#1A9BA8','Teal'],['#0F1720','Black']];
   var HL_COLS=[['#FFF3A3','Yellow'],['#EBF2FF','Blue'],['#E6F6EF','Green'],['#FDEAEA','Red'],['#FEF5E4','Amber'],['#F0EBFF','Purple'],['#E3F6F9','Teal'],['transparent','None']];
-  var POP=null, TBAR=null, SELH=null;
+  var POP=null, TBAR=null, SELH=null, IMGBAR=null, SAVED_RANGE=null;
+  function canvasEl(){ return document.getElementById('ownt-canvas'); }
+  function saveSel(){ var c=canvasEl(); if(!c) return; var s=window.getSelection(); if(s&&s.rangeCount){ var r=s.getRangeAt(0); if(c.contains(r.commonAncestorContainer)) SAVED_RANGE=r.cloneRange(); } }
+  function restoreSel(){ var c=canvasEl(); if(!c) return; c.focus(); var s=window.getSelection(); if(SAVED_RANGE){ try{ s.removeAllRanges(); s.addRange(SAVED_RANGE); return; }catch(e){} } var r=document.createRange(); r.selectNodeContents(c); r.collapse(false); s.removeAllRanges(); s.addRange(r); }
+  // image selection toolbar (resize / align / delete) — works for inserted AND pasted images
+  function hideImgbar(){ if(IMGBAR){ IMGBAR.style.display='none'; if(IMGBAR.__img){ IMGBAR.__img.classList.remove('ownt-selimg'); IMGBAR.__img=null; } } }
+  function positionImgbar(){ if(!IMGBAR||!IMGBAR.__img) return; var r=IMGBAR.__img.getBoundingClientRect(); IMGBAR.style.display='flex'; IMGBAR.style.top=Math.max(112, r.top-40)+'px'; IMGBAR.style.left=r.left+'px'; }
+  function selectImg(img){ if(!IMGBAR) return; if(IMGBAR.__img) IMGBAR.__img.classList.remove('ownt-selimg'); IMGBAR.__img=img; img.classList.add('ownt-selimg'); positionImgbar(); }
+  function imgSetWidth(pct){ var im=IMGBAR&&IMGBAR.__img; if(!im) return; im.style.width=pct; im.style.height='auto'; im.removeAttribute('width'); im.removeAttribute('height'); positionImgbar(); }
+  function imgAlign(a){ var im=IMGBAR&&IMGBAR.__img; if(!im) return; im.style.display='block'; im.style.margin=(a==='center')?'12px auto':(a==='left'?'12px auto 12px 0':'12px 0 12px auto'); positionImgbar(); }
   function closePop(){ if(POP){ POP.remove(); POP=null; } }
   function openPop(btn, node){
     closePop();
@@ -17135,7 +17170,7 @@ function hideFlyout(p) {
   function applyText(col){ exec('foreColor', col); }
   function applyHL(col){ try{exec('styleWithCSS',true);}catch(e){} exec('hiliteColor', col==='transparent'?'transparent':col); }
 
-  function insertBlock(html){ var c=document.getElementById('ownt-canvas'); if(!c) return; c.focus(); try{ document.execCommand('insertHTML',false,html+'<p><br></p>'); }catch(e){ c.insertAdjacentHTML('beforeend', html); } }
+  function insertBlock(html){ var c=canvasEl(); if(!c) return; restoreSel(); try{ document.execCommand('insertHTML',false,html+'<p><br></p>'); }catch(e){ c.insertAdjacentHTML('beforeend', html); } saveSel(); }
   function insertTable(){ insertBlock('<table><thead><tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>'); }
   function insertLink(){
     var url=prompt('Link URL (https://…):'); if(!url) return; if(!/^https?:\/\//i.test(url)) url='https://'+url;
@@ -17240,16 +17275,25 @@ function hideFlyout(p) {
     TBAR.onmousedown=function(e){ e.preventDefault(); };
     TBAR.querySelectorAll('button').forEach(function(b){ b.onclick=function(){ var cell=TBAR.__cell; if(!cell) return; var op=b.dataset.t; if(op==='row+')tblAddRow(cell); else if(op==='col+')tblAddCol(cell); else if(op==='row-')tblDelRow(cell); else if(op==='col-')tblDelCol(cell); else if(op==='del')tblDelete(cell); var nc=cellFromSel(); positionTBar(nc||(document.querySelector('#ownt-canvas table td, #ownt-canvas table th'))); }; });
     document.body.appendChild(TBAR);
-    SELH=function(){ var c=cellFromSel(); positionTBar(c); };
+    // image contextual toolbar
+    IMGBAR=document.createElement('div'); IMGBAR.className='ownt-imgbar'; IMGBAR.style.display='none';
+    IMGBAR.innerHTML='<button data-w="25%">S</button><button data-w="50%">M</button><button data-w="75%">L</button><button data-w="100%">Full</button>'
+      +'<span class="sep"></span><button data-a="left">⤎</button><button data-a="center">⤢</button><button data-a="right">⤏</button>'
+      +'<span class="sep"></span><button class="del" data-a="del">✕</button>';
+    IMGBAR.onmousedown=function(e){ e.preventDefault(); };
+    IMGBAR.querySelectorAll('button').forEach(function(bt){ bt.onclick=function(){ if(bt.dataset.w) imgSetWidth(bt.dataset.w); else if(bt.dataset.a==='del'){ if(IMGBAR.__img) IMGBAR.__img.remove(); hideImgbar(); } else if(bt.dataset.a) imgAlign(bt.dataset.a); }; });
+    document.body.appendChild(IMGBAR);
+    canvas.addEventListener('click', function(e){ if(e.target && e.target.tagName==='IMG'){ selectImg(e.target); } else { hideImgbar(); } });
+    SELH=function(){ saveSel(); var c=cellFromSel(); positionTBar(c); };
     document.addEventListener('selectionchange', SELH);
-    canvas.addEventListener('scroll', function(){ var c=cellFromSel(); if(c) positionTBar(c); });
+    canvas.addEventListener('scroll', function(){ var c=cellFromSel(); if(c) positionTBar(c); positionImgbar(); });
 
     ov.querySelector('#ownt-ecancel').onclick=function(){ if(EDIT.isNew){ deleteTopic(p, t, true); } closeEditor(); };
     ov.querySelector('#ownt-esave').onclick=function(){ saveEditor(); };
     setTimeout(function(){ canvas.focus(); },30);
   }
   function saveEditor(){ if(!EDIT) return; var canvas=document.getElementById('ownt-canvas'); EDIT.t.notesHtml=canvas.innerHTML.trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
-  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } EDIT=null; }
+  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(IMGBAR){ IMGBAR.remove(); IMGBAR=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } SAVED_RANGE=null; EDIT=null; }
 
   function navigateTo(p,t){
     var navEl=document.querySelector('.nav-tab[onclick*="\''+p+'\'"]');
@@ -17271,7 +17315,7 @@ function hideFlyout(p) {
   }
 
   // ---- boot ----
-  function boot(){ mountButtons(); }
+  function boot(){ mountButtons(); setTimeout(refreshOwnLocks, 3500); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', boot); else boot();
   // re-mount if a tab initialises its sidebar later
   var _initTab=(typeof initTab==='function')?initTab:null;
@@ -17345,11 +17389,12 @@ function hideFlyout(p) {
     if(document.getElementById('ownt-pharma-add')) return;
     var b=document.createElement('button'); b.id='ownt-pharma-add'; b.type='button';
     b.style.cssText='flex-shrink:0;cursor:pointer;border:1.5px dashed var(--border2,#CBD2E0);border-radius:var(--radius,9px);padding:10px 16px;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--muted,#6B7280);background:none;white-space:nowrap;';
-    b.textContent='＋ Add your own drug';
+    b.innerHTML='＋ Add your own drug'+(window.__member?'':' <span class="lk">🔒</span>');
     b.onmouseover=function(){ b.style.borderColor='#00C2A8'; b.style.color='#059E8C'; };
     b.onmouseout=function(){ b.style.borderColor='var(--border2,#CBD2E0)'; b.style.color='var(--muted,#6B7280)'; };
-    b.onclick=function(){ openCreate(); };
+    b.onclick=function(){ if(!window.__member){ if(window.__openMembership) window.__openMembership(); else if(window.openAuthModal) window.openAuthModal('signup'); else alert('Creating your own drugs is a membership feature.'); return; } openCreate(); };
     bar.appendChild(b);
+    setTimeout(function(){ var lk=b.querySelector('.lk'); if(window.__member){ if(lk) lk.remove(); } else if(!lk){ b.insertAdjacentHTML('beforeend',' <span class="lk">🔒</span>'); } }, 3500);
   }
 
   var placeSel='solo';
