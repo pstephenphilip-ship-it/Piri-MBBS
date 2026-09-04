@@ -651,6 +651,8 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 .da-mem-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(0,194,168,.45);}
 .da-mem-fab svg{width:15px;height:15px;flex-shrink:0;}
 .da-mem-fab.is-hidden{display:none;}
+/* Get Membership button overlaps the My Notes drawer's × close — hide it while the drawer is open. */
+body.da-notes-open #daMemFab{display:none!important;}
 @media (max-width:720px){.da-mem-fab{top:auto;bottom:20px;left:16px;right:auto;padding:9px 14px;font-size:11px;}}
 /* On desktop the Get Membership button floats top-right, exactly over the pharmacology
    Flashcards button — reserve space so they don't overlap (only while the FAB is showing). */
@@ -9526,6 +9528,8 @@ initTab('conditions');
     if(rv) rv.classList.toggle('is-hidden', open);
     var mf = document.getElementById('mockFab');
     if(mf) mf.classList.toggle('is-hidden', open);
+    // the Get Membership button sits over the drawer's × — hide it while any notes drawer is open
+    document.body.classList.toggle('da-notes-open', !!document.querySelector('.annot-drawer.open'));
   };
 
   function getContentPanel(p){
