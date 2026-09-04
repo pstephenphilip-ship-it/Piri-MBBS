@@ -53,28 +53,17 @@ moved to "confirmed" after grepping all of `content/` and `index.html`.
 
 ## Scope questions for the user (raised by the Infectious Disease review)
 
-### S1. The two foundational decks are enormous and largely below MLA level
-- `Foundations of Cell Biology & General Physiology` — **129 flashcards + 110 MCQs
-  = 239 items**, the largest deck in the app.
-- `Foundations of Microbiology` — **95 flashcards + 65 MCQs = 160 items**.
-- Together that is **399 items, 42% of the whole Infectious Disease module**, for
-  two topics out of eighteen.
-- The screening agent's assessment of the cell biology deck: roughly **114 of 239
-  items (48%)** are A-level biology, note-echo meta-cards ("what is the organising
-  principle of..."), within-deck duplicates, or abstract homeostasis framework
-  recall — material no UK finals or MLA paper asks. It named a defensible
-  MLA-relevant core of ~125 items: potassium and the resting membrane potential,
-  the Na/K ATPase as a drug target (digoxin, SGLT2 inhibitors, ORT), fluid
-  compartments and IV fluid behaviour, receptor pharmacology, and inheritance
-  patterns.
-- **I did not act on this.** The standing rule is "only delete full duplicates,
-  otherwise keep", and these are not duplicates — they are real cards that are
-  simply pitched below the level. Deleting them is a product decision, not an
-  accuracy fix.
-- The itemised deletion list (grouped by theme, with card ids) is preserved in the
-  screening transcript and can be reproduced on request.
-- **Decision needed:** leave both decks as they are, prune them to the MLA-relevant
-  core, or something in between.
+### S1. The two foundational decks — DECIDED: keep everything
+- `Foundations of Cell Biology & General Physiology` — 129 flashcards + 110 MCQs
+  = **239 items**. `Foundations of Microbiology` — 95 flashcards + 65 MCQs =
+  **160 items**. Together **399 items, 32% of the 1,245-item module**.
+  (An earlier note in this file said 42%; that was wrong.)
+- A screening agent proposed deleting ~114 of the 239 cell-biology items as
+  below MLA level.
+- **User decision: these are important, remove nothing.** Nothing was deleted at
+  any point — only four factual corrections were made to wording (Friedreich's
+  ataxia and anticipation, colloids, 0.9% saline, hyponatraemia correction rate).
+- Closed. Do not re-raise.
 
 ### S2. Length-cue levelling is incomplete on the two foundational decks
 - After the batch 6 levelling pass, 117 MCQs across the three batch-6 topics still
@@ -106,18 +95,27 @@ and contact tracing, and the metronidazole alcohol advice.
 
 ## Cross-module inconsistencies (not gaps — defects to fix)
 
-### C. "Screen every unwell patient with NEWS2 and qSOFA"
+### C. "Screen every unwell patient with NEWS2 and qSOFA" — FIXED
 `content/notes/general-systemic.json` (`GENERAL / SYSTEMIC__Sepsis / The Septic Patient`)
 tells students to screen with qSOFA, contradicting the corrected sepsis topic, which
 states qSOFA is not the screening tool. That file is in the **Signs & Symptoms tab**,
 which is out of scope for this review, so it has been left alone.
-- Status: NOT FIXED — out of agreed scope. Flagged for a decision.
+- Status: **FIXED** (user authorised the sweep). qSOFA corrected in all six
+  places, blanket 1-hour Sepsis 6 replaced with the risk-based clock, and the
+  cultures-first rule given its do-not-delay exception.
 
 ### D. "High-flow O2" and "antibiotics after cultures" in the risk-scores note
 `content/notes/risk-scores-criteria.json` gives the Sepsis Six as "High-flow O2" (pre-dates
 target saturations, conflicts with 94–98% / 88–92%) and "IV antibiotics: broad-spectrum,
 after cultures" as an unqualified rule (conflicts with "never delay antibiotics in shock").
-- Status: NOT FIXED — separate module. Flagged for a decision.
+- **Correction to this entry:** the oxygen line already read "High-flow O2 **to target
+  saturations**", so the claim that it pre-dated target saturations was wrong. It has
+  still been improved to name the targets (94–98%, or 88–92% if at risk of hypercapnic
+  respiratory failure).
+- The real defects in that file were the lead calling qSOFA "a rapid bedside screen"
+  (contradicting its own later text), the blanket 1-hour Sepsis Six, and the
+  unqualified "after cultures".
+- Status: **FIXED** (user authorised the sweep).
 
 ### A. Asymptomatic BV in pregnancy — obstetrics carries the error Sexual Health just lost
 `content/notes/obstetrics-gynaecology.json` and its cards say "do NOT routinely
@@ -159,13 +157,16 @@ of the time. Fixed in `sexual-health`. Still outstanding:
 
 ## Added during the Infectious Disease review
 
-### E. `general-systemic` and `risk-scores-criteria` now conflict with more topics
+### E. `general-systemic` and `risk-scores-criteria` now conflict with more topics — FIXED
 Items C and D above were raised during the Sepsis batch. Batches 4–6 added more
 content those two files now contradict — the Infection Control note's statutory
 notification rule, and the Inflammatory Effect note's corrected Sepsis-3 wording.
 Both files remain out of the agreed scope (Signs & Symptoms tab, and a separate
 module). One sweep would align them.
-- Status: NOT FIXED — out of agreed scope. Flagged for a decision.
+- Status: **FIXED** — swept on the user's instruction. See items C and D.
+- Note: `general-systemic` has a **pre-existing unbalanced div** in the sepsis
+  section (135 opening vs 134 closing), present at HEAD before any edit here. It
+  renders without error, so it was left alone rather than silently altered.
 
 ### F. SCID newborn screening claim was overstated in my own earlier work
 `Vaccinations & Immunisation Schedule` (corrected in batch 3) stated flatly that
