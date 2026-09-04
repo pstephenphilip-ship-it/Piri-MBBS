@@ -16856,6 +16856,7 @@ function hideFlyout(p) {
     font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;transition:border-color .12s,color .12s,background .12s;}
   .ownt-addbtn:hover{border-color:#00C2A8;color:#059E8C;background:rgba(0,194,168,.06);}
   .ownt-addbtn svg{width:15px;height:15px;flex-shrink:0;}
+  .ownt-addbtn-foot{width:auto;margin:14px 12px 10px;}
   /* mark user-authored topics in the list */
   .condition-item.ownt-item .condition-name:after{content:'✎';margin-left:7px;font-size:11px;color:#0EA5E9;opacity:.8;}
   /* modal */
@@ -17041,6 +17042,8 @@ function hideFlyout(p) {
       document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(it){
         if(findTopic(p, st.activeSystem, it.dataset.topic)) it.classList.add('ownt-item');
       });
+      // put the "add your own topic" button at the BOTTOM of the topic list
+      if(TABS.indexOf(p)>=0){ var list=document.getElementById('topiclist-'+p); if(list){ var ex=list.querySelector('.ownt-addbtn'); if(ex) ex.remove(); list.appendChild(makeAddBtn(p)); } }
     }catch(e){}
   };
 
@@ -17060,20 +17063,15 @@ function hideFlyout(p) {
   }
   window.__owntRefreshLocks=refreshOwnLocks;
 
-  // ---- the "add your own topic" button next to each tab's search ----
-  function mountButtons(){
-    TABS.forEach(function(p){
-      var inp=document.getElementById('search-'+p); if(!inp) return;
-      var wrap=inp.closest('.search-wrap')||inp.parentNode; if(!wrap) return;
-      if(wrap.parentNode.querySelector('.ownt-addbtn[data-tab="'+p+'"]')) return;
-      var b=document.createElement('button');
-      b.className='ownt-addbtn'; b.setAttribute('data-tab',p);
-      b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 4v10M4 9h10"/></svg> Add your own topic';
-      b.onclick=function(){ if(!window.__member){ ownGate(); return; } openCreate(p); };
-      wrap.parentNode.insertBefore(b, wrap.nextSibling);
-    });
-    refreshOwnLocks();
+  // ---- the "add your own topic" button (rendered at the bottom of each tab's topic list) ----
+  function makeAddBtn(p){
+    var b=document.createElement('button');
+    b.className='ownt-addbtn ownt-addbtn-foot'; b.setAttribute('data-tab',p);
+    b.innerHTML='<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M9 4v10M4 9h10"/></svg> Add your own topic'+(window.__member?'':' <span class="lk">🔒</span>');
+    b.onclick=function(){ if(!window.__member){ ownGate(); return; } openCreate(p); };
+    return b;
   }
+  function mountButtons(){ refreshOwnLocks(); }   // buttons now live in the topic list; just refresh locks
 
   // ---- create modal ----
   var placeSel='solo';
