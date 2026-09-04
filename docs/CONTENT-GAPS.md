@@ -19,14 +19,14 @@ moved to "confirmed" after grepping all of `content/` and `index.html`.
   but **only as the differential to distinguish bronchiolitis from**. No first-line
   antibiotic for childhood community-acquired pneumonia appears anywhere.
 - Effect: a student can identify paediatric pneumonia and cannot treat it.
-- Status: needs a decision — treatment could be added to the existing paediatric
-  topic without creating a new topic.
+- Status: **DEFERRED by the user — deal with gaps later.** Treatment could be
+  added to the existing paediatric topic without creating a new topic.
 
 ### 2. Caput vs cephalhaematoma vs subgaleal haemorrhage comparison table
 - The subgaleal safety callout was added during Paediatrics batch 6.
 - The three-way comparison table (the examinable discriminator) was deferred as
   new content needing sign-off.
-- Status: awaiting a decision.
+- Status: **DEFERRED by the user — deal with gaps later.**
 
 ### 3. Candidal balanitis had no home
 - Was absent from the whole app except as an MCQ distractor in a Sexual Health
@@ -44,7 +44,8 @@ Previously reported as "absent from the entire app". **That was wrong.** It is
 fully covered under OSCE Clinical Skills in `index.html`: the NLS algorithm,
 dry/warm/stimulate, 5 inflation breaths, air for term babies, heart rate as the
 guide to progress, 3:1 compressions. Absent from the Conditions tab only, which
-is by design — resuscitation skills live in the OSCE tab.
+is by design — resuscitation skills live in the OSCE tab. **Recorded at the
+user's request for a later decision on whether it also belongs in Conditions.**
 
 ### Trichomoniasis — present, in Obstetrics & Gynaecology
 No topic in the Sexual Health module (it appears there only in comparison tables),
@@ -73,13 +74,20 @@ of the time. Fixed in `sexual-health`. Still outstanding:
 - `content/cards/msk-rheumatology.json` (1)
 - `content/cards/immunology-serology.json` (1)
 - `content/cards/ct.json` (2)
-- Status: awaiting a decision — a single sweep would clear all 9.
+- Status: **DEFERRED by the user — deal with gaps later.** A single sweep would
+  clear all 9.
 
 ---
 
 ## Unresolved clinical questions raised during review
-- **Fluconazole in breastfeeding** — BASHH is reported to advise avoiding oral
-  azoles; NHS patient guidance says fluconazole can be taken while breastfeeding.
-  Left silent in the app rather than assert either.
+
 - **IUS quick-start window** — day 1–5 (current app wording) vs day 1–7. Searches
-  were equivocal; the conservative existing wording was kept.
+  were equivocal; the conservative existing wording was kept. **Decision: leave
+  as-is.**
+
+### Resolved
+- **Fluconazole in breastfeeding** — RESOLVED. BASHH is explicit: in breastfeeding
+  women use topical imidazoles only, oral therapies avoided. The permissive NHS
+  page found earlier is general fluconazole advice, not the vaginal-thrush
+  guideline. A line was added to the Candidiasis note, the pregnancy card head,
+  two flashcards and two Exam Pearls.
