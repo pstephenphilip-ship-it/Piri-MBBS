@@ -16883,7 +16883,9 @@ function hideFlyout(p) {
   .ownt-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:4px;padding:9px 20px;border-bottom:1px solid var(--border,#E2E6F0);background:var(--surface,#fff);flex-shrink:0;}
   .ownt-tb{min-width:34px;height:34px;padding:0 10px;border:none;background:none;border-radius:7px;cursor:pointer;font-size:14px;font-weight:700;color:var(--text,#374151);font-family:inherit;}
   .ownt-tb:hover{background:var(--surface2,#EEF1F6);}
+  .ownt-tb.on{background:rgba(0,194,168,.18);color:#059E8C;}
   .ownt-tb.block{border:1px solid var(--border,#E2E6F0);font-size:12px;font-weight:700;height:32px;color:#059E8C;}
+  .ownt-tb.block.on{background:rgba(0,194,168,.18);}
   .ownt-tb.block:hover{background:rgba(0,194,168,.08);border-color:#00C2A8;}
   .ownt-tb-div{width:1px;height:20px;background:var(--border,#E2E6F0);margin:0 5px;}
   .ownt-tb-label{font-family:var(--mono,monospace);font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted2,#9CA3AF);margin:0 4px 0 6px;}
@@ -16918,6 +16920,9 @@ function hideFlyout(p) {
   .ownt-canvas figure{margin:12px 0;}
   .ownt-canvas figure figcaption{font-size:12.5px;color:var(--rn-muted,#6B7280);text-align:center;margin-top:6px;}
   .ownt-canvas hr{border:none;border-top:2px solid var(--rn-border,#E2E6F0);margin:20px 0;}
+  .ownt-canvas h2,[id^="rich-note-display"] h2{font-size:21px;font-weight:800;color:#14212E;margin:18px 0 8px;letter-spacing:-.01em;}
+  .ownt-canvas h3,[id^="rich-note-display"] h3{font-size:17px;font-weight:800;color:#14212E;margin:14px 0 6px;}
+  .ownt-canvas a,[id^="rich-note-display"] a{color:#3B7DD8;}
   .ownt-canvas table{min-width:60%;}
   .ownt-canvas td,.ownt-canvas th{min-width:44px;}
   .ownt-filerow{display:flex;align-items:center;gap:10px;margin-top:8px;}
@@ -17166,16 +17171,42 @@ function hideFlyout(p) {
     return g;
   }
   function focusCanvas(){ var c=document.getElementById('ownt-canvas'); if(c) c.focus(); }
-  function exec(cmd,val){ document.execCommand(cmd,false,val||null); }
-  function applyText(col){ exec('foreColor', col); }
-  function applyHL(col){ try{exec('styleWithCSS',true);}catch(e){} exec('hiliteColor', col==='transparent'?'transparent':col); }
+  // Robust command runner: re-focus the canvas, restore the exact selection the
+  // user made, pick the right CSS mode for the command, run it, then re-save.
+  function run(cmd, val){
+    var c=canvasEl(); if(!c) return;
+    c.focus(); restoreSel();
+    var css=(cmd==='foreColor'||cmd==='hiliteColor'||cmd==='backColor');
+    try{ document.execCommand('styleWithCSS', false, css); }catch(e){}
+    try{ document.execCommand(cmd, false, (val==null?null:val)); }catch(e){}
+    saveSel(); updateActive();
+  }
+  function block(tag){
+    var c=canvasEl(); if(!c) return; c.focus(); restoreSel();
+    var cur=''; try{ cur=(document.queryCommandValue('formatBlock')||'').toLowerCase(); }catch(e){}
+    var t=(cur===tag||cur==='<'+tag+'>')?'P':tag;   // toggle a heading off back to a paragraph
+    try{ document.execCommand('formatBlock', false, '<'+t+'>'); }catch(e){}
+    saveSel(); updateActive();
+  }
+  function applyText(col){ run('foreColor', col); }
+  function applyHL(col){ run('hiliteColor', col==='transparent'?'transparent':col); }
+  var ACTIVE_MAP={ bold:'bold', italic:'italic', underline:'underline', strikeThrough:'strikeThrough', insertUnorderedList:'insertUnorderedList', insertOrderedList:'insertOrderedList' };
+  function updateActive(){
+    var bar=document.querySelector('.ownt-toolbar'); if(!bar) return;
+    bar.querySelectorAll('.ownt-tb[data-cmd]').forEach(function(b){
+      var s=false; try{ s=document.queryCommandState(b.dataset.cmd); }catch(e){}
+      b.classList.toggle('on', !!s);
+    });
+    var blk=''; try{ blk=(document.queryCommandValue('formatBlock')||'').toLowerCase().replace(/[<>]/g,''); }catch(e){}
+    bar.querySelectorAll('.ownt-tb[data-block]').forEach(function(b){ b.classList.toggle('on', b.dataset.block===blk); });
+  }
 
   function insertBlock(html){ var c=canvasEl(); if(!c) return; restoreSel(); try{ document.execCommand('insertHTML',false,html+'<p><br></p>'); }catch(e){ c.insertAdjacentHTML('beforeend', html); } saveSel(); }
   function insertTable(){ insertBlock('<table><thead><tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr></thead><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>'); }
   function insertLink(){
+    var hadSel=SAVED_RANGE && !SAVED_RANGE.collapsed;
     var url=prompt('Link URL (https://…):'); if(!url) return; if(!/^https?:\/\//i.test(url)) url='https://'+url;
-    var sel=window.getSelection();
-    if(sel && !sel.isCollapsed){ exec('createLink', url); }
+    if(hadSel){ run('createLink', url); }
     else { var txt=prompt('Link text:', url)||url; insertBlock('<a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(txt)+'</a>'); }
   }
   function insertImage(){
@@ -17256,16 +17287,15 @@ function hideFlyout(p) {
     ov.querySelectorAll('.ownt-toolbar .ownt-tb').forEach(function(btn){
       btn.onmousedown=function(e){ e.preventDefault(); };
       btn.onclick=function(){
-        if(btn.dataset.cmd){ exec(btn.dataset.cmd); }
-        else if(btn.dataset.block){ exec('formatBlock','<'+btn.dataset.block+'>'); }
-        else if(btn.dataset.pop==='text'){ openPop(btn, swatchGrid(TEXT_COLS, applyText)); return; }
-        else if(btn.dataset.pop==='hl'){ openPop(btn, swatchGrid(HL_COLS, applyHL)); return; }
+        if(btn.dataset.cmd){ run(btn.dataset.cmd); }
+        else if(btn.dataset.block){ block(btn.dataset.block); }
+        else if(btn.dataset.pop==='text'){ saveSel(); openPop(btn, swatchGrid(TEXT_COLS, applyText)); return; }
+        else if(btn.dataset.pop==='hl'){ saveSel(); openPop(btn, swatchGrid(HL_COLS, applyHL)); return; }
         else if(btn.dataset.act==='link'){ insertLink(); }
         else if(btn.dataset.act==='table'){ insertTable(); }
-        else if(btn.dataset.act==='image'){ insertImage(); return; }
+        else if(btn.dataset.act==='image'){ saveSel(); insertImage(); return; }
         else if(btn.dataset.act==='divider'){ insertBlock('<hr>'); }
         else if(btn.dataset.bi!=null){ insertBlock(blocksFor(p)[+btn.dataset.bi][1]); }
-        canvas.focus();
       };
     });
     // table contextual toolbar
@@ -17284,7 +17314,7 @@ function hideFlyout(p) {
     IMGBAR.querySelectorAll('button').forEach(function(bt){ bt.onclick=function(){ if(bt.dataset.w) imgSetWidth(bt.dataset.w); else if(bt.dataset.a==='del'){ if(IMGBAR.__img) IMGBAR.__img.remove(); hideImgbar(); } else if(bt.dataset.a) imgAlign(bt.dataset.a); }; });
     document.body.appendChild(IMGBAR);
     canvas.addEventListener('click', function(e){ if(e.target && e.target.tagName==='IMG'){ selectImg(e.target); } else { hideImgbar(); } });
-    SELH=function(){ saveSel(); var c=cellFromSel(); positionTBar(c); };
+    SELH=function(){ saveSel(); updateActive(); var c=cellFromSel(); positionTBar(c); };
     document.addEventListener('selectionchange', SELH);
     canvas.addEventListener('scroll', function(){ var c=cellFromSel(); if(c) positionTBar(c); positionImgbar(); });
 
