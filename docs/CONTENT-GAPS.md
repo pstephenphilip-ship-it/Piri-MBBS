@@ -183,3 +183,36 @@ chlorphenamine 10 mg as adjuncts with doses, contradicting the app's own
 both of which already carried the current position. Corrected in batch 5.
 - Status: FIXED. Worth a repo-wide grep for any other pre-2021 anaphylaxis
   wording outside the Conditions tab.
+
+---
+
+## Added during the Ophthalmology review
+
+### H. `ophthalmic.json` (Signs & Symptoms tab) calls ophthalmia neonatorum "notifiable"
+`OPHTHALMIC__Watery / Discharging Eye` and the card `watery-q-1` both describe
+gonococcal/neonatal conjunctivitis as **notifiable**. Ophthalmia neonatorum was
+removed from the statutory notification list in England and Wales in 2010, and
+neither it nor gonorrhoea is a notifiable disease now. Partner notification —
+which is correct, and is a different thing — appears elsewhere and should stay.
+- Out of the agreed scope (Signs & Symptoms tab), so **not edited**.
+- Two words to delete when that tab is swept.
+
+### I. `ophthalmic.json` Red Eye reads as though topical steroid treats scleritis
+The Red Eye row says "scleritis → steroid under specialist care". The Conditions
+topic is correct (systemic NSAID first-line, systemic steroid/immunosuppression
+next, topical steroid adjunctive only). Same tab as H; **not edited**.
+
+### J. SLT in *advanced* COAG — could not verify, so not written
+A screening agent proposed adding that the SLT-first-line recommendation is
+scoped to COAG "that is not advanced", with advanced disease at diagnosis going
+to surgery with mitomycin C plus an interim prostaglandin analogue. Two searches
+confirmed the SLT-first-line half but returned nothing on the advanced-disease
+exception (nice.org.uk is proxy-blocked). The existing SLT wording was left
+unqualified rather than adding an unverified exception.
+- Status: **OPEN** — worth one check against the primary source.
+
+### K. Option-length cues in Ophthalmology were levelled, not eliminated
+Two levelling passes over the seven batch-3 topics took the median keyed-option
+excess from 44.5 characters to 19, across 90 flagged items. The remaining items
+are mild. Answer *position* is not a defect — `index.html` shuffles options at
+serve time — but length is not shuffled, so it stays the thing worth watching.
