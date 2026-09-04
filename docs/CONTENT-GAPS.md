@@ -35,6 +35,55 @@ moved to "confirmed" after grepping all of `content/` and `index.html`.
   (genital)` in batch 4. No flashcards or MCQs, per the no-new-cards rule.
 - Status: resolved in the note; flag only if cards are wanted later.
 
+### 4. Paediatric anaphylaxis doses live only in Infectious Disease and Respiratory
+- The age-band IM adrenaline doses (500 / 300 / 150 / 100–150 mcg) were added to
+  `INFECTIOUS DISEASE & IMMUNOLOGY / Hypersensitivity Reactions & Autoimmunity`
+  in batch 5 and already exist in `RESPIRATORY / Anaphylaxis`.
+- `PAEDIATRICS` has no anaphylaxis topic of its own. Worth checking whether that
+  is deliberate before adding anything.
+- Status: flagged, not actioned.
+
+### 5. Neutropenic sepsis has no topic of its own
+- Now covered in three places as a callout — `Sepsis`, `PUO`, and (added in batch 5)
+  `Immune System Overview & Immunodeficiency` — but there is no dedicated topic,
+  and a student searching for it by name will not find one.
+- Status: flagged. Probably correct as-is given the no-new-topics rule.
+
+---
+
+## Scope questions for the user (raised by the Infectious Disease review)
+
+### S1. The two foundational decks are enormous and largely below MLA level
+- `Foundations of Cell Biology & General Physiology` — **129 flashcards + 110 MCQs
+  = 239 items**, the largest deck in the app.
+- `Foundations of Microbiology` — **95 flashcards + 65 MCQs = 160 items**.
+- Together that is **399 items, 42% of the whole Infectious Disease module**, for
+  two topics out of eighteen.
+- The screening agent's assessment of the cell biology deck: roughly **114 of 239
+  items (48%)** are A-level biology, note-echo meta-cards ("what is the organising
+  principle of..."), within-deck duplicates, or abstract homeostasis framework
+  recall — material no UK finals or MLA paper asks. It named a defensible
+  MLA-relevant core of ~125 items: potassium and the resting membrane potential,
+  the Na/K ATPase as a drug target (digoxin, SGLT2 inhibitors, ORT), fluid
+  compartments and IV fluid behaviour, receptor pharmacology, and inheritance
+  patterns.
+- **I did not act on this.** The standing rule is "only delete full duplicates,
+  otherwise keep", and these are not duplicates — they are real cards that are
+  simply pitched below the level. Deleting them is a product decision, not an
+  accuracy fix.
+- The itemised deletion list (grouped by theme, with card ids) is preserved in the
+  screening transcript and can be reproduced on request.
+- **Decision needed:** leave both decks as they are, prune them to the MLA-relevant
+  core, or something in between.
+
+### S2. Length-cue levelling is incomplete on the two foundational decks
+- After the batch 6 levelling pass, 117 MCQs across the three batch-6 topics still
+  have the correct answer as the longest option, median excess 24 characters.
+- Almost all of these sit in the two foundational decks, which were not rewritten.
+- A dedicated cue pass over those two decks would clear it. Not attempted, because
+  it is a large mechanical job unrelated to accuracy.
+- Status: flagged.
+
 ---
 
 ## Checked and NOT gaps (do not re-raise)
@@ -104,3 +153,32 @@ of the time. Fixed in `sexual-health`. Still outstanding:
   page found earlier is general fluconazole advice, not the vaginal-thrush
   guideline. A line was added to the Candidiasis note, the pregnancy card head,
   two flashcards and two Exam Pearls.
+
+
+---
+
+## Added during the Infectious Disease review
+
+### E. `general-systemic` and `risk-scores-criteria` now conflict with more topics
+Items C and D above were raised during the Sepsis batch. Batches 4–6 added more
+content those two files now contradict — the Infection Control note's statutory
+notification rule, and the Inflammatory Effect note's corrected Sepsis-3 wording.
+Both files remain out of the agreed scope (Signs & Symptoms tab, and a separate
+module). One sweep would align them.
+- Status: NOT FIXED — out of agreed scope. Flagged for a decision.
+
+### F. SCID newborn screening claim was overstated in my own earlier work
+`Vaccinations & Immunisation Schedule` (corrected in batch 3) stated flatly that
+BCG is given after the newborn bloodspot result for SCID is known. SCID screening
+is an in-service evaluation covering about two-thirds of England, not a routine
+UK-wide programme (UK NSC), and is not offered in Scotland, Wales or Northern
+Ireland. Corrected in batch 5.
+- Status: FIXED.
+
+### G. Anaphylaxis adjuncts were the pre-2021 algorithm
+`Hypersensitivity Reactions & Autoimmunity` named IV hydrocortisone 200 mg and
+chlorphenamine 10 mg as adjuncts with doses, contradicting the app's own
+`RESPIRATORY / Anaphylaxis` and `DERMATOLOGY / Urticaria / Angioedema` notes,
+both of which already carried the current position. Corrected in batch 5.
+- Status: FIXED. Worth a repo-wide grep for any other pre-2021 anaphylaxis
+  wording outside the Conditions tab.
