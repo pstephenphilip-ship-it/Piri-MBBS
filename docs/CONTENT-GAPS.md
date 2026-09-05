@@ -188,28 +188,40 @@ both of which already carried the current position. Corrected in batch 5.
 
 ## Added during the Ophthalmology review
 
-### H. `ophthalmic.json` (Signs & Symptoms tab) calls ophthalmia neonatorum "notifiable"
-`OPHTHALMIC__Watery / Discharging Eye` and the card `watery-q-1` both describe
+### H. `ophthalmic.json` (Signs & Symptoms tab) called ophthalmia neonatorum "notifiable" — FIXED
+`OPHTHALMIC__Watery / Discharging Eye` and the card `watery-q-1` both described
 gonococcal/neonatal conjunctivitis as **notifiable**. Ophthalmia neonatorum was
 removed from the statutory notification list in England and Wales in 2010, and
 neither it nor gonorrhoea is a notifiable disease now. Partner notification —
-which is correct, and is a different thing — appears elsewhere and should stay.
-- Out of the agreed scope (Signs & Symptoms tab), so **not edited**.
-- Two words to delete when that tab is swept.
+which is correct, and is a different thing — appears elsewhere and was kept.
+- Status: **FIXED** on the user's instruction. The word was replaced with the
+  action that actually matters (urgent Gram stain and culture, systemic
+  antibiotics, and treating the mother and her partner).
+- The Signs & Symptoms tab had already been screened, so this was a miss on that
+  pass rather than an out-of-scope item.
 
-### I. `ophthalmic.json` Red Eye reads as though topical steroid treats scleritis
-The Red Eye row says "scleritis → steroid under specialist care". The Conditions
-topic is correct (systemic NSAID first-line, systemic steroid/immunosuppression
-next, topical steroid adjunctive only). Same tab as H; **not edited**.
+### I. `ophthalmic.json` Red Eye read as though topical steroid treats scleritis — FIXED
+Two lines in the Red Eye walkthrough said "uveitis / scleritis → steroid under
+specialist care", which is right for uveitis and wrong for scleritis (systemic
+NSAID first-line, then systemic steroid/immunosuppression; topical steroid is
+adjunctive only). The Conditions topic was already correct.
+- Status: **FIXED** — the two diagnoses are now split on both lines.
 
-### J. SLT in *advanced* COAG — could not verify, so not written
-A screening agent proposed adding that the SLT-first-line recommendation is
-scoped to COAG "that is not advanced", with advanced disease at diagnosis going
-to surgery with mitomycin C plus an interim prostaglandin analogue. Two searches
-confirmed the SLT-first-line half but returned nothing on the advanced-disease
-exception (nice.org.uk is proxy-blocked). The existing SLT wording was left
-unqualified rather than adding an unverified exception.
-- Status: **OPEN** — worth one check against the primary source.
+### J. SLT positioning in COAG — RESOLVED from the user's sources
+A screening agent proposed that the SLT-first-line recommendation is scoped to
+COAG "that is not advanced", with advanced disease going to trabeculectomy with
+mitomycin C. My own searches confirmed the SLT-first-line half but returned
+nothing on that exception, so it was not written.
+- The user then supplied the guideline text (NICE). It confirms 360° SLT as the
+  preferred initial intervention for newly diagnosed COAG **and** ocular
+  hypertension, and gives two qualifiers, both of which have now been added:
+  **pigment dispersion syndrome**, where SLT is generally unsuitable, and a
+  **generic prostaglandin analogue offered instead** when the patient declines
+  SLT, is waiting for it, or SLT is unsuitable.
+- The **advanced-COAG / mitomycin C** claim is **not supported** by those
+  sources either, so it remains unwritten. Treat the agent's version of it as
+  unverified rather than pending.
+- Status: **RESOLVED.**
 
 ### K. Option-length cues in Ophthalmology were levelled, not eliminated
 Two levelling passes over the seven batch-3 topics took the median keyed-option
