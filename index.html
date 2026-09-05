@@ -17816,6 +17816,45 @@ function hideFlyout(p) {
 </style>
 
 <!-- =====================================================================
+     LAYOUT PASS 10 — the mode bar: the selected tab becomes a pill.
+     Search this file for "LAYOUT PASS BAR" to find it again.
+     ===================================================================== -->
+<style>
+  /* The bar is #E8EAF0 and the three active states were the raw brand
+     tokens painted straight onto it: teal 1.88:1, gold 1.55:1, purple
+     2.26:1 — and the 2px underline that carries the selected state failed
+     the 3:1 non-text threshold at every one of them. Even the inactive
+     label only reached 4.02:1. On a phone in daylight the gold "Flashcards"
+     label all but dissolves into the bar.
+
+     Painting the bar white does not fix it (teal on white is still only
+     2.26:1), and the labels are 13px, so no weight or size change earns the
+     large-text exemption. The selected tab therefore becomes a white pill:
+     the white ground gives the brand hues enough room to stay saturated and
+     still clear 4.5:1, and the pill carries the selected state structurally,
+     so colour stops being the only signal. */
+  .mode-bar{align-items:flex-end;padding-top:7px;padding-bottom:0;}
+  .mode-tab{
+    height:36px;
+    padding-top:0;padding-bottom:0;          /* the mobile rule sets 12px, which
+                                                would overflow the shorter pill */
+    border-bottom:0;
+    border-radius:9px 9px 0 0;
+    margin-right:3px;
+    color:#5A6480;                            /* inactive: 4.02:1 -> 4.89:1 */
+    transition:color .15s,background-color .15s;
+  }
+  .mode-tab:hover{color:#1E2640;background:rgba(255,255,255,.55);}
+  .mode-tab.active{
+    background:#FFFFFF;
+    box-shadow:inset 0 1px 0 #D8DAE5, inset 1px 0 0 #D8DAE5, inset -1px 0 0 #D8DAE5;
+    color:#0A7568;                            /* 1.88:1 -> 5.59:1 on the pill */
+  }
+  .mode-tab.fc-tab.active{color:#9A5B00;}     /* 1.55:1 -> 5.43:1 */
+  .mode-tab.q-tab.active{color:#6D4AE0;}      /* 2.26:1 -> 5.67:1 */
+</style>
+
+<!-- =====================================================================
      LAYOUT PASS 7 — Medical Conditions: the bare .rn-pill marker.
      Search this file for "LAYOUT PASS COND" to find it again.
      ===================================================================== -->
