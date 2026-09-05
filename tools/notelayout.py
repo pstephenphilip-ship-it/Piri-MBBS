@@ -148,12 +148,22 @@ def to_lead_and_list(inner, min_items=2):
     if len(frags) < min_items: return None
     if len(visible(lead)) > 260: return None
     if any(len(visible(f)) < 3 for f in frags): return None
+    if any(_is_continuation(f, allow_lower=False) for f in frags): return None
+    if any(f.count('(') != f.count(')') for f in frags): return None
     items = ''.join('<li>%s</li>' % _cap(strip_trailing_stop(f)) for f in frags)
     return lead, '<ul class="rn-tightlist">%s</ul>' % items
 
-CONT = re.compile(r'^\s*(?:<[^>]+>\s*)*(?:&[mn]dash;|[-\u2013\u2014(\[,;:]|[a-z])')
-def _is_continuation(frag):
-    return bool(CONT.match(frag))
+# A fragment that opens with punctuation, an arrow or a bracket continues the
+# one before it. A LOWERCASE opening means that too when the split was on a
+# sentence end -- but not when the split was on a list separator, where
+# "wheeze -> asthma * acid + worse lying -> GORD" is two rows by design.
+_CONT_PUNCT = (r'^\s*(?:<[^>]+>\s*)*'
+               r'(?:&[mn]dash;|&r?arr;|&hellip;|[-–—→⇒(\[,;:])')
+CONT       = re.compile(_CONT_PUNCT + r'|^\s*(?:<[^>]+>\s*)*[a-z]')
+CONT_PUNCT = re.compile(_CONT_PUNCT)
+
+def _is_continuation(frag, allow_lower=True):
+    return bool((CONT if allow_lower else CONT_PUNCT).match(frag))
 
 def _cap(f):
     """Sentence fragments become rows; give a row a capital where it lost one."""
@@ -195,7 +205,7 @@ def pass_callouts(s, stats):
         open_, inner, close = m.groups()
         if re.search(r'<(ul|ol|table|div)\b', inner): return m.group(0)
         if len(visible(inner)) < WALL_CALLOUT: return m.group(0)
-        r = to_lead_and_list(inner)
+        r = to_lead_and_list(inner) or to_sep_list(inner)
         if not r: return m.group(0)
         lead, lst = r
         stats['callouts'] += 1
@@ -239,24 +249,94 @@ def pass_cells(s, stats):
         return '%s<ul class="rn-tightlist">%s</ul>%s' % (open_, items, close)
     return CELL.sub(rep, s)
 
-def _semi_split(inner):
+SEP_PATTERNS = [
+    r'\s*&middot;\s*',      # the corpus writes its list separator as an entity
+    r'\s+\u00b7\s+',        # ... and occasionally as a literal middot
+    r';\s+',                 # otherwise, clauses
+]
+
+def _sep_split(inner, pat):
+    """Split on a separator that sits outside every tag AND outside every HTML
+    entity. Splitting on ';' without the entity guard tears '&rarr;' in half,
+    which is how "expiration &rarr; COPD" became two rows."""
+    rx = re.compile(pat)
     depth = 0; out = []; last = 0; i = 0
+    def scan(seg, base, bracket):
+        for sm in rx.finditer(seg):
+            # never inside an entity: &rarr; &mdash; &#8594;
+            if re.search(r'&[a-zA-Z#][a-zA-Z0-9]*$', seg[:sm.start()]):
+                continue
+            # never inside brackets: "who (a smoker -> COPD * the young -> CF)"
+            # is one clause, and splitting it strands the closing half
+            b = bracket[0] + seg[:sm.start()].count('(') - seg[:sm.start()].count(')')
+            if b > 0:
+                continue
+            yield base + sm.start(), base + sm.end()
+    bracket = [0]
     for m in TAG.finditer(inner):
         seg = inner[i:m.start()]
         if depth == 0:
-            for sm in re.finditer(r';\s+', seg):
-                out.append(inner[last:i+sm.start()].strip()); last = i + sm.end()
+            for a, b in scan(seg, i, bracket):
+                out.append(inner[last:a].strip()); last = b
+        bracket[0] = max(0, bracket[0] + seg.count('(') - seg.count(')'))
         name = m.group(2).lower()
         if name not in VOID and not m.group(4):
             depth += -1 if m.group(1) else 1
             if depth < 0: depth = 0
         i = m.end()
     if depth == 0:
-        for sm in re.finditer(r';\s+', inner[i:]):
-            out.append(inner[last:i+sm.start()].strip()); last = i + sm.end()
+        for a, b in scan(inner[i:], i, bracket):
+            out.append(inner[last:a].strip()); last = b
     tail = inner[last:].strip()
     if tail: out.append(tail)
     return [o for o in out if visible(o)]
+
+def _semi_split(inner):
+    for pat in SEP_PATTERNS:
+        parts = _sep_split(inner, pat)
+        if len(parts) >= 3:
+            return parts
+    return []
+
+# A plain-text lead: "The feature that flips it:" with no <strong> around it.
+PLAIN_LEAD = re.compile(r'^\s*((?:<[^>]+>\s*)*[^<:]{4,90}:)\s*')
+
+def to_sep_list(inner, min_items=3):
+    """Lead + rows for a block written as 'lead: a -> b * c -> d * e -> f'."""
+    lead = ''; body = inner
+    m = LEAD.match(inner) or PLAIN_LEAD.match(inner)
+    if m and len(visible(m.group(1))) <= 90:
+        lead = m.group(1).strip(); body = inner[m.end():]
+    parts = _semi_split(body)
+    # The row right after a <strong> lead may be the rest of the lead sentence
+    # ("CPAP adherence >=4 h/night" + "is the benchmark, and ...").  Between
+    # rows a lowercase start is normal, so only punctuation folds there.
+    # ... but a lead ending in ':' announces the list, so its first row is a
+    # row, not the rest of the lead sentence.
+    if (lead and parts and not visible(lead).rstrip().endswith(':')
+            and _is_continuation(parts[0], allow_lower=True)):
+        lead = (lead + ' ' + parts.pop(0)).strip()
+    merged = []
+    for p in parts:
+        if merged and (_is_continuation(p, allow_lower=False)
+                       or merged[-1].count('(') != merged[-1].count(')')):
+            merged[-1] = (merged[-1] + ' ' + p).strip()
+        else:
+            merged.append(p)
+    parts = merged
+    if len(parts) < min_items: return None
+    if any(len(visible(p)) < 4 for p in parts): return None
+    if any(p.count('(') != p.count(')') for p in parts): return None
+    if not lead:
+        if len(visible(parts[0])) > 90: return None
+        lead, parts = parts[0], parts[1:]
+        if len(parts) < min_items - 1: return None
+    # Refuse rather than emit a row that reads as a fragment.
+    if any(_is_continuation(p, allow_lower=False) for p in parts): return None
+    if any(p.count('(') != p.count(')') for p in parts): return None
+    if len(visible(lead)) > 200: return None
+    items = ''.join('<li>%s</li>' % strip_trailing_stop(p) for p in parts)
+    return lead, '<ul class="rn-tightlist">%s</ul>' % items
 
 def tag_depth(frag):
     """Net unclosed-tag count. Compared before/after so a note that was already
@@ -271,7 +351,8 @@ def tag_depth(frag):
 def balanced(frag):
     return tag_depth(frag) == 0
 
-PEARL = re.compile(r'(<div class="(?:rn|cp)-pearl"[^>]*>)(.*?)(</div>)', re.S)
+PEARL  = re.compile(r'(<div class="(?:rn|cp)-pearl"[^>]*>)(.*?)(</div>)', re.S)
+CPBLK  = re.compile(r'(<div class="cp-(?:lead|warn|hand|kill-desc|confirm|bed)[^"]*"[^>]*>)(.*?)(</div>)', re.S)
 LI    = re.compile(r'(<li\b[^>]*>)(.*?)(</li>)', re.S)
 
 WALL_PEARL = 210      # a pearl is meant to be a one-liner
@@ -282,12 +363,26 @@ def pass_pearls(s, stats):
         open_, inner, close = m.groups()
         if re.search(r'<(ul|ol|table|div)\b', inner): return m.group(0)
         if len(visible(inner)) < WALL_PEARL: return m.group(0)
-        r = to_lead_and_list(inner)
+        r = to_lead_and_list(inner) or to_sep_list(inner)
         if not r: return m.group(0)
         lead, lst = r
         stats['pearls'] += 1
         return '%s<div class="rn-cl-lead">%s</div>%s%s' % (open_, lead, lst, close)
     return PEARL.sub(rep, s)
+
+def pass_cpblocks(s, stats):
+    """The clinical-pathway blocks (cp-lead, cp-warn, cp-hand, ...) that the
+    Signs notes are built from, which carry no rn-* class."""
+    def rep(m):
+        open_, inner, close = m.groups()
+        if re.search(r'<(ul|ol|table|div)\b', inner): return m.group(0)
+        if len(visible(inner)) < WALL_CALLOUT: return m.group(0)
+        r = to_lead_and_list(inner) or to_sep_list(inner)
+        if not r: return m.group(0)
+        lead, lst = r
+        stats['cpblocks'] += 1
+        return '%s<div class="rn-cl-lead">%s</div>%s%s' % (open_, lead, lst, close)
+    return CPBLK.sub(rep, s)
 
 def pass_lis(s, stats):
     """A very long bullet keeps its first sentence and nests the elaboration."""
@@ -296,7 +391,9 @@ def pass_lis(s, stats):
         if re.search(r'<(ul|ol|table|li)\b', inner): return m.group(0)
         if len(visible(inner)) < WALL_LI: return m.group(0)
         frags = [f for f in fragments(inner) if visible(f)]
-        if len(frags) < 3: return m.group(0)
+        if len(frags) < 3:
+            frags = _semi_split(inner)
+            if len(frags) < 4: return m.group(0)
         head, rest = frags[0], frags[1:]
         items = ''.join('<li>%s</li>' % _cap(strip_trailing_stop(f)) for f in rest)
         stats['lis'] += 1
@@ -305,7 +402,7 @@ def pass_lis(s, stats):
 
 def process(path, apply=False, only=None):
     d = json.load(open(path, encoding='utf-8'))
-    stats = dict(accents=0, callouts=0, pearls=0, lis=0, paras=0, cells=0)
+    stats = dict(accents=0, callouts=0, pearls=0, cpblocks=0, lis=0, paras=0, cells=0)
     changed = 0
     for k, v in list(d.items()):
         if not isinstance(v, str): continue
@@ -314,6 +411,7 @@ def process(path, apply=False, only=None):
         v = pass_accents(v, stats)
         v = pass_callouts(v, stats)
         v = pass_pearls(v, stats)
+        v = pass_cpblocks(v, stats)
         v = pass_cells(v, stats)
         v = pass_lis(v, stats)
         v = pass_paras(v, stats)
