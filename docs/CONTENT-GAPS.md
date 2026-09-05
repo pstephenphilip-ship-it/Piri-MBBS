@@ -493,3 +493,137 @@ present tense; and that four head-and-neck referral criteria attributed to NICE
 in the app were withdrawn from the current guideline and belong to older
 guidance. Both were still being taught as current. Where content names a
 guideline or a product, check it is still true before trusting it.
+
+
+---
+
+## Public Health & Evidence-Based Medicine (3/3 topics screened, v984)
+
+The last unscreened conditions module. 3 notes, 100 flashcards, 73 MCQs, plus
+the parallel Notifiable Diseases deck in the investigations tab.
+
+### V. The headline: the England notifiable disease list changed in April 2025
+Eight conditions were added to the statutory list. Both decks predated the
+change, and **both taught at least one of the new entries as a "classic trap"
+that is NOT notifiable** — so a confident student would have answered wrongly.
+
+- **CJD** was taught as non-notifiable in **eight places** in the conditions
+  deck (note body, image caption, exam pearl, a flashcard, and two MCQ
+  explanations) — and as an MCQ *distractor* in a "which of these is
+  notifiable?" question, where it had silently become a second correct answer.
+- **Chickenpox (varicella)** was worse: the investigations-tab deck listed it
+  under "the classic 'which is NOT notifiable?' traps", with a flashcard
+  explicitly saying "people wrongly assume flu/chickenpox are notifiable".
+- Both are now corrected everywhere, and the eight additions are listed:
+  chickenpox, CJD, congenital syphilis, disseminated gonococcal infection,
+  acute flaccid paralysis/myelitis, influenza of zoonotic origin, MERS and
+  neonatal herpes.
+- The nuances this creates are now taught explicitly: ordinary syphilis and
+  gonorrhoea are still NOT notifiable but *congenital* syphilis and
+  *disseminated* gonococcal infection ARE; *seasonal* influenza is NOT but
+  influenza of *zoonotic* origin IS.
+
+### W. Other Notifiable Diseases corrections
+- **Leptospirosis** was listed as notifiable in a flashcard. It came off the
+  list in 2010 — and the note's own zoonotic row already omitted it, so the
+  deck contradicted itself.
+- **"Dysentery"** was used in three places; the statutory term is **infectious
+  bloody diarrhoea**, which is what the note itself said. HUS was missing.
+- **Acute meningitis of ANY cause** and **meningococcal septicaemia** are two
+  separate statutory entries; the deck collapsed them into "meningococcal
+  disease/meningitis", so a student would not know that suspected pneumococcal
+  or viral meningitis is also notifiable. Acute encephalitis, HUS, leprosy and
+  smallpox were missing entirely.
+- **The laboratory duty** was described without its recipient or its clock. It
+  is to **UKHSA directly** (not the local authority proper officer), **within 7
+  days**, from a **different list** — Lyme disease is not notifiable by a
+  doctor, but every lab must report Borrelia.
+- **The notification route** was "online / written notification form"; the
+  current route is the UKHSA "Report a notifiable disease" online service.
+- **The all-hazards example was invented.** Both a flashcard and an MCQ keyed
+  "notifying parvovirus B19 in a contact of a pregnant woman" — which is
+  managed clinically, not by statutory notification. Replaced with the note's
+  own better examples (an unexplained cluster; carbon monoxide poisoning).
+- **One MCQ had two correct answers**: "By what route and within what time
+  should this be notified?" keyed the 24-hour phone call, but the deck's own
+  teaching is that urgent cases ALSO need the 3-day form, making that
+  distractor true. Re-scoped to ask for the most urgent action.
+- The two decks disagreed on urgent timing ("same day" vs "within 24 hours");
+  both now say 24 hours, which matches the regulations.
+
+### X. Public Health Summary — four stale facts, each independently verified
+- **Diabetic eye screening** was taught as annual for everyone. Since October
+  2023 those at lower risk — no retinopathy at two consecutive screens — are
+  screened **2-yearly**.
+- **Newborn blood spot** was "9 conditions"; tyrosinaemia type 1 was added in
+  October 2025, making it **10**.
+- **Lung cancer screening was missing entirely** — the newest UK programme.
+  Added: ever-smokers aged 55–74, risk-assessed, low-dose CT.
+- **"Amenable mortality"** is the retired term. ONS now says **treatable
+  mortality**, alongside **preventable**, both under **avoidable mortality**.
+- **"Statins post-MI" was keyed as tertiary prevention** in an MCQ that also
+  offered "secondary prevention" — and statins after MI are universally called
+  secondary prevention clinically. Removed the ambiguous example and flagged
+  the terminology clash rather than picking a side.
+- Crude mortality rate was defined as "per 100,000"; the crude rate is
+  conventionally per 1,000, with cause-specific and standardised rates per
+  100,000.
+
+Checked and sound: Wilson–Jungner, AAA, breast and cervical screening (all
+current, including HPV primary testing), lead-time and length-time bias,
+overdiagnosis, Dahlgren–Whitehead, the inverse care law and the Marmot gradient.
+
+### Y. EBM & Medical Statistics — definitional fixes
+No arithmetic errors, because **there is not a single number or worked
+calculation in the entire topic** (see Z). The core definitions were unusually
+sound — SnNout/SpPin, Type I/II, LR+/LR−, the CI-crosses-1 rule and the 2x2
+layout all check out. Fixed:
+- **A flashcard defined a 95% CI as "the range within which the true value
+  lies"** — the classic misinterpretation, and it directly contradicted the
+  note, which had it right.
+- **Cohort studies were defined as exclusively prospective**, so a historical
+  cohort vignette would be misread as case-control.
+- **The odds ratio was framed as a case-control-only measure**, though the note
+  itself shows a forest plot; and the OR-approximates-RR condition never said
+  which direction the error runs.
+- **Intention-to-treat was named four times and never defined**; per-protocol
+  was absent. Both now defined on the note and the card.
+- **Lead-time and length-time bias were bare labels** despite being used as MCQ
+  distractors; publication bias was absent. All three now defined.
+- **Incidence and prevalence were never defined** despite the whole PPV/NPV
+  section turning on prevalence.
+- **The ecological fallacy** was missing from the one card on ecological studies.
+- **Power was attributed to sample size alone**; it has four determinants.
+- Two circular flashcards ("What is bias?" → "Systematic error.") and one
+  copy-paste artefact (a card on trial structures ending with an unrelated
+  sentence about RR and OR) fixed.
+- One MCQ distractor, "Lower the significance threshold", reads both ways —
+  lowering alpha cuts power, but "lowering the bar for significance" raises it.
+  Replaced with an unambiguous option.
+
+### Z. Open for the owner
+1. **The statistics topic contains no worked examples at all.** Every formula
+   is symbolic; no MCQ requires a calculation. The single most examinable skill
+   — being handed a 2x2 table and computing sensitivity/specificity/PPV/NPV, or
+   two event rates and computing ARR/RRR/NNT — is never demonstrated or tested.
+   Adding two worked examples would fix it, but that is authoring new content
+   rather than correcting an error, so it is left for a decision.
+   - Status: **OPEN — owner decision.**
+2. **Behaviour-change models and the UK lifestyle numbers are absent** from the
+   Public Health topic: the stages-of-change model, COM-B, the Nuffield
+   intervention ladder, and the CMO figures (14 units/week; 150 minutes
+   moderate activity/week; BMI 25/30 with the lower 23/27.5 thresholds for
+   South Asian, Chinese, other Asian, Black African and African-Caribbean
+   backgrounds). All MLA-level, all currently missing.
+   - Status: **OPEN — owner decision.**
+3. **"April 2025" appears in the notifiable-disease content as a date in prose.**
+   The house rule bans years, but here the date is the point — it tells a
+   student that older question banks are wrong. Kept deliberately; flag if you
+   would rather it read "recently".
+   - Status: **OPEN — owner decision.**
+
+### AA. Cue levelling
+The keyed option was the longest in 22/35, 16/20 and **18/18** MCQs
+respectively — in Notifiable Diseases a student could have scored full marks
+without reading a single stem. Worst-case keyed excess fell 115 to 21
+(Public Health), 95 to 22 (EBM) and 114 to 23 (Notifiable Diseases).
