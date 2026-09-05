@@ -304,37 +304,99 @@ current before assuming the note is authoritative.
 
 ## ENT module (11/11 topics screened, v977–v980)
 
-### R. Repo-wide decisions left open for the owner
-These are outside the "medical conditions" screening scope but were found while
-screening it. Each needs a single decision applied everywhere at once, not a
-piecemeal fix.
+### R. Repo-wide decisions — ALL FOUR NOW RESOLVED (v981)
+Raised at the end of the ENT pass, answered by the owner, and applied
+repo-wide in one pass rather than piecemeal.
 
-1. **"Monospot" is a proprietary test name** used ~50 times across 10 files
-   (`infectious-disease-immunology`, `ent`, `immunology-serology`,
-   `haematological`, `microbiology`, `haematology` and their card files). It is
-   also the term UK exams use. It was deliberately left in place: changing it in
-   one topic would make the app inconsistent. If it is to go, the replacement is
-   "heterophile antibody test" and it must be changed everywhere in one pass.
+1. **"Monospot" — RESOLVED: lead with the generic, keep the name in brackets.**
+   Monospot is a trade name for the heterophile antibody (Paul-Bunnell) test,
+   but it is also standard UK exam nomenclature and appears in national
+   guidance, so deleting it outright would cost recognition. About half the app
+   already wrote it as "heterophile antibody test (Monospot)"; that form is now
+   used everywhere — 16 substitutions across `ent`, `haematological`,
+   `immunology-serology`, `infectious-disease-immunology`, `microbiology`,
+   `haematology` and their card files, plus one tag-split repair and two grammar
+   repairs my own substitution introduced.
+   - Deliberately kept bare in six one-word MCQ option lists (expanding it there
+     would create a length cue against "FBC" / "LDH" / "TFTs") and in the
+     "Monospot-positive / -negative" shorthand.
+   - Status: **RESOLVED.**
+
+2. **Brand names — RESOLVED: three categories, applied by what the brand teaches.**
+   - **Category A — KEPT, deliberately.** Inhalers (Symbicort, Seretide,
+     Fostair, Qvar, Clenil, Relvar, Anoro, Spiolto, Trelegy), insulins (Lantus,
+     Humalog, Humulin, NovoRapid, Actrapid, NovoMix, Tresiba, Insuman, Apidra,
+     Insulatard, Levemir, Toujeo, Abasaglar) and adrenaline auto-injectors
+     (EpiPen, Jext). Here the brand **is** the safety point, and the app already
+     teaches exactly that in `ph_rs_combo_12` ("Why must combination inhalers be
+     prescribed by brand name?"), `ph_en_ins_13` ("Why must long-acting analogue
+     insulins be prescribed by exact brand?") and `ph_on_trans_08` (tacrolimus).
+     Stripping these would destroy the lesson.
+   - **Category B — REPLACED with the defining property** (37 substitutions).
+     Shingrix → "the recombinant (non-live) shingles vaccine"; Zostavax → "the
+     older live-attenuated shingles vaccine"; Gardasil 9 → "the 9-valent HPV
+     vaccine"; Cervarix → "a bivalent HPV vaccine"; Varilrix → "the varicella
+     vaccine"; Pneumovax → PPV23; Prevenar → PCV; Menitorix → "the Hib/MenC
+     vaccine"; Abrysvo → "the maternal RSV vaccine". This teaches better than the
+     brand did: the property named is the one that decides whether the vaccine
+     can be given in immunosuppression.
+   - **Category C — STRIPPED entirely** (44 substitutions in the conditions tab,
+     28 more in the pharmacology tab). Topical steroids, emollients, Gaviscon,
+     Cilodex, Dymista, Buccastem, Stemetil, Movicol/Laxido, Fybogel, Ear Clear.
+   - Two side-benefits of category C: the dermatology potency MCQ
+     (`piri_q__conditions__DERM__Eczema__0009`) and the pharmacology potency
+     ladder now both force the student to separate clobetas**one** butyrate
+     (moderate) from clobetas**ol** propionate (very potent) — a distinction the
+     brand names hid completely.
+   - **Search aliases kept on purpose.** `PHARMA_SEARCH[i][0]` still carries
+     Movicol, Laxido, Diprobase, E45, Aveeno and Doublebase as *search terms*.
+     That array also builds `__DRUG_INDEX` / `__DRUG_RX`, the auto-linker, so a
+     student who hears a brand on the ward still finds the monograph — which
+     then teaches the generic. `PHARMA_SEARCH[i][1]` was re-synced to the new
+     monograph titles; verified 0 orphaned search entries out of 1046.
+   - Status: **RESOLVED.**
+
+3. **Duplicate card ids — RESOLVED: 62 ids renamed.**
+   Investigating how the app keys progress showed the collisions were a *real*
+   bug, not cosmetic. SRS is namespaced by deck key (`srsId(pk,id)`), and
+   flashcard mastery is namespaced per tab/system/topic (`fcProgKey`) — but the
+   **pharmacology tab alone** uses a single global set, `piri_ph_mastered`, keyed
+   on the **bare card id**. "Mood Stabilisers" and "Multiple Sclerosis
+   Disease-Modifying Therapies" both abbreviate to `ms`, so 36 ids collided and
+   mastering a card in one deck silently marked the other deck's card mastered.
+   All 62 MS DMT ids are now `ph_np_dmt_NN`; the pharmacology tab has 0 duplicate
+   bare ids.
+   - The other ~163 repo-wide duplicate string ids were checked and are
+     **harmless**: none is duplicated *within* a single deck, and all sit in
+     namespaced tabs. The integer ids (urology, cardiovascular, endocrinology,
+     acute-abdomen, gastroenterology) are likewise fine.
+   - Status: **RESOLVED.**
+
+4. **`ENT__Facial Pain` "antibiotics if bacterial / severe" — RESOLVED.**
+   That is exactly the loose formulation the 10-day rule exists to displace, and
+   students cannot tell bacterial from viral sinusitis at the bedside — which is
+   the whole reason the rule is a *duration* rule. Replaced in both places with
+   the correct ladder: analgesia and no antibiotic at or under 10 days; beyond 10
+   days without improvement, a high-dose intranasal corticosteroid ± a back-up
+   phenoxymethylpenicillin (NICE). The presentations tab now matches the
+   conditions-tab topic.
+   - Status: **RESOLVED.**
+
+### R2. Pharmacology brand names still present — owner decision needed
+Category C is clear-cut and done. A wider sweep of `PHARMA_SECTIONS` (574
+monographs) shows roughly 50 further brand names in monograph **titles** —
+Advate, Kogenate, Buscopan, Cosmofer, Descovy, Digibind/DigiFab, Dovonex,
+Entresto, Esmya, Ferinject, Hemlibra, Herceptin, Kaftrio, Kyleena, Levonelle,
+Madopar, Sinemet, Malarone, Menopur, Puregon, Gonal-F, Mestinon, Mirena,
+Beriplex, Octaplex, Praxbind, Protopic, Riamet, Tamiflu, Tazocin, Truvada,
+Tysabri, Syntocinon and others.
+These are a genuinely mixed bag: some are the name students will actually hear
+(Tazocin, Sinemet, Mirena), some are pure trade names with no teaching value
+(Advate, Kogenate, Octaplex). Each needs the same A/B/C judgement, and the
+titles are also the `PHARMA_SEARCH` lookup key, so any change must re-sync 1046
+search entries. Not started — it is a distinct piece of work from the
+conditions screening.
    - Status: **OPEN — owner decision.**
-
-2. **Brand names in the pharmacology tab.** `Dymista` (`ph_ent_21`), `Cilodex`
-   (`ph_ent_53`, `ph_ent_54`, `ph_ent_57`, `ph_ent_60`), `Buccastem`
-   (prochlorperazine card), plus `Shingrix`/`Zostavax` in the immunisation
-   content and `Gaviscon`/`Gardasil` in several files. The conditions tab is now
-   clean of brand names; these are not.
-   - Status: **OPEN — owner decision.**
-
-3. **36 duplicate card ids in `content/cards/pharmacology-flashcards.json`**
-   (`ph_np_ms_01` … and others). Pre-existing, confirmed present at HEAD before
-   any edit in this review, and untouched by it. Duplicate ids risk unpredictable
-   behaviour wherever cards are looked up by id.
-   - Status: **OPEN — pre-existing defect, not introduced here.**
-
-4. **`ENT__Facial Pain`** (a presentations-tab topic) teaches "antibiotics if
-   bacterial / severe" for rhinosinusitis. That is the loose formulation the
-   10-day rule exists to displace, and the conditions-tab topic is the correct
-   half. Out of scope for this pass.
-   - Status: **OPEN.**
 
 ### S. Cross-file contradictions found and fixed during the ENT pass
 Recorded because the pattern matters: in every case the conditions tab was one
