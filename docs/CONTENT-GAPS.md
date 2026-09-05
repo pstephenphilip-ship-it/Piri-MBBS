@@ -246,55 +246,51 @@ serve time — but length is not shuffled, so it stays the thing worth watching.
 All of the below are **outside the agreed Conditions-tab scope**, so none has been
 edited. They are listed in the order I would fix them.
 
-### L. `geriatric-assessment.json` teaches DoLS law that was overruled in June 2026 — URGENT
-There is a **second DoLS topic** in the app: note key
-`GERIATRIC ASSESSMENT__DoLS / Deprivation of Liberty Safeguards` and deck
-`investigations__GERIATRIC ASSESSMENT__DoLS / Deprivation of Liberty Safeguards`
-(7 flashcards, 4 MCQs). It teaches the *Cheshire West* acid test as current law:
-"the person's compliance or lack of objection is irrelevant, and the reason and
-normality of the placement do not matter". The Supreme Court overruled that in
-June 2026 and replaced it with a multifactorial assessment in which compliance,
-normality and purpose are all expressly relevant.
-- **`geri_dols_q01` is now actively mis-keyed.** Its stem gives an 84-year-old who
-  "appears settled and content", keys the acid test as the answer, and offers
-  "She is content, so no deprivation of liberty is occurring" as a distractor —
-  which on those facts is now a defensible position.
-- The Conditions-tab DoLS topic has been rewritten to current law, so the two
-  tabs now teach opposite rules.
-- Status: **OPEN — highest priority of anything in this file.**
+### L. `geriatric-assessment.json` taught DoLS law overruled in June 2026 — FIXED
+The app carried a **second DoLS topic** — note key
+`GERIATRIC ASSESSMENT__DoLS / Deprivation of Liberty Safeguards` and its deck of
+7 flashcards and 4 MCQs — teaching the *Cheshire West* acid test as current law,
+including that "compliance or lack of objection is irrelevant, and the
+reason and normality of the placement do not matter".
+- **`geri_dols_q01` was actively mis-keyed.** Its stem described an 84-year-old
+  who "appears settled and content", keyed the acid test, and offered "She is
+  content, so no deprivation of liberty is occurring" as a distractor — which on
+  those facts is now defensible.
+- Status: **FIXED** on the user's instruction. The note now teaches the
+  multifactorial assessment with the acid test as explicitly labelled history;
+  the MCQ stem was rewritten so the patient objects, making the answer
+  unambiguous under the current test, and the key and explanation follow.
 
-### M. `psychiatry.json` uses the overruled acid test as a definition
-`PSYCHIATRY__Mental Health Law & Capacity` defines a deprivation of liberty as
-"continuous supervision + not free to leave" — the acid test, in parenthesis, as
-though it were the definition. It should read as a multifactorial assessment. The
-same note's line that LPS implementation is "postponed indefinitely" is also now
-stale.
-- Status: **OPEN.**
+### M. `psychiatry.json` used the overruled acid test as a definition — FIXED
+`PSYCHIATRY__Mental Health Law & Capacity` defined a deprivation of liberty as
+"continuous supervision + not free to leave". Replaced with the multifactorial
+assessment, noting the acid test as overruled. The stale line that LPS
+implementation is "postponed indefinitely" was updated.
+- Status: **FIXED.**
 
-### N. `risk-scores-criteria.json` states a refeeding high-risk threshold wrongly
-`RISK SCORES & CRITERIA__Alcohol, Sepsis & Acute Care`, MUST pane: "High risk if
-little/no intake **>5 days**…" presents 5 days as a standalone high-risk
-criterion. The standalone threshold is **>10 days**; >5 days only counts within
-the "two or more" list, as does an alcohol history. The Malnutrition topic and
-the acute-abdomen topic both have it right, so this file is the outlier.
-- The same pane's exam pearl ("0 = observe/repeat, 1 = document intake, ≥2 =
-  act") muddles the MUST bands against its own section above it.
-- Status: **OPEN.**
+### N. `risk-scores-criteria.json` stated the refeeding threshold wrongly — FIXED
+The MUST pane gave "little/no intake **>5 days**" as a standalone high-risk
+criterion. The standalone threshold is **>10 days**; >5 days counts only within
+the "two or more" list. Both NICE lists are now given in full, in the note and in
+flashcard `rsc_acute_must_fc_05`, which carried the same error.
+- The MUST bands exam pearl, which muddled the bands against its own section
+  above it, was also corrected.
+- Status: **FIXED.**
 
-### O. `geriatric-assessment.json` Timed Up-and-Go conflicts with the falls guidance
-That note tells students to "quote ≥12 seconds as the screening threshold for
+### O. `geriatric-assessment.json` Timed Up-and-Go conflicted with the falls guidance — FIXED
+The note told students to "quote ≥12 seconds as the screening threshold for
 increased falls risk", while current guidance — correctly taught in the Falls
-topic — advises against falls-risk-prediction tools. The Timed Up-and-Go earns
-its place for observing and tracking gait and balance, not for generating a
-predicted risk. One reconciling clause in the assessment note would fix it.
-- Status: **OPEN.**
+topic — advises against falls-risk-prediction tools. The timings are retained for
+observation and tracking, now framed as a trigger for a full multifactorial
+assessment rather than a predicted risk. Flashcard `geri_tug_fc_02` carried the
+same framing and was corrected with it.
+- Status: **FIXED.**
 
-### P. `general-systemic.json` uses "Grade 4" for a pressure ulcer
-`signs__GENERAL / SYSTEMIC__Elder Abuse / Safeguarding Concern` has an option
-reading "Grade 4 pressure sores". The app's dermatology note explicitly teaches
-that UK practice uses **category**, not grade, and the Pressure Sores topic uses
-"category" throughout. One word.
-- Status: **OPEN.**
+### P. `general-systemic.json` used "Grade 4" for a pressure ulcer — FIXED
+An option in `elderab-q-2` read "Grade 4 pressure sores" where the app's own
+dermatology note teaches that UK practice uses **category**, and the Pressure
+Sores topic uses "category" throughout. Now "Category 4 pressure ulcers".
+- Status: **FIXED.**
 
 ### Q. Lesson carried forward on verification
 Two things in this module could only be settled by checking rather than
