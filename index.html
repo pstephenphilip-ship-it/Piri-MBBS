@@ -17705,5 +17705,33 @@ function hideFlyout(p) {
      six turns the other 1,084 chip rows into full-width stacked strips, which
      is a far bigger change than the fault. Same call as the original pass. */
 </style>
+
+<!-- =====================================================================
+     LAYOUT PASS 7 — Medical Conditions: the bare .rn-pill marker.
+     Search this file for "LAYOUT PASS COND" to find it again.
+     ===================================================================== -->
+<style>
+  /* .rn-pill is authored two ways. As a <div> it is a card: the base rule's
+     14px 18px padding and centred uppercase mono are right for that, and the
+     colour modifier supplies its background and border. As a <span> dropped
+     into prose, a list item or a table cell it is meant to read as a small
+     chip — but a bare .rn-pill has no background and no border at all, so it
+     drew nothing, and the card padding on an inline box opened 78px-wide gaps
+     mid-sentence and pushed a 43-65px tall box through a 22-25px line.
+     Measured across all 408 notes: 14 bare spans, all in Haematology
+     (Lymphoma's CD marker runs and Ann Arbor suffix legend, Thalassaemia's
+     genotype column). Every colour-modified pill is left exactly as it is —
+     this matches on the absence of an rn-pill-* class. */
+  .rn-pill:not([class*="rn-pill-"]){
+    display:inline-block;
+    padding:1px 7px;
+    border-radius:6px;
+    background:#F1F3F8;
+    border:1px solid var(--rn-border,#E2E6F0);
+    color:var(--rn-sub,#5A6480);
+    font-size:12px;
+    line-height:1.55;
+  }
+</style>
 </body>
 </html>
