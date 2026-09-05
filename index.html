@@ -17091,6 +17091,13 @@ function hideFlyout(p) {
   .rn-chiprow{display:flex;flex-wrap:wrap;gap:8px;}
   .rn-chiprow > .rn-pill{flex:0 0 auto;padding:7px 14px;font-size:12px;border-radius:999px;}
 
+  /* A table dropped straight into an .rn-card runs flush into the card's own
+     border, because the card's padding rule lists ul/ol/p/div and not table.
+     Give it the same inset as its siblings, and let a wide one scroll rather
+     than push the card out of the column. */
+  .rn-card > table{margin:12px 16px;width:calc(100% - 32px);}
+  .rn-card > p + table,.rn-card > ul + table{margin-top:0;}
+
   /* Pearls: two fixes. (1) align-items:start was tried here to stop a
      six-word pearl sitting in a box three times its height, but with nine
      pearls of very uneven length it just punched white holes through the
