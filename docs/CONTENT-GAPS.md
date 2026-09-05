@@ -22,11 +22,16 @@ moved to "confirmed" after grepping all of `content/` and `index.html`.
 - Status: **DEFERRED by the user — deal with gaps later.** Treatment could be
   added to the existing paediatric topic without creating a new topic.
 
-### 2. Caput vs cephalhaematoma vs subgaleal haemorrhage comparison table
-- The subgaleal safety callout was added during Paediatrics batch 6.
-- The three-way comparison table (the examinable discriminator) was deferred as
-  new content needing sign-off.
-- Status: **DEFERRED by the user — deal with gaps later.**
+### 2. Caput vs cephalhaematoma vs subgaleal — LARGELY CLOSED (re-checked v985)
+- **Re-verified against the repo: the three-way discrimination is now present**
+  in `PAEDIATRICS / Birth Injuries`, as prose rather than a table — caput
+  (oedema above the periosteum, crosses sutures, resolves in days),
+  cephalhaematoma (subperiosteal, does NOT cross sutures, appears after birth,
+  can cause jaundice as it breaks down) and the subgaleal safety callout with
+  serial head-circumference monitoring.
+- What is still missing is only the **tabular** side-by-side presentation, which
+  is a formatting preference, not a content gap.
+- Status: **effectively closed.** Re-raise only if the table format is wanted.
 
 ### 3. Candidal balanitis had no home
 - Was absent from the whole app except as an MCQ distractor in a Sexual Health
@@ -43,11 +48,12 @@ moved to "confirmed" after grepping all of `content/` and `index.html`.
   is deliberate before adding anything.
 - Status: flagged, not actioned.
 
-### 5. Neutropenic sepsis has no topic of its own
-- Now covered in three places as a callout — `Sepsis`, `PUO`, and (added in batch 5)
-  `Immune System Overview & Immunodeficiency` — but there is no dedicated topic,
-  and a student searching for it by name will not find one.
-- Status: flagged. Probably correct as-is given the no-new-topics rule.
+### 5. Neutropenic sepsis — NOT A GAP (corrected v985)
+- **This entry was wrong and is retracted.** `HAEMATOLOGY / Neutropenic Sepsis`
+  exists as a full topic: a 25,569-character note, 60 flashcards and 50 MCQs.
+- The earlier claim that "a student searching for it by name will not find one"
+  does not hold. Recorded here so the error is not repeated.
+- Status: **closed — not a gap.**
 
 ---
 
