@@ -17061,13 +17061,15 @@ function hideFlyout(p) {
   .rn-section-amber  > .rn-section-title{color:#8A5100;background:var(--rn-amber-bg);}   /* 5.95 */
   .rn-section-purple > .rn-section-title{color:#6B45B8;background:var(--rn-purple-bg);}  /* 5.69 */
   .rn-section-red    > .rn-section-title{color:#A82B2B;background:var(--rn-red-bg);}
-  /* A hairline down the left edge carries the accent past the header, so the
-     colour still tells you where you are once the title has scrolled off. */
-  .rn-section-teal  {border-left:3px solid #1A9BA8;}
-  .rn-section-green {border-left:3px solid #1F8B5E;}
-  .rn-section-amber {border-left:3px solid #B86B00;}
-  .rn-section-purple{border-left:3px solid #6B45B8;}
-  .rn-section-red   {border-left:3px solid #C93535;}
+  /* The accent used to be a 3px hairline down the left edge, which read as a
+     stray line jammed inside the card's rounded corner. Tint the card's own
+     1.5px outline instead: the accent still carries past the header, but it
+     is the card's border rather than a mark stuck to it. */
+  .rn-section-teal  {border-color:#B5E0E6;}
+  .rn-section-green {border-color:#B9E2CD;}
+  .rn-section-amber {border-color:#EAD4A4;}
+  .rn-section-purple{border-color:#D3C6F2;}
+  .rn-section-red   {border-color:#EDC6C6;}
 
   /* KEY FACTS — the three or four numbers a reader wants before the prose.
      A dense strip at the top of a section beats the same facts buried in a
@@ -17083,9 +17085,21 @@ function hideFlyout(p) {
   .rn-kf-amber{background:var(--rn-amber-bg);border-color:#EAD4A4;} .rn-kf-amber .rn-kf-v{color:#8A5100;}
   .rn-kf-red  {background:var(--rn-red-bg);  border-color:#EDC6C6;} .rn-kf-red   .rn-kf-v{color:#A82B2B;}
 
-  /* Pearl cards were stretched to the tallest in the row, so a six-word
-     pearl sat in a box three times its height. */
-  .rn-pearl-grid{align-items:start;}
+  /* CHIP ROW — a short list of trigger values (obs thresholds, red flags) reads
+     better as chips sized to their own text than as list items or as .rn-pill
+     in a column grid, where flex:1 stretches the last one across a whole row. */
+  .rn-chiprow{display:flex;flex-wrap:wrap;gap:8px;}
+  .rn-chiprow > .rn-pill{flex:0 0 auto;padding:7px 14px;font-size:12px;border-radius:999px;}
+
+  /* Pearls: two fixes. (1) align-items:start was tried here to stop a
+     six-word pearl sitting in a box three times its height, but with nine
+     pearls of very uneven length it just punched white holes through the
+     grid -- equal heights per row is the tidier of the two, so this is back
+     to the default stretch. (2) The 4px left bar was painted in --rn-yellow
+     (#8A6C00), which is an INK colour -- dark olive, and far too heavy
+     stacked nine deep. A decorative bar wants the bright gold that matches
+     the section's star, and the box wants rounding on all four corners. */
+  .rn-pearl,.cp-pearl{border-left-color:#E8B92E;border-radius:10px;}
 
   /* THREE CARD VARIANTS THE CONTENT ASKS FOR THAT NEVER EXISTED.
      Counted across content/notes: rn-card-green 252 uses, rn-card-blue 214,

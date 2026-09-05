@@ -44,6 +44,31 @@ add_topic(
 To append more cards to an existing topic, call again with the same `system` /
 `topic` / `idbase`; IDs continue past the existing ones.
 
+## Reformatting a note without losing content
+
+`contentcheck.py` proves a layout edit changed only the *structure* of a note,
+never its words. Keep a copy of the file before you touch it, then:
+
+```
+python3 tools/contentcheck.py before.json content/notes/<file>.json          # every key
+python3 tools/contentcheck.py before.json content/notes/<file>.json "KEY"    # one key
+```
+
+It strips markup and entities, then compares the visible words two ways: the
+word sequence (so you can see what moved) and a content-word multiset with
+stopwords filtered (so any word whose count dropped is flagged). It exits 1 on
+loss, so it drops straight into a pre-commit hook or CI.
+
+Statuses: `TEXT IDENTICAL` · `RESTRUCTURED — no content word lost` ·
+`!! CONTENT LOST`. Run it before every note-layout commit.
+
+One thing it cannot check: a reader's saved highlight is re-anchored by
+searching the rendered note for the exact phrase it covered (see
+`annotHighlightOne` in `index.html`). Their typed note always survives — it
+lives in `localStorage` and still shows in My Notes — but the yellow marker
+stops painting if you reword or split the sentence it sat on. Move whole
+sentences rather than chopping them where you can.
+
 ## Regenerating / re-wiring (only if you change the shell architecture)
 
 - `split_content.py` — regenerate `content/` + `img/` from a full (unslimmed) `index.html`.
