@@ -17098,6 +17098,39 @@ function hideFlyout(p) {
   .rn-card > table{margin:12px 16px;width:calc(100% - 32px);}
   .rn-card > p + table,.rn-card > ul + table{margin-top:0;}
 
+  /* DENSE BLOCKS — a "discriminating features" cell, or a callout that runs to
+     five lines, is a list of separate claims written as one run-on sentence, so
+     it reads as a wall. .rn-tightlist puts each claim on its own line without
+     the heavy indent and bullet size of .rn-list, which is built for body text.
+     It works anywhere: a table cell, a callout, nested inside another list. */
+  .rn-tightlist{list-style:none;margin:0;padding:0;}
+  .rn-tightlist > li{position:relative;padding:3px 0 3px 14px;line-height:1.55;}
+  .rn-tightlist > li::before{content:'';position:absolute;left:2px;top:.68em;
+       width:4px;height:4px;border-radius:50%;background:var(--rn-blue);opacity:.5;}
+  .rn-tightlist > li:first-child{padding-top:0;}
+  .rn-tightlist > li:first-child::before{top:.42em;}
+  .rn-tightlist > li:last-child{padding-bottom:0;}
+  .rn-tightlist .rn-tightlist{margin:4px 0 2px;}   /* nested */
+
+  /* A callout built as lead + list + closing line, rather than one paragraph.
+     .rn-callout's own padding supplies the inset, so these carry no margin of
+     their own beyond the gaps between them. */
+  .rn-callout > .rn-cl-lead{margin:0 0 8px;}
+  .rn-callout > .rn-tightlist{margin:0;}
+  .rn-callout > .rn-cl-tail{margin:9px 0 0;}
+
+  /* Every direct child of an .rn-card carries the card's own 12px inset as its
+     padding, so two in a row stack 24px of it — and then the author's margin on
+     top. A paragraph followed by its own bullet list ended up ~34px apart, which
+     reads as the card having lost something rather than as one thought. Only the
+     first child needs the inset at the top.
+     (Specificity note: .rn-card > .rn-list is (0,2,0) and outranks a plain
+     .rn-card > * + ul, so the :not() form is needed to tie and win on order.) */
+  .rn-card > *:not(.rn-card-head) + *:not(.rn-card-head){padding-top:0;}
+  .rn-card > .rn-card-head + *:not(.rn-card-head){padding-top:12px;}
+  /* Same again at the bottom: only the last child needs the closing inset. */
+  .rn-card > *:not(.rn-card-head):has(+ *){padding-bottom:0;}
+
   /* Pearls: two fixes. (1) align-items:start was tried here to stop a
      six-word pearl sitting in a box three times its height, but with nine
      pearls of very uneven length it just punched white holes through the
