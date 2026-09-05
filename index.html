@@ -9956,7 +9956,11 @@ initTab('conditions');
       card.style.borderLeftColor=hlBorder(a.color);
       var qt=a.selectedText.length>60?a.selectedText.substring(0,60)+'...':a.selectedText;
       var qEl=document.createElement('div'); qEl.className='annot-card-quote'; qEl.textContent='"'+qt+'"';
-      qEl.style.color=hlBorder(a.color); qEl.style.opacity='0.95';
+      /* The quote used to be painted in the highlight's own colour. On the light
+         drawer those four hues measure 1.77-2.86:1 at 10px, so the colour now
+         comes from CSS and the highlight's hue is carried by the card's left
+         accent bar (set just above) instead. */
+      qEl.style.opacity='0.95';
       var tEl=document.createElement('div');
       tEl.className='annot-card-text'+(hasNote?'':' annot-card-nonote');
       tEl.textContent=hasNote?a.note:(a.image?'Image note':'Highlight — no note yet');
@@ -18006,6 +18010,106 @@ function hideFlyout(p) {
   .wc-nexpand{color:#0A7568;}                       /* 2.77:1 -> 5.17:1 on its mint chip */
   .wc-plan-del{color:#6B7280;}                      /* 2.54:1 -> 4.83:1 */
   .wc-plan-hint{color:#6B7280;}                     /* 2.54:1 -> 4.83:1 */
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 13 — the last two dark panels: Spaced Repetition Review
+     and the My Notes drawer.
+     Search this file for "LAYOUT PASS PANEL" to find it again.
+     ===================================================================== -->
+<style>
+  /* Both were still built on the dark tokens — --surface #1C2030, --bg
+     #0D0F14, --text #E8EAF0 — so each opened as a dark slab inside a light
+     app, carrying its own unreadable text on top (the My Notes empty-state
+     hint measured 2.07:1, the Review chrome 3.34:1).
+
+     Each is grounded to match what it sits next to rather than to match the
+     other: Review is a modal, so it takes the teal tint already used by the
+     paywall lock; My Notes is app chrome beside the note column, so it is a
+     plain white panel. Highlight colours on the page itself are deliberately
+     untouched — only the drawer chrome around them moves. */
+
+  /* ---------- Spaced Repetition Review — modal, teal tint ---------- */
+  .da-rv-overlay{background:rgba(30,38,64,.45);}
+  .da-rv-box{background:#EAF6F7;border:1px solid #C7E2E6;
+             box-shadow:0 24px 64px rgba(30,38,64,.22);}
+  .da-rv-head{border-bottom:1px solid #C7E2E6;}
+  .da-rv-title{color:#1E2640;}                       /* 13.53:1 */
+  .da-rv-sub,.da-rv-bigcap,.da-rv-empty,.da-rv-prog,
+  .da-rv-lbl,.da-rv-src,.da-rv-remove{color:#5A6480;} /* 3.34:1 -> 5.33:1 */
+  .da-rv-x{color:#5A6480;} .da-rv-x:hover{color:#1E2640;}
+  .da-rv-li{color:#1E2640;}
+  .da-rv-li:nth-child(odd){background:rgba(255,255,255,.66);}
+  .da-rv-li .da-rv-cnt{color:#0A7568;}               /* 5.06:1 */
+  .da-rv-card{background:#FFFFFF;border:1px solid #C2DBDF;}
+  .da-rv-front,.da-rv-back{color:#1E2640;}
+  .da-rv-divider{border-top:1px solid #DDE7EA;}
+  .da-rv-reveal{background:#FFFFFF;color:#1E2640;border:1px solid #C2DBDF;}
+  .da-rv-reveal:hover{border-color:#0A7568;}
+  .da-rv-remove:hover{color:#C42A3A;}
+  /* The big due-count is 44px, so it only needs 3:1 — but the teal-to-blue
+     ramp it is clipped from sits at about 2:1 on the tinted card. */
+  /* background-image, NOT the background shorthand: the number is painted by
+     clipping this gradient to the glyphs, and the shorthand resets
+     background-clip to border-box, which fills the box instead and leaves the
+     text transparent — a solid bar where the count should be. */
+  .da-rv-bignum{background-image:linear-gradient(135deg,#0A8C7A,#0E7FB8);}
+  /* The four rating buttons are the primary action of a review session and
+     none of them cleared 4.5:1 with white ink: 2.67 to 4.06. Same hues,
+     carried down. */
+  .da-rv-again{background:#C4344B;}                  /* 3.68:1 -> 5.33:1 */
+  .da-rv-hard {background:#A65A12;}                  /* 2.67:1 -> 5.13:1 */
+  .da-rv-good {background:#1E7C5C;}                  /* 3.23:1 -> 5.13:1 */
+  .da-rv-easy {background:#2A6CA8;}                  /* 4.06:1 -> 5.51:1 */
+  /* The interval under each label ("<10m", "1d") is white at opacity .85,
+     which lands it at 4.19-4.48:1 even on the darkened buttons. */
+  .da-rv-rate .da-rv-ivl{opacity:1;}
+
+  /* ---------- My Notes — drawer, plain white ---------- */
+  .annot-drawer,.annot-sidebar{background:#FFFFFF;}
+  .annot-drawer.open{border-left:1px solid #D8DBE8;}
+  .annot-sidebar{border-left:1px solid #D8DBE8;}
+  .annot-drawer-hdr,.annot-sidebar-hdr{border-bottom:1px solid #E2E6F0;}
+  .annot-drawer-title{color:#1E2640;}
+  .annot-drawer-title .abt-dot{background:#B86B00;}
+  .annot-drawer-sub,.annot-sidebar-title{color:#6B7280;}  /* 3.34:1 -> 4.83:1 */
+  .annot-empty{color:#6B7280;}                            /* 2.07:1 -> 4.83:1 */
+  .annot-drawer-close,.annot-toggle-btn{color:#6B7280;border-color:#D8DBE8;}
+  .annot-drawer-close:hover,.annot-toggle-btn:hover{color:#1E2640;border-color:#9A5B00;}
+
+  .annot-card{background:#F8F9FB;border:1px solid #E2E6F0;border-left:3px solid #B86B00;}
+  .annot-card-quote{color:#8A5100;opacity:1;}             /* 6.12:1 */
+  .annot-card-text{color:#1E2640;}
+  .annot-card-nonote{color:#6B7280;}
+  .annot-card-edit{color:#0A7568;border-color:rgba(10,117,104,.32);}
+  .annot-card-edit:hover{background:rgba(10,117,104,.10);}
+  .annot-card-del{color:#C42A3A;border-color:rgba(196,42,58,.32);}
+  .annot-card-del:hover{background:rgba(196,42,58,.10);}
+  .annot-card-save{color:#9A5B00;border-color:rgba(154,91,0,.32);background:#FDF3DC;}
+  .annot-card-cancel{color:#6B7280;border-color:#D8DBE8;}
+  .annot-edit-ta{background:#FFFFFF;border-color:#B86B00;color:#1E2640;}
+  .annot-img-hint{color:#6B7280;}
+  .annot-img-rm{color:#6B7280;background:#F1F3F8;border-color:#D8DBE8;}
+  .annot-img-thumb,.annot-card-img{border-color:#E2E6F0;}
+
+  /* The pieces that float over the note itself belong to the same feature
+     and were the same dark surface. */
+  .annot-tooltip{background:#FFFFFF;border-color:#B86B00;color:#8A5100;
+                 box-shadow:0 2px 12px rgba(30,38,64,.18);}
+  .annot-tooltip:hover{background:#FDF3DC;}
+  .annot-bar{background:#FFFFFF;border-color:#D8DBE8;
+             box-shadow:0 4px 18px rgba(30,38,64,.18);}
+  .annot-bar-div{background:#D8DBE8;}
+  .annot-bar-note{color:#8A5100;}
+  .annot-bar-note:hover{background:#FDF3DC;}
+  .annot-swatch{border-color:rgba(30,38,64,.22);}
+  .annot-swatch.sel{border-color:#1E2640;box-shadow:0 0 0 2px #FFFFFF,0 0 0 3px #1E2640;}
+  .annot-popup{background:#FFFFFF;border-color:#D8DBE8;
+               box-shadow:0 8px 32px rgba(30,38,64,.22);}
+  .annot-popup-title{color:#8A5100;}
+  .annot-popup-quote{color:#6B7280;border-left-color:#B86B00;}
+  .annot-popup textarea{background:#FFFFFF;border-color:#D8DBE8;color:#1E2640;}
+  .annot-popup textarea:focus{border-color:#B86B00;}
 </style>
 
 <!-- =====================================================================
