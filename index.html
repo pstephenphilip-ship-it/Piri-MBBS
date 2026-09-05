@@ -17328,13 +17328,35 @@ function hideFlyout(p) {
     if(hadSel){ run('createLink', url); }
     else { var txt=prompt('Link text:', url)||url; insertBlock('<a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(txt)+'</a>'); }
   }
+  // Downscale + JPEG-compress an uploaded image so it stays small enough for
+  // localStorage and cloud sync (labelled diagrams stay legible at ~1400px).
+  function owntCompressImg(blob, cb){
+    try{
+      var url=URL.createObjectURL(blob), img=new Image();
+      img.onload=function(){
+        var max=1400, w=img.naturalWidth||1, h=img.naturalHeight||1;
+        if(w>max||h>max){ var s=Math.min(max/w,max/h); w=Math.round(w*s); h=Math.round(h*s); }
+        var c=document.createElement('canvas'); c.width=w; c.height=h;
+        try{
+          var ctx=c.getContext('2d');
+          ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,w,h);   // flatten any transparency to white (JPEG has no alpha)
+          ctx.drawImage(img,0,0,w,h);
+          var out=c.toDataURL('image/jpeg',0.85);
+          URL.revokeObjectURL(url);
+          cb(out && out.indexOf('data:image/jpeg')===0 ? out : null);
+        }catch(e){ URL.revokeObjectURL(url); cb(null); }
+      };
+      img.onerror=function(){ URL.revokeObjectURL(url); cb(null); };
+      img.src=url;
+    }catch(e){ cb(null); }
+  }
   function insertImage(){
     var ov=document.createElement('div'); ov.className='ownt-ov';
     ov.innerHTML='<div class="ownt-modal"><h3>Insert image</h3>'
       +'<label class="ownt-lbl">Image URL</label><input class="ownt-inp" id="ownt-imgurl" placeholder="https://…">'
       +'<div class="ownt-filerow"><span class="ownt-lbl" style="margin:0;">or upload</span><input type="file" id="ownt-imgfile" accept="image/*"></div>'
       +'<label class="ownt-lbl">Caption (optional)</label><input class="ownt-inp" id="ownt-imgcap" placeholder="Short caption shown under the image">'
-      +'<div class="ownt-hint">Uploaded images are stored with your note and sync across devices — keep them small (large images can slow syncing).</div>'
+      +'<div class="ownt-hint">Uploaded images are automatically resized &amp; optimised, then stored with your note and synced across your devices.</div>'
       +'<div class="ownt-modal-actions"><button class="ownt-btn" id="ownt-imgcancel">Cancel</button><button class="ownt-btn primary" id="ownt-imgok">Insert</button></div></div>';
     document.body.appendChild(ov);
     function done(src){ var cap=(ov.querySelector('#ownt-imgcap').value||'').trim(); var h=cap?('<figure><img src="'+src+'" alt="'+esc(cap)+'"><figcaption>'+esc(cap)+'</figcaption></figure>'):('<img src="'+src+'" alt="">'); ov.remove(); insertBlock(h); }
@@ -17342,8 +17364,12 @@ function hideFlyout(p) {
     ov.onclick=function(e){ if(e.target===ov) ov.remove(); };
     ov.querySelector('#ownt-imgfile').onchange=function(e){
       var f=e.target.files&&e.target.files[0]; if(!f) return;
-      if(f.size>1500000 && !confirm('That image is '+Math.round(f.size/1024)+' KB. Large images make your notes slower to sync. Insert anyway?')) return;
-      var rd=new FileReader(); rd.onload=function(){ done(rd.result); }; rd.readAsDataURL(f);
+      owntCompressImg(f, function(dataUrl){
+        if(dataUrl){ done(dataUrl); return; }
+        // Optimisation failed (rare / unsupported format) — fall back to the raw file with a size guard.
+        if(f.size>1500000 && !confirm('That image is '+Math.round(f.size/1024)+' KB and could not be optimised. Insert anyway?')) return;
+        var rd=new FileReader(); rd.onload=function(){ done(rd.result); }; rd.readAsDataURL(f);
+      });
     };
     ov.querySelector('#ownt-imgok').onclick=function(){ var u=(ov.querySelector('#ownt-imgurl').value||'').trim(); if(!u){ alert('Enter an image URL or choose a file.'); return; } if(!/^https?:\/\//i.test(u)&&u.indexOf('data:')!==0) u='https://'+u; done(esc(u)); };
     setTimeout(function(){ ov.querySelector('#ownt-imgurl').focus(); },30);
@@ -17432,6 +17458,15 @@ function hideFlyout(p) {
       else { TLOCK=false; }   // any typing/arrow re-targets to where the cursor is
     });
     canvas.addEventListener('mousedown', function(){ TLOCK=false; });   // a fresh click re-targets
+    // Pasting an image: intercept, downscale/compress, and insert a proper data-URI.
+    // (Browsers otherwise drop in a full-size base64 or an ephemeral blob: URL that dies on reload.)
+    canvas.addEventListener('paste', function(e){
+      var items=(e.clipboardData&&e.clipboardData.items)||[], blob=null;
+      for(var i=0;i<items.length;i++){ if(items[i].type&&items[i].type.indexOf('image')===0){ blob=items[i].getAsFile(); break; } }
+      if(!blob) return;                 // not an image paste -> let the browser handle text/html normally
+      e.preventDefault(); saveSel();
+      owntCompressImg(blob, function(dataUrl){ if(dataUrl) insertBlock('<img src="'+dataUrl+'" alt="">'); });
+    });
     // table contextual toolbar
     TBAR=document.createElement('div'); TBAR.className='ownt-tablebar'; TBAR.style.display='none';
     TBAR.innerHTML='<button data-t="row+">＋ Row</button><button data-t="col+">＋ Col</button>'
