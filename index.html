@@ -17764,6 +17764,58 @@ function hideFlyout(p) {
 </script>
 
 <!-- =====================================================================
+     LAYOUT PASS 9 — Flashcards: the card fits its answer, and the
+     study chrome is readable on the light theme.
+     Search this file for "LAYOUT PASS FC" to find it again.
+     ===================================================================== -->
+<style>
+  /* 1. THE CARD IS A FIXED 220px BOX.
+     Both faces are absolutely positioned and vertically centred inside it,
+     so an answer taller than 220px does not scroll or clip — it spills out
+     of the card in BOTH directions, printing the ANSWER label above the top
+     border and the last lines of prose below the bottom one. Sampled 60
+     card faces across 30 topics at 390px: 7 overflow, every one of them an
+     answer, the worst 459px of content in the 220px box.
+
+     Putting both faces in the same grid cell keeps the 3D flip exactly as
+     it is (preserve-3d and backface-visibility still do the work) while
+     letting the row take the height of the taller face, so the card grows
+     to fit and never jumps between question and answer. */
+  .fc-card{height:auto;min-height:220px;display:grid;}
+  .fc-card-front,.fc-card-back{position:relative;inset:auto;grid-area:1/1;}
+
+  /* 2. MEASURE.
+     The panel ran to 1200px, so on a desktop an answer set as one centred
+     paragraph reached a 1020px line — far past a comfortable measure for
+     14px prose. Narrowing the study column also stops the card looking like
+     a mostly-empty banner holding one short question. */
+  .fc-panel-inner{max-width:720px;margin-left:auto;margin-right:auto;}
+
+  /* 3. CONTRAST.
+     This mode still carries the dark-theme tokens: the gold title reads
+     1.73:1 on the light page, and the four rating buttons — the primary
+     action of the whole mode — sit between 1.65:1 and 2.38:1 on their own
+     tints. Each colour below is the same hue carried down until it clears
+     4.5:1 against the ground it is actually painted on, so the palette is
+     unchanged and only the lightness moves. */
+  .fc-title{color:#9A5B00;}                                  /* was #F0B429, 1.73:1 -> 5.02:1 */
+  .fc-progress span{color:#9A5B00;}                          /* the card counter, same gold */
+  .btn-add-card{color:#9A5B00;}                              /* 1.86:1 -> 4.95:1 on its gold tint */
+  .fc-rate-again{color:#C42A3A;border-color:rgba(196,42,58,.32);}   /* 2.38:1 -> 4.82:1 */
+  .fc-rate-hard {color:#9A5B00;border-color:rgba(154,91,0,.32);}    /* 1.65:1 -> 4.80:1 */
+  .fc-rate-good {color:#0A7568;border-color:rgba(10,117,104,.32);}  /* 1.90:1 -> 4.69:1 */
+  .fc-rate-easy {color:#6D4AE0;border-color:rgba(109,74,224,.32);}  /* 2.28:1 -> 4.75:1 */
+
+  /* The two labels inside the card were dimmed by opacity on top of an
+     already-light grey, which is what took them under 2:1. Dropping the
+     opacity and darkening the ink keeps them quiet without hiding them. */
+  .fc-card-front .fc-card-label{color:#6B7280;}              /* 1.53:1 -> 4.83:1 */
+  .fc-card-back  .fc-card-label{color:#0A7568;}              /* 1.50:1 -> 5.25:1 */
+  .fc-card-label{opacity:1;}
+  .fc-card-hint{color:#6B7280;opacity:1;}                    /* 1.85:1 -> 4.83:1 */
+</style>
+
+<!-- =====================================================================
      LAYOUT PASS 7 — Medical Conditions: the bare .rn-pill marker.
      Search this file for "LAYOUT PASS COND" to find it again.
      ===================================================================== -->
