@@ -601,26 +601,59 @@ layout all check out. Fixed:
   lowering alpha cuts power, but "lowering the bar for significance" raises it.
   Replaced with an unambiguous option.
 
-### Z. Open for the owner
-1. **The statistics topic contains no worked examples at all.** Every formula
-   is symbolic; no MCQ requires a calculation. The single most examinable skill
-   — being handed a 2x2 table and computing sensitivity/specificity/PPV/NPV, or
-   two event rates and computing ARR/RRR/NNT — is never demonstrated or tested.
-   Adding two worked examples would fix it, but that is authoring new content
-   rather than correcting an error, so it is left for a decision.
-   - Status: **OPEN — owner decision.**
-2. **Behaviour-change models and the UK lifestyle numbers are absent** from the
-   Public Health topic: the stages-of-change model, COM-B, the Nuffield
-   intervention ladder, and the CMO figures (14 units/week; 150 minutes
-   moderate activity/week; BMI 25/30 with the lower 23/27.5 thresholds for
-   South Asian, Chinese, other Asian, Black African and African-Caribbean
-   backgrounds). All MLA-level, all currently missing.
-   - Status: **OPEN — owner decision.**
-3. **"April 2025" appears in the notifiable-disease content as a date in prose.**
-   The house rule bans years, but here the date is the point — it tells a
-   student that older question banks are wrong. Kept deliberately; flag if you
-   would rather it read "recently".
-   - Status: **OPEN — owner decision.**
+### Z. The three open items — ALL RESOLVED (v985)
+
+**1. The statistics topic had no numbers in it — fixed.**
+Extracting every numeral from the 18,573-character EBM note returned only the
+pyramid levels 1-6, "2x2", the LR thresholds, alpha 0.05, 95%, power 80-90% and
+"5 A's". No data, no worked calculation, and not one of the 20 MCQs required a
+sum — yet computing from a 2x2 table is the single most examinable skill here.
+- Added two worked examples to the note. A **diagnostic** one (1,000 screened,
+  100 diseased; TP 90, FN 10, FP 90, TN 810 → sens 90%, spec 90%, PPV 50%,
+  NPV 98.8%, LR+ 9, LR- 0.11) whose punchline is that both operating
+  characteristics are 90% while only half the positives are real. And a
+  **treatment** one (CER 20%, TER 15% → ARR 5%, RRR 25%, NNT 20) whose punchline
+  is that a "25% reduction" needs 20 patients treated to prevent one event.
+- Added the missing **RRR formula** (ARR ÷ control event rate = 1 − RR) to the
+  Measures of Effect table, where it had only ever been described in words.
+- **Re-scoped three existing MCQs to require the calculation** rather than the
+  definition — permitted, since re-scoping a stem is allowed where adding new
+  MCQs is not. `ebm_q06` now gives a 2x2 and asks for the sensitivity (80%),
+  with the specificity, PPV, NPV and false-negative rate as distractors, each
+  read off a different part of the same table. `ebm_q09` gives 99% sensitivity,
+  95% specificity and a prevalence of 1 in 1,000 and asks for the PPV (about
+  2%) — the prevalence effect as arithmetic rather than assertion. `ebm_q11`
+  gives two event rates and asks for the NNT (20).
+- All the arithmetic is asserted in the patch script and re-verified after
+  writing. As a side benefit the three re-scoped MCQs now have near-identical
+  option lengths, so their length cues went to zero.
+
+**2. Behaviour-change models and the UK lifestyle numbers — added.**
+The Health Promotion section had been four items: a definition, the
+education-vs-promotion distinction, the Ottawa Charter, and one line ending
+with "nudge" in scare quotes. It now also carries:
+- **Stages of change** (with relapse as part of the cycle, and matching the
+  intervention to the stage), **COM-B**, and **Making Every Contact Count** as
+  the UK delivery vehicle.
+- The **Nuffield intervention ladder** in full, from "do nothing" to "eliminate
+  choice" — which is what makes "nudge" mean something, and is the framework
+  for autonomy-versus-paternalism questions.
+- **The UK lifestyle numbers**, none of which appeared anywhere in the topic
+  before: 14 units a week for both sexes over 3+ days with drink-free days;
+  150 minutes moderate or 75 minutes vigorous activity a week plus
+  muscle-strengthening on 2 days; BMI 25/30 with the lower **23 and 27.5**
+  thresholds for South Asian, Chinese, other Asian, Black African and
+  African-Caribbean family backgrounds (NICE).
+- The 150/75 activity figures were the one claim the screening agent had not
+  verified; confirmed against the UK CMOs' guidance before writing.
+
+**3. "April 2025" trimmed from 11 occurrences to 7.**
+Kept where it does work — the note's "Added April 2025" table row, the two
+"beware" callouts, the two trap flashcards and the two list-size statements —
+because a student who revised chickenpox as the stock "not notifiable" answer
+needs to know *why* their older resource disagrees. Removed from the four MCQ
+explanations, where the card had already made the point and the date was pure
+repetition.
 
 ### AA. Cue levelling
 The keyed option was the longest in 22/35, 16/20 and **18/18** MCQs
