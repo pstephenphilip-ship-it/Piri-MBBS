@@ -611,7 +611,7 @@ body{display:flex;flex-direction:column;}
 .btn-annot-save:hover{background:rgba(240,180,41,0.22);}
 .btn-annot-cancel{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:6px 14px;cursor:pointer;}
 /* ── Redesigned note card: dark navy (app theme), colour-coded, reads first then edit on demand ── */
-.annot-popup.nc{background:#172433;border:1px solid #2C3D4E;border-radius:15px;padding:0;width:300px;box-shadow:0 1px 2px rgba(0,0,0,.35),0 20px 46px rgba(0,0,0,.55);overflow:hidden;color:#E7EEF4;}
+.annot-popup.nc{background:#172433;border:1px solid #2C3D4E;border-radius:15px;padding:0;width:300px;box-shadow:0 1px 2px rgba(0,0,0,.35),0 20px 46px rgba(0,0,0,.55);overflow-y:auto;overflow-x:hidden;max-height:calc(100dvh - 16px);color:#E7EEF4;}
 .nc-accent{height:5px;background:var(--hl,#F0B429);}
 .nc-head{display:flex;align-items:center;justify-content:space-between;padding:12px 12px 0 16px;}
 .nc-label{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#8DA0B4;}
@@ -632,7 +632,7 @@ body{display:flex;flex-direction:column;}
 .annot-popup.nc .nc-ta{width:100%;min-height:96px;max-height:min(52vh,420px);overflow:auto;background:#0F1B29;border:1px solid #2C3D4E;border-radius:10px;color:#E7EEF4;font-family:var(--sans);font-size:14px;line-height:1.65;padding:11px 12px;resize:vertical;outline:none;box-sizing:border-box;}
 .annot-popup.nc .nc-ta::placeholder{color:#67788B;}
 .annot-popup.nc .nc-ta:focus{border-color:var(--hl,#F0B429);}
-.nc-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 15px;gap:10px;}
+.nc-foot{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 15px;gap:10px;position:sticky;bottom:0;background:#172433;border-top:1px solid #22323F;}
 .nc-del{border:none;background:transparent;color:#EA7A63;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
 .nc-del:hover{background:#2E1A15;}
 .nc-cancel{border:none;background:transparent;color:#93A3B1;font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px;border-radius:8px;font-family:var(--sans);}
@@ -9689,9 +9689,11 @@ initTab('conditions');
     pop.appendChild(acc); pop.appendChild(head); pop.appendChild(quote); pop.appendChild(body); pop.appendChild(foot);
     document.body.appendChild(pop);
     annotWireGrow(ta);
+    annotFitOnScreen(pop);           // clamp fully into the viewport now (real height, esp. a long quote)
     // Follow the selected text as the page scrolls (capture the range before the textarea steals focus).
     var _selRange=null; try{ var _s=window.getSelection(); if(_s&&_s.rangeCount) _selRange=_s.getRangeAt(0).cloneRange(); }catch(e){}
     if(_selRange) annotFollowAnchor(pop, function(){ var r=_selRange.getBoundingClientRect(); return (r&&(r.width||r.height))?r:null; });
+    annotWatchSize(pop);             // re-fit whenever it grows (image added / note box expands)
     setTimeout(function(){ ta.focus(); },40);
   }
 
@@ -9701,6 +9703,18 @@ initTab('conditions');
   // and keep it growing as the user types, capped so the popup still fits on screen.
   function annotAutoGrow(ta){ if(!ta) return; ta.style.height='auto'; var mx=Math.min(window.innerHeight*0.52,420); ta.style.height=Math.min(ta.scrollHeight+2,mx)+'px'; }
   function annotWireGrow(ta){ if(!ta) return; annotAutoGrow(ta); ta.addEventListener('input',function(){ annotAutoGrow(ta); }); }
+  // Keep an open note popup fully inside the viewport so its Save/Cancel footer is always
+  // reachable — and re-fit whenever it grows (an image is added, or the note box expands).
+  function annotFitOnScreen(pop){
+    if(!pop || !pop.isConnected) return;
+    var m=8, h=pop.offsetHeight, w=pop.offsetWidth;
+    var top=parseFloat(pop.style.top)||0, left=parseFloat(pop.style.left)||0;
+    pop.style.top = Math.max(m, Math.min(top, window.innerHeight - h - m))+'px';
+    pop.style.left= Math.max(m, Math.min(left, window.innerWidth  - w - m))+'px';
+  }
+  function annotWatchSize(pop){
+    try{ if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ annotFitOnScreen(pop); }); ro.observe(pop); } }catch(e){}
+  }
   // Keep an open popup glued to its anchor (the highlight / selection) as the page or notes scroll.
   // The popup is position:fixed, so without this it stays put while the text moves out from under it.
   // Call AFTER the popup's initial left/top are set. getRect() returns the anchor's current rect.
@@ -9779,6 +9793,7 @@ initTab('conditions');
     document.body.appendChild(pop);
     render('read');   // read-first; Edit reveals the controls
     window.addEventListener('scroll', place, true); window.addEventListener('resize', place);
+    try{ if(window.ResizeObserver){ new ResizeObserver(place).observe(pop); } }catch(e){}   // re-fit when it grows (Edit reveals image + box)
     // dismiss on outside click (but not when clicking the highlight itself)
     setTimeout(function(){ document.addEventListener('mousedown', function h(ev){
       var el=document.getElementById('annot-popup-el');
