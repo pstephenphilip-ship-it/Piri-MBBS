@@ -17861,12 +17861,14 @@ function hideFlyout(p) {
   .fc-card{height:auto;min-height:220px;display:grid;}
   .fc-card-front,.fc-card-back{position:relative;inset:auto;grid-area:1/1;}
 
-  /* 2. MEASURE.
-     The panel ran to 1200px, so on a desktop an answer set as one centred
-     paragraph reached a 1020px line — far past a comfortable measure for
-     14px prose. Narrowing the study column also stops the card looking like
-     a mostly-empty banner holding one short question. */
-  .fc-panel-inner{max-width:720px;margin-left:auto;margin-right:auto;}
+  /* 2. MEASURE — reverted.
+     This pass first narrowed the study column to 720px and centred it, to
+     bring a desktop answer back from a 1020px line. On a wide monitor that
+     left the card marooned in empty space, which reads worse than the long
+     line did, so the column keeps the 1200px width it always had. The line
+     length is a real trade-off and is noted here deliberately: if it wants
+     fixing later, cap the measure inside the card rather than shrinking the
+     card, so the panel stays filled. */
 
   /* 3. CONTRAST.
      This mode still carries the dark-theme tokens: the gold title reads
