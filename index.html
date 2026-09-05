@@ -17026,6 +17026,71 @@ function hideFlyout(p) {
   }
 </style>
 
+<!-- =====================================================================
+     LAYOUT PASS 17 — richer note layout: section accents, key-facts strip.
+     Search this file for "LAYOUT PASS RICH" to find it again.
+     ===================================================================== -->
+<style>
+  /* Every rn-section header is the same blue, so a long note reads as one
+     undifferentiated column and you cannot navigate it by eye. These are
+     OPT-IN modifiers: a section without one keeps exactly the styling it
+     has today, so no existing note changes until its markup asks for it.
+
+     The inks are a step darker than the raw --rn-* tokens because those
+     were built for larger text: #3B7DD8 on its own tint is 3.65:1, and the
+     green, amber and teal are 3.8, 3.8 and 3.0. The values below are the
+     same hues at 4.69-5.95:1. */
+  .rn-section > .rn-section-title{color:#2F6BC0;}                       /* 3.65 -> 4.69 */
+  .rn-section-teal   > .rn-section-title{color:#0A7568;background:var(--rn-teal-bg);}    /* 5.01 */
+  .rn-section-green  > .rn-section-title{color:#17734C;background:var(--rn-green-bg);}   /* 5.23 */
+  .rn-section-amber  > .rn-section-title{color:#8A5100;background:var(--rn-amber-bg);}   /* 5.95 */
+  .rn-section-purple > .rn-section-title{color:#6B45B8;background:var(--rn-purple-bg);}  /* 5.69 */
+  .rn-section-red    > .rn-section-title{color:#A82B2B;background:var(--rn-red-bg);}
+  /* A hairline down the left edge carries the accent past the header, so the
+     colour still tells you where you are once the title has scrolled off. */
+  .rn-section-teal  {border-left:3px solid #1A9BA8;}
+  .rn-section-green {border-left:3px solid #1F8B5E;}
+  .rn-section-amber {border-left:3px solid #B86B00;}
+  .rn-section-purple{border-left:3px solid #6B45B8;}
+  .rn-section-red   {border-left:3px solid #C93535;}
+
+  /* KEY FACTS — the three or four numbers a reader wants before the prose.
+     A dense strip at the top of a section beats the same facts buried in a
+     paragraph, and it uses the width the note already has. */
+  .rn-keyfacts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px;}
+  .rn-kf{flex:1 1 150px;min-width:0;background:var(--rn-bg,#F7F8FC);
+         border:1.5px solid var(--rn-border,#E2E6F0);border-radius:10px;padding:11px 14px;}
+  .rn-kf-v{font-family:var(--mono);font-size:17px;font-weight:800;line-height:1.15;color:#1E2640;}
+  .rn-kf-l{font-size:11.5px;line-height:1.45;color:#5A6480;margin-top:4px;}
+  .rn-kf-blue {background:var(--rn-blue-bg); border-color:#C7D9F5;} .rn-kf-blue  .rn-kf-v{color:#2F6BC0;}
+  .rn-kf-teal {background:var(--rn-teal-bg); border-color:#B5E0E6;} .rn-kf-teal  .rn-kf-v{color:#0A7568;}
+  .rn-kf-green{background:var(--rn-green-bg);border-color:#B9E2CD;} .rn-kf-green .rn-kf-v{color:#17734C;}
+  .rn-kf-amber{background:var(--rn-amber-bg);border-color:#EAD4A4;} .rn-kf-amber .rn-kf-v{color:#8A5100;}
+  .rn-kf-red  {background:var(--rn-red-bg);  border-color:#EDC6C6;} .rn-kf-red   .rn-kf-v{color:#A82B2B;}
+
+  /* Pearl cards were stretched to the tallest in the row, so a six-word
+     pearl sat in a box three times its height. */
+  .rn-pearl-grid{align-items:start;}
+
+  /* THREE CARD VARIANTS THE CONTENT ASKS FOR THAT NEVER EXISTED.
+     Counted across content/notes: rn-card-green 252 uses, rn-card-blue 214,
+     rn-card-danger 6 — 472 cards where the author picked a colour and got a
+     plain white box, because only -muted (which is blue), -accent (which is
+     green), -amber and -red were ever defined. The names are the confusing
+     part; these are the ones an author would reach for. */
+  .rn-card-blue   .rn-card-head{color:#2F6BC0;background:var(--rn-blue-bg);}
+  .rn-card-green  .rn-card-head{color:#17734C;background:var(--rn-green-bg);}
+  .rn-card-danger .rn-card-head{color:#A82B2B;background:var(--rn-red-bg);}
+
+  /* The four that did exist use the raw tokens, which were built for larger
+     text and sit at 3.65-3.83:1 on their own tints. Same hues, one step
+     down, matching the section headers above. */
+  .rn-card-muted  .rn-card-head{color:#2F6BC0;}   /* blue  3.65 -> 4.69 */
+  .rn-card-accent .rn-card-head{color:#17734C;}   /* green 3.83 -> 5.23 */
+  .rn-card-amber  .rn-card-head{color:#8A5100;}   /* amber 3.77 -> 5.95 */
+  .rn-card-red    .rn-card-head{color:#A82B2B;}   /* red   4.48 -> ~5.4 */
+</style>
+
 <!-- ===================== ADD YOUR OWN TOPIC (per-tab, notes only, follows each tab's template) ===================== -->
 <style id="ownt-styles">
   .ownt-addbtn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:8px;padding:9px 12px;
