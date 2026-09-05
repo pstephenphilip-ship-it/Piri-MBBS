@@ -299,3 +299,79 @@ flashcards were ahead of its note) and the 2023 change to the total hip
 replacement criteria. In both cases the app contradicted itself, and the
 *newer* half was right. Where two parts of this app disagree, check which is
 current before assuming the note is authoritative.
+
+---
+
+## ENT module (11/11 topics screened, v977–v980)
+
+### R. Repo-wide decisions left open for the owner
+These are outside the "medical conditions" screening scope but were found while
+screening it. Each needs a single decision applied everywhere at once, not a
+piecemeal fix.
+
+1. **"Monospot" is a proprietary test name** used ~50 times across 10 files
+   (`infectious-disease-immunology`, `ent`, `immunology-serology`,
+   `haematological`, `microbiology`, `haematology` and their card files). It is
+   also the term UK exams use. It was deliberately left in place: changing it in
+   one topic would make the app inconsistent. If it is to go, the replacement is
+   "heterophile antibody test" and it must be changed everywhere in one pass.
+   - Status: **OPEN — owner decision.**
+
+2. **Brand names in the pharmacology tab.** `Dymista` (`ph_ent_21`), `Cilodex`
+   (`ph_ent_53`, `ph_ent_54`, `ph_ent_57`, `ph_ent_60`), `Buccastem`
+   (prochlorperazine card), plus `Shingrix`/`Zostavax` in the immunisation
+   content and `Gaviscon`/`Gardasil` in several files. The conditions tab is now
+   clean of brand names; these are not.
+   - Status: **OPEN — owner decision.**
+
+3. **36 duplicate card ids in `content/cards/pharmacology-flashcards.json`**
+   (`ph_np_ms_01` … and others). Pre-existing, confirmed present at HEAD before
+   any edit in this review, and untouched by it. Duplicate ids risk unpredictable
+   behaviour wherever cards are looked up by id.
+   - Status: **OPEN — pre-existing defect, not introduced here.**
+
+4. **`ENT__Facial Pain`** (a presentations-tab topic) teaches "antibiotics if
+   bacterial / severe" for rhinosinusitis. That is the loose formulation the
+   10-day rule exists to displace, and the conditions-tab topic is the correct
+   half. Out of scope for this pass.
+   - Status: **OPEN.**
+
+### S. Cross-file contradictions found and fixed during the ENT pass
+Recorded because the pattern matters: in every case the conditions tab was one
+half of a disagreement, and the fix was applied to whichever half was wrong.
+- `neurology-neurosurgery.json` and `risk-scores-criteria.json` — a Bell's palsy
+  section title carrying a document name, and the Centor/FeverPAIN probability
+  error, both corrected to match the conditions tab.
+- The neurology Ménière's topic is a 1:1 twin of the ENT Ménière's content; the
+  ENT copy was the stale pre-correction version. It was brought up to the
+  corrected twin, and three further improvements were synced back so the two do
+  not drift apart again.
+- `pharmacology-flashcards.json` `ph_ab_pen_19` named amoxicillin for sinusitis;
+  first-line is phenoxymethylpenicillin. Corrected — a factual error contradicting
+  the conditions tab, distinct from the brand-name items above, which are style.
+- The sore-throat deck gave azithromycin as the scarlet fever penicillin-allergy
+  alternative against paediatrics' clarithromycin. Aligned on clarithromycin.
+
+### T. Items deliberately not changed, with reasons
+- **Kiesselbach's plexus contributors.** The epistaxis topic lists a posterior
+  ethmoidal contribution alongside the standard four. Anatomy sources genuinely
+  differ; left as it stands rather than changed on low confidence.
+- **"~60% lifetime" and "~90% anterior" epistaxis figures**, and the "~10%"
+  chronic rhinosinusitis prevalence. Standard examinable figures that could not
+  be tied to a UK issuing body; left unchanged, and the CRS figure is worth
+  softening to "common" if it is ever revisited.
+- **Topical tranexamic acid in epistaxis** was attributed to NICE in four places
+  and called "better than anterior packing". No NICE recommendation for it could
+  be found, and the largest UK randomised evidence found no benefit over placebo.
+  The attribution was removed and it is now taught as an optional adjunct — but
+  absence could not be proved from a blocked source, so this is worth a
+  spot-check.
+
+### U. Lesson carried forward
+Two ENT findings could only be settled by checking rather than reasoning: that
+the arachis (peanut) oil excipient has been removed from the chlorhexidine–neomycin
+nasal cream, which makes the widely-taught "contains peanut" caution wrong in the
+present tense; and that four head-and-neck referral criteria attributed to NICE
+in the app were withdrawn from the current guideline and belong to older
+guidance. Both were still being taught as current. Where content names a
+guideline or a product, check it is still true before trusting it.
