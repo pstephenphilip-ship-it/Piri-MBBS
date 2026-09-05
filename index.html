@@ -12606,7 +12606,7 @@ function calcRenderCases(id){
     var ov=cardEl.querySelector('.calc-cases-lockover');
     if(!ov){
       ov=document.createElement('div'); ov.className='calc-cases-lockover';
-      ov.innerHTML='<div class="calc-cases-lockcard"><div style="font-size:30px">🔒</div><div class="calc-cases-locktitle">Case practice is a premium feature</div><div class="calc-cases-locksub">Work through case-based calculation practice with membership. The calculator itself stays free.</div><div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
+      ov.innerHTML='<div class="calc-cases-lockcard"><div class="da-lock-icon" style="margin-bottom:10px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3"/></svg></div><div class="calc-cases-locktitle">Case practice is a premium feature</div><div class="calc-cases-locksub">Work through case-based calculation practice with membership. The calculator itself stays free.</div><div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
       ov.addEventListener('click',function(e){ if(e.target===ov){ ov.style.display='none'; host.classList.remove('calc-cases-blurred'); } });
       cardEl.appendChild(ov);
     }
@@ -13588,7 +13588,7 @@ function hideFlyout(p) {
   window.__isUnlocked = isUnlocked;
 
   function paywallHTML(){
-    return '<div class="da-lock"><div class="da-lock-icon">🔒</div>'
+    return '<div class="da-lock"><div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3"/></svg></div>'
       + '<div class="da-lock-title">This topic is locked</div>'
       + '<div class="da-lock-sub">Create a <strong>free account</strong> to unlock locked topic <strong>notes</strong> &mdash; up to <strong>6 a day</strong> (max 3 per section). Flashcards, MCQs &amp; mock exams come with membership.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
@@ -13599,7 +13599,7 @@ function hideFlyout(p) {
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
   function dayPassHTML(name, p){
     var sec = SECTION_NAME[p] || 'this section';
-    return '<div class="da-lock"><div class="da-lock-icon">🔓</div>'
+    return '<div class="da-lock"><div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 7.6-1.7"/><circle cx="12" cy="15.5" r="1.3"/></svg></div>'
       + '<div class="da-lock-title">Unlock this topic for 24 hours?</div>'
       + '<div class="da-lock-sub">Opens the notes for <strong>'+esc(name)+'</strong> for the next <strong>24 hours</strong>, then it locks again. You have <strong>'+dpRemainingTotal()+' of '+DP_TOTAL+'</strong> daily unlocks left &mdash; <strong>'+dpRemainingTab(p)+' of '+DP_PER_TAB+'</strong> in '+esc(sec)+'.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="window.__dpUnlock&&window.__dpUnlock()">Use 1 unlock</button>'
@@ -13614,7 +13614,7 @@ function hideFlyout(p) {
     var sub = tabFull
       ? 'You&rsquo;ve used all <strong>'+DP_PER_TAB+'</strong> free unlocks for <strong>'+esc(sec)+'</strong> today. Skip the wait and unlock <strong>every topic, flashcard, MCQ &amp; mock exam</strong> with membership.'
       : 'You&rsquo;ve used all <strong>'+DP_TOTAL+'</strong> of your free daily unlocks. Unlock <strong>everything, instantly</strong> with membership &mdash; no daily limits.';
-    return '<div class="da-lock"><div class="da-lock-icon">⏳</div>'
+    return '<div class="da-lock"><div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10M7 21h10"/><path d="M8 3v3.2c0 1.5 4 3.9 4 5.8s-4 4.3-4 5.8V21"/><path d="M16 3v3.2c0 1.5-4 3.9-4 5.8s4 4.3 4 5.8V21"/></svg></div>'
       + '<div class="da-lock-title">'+title+'</div>'
       + '<div class="da-lock-sub">'+sub+'</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="if(window.__dpCancel)window.__dpCancel(); if(window.__openMembership)window.__openMembership();">✨ Unlock everything &mdash; Get membership</button>'
@@ -13684,7 +13684,7 @@ function hideFlyout(p) {
     // Signed in but the server-side unlock list hasn't loaded yet (e.g. deep-link on first
     // paint): wait for it, then decide — so a valid unlock isn't briefly shown as locked.
     if (window.__authed && !_dpLoaded){
-      renderWall(p, name, '<div class="da-lock"><div class="da-lock-icon">⏳</div><div class="da-lock-title">Checking your access…</div></div>', skipHash);
+      renderWall(p, name, '<div class="da-lock"><div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10M7 21h10"/><path d="M8 3v3.2c0 1.5 4 3.9 4 5.8s-4 4.3-4 5.8V21"/><path d="M16 3v3.2c0 1.5-4 3.9-4 5.8s4 4.3 4 5.8V21"/></svg></div><div class="da-lock-title">Checking your access…</div></div>', skipHash);
       _dpReady.then(function(){ hidePaywall(p); gateTopic(p, name, skipHash, proceed); });
       return;
     }
@@ -13811,7 +13811,7 @@ function hideFlyout(p) {
     var o=document.createElement('div'); o.id=id;
     o.style.cssText='position:fixed;inset:0;z-index:3000;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(6,12,20,.62);-webkit-backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);';
     o.onclick=function(e){ if(e.target===o) o.style.display='none'; };
-    o.innerHTML='<div class="da-lock" style="margin:0;"><div class="da-lock-icon">🔒</div>'
+    o.innerHTML='<div class="da-lock" style="margin:0;"><div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3"/></svg></div>'
       +'<div class="da-lock-title">'+label+' are a premium feature</div>'
       +'<div class="da-lock-sub">'+sub+'</div>'
       +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Not now</button></div>'
@@ -13839,7 +13839,7 @@ function hideFlyout(p) {
     if(ex){ ex.style.display='flex'; return; }
     var o=document.createElement('div'); o.id=id; o.className='da-lock-wrap';
     o.style.position='fixed'; o.style.inset='0'; o.style.zIndex='2000';
-    o.innerHTML='<div class="da-lock"><div class="da-lock-icon">🔒</div>'
+    o.innerHTML='<div class="da-lock"><div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3"/></svg></div>'
       +'<div class="da-lock-title">Mock exams are a premium feature</div>'
       +'<div class="da-lock-sub">Timed mock papers aren&rsquo;t part of the free tier. Full access &mdash; including unlimited mocks &mdash; comes with membership. Want a taste first? Try a free 10-question cardiovascular paper.</div>'
       +'<div class="da-lock-actions"><button class="da-lock-btn trial" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.mockStartFreeTrial)window.mockStartFreeTrial();">Try for free</button><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-mock-lock\');if(e)e.style.display=\'none\';">Not now</button></div></div>';
@@ -16609,7 +16609,7 @@ function hideFlyout(p) {
     box.innerHTML =
       '<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:24px;">'
       + '<div class="da-lock" style="margin:0;">'
-      + '<div class="da-lock-icon">🔒</div>'
+      + '<div class="da-lock-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.3"/></svg></div>'
       + '<div class="da-lock-title">Pharmacology flashcards are a members feature</div>'
       + '<div class="da-lock-sub">Rapid-recall drug flashcards — mechanisms, doses, side effects &amp; interactions — are part of <strong>membership</strong>.</div>'
       + '<div class="da-lock-actions">' + actions + '</div>'
@@ -16935,19 +16935,47 @@ function hideFlyout(p) {
   .tag-high-yield{color:#8A5100;}                 /* same fault, gold on gold */
   .btn-save{color:#0A7568;border-color:rgba(10,117,104,.32);}  /* 2.26 -> 5.59 */
   .btn-save:hover{background:rgba(10,117,104,.10);}
-  /* The active subtab is white on flat #00C2A8 — 2.26:1. Darkening the fill
-     keeps the shape and the brand hue. */
-  .rich-note .tt-btn.tt-act{background:#0A7568!important;}     /* 2.26 -> 5.59 */
+  /* The active subtab was white on flat #00C2A8 — 2.26:1. Darkening the fill
+     fixed the ratio but muddied the brand teal into a green. Keeping the
+     bright teal and darkening the INK instead is both more vibrant and a
+     better ratio, and it is what the teal FABs already do (#04121a). */
+  .rich-note .tt-btn.tt-act{background:#00C2A8!important;color:#04121a!important;}  /* 2.26 -> 8.39 */
 
   /* The home page's micro-labels are all one grey. */
   .wc-inside-h,.wc-hint,.wc-best-l,.wc-plan-empty,
   .wc-streak.cold .wc-hs-num{color:#6B7280;}      /* 2.39-2.54 -> 4.56 */
 
   /* Both home action cards put white on a gradient whose light end is too
-     pale for it: Review reached 2.40:1 and Custom Mock 3.99:1. Only the
-     start of each ramp moves. */
-  .wc-act-rev{background:linear-gradient(135deg,#0A7F98 0%,#0B6E85 100%);}
+     pale for it: Review reached 2.40:1 and Custom Mock 3.99:1.
+     Review keeps its full teal-to-sky ramp and takes dark ink instead —
+     6.85:1 at the blue end, 8.39:1 at the teal end, and none of the
+     vibrancy is lost. Red cannot take dark ink, so on Custom Mock only the
+     light end of the ramp moves and the white stays. */
+  .wc-act-rev{color:#04121a;}
+  .wc-act-rev .wc-act-t,.wc-act-rev .wc-act-s{color:#04121a;}
   .wc-act-mock{background:linear-gradient(135deg,#DE2A43 0%,#C4123C 100%);}
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 15 — the paywall lock card.
+     Search this file for "LAYOUT PASS LOCKCARD" to find it again.
+     ===================================================================== -->
+<style>
+  /* The three states opened with a 42px system emoji — chosen when this card
+     was dark. An emoji paints in its own colours whatever the CSS says, so on
+     the teal card the padlock read as a bright yellow sticker rather than
+     part of the app. All seven of them are now the same stroked line icons
+     the nav uses, drawn in the card's own teal; they inherit currentColor,
+     so they cannot drift from the palette again. */
+  .da-lock-icon{color:#0A7568;line-height:0;margin-bottom:16px;}
+  .da-lock-icon svg{width:44px;height:44px;display:inline-block;}
+
+  /* "Get membership" is teal ink on a teal tint — 2.49:1 on the rendered
+     card. ("Sign up free" was already put right by the earlier tint pass:
+     dark #04121a on the bright gradient, measured 8.26:1. Its gradient is
+     untouched — a bright brand ground with dark ink is the pattern to
+     copy, not to fix.) */
+  .da-lock-btn.mem{color:#066357;}              /* 2.49 -> 5.33 */
 </style>
 
 <!-- ===================== ADD YOUR OWN TOPIC (per-tab, notes only, follows each tab's template) ===================== -->
