@@ -17984,6 +17984,31 @@ function hideFlyout(p) {
 </style>
 
 <!-- =====================================================================
+     LAYOUT PASS 12 — Mock Exam and the home Planner.
+     Search this file for "LAYOUT PASS MK" to find it again.
+     ===================================================================== -->
+<style>
+  /* MOCK EXAM. The mode is otherwise clean — it was built light from the
+     start. One finding: the primary CTA is white on a 135deg gradient that
+     starts at #FF4D5E, and white on that light end measures 3.24:1. Pixel-
+     sampled at the top-left of the button, where the gradient is lightest,
+     the real ground is rgb(254,75,93). Darkening only the start of the ramp
+     keeps the button the same red and clears 4.5:1 across its whole face —
+     the dark end (#E11D48) was already at 4.70:1. */
+  .mk-btn-primary{background:linear-gradient(135deg,#DE2A43,#C4123C);}
+  .mk-btn-primary:hover{box-shadow:0 6px 20px rgba(196,18,60,0.4);}
+
+  /* PLANNER. Four pieces of chrome carrying colours that do not survive the
+     light theme. The two teals move to the same #0A7568 used elsewhere in
+     this pass; the two greys to #6B7280. */
+  .wc-nsave{background:#0A7568;}                    /* white on teal 2.99:1 -> 5.59:1 */
+  .wc-nsave:hover{background:#066357;}
+  .wc-nexpand{color:#0A7568;}                       /* 2.77:1 -> 5.17:1 on its mint chip */
+  .wc-plan-del{color:#6B7280;}                      /* 2.54:1 -> 4.83:1 */
+  .wc-plan-hint{color:#6B7280;}                     /* 2.54:1 -> 4.83:1 */
+</style>
+
+<!-- =====================================================================
      LAYOUT PASS 7 — Medical Conditions: the bare .rn-pill marker.
      Search this file for "LAYOUT PASS COND" to find it again.
      ===================================================================== -->
