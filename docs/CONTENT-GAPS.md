@@ -382,20 +382,66 @@ repo-wide in one pass rather than piecemeal.
    conditions-tab topic.
    - Status: **RESOLVED.**
 
-### R2. Pharmacology brand names still present — owner decision needed
-Category C is clear-cut and done. A wider sweep of `PHARMA_SECTIONS` (574
-monographs) shows roughly 50 further brand names in monograph **titles** —
-Advate, Kogenate, Buscopan, Cosmofer, Descovy, Digibind/DigiFab, Dovonex,
-Entresto, Esmya, Ferinject, Hemlibra, Herceptin, Kaftrio, Kyleena, Levonelle,
-Madopar, Sinemet, Malarone, Menopur, Puregon, Gonal-F, Mestinon, Mirena,
-Beriplex, Octaplex, Praxbind, Protopic, Riamet, Tamiflu, Tazocin, Truvada,
-Tysabri, Syntocinon and others.
-These are a genuinely mixed bag: some are the name students will actually hear
-(Tazocin, Sinemet, Mirena), some are pure trade names with no teaching value
-(Advate, Kogenate, Octaplex). Each needs the same A/B/C judgement, and the
-titles are also the `PHARMA_SEARCH` lookup key, so any change must re-sync 1046
-search entries. Not started — it is a distinct piece of work from the
-conditions screening.
+### R2. Pharmacology-tab brand names — RESOLVED (v982)
+Owner's rule: **keep the brand if it is what students actually learn; strip it
+if it is brand-specific with no teaching value** (the "Advil" test). Applied to
+all 574 monographs, 68 substitutions.
+
+**KEPT — the name students genuinely learn or hear said aloud**
+- Inhalers, insulins, adrenaline auto-injectors (category A, unchanged).
+- `Clexane`, `Tazocin` — said constantly on UK wards.
+- `Sinemet`, `Madopar`, `Stalevo` — how UK Parkinson's prescribing is written.
+- `Mirena`, `Kyleena`, `Levonelle` — standard UK contraception nomenclature.
+- `Syntocinon`, `Syntometrine` — standard UK obstetric nomenclature.
+- `Buscopan`, `Entresto`, `Herceptin`, `Tamiflu`, `Malarone`, `Riamet`,
+  `Ferinject`, `DigiFab`, `Truvada`, `Kaftrio`, `Entonox`, `Calcium Resonium`.
+- `Curosurf` / `Survanta` — neonatal units use these, and the two differ in
+  source and dose, so the brand carries the distinction.
+- `Cyanokit`, `Tensilon` — the antidote is stocked under that name, and the
+  "Tensilon test" is standard myasthenia nomenclature.
+- `Handihaler`, `Respimat` — device names; the device matters clinically.
+- `Hemgenix`, `Roctavian` — gene therapies with no usable generic name in
+  practice (the INN is given alongside).
+- `Avastin` — kept deliberately: the whole teaching point is "bevacizumab
+  (Avastin) = cheap off-label cousin", so the brand *is* the lesson. Its
+  siblings (`Lucentis`, `Eylea`, `Beovu`, `Vabysmo`) were stripped, because
+  there the generic is what is taught.
+- `Calpol` — kept in the paediatric OSCE script, where it is quoted speech to a
+  parent ("Have you given any Calpol or ibuprofen?"). That is realistic
+  patient-facing language, not pharmacology teaching.
+
+**STRIPPED — brand-specific, no teaching value**
+Advate, Kogenate, Benefix, Beriplex, Octaplex, Cosmofer, Descovy, Digibind,
+Dovonex, Silkis, Dovobet/Enstilar, Esmya, Hemlibra, Menopur, Puregon, Gonal-F,
+Mestinon, Praxbind, Protopic, Elidel, Tysabri, Piriton, Lucentis, Eylea, Beovu,
+Vabysmo, Cosopt, Latisse, Lumigan, Rifinah/Rifater, Oxbryta, Qfitlia,
+"Ketoconazole HRA".
+Where a brand carried meaning, the meaning was kept: Descovy → "TAF-based"
+(the safety and daily-only points survive); PCC, recombinant FIX, FSH,
+"fixed-dose combination tablet" all replace their brands directly.
+
+**Findability preserved.** `PHARMA_SEARCH[i][0]` keeps every stripped brand as
+a search term, and 14 new aliases were added for brands that had existed only
+inside a monograph title (Tysabri, Piriton, Protopic, Elidel, Mestinon,
+Praxbind, Esmya, Hemlibra, Dovonex, Silkis, Digibind, Benefix, Oxbryta,
+Cosopt). 1060 entries, 0 orphans. A student who hears the brand still reaches
+the monograph, which then teaches the generic.
+
+**Caught in the same sweep and fixed:** a trial name (CATT), a company name
+(Pfizer), and four dates (Sept 2024, the two Esmya suspension years, the
+JCVI/MHRA years on the RSV and topical-steroid entries).
+
+### R3. Years and issuing-body names in the pharmacology tab — OPEN
+The brand sweep incidentally showed that the pharmacology monographs carry
+roughly **35 remaining year references** — "MHRA 2020", "NICE 2022",
+"BASHH 2019", "RCUK 2021", "ESC 2023", "withdrawn worldwide in 2024",
+"EMA marketing authorisation withdrawn (2023)", "Class C, Nov 2023" and similar
+— plus one more trial name (STAND) and two non-UK bodies (ESC, EMA) that are
+not on the approved issuing-body list.
+Under the house rule the bracketed body is fine but the year is not. I removed
+only the years on lines I was already editing for brands, so the tab is
+currently inconsistent. This is a distinct defect class from brand names and
+was not part of the brand decision, so it is left for the owner to call.
    - Status: **OPEN — owner decision.**
 
 ### S. Cross-file contradictions found and fixed during the ENT pass
