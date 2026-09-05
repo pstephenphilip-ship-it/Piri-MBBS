@@ -585,6 +585,10 @@ body{display:flex;flex-direction:column;}
 .annot-img-lightbox img{max-width:95vw;max-height:92vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.6);}
 .annot-highlight{border-radius:2px;cursor:pointer;transition:filter .12s,box-shadow .12s;}
 .annot-highlight:hover{filter:saturate(1.35) brightness(.97);box-shadow:0 0 0 1px rgba(0,0,0,.14) inset;}
+/* Flash a highlight when its note card is clicked, so you can see exactly where it is. */
+@keyframes annotFlash{0%,100%{box-shadow:0 0 0 0 rgba(0,194,168,0);}18%,55%{box-shadow:0 0 0 3px rgba(0,194,168,.62);}}
+.annot-highlight.annot-flash{animation:annotFlash 1.3s ease-in-out 1;}
+@media (prefers-reduced-motion:reduce){.annot-highlight.annot-flash{animation:none;box-shadow:0 0 0 3px rgba(0,194,168,.62);}}
 .annot-tooltip{position:fixed;z-index:3000;background:var(--surface2);border:1px solid var(--gold);border-radius:20px;padding:5px 14px;font-family:var(--mono);font-size:11px;color:var(--gold);cursor:pointer;white-space:nowrap;box-shadow:0 2px 12px rgba(0,0,0,0.5);transform:translateX(-50%);}
 /* Selection toolbar — highlight colour swatches + add-note */
 .annot-bar{position:fixed;z-index:3000;display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:22px;padding:5px 9px;box-shadow:0 4px 18px rgba(0,0,0,0.5);transform:translateX(-50%);}
@@ -9537,6 +9541,18 @@ initTab('conditions');
     return document.getElementById('notes-panel-'+p);
   }
 
+  // Reveal a saved note: scroll the content to its highlight and flash it. A note can
+  // span several highlight spans (same data-annot-id) — flash them all.
+  function annotFlashMark(el){ if(!el) return; el.classList.remove('annot-flash'); void el.offsetWidth; el.classList.add('annot-flash'); setTimeout(function(){ el.classList.remove('annot-flash'); }, 1400); }
+  function annotJumpTo(p, id){
+    var panel=getContentPanel(p); if(!panel) return false;
+    var marks=panel.querySelectorAll('.annot-highlight[data-annot-id="'+id+'"]');
+    if(!marks.length) return false;
+    try{ marks[0].scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){ try{ marks[0].scrollIntoView(); }catch(_){} }
+    for(var i=0;i<marks.length;i++) annotFlashMark(marks[i]);
+    return true;
+  }
+
   // ---- Cross-browser selection handling (mouse, touch, pen, keyboard) ----
   var _selDocInit = false, _selTimer = null, _mouseDown = false;
   function scheduleEval(){ if(_selTimer) clearTimeout(_selTimer); _selTimer = setTimeout(evaluateSelection, 10); }
@@ -9975,6 +9991,16 @@ initTab('conditions');
       card.appendChild(qEl); card.appendChild(tEl);
       if(a.image){ var cim=document.createElement('img'); cim.className='annot-card-img'; cim.src=a.image; cim.title='Click to view'; (function(src){ cim.onclick=function(){ window.annotShowImg(src); }; })(a.image); card.appendChild(cim); }
       card.appendChild(aEl);
+      // Click the card (not its buttons/image) to scroll the note to this highlight and flash it.
+      card.style.cursor='pointer'; card.title='Jump to this highlight';
+      card.addEventListener('click', function(e){
+        if(e.target.closest('button') || e.target.closest('.annot-card-img')) return;   // let action buttons / the image handle their own clicks
+        if(window.matchMedia && window.matchMedia('(max-width:820px)').matches){
+          var dr=document.getElementById(sbId(p));                                        // the drawer overlays content on phones — close it first, then jump
+          if(dr && dr.classList.contains('open')) annotToggle(p);
+          setTimeout(function(){ annotJumpTo(p, a.id); }, 260);
+        } else { annotJumpTo(p, a.id); }
+      });
       wrap.appendChild(card);
     });
   };
