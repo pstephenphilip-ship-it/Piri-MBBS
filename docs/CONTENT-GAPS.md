@@ -238,3 +238,68 @@ Two levelling passes over the seven batch-3 topics took the median keyed-option
 excess from 44.5 characters to 19, across 90 flagged items. The remaining items
 are mild. Answer *position* is not a defect — `index.html` shuffles options at
 serve time — but length is not shuffled, so it stays the thing worth watching.
+
+---
+
+## Added during the Geriatric Medicine review
+
+All of the below are **outside the agreed Conditions-tab scope**, so none has been
+edited. They are listed in the order I would fix them.
+
+### L. `geriatric-assessment.json` teaches DoLS law that was overruled in June 2026 — URGENT
+There is a **second DoLS topic** in the app: note key
+`GERIATRIC ASSESSMENT__DoLS / Deprivation of Liberty Safeguards` and deck
+`investigations__GERIATRIC ASSESSMENT__DoLS / Deprivation of Liberty Safeguards`
+(7 flashcards, 4 MCQs). It teaches the *Cheshire West* acid test as current law:
+"the person's compliance or lack of objection is irrelevant, and the reason and
+normality of the placement do not matter". The Supreme Court overruled that in
+June 2026 and replaced it with a multifactorial assessment in which compliance,
+normality and purpose are all expressly relevant.
+- **`geri_dols_q01` is now actively mis-keyed.** Its stem gives an 84-year-old who
+  "appears settled and content", keys the acid test as the answer, and offers
+  "She is content, so no deprivation of liberty is occurring" as a distractor —
+  which on those facts is now a defensible position.
+- The Conditions-tab DoLS topic has been rewritten to current law, so the two
+  tabs now teach opposite rules.
+- Status: **OPEN — highest priority of anything in this file.**
+
+### M. `psychiatry.json` uses the overruled acid test as a definition
+`PSYCHIATRY__Mental Health Law & Capacity` defines a deprivation of liberty as
+"continuous supervision + not free to leave" — the acid test, in parenthesis, as
+though it were the definition. It should read as a multifactorial assessment. The
+same note's line that LPS implementation is "postponed indefinitely" is also now
+stale.
+- Status: **OPEN.**
+
+### N. `risk-scores-criteria.json` states a refeeding high-risk threshold wrongly
+`RISK SCORES & CRITERIA__Alcohol, Sepsis & Acute Care`, MUST pane: "High risk if
+little/no intake **>5 days**…" presents 5 days as a standalone high-risk
+criterion. The standalone threshold is **>10 days**; >5 days only counts within
+the "two or more" list, as does an alcohol history. The Malnutrition topic and
+the acute-abdomen topic both have it right, so this file is the outlier.
+- The same pane's exam pearl ("0 = observe/repeat, 1 = document intake, ≥2 =
+  act") muddles the MUST bands against its own section above it.
+- Status: **OPEN.**
+
+### O. `geriatric-assessment.json` Timed Up-and-Go conflicts with the falls guidance
+That note tells students to "quote ≥12 seconds as the screening threshold for
+increased falls risk", while current guidance — correctly taught in the Falls
+topic — advises against falls-risk-prediction tools. The Timed Up-and-Go earns
+its place for observing and tracking gait and balance, not for generating a
+predicted risk. One reconciling clause in the assessment note would fix it.
+- Status: **OPEN.**
+
+### P. `general-systemic.json` uses "Grade 4" for a pressure ulcer
+`signs__GENERAL / SYSTEMIC__Elder Abuse / Safeguarding Concern` has an option
+reading "Grade 4 pressure sores". The app's dermatology note explicitly teaches
+that UK practice uses **category**, not grade, and the Pressure Sores topic uses
+"category" throughout. One word.
+- Status: **OPEN.**
+
+### Q. Lesson carried forward on verification
+Two things in this module could only be settled by checking rather than
+reasoning: the June 2026 DoLS ruling (after my training cutoff, and the app's own
+flashcards were ahead of its note) and the 2023 change to the total hip
+replacement criteria. In both cases the app contradicted itself, and the
+*newer* half was right. Where two parts of this app disagree, check which is
+current before assuming the note is authoritative.
