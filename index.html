@@ -16905,6 +16905,51 @@ function hideFlyout(p) {
   .da-badge{color:#066357;}                       /* 1.79:1 -> 5.67:1 */
 </style>
 
+<!-- =====================================================================
+     LAYOUT PASS 14 — the app-wide contrast sweep, tiers 1 and 2.
+     Search this file for "LAYOUT PASS SWEEP" to find it again.
+     ===================================================================== -->
+<style>
+  /* Every failure below was confirmed by hiding the element's ink,
+     screenshotting, and reading the pixel actually painted behind it — the
+     CSS ground-walk alone reported eight false positives, all of them text
+     on a gradient with no opaque background-colour behind it.
+
+     TIER 2 — one token, everywhere. --muted (#6B7280) and --muted2
+     (#4B5263) sit on the dark #1C2030 chrome at 3.34:1 and 2.00:1. They
+     read fine on the light surfaces they were designed for, so the token
+     stays and these rules move instead. ~160 of the 237 instances. */
+  .nav-tab{color:#949BAD;}                    /* 3.34 -> 5.81, x8, every tab */
+  .sidebar-header,
+  .calc-sidebar-header,
+  .calc-category-header,
+  .calc-nav-name{color:#949BAD;}              /* 3.34 -> 5.63 */
+  .system-count{color:#949BAD;}               /* 2.00 -> 5.63, x100 — the count on
+                                                 every row of every sidebar */
+  .calc-nav-abbr{color:#8B93A5;}              /* 2.07 -> 5.08, x20 */
+
+  /* TIER 1 — the rest under 2.6:1. */
+  /* A brand-coloured chip on a tint of its own colour has almost nothing to
+     work with: the teal system tag measured 1.82:1. */
+  .tag-system,.pharma-class-tag{color:#066357;}   /* 1.82 -> 5.78 */
+  .tag-high-yield{color:#8A5100;}                 /* same fault, gold on gold */
+  .btn-save{color:#0A7568;border-color:rgba(10,117,104,.32);}  /* 2.26 -> 5.59 */
+  .btn-save:hover{background:rgba(10,117,104,.10);}
+  /* The active subtab is white on flat #00C2A8 — 2.26:1. Darkening the fill
+     keeps the shape and the brand hue. */
+  .rich-note .tt-btn.tt-act{background:#0A7568!important;}     /* 2.26 -> 5.59 */
+
+  /* The home page's micro-labels are all one grey. */
+  .wc-inside-h,.wc-hint,.wc-best-l,.wc-plan-empty,
+  .wc-streak.cold .wc-hs-num{color:#6B7280;}      /* 2.39-2.54 -> 4.56 */
+
+  /* Both home action cards put white on a gradient whose light end is too
+     pale for it: Review reached 2.40:1 and Custom Mock 3.99:1. Only the
+     start of each ramp moves. */
+  .wc-act-rev{background:linear-gradient(135deg,#0A7F98 0%,#0B6E85 100%);}
+  .wc-act-mock{background:linear-gradient(135deg,#DE2A43 0%,#C4123C 100%);}
+</style>
+
 <!-- ===================== ADD YOUR OWN TOPIC (per-tab, notes only, follows each tab's template) ===================== -->
 <style id="ownt-styles">
   .ownt-addbtn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:8px;padding:9px 12px;
@@ -17656,10 +17701,10 @@ function hideFlyout(p) {
     var bar=document.querySelector('#tab-pharmacology .pharma-search-bar > div'); if(!bar) return;
     if(document.getElementById('ownt-pharma-add')) return;
     var b=document.createElement('button'); b.id='ownt-pharma-add'; b.type='button';
-    b.style.cssText='flex-shrink:0;cursor:pointer;border:1.5px dashed var(--border2,#CBD2E0);border-radius:var(--radius,9px);padding:10px 16px;font-family:var(--sans);font-size:13px;font-weight:700;color:var(--muted,#6B7280);background:none;white-space:nowrap;';
+    b.style.cssText='flex-shrink:0;cursor:pointer;border:1.5px dashed var(--border2,#CBD2E0);border-radius:var(--radius,9px);padding:10px 16px;font-family:var(--sans);font-size:13px;font-weight:700;color:#949BAD;background:none;white-space:nowrap;'   /* on the dark pharmacology bar: #6B7280 is 3.34:1 there */;
     b.innerHTML='＋ Add your own drug'+(window.__member?'':' <span class="lk">🔒</span>');
     b.onmouseover=function(){ b.style.borderColor='#00C2A8'; b.style.color='#059E8C'; };
-    b.onmouseout=function(){ b.style.borderColor='var(--border2,#CBD2E0)'; b.style.color='var(--muted,#6B7280)'; };
+    b.onmouseout=function(){ b.style.borderColor='var(--border2,#CBD2E0)'; b.style.color='#949BAD'; };
     b.onclick=function(){ if(!window.__member){ if(window.__openMembership) window.__openMembership(); else if(window.openAuthModal) window.openAuthModal('signup'); else alert('Creating your own drugs is a membership feature.'); return; } openCreate(); };
     bar.appendChild(b);
     setTimeout(function(){ var lk=b.querySelector('.lk'); if(window.__member){ if(lk) lk.remove(); } else if(!lk){ b.insertAdjacentHTML('beforeend',' <span class="lk">🔒</span>'); } }, 3500);
