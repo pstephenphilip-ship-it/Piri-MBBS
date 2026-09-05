@@ -17939,11 +17939,12 @@ function hideFlyout(p) {
      Search this file for "LAYOUT PASS Q" to find it again.
      ===================================================================== -->
 <style>
-  /* MEASURE. Same fault the Flashcards pass fixed, and worse here because a
-     question is a stem plus five options: the panel ran to 1200px, so an
-     option line reached about 1030px. A slightly wider column than the
-     flashcard one, since stems are longer than a card front. */
-  .q-panel-inner{max-width:800px;margin-left:auto;margin-right:auto;}
+  /* MEASURE — reverted, for the same reason the Flashcards one was.
+     This pass narrowed the column to 800px and centred it, to bring an
+     option line back from about 1030px. On a wide monitor that leaves the
+     cards marooned in empty space, which reads worse than the long line, so
+     the column keeps the 1200px width it always had. If the measure wants
+     fixing later, cap it inside the card rather than shrinking the card. */
 
   /* CONTRAST. Every colour below is the same hue carried down until it
      clears 4.5:1 against the ground it is actually painted on — the tinted
