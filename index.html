@@ -17890,6 +17890,55 @@ function hideFlyout(p) {
 </style>
 
 <!-- =====================================================================
+     LAYOUT PASS 11 — Questions / MCQs: measure, and the dark-theme
+     tokens that made the answer state hard to read.
+     Search this file for "LAYOUT PASS Q" to find it again.
+     ===================================================================== -->
+<style>
+  /* MEASURE. Same fault the Flashcards pass fixed, and worse here because a
+     question is a stem plus five options: the panel ran to 1200px, so an
+     option line reached about 1030px. A slightly wider column than the
+     flashcard one, since stems are longer than a card front. */
+  .q-panel-inner{max-width:800px;margin-left:auto;margin-right:auto;}
+
+  /* CONTRAST. Every colour below is the same hue carried down until it
+     clears 4.5:1 against the ground it is actually painted on — the tinted
+     option rows and the mint explanation block included, since those tints
+     are what dragged the ratios down in the first place. */
+
+  /* The running total was var(--text) — #E8EAF0, the DARK theme's body
+     colour — on a white score bar: 1.20:1, so "Total: 37" was invisible.
+     This is the same var(--text)-on-light fault fixed on the account
+     surfaces; this was the last instance left in the app. */
+  .q-score-item.total span{color:#1E2640;}          /* 1.20:1 -> 14.93:1 */
+  .q-score-item.correct span{color:#0A7568;}        /* 2.26:1 ->  5.59:1 */
+  .q-score-item.incorrect span{color:#C42A3A;}      /* 2.78:1 ->  5.62:1 */
+
+  .q-title{color:#6D4AE0;}                          /* 2.72:1 ->  5.25:1 */
+  .q-number{color:#6B7280;}                         /* 2.54:1 ->  4.83:1, x37 per topic */
+  .btn-reveal,.btn-add-q{color:#6D4AE0;}            /* 2.72:1 ->  5.67:1 — the primary action */
+  .q-exp-label{color:#0A7568;}                      /* 2.13:1 ->  5.25:1 on the mint block */
+
+  /* The A/B/C/D/E letter is how a revealed option announces itself, and on
+     the tinted rows it was the least readable thing on the card. */
+  .q-option.correct .q-option-letter{color:#0A7568;}    /* 2.26:1 -> 5.03:1 */
+  .q-option.incorrect .q-option-letter{color:#C42A3A;}  /* 2.78:1 -> 5.18:1 */
+  .q-result-tag.correct{color:#0A7568;}                 /* 2.26:1 -> 5.03:1 */
+  .q-result-tag.incorrect{color:#C42A3A;}               /* 2.78:1 -> 4.98:1 */
+
+  /* The row borders carry the same state as a non-text indicator, which
+     wants 3:1 of its own; one step lighter than the ink keeps them clearly
+     brand-coloured while clearing it. */
+  /* Order matters and mirrors the base rules: .selected is declared first so
+     that .correct / .incorrect, which have the same specificity, still win on
+     a revealed row. Reversing them paints a correct answer you picked with
+     the violet "selected" border instead of the teal "correct" one. */
+  .q-option.selected,.q-option:hover:not(.revealed){border-color:#7B5CF0;}
+  .q-option.correct{border-color:#0A8C7A;}
+  .q-option.incorrect{border-color:#D93B4B;}
+</style>
+
+<!-- =====================================================================
      LAYOUT PASS 7 — Medical Conditions: the bare .rn-pill marker.
      Search this file for "LAYOUT PASS COND" to find it again.
      ===================================================================== -->
