@@ -207,21 +207,31 @@ NSAID first-line, then systemic steroid/immunosuppression; topical steroid is
 adjunctive only). The Conditions topic was already correct.
 - Status: **FIXED** — the two diagnoses are now split on both lines.
 
-### J. SLT positioning in COAG — RESOLVED from the user's sources
+### J. SLT positioning in COAG — RESOLVED
 A screening agent proposed that the SLT-first-line recommendation is scoped to
 COAG "that is not advanced", with advanced disease going to trabeculectomy with
 mitomycin C. My own searches confirmed the SLT-first-line half but returned
-nothing on that exception, so it was not written.
-- The user then supplied the guideline text (NICE). It confirms 360° SLT as the
-  preferred initial intervention for newly diagnosed COAG **and** ocular
-  hypertension, and gives two qualifiers, both of which have now been added:
-  **pigment dispersion syndrome**, where SLT is generally unsuitable, and a
-  **generic prostaglandin analogue offered instead** when the patient declines
-  SLT, is waiting for it, or SLT is unsuitable.
-- The **advanced-COAG / mitomycin C** claim is **not supported** by those
-  sources either, so it remains unwritten. Treat the agent's version of it as
-  unverified rather than pending.
-- Status: **RESOLVED.**
+nothing on that exception, so it was not written at first.
+- The user then supplied the guideline text (NICE), in two parts. All of it has
+  now been written into the topic:
+  - 360 degree SLT as the preferred initial intervention for newly diagnosed
+    COAG **and** ocular hypertension, the reason being that avoiding drops
+    removes the adherence burden.
+  - **Pigment dispersion syndrome** — SLT generally unsuitable.
+  - **Generic prostaglandin analogue offered instead** when the patient declines
+    SLT, is waiting for it, or SLT is unsuitable.
+  - **Advanced COAG at diagnosis bypasses both laser and drops** — offer
+    **primary trabeculectomy with mitomycin C**, which lowers IOP further and
+    better preserves long-term vision in that group, with a prostaglandin
+    analogue in the interim while surgery is arranged.
+- The MCQ asking for first-line treatment in newly diagnosed COAG was re-scoped
+  to "that is not already advanced", because the new exception would otherwise
+  have made trabeculectomy a defensible second answer.
+- Status: **RESOLVED.** Lesson for later modules: two of my own searches came
+  back empty on a recommendation that does exist, because the primary sources
+  are proxy-blocked here. Absence of a search hit is not evidence against a
+  claim in this environment — flag it as unverified and ask, rather than
+  treating it as disproved.
 
 ### K. Option-length cues in Ophthalmology were levelled, not eliminated
 Two levelling passes over the seven batch-3 topics took the median keyed-option
