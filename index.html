@@ -16831,13 +16831,13 @@ function hideFlyout(p) {
      form going flat, and it is why the fields are not tinted with the card. */
   .auth-overlay{background:rgba(30,38,64,.45);}
   .auth-card{
-    background:#EAF6F7;
-    border:1px solid #C7E2E6;
+    background:#D2E9EC;
+    border:1px solid #A6D3DA;
     box-shadow:0 24px 64px rgba(30,38,64,.22);
   }
-  .auth-card .auth-close{color:#8B95A8;}
+  .auth-card .auth-close{color:#4B5263;}
   .auth-card .auth-close:hover{color:#1E2640;}
-  .auth-sub{color:#5A6480;}
+  .auth-sub{color:#4B5263;}
   .auth-field label{color:#5A6480;}
   /* select is included: the dark build styled input and textarea but not
      select, so the three signup dropdowns sat darker than the fields above. */
@@ -16856,7 +16856,7 @@ function hideFlyout(p) {
      link teal passes. */
   .auth-toggle{color:#5A6480;}
   /* #0B8A79 passes on white but measures 3.86:1 on the tint. */
-  .auth-toggle a{color:#0A7568;}
+  .auth-toggle a{color:#066357;}   /* 4.42:1 on the deeper tint -> 5.67:1 */
   /* status messages had dark-mode palettes (#ff9b9b, accent-dim). */
   .auth-msg.err{background:#FDEAEA;border:1px solid #F2BABA;color:#C93535;}
   .auth-msg.ok{background:#E7F8F4;border:1px solid #B9E2CD;color:#0B8A79;}
@@ -16870,17 +16870,17 @@ function hideFlyout(p) {
      it comes across with them — otherwise this re-splits what that pass
      unified. */
   .da-lock-wrap{background:rgba(30,38,64,.45);}
-  .da-lock{background:#EAF6F7;border:1px solid #C7E2E6;
+  .da-lock{background:#D2E9EC;border:1px solid #A6D3DA;
     box-shadow:0 24px 64px rgba(30,38,64,.22);}
   .da-lock-title{color:#1E2640;}
-  .da-lock-sub{color:#5A6480;}
-  .da-lock-foot{color:#5A6480;}
+  .da-lock-sub{color:#4B5263;}
+  .da-lock-foot{color:#4B5263;}
   .da-lock-btn{background:#FFFFFF;border:1px solid #C2DBDF;color:#1E2640;}
   .da-lock-btn:hover{background:#F4FBFB;}
   .da-lock-btn.primary{border:none;color:#04121a;}
-  .da-lock-x{color:#8B95A8;}
+  .da-lock-x{color:#4B5263;}
   .da-lock-x:hover{color:#1E2640;background:rgba(30,38,64,.07);}
-  .da-study-blur-card{background:#EAF6F7;border:1px solid #C7E2E6;}
+  .da-study-blur-card{background:#D2E9EC;border:1px solid #A6D3DA;}
   .da-study-blur-title{color:#1E2640;}
 
   /* Membership pricing. These plan cards use --surface2 / --border / --text,
@@ -18031,17 +18031,19 @@ function hideFlyout(p) {
 
   /* ---------- Spaced Repetition Review — modal, teal tint ---------- */
   .da-rv-overlay{background:rgba(30,38,64,.45);}
-  .da-rv-box{background:#EAF6F7;border:1px solid #C7E2E6;
+  .da-rv-box{background:#D2E9EC;border:1px solid #A6D3DA;
              box-shadow:0 24px 64px rgba(30,38,64,.22);}
-  .da-rv-head{border-bottom:1px solid #C7E2E6;}
-  .da-rv-title{color:#1E2640;}                       /* 13.53:1 */
+  .da-rv-head{border-bottom:1px solid #A6D3DA;}
+  .da-rv-title{color:#1E2640;}                       /* 11.81:1 */
+  /* The muted inks come down with the tint: #5A6480 and #0A7568 were sized
+     for the paler ground and fall to 4.65 and 4.42 on this one. */
   .da-rv-sub,.da-rv-bigcap,.da-rv-empty,.da-rv-prog,
-  .da-rv-lbl,.da-rv-src,.da-rv-remove{color:#5A6480;} /* 3.34:1 -> 5.33:1 */
-  .da-rv-x{color:#5A6480;} .da-rv-x:hover{color:#1E2640;}
+  .da-rv-lbl,.da-rv-src,.da-rv-remove{color:#4B5263;} /* 3.34:1 -> 6.18:1 */
+  .da-rv-x{color:#4B5263;} .da-rv-x:hover{color:#1E2640;}
   .da-rv-li{color:#1E2640;}
-  .da-rv-li:nth-child(odd){background:rgba(255,255,255,.66);}
-  .da-rv-li .da-rv-cnt{color:#0A7568;}               /* 5.06:1 */
-  .da-rv-card{background:#FFFFFF;border:1px solid #C2DBDF;}
+  .da-rv-li:nth-child(odd){background:#FFFFFF;}
+  .da-rv-li .da-rv-cnt{color:#066357;}               /* 5.67:1 */
+  .da-rv-card{background:#FFFFFF;border:1px solid #A6D3DA;}
   .da-rv-front,.da-rv-back{color:#1E2640;}
   .da-rv-divider{border-top:1px solid #DDE7EA;}
   .da-rv-reveal{background:#FFFFFF;color:#1E2640;border:1px solid #C2DBDF;}
@@ -18066,18 +18068,24 @@ function hideFlyout(p) {
   .da-rv-rate .da-rv-ivl{opacity:1;}
 
   /* ---------- My Notes — drawer, plain white ---------- */
-  .annot-drawer,.annot-sidebar{background:#FFFFFF;}
-  .annot-drawer.open{border-left:1px solid #D8DBE8;}
-  .annot-sidebar{border-left:1px solid #D8DBE8;}
-  .annot-drawer-hdr,.annot-sidebar-hdr{border-bottom:1px solid #E2E6F0;}
-  .annot-drawer-title{color:#1E2640;}
-  .annot-drawer-title .abt-dot{background:#B86B00;}
-  .annot-drawer-sub,.annot-sidebar-title{color:#6B7280;}  /* 3.34:1 -> 4.83:1 */
-  .annot-empty{color:#6B7280;}                            /* 2.07:1 -> 4.83:1 */
-  .annot-drawer-close,.annot-toggle-btn{color:#6B7280;border-color:#D8DBE8;}
-  .annot-drawer-close:hover,.annot-toggle-btn:hover{color:#1E2640;border-color:#9A5B00;}
+  /* The drawer takes the same teal as the Review modal rather than plain
+     white, so the two tinted surfaces read as one family. Its saved cards
+     go white against it — at 1.26:1 that edge is what separates a card from
+     the panel, which a white-on-white drawer never had. */
+  .annot-drawer,.annot-sidebar{background:#D2E9EC;}
+  .annot-drawer.open{border-left:1px solid #A6D3DA;}
+  .annot-sidebar{border-left:1px solid #A6D3DA;}
+  .annot-drawer-hdr,.annot-sidebar-hdr{border-bottom:1px solid #A6D3DA;}
+  .annot-drawer-title{color:#1E2640;}                     /* 11.81:1 */
+  .annot-drawer-title .abt-dot{background:#8A5100;}
+  /* #6B7280 only reaches 3.82:1 on this ground, so the muted ink is a step
+     darker than it would be on white. */
+  .annot-drawer-sub,.annot-sidebar-title{color:#4B5263;}  /* 3.34:1 -> 6.18:1 */
+  .annot-empty{color:#4B5263;}                            /* 2.07:1 -> 6.18:1 */
+  .annot-drawer-close,.annot-toggle-btn{color:#4B5263;border-color:#A6D3DA;}
+  .annot-drawer-close:hover,.annot-toggle-btn:hover{color:#1E2640;border-color:#8A5100;}
 
-  .annot-card{background:#F8F9FB;border:1px solid #E2E6F0;border-left:3px solid #B86B00;}
+  .annot-card{background:#FFFFFF;border:1px solid #C2DBDF;border-left:3px solid #B86B00;}
   .annot-card-quote{color:#8A5100;opacity:1;}             /* 6.12:1 */
   .annot-card-text{color:#1E2640;}
   .annot-card-nonote{color:#6B7280;}
