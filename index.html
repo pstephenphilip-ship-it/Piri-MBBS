@@ -14847,7 +14847,7 @@ function hideFlyout(p) {
     }
     // Signed in, not a member.
     var live = livePlans();
-    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:#FFFFFF;border-radius:10px;font-size:12.5px;line-height:1.55;color:#1E2640;"><b style="color:#0EA5E9;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at a beta discount &mdash; the crossed-out price is the full rate once the platform is complete. Lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
+    var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:#FFFFFF;border-radius:10px;font-size:12.5px;line-height:1.55;color:#1E2640;"><b style="color:#0A6DA0;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at a beta discount &mdash; the crossed-out price is the full rate once the platform is complete. Lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
     if(live.length){
       body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
         betaNote+
@@ -16895,6 +16895,14 @@ function hideFlyout(p) {
   .da-plan-permo{color:#0A7568;}
   .da-plan-note{color:#5A6480;}
   .da-plan-lead{color:#5A6480;}
+  /* The beta-discount anchor pricing landed after this pass and brought its
+     own raw brand tokens with it. Measured on the rendered signed-in pane:
+     "33% off at launch" — the headline of the offer — at 2.26:1, the
+     crossed-out full price at 3.96:1 (it is #6B7280 under opacity .9), and
+     the Free badge at 1.79:1 on the tinted sheet. */
+  .da-plan-off{color:#0A7568;}                    /* 2.26:1 -> 5.59:1 */
+  .da-plan-was{color:#5A6480;opacity:1;}          /* 3.96:1 -> 5.88:1 */
+  .da-badge{color:#066357;}                       /* 1.79:1 -> 5.67:1 */
 </style>
 
 <!-- ===================== ADD YOUR OWN TOPIC (per-tab, notes only, follows each tab's template) ===================== -->
