@@ -16973,6 +16973,33 @@ function hideFlyout(p) {
   .da-lock-btn.mem{color:#066357;}              /* 2.49 -> 5.33 */
 </style>
 
+<!-- =====================================================================
+     LAYOUT PASS 16 — the emoji baked into the note corpus.
+     Search this file for "LAYOUT PASS EMOJI" to find it again.
+     ===================================================================== -->
+<style>
+  /* 7,369 emoji sit in icon slots inside the note JSON — cp-kill-ic alone
+     has 5,000 uses across 420 DISTINCT glyphs, because the glyph is the
+     signal: microscope for pathology, droplet for blood, pill for
+     drug-induced, and so on. They cannot be mapped onto a small icon set
+     without losing what the author encoded, and they cannot be recoloured,
+     since an emoji paints in its own colours whatever CSS says.
+
+     Desaturating them is the one treatment that keeps every distinction
+     while stopping them reading as full-colour stickers on a quiet page.
+     The category is already carried by the card's coloured left border and
+     header tint, so the glyph only has to say WHICH kind, not how loudly.
+
+     This is presentation only: not one character of content changes, and
+     removing this block puts every emoji back exactly as it was. */
+  .cp-kill-ic,
+  .cp-mapic,
+  .rn-card-head > span:first-child{
+    filter:grayscale(1);
+    opacity:.75;
+  }
+</style>
+
 <!-- ===================== ADD YOUR OWN TOPIC (per-tab, notes only, follows each tab's template) ===================== -->
 <style id="ownt-styles">
   .ownt-addbtn{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;margin-top:8px;padding:9px 12px;
