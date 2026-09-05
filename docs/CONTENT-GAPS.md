@@ -431,18 +431,28 @@ the monograph, which then teaches the generic.
 (Pfizer), and four dates (Sept 2024, the two Esmya suspension years, the
 JCVI/MHRA years on the RSV and topical-steroid entries).
 
-### R3. Years and issuing-body names in the pharmacology tab — OPEN
-The brand sweep incidentally showed that the pharmacology monographs carry
-roughly **35 remaining year references** — "MHRA 2020", "NICE 2022",
-"BASHH 2019", "RCUK 2021", "ESC 2023", "withdrawn worldwide in 2024",
-"EMA marketing authorisation withdrawn (2023)", "Class C, Nov 2023" and similar
-— plus one more trial name (STAND) and two non-UK bodies (ESC, EMA) that are
-not on the approved issuing-body list.
-Under the house rule the bracketed body is fine but the year is not. I removed
-only the years on lines I was already editing for brands, so the tab is
-currently inconsistent. This is a distinct defect class from brand names and
-was not part of the brand decision, so it is left for the owner to call.
-   - Status: **OPEN — owner decision.**
+### R3. Years and issuing-body names in the pharmacology tab — RESOLVED (v983)
+36 substitutions. The bracketed issuing body is kept everywhere; only the year
+goes, so "(MHRA 2020)" becomes "(MHRA)" and "MHRA 2024: don't start..." becomes
+"MHRA: don't start...". Dates removed from the steroid emergency card, the
+ketoconazole withdrawal, the gabapentinoid rescheduling, the lecanemab and
+donanemab licensing, the alemtuzumab restriction, the lesinurad and voxelotor
+withdrawals, and the nitrous oxide reclassification.
+
+Three things the same sweep caught and fixed:
+- **A trial name** (STAND, on the crizanlizumab entry) — removed, with the
+  substance kept: "the marketing authorisation was withdrawn after a trial
+  failed to confirm benefit". The CATT trial name went in the previous pass.
+- **ESC** on the gentamicin entry — a non-UK body, and UK guidance takes
+  priority, so the claim is now a plain clinical statement: "routine gentamicin
+  is no longer recommended in native-valve staphylococcal endocarditis".
+- **EMA** in three places (crizanlizumab, trimetazidine ×2) — same treatment.
+- **RCUK** expanded to **Resuscitation Council UK**, the approved form.
+
+Verified: 0 year references remain in the tab (the only regex hit left is the
+dose range "800–2000 IU"), and 0 trial names, non-UK bodies, document codes or
+URLs.
+   - Status: **RESOLVED.**
 
 ### S. Cross-file contradictions found and fixed during the ENT pass
 Recorded because the pattern matters: in every case the conditions tab was one
