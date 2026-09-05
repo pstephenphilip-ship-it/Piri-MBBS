@@ -17707,6 +17707,63 @@ function hideFlyout(p) {
 </style>
 
 <!-- =====================================================================
+     LAYOUT PASS 8 — mobile: the floating buttons stop covering the note.
+     Search this file for "LAYOUT PASS FAB" to find it again.
+     ===================================================================== -->
+<style>
+  /* Four buttons are position:fixed over the reading column on a phone: the
+     three round FABs down the right edge (My Notes / Review / Custom Mock,
+     37px each at right:14px) and the Get Membership pill at bottom-left.
+     Measured on a 390x780 viewport in a Medical Conditions note: they cover
+     note text at EVERY scroll position — 10 occluded text rects across four
+     positions in a single note. At 1440px the count is 0, so this is a
+     phone-only problem and the desktop layout is left completely alone.
+
+     Reserving a gutter would cost ~12% of a 390px reading column for good,
+     so instead the buttons step out of the way only while the reader is
+     actually scrolling, and fade back 550ms after they stop. Nothing is
+     removed, no width is lost, and every button is back before a thumb can
+     reach it. */
+  @media (max-width:720px){
+    .annot-fab,.da-rv-fab,.mock-fab,.da-mem-fab{
+      transition:transform .18s ease,box-shadow .15s,opacity .18s ease;
+    }
+    body.da-fab-quiet .annot-fab,
+    body.da-fab-quiet .da-rv-fab,
+    body.da-fab-quiet .mock-fab,
+    body.da-fab-quiet .da-mem-fab{
+      opacity:0;
+      transform:translateY(10px);
+      pointer-events:none;
+    }
+  }
+  /* Someone who has asked for less motion gets the buttons held still. */
+  @media (max-width:720px) and (prefers-reduced-motion:reduce){
+    .annot-fab,.da-rv-fab,.mock-fab,.da-mem-fab{transition:opacity .18s ease;}
+    body.da-fab-quiet .annot-fab,
+    body.da-fab-quiet .da-rv-fab,
+    body.da-fab-quiet .mock-fab,
+    body.da-fab-quiet .da-mem-fab{transform:none;}
+  }
+</style>
+<script>
+/* Adds body.da-fab-quiet while any scroller on the page is moving, and takes
+   it off 550ms after the last scroll event. Capture phase, because the notes
+   panel scrolls internally and its scroll events do not bubble to window. */
+(function(){
+  var t=null, on=false;
+  function quiet(){
+    if(!on && window.matchMedia('(max-width:720px)').matches){
+      on=true; document.body.classList.add('da-fab-quiet');
+    }
+    clearTimeout(t);
+    t=setTimeout(function(){ on=false; document.body.classList.remove('da-fab-quiet'); },550);
+  }
+  document.addEventListener('scroll',quiet,{capture:true,passive:true});
+})();
+</script>
+
+<!-- =====================================================================
      LAYOUT PASS 7 — Medical Conditions: the bare .rn-pill marker.
      Search this file for "LAYOUT PASS COND" to find it again.
      ===================================================================== -->
