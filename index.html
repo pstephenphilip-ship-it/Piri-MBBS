@@ -9994,7 +9994,20 @@ initTab('conditions');
         var max=1000, w=img.naturalWidth||1, h=img.naturalHeight||1;
         if(w>max||h>max){ var s=Math.min(max/w,max/h); w=Math.round(w*s); h=Math.round(h*s); }
         var c=document.createElement('canvas'); c.width=w; c.height=h;
-        try{ c.getContext('2d').drawImage(img,0,0,w,h); var out=c.toDataURL('image/jpeg',0.8); URL.revokeObjectURL(url); cb(out); }
+        try{
+          var ctx=c.getContext('2d'); ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,w,h); ctx.drawImage(img,0,0,w,h);
+          URL.revokeObjectURL(url);
+          var inline=function(){ try{ cb(c.toDataURL('image/jpeg',0.8)); }catch(_){ cb(null); } };
+          if(!c.toBlob){ inline(); return; }
+          // Store in Supabase Storage (short URL) so an attached image can't bust the note's
+          // localStorage quota; inline base64 only as a fallback when offline / signed out.
+          c.toBlob(function(out){
+            if(!out){ inline(); return; }
+            var fallback=function(){ var rd=new FileReader(); rd.onload=function(){ cb(rd.result); }; rd.onerror=function(){ cb(null); }; rd.readAsDataURL(out); };
+            if(window.__uploadNoteImage){ window.__uploadNoteImage(out, function(remoteUrl){ remoteUrl ? cb(remoteUrl) : fallback(); }); }
+            else { fallback(); }
+          }, 'image/jpeg', 0.8);
+        }
         catch(e){ URL.revokeObjectURL(url); cb(null); }
       };
       img.onerror=function(){ URL.revokeObjectURL(url); cb(null); };
@@ -13096,6 +13109,28 @@ function hideFlyout(p) {
     console.warn('Supabase library not loaded — login disabled.');
   }
   window.__sb = sb; // expose for future cloud-sync work
+
+  // Upload an already-compressed image blob to Supabase Storage and hand back a public
+  // URL. Returns null (caller then inlines base64) when offline, signed out, the bucket
+  // is missing, or on any error — so it degrades safely even before the bucket exists.
+  window.__uploadNoteImage = function(blob, cb){
+    try{
+      if(!sb || !blob){ cb(null); return; }
+      sb.auth.getSession().then(function(res){
+        var user = res && res.data && res.data.session && res.data.session.user;
+        if(!user){ cb(null); return; }               // members only; signed-out falls back to base64
+        var ext = (blob.type && blob.type.indexOf('png')>=0) ? 'png' : 'jpg';
+        var path = user.id + '/' + Date.now() + '-' + Math.random().toString(36).slice(2,9) + '.' + ext;
+        sb.storage.from('note-images').upload(path, blob, { contentType: blob.type || 'image/jpeg', cacheControl: '31536000', upsert: false })
+          .then(function(up){
+            if(up && up.error){ console.warn('note-image upload failed:', up.error.message); cb(null); return; }
+            var pub = sb.storage.from('note-images').getPublicUrl(path);
+            cb((pub && pub.data && pub.data.publicUrl) || null);
+          })
+          .catch(function(e){ console.warn('note-image upload error:', e); cb(null); });
+      }).catch(function(){ cb(null); });
+    }catch(e){ cb(null); }
+  };
 
   // ---- UI helpers ----
   function $(id){ return document.getElementById(id); }
@@ -17328,8 +17363,9 @@ function hideFlyout(p) {
     if(hadSel){ run('createLink', url); }
     else { var txt=prompt('Link text:', url)||url; insertBlock('<a href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(txt)+'</a>'); }
   }
-  // Downscale + JPEG-compress an uploaded image so it stays small enough for
-  // localStorage and cloud sync (labelled diagrams stay legible at ~1400px).
+  // Downscale an image (longest side <=1400px), then store it in Supabase Storage and
+  // return a short URL — falling back to an inline base64 JPEG only when offline / signed
+  // out / the bucket is missing. Keeps notes tiny so they never bust localStorage or sync.
   function owntCompressImg(blob, cb){
     try{
       var url=URL.createObjectURL(blob), img=new Image();
@@ -17341,9 +17377,15 @@ function hideFlyout(p) {
           var ctx=c.getContext('2d');
           ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,w,h);   // flatten any transparency to white (JPEG has no alpha)
           ctx.drawImage(img,0,0,w,h);
-          var out=c.toDataURL('image/jpeg',0.85);
           URL.revokeObjectURL(url);
-          cb(out && out.indexOf('data:image/jpeg')===0 ? out : null);
+          var inline=function(){ try{ cb(c.toDataURL('image/jpeg',0.85)); }catch(_){ cb(null); } };
+          if(!c.toBlob){ inline(); return; }
+          c.toBlob(function(out){
+            if(!out){ inline(); return; }
+            var fallback=function(){ var rd=new FileReader(); rd.onload=function(){ cb(rd.result); }; rd.onerror=function(){ cb(null); }; rd.readAsDataURL(out); };
+            if(window.__uploadNoteImage){ window.__uploadNoteImage(out, function(remoteUrl){ remoteUrl ? cb(remoteUrl) : fallback(); }); }
+            else { fallback(); }
+          }, 'image/jpeg', 0.85);
         }catch(e){ URL.revokeObjectURL(url); cb(null); }
       };
       img.onerror=function(){ URL.revokeObjectURL(url); cb(null); };
