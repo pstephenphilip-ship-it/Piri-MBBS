@@ -17164,6 +17164,9 @@ function hideFlyout(p) {
   @media (max-width:680px){
     .rn-pearl-grid{grid-template-columns:1fr;}
   }
+  /* An odd number of pearls leaves the last one alone in the left cell with a
+     blank cell beside it; let it take the row. */
+  .rn-pearl-grid > .rn-pearl:last-child:nth-child(odd){grid-column:1 / -1;}
 
   /* A card left alone on the last row of a two-column grid sat at half width
      with a wall of text in it; and a card several times longer than its

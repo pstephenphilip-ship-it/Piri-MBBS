@@ -576,6 +576,58 @@ def pass_span2(s, stats):
     out.append(s[pos:])
     return ''.join(out)
 
+PEARL_GRID = re.compile(r'<div class="rn-pearl-grid"[^>]*>')
+# Only an actual cross-reference blocks sorting. A bare "above" or "below" is
+# almost always anatomical here — "immediately above the superior border of the
+# rib below" — and treating those as references skipped whole grids.
+ORDER_WORDS = re.compile(
+    r'\b(?:as (?:above|below)'
+    r'|see (?:above|below)'
+    r'|(?:the )?(?:box|table|list|section|point|note|block|row|column|pearl)s?'
+    r'\s+(?:above|below)'
+    r'|(?:noted|listed|described|mentioned|shown|set out|covered)\s+(?:above|below)'
+    r'|earlier in this note|the former|the latter'
+    r'|the (?:first|second|third) (?:pearl|point|box))\b', re.I)
+
+def pass_pearlorder(s, stats):
+    """Pair pearls of similar length. The grid is two stretched columns, so a
+    row is as tall as its taller pearl and the shorter one carries the
+    difference as blank space. Sorting by length and pairing neighbours is the
+    arrangement that minimises the total of those differences.
+
+    Skipped where any pearl refers to another by position ("as above", "the
+    first"), since sorting would break the reference."""
+    out = []; pos = 0
+    for m in PEARL_GRID.finditer(s):
+        if m.start() < pos: continue
+        end = _matching_close(s, m.start())
+        if end < 0: continue
+        grid = s[m.start():end]
+        inner_start = grid.find('>') + 1
+        inner_end = grid.rfind('</div>')
+        pearls = []
+        i = inner_start
+        while True:
+            pm = re.compile(r'<div class="rn-pearl"[^>]*>').search(grid, i)
+            if not pm or pm.start() >= inner_end: break
+            pe = _matching_close(grid, pm.start())
+            if pe < 0: break
+            pearls.append(grid[pm.start():pe]); i = pe
+        if len(pearls) < 4: continue
+        # everything between the pearls must be whitespace, or we would lose it
+        rebuilt = ''.join(pearls)
+        if re.sub(r'\s+', '', grid[inner_start:inner_end]) != re.sub(r'\s+', '', rebuilt):
+            continue
+        if any(ORDER_WORDS.search(visible(p)) for p in pearls): continue
+        order = sorted(pearls, key=lambda p: len(visible(p)))
+        if order == pearls: continue
+        newgrid = (grid[:inner_start] + '\n        '
+                   + '\n        '.join(order) + '\n      ' + grid[inner_end:])
+        out.append(s[pos:m.start()]); out.append(newgrid); pos = end
+        stats['pearlorder'] += 1
+    out.append(s[pos:])
+    return ''.join(out)
+
 def pass_lis(s, stats):
     """A very long bullet keeps its first sentence and nests the elaboration."""
     def rep(m):
@@ -601,7 +653,8 @@ def pass_lis(s, stats):
 def process(path, apply=False, only=None):
     d = json.load(open(path, encoding='utf-8'))
     stats = dict(accents=0, callouts=0, pearls=0, cpblocks=0, invcards=0,
-                 cardbodies=0, span2=0, spanall=0, lis=0, paras=0, cells=0)
+                 cardbodies=0, span2=0, spanall=0, pearlorder=0,
+                 lis=0, paras=0, cells=0)
     changed = 0
     for k, v in list(d.items()):
         if not isinstance(v, str): continue
@@ -615,6 +668,7 @@ def process(path, apply=False, only=None):
         v = pass_cardbodies(v, stats)
         v = pass_spanall(v, stats)
         v = pass_span2(v, stats)
+        v = pass_pearlorder(v, stats)
         v = pass_cells(v, stats)
         v = pass_lis(v, stats)
         v = pass_paras(v, stats)
