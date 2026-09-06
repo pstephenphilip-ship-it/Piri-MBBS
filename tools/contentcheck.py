@@ -35,7 +35,12 @@ def content_words(markup: str):
     out = Counter()
     for w in words(markup):
         w = re.sub(r"^[^0-9a-z%<>=+/\u00b5\u2264\u2265-]+|[^0-9a-z%<>=+/\u00b5\u2264\u2265-]+$", "", w.lower())
-        if not w or w in STOP: continue
+        # A token with no letter or digit is punctuation doing a separator's
+        # job -- the "+" in "Heinz bodies (...) + bite cells (...)", the "-"
+        # in a dash-joined clause. Splitting that list into two rows drops the
+        # separator and nothing else, so it must not read as a lost fact.
+        # ("CD30+" and "94%" keep their symbol: they still contain a digit.)
+        if not w or w in STOP or not re.search(r"[0-9a-z]", w): continue
         out[w] += 1
     return out
 
