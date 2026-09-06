@@ -36,7 +36,10 @@ on conflict (code) do update
   set name = excluded.name, type = excluded.type, active = true;
 
 -- Report, now with the affiliate's name/type alongside the numbers.
-create or replace view public.referral_stats as
+-- Drop first: CREATE OR REPLACE VIEW cannot reorder/rename existing columns, and this
+-- version inserts affiliate/affiliate_type ahead of the original columns.
+drop view if exists public.referral_stats;
+create view public.referral_stats as
 select
   p.ref_code                                                        as code,
   a.name                                                            as affiliate,
