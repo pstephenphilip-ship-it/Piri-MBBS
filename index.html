@@ -17075,7 +17075,11 @@ function hideFlyout(p) {
      A dense strip at the top of a section beats the same facts buried in a
      paragraph, and it uses the width the note already has. */
   .rn-keyfacts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px;}
-  .rn-kf{flex:1 1 150px;min-width:0;background:var(--rn-bg,#F7F8FC);
+  /* The chip set a light background but no ink, so anything written straight
+     into it inherited the dark-theme body colour: #E8EAF0 on #EBF2FF, a
+     contrast ratio of 1.02:1 -- invisible. Only .rn-kf-v and .rn-kf-l ever
+     set a colour, so the chip was only usable as a value+label pair. */
+  .rn-kf{flex:1 1 150px;min-width:0;background:var(--rn-bg,#F7F8FC);color:var(--rn-text,#1E2640);
          border:1.5px solid var(--rn-border,#E2E6F0);border-radius:10px;padding:11px 14px;}
   .rn-kf-v{font-family:var(--mono);font-size:17px;font-weight:800;line-height:1.15;color:#1E2640;}
   .rn-kf-l{font-size:11.5px;line-height:1.45;color:#5A6480;margin-top:4px;}
@@ -17115,7 +17119,14 @@ function hideFlyout(p) {
   /* A callout built as lead + list + closing line, rather than one paragraph.
      .rn-callout's own padding supplies the inset, so these carry no margin of
      their own beyond the gaps between them. */
-  .rn-callout > .rn-cl-lead{margin:0 0 8px;}
+  /* The lead+list pattern is used inside callouts, cards, pearls, warnings
+     and highlights; give the lead its spacing in all of them so notes do not
+     have to carry an inline margin at each site. */
+  .rn-callout > .rn-cl-lead,
+  .rn-card > .rn-cl-lead{margin:0 0 8px;}
+  .rn-pearl > .rn-cl-lead,
+  .rn-warn > .rn-cl-lead,
+  .rn-highlight > .rn-cl-lead{display:block;margin:0 0 6px;}
   .rn-callout > .rn-tightlist{margin:0;}
   .rn-callout > .rn-cl-tail{margin:9px 0 0;}
 
