@@ -184,8 +184,13 @@ def to_lead_and_list(inner, min_items=2):
 # one before it. A LOWERCASE opening means that too when the split was on a
 # sentence end -- but not when the split was on a list separator, where
 # "wheeze -> asthma * acid + worse lying -> GORD" is two rows by design.
+# Dashes and arrows appear three ways in this corpus: literal characters,
+# named entities, and NUMERIC entities (&#8212; for an em dash). Missing the
+# numeric form meant fragment rows written that way were never reported.
 _CONT_PUNCT = (r'^\s*(?:<[^>]+>\s*)*'
-               r'(?:&[mn]dash;|&r?arr;|&hellip;|[-–—→⇒(\[,;:])')
+               r'(?:&[mn]dash;|&r?arr;|&hellip;'
+               r'|&#(?:8211|8212|8213|8594|8658|8230|45);'
+               r'|[-–—→⇒(\[,;:])')
 CONT       = re.compile(_CONT_PUNCT + r'|^\s*(?:<[^>]+>\s*)*[a-z]')
 CONT_PUNCT = re.compile(_CONT_PUNCT)
 
