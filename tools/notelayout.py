@@ -536,7 +536,7 @@ def pass_spanall(s, stats):
         # Every card in a row is the same width, so characters stand in for
         # height. One card clearly longer than the next longest is the case
         # worth pulling out; several similar long ones are just a dense row.
-        if lens[0] < 450 or lens[0] < 1.6 * lens[1]: continue
+        if lens[0] < 350 or lens[0] < 1.7 * lens[1]: continue
         big = [c for c in cards if c[2] == lens[0]]
         if len(big) != 1: continue
         a, b, _ = big[0]
@@ -587,6 +587,12 @@ def pass_lis(s, stats):
             frags = _semi_split(inner)
             if len(frags) < 4: return m.group(0)
         head, rest = frags[0], frags[1:]
+        # A row opening with a bracket or a dash continues the head sentence.
+        while rest and _is_continuation(rest[0], allow_lower=False):
+            head = (head + ' ' + rest.pop(0)).strip()
+        if len(rest) < 2: return m.group(0)
+        if any(_is_continuation(f, allow_lower=False) for f in rest): return m.group(0)
+        if any(f.count('(') != f.count(')') for f in rest): return m.group(0)
         items = ''.join('<li>%s</li>' % _cap(strip_trailing_stop(f)) for f in rest)
         stats['lis'] += 1
         return '%s%s<ul class="rn-tightlist">%s</ul>%s' % (open_, head, items, close)
