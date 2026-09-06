@@ -13937,6 +13937,33 @@ function hideFlyout(p) {
     }).catch(function(e){ console.warn('referral save', e); });
   }
 
+  // Official-affiliate lookup for the referral field: shows "✓ Supporting <name>" when the typed
+  // code matches an active affiliate in the public registry (anon-readable). Degrades silently —
+  // no confirmation — if the table isn't there yet or the code is unlisted, so it never blocks.
+  function affiliateLookup(code, cb){
+    code=(code||'').trim().toUpperCase();
+    if(!code || !sb){ cb(null); return; }
+    try{
+      sb.from('affiliates').select('name,type').eq('code',code).eq('active',true).maybeSingle()
+        .then(function(r){ cb((r && !r.error && r.data) ? r.data : null); })
+        .catch(function(){ cb(null); });
+    }catch(e){ cb(null); }
+  }
+  function wireRefcodeValidation(inputId, fbId){
+    var inp=$(inputId), fb=$(fbId); if(!inp||!fb) return;
+    var t=null;
+    function run(){
+      var code=(inp.value||'').trim().toUpperCase();
+      if(!code){ fb.textContent=''; return; }
+      affiliateLookup(code, function(a){
+        if(a){ fb.textContent='✓ Supporting '+a.name; fb.style.color='var(--rn-green,#1F8B5E)'; }
+        else { fb.textContent=''; }   // unlisted code stays neutral — never blocks a valid new one
+      });
+    }
+    inp.addEventListener('input', function(){ if(t) clearTimeout(t); t=setTimeout(run, 400); });
+    run();   // validate any prefilled value
+  }
+
   function injectSignupFields(){
     var form=$('authForm'), btn=$('authSubmitBtn');
     if(!form||!btn||$('da-su-fields')) return;
@@ -13947,8 +13974,9 @@ function hideFlyout(p) {
       '<div class="auth-field"><label for="da-university">Medical school / University <span style="opacity:.55">(optional)</span></label><input id="da-university" type="text" placeholder="e.g. QMUL"></div>'+
       '<div class="auth-field"><label for="da-year">Year of study <span style="opacity:.55">(optional)</span></label><select id="da-year">'+yrOpts()+'</select></div>'+
       '<div class="auth-field"><label for="da-country">Country / region <span style="opacity:.55">(optional)</span></label><input id="da-country" type="text" placeholder="e.g. United Kingdom"></div>'+
-      '<div class="auth-field"><label for="da-refcode">Have a referral code? <span style="opacity:.55">(optional)</span></label><input id="da-refcode" type="text" autocomplete="off" placeholder="e.g. NEUROSOC or a friend’s code"><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">From a society or an individual — enter their code to support whoever sent you.</div></div>';
+      '<div class="auth-field"><label for="da-refcode">Have a referral code? <span style="opacity:.55">(optional)</span></label><input id="da-refcode" type="text" autocomplete="off" placeholder="e.g. NEUROSOC or a friend’s code"><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">From a society or an individual — enter their code to support whoever sent you.</div><div id="da-refcode-fb" style="font-size:12px;margin-top:6px;font-weight:600;min-height:15px;"></div></div>';
     form.insertBefore(wrap, btn);
+    wireRefcodeValidation('da-refcode','da-refcode-fb');
   }
 
   window.__authMode='signin';
@@ -14114,9 +14142,9 @@ function hideFlyout(p) {
       '<div class="auth-field"><label>Medical school / University</label><input id="da-ep-university" type="text"></div>'+
       '<div class="auth-field"><label>Year of study</label><select id="da-ep-year">'+yrOpts()+'</select></div>'+
       '<div class="auth-field"><label>Country / region</label><input id="da-ep-country" type="text"></div>'+
-      '<div class="auth-field"><label for="da-ep-refcode">Referral code <span style="opacity:.55">(optional)</span></label><input id="da-ep-refcode" type="text" autocomplete="off" placeholder="e.g. NEUROSOC or a friend’s code"><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">A society or individual’s code — supports whoever referred you.</div></div>'+
+      '<div class="auth-field"><label for="da-ep-refcode">Referral code <span style="opacity:.55">(optional)</span></label><input id="da-ep-refcode" type="text" autocomplete="off" placeholder="e.g. NEUROSOC or a friend’s code"><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">A society or individual’s code — supports whoever referred you.</div><div id="da-ep-refcode-fb" style="font-size:12px;margin-top:6px;font-weight:600;min-height:15px;"></div></div>'+
       '<button class="auth-submit" id="da-ep-save">Save changes</button></div>';
-    document.body.appendChild(ov); $('da-ep-save').onclick=saveProfile; wireAvatar();
+    document.body.appendChild(ov); $('da-ep-save').onclick=saveProfile; wireAvatar(); wireRefcodeValidation('da-ep-refcode','da-ep-refcode-fb');
     var ov2=document.createElement('div'); ov2.className='auth-overlay'; ov2.id='da-pw-overlay'; ov2.onclick=function(e){ if(e.target===ov2) ov2.classList.remove('open'); };
     ov2.innerHTML='<div class="auth-card"><button class="auth-close" onclick="document.getElementById(\'da-pw-overlay\').classList.remove(\'open\')">&times;</button>'+
       '<div class="auth-sub" style="font-weight:800;font-size:16px;color:#1E2640">Change password</div>'+
@@ -14128,7 +14156,7 @@ function hideFlyout(p) {
   }
   function pmsg(id,t,k){ var m=$(id); if(m){ m.textContent=t; m.className='auth-msg show '+(k||'err'); } }
   function fillEditForm(){ var p=profile||{}; var u=$('da-ep-username'); if(!u) return; u.value=p.username||''; $('da-ep-fullname').value=p.full_name||''; $('da-ep-university').value=p.university||''; $('da-ep-year').value=p.study_year||''; $('da-ep-country').value=p.country||'';
-    var _rc=$('da-ep-refcode'); if(_rc){ _rc.value=p.ref_code||''; }
+    var _rc=$('da-ep-refcode'); if(_rc){ _rc.value=p.ref_code||''; _rc.dispatchEvent(new Event('input')); }
     pendingAvatar=undefined; renderEpAvatar(p.avatar_url, p.username||((currentUser&&currentUser.email)||'')); }
   function openEditProfile(){ buildModals(); var m=$('da-prof-msg'); if(m) m.className='auth-msg'; fillEditForm(); $('da-profile-overlay').classList.add('open'); if(sb&&currentUser){ sb.from('profiles').select('*').eq('id',currentUser.id).maybeSingle().then(function(r){ if(!r.error&&r.data){ profile=r.data; fillEditForm(); } }); } }
   function openChangePw(){ buildModals(); $('da-pw-new').value=''; $('da-pw-conf').value=''; var m=$('da-pw-msg'); if(m) m.className='auth-msg'; $('da-pw-overlay').classList.add('open'); }
