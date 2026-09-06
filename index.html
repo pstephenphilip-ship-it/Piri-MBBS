@@ -264,7 +264,7 @@ body{display:flex;flex-direction:column;}
 .rn-body ul,.rn-body ol{margin:4px 0 14px 0;padding-left:22px;}
 .rn-body li{font-size:14px;line-height:1.75;color:var(--rn-text);margin-bottom:3px;}
 .rn-label{display:inline-block;background:var(--rn-blue-bg);color:var(--rn-blue);border-radius:6px;padding:1px 8px;font-size:11.5px;font-weight:700;font-family:var(--mono);text-transform:uppercase;letter-spacing:.04em;margin-right:5px;vertical-align:middle;}
-.rn-highlight{background:var(--rn-teal-bg);color:var(--rn-teal);border-radius:4px;padding:2px 7px;font-weight:600;}
+.rn-highlight{background:var(--rn-teal-bg);color:#0A7568;border-radius:4px;padding:2px 7px;font-weight:600;}
 .rn-warn{color:var(--rn-red);font-weight:600;}
 .rn-small{font-size:12px;color:var(--rn-sub);}
 .rn-three-col,.rn-two-col,.rn-four-col{display:flex;gap:12px;flex-wrap:wrap;}
@@ -17127,6 +17127,10 @@ function hideFlyout(p) {
   .rn-pearl > .rn-cl-lead,
   .rn-warn > .rn-cl-lead,
   .rn-highlight > .rn-cl-lead{display:block;margin:0 0 6px;}
+  /* ...and give it ink. A card sets a light ground but no colour, so a lead
+     placed inside one inherited the dark-theme body text: measured
+     rgb(232,234,240) on a light amber card, i.e. invisible. */
+  .rn-card .rn-cl-lead{color:var(--rn-text,#1E2640);}
   .rn-callout > .rn-tightlist{margin:0;}
   .rn-callout > .rn-cl-tail{margin:9px 0 0;}
 
