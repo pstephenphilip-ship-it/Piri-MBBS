@@ -498,7 +498,7 @@ body{display:flex;flex-direction:column;}
 #tab-osce .osce-aud .d{font-size:12px;}
 
 
-.rn-inv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;}
+.rn-inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;}
 .rn-inv-card{background:#F1F3F8;border:1.5px solid var(--rn-border);border-radius:10px;padding:14px;}
 .rn-inv-urgent{border-color:#F2BABA;background:var(--rn-red-bg);}
 .rn-inv-icon{font-size:22px;margin-bottom:7px;}
@@ -17128,6 +17128,43 @@ function hideFlyout(p) {
      .rn-card > * + ul, so the :not() form is needed to tie and win on order.) */
   .rn-card > *:not(.rn-card-head) + *:not(.rn-card-head){padding-top:0;}
   .rn-card > .rn-card-head + *:not(.rn-card-head){padding-top:12px;}
+
+  /* An investigation card carrying a long work-up list was squeezed into one
+     210px grid column and ran to fifteen lines of three-word rows next to
+     three short siblings. .rn-inv-wide gives it the full row instead. */
+  .rn-inv-wide{grid-column:1 / -1;}
+  .rn-inv-detail > .rn-tightlist{margin-top:5px;}
+  .rn-inv-detail > .rn-tightlist + .rn-inv-sub{margin-top:9px;}
+  .rn-inv-sub{display:block;font-weight:700;color:var(--rn-text);}
+  /* On a wide card the groups sit side by side. Flowing one list into two CSS
+     columns instead put the second group's heading level with the middle of
+     the first group's rows, which read as one interrupted list. */
+  .rn-inv-cols{display:flex;flex-wrap:wrap;gap:14px 30px;}
+  .rn-inv-cols > *{flex:1 1 260px;min-width:0;}
+  .rn-inv-cols .rn-inv-sub{margin-bottom:5px;}
+
+  /* .rn-two-col / -three-col / -four-col are flex with the default stretch, so
+     every card in a row was forced to the height of the tallest one: measured
+     272/272, 394/394, 376/376/376 with quite different content. The short card
+     ends up a bordered box with a blank lower half, which reads as content
+     missing rather than as a tidy grid. Cards size to their own content now.
+     Deliberately NOT applied to .rn-pearl-grid, where equal heights per row
+     are what makes a dense field of small boxes look ordered. */
+  .rn-two-col > .rn-card,
+  .rn-three-col > .rn-card,
+  .rn-four-col > .rn-card,
+  .rn-two-col > .rn-inv-card,
+  .rn-three-col > .rn-inv-card,
+  .rn-inv-grid > .rn-inv-card,
+  .rn-inv-grid > .rn-card,
+  .rn-pearl-grid > .rn-card{align-self:start;}
+
+  /* A card left alone on the last row of a two-column grid sat at half width
+     with a wall of text in it; and a card several times longer than its
+     siblings became a tall narrow column beside two short ones. Both take the
+     whole row instead — in a grid via grid-column, in a flex row via basis. */
+  .rn-span2,
+  .rn-span-all{grid-column:1 / -1;flex:1 1 100%;}
   /* Same again at the bottom: only the last child needs the closing inset. */
   .rn-card > *:not(.rn-card-head):has(+ *){padding-bottom:0;}
 

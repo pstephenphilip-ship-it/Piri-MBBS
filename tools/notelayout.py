@@ -71,43 +71,63 @@ TAG = re.compile(r'<(/?)([a-zA-Z][\w-]*)([^>]*?)(/?)>')
 VOID = {'br','img','hr','input','wbr'}
 
 def split_points(s):
-    """Offsets just after a sentence end that sits outside every inline tag."""
-    depth = 0; pts = []; i = 0
-    stack_empty_at = set()
-    for m in TAG.finditer(s):
-        # record depth for the text run BEFORE this tag
-        seg = s[i:m.start()]
-        if depth == 0:
-            for k in _sentence_ends(seg):
-                pts.append(i + k)
-        name = m.group(2).lower()
-        if name not in VOID and not m.group(4):
-            depth += -1 if m.group(1) else 1
-            if depth < 0: depth = 0
-        i = m.end()
-    if depth == 0:
-        for k in _sentence_ends(s[i:]):
-            pts.append(i + k)
+    """Offsets just after a sentence end that can safely start a new fragment.
+
+    Walks once, tracking inline-tag depth. A candidate is a '.', '!' or '?'
+    followed by any number of CLOSING tags and then whitespace; it is taken only
+    if the depth after those closers is zero, so every fragment is balanced.
+    Requiring depth zero AT the full stop instead would miss the very common
+    "<strong>...proved to retain.</strong> Everyone else..." — the sentence ends
+    inside the bold run, but the bold run ends with it."""
+    pts = []
+    depth = 0
+    tags = {m.start(): m for m in TAG.finditer(s)}
+    i = 0
+    n = len(s)
+    while i < n:
+        m = tags.get(i)
+        if m:
+            name = m.group(2).lower()
+            if name not in VOID and not m.group(4):
+                depth += -1 if m.group(1) else 1
+                if depth < 0: depth = 0
+            i = m.end(); continue
+        ch = s[i]
+        if ch in '.!?' and _is_sentence_end(s, i):
+            j = i + 1; d = depth
+            while True:                       # step over trailing close tags
+                mm = tags.get(j)
+                if not mm or not mm.group(1): break
+                name = mm.group(2).lower()
+                if name in VOID: break
+                d -= 1
+                if d < 0: d = 0
+                j = mm.end()
+            k = j
+            while k < n and s[k].isspace(): k += 1
+            if k > j and d == 0 and k < n and (s[k].isupper() or s[k] == '<'
+                                               or s[k] in '\u26a0\U0001f6ab'):
+                pts.append(k)
+                i = k; depth = d; continue
+        i += 1
     return pts
 
-def _sentence_ends(seg):
-    out = []
-    for m in re.finditer(r'([.!?])(\s+)', seg):
-        dot = m.start()
-        if dot == 0: continue
-        prev = seg[dot-1]
-        if prev.isdigit():                       # 0.5 mL, 1.5 h
-            continue
-        word = re.search(r'([A-Za-z.]+)$', seg[:dot])
-        if word and word.group(1).lower().strip('.') in ABBR:
-            continue
-        if len(word.group(1)) < 2 if word else True:   # single initial
-            continue
-        nxt = seg[m.end():m.end()+1]
-        if nxt and not (nxt.isupper() or nxt == '<' or nxt in '⚠🔺'):
-            continue
-        out.append(m.end())
-    return out
+def _is_sentence_end(s, dot):
+    """The '.' at s[dot] ends a sentence: not a decimal, not an abbreviation.
+
+    The look-back has to skip any closing tags first — "...hypoxic
+    drive</strong>." puts a '>' immediately before the stop — and must not
+    insist on a letter there either, since "...up to 94-98%." is a sentence."""
+    if dot == 0: return False
+    pre = re.sub(r'(?:<[^>]*>\s*)+$', '', s[:dot])
+    if not pre: return False
+    if pre[-1].isdigit(): return False                     # 0.5 mL, 1.5 h
+    w = re.search(r'([A-Za-z][A-Za-z.]*)$', pre)
+    if w:
+        word = w.group(1)
+        if len(word) < 2: return False                     # a single initial
+        if word.lower().strip('.') in ABBR: return False
+    return True
 
 def fragments(inner):
     pts = split_points(inner)
@@ -145,8 +165,15 @@ def to_lead_and_list(inner, min_items=2):
     # both" / "- the two drugs that carry the regimen" must not become two rows.
     while frags and _is_continuation(frags[0]):
         lead = (lead + ' ' + frags.pop(0)).strip()
+    if len(frags) == 1 and len(visible(inner)) >= 330:
+        ce = _colon_enum(frags[0])
+        if ce:
+            lead = (lead + ' ' + ce[0]).strip()
+            frags = ce[1]
     if len(frags) < min_items: return None
-    if len(visible(lead)) > 260: return None
+    # A long lead is fine when the rows it introduces are crisp — the cap is
+    # only here to stop a whole block masquerading as a heading.
+    if len(visible(lead)) > 380: return None
     if any(len(visible(f)) < 3 for f in frags): return None
     if any(_is_continuation(f, allow_lower=False) for f in frags): return None
     if any(f.count('(') != f.count(')') for f in frags): return None
@@ -301,6 +328,36 @@ def _semi_split(inner):
 # A plain-text lead: "The feature that flips it:" with no <strong> around it.
 PLAIN_LEAD = re.compile(r'^\s*((?:<[^>]+>\s*)*[^<:]{4,90}:)\s*')
 
+def _colon_enum(frag):
+    """"...zone for chest drain insertion: lateral border of pec major
+    (anterior), anterior border of lat dorsi (posterior), ..." -> a lead and
+    four rows. Only fires on a colon followed by three or more comma-separated
+    items, each a real phrase, with every bracket closed inside its own item."""
+    depth = 0; colon = -1; i = 0
+    for m in TAG.finditer(frag):
+        seg = frag[i:m.start()]
+        if depth == 0 and colon < 0:
+            c = seg.find(':')
+            if c >= 0: colon = i + c
+        name = m.group(2).lower()
+        if name not in VOID and not m.group(4):
+            depth += -1 if m.group(1) else 1
+            if depth < 0: depth = 0
+        i = m.end()
+    if colon < 0 and depth == 0:
+        c = frag[i:].find(':')
+        if c >= 0: colon = i + c
+    if colon < 0: return None
+    head, tail = frag[:colon + 1], frag[colon + 1:]
+    if len(visible(tail)) < 110: return None
+    parts = _sep_split(tail, r',\s+')
+    parts = [p for p in parts if visible(p)]
+    if len(parts) < 3: return None
+    if any(len(visible(p)) < 8 for p in parts): return None
+    if any(p.count('(') != p.count(')') for p in parts): return None
+    if any(_is_continuation(p, allow_lower=False) for p in parts): return None
+    return head.strip(), parts
+
 def to_sep_list(inner, min_items=3):
     """Lead + rows for a block written as 'lead: a -> b * c -> d * e -> f'."""
     lead = ''; body = inner
@@ -384,6 +441,141 @@ def pass_cpblocks(s, stats):
         return '%s<div class="rn-cl-lead">%s</div>%s%s' % (open_, lead, lst, close)
     return CPBLK.sub(rep, s)
 
+def _matching_close(s, open_start):
+    """Index just past the </div> that closes the tag starting at open_start."""
+    m = TAG.match(s, open_start)
+    if not m: return -1
+    depth = 0; i = open_start
+    for t in TAG.finditer(s, open_start):
+        name = t.group(2).lower()
+        if name != 'div': continue
+        depth += -1 if t.group(1) else 1
+        if depth == 0: return t.end()
+    return -1
+
+def pass_invcards(s, stats):
+    """An investigation card holding a long work-up list was squeezed into one
+    210px grid column and ran to fifteen lines of three-word rows. Bullet the
+    detail, and let the card take the full grid row."""
+    out = []; pos = 0
+    for m in re.finditer(r'<div class="rn-inv-card(?![^"]*rn-inv-wide)[^"]*"[^>]*>', s):
+        if m.start() < pos: continue
+        end = _matching_close(s, m.start())
+        if end < 0: continue
+        card = s[m.start():end]
+        dm = re.search(r'<div class="rn-inv-detail">(.*?)</div>', card, re.S)
+        if not dm: continue
+        detail = dm.group(1)
+        if re.search(r'<(ul|ol|table|div)\b', detail): continue
+        if len(visible(detail)) < 210: continue
+        r = to_lead_and_list(detail) or to_sep_list(detail)
+        if not r: continue
+        lead, lst = r
+        newcard = (card[:dm.start()]
+                   + '<div class="rn-inv-detail">%s%s</div>' % (lead, lst)
+                   + card[dm.end():])
+        newcard = newcard.replace('class="rn-inv-card', 'class="rn-inv-card rn-inv-wide', 1)
+        out.append(s[pos:m.start()]); out.append(newcard); pos = end
+        stats['invcards'] += 1
+    out.append(s[pos:])
+    return ''.join(out)
+
+CARD_OPEN = re.compile(r'<div class="rn-card(?![^"]*rn-card-head)[^"]*"[^>]*>')
+BODY_CHILD = re.compile(r'<(div|p)((?![^>]*rn-card-head)[^>]*)>(.*?)</\1>', re.S)
+
+def pass_cardbodies(s, stats):
+    """A card body written as one 300-character run-on becomes a lead plus one
+    claim per row. Left as prose it forces its whole grid row tall and leaves
+    its short neighbours as bordered boxes with a blank lower half."""
+    out = []; pos = 0
+    for m in CARD_OPEN.finditer(s):
+        if m.start() < pos: continue
+        end = _matching_close(s, m.start())
+        if end < 0: continue
+        card = s[m.start():end]
+        changed = False; newcard = card; shift = 0
+        for bm in list(BODY_CHILD.finditer(card)):
+            inner = bm.group(3)
+            if re.search(r'<(ul|ol|table|div|p|li)\b', inner): continue
+            if len(visible(inner)) < 210: continue
+            r = to_lead_and_list(inner) or to_sep_list(inner)
+            if not r: continue
+            lead, lst = r
+            rep = '<%s%s>%s%s</%s>' % (bm.group(1), bm.group(2), lead, lst, bm.group(1))
+            a, b = bm.start() + shift, bm.end() + shift
+            newcard = newcard[:a] + rep + newcard[b:]
+            shift += len(rep) - (bm.end() - bm.start())
+            changed = True
+        if not changed: continue
+        out.append(s[pos:m.start()]); out.append(newcard); pos = end
+        stats['cardbodies'] += 1
+    out.append(s[pos:])
+    return ''.join(out)
+
+ROW = re.compile(r'<div class="rn-(?:two|three|four)-col[^"]*"[^>]*>|<div class="rn-inv-grid"[^>]*>')
+
+def pass_spanall(s, stats):
+    """A card several times longer than its row-mates was rendered as a tall
+    narrow column next to two short ones, with the rest of the row blank.
+    Lift it out of the grid so it becomes a full-width block underneath."""
+    out = []; pos = 0
+    for m in ROW.finditer(s):
+        if m.start() < pos: continue
+        end = _matching_close(s, m.start())
+        if end < 0: continue
+        row = s[m.start():end]
+        if 'rn-span' in row: continue
+        cards = []
+        for cm in re.finditer(r'<div class="rn-(?:inv-)?card(?![^"]*rn-span)[^"]*"[^>]*>', row):
+            ce = _matching_close(row, cm.start())
+            if ce < 0: continue
+            if cards and cm.start() < cards[-1][1]: continue
+            cards.append((cm.start(), ce, len(visible(row[cm.start():ce]))))
+        if len(cards) < 3: continue
+        lens = sorted((c[2] for c in cards), reverse=True)
+        # Every card in a row is the same width, so characters stand in for
+        # height. One card clearly longer than the next longest is the case
+        # worth pulling out; several similar long ones are just a dense row.
+        if lens[0] < 450 or lens[0] < 1.6 * lens[1]: continue
+        big = [c for c in cards if c[2] == lens[0]]
+        if len(big) != 1: continue
+        a, b, _ = big[0]
+        card = row[a:b].replace('-card', '-card rn-span-all', 1)
+        # Lift the card OUT of the grid rather than spanning it across the
+        # tracks: a grid item on `grid-column: 1 / -1` keeps every track
+        # occupied, which stops `auto-fit` collapsing the empty ones, so the
+        # short cards left behind would each keep a third of the row.
+        newrow = (row[:a] + row[b:]).rstrip() + '\n      ' + card
+        out.append(s[pos:m.start()]); out.append(newrow); pos = end
+        stats['spanall'] += 1
+    out.append(s[pos:])
+    return ''.join(out)
+
+def pass_span2(s, stats):
+    """A card alone on the final row of a two-column grid sat at half width with
+    a wall of text in it. Let it take the whole row. Safe with a fixed
+    repeat(2,1fr): there are no auto-fit tracks here to keep from collapsing."""
+    out = []; pos = 0
+    for m in re.finditer(r'<div class="rn-(?:two|three|four)-col[^"]*"[^>]*style="[^"]*repeat\(\s*2\s*,[^"]*"[^>]*>', s):
+        if m.start() < pos: continue
+        end = _matching_close(s, m.start())
+        if end < 0: continue
+        row = s[m.start():end]
+        if 'rn-span2' in row: continue
+        cards = []
+        for cm in re.finditer(r'<div class="rn-(?:inv-)?card(?![^"]*rn-span)[^"]*"[^>]*>', row):
+            ce = _matching_close(row, cm.start())
+            if ce < 0: continue
+            if cards and cm.start() < cards[-1][1]: continue
+            cards.append((cm.start(), ce))
+        if len(cards) < 3 or len(cards) % 2 == 0: continue
+        a, b = cards[-1]
+        newrow = row[:a] + row[a:b].replace('-card', '-card rn-span2', 1) + row[b:]
+        out.append(s[pos:m.start()]); out.append(newrow); pos = end
+        stats['span2'] += 1
+    out.append(s[pos:])
+    return ''.join(out)
+
 def pass_lis(s, stats):
     """A very long bullet keeps its first sentence and nests the elaboration."""
     def rep(m):
@@ -402,7 +594,8 @@ def pass_lis(s, stats):
 
 def process(path, apply=False, only=None):
     d = json.load(open(path, encoding='utf-8'))
-    stats = dict(accents=0, callouts=0, pearls=0, cpblocks=0, lis=0, paras=0, cells=0)
+    stats = dict(accents=0, callouts=0, pearls=0, cpblocks=0, invcards=0,
+                 cardbodies=0, span2=0, spanall=0, lis=0, paras=0, cells=0)
     changed = 0
     for k, v in list(d.items()):
         if not isinstance(v, str): continue
@@ -412,6 +605,10 @@ def process(path, apply=False, only=None):
         v = pass_callouts(v, stats)
         v = pass_pearls(v, stats)
         v = pass_cpblocks(v, stats)
+        v = pass_invcards(v, stats)
+        v = pass_cardbodies(v, stats)
+        v = pass_spanall(v, stats)
+        v = pass_span2(v, stats)
         v = pass_cells(v, stats)
         v = pass_lis(v, stats)
         v = pass_paras(v, stats)
