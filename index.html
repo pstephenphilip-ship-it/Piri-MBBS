@@ -17074,15 +17074,12 @@ function hideFlyout(p) {
   .rn-section-amber  > .rn-section-title{color:#8A5100;background:var(--rn-amber-bg);}   /* 5.95 */
   .rn-section-purple > .rn-section-title{color:#6B45B8;background:var(--rn-purple-bg);}  /* 5.69 */
   .rn-section-red    > .rn-section-title{color:#A82B2B;background:var(--rn-red-bg);}
-  /* The accent used to be a 3px hairline down the left edge, which read as a
-     stray line jammed inside the card's rounded corner. Tint the card's own
-     1.5px outline instead: the accent still carries past the header, but it
-     is the card's border rather than a mark stuck to it. */
-  .rn-section-teal  {border-color:#B5E0E6;}
-  .rn-section-green {border-color:#B9E2CD;}
-  .rn-section-amber {border-color:#EAD4A4;}
-  .rn-section-purple{border-color:#D3C6F2;}
-  .rn-section-red   {border-color:#EDC6C6;}
+  /* The section's OUTER outline stays the default grey. The accent used to
+     tint this 1.5px border as well as the header, but coloured outlines on
+     the big outer boxes were not wanted - the header bar alone carries the
+     accent now, and the outline reads as one consistent frame down the note.
+     (An earlier version drew the accent as a 3px hairline down the left edge;
+     that was rejected too. Do not reintroduce either.) */
 
   /* KEY FACTS — the three or four numbers a reader wants before the prose.
      A dense strip at the top of a section beats the same facts buried in a
