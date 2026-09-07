@@ -70,16 +70,27 @@
       annotation: 'Thunderclap → CT head within 1 hour. If it is negative and you are more than 6 h from onset, LP for xanthochromia.'
     },
 
-    /* Scene 4 — the site's actual note composer, field for field. */
+    /* Scene 4 — the site's "Add your own topic" editor: you write a topic
+       and it lands in your library beside the rest. Header, toolbar and
+       block types match the real editor. */
     MYNOTE: {
-      breadcrumb: 'My Notes · Headache',
-      label: 'New note',
-      quote: 'a new headache over 50 with scalp tenderness (GCA)',
-      placeholder: 'Type your note here…',
-      body: 'ESR + temporal artery biopsy — but start high-dose steroids first, before the biopsy. Sight loss is irreversible.',
-      hint: 'Paste an image (Ctrl/Cmd+V) to attach one — 1 max.',
+      crumb: 'Medical Conditions · ★ My Topics',
+      title: 'Thunderclap headache — my summary',
       cancel: 'Cancel',
-      save: 'Save note'
+      save: 'Save note',
+      /* The formatting row, then the block palette. */
+      tools: ['B', 'I', 'U', 'S'],
+      inserts: ['+ Lead', '+ Warning', '+ Step', '+ List', '+ Table', '+ Image', '+ Divider'],
+      blocks: [
+        { kind: 'lead', text: 'Sudden headache, maximal within seconds — subarachnoid haemorrhage until proven otherwise.' },
+        { kind: 'warn', text: 'CT head within 1 hour. A normal CT beyond 6 h does not exclude it — do the LP.' },
+        { kind: 'step', n: '1', head: 'First step / Imaging', text: 'Non-contrast CT head immediately.' },
+        { kind: 'step', n: '2', head: 'Second step / LP', text: 'At 12 h from onset, look for xanthochromia.' }
+      ],
+      savedLabel: 'Your own topic',
+      savedCrumb: '★ My Topics',
+      edit: 'Edit note',
+      del: 'Delete'
     },
 
     /* Scene 5 — a real flashcard from content/cards/cardiovascular.json */
@@ -171,7 +182,8 @@
       hero:      { kicker: 'MBBS revision, done properly', line: 'Everything you need.' },
       systems:   { kicker: 'MLA-aligned', line: 'Learn <b>672</b> medical conditions<br>across <b>27</b> systems.' },
       annotate:  { kicker: '', line: 'Make it your own.' },
-      mynotes:   { kicker: '', line: 'Add your own notes.' },
+      mynotes:   { kicker: '', line: 'Add your own notes.',
+                   sub: 'Write your own topic — and it lands in your library beside the rest.' },
       recall:    { kicker: '', line: 'Want to practise active recall?' },
       mcq:       { kicker: '', line: 'So you want to practise MCQs?' },
       split:     { kicker: '', line: 'And the same for every other module.' },

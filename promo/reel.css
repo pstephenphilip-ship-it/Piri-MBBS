@@ -269,61 +269,137 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
 .swatches .lb{font-family:var(--mono);font-size:0.72em;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted2);margin-right:0.25em;}
 
 /* ------------------------------------------------------------- my notes */
-/* A faithful copy of the site's own note composer — it is a dark modal even
-   on the light page, so it is drawn that way here too. Colours and radii
-   were read off the live element. */
-.nc{
-  width:100%;max-width:31em;
-  background:#172433;
-  border:1px solid #2C3D4E;
-  border-radius:15px;
-  box-shadow:0 2em 4.4em -1em rgba(28,32,48,0.42);
+/* The site's "add your own topic" editor: dark chrome around a light page
+   of blocks. Colours read off the live element — page #0D0F14, header and
+   toolbar #1C2030, canvas #F7F8FC. */
+.ownt{
+  width:100%;
+  border-radius:0.9em;
+  overflow:hidden;
+  background:#0D0F14;
+  box-shadow:0 1.8em 4em -1em rgba(28,32,48,0.3),0 0.3em 0.9em rgba(28,32,48,0.06);
+}
+.ownt-head{
+  display:flex;align-items:center;gap:1em;
+  padding:0.85em 1.2em;
+  background:#1C2030;
+}
+.ownt-crumb{
+  font-family:var(--mono);font-size:0.72em;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;color:#7A8497;
+}
+.ownt-title{font-size:1.05em;font-weight:700;color:#F2F5FA;margin-top:0.22em;}
+.ownt-acts{margin-left:auto;display:flex;align-items:center;gap:0.6em;flex-shrink:0;}
+.ownt-cancel{
+  font-size:0.85em;font-weight:600;color:#1C2030;
+  background:#FFFFFF;border-radius:2em;padding:0.42em 1.05em;
+}
+.ownt-save{
+  font-size:0.85em;font-weight:700;color:#04211D;
+  background:linear-gradient(135deg,#00C2A8 0%,#22D3C4 100%);
+  border-radius:2em;padding:0.42em 1.05em;
+}
+.ownt-tools{
+  display:flex;align-items:center;gap:0.34em;flex-wrap:nowrap;
+  padding:0.6em 1.1em;
+  background:#1C2030;
+  border-top:1px solid #262B3E;
   overflow:hidden;
 }
-.nc-accent{height:0.22em;background:var(--gold-soft);}
-.nc-head{
-  display:flex;align-items:center;gap:0.55em;
-  padding:1em 1.2em 0.7em;
+.ownt-tb{
+  min-width:1.6em;height:1.6em;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.82em;font-weight:700;color:#AEB7C8;
+  border-radius:0.35em;
 }
-.nc-dot{width:0.6em;height:0.6em;border-radius:50%;background:var(--gold-soft);flex-shrink:0;}
-.nc-label{
-  font-family:var(--mono);font-size:0.82em;font-weight:700;
-  letter-spacing:0.16em;text-transform:uppercase;color:#E7EEF4;
+.ownt-tb.on{background:#00C2A8;color:#04211D;}
+.ownt-div{width:1px;height:1.2em;background:#333A50;margin:0 0.35em;}
+.ownt-ins-lb{
+  font-family:var(--mono);font-size:0.68em;font-weight:700;
+  letter-spacing:0.16em;text-transform:uppercase;color:#5D6679;
+  margin:0 0.3em 0 0.5em;
 }
-.nc-x{margin-left:auto;color:#7C8A9C;font-size:1.15em;line-height:1;}
-.nc-quote{
-  margin:0 1.2em;
-  background:rgba(240,180,41,0.13);
-  border-left:0.2em solid var(--gold-soft);
-  border-radius:0 0.4em 0.4em 0;
-  padding:0.7em 0.9em;
-  font-family:var(--mono);font-style:italic;
-  font-size:0.92em;line-height:1.5;color:#C6D2DF;
+.ownt-ins{
+  font-size:0.72em;font-weight:700;color:#2BD4BD;
+  padding:0.28em 0.36em;border-radius:0.35em;white-space:nowrap;
 }
-.nc-body{padding:0.9em 1.2em 0;}
-.nc-ta{
-  min-height:5.4em;
-  background:#0F1B29;
-  border:1px solid var(--gold-soft);
-  border-radius:0.55em;
-  padding:0.8em 0.9em;
-  font-size:1em;line-height:1.65;color:#E7EEF4;
-  white-space:pre-wrap;
+.vert .ownt-ins:nth-last-child(-n+4){display:none;}
+.vert .ownt-tools .ownt-tb:nth-child(n+9):nth-child(-n+12){display:none;}
+
+.ownt-canvas{
+  background:#F7F8FC;
+  padding:1.3em 1.5em;
+  min-height:12em;
 }
-.nc-ta.empty{color:#6E7C8C;}
-.nc-hint{
-  padding:0.7em 1.2em 0;
-  font-size:0.8em;font-style:italic;color:#6E7C8C;
+.vert .ownt-canvas{min-height:16em;}
+
+/* Block types, as the editor renders them. */
+.blk{margin-bottom:0.7em;}
+.blk-lead{
+  background:#FFFFFF;border:1px dashed rgba(0,194,168,0.75);
+  border-radius:0.5em;padding:0.85em 1em;
+  font-size:0.98em;line-height:1.55;color:var(--ink);
 }
-.nc-foot{
-  display:flex;align-items:center;justify-content:flex-end;gap:0.9em;
-  padding:0.9em 1.2em 1.1em;
+.blk-lead b{font-weight:700;}
+.blk-warn{
+  display:flex;gap:0.6em;align-items:flex-start;
+  background:#FEF1F2;border:1px solid #F7D4D8;
+  border-radius:0.5em;padding:0.8em 1em;
+  font-size:0.95em;line-height:1.55;color:#7F1D2E;
 }
-.nc-cancel{font-size:0.98em;font-weight:600;color:#AEBCC9;}
-.nc-save{
-  font-size:0.98em;font-weight:700;
-  color:#04211D;background:var(--accent);
-  border-radius:0.5em;padding:0.55em 1.2em;
+.blk-step{
+  border:1px solid #DCE6F5;border-radius:0.5em;overflow:hidden;background:#FFFFFF;
+}
+.blk-step-h{
+  display:flex;align-items:center;gap:0.6em;
+  background:#EAF1FB;padding:0.55em 1em;
+}
+.blk-step-n{
+  width:1.45em;height:1.45em;border-radius:50%;
+  background:#3B7DD8;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:0.76em;font-weight:700;flex-shrink:0;
+}
+.blk-step-t{
+  font-family:var(--mono);font-size:0.78em;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;color:#1E4E8C;
+}
+.blk-step-b{padding:0.7em 1em;font-size:0.95em;line-height:1.55;color:var(--ink);}
+
+/* The floating chip the editor shows over the block you are editing. */
+.blk-chip{
+  position:absolute;top:-1.5em;left:0;
+  display:flex;align-items:center;gap:0.5em;
+  background:#1C2030;border-radius:0.35em;
+  padding:0.22em 0.6em;
+  font-family:var(--mono);font-size:0.66em;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;color:#F2F5FA;
+}
+.blk-chip span{color:#8A93A6;font-weight:600;letter-spacing:0.04em;text-transform:none;}
+
+/* ---- the saved topic, sitting in the library ---- */
+.saved{
+  width:100%;
+  background:#F1F3F9;
+  border:1px solid var(--border);
+  border-radius:0.9em;
+  padding:1.3em 1.5em;
+  box-shadow:0 1.4em 3.4em -1em rgba(28,32,48,0.18);
+}
+.saved-head{display:flex;align-items:center;gap:0.8em;margin-bottom:1em;}
+.saved-lb{
+  font-family:var(--mono);font-size:0.78em;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;color:#0EA5E9;
+}
+.saved-acts{margin-left:auto;display:flex;gap:0.6em;flex-shrink:0;}
+.saved-edit{
+  font-size:0.85em;font-weight:700;color:#F2F5FA;
+  background:#1C2030;border-radius:0.45em;padding:0.42em 1em;
+}
+.saved-del{
+  font-size:0.85em;font-weight:700;color:#BE123C;
+  background:#FEF1F2;border:1px solid #F7C6CE;
+  border-radius:0.45em;padding:0.42em 1em;
 }
 .caret{
   display:inline-block;width:0.09em;height:1.05em;

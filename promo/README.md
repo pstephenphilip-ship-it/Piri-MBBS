@@ -17,9 +17,11 @@ topics — not invented filler. `node promo/count.js` re-measures the counts
 and flags drift.
 
 The palette is the site's own: light grey ground, white cards, dark navy
-ink, teal accents, and the mint the review modal uses. The note composer
-in the "Add your own notes" scene is laid out field for field like the
-real one, down to the amber accent and the quoted selection.
+ink, teal accents, and the mint the review modal uses. The "Add your own
+notes" scene mirrors the site's own topic editor — the dark header and
+toolbar, the block palette (Lead / Warning / Step / List / Table / Image /
+Divider) and the Lead, Warning and Step blocks — then hands over to the
+saved topic sitting in the library, the way the real one does.
 
 ## Preview it
 

@@ -64,15 +64,18 @@
     var wrap = el('div', 'cap');
     var k = c.kicker ? el('div', 'kicker', c.kicker) : null;
     var h = el('h2', 'headline', c.line);
+    var sb = c.sub ? el('div', 'subline', c.sub) : null;
     if (k) wrap.appendChild(k);
     wrap.appendChild(h);
-    wrap.__k = k; wrap.__h = h;
+    if (sb) wrap.appendChild(sb);
+    wrap.__k = k; wrap.__h = h; wrap.__s = sb;
     return wrap;
   }
   function drawCaption(cap, u, start) {
     var s = start == null ? 0 : start;
     if (cap.__k) rise(cap.__k, beat(u, s, 0.7), 16);
     rise(cap.__h, beat(u, s + 0.12, 0.8), 24);
+    if (cap.__s) rise(cap.__s, beat(u, s + 0.3, 0.8), 18);
   }
 
   function panelShell(crumb) {
@@ -245,68 +248,138 @@
   });
 
   /* --- 4. Your own notes ------------------------------------------ */
-  /* Laid out field for field like the site's own composer: amber accent,
-     the quoted selection, the note box, then Cancel / Save note. */
+  /* The site's "add your own topic" editor: the blocks fill in, Save note
+     is pressed, and the finished topic hands over to the library view. */
   SCENES.push({
-    id: 'mynotes', dur: 6.5,
+    id: 'mynotes', dur: 9.5,
     build: function (scene) {
       var cap = caption('mynotes');
-      var pn = panelShell(D.MYNOTE.breadcrumb);
-      pn.style.marginTop = '2.2em';
-      pn.style.width = '100%';
-      pn.style.maxWidth = '40em';
-      pn.__body.style.display = 'flex';
-      pn.__body.style.justifyContent = 'center';
+      var stack = el('div');
+      stack.style.cssText = 'position:relative;margin-top:1.6em;width:100%;max-width:54em;';
 
-      var nc = el('div', 'nc');
-      nc.appendChild(el('div', 'nc-accent'));
+      /* ---- the editor ---- */
+      var ed = el('div', 'ownt');
+      var head = el('div', 'ownt-head');
+      var htxt = el('div');
+      add(htxt, el('div', 'ownt-crumb', D.MYNOTE.crumb), el('div', 'ownt-title', D.MYNOTE.title));
+      var acts = el('div', 'ownt-acts');
+      var cancel = el('div', 'ownt-cancel', D.MYNOTE.cancel);
+      var save = el('div', 'ownt-save', D.MYNOTE.save);
+      add(acts, cancel, save);
+      add(head, htxt, acts);
 
-      var head = el('div', 'nc-head');
-      add(head, el('div', 'nc-dot'), el('div', 'nc-label', D.MYNOTE.label), el('div', 'nc-x', '\u00d7'));
-      nc.appendChild(head);
+      var tools = el('div', 'ownt-tools');
+      add(tools, el('div', 'ownt-tb', '↶'), el('div', 'ownt-tb', '↷'), el('div', 'ownt-div'));
+      D.MYNOTE.tools.forEach(function (t, i) {
+        tools.appendChild(el('div', 'ownt-tb' + (i === 0 ? ' on' : ''), t));
+      });
+      add(tools, el('div', 'ownt-div'),
+        el('div', 'ownt-tb', 'H₁'), el('div', 'ownt-tb', 'H₂'),
+        el('div', 'ownt-tb', '•'), el('div', 'ownt-tb', '1.'),
+        el('div', 'ownt-div'), el('div', 'ownt-ins-lb', 'Insert'));
+      D.MYNOTE.inserts.forEach(function (t) { tools.appendChild(el('div', 'ownt-ins', t)); });
 
-      nc.appendChild(el('div', 'nc-quote', '\u201c' + D.MYNOTE.quote + '\u201d'));
+      var canvas = el('div', 'ownt-canvas');
+      var blocks = D.MYNOTE.blocks.map(function (b) {
+        var wrap = el('div', 'blk');
+        wrap.style.position = 'relative';
+        var body;
+        if (b.kind === 'lead') {
+          body = el('div', 'blk-lead');
+        } else if (b.kind === 'warn') {
+          var warn = el('div', 'blk-warn');
+          body = el('span');
+          add(warn, el('span', null, '🚨'), body);
+          wrap.appendChild(warn);
+        } else {
+          var box = el('div', 'blk-step');
+          var bh = el('div', 'blk-step-h');
+          add(bh, el('div', 'blk-step-n', b.n), el('div', 'blk-step-t', b.head));
+          body = el('div', 'blk-step-b');
+          add(box, bh, body);
+          wrap.appendChild(box);
+        }
+        if (b.kind === 'lead') wrap.appendChild(body);
+        canvas.appendChild(wrap);
+        return { wrap: wrap, body: body, def: b };
+      });
 
-      var body = el('div', 'nc-body');
-      var ta = el('div', 'nc-ta empty');
-      var car = el('span', 'caret');
-      body.appendChild(ta);
-      nc.appendChild(body);
-      nc.appendChild(el('div', 'nc-hint', D.MYNOTE.hint));
+      /* The chip the editor floats over whichever block has focus. */
+      var chip = el('div', 'blk-chip');
+      add(chip, el('div', null, 'Lead'), el('span', null, '⤡ Wider  ↑  ↓  ×'));
+      blocks[0].wrap.appendChild(chip);
 
-      var foot = el('div', 'nc-foot');
-      var cancel = el('div', 'nc-cancel', D.MYNOTE.cancel);
-      var save = el('div', 'nc-save', D.MYNOTE.save);
-      add(foot, cancel, save);
-      nc.appendChild(foot);
+      add(ed, head, tools, canvas);
 
-      pn.__body.appendChild(nc);
-      add(scene, cap, pn);
-      return { cap: cap, pn: pn, nc: nc, ta: ta, car: car, save: save };
+      /* ---- the saved topic, in the library ---- */
+      var sv = el('div', 'saved');
+      sv.style.cssText += 'position:absolute;left:0;top:0;opacity:0;';
+      var svh = el('div', 'saved-head');
+      var svl = el('div');
+      add(svl, el('div', 'saved-lb', '✎ ' + D.MYNOTE.savedLabel));
+      var svacts = el('div', 'saved-acts');
+      add(svacts, el('div', 'saved-edit', D.MYNOTE.edit), el('div', 'saved-del', D.MYNOTE.del));
+      add(svh, svl, svacts);
+      sv.appendChild(svh);
+      D.MYNOTE.blocks.forEach(function (b) {
+        var wrap = el('div', 'blk');
+        if (b.kind === 'lead') wrap.appendChild(el('div', 'blk-lead', b.text));
+        else if (b.kind === 'warn') {
+          var w = el('div', 'blk-warn');
+          add(w, el('span', null, '🚨'), el('span', null, b.text));
+          wrap.appendChild(w);
+        } else {
+          var box = el('div', 'blk-step');
+          var bh = el('div', 'blk-step-h');
+          add(bh, el('div', 'blk-step-n', b.n), el('div', 'blk-step-t', b.head));
+          add(box, bh, el('div', 'blk-step-b', b.text));
+          wrap.appendChild(box);
+        }
+        sv.appendChild(wrap);
+      });
+
+      add(stack, ed, sv);
+      add(scene, cap, stack);
+      return { cap: cap, ed: ed, sv: sv, blocks: blocks, save: save, chip: chip, caret: el('span', 'caret') };
     },
     draw: function (r, u) {
       drawCaption(r.cap, u, 0);
-      rise(r.pn, beat(u, 0.7, 0.8), 30);
 
-      var bp = p(u, 1.5, 2.6);
-      var n = Math.round(D.MYNOTE.body.length * bp);
-      if (n === 0) {
-        r.ta.className = 'nc-ta empty';
-        r.ta.textContent = D.MYNOTE.placeholder;
-      } else {
-        r.ta.className = 'nc-ta';
-        r.ta.textContent = D.MYNOTE.body.slice(0, n);
-        r.ta.appendChild(r.car);
+      /* Editor in, blocks typed, Save pressed, then hand over to the library. */
+      var handover = beatIO(u, 6.0, 0.7);
+      var edIn = beat(u, 0.7, 0.8);
+      r.ed.style.opacity = edIn * (1 - handover);
+      r.ed.style.transform = 'translateY(' + ((1 - edIn) * 30) + 'px) scale(' + (1 - 0.03 * handover) + ')';
+
+      /* Each block types in turn. */
+      var t0 = 1.5, step = 1.05;
+      r.blocks.forEach(function (b, i) {
+        var bp = p(u, t0 + i * step, 0.95);
+        var n = Math.round(b.def.text.length * bp);
+        b.body.textContent = b.def.text.slice(0, n);
+        if (n > 0 && n < b.def.text.length) b.body.appendChild(r.caret);
+        var vis = beat(u, t0 + i * step - 0.25, 0.4);
+        b.wrap.style.opacity = 0.25 + 0.75 * vis;
+      });
+      r.caret.style.opacity = (u > 1.4 && u < 5.9) ? (Math.floor(u * 2) % 2 ? 0.25 : 1) : 0;
+
+      /* The block chip follows whichever block is being written. */
+      var active = clamp(Math.floor((u - t0) / step), 0, r.blocks.length - 1);
+      if (u > 1.3 && r.chip.parentNode !== r.blocks[active].wrap) {
+        r.blocks[active].wrap.appendChild(r.chip);
+        r.chip.firstChild.textContent = ['Lead', 'Warning', 'Step', 'Step'][active];
       }
-      /* Blink derived from u, never from a wall clock. */
-      var typing = u > 1.4 && u < 4.6;
-      r.car.style.opacity = typing ? (Math.floor(u * 2) % 2 ? 0.25 : 1) : 0;
+      r.chip.style.opacity = beat(u, 1.3, 0.4) * (1 - beat(u, 5.6, 0.35));
 
-      /* Save lights up once there is something to save. */
-      var sp = beat(u, 4.5, 0.5);
-      r.save.style.transform = 'scale(' + (1 + 0.06 * Math.sin(sp * Math.PI)) + ')';
-      r.save.style.boxShadow = sp > 0.02
-        ? '0 0 ' + (22 * sp) + 'px rgba(0,194,168,' + (0.5 * sp) + ')' : 'none';
+      /* Save note lights up, then is pressed. */
+      var press = beat(u, 5.4, 0.35) * (1 - beat(u, 6.2, 0.4) * 0.6);
+      r.save.style.transform = 'scale(' + (1 + 0.08 * press) + ')';
+      r.save.style.boxShadow = press > 0.02
+        ? '0 0 ' + (26 * press) + 'px rgba(0,194,168,' + (0.55 * press) + ')' : 'none';
+
+      /* And the topic is now in the library. */
+      r.sv.style.opacity = handover;
+      r.sv.style.transform = 'translateY(' + ((1 - handover) * 26) + 'px) scale(' + (0.97 + 0.03 * handover) + ')';
     }
   });
 
