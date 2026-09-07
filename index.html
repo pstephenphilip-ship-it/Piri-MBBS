@@ -17186,9 +17186,12 @@ function hideFlyout(p) {
   .rn-four-col > .rn-callout,
   .rn-two-col > .rn-inv-card,
   .rn-three-col > .rn-inv-card,
-  .rn-inv-grid > .rn-inv-card,
-  .rn-inv-grid > .rn-card,
   .rn-pearl-grid > .rn-card{align-self:start;}
+  /* .rn-inv-grid was in this list and should not have been. It is a real CSS
+     grid, not a flex row, so stretch only equalises the cards WITHIN one row —
+     which is the ordered look, not the bug. Opting out gave a 3-up row of
+     bedside-rule cards three different bottoms and a ragged white step under
+     the short one. Same reasoning as .rn-pearl-grid above. */
 
   /* Pearls run two to a row rather than three or four: a pearl is a sentence,
      and at a third of the column width it wrapped every four or five words. */
@@ -18485,6 +18488,53 @@ function hideFlyout(p) {
     color:var(--rn-sub,#5A6480);
     font-size:12px;
     line-height:1.55;
+  }
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 8 — Medical Conditions: pills in table cells, and boxes
+     nested inside a card.  Search this file for "LAYOUT PASS 8".
+     ===================================================================== -->
+<style>
+  /* A .rn-pill carrying a colour modifier keeps the base card styling — 14px
+     18px padding, centred bold uppercase mono — which is right when the pill
+     IS the box. Dropped into a table cell it is a caption on the row's
+     subject, and that styling turned "O neg = universal donor" into a
+     157x92px monospace slab inside a 184px column: three wrapped lines,
+     shouting over the sentence-case text beside it. In a cell it should read
+     as a chip sized to its own words. */
+  .rn-table td .rn-pill,
+  .rn-table th .rn-pill{
+    display:inline-block;
+    padding:3px 9px;
+    /* Not a 999px stadium: these captions wrap to two or three lines in a
+       narrow product column, and a full pill radius on a wrapped box reads as
+       a lozenge blob. A tag corner stays square-shouldered at any height. */
+    border-radius:8px;
+    font-family:var(--sans);
+    font-size:11.5px;
+    font-weight:600;
+    letter-spacing:0;
+    text-transform:none;
+    text-align:left;
+    line-height:1.6;
+  }
+
+  /* A callout, warning or pearl written as a direct child of a card inherited
+     the card's own 12px/16px child padding, so its INNER text was inset but
+     its border sat flush on the card's border — hard against the frame on the
+     left and right while floating 11px clear of the bottom. Give it the same
+     16px side inset the card's other content already has, so it reads as a
+     box within a box. (div.<class> to outrank .rn-card>div:not(.rn-card-head).) */
+  .rn-card > div.rn-callout,
+  .rn-card > div.rn-warn,
+  .rn-card > div.rn-highlight,
+  .rn-card > div.rn-pearl{
+    margin-left:16px;
+    margin-right:16px;
+    margin-bottom:12px;
+    padding-left:14px;
+    padding-right:14px;
   }
 </style>
 </body>
