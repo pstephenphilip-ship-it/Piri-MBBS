@@ -18619,5 +18619,38 @@ function hideFlyout(p) {
      margin, which butts it straight against the parent's last line. */
   li > .rn-tightlist{margin:5px 0 2px;}
 </style>
+
+<!-- =====================================================================
+     LAYOUT PASS 11 — an rn-inv-card used outside its grid.
+     Search this file for "LAYOUT PASS 11".
+     ===================================================================== -->
+<style>
+  /* .rn-inv-card carries NO margin of its own: it is built to sit inside
+     .rn-inv-grid, where the grid's gap does the spacing. Authored as a direct
+     child of .rn-body - usually a full-width summary card dropped under a grid,
+     carrying rn-span-all/rn-inv-wide, which do nothing outside a grid - it has
+     nothing to hold it off its neighbour, so its border sits flush against the
+     card above. Measured in Bronchiectasis: a 0px gap between the HRCT/CXR/
+     Sputum row and the Cause Workup card below it, borders touching.
+
+     Only applied where something actually precedes or follows it, so a card
+     that opens or closes .rn-body keeps the body's own 20px padding and is not
+     pushed off by an extra margin. */
+  .rn-body > * + .rn-inv-card{margin-top:12px;}
+  .rn-body > .rn-inv-card + *{margin-top:12px;}
+
+  /* Same defect one level up. .rn-two-col/-three-col/-four-col/.rn-inv-grid/
+     .rn-pearl-grid all set `gap` for their children but carry no margin of
+     their own, so two stacked row containers touch. It only actually shows
+     when the children are rn-inv-cards, which have no margin either - a row of
+     .rn-card is held apart by the cards' own 0.7rem. Measured in Thoracic
+     Aortic Aneurysm: 0px between an rn-inv-grid and the rn-two-col under it.
+     :has() keeps this off the .rn-card rows so they are not double-spaced. */
+  .rn-body > * + .rn-two-col:has(> .rn-inv-card),
+  .rn-body > * + .rn-three-col:has(> .rn-inv-card),
+  .rn-body > * + .rn-four-col:has(> .rn-inv-card),
+  .rn-body > * + .rn-inv-grid:has(> .rn-inv-card),
+  .rn-body > * + .rn-pearl-grid:has(> .rn-inv-card){margin-top:12px;}
+</style>
 </body>
 </html>
