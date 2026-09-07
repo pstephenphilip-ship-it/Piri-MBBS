@@ -109,12 +109,12 @@
     /* Scene 7 — the three modules, listing their real top-level groups. */
     SPLIT: [
       {
-        key: 'anatomy', label: 'Anatomy', accent: '#00C2A8',
+        key: 'anatomy', label: 'Anatomy', accent: '#0A7568',
         count: 54, sub: 'topics · 9 regions',
         items: ['Upper Limb', 'Lower Limb', 'Thorax', 'Abdomen', 'Head & Neck', 'Neuroanatomy', 'Embryology']
       },
       {
-        key: 'histology', label: 'Histology', accent: '#7C3AED',
+        key: 'histology', label: 'Histology', accent: '#6D28D9',
         count: 69, sub: 'topics · 10 groups',
         items: ['Basic Tissues', 'Cardiovascular', 'Respiratory', 'Gastrointestinal', 'Renal', 'Endocrine', 'Pathological Histology']
       },

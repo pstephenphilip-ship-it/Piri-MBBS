@@ -24,16 +24,18 @@
   --ink:#1C2030;
   --text:#1C2030;
   --muted:#6B7280;
-  --muted2:#949BAD;
+  --muted2:#667085;
   --accent:#00C2A8;
   --accent-deep:#0A7568;
   --blue:#0EA5E9;
+  --blue-deep:#0369A1;
   --mint:#E4FBF6;
-  --purple:#7C3AED;
+  --purple:#6D28D9;
+  --pink-deep:#DB2777;
   --gold:#B45309;
   --gold-soft:#F0B429;
-  --danger:#E11D48;
-  --green:#0F9D58;
+  --danger:#BE123C;
+  --green:#0B7A44;
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
   --grad:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);
@@ -110,6 +112,9 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
   font-size:1.25em;color:var(--muted);
   margin-top:0.9em;text-align:center;max-width:34em;
 }
+/* The figures inside a subline are the point of the sentence — they need
+   to carry, not recede. */
+.subline b{color:var(--ink);font-weight:700;}
 
 /* The caption block that sits above a demo panel in most scenes. */
 .cap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
@@ -242,11 +247,11 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
   color:#3B4256;
 }
 .vert .annot{width:100%;}
-.annot .pin{color:#FF6394;flex-shrink:0;}
+.annot .pin{color:var(--pink-deep);flex-shrink:0;}
 .annot-lb{
   font-family:var(--mono);font-size:0.72em;font-weight:700;
   letter-spacing:0.14em;text-transform:uppercase;
-  color:#FF6394;margin-bottom:0.4em;
+  color:var(--pink-deep);margin-bottom:0.4em;
 }
 
 /* Highlight colour swatches that pop up with the selection. */
@@ -369,12 +374,12 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
 .rate.again .lb{color:var(--danger);}
 .rate.hard  .lb{color:var(--gold);}
 .rate.good  .lb{color:var(--accent-deep);}
-.rate.easy  .lb{color:var(--blue);}
+.rate.easy  .lb{color:var(--blue-deep);}
 
 .due-chip{
   display:inline-flex;align-items:center;gap:0.55em;
   font-family:var(--mono);font-size:0.95em;font-weight:700;
-  color:var(--accent);
+  color:var(--accent-deep);
   background:var(--mint);
   border:1px solid rgba(0,194,168,0.36);
   border-radius:2em;padding:0.5em 1.1em;
@@ -396,7 +401,7 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
   width:1.75em;height:1.75em;border-radius:0.4em;
   display:flex;align-items:center;justify-content:center;
   font-family:var(--mono);font-size:0.85em;font-weight:700;
-  background:#EDF0F7;color:var(--muted);
+  background:#E6EAF3;color:#4B5563;
 }
 .opt.right{border-color:rgba(15,157,88,0.55);background:#E9F8F0;}
 .opt.right .ltr{background:var(--green);color:#FFFFFF;}
@@ -478,7 +483,7 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
 .tests{display:flex;gap:0.6em;flex-wrap:wrap;justify-content:center;}
 .test{
   font-family:var(--mono);font-size:0.95em;font-weight:700;
-  color:var(--blue);
+  color:var(--blue-deep);
   background:#EAF6FE;
   border:1px solid rgba(14,165,233,0.32);
   border-radius:0.5em;padding:0.42em 0.85em;
@@ -490,7 +495,7 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
 .labs td:first-child{font-family:var(--mono);color:var(--muted);width:6em;}
 .labs td:nth-child(2){font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums;}
 .labs td.high{color:var(--danger);}
-.labs td.low{color:var(--blue);}
+.labs td.low{color:var(--blue-deep);}
 .labs td:last-child{text-align:right;color:var(--muted2);font-size:0.85em;}
 
 .io-block{margin-top:1.2em;}
@@ -546,7 +551,7 @@ html,body{background:#0B0D12;height:100%;overflow:hidden;}
   width:1.25em;height:1.25em;flex-shrink:0;
   border:1.5px solid #C6CCDA;border-radius:0.3em;
   display:flex;align-items:center;justify-content:center;
-  font-size:0.85em;color:#FFFFFF;
+  font-size:0.85em;color:#04302A;
 }
 .tick.on{border-color:rgba(0,194,168,0.45);background:var(--mint);}
 .tick.on .bx{background:var(--accent);border-color:var(--accent);}

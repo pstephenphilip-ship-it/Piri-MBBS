@@ -105,11 +105,13 @@
 
       var tiles = el('div', 'tiles');
       tiles.style.marginTop = '2.4em';
+      /* Deep enough to hold up as large numerals on a light ground, and
+         after the video encoder has had its way with them. */
       var spec = [
-        ['conditions', 'Conditions', '#00C2A8'],
-        ['flashcards', 'Flashcards', '#A78BFA'],
-        ['questions',  'Questions',  '#F0B429'],
-        ['systems',    'Systems',    '#FF6B6B']
+        ['conditions', 'Conditions', '#0A7568'],
+        ['flashcards', 'Flashcards', '#6D28D9'],
+        ['questions',  'Questions',  '#B45309'],
+        ['systems',    'Systems',    '#BE123C']
       ];
       var nodes = spec.map(function (s) {
         var t = el('div', 'tile');
@@ -387,7 +389,7 @@
       pn.__body.appendChild(exp);
 
       var foot = el('div', 'subline',
-        '<b style="color:#E8EAF0">' + fmt(D.STATS.questions) + '</b> questions, attached to the topic they belong to.');
+        '<b>' + fmt(D.STATS.questions) + '</b> questions, attached to the topic they belong to.');
       foot.style.marginTop = '1.6em';
 
       add(scene, cap, pn, foot);
@@ -487,7 +489,7 @@
       });
 
       var foot = el('div', 'subline',
-        '<b style="color:#E8EAF0">' + D.STATS.presentations + '</b> presentations across <b style="color:#E8EAF0">' +
+        '<b>' + D.STATS.presentations + '</b> presentations across <b>' +
         D.STATS.presentationGroups + '</b> systems.');
       foot.style.marginTop = '1.6em';
 
@@ -537,7 +539,7 @@
       var how = block('How to interpret', D.INVESTIGATION.interpret);
 
       var foot = el('div', 'subline',
-        '<b style="color:#E8EAF0">' + D.STATS.investigations + '</b> investigations across <b style="color:#E8EAF0">' +
+        '<b>' + D.STATS.investigations + '</b> investigations across <b>' +
         D.STATS.investigationGroups + '</b> categories.');
       foot.style.marginTop = '1.6em';
 
