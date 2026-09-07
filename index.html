@@ -9326,7 +9326,7 @@ function pharmaShowDrug(drug){
   document.getElementById('pharma-detail').scrollTop=0;
   pharmaActiveDrug=drug;
 }
-function formatPharmaText(text){if(!text)return '';function inl(s){s=esc(s);s=s.replace(/\*\*([^*]+)\*\*/g,'<strong class="ph-lead">$1</strong>');s=s.replace(/\[([^\]]+)\]/g,'<span class="ph-danger">$1</span>');s=s.replace(/=>/g,'<span class="ph-arrow">→</span>');s=s.replace(/→/g,'<span class="ph-arrow">→</span>');return s;}var lines=String(text).split('\n').map(function(l){return l.trim();}).filter(Boolean);if(lines.length<=1)return '<p class="ph-p">'+inl(lines[0]||'')+'</p>';return '<ul class="ph-list">'+lines.map(function(l){return '<li>'+inl(l)+'</li>';}).join('')+'</ul>';}
+function formatPharmaText(text){if(!text)return '';function inl(s){s=esc(s);s=s.replace(/\{\{(red|blue|green|amber|purple|teal)\}\}([\s\S]*?)\{\{\/\}\}/g,function(_,c,inner){var M={red:'#C93535',blue:'#3B7DD8',green:'#1F8B5E',amber:'#B86B00',purple:'#6B45B8',teal:'#0E9C8B'};return '<span style="color:'+(M[c]||'inherit')+'">'+inner+'</span>';});s=s.replace(/\*\*([^*]+)\*\*/g,'<strong class="ph-lead">$1</strong>');s=s.replace(/\[([^\]]+)\]/g,'<span class="ph-danger">$1</span>');s=s.replace(/=>/g,'<span class="ph-arrow">→</span>');s=s.replace(/→/g,'<span class="ph-arrow">→</span>');return s;}var lines=String(text).split('\n').map(function(l){return l.trim();}).filter(Boolean);if(lines.length<=1)return '<p class="ph-p">'+inl(lines[0]||'')+'</p>';return '<ul class="ph-list">'+lines.map(function(l){return '<li>'+inl(l)+'</li>';}).join('')+'</ul>';}
 function formatSideEffects(text){return formatPharmaText(text);}
 function pharmaShowEmpty(){document.getElementById('pharma-empty').style.display='';document.getElementById('pharma-detail').style.display='none';}
 
@@ -18028,6 +18028,30 @@ function hideFlyout(p) {
     setTimeout(function(){ name.focus(); },30);
   }
 
+  // Formatting toolbar for the drug fields: acts on the box the user is typing in.
+  // Inserts the same lightweight markup the renderer understands (**bold**, [red flag],
+  // {{colour}}…{{/}}, => arrow) and helps build bulleted lists (each line = a bullet).
+  function wirePharmaToolbar(ov){
+    var body=ov.querySelector('.ownt-edit-body'); var tbar=ov.querySelector('#pf-toolbar'); if(!body||!tbar) return;
+    var activeField=document.getElementById('pf_mechanism');
+    body.addEventListener('focusin', function(e){ if(e.target && /^pf_/.test(e.target.id||'')) activeField=e.target; });
+    function fld(){ return (activeField && document.body.contains(activeField)) ? activeField : document.getElementById('pf_mechanism'); }
+    function wrapSel(pre,post){ var f=fld(); if(!f) return; var s=f.selectionStart||0,e=f.selectionEnd||0,v=f.value||''; var sel=v.slice(s,e);
+      f.value=v.slice(0,s)+pre+sel+post+v.slice(e); var pos=sel?(s+pre.length+sel.length+post.length):(s+pre.length);
+      f.focus(); try{ f.setSelectionRange(pos,pos); }catch(_){}}
+    function newBullet(){ var f=fld(); if(!f) return; var s=f.selectionStart||0,v=f.value||''; var pre=v.slice(0,s),post=v.slice(s);
+      var add=(pre && !/\n$/.test(pre))?'\n':''; f.value=pre+add+post; var pos=(pre+add).length; f.focus(); try{ f.setSelectionRange(pos,pos); }catch(_){}}
+    tbar.addEventListener('mousedown', function(e){ e.preventDefault(); });   // keep the field's focus + selection
+    tbar.querySelectorAll('button').forEach(function(btn){ btn.onclick=function(){
+      var col=btn.getAttribute('data-col'), act=btn.getAttribute('data-act');
+      if(col){ wrapSel('{{'+col+'}}','{{/}}'); return; }
+      if(act==='bold') wrapSel('**','**');
+      else if(act==='danger') wrapSel('[',']');
+      else if(act==='arrow') wrapSel(' => ','');
+      else if(act==='bullet') newBullet();
+    };});
+  }
+
   function openEditor(t, isNew){
     closeEditor();
     var ov=document.createElement('div'); ov.className='ownt-edit'; ov.id='ownt-pharma-edit';
@@ -18036,12 +18060,24 @@ function hideFlyout(p) {
       if(f[0]==='drug_class') return '<label class="ownt-lbl">'+f[1]+'</label><input class="ownt-inp" id="pf_'+f[0]+'" placeholder="'+esc(f[2])+'" value="'+esc(v)+'">';
       return '<label class="ownt-lbl">'+f[1]+'</label><textarea class="ownt-inp" id="pf_'+f[0]+'" rows="3" style="resize:vertical;line-height:1.5;">'+esc(v)+'</textarea>';
     }).join('');
+    var COLS=[['teal','#0E9C8B'],['blue','#3B7DD8'],['green','#1F8B5E'],['amber','#B86B00'],['purple','#6B45B8'],['red','#C93535']];
+    var tb='<div class="ownt-toolbar" id="pf-toolbar" style="position:sticky;top:0;z-index:3;margin-bottom:14px;flex-wrap:wrap;">'
+      +'<button type="button" class="ownt-tb" data-act="bold" title="Bold"><b>B</b></button>'
+      +'<button type="button" class="ownt-tb" data-act="bullet" title="New bullet point (each line becomes a bullet)">• Bullet</button>'
+      +'<button type="button" class="ownt-tb" data-act="danger" title="Red-flag / danger point">⚠ Red flag</button>'
+      +'<button type="button" class="ownt-tb" data-act="arrow" title="Insert arrow →">→</button>'
+      +'<span class="ownt-tb-div"></span>'
+      +'<span style="font-size:11px;color:var(--muted,#6B7280);align-self:center;margin:0 3px;">Colour</span>'
+      +COLS.map(function(c){return '<button type="button" class="pf-sw" data-col="'+c[0]+'" title="'+c[0]+' text" aria-label="'+c[0]+' text" style="width:24px;height:24px;padding:0;border-radius:50%;background:'+c[1]+';border:2px solid #fff;box-shadow:0 0 0 1px #CBD2E0;cursor:pointer;margin:0 1px;"></button>';}).join('')
+      +'</div>';
     ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">Pharmacology &middot; '+esc(t.section)+'</div><div class="n">'+esc(t.name)+'</div></div>'
       +'<button class="ownt-btn" id="pf-cancel">Cancel</button><button class="ownt-btn primary" id="pf-save">Save drug</button></div>'
       +'<div class="ownt-edit-body"><div style="max-width:760px;margin:0 auto;">'
-      +'<div style="font-size:12.5px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.55;">Tip: wrap a phrase in <b>**stars**</b> to bold it, put <b>[square brackets]</b> around a danger / red-flag point, and give each point its <b>own line</b> for a bulleted list. Leave a field blank to hide that card.</div>'
+      +tb
+      +'<div style="font-size:12.5px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.55;">Use the toolbar above to <b>bold</b>, <b>colour</b>, add <b>bullets</b> and mark <b>red-flag</b> points — it acts on the box you’re typing in. Or type directly: <b>**stars**</b> = bold, <b>[brackets]</b> = red flag, and each <b>new line</b> becomes a bullet. Leave a field blank to hide that card.</div>'
       +fields+'</div></div>';
     document.body.appendChild(ov);
+    wirePharmaToolbar(ov);
     ov.querySelector('#pf-cancel').onclick=function(){ if(isNew){ removeTopic(t, true); } closeEditor(); };
     ov.querySelector('#pf-save').onclick=function(){
       if(!t.drug) t.drug={};
