@@ -18592,5 +18592,32 @@ function hideFlyout(p) {
      when cards were 16px; with cards at 20px they became the tight ones. */
   .rn-inv-card{padding:16px;}
 </style>
+
+<!-- =====================================================================
+     LAYOUT PASS 10 — a numbered list item must not also get a bullet.
+     Search this file for "LAYOUT PASS 10".
+     ===================================================================== -->
+<style>
+  /* Some list items are authored carrying their own number - "1. Adhesion:",
+     "2. Thrombosis predominates". Every list in the note system also draws a
+     marker, so those items rendered as "* 1. Adhesion:": two markers doing
+     one job. Three different marker mechanisms are in play and all three
+     have to be turned off together:
+       - a bare <ul> uses the native list-style disc;
+       - .rn-list li draws a literal "•" through ::before;
+       - .rn-tightlist li draws a 4px dot through ::before.
+     The number stays in the text exactly as written - nothing is removed -
+     and the item keeps its padding, so its text still lines up with the
+     bulleted items around it. */
+  /* No .rich-note prefix: Medical Conditions renders notes into .note-content,
+     with no .rich-note ancestor at all, so a prefixed selector silently missed
+     every note in this tab. Plain li.rn-numbered::before ties .rn-list
+     li::before on specificity and wins on source order. */
+  li.rn-numbered{list-style:none !important;}
+  li.rn-numbered::before{content:none !important;display:none !important;}
+  /* A sub-point nested under a numbered rung: .rn-tightlist zeroes its own
+     margin, which butts it straight against the parent's last line. */
+  li > .rn-tightlist{margin:5px 0 2px;}
+</style>
 </body>
 </html>
