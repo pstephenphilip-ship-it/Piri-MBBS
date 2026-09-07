@@ -7,15 +7,15 @@
 <link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="reel.css">
 <style>
-  /* Fixed 1080x1920 canvas; scaled to fit the window in preview, left at 1:1
-     in the top-left corner when rendering. */
-  html,body{margin:0;height:100%;background:#0B0D12;overflow:hidden;}
+  /* The stage is a fixed 1080x1920 canvas; in preview it is scaled to fit the
+     window, in render mode it is left at 1:1 in the top-left corner. */
+  html,body{margin:0;height:100%;background:#000;overflow:hidden;}
   #fit{position:absolute;left:50%;top:50%;transform-origin:0 0;}
-  body.rendering{background:#F7F8FC;}
+  body.rendering{background:#0D0F14;}
   body.rendering #fit{position:static;left:auto;top:auto;margin:0!important;transform:none!important;}
 </style>
 </head>
-<body data-variant="vert" data-profile="phone">
+<body data-variant="vert">
   <div id="fit"><div id="stage" class="stage vert"></div></div>
   <script src="reel-data.js"></script>
   <script src="reel.js"></script>

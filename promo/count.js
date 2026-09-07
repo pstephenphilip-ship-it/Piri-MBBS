@@ -58,7 +58,8 @@ const conditions = topics(literal('CONDITIONS_SYSTEMS'), true);
 const anatomy = topics(literal('TAB_ANATOMY'), false);
 const histology = topics(literal('TAB_HISTOLOGY'), false);
 const signs = topics(literal('TAB_SIGNS'), false);
-/* Counted unexpanded, which is what the app's own home tile shows. */
+/* Counted unexpanded — which is how the app's own home tile counts them,
+   and the reel should not contradict a figure the site puts on screen. */
 const investigations = topics(literal('TAB_INVESTIGATIONS'), false);
 
 const pharma = literal('PHARMA_SECTIONS');
