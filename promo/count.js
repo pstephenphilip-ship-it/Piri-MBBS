@@ -58,7 +58,8 @@ const conditions = topics(literal('CONDITIONS_SYSTEMS'), true);
 const anatomy = topics(literal('TAB_ANATOMY'), false);
 const histology = topics(literal('TAB_HISTOLOGY'), false);
 const signs = topics(literal('TAB_SIGNS'), false);
-const investigations = topics(literal('TAB_INVESTIGATIONS'), true);
+/* Counted unexpanded, which is what the app's own home tile shows. */
+const investigations = topics(literal('TAB_INVESTIGATIONS'), false);
 
 const pharma = literal('PHARMA_SECTIONS');
 let drugClasses = 0;

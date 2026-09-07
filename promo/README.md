@@ -1,100 +1,110 @@
 # DoctoRise promo reel
 
-A 77-second promotional video for the site, in two cuts:
+A promotional video for the site, in two cuts:
 
-| Cut | Size | For |
-|---|---|---|
-| `landscape.html` | 1920 × 1080 | YouTube, a site hero, presentations |
-| `vertical.html` | 1080 × 1920 | TikTok, Instagram Reels, YouTube Shorts |
+| Cut | Size | Shows | For |
+|---|---|---|---|
+| `landscape.html` | 1920 × 1080 | the desktop site in a browser window | YouTube, a site hero, presentations |
+| `vertical.html` | 1080 × 1920 | the mobile site in a phone | TikTok, Instagram Reels, Shorts |
 
-Both cuts run the same script and the same data — they are not crops of each
-other. Each scene reflows: the split screen is three columns wide and three
-rows tall, the note and its annotation sit side by side wide and stacked tall.
+**Everything on screen is the real site.** The reel does not recreate the
+UI — `capture.mjs` drives the actual app with real mouse input (a real drag
+to select text, which raises the app's own highlight bar; real clicks on
+real buttons) and records it. The two cuts use separate recordings at
+desktop and phone widths, so the vertical cut shows the genuine mobile
+layout rather than a cropped desktop one.
 
-Every number in the reel is measured from the live app, not invented. Run
-`node promo/count.js` to re-measure after a content drop.
+Every figure quoted is measured from the app, not written by hand.
+`node promo/count.js` re-measures and flags drift.
 
-## Preview it
-
-Open `promo/landscape.html` in a browser. It scales to fit the window and
-loops.
-
-- **click** or **space** — play / pause
-- **← →** — scrub a second
-- **home** — back to the start
-
-## Render it to video
+## Make the video
 
 ```sh
 cd promo
 npm install                 # playwright, once
-node render.mjs             # both cuts, 30 fps, into promo/out/
+node capture.mjs            # record the site  (~8 min, both profiles)
+node render.mjs             # encode both cuts (~5 min each)
 ```
 
-Other options:
+Output lands in `promo/out/` as H.264 `.mp4`, `yuv420p` with `faststart` —
+what TikTok, Instagram, YouTube and Keynote all want.
+
+Useful flags:
 
 ```sh
-node render.mjs --only vertical      # just the 9:16 cut
-node render.mjs --fps 60             # smoother, twice the frames
-node render.mjs --format png         # lossless frames, about 3x slower
-node render.mjs --out ~/Desktop      # write somewhere else
+node capture.mjs --profile phone      # re-record one profile
+node capture.mjs --only annotate      # re-record one clip
+node render.mjs  --only vertical      # encode one cut
+node render.mjs  --fps 60             # smoother, twice the frames
+node render.mjs  --format png         # lossless frames, ~3x slower
 ```
 
-A render takes roughly 5 minutes per cut at 30 fps. Output is H.264 in an
-`.mp4`, `yuv420p` with `faststart`, which is what TikTok, Instagram, YouTube
-and Keynote all want.
+`node serve.mjs` then opens `http://localhost:8899/promo/landscape.html`
+to preview in a browser — click or space to play/pause, arrows to scrub,
+home to rewind. It must be served over http, not opened from the
+filesystem, because the page fetches its footage manifest.
 
 **ffmpeg** is found automatically: `$FFMPEG`, then `ffmpeg` on your `PATH`,
-then the binary inside the `imageio-ffmpeg` Python package, then Playwright's
-bundled copy. The first one that can encode H.264 wins. Playwright's copy
-*cannot* — it only does VP8 — so if that is all you have, you get a `.webm`
-and a warning, and social platforms will reject the upload. Fix it with:
-
-```sh
-pip install imageio-ffmpeg      # or install ffmpeg properly
-```
+then the binary inside the `imageio-ffmpeg` Python package, then
+Playwright's bundled copy. The first that can encode H.264 wins.
+Playwright's *cannot* — VP8 only — so if that is all you have you get a
+`.webm` and a warning, and social platforms will reject it. Fix with
+`pip install imageio-ffmpeg`, or install ffmpeg properly.
 
 ## Change what it says
 
-Almost everything is in **`reel-data.js`**: the headline for each scene, the
-counts, the sample note, flashcard, MCQ, differentials and lab values. Edit
-there and re-render — you should not need to touch the engine.
+The script is `reel-data.js` — one entry per scene, each naming the clip it
+sits over:
 
-Two things worth knowing:
+```js
+{ id: 'recall', clip: 'recall',
+  line: 'Want to practise active recall?',
+  sub: '<b>21,389</b> flashcards, graded the way you already revise.' }
+```
 
-- `SITE_URL` is **empty**. Set it to your domain and the outro will show it.
-- Note lines in the `NOTE.lines` array must each fit on one line in the
-  landscape cut; a wrapped line drags its highlight sweep across two rows.
-  Keep them at roughly the length of the ones already there.
+Edit and re-render; no need to re-capture unless you want different
+footage. `SITE_URL` sets both the address in the browser chrome and the
+outro card.
 
-Scene order, durations and motion live in **`reel.js`**, in the `SCENES`
-array. Each scene is `{ id, dur, build(), draw() }` — `build` makes the DOM
-once, `draw` is handed the seconds elapsed within that scene and writes the
-animated properties.
+To change what the footage *shows*, edit the matching clip in
+`capture.mjs`, then re-record just that one with `--only <id>`.
 
 ## Why it is built this way
 
-The whole reel is a pure function of time: `PromoReel.seek(t)` writes every
-animated property for timeline position `t`, and nothing depends on the
-previous frame. There are no CSS transitions or keyframes anywhere.
+The reel is a pure function of time: `seekAsync(t)` decodes the exact
+footage frame for position `t` and writes every animated property, with no
+CSS transitions anywhere and no dependence on the previous frame.
 
-That is what makes the render exact. `render.mjs` walks the timeline one
-frame at a time and screenshots each position, so a capture that takes five
-minutes of wall clock produces precisely the frames real-time playback would
-show — no dropped frames, no timing drift, and the same bytes on any machine.
-It is also why the fonts are vendored into `fonts/` rather than loaded from
-Google: a font arriving mid-render would change the layout half way through.
+So `render.mjs` walks the timeline one frame at a time and screenshots each
+position — a five-minute capture yields precisely the frames real-time
+playback would show, on any machine, with no dropped frames or timing
+drift. `capture.mjs` disables the app's own transitions for the same
+reason, and the fonts are vendored into `fonts/` rather than fetched from
+Google so a late-arriving face cannot reflow the layout mid-render.
+
+Footage frames are decoded on demand into a small LRU rather than
+preloaded — a full clip of decoded bitmaps runs past a gigabyte.
 
 ## Files
 
 ```
-reel-data.js    copy, counts and sample content   <- edit this
-reel.js         timeline engine and the scenes
+reel-data.js    the script and the counts     <- edit this
+capture.mjs     drives the real site, records frames
+reel.js         timeline engine
 reel.css        styling for both aspect ratios
 player.js       preview playback + the render hook
-landscape.html  1920x1080 shell
-vertical.html   1080x1920 shell
+landscape.html  1920x1080 shell  (desktop footage)
+vertical.html   1080x1920 shell  (phone footage)
 render.mjs      frames -> ffmpeg -> mp4
+serve.mjs       static server for previewing
 count.js        re-measure the counts from the app
 fonts/          vendored Inter + JetBrains Mono
+shots/          recorded footage — generated, not committed
+out/            rendered video — generated, not committed
 ```
+
+## Note on the recording
+
+`capture.mjs` sets `window.__member = true` before recording so the footage
+shows the product rather than the upgrade prompts. That only affects the
+throwaway browser it drives; it changes nothing about the site.

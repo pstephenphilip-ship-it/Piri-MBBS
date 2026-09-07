@@ -13,6 +13,10 @@
    so a slow machine produces exactly the same video as a fast one — there
    are no dropped or duplicated frames.
 
+   The reel plays recorded footage of the real site, so run
+   `node promo/capture.mjs` first. This starts its own static server,
+   because the page fetches that footage over http.
+
    ffmpeg is looked up in this order: $FFMPEG, ffmpeg on PATH, the one that
    ships with the imageio-ffmpeg Python package, then Playwright's bundled
    copy. The first one that can encode H.264 wins and you get an .mp4;
@@ -30,6 +34,8 @@ try {
 }
 import { spawn, execFileSync } from 'node:child_process';
 import { mkdirSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { createServer } from 'node:http';
+import { readFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -49,9 +55,16 @@ const FORMAT = opt('format', 'jpeg') === 'png' ? 'png' : 'jpeg';
 const SHOT = FORMAT === 'png' ? { type: 'png' } : { type: 'jpeg', quality: 95 };
 
 const CUTS = [
-  { name: 'doctorise-promo-landscape', file: 'landscape.html', w: 1920, h: 1080, label: '16:9 · YouTube, site hero, presentations' },
-  { name: 'doctorise-promo-vertical',  file: 'vertical.html',  w: 1080, h: 1920, label: '9:16 · TikTok, Reels, Shorts' }
+  { name: 'doctorise-promo-landscape', file: 'landscape.html', profile: 'desktop', w: 1920, h: 1080, label: '16:9 · YouTube, site hero, presentations' },
+  { name: 'doctorise-promo-vertical',  file: 'vertical.html',  profile: 'phone',   w: 1080, h: 1920, label: '9:16 · TikTok, Reels, Shorts' }
 ].filter(c => !ONLY || c.file.startsWith(ONLY));
+
+for (const c of CUTS) {
+  if (!existsSync(path.join(HERE, 'shots', c.profile, 'manifest.json'))) {
+    console.error(`No ${c.profile} footage. Record it first:\n\n    node promo/capture.mjs --profile ${c.profile}\n`);
+    process.exit(1);
+  }
+}
 
 if (!CUTS.length) { console.error(`--only "${ONLY}" matched nothing (try landscape or vertical)`); process.exit(1); }
 
@@ -118,6 +131,25 @@ function args(out) {
        '-r', String(FPS), out];
 }
 
+/* ---------------------------------------------------------------- serve */
+const ROOT = path.join(HERE, '..');
+const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css',
+  '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg',
+  '.webp': 'image/webp', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
+const server = createServer(async (req, res) => {
+  try {
+    const rel = decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '');
+    const file = path.join(ROOT, rel);
+    if (!file.startsWith(ROOT)) { res.writeHead(403).end(); return; }
+    const st = await stat(file);
+    const target = st.isDirectory() ? path.join(file, 'index.html') : file;
+    res.writeHead(200, { 'content-type': TYPES[path.extname(target)] || 'application/octet-stream',
+                         'cache-control': 'no-store' });
+    res.end(await readFile(target));
+  } catch { res.writeHead(404).end(); }
+});
+const PORT = await new Promise(res => server.listen(0, () => res(server.address().port)));
+
 /* --------------------------------------------------------------- render */
 mkdirSync(OUT, { recursive: true });
 const browser = await chromium.launch({ args: ['--force-color-profile=srgb', '--disable-lcd-text'] });
@@ -125,6 +157,7 @@ const browser = await chromium.launch({ args: ['--force-color-profile=srgb', '--
 for (const cut of CUTS) {
   const src = path.join(HERE, cut.file);
   if (!existsSync(src)) { console.error(`missing ${src}`); continue; }
+  const url = `http://localhost:${PORT}/promo/${cut.file}?render=1`;
   const out = path.join(OUT, cut.name + (FF.mp4 ? '.mp4' : '.webm'));
 
   const page = await browser.newPage({
@@ -133,8 +166,13 @@ for (const cut of CUTS) {
   });
   page.on('pageerror', e => console.error('  page error:', e.message));
 
-  await page.goto('file://' + src + '?render=1', { waitUntil: 'load' });
-  await page.waitForFunction(() => document.documentElement.dataset.reelReady === '1', { timeout: 30000 });
+  await page.goto(url, { waitUntil: 'load' });
+  await page.waitForFunction(
+    () => document.documentElement.dataset.reelReady === '1' || document.documentElement.dataset.reelError === '1',
+    { timeout: 60000 });
+  if (await page.evaluate(() => document.documentElement.dataset.reelError === '1')) {
+    throw new Error(`${cut.file} could not load its footage — run: node promo/capture.mjs --profile ${cut.profile}`);
+  }
 
   const duration = await page.evaluate(() => window.__reel.duration);
   const frames = Math.round(duration * FPS);
@@ -173,4 +211,5 @@ for (const cut of CUTS) {
 }
 
 await browser.close();
+server.close();
 console.log(`\nWritten to ${OUT}`);
