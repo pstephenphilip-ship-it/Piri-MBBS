@@ -18530,12 +18530,67 @@ function hideFlyout(p) {
   .rn-card > div.rn-warn,
   .rn-card > div.rn-highlight,
   .rn-card > div.rn-pearl{
-    margin-left:16px;
-    margin-right:16px;
+    margin-left:20px;
+    margin-right:20px;
     margin-bottom:12px;
-    padding-left:14px;
-    padding-right:14px;
+    padding-left:15px;
+    padding-right:15px;
   }
+</style>
+
+<!-- =====================================================================
+     LAYOUT PASS 9 — room to breathe inside a card, and the list indent a
+     card was eating.  Search this file for "LAYOUT PASS 9".
+     ===================================================================== -->
+<style>
+  /* Two problems, one place.
+
+     1. A plain <ul> inside a card LOST ITS MARKER GUTTER. .rn-body ul sets
+        padding-left:22px to make room for the bullets, but .rn-card>ul then
+        sets the `padding` SHORTHAND (12px 16px), which resets that 22px to
+        16px. With list-style-position:outside the discs are then drawn in
+        the card's own padding, hard against the frame. Measured: the <li>
+        box started 17px from the card border, the bullet left of that.
+
+     2. Even ignoring the bullets, 16px was the tightest inset of any boxed
+        component in the note system (callout 18, pearl 16+4 rule = 20,
+        inv-card 14, kf 15), and cards are the ones carrying long wrapped
+        lists — so text ran to 17px of the right border on every line.
+
+     Cards now sit at 20px, the widest of that set rather than the narrowest,
+     and a plain list gets 36px so its text lines up with a .rn-tightlist's
+     (which hangs its own ::before marker and needs no gutter). */
+  .rn-card > ul,
+  .rn-card > ol,
+  .rn-card > p,
+  .rn-card > div:not(.rn-card-head),
+  .rn-card > .rn-list{
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .rn-card > ul:not(.rn-tightlist):not(.rn-list),
+  .rn-card > ol:not(.rn-tightlist):not(.rn-list){
+    padding-left:36px;
+  }
+  .rn-card-head,
+  /* Histology re-declares the head's padding shorthand at (1,1,0), so it needs
+     naming here or its head bar would keep a 16px inset over a 20px body. */
+  #tab-histology .rn-card-head{
+    padding-left:20px;
+    padding-right:20px;
+  }
+  .rn-card > table{
+    margin-left:20px;
+    margin-right:20px;
+    width:calc(100% - 40px);
+  }
+  /* The head bar is a hard rule across the card; 12px under it read as
+     cramped once the sides opened up. */
+  .rn-card > .rn-card-head + *:not(.rn-card-head){padding-top:14px;}
+
+  /* The small tiles were the other end of the same scale. 14px was fine
+     when cards were 16px; with cards at 20px they became the tight ones. */
+  .rn-inv-card{padding:16px;}
 </style>
 </body>
 </html>
