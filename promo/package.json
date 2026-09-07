@@ -1,0 +1,14 @@
+{
+  "name": "doctorise-promo-reel",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Renders the DoctoRise promo reel to video. Not part of the site build.",
+  "scripts": {
+    "render": "node render.mjs",
+    "render:vertical": "node render.mjs --only vertical",
+    "render:landscape": "node render.mjs --only landscape"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

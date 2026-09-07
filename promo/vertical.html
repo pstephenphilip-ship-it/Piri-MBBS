@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DoctoRise — promo reel (1080x1920)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="reel.css">
+<style>
+  /* The stage is a fixed 1080x1920 canvas; in preview it is scaled to fit the
+     window, in render mode it is left at 1:1 in the top-left corner. */
+  html,body{margin:0;height:100%;background:#000;overflow:hidden;}
+  #fit{position:absolute;left:50%;top:50%;transform-origin:0 0;}
+  body.rendering{background:#0D0F14;}
+  body.rendering #fit{position:static;left:auto;top:auto;margin:0!important;transform:none!important;}
+</style>
+</head>
+<body data-variant="vert">
+  <div id="fit"><div id="stage" class="stage vert"></div></div>
+  <script src="reel-data.js"></script>
+  <script src="reel.js"></script>
+  <script src="player.js"></script>
+</body>
+</html>

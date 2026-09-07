@@ -1,0 +1,538 @@
+/* =====================================================================
+   DoctoRise promo reel — presentation layer.
+
+   Two rules keep this renderable frame-by-frame:
+     1. NO CSS transitions or @keyframes. Every bit of motion is written
+        by reel.js as an inline style at an exact timeline position, so
+        seek(t) always produces the same pixels no matter how slowly the
+        renderer walks the timeline.
+     2. Everything is sized in `em` off .stage's font-size. The landscape
+        and vertical shells set a different base size and a variant class;
+        layout then reflows properly instead of being scaled or cropped.
+   ===================================================================== */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --bg:#0D0F14;
+  --surface:#1C2030;
+  --surface2:#222638;
+  --border:#272C3E;
+  --border-soft:#1F2330;
+  --text:#E8EAF0;
+  --muted:#8A93A6;
+  --muted2:#5A6273;
+  --accent:#00C2A8;
+  --blue:#0EA5E9;
+  --purple:#A78BFA;
+  --gold:#F0B429;
+  --danger:#FF6B6B;
+  --green:#34C759;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --grad:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);
+}
+
+html,body{background:#000;height:100%;overflow:hidden;}
+
+/* ---------------------------------------------------------------- stage */
+.stage{
+  position:relative;
+  overflow:hidden;
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:geometricPrecision;
+}
+.stage.land{width:1920px;height:1080px;font-size:18px;}
+.stage.vert{width:1080px;height:1920px;font-size:22px;}
+
+/* Two soft accent glows drifting behind everything. reel.js moves them. */
+.glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;}
+.glow-a{width:44em;height:44em;background:rgba(0,194,168,0.16);}
+.glow-b{width:38em;height:38em;background:rgba(14,165,233,0.14);}
+.vert .glow-a{width:34em;height:34em;}
+.vert .glow-b{width:30em;height:30em;}
+
+/* Faint grid, so the flat background has some structure on a big screen. */
+.grid-bg{
+  position:absolute;inset:0;pointer-events:none;opacity:0.4;
+  background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);
+  background-size:4em 4em;
+}
+
+/* Vignette keeps the eye centred once the scene fills the frame. */
+.vignette{
+  position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,0.55) 100%);
+}
+
+.scene{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:5em 6em;
+  opacity:0;
+  will-change:opacity,transform;
+}
+.vert .scene{padding:7em 3.4em;}
+
+/* ------------------------------------------------------------- captions */
+.kicker{
+  font-family:var(--mono);
+  font-size:0.95em;font-weight:700;
+  letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1.1em;
+}
+.headline{
+  font-size:3.5em;font-weight:800;
+  letter-spacing:-0.028em;line-height:1.12;
+  text-align:center;
+  max-width:22em;
+}
+.vert .headline{font-size:2.9em;max-width:13em;}
+.headline b{
+  background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-weight:800;
+}
+.subline{
+  font-size:1.25em;color:var(--muted);
+  margin-top:0.9em;text-align:center;max-width:34em;
+}
+
+/* The caption block that sits above a demo panel in most scenes. */
+.cap{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+.cap .headline{font-size:2.9em;}
+.vert .cap .headline{font-size:2.35em;}
+
+/* --------------------------------------------------------------- panels */
+.panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:1.1em;
+  box-shadow:0 2.2em 5em rgba(0,0,0,0.55);
+  overflow:hidden;
+}
+.panel-head{
+  display:flex;align-items:center;gap:0.75em;
+  padding:0.95em 1.4em;
+  border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.018);
+}
+.dots{display:flex;gap:0.42em;}
+.dots i{width:0.62em;height:0.62em;border-radius:50%;background:#394054;display:block;}
+.crumb{
+  font-family:var(--mono);font-size:0.82em;
+  letter-spacing:0.06em;color:var(--muted2);
+}
+.panel-body{padding:1.7em 1.9em;}
+.panel-body.has-palette{padding-bottom:4.2em;}
+
+/* ------------------------------------------------------------ hero tiles */
+.hero-logo{width:9em;height:9em;object-fit:contain;}
+.vert .hero-logo{width:7.5em;height:7.5em;}
+.wordmark{
+  font-family:var(--mono);font-weight:800;
+  font-size:4.6em;letter-spacing:-0.02em;line-height:1;
+  background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.vert .wordmark{font-size:3.6em;}
+
+.tiles{display:flex;gap:1.5em;justify-content:center;flex-wrap:wrap;}
+.vert .tiles{display:grid;grid-template-columns:1fr 1fr;gap:1.2em;width:100%;}
+.tile{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:1em;
+  padding:1.5em 2em;
+  min-width:11.5em;
+  text-align:center;
+}
+.vert .tile{min-width:0;padding:1.4em 1em;}
+.tile .n{
+  font-family:var(--mono);font-size:3.1em;font-weight:800;
+  line-height:1;letter-spacing:-0.03em;
+  font-variant-numeric:tabular-nums;
+}
+.vert .tile .n{font-size:2.7em;}
+.tile .l{
+  font-size:0.82em;font-weight:600;color:var(--muted);
+  margin-top:0.75em;text-transform:uppercase;letter-spacing:0.13em;
+}
+
+/* --------------------------------------------------------- system list */
+.syslist-wrap{
+  position:relative;
+  width:40em;height:23em;
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 16%,#000 84%,transparent 100%);
+}
+.vert .syslist-wrap{width:100%;height:26em;}
+.syslist{position:absolute;left:0;right:0;top:0;will-change:transform;}
+.sysrow{
+  display:flex;align-items:center;gap:1em;
+  padding:0.85em 1.3em;
+  border:1px solid var(--border-soft);
+  border-radius:0.7em;
+  background:var(--surface);
+  margin-bottom:0.6em;
+}
+.sysrow .bar{width:0.28em;height:1.5em;border-radius:0.14em;background:var(--accent);flex-shrink:0;}
+.sysrow .nm{
+  font-size:1.08em;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sysrow .ct{
+  margin-left:auto;flex-shrink:0;
+  font-family:var(--mono);font-size:0.92em;font-weight:700;
+  color:var(--accent);
+  background:rgba(0,194,168,0.1);
+  border:1px solid rgba(0,194,168,0.24);
+  border-radius:0.45em;padding:0.15em 0.6em;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ------------------------------------------------------------ note + hl */
+.note-title{font-size:1.5em;font-weight:700;letter-spacing:-0.015em;margin-bottom:0.9em;}
+.note-line{position:relative;display:block;font-size:1.06em;line-height:1.95;width:fit-content;max-width:100%;}
+.note-line .hl{
+  position:absolute;left:-0.22em;top:0.16em;bottom:0.16em;width:0;
+  border-radius:0.2em;pointer-events:none;
+}
+.note-line .tx{position:relative;}
+.hl-yellow{background:rgba(240,180,41,0.30);}
+.hl-pink{background:rgba(255,99,148,0.30);}
+
+/* The note and its annotation sit side by side (stacked on mobile) so the
+   card never covers the text it is annotating. */
+.annot-row{
+  display:flex;align-items:center;gap:1.5em;
+  width:100%;max-width:62em;margin-top:2.2em;
+}
+.vert .annot-row{flex-direction:column;align-items:stretch;max-width:100%;}
+/* A wrapped note line would drag its highlight across two rows. */
+.note-line{white-space:nowrap;}
+.vert .note-line{white-space:normal;}
+.annot-row .panel{flex:1;min-width:0;}
+
+.annot{
+  flex-shrink:0;width:19em;
+  display:flex;gap:0.7em;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-left:0.22em solid #FF6394;
+  border-radius:0.65em;
+  padding:1em 1.15em;
+  box-shadow:0 1.2em 2.6em rgba(0,0,0,0.5);
+  font-size:0.95em;line-height:1.5;
+  color:#D5DAE6;
+}
+.vert .annot{width:100%;}
+.annot .pin{color:#FF6394;flex-shrink:0;}
+.annot-lb{
+  font-family:var(--mono);font-size:0.72em;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:#FF6394;margin-bottom:0.4em;
+}
+
+/* Highlight colour swatches that pop up with the selection. */
+.swatches{
+  position:absolute;
+  right:1.9em;bottom:1.4em;
+  display:flex;gap:0.5em;align-items:center;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:2em;
+  padding:0.5em 0.8em;
+  box-shadow:0 1em 2.2em rgba(0,0,0,0.55);
+}
+.swatches i{width:1.05em;height:1.05em;border-radius:50%;display:block;}
+.swatches .lb{font-family:var(--mono);font-size:0.72em;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted2);margin-right:0.25em;}
+
+/* ------------------------------------------------------------- my notes */
+.mynote-tag{
+  display:inline-flex;align-items:center;gap:0.5em;
+  font-family:var(--mono);font-size:0.8em;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);
+  background:rgba(0,194,168,0.1);
+  border:1px solid rgba(0,194,168,0.26);
+  border-radius:0.45em;padding:0.3em 0.65em;
+  margin-bottom:1em;
+}
+.mynote-title{font-size:1.32em;font-weight:700;margin-bottom:0.7em;}
+.mynote-body{
+  font-size:1.06em;line-height:1.85;color:#C8CEDC;
+  white-space:pre-wrap;min-height:4.6em;
+}
+.caret{
+  display:inline-block;width:0.08em;height:1.05em;
+  background:var(--accent);vertical-align:-0.16em;margin-left:0.06em;
+}
+
+/* ------------------------------------------------------------ flashcard */
+.fc{
+  position:relative;
+  width:34em;height:15em;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.vert .fc{width:100%;height:16em;}
+.fc-face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:2.4em;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:1.1em;
+  box-shadow:0 2.2em 5em rgba(0,0,0,0.55);
+}
+.fc-back{transform:rotateY(180deg);background:var(--surface2);}
+.fc-deck{
+  font-family:var(--mono);font-size:0.8em;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);
+  margin-bottom:1.1em;
+}
+.fc-q{font-size:1.42em;font-weight:600;line-height:1.5;}
+.fc-a{font-size:1.42em;line-height:1.55;color:#DDE3EE;}
+.fc-a b{color:var(--accent);}
+
+.rates{display:flex;gap:0.85em;justify-content:center;}
+.rate{
+  flex:1;
+  border:1px solid var(--border);
+  border-radius:0.7em;
+  background:var(--surface);
+  padding:0.75em 0.4em;
+  text-align:center;
+}
+.rate .lb{font-size:1em;font-weight:700;}
+.rate .sb{font-family:var(--mono);font-size:0.8em;color:var(--muted2);margin-top:0.2em;}
+.rate.again .lb{color:var(--danger);}
+.rate.hard  .lb{color:var(--gold);}
+.rate.good  .lb{color:var(--accent);}
+.rate.easy  .lb{color:var(--blue);}
+
+.due-chip{
+  display:inline-flex;align-items:center;gap:0.55em;
+  font-family:var(--mono);font-size:0.95em;font-weight:700;
+  color:var(--accent);
+  background:rgba(0,194,168,0.1);
+  border:1px solid rgba(0,194,168,0.3);
+  border-radius:2em;padding:0.5em 1.1em;
+}
+
+/* ------------------------------------------------------------------ mcq */
+.mcq-stem{font-size:1.12em;line-height:1.65;margin-bottom:1.3em;}
+.opt{
+  display:flex;align-items:center;gap:0.9em;
+  border:1px solid var(--border);
+  border-radius:0.65em;
+  background:var(--surface2);
+  padding:0.78em 1.1em;
+  margin-bottom:0.6em;
+  font-size:1.02em;
+}
+.opt .ltr{
+  flex-shrink:0;
+  width:1.75em;height:1.75em;border-radius:0.4em;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:0.85em;font-weight:700;
+  background:#2C3247;color:var(--muted);
+}
+.opt.right{border-color:rgba(52,199,89,0.6);background:rgba(52,199,89,0.12);}
+.opt.right .ltr{background:var(--green);color:#0D0F14;}
+.explain{
+  border-left:0.2em solid var(--green);
+  background:rgba(52,199,89,0.07);
+  border-radius:0 0.5em 0.5em 0;
+  padding:0.9em 1.1em;
+  font-size:0.98em;line-height:1.6;color:#C8CEDC;
+  overflow:hidden;
+}
+.explain b{color:var(--text);}
+
+/* ---------------------------------------------------------------- split */
+.split{display:flex;gap:1.6em;width:100%;justify-content:center;}
+.vert .split{flex-direction:column;gap:1.2em;}
+.col{
+  flex:1;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-top:0.2em solid var(--accent);
+  border-radius:1em;
+  padding:1.8em 1.6em;
+  box-shadow:0 1.6em 4em rgba(0,0,0,0.5);
+}
+.vert .col{display:flex;align-items:center;gap:1.4em;padding:1.4em 1.5em;}
+.col-head{margin-bottom:1.3em;}
+.vert .col-head{margin-bottom:0;flex-shrink:0;width:9.6em;}
+.col .n{
+  font-family:var(--mono);font-size:2.9em;font-weight:800;
+  line-height:1;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;
+}
+.vert .col .n{font-size:2.4em;}
+.col .lb{font-size:1.22em;font-weight:700;margin-top:0.42em;}
+.col .sb{font-size:0.85em;color:var(--muted2);font-family:var(--mono);margin-top:0.2em;}
+.col ul{list-style:none;}
+.vert .col ul{flex:1;}
+.col li{
+  font-size:0.98em;color:var(--muted);
+  padding:0.42em 0;
+  border-top:1px solid var(--border-soft);
+}
+.col li:first-child{border-top:none;}
+/* Stacked on a phone, three examples per column is plenty — the full
+   list makes each card tall enough to crowd the frame. */
+.vert .col li:nth-child(n+4){display:none;}
+
+/* ---------------------------------------------------------------- signs */
+.symptom-chip{
+  display:inline-flex;align-items:center;gap:0.7em;
+  font-size:1.5em;font-weight:700;
+  background:rgba(255,107,107,0.1);
+  border:1px solid rgba(255,107,107,0.32);
+  color:#FFB3B3;
+  border-radius:0.7em;padding:0.55em 1.2em;
+}
+.arrow{
+  font-family:var(--mono);color:var(--muted2);
+  font-size:1.2em;text-align:center;
+}
+.diff{
+  display:flex;align-items:center;gap:0.9em;
+  border:1px solid var(--border);
+  border-radius:0.65em;
+  background:var(--surface2);
+  padding:0.7em 1.1em;
+  margin-bottom:0.55em;
+  font-size:1.04em;
+}
+.diff .tag{
+  margin-left:auto;flex-shrink:0;
+  font-family:var(--mono);font-size:0.75em;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border-radius:0.4em;padding:0.2em 0.55em;
+}
+.diff .tag.danger{color:var(--danger);background:rgba(255,107,107,0.12);border:1px solid rgba(255,107,107,0.3);}
+.diff .tag.muted{color:var(--muted2);background:rgba(255,255,255,0.04);border:1px solid var(--border);}
+
+.tests{display:flex;gap:0.6em;flex-wrap:wrap;justify-content:center;}
+.test{
+  font-family:var(--mono);font-size:0.95em;font-weight:700;
+  color:var(--blue);
+  background:rgba(14,165,233,0.1);
+  border:1px solid rgba(14,165,233,0.3);
+  border-radius:0.5em;padding:0.42em 0.85em;
+}
+
+/* -------------------------------------------------------- investigation */
+.labs{width:100%;border-collapse:collapse;font-size:1.05em;}
+.labs td{padding:0.62em 0;border-bottom:1px solid var(--border-soft);}
+.labs td:first-child{font-family:var(--mono);color:var(--muted);width:6em;}
+.labs td:nth-child(2){font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums;}
+.labs td.high{color:var(--danger);}
+.labs td:last-child{text-align:right;color:var(--muted2);font-size:0.85em;}
+
+.io-block{margin-top:1.2em;}
+.io-lb{
+  font-family:var(--mono);font-size:0.78em;font-weight:700;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:0.42em;
+}
+.io-tx{font-size:1.02em;line-height:1.65;color:#C8CEDC;}
+.io-tx b{color:var(--text);}
+
+/* ----------------------------------------------------------------- mock */
+.mock-preset{
+  display:flex;align-items:center;gap:1.1em;
+  border:1px solid rgba(0,194,168,0.32);
+  background:rgba(0,194,168,0.07);
+  border-radius:0.8em;padding:1.1em 1.4em;
+  margin-bottom:1.3em;
+}
+.mock-preset .t{font-size:1.16em;font-weight:700;}
+.mock-preset .s{font-size:0.92em;color:var(--muted);margin-top:0.15em;}
+.mock-preset .go{
+  margin-left:auto;flex-shrink:0;
+  font-family:var(--mono);font-size:0.92em;font-weight:700;
+  color:#04121A;background:var(--accent);
+  border-radius:0.5em;padding:0.5em 1.1em;
+}
+.field-lb{
+  font-family:var(--mono);font-size:0.78em;font-weight:700;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--muted2);margin-bottom:0.6em;
+}
+.numrow{display:flex;align-items:center;gap:1em;margin-bottom:1.3em;}
+.numbox{
+  font-family:var(--mono);font-size:2em;font-weight:800;
+  font-variant-numeric:tabular-nums;
+  border:1px solid var(--border);border-radius:0.45em;
+  background:var(--surface2);padding:0.2em 0.6em;
+  min-width:2.9em;text-align:center;
+}
+.numhint{font-family:var(--mono);font-size:0.98em;color:var(--muted);}
+.tick{
+  display:flex;align-items:center;gap:0.8em;
+  padding:0.55em 0.9em;
+  border:1px solid var(--border);border-radius:0.55em;
+  background:var(--surface2);
+  margin-bottom:0.45em;
+  font-size:1em;
+}
+.tick .bx > span{opacity:0;}
+.tick.on .bx > span{opacity:1;}
+.tick .bx{
+  width:1.25em;height:1.25em;flex-shrink:0;
+  border:1.5px solid var(--muted2);border-radius:0.3em;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.85em;color:#04121A;
+}
+.tick.on{border-color:rgba(0,194,168,0.42);background:rgba(0,194,168,0.08);}
+.tick.on .bx{background:var(--accent);border-color:var(--accent);}
+.timer{
+  font-family:var(--mono);font-size:1.15em;font-weight:700;
+  color:var(--gold);
+  background:rgba(240,180,41,0.1);
+  border:1px solid rgba(240,180,41,0.3);
+  border-radius:0.5em;padding:0.4em 0.9em;
+}
+
+/* ---------------------------------------------------------------- outro */
+.outro-tag{font-size:1.5em;color:var(--muted);margin-top:0.5em;}
+.outro-url{
+  font-family:var(--mono);font-size:1.35em;font-weight:700;
+  letter-spacing:0.04em;color:var(--accent);
+  margin-top:1.8em;
+}
+
+/* ------------------------------------------------------- chrome overlay */
+.watermark{
+  position:absolute;
+  display:flex;align-items:center;gap:0.6em;
+  opacity:0;
+}
+.land .watermark{top:3em;left:3.4em;}
+.vert .watermark{top:3.6em;left:3.4em;}
+.watermark img{width:2.1em;height:2.1em;object-fit:contain;}
+.watermark span{
+  font-family:var(--mono);font-size:1.1em;font-weight:800;
+  letter-spacing:-0.01em;
+  background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.pbar{position:absolute;left:0;bottom:0;height:0.22em;background:var(--grad);width:0;}
