@@ -299,7 +299,15 @@ body{display:flex;flex-direction:column;}
    title strong should be block — otherwise every bold phrase breaks its line. */
 .rn-flow-sub strong{display:inline;margin:0;}
 .rn-flow-sub ul{margin:4px 0 0;padding-left:16px;}
-.rn-flow-sub li{margin:1px 0;}
+.rn-flow-sub li{margin:1px 0;font-size:12.5px;}
+/* LAYOUT PASS 13 — a bullet list inside a .rn-flow-sub rendered LARGER than the
+   sub-line it details: .rn-flow-sub sets 12.5px but styles its li for margin
+   only, so .rn-body li{font-size:14px} won. Measured 122 such rows across
+   Endocrinology, every one a detail set bigger than its own heading line.
+   And two adjacent .rn-flow-steps with no arrow between them sat 4px apart —
+   under the 6px floor, so the two bordered boxes read as one smudged block.
+   The arrow-separated spacing (26px) is left alone. */
+.rn-flow-step + .rn-flow-step{margin-top:4px;}
 .rn-flow-arrow{text-align:center;color:var(--rn-blue);font-size:18px;line-height:1;margin:0 0 0 28px;opacity:.45;}
 /* OSCE examiner-style checklist */
 .osce-intro{font-size:13px;color:var(--rn-sub,#5A6480);line-height:1.6;margin:2px 0 14px;padding:12px 15px;background:linear-gradient(120deg,#EEF1FD,#E4F5F3);border-radius:10px;border-left:4px solid #4F6BED;}
