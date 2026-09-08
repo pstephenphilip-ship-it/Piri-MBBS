@@ -291,6 +291,11 @@ body{display:flex;flex-direction:column;}
 .rn-flow-chain{display:flex;flex-direction:column;gap:4px;}
 .rn-flow-step{display:flex;align-items:flex-start;gap:14px;background:#F1F3F8;border:1.5px solid var(--rn-border);border-radius:10px;padding:14px 18px;}
 .rn-flow-step-danger{border-color:#F2BABA;background:var(--rn-red-bg);}
+/* LAYOUT PASS 15 — .rn-flow-step-blue is used 28 times (urology 17, respiratory 7,
+   endocrinology 4) but had NO rule anywhere, so every one of those steps rendered
+   as an ordinary grey step and the emphasis the author marked was simply absent.
+   Mirrors -danger, using the same blue ground and border as .rn-callout-blue. */
+.rn-flow-step-blue{border-color:#B0CCEF;background:var(--rn-blue-bg);}
 .rn-flow-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
 .rn-flow-label{font-size:14px;line-height:1.65;color:var(--rn-text);}
 .rn-flow-label strong{display:block;margin-bottom:2px;}
@@ -557,6 +562,18 @@ body{display:flex;flex-direction:column;}
 .rn-callout-green{background:var(--rn-green-bg);border:1.5px solid #A8DCC6;color:var(--rn-text);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.7;margin-top:10px;margin-bottom:10px;}
 .rn-pearl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
 .rn-pearl{background:var(--rn-yellow-bg);border:1.5px solid #E8D48A;border-left:4px solid var(--rn-yellow);border-radius:0 10px 10px 0;padding:12px 16px;font-size:13.5px;color:var(--rn-text);line-height:1.6;}
+/* LAYOUT PASS 14 — .rn-pearl-title had NO rule anywhere in this file, while the
+   class is used 53 times across 7 Endocrinology notes. Measured on a live pearl:
+   the title computed 13.5px weight 400, and the <p> it heads computed 14px via
+   .rn-body p — so the heading rendered SMALLER and no bolder than its own body,
+   i.e. as nothing at all. Every other system writes a pearl as
+   <strong>Title</strong><br>body, so this matches that look rather than
+   inventing a new one. The trailing <p> also carried .rn-body p's 12px
+   margin-bottom on top of the pearl's 12px padding, giving a 25px bottom gap
+   against 12px at the top — the same bottom-heavy fault as LAYOUT PASS 12. */
+.rn-pearl-title{display:block;font-weight:700;font-size:13.5px;line-height:1.5;color:var(--rn-text);margin:0 0 4px;}
+.rn-pearl > p{font-size:13.5px;}
+.rn-pearl > p:last-child{margin-bottom:0;}
 
 
 /* ── Personal Annotation System ──────────────────────────── */
