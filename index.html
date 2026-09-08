@@ -18709,6 +18709,19 @@ function hideFlyout(p) {
     padding-left:15px;
     padding-right:15px;
   }
+  /* LAYOUT PASS 21 — the one member of that family PASS 8 missed. A bordered
+     .rn-img-placeholder sitting directly in a card gets .rn-card > div's
+     padding, not margin, so its own dashed border lands ON the card's border:
+     measured 1px left and right inside the amber card in Haematology >
+     Thalassaemia. Padding insets the text; only margin insets the border. */
+  .rn-card > div.rn-img-placeholder,
+  .rn-inv-card > div.rn-img-placeholder{
+    /* !important is required, not laziness: every placeholder in the corpus
+       carries an inline margin (the house "margin:12px 0"), which is correct
+       at section level and wrong inside a card, and an inline style outranks
+       any stylesheet selector. */
+    margin-left:20px !important; margin-right:20px !important;
+  }
 </style>
 
 <!-- =====================================================================
