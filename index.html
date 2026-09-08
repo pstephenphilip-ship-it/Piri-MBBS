@@ -18707,6 +18707,13 @@ function hideFlyout(p) {
      li::before on specificity and wins on source order. */
   li.rn-numbered{list-style:none !important;}
   li.rn-numbered::before{content:none !important;display:none !important;}
+  /* ...but the li kept the 14-20px padding-left that was reserving space for
+     that suppressed bullet, on top of the list's own 20-22px. Measured across
+     Endocrinology and Respiratory: every author-numbered row sat ~36-42px in,
+     so the numbers hung well right of the lead line they answer to, and a
+     wrapped line returned to the number rather than under the text. Pull the
+     first line back to the list's content edge and let the rest hang. */
+  li.rn-numbered{padding-left:20px;text-indent:-20px;}
   /* A sub-point nested under a numbered rung: .rn-tightlist zeroes its own
      margin, which butts it straight against the parent's last line. */
   li > .rn-tightlist{margin:5px 0 2px;}
