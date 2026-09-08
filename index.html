@@ -17321,6 +17321,9 @@ function hideFlyout(p) {
   .pf-rt b,.pf-rt strong{font-weight:700;}
   .pf-sw{width:20px;height:20px;padding:0;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--border2,#CBD2E0);cursor:pointer;margin:0 1px;}
   .pf-sw:hover{transform:scale(1.12);}
+  /* "default colour" swatch: white with a red diagonal = remove colour */
+  .pf-sw-clear{position:relative;background:#fff;}
+  .pf-sw-clear:after{content:'';position:absolute;left:50%;top:1px;width:2px;height:14px;background:#C93535;transform:translateX(-50%) rotate(45deg);border-radius:2px;}
   /* rendered rich HTML in the drug-detail cards */
   .ph-rich{line-height:1.7;} .ph-rich ul,.ph-rich ol{margin:5px 0;padding-left:22px;} .ph-rich li{margin:3px 0;} .ph-rich b,.ph-rich strong{font-weight:700;} .ph-rich p{margin:6px 0;} .ph-rich:first-child{margin-top:0;}
   .ownt-place{display:flex;gap:8px;margin-top:2px;}
@@ -18108,12 +18111,29 @@ function hideFlyout(p) {
     var activeField=ov.querySelector('.pf-rt');
     body.addEventListener('focusin', function(e){ if(e.target && e.target.classList && e.target.classList.contains('pf-rt')) activeField=e.target; });
     function fld(){ return (activeField && document.body.contains(activeField)) ? activeField : ov.querySelector('.pf-rt'); }
+    // Reset the selection to the default (inherited) colour: paint it a sentinel colour so exactly
+    // the selected run gets its own span, then strip that colour off — leaving the text to inherit.
+    function clearColour(f){
+      try{
+        document.execCommand('styleWithCSS',false,true);
+        document.execCommand('foreColor',false,'#000001');
+        f.querySelectorAll('[style*="color"]').forEach(function(el){
+          var c=(el.style.color||'').replace(/\s+/g,'').toLowerCase();
+          if(c==='#000001'||c==='rgb(0,0,1)'){
+            el.style.removeProperty('color');
+            if(!el.getAttribute('style')) el.removeAttribute('style');
+            if(el.tagName==='SPAN' && !el.attributes.length){ var pa=el.parentNode; while(el.firstChild) pa.insertBefore(el.firstChild, el); pa.removeChild(el); }
+          }
+        });
+      }catch(e){}
+    }
     tbar.addEventListener('mousedown', function(e){ e.preventDefault(); });   // keep the field's focus + selection
     tbar.querySelectorAll('button').forEach(function(btn){ btn.onclick=function(){
       var f=fld(); if(!f) return; f.focus();
-      var cmd=btn.getAttribute('data-cmd'), col=btn.getAttribute('data-col');
+      var cmd=btn.getAttribute('data-cmd'), col=btn.getAttribute('data-col'), clr=btn.getAttribute('data-clear');
       try{
-        if(col){ document.execCommand('styleWithCSS',false,true); document.execCommand('foreColor',false,col); }
+        if(clr){ clearColour(f); }
+        else if(col){ document.execCommand('styleWithCSS',false,true); document.execCommand('foreColor',false,col); }
         else if(cmd==='bold'){ document.execCommand('styleWithCSS',false,false); document.execCommand('bold'); }
         else if(cmd==='bullet'){ document.execCommand('insertUnorderedList'); }
       }catch(e){}
@@ -18134,6 +18154,7 @@ function hideFlyout(p) {
       +'<button type="button" class="ownt-tb" data-cmd="bold" title="Bold"><b>B</b></button>'
       +'<button type="button" class="ownt-tb" data-cmd="bullet" title="Bullet list" style="display:inline-flex;align-items:center;justify-content:center;">'+listIcon+'</button>'
       +'<span class="ownt-tb-div"></span>'
+      +'<button type="button" class="pf-sw pf-sw-clear" data-clear="1" title="Default colour" aria-label="Default colour"></button>'
       +COLS.map(function(c){return '<button type="button" class="pf-sw" data-col="'+c[1]+'" title="'+c[0]+' text" aria-label="'+c[0]+' text" style="background:'+c[1]+';"></button>';}).join('')
       +'</div>';
     ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">Pharmacology &middot; '+esc(t.section)+'</div><div class="n">'+esc(t.name)+'</div></div>'
