@@ -305,6 +305,17 @@ body{display:flex;flex-direction:column;}
 .rn-flow-sub strong{display:inline;margin:0;}
 .rn-flow-sub ul{margin:4px 0 0;padding-left:16px;}
 .rn-flow-sub li{margin:1px 0;font-size:12.5px;}
+/* LAYOUT PASS 17 — the same font inversion as PASS 13, in the other small-print
+   block. .rn-inv-detail sets 12.5px but styles no li, so .rn-body li{14px} wins
+   and a bullet list inside an investigation card renders LARGER than the card's
+   own lead line. Two agents hit it independently; ~30 sites corpus-wide.
+   And .rn-flow-label > strong is already display:block, so the <br> authors put
+   after each step title opens an empty line under every heading: measured 28px
+   between title and body where the <br> survives against 3px where it was
+   removed by hand. 155 of them across 16 note files, so this is one CSS line
+   rather than 155 content edits in files that serve other tabs. */
+.rn-inv-detail li{font-size:12.5px;}
+.rn-flow-label > strong + br{display:none;}
 /* LAYOUT PASS 13 — a bullet list inside a .rn-flow-sub rendered LARGER than the
    sub-line it details: .rn-flow-sub sets 12.5px but styles its li for margin
    only, so .rn-body li{font-size:14px} won. Measured 122 such rows across
