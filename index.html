@@ -9326,7 +9326,8 @@ function pharmaShowDrug(drug){
   document.getElementById('pharma-detail').scrollTop=0;
   pharmaActiveDrug=drug;
 }
-function formatPharmaText(text){if(!text)return '';function inl(s){s=esc(s);s=s.replace(/\{\{(red|blue|green|amber|purple|teal)\}\}([\s\S]*?)\{\{\/\}\}/g,function(_,c,inner){var M={red:'#C93535',blue:'#3B7DD8',green:'#1F8B5E',amber:'#B86B00',purple:'#6B45B8',teal:'#0E9C8B'};return '<span style="color:'+(M[c]||'inherit')+'">'+inner+'</span>';});s=s.replace(/\*\*([^*]+)\*\*/g,'<strong class="ph-lead">$1</strong>');s=s.replace(/\[([^\]]+)\]/g,'<span class="ph-danger">$1</span>');s=s.replace(/=>/g,'<span class="ph-arrow">→</span>');s=s.replace(/→/g,'<span class="ph-arrow">→</span>');return s;}var lines=String(text).split('\n').map(function(l){return l.trim();}).filter(Boolean);if(lines.length<=1)return '<p class="ph-p">'+inl(lines[0]||'')+'</p>';return '<ul class="ph-list">'+lines.map(function(l){return '<li>'+inl(l)+'</li>';}).join('')+'</ul>';}
+function pfSanitize(html){return String(html==null?'':html).replace(/<\/?(?:script|iframe|object|embed|style|link|meta|form|input|button|textarea)\b[^>]*>/gi,'').replace(/\son\w+\s*=\s*"[^"]*"/gi,'').replace(/\son\w+\s*=\s*'[^']*'/gi,'').replace(/\son\w+\s*=\s*[^\s>]+/gi,'').replace(/(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi,'$1="#"');}
+function formatPharmaText(text){if(!text)return '';if(/<(?:p|div|ul|ol|li|br|b|strong|span|em|i|u|font|h[1-6])\b/i.test(text)){return '<div class="ph-rich">'+pfSanitize(text)+'</div>';}function inl(s){s=esc(s);s=s.replace(/\{\{(red|blue|green|amber|purple|teal)\}\}([\s\S]*?)\{\{\/\}\}/g,function(_,c,inner){var M={red:'#C93535',blue:'#3B7DD8',green:'#1F8B5E',amber:'#B86B00',purple:'#6B45B8',teal:'#0E9C8B'};return '<span style="color:'+(M[c]||'inherit')+'">'+inner+'</span>';});s=s.replace(/\*\*([^*]+)\*\*/g,'<strong class="ph-lead">$1</strong>');s=s.replace(/\[([^\]]+)\]/g,'<span class="ph-danger">$1</span>');s=s.replace(/=>/g,'<span class="ph-arrow">→</span>');s=s.replace(/→/g,'<span class="ph-arrow">→</span>');return s;}var lines=String(text).split('\n').map(function(l){return l.trim();}).filter(Boolean);if(lines.length<=1)return '<p class="ph-p">'+inl(lines[0]||'')+'</p>';return '<ul class="ph-list">'+lines.map(function(l){return '<li>'+inl(l)+'</li>';}).join('')+'</ul>';}
 function formatSideEffects(text){return formatPharmaText(text);}
 function pharmaShowEmpty(){document.getElementById('pharma-empty').style.display='';document.getElementById('pharma-detail').style.display='none';}
 
@@ -17255,6 +17256,16 @@ function hideFlyout(p) {
   .ownt-lbl{display:block;font-family:var(--mono,monospace);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);margin:14px 0 6px;}
   .ownt-inp,.ownt-sel{width:100%;box-sizing:border-box;border:1px solid var(--border,#E2E6F0);border-radius:9px;padding:11px 12px;font-family:inherit;font-size:14px;color:var(--text,#1E2640);background:var(--surface,#fff);}
   .ownt-inp:focus,.ownt-sel:focus{outline:none;border-color:#00C2A8;}
+  /* WYSIWYG rich field for the pharmacology editor (formatting applies live — no visible markup) */
+  .pf-rt{width:100%;box-sizing:border-box;border:1px solid var(--border,#E2E6F0);border-radius:9px;padding:11px 12px;font-family:inherit;font-size:14px;line-height:1.6;color:var(--text,#1E2640);background:var(--surface,#fff);min-height:66px;outline:none;overflow-wrap:anywhere;}
+  .pf-rt:focus{border-color:#00C2A8;}
+  .pf-rt:empty:before{content:attr(data-ph);color:var(--muted,#9CA3AF);pointer-events:none;}
+  .pf-rt ul,.pf-rt ol{margin:4px 0;padding-left:22px;} .pf-rt li{margin:3px 0;}
+  .pf-rt b,.pf-rt strong{font-weight:700;}
+  .pf-sw{width:20px;height:20px;padding:0;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--border2,#CBD2E0);cursor:pointer;margin:0 1px;}
+  .pf-sw:hover{transform:scale(1.12);}
+  /* rendered rich HTML in the drug-detail cards */
+  .ph-rich{line-height:1.7;} .ph-rich ul,.ph-rich ol{margin:5px 0;padding-left:22px;} .ph-rich li{margin:3px 0;} .ph-rich b,.ph-rich strong{font-weight:700;} .ph-rich p{margin:6px 0;} .ph-rich:first-child{margin-top:0;}
   .ownt-place{display:flex;gap:8px;margin-top:2px;}
   .ownt-radio{flex:1;border:1.5px solid var(--border,#E2E6F0);border-radius:10px;padding:11px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text,#374151);text-align:center;}
   .ownt-radio.on{border-color:#00C2A8;background:rgba(0,194,168,.08);color:#059E8C;}
@@ -18031,24 +18042,24 @@ function hideFlyout(p) {
   // Formatting toolbar for the drug fields: acts on the box the user is typing in.
   // Inserts the same lightweight markup the renderer understands (**bold**, [red flag],
   // {{colour}}…{{/}}, => arrow) and helps build bulleted lists (each line = a bullet).
+  // Seed a rich field: existing rich HTML as-is; legacy **markup** converted for display; empty→empty.
+  function pfSeed(v){ if(!v) return ''; if(/<(?:p|div|ul|ol|li|br|b|strong|span|em|i|u|font|h[1-6])\b/i.test(v)) return (typeof pfSanitize==='function'?pfSanitize(v):v); return (typeof formatPharmaText==='function'?formatPharmaText(v):esc(v)); }
+
+  // Compact WYSIWYG toolbar: formatting applies live in the field, so the writer never sees markup.
   function wirePharmaToolbar(ov){
     var body=ov.querySelector('.ownt-edit-body'); var tbar=ov.querySelector('#pf-toolbar'); if(!body||!tbar) return;
-    var activeField=document.getElementById('pf_mechanism');
-    body.addEventListener('focusin', function(e){ if(e.target && /^pf_/.test(e.target.id||'')) activeField=e.target; });
-    function fld(){ return (activeField && document.body.contains(activeField)) ? activeField : document.getElementById('pf_mechanism'); }
-    function wrapSel(pre,post){ var f=fld(); if(!f) return; var s=f.selectionStart||0,e=f.selectionEnd||0,v=f.value||''; var sel=v.slice(s,e);
-      f.value=v.slice(0,s)+pre+sel+post+v.slice(e); var pos=sel?(s+pre.length+sel.length+post.length):(s+pre.length);
-      f.focus(); try{ f.setSelectionRange(pos,pos); }catch(_){}}
-    function newBullet(){ var f=fld(); if(!f) return; var s=f.selectionStart||0,v=f.value||''; var pre=v.slice(0,s),post=v.slice(s);
-      var add=(pre && !/\n$/.test(pre))?'\n':''; f.value=pre+add+post; var pos=(pre+add).length; f.focus(); try{ f.setSelectionRange(pos,pos); }catch(_){}}
+    var activeField=ov.querySelector('.pf-rt');
+    body.addEventListener('focusin', function(e){ if(e.target && e.target.classList && e.target.classList.contains('pf-rt')) activeField=e.target; });
+    function fld(){ return (activeField && document.body.contains(activeField)) ? activeField : ov.querySelector('.pf-rt'); }
     tbar.addEventListener('mousedown', function(e){ e.preventDefault(); });   // keep the field's focus + selection
     tbar.querySelectorAll('button').forEach(function(btn){ btn.onclick=function(){
-      var col=btn.getAttribute('data-col'), act=btn.getAttribute('data-act');
-      if(col){ wrapSel('{{'+col+'}}','{{/}}'); return; }
-      if(act==='bold') wrapSel('**','**');
-      else if(act==='danger') wrapSel('[',']');
-      else if(act==='arrow') wrapSel(' => ','');
-      else if(act==='bullet') newBullet();
+      var f=fld(); if(!f) return; f.focus();
+      var cmd=btn.getAttribute('data-cmd'), col=btn.getAttribute('data-col');
+      try{
+        if(col){ document.execCommand('styleWithCSS',false,true); document.execCommand('foreColor',false,col); }
+        else if(cmd==='bold'){ document.execCommand('styleWithCSS',false,false); document.execCommand('bold'); }
+        else if(cmd==='bullet'){ document.execCommand('insertUnorderedList'); }
+      }catch(e){}
     };});
   }
 
@@ -18058,30 +18069,32 @@ function hideFlyout(p) {
     var fields=FIELDS.map(function(f){
       var v=(t.drug&&t.drug[f[0]])||'';
       if(f[0]==='drug_class') return '<label class="ownt-lbl">'+f[1]+'</label><input class="ownt-inp" id="pf_'+f[0]+'" placeholder="'+esc(f[2])+'" value="'+esc(v)+'">';
-      return '<label class="ownt-lbl">'+f[1]+'</label><textarea class="ownt-inp" id="pf_'+f[0]+'" rows="3" style="resize:vertical;line-height:1.5;">'+esc(v)+'</textarea>';
+      return '<label class="ownt-lbl">'+f[1]+'</label><div class="pf-rt" id="pf_'+f[0]+'" contenteditable="true" data-ph="'+esc(f[2]||'Type here…')+'">'+pfSeed(v)+'</div>';
     }).join('');
-    var COLS=[['teal','#0E9C8B'],['blue','#3B7DD8'],['green','#1F8B5E'],['amber','#B86B00'],['purple','#6B45B8'],['red','#C93535']];
-    var tb='<div class="ownt-toolbar" id="pf-toolbar" style="position:sticky;top:0;z-index:3;margin-bottom:14px;flex-wrap:wrap;">'
-      +'<button type="button" class="ownt-tb" data-act="bold" title="Bold"><b>B</b></button>'
-      +'<button type="button" class="ownt-tb" data-act="bullet" title="New bullet point (each line becomes a bullet)">• Bullet</button>'
-      +'<button type="button" class="ownt-tb" data-act="danger" title="Red-flag / danger point">⚠ Red flag</button>'
-      +'<button type="button" class="ownt-tb" data-act="arrow" title="Insert arrow →">→</button>'
+    var COLS=[['Teal','#0E9C8B'],['Blue','#3B7DD8'],['Green','#1F8B5E'],['Amber','#B86B00'],['Purple','#6B45B8'],['Red','#C93535']];
+    var listIcon='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="4" cy="6" r="1.4" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.4" fill="currentColor" stroke="none"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>';
+    var tb='<div class="ownt-toolbar" id="pf-toolbar" style="position:sticky;top:0;z-index:3;gap:2px;padding:6px 10px;margin-bottom:14px;border:1px solid var(--border,#E2E6F0);border-radius:10px;">'
+      +'<button type="button" class="ownt-tb" data-cmd="bold" title="Bold"><b>B</b></button>'
+      +'<button type="button" class="ownt-tb" data-cmd="bullet" title="Bullet list" style="display:inline-flex;align-items:center;justify-content:center;">'+listIcon+'</button>'
       +'<span class="ownt-tb-div"></span>'
-      +'<span style="font-size:11px;color:var(--muted,#6B7280);align-self:center;margin:0 3px;">Colour</span>'
-      +COLS.map(function(c){return '<button type="button" class="pf-sw" data-col="'+c[0]+'" title="'+c[0]+' text" aria-label="'+c[0]+' text" style="width:24px;height:24px;padding:0;border-radius:50%;background:'+c[1]+';border:2px solid #fff;box-shadow:0 0 0 1px #CBD2E0;cursor:pointer;margin:0 1px;"></button>';}).join('')
+      +COLS.map(function(c){return '<button type="button" class="pf-sw" data-col="'+c[1]+'" title="'+c[0]+' text" aria-label="'+c[0]+' text" style="background:'+c[1]+';"></button>';}).join('')
       +'</div>';
     ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">Pharmacology &middot; '+esc(t.section)+'</div><div class="n">'+esc(t.name)+'</div></div>'
       +'<button class="ownt-btn" id="pf-cancel">Cancel</button><button class="ownt-btn primary" id="pf-save">Save drug</button></div>'
       +'<div class="ownt-edit-body"><div style="max-width:760px;margin:0 auto;">'
       +tb
-      +'<div style="font-size:12.5px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.55;">Use the toolbar above to <b>bold</b>, <b>colour</b>, add <b>bullets</b> and mark <b>red-flag</b> points — it acts on the box you’re typing in. Or type directly: <b>**stars**</b> = bold, <b>[brackets]</b> = red flag, and each <b>new line</b> becomes a bullet. Leave a field blank to hide that card.</div>'
+      +'<div style="font-size:12px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.5;">Select text, then use the toolbar to <b>bold</b>, <b>colour</b> or make a <b>bullet list</b> — it applies straight away. Leave a field blank to hide that card.</div>'
       +fields+'</div></div>';
     document.body.appendChild(ov);
     wirePharmaToolbar(ov);
     ov.querySelector('#pf-cancel').onclick=function(){ if(isNew){ removeTopic(t, true); } closeEditor(); };
     ov.querySelector('#pf-save').onclick=function(){
       if(!t.drug) t.drug={};
-      FIELDS.forEach(function(f){ var el=document.getElementById('pf_'+f[0]); t.drug[f[0]]=el?el.value.trim():''; });
+      FIELDS.forEach(function(f){ var el=document.getElementById('pf_'+f[0]); if(!el){ t.drug[f[0]]=''; return; }
+        if(f[0]==='drug_class'){ t.drug[f[0]]=(el.value||'').trim(); return; }
+        var txt=(el.textContent||'').replace(/\s+/g,'');   // effectively-empty rich field → store nothing (hides the card)
+        t.drug[f[0]] = txt ? pfSanitize(el.innerHTML).trim() : '';
+      });
       t.updated=Date.now(); save(); closeEditor(); refresh(t);
     };
     setTimeout(function(){ var fe=document.getElementById('pf_mechanism'); if(fe) fe.focus(); },30);
