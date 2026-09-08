@@ -18781,6 +18781,15 @@ function hideFlyout(p) {
      that opens or closes .rn-body keeps the body's own 20px padding and is not
      pushed off by an extra margin. */
   .rn-body > * + .rn-inv-card{margin-top:12px;}
+  /* LAYOUT PASS 19 — .rn-table sets margin-bottom:14px but NO margin-top, so a
+     table placed straight after a card sat flush against it: measured 0px
+     between the blue card and the table in Cardiovascular > Pericarditis.
+     Same fault as .rn-inv-card in PASS 11. My touching-box sweep never caught
+     it because the sweep only looked at cards, callouts, pearls, inv-cards and
+     sections - tables were not in the selector list at all. */
+  .rn-body > * + .rn-table,
+  .rn-body > * + table,
+  .rn-card > * + .rn-table{margin-top:12px;}
   .rn-body > .rn-inv-card + *{margin-top:12px;}
 
   /* Same defect one level up. .rn-two-col/-three-col/-four-col/.rn-inv-grid/
