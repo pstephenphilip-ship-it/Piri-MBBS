@@ -571,6 +571,19 @@ body{display:flex;flex-direction:column;}
 .rn-callout-red{background:var(--rn-red-bg);border:1.5px solid #F2BABA;color:var(--rn-text);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.7;margin-top:10px;margin-bottom:10px;}
 .rn-callout-blue{background:var(--rn-blue-bg);border:1.5px solid #B0CCEF;color:var(--rn-text);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.7;margin-top:10px;margin-bottom:10px;}
 .rn-callout-green{background:var(--rn-green-bg);border:1.5px solid #A8DCC6;color:var(--rn-text);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.7;margin-top:10px;margin-bottom:10px;}
+/* LAYOUT PASS 18 — .rn-callout sets padding and radius but NO background and no
+   border; only the -amber/-red/-blue/-green variants add those. So a callout
+   written with a variant that was never defined renders as bare padded text
+   while the boxes around it are tinted. Measured on a live rn-callout-muted:
+   background rgba(0,0,0,0), border-width 0px, against 1px + a tint on every
+   defined sibling. -danger and -warn are exact aliases of tints that already
+   exist; -muted needs the neutral box its name asks for. 44 callouts across the
+   corpus, including ones in Respiratory and Cardiovascular already shipped.
+   -tip and -clinical are deliberately NOT defined here: they live in Anatomy
+   notes this pass has not reviewed, and their intended colour would be a guess. */
+.rn-callout-danger{background:var(--rn-red-bg);border:1.5px solid #F2BABA;color:var(--rn-text);border-radius:10px;}
+.rn-callout-warn{background:var(--rn-amber-bg);border:1.5px solid #F0D09A;color:var(--rn-text);border-radius:10px;}
+.rn-callout-muted{background:#F4F6FA;border:1.5px solid var(--rn-border);color:var(--rn-text);border-radius:10px;}
 .rn-pearl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
 .rn-pearl{background:var(--rn-yellow-bg);border:1.5px solid #E8D48A;border-left:4px solid var(--rn-yellow);border-radius:0 10px 10px 0;padding:12px 16px;font-size:13.5px;color:var(--rn-text);line-height:1.6;}
 /* LAYOUT PASS 14 — .rn-pearl-title had NO rule anywhere in this file, while the
