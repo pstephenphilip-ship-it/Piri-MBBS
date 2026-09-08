@@ -17143,6 +17143,27 @@ function hideFlyout(p) {
      rgb(232,234,240) on a light amber card, i.e. invisible. */
   .rn-card .rn-cl-lead{color:var(--rn-text,#1E2640);}
   .rn-callout > .rn-tightlist{margin:0;}
+
+  /* LAYOUT PASS 12 — a tight list that ENDS its box kept a 14px bottom margin.
+     .rn-body ul{margin:4px 0 14px} is (0,1,1) and outranks .rn-tightlist{margin:0}
+     at (0,1,0), so the zero never applied. Measured across Endocrinology: a pearl
+     closing on a tightlist had a 27px bottom gap against 13px for a prose pearl —
+     the box read as bottom-heavy and the text sat unevenly inside its frame.
+     .rn-callout was already patched; these are the boxes that were not. Scoped to
+     :last-child so a mid-box list keeps its separation, and to a direct child so
+     the nested-sublist rules (.rn-tightlist .rn-tightlist, li > .rn-tightlist)
+     are untouched. */
+  .rn-card > .rn-tightlist:last-child,
+  .rn-pearl > .rn-tightlist:last-child,
+  .rn-inv-detail > .rn-tightlist:last-child,
+  .rn-inv-card > .rn-tightlist:last-child,
+  .rn-callout-blue > .rn-tightlist:last-child,
+  .rn-callout-red > .rn-tightlist:last-child,
+  .rn-warn > .rn-tightlist:last-child,
+  .rn-highlight > .rn-tightlist:last-child,
+  .rn-flow-sub > .rn-tightlist:last-child,
+  .rn-table td > .rn-tightlist:last-child,
+  .rn-table th > .rn-tightlist:last-child{margin-bottom:0;}
   .rn-callout > .rn-cl-tail{margin:9px 0 0;}
 
   /* Every direct child of an .rn-card carries the card's own 12px inset as its
