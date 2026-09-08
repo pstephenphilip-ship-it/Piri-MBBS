@@ -18795,6 +18795,15 @@ function hideFlyout(p) {
      wrapped line returned to the number rather than under the text. Pull the
      first line back to the list's content edge and let the rest hang. */
   li.rn-numbered{padding-left:20px;text-indent:-20px;}
+  /* LAYOUT PASS 20 — same fault as the bullet-plus-number case, with an arrow.
+     A row written as "<li>→ Bile stasis</li>" inside a bulleted list renders
+     with BOTH the list's bullet and the author's arrow, so every step of a
+     causal chain carries two markers. The author supplied the marker, so the
+     list should not add one. Tagged only in Medical Conditions systems this
+     pass has reviewed; the pattern also exists in Signs & Symptoms notes,
+     which are out of scope here. */
+  li.rn-arrowed{list-style:none !important;padding-left:20px;text-indent:-20px;}
+  li.rn-arrowed::before{content:none !important;display:none !important;}
   /* A sub-point nested under a numbered rung: .rn-tightlist zeroes its own
      margin, which butts it straight against the parent's last line. */
   li > .rn-tightlist{margin:5px 0 2px;}
