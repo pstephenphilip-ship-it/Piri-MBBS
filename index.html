@@ -559,8 +559,14 @@ body{display:flex;flex-direction:column;}
 .rn-rf-label{font-family:var(--mono);font-size:10px;color:var(--rn-sub);text-transform:uppercase;text-align:center;margin-bottom:10px;letter-spacing:.04em;}
 .rn-rf-yes-box{background:var(--rn-green-bg);border:1.5px solid #A8DCC6;border-radius:10px;padding:16px;}
 .rn-rf-no-box{background:var(--rn-amber-bg);border:1.5px solid #F0D09A;border-radius:10px;padding:16px;}
-.rn-rf-yes-box strong{color:var(--rn-green);font-size:13px;display:block;margin-bottom:8px;}
-.rn-rf-no-box strong{color:var(--rn-amber);font-size:13px;display:block;margin-bottom:8px;}
+/* LAYOUT PASS 22 — these were descendant selectors, so the box TITLE's styling
+   (coloured, 13px, block) landed on every <strong> inside the box, including
+   ones mid-sentence in a list row. That forced a line break in the middle of
+   a sentence, leaving rows rendering as "Tenecteplase" / "— a single
+   weight-based bolus..." / "screen for bleeding risk first", and another
+   line opening with a bare full stop. Scoped to the direct-child title. */
+.rn-rf-yes-box > strong{color:var(--rn-green);font-size:13px;display:block;margin-bottom:8px;}
+.rn-rf-no-box > strong{color:var(--rn-amber);font-size:13px;display:block;margin-bottom:8px;}
 .rn-batman-grid,.rn-six-as{display:flex;flex-direction:column;gap:6px;}
 .rn-bm-card,.rn-as-item{display:flex;align-items:flex-start;gap:14px;background:#F1F3F8;border:1.5px solid var(--rn-border);border-radius:10px;padding:13px 18px;font-size:13.5px;color:var(--rn-text);}
 .rn-bm-letter{font-family:var(--mono);font-size:22px;font-weight:800;color:var(--rn-purple);min-width:22px;line-height:1.2;}
