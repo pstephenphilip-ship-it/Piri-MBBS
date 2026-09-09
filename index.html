@@ -17601,87 +17601,103 @@ function hideFlyout(p) {
   function tabLabel(p){ return {conditions:'Medical Conditions',anatomy:'Anatomy',histology:'Histology',signs:'Signs & Symptoms',investigations:'Investigations',osce:'OSCE'}[p]||p; }
 
   // ---- per-tab starter template (the tab's own note structure) ----
+  // ---- per-tab default note templates -------------------------------------
+  // A subject-appropriate scaffold for each custom tab, built from rn-section
+  // blocks (same markup as the built-in notes, so headings also feed the "On
+  // this page" list). Body prompts are empty [data-ph] placeholders: grey
+  // see-through hints that vanish the moment you type — nothing to delete.
+  // Section spec: {t:title, c:colour?, and one body of p:/li:/subs:/pearl:}.
+  //   p    → a paragraph placeholder      li   → a one-item bullet list placeholder
+  //   subs → [[subheading, hint], …]      pearl→ a pearl-grid placeholder
+  var NOTE_TEMPLATES={
+    conditions:[
+      {t:'Overview', p:'What it is, and why it matters — one or two lines…'},
+      {t:'Causes & Risk Factors', li:'Cause or risk factor…'},
+      {t:'Clinical Features', li:'Symptom or sign…'},
+      {t:'Investigations', c:'teal', li:'Bedside · bloods · imaging · gold-standard…'},
+      {t:'Management', c:'green', subs:[['Conservative','Lifestyle, education, monitoring…'],['Medical','Drugs, doses, first-line…'],['Surgical','Procedures, indications…'],['Other','MDT, referrals, follow-up…']]},
+      {t:'Complications', c:'red', li:'Complication…'},
+      {t:'Prognosis', p:'Natural history, outcomes, prognostic factors…'},
+      {t:'⭐ Exam Pearls', c:'amber', pearl:'A high-yield fact or buzzword examiners love…'}
+    ],
+    signs:[
+      {t:'Definition', p:'What this sign or symptom actually is…'},
+      {t:'Mechanism', p:'Pathophysiology — why it happens…'},
+      {t:'Causes & Differentials', c:'teal', li:'Cause / differential to consider…'},
+      {t:'How to Elicit / Examine', li:'Technique, manoeuvre or special test…'},
+      {t:'Associated Features', li:'What to look for alongside it…'},
+      {t:'Investigations', li:'Test to consider…'},
+      {t:'Red Flags', c:'red', li:'Feature that needs urgent action…'},
+      {t:'⭐ Exam Pearls', c:'amber', pearl:'A high-yield association or classic cause…'}
+    ],
+    investigations:[
+      {t:'Overview', p:'What the test is and what it measures…'},
+      {t:'Indications', li:'When to request it…'},
+      {t:"How It's Done", p:'Technique, sample, patient prep…'},
+      {t:'Interpretation', c:'teal', subs:[['Normal','Reference range / expected finding…'],['Abnormal','Causes of a high / low / positive result…']]},
+      {t:'Limitations & Contraindications', c:'amber', li:'Pitfall, false result, or when not to use…'},
+      {t:'Clinical Relevance', p:'How the result changes management…'},
+      {t:'⭐ Exam Pearls', c:'amber', pearl:'A high-yield fact or classic pattern…'}
+    ],
+    anatomy:[
+      {t:'Overview', p:'What this structure is and where it sits…'},
+      {t:'Location & Relations', li:'Borders, neighbouring structures, landmarks…'},
+      {t:'Structure & Parts', li:'Key parts, divisions, surfaces…'},
+      {t:'Blood Supply', c:'red', subs:[['Arterial','Supplying artery…'],['Venous','Venous drainage…']]},
+      {t:'Nerve Supply', c:'purple', li:'Motor · sensory · autonomic…'},
+      {t:'Lymphatic Drainage', li:'Draining nodes…'},
+      {t:'Clinical Relevance', c:'teal', li:'Injuries, landmarks, procedures, common questions…'},
+      {t:'⭐ Exam Pearls', c:'amber', pearl:'A high-yield relation or classic clinical link…'}
+    ],
+    histology:[
+      {t:'Overview', p:'What tissue or organ this is…'},
+      {t:'Low-Power Architecture', p:'Overall pattern at low magnification…'},
+      {t:'Key Cells & Structures', li:'Cell type or structure to identify…'},
+      {t:'Layers / Zones', li:'Layer or zone, from surface inward…'},
+      {t:'Distinguishing Features', c:'teal', li:'How to recognise it under the microscope…'},
+      {t:'Function Correlation', p:'How the structure relates to its function…'},
+      {t:'Clinical / Pathology Link', c:'amber', li:'Relevant pathology or clinical correlate…'},
+      {t:'⭐ Exam Pearls', c:'amber', pearl:'A classic identifying feature examiners love…'}
+    ]
+  };
+  function buildTemplate(spec){
+    return spec.map(function(s){
+      var body='';
+      if(s.p!=null) body='<p data-ph="'+esc(s.p)+'"></p>';
+      else if(s.li!=null) body='<ul><li data-ph="'+esc(s.li)+'"></li></ul>';
+      else if(s.subs) body=s.subs.map(function(sb){ return '<div class="rn-subheading">'+esc(sb[0])+'</div><ul><li data-ph="'+esc(sb[1])+'"></li></ul>'; }).join('');
+      else if(s.pearl!=null) body='<div class="rn-pearl-grid"><div class="rn-pearl" data-ph="'+esc(s.pearl)+'"></div></div>';
+      var cls='rn-section'+(s.c?' rn-section-'+s.c:'');
+      return '<div class="'+cls+'"><div class="rn-section-title">'+esc(s.t)+'</div><div class="rn-body">'+body+'</div></div>';
+    }).join('');
+  }
   function starter(p,name){
-    var fam=FAMILY[p];
-    // Medical Conditions: a proper clinical scaffold to fill in and edit. Uses the
-    // same rn-section structure as the built-in notes, so headings also show up in
-    // the "On this page" list on the right.
-    if(p==='conditions'){
-      // NB: no <div class="rich-note"> wrapper — the editor canvas already IS
-      // .rich-note, so each rn-section must be a DIRECT child (else inserts and
-      // deletes see one giant block). Body prompts are empty [data-ph] placeholders:
-      // grey see-through hints that vanish the moment you type, nothing to delete.
-      return '<div class="rn-section"><div class="rn-section-title">Overview</div><div class="rn-body">'
-          +'<p data-ph="What it is, and why it matters — one or two lines…"></p>'
-        +'</div></div>'
-        +'<div class="rn-section"><div class="rn-section-title">Causes &amp; Risk Factors</div><div class="rn-body">'
-          +'<ul><li data-ph="Cause or risk factor…"></li></ul>'
-        +'</div></div>'
-        +'<div class="rn-section"><div class="rn-section-title">Clinical Features</div><div class="rn-body">'
-          +'<ul><li data-ph="Symptom or sign…"></li></ul>'
-        +'</div></div>'
-        +'<div class="rn-section rn-section-teal"><div class="rn-section-title">Investigations</div><div class="rn-body">'
-          +'<ul><li data-ph="Bedside · bloods · imaging · gold-standard…"></li></ul>'
-        +'</div></div>'
-        +'<div class="rn-section rn-section-green"><div class="rn-section-title">Management</div><div class="rn-body">'
-          +'<div class="rn-subheading">Conservative</div><ul><li data-ph="Lifestyle, education, monitoring…"></li></ul>'
-          +'<div class="rn-subheading">Medical</div><ul><li data-ph="Drugs, doses, first-line…"></li></ul>'
-          +'<div class="rn-subheading">Surgical</div><ul><li data-ph="Procedures, indications…"></li></ul>'
-          +'<div class="rn-subheading">Other</div><ul><li data-ph="MDT, referrals, follow-up…"></li></ul>'
-        +'</div></div>'
-        +'<div class="rn-section rn-section-red"><div class="rn-section-title">Complications</div><div class="rn-body">'
-          +'<ul><li data-ph="Complication…"></li></ul>'
-        +'</div></div>'
-        +'<div class="rn-section"><div class="rn-section-title">Prognosis</div><div class="rn-body">'
-          +'<p data-ph="Natural history, outcomes, prognostic factors…"></p>'
-        +'</div></div>'
-        +'<div class="rn-section rn-section-amber"><div class="rn-section-title">⭐ Exam Pearls</div><div class="rn-body">'
-          +'<div class="rn-pearl-grid"><div class="rn-pearl" data-ph="A high-yield fact or buzzword examiners love…"></div></div>'
-        +'</div></div>';
-    }
-    if(fam==='cp'){
-      return '<div class="cp"><div class="cp-lead"><b>'+esc(name)+'</b> &mdash; write the one-line summary of what this is and why it matters.</div>'
-        +'<div class="cp-warn"><span class="cp-warn-ic">🚨</span><span>Add the key safety point / red flag here (or delete this box).</span></div>'
-        +'<div class="cp-step"><div class="cp-step-h"><span class="cp-num">1</span><span class="cp-title">First step / heading</span></div><div class="cp-step-body">Write the detail for this step here…</div></div>'
-        +'<div class="cp-step"><div class="cp-step-h"><span class="cp-num">2</span><span class="cp-title">Second step / heading</span></div><div class="cp-step-body">…</div></div></div>';
-    }
-    if(fam==='osce'){
-      return '<div class="osce-intro">Write a short introduction to this station or skill.</div>'
+    if(NOTE_TEMPLATES[p]) return buildTemplate(NOTE_TEMPLATES[p]);
+    if(FAMILY[p]==='osce'){
+      return '<div class="osce-intro" data-ph="Write a short introduction to this station or skill…"></div>'
         +'<section class="osce-sec" style="--osce-c:#4F6BED;--osce-tint:#EEF1FD"><div class="osce-section-h">Section heading</div>'
-        +'<details class="osce-step" open><summary><span class="osce-step-t">Step or point</span><span class="osce-chev">&#9656;</span></summary><div class="osce-detail"><ul><li>Write the detail here…</li></ul></div></details></section>';
+        +'<details class="osce-step" open><summary><span class="osce-step-t">Step or point</span><span class="osce-chev">&#9656;</span></summary><div class="osce-detail"><ul><li data-ph="Write the detail here…"></li></ul></div></details></section>';
     }
-    return '<div class="rn-highlight"><strong>Why this matters:</strong> write a short framing sentence here.</div>'
-      +'<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p>Write your notes for this section here. Use the toolbar to add headings, lists and highlights.</p></div></div>';
+    // generic fallback (no tab-specific template registered)
+    return buildTemplate([{t:'Overview', p:'Write a short framing sentence…'},{t:'Section title', p:'Write your notes here — use the toolbar for headings, lists and highlights…'}]);
   }
 
-  // ---- insert blocks (match the tab's family) ----
+  // ---- insert blocks (match the tab's note style) ----
+  var RN_BLOCKS=[
+    ['Section','<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p data-ph="Write here…"></p></div></div>'],
+    ['Subheading','<div class="rn-subheading">Subheading</div>'],
+    ['Callout','<div class="rn-callout rn-callout-amber">Highlight a key idea here…</div>'],
+    ['Pearl','<div class="rn-pearl-grid"><div class="rn-pearl" data-ph="A high-yield fact…"></div></div>'],
+    ['List','<ul><li data-ph="Point…"></li></ul>']
+  ];
   function blocksFor(p){
-    var fam=FAMILY[p];
-    // Medical Conditions uses the rn-section note style (see starter above), so its
-    // insert blocks match: a titled section, a subheading, a callout, a pearl, a list.
-    if(p==='conditions') return [
-      ['Section','<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p>Write here…</p></div></div>'],
-      ['Subheading','<div class="rn-subheading">Subheading</div>'],
-      ['Callout','<div class="rn-callout rn-callout-amber">Highlight a key idea here…</div>'],
-      ['Pearl','<div class="rn-pearl-grid"><div class="rn-pearl"><strong>Pearl:</strong> a high-yield fact…</div></div>'],
-      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
-    ];
-    if(fam==='cp') return [
-      ['Lead','<div class="cp-lead">Write a lead summary…</div>'],
-      ['Warning','<div class="cp-warn"><span class="cp-warn-ic">🚨</span><span>Key safety point…</span></div>'],
-      ['Step','<div class="cp-step"><div class="cp-step-h"><span class="cp-num">•</span><span class="cp-title">Heading</span></div><div class="cp-step-body">Detail…</div></div>'],
-      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
-    ];
-    if(fam==='osce') return [
+    if(NOTE_TEMPLATES[p]) return RN_BLOCKS;
+    if(FAMILY[p]==='osce') return [
       ['Section','<section class="osce-sec" style="--osce-c:#2F84C7;--osce-tint:#EAF3FB"><div class="osce-section-h">Section heading</div></section>'],
-      ['Step','<details class="osce-step" open><summary><span class="osce-step-t">Step</span><span class="osce-chev">&#9656;</span></summary><div class="osce-detail"><ul><li>Detail…</li></ul></div></details>'],
-      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
+      ['Step','<details class="osce-step" open><summary><span class="osce-step-t">Step</span><span class="osce-chev">&#9656;</span></summary><div class="osce-detail"><ul><li data-ph="Detail…"></li></ul></div></details>'],
+      ['List','<ul><li data-ph="Point…"></li></ul>']
     ];
-    return [
-      ['Section','<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p>Write here…</p></div></div>'],
-      ['Callout','<div class="rn-callout">Highlight a key idea here…</div>'],
-      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
-    ];
+    return RN_BLOCKS;
   }
 
   // ---- editor overlay ----
