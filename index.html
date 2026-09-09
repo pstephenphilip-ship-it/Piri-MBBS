@@ -17603,6 +17603,41 @@ function hideFlyout(p) {
   // ---- per-tab starter template (the tab's own note structure) ----
   function starter(p,name){
     var fam=FAMILY[p];
+    // Medical Conditions: a proper clinical scaffold to fill in and edit. Uses the
+    // same rn-section structure as the built-in notes, so headings also show up in
+    // the "On this page" list on the right.
+    if(p==='conditions'){
+      return '<div class="rich-note">'
+        +'<div class="rn-section"><div class="rn-section-title">Overview</div><div class="rn-body">'
+          +'<p><strong>'+esc(name)+':</strong> write the one-line definition — what it is and why it matters.</p>'
+        +'</div></div>'
+        +'<div class="rn-section"><div class="rn-section-title">Causes &amp; Risk Factors</div><div class="rn-body">'
+          +'<ul><li>Cause / risk factor…</li><li>Cause / risk factor…</li></ul>'
+        +'</div></div>'
+        +'<div class="rn-section"><div class="rn-section-title">Clinical Features</div><div class="rn-body">'
+          +'<ul><li>Symptom…</li><li>Sign…</li></ul>'
+        +'</div></div>'
+        +'<div class="rn-section rn-section-teal"><div class="rn-section-title">Investigations</div><div class="rn-body">'
+          +'<ul><li><strong>Bedside / bloods:</strong> …</li><li><strong>Imaging:</strong> …</li><li><strong>Gold standard / special:</strong> …</li></ul>'
+        +'</div></div>'
+        +'<div class="rn-section rn-section-green"><div class="rn-section-title">Management</div><div class="rn-body">'
+          +'<div class="rn-subheading">Conservative</div><ul><li>…</li></ul>'
+          +'<div class="rn-subheading">Medical</div><ul><li>…</li></ul>'
+          +'<div class="rn-subheading">Surgical</div><ul><li>…</li></ul>'
+          +'<div class="rn-subheading">Other</div><ul><li>…</li></ul>'
+        +'</div></div>'
+        +'<div class="rn-section rn-section-red"><div class="rn-section-title">Complications</div><div class="rn-body">'
+          +'<ul><li>Complication…</li></ul>'
+        +'</div></div>'
+        +'<div class="rn-section"><div class="rn-section-title">Prognosis</div><div class="rn-body">'
+          +'<p>Natural history, likely outcomes and prognostic factors…</p>'
+        +'</div></div>'
+        +'<div class="rn-section rn-section-amber"><div class="rn-section-title">⭐ Exam Pearls</div><div class="rn-body">'
+          +'<div class="rn-pearl-grid"><div class="rn-pearl"><strong>Pearl:</strong> a high-yield fact examiners love…</div>'
+          +'<div class="rn-pearl"><strong>Pearl:</strong> a classic association or buzzword…</div></div>'
+        +'</div></div>'
+      +'</div>';
+    }
     if(fam==='cp'){
       return '<div class="cp"><div class="cp-lead"><b>'+esc(name)+'</b> &mdash; write the one-line summary of what this is and why it matters.</div>'
         +'<div class="cp-warn"><span class="cp-warn-ic">🚨</span><span>Add the key safety point / red flag here (or delete this box).</span></div>'
@@ -17621,6 +17656,15 @@ function hideFlyout(p) {
   // ---- insert blocks (match the tab's family) ----
   function blocksFor(p){
     var fam=FAMILY[p];
+    // Medical Conditions uses the rn-section note style (see starter above), so its
+    // insert blocks match: a titled section, a subheading, a callout, a pearl, a list.
+    if(p==='conditions') return [
+      ['Section','<div class="rn-section"><div class="rn-section-title">Section title</div><div class="rn-body"><p>Write here…</p></div></div>'],
+      ['Subheading','<div class="rn-subheading">Subheading</div>'],
+      ['Callout','<div class="rn-callout rn-callout-amber">Highlight a key idea here…</div>'],
+      ['Pearl','<div class="rn-pearl-grid"><div class="rn-pearl"><strong>Pearl:</strong> a high-yield fact…</div></div>'],
+      ['List','<ul><li>Point one</li><li>Point two</li></ul>']
+    ];
     if(fam==='cp') return [
       ['Lead','<div class="cp-lead">Write a lead summary…</div>'],
       ['Warning','<div class="cp-warn"><span class="cp-warn-ic">🚨</span><span>Key safety point…</span></div>'],
