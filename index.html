@@ -17441,10 +17441,15 @@ function hideFlyout(p) {
   .ownt-lbl{display:block;font-family:var(--mono,monospace);font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#6B7280);margin:14px 0 6px;}
   .ownt-inp,.ownt-sel{width:100%;box-sizing:border-box;border:1px solid var(--border,#E2E6F0);border-radius:9px;padding:11px 12px;font-family:inherit;font-size:14px;color:var(--text,#1E2640);background:var(--surface,#fff);}
   .ownt-inp:focus,.ownt-sel:focus{outline:none;border-color:#00C2A8;}
-  /* WYSIWYG rich field for the pharmacology editor (formatting applies live — no visible markup) */
-  .pf-rt{width:100%;box-sizing:border-box;border:1px solid var(--border,#E2E6F0);border-radius:9px;padding:11px 12px;font-family:inherit;font-size:14px;line-height:1.6;color:var(--text,#1E2640);background:var(--surface,#fff);min-height:66px;outline:none;overflow-wrap:anywhere;}
+  /* WYSIWYG rich field for the pharmacology editor (formatting applies live — no visible markup).
+     Light (white) like the drug-detail card it renders into, so what you type looks the same as
+     what's saved — and the default/reset colour (dark ink) is always readable, never black-on-dark. */
+  .pf-rt{width:100%;box-sizing:border-box;border:1px solid #E2E6F0;border-radius:9px;padding:11px 12px;font-family:inherit;font-size:14px;line-height:1.6;color:#1E2640;background:#fff;min-height:66px;outline:none;overflow-wrap:anywhere;}
   .pf-rt:focus{border-color:#00C2A8;}
-  .pf-rt:empty:before{content:attr(data-ph);color:var(--muted,#9CA3AF);pointer-events:none;}
+  .pf-rt:empty:before{content:attr(data-ph);color:#9CA3AF;pointer-events:none;}
+  /* the drug-class text input in the same editor, matched to the light fields */
+  #ownt-pharma-edit .ownt-inp{background:#fff;color:#1E2640;border-color:#E2E6F0;}
+  #ownt-pharma-edit .ownt-inp::placeholder{color:#9CA3AF;}
   .pf-rt ul,.pf-rt ol{margin:4px 0;padding-left:22px;} .pf-rt li{margin:3px 0;}
   .pf-rt b,.pf-rt strong{font-weight:700;}
   .pf-sw{width:20px;height:20px;padding:0;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--border2,#CBD2E0);cursor:pointer;margin:0 1px;}
@@ -18419,7 +18424,9 @@ function hideFlyout(p) {
     }).join('');
     var COLS=[['Teal','#0E9C8B'],['Blue','#3B7DD8'],['Green','#1F8B5E'],['Amber','#B86B00'],['Purple','#6B45B8'],['Red','#C93535']];
     var listIcon='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="4" cy="6" r="1.4" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.4" fill="currentColor" stroke="none"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg>';
-    var tb='<div class="ownt-toolbar" id="pf-toolbar" style="position:sticky;top:0;z-index:3;gap:2px;padding:6px 10px;margin-bottom:14px;border:1px solid var(--border,#E2E6F0);border-radius:10px;">'
+    // Slim toolbar — sits in the editor chrome between the header and the scrolling
+    // body (flex-shrink:0), so it stays put at the top as you scroll the fields.
+    var tb='<div class="ownt-toolbar" id="pf-toolbar" style="gap:2px;padding:6px 16px;">'
       +'<button type="button" class="ownt-tb" data-cmd="bold" title="Bold"><b>B</b></button>'
       +'<button type="button" class="ownt-tb" data-cmd="bullet" title="Bullet list" style="display:inline-flex;align-items:center;justify-content:center;">'+listIcon+'</button>'
       +'<span class="ownt-tb-div"></span>'
@@ -18428,8 +18435,8 @@ function hideFlyout(p) {
       +'</div>';
     ov.innerHTML='<div class="ownt-edit-head"><div class="t"><div class="k">Pharmacology &middot; '+esc(t.section)+'</div><div class="n">'+esc(t.name)+'</div></div>'
       +'<button class="ownt-btn" id="pf-cancel">Cancel</button><button class="ownt-btn primary" id="pf-save">Save drug</button></div>'
-      +'<div class="ownt-edit-body"><div style="max-width:760px;margin:0 auto;">'
       +tb
+      +'<div class="ownt-edit-body"><div style="max-width:760px;margin:0 auto;">'
       +'<div style="font-size:12px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.5;">Select text, then use the toolbar to <b>bold</b>, <b>colour</b> or make a <b>bullet list</b> — it applies straight away. Leave a field blank to hide that card.</div>'
       +fields+'</div></div>';
     PH_BACKDROP=document.createElement('div'); PH_BACKDROP.className='ownt-edit-backdrop';
