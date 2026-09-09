@@ -17193,6 +17193,17 @@ function hideFlyout(p) {
   .rn-card .rn-cl-lead{color:var(--rn-text,#1E2640);}
   .rn-callout > .rn-tightlist{margin:0;}
 
+  /* LAYOUT PASS 12b — NOT a defect, deliberately left alone. The same
+     specificity clash exists on the horizontal axis: .rn-body ul{padding-left:22px}
+     is (0,1,1) and outranks .rn-tightlist{padding:0} at (0,1,0), so a tightlist
+     sits 36–42px in from its .rn-cl-lead (measured: leadLeft 328, ulLeft 328,
+     ulPadLeft 22px, liTextLeft 364–370, consistent across Pyelonephritis, Febrile
+     Convulsion and BPH). Unlike the margin above, this one is doing real work: it
+     is the lead → detail step, and flush rows under a bold lead lose that
+     hierarchy. It is also the shipped look for 478+ lead+tightlist pairs across
+     every system, so zeroing it would reflow the whole corpus to fix nothing.
+     Leave it. */
+
   /* LAYOUT PASS 12 — a tight list that ENDS its box kept a 14px bottom margin.
      .rn-body ul{margin:4px 0 14px} is (0,1,1) and outranks .rn-tightlist{margin:0}
      at (0,1,0), so the zero never applied. Measured across Endocrinology: a pearl
