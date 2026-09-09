@@ -18819,6 +18819,15 @@ function hideFlyout(p) {
      wrapped line returned to the number rather than under the text. Pull the
      first line back to the list's content edge and let the rest hang. */
   li.rn-numbered{padding-left:20px;text-indent:-20px;}
+  /* LAYOUT PASS 21 — text-indent INHERITS, so a list nested under a numbered
+     rung dragged every sub-row's first line 20px left, sliding it over the
+     absolutely-positioned 4px .rn-tightlist dot (dot invisible) and leaving
+     wrapped lines 20px right of the first. Measured in an untouched note
+     (Haematology > DIC): three sub-rows at text-indent -20px. The hanging
+     indent is only ever meant for the numbered row itself, so reset it on the
+     sub-list. 14 rows across Haematology, Neurology, Respiratory and
+     Contraception. */
+  li.rn-numbered > ul, li.rn-numbered > ol{text-indent:0;}
   /* LAYOUT PASS 20 — same fault as the bullet-plus-number case, with an arrow.
      A row written as "<li>→ Bile stasis</li>" inside a bulleted list renders
      with BOTH the list's bullet and the author's arrow, so every step of a
