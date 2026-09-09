@@ -18289,6 +18289,22 @@ function hideFlyout(p) {
     };});
   }
 
+  // Keep the drug editor docked in the pharmacology content column (right of the
+  // two sidebars, below the top nav) instead of taking over the whole screen —
+  // same behaviour as the note editor. Falls back to fullscreen on narrow screens.
+  var PH_BACKDROP=null, PH_REPOS=null;
+  function dockPharma(ov){
+    var area=document.querySelector('#tab-pharmacology .note-area');
+    var narrow=(window.innerWidth||0)<820;
+    if(!area || narrow){ ov.classList.remove('docked'); ov.style.left=ov.style.top=ov.style.width=ov.style.height=''; return; }
+    var r=area.getBoundingClientRect();
+    if(r.width<560 || r.height<360){ ov.classList.remove('docked'); ov.style.left=ov.style.top=ov.style.width=ov.style.height=''; return; }
+    ov.classList.add('docked');
+    ov.style.left=Math.round(r.left)+'px';
+    ov.style.top=Math.round(r.top)+'px';
+    ov.style.width=Math.round(r.width)+'px';
+    ov.style.height=Math.round(r.height)+'px';
+  }
   function openEditor(t, isNew){
     closeEditor();
     var ov=document.createElement('div'); ov.className='ownt-edit'; ov.id='ownt-pharma-edit';
@@ -18312,7 +18328,12 @@ function hideFlyout(p) {
       +tb
       +'<div style="font-size:12px;color:var(--muted,#6B7280);margin-bottom:16px;line-height:1.5;">Select text, then use the toolbar to <b>bold</b>, <b>colour</b> or make a <b>bullet list</b> — it applies straight away. Leave a field blank to hide that card.</div>'
       +fields+'</div></div>';
+    PH_BACKDROP=document.createElement('div'); PH_BACKDROP.className='ownt-edit-backdrop';
+    document.body.appendChild(PH_BACKDROP);
     document.body.appendChild(ov);
+    dockPharma(ov);
+    PH_REPOS=function(){ dockPharma(ov); };
+    window.addEventListener('resize', PH_REPOS);
     wirePharmaToolbar(ov);
     ov.querySelector('#pf-cancel').onclick=function(){ if(isNew){ removeTopic(t, true); } closeEditor(); };
     ov.querySelector('#pf-save').onclick=function(){
@@ -18326,7 +18347,7 @@ function hideFlyout(p) {
     };
     setTimeout(function(){ var fe=document.getElementById('pf_mechanism'); if(fe) fe.focus(); },30);
   }
-  function closeEditor(){ var ov=document.getElementById('ownt-pharma-edit'); if(ov) ov.remove(); }
+  function closeEditor(){ var ov=document.getElementById('ownt-pharma-edit'); if(ov) ov.remove(); if(PH_BACKDROP){ PH_BACKDROP.remove(); PH_BACKDROP=null; } if(PH_REPOS){ window.removeEventListener('resize', PH_REPOS); PH_REPOS=null; } }
 
   function removeTopic(t, silent){
     if(!silent && !confirm('Delete your drug “'+t.name+'”?')) return;
