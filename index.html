@@ -17607,36 +17607,37 @@ function hideFlyout(p) {
     // same rn-section structure as the built-in notes, so headings also show up in
     // the "On this page" list on the right.
     if(p==='conditions'){
-      return '<div class="rich-note">'
-        +'<div class="rn-section"><div class="rn-section-title">Overview</div><div class="rn-body">'
-          +'<p><strong>'+esc(name)+':</strong> write the one-line definition — what it is and why it matters.</p>'
+      // NB: no <div class="rich-note"> wrapper — the editor canvas already IS
+      // .rich-note, so each rn-section must be a DIRECT child (else inserts and
+      // deletes see one giant block). Body prompts are empty [data-ph] placeholders:
+      // grey see-through hints that vanish the moment you type, nothing to delete.
+      return '<div class="rn-section"><div class="rn-section-title">Overview</div><div class="rn-body">'
+          +'<p data-ph="What it is, and why it matters — one or two lines…"></p>'
         +'</div></div>'
         +'<div class="rn-section"><div class="rn-section-title">Causes &amp; Risk Factors</div><div class="rn-body">'
-          +'<ul><li>Cause / risk factor…</li><li>Cause / risk factor…</li></ul>'
+          +'<ul><li data-ph="Cause or risk factor…"></li></ul>'
         +'</div></div>'
         +'<div class="rn-section"><div class="rn-section-title">Clinical Features</div><div class="rn-body">'
-          +'<ul><li>Symptom…</li><li>Sign…</li></ul>'
+          +'<ul><li data-ph="Symptom or sign…"></li></ul>'
         +'</div></div>'
         +'<div class="rn-section rn-section-teal"><div class="rn-section-title">Investigations</div><div class="rn-body">'
-          +'<ul><li><strong>Bedside / bloods:</strong> …</li><li><strong>Imaging:</strong> …</li><li><strong>Gold standard / special:</strong> …</li></ul>'
+          +'<ul><li data-ph="Bedside · bloods · imaging · gold-standard…"></li></ul>'
         +'</div></div>'
         +'<div class="rn-section rn-section-green"><div class="rn-section-title">Management</div><div class="rn-body">'
-          +'<div class="rn-subheading">Conservative</div><ul><li>…</li></ul>'
-          +'<div class="rn-subheading">Medical</div><ul><li>…</li></ul>'
-          +'<div class="rn-subheading">Surgical</div><ul><li>…</li></ul>'
-          +'<div class="rn-subheading">Other</div><ul><li>…</li></ul>'
+          +'<div class="rn-subheading">Conservative</div><ul><li data-ph="Lifestyle, education, monitoring…"></li></ul>'
+          +'<div class="rn-subheading">Medical</div><ul><li data-ph="Drugs, doses, first-line…"></li></ul>'
+          +'<div class="rn-subheading">Surgical</div><ul><li data-ph="Procedures, indications…"></li></ul>'
+          +'<div class="rn-subheading">Other</div><ul><li data-ph="MDT, referrals, follow-up…"></li></ul>'
         +'</div></div>'
         +'<div class="rn-section rn-section-red"><div class="rn-section-title">Complications</div><div class="rn-body">'
-          +'<ul><li>Complication…</li></ul>'
+          +'<ul><li data-ph="Complication…"></li></ul>'
         +'</div></div>'
         +'<div class="rn-section"><div class="rn-section-title">Prognosis</div><div class="rn-body">'
-          +'<p>Natural history, likely outcomes and prognostic factors…</p>'
+          +'<p data-ph="Natural history, outcomes, prognostic factors…"></p>'
         +'</div></div>'
         +'<div class="rn-section rn-section-amber"><div class="rn-section-title">⭐ Exam Pearls</div><div class="rn-body">'
-          +'<div class="rn-pearl-grid"><div class="rn-pearl"><strong>Pearl:</strong> a high-yield fact examiners love…</div>'
-          +'<div class="rn-pearl"><strong>Pearl:</strong> a classic association or buzzword…</div></div>'
-        +'</div></div>'
-      +'</div>';
+          +'<div class="rn-pearl-grid"><div class="rn-pearl" data-ph="A high-yield fact or buzzword examiners love…"></div></div>'
+        +'</div></div>';
     }
     if(fam==='cp'){
       return '<div class="cp"><div class="cp-lead"><b>'+esc(name)+'</b> &mdash; write the one-line summary of what this is and why it matters.</div>'
@@ -18067,14 +18068,19 @@ function hideFlyout(p) {
     }
     var _dotsT=null;
     function cancelHideDots(){ if(_dotsT){ clearTimeout(_dotsT); _dotsT=null; } }
-    function scheduleHideDots(){ cancelHideDots(); _dotsT=setTimeout(hideDots, 260); }
+    function scheduleHideDots(){ cancelHideDots(); _dotsT=setTimeout(hideDots, 400); }
     function hideDots(){ if(BB_DOTS){ BB_DOTS.classList.remove('show'); BB_DOTS.__blk=null; } }
+    // Point the handle at whichever block you're over. Crucially, moving the cursor
+    // OFF a block but still inside the note (e.g. across the left gutter to reach the
+    // handle) does NOT hide it — the handle only clears when you leave the note area
+    // entirely. So once a box shows its ⋮, you can always reach it to click.
     canvas.addEventListener('mousemove', function(e){
       var u=nearestUnit(e.target);
-      if(u && u!==canvas){ if(u!==BB_DOTS.__blk) positionDots(u); cancelHideDots(); }
-      else scheduleHideDots();
+      if(u && u!==canvas && u!==BB_DOTS.__blk) positionDots(u);
+      cancelHideDots();
     });
-    canvas.addEventListener('mouseleave', scheduleHideDots);
+    var editBody=ov.querySelector('.ownt-edit-body');
+    (editBody||canvas).addEventListener('mouseleave', scheduleHideDots);
     BB_DOTS.addEventListener('mouseenter', cancelHideDots);
     BB_DOTS.addEventListener('mouseleave', scheduleHideDots);
     // Clicking into the canvas (to type) dismisses an open block bar.
@@ -18084,7 +18090,17 @@ function hideFlyout(p) {
     ov.querySelector('#ownt-esave').onclick=function(){ saveEditor(); };
     setTimeout(function(){ canvas.focus(); },30);
   }
-  function saveEditor(){ if(!EDIT) return; EDIT.t.notesHtml=snapHtml().trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
+  // Strip the editor-only placeholder hints, and drop any prompt element the writer
+  // never filled in — so an unused template slot doesn't leave an empty bullet or
+  // blank line in the saved note.
+  function cleanForSave(html){
+    var d=document.createElement('div'); d.innerHTML=html||'';
+    d.querySelectorAll('[data-ph]').forEach(function(e){ e.removeAttribute('data-ph'); });
+    d.querySelectorAll('li,p,.rn-pearl').forEach(function(e){ if(!e.textContent.trim() && !e.querySelector('img,table,hr,ul,ol')) e.remove(); });
+    d.querySelectorAll('ul,ol,.rn-pearl-grid').forEach(function(e){ if(!e.children.length && !e.textContent.trim()) e.remove(); });
+    return d.innerHTML;
+  }
+  function saveEditor(){ if(!EDIT) return; EDIT.t.notesHtml=cleanForSave(snapHtml()).trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
   function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); if(EDIT_BACKDROP){ EDIT_BACKDROP.remove(); EDIT_BACKDROP=null; } if(EDIT_REPOS){ window.removeEventListener('resize', EDIT_REPOS); EDIT_REPOS=null; } closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(IMGBAR){ IMGBAR.remove(); IMGBAR=null; } if(BLOCKBAR){ BLOCKBAR.remove(); BLOCKBAR=null; } if(BB_DOTS){ BB_DOTS.remove(); BB_DOTS=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } clearTimeout(HTIMER); clearTimeout(TOASTT); HIST=[]; HIDX=-1; SAVED_RANGE=null; EDIT=null; }
 
   function navigateTo(p,t){
