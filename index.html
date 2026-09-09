@@ -17362,8 +17362,7 @@ function hideFlyout(p) {
   .ownt-edit{position:fixed;inset:0;z-index:4000;background:#F0F2F5;display:flex;flex-direction:column;}
   /* Docked mode: the editor sits INSIDE the note content column so the top nav
      and left sidebar stay visible — students see the page they're building on. */
-  .ownt-edit.docked{inset:auto;box-shadow:0 10px 40px rgba(10,16,24,.16);border:1px solid var(--border,#E2E6F0);border-radius:14px;overflow:hidden;}
-  .ownt-edit.docked .ownt-edit-head{border-radius:14px 14px 0 0;}
+  .ownt-edit.docked{inset:auto;box-shadow:0 10px 40px rgba(10,16,24,.16);border-radius:0;overflow:hidden;}
   .ownt-edit-backdrop{position:fixed;inset:0;z-index:3990;background:rgba(10,16,24,.28);}
   .ownt-edit-head{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--border,#E2E6F0);background:var(--surface,#fff);flex-shrink:0;}
   .ownt-edit-head .t{flex:1;min-width:0;}
@@ -17433,6 +17432,10 @@ function hideFlyout(p) {
   .ownt-blockbar button:disabled{opacity:.35;cursor:default;}
   .ownt-blockbar .ownt-bb-label{color:#8FE9DD;font-family:var(--mono,monospace);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0 6px 0 4px;}
   .ownt-blockbar .sep{width:1px;align-self:stretch;background:rgba(255,255,255,.18);margin:2px 2px;}
+  /* The subtle "⋮" handle that appears beside a hovered block — click it to open the bar. */
+  .ownt-bb-dots{position:fixed;z-index:4088;width:22px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:rgba(30,38,64,.5);color:#fff;cursor:pointer;font-size:15px;font-weight:700;line-height:1;letter-spacing:1px;opacity:0;pointer-events:none;transition:opacity .12s,background .12s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .ownt-bb-dots.show{opacity:.6;pointer-events:auto;}
+  .ownt-bb-dots.show:hover{opacity:1;background:#1E2640;}
   .ownt-canvas .ownt-target{outline:1.5px solid rgba(0,194,168,.5);outline-offset:2px;border-radius:3px;}
   .ownt-tb:disabled{opacity:.32;cursor:default;}
   /* undo toast after deleting a section */
@@ -17640,7 +17643,7 @@ function hideFlyout(p) {
   var EDIT=null;
   var TEXT_COLS=[['#1E2640','Ink'],['#3B7DD8','Blue'],['#1F8B5E','Green'],['#C93535','Red'],['#B86B00','Amber'],['#6B45B8','Purple'],['#1A9BA8','Teal'],['#0F1720','Black']];
   var HL_COLS=[['#FFF3A3','Yellow'],['#EBF2FF','Blue'],['#E6F6EF','Green'],['#FDEAEA','Red'],['#FEF5E4','Amber'],['#F0EBFF','Purple'],['#E3F6F9','Teal'],['transparent','None']];
-  var POP=null, TBAR=null, SELH=null, IMGBAR=null, BLOCKBAR=null, SAVED_RANGE=null, EDIT_BACKDROP=null, EDIT_REPOS=null;
+  var POP=null, TBAR=null, SELH=null, IMGBAR=null, BLOCKBAR=null, SAVED_RANGE=null, EDIT_BACKDROP=null, EDIT_REPOS=null, BB_DOTS=null;
   function canvasEl(){ return document.getElementById('ownt-canvas'); }
   function saveSel(){ var c=canvasEl(); if(!c) return; var s=window.getSelection(); if(s&&s.rangeCount){ var r=s.getRangeAt(0); if(c.contains(r.commonAncestorContainer)) SAVED_RANGE=r.cloneRange(); } }
   function restoreSel(){ var c=canvasEl(); if(!c) return; c.focus(); var s=window.getSelection(); if(SAVED_RANGE){ try{ s.removeAllRanges(); s.addRange(SAVED_RANGE); return; }catch(e){} } var r=document.createRange(); r.selectNodeContents(c); r.collapse(false); s.removeAllRanges(); s.addRange(r); }
@@ -18002,29 +18005,43 @@ function hideFlyout(p) {
       TLOCK=true; setTarget(blk); histPush();
     }; });
     document.body.appendChild(BLOCKBAR);
-    SELH=function(){ saveSel(); updateActive(); var c=cellFromSel(); positionTBar(c); };   // block controls are hover-driven now, not caret-driven
+    // A subtle "⋮" handle appears beside the block you hover; the move/delete bar
+    // only opens when you CLICK it, so nothing jumps out at you while writing.
+    BB_DOTS=document.createElement('div'); BB_DOTS.className='ownt-bb-dots'; BB_DOTS.textContent='⋮'; BB_DOTS.title='Block options';
+    BB_DOTS.onmousedown=function(e){ e.preventDefault(); };
+    BB_DOTS.onclick=function(e){ e.stopPropagation(); var blk=BB_DOTS.__blk; if(!blk) return; TLOCK=true; setTarget(blk); };
+    document.body.appendChild(BB_DOTS);
+    SELH=function(){ saveSel(); updateActive(); var c=cellFromSel(); positionTBar(c); };   // block bar is click-opened via the ⋮ handle, not caret-driven
     document.addEventListener('selectionchange', SELH);
-    canvas.addEventListener('scroll', function(){ var c=cellFromSel(); if(c) positionTBar(c); positionImgbar(); if(TARGET) positionBlockBar(); });
-    // The block move/delete bar appears only when you HOVER a block — so it stays out of the way while writing.
-    var _bbHideT=null;
-    function bbCancelHide(){ if(_bbHideT){ clearTimeout(_bbHideT); _bbHideT=null; } }
-    function bbScheduleHide(){ bbCancelHide(); _bbHideT=setTimeout(function(){ if(TLOCK) return; TARGET=null; positionBlockBar(); }, 240); }
+    canvas.addEventListener('scroll', function(){ var c=cellFromSel(); if(c) positionTBar(c); positionImgbar(); if(TARGET) positionBlockBar(); hideDots(); });
+    function positionDots(u){
+      BB_DOTS.__blk=u;
+      var r=u.getBoundingClientRect();
+      BB_DOTS.style.top=Math.max(60, r.top+4)+'px';
+      BB_DOTS.style.left=Math.max(4, r.left-28)+'px';
+      BB_DOTS.classList.add('show');
+    }
+    var _dotsT=null;
+    function cancelHideDots(){ if(_dotsT){ clearTimeout(_dotsT); _dotsT=null; } }
+    function scheduleHideDots(){ cancelHideDots(); _dotsT=setTimeout(hideDots, 260); }
+    function hideDots(){ if(BB_DOTS){ BB_DOTS.classList.remove('show'); BB_DOTS.__blk=null; } }
     canvas.addEventListener('mousemove', function(e){
-      if(TLOCK) return;                          // an explicit "Wider" selection owns the target
       var u=nearestUnit(e.target);
-      if(u && u!==canvas){ if(u!==TARGET){ TARGET=u; positionBlockBar(); } bbCancelHide(); }
-      else bbScheduleHide();
+      if(u && u!==canvas){ if(u!==BB_DOTS.__blk) positionDots(u); cancelHideDots(); }
+      else scheduleHideDots();
     });
-    canvas.addEventListener('mouseleave', bbScheduleHide);
-    BLOCKBAR.addEventListener('mouseenter', bbCancelHide);
-    BLOCKBAR.addEventListener('mouseleave', bbScheduleHide);
+    canvas.addEventListener('mouseleave', scheduleHideDots);
+    BB_DOTS.addEventListener('mouseenter', cancelHideDots);
+    BB_DOTS.addEventListener('mouseleave', scheduleHideDots);
+    // Clicking into the canvas (to type) dismisses an open block bar.
+    canvas.addEventListener('mousedown', function(){ if(TARGET){ TLOCK=false; TARGET=null; positionBlockBar(); } });
 
     ov.querySelector('#ownt-ecancel').onclick=function(){ if(EDIT.isNew){ deleteTopic(p, t, true); } closeEditor(); };
     ov.querySelector('#ownt-esave').onclick=function(){ saveEditor(); };
     setTimeout(function(){ canvas.focus(); },30);
   }
   function saveEditor(){ if(!EDIT) return; EDIT.t.notesHtml=snapHtml().trim(); EDIT.t.updated=Date.now(); save(); injectAll(); var p=EDIT.p, t=EDIT.t; closeEditor(); navigateTo(p,t); }
-  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); if(EDIT_BACKDROP){ EDIT_BACKDROP.remove(); EDIT_BACKDROP=null; } if(EDIT_REPOS){ window.removeEventListener('resize', EDIT_REPOS); EDIT_REPOS=null; } closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(IMGBAR){ IMGBAR.remove(); IMGBAR=null; } if(BLOCKBAR){ BLOCKBAR.remove(); BLOCKBAR=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } clearTimeout(HTIMER); clearTimeout(TOASTT); HIST=[]; HIDX=-1; SAVED_RANGE=null; EDIT=null; }
+  function closeEditor(){ var ov=document.getElementById('ownt-edit'); if(ov) ov.remove(); if(EDIT_BACKDROP){ EDIT_BACKDROP.remove(); EDIT_BACKDROP=null; } if(EDIT_REPOS){ window.removeEventListener('resize', EDIT_REPOS); EDIT_REPOS=null; } closePop(); if(TBAR){ TBAR.remove(); TBAR=null; } if(IMGBAR){ IMGBAR.remove(); IMGBAR=null; } if(BLOCKBAR){ BLOCKBAR.remove(); BLOCKBAR=null; } if(BB_DOTS){ BB_DOTS.remove(); BB_DOTS=null; } if(SELH){ document.removeEventListener('selectionchange', SELH); SELH=null; } clearTimeout(HTIMER); clearTimeout(TOASTT); HIST=[]; HIDX=-1; SAVED_RANGE=null; EDIT=null; }
 
   function navigateTo(p,t){
     var navEl=document.querySelector('.nav-tab[onclick*="\''+p+'\'"]');
