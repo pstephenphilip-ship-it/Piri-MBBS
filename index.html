@@ -7377,6 +7377,110 @@ window.MOCK_BANK = {
       explanation:[
         "The commonest cause of SUDDEN CARDIAC DEATH in young people and athletes is HYPERTROPHIC CARDIOMYOPATHY – an autosomal-dominant sarcomere-protein disease.",
         "Those at highest risk are flagged by exertional syncope, a family history of sudden death, marked hypertrophy, non-sustained VT and an abnormal blood-pressure response to exercise."
+      ] },
+    { id:"cmyo-025", type:"mcq", objective:"cmyo-hocm-murmur-dynamics",
+      question:"A 45-year-old man is referred with an ejection systolic murmur heard best at the left sternal edge. On STANDING from a squatting position the murmur becomes LOUDER; on SQUATTING down and on sustained HANDGRIP it becomes SOFTER. What is the most likely diagnosis?",
+      options:[
+        "Hypertrophic obstructive cardiomyopathy",
+        "Aortic stenosis, a fixed valvular lesion",
+        "Chronic mitral regurgitation",
+        "Aortic sclerosis without significant stenosis",
+        "An innocent systolic flow murmur"],
+      correctIndex:0,
+      explanation:[
+        "The murmur gets LOUDER when preload falls (standing/Valsalva) and SOFTER when preload and afterload rise (squatting/handgrip). That dynamic behaviour is the signature of the DYNAMIC left-ventricular outflow obstruction of hypertrophic obstructive cardiomyopathy: less blood in the ventricle brings the hypertrophied septum and the mitral leaflet closer together, worsening the obstruction.",
+        "Aortic stenosis (B) is a FIXED obstruction whose murmur behaves the opposite way – it softens on standing and gets louder on squatting. Mitral regurgitation (C) is louder with handgrip (increased afterload), not softer. Aortic sclerosis (D) gives a soft murmur without dynamic change, and an innocent murmur (E) is quiet, position-insensitive and has no pathological features."
+      ] },
+    { id:"cmyo-026", type:"categorize", objective:"cmyo-hocm-manoeuvres",
+      question:"Sort each bedside manoeuvre by its effect on the murmur of hypertrophic obstructive cardiomyopathy.",
+      buckets:["Makes it LOUDER","Makes it SOFTER"],
+      items:[
+        { text:"Standing up from squatting", bucket:0 },
+        { text:"Valsalva manoeuvre (strain phase)", bucket:0 },
+        { text:"Glyceryl trinitrate (a nitrate)", bucket:0 },
+        { text:"Squatting down", bucket:1 },
+        { text:"Sustained handgrip", bucket:1 },
+        { text:"Passive leg raise", bucket:1 }],
+      explanation:[
+        "The murmur tracks the outflow gradient. Anything that REDUCES preload or afterload (standing, Valsalva strain, a nitrate) shrinks the ventricular cavity, worsens the obstruction and makes the murmur LOUDER.",
+        "Anything that INCREASES preload or afterload (squatting, sustained handgrip, passive leg raise) fills and splints the ventricle open, relieves the obstruction and makes the murmur SOFTER. This is the exact opposite of aortic stenosis."
+      ] },
+    { id:"cmyo-027", type:"mcq", objective:"cmyo-hocm-drugs-avoid",
+      question:"A 55-year-old man with hypertrophic obstructive cardiomyopathy and a resting left-ventricular outflow-tract gradient of 70 mmHg reports exertional chest pain. His GP is considering symptomatic treatment. Which drug should be AVOIDED?",
+      options:[
+        "Bisoprolol",
+        "Glyceryl trinitrate",
+        "Verapamil",
+        "Disopyramide",
+        "Phenylephrine"],
+      correctIndex:1,
+      explanation:[
+        "Glyceryl trinitrate is the drug to avoid. Treating the chest pain as though it were ordinary angina is the trap: a nitrate is a venodilator that REDUCES preload, shrinking the ventricle and WORSENING the outflow obstruction – it can precipitate hypotension and collapse.",
+        "The other four are all used, or safe, in obstructive HCM: bisoprolol (a beta-blocker) and verapamil are negative inotropes that reduce the gradient, disopyramide is a negative-inotrope anti-arrhythmic used specifically to relieve obstruction, and phenylephrine raises afterload, which acutely relieves it."
+      ] },
+    { id:"cmyo-028", type:"mcq", objective:"cmyo-hocm-first-line",
+      question:"A 48-year-old woman with symptomatic hypertrophic obstructive cardiomyopathy has exertional breathlessness and a significant resting outflow-tract gradient. She is in sinus rhythm with a normal blood pressure. Which is the most appropriate FIRST-LINE drug to reduce her symptoms and the gradient?",
+      options:[
+        "A loop diuretic (e.g. furosemide)",
+        "An ACE inhibitor (e.g. ramipril)",
+        "A beta-blocker (e.g. bisoprolol)",
+        "Glyceryl trinitrate spray",
+        "Nifedipine (a dihydropyridine)"],
+      correctIndex:2,
+      explanation:[
+        "A beta-blocker is first-line. As a negative inotrope and chronotrope it lowers the outflow gradient, prolongs diastolic filling and relieves symptoms without dropping preload or afterload.",
+        "Each distractor makes the obstruction WORSE: a loop diuretic and glyceryl trinitrate reduce preload, while an ACE inhibitor and nifedipine reduce afterload – all of which draw the septum and mitral leaflet together and increase the gradient."
+      ] },
+    { id:"cmyo-029", type:"mcq", objective:"cmyo-hocm-septal-reduction",
+      question:"A 50-year-old man with hypertrophic obstructive cardiomyopathy remains severely symptomatic (NYHA class III) with a resting outflow-tract gradient of 80 mmHg DESPITE maximally tolerated beta-blocker and verapamil. What is the most appropriate next step?",
+      options:[
+        "Cardiac transplantation",
+        "Add a loop diuretic",
+        "Add an ACE inhibitor",
+        "Septal reduction therapy",
+        "Reassure and continue current therapy"],
+      correctIndex:3,
+      explanation:[
+        "Drug-refractory obstruction with severe symptoms is the indication for SEPTAL REDUCTION THERAPY – either surgical septal myectomy or alcohol septal ablation – which physically removes or infarcts the hypertrophied septum to abolish the gradient.",
+        "Transplantation (A) is reserved for end-stage or non-obstructive disease, not for an obstruction that surgery can relieve. A loop diuretic (B) and an ACE inhibitor (C) both lower filling or afterload and WORSEN the gradient. Continuing unchanged (E) leaves a symptomatic 80 mmHg gradient untreated."
+      ] },
+    { id:"cmyo-030", type:"mcq", objective:"cmyo-hocm-scd-icd",
+      question:"A 35-year-old man with hypertrophic cardiomyopathy attends the inherited-cardiac-conditions clinic for sudden-cardiac-death risk stratification. He is asymptomatic and plays five-a-side football each week. Which single feature most strongly supports offering him an implantable cardioverter-defibrillator?",
+      options:[
+        "A maximal left ventricular wall thickness of 20 mm on echocardiography",
+        "A resting left ventricular outflow tract gradient of 30 mmHg",
+        "Frequent isolated ventricular ectopic beats on Holter monitoring",
+        "Deep T-wave inversion with LVH voltage criteria on the resting ECG",
+        "Family history of premature sudden death plus non-sustained VT on Holter"],
+      correctIndex:4,
+      explanation:[
+        "The strongest indication is the CLUSTER of major risk markers: a family history of premature sudden death together with non-sustained VT on ambulatory monitoring. In an otherwise asymptomatic patient this combination tips the estimated risk into ICD territory.",
+        "The distractors each look worrying but are individually weak: 20 mm of hypertrophy (A) is real LVH but below the ≥30 mm major-risk threshold; a 30 mmHg gradient (B) contributes only modestly to the risk score; isolated ventricular ectopics (C) are NOT the same as non-sustained VT (runs of ≥3 beats); and repolarisation/voltage changes on ECG (D) are near-universal in HCM and are not themselves risk markers."
+      ] },
+    { id:"cmyo-031", type:"mcq", objective:"cmyo-hocm-af-anticoag",
+      question:"A 58-year-old woman with hypertrophic cardiomyopathy attends clinic with a two-week history of palpitations. Her ECG confirms new atrial fibrillation. She has no hypertension, diabetes, previous stroke or vascular disease, and her CHA₂DS₂-VASc score is 1 (female sex alone). What is the most appropriate antithrombotic management?",
+      options:[
+        "Start lifelong oral anticoagulation",
+        "Withhold anticoagulation, as her CHA₂DS₂-VASc score of 1 is below the treatment threshold",
+        "Start aspirin 75 mg once daily for stroke prevention",
+        "Anticoagulate only if she remains in atrial fibrillation beyond 48 hours",
+        "Reassess in 12 months and anticoagulate only if her CHA₂DS₂-VASc score rises"],
+      correctIndex:0,
+      explanation:[
+        "Atrial fibrillation in hypertrophic cardiomyopathy carries a high thromboembolic risk, so guidance (ESC/AHA) recommends lifelong oral anticoagulation IRRESPECTIVE of the CHA₂DS₂-VASc score – the score is not validated in HCM and underestimates the true risk.",
+        "Applying the ordinary threshold and withholding treatment (B) or watching the score (E) is the trap; the HCM diagnosis overrides it. Aspirin (C) has no role in AF stroke prevention, and the 48-hour window (D) governs the safety of cardioversion, not the decision to anticoagulate long-term."
+      ] },
+    { id:"cmyo-032", type:"saq", objective:"cmyo-hocm-diagnosis-thickness",
+      question:"In an adult with no other identifiable cause of hypertrophy, what maximal left-ventricular wall thickness (in mm) is diagnostic of hypertrophic cardiomyopathy?",
+      answer:"≥15 mm",
+      accept:["15","15 mm","15mm","≥15","≥15 mm","greater than or equal to 15 mm","13","13 mm","13 mm with family history"],
+      markPoints:[
+        "≥15 mm maximal wall thickness in any myocardial segment",
+        "In an adult with no other cause (e.g. not explained by hypertension or aortic stenosis)",
+        "The threshold falls to ≥13 mm when there is a first-degree relative with HCM"],
+      explanation:[
+        "In an adult, hypertrophic cardiomyopathy is defined by a maximal left-ventricular wall thickness of ≥15 mm in one or more segments that is not explained by abnormal loading conditions.",
+        "The threshold is lowered to ≥13 mm in a first-degree relative of a known HCM patient, where a lesser degree of thickening is still diagnostic."
       ] }
 ]
 };
