@@ -7487,6 +7487,75 @@ window.MOCK_BANK = {
       explanation:[
         "In an adult, hypertrophic cardiomyopathy is defined by a maximal left-ventricular wall thickness of ≥15 mm in one or more segments that is not explained by abnormal loading conditions.",
         "The threshold is lowered to ≥13 mm in a first-degree relative of a known HCM patient, where a lesser degree of thickening is still diagnostic."
+      ] },
+    { id:"cmyo-033", type:"mcq", objective:"cmyo-rcm-vs-constrictive",
+      question:"A 66-year-old woman presents with progressive ankle and abdominal swelling, a raised JVP and hepatomegaly. She received mediastinal radiotherapy for Hodgkin lymphoma 20 years ago. The team must distinguish restrictive cardiomyopathy from constrictive pericarditis. Which single finding most specifically favours CONSTRICTIVE PERICARDITIS?",
+      options:[
+        "Marked biatrial enlargement on echocardiography",
+        "Pericardial calcification with a respiratory septal shift",
+        "Low QRS voltages with thickened ventricular walls",
+        "A markedly elevated NT-proBNP",
+        "A third heart sound (S3)"],
+      correctIndex:1,
+      explanation:[
+        "Pericardial calcification together with a respiratory septal shift (the septum bouncing with respiration) points to CONSTRICTIVE PERICARDITIS – a stiff, non-compliant pericardium. This matters because constriction is potentially curable by pericardiectomy.",
+        "Biatrial enlargement (A), low voltages with thick walls (C) and a very high NT-proBNP (D) all point the other way, towards a RESTRICTIVE (often amyloid) cardiomyopathy, and a third heart sound (E) is non-specific. Her old mediastinal radiotherapy is the deliberate clue that keeps both diagnoses in play."
+      ] },
+    { id:"cmyo-034", type:"mcq", objective:"cmyo-amyloid-dpd-recognition",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Amyloid_deposition_%28DPD_scan%29.png",
+      imageAlt:"Anterior thoracic bone scintigraphy scan.",
+      imageCredit:"Treibel, Fontana, Gilbertson et al., 'Occult Transthyretin Amyloid Deposition in Aortic Stenosis' – CC BY 4.0, via Wikimedia Commons.",
+      question:"A 78-year-old man has heart failure with preserved ejection fraction, thickened ventricular walls on echocardiography and low QRS voltages on his ECG. To investigate the cause, the bone scintigraphy scan shown is performed. What does it most strongly suggest?",
+      options:[
+        "Previous myocardial infarction",
+        "Hypertrophic cardiomyopathy",
+        "Cardiac amyloidosis",
+        "Cardiac sarcoidosis",
+        "A normal scan"],
+      correctIndex:2,
+      explanation:[
+        "A bone-seeking tracer that is intensely taken up by the MYOCARDIUM – lighting the heart up more than the ribs – is the hallmark of CARDIAC AMYLOIDOSIS (in particular the transthyretin type). Paired with a thick-walled, low-voltage heart, that is the picture here.",
+        "None of the other options avidly take up a bone tracer in the heart: an old infarct (A) and hypertrophic cardiomyopathy (B) do not, sarcoidosis (D) gives patchy inflammation rather than this diffuse uptake, and this is clearly not a normal scan (E)."
+      ] },
+    { id:"cmyo-035", type:"mcq", objective:"cmyo-amyloid-redflags",
+      question:"A 76-year-old man is referred with heart failure with preserved ejection fraction. Fifteen years ago he had bilateral carpal tunnel release, and he has longstanding lumbar spinal stenosis. Echocardiography shows symmetrical wall thickening of 16 mm with impaired relaxation; his ECG shows low QRS voltages despite the thick walls. What is the most likely underlying diagnosis?",
+      options:[
+        "Hypertensive heart disease",
+        "Hypertrophic cardiomyopathy",
+        "Severe aortic stenosis",
+        "Cardiac amyloidosis",
+        "Fabry disease"],
+      correctIndex:3,
+      explanation:[
+        "Bilateral carpal tunnel syndrome and lumbar spinal stenosis are classic soft-tissue clues to amyloid infiltration that can precede the heart disease by years. Combined with low QRS voltages DESPITE thick walls – the tell-tale voltage–mass discordance – the picture is CARDIAC AMYLOIDOSIS.",
+        "Hypertensive heart disease (A), hypertrophic cardiomyopathy (B) and aortic stenosis (C) all thicken the walls but give normal-to-high voltage and none explain the tendon and nerve signs; Fabry disease (D) has its own giveaways (angiokeratoma, cornea verticillata, renal failure)."
+      ] },
+    { id:"cmyo-036", type:"mcq", objective:"cmyo-amyloid-vs-hcm-voltage",
+      question:"A 72-year-old man has symmetrical left-ventricular wall thickening of 17 mm on echocardiography, and the team is considering both hypertrophic cardiomyopathy and cardiac amyloidosis. Which single feature would most strongly point towards CARDIAC AMYLOIDOSIS?",
+      options:[
+        "An ejection systolic murmur that becomes louder on standing",
+        "Asymmetric septal hypertrophy with systolic anterior motion",
+        "A resting left-ventricular outflow-tract gradient of 60 mmHg",
+        "A family history of sudden cardiac death in a first-degree relative",
+        "Low QRS voltages on the ECG despite the thick walls"],
+      correctIndex:4,
+      explanation:[
+        "Low QRS voltages ALONGSIDE thick walls is a voltage–mass discordance: the wall is thick because it is stuffed with amyloid INFILTRATE, not true muscle, so it does not generate the expected voltage. That mismatch is the amyloid signature.",
+        "Genuine muscle hypertrophy in hypertrophic cardiomyopathy usually produces HIGH voltage, and the other four features – a dynamic murmur (A), asymmetric septal hypertrophy with systolic anterior motion (B), an outflow gradient (C) and a family history of sudden death (D) – all point to HCM instead."
+      ] },
+    { id:"cmyo-037", type:"categorize", objective:"cmyo-amyloid-al-vs-aa",
+      question:"Sort each feature into the type of amyloidosis it points to.",
+      buckets:["AL amyloidosis","AA amyloidosis"],
+      items:[
+        { text:"Derived from immunoglobulin light chains", bucket:0 },
+        { text:"Associated with multiple myeloma", bucket:0 },
+        { text:"Also called ‘primary’ amyloidosis", bucket:0 },
+        { text:"Derived from serum amyloid A, an acute-phase protein", bucket:1 },
+        { text:"Complicates long-standing rheumatoid arthritis", bucket:1 },
+        { text:"Also called ‘secondary’ (reactive) amyloidosis", bucket:1 }],
+      explanation:[
+        "AL (amyloid Light chain, ‘primary’) amyloidosis comes from monoclonal immunoglobulin LIGHT CHAINS produced by a plasma-cell disorder such as multiple myeloma or MGUS.",
+        "AA (‘secondary’/reactive) amyloidosis comes from serum Amyloid A, an acute-phase protein raised in CHRONIC INFLAMMATION – rheumatoid arthritis, chronic infections (TB, bronchiectasis, osteomyelitis) and inflammatory bowel disease. Both deposit as amyloid that stains with Congo red and shows apple-green birefringence."
       ] }
 ]
 };
