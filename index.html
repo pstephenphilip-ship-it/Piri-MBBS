@@ -8934,6 +8934,21 @@ function restoreFromHash() {
   if (!st.initialised) { initTab(tab); st.initialised = true; }
   selectSystem(tab, system, true);
   if (!topic) return;
+  // A route can name a topic that does not exist — a stale bookmark, or an href
+  // built from a note's display text (a curly apostrophe where the topic is filed
+  // under a straight one). Selecting it anyway strands the reader on a pane for a
+  // topic that isn't there, with nothing highlighted in the list. Leave them on
+  // the system that selectSystem just rendered instead, which is a usable place
+  // to be. Validate against the tab DATA rather than the rendered list, because
+  // that list may be showing search results; getTabData is wrapped elsewhere to
+  // merge in the reader's own topics, so custom notes pass. When a system has no
+  // topic list we skip the check rather than risk blocking a legitimate topic.
+  var sysTopics = (getTabData(tab) || {})[system] || {};
+  var known = sysTopics.conditions || sysTopics.topics || [];
+  if (known.length && known.indexOf(topic) === -1) {
+    console.warn('[route] no topic "' + topic + '" in ' + system + ' — showing the system instead');
+    return;
+  }
   selectTopic(tab, topic, true);
   if (mode !== 'notes') {
     var modeBar = document.getElementById('modeBar-' + tab);
