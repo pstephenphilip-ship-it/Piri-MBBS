@@ -7639,6 +7639,144 @@ window.MOCK_BANK = {
         "TAKOTSUBO is a transient, catecholamine-driven apical ballooning – classically a post-menopausal woman after emotional stress, mimicking an acute coronary syndrome but with unobstructed coronaries and function that recovers over weeks.",
         "ARVC is an inherited (autosomal dominant, desmosomal) disease with fibrofatty replacement of the right ventricle, causing ventricular arrhythmias and sudden death in young athletes; its ECG clue is T-wave inversion in V1–V3 (with the epsilon wave in a minority)."
       ] }
+],
+"conditions__CARDIOVASCULAR__Chronic Heart Failure": [
+    { id:"chf-001", type:"mcq", objective:"chf-ef-classification",
+      question:"A 68-year-old man with exertional breathlessness and ankle swelling is investigated for heart failure. His echocardiogram reports a left ventricular ejection fraction of 45%. How is his heart failure best classified?",
+      options:[
+        "Heart failure with mildly reduced ejection fraction (HFmrEF)",
+        "Heart failure with reduced ejection fraction (HFrEF)",
+        "Heart failure with preserved ejection fraction (HFpEF)",
+        "High-output heart failure",
+        "His ejection fraction is normal, excluding heart failure"],
+      correctIndex:0,
+      explanation:[
+        "An ejection fraction of 41–49% defines HEART FAILURE WITH MILDLY REDUCED EJECTION FRACTION (HFmrEF) – a distinct ESC/NICE category that tends to behave like, and respond to the drugs used for, HFrEF.",
+        "EF ≤40% would be HFrEF and EF ≥50% HFpEF; high-output failure is a different mechanism entirely; and an EF of 45% is reduced, not normal, so it does not exclude heart failure."
+      ] },
+    { id:"chf-002", type:"mcq", objective:"chf-ntprobnp-pathway",
+      data:"<div class=\"mk-obs-h\">Blood test</div><div class=\"mk-obs-grid\"><span>NT-proBNP <b>2600 ng/L</b></span><span>Reference <b>&lt;400 ng/L</b></span></div>",
+      question:"A 72-year-old woman sees her GP with a 3-month history of exertional breathlessness and ankle swelling. Suspecting heart failure, the GP checks her NT-proBNP, shown below. What is the most appropriate next step?",
+      options:[
+        "Routine echocardiogram and specialist review within 6 weeks",
+        "Urgent echocardiogram and specialist review within 2 weeks",
+        "Reassure her that heart failure is very unlikely",
+        "Repeat the NT-proBNP test in three months",
+        "Start furosemide and review her in primary care"],
+      correctIndex:1,
+      explanation:[
+        "An NT-proBNP above 2000 ng/L is very high and carries a worse prognosis, so NICE advises specialist assessment and echocardiography within 2 WEEKS.",
+        "A level of 400–2000 ng/L would prompt echo within 6 weeks, and a level below 400 ng/L makes untreated heart failure unlikely. Reassurance, delay or empirical furosemide would all be inappropriate with a value this high."
+      ] },
+    { id:"chf-003", type:"mcq", objective:"chf-ntprobnp-specificity",
+      data:"<div class=\"mk-obs-h\">Renal profile</div><div class=\"mk-obs-grid\"><span>Sodium <b>139 mmol/L</b></span><span>Potassium <b>4.6 mmol/L</b></span><span>Urea <b>14.2 mmol/L</b> (2.5&ndash;7.8)</span><span>Creatinine <b>245 &micro;mol/L</b> (60&ndash;110)</span><span>eGFR <b>22 mL/min/1.73m&sup2;</b> (&gt;90)</span></div>",
+      question:"A 74-year-old man with long-standing atrial fibrillation is reviewed by his GP with a 3-month history of exertional breathlessness and ankle swelling. He is obese (BMI 34) and takes bisoprolol for rate control, apixaban and amlodipine. His NT-proBNP comes back markedly raised, and his blood results are shown. Why must the NT-proBNP be interpreted with caution before diagnosing heart failure?",
+      options:[
+        "NT-proBNP is highly specific but has poor sensitivity for heart failure",
+        "His obesity will have falsely raised the NT-proBNP",
+        "His atrial fibrillation and renal impairment both raise NT-proBNP independently",
+        "Renal impairment causes a falsely low NT-proBNP",
+        "A markedly raised NT-proBNP is diagnostic of heart failure without echocardiography"],
+      correctIndex:2,
+      explanation:[
+        "The eGFR of 22 (creatinine 245) shows significant RENAL IMPAIRMENT which, like his ATRIAL FIBRILLATION, raises NT-proBNP independently of heart failure. NT-proBNP is sensitive but NOT specific, so a high value here does not confirm the diagnosis.",
+        "NT-proBNP is sensitive, not specific (A is reversed); obesity LOWERS natriuretic peptides and can mask heart failure, so it would not falsely raise the level (C); renal impairment RAISES rather than lowers it (D); and a raised value still needs echocardiography to confirm heart failure (E)."
+      ] },
+    { id:"chf-004", type:"mcq", objective:"chf-cxr-recognition",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Congestive_heart_failure_x-ray.png",
+      imageAlt:"Chest radiograph (AP projection).",
+      imageCredit:"CDC / Dr. Thomas Hooten, public domain, via Wikimedia Commons.",
+      question:"A 75-year-old man attends with worsening breathlessness and orthopnoea. His chest X-ray is shown. Which is the most likely diagnosis?",
+      options:[
+        "Lobar pneumonia",
+        "Tension pneumothorax",
+        "Pulmonary fibrosis",
+        "Cardiogenic pulmonary oedema",
+        "Chronic obstructive pulmonary disease"],
+      correctIndex:3,
+      explanation:[
+        "The film shows an enlarged cardiac silhouette (cardiomegaly) with upper-zone congestion – the pattern of CARDIOGENIC PULMONARY OEDEMA (the ABCDE signs: alveolar oedema, Kerley B lines, cardiomegaly, upper-lobe diversion, effusions).",
+        "Each distractor has a different pattern: lobar pneumonia gives focal consolidation, a tension pneumothorax an airless hemithorax with mediastinal shift, pulmonary fibrosis reticular shadowing with reduced volumes, and COPD hyperinflated lucent lungs – none give this cardiomegaly-plus-congestion picture."
+      ] },
+    { id:"chf-005", type:"mcq", objective:"chf-kerley-b",
+      question:"On the chest X-ray of a patient with heart failure, short horizontal lines are seen reaching the pleural surface at the lung bases (Kerley B lines). What do they represent?",
+      options:[
+        "Fluid within the alveoli",
+        "Fluid in the pleural space",
+        "Fluid in the pericardium",
+        "Collapsed lung segments",
+        "Fluid in the interlobular septa"],
+      correctIndex:4,
+      explanation:[
+        "Kerley B lines are short horizontal lines at the lung periphery caused by fluid distending the INTERLOBULAR SEPTA – interstitial oedema, the stage before fluid floods the alveoli.",
+        "They are not alveolar fluid (that gives fluffy air-space shadowing), pleural fluid (a basal effusion), pericardial fluid, or collapse – they specifically mark thickened, fluid-filled septa."
+      ] },
+    { id:"chf-006", type:"mcq", objective:"chf-first-line-investigation",
+      question:"A 68-year-old man with a raised NT-proBNP is referred to the heart-failure clinic. Which is the most appropriate first-line investigation to confirm the diagnosis and classify his heart failure by ejection fraction?",
+      options:[
+        "Transthoracic echocardiography",
+        "Transoesophageal echocardiography",
+        "Cardiac magnetic resonance imaging",
+        "Coronary angiography",
+        "A myocardial perfusion (nuclear) scan"],
+      correctIndex:0,
+      explanation:[
+        "TRANSTHORACIC ECHOCARDIOGRAPHY is the first-line, non-invasive test that measures ejection fraction and assigns the HFrEF/HFmrEF/HFpEF category that guides treatment.",
+        "Each distractor is a real cardiac test used in the right setting: transoesophageal echo is more invasive and reserved for valve, left-atrial-appendage or endocarditis detail; cardiac MRI is second-line (poor echo windows or tissue characterisation); coronary angiography defines coronary anatomy for an ischaemic cause; and a perfusion scan looks for ischaemia or viability – none is the first-line way to classify by EF."
+      ] },
+    { id:"chf-007", type:"mcq", objective:"chf-normal-ecg",
+      question:"A 62-year-old woman presents to her GP with a 4-month history of exertional breathlessness and mild ankle swelling. She has well-controlled hypertension and no history of ischaemic heart disease. On examination her chest is clear, heart sounds are normal, and there is only trace ankle oedema. Her resting 12-lead ECG is entirely normal. How should this normal ECG be interpreted?",
+      options:[
+        "Heart failure can be confidently excluded, so no further tests are needed",
+        "Heart failure is now less likely, although it cannot be excluded on this basis",
+        "NT-proBNP no longer needs to be measured now the ECG is normal",
+        "A normal ECG indicates preserved rather than reduced ejection fraction",
+        "The normal ECG has no bearing on the likelihood of heart failure"],
+      correctIndex:1,
+      explanation:[
+        "A normal 12-lead ECG has a high NEGATIVE predictive value in heart failure, so it makes the diagnosis LESS LIKELY – but it does not exclude it, and the work-up continues.",
+        "It does not confidently exclude heart failure (A), nor remove the need to measure NT-proBNP in the diagnostic pathway (C); it says nothing about the eventual ejection-fraction category (D); and it is certainly not irrelevant (E)."
+      ] },
+    { id:"chf-008", type:"mcq", objective:"chf-high-output",
+      question:"A 30-year-old woman presents with breathlessness, palpitations and ankle swelling. She has lost weight despite a good appetite, feels persistently hot, and has a fine tremor, a resting tachycardia and warm, sweaty palms. Which mechanism best explains her heart failure?",
+      options:[
+        "Ischaemic left ventricular systolic dysfunction",
+        "Hypertensive heart disease",
+        "High-output failure due to thyrotoxicosis",
+        "A dilated cardiomyopathy from alcohol",
+        "Restrictive cardiomyopathy from amyloid"],
+      correctIndex:2,
+      explanation:[
+        "Weight loss despite a good appetite, heat intolerance, tremor and a resting tachycardia point to THYROTOXICOSIS, a classic cause of HIGH-OUTPUT heart failure – the heart cannot meet a hugely increased metabolic demand.",
+        "The distractors are all low-output mechanisms that do not fit a young, thyrotoxic-looking patient: ischaemic and hypertensive disease, alcoholic dilated cardiomyopathy and amyloid restrictive cardiomyopathy."
+      ] },
+    { id:"chf-009", type:"mcq", objective:"chf-primary-care-workup",
+      question:"A GP suspects chronic heart failure in a 66-year-old man with a few months of exertional breathlessness and ankle swelling. He has never had a myocardial infarction. Which is the most appropriate first investigation?",
+      options:[
+        "Arrange an urgent echocardiogram",
+        "Request a chest X-ray",
+        "Start an ACE inhibitor and review",
+        "Measure a serum NT-proBNP level",
+        "Refer immediately to cardiology"],
+      correctIndex:3,
+      explanation:[
+        "In primary care, MEASURING NT-proBNP comes first – the level then decides how urgently echocardiography is needed (>2000 within 2 weeks, 400–2000 within 6 weeks).",
+        "Echo is arranged after the blood test (unless there is a previous MI, when NICE advises direct 2-week echo – the reason that history is specified). A chest X-ray, empirical treatment or blanket referral are not the correct first step."
+      ] },
+    { id:"chf-010", type:"categorize", objective:"chf-ef-categorize",
+      question:"Sort each echocardiogram result into its heart-failure category.",
+      buckets:["HFrEF","HFmrEF","HFpEF"],
+      items:[
+        { text:"Ejection fraction 30%", bucket:0 },
+        { text:"Ejection fraction 38% after a large myocardial infarction", bucket:0 },
+        { text:"Ejection fraction 45%", bucket:1 },
+        { text:"Ejection fraction 47%", bucket:1 },
+        { text:"Ejection fraction 55% with impaired diastolic filling", bucket:2 },
+        { text:"Ejection fraction 60% with left-ventricular hypertrophy", bucket:2 }],
+      explanation:[
+        "The ESC/NICE cut-offs are: HFrEF ≤40%, HFmrEF 41–49%, and HFpEF ≥50%.",
+        "In HFpEF the ejection fraction is preserved but filling is impaired (diastolic dysfunction), often with left-ventricular hypertrophy – the problem is a stiff ventricle, not a weak one."
+      ] }
 ]
 };
 </script>
