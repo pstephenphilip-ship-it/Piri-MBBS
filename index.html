@@ -13287,29 +13287,56 @@ function calcQRISK3(){
 <script>
 (function(){
   var tip=document.getElementById('rn-abbr-tip');
+  var hideT=null;
+  function hide(){ tip.style.display='none'; if(hideT){ clearTimeout(hideT); hideT=null; } }
+  // Desktop: hover to show, follow the cursor, hide on mouse-out.
   document.addEventListener('mouseover',function(e){
     var t=e.target.closest('.rich-note abbr[title]');
     if(!t)return;
     tip.textContent=t.getAttribute('title');
     tip.style.display='block';
-    position(e);
+    positionAtMouse(e);
   });
   document.addEventListener('mousemove',function(e){
     if(tip.style.display==='none')return;
-    position(e);
+    positionAtMouse(e);
   });
   document.addEventListener('mouseout',function(e){
     if(!e.target.closest('.rich-note abbr[title]'))return;
-    tip.style.display='none';
+    hide();
   });
-  function position(e){
+  // Touch / tap: show the tooltip anchored to the word itself (not a phantom
+  // cursor point), so it sits over the tapped abbreviation and can be dismissed.
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('.rich-note abbr[title]');
+    if(!t){ hide(); return; }
+    tip.textContent=t.getAttribute('title');
+    tip.style.display='block';
+    positionAtEl(t);
+    // Auto-dismiss on touch so it can never get stranded.
+    if(hideT) clearTimeout(hideT);
+    hideT=setTimeout(hide,4000);
+  });
+  // Any scroll (of the page OR an inner note container) or a resize dismisses it —
+  // otherwise the anchored tip is left floating over unrelated content, which is
+  // the stuck-tooltip bug on phones. Capture-phase so inner scrollers are caught.
+  document.addEventListener('scroll',hide,true);
+  window.addEventListener('resize',hide);
+  document.addEventListener('touchstart',function(e){
+    if(!e.target.closest('.rich-note abbr[title]')) hide();
+  },{passive:true});
+  function clampX(x,tw){ if(x<6)x=6; if(x+tw>window.innerWidth-6)x=window.innerWidth-tw-6; return x; }
+  function positionAtMouse(e){
     var tw=tip.offsetWidth,th=tip.offsetHeight;
-    var x=e.clientX-tw/2,y=e.clientY-th-12;
-    if(x<6)x=6;
-    if(x+tw>window.innerWidth-6)x=window.innerWidth-tw-6;
+    var x=clampX(e.clientX-tw/2,tw),y=e.clientY-th-12;
     if(y<6)y=e.clientY+20;
-    tip.style.left=x+'px';
-    tip.style.top=y+'px';
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  }
+  function positionAtEl(el){
+    var r=el.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight;
+    var x=clampX(r.left+r.width/2-tw/2,tw),y=r.top-th-10;
+    if(y<6)y=r.bottom+10;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
   }
 })();
 
