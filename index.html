@@ -9081,6 +9081,10 @@ function restoreFromHash() {
   if (!system) return;
   var st = getState(tab);
   if (!st.initialised) { initTab(tab); st.initialised = true; }
+  // Pharmacology has its own class/subsection UI rather than the generic system
+  // and topic panes, so the calls below would look up element ids it does not
+  // have and throw. Route it through the tab's own API instead.
+  if (tab === 'pharmacology') { pharmaRoute(system, topic, mode); return; }
   selectSystem(tab, system, true);
   if (!topic) return;
   // A route can name a topic that does not exist — a stale bookmark, or an href
@@ -9803,6 +9807,30 @@ function pharmaShowDrug(drug){
 function pfSanitize(html){return String(html==null?'':html).replace(/<\/?(?:script|iframe|object|embed|style|link|meta|form|input|button|textarea)\b[^>]*>/gi,'').replace(/\son\w+\s*=\s*"[^"]*"/gi,'').replace(/\son\w+\s*=\s*'[^']*'/gi,'').replace(/\son\w+\s*=\s*[^\s>]+/gi,'').replace(/(href|src)\s*=\s*(["'])\s*javascript:[^"']*\2/gi,'$1="#"');}
 function formatPharmaText(text){if(!text)return '';if(/<(?:p|div|ul|ol|li|br|b|strong|span|em|i|u|font|h[1-6])\b/i.test(text)){return '<div class="ph-rich">'+pfSanitize(text)+'</div>';}function inl(s){s=esc(s);s=s.replace(/\{\{(red|blue|green|amber|purple|teal)\}\}([\s\S]*?)\{\{\/\}\}/g,function(_,c,inner){var M={red:'#C93535',blue:'#3B7DD8',green:'#1F8B5E',amber:'#B86B00',purple:'#6B45B8',teal:'#0E9C8B'};return '<span style="color:'+(M[c]||'inherit')+'">'+inner+'</span>';});s=s.replace(/\*\*(.+?)\*\*/g,'<strong class="ph-lead">$1</strong>');s=s.replace(/\[([^\]]+)\]/g,'<span class="ph-danger">$1</span>');s=s.replace(/=>/g,'<span class="ph-arrow">→</span>');s=s.replace(/→/g,'<span class="ph-arrow">→</span>');return s;}var lines=String(text).split('\n').map(function(l){return l.trim();}).filter(Boolean);if(lines.length<=1)return '<p class="ph-p">'+inl(lines[0]||'')+'</p>';return '<ul class="ph-list">'+lines.map(function(l){return '<li>'+inl(l)+'</li>';}).join('')+'</ul>';}
 function formatSideEffects(text){return formatPharmaText(text);}
+// Open a drug class, and scroll to one of its subsections when the route names
+// one. Used by deep links (a revision-plan task, a shared URL), which otherwise
+// have no way into the pharmacology tab below class level.
+function pharmaRoute(section,subsection,mode){
+  try{
+    if(typeof PHARMA_SECTIONS==='undefined'||!PHARMA_SECTIONS[section]) return;
+    pharmaSelectSection(section,true);
+    if(subsection){
+      var hdrs=document.querySelectorAll('#pharma-drug-list .pharma-subsection-header');
+      for(var i=0;i<hdrs.length;i++){
+        if(hdrs[i].textContent===subsection){
+          var cl=document.querySelector('#tab-pharmacology .condition-list');
+          if(cl) cl.classList.add('cl-visible');
+          hdrs[i].scrollIntoView({block:'start'});
+          var h=hdrs[i], prev=h.style.outline;
+          h.style.outline='2px solid var(--rn-blue,#3B7DD8)'; h.style.outlineOffset='3px';
+          setTimeout(function(){ h.style.outline=prev; h.style.outlineOffset=''; },1800);
+          break;
+        }
+      }
+    }
+    if(mode==='flashcards'&&typeof openPharmaFC==='function') openPharmaFC();
+  }catch(e){}
+}
 function pharmaShowEmpty(){document.getElementById('pharma-empty').style.display='';document.getElementById('pharma-detail').style.display='none';}
 
 let pharmaSearchTimer=null;
@@ -19572,7 +19600,7 @@ function hideFlyout(p) {
 (function(){
   var KEY='piri_examplan_v1';
   var CAP={light:2,normal:4,intense:6};
-  var TABS=[['conditions','Medical Conditions'],['signs','Signs & Symptoms'],['investigations','Investigations'],['anatomy','Anatomy'],['histology','Histology'],['osce','OSCE']];
+  var TABS=[['conditions','Medical Conditions'],['signs','Signs & Symptoms'],['investigations','Investigations'],['anatomy','Anatomy'],['histology','Histology'],['pharmacology','Pharmacology'],['osce','OSCE']];
   var COLORS=['#00C2A8','#3B7DD8','#B86B00','#6B45B8','#C93535','#1F8B5E'];
   var KINDRANK={learn:0,review:1,practice:2,mock:3};
   var RP_MAN={};   // system -> {hasCards} from manifest (conditions systems)
@@ -19609,9 +19637,38 @@ function hideFlyout(p) {
   function niceDate(s){ var d=parse(s); return DOW[d.getDay()]+' '+d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]; }
 
   function tabLabel(t){ for(var i=0;i<TABS.length;i++) if(TABS[i][0]===t) return TABS[i][1]; return t; }
-  function systemsOf(tab){ try{ var d=(window.getTabData?getTabData(tab):null)||{}; return Object.keys(d); }catch(e){ return []; } }
-  function topicsOf(tab,sys){ try{ var d=(window.getTabData?getTabData(tab):{})[sys]||{}; return (d.conditions||d.topics||[]).slice(); }catch(e){ return []; } }
-  function cardsAvail(tab,sys){ if(tab==='osce')return false; if(tab==='conditions'){ var m=RP_MAN[sys]; return m?m.hasCards:true; } if(tab==='signs'||tab==='investigations')return true; return false; }
+  // Pharmacology keeps its own shape (class -> subsection -> drugs) rather than
+  // the generic system/topics one, so it is read straight from PHARMA_SECTIONS.
+  // Subsection is the right unit here: it is how the tab is browsed and how the
+  // flashcard decks are keyed, so every topic the planner schedules has a deck.
+  function systemsOf(tab){
+    try{
+      if(tab==='pharmacology') return (typeof PHARMA_SECTIONS!=='undefined')?Object.keys(PHARMA_SECTIONS):[];
+      var d=(window.getTabData?getTabData(tab):null)||{}; return Object.keys(d);
+    }catch(e){ return []; }
+  }
+  function topicsOf(tab,sys){
+    try{
+      if(tab==='pharmacology'){ var p=(typeof PHARMA_SECTIONS!=='undefined')?PHARMA_SECTIONS[sys]:null; return p?Object.keys(p.subsections||{}):[]; }
+      var d=(window.getTabData?getTabData(tab):{})[sys]||{}; return (d.conditions||d.topics||[]).slice();
+    }catch(e){ return []; }
+  }
+  // What a topic can actually be revised with, which is what decides the stages
+  // it earns: stage 1 learning, stage 2 active recall, stage 3 exam practice.
+  function capsFor(tab,sys){
+    // OSCE: no deck, no MCQs, no mock. Its notes are the whole of the revision,
+    // so they carry all three stages rather than stopping at two.
+    if(tab==='osce')         return {cards:false,questions:false,mock:false,notesAllStages:true};
+    if(tab==='pharmacology') return {cards:true, questions:false,mock:true };  // a deck per subsection; no per-topic MCQs, but a mock paper
+    if(tab==='conditions'){ var m=RP_MAN[sys], c=m?m.hasCards:true; return {cards:c,questions:c,mock:c}; }
+    if(tab==='signs'||tab==='investigations') return {cards:true,questions:true,mock:true};
+    // Anatomy and histology land here and are treated as notes-only, which is
+    // what they did before this capability record existed. They do in fact ship
+    // decks and MCQs (anatomy__<SYSTEM>__<Topic> in content/cards), so this is
+    // understating them - left alone deliberately rather than changed in passing.
+    return {cards:false,questions:false,mock:false};
+  }
+  function cardsAvail(tab,sys){ return capsFor(tab,sys).cards; }
 
   // ---- schedule engine -------------------------------------------------------
   function expandTopics(st){
@@ -19623,7 +19680,7 @@ function hideFlyout(p) {
         topics.forEach(function(name){
           var ref=sc.tab+'||'+sc.system+'||'+name;
           if(seen[ref])return; seen[ref]=1;
-          out.push({ref:ref,tab:sc.tab,system:sc.system,name:name,examId:ex.id,examDate:ex.date,hasCards:cardsAvail(sc.tab,sc.system)});
+          out.push({ref:ref,tab:sc.tab,system:sc.system,name:name,examId:ex.id,examDate:ex.date,caps:capsFor(sc.tab,sc.system),hasCards:cardsAvail(sc.tab,sc.system)});
         });
       });
     });
@@ -19637,7 +19694,7 @@ function hideFlyout(p) {
     var avail=studyDates(start,earliest,st.avail.days).length;
     var buffer=Math.min(2,Math.max(0,Math.floor(avail*0.25)));
     var eff=Math.max(1,avail-buffer);
-    var touches=0; topics.forEach(function(tp){ touches+=tp.hasCards?4:2; });
+    var touches=0; topics.forEach(function(tp){ touches+=touchesFor(tp,'comfortable').length; });
     var needed=Math.ceil(touches/cap);
     var ratio=eff/Math.max(1,needed);
     return ratio>=1?'comfortable':(ratio>=0.6?'compressed':'sprint');
@@ -19647,14 +19704,29 @@ function hideFlyout(p) {
   //  Stage 2 = REVIEW the flashcards + do the MCQs
   //  Stage 3 (added per-exam, not here) = a MOCK across all the exam's topics.
   function touchesFor(tp,mode){
-    if(tp.hasCards){
-      if(mode==='comfortable') return [['learn','notes',0,1],['learn','flashcards',0,1],['review','flashcards',0,2],['practice','questions',0,2]];
-      if(mode==='compressed')  return [['learn','notes',0,1],['learn','flashcards',0,1],['practice','questions',0,2]];
-      return [['learn','notes',1,1],['practice','questions',0,2]];   // sprint: skim + MCQs
+    var c=tp.caps||{cards:!!tp.hasCards,questions:!!tp.hasCards};
+    // Notes-only (OSCE): there is no deck and no question bank, so the notes
+    // carry all three stages - read it, recall it, then a final pass.
+    if(!c.cards&&!c.questions){
+      if(c.notesAllStages){
+        if(mode==='comfortable') return [['learn','notes',0,1],['review','notes',0,2],['practice','notes',0,3]];
+        if(mode==='compressed')  return [['learn','notes',0,1],['review','notes',0,2]];
+        return [['learn','notes',1,1],['review','notes',1,2]];
+      }
+      // every other notes-only topic keeps the two stages it already had
+      if(mode==='comfortable') return [['learn','notes',0,1],['review','notes',0,2]];
+      return [['learn','notes',mode==='sprint'?1:0,1]];
     }
-    // notes-only topics (e.g. OSCE, some anatomy): no cards/MCQs to weave in
-    if(mode==='comfortable') return [['learn','notes',0,1],['review','notes',0,2]];
-    return [['learn','notes',mode==='sprint'?1:0,1]];
+    // A deck but no per-topic MCQs (pharmacology): active recall is the deck
+    // again, and exam practice is the mock paper rather than anything per topic.
+    if(c.cards&&!c.questions){
+      if(mode==='comfortable') return [['learn','notes',0,1],['learn','flashcards',0,1],['review','flashcards',0,2]];
+      if(mode==='compressed')  return [['learn','notes',0,1],['review','flashcards',0,2]];
+      return [['learn','notes',1,1],['review','flashcards',0,2]];
+    }
+    if(mode==='comfortable') return [['learn','notes',0,1],['learn','flashcards',0,1],['review','flashcards',0,2],['practice','questions',0,2]];
+    if(mode==='compressed')  return [['learn','notes',0,1],['learn','flashcards',0,1],['practice','questions',0,2]];
+    return [['learn','notes',1,1],['practice','questions',0,2]];   // sprint: skim + MCQs
   }
   // Build the full plan: pack outstanding (not-done) touches onto study days from
   // packStart forward. Missed days fall out naturally (packStart = today), so an
@@ -19681,7 +19753,7 @@ function hideFlyout(p) {
     });
     // Stage 3: one (or two) mock exams per exam that has any MCQ-bearing systems.
     st.exams.forEach(function(e){
-      var mockable=(e.scope||[]).some(function(sc){ return cardsAvail(sc.tab,sc.system); });
+      var mockable=(e.scope||[]).some(function(sc){ return capsFor(sc.tab,sc.system).mock; });
       if(!mockable) return;
       var nMock=(mode==='comfortable')?2:1;
       for(var mi=0;mi<nMock;mi++){
@@ -19885,7 +19957,7 @@ function hideFlyout(p) {
 
   // ---- scope picker (mock-bank-style topic tree) -----------------------------
   // Only these categories are offered — no exam is purely signs or investigations.
-  var SCOPE_TABS=[['conditions','Medical Conditions'],['anatomy','Anatomy'],['histology','Histology'],['osce','OSCE']];
+  var SCOPE_TABS=[['conditions','Medical Conditions'],['anatomy','Anatomy'],['histology','Histology'],['pharmacology','Pharmacology'],['osce','OSCE']];
   var CHECK='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9.5l3.5 3.5L14 5.5"/></svg>';
   function openScope(exIndex){
     var ex=draft.exams[exIndex];
