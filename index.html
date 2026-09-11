@@ -489,11 +489,10 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-reads,
 #tab-investigations .cp-confirm,
 #tab-investigations .cp-sysgrid{margin-top:12px;margin-bottom:12px;}
-#tab-investigations .cp-step-body > .cp-killgrid:first-child,
-#tab-investigations .cp-step-body > .cp-reads:first-child,
-#tab-investigations .cp-step-body > .cp-confirm:first-child,
-#tab-investigations .cp-step-body > .cp-sysgrid:first-child{margin-top:0;}
-#tab-investigations .cp-step-body > :last-child{margin-bottom:0;}
+/* No :first-child exemption: most step bodies introduce the block with an
+   unwrapped text node, so the block IS the first ELEMENT child and the
+   exemption fired exactly where the clearance was needed (3px, not 12px). */
+#tab-investigations .cp-step-body > :last-child:not(.cp-clue){margin-bottom:0;}
 #tab-investigations .cp-step-body > p{margin:0 0 10px;}
 #tab-investigations .cp-step-body > p:last-child{margin-bottom:0;}
 #tab-investigations .cp-step-body > ul,
@@ -507,6 +506,7 @@ body{display:flex;flex-direction:column;}
    empty tracks, and an exact-4 grid becomes a 2x2. */
 #tab-investigations .cp-killgrid{grid-template-columns:repeat(auto-fit,minmax(215px,1fr));}
 #tab-investigations .cp-killgrid:has(> .cp-kill:nth-child(4):last-child){grid-template-columns:repeat(2,1fr);}
+#tab-investigations .cp-killgrid:has(> .cp-kill:nth-child(7):last-child){grid-template-columns:repeat(4,1fr);}
 
 /* ---- Stage 2b: cards in a row line up ----------------------------------
    A card whose name wraps to two lines pushed its header/body divider ~19px
@@ -550,6 +550,9 @@ body{display:flex;flex-direction:column;}
   margin:0;padding:12px 4px;
   border-bottom:1px solid var(--rn-border,#EEF1F7);}
 #tab-investigations .cp-step .cp-step-body .cp-clue:last-child{border-bottom:none;}
+/* The last row of a run carries the clearance, so prose that follows as a
+   bare text node still clears the divider (measured 0px before). */
+#tab-investigations .cp-step .cp-step-body .cp-clue:not(:has(+ .cp-clue)){margin-bottom:12px;}
 
 /* ---- Stage 4: type scale ------------------------------------------------
    Mirrors the pass Signs & Symptoms got on these same components. The tab was
@@ -570,8 +573,20 @@ body{display:flex;flex-direction:column;}
 /* Flex items default to min-width:auto, so a long unbreakable clue refused to
    shrink and pushed the row past the note's right edge (measured +45px at
    1440 and +202px at 390, the latter pre-existing). */
+#tab-investigations .cp-clue{min-width:0;}
 #tab-investigations .cp-when,
 #tab-investigations .cp-then{min-width:0;overflow-wrap:anywhere;}
+
+/* .cp-when is deliberately left at its flex:1 1 44%. Sizing it to content
+   removes the dead band a short label leaves before the arrow, but it also
+   lets every row pick its own column width, so the arrows zig-zag down a
+   table (measured a 186px spread in EEG step 3). A table that lines up is
+   worth more than a tighter one, so the fixed column stays. */
+
+/* .cp-warn is a flex row (icon + body). Where clue rows are authored directly
+   inside one they became sibling COLUMNS 41-66px wide, breaking words
+   mid-syllable. Full-basis puts each back on its own line. */
+#tab-investigations .cp-warn > .cp-clue{flex:1 1 100%;}
 #tab-investigations .cp-step-body ul,
 #tab-investigations .cp-step-body ol{font-size:13.5px;line-height:1.6;}
 
@@ -584,9 +599,18 @@ body{display:flex;flex-direction:column;}
 @media (max-width:560px){
   #tab-investigations .cp-clue{flex-direction:column;align-items:flex-start;gap:2px;}
   #tab-investigations .cp-when,
-  #tab-investigations .cp-then{flex:0 0 auto;width:100%;}
+  #tab-investigations .cp-then{flex:0 0 auto;width:100%;min-width:0;max-width:100%;}
   #tab-investigations .cp-arrow{transform:rotate(90deg);margin:2px 0;}
 }
+
+/* ---- Stage 4c: callouts that follow each other keep their rhythm -------
+   .cp-pearl had margin-top but no bottom and .cp-warn the reverse, so a pearl
+   followed by a warn met at exactly 0px while every other adjacency on the
+   tab measured 12-14px. (Note-level boxes are deliberately NOT inset to the
+   step's text column: a standalone callout is a card in its own right and
+   lines up with the step CARDS, which are the same full width.) */
+#tab-investigations .cp-pearl{margin-bottom:12px;}
+#tab-investigations .cp-warn{margin-top:12px;}
 
 /* ---- Stage 5: the subtab bar ------------------------------------------
    .tt-btn changes font-weight between states (500 inactive, 600 active), so
