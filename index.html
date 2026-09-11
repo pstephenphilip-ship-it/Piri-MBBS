@@ -19624,12 +19624,42 @@ function hideFlyout(p) {
 <script>
 (function(){
   var KEY='piri_examplan_v1';
-  var CAP={light:2,normal:4,intense:6};
+  var CAP={light:120,normal:240,intense:360};   // minutes of study a day
   var TABS=[['conditions','Medical Conditions'],['signs','Signs & Symptoms'],['investigations','Investigations'],['anatomy','Anatomy'],['histology','Histology'],['pharmacology','Pharmacology'],['osce','OSCE']];
   var COLORS=['#00C2A8','#3B7DD8','#B86B00','#6B45B8','#C93535','#1F8B5E'];
   var KINDRANK={learn:0,review:1,practice:2,mock:3};
   var RP_MAN={};   // system -> {hasCards} from manifest (conditions systems)
   try{ if(window.loadManifest) window.loadManifest().then(function(m){ (m&&m.systems||[]).forEach(function(s){ RP_MAN[s.name]={hasCards:!!s.hasCards}; }); }); }catch(e){}
+
+  // "<tab>__<SYSTEM>__<Topic>" -> [notesWords, flashcards, mcqs]. Built from the
+  // real content by tools/build-plan-sizes.py; the planner needs sizes for
+  // systems the reader has never opened, so it cannot read them off the page.
+  var RP_SIZE={};
+  try{
+    fetch('content/plan-sizes.json',{cache:'no-cache'}).then(function(r){ return r.ok?r.json():null; })
+      .then(function(d){ if(d && typeof d==='object'){ RP_SIZE=d; try{ rerender(); }catch(e){} } })
+      .catch(function(){});
+  }catch(e){}
+  // A topic the index has not heard of still has to cost something, or it would
+  // pack for free. Fall back to the median topic.
+  var RP_TYPICAL=[1100,25,20];
+  function sizeOf(tp){ return RP_SIZE[tp.tab+'__'+tp.system+'__'+tp.name] || RP_TYPICAL; }
+  // Minutes for one touch. Reading is costed at 130 words a minute (studying,
+  // not skimming), a new card at 20s, a card being reviewed at 9s, and an MCQ at
+  // 65s including reading the explanation.
+  function costOf(tp,kind,mode,skim){
+    var z=sizeOf(tp), w=z[0]||0, fc=z[1]||0, q=z[2]||0;
+    if(mode==='notes')      return skim?Math.max(2,Math.round(w/260)):Math.max(3,Math.round(w/130));
+    if(mode==='flashcards') return (kind==='learn')?Math.max(2,Math.round(fc/3)):Math.max(1,Math.round(fc*0.15));
+    if(mode==='questions')  return Math.max(2,Math.round(q*1.08));
+    return 10;
+  }
+  // "45 min" / "2h 10m" — an estimate, so round the hours to five minutes.
+  function hhmm(n){ n=Math.round(n); if(n<60) return n+' min';
+    var h=Math.floor(n/60), m=Math.round((n%60)/5)*5; if(m===60){h++;m=0;}
+    return h+'h'+(m?' '+m+'m':''); }
+  var MOCK_MINS=120;   // a timed paper — sat in one sitting, so it is costed as one
+  function planMinutes(tp,m){ var n=0; stagesFor(tp,m).forEach(function(tc){ n+=costOf(tp,tc[0],tc[1],tc[2]); }); return n; }
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   // Keep the plan in memory too, so the UI stays correct within a session even if
@@ -19727,8 +19757,8 @@ function hideFlyout(p) {
     var avail=examWindow(start,exam.date,st.avail.days).length;
     var buffer=Math.min(2,Math.max(0,Math.floor(avail*0.2)));
     var eff=Math.max(1,avail-buffer);
-    var touches=0; (examTopics||[]).forEach(function(tp){ touches+=stagesFor(tp,'comfortable').length; });
-    var needed=Math.ceil(touches/cap);
+    var minutes=0; (examTopics||[]).forEach(function(tp){ minutes+=planMinutes(tp,'comfortable'); });
+    var needed=Math.ceil(minutes/cap);
     var ratio=eff/Math.max(1,needed);
     return ratio>=1?'comfortable':(ratio>=0.6?'compressed':'sprint');
   }
@@ -19810,14 +19840,14 @@ function hideFlyout(p) {
       var m=modeByExam[tp.examId]||'comfortable';
       stagesFor(tp,m).forEach(function(tc){
         var id=tp.examId+'|'+tp.ref+'|'+tc[0]+'|'+tc[1];
-        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],stage:tc[3],ti:ti,done:!!done[id]});
+        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],stage:tc[3],mins:costOf(tp,tc[0],tc[1],tc[2]),ti:ti,done:!!done[id]});
       });
     });
     exams.forEach(function(e){
       var mockable=(e.scope||[]).some(function(sc){ return capsFor(sc.tab,sc.system).mock; });
       if(!mockable) return;
       var nMock=(modeByExam[e.id]==='comfortable')?2:1;
-      for(var mi=0;mi<nMock;mi++){ var id=e.id+'|__mock__|'+mi; tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,ti:9999+mi,done:!!done[id]}); }
+      for(var mi=0;mi<nMock;mi++){ var id=e.id+'|__mock__|'+mi; tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,mins:MOCK_MINS,ti:9999+mi,done:!!done[id]}); }
     });
 
     // ---- spreading scheduler ----
@@ -19849,20 +19879,27 @@ function hideFlyout(p) {
     var doneToday=0; Object.keys(done).forEach(function(k){ var ts=done[k]; if(ts && fmt(new Date(ts))===today) doneToday++; });
     if(doneToday) load[today]=doneToday;
     // even spread: least-loaded day (earliest on ties) that's still under cap
-    function pick(days){ var best=null,bl=Infinity; for(var i=0;i<days.length;i++){ var l=load[days[i]]||0; if(l<cap && l<bl){ bl=l; best=days[i]; if(l===0)break; } } return best; }
+    // Even spread: the least-loaded day (earliest on ties) that still has room
+    // for this task. A task longer than a whole day's budget - a 90-minute set
+    // of notes on a light setting - would otherwise never fit, so an empty day
+    // always accepts it rather than leaving it unscheduled.
+    function pick(days,need){ var best=null,bl=Infinity;
+      for(var i=0;i<days.length;i++){ var l=load[days[i]]||0;
+        if((l===0 || l+need<=cap) && l<bl){ bl=l; best=days[i]; if(l===0)break; } }
+      return best; }
     open.forEach(function(t){
       var days=stageDays(t.examId,t.stage); if(!days.length) days=win(t.examId);
       if(t.stage===2 && learnDate[t.ref]){ var lc=days.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)days=lc; }
-      var best=pick(days);
+      var best=pick(days,t.mins||10);
       if(best==null){
         // Stage window full — spill into the exam's whole window (keeps phase
         // preference but doesn't waste capacity). Only drop if the WHOLE run-up is full.
         var full=win(t.examId);
         if(t.stage===2 && learnDate[t.ref]){ var fc=full.filter(function(d){return d>learnDate[t.ref];}); if(fc.length)full=fc; }
-        best=pick(full);
+        best=pick(full,t.mins||10);
       }
       if(best==null){ dropped++; return; }   // genuinely infeasible → triage this touch out
-      load[best]=(load[best]||0)+1;
+      load[best]=(load[best]||0)+(t.mins||10);   // a task always costs something
       if(t.stage===1 && t.mode==='notes') learnDate[t.ref]=best;
       t.date=best;
     });
@@ -20001,7 +20038,7 @@ function hideFlyout(p) {
         +'<button class="rp-scopebtn'+(sysN?' has':'')+'" data-scope="'+i+'">'+(sysN?('✓ '+sysN+' system'+(sysN===1?'':'s')+' · '+n+' topics'):'+ Choose what\'s on this exam')+'</button>';
     }).join('');
     var days='<div class="rp-days">'+[1,2,3,4,5,6,0].map(function(d){ return '<button class="rp-day'+(draft.avail.days.indexOf(d)>=0?' on':'')+'" data-dow="'+d+'">'+DOW[d].slice(0,1)+'</button>'; }).join('')+'</div>';
-    var seg='<div class="rp-seg">'+[['light','Light','~2 topics/day'],['normal','Normal','~4 topics/day'],['intense','Intense','~6 topics/day']].map(function(o){ return '<button class="'+(draft.avail.intensity===o[0]?'on':'')+'" data-int="'+o[0]+'"><div class="t">'+o[1]+'</div><div class="s">'+o[2]+'</div></button>'; }).join('')+'</div>';
+    var seg='<div class="rp-seg">'+[['light','Light','~2 hrs/day'],['normal','Normal','~4 hrs/day'],['intense','Intense','~6 hrs/day']].map(function(o){ return '<button class="'+(draft.avail.intensity===o[0]?'on':'')+'" data-int="'+o[0]+'"><div class="t">'+o[1]+'</div><div class="s">'+o[2]+'</div></button>'; }).join('')+'</div>';
     return '<div class="rp-sec"><div class="rp-sec-h">Your exams</div><div class="rp-sec-d">Add each exam and its date.</div>'+exs+'<button class="rp-addex" data-add="1">+ Add another exam</button></div>'
       +'<div class="rp-sec"><div class="rp-sec-h">When do you study?</div><div class="rp-sec-d">Pick the days you\'ll revise, and how hard you\'ll go.</div>'+days+'<div style="height:12px"></div>'+seg+'</div>'
       +'<div class="rp-sec"><div class="rp-sec-h">Start date</div><div class="rp-sec-d" id="rp-start-hint">When do you want to begin?</div><input type="date" class="rp-in" id="rp-startdate" value="'+esc(draft.startDate)+'" min="'+todayStr()+'"></div>';
@@ -20165,7 +20202,8 @@ function hideFlyout(p) {
     else body=entries.map(function(en){
       if(en.t==='exam') return '<div class="rp-examline"><span class="rp-exdot">🎯</span><b>'+esc(en.name||'Exam')+'</b> — exam day · '+niceDate(en.date)+'</div>';
       var d=en.date, isToday=d===pl.today;
-      return '<div class="rp-daygrp"><div class="rp-daygrp-h"><span class="d">'+niceDate(d)+'</span><span class="w">'+pl.byDate[d].length+' task'+(pl.byDate[d].length===1?'':'s')+'</span>'
+      var _mins=pl.byDate[d].reduce(function(a,t){ return a+(t.mins||0); },0);
+      return '<div class="rp-daygrp"><div class="rp-daygrp-h"><span class="d">'+niceDate(d)+'</span><span class="w">'+pl.byDate[d].length+' task'+(pl.byDate[d].length===1?'':'s')+(_mins?' · '+hhmm(_mins):'')+'</span>'
         +(isToday?'<span class="today">TODAY</span>':'')
         +'</div>'+pl.byDate[d].map(taskRow).join('')+'</div>';
     }).join('');
