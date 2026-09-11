@@ -710,6 +710,8 @@ body.da-home #daRvTrigger,body.da-home #mockFab{display:none!important;}
 .da-mem-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.45),0 3px 10px rgba(0,194,168,.45);}
 .da-mem-fab svg{width:15px;height:15px;flex-shrink:0;}
 .da-mem-fab.is-hidden{display:none;}
+/* On trial the button reports status rather than selling, so it drops the teal gradient. */
+.da-mem-fab.is-trial{background:linear-gradient(135deg,#F0B429 0%,#F59E0B 100%);color:#231a02;box-shadow:0 4px 14px rgba(0,0,0,.2),0 1px 4px rgba(240,180,41,.35);}
 /* Get Membership button overlaps the My Notes drawer's × close — hide it while the drawer is open. */
 body.da-notes-open #daMemFab{display:none!important;}
 @media (max-width:720px){.da-mem-fab{top:auto;bottom:20px;left:16px;right:auto;padding:9px 14px;font-size:11px;}}
@@ -1008,6 +1010,23 @@ body.da-notes-open #daMemFab{display:none!important;}
 .wc-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
 .wc-word{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .wc-tag{font-size:14px;color:#6B7280;margin-top:6px;}
+/* Signed-out trial CTA on the home hero. Hidden for signed-in users via updateHomeActions. */
+.wc-trial{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;text-align:left;
+  padding:18px 22px;border-radius:16px;margin-bottom:22px;
+  border:1.5px solid rgba(0,194,168,.35);background:linear-gradient(135deg,#E9FBF8 0%,#FFFFFF 70%);}
+.wc-trial-tx{flex:1 1 300px;min-width:0;}
+.wc-trial-t{font-size:16px;font-weight:800;color:#0B3F38;letter-spacing:-.01em;}
+.wc-trial-s{font-size:13px;color:#4B5563;margin-top:3px;line-height:1.5;}
+.wc-trial-btn{flex:0 0 auto;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#04121a;
+  background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);border:none;border-radius:22px;
+  padding:11px 20px;cursor:pointer;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(0,194,168,.3);transition:transform .12s,box-shadow .15s;}
+.wc-trial-btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(0,194,168,.4);}
+@media (max-width:560px){.wc-trial{flex-direction:column;align-items:stretch;text-align:center;padding:16px 18px;}
+  /* flex-basis maps to HEIGHT once the container is a column, so the 300px basis
+     above would otherwise force a 300px-tall text block. */
+  .wc-trial-tx{flex:0 0 auto;}
+  .wc-trial-btn{width:100%;}}
 .wc-streak{display:flex;align-items:center;gap:18px;padding:20px 22px;border-radius:16px;border:1.5px solid #FAD9B0;background:linear-gradient(135deg,#FFF3E4 0%,#FFFDFA 100%);margin-bottom:22px;}
 .wc-streak.cold{border-color:#E2E6F0;background:#fff;}
 .wc-flame{font-size:44px;line-height:1;}
@@ -1162,7 +1181,15 @@ body.da-notes-open #daMemFab{display:none!important;}
       +'<div class="wc-plan-editor"></div>'
       +'</div>') : '';
     return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
-      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'+streak+actions+stats+hint+planner+'</div>';
+      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'
+      +'<div class="wc-trial js-trial-cta" hidden>'
+        +'<div class="wc-trial-tx">'
+          +'<div class="wc-trial-t">Try DoctoRise free for 2 weeks</div>'
+          +'<div class="wc-trial-s">Full access to every note, flashcard, MCQ and mock exam. No card needed &mdash; and nothing to cancel.</div>'
+        +'</div>'
+        +'<button class="wc-trial-btn" type="button" onclick="if(window.openAuthModal)window.openAuthModal(\'signup\')">Start my free trial</button>'
+      +'</div>'
+      +streak+actions+stats+hint+planner+'</div>';
   }
 
   window.updateStreakUI=function(){
@@ -1228,6 +1255,11 @@ body.da-notes-open #daMemFab{display:none!important;}
   window.updateHomeActions=function(){
     var n = window.daSrsDue ? window.daSrsDue() : 0;
     document.querySelectorAll('.js-rv-badge').forEach(function(e){ e.textContent = n>99?'99+':n; e.classList.toggle('zero', n===0); });
+    // The trial CTA is for signed-out visitors only. An auth change triggers a reload
+    // (see the authsync watcher), so reading __authed at paint time is reliable; it is
+    // seeded from storage early, and anything falsy simply shows the CTA.
+    var signedOut = !window.__authed;
+    document.querySelectorAll('.js-trial-cta').forEach(function(e){ e.hidden = !signedOut; });
   };
 
   // ===== Multi-note planner (home page) — synced via the piri_ namespace =====
@@ -14786,6 +14818,10 @@ function hideFlyout(p) {
       if(!isMember && was && !window.__membershipLoaded){ window.__member=true; return; }
       try{ localStorage.setItem('da-member', isMember?'1':'0'); }catch(e){}
       window.__member = isMember;
+      // The membership button carries the trial countdown, and sync() was only ever
+      // called on account-menu events — so without this the days-left label would not
+      // appear until the user happened to open and close the menu.
+      try{ if(window.__syncMemFab) window.__syncMemFab(); }catch(e){}
       // Whatever the transition, a lock already on screen must re-check itself now that access
       // is known — in place, without waiting on a reload (which the session cap may swallow).
       if(isMember){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(e){} }
@@ -16698,8 +16734,24 @@ function hideFlyout(p) {
     // the profile, exactly where this button sits, so they'd otherwise overlap).
     var menu=document.getElementById('accountMenu');
     var menuOpen=!!(menu && menu.classList.contains('open'));
-    var hidden = !!window.__member || menuOpen;
+    // Trial users ARE members (window.__member is true), so hiding on that alone
+    // would take away their only route to see how long is left and to subscribe.
+    // Keep the button for them, and let it carry the countdown. Paid members
+    // still lose it — including someone who subscribed mid-trial, whose
+    // trial_ends_at is still in the future.
+    var trial = (window.__trialInfo ? window.__trialInfo() : {active:false,daysLeft:0});
+    var paid  = !!(window.__isMember && window.__isMember());
+    var onTrial = trial.active && !paid;
+    var hidden = (!!window.__member && !onTrial) || menuOpen;
     b.classList.toggle('is-hidden', hidden);
+    b.classList.toggle('is-trial', onTrial);
+    var lbl = b.querySelector('span');
+    if(lbl) lbl.textContent = onTrial
+      ? ('Trial \u00b7 ' + trial.daysLeft + ' day' + (trial.daysLeft===1?'':'s') + ' left')
+      : 'Get Membership';
+    b.title = onTrial
+      ? 'Your free trial ends soon \u2014 tap to see plans'
+      : 'Unlock everything with membership';
     document.body.classList.toggle('da-memfab-on', !hidden);   // lets layouts reserve space for it
   }
   window.__syncMemFab = sync;
