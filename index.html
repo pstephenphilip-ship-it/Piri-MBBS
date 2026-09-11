@@ -13798,7 +13798,7 @@ function hideFlyout(p) {
       if (authMode === 'signup'){
         // If email confirmation is on, there is no active session yet.
         if (res.data && res.data.session){
-          showMsg('Account created. You are now signed in.', 'ok');
+          showMsg('Account created — your 14-day free trial starts now.', 'ok');
           setTimeout(closeAuthModal, 700);
         } else {
           showMsg('Account created. Check your email to confirm, then sign in.', 'ok');
@@ -14593,7 +14593,7 @@ function hideFlyout(p) {
         try{ localStorage.setItem('da_pending_profile', JSON.stringify(pdata)); }catch(e){}
         return sb.auth.signUp({email:email,password:password}).then(function(res){
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} aMsg(res.error.message,'err'); btn.disabled=false; btn.textContent=restore; return; }
-          if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Setting things up…','ok'); /* gate reload -> ensureProfile creates it */ }
+          if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Your 14-day free trial starts now — setting things up…','ok'); /* gate reload -> ensureProfile creates it, which stamps trial_ends_at */ }
           else { aMsg('Account created. Check your email to confirm, then sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
         });
       }).catch(function(err){ aMsg((err&&err.message)||'Something went wrong.','err'); btn.disabled=false; btn.textContent=restore; });
