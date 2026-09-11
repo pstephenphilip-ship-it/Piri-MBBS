@@ -470,6 +470,122 @@ body{display:flex;flex-direction:column;}
    Flattening it would destroy clinical meaning. */
 
 
+
+/* ============================================================================
+   INVESTIGATIONS — visual pass
+   Scoped to #tab-investigations. The .cp-* components are shared with four
+   other tabs, so nothing here reaches Medical Conditions, Anatomy, Histology
+   or Signs & Symptoms. This tab had never had a visual pass: it was still
+   rendering the raw component defaults, which is what the stages below fix.
+   ========================================================================== */
+
+/* ---- Stage 1: vertical rhythm ------------------------------------------
+   The component sheet gives .cp-killgrid and .cp-reads margin:0 and the reset
+   gives <p> margin:0, so a card grid or chip row sat flush against the
+   sentence introducing it. Measured across 28 notes, the gap was a median of
+   0px in all 191 instances — 801 card grids and 1,355 chip rows, in all 195
+   notes. They now clear the text above and below them on a 4px rhythm. */
+#tab-investigations .cp-killgrid,
+#tab-investigations .cp-reads,
+#tab-investigations .cp-confirm,
+#tab-investigations .cp-sysgrid{margin-top:12px;margin-bottom:12px;}
+#tab-investigations .cp-step-body > .cp-killgrid:first-child,
+#tab-investigations .cp-step-body > .cp-reads:first-child,
+#tab-investigations .cp-step-body > .cp-confirm:first-child,
+#tab-investigations .cp-step-body > .cp-sysgrid:first-child{margin-top:0;}
+#tab-investigations .cp-step-body > :last-child{margin-bottom:0;}
+#tab-investigations .cp-step-body > p{margin:0 0 10px;}
+#tab-investigations .cp-step-body > p:last-child{margin-bottom:0;}
+#tab-investigations .cp-step-body > ul,
+#tab-investigations .cp-step-body > ol{margin:10px 0;}
+
+/* ---- Stage 2: the card grid balances -----------------------------------
+   .cp-killgrid was repeat(auto-fill,minmax(215px,1fr)), which always lays
+   three 253px tracks in the 782px step body. auto-fill keeps empty tracks, so
+   a 1-card grid left 529px of dead grid and every 2-card grid left a 264px
+   hole; 4 cards broke 3 + 1 and stranded an orphan. auto-fit collapses the
+   empty tracks, and an exact-4 grid becomes a 2x2. */
+#tab-investigations .cp-killgrid{grid-template-columns:repeat(auto-fit,minmax(215px,1fr));}
+#tab-investigations .cp-killgrid:has(> .cp-kill:nth-child(4):last-child){grid-template-columns:repeat(2,1fr);}
+
+/* ---- Stage 2b: cards in a row line up ----------------------------------
+   A card whose name wraps to two lines pushed its header/body divider ~19px
+   below its neighbours'. The head now has a floor and the body takes the
+   slack, so the dividers align across a row. */
+#tab-investigations .cp-kill{display:flex;flex-direction:column;}
+#tab-investigations .cp-kill-top{min-height:46px;}
+#tab-investigations .cp-kill-desc{flex:1 1 auto;}
+#tab-investigations .cp-kill .cp-dx{white-space:nowrap;}
+
+/* ---- Stage 3: clue rows keep their card --------------------------------
+   230 .cp-clue rows across 91 notes are authored outside any .cp-step, and
+   .cp-clue has no surface of its own — it borrows the step's white card. Left
+   at note level they rendered naked on the grey page background, 21px out of
+   alignment with the identical rows inside the steps. A contiguous run of
+   them now carries its own card; inside a step they stay plain rows. */
+#tab-investigations .cp-clue{
+  background:var(--rn-card,#fff);
+  border-left:1.5px solid var(--rn-border,#E2E6F0);
+  border-right:1.5px solid var(--rn-border,#E2E6F0);
+  padding:12px 20px;}
+#tab-investigations .cp-clue:not(.cp-clue + .cp-clue){
+  border-top:1.5px solid var(--rn-border,#E2E6F0);
+  border-radius:12px 12px 0 0;margin-top:12px;}
+#tab-investigations .cp-clue:not(:has(+ .cp-clue)){
+  border-bottom:1.5px solid var(--rn-border,#E2E6F0);
+  border-radius:0 0 12px 12px;margin-bottom:12px;}
+/* inside a step card they are plain divider rows, as before */
+#tab-investigations .cp-step .cp-step-body .cp-clue{
+  background:none;border-left:none;border-right:none;border-top:none;
+  border-radius:0;margin:0;padding:12px 4px;
+  border-bottom:1px solid var(--rn-border,#EEF1F7);}
+#tab-investigations .cp-step .cp-step-body .cp-clue:last-child{border-bottom:none;}
+
+/* ---- Stage 4: type scale ------------------------------------------------
+   Mirrors the pass Signs & Symptoms got on these same components. The tab was
+   still on the raw scale: .cp-kill-desc at 12.5px/1.5 in 11px 13px padding,
+   so card text sat tight against its border. */
+#tab-investigations .cp-kill-desc{font-size:13px;line-height:1.6;padding:12px 14px;}
+#tab-investigations .cp-kill-top{padding:10px 14px;}
+#tab-investigations .cp-kill-ic{font-size:14px;}
+#tab-investigations .cp-kill-name{font-size:13.5px;}
+#tab-investigations .cp-warn{font-size:13px;line-height:1.7;padding:14px 16px;}
+#tab-investigations .cp-warn b,
+#tab-investigations .cp-warn strong{color:var(--rn-red,#C93535);}
+#tab-investigations .cp-pearl{font-size:13px;line-height:1.65;padding:12px 16px;}
+#tab-investigations .cp-lead{padding:16px;}
+#tab-investigations .cp-when{font-size:13px;}
+#tab-investigations .cp-read{font-size:12px;line-height:1.45;padding:7px 11px;}
+
+/* Flex items default to min-width:auto, so a long unbreakable clue refused to
+   shrink and pushed the row past the note's right edge (measured +45px at
+   1440 and +202px at 390, the latter pre-existing). */
+#tab-investigations .cp-when,
+#tab-investigations .cp-then{min-width:0;overflow-wrap:anywhere;}
+#tab-investigations .cp-step-body ul,
+#tab-investigations .cp-step-body ol{font-size:13.5px;line-height:1.6;}
+
+/* ---- Stage 4b: the clue table stacks on a phone ------------------------
+   .cp-clue is a two-column "when -> then" flex row. At 390px the note body is
+   382px, so the 44%/52% split left each column under 200px; one row could not
+   shrink far enough and spilled 202px past the edge. Below 560px the row
+   stacks, which both fixes the overflow and makes every clue table readable
+   on a phone. */
+@media (max-width:560px){
+  #tab-investigations .cp-clue{flex-direction:column;align-items:flex-start;gap:2px;}
+  #tab-investigations .cp-when,
+  #tab-investigations .cp-then{flex:0 0 auto;width:100%;}
+  #tab-investigations .cp-arrow{transform:rotate(90deg);margin:2px 0;}
+}
+
+/* ---- Stage 5: the subtab bar ------------------------------------------
+   .tt-btn changes font-weight between states (500 inactive, 600 active), so
+   selecting a tab reflowed the whole bar. Weight is now constant and only
+   colour changes. Colour itself is left alone: the teal active pill is the
+   house style shared with Anatomy, Histology and Signs. */
+#tab-investigations .rich-note .tt-btn{font-weight:600!important;}
+
+
 /* ============================================================================
    OSCE — visual pass (stages 1-4)
    ========================================================================== */
