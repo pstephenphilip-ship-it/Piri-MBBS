@@ -19542,6 +19542,11 @@ function hideFlyout(p) {
   .rp-tk-sub{font-size:11px;color:#9CA3AF;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .rp-start{flex-shrink:0;border:none;background:#00C2A8;color:#fff;border-radius:8px;padding:7px 13px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;}
   .rp-start:hover{background:#059E8C;}
+  /* premium mock upsell */
+  .rp-start.prem{background:linear-gradient(135deg,#E0A93B,#C4881A);}
+  .rp-start.prem:hover{background:linear-gradient(135deg,#C4881A,#A9720F);}
+  .rp-premium{display:inline-block;margin-left:6px;font-size:9.5px;font-weight:800;letter-spacing:.03em;color:#8A5A00;background:#FDF0CE;border:1px solid #F0D48A;border-radius:20px;padding:1px 7px;vertical-align:middle;}
+  .rp-task.prem{background:linear-gradient(90deg,#FFFBF0,#fff);}
   .rp-empty{padding:14px 4px;text-align:center;color:#6B7280;font-size:13px;}
   .rp-note{font-size:11.5px;color:#9CA3AF;padding:0 18px 14px;line-height:1.5;}
   .rp-foot{border-top:1px solid #EEF1F6;padding:11px 18px;text-align:center;}
@@ -19846,16 +19851,20 @@ function hideFlyout(p) {
   // Badge by STAGE, not activity: Learning / Active recall / Exam practice.
   function badge(t){ var s=t.stage||1; var l=s===1?'Learning':s===2?'Active recall':'Exam practice'; var cls=s===1?'learn':s===2?'recall':'exam'; return '<span class="rp-tk-badge '+cls+'">'+l+'</span>'; }
   function modeLabel(m){ return m==='sprint'?'Sprint':m==='compressed'?'Compressed':'Comfortable'; }
+  // The planner is free, but the mock exam is a premium feature — for non-members
+  // the mock task reads as an upgrade nudge (and tapping it opens the upgrade prompt).
+  function mockAllowed(){ try{ return (typeof window.__mockAllowed!=='function') || !!window.__mockAllowed(); }catch(e){ return true; } }
   function taskRow(t){
+    var premium = t.kind==='mock' && !mockAllowed();
     var modeTxt=t.kind==='mock'?'All topics · timed paper'
       :t.mode==='flashcards'?(t.kind==='learn'?'Learn flashcards':'Review flashcards')
       :t.mode==='questions'?'MCQs'
       :(t.stage===3?'Final notes review':t.kind==='review'?'Review notes':(t.skim?'Skim notes':'Read notes'));
-    return '<div class="rp-task'+(t.done?' done':'')+'" data-id="'+esc(t.id)+'">'
+    return '<div class="rp-task'+(t.done?' done':'')+(premium?' prem':'')+'" data-id="'+esc(t.id)+'">'
       +'<div class="rp-cb'+(t.done?' on':'')+'" data-tog="'+esc(t.id)+'">'+(t.done?'✓':'')+'</div>'
       +badge(t)
-      +'<div class="rp-tk-mid"><div class="rp-tk-name">'+esc(t.name)+'</div><div class="rp-tk-sub">'+esc(t.system)+' · '+modeTxt+'</div></div>'
-      +(t.done?'':'<button class="rp-start" data-go="'+esc(t.id)+'">Start</button>')+'</div>';
+      +'<div class="rp-tk-mid"><div class="rp-tk-name">'+esc(t.name)+(premium?' <span class="rp-premium">★ Premium</span>':'')+'</div><div class="rp-tk-sub">'+esc(t.system)+' · '+modeTxt+'</div></div>'
+      +(t.done?'':'<button class="rp-start'+(premium?' prem':'')+'" data-go="'+esc(t.id)+'">'+(premium?'Unlock':'Start')+'</button>')+'</div>';
   }
   function homeHTML(st){
     if(!st||!st.exams||!st.exams.length){
