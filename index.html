@@ -19547,6 +19547,12 @@ function hideFlyout(p) {
   .rp-start.prem:hover{background:linear-gradient(135deg,#C4881A,#A9720F);}
   .rp-premium{display:inline-block;margin-left:6px;font-size:9.5px;font-weight:800;letter-spacing:.03em;color:#8A5A00;background:#FDF0CE;border:1px solid #F0D48A;border-radius:20px;padding:1px 7px;vertical-align:middle;}
   .rp-task.prem{background:linear-gradient(90deg,#FFFBF0,#fff);}
+  /* per-category "select all" in the scope picker */
+  .rp-cathdr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 8px;}
+  .rp-cathdr .mk-cat-label{margin:0;}
+  .rp-catall{flex-shrink:0;border:1px solid #E2E6F0;background:#fff;color:#00A08C;font-size:11px;font-weight:800;padding:4px 11px;border-radius:20px;cursor:pointer;font-family:inherit;}
+  .rp-catall:hover{border-color:#00C2A8;background:#F0FBF9;}
+  .rp-catall.on{background:#00C2A8;border-color:#00C2A8;color:#fff;}
   .rp-empty{padding:14px 4px;text-align:center;color:#6B7280;font-size:13px;}
   .rp-note{font-size:11.5px;color:#9CA3AF;padding:0 18px 14px;line-height:1.5;}
   .rp-foot{border-top:1px solid #EEF1F6;padding:11px 18px;text-align:center;}
@@ -20036,7 +20042,8 @@ function hideFlyout(p) {
       var html='';
       SCOPE_TABS.forEach(function(tb){
         var syss=systemsOf(tb[0]); if(!syss.length)return;
-        html+='<div class="mk-cat-label">'+esc(tb[1])+'</div><div class="mk-tree">';
+        var tabFull=syss.every(function(s){ var k=tb[0]+'||'+s, tp=topicsOf(tb[0],s); return tp.length && sel[k] && Object.keys(sel[k]).length>=tp.length; });
+        html+='<div class="rp-cathdr"><span class="mk-cat-label">'+esc(tb[1])+'</span><button class="rp-catall'+(tabFull?' on':'')+'" data-catall="'+esc(tb[0])+'">'+(tabFull?'Clear all':'Select all')+'</button></div><div class="mk-tree">';
         syss.forEach(function(s){
           var key=tb[0]+'||'+s, topics=topicsOf(tb[0],s);
           var set=sel[key]||{}, c=Object.keys(set).length;
@@ -20073,6 +20080,11 @@ function hideFlyout(p) {
     function render(){ treeEl.innerHTML=treeHTML(); applyFilter(); stat(); }
 
     treeEl.addEventListener('click',function(e){
+      var cat=e.target.closest('[data-catall]');
+      if(cat){ e.stopPropagation(); var tab=cat.getAttribute('data-catall'); var syss=systemsOf(tab);
+        var full=syss.every(function(s){ var k=tab+'||'+s, tp=topicsOf(tab,s); return tp.length && sel[k] && Object.keys(sel[k]).length>=tp.length; });
+        syss.forEach(function(s){ var key=tab+'||'+s, tp=topicsOf(tab,s); if(full){ delete sel[key]; } else if(tp.length){ var ns={}; tp.forEach(function(t){ns[t]=1;}); sel[key]=ns; } });
+        render(); return; }
       var grp=e.target.closest('[data-grp]');
       if(grp){ e.stopPropagation(); var key=grp.getAttribute('data-grp'); var p=key.split('||'); var topics=topicsOf(p[0],p[1]); var set=sel[key]||{}; if(Object.keys(set).length>=topics.length){ delete sel[key]; } else { var ns={}; topics.forEach(function(t){ns[t]=1;}); sel[key]=ns; } render(); return; }
       var opn=e.target.closest('[data-open]');
