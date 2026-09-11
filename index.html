@@ -19441,5 +19441,432 @@ function hideFlyout(p) {
   .rn-body > * + .rn-inv-grid:has(> .rn-inv-card),
   .rn-body > * + .rn-pearl-grid:has(> .rn-inv-card){margin-top:12px;}
 </style>
+
+<!-- ============================================================================
+     REVISION PLANNER (prototype) — exam-aware, spaced-repetition study planner.
+     Self-contained: stores everything under piri_examplan_v1 (auto-syncs), reads
+     the site's own systems/topics via getTabData(), and deep-links tasks into the
+     real notes/flashcards/questions. Mounted into the Home tab under the logo.
+     ============================================================================ -->
+<style>
+  .rp-home{max-width:720px;margin:0 auto 6px;box-sizing:border-box;}
+  .rp-panel{background:#fff;border:1.5px solid #E2E6F0;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.05);margin-bottom:22px;}
+  .rp-cta{padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;}
+  .rp-cta:hover{background:#F7FBFA;}
+  .rp-cta-ic{width:46px;height:46px;flex-shrink:0;border-radius:13px;background:linear-gradient(135deg,#00C2A8,#0E9C8B);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 12px rgba(0,194,168,.35);}
+  .rp-cta-ic svg{width:24px;height:24px;}
+  .rp-cta-tx{flex:1;min-width:0;}
+  .rp-cta-t{font-size:16px;font-weight:800;color:#1E2640;}
+  .rp-cta-s{font-size:12.5px;color:#6B7280;margin-top:2px;line-height:1.4;}
+  .rp-cta-go{color:#00C2A8;font-size:22px;font-weight:700;flex-shrink:0;}
+  /* dashboard header */
+  .rp-dhead{display:flex;align-items:center;gap:10px;padding:15px 18px 12px;border-bottom:1px solid #EEF1F6;}
+  .rp-dhead-t{flex:1;min-width:0;font-size:14.5px;font-weight:800;color:#1E2640;display:flex;align-items:center;gap:8px;}
+  .rp-dhead-t .rp-logo{color:#00C2A8;display:flex;}.rp-dhead-t .rp-logo svg{width:18px;height:18px;}
+  .rp-mode{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:20px;}
+  .rp-mode.comfortable{background:#E6F6EF;color:#1F8B5E;}
+  .rp-mode.compressed{background:#FEF5E4;color:#B86B00;}
+  .rp-mode.sprint{background:#FDEAEA;color:#C93535;}
+  .rp-ibtn{border:1px solid #E2E6F0;background:#fff;color:#5B6478;border-radius:8px;padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .rp-ibtn:hover{border-color:#00C2A8;color:#059E8C;}
+  /* countdowns */
+  .rp-counts{display:flex;flex-wrap:wrap;gap:7px;padding:12px 18px 4px;}
+  .rp-chip{display:flex;align-items:center;gap:7px;background:#F3F5F9;border-radius:10px;padding:6px 11px;font-size:12px;}
+  .rp-chip .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .rp-chip .nm{font-weight:700;color:#1E2640;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rp-chip .dl{color:#6B7280;font-weight:600;}
+  .rp-chip .dl.soon{color:#C93535;font-weight:800;}
+  /* today */
+  .rp-today{padding:12px 18px 16px;}
+  .rp-today-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;}
+  .rp-today-h .lab{font-family:var(--mono,monospace);font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9CA3AF;}
+  .rp-today-h .prog{font-size:12px;font-weight:700;color:#059E8C;}
+  .rp-task{display:flex;align-items:center;gap:11px;padding:9px 10px;border:1px solid #EEF1F6;border-radius:11px;margin-bottom:7px;transition:background .12s;}
+  .rp-task:hover{background:#FAFBFD;}
+  .rp-task.done{opacity:.5;}
+  .rp-task.done .rp-tk-name{text-decoration:line-through;}
+  .rp-cb{width:22px;height:22px;flex-shrink:0;border-radius:7px;border:2px solid #CBD2E0;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:900;background:#fff;transition:all .12s;}
+  .rp-cb.on{background:#00C2A8;border-color:#00C2A8;}
+  .rp-tk-badge{font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:6px;flex-shrink:0;}
+  .rp-tk-badge.learn{background:#EBF2FF;color:#3B7DD8;}
+  .rp-tk-badge.review{background:#E3F6F9;color:#1A9BA8;}
+  .rp-tk-badge.practice{background:#FEF5E4;color:#B86B00;}
+  .rp-tk-mid{flex:1;min-width:0;}
+  .rp-tk-name{font-size:13.5px;font-weight:700;color:#1E2640;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rp-tk-sub{font-size:11px;color:#9CA3AF;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .rp-start{flex-shrink:0;border:none;background:#00C2A8;color:#fff;border-radius:8px;padding:7px 13px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit;}
+  .rp-start:hover{background:#059E8C;}
+  .rp-empty{padding:14px 4px;text-align:center;color:#6B7280;font-size:13px;}
+  .rp-note{font-size:11.5px;color:#9CA3AF;padding:0 18px 14px;line-height:1.5;}
+  .rp-foot{border-top:1px solid #EEF1F6;padding:11px 18px;text-align:center;}
+  .rp-foot button{border:none;background:none;color:#00C2A8;font-size:12.5px;font-weight:800;cursor:pointer;font-family:inherit;}
+  .rp-warn{margin:0 18px 12px;background:#FDEAEA;border:1px solid #F5C6C6;color:#B23B3B;border-radius:10px;padding:9px 12px;font-size:12px;line-height:1.45;}
+  .rp-banner{margin:0 18px 12px;background:#FEF5E4;border:1px solid #F3DCB0;color:#8A5A00;border-radius:10px;padding:8px 12px;font-size:12px;}
+  /* overlay + modal (wizard & full plan) */
+  .rp-ov{position:fixed;inset:0;z-index:5200;background:rgba(10,16,24,.5);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:28px 14px;box-sizing:border-box;}
+  .rp-modal{background:#fff;border-radius:18px;max-width:640px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.32);overflow:hidden;margin:auto;}
+  .rp-mhead{display:flex;align-items:center;gap:12px;padding:18px 22px;border-bottom:1px solid #EEF1F6;}
+  .rp-mhead h3{margin:0;flex:1;font-size:17px;font-weight:800;color:#1E2640;}
+  .rp-x{border:none;background:#F3F5F9;color:#6B7280;width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:17px;line-height:1;}
+  .rp-x:hover{background:#E9ECF3;}
+  .rp-body{padding:20px 22px;max-height:70vh;overflow-y:auto;}
+  .rp-sec{margin-bottom:22px;}
+  .rp-sec-h{font-family:var(--mono,monospace);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#00A08C;margin-bottom:4px;}
+  .rp-sec-d{font-size:12px;color:#6B7280;margin-bottom:11px;line-height:1.45;}
+  .rp-exrow{display:flex;gap:8px;align-items:center;margin-bottom:9px;}
+  .rp-exrow input[type=text]{flex:1;min-width:0;}
+  .rp-in{border:1px solid #E2E6F0;border-radius:9px;padding:10px 11px;font-size:14px;font-family:inherit;color:#1E2640;background:#fff;box-sizing:border-box;}
+  .rp-in:focus{outline:none;border-color:#00C2A8;}
+  .rp-exrow input[type=date]{width:150px;flex-shrink:0;}
+  .rp-scopebtn{width:100%;text-align:left;border:1px dashed #CBD2E0;background:#FAFBFD;border-radius:9px;padding:9px 12px;font-size:12.5px;font-weight:700;color:#5B6478;cursor:pointer;font-family:inherit;margin-top:2px;}
+  .rp-scopebtn:hover{border-color:#00C2A8;color:#059E8C;}
+  .rp-scopebtn.has{border-style:solid;border-color:#00C2A8;color:#059E8C;background:#F0FBF9;}
+  .rp-exdel{border:none;background:none;color:#C0392B;cursor:pointer;font-size:16px;padding:4px;flex-shrink:0;}
+  .rp-addex{border:1px solid #E2E6F0;background:#fff;border-radius:9px;padding:9px 14px;font-size:13px;font-weight:700;color:#059E8C;cursor:pointer;font-family:inherit;}
+  .rp-addex:hover{border-color:#00C2A8;background:#F0FBF9;}
+  .rp-days{display:flex;gap:6px;flex-wrap:wrap;}
+  .rp-day{width:40px;height:40px;border-radius:10px;border:1.5px solid #E2E6F0;background:#fff;cursor:pointer;font-size:12px;font-weight:800;color:#6B7280;font-family:inherit;}
+  .rp-day.on{border-color:#00C2A8;background:#00C2A8;color:#fff;}
+  .rp-seg{display:flex;gap:8px;}
+  .rp-seg button{flex:1;border:1.5px solid #E2E6F0;background:#fff;border-radius:11px;padding:12px 8px;cursor:pointer;font-family:inherit;text-align:center;}
+  .rp-seg button.on{border-color:#00C2A8;background:#F0FBF9;}
+  .rp-seg .t{font-size:13.5px;font-weight:800;color:#1E2640;}
+  .rp-seg .s{font-size:10.5px;color:#6B7280;margin-top:2px;}
+  .rp-mfoot{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:15px 22px;border-top:1px solid #EEF1F6;background:#FAFBFD;}
+  .rp-mfoot .hint{font-size:11.5px;color:#6B7280;flex:1;line-height:1.4;}
+  .rp-btn{border:none;border-radius:10px;padding:11px 20px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;}
+  .rp-btn.primary{background:#00C2A8;color:#fff;}.rp-btn.primary:hover{background:#059E8C;}
+  .rp-btn.primary:disabled{opacity:.45;cursor:default;}
+  .rp-btn.ghost{background:#fff;border:1px solid #E2E6F0;color:#5B6478;}
+  /* scope picker */
+  .rp-tabgrp{margin-bottom:14px;}
+  .rp-tabgrp-h{font-size:12.5px;font-weight:800;color:#1E2640;margin-bottom:7px;}
+  .rp-syschips{display:flex;flex-wrap:wrap;gap:6px;}
+  .rp-syschip{border:1.5px solid #E2E6F0;background:#fff;border-radius:20px;padding:6px 12px;font-size:12px;font-weight:700;color:#5B6478;cursor:pointer;font-family:inherit;}
+  .rp-syschip.on{border-color:#00C2A8;background:#00C2A8;color:#fff;}
+  .rp-syschip .ct{opacity:.6;font-weight:600;margin-left:4px;font-size:10.5px;}
+  /* full plan day list */
+  .rp-daygrp{margin-bottom:16px;}
+  .rp-daygrp-h{display:flex;align-items:baseline;gap:8px;margin-bottom:7px;position:sticky;top:0;background:#fff;padding:3px 0;}
+  .rp-daygrp-h .d{font-size:13px;font-weight:800;color:#1E2640;}
+  .rp-daygrp-h .w{font-size:11px;color:#9CA3AF;font-weight:600;}
+  .rp-daygrp-h .today{font-size:9.5px;font-weight:800;color:#00A08C;background:#E3F6F9;padding:2px 7px;border-radius:10px;}
+  .rp-daygrp-h .exday{font-size:9.5px;font-weight:800;color:#C93535;background:#FDEAEA;padding:2px 7px;border-radius:10px;margin-left:auto;}
+  @media (max-width:520px){ .rp-exrow{flex-wrap:wrap;} .rp-exrow input[type=date]{width:100%;} }
+</style>
+<script>
+(function(){
+  var KEY='piri_examplan_v1';
+  var CAP={light:2,normal:4,intense:6};
+  var TABS=[['conditions','Medical Conditions'],['signs','Signs & Symptoms'],['investigations','Investigations'],['anatomy','Anatomy'],['histology','Histology'],['osce','OSCE']];
+  var COLORS=['#00C2A8','#3B7DD8','#B86B00','#6B45B8','#C93535','#1F8B5E'];
+  var KINDRANK={learn:0,review:1,practice:2};
+  var RP_MAN={};   // system -> {hasCards} from manifest (conditions systems)
+  try{ if(window.loadManifest) window.loadManifest().then(function(m){ (m&&m.systems||[]).forEach(function(s){ RP_MAN[s.name]={hasCards:!!s.hasCards}; }); }); }catch(e){}
+
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function load(){ try{ var v=JSON.parse(localStorage.getItem(KEY)||'null'); if(v&&v.exams) return v; }catch(e){} return null; }
+  function save(st){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+  function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+
+  // ---- date helpers (local YYYY-MM-DD) ----
+  function pad(n){ return n<10?'0'+n:''+n; }
+  function fmt(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  function parse(s){ var p=String(s).split('-'); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function todayStr(){ return fmt(new Date()); }
+  function addDays(s,n){ var d=parse(s); d.setDate(d.getDate()+n); return fmt(d); }
+  function weekday(s){ return parse(s).getDay(); }               // 0 Sun .. 6 Sat
+  function daysBetween(a,b){ return Math.round((parse(b)-parse(a))/86400000); }
+  function studyDates(from,to,days){ var out=[],cur=from; var guard=0; while(cur<=to && guard++<800){ if(days.indexOf(weekday(cur))>=0) out.push(cur); cur=addDays(cur,1);} return out; }
+  var DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  function niceDate(s){ var d=parse(s); return DOW[d.getDay()]+' '+d.getDate()+' '+['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()]; }
+
+  function tabLabel(t){ for(var i=0;i<TABS.length;i++) if(TABS[i][0]===t) return TABS[i][1]; return t; }
+  function systemsOf(tab){ try{ var d=(window.getTabData?getTabData(tab):null)||{}; return Object.keys(d); }catch(e){ return []; } }
+  function topicsOf(tab,sys){ try{ var d=(window.getTabData?getTabData(tab):{})[sys]||{}; return (d.conditions||d.topics||[]).slice(); }catch(e){ return []; } }
+  function cardsAvail(tab,sys){ if(tab==='osce')return false; if(tab==='conditions'){ var m=RP_MAN[sys]; return m?m.hasCards:true; } if(tab==='signs'||tab==='investigations')return true; return false; }
+
+  // ---- schedule engine -------------------------------------------------------
+  function expandTopics(st){
+    var out=[],seen={};
+    var exams=st.exams.slice().filter(function(e){return e.date;}).sort(function(a,b){return a.date<b.date?-1:1;});
+    exams.forEach(function(ex){
+      (ex.scope||[]).forEach(function(sc){
+        var topics=(sc.topics&&sc.topics[0]!=='all')?sc.topics:topicsOf(sc.tab,sc.system);
+        topics.forEach(function(name){
+          var ref=sc.tab+'||'+sc.system+'||'+name;
+          if(seen[ref])return; seen[ref]=1;
+          out.push({ref:ref,tab:sc.tab,system:sc.system,name:name,examId:ex.id,examDate:ex.date,hasCards:cardsAvail(sc.tab,sc.system)});
+        });
+      });
+    });
+    return out;
+  }
+  function packStart(st){ var t=todayStr(); return (st.startDate&&st.startDate>t)?st.startDate:t; }
+  function earliestExam(st){ var ds=st.exams.map(function(e){return e.date;}).filter(Boolean).sort(); return ds[0]; }
+  function computeMode(st,topics){
+    var cap=CAP[st.avail.intensity]||4, earliest=earliestExam(st); if(!earliest) return 'comfortable';
+    var start=packStart(st);
+    var avail=studyDates(start,earliest,st.avail.days).length;
+    var buffer=Math.min(2,Math.max(0,Math.floor(avail*0.25)));
+    var eff=Math.max(1,avail-buffer);
+    var touches=0; topics.forEach(function(tp){ touches+=tp.hasCards?3:2; });
+    var needed=Math.ceil(touches/cap);
+    var ratio=eff/Math.max(1,needed);
+    return ratio>=1?'comfortable':(ratio>=0.6?'compressed':'sprint');
+  }
+  function touchesFor(tp,mode){
+    if(tp.hasCards){
+      if(mode==='comfortable') return [['learn','notes',0],['review','flashcards',0],['practice','questions',0]];
+      if(mode==='compressed') return [['learn','notes',0],['practice','questions',0]];
+      return [['learn','notes',1],['practice','questions',0]];
+    }
+    if(mode==='comfortable') return [['learn','notes',0],['review','notes',0]];
+    return [['learn','notes',mode==='sprint'?1:0]];
+  }
+  // Build the full plan: pack outstanding (not-done) touches onto study days from
+  // packStart forward. Missed days fall out naturally (packStart = today), so an
+  // untouched task simply re-packs into the days that remain = auto-rebalance.
+  function buildPlan(st){
+    var topics=expandTopics(st);
+    var mode=computeMode(st,topics);
+    var start=packStart(st), today=todayStr(), lastExam=st.exams.map(function(e){return e.date;}).filter(Boolean).sort().slice(-1)[0];
+    var cap=CAP[st.avail.intensity]||4;
+    var done=st.done||{};
+    var warnings=[], load={}, learnDate={}, overflow=false;
+    // exam study-day windows
+    var exById={}; st.exams.forEach(function(e){ exById[e.id]=e; });
+    function examDates(exId){ var e=exById[exId]; return studyDates(start,e.date,st.avail.days); }
+    function practiceWin(exId){ var d=examDates(exId); var b=Math.min(2,Math.max(0,Math.floor(d.length*0.25))); return b>0?d.slice(-b):[]; }
+    // build tasks
+    var tasks=[];
+    topics.forEach(function(tp,ti){
+      touchesFor(tp,mode).forEach(function(tc,ci){
+        var id=tp.examId+'|'+tp.ref+'|'+tc[0];
+        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],ti:ti,done:!!done[id]});
+      });
+    });
+    // priority order: exam date, kind, topic order
+    tasks.sort(function(a,b){ if(a.examDate!==b.examDate)return a.examDate<b.examDate?-1:1; if(a.kind!==b.kind)return KINDRANK[a.kind]-KINDRANK[b.kind]; return a.ti-b.ti; });
+    var open=tasks.filter(function(t){return !t.done;});
+    open.forEach(function(t){
+      var win=practiceWin(t.examId), all=examDates(t.examId);
+      var cands;
+      if(t.kind==='practice'&&win.length){ cands=win; }
+      else { cands=all.filter(function(d){ return win.indexOf(d)<0; }); if(!cands.length)cands=all; if(t.kind==='review'&&learnDate[t.ref]){ var lc=cands.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)cands=lc; } }
+      if(!cands.length)cands=all.length?all:[t.examDate];
+      var chosen=null;
+      for(var i=0;i<cands.length;i++){ if((load[cands[i]]||0)<cap){ chosen=cands[i]; break; } }
+      if(!chosen){ chosen=cands[cands.length-1]; overflow=true; }
+      load[chosen]=(load[chosen]||0)+1;
+      if(t.kind==='learn')learnDate[t.ref]=chosen;
+      t.date=chosen;
+    });
+    if(overflow) warnings.push("It's tight — some days are over your usual load. Add study days, raise intensity, or trim topics to stay comfortable.");
+    // group
+    var byDate={}; open.forEach(function(t){ (byDate[t.date]=byDate[t.date]||[]).push(t); });
+    // per-exam progress
+    var byExam=st.exams.slice().sort(function(a,b){return a.date<b.date?-1:1;}).map(function(e){
+      var tot=tasks.filter(function(t){return t.examId===e.id;}).length;
+      var dn=tasks.filter(function(t){return t.examId===e.id&&t.done;}).length;
+      return {id:e.id,name:e.name,date:e.date,daysLeft:daysBetween(today,e.date),total:tot,done:dn};
+    });
+    return {mode:mode,today:today,start:start,started:today>=start,byDate:byDate,tasks:tasks,byExam:byExam,warnings:warnings,lastExam:lastExam,topicsCount:topics.length};
+  }
+
+  // ---- deep link + task actions ---------------------------------------------
+  function go(t){ var h='#'+t.tab+'/'+encodeURIComponent(t.system)+'/'+encodeURIComponent(t.name)+(t.mode&&t.mode!=='notes'?('/'+t.mode):''); location.hash=h; }
+  function toggle(st,id){ st.done=st.done||{}; if(st.done[id])delete st.done[id]; else st.done[id]=Date.now(); save(st); rerender(); }
+
+  // ---- Home panel ------------------------------------------------------------
+  function badge(k){ return '<span class="rp-tk-badge '+k+'">'+(k==='learn'?'Learn':k==='review'?'Review':'Practise')+'</span>'; }
+  function modeLabel(m){ return m==='sprint'?'Sprint':m==='compressed'?'Compressed':'Comfortable'; }
+  function taskRow(t){
+    var modeTxt=t.mode==='flashcards'?'Flashcards':t.mode==='questions'?'Questions':(t.skim?'Skim notes':'Read notes');
+    return '<div class="rp-task'+(t.done?' done':'')+'" data-id="'+esc(t.id)+'">'
+      +'<div class="rp-cb'+(t.done?' on':'')+'" data-tog="'+esc(t.id)+'">'+(t.done?'✓':'')+'</div>'
+      +badge(t.kind)
+      +'<div class="rp-tk-mid"><div class="rp-tk-name">'+esc(t.name)+'</div><div class="rp-tk-sub">'+esc(t.system)+' · '+modeTxt+'</div></div>'
+      +(t.done?'':'<button class="rp-start" data-go="'+esc(t.id)+'">Start</button>')+'</div>';
+  }
+  function homeHTML(st){
+    if(!st||!st.exams||!st.exams.length){
+      return '<div class="rp-panel"><div class="rp-cta" data-open="1">'
+        +'<div class="rp-cta-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 4-4"/></svg></div>'
+        +'<div class="rp-cta-tx"><div class="rp-cta-t">Plan my revision</div><div class="rp-cta-s">Tell us your exams &amp; dates — we\'ll build a day-by-day plan from your notes, flashcards &amp; questions.</div></div>'
+        +'<div class="rp-cta-go">›</div></div></div>';
+    }
+    var pl=buildPlan(st);
+    var h='<div class="rp-panel">';
+    h+='<div class="rp-dhead"><div class="rp-dhead-t"><span class="rp-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Revision Planner</div>'
+      +'<span class="rp-mode '+pl.mode+'">'+modeLabel(pl.mode)+'</span>'
+      +'<button class="rp-ibtn" data-open="1">Edit</button></div>';
+    // countdown chips
+    h+='<div class="rp-counts">'+pl.byExam.map(function(e,i){ var soon=e.daysLeft<=3; return '<div class="rp-chip"><span class="dot" style="background:'+COLORS[i%COLORS.length]+'"></span><span class="nm">'+esc(e.name||'Exam')+'</span><span class="dl'+(soon?' soon':'')+'">'+(e.daysLeft<0?'past':e.daysLeft===0?'today!':'in '+e.daysLeft+'d')+'</span></div>'; }).join('')+'</div>';
+    pl.warnings.forEach(function(w){ h+='<div class="rp-warn">'+esc(w)+'</div>'; });
+    if(!pl.started){
+      var n=daysBetween(pl.today,pl.start);
+      h+='<div class="rp-today"><div class="rp-empty">Your revision starts <b>'+niceDate(pl.start)+'</b> — in '+n+' day'+(n===1?'':'s')+'. Enjoy the break! 🌤️</div></div>';
+    } else {
+      var today=pl.byDate[pl.today]||[];
+      var doneToday=pl.tasks.filter(function(t){ var ts=st.done&&st.done[t.id]; return ts && fmt(new Date(ts))===pl.today; });
+      var totToday=today.length;
+      h+='<div class="rp-today"><div class="rp-today-h"><span class="lab">Today · '+niceDate(pl.today)+'</span>'
+        +'<span class="prog">'+(totToday?totToday+' left':'all done ✅')+(doneToday.length?' · '+doneToday.length+' done':'')+'</span></div>';
+      if(!totToday && !doneToday.length){ h+='<div class="rp-empty">Nothing scheduled today — enjoy the breather.</div>'; }
+      else { h+=today.map(taskRow).join('')+doneToday.map(taskRow).join(''); }
+      h+='</div>';
+    }
+    h+='<div class="rp-foot"><button data-full="1">View full plan →</button></div>';
+    h+='</div>';
+    return h;
+  }
+  function mountHome(container){
+    if(!container)return;
+    var inner=container.querySelector('.welcome-inner'); if(!inner)return;
+    var old=inner.querySelector('.rp-home'); if(old)old.remove();
+    var st=load();
+    var wrap=document.createElement('div'); wrap.className='rp-home'; wrap.innerHTML=homeHTML(st);
+    var brand=inner.querySelector('.wc-brand');
+    if(brand&&brand.nextSibling) inner.insertBefore(wrap, brand.nextSibling); else inner.insertBefore(wrap, inner.firstChild);
+  }
+  function rerender(){ var host=document.getElementById('homeHost'); if(host&&document.getElementById('tab-home').classList.contains('visible')) mountHome(host); }
+
+  // delegated clicks on the home panel
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var open=t.closest&&t.closest('[data-open]'); if(open){ openWizard(); return; }
+    var full=t.closest&&t.closest('[data-full]'); if(full){ openFull(); return; }
+    var tog=t.closest&&t.closest('[data-tog]'); if(tog){ var st=load(); if(st){ toggle(st,tog.getAttribute('data-tog')); } return; }
+    var gob=t.closest&&t.closest('[data-go]'); if(gob){ var st2=load(); if(st2){ var pl=buildPlan(st2); var task=pl.tasks.filter(function(x){return x.id===gob.getAttribute('data-go');})[0]; if(task) go(task); } return; }
+  });
+
+  // ---- Wizard ----------------------------------------------------------------
+  var draft=null;
+  function openWizard(){
+    var st=load();
+    draft=st?JSON.parse(JSON.stringify(st)):{exams:[{id:uid(),name:'',date:'',scope:[]}],avail:{days:[1,2,3,4,5],intensity:'normal'},startDate:todayStr(),done:{}};
+    if(!draft.avail)draft.avail={days:[1,2,3,4,5],intensity:'normal'};
+    if(!draft.startDate)draft.startDate=todayStr();
+    renderWizard();
+  }
+  function renderWizard(){
+    closeOv();
+    var ov=document.createElement('div'); ov.className='rp-ov'; ov.id='rp-ov';
+    ov.innerHTML='<div class="rp-modal"><div class="rp-mhead"><h3>Plan my revision</h3><button class="rp-x" data-x="1">✕</button></div>'
+      +'<div class="rp-body" id="rp-wiz-body">'+wizBody()+'</div>'
+      +'<div class="rp-mfoot"><div class="hint" id="rp-wiz-hint"></div><button class="rp-btn primary" id="rp-wiz-create">Create plan</button></div></div>';
+    document.body.appendChild(ov);
+    ov.addEventListener('click',function(e){ if(e.target===ov)closeOv(); });
+    wireWizard(ov);
+    updateHint();
+  }
+  function wizBody(){
+    var exs=draft.exams.map(function(ex,i){
+      var n=(ex.scope||[]).reduce(function(a,s){ return a+((s.topics&&s.topics[0]!=='all')?s.topics.length:topicsOf(s.tab,s.system).length); },0);
+      var sysN=(ex.scope||[]).length;
+      return '<div class="rp-exrow" data-ex="'+i+'">'
+        +'<input type="text" class="rp-in" data-f="name" placeholder="Exam name (e.g. Cardio-Resp)" value="'+esc(ex.name)+'">'
+        +'<input type="date" class="rp-in" data-f="date" value="'+esc(ex.date)+'" min="'+todayStr()+'">'
+        +(draft.exams.length>1?'<button class="rp-exdel" data-del="'+i+'" title="Remove">✕</button>':'')
+        +'</div>'
+        +'<button class="rp-scopebtn'+(sysN?' has':'')+'" data-scope="'+i+'">'+(sysN?('✓ '+sysN+' system'+(sysN===1?'':'s')+' · '+n+' topics'):'+ Choose what\'s on this exam')+'</button>';
+    }).join('');
+    var days='<div class="rp-days">'+[1,2,3,4,5,6,0].map(function(d){ return '<button class="rp-day'+(draft.avail.days.indexOf(d)>=0?' on':'')+'" data-dow="'+d+'">'+DOW[d].slice(0,1)+'</button>'; }).join('')+'</div>';
+    var seg='<div class="rp-seg">'+[['light','Light','~2 topics/day'],['normal','Normal','~4 topics/day'],['intense','Intense','~6 topics/day']].map(function(o){ return '<button class="'+(draft.avail.intensity===o[0]?'on':'')+'" data-int="'+o[0]+'"><div class="t">'+o[1]+'</div><div class="s">'+o[2]+'</div></button>'; }).join('')+'</div>';
+    return '<div class="rp-sec"><div class="rp-sec-h">Your exams</div><div class="rp-sec-d">Add each exam and its date.</div>'+exs+'<button class="rp-addex" data-add="1">+ Add another exam</button></div>'
+      +'<div class="rp-sec"><div class="rp-sec-h">When do you study?</div><div class="rp-sec-d">Pick the days you\'ll revise, and how hard you\'ll go.</div>'+days+'<div style="height:12px"></div>'+seg+'</div>'
+      +'<div class="rp-sec"><div class="rp-sec-h">Start date</div><div class="rp-sec-d" id="rp-start-hint">When do you want to begin?</div><input type="date" class="rp-in" id="rp-startdate" value="'+esc(draft.startDate)+'" min="'+todayStr()+'"></div>';
+  }
+  function refreshBody(ov){ ov.querySelector('#rp-wiz-body').innerHTML=wizBody(); wireBody(ov); updateHint(); }
+  function wireWizard(ov){ ov.querySelector('[data-x]').onclick=closeOv; ov.querySelector('#rp-wiz-create').onclick=function(){ createPlan(); }; wireBody(ov); }
+  function wireBody(ov){
+    ov.querySelectorAll('.rp-exrow input').forEach(function(inp){ inp.oninput=function(){ var i=+inp.closest('[data-ex]').getAttribute('data-ex'); draft.exams[i][inp.getAttribute('data-f')]=inp.value; updateHint(); }; });
+    ov.querySelectorAll('[data-del]').forEach(function(b){ b.onclick=function(){ draft.exams.splice(+b.getAttribute('data-del'),1); refreshBody(ov); }; });
+    ov.querySelectorAll('[data-scope]').forEach(function(b){ b.onclick=function(){ openScope(+b.getAttribute('data-scope')); }; });
+    var add=ov.querySelector('[data-add]'); if(add)add.onclick=function(){ draft.exams.push({id:uid(),name:'',date:'',scope:[]}); refreshBody(ov); };
+    ov.querySelectorAll('[data-dow]').forEach(function(b){ b.onclick=function(){ var d=+b.getAttribute('data-dow'); var idx=draft.avail.days.indexOf(d); if(idx>=0)draft.avail.days.splice(idx,1); else draft.avail.days.push(d); b.classList.toggle('on'); updateHint(); }; });
+    ov.querySelectorAll('[data-int]').forEach(function(b){ b.onclick=function(){ draft.avail.intensity=b.getAttribute('data-int'); ov.querySelectorAll('[data-int]').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); updateHint(); }; });
+    var sd=ov.querySelector('#rp-startdate'); if(sd)sd.onchange=function(){ draft.startDate=sd.value||todayStr(); updateHint(); };
+  }
+  function validDraft(){ return draft.exams.some(function(e){return e.name&&e.date&&(e.scope||[]).length;}); }
+  function updateHint(){
+    var ov=document.getElementById('rp-ov'); if(!ov)return;
+    var btn=ov.querySelector('#rp-wiz-create'); var hint=ov.querySelector('#rp-wiz-hint');
+    var ready=validDraft(); btn.disabled=!ready;
+    if(!ready){ hint.textContent='Add at least one exam with a name, date, and topics.'; return; }
+    // proposed start + mode preview
+    var topics=expandTopics(draft), mode=computeMode(draft,topics);
+    var cap=CAP[draft.avail.intensity]||4, earliest=earliestExam(draft);
+    var touches=0; topics.forEach(function(t){touches+=t.hasCards?3:2;});
+    var needed=Math.ceil(touches/cap)+2;
+    // recommended start = go back 'needed' study-days from earliest exam
+    var rec=earliest, count=0, guard=0; while(count<needed&&guard++<800){ rec=addDays(rec,-1); if(draft.avail.days.indexOf(weekday(rec))>=0)count++; }
+    var recTxt=(rec<=todayStr())?'as soon as possible':('by '+niceDate(rec));
+    var sh=ov.querySelector('#rp-start-hint'); if(sh)sh.innerHTML='Recommended: start <b>'+recTxt+'</b> to cover this comfortably.';
+    hint.innerHTML='<b>'+topics.length+' topics</b> · plan mode: <b>'+modeLabel(mode)+'</b>'+(mode==='sprint'?' — tight, so it\'ll skim early and drill practice near the exam.':'');
+  }
+  function createPlan(){ if(!validDraft())return; draft.updatedAt=Date.now(); if(!draft.done)draft.done={}; save(draft); closeOv(); rerender(); }
+
+  // ---- scope picker ----------------------------------------------------------
+  function openScope(exIndex){
+    var ex=draft.exams[exIndex];
+    var chosen={}; (ex.scope||[]).forEach(function(s){ chosen[s.tab+'||'+s.system]=1; });
+    var ov=document.createElement('div'); ov.className='rp-ov'; ov.id='rp-scope-ov'; ov.style.zIndex='5300';
+    var groups=TABS.map(function(tb){
+      var syss=systemsOf(tb[0]); if(!syss.length)return '';
+      return '<div class="rp-tabgrp"><div class="rp-tabgrp-h">'+esc(tb[1])+'</div><div class="rp-syschips">'
+        +syss.map(function(s){ var k=tb[0]+'||'+s; var n=topicsOf(tb[0],s).length; return '<button class="rp-syschip'+(chosen[k]?' on':'')+'" data-sys="'+esc(k)+'">'+esc(s)+'<span class="ct">'+n+'</span></button>'; }).join('')
+        +'</div></div>';
+    }).join('');
+    ov.innerHTML='<div class="rp-modal"><div class="rp-mhead"><h3>What\'s on '+(esc(ex.name)||'this exam')+'?</h3><button class="rp-x" data-x="1">✕</button></div>'
+      +'<div class="rp-body"><div class="rp-sec-d">Tick every system this exam covers. Your own custom topics live under “My Topics”.</div>'+groups+'</div>'
+      +'<div class="rp-mfoot"><div class="hint" id="rp-scope-hint"></div><button class="rp-btn primary" data-done="1">Done</button></div></div>';
+    document.body.appendChild(ov);
+    function upd(){ var n=Object.keys(chosen).length; ov.querySelector('#rp-scope-hint').textContent=n+' system'+(n===1?'':'s')+' selected'; }
+    ov.querySelectorAll('[data-sys]').forEach(function(b){ b.onclick=function(){ var k=b.getAttribute('data-sys'); if(chosen[k])delete chosen[k]; else chosen[k]=1; b.classList.toggle('on'); upd(); }; });
+    ov.querySelector('[data-x]').onclick=function(){ ov.remove(); };
+    ov.querySelector('[data-done]').onclick=function(){
+      ex.scope=Object.keys(chosen).map(function(k){ var p=k.split('||'); return {tab:p[0],system:p[1],topics:['all']}; });
+      ov.remove(); var w=document.getElementById('rp-ov'); if(w)refreshBody(w);
+    };
+    ov.addEventListener('click',function(e){ if(e.target===ov)ov.remove(); });
+    upd();
+  }
+
+  // ---- full plan view --------------------------------------------------------
+  function openFull(){
+    var st=load(); if(!st)return; var pl=buildPlan(st);
+    closeOv();
+    var dates=Object.keys(pl.byDate).sort();
+    var exByDate={}; st.exams.forEach(function(e){ exByDate[e.date]=e.name||'Exam'; });
+    var body;
+    if(!dates.length){ body='<div class="rp-empty">All tasks are done — nothing left to schedule. 🎉</div>'; }
+    else body=dates.map(function(d){
+      var isToday=d===pl.today;
+      return '<div class="rp-daygrp"><div class="rp-daygrp-h"><span class="d">'+niceDate(d)+'</span><span class="w">'+pl.byDate[d].length+' task'+(pl.byDate[d].length===1?'':'s')+'</span>'
+        +(isToday?'<span class="today">TODAY</span>':'')
+        +(exByDate[d]?'<span class="exday">'+esc(exByDate[d])+' exam</span>':'')
+        +'</div>'+pl.byDate[d].map(taskRow).join('')+'</div>';
+    }).join('');
+    var ov=document.createElement('div'); ov.className='rp-ov'; ov.id='rp-ov';
+    ov.innerHTML='<div class="rp-modal"><div class="rp-mhead"><h3>Full revision plan</h3><span class="rp-mode '+pl.mode+'">'+modeLabel(pl.mode)+'</span><button class="rp-x" data-x="1">✕</button></div>'
+      +'<div class="rp-body">'+body+'</div>'
+      +'<div class="rp-mfoot"><div class="hint">'+pl.topicsCount+' topics across '+st.exams.length+' exam'+(st.exams.length===1?'':'s')+'. Ticking a task here updates everywhere.</div><button class="rp-btn ghost" data-x="1">Close</button></div></div>';
+    document.body.appendChild(ov);
+    ov.querySelectorAll('[data-x]').forEach(function(b){ b.onclick=closeOv; });
+    ov.addEventListener('click',function(e){ if(e.target===ov)closeOv(); });
+  }
+  function closeOv(){ var o=document.getElementById('rp-ov'); if(o)o.remove(); }
+
+  // ---- mount into Home -------------------------------------------------------
+  var _rh=window.renderHome;
+  window.renderHome=function(){ if(_rh)_rh.apply(this,arguments); try{ mountHome(document.getElementById('homeHost')); }catch(e){} };
+  window.RevPlanner={open:openWizard,rerender:rerender};
+  // initial mount if home is already painted
+  function initMount(){ var host=document.getElementById('homeHost'); if(host&&host.querySelector('.welcome-inner')) mountHome(host); }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(initMount,60); }); else setTimeout(initMount,60);
+})();
+</script>
 </body>
 </html>
