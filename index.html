@@ -9102,19 +9102,15 @@ function restoreFromHash() {
     console.warn('[route] no topic "' + topic + '" in ' + system + ' — showing the system instead');
     return;
   }
-  // selectTopic is async (it awaits ensureSystemLoaded, then resets the view to
-  // Notes). Apply the requested mode AFTER it resolves, or Notes clobbers it.
-  var _sel = selectTopic(tab, topic, true);
-  if (mode !== 'notes') {
-    var applyMode = function(){
-      var modeBar = document.getElementById('modeBar-' + tab);
-      if (modeBar) {
-        var modeEl = modeBar.querySelector('.mode-tab[onclick*="\'' + mode + '\'"]');
-        if (modeEl) switchMode(tab, mode, modeEl, true);
-      }
-    };
-    if (_sel && typeof _sel.then === 'function') _sel.then(applyMode); else setTimeout(applyMode, 30);
-  }
+  // selectTopic finishes asynchronously — it waits for the system's content and
+  // then resets the view to Notes — so switching the mode here would be undone a
+  // moment later, and a /flashcards or /questions link would always land on the
+  // notes. Waiting on its return value does not work either: it is wrapped by
+  // the paywall gate and the custom-topics layer, both of which return undefined.
+  // Hand the mode to selectTopic instead and let it apply that last, pinned to
+  // the topic it was asked for so it cannot leak onto a later one.
+  st.pendingMode = (mode && mode !== 'notes') ? {topic: topic, mode: mode} : null;
+  selectTopic(tab, topic, true);
 }
 
 window.addEventListener('hashchange', restoreFromHash);
@@ -9211,7 +9207,7 @@ function selectSystem(p, name, skipHash) {
   if (typeof daCloseNotePopup === 'function') daCloseNotePopup();
   const cl = document.querySelector('#tab-' + p + ' .condition-list');
   if (cl) cl.style.setProperty('--sc', SYS_COLOR_DEFAULT);
-  const st = getState(p); st.activeSystem = name; st.activeTopic = null; ensureSystemLoaded(name);
+  const st = getState(p); st.activeSystem = name; st.activeTopic = null; st.pendingMode = null; ensureSystemLoaded(name);
   const data = getTabData(p); const sysData = data[name] || {};
   const topics = sysData.conditions || sysData.topics || [];
   document.querySelectorAll('#syslist-' + p + ' .system-item').forEach(el => el.classList.toggle('active', el.querySelector('.system-name').textContent === name));
@@ -9263,6 +9259,15 @@ async function selectTopic(p, name, skipHash) {
   const notesPanel = document.getElementById('notes-panel-' + p);
   if (notesPanel) notesPanel.classList.add('visible');
   loadNote(p, name);
+  // A route may have asked for flashcards or questions rather than the notes.
+  // Consume it here, after the reset above, and always clear it so a pending
+  // mode can never leak onto a later topic.
+  const want = st.pendingMode; st.pendingMode = null;
+  if (want && want.topic === name) {
+    const mb = document.getElementById('modeBar-' + p);
+    const mEl = mb ? mb.querySelector('.mode-tab[onclick*="\'' + want.mode + '\'"]') : null;
+    if (mEl) switchMode(p, want.mode, mEl, true);
+  }
   if (!skipHash) updateHash(p, st.activeSystem, name, 'notes');
 }
 
@@ -19682,8 +19687,10 @@ function hideFlyout(p) {
     if(tab==='pharmacology') return {cards:true, questions:false,mock:true };  // a deck per subsection; no per-topic MCQs, but a mock paper
     if(tab==='conditions'){ var m=RP_MAN[sys], c=m?m.hasCards:true; return {cards:c,questions:c,mock:c}; }
     // Anatomy & histology ship real flashcard decks AND MCQ banks (keyed
-    // anatomy__/histology__<SYSTEM>__<Topic> in content/cards), so they get the
-    // full three-stage treatment like conditions.
+    // anatomy__/histology__<SYSTEM>__<Topic> in content/cards) for every one of
+    // their topics — 54/54 and 69/69 — so they get the full treatment like
+    // conditions. OSCE genuinely has neither (0/149) and stays notes-only.
+
     if(tab==='anatomy'||tab==='histology'||tab==='signs'||tab==='investigations') return {cards:true,questions:true,mock:true};
     return {cards:false,questions:false,mock:false};
   }
