@@ -19493,6 +19493,7 @@ function hideFlyout(p) {
   .rp-tk-badge.learn{background:#EBF2FF;color:#3B7DD8;}
   .rp-tk-badge.review{background:#E3F6F9;color:#1A9BA8;}
   .rp-tk-badge.practice{background:#FEF5E4;color:#B86B00;}
+  .rp-tk-badge.mock{background:#F0EBFF;color:#6B45B8;}
   .rp-tk-mid{flex:1;min-width:0;}
   .rp-tk-name{font-size:13.5px;font-weight:700;color:#1E2640;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .rp-tk-sub{font-size:11px;color:#9CA3AF;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -19562,7 +19563,7 @@ function hideFlyout(p) {
   var CAP={light:2,normal:4,intense:6};
   var TABS=[['conditions','Medical Conditions'],['signs','Signs & Symptoms'],['investigations','Investigations'],['anatomy','Anatomy'],['histology','Histology'],['osce','OSCE']];
   var COLORS=['#00C2A8','#3B7DD8','#B86B00','#6B45B8','#C93535','#1F8B5E'];
-  var KINDRANK={learn:0,review:1,practice:2};
+  var KINDRANK={learn:0,review:1,practice:2,mock:3};
   var RP_MAN={};   // system -> {hasCards} from manifest (conditions systems)
   try{ if(window.loadManifest) window.loadManifest().then(function(m){ (m&&m.systems||[]).forEach(function(s){ RP_MAN[s.name]={hasCards:!!s.hasCards}; }); }); }catch(e){}
 
@@ -19625,19 +19626,24 @@ function hideFlyout(p) {
     var avail=studyDates(start,earliest,st.avail.days).length;
     var buffer=Math.min(2,Math.max(0,Math.floor(avail*0.25)));
     var eff=Math.max(1,avail-buffer);
-    var touches=0; topics.forEach(function(tp){ touches+=tp.hasCards?3:2; });
+    var touches=0; topics.forEach(function(tp){ touches+=tp.hasCards?4:2; });
     var needed=Math.ceil(touches/cap);
     var ratio=eff/Math.max(1,needed);
     return ratio>=1?'comfortable':(ratio>=0.6?'compressed':'sprint');
   }
+  // Per-topic touches, grouped into stages. tc = [kind, mode, skim, stage].
+  //  Stage 1 = LEARN (read notes, then learn the flashcards)
+  //  Stage 2 = REVIEW the flashcards + do the MCQs
+  //  Stage 3 (added per-exam, not here) = a MOCK across all the exam's topics.
   function touchesFor(tp,mode){
     if(tp.hasCards){
-      if(mode==='comfortable') return [['learn','notes',0],['review','flashcards',0],['practice','questions',0]];
-      if(mode==='compressed') return [['learn','notes',0],['practice','questions',0]];
-      return [['learn','notes',1],['practice','questions',0]];
+      if(mode==='comfortable') return [['learn','notes',0,1],['learn','flashcards',0,1],['review','flashcards',0,2],['practice','questions',0,2]];
+      if(mode==='compressed')  return [['learn','notes',0,1],['learn','flashcards',0,1],['practice','questions',0,2]];
+      return [['learn','notes',1,1],['practice','questions',0,2]];   // sprint: skim + MCQs
     }
-    if(mode==='comfortable') return [['learn','notes',0],['review','notes',0]];
-    return [['learn','notes',mode==='sprint'?1:0]];
+    // notes-only topics (e.g. OSCE, some anatomy): no cards/MCQs to weave in
+    if(mode==='comfortable') return [['learn','notes',0,1],['review','notes',0,2]];
+    return [['learn','notes',mode==='sprint'?1:0,1]];
   }
   // Build the full plan: pack outstanding (not-done) touches onto study days from
   // packStart forward. Missed days fall out naturally (packStart = today), so an
@@ -19652,29 +19658,44 @@ function hideFlyout(p) {
     // exam study-day windows
     var exById={}; st.exams.forEach(function(e){ exById[e.id]=e; });
     function examDates(exId){ var e=exById[exId]; return studyDates(start,e.date,st.avail.days); }
-    function practiceWin(exId){ var d=examDates(exId); var b=Math.min(2,Math.max(0,Math.floor(d.length*0.25))); return b>0?d.slice(-b):[]; }
-    // build tasks
+    // Reserve the final study day(s) before each exam for the Stage-3 mock.
+    function mockWin(exId){ var d=examDates(exId); if(!d.length)return []; var b=Math.min(2,Math.max(1,Math.floor(d.length*0.2))); return d.slice(-Math.min(b,d.length)); }
+    // build tasks (Stage 1 & 2, per topic)
     var tasks=[];
     topics.forEach(function(tp,ti){
-      touchesFor(tp,mode).forEach(function(tc,ci){
-        var id=tp.examId+'|'+tp.ref+'|'+tc[0];
-        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],ti:ti,done:!!done[id]});
+      touchesFor(tp,mode).forEach(function(tc){
+        var id=tp.examId+'|'+tp.ref+'|'+tc[0]+'|'+tc[1];   // include mode so notes-learn and cards-learn are distinct
+        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],stage:tc[3],ti:ti,done:!!done[id]});
       });
     });
-    // priority order: exam date, kind, topic order
-    tasks.sort(function(a,b){ if(a.examDate!==b.examDate)return a.examDate<b.examDate?-1:1; if(a.kind!==b.kind)return KINDRANK[a.kind]-KINDRANK[b.kind]; return a.ti-b.ti; });
+    // Stage 3: one (or two) mock exams per exam that has any MCQ-bearing systems.
+    st.exams.forEach(function(e){
+      var mockable=(e.scope||[]).some(function(sc){ return cardsAvail(sc.tab,sc.system); });
+      if(!mockable) return;
+      var nMock=(mode==='comfortable')?2:1;
+      for(var mi=0;mi<nMock;mi++){
+        var id=e.id+'|__mock__|'+mi;
+        tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,ti:9999+mi,done:!!done[id]});
+      }
+    });
+    // priority order: exam date, then stage, then kind, then topic order
+    tasks.sort(function(a,b){ if(a.examDate!==b.examDate)return a.examDate<b.examDate?-1:1; if((a.stage||1)!==(b.stage||1))return (a.stage||1)-(b.stage||1); if(a.kind!==b.kind)return KINDRANK[a.kind]-KINDRANK[b.kind]; return a.ti-b.ti; });
     var open=tasks.filter(function(t){return !t.done;});
     open.forEach(function(t){
-      var win=practiceWin(t.examId), all=examDates(t.examId);
+      var all=examDates(t.examId), mwin=mockWin(t.examId);
       var cands;
-      if(t.kind==='practice'&&win.length){ cands=win; }
-      else { cands=all.filter(function(d){ return win.indexOf(d)<0; }); if(!cands.length)cands=all; if(t.kind==='review'&&learnDate[t.ref]){ var lc=cands.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)cands=lc; } }
+      if(t.stage===3){ cands=mwin.length?mwin:all; }
+      else {
+        cands=all.filter(function(d){ return mwin.indexOf(d)<0; }); if(!cands.length)cands=all;
+        // Stage-2 activities (review / MCQs) come strictly after the topic was first learnt.
+        if((t.kind==='review'||t.kind==='practice') && learnDate[t.ref]){ var lc=cands.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)cands=lc; }
+      }
       if(!cands.length)cands=all.length?all:[t.examDate];
       var chosen=null;
       for(var i=0;i<cands.length;i++){ if((load[cands[i]]||0)<cap){ chosen=cands[i]; break; } }
       if(!chosen){ chosen=cands[cands.length-1]; overflow=true; }
       load[chosen]=(load[chosen]||0)+1;
-      if(t.kind==='learn')learnDate[t.ref]=chosen;
+      if(t.kind==='learn'&&t.mode==='notes')learnDate[t.ref]=chosen;   // anchor spacing to the notes-learn
       t.date=chosen;
     });
     if(overflow) warnings.push("It's tight — some days are over your usual load. Add study days, raise intensity, or trim topics to stay comfortable.");
@@ -19690,14 +19711,14 @@ function hideFlyout(p) {
   }
 
   // ---- deep link + task actions ---------------------------------------------
-  function go(t){ var h='#'+t.tab+'/'+encodeURIComponent(t.system)+'/'+encodeURIComponent(t.name)+(t.mode&&t.mode!=='notes'?('/'+t.mode):''); location.hash=h; }
+  function go(t){ if(t.kind==='mock'){ if(window.openMock) window.openMock(); else location.hash='#mock'; return; } var h='#'+t.tab+'/'+encodeURIComponent(t.system)+'/'+encodeURIComponent(t.name)+(t.mode&&t.mode!=='notes'?('/'+t.mode):''); location.hash=h; }
   function toggle(st,id){ st.done=st.done||{}; if(st.done[id])delete st.done[id]; else st.done[id]=Date.now(); save(st); rerender(); }
 
   // ---- Home panel ------------------------------------------------------------
-  function badge(k){ return '<span class="rp-tk-badge '+k+'">'+(k==='learn'?'Learn':k==='review'?'Review':'Practise')+'</span>'; }
+  function badge(k){ var l=k==='learn'?'Learn':k==='review'?'Review':k==='mock'?'Mock':'Practise'; return '<span class="rp-tk-badge '+k+'">'+l+'</span>'; }
   function modeLabel(m){ return m==='sprint'?'Sprint':m==='compressed'?'Compressed':'Comfortable'; }
   function taskRow(t){
-    var modeTxt=t.mode==='flashcards'?'Flashcards':t.mode==='questions'?'Questions':(t.skim?'Skim notes':'Read notes');
+    var modeTxt=t.kind==='mock'?'All topics · timed paper':t.mode==='flashcards'?(t.kind==='learn'?'Learn flashcards':'Review flashcards'):t.mode==='questions'?'MCQs':(t.skim?'Skim notes':'Read notes');
     return '<div class="rp-task'+(t.done?' done':'')+'" data-id="'+esc(t.id)+'">'
       +'<div class="rp-cb'+(t.done?' on':'')+'" data-tog="'+esc(t.id)+'">'+(t.done?'✓':'')+'</div>'
       +badge(t.kind)
