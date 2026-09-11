@@ -19688,6 +19688,35 @@ function hideFlyout(p) {
   // pack for free. Fall back to the median topic.
   var RP_TYPICAL=[1100,25,20];
   function sizeOf(tp){ return RP_SIZE[tp.tab+'__'+tp.system+'__'+tp.name] || RP_TYPICAL; }
+  // Which group of related topics this one belongs to. Topics the index has not
+  // heard of stand alone rather than being lumped together by accident.
+  function clusterOf(tp){ var z=sizeOf(tp); return (z.length>3&&z[3]!=null)?('c'+z[3]):('~'+tp.tab+'/'+tp.system+'/'+tp.name); }
+  // Keep a cluster's topics adjacent, but rotate between systems so no single
+  // system is delivered in one long block. Order within a cluster, and the order
+  // the clusters first appear, both follow the order the topics came in.
+  function interleaveTopics(topics){
+    var cl={}, clOrder=[], bySys={}, sysOrder=[];
+    topics.forEach(function(tp){
+      var key=tp.tab+'||'+tp.system+'||'+clusterOf(tp);
+      if(!cl[key]){ cl[key]=[]; clOrder.push(key);
+        var sys=tp.tab+'||'+tp.system;
+        if(!bySys[sys]){ bySys[sys]=[]; sysOrder.push(sys); }
+        bySys[sys].push(key);
+      }
+      cl[key].push(tp);
+    });
+    if(sysOrder.length<2 && clOrder.length<2) return topics;
+    var out=[], round=0, more=true;
+    while(more){
+      more=false;
+      for(var i=0;i<sysOrder.length;i++){
+        var q=bySys[sysOrder[i]];
+        if(round<q.length){ more=true; out=out.concat(cl[q[round]]); }
+      }
+      round++;
+    }
+    return out.length===topics.length?out:topics;
+  }
   // Minutes for one touch. Reading is costed at 130 words a minute (studying,
   // not skimming), a new card at 20s, a card being reviewed at 9s, and an MCQ at
   // 65s including reading the explanation.
@@ -19878,7 +19907,7 @@ function hideFlyout(p) {
     var exById={}; exams.forEach(function(e){ exById[e.id]=e; });
 
     // topics (deduped to earliest exam) + a per-exam feasibility mode
-    var topics=expandTopics({exams:exams});
+    var topics=interleaveTopics(expandTopics({exams:exams}));
     var topicsByExam={}; topics.forEach(function(tp){ (topicsByExam[tp.examId]=topicsByExam[tp.examId]||[]).push(tp); });
     var modeByExam={}; exams.forEach(function(e){ modeByExam[e.id]=modeForExam(st,e,topicsByExam[e.id]||[]); });
     var ord={comfortable:0,compressed:1,sprint:2}, mode='comfortable';
@@ -19890,7 +19919,7 @@ function hideFlyout(p) {
       var m=modeByExam[tp.examId]||'comfortable';
       stagesFor(tp,m).forEach(function(tc){
         var id=tp.examId+'|'+tp.ref+'|'+tc[0]+'|'+tc[1];
-        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],stage:tc[3],mins:costOf(tp,tc[0],tc[1],tc[2]),ti:ti,done:!!done[id]});
+        tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],stage:tc[3],mins:costOf(tp,tc[0],tc[1],tc[2]),cl:clusterOf(tp),ti:ti,done:!!done[id]});
       });
     });
     exams.forEach(function(e){
@@ -19978,6 +20007,7 @@ function hideFlyout(p) {
     // The papers are placed first, working back from the exam, so the dress
     // rehearsal takes the last study day and no day ends up carrying two of
     // them. Everything else then packs around what they have claimed.
+    var clusterDay={};   // group+stage -> the day that group settled on
     var mockTaken={};
     open.filter(function(t){ return t.kind==='mock'; })
         .sort(function(a,b){ return (b.at||0)-(a.at||0); })
@@ -20000,7 +20030,17 @@ function hideFlyout(p) {
       // A mock has a place it wants in the ramp, so take the nearest day that
       // fits rather than the least-loaded one — otherwise every paper drifts to
       // whichever day happens to be quiet and the build-up is lost.
-      var best=(t.stage===3&&t.at!=null&&days.length)?nearestFit(days,t.at,t.mins||10):pick(days,t.mins||10);
+      // Ordering alone does not keep a group together: the even-spread picker
+      // sends each consecutive task to whichever day is emptiest, which scatters
+      // the aortic work across a fortnight. So the first task of a group settles
+      // on a day the normal way, and the rest of the group is pulled to that day
+      // or the nearest one with room.
+      var ck=t.cl+'|'+t.stage, anchor=clusterDay[ck], best=null;
+      if(t.kind!=='mock' && anchor!=null && days.length){
+        var ai=days.indexOf(anchor);
+        if(ai>=0) best=nearestFit(days,days.length>1?ai/(days.length-1):1,t.mins||10);
+      }
+      if(best==null) best=(t.stage===3&&t.at!=null&&days.length)?nearestFit(days,t.at,t.mins||10):pick(days,t.mins||10);
       if(best==null){
         // Stage window full — spill into the exam's whole window (keeps phase
         // preference but doesn't waste capacity). Only drop if the WHOLE run-up is full.
@@ -20010,6 +20050,7 @@ function hideFlyout(p) {
       }
       if(best==null){ dropped++; return; }   // genuinely infeasible → triage this touch out
       load[best]=(load[best]||0)+(t.mins||10);   // a task always costs something
+      if(t.kind!=='mock' && clusterDay[ck]==null) clusterDay[ck]=best;
       if(t.stage===1 && t.mode==='notes') learnDate[t.ref]=best;
       t.date=best;
     });
