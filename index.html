@@ -510,11 +510,12 @@ body{display:flex;flex-direction:column;}
 
 /* ---- Stage 2b: cards in a row line up ----------------------------------
    A card whose name wraps to two lines pushed its header/body divider ~19px
-   below its neighbours'. The head now has a floor and the body takes the
-   slack, so the dividers align across a row. */
+   below its neighbours', so the head now has a floor and the dividers align
+   across a row. The grid also aligns to start: stretching every card to the
+   tallest in its row left up to 172px of dead white inside the short ones. */
+#tab-investigations .cp-killgrid{align-items:start;}
 #tab-investigations .cp-kill{display:flex;flex-direction:column;}
 #tab-investigations .cp-kill-top{min-height:46px;}
-#tab-investigations .cp-kill-desc{flex:1 1 auto;}
 #tab-investigations .cp-kill .cp-dx{white-space:nowrap;}
 
 /* ---- Stage 3: clue rows keep their card --------------------------------
@@ -527,17 +528,26 @@ body{display:flex;flex-direction:column;}
   background:var(--rn-card,#fff);
   border-left:1.5px solid var(--rn-border,#E2E6F0);
   border-right:1.5px solid var(--rn-border,#E2E6F0);
-  padding:12px 20px;}
-#tab-investigations .cp-clue:not(.cp-clue + .cp-clue){
   border-top:1.5px solid var(--rn-border,#E2E6F0);
-  border-radius:12px 12px 0 0;margin-top:12px;}
-#tab-investigations .cp-clue:not(:has(+ .cp-clue)){
   border-bottom:1.5px solid var(--rn-border,#E2E6F0);
-  border-radius:0 0 12px 12px;margin-bottom:12px;}
+  border-top-left-radius:12px;border-top-right-radius:12px;
+  border-bottom-left-radius:12px;border-bottom-right-radius:12px;
+  margin-top:12px;margin-bottom:12px;padding:12px 20px;}
+/* mid-run rows drop the caps so a run reads as one card. Longhands only:
+   a border-radius shorthand here would let the first-of-run rule, which is
+   one class more specific, square off the last row's bottom corners. */
+#tab-investigations .cp-clue + .cp-clue{
+  border-top:none;
+  border-top-left-radius:0;border-top-right-radius:0;margin-top:0;}
+#tab-investigations .cp-clue:has(+ .cp-clue){
+  border-bottom:1px solid var(--rn-border,#EEF1F7);
+  border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0;}
 /* inside a step card they are plain divider rows, as before */
 #tab-investigations .cp-step .cp-step-body .cp-clue{
   background:none;border-left:none;border-right:none;border-top:none;
-  border-radius:0;margin:0;padding:12px 4px;
+  border-top-left-radius:0;border-top-right-radius:0;
+  border-bottom-left-radius:0;border-bottom-right-radius:0;
+  margin:0;padding:12px 4px;
   border-bottom:1px solid var(--rn-border,#EEF1F7);}
 #tab-investigations .cp-step .cp-step-body .cp-clue:last-child{border-bottom:none;}
 
