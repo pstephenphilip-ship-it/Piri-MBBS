@@ -553,10 +553,19 @@ body{display:flex;flex-direction:column;}
   border-bottom-left-radius:0;border-bottom-right-radius:0;
   margin:0;padding:12px 4px;
   border-bottom:1px solid var(--rn-border,#EEF1F7);}
-#tab-investigations .cp-step .cp-step-body .cp-clue:last-child{border-bottom:none;}
-/* The last row of a run carries the clearance, so prose that follows as a
-   bare text node still clears the divider (measured 0px before). */
-#tab-investigations .cp-step .cp-step-body .cp-clue:not(:has(+ .cp-clue)){margin-bottom:12px;}
+/* The divider goes on the last row of a RUN, not just on :last-child: a run
+   followed by a grid, a chip row or a paragraph was leaving a stray hairline
+   hanging under it (463 of them on the tab). The same row carries the
+   clearance, so prose that follows as a bare text node clears it too. */
+#tab-investigations .cp-step .cp-step-body .cp-clue:not(:has(+ .cp-clue)){
+  border-bottom:none;margin-bottom:12px;}
+#tab-investigations .cp-step .cp-step-body .cp-clue:last-child{margin-bottom:0;}
+
+/* A .cp-lead authored INSIDE a step body drew a bordered, shadowed card
+   within the step's own card (22 instances). In that position it is just the
+   step's opening paragraph. */
+#tab-investigations .cp-step-body .cp-lead{
+  background:none;border:none;box-shadow:none;padding:0;margin:0 0 10px;}
 
 /* ---- Stage 4: type scale ------------------------------------------------
    Mirrors the pass Signs & Symptoms got on these same components. The tab was
@@ -604,6 +613,10 @@ body{display:flex;flex-direction:column;}
    single-row, so the exemption is scoped to exactly that case. */
 #tab-investigations .cp-clue:not(.cp-clue + .cp-clue):not(:has(+ .cp-clue)) > .cp-when{
   flex:0 1 auto;max-width:60%;}
+/* the answer column has to be released too, or it holds its 52% basis and
+   squeezes the label back into two lines */
+#tab-investigations .cp-clue:not(.cp-clue + .cp-clue):not(:has(+ .cp-clue)) > .cp-then{
+  flex:1 1 auto;}
 
 /* .cp-warn is a flex row (icon + body). Where clue rows are authored directly
    inside one they became sibling COLUMNS 41-66px wide, breaking words
