@@ -19530,9 +19530,8 @@ function hideFlyout(p) {
   .rp-cb.on{background:#00C2A8;border-color:#00C2A8;}
   .rp-tk-badge{font-size:9px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:6px;flex-shrink:0;}
   .rp-tk-badge.learn{background:#EBF2FF;color:#3B7DD8;}
-  .rp-tk-badge.review{background:#E3F6F9;color:#1A9BA8;}
-  .rp-tk-badge.practice{background:#FEF5E4;color:#B86B00;}
-  .rp-tk-badge.mock{background:#F0EBFF;color:#6B45B8;}
+  .rp-tk-badge.recall{background:#E3F6F9;color:#1A9BA8;}
+  .rp-tk-badge.exam{background:#F0EBFF;color:#6B45B8;}
   .rp-tk-mid{flex:1;min-width:0;}
   .rp-tk-name{font-size:13.5px;font-weight:700;color:#1E2640;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .rp-tk-sub{font-size:11px;color:#9CA3AF;margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
@@ -19798,13 +19797,17 @@ function hideFlyout(p) {
   function toggle(st,id){ st.done=st.done||{}; if(st.done[id])delete st.done[id]; else st.done[id]=Date.now(); save(st); rerender(); }
 
   // ---- Home panel ------------------------------------------------------------
-  function badge(k){ var l=k==='learn'?'Learn':k==='review'?'Review':k==='mock'?'Mock':'Practise'; return '<span class="rp-tk-badge '+k+'">'+l+'</span>'; }
+  // Badge by STAGE, not activity: Learning / Active recall / Exam practice.
+  function badge(t){ var s=t.stage||1; var l=s===1?'Learning':s===2?'Active recall':'Exam practice'; var cls=s===1?'learn':s===2?'recall':'exam'; return '<span class="rp-tk-badge '+cls+'">'+l+'</span>'; }
   function modeLabel(m){ return m==='sprint'?'Sprint':m==='compressed'?'Compressed':'Comfortable'; }
   function taskRow(t){
-    var modeTxt=t.kind==='mock'?'All topics · timed paper':t.mode==='flashcards'?(t.kind==='learn'?'Learn flashcards':'Review flashcards'):t.mode==='questions'?'MCQs':(t.skim?'Skim notes':'Read notes');
+    var modeTxt=t.kind==='mock'?'All topics · timed paper'
+      :t.mode==='flashcards'?(t.kind==='learn'?'Learn flashcards':'Review flashcards')
+      :t.mode==='questions'?'MCQs'
+      :(t.stage===3?'Final notes review':t.kind==='review'?'Review notes':(t.skim?'Skim notes':'Read notes'));
     return '<div class="rp-task'+(t.done?' done':'')+'" data-id="'+esc(t.id)+'">'
       +'<div class="rp-cb'+(t.done?' on':'')+'" data-tog="'+esc(t.id)+'">'+(t.done?'✓':'')+'</div>'
-      +badge(t.kind)
+      +badge(t)
       +'<div class="rp-tk-mid"><div class="rp-tk-name">'+esc(t.name)+'</div><div class="rp-tk-sub">'+esc(t.system)+' · '+modeTxt+'</div></div>'
       +(t.done?'':'<button class="rp-start" data-go="'+esc(t.id)+'">Start</button>')+'</div>';
   }
