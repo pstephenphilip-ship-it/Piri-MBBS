@@ -19759,7 +19759,7 @@ function hideFlyout(p) {
     var reset=t.closest&&t.closest('[data-reset]'); if(reset){ if(confirm('Delete your revision plan and start over?')){ MEM=null; try{ localStorage.removeItem(KEY); }catch(e){} rerender(); } return; }
     var full=t.closest&&t.closest('[data-full]'); if(full){ openFull(); return; }
     var tog=t.closest&&t.closest('[data-tog]'); if(tog){ var st=load(); if(st){ toggle(st,tog.getAttribute('data-tog')); } return; }
-    var gob=t.closest&&t.closest('[data-go]'); if(gob){ var st2=load(); if(st2){ var pl=buildPlan(st2); var task=pl.tasks.filter(function(x){return x.id===gob.getAttribute('data-go');})[0]; if(task) go(task); } return; }
+    var gob=t.closest&&t.closest('[data-go]'); if(gob){ var st2=load(); if(st2){ var pl=buildPlan(st2); var task=pl.tasks.filter(function(x){return x.id===gob.getAttribute('data-go');})[0]; if(task){ closeOv(); go(task); } } return; }
   });
 
   // ---- Wizard ----------------------------------------------------------------
