@@ -14452,6 +14452,21 @@ function hideFlyout(p) {
   function $(id){ return document.getElementById(id); }
   var sb = window.__sb;
   var profile = null, currentUser = null;
+
+  // Trial state, read from the profile row this IIFE owns. {active, endsAt, daysLeft}.
+  // daysLeft rounds UP so the last partial day reads "1 day left", not "0".
+  // profiles.trial_ends_at is set server-side by a trigger and is immutable to the
+  // client (supabase/migrations/20260911000000_profiles_free_trial.sql). Before that
+  // migration is applied the field is absent and this returns inactive, so the app
+  // behaves exactly as it does today.
+  window.__trialInfo = function(){
+    var raw = profile && profile.trial_ends_at;
+    if(!raw) return { active:false, endsAt:null, daysLeft:0 };
+    var end = new Date(raw);
+    if(isNaN(end.getTime())) return { active:false, endsAt:null, daysLeft:0 };
+    var ms = end.getTime() - Date.now();
+    return { active: ms > 0, endsAt: end, daysLeft: ms > 0 ? Math.ceil(ms/86400000) : 0 };
+  };
   var YEARS = ['Year 1','Year 2','Year 3','Year 4','Year 5','Year 6','Foundation Doctor','Other'];
   var USERNAME_RE = /^[a-zA-Z0-9_]{3,20}$/;
   var pendingAvatar; // undefined=no change, null=remove, string=new dataURL
@@ -14742,7 +14757,12 @@ function hideFlyout(p) {
       // Paid members come through Stripe -> the `memberships` table -> __isMember().
       // Comp/manual members are flagged on the profile. Either grants access.
       var stripeActive = !!(window.__isMember && window.__isMember());
-      var isMember = profileFlag || stripeActive;
+      // New signups get a 14-day trial via profiles.trial_ends_at, set server-side
+      // by a trigger (see supabase/migrations/20260911000000_profiles_free_trial.sql).
+      // If that migration has not been applied the field is simply absent and this
+      // is false, so the gate behaves exactly as it did before.
+      var trialActive = !!(window.__trialInfo && window.__trialInfo().active);
+      var isMember = profileFlag || stripeActive || trialActive;
       var was; try{ was = localStorage.getItem('da-member')==='1'; }catch(e){ was=false; }
       // Don't DROP access before the Stripe membership has finished loading — the
       // paid flag lives in a separate table loaded asynchronously, so downgrading
@@ -15439,18 +15459,26 @@ function hideFlyout(p) {
       var pb=$('da-portal-btn'); if(pb) pb.onclick=function(){ openPortal(pb); };
       return;
     }
-    // Signed in, not a member.
+    // Signed in, not a paid member — but possibly on the free trial.
+    var trial = (window.__trialInfo ? window.__trialInfo() : {active:false});
     var live = livePlans();
     var betaNote='<div style="margin-top:14px;padding:12px 14px;border:1px solid rgba(14,165,233,.35);background:#FFFFFF;border-radius:10px;font-size:12.5px;line-height:1.55;color:#1E2640;"><b style="color:#0A6DA0;">Heads up — DoctoRise is in beta (about 85% complete).</b><br>You&rsquo;re joining early at a beta discount &mdash; the crossed-out price is the full rate once the platform is complete. Lock in today&rsquo;s rate for as long as your subscription stays active.</div>';
     if(live.length){
-      body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
+      body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">'+(trial.active?'Free trial':'Free')+'</span></div>'+
+        (trial.active
+          ? '<div class="da-set-row"><div>Trial ends<div class="da-set-muted">'+fmtDate(trial.endsAt)+' &mdash; '+trial.daysLeft+' day'+(trial.daysLeft===1?'':'s')+' left</div></div></div>'
+            +'<div class="da-set-muted" style="margin-top:12px;">You have full access until then. Subscribe any time to keep it &mdash; there is nothing to cancel if you don\'t.</div>'
+          : '')+
         betaNote+
         '<div class="da-plan-lead">Unlock flashcards, MCQs, spaced-repetition review and calculator case practice. Choose a plan:</div>'+
         '<div class="da-plan-grid">'+ live.map(planCardHTML).join('') +'</div>'+
         '<div class="da-set-muted" style="margin-top:12px;">Secure checkout by Stripe · cancel anytime.</div>';
       body.querySelectorAll('.da-plan-btn').forEach(function(b){ b.onclick=function(){ startCheckout(b.getAttribute('data-plan')); }; });
     } else {
-      body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">Free</span></div>'+
+      body.innerHTML='<div class="da-set-row"><div>Current plan</div><span class="da-badge">'+(trial.active?'Free trial':'Free')+'</span></div>'+
+        (trial.active
+          ? '<div class="da-set-row"><div>Trial ends<div class="da-set-muted">'+fmtDate(trial.endsAt)+' &mdash; '+trial.daysLeft+' day'+(trial.daysLeft===1?'':'s')+' left</div></div></div>'
+          : '')+
         '<div class="da-set-row"><div>Manage subscription</div><span class="da-soon">Soon</span></div>'+
         '<div class="da-set-muted" style="margin-top:16px;">Premium plans &amp; billing are coming soon.</div>';
     }
