@@ -13801,7 +13801,7 @@ function hideFlyout(p) {
           showMsg('Account created — your 14-day free trial starts now.', 'ok');
           setTimeout(closeAuthModal, 700);
         } else {
-          showMsg('Account created. Check your email to confirm, then sign in.', 'ok');
+          showMsg('Account created. Check your email to confirm — your 14-day free trial starts the moment you first sign in.', 'ok');
           setAuthMode('signin');
         }
       } else {
@@ -14594,7 +14594,7 @@ function hideFlyout(p) {
         return sb.auth.signUp({email:email,password:password}).then(function(res){
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} aMsg(res.error.message,'err'); btn.disabled=false; btn.textContent=restore; return; }
           if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Your 14-day free trial starts now — setting things up…','ok'); /* gate reload -> ensureProfile creates it, which stamps trial_ends_at */ }
-          else { aMsg('Account created. Check your email to confirm, then sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
+          else { aMsg('Account created. Check your email to confirm — your 14-day free trial starts the moment you first sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
         });
       }).catch(function(err){ aMsg((err&&err.message)||'Something went wrong.','err'); btn.disabled=false; btn.textContent=restore; });
       return false;
@@ -14612,6 +14612,22 @@ function hideFlyout(p) {
     }).catch(function(err){ clearTimeout(_siTo); clearTimeout(_siSlow); aMsg((err&&err.message)||'Network error.','err'); btn.disabled=false; btn.textContent=restore; });
     return false;
   };
+
+  function startTrialIfDue(){
+    // Starts the trial for a confirmed user whose profile row has no clock yet.
+    // Needed because the row may have been created BEFORE confirmation (by a
+    // handle_new_user trigger), and because ensureProfile only writes to an
+    // existing row when it has pending signup data — so a user who signs up on
+    // one device and confirms on another would otherwise never get a trial.
+    // The RPC only ever fills a NULL, so calling it on every sign-in is safe and
+    // can never extend or revive a trial.
+    if(!sb || !profile || profile.trial_ends_at) return Promise.resolve();
+    return sb.rpc('start_trial_if_due').then(function(r){
+      // applyMembership() lives inside ready(), which this function is outside of —
+      // use the global handle it publishes at the end of that closure.
+      if(r && !r.error && r.data){ profile.trial_ends_at = r.data; if(window.__applyMembership) window.__applyMembership(); }
+    }).catch(function(){ /* RPC not deployed yet -> behave as before */ });
+  }
 
   function derive(email){ return ((email||'user').split('@')[0].replace(/[^a-zA-Z0-9_]/g,'').slice(0,16))||'user'; }
   function ensureProfile(user){
@@ -14788,8 +14804,8 @@ function hideFlyout(p) {
     }
     window.__applyMembership = applyMembership;
     function clearMembership(){ try{ localStorage.setItem('da-member','0'); }catch(e){} window.__member=false; }
-    sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); saveReferral(currentUser); }); else { clearMembership(); } });
-    sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); saveReferral(currentUser); }); else { profile=null; clearMembership(); } });
+    sb.auth.getSession().then(function(r){ currentUser=r&&r.data&&r.data.session?r.data.session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ startTrialIfDue(); applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); saveReferral(currentUser); }); else { clearMembership(); } });
+    sb.auth.onAuthStateChange(function(ev,session){ if(window.__mfaPending) return; currentUser=session?session.user:null; if(currentUser) ensureProfile(currentUser).then(function(){ startTrialIfDue(); applyMembership(); applyDisplay(); setTimeout(applyDisplay,500); saveReferral(currentUser); }); else { profile=null; clearMembership(); } });
   });
 })();
 </script>
