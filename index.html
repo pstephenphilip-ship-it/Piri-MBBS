@@ -9102,13 +9102,18 @@ function restoreFromHash() {
     console.warn('[route] no topic "' + topic + '" in ' + system + ' — showing the system instead');
     return;
   }
-  selectTopic(tab, topic, true);
+  // selectTopic is async (it awaits ensureSystemLoaded, then resets the view to
+  // Notes). Apply the requested mode AFTER it resolves, or Notes clobbers it.
+  var _sel = selectTopic(tab, topic, true);
   if (mode !== 'notes') {
-    var modeBar = document.getElementById('modeBar-' + tab);
-    if (modeBar) {
-      var modeEl = modeBar.querySelector('.mode-tab[onclick*="\'' + mode + '\'"]');
-      if (modeEl) switchMode(tab, mode, modeEl, true);
-    }
+    var applyMode = function(){
+      var modeBar = document.getElementById('modeBar-' + tab);
+      if (modeBar) {
+        var modeEl = modeBar.querySelector('.mode-tab[onclick*="\'' + mode + '\'"]');
+        if (modeEl) switchMode(tab, mode, modeEl, true);
+      }
+    };
+    if (_sel && typeof _sel.then === 'function') _sel.then(applyMode); else setTimeout(applyMode, 30);
   }
 }
 
@@ -19660,11 +19665,10 @@ function hideFlyout(p) {
     if(tab==='osce')         return {cards:false,questions:false,mock:false,notesAllStages:true};
     if(tab==='pharmacology') return {cards:true, questions:false,mock:true };  // a deck per subsection; no per-topic MCQs, but a mock paper
     if(tab==='conditions'){ var m=RP_MAN[sys], c=m?m.hasCards:true; return {cards:c,questions:c,mock:c}; }
-    if(tab==='signs'||tab==='investigations') return {cards:true,questions:true,mock:true};
-    // Anatomy and histology land here and are treated as notes-only, which is
-    // what they did before this capability record existed. They do in fact ship
-    // decks and MCQs (anatomy__<SYSTEM>__<Topic> in content/cards), so this is
-    // understating them - left alone deliberately rather than changed in passing.
+    // Anatomy & histology ship real flashcard decks AND MCQ banks (keyed
+    // anatomy__/histology__<SYSTEM>__<Topic> in content/cards), so they get the
+    // full three-stage treatment like conditions.
+    if(tab==='anatomy'||tab==='histology'||tab==='signs'||tab==='investigations') return {cards:true,questions:true,mock:true};
     return {cards:false,questions:false,mock:false};
   }
   function cardsAvail(tab,sys){ return capsFor(tab,sys).cards; }
@@ -19687,13 +19691,18 @@ function hideFlyout(p) {
   }
   function packStart(st){ var t=todayStr(); return (st.startDate&&st.startDate>t)?st.startDate:t; }
   function earliestExam(st){ var ds=st.exams.map(function(e){return e.date;}).filter(Boolean).sort(); return ds[0]; }
-  function computeMode(st,topics){
-    var cap=CAP[st.avail.intensity]||4, earliest=earliestExam(st); if(!earliest) return 'comfortable';
-    var start=packStart(st);
-    var avail=studyDates(start,earliest,st.avail.days).length;
-    var buffer=Math.min(2,Math.max(0,Math.floor(avail*0.25)));
+  function validDate(s){ if(!/^\d{4}-\d{2}-\d{2}$/.test(String(s||'')))return false; var d=parse(s); return d && !isNaN(d.getTime()); }
+  // Study days for an exam's run-up, EXCLUDING the exam day itself (you don't
+  // schedule revision on the morning of the exam).
+  function examWindow(start,examDate,days){ return studyDates(start,examDate,days||[]).filter(function(d){ return d<examDate; }); }
+  // Feasibility mode is assessed PER EXAM against its own window, so one near
+  // exam can't force a 3-months-away exam into sprint.
+  function modeForExam(st,exam,examTopics){
+    var cap=CAP[st.avail.intensity]||4, start=packStart(st);
+    var avail=examWindow(start,exam.date,st.avail.days).length;
+    var buffer=Math.min(2,Math.max(0,Math.floor(avail*0.2)));
     var eff=Math.max(1,avail-buffer);
-    var touches=0; topics.forEach(function(tp){ touches+=touchesFor(tp,'comfortable').length; });
+    var touches=0; (examTopics||[]).forEach(function(tp){ touches+=touchesFor(tp,'comfortable').length; });
     var needed=Math.ceil(touches/cap);
     var ratio=eff/Math.max(1,needed);
     return ratio>=1?'comfortable':(ratio>=0.6?'compressed':'sprint');
@@ -19727,69 +19736,106 @@ function hideFlyout(p) {
     if(mode==='compressed')  return [['learn','notes',0,1],['learn','flashcards',0,1],['practice','questions',0,2]];
     return [['learn','notes',1,1],['practice','questions',0,2]];   // sprint: skim + MCQs
   }
-  // Build the full plan: pack outstanding (not-done) touches onto study days from
-  // packStart forward. Missed days fall out naturally (packStart = today), so an
-  // untouched task simply re-packs into the days that remain = auto-rebalance.
+  // Build the full plan. A SPREADING scheduler (not greedy first-fit): each stage's
+  // tasks are distributed EVENLY across that stage's slice of the run-up, capped at
+  // the daily limit. When more work exists than fits, lower-priority touches are
+  // triaged out (kept: coverage notes > mock > MCQs > review cards > learn cards).
+  // Recomputed each load from today, so missed days rebalance automatically.
   function buildPlan(st){
-    var topics=expandTopics(st);
-    var mode=computeMode(st,topics);
-    var start=packStart(st), today=todayStr(), lastExam=st.exams.map(function(e){return e.date;}).filter(Boolean).sort().slice(-1)[0];
-    var cap=CAP[st.avail.intensity]||4;
-    var done=st.done||{};
-    var warnings=[], load={}, learnDate={}, overflow=false;
-    // exam study-day windows
-    var exById={}; st.exams.forEach(function(e){ exById[e.id]=e; });
-    function examDates(exId){ var e=exById[exId]; return studyDates(start,e.date,st.avail.days); }
-    // Reserve the final study day(s) before each exam for the Stage-3 mock.
-    function mockWin(exId){ var d=examDates(exId); if(!d.length)return []; var b=Math.min(2,Math.max(1,Math.floor(d.length*0.2))); return d.slice(-Math.min(b,d.length)); }
-    // build tasks (Stage 1 & 2, per topic)
+    st=st||{}; if(!st.avail||typeof st.avail!=='object') st.avail={days:[1,2,3,4,5],intensity:'normal'};
+    if(!Array.isArray(st.avail.days)) st.avail.days=[1,2,3,4,5];
+    var cap=CAP[st.avail.intensity]||4, today=todayStr(), start=packStart(st), done=st.done||{};
+    var warnings=[];
+    var rawExams=st.exams||[];
+    var validExams=rawExams.filter(function(e){ return e && validDate(e.date); });
+    var exams=validExams.filter(function(e){ return e.date>=today; });   // past exams are over — don't schedule for them
+    if(rawExams.length && validExams.length<rawExams.length) warnings.push('An exam had an invalid date and was skipped.');
+    if(exams.length && !st.avail.days.length) warnings.push('No study days are selected — open Edit and pick at least one day of the week.');
+    var lastExam=exams.map(function(e){return e.date;}).sort().slice(-1)[0];
+    var exById={}; exams.forEach(function(e){ exById[e.id]=e; });
+
+    // topics (deduped to earliest exam) + a per-exam feasibility mode
+    var topics=expandTopics({exams:exams});
+    var topicsByExam={}; topics.forEach(function(tp){ (topicsByExam[tp.examId]=topicsByExam[tp.examId]||[]).push(tp); });
+    var modeByExam={}; exams.forEach(function(e){ modeByExam[e.id]=modeForExam(st,e,topicsByExam[e.id]||[]); });
+    var ord={comfortable:0,compressed:1,sprint:2}, mode='comfortable';
+    Object.keys(modeByExam).forEach(function(k){ if(ord[modeByExam[k]]>ord[mode]) mode=modeByExam[k]; });
+
+    // task list (per-topic touches at that topic's exam mode) + mocks
     var tasks=[];
     topics.forEach(function(tp,ti){
-      touchesFor(tp,mode).forEach(function(tc){
-        var id=tp.examId+'|'+tp.ref+'|'+tc[0]+'|'+tc[1];   // include mode so notes-learn and cards-learn are distinct
+      var m=modeByExam[tp.examId]||'comfortable';
+      touchesFor(tp,m).forEach(function(tc){
+        var id=tp.examId+'|'+tp.ref+'|'+tc[0]+'|'+tc[1];
         tasks.push({id:id,ref:tp.ref,tab:tp.tab,system:tp.system,name:tp.name,examId:tp.examId,examDate:tp.examDate,kind:tc[0],mode:tc[1],skim:!!tc[2],stage:tc[3],ti:ti,done:!!done[id]});
       });
     });
-    // Stage 3: one (or two) mock exams per exam that has any MCQ-bearing systems.
-    st.exams.forEach(function(e){
+    exams.forEach(function(e){
       var mockable=(e.scope||[]).some(function(sc){ return capsFor(sc.tab,sc.system).mock; });
       if(!mockable) return;
-      var nMock=(mode==='comfortable')?2:1;
-      for(var mi=0;mi<nMock;mi++){
-        var id=e.id+'|__mock__|'+mi;
-        tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,ti:9999+mi,done:!!done[id]});
-      }
+      var nMock=(modeByExam[e.id]==='comfortable')?2:1;
+      for(var mi=0;mi<nMock;mi++){ var id=e.id+'|__mock__|'+mi; tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,ti:9999+mi,done:!!done[id]}); }
     });
-    // priority order: exam date, then stage, then kind, then topic order
-    tasks.sort(function(a,b){ if(a.examDate!==b.examDate)return a.examDate<b.examDate?-1:1; if((a.stage||1)!==(b.stage||1))return (a.stage||1)-(b.stage||1); if(a.kind!==b.kind)return KINDRANK[a.kind]-KINDRANK[b.kind]; return a.ti-b.ti; });
+
+    // ---- spreading scheduler ----
+    var winCache={};
+    function win(exId){ if(winCache[exId])return winCache[exId]; var e=exById[exId]; winCache[exId]=e?examWindow(start,e.date,st.avail.days):[]; return winCache[exId]; }
+    function stageDays(exId,stage){
+      var w=win(exId), n=w.length; if(!n) return [];
+      if(stage===3){ var b=Math.min(2,Math.max(1,Math.round(n*0.15))); return w.slice(Math.max(0,n-b)); }           // final days = mock / OSCE final pass
+      if(stage===1){ return w.slice(0, Math.max(1,Math.ceil(n*0.6))); }                                             // learning spread over the first ~60%
+      var mb=Math.min(2,Math.max(1,Math.round(n*0.15))), s2end=Math.max(1,n-mb), s2start=Math.floor(n*0.3);         // active recall in the middle-to-late run-up
+      if(s2start>=s2end) s2start=Math.max(0,s2end-1);
+      return w.slice(s2start,s2end);
+    }
+    // keep the essentials first; extras get triaged out when time runs short
+    function prio(t){
+      if(t.kind==='mock') return /\|__mock__\|0$/.test(t.id)?0:4;  // one mock is guaranteed; a 2nd is optional
+      if(t.stage===1 && t.mode==='notes') return 1;   // coverage — read every topic at least once
+      if(t.stage===3) return 2;                       // OSCE final notes pass
+      if(t.mode==='questions') return 3;
+      if(t.mode==='flashcards' && t.stage===2) return 4;
+      if(t.mode==='flashcards' && t.stage===1) return 5;
+      return 3;
+    }
     var open=tasks.filter(function(t){return !t.done;});
+    open.sort(function(a,b){ var pa=prio(a),pb=prio(b); if(pa!==pb)return pa-pb; if(a.examDate!==b.examDate)return a.examDate<b.examDate?-1:1; if(a.stage!==b.stage)return a.stage-b.stage; return a.ti-b.ti; });
+    var load={}, learnDate={}, dropped=0;
+    // Tasks completed TODAY still occupy today's slots, so ticking one genuinely
+    // frees you for the day rather than instantly pulling tomorrow's work forward.
+    var doneToday=0; Object.keys(done).forEach(function(k){ var ts=done[k]; if(ts && fmt(new Date(ts))===today) doneToday++; });
+    if(doneToday) load[today]=doneToday;
+    // even spread: least-loaded day (earliest on ties) that's still under cap
+    function pick(days){ var best=null,bl=Infinity; for(var i=0;i<days.length;i++){ var l=load[days[i]]||0; if(l<cap && l<bl){ bl=l; best=days[i]; if(l===0)break; } } return best; }
     open.forEach(function(t){
-      var all=examDates(t.examId), mwin=mockWin(t.examId);
-      var cands;
-      if(t.stage===3){ cands=mwin.length?mwin:all; }
-      else {
-        cands=all.filter(function(d){ return mwin.indexOf(d)<0; }); if(!cands.length)cands=all;
-        // Stage-2 activities (review / MCQs) come strictly after the topic was first learnt.
-        if((t.kind==='review'||t.kind==='practice') && learnDate[t.ref]){ var lc=cands.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)cands=lc; }
+      var days=stageDays(t.examId,t.stage); if(!days.length) days=win(t.examId);
+      if(t.stage===2 && learnDate[t.ref]){ var lc=days.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)days=lc; }
+      var best=pick(days);
+      if(best==null){
+        // Stage window full — spill into the exam's whole window (keeps phase
+        // preference but doesn't waste capacity). Only drop if the WHOLE run-up is full.
+        var full=win(t.examId);
+        if(t.stage===2 && learnDate[t.ref]){ var fc=full.filter(function(d){return d>learnDate[t.ref];}); if(fc.length)full=fc; }
+        best=pick(full);
       }
-      if(!cands.length)cands=all.length?all:[t.examDate];
-      var chosen=null;
-      for(var i=0;i<cands.length;i++){ if((load[cands[i]]||0)<cap){ chosen=cands[i]; break; } }
-      if(!chosen){ chosen=cands[cands.length-1]; overflow=true; }
-      load[chosen]=(load[chosen]||0)+1;
-      if(t.kind==='learn'&&t.mode==='notes')learnDate[t.ref]=chosen;   // anchor spacing to the notes-learn
-      t.date=chosen;
+      if(best==null){ dropped++; return; }   // genuinely infeasible → triage this touch out
+      load[best]=(load[best]||0)+1;
+      if(t.stage===1 && t.mode==='notes') learnDate[t.ref]=best;
+      t.date=best;
     });
-    if(overflow) warnings.push("It's tight — some days are over your usual load. Add study days, raise intensity, or trim topics to stay comfortable.");
-    // group
-    var byDate={}; open.forEach(function(t){ (byDate[t.date]=byDate[t.date]||[]).push(t); });
-    // per-exam progress
-    var byExam=st.exams.slice().sort(function(a,b){return a.date<b.date?-1:1;}).map(function(e){
-      var tot=tasks.filter(function(t){return t.examId===e.id;}).length;
-      var dn=tasks.filter(function(t){return t.examId===e.id&&t.done;}).length;
-      return {id:e.id,name:e.name,date:e.date,daysLeft:daysBetween(today,e.date),total:tot,done:dn};
+    var scheduled=open.filter(function(t){return t.date;});
+    if(dropped){
+      if(!scheduled.length) warnings.push('There\'s no study time before your exam — nothing could be scheduled. Move the date, add study days, or start sooner.');
+      else warnings.push('This scope is bigger than your time allows — '+dropped+' lower-priority task'+(dropped===1?'':'s')+' (extra flashcard/MCQ passes) were left out so the essentials fit. Add study days, raise intensity, or trim topics for full coverage.');
+    }
+    var byDate={}; scheduled.forEach(function(t){ (byDate[t.date]=byDate[t.date]||[]).push(t); });
+    var kept=tasks.filter(function(t){ return t.done || t.date; });   // dropped tasks don't count toward progress
+    var byExam=exams.slice().sort(function(a,b){return a.date<b.date?-1:1;}).map(function(e){
+      var tot=kept.filter(function(t){return t.examId===e.id;}).length;
+      var dn=kept.filter(function(t){return t.examId===e.id&&t.done;}).length;
+      return {id:e.id,name:e.name,date:e.date,daysLeft:daysBetween(today,e.date),total:tot,done:dn,passed:e.date<today};
     });
-    return {mode:mode,today:today,start:start,started:today>=start,byDate:byDate,tasks:tasks,byExam:byExam,warnings:warnings,lastExam:lastExam,topicsCount:topics.length};
+    return {mode:mode,today:today,start:start,started:today>=start,byDate:byDate,tasks:tasks,byExam:byExam,warnings:warnings,lastExam:lastExam,topicsCount:topics.length,dropped:dropped};
   }
 
   // ---- deep link + task actions ---------------------------------------------
@@ -19917,7 +19963,7 @@ function hideFlyout(p) {
     ov.querySelectorAll('[data-int]').forEach(function(b){ b.onclick=function(){ draft.avail.intensity=b.getAttribute('data-int'); ov.querySelectorAll('[data-int]').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); updateHint(); }; });
     var sd=ov.querySelector('#rp-startdate'); if(sd)sd.onchange=function(){ draft.startDate=sd.value||todayStr(); updateHint(); };
   }
-  function validDraft(){ return draft.exams.some(function(e){return e.name&&e.date&&(e.scope||[]).length;}); }
+  function validDraft(){ return (draft.avail&&draft.avail.days&&draft.avail.days.length>0) && draft.exams.some(function(e){return e.name&&e.date&&(e.scope||[]).length;}); }
   // Read the live field values straight from the DOM — belt-and-braces against
   // mobile browsers that don't fire input/change for <input type=date>.
   function syncFromDOM(){
@@ -19928,22 +19974,15 @@ function hideFlyout(p) {
   function updateHint(){
     var ov=document.getElementById('rp-ov'); if(!ov)return;
     var hint=ov.querySelector('#rp-wiz-hint');
-    var ready=validDraft();               // button stays tappable; createPlan re-validates from the DOM
-    if(!ready){ hint.textContent='Add at least one exam with a name, date, and topics.'; return; }
-    // proposed start + mode preview
-    var topics=expandTopics(draft), mode=computeMode(draft,topics);
-    var cap=CAP[draft.avail.intensity]||4, earliest=earliestExam(draft);
-    var touches=0; topics.forEach(function(t){touches+=t.hasCards?3:2;});
-    var needed=Math.ceil(touches/cap)+2;
-    // recommended start = go back 'needed' study-days from earliest exam
-    var rec=earliest, count=0, guard=0; while(count<needed&&guard++<800){ rec=addDays(rec,-1); if(draft.avail.days.indexOf(weekday(rec))>=0)count++; }
-    var recTxt=(rec<=todayStr())?'as soon as possible':('by '+niceDate(rec));
-    var sh=ov.querySelector('#rp-start-hint'); if(sh)sh.innerHTML='Recommended: start <b>'+recTxt+'</b> to cover this comfortably.';
-    hint.innerHTML='<b>'+topics.length+' topics</b> · plan mode: <b>'+modeLabel(mode)+'</b>'+(mode==='sprint'?' — tight, so it\'ll skim early and drill practice near the exam.':'');
+    if(!validDraft()){ hint.textContent=(draft.avail&&draft.avail.days&&draft.avail.days.length)?'Add at least one exam with a name, date, and topics.':'Pick at least one study day of the week.'; return; }
+    var pl; try{ pl=buildPlan(draft); }catch(e){ hint.textContent=''; return; }
+    var sh=ov.querySelector('#rp-start-hint'); if(sh) sh.innerHTML='The plan paces itself across your run-up — start whenever you like.';
+    var extra = pl.dropped ? ' — tight: '+pl.dropped+' extra pass'+(pl.dropped===1?'':'es')+' trimmed to fit. Add days or trim topics for full coverage.' : (pl.mode==='sprint'?' — tight, so it skims early and drills practice near the exam.':'');
+    hint.innerHTML='<b>'+pl.topicsCount+' topics</b> · plan mode: <b>'+modeLabel(pl.mode)+'</b>'+extra;
   }
   function createPlan(){
     syncFromDOM();
-    if(!validDraft()){ toast('Add an exam name, a date, and at least one system.',false); var ov=document.getElementById('rp-ov'); if(ov){ var h=ov.querySelector('#rp-wiz-hint'); if(h){ h.textContent='Add an exam name, a date, and at least one system before creating.'; h.style.color='#C0392B'; setTimeout(function(){ h.style.color=''; },2500); } var b=ov.querySelector('.rp-body'); if(b)b.scrollTop=0; } return; }
+    if(!validDraft()){ var need=(draft.avail&&draft.avail.days&&draft.avail.days.length)?'Add an exam with a name, date, and at least one system.':'Pick at least one study day of the week.'; toast(need,false); var ov=document.getElementById('rp-ov'); if(ov){ var h=ov.querySelector('#rp-wiz-hint'); if(h){ h.textContent=need; h.style.color='#C0392B'; setTimeout(function(){ h.style.color=''; },2500); } var b=ov.querySelector('.rp-body'); if(b)b.scrollTop=0; } return; }
     try{
       draft.updatedAt=Date.now(); if(!draft.done)draft.done={};
       var persisted=save(draft);
@@ -20073,9 +20112,6 @@ function hideFlyout(p) {
   var _rh=window.renderHome;
   window.renderHome=function(){ if(_rh)_rh.apply(this,arguments); try{ mountHome(document.getElementById('homeHost')); }catch(e){} };
   window.RevPlanner={open:openWizard,rerender:rerender};
-  // QA hook: exposes the scheduling engine so a headless harness can run thousands
-  // of scenarios without driving the DOM. Localhost only — never present in prod.
-  try{ if(location.hostname==='localhost'||location.hostname==='127.0.0.1'){ window.__RP_TEST={ buildPlan:buildPlan, expandTopics:expandTopics, computeMode:computeMode, systemsOf:systemsOf, topicsOf:topicsOf, capsFor:capsFor, SCOPE_TABS:SCOPE_TABS, packStart:packStart, studyDates:studyDates, todayStr:todayStr, daysBetween:daysBetween }; } }catch(e){}
   // initial mount if home is already painted
   function initMount(){ var host=document.getElementById('homeHost'); if(host&&host.querySelector('.welcome-inner')) mountHome(host); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(initMount,60); }); else setTimeout(initMount,60);
