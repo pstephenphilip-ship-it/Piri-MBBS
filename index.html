@@ -19659,6 +19659,7 @@ function hideFlyout(p) {
     var h=Math.floor(n/60), m=Math.round((n%60)/5)*5; if(m===60){h++;m=0;}
     return h+'h'+(m?' '+m+'m':''); }
   var MOCK_MINS=120;   // a timed paper — sat in one sitting, so it is costed as one
+  var MOCK_CAP={comfortable:6,compressed:4,sprint:2};   // most papers a run-up should carry
   function planMinutes(tp,m){ var n=0; stagesFor(tp,m).forEach(function(tc){ n+=costOf(tp,tc[0],tc[1],tc[2]); }); return n; }
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
@@ -19846,8 +19847,33 @@ function hideFlyout(p) {
     exams.forEach(function(e){
       var mockable=(e.scope||[]).some(function(sc){ return capsFor(sc.tab,sc.system).mock; });
       if(!mockable) return;
-      var nMock=(modeByExam[e.id]==='comfortable')?2:1;
-      for(var mi=0;mi<nMock;mi++){ var id=e.id+'|__mock__|'+mi; tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,mins:MOCK_MINS,ti:9999+mi,done:!!done[id]}); }
+      // One mock per ~4 study days of the practice window, so a long run-up gets
+      // a real series rather than a token paper, and a short one still gets one.
+      var _w=examWindow(start,e.date,st.avail.days), _n=_w.length;
+      var _s3=Math.max(1,Math.round(_n*0.5));
+      var _lim=MOCK_CAP[modeByExam[e.id]]||MOCK_CAP.comfortable;
+      var nMock=Math.max(1,Math.min(_lim,Math.round(_s3/4)));
+      for(var mi=0;mi<nMock;mi++){
+        var id=e.id+'|__mock__|'+mi;
+        // Where in the practice window this paper wants to sit, 0 = the start of
+        // it and 1 = the last study day. Easing the positions towards 1 makes the
+        // gaps shrink as the exam nears, so practice concentrates rather than
+        // sitting at even intervals.
+        var _u=(nMock===1)?1:(mi/(nMock-1));
+        tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,mins:MOCK_MINS,at:1-Math.pow(1-_u,1.8),ti:9999+mi,done:!!done[id]});
+      }
+    });
+
+    // The mocks already know where they want to sit. Give the other stage-3
+    // work — an OSCE final notes pass, say — the same easing, so exam practice
+    // as a whole starts around the halfway mark and tightens towards the exam
+    // instead of spreading itself evenly over the back half.
+    exams.forEach(function(e){
+      var s3=tasks.filter(function(t){ return t.examId===e.id && t.stage===3 && t.at==null; });
+      s3.forEach(function(t,i){
+        var u=(s3.length===1)?1:(i/(s3.length-1));
+        t.at=1-Math.pow(1-u,1.8);
+      });
     });
 
     // ---- spreading scheduler ----
@@ -19855,7 +19881,11 @@ function hideFlyout(p) {
     function win(exId){ if(winCache[exId])return winCache[exId]; var e=exById[exId]; winCache[exId]=e?examWindow(start,e.date,st.avail.days):[]; return winCache[exId]; }
     function stageDays(exId,stage){
       var w=win(exId), n=w.length; if(!n) return [];
-      if(stage===3){ var b=Math.min(2,Math.max(1,Math.round(n*0.15))); return w.slice(Math.max(0,n-b)); }           // final days = mock / OSCE final pass
+      // Exam practice: the back half of the run-up, not just the final day or
+      // two. It deliberately overlaps stage 2 — practice and active recall run
+      // alongside each other near the end, and the daily budget keeps the two
+      // from piling up.
+      if(stage===3){ var b=Math.max(1,Math.round(n*0.5)); return w.slice(Math.max(0,n-b)); }
       if(stage===1){ return w.slice(0, Math.max(1,Math.ceil(n*0.6))); }                                             // learning spread over the first ~60%
       var mb=Math.min(2,Math.max(1,Math.round(n*0.15))), s2end=Math.max(1,n-mb), s2start=Math.floor(n*0.3);         // active recall in the middle-to-late run-up
       if(s2start>=s2end) s2start=Math.max(0,s2end-1);
@@ -19887,10 +19917,30 @@ function hideFlyout(p) {
       for(var i=0;i<days.length;i++){ var l=load[days[i]]||0;
         if((l===0 || l+need<=cap) && l<bl){ bl=l; best=days[i]; if(l===0)break; } }
       return best; }
+    var overloaded=false;
+    function nearestFit(days,at,need){
+      var target=Math.round((at==null?1:at)*(days.length-1)), order=[];
+      for(var i=0;i<days.length;i++) order.push(i);
+      order.sort(function(a,b){ return Math.abs(a-target)-Math.abs(b-target) || a-b; });
+      for(var j=0;j<order.length;j++){ var d=days[order[j]], l=load[d]||0;
+        if(l===0 || l+need<=cap) return d; }
+      return null;
+    }
     open.forEach(function(t){
       var days=stageDays(t.examId,t.stage); if(!days.length) days=win(t.examId);
       if(t.stage===2 && learnDate[t.ref]){ var lc=days.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)days=lc; }
-      var best=pick(days,t.mins||10);
+      // A mock has a place it wants in the ramp, so take the nearest day that
+      // fits rather than the least-loaded one — otherwise every paper drifts to
+      // whichever day happens to be quiet and the build-up is lost.
+      var best=(t.stage===3&&t.at!=null&&days.length)?nearestFit(days,t.at,t.mins||10):pick(days,t.mins||10);
+      // A mock belongs in the run-up to the exam. If the practice window is
+      // already full it sits on its target day and makes that day heavy, which
+      // the plan warns about — far better than the generic spill below, which
+      // would hunt out the emptiest day and land a mock paper on day one.
+      if(best==null && t.kind==='mock' && days.length){
+        best=days[Math.min(days.length-1,Math.max(0,Math.round((t.at==null?1:t.at)*(days.length-1))))];
+        overloaded=true;
+      }
       if(best==null){
         // Stage window full — spill into the exam's whole window (keeps phase
         // preference but doesn't waste capacity). Only drop if the WHOLE run-up is full.
