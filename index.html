@@ -506,7 +506,11 @@ body{display:flex;flex-direction:column;}
    empty tracks, and an exact-4 grid becomes a 2x2. */
 #tab-investigations .cp-killgrid{grid-template-columns:repeat(auto-fit,minmax(215px,1fr));}
 #tab-investigations .cp-killgrid:has(> .cp-kill:nth-child(4):last-child){grid-template-columns:repeat(2,1fr);}
-#tab-investigations .cp-killgrid:has(> .cp-kill:nth-child(7):last-child){grid-template-columns:repeat(4,1fr);}
+/* A 7-card grid was forced to 4 columns to avoid orphaning a card on row 3.
+   Reverted: the narrower 4-column track wraps far more card names, and a
+   wrapped name pushes that card's header/body divider below its row-mates'
+   (measured 46/46/46/82 in MASCC). A lone card on the last row is the
+   smaller cost. */
 
 /* ---- Stage 2b: cards in a row line up ----------------------------------
    A card whose name wraps to two lines pushed its header/body divider ~19px
@@ -569,6 +573,20 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-lead{padding:16px;}
 #tab-investigations .cp-when{font-size:13px;}
 #tab-investigations .cp-read{font-size:12px;line-height:1.45;padding:7px 11px;}
+
+/* .cp-read is a shrink-to-fit chip, but this tab uses the class for two
+   different things: 918 span-form reads really are chips (median 17
+   characters), while 3,343 div-form reads are whole sentences (median 109,
+   75% over 80). Fed a sentence, a shrink-to-fit chip gives a ragged
+   staircase of part-width strips. The div form now takes the full row and
+   reads as a checklist line; the span chips are untouched. */
+#tab-investigations .cp-reads > div.cp-read{flex:1 1 100%;padding:9px 12px;font-size:12.5px;line-height:1.5;}
+
+/* .cp-then was the only text left on the raw 14px scale, so the two halves
+   of every clue row were set at different sizes; and align-items:center
+   floated a one-line label against the middle of a multi-line answer. */
+#tab-investigations .cp-then{font-size:13px;}
+#tab-investigations .cp-clue{align-items:flex-start;}
 
 /* Flex items default to min-width:auto, so a long unbreakable clue refused to
    shrink and pushed the row past the note's right edge (measured +45px at
