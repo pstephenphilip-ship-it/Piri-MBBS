@@ -577,11 +577,15 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-when,
 #tab-investigations .cp-then{min-width:0;overflow-wrap:anywhere;}
 
-/* .cp-when is deliberately left at its flex:1 1 44%. Sizing it to content
-   removes the dead band a short label leaves before the arrow, but it also
-   lets every row pick its own column width, so the arrows zig-zag down a
-   table (measured a 186px spread in EEG step 3). A table that lines up is
-   worth more than a tighter one, so the fixed column stays. */
+/* .cp-when keeps its flex:1 1 44% inside a RUN of clue rows: sizing it to
+   content was tried and reverted because each row then picks its own width
+   and the arrows zig-zag down the table (a 186px spread in EEG step 3).
+   A LONE clue row has nothing to align with, though, so there the fixed
+   337px column is pure waste — it left up to 311px of white before the arrow
+   while squeezing the answer into two lines. Most clue groups on this tab are
+   single-row, so the exemption is scoped to exactly that case. */
+#tab-investigations .cp-clue:not(.cp-clue + .cp-clue):not(:has(+ .cp-clue)) > .cp-when{
+  flex:0 1 auto;max-width:60%;}
 
 /* .cp-warn is a flex row (icon + body). Where clue rows are authored directly
    inside one they became sibling COLUMNS 41-66px wide, breaking words
