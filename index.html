@@ -19567,8 +19567,12 @@ function hideFlyout(p) {
   try{ if(window.loadManifest) window.loadManifest().then(function(m){ (m&&m.systems||[]).forEach(function(s){ RP_MAN[s.name]={hasCards:!!s.hasCards}; }); }); }catch(e){}
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
-  function load(){ try{ var v=JSON.parse(localStorage.getItem(KEY)||'null'); if(v&&v.exams) return v; }catch(e){} return null; }
-  function save(st){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+  // Keep the plan in memory too, so the UI stays correct within a session even if
+  // localStorage reads/writes are flaky (iOS private browsing, storage blocked …).
+  var MEM=null;
+  function load(){ if(MEM) return MEM; try{ var v=JSON.parse(localStorage.getItem(KEY)||'null'); if(v&&v.exams){ MEM=v; return v; } }catch(e){} return null; }
+  // Returns true if it actually persisted to localStorage, false if only in memory.
+  function save(st){ MEM=st; try{ localStorage.setItem(KEY, JSON.stringify(st)); return localStorage.getItem(KEY)!=null; }catch(e){ return false; } }
   function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
   // A guaranteed, render-independent confirmation — so "did it work?" always has a visible answer.
   function toast(msg,ok){
@@ -19752,7 +19756,7 @@ function hideFlyout(p) {
   document.addEventListener('click',function(e){
     var t=e.target;
     var open=t.closest&&t.closest('[data-open]'); if(open){ openWizard(); return; }
-    var reset=t.closest&&t.closest('[data-reset]'); if(reset){ if(confirm('Delete your revision plan and start over?')){ try{ localStorage.removeItem(KEY); }catch(e){} rerender(); } return; }
+    var reset=t.closest&&t.closest('[data-reset]'); if(reset){ if(confirm('Delete your revision plan and start over?')){ MEM=null; try{ localStorage.removeItem(KEY); }catch(e){} rerender(); } return; }
     var full=t.closest&&t.closest('[data-full]'); if(full){ openFull(); return; }
     var tog=t.closest&&t.closest('[data-tog]'); if(tog){ var st=load(); if(st){ toggle(st,tog.getAttribute('data-tog')); } return; }
     var gob=t.closest&&t.closest('[data-go]'); if(gob){ var st2=load(); if(st2){ var pl=buildPlan(st2); var task=pl.tasks.filter(function(x){return x.id===gob.getAttribute('data-go');})[0]; if(task) go(task); } return; }
@@ -19835,9 +19839,9 @@ function hideFlyout(p) {
     if(!validDraft()){ toast('Add an exam name, a date, and at least one system.',false); var ov=document.getElementById('rp-ov'); if(ov){ var h=ov.querySelector('#rp-wiz-hint'); if(h){ h.textContent='Add an exam name, a date, and at least one system before creating.'; h.style.color='#C0392B'; setTimeout(function(){ h.style.color=''; },2500); } var b=ov.querySelector('.rp-body'); if(b)b.scrollTop=0; } return; }
     try{
       draft.updatedAt=Date.now(); if(!draft.done)draft.done={};
-      save(draft);
+      var persisted=save(draft);
       closeOv();
-      toast('✓ Revision plan created',true);
+      toast(persisted?'✓ Revision plan created':'Plan created — but this device blocked saving it (private browsing?), so it may not stick after a refresh.',persisted);
       rerender();
       // Make the result unmistakable: flash the panel and pop the full schedule open.
       setTimeout(function(){
