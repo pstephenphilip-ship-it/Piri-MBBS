@@ -19451,6 +19451,8 @@ function hideFlyout(p) {
 <style>
   .rp-home{max-width:720px;margin:0 auto 6px;box-sizing:border-box;}
   .rp-panel{background:#fff;border:1.5px solid #E2E6F0;border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.05);margin-bottom:22px;}
+  .rp-flash .rp-panel{animation:rpFlash 1.6s ease;}
+  @keyframes rpFlash{0%{box-shadow:0 0 0 0 rgba(0,194,168,.0);border-color:#E2E6F0;}20%{box-shadow:0 0 0 4px rgba(0,194,168,.35);border-color:#00C2A8;}100%{box-shadow:0 4px 16px rgba(0,0,0,.05);border-color:#E2E6F0;}}
   .rp-cta{padding:20px 22px;display:flex;align-items:center;gap:16px;cursor:pointer;}
   .rp-cta:hover{background:#F7FBFA;}
   .rp-cta-ic{width:46px;height:46px;flex-shrink:0;border-radius:13px;background:linear-gradient(135deg,#00C2A8,#0E9C8B);display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 4px 12px rgba(0,194,168,.35);}
@@ -19730,7 +19732,7 @@ function hideFlyout(p) {
     var brand=inner.querySelector('.wc-brand');
     if(brand&&brand.nextSibling) inner.insertBefore(wrap, brand.nextSibling); else inner.insertBefore(wrap, inner.firstChild);
   }
-  function rerender(){ var host=document.getElementById('homeHost'); if(host&&document.getElementById('tab-home').classList.contains('visible')) mountHome(host); }
+  function rerender(){ var host=document.getElementById('homeHost'); if(host) mountHome(host); }
 
   // delegated clicks on the home panel
   document.addEventListener('click',function(e){
@@ -19806,7 +19808,18 @@ function hideFlyout(p) {
     var sh=ov.querySelector('#rp-start-hint'); if(sh)sh.innerHTML='Recommended: start <b>'+recTxt+'</b> to cover this comfortably.';
     hint.innerHTML='<b>'+topics.length+' topics</b> · plan mode: <b>'+modeLabel(mode)+'</b>'+(mode==='sprint'?' — tight, so it\'ll skim early and drill practice near the exam.':'');
   }
-  function createPlan(){ if(!validDraft())return; draft.updatedAt=Date.now(); if(!draft.done)draft.done={}; save(draft); closeOv(); rerender(); }
+  function createPlan(){
+    if(!validDraft())return;
+    var isNew=!load();
+    draft.updatedAt=Date.now(); if(!draft.done)draft.done={}; save(draft); closeOv(); rerender();
+    // Make the result obvious: bring the new panel into view + flash it, and on the
+    // very first creation pop the full plan open so they immediately see the schedule.
+    setTimeout(function(){
+      var el=document.querySelector('.rp-home');
+      if(el){ try{ el.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){} el.classList.add('rp-flash'); setTimeout(function(){ el.classList.remove('rp-flash'); },1600); }
+      if(isNew) openFull();
+    },140);
+  }
 
   // ---- scope picker ----------------------------------------------------------
   function openScope(exIndex){
