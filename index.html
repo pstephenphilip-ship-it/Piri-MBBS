@@ -19547,6 +19547,9 @@ function hideFlyout(p) {
   .rp-start.prem:hover{background:linear-gradient(135deg,#C4881A,#A9720F);}
   .rp-premium{display:inline-block;margin-left:6px;font-size:9.5px;font-weight:800;letter-spacing:.03em;color:#8A5A00;background:#FDF0CE;border:1px solid #F0D48A;border-radius:20px;padding:1px 7px;vertical-align:middle;}
   .rp-task.prem{background:linear-gradient(90deg,#FFFBF0,#fff);}
+  .rp-examline{display:flex;align-items:center;gap:8px;margin:6px 0 16px;padding:10px 14px;background:#FDEAEA;border:1px solid #F5C6C6;border-radius:11px;color:#B23B3B;font-size:13px;}
+  .rp-examline b{color:#8F2E2E;}
+  .rp-exdot{font-size:14px;}
   /* per-category "select all" in the scope picker */
   .rp-cathdr{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:18px 0 8px;}
   .rp-cathdr .mk-cat-label{margin:0;}
@@ -19778,7 +19781,8 @@ function hideFlyout(p) {
     var warnings=[];
     var rawExams=st.exams||[];
     var validExams=rawExams.filter(function(e){ return e && validDate(e.date); });
-    var exams=validExams.filter(function(e){ return e.date>=today; });   // past exams are over — don't schedule for them
+    var _seenId={};
+    var exams=validExams.filter(function(e){ return e.date>=today && !_seenId[e.id] && (_seenId[e.id]=1); });   // upcoming only, unique ids
     if(rawExams.length && validExams.length<rawExams.length) warnings.push('An exam had an invalid date and was skipped.');
     if(exams.length && !st.avail.days.length) warnings.push('No study days are selected — open Edit and pick at least one day of the week.');
     var lastExam=exams.map(function(e){return e.date;}).sort().slice(-1)[0];
@@ -19860,9 +19864,15 @@ function hideFlyout(p) {
     }
     var byDate={}; scheduled.forEach(function(t){ (byDate[t.date]=byDate[t.date]||[]).push(t); });
     var kept=tasks.filter(function(t){ return t.done || t.date; });   // dropped tasks don't count toward progress
+    // Work completed under a richer mode (e.g. a flashcard task that no longer
+    // exists after the plan tightened to Sprint) still counts — so ticked progress
+    // never silently regresses when the mode flips.
+    var taskIds={}; tasks.forEach(function(t){ taskIds[t.id]=1; });
+    var orphan={}; Object.keys(done).forEach(function(k){ if(!taskIds[k]){ var eid=k.split('|')[0]; orphan[eid]=(orphan[eid]||0)+1; } });
     var byExam=exams.slice().sort(function(a,b){return a.date<b.date?-1:1;}).map(function(e){
-      var tot=kept.filter(function(t){return t.examId===e.id;}).length;
-      var dn=kept.filter(function(t){return t.examId===e.id&&t.done;}).length;
+      var o=orphan[e.id]||0;
+      var tot=kept.filter(function(t){return t.examId===e.id;}).length+o;
+      var dn=kept.filter(function(t){return t.examId===e.id&&t.done;}).length+o;
       return {id:e.id,name:e.name,date:e.date,daysLeft:daysBetween(today,e.date),total:tot,done:dn,passed:e.date<today};
     });
     return {mode:mode,today:today,start:start,started:today>=start,byDate:byDate,tasks:tasks,byExam:byExam,warnings:warnings,lastExam:lastExam,topicsCount:topics.length,dropped:dropped};
@@ -20128,14 +20138,19 @@ function hideFlyout(p) {
     var st=load(); if(!st)return; var pl=buildPlan(st);
     closeOv();
     var dates=Object.keys(pl.byDate).sort();
-    var exByDate={}; st.exams.forEach(function(e){ exByDate[e.date]=e.name||'Exam'; });
+    // Interleave the study days with an exam-day marker for each exam, in date order
+    // (the exam marker sits after that day's tasks). Exam days carry no tasks now.
+    var entries=[];
+    dates.forEach(function(d){ entries.push({t:'day',date:d}); });
+    pl.byExam.forEach(function(e){ entries.push({t:'exam',date:e.date,name:e.name}); });
+    entries.sort(function(a,b){ if(a.date!==b.date) return a.date<b.date?-1:1; return a.t==='exam'?1:-1; });
     var body;
-    if(!dates.length){ body='<div class="rp-empty">All tasks are done — nothing left to schedule. 🎉</div>'; }
-    else body=dates.map(function(d){
-      var isToday=d===pl.today;
+    if(!entries.length){ body='<div class="rp-empty">All tasks are done — nothing left to schedule. 🎉</div>'; }
+    else body=entries.map(function(en){
+      if(en.t==='exam') return '<div class="rp-examline"><span class="rp-exdot">🎯</span><b>'+esc(en.name||'Exam')+'</b> — exam day · '+niceDate(en.date)+'</div>';
+      var d=en.date, isToday=d===pl.today;
       return '<div class="rp-daygrp"><div class="rp-daygrp-h"><span class="d">'+niceDate(d)+'</span><span class="w">'+pl.byDate[d].length+' task'+(pl.byDate[d].length===1?'':'s')+'</span>'
         +(isToday?'<span class="today">TODAY</span>':'')
-        +(exByDate[d]?'<span class="exday">'+esc(exByDate[d])+' exam</span>':'')
         +'</div>'+pl.byDate[d].map(taskRow).join('')+'</div>';
     }).join('');
     var ov=document.createElement('div'); ov.className='rp-ov'; ov.id='rp-ov';
