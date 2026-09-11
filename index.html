@@ -19570,6 +19570,15 @@ function hideFlyout(p) {
   function load(){ try{ var v=JSON.parse(localStorage.getItem(KEY)||'null'); if(v&&v.exams) return v; }catch(e){} return null; }
   function save(st){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
   function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+  // A guaranteed, render-independent confirmation — so "did it work?" always has a visible answer.
+  function toast(msg,ok){
+    try{
+      var t=document.createElement('div'); t.textContent=msg;
+      t.style.cssText='position:fixed;left:50%;top:74px;transform:translateX(-50%);z-index:6000;background:'+(ok?'#0E9C8B':'#C0392B')+';color:#fff;padding:12px 18px;border-radius:12px;font:600 14px/1.4 system-ui,sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.3);max-width:90vw;text-align:center;';
+      document.body.appendChild(t);
+      setTimeout(function(){ t.style.transition='opacity .4s'; t.style.opacity='0'; setTimeout(function(){ t.remove(); },420); },2800);
+    }catch(e){}
+  }
 
   // ---- date helpers (local YYYY-MM-DD) ----
   function pad(n){ return n<10?'0'+n:''+n; }
@@ -19698,7 +19707,10 @@ function hideFlyout(p) {
         +'<div class="rp-cta-tx"><div class="rp-cta-t">Plan my revision</div><div class="rp-cta-s">Tell us your exams &amp; dates — we\'ll build a day-by-day plan from your notes, flashcards &amp; questions.</div></div>'
         +'<div class="rp-cta-go">›</div></div></div>';
     }
-    var pl=buildPlan(st);
+    var pl;
+    try{ pl=buildPlan(st); }
+    catch(err){ return '<div class="rp-panel"><div class="rp-dhead"><div class="rp-dhead-t"><span class="rp-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Revision Planner</div></div>'
+      +'<div class="rp-today"><div class="rp-empty">Your plan is saved, but something went wrong drawing it:<br><b>'+esc(err&&err.message||err)+'</b><br><br><button class="rp-ibtn" data-open="1">Edit plan</button> &nbsp; <button class="rp-ibtn" data-reset="1">Reset planner</button></div></div></div>'; }
     var h='<div class="rp-panel">';
     h+='<div class="rp-dhead"><div class="rp-dhead-t"><span class="rp-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Revision Planner</div>'
       +'<span class="rp-mode '+pl.mode+'">'+modeLabel(pl.mode)+'</span>'
@@ -19724,13 +19736,15 @@ function hideFlyout(p) {
     return h;
   }
   function mountHome(container){
-    if(!container)return;
-    var inner=container.querySelector('.welcome-inner'); if(!inner)return;
-    var old=inner.querySelector('.rp-home'); if(old)old.remove();
-    var st=load();
-    var wrap=document.createElement('div'); wrap.className='rp-home'; wrap.innerHTML=homeHTML(st);
-    var brand=inner.querySelector('.wc-brand');
-    if(brand&&brand.nextSibling) inner.insertBefore(wrap, brand.nextSibling); else inner.insertBefore(wrap, inner.firstChild);
+    try{
+      if(!container)return;
+      var inner=container.querySelector('.welcome-inner'); if(!inner)return;
+      var old=inner.querySelector('.rp-home'); if(old)old.remove();
+      var st=load();
+      var wrap=document.createElement('div'); wrap.className='rp-home'; wrap.innerHTML=homeHTML(st);
+      var brand=inner.querySelector('.wc-brand');
+      if(brand&&brand.nextSibling) inner.insertBefore(wrap, brand.nextSibling); else inner.insertBefore(wrap, inner.firstChild);
+    }catch(e){ try{ console.error('RevPlanner mountHome',e); }catch(_){} }
   }
   function rerender(){ var host=document.getElementById('homeHost'); if(host) mountHome(host); }
 
@@ -19738,6 +19752,7 @@ function hideFlyout(p) {
   document.addEventListener('click',function(e){
     var t=e.target;
     var open=t.closest&&t.closest('[data-open]'); if(open){ openWizard(); return; }
+    var reset=t.closest&&t.closest('[data-reset]'); if(reset){ if(confirm('Delete your revision plan and start over?')){ try{ localStorage.removeItem(KEY); }catch(e){} rerender(); } return; }
     var full=t.closest&&t.closest('[data-full]'); if(full){ openFull(); return; }
     var tog=t.closest&&t.closest('[data-tog]'); if(tog){ var st=load(); if(st){ toggle(st,tog.getAttribute('data-tog')); } return; }
     var gob=t.closest&&t.closest('[data-go]'); if(gob){ var st2=load(); if(st2){ var pl=buildPlan(st2); var task=pl.tasks.filter(function(x){return x.id===gob.getAttribute('data-go');})[0]; if(task) go(task); } return; }
@@ -19817,16 +19832,19 @@ function hideFlyout(p) {
   }
   function createPlan(){
     syncFromDOM();
-    if(!validDraft()){ var ov=document.getElementById('rp-ov'); if(ov){ var h=ov.querySelector('#rp-wiz-hint'); if(h){ h.textContent='Add an exam name, a date, and at least one system before creating.'; h.style.color='#C0392B'; setTimeout(function(){ h.style.color=''; },2500); } var b=ov.querySelector('.rp-body'); if(b)b.scrollTop=0; } return; }
-    var isNew=!load();
-    draft.updatedAt=Date.now(); if(!draft.done)draft.done={}; save(draft); closeOv(); rerender();
-    // Make the result obvious: bring the new panel into view + flash it, and on the
-    // very first creation pop the full plan open so they immediately see the schedule.
-    setTimeout(function(){
-      var el=document.querySelector('.rp-home');
-      if(el){ try{ el.scrollIntoView({behavior:'smooth',block:'center'}); }catch(e){} el.classList.add('rp-flash'); setTimeout(function(){ el.classList.remove('rp-flash'); },1600); }
-      if(isNew) openFull();
-    },140);
+    if(!validDraft()){ toast('Add an exam name, a date, and at least one system.',false); var ov=document.getElementById('rp-ov'); if(ov){ var h=ov.querySelector('#rp-wiz-hint'); if(h){ h.textContent='Add an exam name, a date, and at least one system before creating.'; h.style.color='#C0392B'; setTimeout(function(){ h.style.color=''; },2500); } var b=ov.querySelector('.rp-body'); if(b)b.scrollTop=0; } return; }
+    try{
+      draft.updatedAt=Date.now(); if(!draft.done)draft.done={};
+      save(draft);
+      closeOv();
+      toast('✓ Revision plan created',true);
+      rerender();
+      // Make the result unmistakable: flash the panel and pop the full schedule open.
+      setTimeout(function(){
+        try{ var el=document.querySelector('.rp-home'); if(el){ el.scrollIntoView({behavior:'smooth',block:'center'}); el.classList.add('rp-flash'); setTimeout(function(){ el.classList.remove('rp-flash'); },1600); } }catch(e){}
+        try{ openFull(); }catch(e){ toast('Plan saved, but the view errored: '+(e.message||e),false); }
+      },160);
+    }catch(err){ toast('Couldn\'t create plan: '+(err&&err.message||err),false); }
   }
 
   // ---- scope picker ----------------------------------------------------------
