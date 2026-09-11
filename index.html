@@ -19658,8 +19658,13 @@ function hideFlyout(p) {
   function hhmm(n){ n=Math.round(n); if(n<60) return n+' min';
     var h=Math.floor(n/60), m=Math.round((n%60)/5)*5; if(m===60){h++;m=0;}
     return h+'h'+(m?' '+m+'m':''); }
-  var MOCK_MINS=120;   // a timed paper — sat in one sitting, so it is costed as one
-  var MOCK_CAP={comfortable:6,compressed:4,sprint:2};   // most papers a run-up should carry
+  // Papers grow as the exam nears: a short set to start, a full paper by the end.
+  // Costed at the same 66s a question the per-topic MCQs use.
+  var MOCK_MIN_Q=40, MOCK_MAX_Q=120;
+  var MOCK_CAP={comfortable:20,compressed:12,sprint:6};   // most papers a run-up should carry
+  var MOCK_EVERY=2;   // aim for one every ~2 study days of the practice window
+  function mockQ(u){ return Math.round((MOCK_MIN_Q+(MOCK_MAX_Q-MOCK_MIN_Q)*u)/10)*10; }
+  function mockMins(q){ return Math.round(q*1.1); }
   function planMinutes(tp,m){ var n=0; stagesFor(tp,m).forEach(function(tc){ n+=costOf(tp,tc[0],tc[1],tc[2]); }); return n; }
 
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
@@ -19852,7 +19857,7 @@ function hideFlyout(p) {
       var _w=examWindow(start,e.date,st.avail.days), _n=_w.length;
       var _s3=Math.max(1,Math.round(_n*0.5));
       var _lim=MOCK_CAP[modeByExam[e.id]]||MOCK_CAP.comfortable;
-      var nMock=Math.max(1,Math.min(_lim,Math.round(_s3/4)));
+      var nMock=Math.max(1,Math.min(_lim,Math.round(_s3/MOCK_EVERY)));
       for(var mi=0;mi<nMock;mi++){
         var id=e.id+'|__mock__|'+mi;
         // Where in the practice window this paper wants to sit, 0 = the start of
@@ -19860,7 +19865,8 @@ function hideFlyout(p) {
         // gaps shrink as the exam nears, so practice concentrates rather than
         // sitting at even intervals.
         var _u=(nMock===1)?1:(mi/(nMock-1));
-        tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,mins:MOCK_MINS,at:1-Math.pow(1-_u,1.8),ti:9999+mi,done:!!done[id]});
+        var _q=mockQ(_u);
+        tasks.push({id:id,ref:'__mock__'+e.id,tab:null,system:'All selected topics',name:'Mock exam'+(nMock>1?' '+(mi+1):'')+' — '+(e.name||'exam'),examId:e.id,examDate:e.date,kind:'mock',mode:'mock',skim:false,stage:3,q:_q,mins:mockMins(_q),at:1-Math.pow(1-_u,1.8),ti:9999+mi,done:!!done[id]});
       }
     });
 
@@ -19917,7 +19923,6 @@ function hideFlyout(p) {
       for(var i=0;i<days.length;i++){ var l=load[days[i]]||0;
         if((l===0 || l+need<=cap) && l<bl){ bl=l; best=days[i]; if(l===0)break; } }
       return best; }
-    var overloaded=false;
     function nearestFit(days,at,need){
       var target=Math.round((at==null?1:at)*(days.length-1)), order=[];
       for(var i=0;i<days.length;i++) order.push(i);
@@ -19926,21 +19931,32 @@ function hideFlyout(p) {
         if(l===0 || l+need<=cap) return d; }
       return null;
     }
+    // The papers are placed first, working back from the exam, so the dress
+    // rehearsal takes the last study day and no day ends up carrying two of
+    // them. Everything else then packs around what they have claimed.
+    var mockTaken={};
+    open.filter(function(t){ return t.kind==='mock'; })
+        .sort(function(a,b){ return (b.at||0)-(a.at||0); })
+        .forEach(function(t){
+          var days=stageDays(t.examId,3); if(!days.length) days=win(t.examId);
+          if(!days.length) return;
+          var free=days.filter(function(d){ return !mockTaken[d]; });
+          if(!free.length) free=days;
+          var d=nearestFit(free,t.at,t.mins||10);
+          // A paper belongs in the run-up whatever else is on: if nothing fits it
+          // sits on its target day and makes that day heavy, which the plan warns
+          // about, rather than being dropped or shunted to the start.
+          if(d==null) d=free[Math.min(free.length-1,Math.max(0,Math.round((t.at==null?1:t.at)*(free.length-1))))];
+          mockTaken[d]=1; load[d]=(load[d]||0)+(t.mins||10); t.date=d;
+        });
     open.forEach(function(t){
+      if(t.date) return;   // already placed above
       var days=stageDays(t.examId,t.stage); if(!days.length) days=win(t.examId);
       if(t.stage===2 && learnDate[t.ref]){ var lc=days.filter(function(d){return d>learnDate[t.ref];}); if(lc.length)days=lc; }
       // A mock has a place it wants in the ramp, so take the nearest day that
       // fits rather than the least-loaded one — otherwise every paper drifts to
       // whichever day happens to be quiet and the build-up is lost.
       var best=(t.stage===3&&t.at!=null&&days.length)?nearestFit(days,t.at,t.mins||10):pick(days,t.mins||10);
-      // A mock belongs in the run-up to the exam. If the practice window is
-      // already full it sits on its target day and makes that day heavy, which
-      // the plan warns about — far better than the generic spill below, which
-      // would hunt out the emptiest day and land a mock paper on day one.
-      if(best==null && t.kind==='mock' && days.length){
-        best=days[Math.min(days.length-1,Math.max(0,Math.round((t.at==null?1:t.at)*(days.length-1))))];
-        overloaded=true;
-      }
       if(best==null){
         // Stage window full — spill into the exam's whole window (keeps phase
         // preference but doesn't waste capacity). Only drop if the WHOLE run-up is full.
@@ -19975,7 +19991,14 @@ function hideFlyout(p) {
   }
 
   // ---- deep link + task actions ---------------------------------------------
-  function go(t){ if(t.kind==='mock'){ if(window.openMock) window.openMock(); else location.hash='#mock'; return; } var h='#'+t.tab+'/'+encodeURIComponent(t.system)+'/'+encodeURIComponent(t.name)+(t.mode&&t.mode!=='notes'?('/'+t.mode):''); location.hash=h; }
+  function go(t){
+    if(t.kind==='mock'){
+      if(window.openMock) window.openMock(); else location.hash='#mock';
+      // Start the paper at the length the plan asked for, so a short early set
+      // and a full dress rehearsal are not the same click.
+      if(t.q) setTimeout(function(){ try{ window.mockSetNum(t.q); }catch(e){} },60);
+      return;
+    } var h='#'+t.tab+'/'+encodeURIComponent(t.system)+'/'+encodeURIComponent(t.name)+(t.mode&&t.mode!=='notes'?('/'+t.mode):''); location.hash=h; }
   function toggle(st,id){ st.done=st.done||{}; if(st.done[id])delete st.done[id]; else st.done[id]=Date.now(); save(st); rerender(); }
 
   // ---- Home panel ------------------------------------------------------------
@@ -19987,7 +20010,7 @@ function hideFlyout(p) {
   function mockAllowed(){ try{ return (typeof window.__mockAllowed!=='function') || !!window.__mockAllowed(); }catch(e){ return true; } }
   function taskRow(t){
     var premium = t.kind==='mock' && !mockAllowed();
-    var modeTxt=t.kind==='mock'?'All topics · timed paper'
+    var modeTxt=t.kind==='mock'?(t.q?t.q+'-question paper':'timed paper')   // the row already says "All selected topics"
       :t.mode==='flashcards'?(t.kind==='learn'?'Learn flashcards':'Review flashcards')
       :t.mode==='questions'?'MCQs'
       :(t.stage===3?'Final notes review':t.kind==='review'?'Review notes':(t.skim?'Skim notes':'Read notes'));
