@@ -19872,30 +19872,90 @@ function hideFlyout(p) {
     }catch(err){ toast('Couldn\'t create plan: '+(err&&err.message||err),false); }
   }
 
-  // ---- scope picker ----------------------------------------------------------
+  // ---- scope picker (mock-bank-style topic tree) -----------------------------
+  // Only these categories are offered — no exam is purely signs or investigations.
+  var SCOPE_TABS=[['conditions','Medical Conditions'],['anatomy','Anatomy'],['histology','Histology'],['osce','OSCE']];
+  var CHECK='<svg viewBox="0 0 18 18" fill="none"><path d="M4 9.5l3.5 3.5L14 5.5"/></svg>';
   function openScope(exIndex){
     var ex=draft.exams[exIndex];
-    var chosen={}; (ex.scope||[]).forEach(function(s){ chosen[s.tab+'||'+s.system]=1; });
+    // working selection: sel[tab||system] = { topicName:1, ... }
+    var sel={}, treeOpen={}, query='';
+    (ex.scope||[]).forEach(function(s){
+      var key=s.tab+'||'+s.system, all=topicsOf(s.tab,s.system), set={};
+      if(s.topics && s.topics[0]!=='all'){ s.topics.forEach(function(t){ set[t]=1; }); }
+      else { all.forEach(function(t){ set[t]=1; }); }
+      if(Object.keys(set).length) sel[key]=set;
+    });
     var ov=document.createElement('div'); ov.className='rp-ov'; ov.id='rp-scope-ov'; ov.style.zIndex='5300';
-    var groups=TABS.map(function(tb){
-      var syss=systemsOf(tb[0]); if(!syss.length)return '';
-      return '<div class="rp-tabgrp"><div class="rp-tabgrp-h">'+esc(tb[1])+'</div><div class="rp-syschips">'
-        +syss.map(function(s){ var k=tb[0]+'||'+s; var n=topicsOf(tb[0],s).length; return '<button class="rp-syschip'+(chosen[k]?' on':'')+'" data-sys="'+esc(k)+'">'+esc(s)+'<span class="ct">'+n+'</span></button>'; }).join('')
-        +'</div></div>';
-    }).join('');
     ov.innerHTML='<div class="rp-modal"><div class="rp-mhead"><h3>What\'s on '+(esc(ex.name)||'this exam')+'?</h3><button class="rp-x" data-x="1">✕</button></div>'
-      +'<div class="rp-body"><div class="rp-sec-d">Tick every system this exam covers. Your own custom topics live under “My Topics”.</div>'+groups+'</div>'
+      +'<div class="rp-body">'
+        +'<div class="rp-sec-d">Tick a system for all of it, or expand to pick individual topics. Your own custom topics appear under “My Topics”.</div>'
+        +'<div class="mk-toolbar"><input class="mk-search" id="rp-tree-search" placeholder="Filter topics…">'
+          +'<button class="mk-mini-btn" data-all="1">Select all</button><button class="mk-mini-btn" data-none="1">Clear</button></div>'
+        +'<div id="rp-tree"></div>'
+      +'</div>'
       +'<div class="rp-mfoot"><div class="hint" id="rp-scope-hint"></div><button class="rp-btn primary" data-done="1">Done</button></div></div>';
     document.body.appendChild(ov);
-    function upd(){ var n=Object.keys(chosen).length; ov.querySelector('#rp-scope-hint').textContent=n+' system'+(n===1?'':'s')+' selected'; }
-    ov.querySelectorAll('[data-sys]').forEach(function(b){ b.onclick=function(){ var k=b.getAttribute('data-sys'); if(chosen[k])delete chosen[k]; else chosen[k]=1; b.classList.toggle('on'); upd(); }; });
+    var treeEl=ov.querySelector('#rp-tree'), searchEl=ov.querySelector('#rp-tree-search');
+
+    function treeHTML(){
+      var html='';
+      SCOPE_TABS.forEach(function(tb){
+        var syss=systemsOf(tb[0]); if(!syss.length)return;
+        html+='<div class="mk-cat-label">'+esc(tb[1])+'</div><div class="mk-tree">';
+        syss.forEach(function(s){
+          var key=tb[0]+'||'+s, topics=topicsOf(tb[0],s);
+          var set=sel[key]||{}, c=Object.keys(set).length;
+          var state=c===0?'':(c>=topics.length?'full':'partial');
+          var box='mk-cbox'+(state==='full'?' mk-checked':state==='partial'?' mk-partial':'');
+          html+='<div class="mk-grp'+(treeOpen[key]?' mk-open':'')+'" data-name="'+esc(s.toLowerCase())+'">'
+            +'<div class="mk-grp-head'+(c?' mk-on':'')+'">'
+              +'<div class="'+box+'" data-grp="'+esc(key)+'">'+CHECK+'</div>'
+              +'<div class="mk-grp-name" data-open="'+esc(key)+'">'+esc(s)+'</div>'
+              +'<span class="mk-grp-count">'+topics.length+'</span>'
+              +'<svg class="mk-caret" data-open="'+esc(key)+'" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 4l4 4-4 4"/></svg>'
+            +'</div>'
+            +'<div class="mk-topics">'+topics.slice().sort(function(a,b){return a.localeCompare(b);}).map(function(t){
+              return '<div class="mk-topic" data-tname="'+esc(t.toLowerCase())+'" data-tkey="'+esc(key)+'" data-topic="'+esc(t)+'"><div class="mk-cbox'+(set[t]?' mk-checked':'')+'">'+CHECK+'</div><span class="mk-topic-name">'+esc(t)+'</span></div>';
+            }).join('')+'</div>'
+          +'</div>';
+        });
+        html+='</div>';
+      });
+      return html;
+    }
+    function stat(){
+      var sysN=Object.keys(sel).length, topN=0; Object.keys(sel).forEach(function(k){ topN+=Object.keys(sel[k]).length; });
+      ov.querySelector('#rp-scope-hint').textContent=sysN?(sysN+' system'+(sysN===1?'':'s')+' · '+topN+' topic'+(topN===1?'':'s')):'Nothing selected yet';
+    }
+    function applyFilter(){
+      var q=query.trim().toLowerCase();
+      treeEl.querySelectorAll('.mk-grp').forEach(function(node){
+        var name=node.getAttribute('data-name')||'', tmatch=false;
+        node.querySelectorAll('.mk-topic').forEach(function(tn){ var tname=tn.getAttribute('data-tname')||''; var show=!q||tname.indexOf(q)>=0||name.indexOf(q)>=0; tn.style.display=show?'':'none'; if(show&&q&&tname.indexOf(q)>=0)tmatch=true; });
+        var gmatch=!q||name.indexOf(q)>=0||tmatch; node.classList.toggle('mk-hidden',!gmatch); if(q&&tmatch)node.classList.add('mk-open');
+      });
+    }
+    function render(){ treeEl.innerHTML=treeHTML(); applyFilter(); stat(); }
+
+    treeEl.addEventListener('click',function(e){
+      var grp=e.target.closest('[data-grp]');
+      if(grp){ e.stopPropagation(); var key=grp.getAttribute('data-grp'); var p=key.split('||'); var topics=topicsOf(p[0],p[1]); var set=sel[key]||{}; if(Object.keys(set).length>=topics.length){ delete sel[key]; } else { var ns={}; topics.forEach(function(t){ns[t]=1;}); sel[key]=ns; } render(); return; }
+      var opn=e.target.closest('[data-open]');
+      if(opn){ e.stopPropagation(); var k=opn.getAttribute('data-open'); treeOpen[k]=!treeOpen[k]; var node=opn.closest('.mk-grp'); if(node)node.classList.toggle('mk-open',!!treeOpen[k]); return; }
+      var top=e.target.closest('[data-topic]');
+      if(top){ e.stopPropagation(); var tk=top.getAttribute('data-tkey'), t=top.getAttribute('data-topic'); var s2=sel[tk]||{}; if(s2[t])delete s2[t]; else s2[t]=1; if(Object.keys(s2).length)sel[tk]=s2; else delete sel[tk]; render(); return; }
+    });
+    searchEl.oninput=function(){ query=searchEl.value; applyFilter(); };
+    ov.querySelector('[data-all]').onclick=function(){ sel={}; SCOPE_TABS.forEach(function(tb){ systemsOf(tb[0]).forEach(function(s){ var key=tb[0]+'||'+s, topics=topicsOf(tb[0],s); if(topics.length){ var ns={}; topics.forEach(function(t){ns[t]=1;}); sel[key]=ns; } }); }); render(); };
+    ov.querySelector('[data-none]').onclick=function(){ sel={}; render(); };
     ov.querySelector('[data-x]').onclick=function(){ ov.remove(); };
     ov.querySelector('[data-done]').onclick=function(){
-      ex.scope=Object.keys(chosen).map(function(k){ var p=k.split('||'); return {tab:p[0],system:p[1],topics:['all']}; });
+      ex.scope=Object.keys(sel).map(function(key){ var p=key.split('||'); var topics=topicsOf(p[0],p[1]); var chosen=Object.keys(sel[key]); return {tab:p[0],system:p[1],topics:(chosen.length>=topics.length?['all']:chosen)}; });
       ov.remove(); var w=document.getElementById('rp-ov'); if(w)refreshBody(w);
     };
     ov.addEventListener('click',function(e){ if(e.target===ov)ov.remove(); });
-    upd();
+    render();
   }
 
   // ---- full plan view --------------------------------------------------------
