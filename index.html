@@ -19780,22 +19780,29 @@ function hideFlyout(p) {
       +'<div class="rp-sec"><div class="rp-sec-h">When do you study?</div><div class="rp-sec-d">Pick the days you\'ll revise, and how hard you\'ll go.</div>'+days+'<div style="height:12px"></div>'+seg+'</div>'
       +'<div class="rp-sec"><div class="rp-sec-h">Start date</div><div class="rp-sec-d" id="rp-start-hint">When do you want to begin?</div><input type="date" class="rp-in" id="rp-startdate" value="'+esc(draft.startDate)+'" min="'+todayStr()+'"></div>';
   }
-  function refreshBody(ov){ ov.querySelector('#rp-wiz-body').innerHTML=wizBody(); wireBody(ov); updateHint(); }
+  function refreshBody(ov){ syncFromDOM(); ov.querySelector('#rp-wiz-body').innerHTML=wizBody(); wireBody(ov); updateHint(); }
   function wireWizard(ov){ ov.querySelector('[data-x]').onclick=closeOv; ov.querySelector('#rp-wiz-create').onclick=function(){ createPlan(); }; wireBody(ov); }
   function wireBody(ov){
-    ov.querySelectorAll('.rp-exrow input').forEach(function(inp){ inp.oninput=function(){ var i=+inp.closest('[data-ex]').getAttribute('data-ex'); draft.exams[i][inp.getAttribute('data-f')]=inp.value; updateHint(); }; });
+    ov.querySelectorAll('.rp-exrow input').forEach(function(inp){ var handler=function(){ var i=+inp.closest('[data-ex]').getAttribute('data-ex'); if(draft.exams[i]) draft.exams[i][inp.getAttribute('data-f')]=inp.value; updateHint(); }; inp.oninput=handler; inp.onchange=handler; inp.onblur=handler; });
     ov.querySelectorAll('[data-del]').forEach(function(b){ b.onclick=function(){ draft.exams.splice(+b.getAttribute('data-del'),1); refreshBody(ov); }; });
-    ov.querySelectorAll('[data-scope]').forEach(function(b){ b.onclick=function(){ openScope(+b.getAttribute('data-scope')); }; });
+    ov.querySelectorAll('[data-scope]').forEach(function(b){ b.onclick=function(){ syncFromDOM(); openScope(+b.getAttribute('data-scope')); }; });
     var add=ov.querySelector('[data-add]'); if(add)add.onclick=function(){ draft.exams.push({id:uid(),name:'',date:'',scope:[]}); refreshBody(ov); };
     ov.querySelectorAll('[data-dow]').forEach(function(b){ b.onclick=function(){ var d=+b.getAttribute('data-dow'); var idx=draft.avail.days.indexOf(d); if(idx>=0)draft.avail.days.splice(idx,1); else draft.avail.days.push(d); b.classList.toggle('on'); updateHint(); }; });
     ov.querySelectorAll('[data-int]').forEach(function(b){ b.onclick=function(){ draft.avail.intensity=b.getAttribute('data-int'); ov.querySelectorAll('[data-int]').forEach(function(x){x.classList.remove('on');}); b.classList.add('on'); updateHint(); }; });
     var sd=ov.querySelector('#rp-startdate'); if(sd)sd.onchange=function(){ draft.startDate=sd.value||todayStr(); updateHint(); };
   }
   function validDraft(){ return draft.exams.some(function(e){return e.name&&e.date&&(e.scope||[]).length;}); }
+  // Read the live field values straight from the DOM — belt-and-braces against
+  // mobile browsers that don't fire input/change for <input type=date>.
+  function syncFromDOM(){
+    var ov=document.getElementById('rp-ov'); if(!ov)return;
+    ov.querySelectorAll('.rp-exrow').forEach(function(row){ var i=+row.getAttribute('data-ex'); if(!draft.exams[i])return; var nm=row.querySelector('[data-f="name"]'), dt=row.querySelector('[data-f="date"]'); if(nm)draft.exams[i].name=nm.value; if(dt)draft.exams[i].date=dt.value; });
+    var sd=ov.querySelector('#rp-startdate'); if(sd)draft.startDate=sd.value||todayStr();
+  }
   function updateHint(){
     var ov=document.getElementById('rp-ov'); if(!ov)return;
-    var btn=ov.querySelector('#rp-wiz-create'); var hint=ov.querySelector('#rp-wiz-hint');
-    var ready=validDraft(); btn.disabled=!ready;
+    var hint=ov.querySelector('#rp-wiz-hint');
+    var ready=validDraft();               // button stays tappable; createPlan re-validates from the DOM
     if(!ready){ hint.textContent='Add at least one exam with a name, date, and topics.'; return; }
     // proposed start + mode preview
     var topics=expandTopics(draft), mode=computeMode(draft,topics);
@@ -19809,7 +19816,8 @@ function hideFlyout(p) {
     hint.innerHTML='<b>'+topics.length+' topics</b> · plan mode: <b>'+modeLabel(mode)+'</b>'+(mode==='sprint'?' — tight, so it\'ll skim early and drill practice near the exam.':'');
   }
   function createPlan(){
-    if(!validDraft())return;
+    syncFromDOM();
+    if(!validDraft()){ var ov=document.getElementById('rp-ov'); if(ov){ var h=ov.querySelector('#rp-wiz-hint'); if(h){ h.textContent='Add an exam name, a date, and at least one system before creating.'; h.style.color='#C0392B'; setTimeout(function(){ h.style.color=''; },2500); } var b=ov.querySelector('.rp-body'); if(b)b.scrollTop=0; } return; }
     var isNew=!load();
     draft.updatedAt=Date.now(); if(!draft.done)draft.done={}; save(draft); closeOv(); rerender();
     // Make the result obvious: bring the new panel into view + flash it, and on the
