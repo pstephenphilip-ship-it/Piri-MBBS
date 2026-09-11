@@ -546,7 +546,14 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-clue:has(+ .cp-clue){
   border-bottom:1px solid var(--rn-border,#EEF1F7);
   border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0;}
-/* inside a step card they are plain divider rows, as before */
+/* Inside a step card they are plain divider rows, as before. A few notes
+   author the row (or a chip row, grid or paragraph) as a direct child of
+   .cp-step instead of its body; .cp-step has no padding, so those rendered
+   flush against the card border. They get the body's inset instead. */
+#tab-investigations .cp-step > .cp-reads,
+#tab-investigations .cp-step > .cp-killgrid,
+#tab-investigations .cp-step > p{margin-left:20px;margin-right:20px;}
+#tab-investigations .cp-step > .cp-clue,
 #tab-investigations .cp-step .cp-step-body .cp-clue{
   background:none;border-left:none;border-right:none;border-top:none;
   border-top-left-radius:0;border-top-right-radius:0;
@@ -557,9 +564,15 @@ body{display:flex;flex-direction:column;}
    followed by a grid, a chip row or a paragraph was leaving a stray hairline
    hanging under it (463 of them on the tab). The same row carries the
    clearance, so prose that follows as a bare text node clears it too. */
+#tab-investigations .cp-step > .cp-clue:not(:has(+ .cp-clue)),
 #tab-investigations .cp-step .cp-step-body .cp-clue:not(:has(+ .cp-clue)){
   border-bottom:none;margin-bottom:12px;}
+#tab-investigations .cp-step > .cp-clue:last-child,
 #tab-investigations .cp-step .cp-step-body .cp-clue:last-child{margin-bottom:0;}
+/* a direct-child row has no step-body padding to sit in, so it carries the
+   body's 20px itself and its text lands in the same column as every other
+   row (text-x 313, not 293) */
+#tab-investigations .cp-step > .cp-clue{padding-left:24px;padding-right:24px;}
 
 /* A .cp-lead authored INSIDE a step body drew a bordered, shadowed card
    within the step's own card (22 instances). In that position it is just the
