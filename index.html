@@ -1922,7 +1922,7 @@ body.da-notes-open #daMemFab{display:none!important;}
    practice MCQs shown under each condition.
 
    KEY FORMAT :  "<tab>__<SYSTEM>__<Topic>"
-     • <tab>    = 'conditions' | 'anatomy' | 'histology'
+     • <tab>    = 'conditions' | 'anatomy' | 'histology' | 'pharmacology'
      • <SYSTEM> = must match a system name exactly (e.g. 'CARDIOVASCULAR')
      • <Topic>  = must match a topic/condition name exactly
    VALUE      :  array of question objects, each:
@@ -7777,6 +7777,12 @@ window.MOCK_BANK = {
         "The ESC/NICE cut-offs are: HFrEF ≤40%, HFmrEF 41–49%, and HFpEF ≥50%.",
         "In HFpEF the ejection fraction is preserved but filling is impaired (diastolic dysfunction), often with left-ventricular hypertrophy – the problem is a stiff ventricle, not a weak one."
       ] }
+],
+
+"pharmacology__PHARMACOLOGY__Clinical Pharmacology": [
+    /* Pharmacology mock paper — questions to be added.
+       Same question shape as the entries above. Leaving this empty is fine:
+       the picker lists the topic with a 0 Q badge until it is filled. */
 ]
 };
 </script>
@@ -7812,6 +7818,11 @@ window.MOCK_BANK = {
         var v=data[sys]||{};out.push({tab:tab,cat:cat,system:sys,topics:(v.topics||v.conditions||[]).slice()});
       });}catch(e){}
     });
+    // Pharmacology is offered as ONE standalone topic, not a tree of drug classes:
+    // a paper here tests pharmacology as a whole. Questions go in MOCK_BANK under
+    // "pharmacology__PHARMACOLOGY__Clinical Pharmacology"; until some exist the
+    // picker simply shows it as 0 Q, which is why it needs no data source.
+    out.push({tab:'pharmacology',cat:'Pharmacology',system:'PHARMACOLOGY',topics:['Clinical Pharmacology']});
     return out;
   }
   function grpKey(g){return g.tab+'||'+g.system;}
