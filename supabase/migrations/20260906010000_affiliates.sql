@@ -33,6 +33,7 @@ insert into public.affiliates (code, name, type) values
   ('SHREYASH', 'Shreyash',                   'individual'),
   ('JUN',      'Jun',                        'individual'),
   ('JULIAN',   'Julian',                     'individual'),
+  ('GRACE',    'Grace',                      'individual'),
   ('NEUROQM',  'QMUL Neuroscience Society',  'society')
 on conflict (code) do update
   set name = excluded.name, type = excluded.type, active = true;
