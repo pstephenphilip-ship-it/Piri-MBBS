@@ -19598,6 +19598,8 @@ function hideFlyout(p) {
   .rp-btn.primary{background:#00C2A8;color:#fff;}.rp-btn.primary:hover{background:#059E8C;}
   .rp-btn.primary:disabled{opacity:.45;cursor:default;}
   .rp-btn.ghost{background:#fff;border:1px solid #E2E6F0;color:#5B6478;}
+  .rp-btn.danger{background:#fff;border:1px solid #F0C4C4;color:#C0392B;padding:11px 16px;}
+  .rp-btn.danger:hover{background:#FDECEC;border-color:#E39B9B;}
   /* scope picker */
   .rp-tabgrp{margin-bottom:14px;}
   .rp-tabgrp-h{font-size:12.5px;font-weight:800;color:#1E2640;margin-bottom:7px;}
@@ -19970,10 +19972,11 @@ function hideFlyout(p) {
   }
   function renderWizard(){
     closeOv();
+    var editing=!!load();
     var ov=document.createElement('div'); ov.className='rp-ov'; ov.id='rp-ov';
-    ov.innerHTML='<div class="rp-modal"><div class="rp-mhead"><h3>Plan my revision</h3><button class="rp-x" data-x="1">✕</button></div>'
+    ov.innerHTML='<div class="rp-modal"><div class="rp-mhead"><h3>'+(editing?'Edit revision plan':'Plan my revision')+'</h3><button class="rp-x" data-x="1">✕</button></div>'
       +'<div class="rp-body" id="rp-wiz-body">'+wizBody()+'</div>'
-      +'<div class="rp-mfoot"><div class="hint" id="rp-wiz-hint"></div><button class="rp-btn primary" id="rp-wiz-create">Create plan</button></div></div>';
+      +'<div class="rp-mfoot">'+(editing?'<button class="rp-btn danger" id="rp-wiz-del">Delete plan</button>':'')+'<div class="hint" id="rp-wiz-hint"></div><button class="rp-btn primary" id="rp-wiz-create">'+(editing?'Save plan':'Create plan')+'</button></div></div>';
     document.body.appendChild(ov);
     ov.addEventListener('click',function(e){ if(e.target===ov)closeOv(); });
     wireWizard(ov);
@@ -19997,7 +20000,13 @@ function hideFlyout(p) {
       +'<div class="rp-sec"><div class="rp-sec-h">Start date</div><div class="rp-sec-d" id="rp-start-hint">When do you want to begin?</div><input type="date" class="rp-in" id="rp-startdate" value="'+esc(draft.startDate)+'" min="'+todayStr()+'"></div>';
   }
   function refreshBody(ov){ syncFromDOM(); ov.querySelector('#rp-wiz-body').innerHTML=wizBody(); wireBody(ov); updateHint(); }
-  function wireWizard(ov){ ov.querySelector('[data-x]').onclick=closeOv; ov.querySelector('#rp-wiz-create').onclick=function(){ createPlan(); }; wireBody(ov); }
+  function wireWizard(ov){
+    ov.querySelector('[data-x]').onclick=closeOv;
+    ov.querySelector('#rp-wiz-create').onclick=function(){ createPlan(); };
+    var del=ov.querySelector('#rp-wiz-del');
+    if(del) del.onclick=function(){ if(confirm('Delete your revision plan? This clears your exams, tasks and progress and can\'t be undone.')){ MEM=null; try{ localStorage.removeItem(KEY); }catch(e){} closeOv(); rerender(); toast('Revision plan deleted',true); } };
+    wireBody(ov);
+  }
   function wireBody(ov){
     ov.querySelectorAll('.rp-exrow input').forEach(function(inp){ var handler=function(){ var i=+inp.closest('[data-ex]').getAttribute('data-ex'); if(draft.exams[i]) draft.exams[i][inp.getAttribute('data-f')]=inp.value; updateHint(); }; inp.oninput=handler; inp.onchange=handler; inp.onblur=handler; });
     ov.querySelectorAll('[data-del]').forEach(function(b){ b.onclick=function(){ draft.exams.splice(+b.getAttribute('data-del'),1); refreshBody(ov); }; });
