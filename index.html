@@ -20073,6 +20073,9 @@ function hideFlyout(p) {
   var _rh=window.renderHome;
   window.renderHome=function(){ if(_rh)_rh.apply(this,arguments); try{ mountHome(document.getElementById('homeHost')); }catch(e){} };
   window.RevPlanner={open:openWizard,rerender:rerender};
+  // QA hook: exposes the scheduling engine so a headless harness can run thousands
+  // of scenarios without driving the DOM. Localhost only — never present in prod.
+  try{ if(location.hostname==='localhost'||location.hostname==='127.0.0.1'){ window.__RP_TEST={ buildPlan:buildPlan, expandTopics:expandTopics, computeMode:computeMode, systemsOf:systemsOf, topicsOf:topicsOf, capsFor:capsFor, SCOPE_TABS:SCOPE_TABS, packStart:packStart, studyDates:studyDates, todayStr:todayStr, daysBetween:daysBetween }; } }catch(e){}
   // initial mount if home is already painted
   function initMount(){ var host=document.getElementById('homeHost'); if(host&&host.querySelector('.welcome-inner')) mountHome(host); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(initMount,60); }); else setTimeout(initMount,60);
