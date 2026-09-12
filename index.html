@@ -8199,6 +8199,111 @@ window.MOCK_BANK = {
       explanation:[
         "LEFT heart failure causes PULMONARY congestion: orthopnoea, paroxysmal nocturnal dyspnoea, pink frothy sputum and bibasal crackles.",
         "RIGHT heart failure causes SYSTEMIC venous congestion: a raised JVP, tender hepatomegaly, ascites and dependent pitting oedema."
+      ] },
+    { id:"chf-021", type:"mcq", objective:"chf-first-line-prognostic",
+      question:"A 64-year-old man is newly diagnosed with heart failure with reduced ejection fraction (EF 30%). He is now euvolaemic on examination, in sinus rhythm, with a blood pressure of 128/78 mmHg and normal U&Es. Which medication should be started for its prognostic (mortality) benefit?",
+      options:[
+        "Ramipril (an ACE inhibitor)",
+        "Furosemide (a loop diuretic)",
+        "Digoxin",
+        "Amlodipine",
+        "Ivabradine"],
+      correctIndex:0,
+      explanation:[
+        "An ACE INHIBITOR (with a beta-blocker) is disease-modifying and reduces mortality, so it is a first-line prognostic drug in HFrEF.",
+        "Furosemide is the trap – it relieves congestion and symptoms but has NO mortality benefit; digoxin, amlodipine and ivabradine are not first-line prognostic agents here."
+      ] },
+    { id:"chf-022", type:"mcq", objective:"chf-acei-cough",
+      question:"A 70-year-old woman with heart failure with reduced ejection fraction started ramipril six weeks ago. She now has a persistent dry, tickly cough that is disturbing her sleep, with no other new symptoms and a clear chest. What is the most appropriate change?",
+      options:[
+        "Stop all heart-failure medication",
+        "Switch to an angiotensin-receptor blocker (ARB)",
+        "Add a cough suppressant and continue ramipril",
+        "Switch to a different ACE inhibitor",
+        "Start an inhaled corticosteroid"],
+      correctIndex:1,
+      explanation:[
+        "The dry cough of an ACE inhibitor is caused by BRADYKININ accumulation. Switching to an ANGIOTENSIN-RECEPTOR BLOCKER (e.g. candesartan or losartan) keeps the prognostic benefit without the bradykinin-mediated cough.",
+        "A different ACE inhibitor would simply reproduce the cough; a suppressant or inhaled steroid treats neither the cause nor is appropriate; and stopping all treatment abandons prognostic therapy."
+      ] },
+    { id:"chf-023", type:"mcq", objective:"chf-acei-monitoring",
+      data:"<div class=\"mk-obs-h\">U&amp;E monitoring</div><div class=\"mk-obs-grid\"><span>Creatinine baseline <b>90 &micro;mol/L</b></span><span>Creatinine at 2 weeks <b>108 &micro;mol/L</b></span><span>Potassium baseline <b>4.4 mmol/L</b></span><span>Potassium at 2 weeks <b>4.9 mmol/L</b></span></div>",
+      question:"A 68-year-old man with heart failure with reduced ejection fraction is started on ramipril. His U&Es are checked at baseline and repeated two weeks later, as shown. What is the most appropriate action?",
+      options:[
+        "Stop the ramipril immediately and do not restart it",
+        "Halve the ramipril dose and recheck in one week",
+        "Continue ramipril and recheck U&Es as scheduled",
+        "Switch him to an angiotensin-receptor blocker",
+        "Add an oral potassium binder before continuing"],
+      correctIndex:2,
+      explanation:[
+        "The creatinine has risen about 20% and the potassium is 4.9 mmol/L – both WITHIN acceptable limits – so continue ramipril and keep monitoring.",
+        "NICE advises acting (reducing or stopping) only if the creatinine rises by more than 50% or the potassium exceeds 5.5 mmol/L; neither threshold is met here, so stopping, dose-halving, switching or a potassium binder are all unnecessary."
+      ] },
+    { id:"chf-024", type:"mcq", objective:"chf-betablocker-licensing",
+      question:"A 72-year-old man with heart failure with reduced ejection fraction is taking atenolol. His cardiologist wants to switch him to a beta-blocker with proven benefit in heart failure. Which is most appropriate?",
+      options:[
+        "Continue atenolol",
+        "Bisoprolol",
+        "Metoprolol tartrate",
+        "Sotalol",
+        "Verapamil"],
+      correctIndex:1,
+      explanation:[
+        "Only BISOPROLOL, CARVEDILOL and NEBIVOLOL are licensed for heart failure with reduced ejection fraction in the UK, with mortality benefit.",
+        "Atenolol and metoprolol tartrate are not licensed for HFrEF here; sotalol is an antiarrhythmic; and verapamil is a negatively-inotropic calcium-channel blocker that should be avoided in HFrEF."
+      ] },
+    { id:"chf-025", type:"mcq", objective:"chf-betablocker-timing",
+      question:"A 60-year-old man is admitted with acutely decompensated heart failure – breathless at rest, with widespread crackles, a raised JVP and peripheral oedema. He is not currently on a beta-blocker. What is the most appropriate approach to beta-blockade?",
+      options:[
+        "Start a high-dose beta-blocker immediately",
+        "Start a beta-blocker at full dose once pain-free",
+        "Beta-blockers are never used in heart failure",
+        "Delay it until he is stable and euvolaemic",
+        "Start intravenous metoprolol immediately"],
+      correctIndex:3,
+      explanation:[
+        "Beta-blockers are negatively inotropic, so they are NOT initiated during acute decompensation – wait until the patient is stable and euvolaemic, then start at a low dose and titrate slowly.",
+        "Starting high-dose or intravenous beta-blockade in a congested patient can worsen the failure; and beta-blockers are a cornerstone of CHRONIC HFrEF, so ‘never use’ is wrong."
+      ] },
+    { id:"chf-026", type:"mcq", objective:"chf-acei-contraindication",
+      question:"A 59-year-old woman with newly diagnosed heart failure with reduced ejection fraction is reviewed before starting an ACE inhibitor. Which single finding would most strongly contraindicate starting ramipril?",
+      options:[
+        "A serum potassium of 4.2 mmol/L",
+        "A blood pressure of 122/78 mmHg",
+        "A heart rate of 68 bpm",
+        "An eGFR of 65 mL/min/1.73m²",
+        "A serum potassium of 5.9 mmol/L"],
+      correctIndex:4,
+      explanation:[
+        "HYPERKALAEMIA – a potassium of 5.9 mmol/L – contraindicates starting an ACE inhibitor, which raises potassium further.",
+        "A potassium of 4.2, a normal blood pressure and heart rate, and an eGFR of 65 are all acceptable and would not prevent starting ramipril."
+      ] },
+    { id:"chf-027", type:"saq", objective:"chf-potassium-threshold",
+      question:"A man on ramipril for heart failure has routine blood tests. Above what serum potassium concentration (in mmol/L) should an ACE inhibitor not be started or up-titrated, according to NICE?",
+      answer:"5.5 mmol/L",
+      accept:["5.5","5.5 mmol/l","5.5mmol/l","above 5.5"],
+      markPoints:[
+        "Potassium above 5.5 mmol/L",
+        "The companion threshold is a creatinine rise of more than 50%",
+        "At these thresholds the ACE inhibitor is reduced or stopped and U&Es rechecked"],
+      explanation:[
+        "NICE advises acting – not starting or up-titrating, and reducing or stopping – if the serum potassium rises above 5.5 mmol/L.",
+        "This pairs with the renal threshold: act if the creatinine rises by more than 50% from baseline. Both are checked 1–2 weeks after starting and after each dose increase."
+      ] },
+    { id:"chf-028", type:"categorize", objective:"chf-betablocker-categorize",
+      question:"Sort each beta-blocker by whether it is licensed for heart failure with reduced ejection fraction in the UK.",
+      buckets:["Licensed for HFrEF","Not licensed for HFrEF"],
+      items:[
+        { text:"Bisoprolol", bucket:0 },
+        { text:"Carvedilol", bucket:0 },
+        { text:"Nebivolol", bucket:0 },
+        { text:"Atenolol", bucket:1 },
+        { text:"Metoprolol tartrate", bucket:1 },
+        { text:"Sotalol", bucket:1 }],
+      explanation:[
+        "Only BISOPROLOL, CARVEDILOL and NEBIVOLOL are licensed for HFrEF in the UK (nebivolol for mild-to-moderate HF in those aged 70 and over, usually third-line).",
+        "Atenolol and metoprolol tartrate are not licensed for HFrEF here, and sotalol is a class III antiarrhythmic, not a heart-failure beta-blocker."
       ] }
 ],
 
