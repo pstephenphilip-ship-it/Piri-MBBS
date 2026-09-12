@@ -634,6 +634,7 @@ body{display:flex;flex-direction:column;}
 /* .cp-warn is a flex row (icon + body). Where clue rows are authored directly
    inside one they became sibling COLUMNS 41-66px wide, breaking words
    mid-syllable. Full-basis puts each back on its own line. */
+#tab-investigations .cp-warn:has(> .cp-clue){flex-wrap:wrap;}
 #tab-investigations .cp-warn > .cp-clue{flex:1 1 100%;}
 #tab-investigations .cp-step-body ul,
 #tab-investigations .cp-step-body ol{font-size:13.5px;line-height:1.6;}
