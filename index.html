@@ -596,13 +596,19 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-when{font-size:13px;}
 #tab-investigations .cp-read{font-size:12px;line-height:1.45;padding:7px 11px;}
 
+/* .cp-dx is a link pill that sits INSIDE other components — in a .cp-cfm
+   confirm chip (12px), a .cp-kill-desc (13px) or a .cp-then. At the sheet's
+   12.5px it was a size nothing else in the tab used, so a pill was always
+   fractionally off from the chip holding it. */
+#tab-investigations .cp-dx{font-size:12px;}
+
 /* .cp-read is a shrink-to-fit chip, but this tab uses the class for two
    different things: 918 span-form reads really are chips (median 17
    characters), while 3,343 div-form reads are whole sentences (median 109,
    75% over 80). Fed a sentence, a shrink-to-fit chip gives a ragged
    staircase of part-width strips. The div form now takes the full row and
    reads as a checklist line; the span chips are untouched. */
-#tab-investigations .cp-reads > div.cp-read{flex:1 1 100%;padding:9px 12px;font-size:12.5px;line-height:1.5;}
+#tab-investigations .cp-reads > div.cp-read{flex:1 1 100%;padding:9px 12px;font-size:13px;line-height:1.55;}
 
 /* .cp-then was the only text left on the raw 14px scale, so the two halves
    of every clue row were set at different sizes; and align-items:center
@@ -675,7 +681,7 @@ body{display:flex;flex-direction:column;}
    is a re-entry point and each item is short, so a wider item just means
    fewer mid-sentence breaks and far less dead space to the right. One
    measure for both left a 278px void on an 822px card. */
-#tab-investigations .cp-step-body > p{max-width:640px;}
+#tab-investigations .cp-step-body > p{max-width:600px;}
 #tab-investigations .cp-step-body > ul,
 #tab-investigations .cp-step-body > ol{max-width:none;}
 #tab-investigations .cp-step-body > ul > li,
@@ -685,8 +691,8 @@ body{display:flex;flex-direction:column;}
    the same KIND of text as a step-body paragraph (a sentence you read), so
    it must be the same size: at 14px next to a 16px step body the two boxes
    read as two different typefaces stacked on each other. */
-#tab-investigations .cp-lead{max-width:none;font-size:16px;line-height:1.66;}
-#tab-investigations .cp-step-body{font-size:16px;line-height:1.66;}
+#tab-investigations .cp-lead{max-width:none;font-size:14.5px;line-height:1.62;}
+#tab-investigations .cp-step-body{font-size:14.5px;line-height:1.62;}
 #tab-investigations .cp-step-body > p{margin:0 0 12px;}
 
 /* a house <ul> carries margin:2px 0 0 — bottom margin 0, which is right when
