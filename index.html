@@ -8060,6 +8060,145 @@ window.MOCK_BANK = {
       explanation:[
         "The ESC/NICE cut-offs are: HFrEF ≤40%, HFmrEF 41–49%, and HFpEF ≥50%.",
         "In HFpEF the ejection fraction is preserved but filling is impaired (diastolic dysfunction), often with left-ventricular hypertrophy – the problem is a stiff ventricle, not a weak one."
+      ] },
+    { id:"chf-011", type:"mcq", objective:"chf-aetiology-ischaemic",
+      question:"A 71-year-old man attends his GP with four months of worsening breathlessness on exertion, now limiting him to one flight of stairs. He had an anterior STEMI treated with a stent three years ago, has stable angina, type 2 diabetes and a 40-pack-year smoking history. Echocardiography shows an ejection fraction of 35% with regional wall-motion abnormalities in the anterior wall. What is the most likely underlying cause of his heart failure?",
+      options:[
+        "Ischaemic heart disease",
+        "Hypertensive heart disease",
+        "Alcoholic cardiomyopathy",
+        "Viral myocarditis",
+        "Aortic stenosis"],
+      correctIndex:0,
+      explanation:[
+        "Previous myocardial infarction, angina, diabetes and heavy smoking, together with REGIONAL wall-motion abnormality (scar in a coronary territory), point to ISCHAEMIC HEART DISEASE – the commonest cause of heart failure.",
+        "A non-ischaemic dilated cardiomyopathy (alcohol, viral) typically causes GLOBAL hypokinesia rather than a regional defect; hypertensive disease and aortic stenosis produce hypertrophy and are not suggested by this history."
+      ] },
+    { id:"chf-012", type:"mcq", objective:"chf-neurohormonal",
+      question:"A 66-year-old man with heart failure with reduced ejection fraction returns having gained 3 kg in a fortnight, with worsening ankle oedema. Which mechanism is most directly responsible for his sodium and water retention?",
+      options:[
+        "Angiotensin II causing arteriolar vasodilatation",
+        "A rise in atrial natriuretic peptide driving tubular reabsorption",
+        "Aldosterone driving renal sodium and water retention",
+        "Suppression of antidiuretic hormone (vasopressin)",
+        "Increased renal sympathetic activity causing natriuresis"],
+      correctIndex:2,
+      explanation:[
+        "ALDOSTERONE acts on the distal nephron to retain sodium and water, driving the rising preload, weight and oedema – which is why a mineralocorticoid-receptor antagonist helps.",
+        "The distractors are real players with the physiology reversed: angiotensin II VASOCONSTRICTS (raising afterload); natriuretic peptides RISE in heart failure and drive natriuresis, not reabsorption; ADH is INCREASED (worsening water retention and hyponatraemia), not suppressed; and renal sympathetic activity promotes sodium RETENTION and renin release, not natriuresis."
+      ] },
+    { id:"chf-013", type:"mcq", objective:"chf-remodelling",
+      data:"<div class=\"mk-obs-h\">Serial echocardiograms</div><div class=\"mk-obs-grid\"><span>Ejection fraction 2 years ago <b>45%</b></span><span>Ejection fraction now <b>30%</b></span><span>LV end-diastolic diameter 2 years ago <b>58 mm</b></span><span>LV end-diastolic diameter now <b>68 mm</b></span></div>",
+      question:"A 58-year-old man with dilated cardiomyopathy is followed in clinic. Despite optimal treatment, his serial echocardiograms show a steadily enlarging, weaker left ventricle, as below. Which process best describes this change?",
+      options:[
+        "Myocardial stunning",
+        "Myocardial hibernation",
+        "Ischaemic preconditioning",
+        "Cardiac tamponade",
+        "Ventricular remodelling"],
+      correctIndex:4,
+      explanation:[
+        "Progressive dilatation with a falling ejection fraction over time is VENTRICULAR REMODELLING – the maladaptive structural change that drives worsening heart failure.",
+        "Stunning and hibernation are REVERSIBLE ischaemic states of viable myocardium, preconditioning is a protective adaptation to brief ischaemia, and tamponade is acute external compression – none describes this slow structural decline."
+      ] },
+    { id:"chf-014", type:"mcq", objective:"chf-nyha",
+      question:"A 68-year-old woman with known heart failure is reviewed. She is comfortable sitting in clinic with no symptoms at rest, but tells you she now becomes breathless after walking only to her front gate or while dressing – much worse than six months ago. Which classification best captures her current status?",
+      options:[
+        "NYHA class I",
+        "NYHA class II",
+        "NYHA class III",
+        "NYHA class IV",
+        "Killip class III"],
+      correctIndex:2,
+      explanation:[
+        "Symptoms on LESS THAN ORDINARY activity (dressing, walking a few metres) while comfortable at rest is NYHA CLASS III.",
+        "Class I has symptoms only on extreme exertion, class II on ordinary activity, and class IV at rest. Killip is a severity scale for ACUTE myocardial infarction – the wrong tool here."
+      ] },
+    { id:"chf-015", type:"saq", objective:"chf-pnd",
+      question:"A 65-year-old man with ischaemic heart disease sees his GP. For the past three weeks he has slept propped on three pillows, and twice he has woken about two hours after going to bed, sitting bolt upright and gasping for breath, needing to stand at an open window for 15–20 minutes before it eases. Give the single term for the symptom of waking from sleep acutely breathless.",
+      answer:"Paroxysmal nocturnal dyspnoea",
+      accept:["pnd","paroxysmal nocturnal dyspnoea","paroxysmal nocturnal dyspnea"],
+      markPoints:[
+        "Paroxysmal nocturnal dyspnoea (PND)",
+        "Sudden breathlessness waking the patient from sleep, relieved by sitting or standing",
+        "A symptom of left heart failure / pulmonary congestion"],
+      explanation:[
+        "PAROXYSMAL NOCTURNAL DYSPNOEA is sudden breathlessness that WAKES the patient 1–2 hours after lying down – as fluid redistributes from the periphery overnight and raises pulmonary venous pressure – and is relieved by sitting or standing.",
+        "The three-pillow detail is ORTHOPNOEA, a different symptom (breathlessness on lying flat); the question asks specifically about the episodes that wake him from sleep."
+      ] },
+    { id:"chf-016", type:"mcq", objective:"chf-s3-gallop",
+      audio:"assets/audio/s3_gallop.mp3",
+      audioCredit:"Judge & Mangrulkar, University of Michigan Heart Sound & Murmur Library, CC BY-SA 3.0.",
+      question:"A 72-year-old man with heart failure with reduced ejection fraction is reviewed at home by his GP. He is breathless on minimal exertion, with a displaced apex beat and bibasal crackles. On auscultation there is an added low-pitched sound in early diastole, captured in the recording. What is the added sound?",
+      options:[
+        "A third heart sound (S3)",
+        "A fourth heart sound (S4)",
+        "An ejection systolic murmur",
+        "A pansystolic murmur",
+        "An opening snap"],
+      correctIndex:0,
+      explanation:[
+        "A low-pitched sound in EARLY DIASTOLE – a ventricular gallop – is a THIRD HEART SOUND (S3), classic in heart failure with reduced ejection fraction and rapid ventricular filling.",
+        "A fourth heart sound (S4) is presystolic, just before S1; the ejection systolic and pansystolic murmurs and an opening snap are different, and are not low-pitched early-diastolic added sounds."
+      ] },
+    { id:"chf-017", type:"mcq", objective:"chf-displaced-apex",
+      data:"<div class=\"mk-obs-h\">Examination</div><div class=\"mk-obs-grid\"><span>Heart rate <b>92 bpm</b></span><span>Blood pressure <b>108/74 mmHg</b></span><span>Apex beat <b>6th ICS, anterior axillary line</b></span><span>Normal apex <b>5th ICS, mid-clavicular line</b></span></div>",
+      question:"A 60-year-old man with dilated cardiomyopathy is examined in clinic. His apex beat is displaced, as shown. What does this apex-beat finding most likely indicate?",
+      options:[
+        "A pericardial effusion",
+        "Right ventricular hypertrophy",
+        "Dextrocardia",
+        "Hyperinflated lungs",
+        "Left ventricular dilatation"],
+      correctIndex:4,
+      explanation:[
+        "An apex beat displaced laterally and downward (to the 6th intercostal space, anterior axillary line) signals LEFT VENTRICULAR DILATATION – an enlarged heart.",
+        "A pericardial effusion makes the apex IMPALPABLE, right ventricular hypertrophy gives a parasternal heave, dextrocardia gives a RIGHT-sided apex, and hyperinflated lungs give a tapping or impalpable apex."
+      ] },
+    { id:"chf-018", type:"mcq", objective:"chf-right-heart-failure",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Jugular_Venous_Distention_%28JVD%29.JPG",
+      imageAlt:"Photograph of the right side of the neck, patient sitting up.",
+      imageCredit:"Ferencga, CC BY-SA 3.0, via Wikimedia Commons.",
+      data:"<div class=\"mk-obs-h\">Examination</div><div class=\"mk-obs-grid\"><span>Chest <b>Clear on auscultation</b></span><span>Liver <b>Tender, 4 cm below costal margin</b></span><span>Abdomen <b>Shifting dullness</b></span><span>Legs <b>Pitting oedema to the thighs</b></span></div>",
+      question:"A 74-year-old woman with heart failure attends with abdominal swelling and heavy legs. Her chest is clear on auscultation. Examination of her neck, with her sitting up at 45 degrees, is shown, along with the rest of her examination. Which best describes her heart failure?",
+      options:[
+        "Predominantly left heart failure",
+        "Predominantly right heart failure",
+        "High-output heart failure",
+        "Biventricular failure with pulmonary oedema",
+        "Isolated diastolic dysfunction"],
+      correctIndex:1,
+      explanation:[
+        "The photograph shows a raised JVP (a distended neck vein). With tender hepatomegaly, ascites and peripheral oedema but a CLEAR CHEST, this is PREDOMINANTLY RIGHT HEART FAILURE – systemic venous congestion.",
+        "Left-sided failure would give pulmonary congestion (crackles), which the clear chest argues against; the picture is not high-output, and biventricular failure would include pulmonary oedema."
+      ] },
+    { id:"chf-019", type:"mcq", objective:"chf-peripartum",
+      data:"<div class=\"mk-obs-h\">Observations and echo</div><div class=\"mk-obs-grid\"><span>Heart rate <b>108 bpm</b></span><span>Blood pressure <b>118/76 mmHg</b></span><span>Urine dipstick <b>No protein</b></span><span>Echocardiogram <b>Dilated LV, EF 32%</b></span></div>",
+      question:"A 32-year-old woman, previously fit, presents at 38 weeks' gestation with two weeks of breathlessness, orthopnoea and swelling of both legs. She has no chest pain. Her results are shown. What is the most likely diagnosis?",
+      options:[
+        "Pre-eclampsia",
+        "Pulmonary embolism",
+        "Hypertrophic cardiomyopathy",
+        "Peripartum cardiomyopathy",
+        "Ischaemic heart disease"],
+      correctIndex:3,
+      explanation:[
+        "New heart failure late in pregnancy with a DILATED, poorly-contracting left ventricle (EF 32%) is PERIPARTUM CARDIOMYOPATHY.",
+        "The normal blood pressure and protein-free urine exclude pre-eclampsia; a pulmonary embolism causes acute breathlessness but not a dilated LV; and hypertrophic cardiomyopathy and ischaemic heart disease do not fit a previously-well 32-year-old with new LV dilatation."
+      ] },
+    { id:"chf-020", type:"categorize", objective:"chf-left-vs-right",
+      question:"Two patients are seen in the heart-failure clinic. Sort each clinical finding into the side of heart failure it points to.",
+      buckets:["Left heart failure","Right heart failure"],
+      items:[
+        { text:"Orthopnoea and three-pillow sleeping", bucket:0 },
+        { text:"Pink frothy sputum", bucket:0 },
+        { text:"Bibasal inspiratory crackles", bucket:0 },
+        { text:"JVP raised to the earlobe", bucket:1 },
+        { text:"Tender, smooth hepatomegaly", bucket:1 },
+        { text:"Pitting oedema to the sacrum", bucket:1 }],
+      explanation:[
+        "LEFT heart failure causes PULMONARY congestion: orthopnoea, paroxysmal nocturnal dyspnoea, pink frothy sputum and bibasal crackles.",
+        "RIGHT heart failure causes SYSTEMIC venous congestion: a raised JVP, tender hepatomegaly, ascites and dependent pitting oedema."
       ] }
 ],
 
