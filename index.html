@@ -681,8 +681,11 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-step-body > ul > li,
 #tab-investigations .cp-step-body > ol > li{margin:6px 0!important;}
 /* .cp-lead is a bordered card, so capping IT shrinks the box rather than the
-   line — the card keeps the full width and only its text is held in. */
-#tab-investigations .cp-lead{max-width:none;}
+   line — the card keeps the full width and only its text is held in. It is
+   the same KIND of text as a step-body paragraph (a sentence you read), so
+   it must be the same size: at 14px next to a 16px step body the two boxes
+   read as two different typefaces stacked on each other. */
+#tab-investigations .cp-lead{max-width:none;font-size:16px;line-height:1.66;}
 #tab-investigations .cp-step-body{font-size:16px;line-height:1.66;}
 #tab-investigations .cp-step-body > p{margin:0 0 12px;}
 
