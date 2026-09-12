@@ -679,6 +679,15 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-step-body{font-size:14.5px;line-height:1.68;}
 #tab-investigations .cp-step-body > p{margin:0 0 12px;}
 
+/* a house <ul> carries margin:2px 0 0 — bottom margin 0, which is right when
+   the list ends the step but flushes the list against a following paragraph.
+   Give lists in a step body the same bottom gap paragraphs get, and drop it
+   again when the list is last so the card keeps its own padding. */
+#tab-investigations .cp-step-body > ul,
+#tab-investigations .cp-step-body > ol{margin-bottom:12px!important;}
+#tab-investigations .cp-step-body > ul:last-child,
+#tab-investigations .cp-step-body > ol:last-child{margin-bottom:0!important;}
+
 #tab-investigations .cp-reads > span.cp-read{
   background:var(--rn-bg2,#F1F4FA);
   border-color:#D8DEEA;
