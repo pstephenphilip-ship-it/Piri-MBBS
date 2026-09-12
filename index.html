@@ -670,13 +670,20 @@ body{display:flex;flex-direction:column;}
    monotonous block. (2) The short span-form chips were white on a white
    card with a near-invisible hairline, so a run of them read as leftovers
    instead of a set. They get the tab's own quiet blue-grey fill. */
-#tab-investigations .cp-step-body > p,
+/* Prose and lists want DIFFERENT measures. Continuous prose needs a tight
+   one (~68ch) or the eye loses the next line. A list does not: the bullet
+   is a re-entry point and each item is short, so a wider item just means
+   fewer mid-sentence breaks and far less dead space to the right. One
+   measure for both left a 278px void on an 822px card. */
+#tab-investigations .cp-step-body > p{max-width:640px;}
 #tab-investigations .cp-step-body > ul,
-#tab-investigations .cp-step-body > ol{max-width:68ch;}
+#tab-investigations .cp-step-body > ol{max-width:none;}
+#tab-investigations .cp-step-body > ul > li,
+#tab-investigations .cp-step-body > ol > li{margin:6px 0!important;}
 /* .cp-lead is a bordered card, so capping IT shrinks the box rather than the
    line — the card keeps the full width and only its text is held in. */
 #tab-investigations .cp-lead{max-width:none;}
-#tab-investigations .cp-step-body{font-size:14.5px;line-height:1.68;}
+#tab-investigations .cp-step-body{font-size:16px;line-height:1.66;}
 #tab-investigations .cp-step-body > p{margin:0 0 12px;}
 
 /* a house <ul> carries margin:2px 0 0 — bottom margin 0, which is right when
