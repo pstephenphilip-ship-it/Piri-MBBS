@@ -661,6 +661,34 @@ body{display:flex;flex-direction:column;}
 #tab-investigations .cp-pearl{margin-bottom:12px;}
 #tab-investigations .cp-warn{margin-top:12px;}
 
+/* ---- Stage 6: reading measure, and chips that read as a set -----------
+   Two things this tab never had. (1) Body prose ran the full 822px of a step
+   body at 14px — about 115 characters a line, where comfortable reading is
+   65-75, so every paragraph arrived as a slab. Prose now takes a measure;
+   grids, chip rows and clue tables still use the full width, so the card is
+   a readable column beside scannable full-width blocks rather than one
+   monotonous block. (2) The short span-form chips were white on a white
+   card with a near-invisible hairline, so a run of them read as leftovers
+   instead of a set. They get the tab's own quiet blue-grey fill. */
+#tab-investigations .cp-step-body > p,
+#tab-investigations .cp-step-body > ul,
+#tab-investigations .cp-step-body > ol{max-width:68ch;}
+/* .cp-lead is a bordered card, so capping IT shrinks the box rather than the
+   line — the card keeps the full width and only its text is held in. */
+#tab-investigations .cp-lead{max-width:none;}
+#tab-investigations .cp-step-body{font-size:14.5px;line-height:1.68;}
+#tab-investigations .cp-step-body > p{margin:0 0 12px;}
+
+#tab-investigations .cp-reads > span.cp-read{
+  background:var(--rn-bg2,#F1F4FA);
+  border-color:#D8DEEA;
+  font-weight:600;
+  color:var(--rn-text,#1E2640);}
+
+/* the step's header band is 49px of chrome for a 12px label; a little less
+   of it puts more of the card's height into the content */
+#tab-investigations .cp-step-h{padding:10px 20px;}
+
 /* ---- Stage 5: the subtab bar ------------------------------------------
    .tt-btn changes font-weight between states (500 inactive, 600 active), so
    selecting a tab reflowed the whole bar. Weight is now constant and only
