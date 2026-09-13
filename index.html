@@ -8304,6 +8304,112 @@ window.MOCK_BANK = {
       explanation:[
         "Only BISOPROLOL, CARVEDILOL and NEBIVOLOL are licensed for HFrEF in the UK (nebivolol for mild-to-moderate HF in those aged 70 and over, usually third-line).",
         "Atenolol and metoprolol tartrate are not licensed for HFrEF here, and sotalol is a class III antiarrhythmic, not a heart-failure beta-blocker."
+      ] },
+    { id:"chf-029", type:"mcq", objective:"chf-add-mra",
+      question:"A 62-year-old man with heart failure with reduced ejection fraction (EF 28%) remains breathless on moderate exertion despite ramipril and bisoprolol at maximally tolerated doses. He is euvolaemic, with a blood pressure of 124/76 mmHg, potassium 4.3 mmol/L and eGFR 70. Which medication should be added next for further prognostic benefit?",
+      options:[
+        "Spironolactone 25 mg once daily",
+        "Amlodipine 5 mg once daily",
+        "Digoxin 125 micrograms once daily",
+        "Furosemide 40 mg twice daily",
+        "Ivabradine 5 mg twice daily"],
+      correctIndex:0,
+      explanation:[
+        "The third pillar is a mineralocorticoid-receptor antagonist – SPIRONOLACTONE, started at 25 mg once daily – which adds a mortality benefit on top of an ACE inhibitor and beta-blocker.",
+        "Amlodipine has no heart-failure benefit; digoxin and furosemide relieve symptoms without reducing mortality; and ivabradine needs specific criteria (sinus rhythm, heart rate 75 bpm or more on a maximally-tolerated beta-blocker), not met here. The doses are all realistic, so the discriminator is the drug, not the number."
+      ] },
+    { id:"chf-030", type:"mcq", objective:"chf-mra-side-effect",
+      question:"A 68-year-old man with heart failure with reduced ejection fraction has taken spironolactone for six months. He was switched to eplerenone. His potassium and renal function are normal. What is the most likely reason for the change?",
+      options:[
+        "Rising serum potassium",
+        "Tender breast enlargement",
+        "A persistent dry cough",
+        "Muscle pain and cramps",
+        "A widespread skin rash"],
+      correctIndex:1,
+      explanation:[
+        "Spironolactone is a NON-SELECTIVE mineralocorticoid antagonist with anti-androgen activity, so it commonly causes painful GYNAECOMASTIA (tender breast enlargement). Eplerenone is selective and avoids this, so gynaecomastia is the usual reason to switch.",
+        "His normal potassium rules out hyperkalaemia as the trigger – and switching between mineralocorticoid antagonists would not fix that anyway, since both raise potassium. Muscle pain, cough (think ACE inhibitor) and rash are not typical spironolactone effects."
+      ] },
+    { id:"chf-031", type:"mcq", objective:"chf-mra-hyperkalaemia",
+      data:"<div class=\"mk-obs-h\">Blood results</div><div class=\"mk-obs-grid\"><span>Potassium <b>6.1 mmol/L</b> (3.5&ndash;5.3)</span><span>Creatinine <b>130 &micro;mol/L</b> (60&ndash;110)</span><span>eGFR <b>42 mL/min/1.73m&sup2;</b> (&gt;90)</span></div>",
+      question:"A 70-year-old woman with heart failure with reduced ejection fraction takes ramipril and spironolactone. Her routine blood results are shown. What is the most appropriate action?",
+      options:[
+        "Continue both drugs and recheck in three months",
+        "Increase the spironolactone dose",
+        "Stop the spironolactone and recheck U&Es",
+        "Add a second potassium-sparing diuretic",
+        "Advise a high-potassium diet"],
+      correctIndex:2,
+      explanation:[
+        "A potassium of 6.1 mmol/L is dangerous HYPERKALAEMIA, and combining an ACE inhibitor with a mineralocorticoid antagonist is the classic cause. STOP THE SPIRONOLACTONE and recheck the U&Es (with acute management of the potassium as needed).",
+        "Continuing, increasing the dose, adding another potassium-sparing agent or a high-potassium diet would all push the potassium higher and risk a fatal arrhythmia."
+      ] },
+    { id:"chf-032", type:"mcq", objective:"chf-sglt2i-diabetes",
+      question:"A 60-year-old man with heart failure with reduced ejection fraction (EF 30%), who is not diabetic, is being optimised. His clinician suggests adding dapagliflozin. He asks why, since he does not have diabetes. What is the best explanation?",
+      options:[
+        "It is only effective if the blood glucose is raised",
+        "It is being used to prevent him developing diabetes",
+        "It should be avoided in people without diabetes",
+        "It reduces heart-failure hospitalisation regardless of diabetes",
+        "It works only in preserved-ejection-fraction heart failure"],
+      correctIndex:3,
+      explanation:[
+        "SGLT2 inhibitors improve heart-failure outcomes – reducing hospitalisation and cardiovascular death – INDEPENDENTLY of diabetes, so they are given whether or not the patient is diabetic.",
+        "They are not restricted to hyperglycaemia, are not given to prevent diabetes, are not avoided in non-diabetics, and work across the whole ejection-fraction spectrum, not only in HFpEF."
+      ] },
+    { id:"chf-033", type:"mcq", objective:"chf-sglt2i-side-effect",
+      question:"A 64-year-old woman with heart failure with reduced ejection fraction is started on empagliflozin. Which side effect should you specifically warn her about?",
+      options:[
+        "A persistent dry cough",
+        "Painful gynaecomastia",
+        "Significant hyperkalaemia",
+        "Genital and urinary infections",
+        "Worsening ankle swelling"],
+      correctIndex:3,
+      explanation:[
+        "By causing glycosuria, SGLT2 inhibitors predispose to GENITAL THRUSH and URINARY TRACT INFECTIONS – the characteristic side effect to warn about (along with volume depletion and, rarely, euglycaemic ketoacidosis).",
+        "Each distractor belongs to a different heart-failure drug: a dry cough to ACE inhibitors, gynaecomastia to spironolactone, hyperkalaemia to ACE inhibitors and mineralocorticoid antagonists, and ankle swelling to calcium-channel blockers."
+      ] },
+    { id:"chf-034", type:"mcq", objective:"chf-hfpef-evidence",
+      question:"A 74-year-old woman has heart failure with preserved ejection fraction (EF 58%) with exertional breathlessness, well-controlled hypertension and atrial fibrillation. Which drug class has the best evidence for reducing heart-failure hospitalisation in HFpEF?",
+      options:[
+        "An ACE inhibitor",
+        "A beta-blocker",
+        "Digoxin",
+        "Ivabradine",
+        "An SGLT2 inhibitor"],
+      correctIndex:4,
+      explanation:[
+        "SGLT2 INHIBITORS were the first class shown to reduce heart-failure hospitalisation across the whole ejection-fraction spectrum, including HFpEF.",
+        "ACE inhibitors and beta-blockers, the mainstay of HFrEF, lack the same outcome evidence in HFpEF; digoxin and ivabradine have no role in improving HFpEF outcomes."
+      ] },
+    { id:"chf-035", type:"mcq", objective:"chf-hfpef-approach",
+      question:"A 76-year-old woman with heart failure with preserved ejection fraction (EF 55%) attends with ankle oedema and exertional breathlessness. She has hypertension and paroxysmal atrial fibrillation. Besides an SGLT2 inhibitor, which is the most appropriate approach?",
+      options:[
+        "Start ramipril and bisoprolol as full HFrEF therapy",
+        "Reassure her that HFpEF needs no treatment",
+        "Start digoxin for symptom control",
+        "Restrict all diuretics to avoid dehydration",
+        "A loop diuretic, plus treating her hypertension and AF"],
+      correctIndex:4,
+      explanation:[
+        "HFpEF is managed by relieving congestion with a LOOP DIURETIC and aggressively treating comorbidities (hypertension, atrial fibrillation, diabetes), alongside an SGLT2 inhibitor.",
+        "The full HFrEF pillar regimen is not the HFpEF mainstay (ACE inhibitors and beta-blockers lack the outcome evidence there); HFpEF is not benign and does need treatment; digoxin is not a symptom-control mainstay; and withholding diuretics would leave her congested."
+      ] },
+    { id:"chf-036", type:"categorize", objective:"chf-mra-vs-sglt2i-effects",
+      question:"Sort each adverse effect by the drug that characteristically causes it.",
+      buckets:["Spironolactone","SGLT2 inhibitor"],
+      items:[
+        { text:"Gynaecomastia", bucket:0 },
+        { text:"Hyperkalaemia", bucket:0 },
+        { text:"Menstrual irregularity", bucket:0 },
+        { text:"Genital thrush", bucket:1 },
+        { text:"Euglycaemic diabetic ketoacidosis", bucket:1 },
+        { text:"Volume depletion and dehydration", bucket:1 }],
+      explanation:[
+        "SPIRONOLACTONE, a non-selective mineralocorticoid antagonist, causes hyperkalaemia and anti-androgenic effects – gynaecomastia and menstrual irregularity.",
+        "SGLT2 INHIBITORS act on the kidney: glycosuria predisposes to genital thrush and, rarely, euglycaemic diabetic ketoacidosis, while the osmotic diuresis can cause volume depletion."
       ] }
 ],
 
