@@ -189,7 +189,8 @@
     "1 · Pharmacodynamics",
     "2 · Drug Histories & Reconciliation",
     "3 · Prescription Documentation",
-    "4 · Adherence & Concordance"
+    "4 · Adherence & Concordance",
+    "5 · Prescribing in Renal Dysfunction"
    ]
   },
   {
@@ -19375,6 +19376,133 @@
     "id": "ph_cpt_ad_25",
     "front": "Give two simple everyday strategies that can help a patient remember to take a medicine.",
     "back": "Link the dose to a regular routine activity (e.g. a morning drink), and use aids such as a pill box, a medicines calendar, reminders from family, notes on the medicine cabinet, or a medication-reminder phone app."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__5 · Prescribing in Renal Dysfunction": [
+   {
+    "id": "ph_cpt_rn_01",
+    "front": "Which estimate of renal function should you use for drug dosing, and why not eGFR?",
+    "back": "Use the Cockcroft–Gault estimate of creatinine clearance for drug dosing. eGFR (CKD-EPI/MDRD) is normalised to 1.73 m² and was developed for staging stable CKD; most renal dosing literature and the BNF are based on creatinine clearance. Cockcroft–Gault is preferred for older adults, extremes of muscle mass/weight and narrow-therapeutic-index drugs."
+   },
+   {
+    "id": "ph_cpt_rn_02",
+    "front": "In which patients is eGFR unreliable for estimating renal function?",
+    "back": "At extremes of body weight, in children, pregnancy, and catabolic states, and where muscle mass is low (extreme old age, malnutrition, amputation). It is also NOT accurate in AKI, because it was developed for stable CKD."
+   },
+   {
+    "id": "ph_cpt_rn_03",
+    "front": "Why are NSAIDs nephrotoxic?",
+    "back": "Renal blood flow — especially in low-flow states — relies on vasodilatory prostaglandins keeping the afferent arteriole open. NSAIDs inhibit prostaglandin synthesis, causing afferent vasoconstriction, renal hypoperfusion and AKI. Risk is highest in CKD, older adults, and volume depletion/diuretic use/cirrhosis/heart failure."
+   },
+   {
+    "id": "ph_cpt_rn_04",
+    "front": "How do ACE inhibitors and ARBs affect glomerular filtration, and when are they dangerous?",
+    "back": "Angiotensin-II constricts the efferent arteriole to maintain filtration pressure when perfusion is poor. ACE-i/ARBs block this, dilating the efferent arteriole and dropping GFR. This is dangerous in bilateral renal artery stenosis (or a single functioning kidney/widespread vascular disease), where filtration depends on that back-pressure."
+   },
+   {
+    "id": "ph_cpt_rn_05",
+    "front": "What is the 'triple whammy' that commonly causes AKI?",
+    "back": "The combination of an ACE inhibitor or ARB + a diuretic + an NSAID. Together they remove both autoregulatory defences (efferent constriction and afferent dilation) plus cause volume depletion, precipitating acute kidney injury."
+   },
+   {
+    "id": "ph_cpt_rn_06",
+    "front": "What are the three broad categories of AKI cause?",
+    "back": "Pre-renal (hypoperfusion/hypovolaemia — reversible if caught early), renal/intrinsic (ischaemia, sepsis, toxins, inflammation → acute tubular necrosis), and post-renal (obstruction to outflow, e.g. prostatic enlargement, causing back-pressure)."
+   },
+   {
+    "id": "ph_cpt_rn_07",
+    "front": "Outline NICE AKI staging.",
+    "back": "Stage 1: creatinine rise ≥26 µmol/L in 48 h, or ≥1.5× baseline, or urine <0.5 ml/kg/h for >6 h. Stage 2: creatinine ≥2× baseline, or urine <0.5 ml/kg/h for >12 h. Stage 3: creatinine ≥3× baseline (or ≥354 µmol/L), urine <0.3 ml/kg/h for 24 h, anuria for 12 h, or any need for renal replacement therapy."
+   },
+   {
+    "id": "ph_cpt_rn_08",
+    "front": "Name commonly prescribed directly nephrotoxic drugs and their mechanism.",
+    "back": "Aminoglycosides (gentamicin) and amphotericin cause acute tubular necrosis; cisplatin causes tubular damage; ciclosporin/tacrolimus and contrast media cause renal vasoconstriction; NSAIDs and ACE-i/ARB act via glomerular haemodynamics; lithium causes chronic tubulointerstitial damage."
+   },
+   {
+    "id": "ph_cpt_rn_09",
+    "front": "How does rhabdomyolysis link statins to kidney injury?",
+    "back": "Statins can cause myopathy/rhabdomyolysis; myoglobin released from damaged muscle is directly nephrotoxic and reduces blood flow in the outer medulla, causing AKI. Stop the statin if CK is >5× the upper limit of normal or symptoms are severe."
+   },
+   {
+    "id": "ph_cpt_rn_10",
+    "front": "How does renal impairment change drug elimination and half-life?",
+    "back": "Water-soluble drugs and renally-cleared active metabolites accumulate, and the elimination half-life is prolonged in proportion to the loss of renal function (e.g. gentamicin's half-life rises from ~2 h to ~48 h in anuria). Around two-thirds of drugs are renally excreted, so many need dose adjustment."
+   },
+   {
+    "id": "ph_cpt_rn_11",
+    "front": "What are the two ways to adjust a drug dose in renal impairment, and when is each preferred?",
+    "back": "Reduce the individual dose (keeps a steadier level) or extend the dosing interval (better where distinct peak and trough concentrations matter, e.g. aminoglycosides). The choice depends on the drug's pharmacodynamics; details are in the BNF/Renal Drug Handbook."
+   },
+   {
+    "id": "ph_cpt_rn_12",
+    "front": "Which analgesics are preferred and which avoided in significant renal impairment?",
+    "back": "Preferred: paracetamol first-line, codeine/dihydrocodeine cautiously, and low-dose fentanyl (no renally-cleared active metabolites). Avoid: NSAIDs including topical (can still precipitate AKI) and morphine (active metabolites accumulate causing toxicity)."
+   },
+   {
+    "id": "ph_cpt_rn_13",
+    "front": "Which IV fluids are used (and avoided) in AKI?",
+    "back": "Sodium chloride 0.9% is first-line; sodium bicarbonate 1.26% is an alternative if there is hypovolaemia plus metabolic acidosis (HCO3 <20), under local policy/specialist advice. Avoid Hartmann's (contains potassium) and colloids (no benefit over saline)."
+   },
+   {
+    "id": "ph_cpt_rn_14",
+    "front": "How should fluids be given in AKI, and what is the danger of over-prescribing?",
+    "back": "Give volume repletion as 250–500 ml challenges with reassessment (urine output, obs), then move to a maintenance regimen and slow the rate, especially if oliguric. Reflex prescribing of 3–4 L/day risks iatrogenic fluid overload, pulmonary oedema and increased mortality."
+   },
+   {
+    "id": "ph_cpt_rn_15",
+    "front": "What is one of the most sensitive clinical signs of hypovolaemia?",
+    "back": "A postural rise in heart rate of ≥30 bpm on standing. Also check supine and standing BP, and look for signs of overload (rising daily weight, pitting/sacral oedema, bibasal crackles)."
+   },
+   {
+    "id": "ph_cpt_rn_16",
+    "front": "When does NICE recommend an ACE inhibitor or ARB in CKD?",
+    "back": "Offer it if the patient has: diabetes and ACR ≥3 mg/mmol; hypertension and ACR ≥30 mg/mmol; or an ACR ≥70 mg/mmol regardless of hypertension or CVD. They are not nephrotoxic and are renoprotective in proteinuric CKD."
+   },
+   {
+    "id": "ph_cpt_rn_17",
+    "front": "What monitoring and thresholds apply when starting an ACE inhibitor/ARB in CKD?",
+    "back": "Check potassium and eGFR before starting and again ~7 days after starting or a dose increase. Don't start if K⁺ >5.0. A creatinine rise up to ~30% (or eGFR fall up to ~25%) is acceptable — look for another cause before stopping; a larger change means investigate and consider stopping. Titrate to the maximum tolerated dose."
+   },
+   {
+    "id": "ph_cpt_rn_18",
+    "front": "What are the blood pressure targets in CKD?",
+    "back": "Below 140/90 mmHg in CKD generally; below 130/80 mmHg if the patient has both diabetes and CKD with an ACR >70 mg/mmol. Several agents are usually needed."
+   },
+   {
+    "id": "ph_cpt_rn_19",
+    "front": "Why are thiazide diuretics limited in CKD, and what are the alternatives?",
+    "back": "Thiazides are largely ineffective once eGFR is <30, so a loop diuretic (e.g. furosemide) is used for fluid overload. Metolazone still works below 30 but risks excessive diuresis and is specialist-initiated. Potassium-sparing diuretics are avoided (hyperkalaemia); a loop+thiazide combination needs specialist advice as volume depletion can occur rapidly."
+   },
+   {
+    "id": "ph_cpt_rn_20",
+    "front": "Why should high-dose loop diuretics be given by infusion rather than bolus in severe fluid overload?",
+    "back": "Because rapid high-dose bolus loop diuretics can cause ototoxicity (deafness). For severe overload, give a loop diuretic as an infusion (e.g. not exceeding 4 mg/min for furosemide) under specialist advice, rather than a bolus."
+   },
+   {
+    "id": "ph_cpt_rn_21",
+    "front": "At what level is hyperkalaemia a treatment emergency, and what are the ECG changes?",
+    "back": "Treat urgently if potassium >6.5 mmol/L or if there are ECG changes. ECG progression: peaked T waves → loss of P waves → prolonged PR → broadened QRS → sine wave → asystolic arrest. It is worsened by acidosis."
+   },
+   {
+    "id": "ph_cpt_rn_22",
+    "front": "What is the role of IV calcium gluconate in hyperkalaemia?",
+    "back": "It stabilises the excitable myocardium (cardioprotection) but has NO effect on the serum potassium. The protective effect begins within minutes but is short-lived (<1 hour) and can be repeated according to the ECG."
+   },
+   {
+    "id": "ph_cpt_rn_23",
+    "front": "How do you shift potassium into cells in hyperkalaemia?",
+    "back": "IV insulin with glucose (e.g. 10 units soluble insulin + 50 ml 50% glucose) lowers potassium by ~1 mmol/L — monitor for delayed hypoglycaemia, and omit the glucose if blood glucose is already >15. Nebulised salbutamol also drives potassium into cells but is temporary and not effective in everyone."
+   },
+   {
+    "id": "ph_cpt_rn_24",
+    "front": "Which drugs raise serum potassium, and which should be stopped first in severe hyperkalaemia?",
+    "back": "Drugs that retain potassium (ACE-i/ARB, potassium-sparing diuretics, NSAIDs, potassium supplements, trimethoprim) and drugs that block cellular buffering (beta-blockers, digoxin). In severe hyperkalaemia stop the retaining drugs, especially ACE inhibitors and ARBs."
+   },
+   {
+    "id": "ph_cpt_rn_25",
+    "front": "Why must calcium and sodium bicarbonate not be given through the same line?",
+    "back": "They form an insoluble precipitate (calcium carbonate) if mixed. Give them through separate lines when treating hyperkalaemia/acidosis."
    }
   ],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Drugs Requiring Therapeutic Drug Monitoring (TDM)": [
