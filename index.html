@@ -1262,6 +1262,7 @@ body.da-notes-open #daMemFab{display:none!important;}
 .wc-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
 .wc-word{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .wc-tag{font-size:14px;color:#6B7280;margin-top:6px;}
+.wc-copyright{margin:30px auto 12px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted,#8A93A6);opacity:.7;}
 /* Signed-out trial CTA on the home hero. Hidden for signed-in users via updateHomeActions. */
 .wc-trial{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;text-align:left;
   padding:18px 22px;border-radius:16px;margin-bottom:22px;
@@ -1444,7 +1445,9 @@ body.da-notes-open #daMemFab{display:none!important;}
         +'</div>'
         +'<button class="wc-trial-btn" type="button" onclick="if(window.openAuthModal)window.openAuthModal(\'signup\')">Start my free trial</button>'
       +'</div>'
-      +streak+actions+stats+hint+planner+'</div>';
+      +streak+actions+stats+hint+planner
+      +'<div class="wc-copyright">&copy; '+(new Date().getFullYear())+' DoctoRise &middot; All rights reserved.</div>'
+      +'</div>';
   }
 
   window.updateStreakUI=function(){
