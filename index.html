@@ -1266,6 +1266,9 @@ body.da-notes-open #daMemFab{display:none!important;}
 .wc-trial{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;text-align:left;
   padding:18px 22px;border-radius:16px;margin-bottom:22px;
   border:1.5px solid rgba(0,194,168,.35);background:linear-gradient(135deg,#E9FBF8 0%,#FFFFFF 70%);}
+/* The `hidden` attribute (set by updateHomeActions for signed-in/trial/member users) must win
+   over the display:flex above — an author rule beats the UA [hidden] rule, so state it here. */
+.wc-trial[hidden]{display:none !important;}
 .wc-trial-tx{flex:1 1 300px;min-width:0;}
 .wc-trial-t{font-size:16px;font-weight:800;color:#0B3F38;letter-spacing:-.01em;}
 .wc-trial-s{font-size:13px;color:#4B5563;margin-top:3px;line-height:1.5;}
