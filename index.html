@@ -8541,6 +8541,148 @@ window.MOCK_BANK = {
       explanation:[
         "The four pillars – ACE inhibitor (or ARB/ARNI), beta-blocker, mineralocorticoid antagonist and SGLT2 inhibitor – are DISEASE-MODIFYING and reduce mortality.",
         "Loop diuretics and digoxin relieve symptoms and (for digoxin) reduce hospitalisation, but neither reduces mortality."
+      ] },
+    { id:"chf-046", type:"mcq", objective:"chf-icd-primary",
+      data:"<div class=\"mk-obs-h\">Investigations</div><div class=\"mk-obs-grid\"><span>Ejection fraction <b>30%</b></span><span>QRS duration <b>98 ms</b></span><span>Rhythm <b>Sinus</b></span><span>On optimal therapy <b>4 months</b></span></div>",
+      question:"A 64-year-old man has ischaemic heart failure with reduced ejection fraction after an anterior myocardial infarction five years ago. Despite four months on maximally tolerated ramipril, bisoprolol, spironolactone and dapagliflozin he remains in NYHA class II, with no syncope or documented arrhythmia. His investigations are shown. Which device is most appropriate to reduce his risk of sudden cardiac death?",
+      options:[
+        "A cardiac resynchronisation pacemaker (CRT-P)",
+        "A single-chamber pacemaker",
+        "An implantable loop recorder",
+        "An implantable cardioverter-defibrillator (ICD)",
+        "No device is indicated"],
+      correctIndex:3,
+      explanation:[
+        "With EF ≤35%, NYHA I–III and at least three months of optimal therapy, he meets the criteria for a PRIMARY-PREVENTION implantable cardioverter-defibrillator.",
+        "The NARROW QRS (98 ms) is the discriminator that rules out cardiac resynchronisation therapy, which needs a broad QRS; a plain pacemaker and a loop recorder do not prevent sudden death, and doing nothing leaves him at risk."
+      ] },
+    { id:"chf-047", type:"mcq", objective:"chf-icd-secondary",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/12_lead_generated_ventricular_tachycardia.JPG",
+      imageAlt:"Twelve-lead electrocardiogram recorded during the episode.",
+      imageCredit:"Glenlarson, public domain, via Wikimedia Commons.",
+      question:"A 58-year-old man with heart failure with reduced ejection fraction (EF 40%) suddenly collapsed. His 12-lead ECG recorded during the episode is shown; he had no palpable pulse and was defibrillated back to sinus rhythm. Subsequent coronary angiography and blood tests reveal no reversible cause. Which is the most appropriate management to prevent recurrence?",
+      options:[
+        "Amiodarone alone",
+        "A permanent pacemaker",
+        "Cardiac resynchronisation therapy",
+        "An implantable cardioverter-defibrillator",
+        "Reassurance and outpatient monitoring"],
+      correctIndex:3,
+      explanation:[
+        "The ECG shows a broad-complex VENTRICULAR TACHYCARDIA. A pulseless-VT cardiac arrest with no reversible cause is a SECONDARY-PREVENTION indication for an implantable cardioverter-defibrillator, given REGARDLESS of ejection fraction (indicated here even at EF 40%).",
+        "Amiodarone alone does not match an ICD for preventing sudden death; a pacemaker does not treat ventricular arrhythmia; resynchronisation is a treatment for dyssynchrony, not the arrest; and reassurance would be unsafe."
+      ] },
+    { id:"chf-048", type:"mcq", objective:"chf-crt-indication",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/DVA2554_%28CardioNetworks_ECGpedia%29.jpg",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"W.G. de Voogt / CardioNetworks (ECGpedia), CC BY-SA 3.0, via Wikimedia Commons.",
+      data:"<div class=\"mk-obs-h\">Investigations</div><div class=\"mk-obs-grid\"><span>Ejection fraction <b>28%</b></span><span>QRS duration <b>160 ms</b></span><span>NYHA class <b>III</b></span></div>",
+      question:"A 70-year-old woman with non-ischaemic heart failure with reduced ejection fraction remains in NYHA class III despite more than three months of optimal medical therapy. Her ECG and other investigations are shown. Which device is most appropriate?",
+      options:[
+        "A single-chamber pacemaker",
+        "An implantable loop recorder",
+        "Cardiac resynchronisation therapy",
+        "Continue medical therapy with no device",
+        "Atrioventricular node ablation"],
+      correctIndex:2,
+      explanation:[
+        "The ECG shows LEFT BUNDLE BRANCH BLOCK with a broad QRS (160 ms). With EF ≤35%, a broad QRS and NYHA class II–IV, she meets the criteria for CARDIAC RESYNCHRONISATION THERAPY, which re-coordinates the dyssynchronous ventricles.",
+        "A single-chamber pacemaker and a loop recorder do not resynchronise the ventricles; withholding a device leaves proven symptomatic benefit on the table; and AV node ablation does not treat the dyssynchrony."
+      ] },
+    { id:"chf-049", type:"mcq", objective:"chf-crt-mechanism",
+      question:"A 67-year-old woman with heart failure with reduced ejection fraction and left bundle branch block (QRS 158 ms) is about to have a biventricular, three-lead device fitted. She asks how it will help her heart. By what mechanism does cardiac resynchronisation therapy improve function?",
+      options:[
+        "It delivers a shock for ventricular fibrillation",
+        "It speeds up a slow heart rate",
+        "It reduces preload through diuresis",
+        "It resynchronises the left and right ventricles",
+        "It ablates the atrioventricular node"],
+      correctIndex:3,
+      explanation:[
+        "Left bundle branch block makes the ventricles contract out of step (DYSSYNCHRONY). Pacing both ventricles through right-atrial, right-ventricular and left-ventricular leads RE-COORDINATES their contraction and improves cardiac output.",
+        "Delivering a shock is the function of the ICD (CRT-D) component, not the resynchronisation itself; CRT does not primarily raise the heart rate, act as a diuretic, or ablate the AV node."
+      ] },
+    { id:"chf-050", type:"mcq", objective:"chf-dvla-icd",
+      question:"A 62-year-old accountant who drives a private car (Group 1 licence) had an implantable cardioverter-defibrillator fitted two weeks ago for SECONDARY prevention, after a ventricular tachycardia arrest. He feels well and asks when he can drive again. What is the correct advice?",
+      options:[
+        "He must not drive for 6 months and must notify the DVLA",
+        "He may drive after 1 week",
+        "He may continue driving and need not inform the DVLA",
+        "He is permanently barred from driving any vehicle",
+        "He may drive after 1 month"],
+      correctIndex:0,
+      explanation:[
+        "After an ICD for SECONDARY prevention, a Group 1 driver must stop for 6 MONTHS and must notify the DVLA.",
+        "One month applies to an ICD for PRIMARY prevention; a permanent bar applies only to Group 2 (lorry/bus) licences; and continuing to drive without informing the DVLA is not permitted."
+      ] },
+    { id:"chf-051", type:"mcq", objective:"chf-avoid-nsaids",
+      data:"<div class=\"mk-obs-h\">Blood results</div><div class=\"mk-obs-grid\"><span>Creatinine <b>118 &micro;mol/L</b> (60&ndash;110)</span><span>eGFR <b>55 mL/min/1.73m&sup2;</b> (&gt;90)</span><span>Potassium <b>4.8 mmol/L</b> (3.5&ndash;5.3)</span></div>",
+      question:"A 69-year-old man with heart failure with reduced ejection fraction (EF 35%) on furosemide, ramipril and bisoprolol has painful knee osteoarthritis and asks for regular ibuprofen. His recent blood results are shown. What is the most appropriate advice?",
+      options:[
+        "Ibuprofen is safe in his heart failure",
+        "Avoid the NSAID and use paracetamol",
+        "Start regular naproxen instead",
+        "Continue ibuprofen with a proton-pump inhibitor",
+        "Use high-dose aspirin for the pain"],
+      correctIndex:1,
+      explanation:[
+        "NSAIDs worsen fluid retention and renal function in heart failure – the risk is compounded here by his already-reduced eGFR and the ACE inhibitor plus diuretic (the nephrotoxic ‘triple whammy’). AVOID the NSAID and use PARACETAMOL.",
+        "Ibuprofen and naproxen are both NSAIDs and equally unsuitable; a proton-pump inhibitor protects the stomach but not the kidneys or fluid balance; and high-dose aspirin is not an appropriate analgesic here."
+      ] },
+    { id:"chf-052", type:"mcq", objective:"chf-daily-weights",
+      data:"<div class=\"mk-obs-h\">Home weight diary</div><div class=\"mk-obs-grid\"><span>Monday <b>71.8 kg</b></span><span>Tuesday <b>72.1 kg</b></span><span>Wednesday <b>73.5 kg</b></span><span>Thursday <b>74.0 kg</b></span></div>",
+      question:"A 66-year-old woman with heart failure with reduced ejection fraction weighs herself each morning at home. She telephones the clinic having noticed her ankles are more swollen, and reads out her weight diary, shown below. What is the most appropriate action?",
+      options:[
+        "Attend the emergency department for intravenous diuretics",
+        "Wait and reweigh in a week before doing anything",
+        "Take an extra rescue dose of furosemide as per her plan",
+        "Permanently double her daily furosemide dose",
+        "Restrict her fluid intake to 500 mL per day"],
+      correctIndex:2,
+      explanation:[
+        "A gain of about 2 kg over two days with worsening oedema signals early FLUID RETENTION. The correct response is the flexible RESCUE DIURETIC dose in her self-management plan, reviewing the effect – acting early keeps her out of hospital.",
+        "The emergency department with intravenous diuretics is over-escalation for early, mild retention; waiting a week is too slow; permanently doubling the dose commits her to over-diuresis without review; and severe fluid restriction is not the first response."
+      ] },
+    { id:"chf-053", type:"mcq", objective:"chf-vaccination",
+      question:"A 72-year-old man with stable heart failure with reduced ejection fraction attends his annual heart-failure review and asks which vaccinations he should have. What is the most appropriate advice?",
+      options:[
+        "No vaccines are needed in heart failure",
+        "Influenza vaccine only, every 5 years",
+        "Pneumococcal vaccine annually, no influenza vaccine",
+        "Vaccines are contraindicated in heart failure",
+        "An annual influenza vaccine and a one-off pneumococcal vaccine"],
+      correctIndex:4,
+      explanation:[
+        "Patients with heart failure should be offered an ANNUAL influenza vaccine and a ONE-OFF pneumococcal vaccine.",
+        "Vaccination is recommended, not contraindicated; the influenza vaccine is annual (not five-yearly), and the pneumococcal vaccine is a single dose (not annual)."
+      ] },
+    { id:"chf-054", type:"mcq", objective:"chf-palliative-icd",
+      data:"<div class=\"mk-obs-h\">Clinical summary</div><div class=\"mk-obs-grid\"><span>Ejection fraction <b>20%</b></span><span>NYHA class <b>IV (symptoms at rest)</b></span><span>Admissions in 6 months <b>4</b></span><span>Weight <b>Falling (cachexia)</b></span><span>Device <b>ICD in situ</b></span></div>",
+      question:"An 84-year-old man with end-stage heart failure with reduced ejection fraction has deteriorated despite maximal therapy and is now managed palliatively. His summary is shown. Alongside general palliative measures, which action is most important specifically to prevent distress at the end of his life?",
+      options:[
+        "Ensure a DNACPR form is completed",
+        "Start anticipatory (just-in-case) medications",
+        "Refer to the community palliative care team",
+        "Discuss his preferred place of death",
+        "Deactivate the ICD's shock function"],
+      correctIndex:4,
+      explanation:[
+        "Only DEACTIVATING THE ICD'S SHOCK FUNCTION prevents the device-specific harm of the defibrillator repeatedly and painfully shocking him as he dies – an avoidable distress that is frequently overlooked.",
+        "A DNACPR form, anticipatory medications, a palliative-care referral and discussing preferred place of death are all proper parts of good end-of-life care, but none of them stops the ICD from delivering shocks."
+      ] },
+    { id:"chf-055", type:"categorize", objective:"chf-lifestyle",
+      question:"Sort each measure by whether it is advised in the long-term management of chronic heart failure.",
+      buckets:["Recommended","Avoid"],
+      items:[
+        { text:"Regular moderate aerobic exercise", bucket:0 },
+        { text:"Annual influenza vaccination", bucket:0 },
+        { text:"Daily morning weights", bucket:0 },
+        { text:"Pioglitazone for type 2 diabetes", bucket:1 },
+        { text:"Regular ibuprofen for arthritis", bucket:1 },
+        { text:"Effervescent analgesics high in sodium", bucket:1 }],
+      explanation:[
+        "RECOMMENDED: regular moderate aerobic exercise (deconditioning worsens heart failure, and rehabilitation improves outcomes), an annual influenza vaccine, and daily morning weights to catch fluid retention early.",
+        "AVOID: pioglitazone and other glitazones (they cause fluid retention and are contraindicated in heart failure), regular NSAIDs such as ibuprofen (fluid retention and renal impairment), and effervescent/soluble medicines (a hidden sodium load that worsens fluid overload)."
       ] }
 ],
 
