@@ -1510,8 +1510,13 @@ body.da-notes-open #daMemFab{display:none!important;}
     // The trial CTA is for signed-out visitors only. An auth change triggers a reload
     // (see the authsync watcher), so reading __authed at paint time is reliable; it is
     // seeded from storage early, and anything falsy simply shows the CTA.
-    var signedOut = !window.__authed;
-    document.querySelectorAll('.js-trial-cta').forEach(function(e){ e.hidden = !signedOut; });
+    // Hide the "start a free trial" CTA for anyone who is signed in, a member, or already
+    // on a trial — signed-out visitors are the only audience. Checking all three (not just a
+    // post-login reload) keeps it hidden even when the reload is swallowed by the session cap.
+    var hideTrial = !!window.__authed
+      || !!window.__member
+      || !!(window.__trialInfo && window.__trialInfo().active);
+    document.querySelectorAll('.js-trial-cta').forEach(function(e){ e.hidden = hideTrial; });
   };
 
   // ===== Multi-note planner (home page) — synced via the piri_ namespace =====
@@ -15077,7 +15082,7 @@ function hideFlyout(p) {
   };
 
   var prevAuthed = window.__authed;
-  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('authsync'); if(a){ setTimeout(function(){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(_e){} }, 1600); } } }); }catch(e){} }
+  function watch(sb){ if(!sb) return; try{ sb.auth.onAuthStateChange(function(e,session){ if(e==='PASSWORD_RECOVERY'||window.__mfaPending) return; var a=!!session; window.__authed=a; try{ if(window.updateHomeActions) window.updateHomeActions(); }catch(_e){} if(a!==prevAuthed){ prevAuthed=a; window.__scheduleReload('authsync'); if(a){ setTimeout(function(){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(_e){} try{ if(window.updateHomeActions) window.updateHomeActions(); }catch(_e){} }, 1600); } } }); }catch(e){} }
   if (window.__sb) watch(window.__sb);
   else { var n=0, iv=setInterval(function(){ if(window.__sb){ clearInterval(iv); watch(window.__sb); } if(++n>40) clearInterval(iv); }, 100); }
   // Load this account's server-side day-pass unlocks once the session is restored.
@@ -15442,6 +15447,9 @@ function hideFlyout(p) {
       // Whatever the transition, a lock already on screen must re-check itself now that access
       // is known — in place, without waiting on a reload (which the session cap may swallow).
       if(isMember){ try{ if(window.__refreshGate) window.__refreshGate(); }catch(e){} }
+      // Refresh the home hero too, so the "start a free trial" CTA disappears the moment a
+      // trial/membership resolves — without depending on the (cappable) reload below.
+      try{ if(window.updateHomeActions) window.updateHomeActions(); }catch(e){}
       if(isMember && !was){
         // Membership just ACTIVATED. Reload once to clear any lock UI rendered while free.
         // `immediate` skips the 6s smoothing so it isn't swallowed right after a sync reload,
