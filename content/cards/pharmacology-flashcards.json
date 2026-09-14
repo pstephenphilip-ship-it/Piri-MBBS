@@ -191,7 +191,8 @@
     "3 · Prescription Documentation",
     "4 · Adherence & Concordance",
     "5 · Prescribing in Renal Dysfunction",
-    "6 · Prescribing in Hepatic Dysfunction"
+    "6 · Prescribing in Hepatic Dysfunction",
+    "7 · Clinical Pharmacokinetics"
    ]
   },
   {
@@ -19631,6 +19632,133 @@
     "id": "ph_cpt_lv_25",
     "front": "List the key drug characteristics to weigh up when prescribing in hepatic dysfunction.",
     "back": "Bioavailability (first-pass, altered by shunts), reliance on hepatic metabolism, half-life (often prolonged), protein binding (low albumin), biliary excretion/enterohepatic circulation, adverse effects that worsen liver complications, and hepatotoxicity/nephrotoxicity (liver patients are also at risk of renal dysfunction). Monitor albumin, PT and bilirubin at baseline and intervals."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__7 · Clinical Pharmacokinetics": [
+   {
+    "id": "ph_cpt_pk_01",
+    "front": "What do the letters ADME stand for in pharmacokinetics?",
+    "back": "Absorption, Distribution, Metabolism and Elimination — the four processes describing what the body does to a drug from administration until it leaves the body."
+   },
+   {
+    "id": "ph_cpt_pk_02",
+    "front": "Define bioavailability, and what is the bioavailability of an IV drug?",
+    "back": "Bioavailability is the fraction of an administered dose that reaches the systemic circulation. An IV drug is 100% bioavailable (F=1). It reflects the rate and extent of absorption only — not the size of the clinical response."
+   },
+   {
+    "id": "ph_cpt_pk_03",
+    "front": "How do you convert an oral dose to an equivalent IV dose, and give the digoxin example.",
+    "back": "IV dose = oral dose × bioavailability (F). Oral digoxin has F ≈ 0.7, so 250 micrograms orally ≈ 175 micrograms IV (250 × 0.7). IV doses are usually lower than oral because oral drug is lost to incomplete absorption and first-pass metabolism."
+   },
+   {
+    "id": "ph_cpt_pk_04",
+    "front": "Which routes of administration bypass first-pass metabolism?",
+    "back": "Intravenous, sublingual, buccal and intranasal routes deliver drug directly into the systemic circulation, bypassing hepatic first-pass metabolism (e.g. GTN sublingual, buccal midazolam). The rectal route partly bypasses it but absorption is inconsistent."
+   },
+   {
+    "id": "ph_cpt_pk_05",
+    "front": "Name drugs that undergo significant first-pass metabolism.",
+    "back": "Propranolol, morphine, GTN and many benzodiazepines undergo extensive first-pass metabolism, which reduces their oral bioavailability."
+   },
+   {
+    "id": "ph_cpt_pk_06",
+    "front": "What is a prodrug? Give examples activated by hepatic metabolism.",
+    "back": "A prodrug is an inactive compound converted to its active form in the body (often by first-pass metabolism). Examples: codeine → morphine (via CYP2D6), enalapril → enalaprilat, azathioprine → mercaptopurine, cyclophosphamide → phosphoramide mustard. Note propranolol has high first-pass but is NOT a prodrug."
+   },
+   {
+    "id": "ph_cpt_pk_07",
+    "front": "Why does codeine work unpredictably between patients?",
+    "back": "Codeine is a prodrug metabolised to morphine by CYP2D6, which is genetically variable. Fast metabolisers produce more morphine (higher effect and toxicity risk); slow metabolisers produce little and get poor analgesia."
+   },
+   {
+    "id": "ph_cpt_pk_08",
+    "front": "Is time to peak plasma concentration (Tmax) affected by renal function?",
+    "back": "No. Tmax is influenced by absorption, formulation, crushing and route of administration, but not by renal function. (A renally-excreted drug will, however, accumulate in renal failure.)"
+   },
+   {
+    "id": "ph_cpt_pk_09",
+    "front": "Why should modified-release or enteric-coated tablets not be crushed?",
+    "back": "Crushing changes the pharmacokinetic profile — it can cause toxicity from rapid release (e.g. oxycodone) or loss of effect (e.g. theophylline). Enteric coatings protect the drug (or stomach) and MR coatings control release; crushing (or splitting) defeats this."
+   },
+   {
+    "id": "ph_cpt_pk_10",
+    "front": "Define volume of distribution (Vd) and what a high Vd implies.",
+    "back": "Vd is the theoretical volume of fluid needed to contain the total body amount of drug at the measured plasma concentration (Vd = amount in body / plasma concentration). A high Vd means the drug has largely left the plasma into tissues, so the plasma concentration is low; a low Vd means it stays in the plasma."
+   },
+   {
+    "id": "ph_cpt_pk_11",
+    "front": "Which drug properties give a low versus a high volume of distribution?",
+    "back": "Low Vd: water-soluble drugs (gentamicin, atenolol, insulin) or highly protein-bound drugs (warfarin) that stay in the plasma. High Vd: lipid-soluble drugs (digoxin, morphine, diazepam) that distribute into tissues and fat."
+   },
+   {
+    "id": "ph_cpt_pk_12",
+    "front": "How does body composition (children, elderly, pregnancy/oedema) affect Vd?",
+    "back": "Children have proportionally more total body water, so water-soluble drugs need a higher mg/kg dose. Older/dehydrated patients have less body water, more fat and less muscle — water-soluble Vd falls (higher levels, reduce dose) and lipid-soluble Vd rises (prolonged effect). Pregnancy and oedema increase body water, so water-soluble drugs may need a higher dose."
+   },
+   {
+    "id": "ph_cpt_pk_13",
+    "front": "What does the '5 half-lives' rule tell you?",
+    "back": "It takes about 5 half-lives to eliminate ~97% of a drug from the body, and about 5 half-lives of regular dosing to reach steady state. A loading dose is used to reach the target concentration quickly rather than waiting."
+   },
+   {
+    "id": "ph_cpt_pk_14",
+    "front": "Differentiate first-order and zero-order elimination, with examples.",
+    "back": "First-order (most drugs): a constant fraction of drug is removed per unit time, so the half-life is constant. Zero-order (saturable enzymes): a constant amount is removed per unit time — phenytoin, ethanol and high-dose salicylates — so small dose increases cause disproportionately large rises in level."
+   },
+   {
+    "id": "ph_cpt_pk_15",
+    "front": "What is steady state?",
+    "back": "Steady state is reached when the amount of drug administered during a dosing interval exactly replaces the amount eliminated, so the plasma concentration plateaus. With first-order kinetics it takes about 5 half-lives of regular dosing."
+   },
+   {
+    "id": "ph_cpt_pk_16",
+    "front": "Why does only the free fraction of a drug matter, and how much of warfarin is protein-bound?",
+    "back": "Only unbound (free) drug can cross membranes, act at receptors and be metabolised; bound drug is an inactive reservoir. Warfarin is about 97% protein-bound, so only the free ~3% is active. Acidic drugs bind albumin; basic drugs bind α1-acid glycoprotein."
+   },
+   {
+    "id": "ph_cpt_pk_17",
+    "front": "What is a protein-binding displacement interaction? Give an example.",
+    "back": "When one drug displaces another highly protein-bound drug from albumin, the free (active) concentration of the displaced drug transiently rises, increasing its effect and toxicity — e.g. the sulfonamide in co-trimoxazole displaces warfarin, raising bleeding risk."
+   },
+   {
+    "id": "ph_cpt_pk_18",
+    "front": "How does low albumin affect the interpretation of phenytoin levels?",
+    "back": "For highly protein-bound drugs like phenytoin (and warfarin), low albumin lowers the TOTAL measured concentration while the free (active) concentration stays about the same. So a 'low' total phenytoin may be misleading — interpret with the albumin, and measure the free level if possible."
+   },
+   {
+    "id": "ph_cpt_pk_19",
+    "front": "Define clearance and state whether it is additive.",
+    "back": "Clearance is the volume of blood cleared of drug per unit time (e.g. ml/min). It is a first-order process (the amount removed depends on concentration) and is additive: total body clearance = hepatic + renal (± other) clearances."
+   },
+   {
+    "id": "ph_cpt_pk_20",
+    "front": "Which drugs accumulate dangerously in renal failure, and why?",
+    "back": "Digoxin is excreted unchanged and its half-life can reach ~96 hours in severe renal failure, causing toxicity. Morphine's active metabolite morphine-6-glucuronide (sedating) has a half-life of ~3–5 h normally but up to ~50 h in renal failure, so it accumulates — a reason to avoid morphine in renal impairment."
+   },
+   {
+    "id": "ph_cpt_pk_21",
+    "front": "What two factors determine hepatic drug clearance/extraction?",
+    "back": "Liver enzyme function (presence and activity of cytochrome P450 enzymes) and hepatic blood flow (reduced in shock and GI surgery, lowering the amount of drug delivered to the liver). CYP inducers speed metabolism and inhibitors slow it."
+   },
+   {
+    "id": "ph_cpt_pk_22",
+    "front": "When is therapeutic drug monitoring (TDM) indicated, and which drugs are routinely monitored?",
+    "back": "TDM is reserved for drugs with a narrow therapeutic window, where small dose changes risk toxicity. Routinely monitored drugs include digoxin, gentamicin (aminoglycosides), lithium and vancomycin (and phenytoin). Correct sampling time and peak/trough interpretation are essential; TDM is also used in overdose (paracetamol, salicylates)."
+   },
+   {
+    "id": "ph_cpt_pk_23",
+    "front": "How does dosing of oral vancomycin (for C. difficile) differ from IV vancomycin (for MRSA)?",
+    "back": "Oral vancomycin acts locally in the gut with negligible absorption, so it needs no weight-based dose, no loading dose and no plasma-level monitoring. IV vancomycin needs a loading dose (even in renal failure) to reach a therapeutic level quickly, then a reduced dose/frequency with close level monitoring."
+   },
+   {
+    "id": "ph_cpt_pk_24",
+    "front": "How does GI pH affect drug absorption?",
+    "back": "Unionised drug is absorbed better. Acidic drugs (e.g. aspirin) are less ionised in the acidic stomach and absorbed there; basic drugs (e.g. metoclopramide) are better absorbed in the more alkaline small intestine. This matters after GI surgery (e.g. bypass, resection)."
+   },
+   {
+    "id": "ph_cpt_pk_25",
+    "front": "Why can lipid-soluble drugs like thiopentone have prolonged effects?",
+    "back": "Lipid-soluble drugs distribute into the fat, which acts as a slow-release reservoir. When dosing stops the drug diffuses back out, maintaining plasma levels — so a thiopentone infusion (highly lipid-soluble) leaves patients slow to wake, whereas propofol (shorter half-life) wears off faster."
    }
   ],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Drugs Requiring Therapeutic Drug Monitoring (TDM)": [
