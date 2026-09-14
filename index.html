@@ -8421,6 +8421,126 @@ window.MOCK_BANK = {
       explanation:[
         "SPIRONOLACTONE, a non-selective mineralocorticoid antagonist, causes hyperkalaemia and anti-androgenic effects – gynaecomastia and menstrual irregularity.",
         "SGLT2 INHIBITORS act on the kidney: glycosuria predisposes to genital thrush and, rarely, euglycaemic diabetic ketoacidosis, while the osmotic diuresis can cause volume depletion."
+      ] },
+    { id:"chf-037", type:"mcq", objective:"chf-arni-indication",
+      question:"A 64-year-old man with heart failure with reduced ejection fraction (EF 30%) remains in NYHA class III despite maximally tolerated ramipril, bisoprolol, spironolactone and dapagliflozin. He is in sinus rhythm with a heart rate of 68 bpm, a narrow QRS complex, and a blood pressure of 118/74 mmHg. Which change is most appropriate?",
+      options:[
+        "Switch ramipril to sacubitril/valsartan",
+        "Add ivabradine",
+        "Refer for cardiac resynchronisation therapy",
+        "Add hydralazine with isosorbide dinitrate",
+        "Add digoxin"],
+      correctIndex:0,
+      explanation:[
+        "On all four pillars and still symptomatic with EF ≤35%, the next step is to REPLACE the ACE inhibitor with an ARNI (SACUBITRIL/VALSARTAN) for further mortality benefit – it inhibits neprilysin so natriuretic peptides persist.",
+        "Each distractor is blocked by a specific criterion: ivabradine needs a heart rate ≥75 bpm in sinus rhythm (his is 68); CRT needs a broad QRS (his is narrow); hydralazine plus a nitrate is for African/Caribbean patients or those intolerant of ACEi/ARB (he tolerates his ACEi); and digoxin has no mortality benefit."
+      ] },
+    { id:"chf-038", type:"mcq", objective:"chf-arni-washout",
+      question:"A 66-year-old man with heart failure with reduced ejection fraction (EF 32%) has remained in NYHA class III despite ramipril, bisoprolol, spironolactone and dapagliflozin. His heart-failure specialist decides to switch the ramipril to sacubitril/valsartan (an ARNI). His last dose of ramipril was this morning. What is the single most important safety step before starting the ARNI?",
+      options:[
+        "Check his renal function and potassium first",
+        "Allow at least 36 hours after the last ACE-inhibitor dose",
+        "Confirm his systolic blood pressure is not too low",
+        "Check the INR before starting",
+        "Withhold the beta-blocker for 36 hours"],
+      correctIndex:1,
+      explanation:[
+        "The single most important, switch-specific step is a 36-HOUR ACE-INHIBITOR WASHOUT: running an ACE inhibitor and an ARNI together stacks bradykinin and risks life-threatening ANGIOEDEMA, so with his last ramipril this morning the ARNI must wait at least 36 hours.",
+        "Checking renal function/potassium and blood pressure are sensible before an ARNI (it can cause hyperkalaemia, renal impairment and hypotension), which is what makes them tempting – but they are not the critical switch step; the INR and beta-blocker are irrelevant here."
+      ] },
+    { id:"chf-039", type:"mcq", objective:"chf-ivabradine",
+      question:"A 60-year-old man with heart failure with reduced ejection fraction (EF 30%) in sinus rhythm remains symptomatic. His resting heart rate is 82 bpm despite a maximally tolerated dose of bisoprolol, and his blood pressure is 120/78 mmHg. Which is the most appropriate addition?",
+      options:[
+        "Digoxin",
+        "Verapamil",
+        "Ivabradine",
+        "Amlodipine",
+        "A further increase in bisoprolol"],
+      correctIndex:2,
+      explanation:[
+        "Sinus rhythm, a heart rate ≥75 bpm on a maximally-tolerated beta-blocker and EF ≤35% are the criteria for IVABRADINE, which blocks the SA-node funny current (I_f) to slow the rate without reducing contractility or blood pressure.",
+        "Digoxin is for atrial fibrillation, not sinus rhythm; verapamil is negatively inotropic and avoided in HFrEF; amlodipine has no heart-failure benefit; and the bisoprolol is already maximally tolerated."
+      ] },
+    { id:"chf-040", type:"mcq", objective:"chf-digoxin-rate-control",
+      question:"A 78-year-old woman with heart failure with reduced ejection fraction (EF 35%) and permanent atrial fibrillation has a resting ventricular rate of 110 bpm despite a maximally tolerated dose of bisoprolol. Which is the most appropriate addition for rate control?",
+      options:[
+        "Ivabradine",
+        "Sotalol",
+        "Amlodipine",
+        "Digoxin",
+        "Flecainide"],
+      correctIndex:3,
+      explanation:[
+        "DIGOXIN is used for rate control in heart failure with reduced ejection fraction and atrial fibrillation, and improves symptoms and reduces hospitalisation.",
+        "Ivabradine only works in SINUS rhythm (the trap); flecainide is contraindicated in structural heart disease; and sotalol and amlodipine are not appropriate rate-control choices here."
+      ] },
+    { id:"chf-041", type:"mcq", objective:"chf-digoxin-toxicity",
+      data:"<div class=\"mk-obs-h\">Blood results</div><div class=\"mk-obs-grid\"><span>Potassium <b>3.0 mmol/L</b> (3.5&ndash;5.3)</span><span>Creatinine <b>128 &micro;mol/L</b> (60&ndash;110)</span></div>",
+      question:"An 80-year-old woman with heart failure with reduced ejection fraction and atrial fibrillation, taking digoxin, is started on furosemide for oedema. Two weeks later she is nauseated, reports yellow-green haloes around lights, and her pulse is slow and irregular. Her blood results are shown. What is the most likely explanation?",
+      options:[
+        "A furosemide hypersensitivity reaction",
+        "Beta-blocker–induced bradycardia",
+        "Hypokalaemia from the diuretic",
+        "Amiodarone-induced thyrotoxicosis",
+        "Digoxin toxicity"],
+      correctIndex:4,
+      explanation:[
+        "Nausea, XANTHOPSIA (yellow-green vision) and a brady-arrhythmia are classic DIGOXIN TOXICITY, here precipitated by the loop diuretic's HYPOKALAEMIA (potassium 3.0) – low potassium potentiates digoxin binding.",
+        "Hypokalaemia from the diuretic is the trap: she genuinely has a low potassium, but that is the TRIGGER, not the diagnosis – low potassium alone does not cause yellow-green vision. The other options do not fit the picture."
+      ] },
+    { id:"chf-042", type:"mcq", objective:"chf-hydralazine-nitrate",
+      question:"A 68-year-old man of African-Caribbean family origin has heart failure with reduced ejection fraction (EF 30%) and remains in NYHA class III despite optimal therapy. He previously developed angioedema on an ACE inhibitor and cannot tolerate an angiotensin-receptor blocker. Which additional therapy is most appropriate?",
+      options:[
+        "Hydralazine with isosorbide dinitrate",
+        "Restart the ACE inhibitor at a lower dose",
+        "Amlodipine",
+        "Verapamil",
+        "Doxazosin"],
+      correctIndex:0,
+      explanation:[
+        "HYDRALAZINE with a NITRATE (isosorbide dinitrate) provides vasodilation by a different pathway and is indicated in African/Caribbean patients with NYHA III–IV heart failure and in those intolerant of ACEi/ARB/ARNI – both apply here.",
+        "Restarting the ACE inhibitor risks angioedema again; amlodipine, verapamil and doxazosin have no heart-failure mortality benefit (and verapamil is negatively inotropic)."
+      ] },
+    { id:"chf-043", type:"mcq", objective:"chf-iv-iron",
+      data:"<div class=\"mk-obs-h\">Iron studies</div><div class=\"mk-obs-grid\"><span>Haemoglobin <b>128 g/L</b> (130&ndash;170)</span><span>Ferritin <b>60 &micro;g/L</b> (30&ndash;400)</span><span>Transferrin saturation <b>15%</b> (20&ndash;50)</span></div>",
+      question:"A 70-year-old man with symptomatic heart failure with reduced ejection fraction (EF 32%) feels persistently fatigued. He is not anaemic. His iron studies are shown. What is the most appropriate treatment for his iron status?",
+      options:[
+        "Oral ferrous sulfate",
+        "Intravenous ferric carboxymaltose",
+        "A blood transfusion",
+        "No treatment, as he is not anaemic",
+        "Erythropoietin"],
+      correctIndex:1,
+      explanation:[
+        "A ferritin below 100 µg/L (or 100–299 with a transferrin saturation below 20%) defines IRON DEFICIENCY in heart failure, treated IRRESPECTIVE of anaemia. Give INTRAVENOUS iron (ferric carboxymaltose): it improves symptoms and quality of life and reduces hospitalisation.",
+        "ORAL iron does not work in heart failure – inflammatory hepcidin blocks its absorption; a transfusion and erythropoietin are not indicated; and withholding treatment because he is not anaemic misses the point, as iron deficiency is treated regardless of anaemia."
+      ] },
+    { id:"chf-044", type:"mcq", objective:"chf-loop-no-mortality",
+      question:"A 72-year-old man with heart failure with reduced ejection fraction takes furosemide for ankle oedema alongside his four disease-modifying pillars. His daughter asks whether the furosemide, like his other tablets, is prolonging his life. What is the most accurate response?",
+      options:[
+        "It reduces mortality as much as the ACE inhibitor",
+        "It is the single most important drug for survival",
+        "It relieves congestion and symptoms but does not reduce mortality",
+        "It prevents ventricular remodelling",
+        "It should be taken only when breathless, not regularly"],
+      correctIndex:2,
+      explanation:[
+        "LOOP DIURETICS are purely symptomatic: they relieve congestion and breathlessness but have NO mortality benefit – the classic exam discriminator against the prognostic pillars.",
+        "They do not match the ACE inhibitor for survival, are not the most important drug, do not prevent remodelling, and are generally taken regularly (with dose adjustment) rather than only when breathless."
+      ] },
+    { id:"chf-045", type:"categorize", objective:"chf-prognosis-vs-symptom",
+      question:"Sort each heart-failure drug by whether it improves survival.",
+      buckets:["Reduces mortality","Symptom relief only (no mortality benefit)"],
+      items:[
+        { text:"An ACE inhibitor", bucket:0 },
+        { text:"A beta-blocker", bucket:0 },
+        { text:"A mineralocorticoid antagonist", bucket:0 },
+        { text:"An SGLT2 inhibitor", bucket:0 },
+        { text:"A loop diuretic", bucket:1 },
+        { text:"Digoxin", bucket:1 }],
+      explanation:[
+        "The four pillars – ACE inhibitor (or ARB/ARNI), beta-blocker, mineralocorticoid antagonist and SGLT2 inhibitor – are DISEASE-MODIFYING and reduce mortality.",
+        "Loop diuretics and digoxin relieve symptoms and (for digoxin) reduce hospitalisation, but neither reduces mortality."
       ] }
 ],
 
