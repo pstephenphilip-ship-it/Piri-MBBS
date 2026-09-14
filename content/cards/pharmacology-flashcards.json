@@ -193,7 +193,8 @@
     "5 · Prescribing in Renal Dysfunction",
     "6 · Prescribing in Hepatic Dysfunction",
     "7 · Clinical Pharmacokinetics",
-    "8 · Adverse Drug Reactions"
+    "8 · Adverse Drug Reactions",
+    "9 · Dosing & Drug Calculations"
    ]
   },
   {
@@ -19887,6 +19888,133 @@
     "id": "ph_cpt_ad2_25",
     "front": "How should ADR risk be communicated to patients?",
     "back": "Patients overestimate risk from verbal descriptions (a 'rare' 1-in-10,000 risk has been interpreted as ~8%). Use natural frequencies (e.g. '1 in 1000') rather than words or percentages alone, and visual aids such as a Cates plot (a grid of 100 or 1000 faces)."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__9 · Dosing & Drug Calculations": [
+   {
+    "id": "ph_cpt_calc_01",
+    "front": "What is the core formula for the volume of a drug to draw up or add to an infusion?",
+    "back": "Volume required = (dose you want / amount you've got) × the volume it's in. Always convert the dose into the same units as the concentration first."
+   },
+   {
+    "id": "ph_cpt_calc_02",
+    "front": "Using the formula, what volume of phenobarbital (60 mg/ml) is needed for an 800 mg dose?",
+    "back": "(800 mg / 60 mg) × 1 ml = 13.3 ml."
+   },
+   {
+    "id": "ph_cpt_calc_03",
+    "front": "What is the correct method for an independent double-check of a calculation?",
+    "back": "Both people gather the details and perform the calculation SEPARATELY, then compare answers. It is not one person going over the other's working (they may simply agree). Do a sense-check first: is the dose plausible and does it exceed the adult/maximum daily dose?"
+   },
+   {
+    "id": "ph_cpt_calc_04",
+    "front": "How do the metric units relate, and which may be abbreviated?",
+    "back": "Each step differs by ×1000: 1 kg = 1000 g, 1 g = 1000 mg, 1 mg = 1000 micrograms, 1 microgram = 1000 nanograms (and 1 litre = 1000 ml). Only kg, g and mg may be abbreviated — write micrograms, nanograms and units in full."
+   },
+   {
+    "id": "ph_cpt_calc_05",
+    "front": "Give the key imperial-to-metric conversions for weight and height.",
+    "back": "Weight: 1 stone = 14 lb; 1 lb ≈ 450 g; 1 stone ≈ 6.35 kg. Height: 1 foot = 12 inches; 1 inch = 25.4 mm."
+   },
+   {
+    "id": "ph_cpt_calc_06",
+    "front": "What does a % w/v concentration mean, and how much sodium chloride is in 0.9% saline?",
+    "back": "% w/v is grams of drug per 100 ml of solution. So 1% = 1 g/100 ml. Sodium chloride 0.9% = 0.9 g/100 ml = 900 mg/100 ml = 9 mg/ml."
+   },
+   {
+    "id": "ph_cpt_calc_07",
+    "front": "Distinguish % w/v, % w/w and % v/v.",
+    "back": "% w/v = grams per 100 ml (a solid in a liquid, e.g. saline, glucose). % w/w = grams per 100 g (a solid in a solid/semi-solid, e.g. creams — hydrocortisone 1% = 1 g in 100 g). % v/v = ml per 100 ml (a liquid in a liquid, e.g. ChloraPrep 70% = 70 ml alcohol in 100 ml)."
+   },
+   {
+    "id": "ph_cpt_calc_08",
+    "front": "How much magnesium sulfate is in a 20% 10 ml ampoule?",
+    "back": "20% w/v = 20 g in 100 ml = 2 g in 10 ml."
+   },
+   {
+    "id": "ph_cpt_calc_09",
+    "front": "How do you interpret drug concentrations expressed as ratios, e.g. adrenaline 1:1000?",
+    "back": "A ratio means 1 g in that many ml. 1:1000 = 1 g in 1000 ml = 1 mg/ml (adrenaline 1:1000 = 1 mg/ml). 1:10,000 = 1 g in 10,000 ml = 0.1 mg/ml."
+   },
+   {
+    "id": "ph_cpt_calc_10",
+    "front": "Which body weight should be used for water-soluble vs fat-distributing drugs?",
+    "back": "Water-soluble drugs are dosed on lean or ideal body weight; fat-distributing (lipid-soluble) drugs on actual body weight. For example, gentamicin is dosed on ideal body weight in obese patients (per the BNF) to avoid excessive dosing, with level monitoring."
+   },
+   {
+    "id": "ph_cpt_calc_11",
+    "front": "Define actual, ideal and lean body weight.",
+    "back": "Actual (total) body weight is the weight measured on scales. Ideal body weight is derived from height (insurance-based). Lean body weight = actual body weight − body fat weight. Adjusted body weight is used for obese patients."
+   },
+   {
+    "id": "ph_cpt_calc_12",
+    "front": "What emergency formulas estimate a child's weight (APLS)?",
+    "back": "0–12 months: (0.5 × age in months) + 4 kg. 1–5 years: (2 × age in years) + 8 kg. 6–12 years: (3 × age in years) + 7 kg. Use only until a measured weight is available."
+   },
+   {
+    "id": "ph_cpt_calc_13",
+    "front": "Which drugs are dosed by body surface area, and give a common BSA formula.",
+    "back": "Cytotoxic (systemic anticancer) drugs and some antibacterials/antivirals are dosed per m² of body surface area, which correlates better with body composition. A common formula: BSA (m²) = √(weight × height / 3600). Doses are written as mg/m²."
+   },
+   {
+    "id": "ph_cpt_calc_14",
+    "front": "When converting oral morphine to a subcutaneous morphine infusion, what adjustment is made?",
+    "back": "The subcutaneous dose of morphine is about half the total 24-hour oral dose. So 100 mg oral morphine over 24 h ≈ 50 mg subcutaneous morphine over 24 h. Include any 'as required' doses in the 24-hour total, and titrate to response."
+   },
+   {
+    "id": "ph_cpt_calc_15",
+    "front": "How do you convert oral morphine to subcutaneous diamorphine?",
+    "back": "Approximately 10 mg oral morphine ≈ 3 mg subcutaneous diamorphine (divide by about 3). So 100 mg oral morphine per 24 h ≈ 30 mg subcutaneous diamorphine over 24 h. Conversions are approximate — use the lowest and titrate."
+   },
+   {
+    "id": "ph_cpt_calc_16",
+    "front": "State the approximate corticosteroid equivalences to prednisolone 5 mg.",
+    "back": "Prednisolone 5 mg ≈ hydrocortisone 20 mg ≈ methylprednisolone 4 mg ≈ triamcinolone 4 mg ≈ dexamethasone 750 micrograms. (So prednisolone 1 mg ≈ hydrocortisone 4 mg.) Remember the dosing frequency may change — e.g. QDS hydrocortisone becomes once-daily prednisolone."
+   },
+   {
+    "id": "ph_cpt_calc_17",
+    "front": "Give the benzodiazepine doses approximately equivalent to diazepam 5 mg.",
+    "back": "Chlordiazepoxide 12.5 mg, lorazepam 500 micrograms, nitrazepam 5 mg, temazepam 10 mg. To withdraw a benzodiazepine, convert to the equivalent diazepam dose and then taper to zero."
+   },
+   {
+    "id": "ph_cpt_calc_18",
+    "front": "How do you calculate an infusion rate in ml/hour, with an example?",
+    "back": "Rate (ml/hour) = total volume (ml) / time (hours). For example, 1 litre given over 8 hours = 1000 / 8 = 125 ml/hour."
+   },
+   {
+    "id": "ph_cpt_calc_19",
+    "front": "How do you set up 1 g of vancomycin (dilute to ≤5 mg/ml, run at ≤10 mg/min)?",
+    "back": "1000 mg diluted to 5 mg/ml needs at least 200 ml, so use a 250 ml bag. At ≤10 mg/min, 1000 mg runs over at least 100 minutes — in a 250 ml bag that is 2.5 ml/min = 150 ml/hour."
+   },
+   {
+    "id": "ph_cpt_calc_20",
+    "front": "What is the difference between 'reduce the dose TO 75%' and 'reduce the dose BY 75%'?",
+    "back": "'Reduce to 75%' means multiply by 0.75 (a 25% cut). 'Reduce by 75%' means multiply by 0.25 (keep only a quarter). They give very different doses, and confusing them is a real, dangerous error — always read carefully."
+   },
+   {
+    "id": "ph_cpt_calc_21",
+    "front": "Why and how is azathioprine adjusted when allopurinol is started?",
+    "back": "Allopurinol inhibits xanthine oxidase, reducing metabolism of azathioprine/6-mercaptopurine and risking toxicity. The dose should be reduced to ONE-QUARTER of the original (divide by 4) — not reduced BY a quarter — then rounded to the nearest available/measurable tablet."
+   },
+   {
+    "id": "ph_cpt_calc_22",
+    "front": "Outline the 3-bag acetylcysteine regimen for paracetamol overdose.",
+    "back": "Dosed on actual body weight capped at 110 kg, in glucose 5%: 150 mg/kg over 1 hour, then 50 mg/kg over 4 hours, then 100 mg/kg over 16 hours — a total of 300 mg/kg over 21 hours. Follow local/BNF weight-band tables."
+   },
+   {
+    "id": "ph_cpt_calc_23",
+    "front": "What is the final step after any dose calculation?",
+    "back": "Round the result to a measurable and available dose (does the strength/formulation exist?), and re-check that it does not exceed the maximum or adult dose — especially in children."
+   },
+   {
+    "id": "ph_cpt_calc_24",
+    "front": "Why are neonates, infants and children especially prone to calculation errors?",
+    "back": "Doses are calculated by age and weight, liquid preparations vary in strength, there can be confusion between mg and ml, unlicensed liquid formulations add uncertainty, and a minor dosing error that is trivial in an adult can seriously harm a child."
+   },
+   {
+    "id": "ph_cpt_calc_25",
+    "front": "Why was a national safety alert issued about midazolam injection?",
+    "back": "Midazolam comes in several strengths (1, 2 and 5 mg/ml) and volumes, creating a risk of giving the whole contents of a high-strength ampoule when only a fraction is needed. High-strength midazolam should be restricted to settings like anaesthesia, intensive care and palliative care."
    }
   ],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Drugs Requiring Therapeutic Drug Monitoring (TDM)": [
