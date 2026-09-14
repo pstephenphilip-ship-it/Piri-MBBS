@@ -183,6 +183,17 @@
    ]
   },
   {
+   "section": "Clinical Pharmacology & Therapeutics",
+   "icon": "℞",
+   "subsections": [
+    "1 · Pharmacodynamics",
+    "2 · Drug Histories & Reconciliation",
+    "3 · Prescription Documentation",
+    "4 · Adherence & Concordance",
+    "5 · Prescribing in Renal Dysfunction"
+   ]
+  },
+  {
    "section": "Key Drug Interactions & Monitoring Summary",
    "icon": "⚙",
    "subsections": [
@@ -18857,6 +18868,641 @@
     "id": "ph_em_sed_82",
     "front": "Which local anaesthetic also has a role as an antiarrhythmic?",
     "back": "Lidocaine - fast onset, intermediate duration for infiltration/nerve blocks, and also a class Ib antiarrhythmic."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__1 · Pharmacodynamics": [
+   {
+    "id": "ph_cpt_pd_01",
+    "front": "What is the difference between a drug's affinity and its efficacy?",
+    "back": "Affinity is how tightly a drug binds its receptor. Efficacy is how well the drug activates a response once it is bound. A drug can bind strongly (high affinity) but produce little or no effect (low efficacy)."
+   },
+   {
+    "id": "ph_cpt_pd_02",
+    "front": "What does the potency of a drug describe?",
+    "back": "Potency is the concentration or dose needed to produce a given effect — usually quoted as the EC50/ED50 (the concentration giving 50% of the maximal response). A more potent drug achieves the same effect at a lower dose. Potency says nothing about how safe or how effective the drug is."
+   },
+   {
+    "id": "ph_cpt_pd_03",
+    "front": "Define agonist, antagonist and partial agonist.",
+    "back": "Agonist: binds and increases receptor activity (a full agonist can produce the maximal response). Antagonist: opposes an agonist and has no effect of its own on the target. Partial agonist: binds but produces a sub-maximal response even at full occupancy (lower efficacy) — e.g. pindolol."
+   },
+   {
+    "id": "ph_cpt_pd_04",
+    "front": "What is an allosteric modulator?",
+    "back": "A drug that binds away from the agonist's site and changes the receptor's affinity for, or efficacy of, the natural agonist — either positively or negatively. It resets the set-point of normal activity rather than switching signalling on or off directly (e.g. cinacalcet at the calcium-sensing receptor)."
+   },
+   {
+    "id": "ph_cpt_pd_05",
+    "front": "How does a competitive antagonist affect the agonist dose-response curve, and is it surmountable?",
+    "back": "It competes for the same binding site and shifts the agonist curve to the right (agonist appears less potent). It is surmountable — adding more agonist restores the maximal response."
+   },
+   {
+    "id": "ph_cpt_pd_06",
+    "front": "How does a non-competitive antagonist differ from a competitive one on the dose-response curve?",
+    "back": "A non-competitive antagonist lowers the maximal response (reduces Emax) rather than shifting the curve right, and it is not surmountable — extra agonist cannot fully restore the response."
+   },
+   {
+    "id": "ph_cpt_pd_07",
+    "front": "Why does naloxone have little effect on its own, whereas propranolol clearly affects a healthy person?",
+    "back": "An antagonist's effect depends on how active the target normally is. Resting opioid tone is low, so naloxone does little until an opioid is present. Catecholamine (sympathetic) tone is continuous, so a beta-blocker like propranolol has obvious effects even alone (e.g. limiting heart rate and BP on standing/exercise)."
+   },
+   {
+    "id": "ph_cpt_pd_08",
+    "front": "Why must you never assume equivalent doses when switching between drugs of the same class?",
+    "back": "Drugs in a class can share affinity but differ hugely in potency, so equivalent doses differ a lot — e.g. lorazepam vs temazepam by about x10, and fentanyl vs morphine by about x100. Always re-check the correct dose in the BNF when switching, rather than carrying the old number across."
+   },
+   {
+    "id": "ph_cpt_pd_09",
+    "front": "Distinguish tolerance, tachyphylaxis and desensitisation.",
+    "back": "Desensitisation: a receptor/pathway becomes less responsive during continued exposure. Tolerance: a slower, longer-term fall in response needing higher doses (classically opioids). Tachyphylaxis: a rapid loss of response to repeated doses — a description, not a specific mechanism."
+   },
+   {
+    "id": "ph_cpt_pd_10",
+    "front": "Why can abruptly stopping a beta-blocker cause rebound symptoms?",
+    "back": "Chronic receptor blockade can up-regulate receptors. When the antagonist is suddenly withdrawn, the increased number of receptors is exposed to normal agonist levels, producing rebound effects (e.g. tachycardia, hypertension, angina). Beta-blockers should be tapered."
+   },
+   {
+    "id": "ph_cpt_pd_11",
+    "front": "Name the five main types of chemically-sensitive drug target.",
+    "back": "1) G-protein-coupled receptors, 2) ion channels (voltage-gated and ligand-gated), 3) carrier/transporter molecules, 4) enzymes, 5) nuclear receptors."
+   },
+   {
+    "id": "ph_cpt_pd_12",
+    "front": "How do dihydropyridine calcium-channel blockers (e.g. amlodipine, nifedipine) differ from verapamil and diltiazem?",
+    "back": "Dihydropyridines act mainly on vascular smooth muscle — vasodilators used for hypertension and angina, with little effect on the heart. Verapamil and diltiazem also act on cardiac muscle and conduction — they are negative inotropes and slow AV conduction (used for rate control/SVT); verapamil is the most cardiodepressant."
+   },
+   {
+    "id": "ph_cpt_pd_13",
+    "front": "Why should verapamil be avoided in heart failure with reduced ejection fraction?",
+    "back": "Its negative inotropic effect reduces cardiac contractility and can precipitate or worsen heart failure and pulmonary oedema. You must never uptitrate it to lower BP further in these patients. Diltiazem is negatively inotropic too and is avoided in HFrEF for the same reason — a dihydropyridine is the safe choice where a calcium-channel blocker is needed."
+   },
+   {
+    "id": "ph_cpt_pd_14",
+    "front": "Why is combining verapamil or diltiazem with a beta-blocker dangerous?",
+    "back": "Both slow AV conduction and reduce contractility, so together they can cause severe bradycardia, heart block and worsening heart failure. This combination should generally be avoided."
+   },
+   {
+    "id": "ph_cpt_pd_15",
+    "front": "Compare TCAs, SSRIs and SNRIs in terms of tolerability and overdose risk.",
+    "back": "TCAs block NET and SERT but have antimuscarinic effects (dry mouth, blurred vision, constipation) and are the most dangerous in overdose — sodium-channel blockade broadens the QRS (with QT prolongation), causing seizures and ventricular arrhythmia; sodium bicarbonate is the antidote. SNRIs (e.g. venlafaxine) lack antimuscarinic effects. SSRIs (e.g. fluoxetine) are the most commonly used, lack antimuscarinic effects and are relatively safe in overdose."
+   },
+   {
+    "id": "ph_cpt_pd_16",
+    "front": "Why is close monitoring needed when starting or changing an antidepressant, especially in young people?",
+    "back": "Antidepressants can increase suicidal thoughts/behaviour in young people and those with a history of suicidal behaviour, particularly early in treatment or after a dose change. Monitor closely; SSRIs are often preferred where overdose risk is a concern because they are safer in overdose."
+   },
+   {
+    "id": "ph_cpt_pd_17",
+    "front": "Give an example of an irreversible and a reversible enzyme inhibitor used clinically.",
+    "back": "Aspirin is an irreversible COX inhibitor — its antiplatelet effect lasts the platelet's lifespan. Captopril (an ACE inhibitor) is a reversible, competitive inhibitor that blocks angiotensin-II formation to lower blood pressure."
+   },
+   {
+    "id": "ph_cpt_pd_18",
+    "front": "What is a prodrug, and give the clinical relevance of paracetamol metabolism?",
+    "back": "A prodrug needs enzymatic activation to become active. Metabolism can also create harmful products: in paracetamol overdose the reactive metabolite NAPQI accumulates and causes hepatotoxicity — the basis for N-acetylcysteine treatment."
+   },
+   {
+    "id": "ph_cpt_pd_19",
+    "front": "How do CYP450 enzyme inhibitors and inducers cause drug interactions? Give an example of each.",
+    "back": "Inhibitors slow metabolism, raising levels of the affected drug — e.g. erythromycin/clarithromycin increase warfarin's effect (raised INR, bleeding). Inducers speed metabolism, lowering levels and risking treatment failure — e.g. enzyme inducers reduce the combined oral contraceptive's effect (contraceptive failure)."
+   },
+   {
+    "id": "ph_cpt_pd_20",
+    "front": "How do statins lower LDL cholesterol, and why are short-acting statins taken at night?",
+    "back": "They inhibit HMG-CoA reductase, the rate-limiting step of hepatic cholesterol synthesis; hepatocytes respond by up-regulating LDL receptors, clearing more LDL from the blood. The enzyme is most active at night, so short-acting statins (e.g. simvastatin) are taken in the evening for best effect."
+   },
+   {
+    "id": "ph_cpt_pd_21",
+    "front": "What key safety counselling and monitoring applies to statins?",
+    "back": "Warn patients to report unexplained muscle pain, tenderness or weakness (rare risk of myopathy/rhabdomyolysis). Check creatine kinase before starting in those at higher risk (e.g. renal impairment, high alcohol intake). If one statin is not tolerated, another may be tried."
+   },
+   {
+    "id": "ph_cpt_pd_22",
+    "front": "When does NICE recommend a statin for primary prevention of cardiovascular disease?",
+    "back": "Assess 10-year CVD risk with QRISK; offer atorvastatin 20 mg daily when the 10-year risk is 10% or greater, alongside lifestyle measures (stop smoking, diet, reduce alcohol)."
+   },
+   {
+    "id": "ph_cpt_pd_23",
+    "front": "How do drugs acting on nuclear receptors work, and why is their onset slow?",
+    "back": "Steroid hormones and corticosteroids are lipophilic, cross the cell membrane and act on nuclear receptors to alter gene transcription. Because they change protein synthesis, their effects have a characteristic delayed onset."
+   },
+   {
+    "id": "ph_cpt_pd_24",
+    "front": "Why can a positive allosteric modulator still be dangerous in overdose? Give an example.",
+    "back": "Because the natural agonist is usually present, so amplifying its effect can be excessive. Cinacalcet (a positive modulator of the calcium-sensing receptor) can over-suppress PTH in overdose, causing symptomatic hypocalcaemia (cramps, seizures)."
+   },
+   {
+    "id": "ph_cpt_pd_25",
+    "front": "Why can a patient re-narcotise after naloxone is given for an opioid overdose?",
+    "back": "Naloxone has a short half-life, often shorter than the opioid it is reversing. As naloxone wears off, the opioid can re-occupy receptors and the overdose (including respiratory depression) can recur — so patients need continued observation and sometimes repeat doses or an infusion."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__2 · Drug Histories & Reconciliation": [
+   {
+    "id": "ph_cpt_dh_01",
+    "front": "How many sources should you use to confirm a drug history, and which is preferred?",
+    "back": "At least two sources, ideally including the patient and their own drugs. No single source is complete, and up to two-thirds of admission drug histories contain at least one error."
+   },
+   {
+    "id": "ph_cpt_dh_02",
+    "front": "For each drug in a history, what details must you confirm?",
+    "back": "Name (generic and brand), formulation (e.g. tablet, liquid, modified-release), strength, dose, frequency, duration of treatment, and the indication (including the patient's understanding of it)."
+   },
+   {
+    "id": "ph_cpt_dh_03",
+    "front": "Beyond prescribed tablets, what else must a complete drug history capture?",
+    "back": "OTC medicines, herbal/complementary therapies, vitamins and supplements, recreational/illicit drugs, alcohol and tobacco, allergies (with the nature and severity of the reaction), response to treatment, treatment failures, and adherence."
+   },
+   {
+    "id": "ph_cpt_dh_04",
+    "front": "What does the mnemonic DRUGS stand for in a drug history?",
+    "back": "Doctors (prescribed/supplied by a practitioner), Recreational (tobacco, alcohol, illicit), User (self-obtained OTC or complementary medicines), Gynaecological (contraceptives, HRT), Sensitivities (allergies and the nature of the reaction)."
+   },
+   {
+    "id": "ph_cpt_dh_05",
+    "front": "What does the mnemonic CASES stand for in the surgical patient?",
+    "back": "Contraception (pregnancy and VTE risk), Anticoagulation (bleeding risk, peri-operative plan), Steroids (cover to prevent an Addisonian crisis), Ethanol (withdrawal and anaesthetic interaction), Smoking (lung disease and healing)."
+   },
+   {
+    "id": "ph_cpt_dh_06",
+    "front": "Which drug groups are commonly forgotten in a drug history and should be asked about specifically?",
+    "back": "Contraceptives, inhalers, eye/ear drops, topical creams, injections/depots, vitamins and supplements, herbal/homeopathic remedies, and recreational drugs. Patients often don't regard these as 'medicines'."
+   },
+   {
+    "id": "ph_cpt_dh_07",
+    "front": "What are the three steps of medicines reconciliation (NICE)?",
+    "back": "Verify (collect the drug history from recent, accurate sources), Clarify (check it against what is prescribed in hospital), and Reconcile (document every discrepancy, change or omission — whether intentional or not)."
+   },
+   {
+    "id": "ph_cpt_dh_08",
+    "front": "How does medicines reconciliation differ from a drug history and a medication review?",
+    "back": "It is a distinct process that ensures admission medicines match what the patient actually took and that discrepancies are documented. It does not replace the drug history (gathering the information) or the medication review (a structured critical examination of the medicines)."
+   },
+   {
+    "id": "ph_cpt_dh_09",
+    "front": "Why must a drug history and reconciliation be repeated for every admission, even from another hospital?",
+    "back": "Medication errors can occur at any transition of care. You should never assume a list is correct just because the patient came from another ward, secondary or tertiary facility — errors are most likely at the interfaces of care."
+   },
+   {
+    "id": "ph_cpt_dh_10",
+    "front": "Which four drug classes most commonly cause preventable hospital admissions?",
+    "back": "Antiplatelets, anticoagulants, diuretics and NSAIDs."
+   },
+   {
+    "id": "ph_cpt_dh_11",
+    "front": "Why should ACE inhibitors be re-titrated if a patient has stopped taking them for a while?",
+    "back": "Restarting at the full dose risks first-dose hypotension. They should be reintroduced gradually from a low dose, especially if the patient is also on a diuretic."
+   },
+   {
+    "id": "ph_cpt_dh_12",
+    "front": "What is the danger of restarting clozapine at the usual dose after missed doses, and what is the threshold?",
+    "back": "If 48 hours or more of doses are missed, clozapine must be re-titrated from low. Restarting at the previous dose risks severe orthostatic hypotension, which can be accompanied by cardiac or respiratory arrest and may be fatal."
+   },
+   {
+    "id": "ph_cpt_dh_13",
+    "front": "Why should levothyroxine be restarted at a low dose after a period off it?",
+    "back": "A high dose after cessation suddenly increases cardiac output and can precipitate angina, palpitations, breathlessness or even heart failure. Restart low and increase gradually; endocrine advice may be needed."
+   },
+   {
+    "id": "ph_cpt_dh_14",
+    "front": "A carer says the patient takes 'two brown warfarin tablets' daily. What dose is that, and what are the tablet colours?",
+    "back": "2 mg (each brown tablet is 1 mg). Warfarin tablet colours: white 0.5 mg, brown 1 mg, blue 3 mg, pink 5 mg."
+   },
+   {
+    "id": "ph_cpt_dh_15",
+    "front": "What information about warfarin must you confirm on admission, and where can you find it out of hours?",
+    "back": "Indication, target INR, current INR, duration and current dose. Use the yellow oral anticoagulant book, the anticoagulant clinic, carers/relatives or the community pharmacist. If the dose can't be confirmed and anticoagulation is urgent, bridge with LMWH."
+   },
+   {
+    "id": "ph_cpt_dh_16",
+    "front": "Who may prescribe oral cytotoxic drugs (e.g. capecitabine, methotrexate), and what should you do if a patient on one is admitted unwell?",
+    "back": "Only cancer specialists should prescribe them. Refer urgently to oncology/haematology and alert the oncology pharmacist; consider the drug's toxicity (e.g. capecitabine causing diarrhoea) as a cause of the presentation."
+   },
+   {
+    "id": "ph_cpt_dh_17",
+    "front": "Two serotonergic drugs together can cause serotonin syndrome — give a classic pairing and typical features.",
+    "back": "Classic pairing: an SSRI (e.g. sertraline) plus tramadol. Features include agitation/confusion, autonomic instability (tachycardia, fever) and neuromuscular signs such as myoclonus and hyperreflexia."
+   },
+   {
+    "id": "ph_cpt_dh_18",
+    "front": "Why can carbamazepine cause an unplanned pregnancy in a woman on the combined pill?",
+    "back": "Carbamazepine induces cytochrome P450 enzymes, accelerating metabolism of oestrogens and progestogens and reducing the contraceptive's effectiveness. Ask specifically about contraception, as patients often don't consider it a 'medicine'."
+   },
+   {
+    "id": "ph_cpt_dh_19",
+    "front": "What is the maximum dose of simvastatin when co-prescribed with amlodipine, and why?",
+    "back": "20 mg. Amlodipine raises simvastatin levels, increasing the risk of myopathy, so the simvastatin dose is capped."
+   },
+   {
+    "id": "ph_cpt_dh_20",
+    "front": "A patient's ACE inhibitor was switched to an ARB for cough but they kept taking both — what is the risk?",
+    "back": "Additive blood-pressure lowering, particularly postural hypotension on standing, which can cause falls. Stop the ACE inhibitor and return the leftover tablets to the pharmacy."
+   },
+   {
+    "id": "ph_cpt_dh_21",
+    "front": "Give one important interaction/effect for St John's Wort and for garlic/ginkgo/feverfew/ginseng.",
+    "back": "St John's Wort is an enzyme inducer that lowers levels of many drugs (reducing their effect). Garlic, ginkgo, feverfew and ginseng can inhibit platelet aggregation, increasing bleeding risk."
+   },
+   {
+    "id": "ph_cpt_dh_22",
+    "front": "Which types of medicine should NOT be found in a pharmacist-dispensed monitored dosage system (MDS)?",
+    "back": "When-required medicines, once-weekly doses (e.g. methotrexate, risedronate), variable doses (e.g. warfarin), cytotoxics, and dispersible/effervescent or buccal/sublingual formulations. A pharmacist-filled MDS contains only regular prescribed oral medicines."
+   },
+   {
+    "id": "ph_cpt_dh_23",
+    "front": "What should you check when reviewing a patient's own drugs (PODs)?",
+    "back": "That the name on the label matches the patient; that label, box and contents correspond (dispensing error); the dispensing date versus quantity left (adherence); duplicate branded/generic items; and expiry dates (especially insulin, eye drops, GTN, topicals)."
+   },
+   {
+    "id": "ph_cpt_dh_24",
+    "front": "What clues can a drug examination give you?",
+    "back": "Injection/puncture sites (drug misuse), pupils (opioids -> pinpoint), urine colour (rifampicin -> orange-red), patches (how many and the date last changed), and inhaler technique (ask the patient to demonstrate)."
+   },
+   {
+    "id": "ph_cpt_dh_25",
+    "front": "Why is it usually safe to delay a dose of a non-daily drug (e.g. methotrexate, a bisphosphonate, depot antipsychotic) if the timing is unclear?",
+    "back": "Most of these drugs have a long half-life, so a short delay is unlikely to harm the patient. It is almost always safer to delay administration than to risk giving a double dose while the timing is confirmed."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__3 · Prescription Documentation": [
+   {
+    "id": "ph_cpt_pr_01",
+    "front": "Why is a hospital inpatient drug chart not subject to the same legal requirements as an NHS (FP10) prescription?",
+    "back": "The inpatient chart is a Patient Specific Direction (PSD) — a written order to administer a medicine to a named, assessed patient — not a legal 'prescription' for supply. PSDs are exemptions under the Human Medicines Regulations 2012 and are governed by the Trust's medicines policy."
+   },
+   {
+    "id": "ph_cpt_pr_02",
+    "front": "On which patients is stating the age or date of birth a LEGAL requirement on a prescription?",
+    "back": "Only patients under 12 years. For everyone else it is good practice (it aids dose verification) but not a legal requirement."
+   },
+   {
+    "id": "ph_cpt_pr_03",
+    "front": "List the core legal requirements of an NHS prescription.",
+    "back": "Patient's full name and address; prescriber's signature (handwritten) and a prescriber identifier with a UK address; a valid date; indelible ink; and the patient's age or DOB if under 12. The NHS number is good practice but not legally required."
+   },
+   {
+    "id": "ph_cpt_pr_04",
+    "front": "When can an advanced electronic signature be used instead of a handwritten one?",
+    "back": "Only to authorise prescriptions transferred electronically to a community pharmacy. A printed FP10 must still be signed by hand. The e-signature must be uniquely linked to and identify the prescriber, be under their sole control (e.g. smartcard), and be linked to the data so changes are detectable."
+   },
+   {
+    "id": "ph_cpt_pr_05",
+    "front": "What are the two classification systems for controlled drugs in the UK, and what does each define?",
+    "back": "The Misuse of Drugs Act 1971 classifies them as Class A/B/C by level of harm (setting the penalty for possession/supply). The Misuse of Drugs Regulations 2001 classify them into Schedules 1–5, defining who may possess/use them in medicine and how. Schedules 2 and 3 matter most for prescribing."
+   },
+   {
+    "id": "ph_cpt_pr_06",
+    "front": "What additional details must appear on a prescription for a Schedule 2 or 3 controlled drug?",
+    "back": "A specified dose; the form (even if only one exists); the strength (only if more than one is available); the total quantity or number of dose units in BOTH words and figures; and the patient's address. These are in addition to the standard prescription requirements."
+   },
+   {
+    "id": "ph_cpt_pr_07",
+    "front": "For controlled drugs, what does 'quantity in words and figures' mean — and what is the common mistake?",
+    "back": "It is the TOTAL quantity supplied, not the dose. For tablets/capsules state the number of units, e.g. 'supply 14 (fourteen) capsules'; for liquids the total volume, e.g. 'supply 30 (thirty) ml'. The mistake is writing the total as a mass (e.g. 140 mg or 3000 mg)."
+   },
+   {
+    "id": "ph_cpt_pr_08",
+    "front": "Why is 'take when required' not acceptable on a Schedule 2 or 3 CD prescription?",
+    "back": "A specific dose must be stated. 'When required' gives no dose per administration — the minimum legally acceptable instruction is 'ONE when required'."
+   },
+   {
+    "id": "ph_cpt_pr_09",
+    "front": "Give the key practical rules for CD prescriptions: validity, supply limit, and who cannot prescribe them.",
+    "back": "Prescriptions for Schedule 2–4 CDs are valid for 28 days. Supply should not exceed 30 days (hospitals often limit CDs to 7–14 days). F1 doctors hold provisional registration and cannot prescribe on an FP10 at all, and many Trusts further restrict their CD prescribing; pharmacists/nurses can prescribe most CDs but optometrists cannot prescribe any."
+   },
+   {
+    "id": "ph_cpt_pr_10",
+    "front": "If a CD prescription has missing legally required information, can a pharmacist dispense it?",
+    "back": "No — a CD prescription cannot be dispensed until all legally required information is present. A pharmacist may only correct minor spelling or typographical errors, not add missing legal details."
+   },
+   {
+    "id": "ph_cpt_pr_11",
+    "front": "What is the difference between an unlicensed and an off-label medicine?",
+    "back": "An unlicensed medicine has no UK marketing authorisation at all. An off-label medicine has a marketing authorisation but is used outside its licence — a different dose, indication or patient group (e.g. topical GTN for Raynaud's; nebulised salbutamol for hyperkalaemia)."
+   },
+   {
+    "id": "ph_cpt_pr_12",
+    "front": "What must you satisfy (GMC guidance) before prescribing an unlicensed or off-label medicine?",
+    "back": "That there is no suitable licensed alternative for the patient's needs; there is sufficient evidence/experience for its use; you take responsibility for the prescription and monitoring; you document the rationale in the notes; and you inform the patient and obtain consent where possible."
+   },
+   {
+    "id": "ph_cpt_pr_13",
+    "front": "Which body grants a marketing authorisation, and what are the three licensed medicine classes?",
+    "back": "The MHRA grants the marketing authorisation after assessing quality, safety and efficacy. The classes are GSL (general sales list), P (pharmacy medicines) and POM (prescription-only medicines). Most controlled drugs are POM, but low-strength Schedule 5 preparations (e.g. co-codamol 8/500) are sold as P medicines."
+   },
+   {
+    "id": "ph_cpt_pr_14",
+    "front": "Why must micrograms and nanograms be written out in full on a prescription?",
+    "back": "Abbreviations like 'mcg' or 'µg' can be misread and lead to 100- to 1000-fold dosing errors. Only grams (g) and milligrams (mg) may be abbreviated; all other units, including 'units', are written in full ('U' can be mistaken for a zero)."
+   },
+   {
+    "id": "ph_cpt_pr_15",
+    "front": "What are the rules on decimals and zeros when writing doses?",
+    "back": "Avoid trailing zeros (write 5 mg, not 5.0 mg) and never write a naked decimal — a decimal below one always takes a leading zero (0.5 mg, never .5 mg). Better still, avoid the decimal by using the smaller unit: 500 micrograms rather than 0.5 mg. Decimal points are best avoided in handwriting as the point can be missed; use the smaller whole-number unit instead."
+   },
+   {
+    "id": "ph_cpt_pr_16",
+    "front": "Which prescription elements may be abbreviated, and which must never be?",
+    "back": "Allowed: g and mg, and approved Latin frequency abbreviations (OD, BD, TDS, QDS, PRN) and routes (e.g. SC). Never abbreviate drug names (write in full, capitals), doses (no 'T'/'TT' for one/two), micrograms/units, or use 'BE' for both eyes/ears."
+   },
+   {
+    "id": "ph_cpt_pr_17",
+    "front": "How should allergy status be documented on an inpatient chart, and what does a blank box mean?",
+    "back": "Both drug and non-drug allergies must be documented with the type of reaction, on the chart and in the notes. A blank allergy box does NOT mean no allergy — if there are none, write 'no known allergies' explicitly."
+   },
+   {
+    "id": "ph_cpt_pr_18",
+    "front": "When should a drug be prescribed by brand name rather than generically?",
+    "back": "For narrow-therapeutic-index / critical-dose drugs where switching product could alter therapy: antiepileptics, tacrolimus and other immunosuppressants, lithium, and certain modified-release preparations. Generic prescribing is the default otherwise (flexibility and cost)."
+   },
+   {
+    "id": "ph_cpt_pr_19",
+    "front": "What must be specified when prescribing a PRN ('as required') medicine safely?",
+    "back": "The maximum dose and frequency, the minimum dose interval (so doses aren't stacked in quick succession), and ideally the indication. PRN items should be reviewed regularly and converted to regular prescriptions if used at maximum frequency."
+   },
+   {
+    "id": "ph_cpt_pr_20",
+    "front": "How should you cancel or amend a prescription on an inpatient drug chart?",
+    "back": "To cancel: cross through the entry entirely, sign and date it, and do NOT obliterate it (the record of what was prescribed/administered must remain); document the reason in the notes. To change a dose or frequency: re-write the prescription in full and record it in the medical notes."
+   },
+   {
+    "id": "ph_cpt_pr_21",
+    "front": "Why must each route be prescribed as a separate item when a CD is given by more than one route?",
+    "back": "To prevent accidental overdose. Each route is written as a separate, clearly documented and cross-referenced item so the total is not given twice."
+   },
+   {
+    "id": "ph_cpt_pr_22",
+    "front": "What extra care is needed when prescribing a variable-dose regimen (e.g. warfarin by INR or a reducing prednisolone course)?",
+    "back": "Give clear written instructions on the chart and in the medical notes, including future dose steps, so a reducing regimen isn't continued at the high dose. Consider extending the discharge (TTO) supply to cover the variable period."
+   },
+   {
+    "id": "ph_cpt_pr_23",
+    "front": "What is a Trust formulary and what happens if you want a non-formulary drug?",
+    "back": "A formulary limits and standardises the drugs available in the hospital to manage prescribing risk and cost. Prescribing a non-formulary drug needs approval (e.g. from the Drugs & Therapeutics Committee) and should be documented in the notes."
+   },
+   {
+    "id": "ph_cpt_pr_24",
+    "front": "Why should gabapentin and pregabalin now be treated as controlled drugs when prescribing?",
+    "back": "They are Schedule 3 (Class C) controlled drugs, so prescriptions must carry the full CD requirements — a specified dose, form, and total quantity in words and figures — and cannot be issued as repeatable prescriptions."
+   },
+   {
+    "id": "ph_cpt_pr_25",
+    "front": "Who ultimately bears responsibility for a prescription, and what should you do if unsure?",
+    "back": "The prescriber who signs and issues the prescription bears responsibility for that treatment — including knowing the patient, condition and adverse effects. If unsure, prescribe within your competence and seek advice from a senior colleague or hospital pharmacist."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__4 · Adherence & Concordance": [
+   {
+    "id": "ph_cpt_ad_01",
+    "front": "Define compliance, and why is the term criticised?",
+    "back": "Compliance is the extent to which a patient's behaviour matches the PRESCRIBER's recommendation. It is criticised for casting the patient as a passive recipient, so 'non-compliance' implies incompetence or wilful fault."
+   },
+   {
+    "id": "ph_cpt_ad_02",
+    "front": "Define adherence and how it differs from compliance.",
+    "back": "Adherence is the extent to which a patient's behaviour matches AGREED recommendations from the prescriber. Unlike compliance it reflects a shift from an instructive 'master–servant' model to shared decision-making — though adherence itself describes the behaviour, not the decision."
+   },
+   {
+    "id": "ph_cpt_ad_03",
+    "front": "What is concordance, and does it describe medicine-taking behaviour?",
+    "back": "Concordance is the belief that decisions about medicines should be shared by prescriber and patient to reach agreement (a 'concord'), respecting the patient's views. It describes the CONSULTATION/agreement, not medicine-taking behaviour itself — but concordant consultations make adherence more likely."
+   },
+   {
+    "id": "ph_cpt_ad_04",
+    "front": "Roughly what proportion of long-term medicines are not taken as recommended, and in which conditions is the evidence strong?",
+    "back": "About a third to a half of medicines for long-term conditions are not taken as recommended. Strong evidence exists in asthma, hypertension, diabetes, HIV, dyslipidaemia and epilepsy."
+   },
+   {
+    "id": "ph_cpt_ad_05",
+    "front": "Beyond the individual patient, what are the wider consequences of non-adherence?",
+    "back": "Increased NHS cost from wasted medicines and extra GP/hospital demand, and public-health harm — loss of herd immunity when vaccine schedules are missed, and antimicrobial resistance when antibiotics aren't completed."
+   },
+   {
+    "id": "ph_cpt_ad_06",
+    "front": "Distinguish intentional from unintentional non-adherence (NICE).",
+    "back": "Intentional: the patient makes a conscious decision not to follow the plan (usually for a valid reason). Unintentional: the patient wants to follow it but is prevented by a practical barrier (forgetting, dexterity, device technique, cost). The two overlap."
+   },
+   {
+    "id": "ph_cpt_ad_07",
+    "front": "List the five dimensions affecting adherence.",
+    "back": "Social/economic (e.g. age, cost), health-system/health-care-team (e.g. poor instructions), therapy-related (e.g. adverse effects, complex regimen), patient-related (e.g. disagreement with need, beliefs), and condition-related (e.g. severity, disability)."
+   },
+   {
+    "id": "ph_cpt_ad_08",
+    "front": "How does age affect adherence?",
+    "back": "Adolescents are less adherent than younger children; the classic adult cohort (~30–65) is the most adherent; and adherence is a particular problem in the over-80s, where cognitive and functional impairment increase the risk."
+   },
+   {
+    "id": "ph_cpt_ad_09",
+    "front": "If a patient with type 2 diabetes is non-adherent to metformin because of GI upset, what is the most appropriate step?",
+    "back": "Switch therapy — try modified-release metformin to reduce GI effects, or an alternative agent (e.g. a sulfonylurea). Simply providing information about why it causes GI effects is less likely to restore adherence when the adverse effect is the problem."
+   },
+   {
+    "id": "ph_cpt_ad_10",
+    "front": "Match the adverse effect to the drug: dyspepsia, myalgia, gout, acute dystonia, mood change, dry cough.",
+    "back": "Dyspepsia — NSAIDs (diclofenac); myalgia — statins (simvastatin); gout/hyperuricaemia — thiazides (bendroflumethiazide); acute dystonia (EPSE) — prochlorperazine; mood/behaviour change — prednisolone; persistent dry cough — ACE inhibitors (lisinopril, switch to an ARB)."
+   },
+   {
+    "id": "ph_cpt_ad_11",
+    "front": "Why should you give information about a medicine's adverse effects rather than withhold it to protect adherence?",
+    "back": "Because a lack of information can put the patient at risk — they must be able to recognise adverse effects and know what to do (e.g. when to stop). Balanced information about risks and benefits empowers patients and supports informed, shared decisions; also mention the Yellow Card scheme."
+   },
+   {
+    "id": "ph_cpt_ad_12",
+    "front": "Is there a gold standard for measuring adherence, and what are the two broad approaches?",
+    "back": "No — there is no agreed gold standard. Approaches are subjective (mainly patient self-report) or objective (measuring a drug/marker in body fluid, electronic monitors, refill records). None is definitive."
+   },
+   {
+    "id": "ph_cpt_ad_13",
+    "front": "Give the strengths and limits of subjective vs objective adherence measures.",
+    "back": "Subjective self-report: patients who admit missing doses are usually accurate, but deniers are often not. Objective measures (e.g. plasma clozapine/olanzapine levels, TFTs for levothyroxine, refill data) are mostly research tools, give only a cross-sectional snapshot ('white-coat adherence'), and refills don't prove the drug was taken."
+   },
+   {
+    "id": "ph_cpt_ad_14",
+    "front": "How should you ask a patient about missed doses?",
+    "back": "Non-judgementally and specifically, e.g. 'How many doses have you missed in the last week?' Explain why you're asking, don't apportion blame, name a time frame, and ask about habits/routine. Use it to find where support is needed, not to catch them out."
+   },
+   {
+    "id": "ph_cpt_ad_15",
+    "front": "When intentional non-adherence is identified, what should your first action NOT be, and why?",
+    "back": "It should NOT be to simply encourage adherence. Patients usually have a valid reason (adverse effects, ineffective treatment, changed views) — explore that reason first, and take a full drug history."
+   },
+   {
+    "id": "ph_cpt_ad_16",
+    "front": "Give practical interventions for unintentional non-adherence.",
+    "back": "Simplify the regimen (e.g. once-daily modified-release instead of TDS), change the formulation (dispersible/liquid for dysphagia), change the device (spacer or breath-actuated inhaler), change the timing (e.g. SSRI to the morning for insomnia), use a monitored dosage system, and encourage self-monitoring (BP, blood glucose)."
+   },
+   {
+    "id": "ph_cpt_ad_17",
+    "front": "A patient forgets his afternoon verapamil (TDS) because of work. Which interventions best promote adherence?",
+    "back": "This is unintentional non-adherence from a practical barrier. Simplify to a once-daily modified-release verapamil, and encourage him to self-monitor his blood pressure to increase engagement. Switching drug class isn't needed yet as he tolerates verapamil and the problem has only just come to light."
+   },
+   {
+    "id": "ph_cpt_ad_18",
+    "front": "A patient on isotretinoin struggles to take the pill reliably due to travel across time zones and wants hormonal contraception. What suits adherence best?",
+    "back": "A long-acting method such as a depot injection (every ~3 months) — it removes the daily-dosing barrier. An MDS won't help (time-zone confusion remains) and a progestogen-only pill still needs precise daily timing. Reliable contraception is essential given isotretinoin's teratogenicity."
+   },
+   {
+    "id": "ph_cpt_ad_19",
+    "front": "An 89-year-old on 14 tablets loses the help of her husband who filled her medicines. What is the safest recommendation?",
+    "back": "Arrange a monitored dosage system through her community pharmacist (rather than self-filling), as it organises her many oral medicines by day/time and acts as a prompt. The pharmacist assesses appropriateness and agrees it with the GP; they are not obliged to supply an MDS."
+   },
+   {
+    "id": "ph_cpt_ad_20",
+    "front": "Can a patient with capacity refuse a medicine, and what should you do?",
+    "back": "Yes — a patient with mental capacity has the right to decide not to take a medicine. If you believe the decision could be harmful, record it and provide balanced information on the risks and benefits of not taking the treatment."
+   },
+   {
+    "id": "ph_cpt_ad_21",
+    "front": "Why is caution needed before restarting a medicine after a period of non-adherence?",
+    "back": "Some drugs need gradual re-titration and can cause harm if resumed at the previous optimal dose after a gap — e.g. ACE inhibitors (first-dose hypotension) and levothyroxine. Take a full drug history and weigh the risks of restarting."
+   },
+   {
+    "id": "ph_cpt_ad_22",
+    "front": "What is a potential downside of successfully improving adherence?",
+    "back": "Improving overall adherence can increase the incidence of adverse effects, because the patient is now taking more of the drug as prescribed — so monitor accordingly."
+   },
+   {
+    "id": "ph_cpt_ad_23",
+    "front": "What is the New Medicine Service (NMS) and who is eligible?",
+    "back": "A community-pharmacy service giving structured support to patients newly prescribed a medicine, with follow-up consultations in the first few weeks. It covers a wide range of long-term conditions — among them asthma/COPD, type 2 diabetes, hypertension, antiplatelet/anticoagulant therapy, heart failure, epilepsy, osteoporosis and gout."
+   },
+   {
+    "id": "ph_cpt_ad_24",
+    "front": "A 45-year-old stops her sertraline because it causes insomnia; she takes it at night. What is the best first step?",
+    "back": "Change the timing — SSRIs can cause insomnia, so switching sertraline to the morning may help her sleep. Try this before reviewing the drug, and warn her about the effects of stopping an antidepressant abruptly."
+   },
+   {
+    "id": "ph_cpt_ad_25",
+    "front": "Give two simple everyday strategies that can help a patient remember to take a medicine.",
+    "back": "Link the dose to a regular routine activity (e.g. a morning drink), and use aids such as a pill box, a medicines calendar, reminders from family, notes on the medicine cabinet, or a medication-reminder phone app."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__5 · Prescribing in Renal Dysfunction": [
+   {
+    "id": "ph_cpt_rn_01",
+    "front": "Which estimate of renal function should you use for drug dosing, and why not eGFR?",
+    "back": "Use the Cockcroft–Gault estimate of creatinine clearance for drug dosing. eGFR (CKD-EPI/MDRD) is normalised to 1.73 m² and was developed for staging stable CKD; most renal dosing literature and the BNF are based on creatinine clearance. Cockcroft–Gault is preferred for older adults, extremes of muscle mass/weight and narrow-therapeutic-index drugs."
+   },
+   {
+    "id": "ph_cpt_rn_02",
+    "front": "In which patients is eGFR unreliable for estimating renal function?",
+    "back": "At extremes of body weight, in children, pregnancy, and catabolic states, and where muscle mass is low (extreme old age, malnutrition, amputation). It is also NOT accurate in AKI, because it was developed for stable CKD."
+   },
+   {
+    "id": "ph_cpt_rn_03",
+    "front": "Why are NSAIDs nephrotoxic?",
+    "back": "Renal blood flow — especially in low-flow states — relies on vasodilatory prostaglandins keeping the afferent arteriole open. NSAIDs inhibit prostaglandin synthesis, causing afferent vasoconstriction, renal hypoperfusion and AKI. Risk is highest in CKD, older adults, and volume depletion/diuretic use/cirrhosis/heart failure."
+   },
+   {
+    "id": "ph_cpt_rn_04",
+    "front": "How do ACE inhibitors and ARBs affect glomerular filtration, and when are they dangerous?",
+    "back": "Angiotensin-II constricts the efferent arteriole to maintain filtration pressure when perfusion is poor. ACE-i/ARBs block this, dilating the efferent arteriole and dropping GFR. This is dangerous in bilateral renal artery stenosis (or a single functioning kidney/widespread vascular disease), where filtration depends on that back-pressure."
+   },
+   {
+    "id": "ph_cpt_rn_05",
+    "front": "What is the 'triple whammy' that commonly causes AKI?",
+    "back": "The combination of an ACE inhibitor or ARB + a diuretic + an NSAID. Together they remove both autoregulatory defences (efferent constriction and afferent dilation) plus cause volume depletion, precipitating acute kidney injury."
+   },
+   {
+    "id": "ph_cpt_rn_06",
+    "front": "What are the three broad categories of AKI cause?",
+    "back": "Pre-renal (hypoperfusion/hypovolaemia — reversible if caught early), renal/intrinsic (ischaemia, sepsis, toxins, inflammation → acute tubular necrosis), and post-renal (obstruction to outflow, e.g. prostatic enlargement, causing back-pressure)."
+   },
+   {
+    "id": "ph_cpt_rn_07",
+    "front": "Outline NICE AKI staging.",
+    "back": "Stage 1: creatinine rise ≥26 µmol/L in 48 h, or ≥1.5× baseline, or urine <0.5 ml/kg/h for >6 h. Stage 2: creatinine ≥2× baseline, or urine <0.5 ml/kg/h for >12 h. Stage 3: creatinine ≥3× baseline (or ≥354 µmol/L), urine <0.3 ml/kg/h for 24 h, anuria for 12 h, or any need for renal replacement therapy."
+   },
+   {
+    "id": "ph_cpt_rn_08",
+    "front": "Name commonly prescribed directly nephrotoxic drugs and their mechanism.",
+    "back": "Aminoglycosides (gentamicin) and amphotericin cause acute tubular necrosis; cisplatin causes tubular damage; ciclosporin/tacrolimus and contrast media cause renal vasoconstriction; NSAIDs and ACE-i/ARB act via glomerular haemodynamics; lithium causes chronic tubulointerstitial damage."
+   },
+   {
+    "id": "ph_cpt_rn_09",
+    "front": "How does rhabdomyolysis link statins to kidney injury?",
+    "back": "Statins can cause myopathy/rhabdomyolysis; myoglobin released from damaged muscle is directly nephrotoxic and reduces blood flow in the outer medulla, causing AKI. Stop the statin if CK is >5× the upper limit of normal or symptoms are severe."
+   },
+   {
+    "id": "ph_cpt_rn_10",
+    "front": "How does renal impairment change drug elimination and half-life?",
+    "back": "Water-soluble drugs and renally-cleared active metabolites accumulate, and the elimination half-life is prolonged in proportion to the loss of renal function (e.g. gentamicin's half-life rises from ~2 h to ~48 h in anuria). Around two-thirds of drugs are renally excreted, so many need dose adjustment."
+   },
+   {
+    "id": "ph_cpt_rn_11",
+    "front": "What are the two ways to adjust a drug dose in renal impairment, and when is each preferred?",
+    "back": "Reduce the individual dose (keeps a steadier level) or extend the dosing interval (better where distinct peak and trough concentrations matter, e.g. aminoglycosides). The choice depends on the drug's pharmacodynamics; details are in the BNF/Renal Drug Handbook."
+   },
+   {
+    "id": "ph_cpt_rn_12",
+    "front": "Which analgesics are preferred and which avoided in significant renal impairment?",
+    "back": "Preferred: paracetamol first-line, codeine/dihydrocodeine cautiously, and low-dose fentanyl (no renally-cleared active metabolites). Avoid: NSAIDs including topical (can still precipitate AKI) and morphine (active metabolites accumulate causing toxicity)."
+   },
+   {
+    "id": "ph_cpt_rn_13",
+    "front": "Which IV fluids are used (and avoided) in AKI?",
+    "back": "Sodium chloride 0.9% is first-line; sodium bicarbonate 1.26% is an alternative if there is hypovolaemia plus metabolic acidosis (HCO3 <20), under local policy/specialist advice. Avoid Hartmann's (contains potassium) and colloids (no benefit over saline)."
+   },
+   {
+    "id": "ph_cpt_rn_14",
+    "front": "How should fluids be given in AKI, and what is the danger of over-prescribing?",
+    "back": "Give volume repletion as 250–500 ml challenges with reassessment (urine output, obs), then move to a maintenance regimen and slow the rate, especially if oliguric. Reflex prescribing of 3–4 L/day risks iatrogenic fluid overload, pulmonary oedema and increased mortality."
+   },
+   {
+    "id": "ph_cpt_rn_15",
+    "front": "What is one of the most sensitive clinical signs of hypovolaemia?",
+    "back": "A postural rise in heart rate of ≥30 bpm on standing. Also check supine and standing BP, and look for signs of overload (rising daily weight, pitting/sacral oedema, bibasal crackles)."
+   },
+   {
+    "id": "ph_cpt_rn_16",
+    "front": "When does NICE recommend an ACE inhibitor or ARB in CKD?",
+    "back": "Offer it if the patient has: diabetes and ACR ≥3 mg/mmol; hypertension and ACR ≥30 mg/mmol; or an ACR ≥70 mg/mmol regardless of hypertension or CVD. They are not nephrotoxic and are renoprotective in proteinuric CKD."
+   },
+   {
+    "id": "ph_cpt_rn_17",
+    "front": "What monitoring and thresholds apply when starting an ACE inhibitor/ARB in CKD?",
+    "back": "Check potassium and eGFR before starting and again ~7 days after starting or a dose increase. Don't start if K⁺ >5.0. A creatinine rise up to ~30% (or eGFR fall up to ~25%) is acceptable — look for another cause before stopping; a larger change means investigate and consider stopping. Titrate to the maximum tolerated dose."
+   },
+   {
+    "id": "ph_cpt_rn_18",
+    "front": "What are the blood pressure targets in CKD?",
+    "back": "Below 140/90 mmHg in CKD generally; below 130/80 mmHg if the patient has both diabetes and CKD with an ACR >70 mg/mmol. Several agents are usually needed."
+   },
+   {
+    "id": "ph_cpt_rn_19",
+    "front": "Why are thiazide diuretics limited in CKD, and what are the alternatives?",
+    "back": "Thiazides are largely ineffective once eGFR is <30, so a loop diuretic (e.g. furosemide) is used for fluid overload. Metolazone still works below 30 but risks excessive diuresis and is specialist-initiated. Potassium-sparing diuretics are avoided (hyperkalaemia); a loop+thiazide combination needs specialist advice as volume depletion can occur rapidly."
+   },
+   {
+    "id": "ph_cpt_rn_20",
+    "front": "Why should high-dose loop diuretics be given by infusion rather than bolus in severe fluid overload?",
+    "back": "Because rapid high-dose bolus loop diuretics can cause ototoxicity (deafness). For severe overload, give a loop diuretic as an infusion (e.g. not exceeding 4 mg/min for furosemide) under specialist advice, rather than a bolus."
+   },
+   {
+    "id": "ph_cpt_rn_21",
+    "front": "At what level is hyperkalaemia a treatment emergency, and what are the ECG changes?",
+    "back": "Treat urgently if potassium >6.5 mmol/L or if there are ECG changes. ECG progression: peaked T waves → loss of P waves → prolonged PR → broadened QRS → sine wave → asystolic arrest. It is worsened by acidosis."
+   },
+   {
+    "id": "ph_cpt_rn_22",
+    "front": "What is the role of IV calcium gluconate in hyperkalaemia?",
+    "back": "It stabilises the excitable myocardium (cardioprotection) but has NO effect on the serum potassium. The protective effect begins within minutes but is short-lived (<1 hour) and can be repeated according to the ECG."
+   },
+   {
+    "id": "ph_cpt_rn_23",
+    "front": "How do you shift potassium into cells in hyperkalaemia?",
+    "back": "IV insulin with glucose (e.g. 10 units soluble insulin + 50 ml 50% glucose) lowers potassium by ~1 mmol/L — monitor for delayed hypoglycaemia, and omit the glucose if blood glucose is already >15. Nebulised salbutamol also drives potassium into cells but is temporary and not effective in everyone."
+   },
+   {
+    "id": "ph_cpt_rn_24",
+    "front": "Which drugs raise serum potassium, and which should be stopped first in severe hyperkalaemia?",
+    "back": "Drugs that retain potassium (ACE-i/ARB, potassium-sparing diuretics, NSAIDs, potassium supplements, trimethoprim) and drugs that block cellular buffering (beta-blockers, digoxin). In severe hyperkalaemia stop the retaining drugs, especially ACE inhibitors and ARBs."
+   },
+   {
+    "id": "ph_cpt_rn_25",
+    "front": "Why must calcium and sodium bicarbonate not be given through the same line?",
+    "back": "They form an insoluble precipitate (calcium carbonate) if mixed. Give them through separate lines when treating hyperkalaemia/acidosis."
    }
   ],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Drugs Requiring Therapeutic Drug Monitoring (TDM)": [
