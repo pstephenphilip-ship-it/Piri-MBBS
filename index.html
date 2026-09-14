@@ -11281,6 +11281,12 @@ initTab('conditions');
     var cn=document.createElement('button'); cn.className='annot-card-cancel'; cn.textContent='Cancel';
     cn.dataset.panel=p; cn.onclick=function(){ annotRender(this.dataset.panel); };
     aEl.innerHTML=''; aEl.appendChild(sv); aEl.appendChild(cn);
+    // Grow the editor to fit the note (up to a cap, then scroll) so the whole note is visible
+    // while editing, instead of being stuck at the 60px minimum.
+    if(typeof annotAutoGrow==='function'){
+      ta.addEventListener('input', function(){ annotAutoGrow(ta); });
+      annotAutoGrow(ta);
+    }
     ta.focus(); ta.setSelectionRange(ta.value.length,ta.value.length);
   };
 
