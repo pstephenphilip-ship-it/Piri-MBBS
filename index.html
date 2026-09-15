@@ -8696,6 +8696,126 @@ window.MOCK_BANK = {
     /* Pharmacology mock paper — questions to be added.
        Same question shape as the entries above. Leaving this empty is fine:
        the picker lists the topic with a 0 Q badge until it is filled. */
+],
+"conditions__CARDIOVASCULAR__Foundations of CVS": [
+    { id:"fcvs-001", type:"mcq", objective:"fcvs-heart-sounds-s1",
+      question:"A 24-year-old woman attends for a pre-employment medical. While auscultating her praecordium you palpate the carotid pulse and confirm that the first heart sound coincides with its upstroke, marking the start of ventricular systole. Which event physically produces the first heart sound (S1)?",
+      options:[
+        "Closure of the mitral and tricuspid valves",
+        "Closure of the aortic and pulmonary valves",
+        "Opening of the aortic and pulmonary valves",
+        "Contraction of the atria",
+        "Rapid ventricular filling"],
+      correctIndex:0,
+      explanation:[
+        "The first heart sound (S1) is produced by closure of the MITRAL and TRICUSPID (atrioventricular) valves at the onset of ventricular systole – which is why it coincides with the carotid upstroke.",
+        "Closure of the aortic and pulmonary (semilunar) valves produces the SECOND sound (S2) at the end of systole; valve opening is normally silent, and atrial contraction and rapid filling are not the source of S1."
+      ] },
+    { id:"fcvs-002", type:"mcq", objective:"fcvs-jvp-cannon-a",
+      data:"<div class=\"mk-obs-h\">Observations</div><div class=\"mk-obs-grid\"><span>Pulse <b>38 bpm, regular</b></span><span>Blood pressure <b>104/70 mmHg</b></span><span>ECG <b>Atrioventricular dissociation (complete heart block)</b></span><span>Neck veins <b>Intermittent giant pulsations</b></span></div>",
+      question:"An 82-year-old man is admitted after two blackouts. His observations are shown. At the bedside you notice intermittent giant pulsations in his neck veins. What produces these cannon a waves?",
+      options:[
+        "Tricuspid regurgitation into the jugular veins",
+        "The atrium contracting against a closed tricuspid valve",
+        "Rapid ventricular filling in early diastole",
+        "Aortic regurgitation transmitted to the neck",
+        "Carotid arterial pulsation"],
+      correctIndex:1,
+      explanation:[
+        "In complete heart block the atria and ventricles beat independently. When the RIGHT ATRIUM happens to contract against a CLOSED TRICUSPID VALVE, blood is thrown back up the jugular vein as a cannon a wave – a bedside clue to atrioventricular dissociation.",
+        "Tricuspid regurgitation gives giant systolic (v) waves, not intermittent cannon waves; and rapid filling, aortic regurgitation and carotid pulsation do not produce this sign."
+      ] },
+    { id:"fcvs-003", type:"mcq", objective:"fcvs-atrial-kick",
+      data:"<div class=\"mk-obs-h\">Observations</div><div class=\"mk-obs-grid\"><span>Pulse <b>140 bpm, irregularly irregular</b></span><span>Blood pressure <b>98/60 mmHg</b></span><span>ECG <b>New atrial fibrillation</b></span></div>",
+      question:"An 80-year-old woman with long-standing hypertension and known left ventricular hypertrophy, previously stable, arrives acutely breathless. Her observations are shown, with new fast atrial fibrillation. Which physiological change best explains her sudden deterioration?",
+      options:[
+        "The shortened diastole increases ventricular filling",
+        "The ventricles stop contracting during the fibrillation",
+        "Loss of the atrial kick reduces ventricular filling",
+        "A sharp rise in systemic vascular resistance",
+        "Increased stroke volume from the faster rate"],
+      correctIndex:2,
+      explanation:[
+        "A stiff, poorly-compliant (hypertrophied) ventricle depends DISPROPORTIONATELY on the atrial kick for filling. Losing it in atrial fibrillation – together with the short diastole of a fast rate – sharply cuts preload and cardiac output.",
+        "The distractors each fail on the physiology: a fast rate SHORTENS diastole and reduces filling (not increases it); it is the ATRIA that fibrillate while the ventricles still contract; systemic vascular resistance does not suddenly rise; and stroke volume falls rather than rises."
+      ] },
+    { id:"fcvs-004", type:"mcq", objective:"fcvs-funny-current",
+      question:"A 68-year-old man with heart failure with reduced ejection fraction remains in sinus rhythm with a resting heart rate of 84 bpm despite a maximally tolerated beta-blocker. His cardiologist adds ivabradine to slow the rate further. Ivabradine acts specifically on the sinoatrial node – which current does it block?",
+      options:[
+        "The fast sodium current (phase 0)",
+        "The L-type calcium current",
+        "The delayed-rectifier potassium current",
+        "The funny current (If)",
+        "The sodium-potassium ATPase"],
+      correctIndex:3,
+      explanation:[
+        "The FUNNY CURRENT (If) drives the spontaneous phase-4 depolarisation of sinoatrial node cells. Ivabradine blocks it, slowing the sinus rate without affecting contractility or blood pressure – and it therefore only works in SINUS rhythm.",
+        "The fast sodium current (phase 0) and the potassium and calcium currents shape the action potential elsewhere, and the sodium-potassium ATPase maintains ionic gradients – none is the pacemaker current ivabradine targets."
+      ] },
+    { id:"fcvs-005", type:"categorize", objective:"fcvs-vaughan-williams",
+      question:"A foundation doctor starting a cardiology rotation is revising antiarrhythmic drugs. Sort each drug by the ion channel it mainly blocks.",
+      buckets:["Sodium channel (Class I)","Potassium channel (Class III)","Calcium channel (Class IV)"],
+      items:[
+        { text:"Flecainide", bucket:0 },
+        { text:"Lidocaine", bucket:0 },
+        { text:"Amiodarone", bucket:1 },
+        { text:"Sotalol", bucket:1 },
+        { text:"Verapamil", bucket:2 },
+        { text:"Diltiazem", bucket:2 }],
+      explanation:[
+        "The Vaughan-Williams classes map onto the action-potential phases: CLASS I blocks the phase-0 sodium current (flecainide, lidocaine), CLASS III blocks the phase-3 potassium current and prolongs the action potential (amiodarone, sotalol), and CLASS IV blocks the nodal calcium current (verapamil, diltiazem).",
+        "Class II (beta-blockers) act on phase-4 sympathetic drive and are not shown here."
+      ] },
+    { id:"fcvs-006", type:"mcq", objective:"fcvs-ecg-mechanical",
+      question:"A 55-year-old man has a normal 12-lead ECG before elective surgery. A student asks how the electrical trace relates to the heart's pumping. During which part of the ECG does ventricular systole (contraction and ejection) take place?",
+      options:[
+        "The P wave",
+        "The PR interval",
+        "The ST segment",
+        "The TP segment",
+        "The QT interval"],
+      correctIndex:4,
+      explanation:[
+        "Ventricular systole begins with depolarisation (the QRS) and lasts until repolarisation is complete, so it spans the QT INTERVAL (from the start of the QRS to the end of the T wave).",
+        "The P wave is atrial systole; the PR interval is atrioventricular conduction before the ventricles activate; the ST segment lies WITHIN systole but is only part of it; and the TP segment is diastole, when the ventricles are relaxed and filling."
+      ] },
+    { id:"fcvs-007", type:"mcq", objective:"fcvs-refractory-r-on-t",
+      question:"A 62-year-old man with symptomatic atrial fibrillation is booked for elective DC cardioversion. The cardiologist explains that the shock will be synchronised to the R wave rather than delivered at a random moment, specifically to avoid landing on the T wave. Why must the shock avoid the T wave?",
+      options:[
+        "A shock landing on the T wave can trigger ventricular fibrillation",
+        "The T wave is when the atria repolarise",
+        "The heart is completely unexcitable during the T wave",
+        "The T wave marks the start of ventricular contraction",
+        "Delivering the shock on the T wave would fail to convert the rhythm"],
+      correctIndex:0,
+      explanation:[
+        "The T wave coincides with the RELATIVE REFRACTORY (vulnerable) PERIOD, when some cells are excitable and others still refractory. A stimulus then can set off re-entry and VENTRICULAR FIBRILLATION – the ‘R-on-T’ phenomenon – which is why cardioversion is synchronised to the R wave.",
+        "The T wave is VENTRICULAR (not atrial) repolarisation; the heart is only in the RELATIVE, not absolute, refractory period (so it is not completely unexcitable – the key point); the T wave is repolarisation, not the start of contraction; and the danger is inducing fibrillation, not merely failing to convert."
+      ] },
+    { id:"fcvs-008", type:"saq", objective:"fcvs-sa-node",
+      question:"A 30-year-old man has a routine ECG showing normal sinus rhythm at 70 bpm. Name the structure that normally sets his heart rate by depolarising faster than any other.",
+      answer:"Sinoatrial (SA) node",
+      accept:["sa node","sinoatrial node","sino-atrial node","sinus node","san"],
+      markPoints:[
+        "Sinoatrial (SA) node",
+        "The fastest intrinsic pacemaker, so it sets the rate",
+        "Located in the right atrium near the superior vena cava"],
+      explanation:[
+        "The SINOATRIAL (SA) NODE has the fastest rate of spontaneous phase-4 depolarisation, so it reaches threshold first and sets the heart rate (normal sinus rhythm).",
+        "Slower subsidiary pacemakers (the AV junction and ventricular tissue) only take over as escape rhythms if the SA node or conduction above them fails."
+      ] },
+    { id:"fcvs-009", type:"saq", objective:"fcvs-plateau-calcium",
+      question:"A 60-year-old man is started on a calcium-channel blocker, and a student asks why this class acts on the heart. In the ventricular myocyte action potential, name the ion whose inward movement maintains the prolonged plateau (phase 2) that gives cardiac muscle its long refractory period.",
+      answer:"Calcium",
+      accept:["calcium","ca","ca2+","ca 2+","calcium ions","calcium ion"],
+      markPoints:[
+        "Calcium (Ca2+)",
+        "Inward L-type calcium current sustains the phase-2 plateau",
+        "Underlies the long refractory period (the heart cannot tetanise) and why calcium-channel blockers act on the heart"],
+      explanation:[
+        "The plateau (phase 2) is maintained by inward L-type CALCIUM current balancing potassium efflux. This prolongs the action potential and the refractory period, so cardiac muscle cannot tetanise.",
+        "It is also why calcium-channel blockers act on cardiac tissue – slowing nodal conduction and reducing contractility."
+      ] }
 ]
 };
 </script>
