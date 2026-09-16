@@ -1082,7 +1082,7 @@ body.da-notes-open #daMemFab{display:none!important;}
 .auth-field{margin-bottom:14px;}
 .auth-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
 .auth-field input{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:10px 12px;outline:none;transition:border-color .15s;}
-.auth-field input:focus{border-color:var(--accent);}
+.auth-field input:focus{border-color:var(--accent);}.ref-ta-wrap{position:relative;}.ref-ta-list{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:60;background:#fff;border:1px solid #D8DAE5;border-radius:10px;box-shadow:0 12px 30px rgba(16,24,40,.16);max-height:220px;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px;}.ref-ta-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:7px;cursor:pointer;font-size:13px;color:#1E2640;}.ref-ta-item:hover,.ref-ta-item.active{background:#EAF7F4;}.ref-ta-name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.ref-ta-code{font-family:var(--mono,monospace);font-size:11px;color:#5A6480;background:#F1F3F8;border-radius:5px;padding:2px 6px;flex-shrink:0;letter-spacing:.03em;}.ref-ta-empty{padding:9px 10px;font-size:12px;color:#9AA3B2;}
 .auth-submit{width:100%;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);color:#04121a;font-family:var(--sans);font-weight:700;font-size:13.5px;border:none;border-radius:var(--radius);padding:11px;cursor:pointer;margin-top:6px;transition:opacity .15s;}
 .auth-submit:hover{opacity:.92;}
 .auth-submit:disabled{opacity:.55;cursor:default;}
@@ -15714,6 +15714,79 @@ function hideFlyout(p) {
     run();   // validate any prefilled value
   }
 
+  // Affiliate list for the referral typeahead: fetched once (anon-readable), then filtered
+  // client-side. Degrades silently to no dropdown if the table isn't there yet.
+  var __affCache=null, __affLoading=false, __affWaiters=[];
+  function __affFlush(){ var w=__affWaiters; __affWaiters=[]; w.forEach(function(cb){ try{cb(__affCache);}catch(e){} }); }
+  function loadAffiliates(cb){
+    if(__affCache){ cb(__affCache); return; }
+    __affWaiters.push(cb);
+    if(__affLoading) return;
+    if(!sb){ __affCache=[]; __affLoading=false; __affFlush(); return; }
+    __affLoading=true;
+    try{
+      sb.from('affiliates').select('name,code,type').eq('active',true).order('name')
+        .then(function(r){ __affCache=(r&&!r.error&&Array.isArray(r.data))?r.data:[]; __affLoading=false; __affFlush(); })
+        .catch(function(){ __affCache=[]; __affLoading=false; __affFlush(); });
+    }catch(e){ __affCache=[]; __affLoading=false; __affFlush(); }
+  }
+  // Autocomplete on the referral field: type a letter -> the matching codes drop down; still fully
+  // typeable for a code that isn't listed. Prefix-matches on both the code and the affiliate name.
+  function wireRefcodeTypeahead(inputId, listId, fbId){
+    var inp=$(inputId), list=$(listId); if(!inp||!list) return;
+    function esc(x){ return String(x==null?'':x).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    var items=[], active=-1, justPicked=false;
+    function open(){ list.hidden=false; inp.setAttribute('aria-expanded','true'); }
+    function close(){ list.hidden=true; inp.setAttribute('aria-expanded','false'); active=-1; }
+    function pick(a){
+      inp.value=a.code; close();
+      var fb=$(fbId); if(fb){ fb.textContent='✓ Supporting '+a.name; fb.style.color='var(--rn-green,#1F8B5E)'; }
+      // Suppress the immediate re-open that the refocus below would otherwise trigger, but
+      // auto-clear so the guard can never get stuck if the focus event doesn't fire.
+      justPicked=true; setTimeout(function(){ justPicked=false; }, 350);
+      inp.focus();
+    }
+    function paintActive(){
+      var els=list.querySelectorAll('.ref-ta-item');
+      for(var i=0;i<els.length;i++){ var on=(i===active); els[i].classList.toggle('active',on); if(on) els[i].scrollIntoView({block:'nearest'}); }
+    }
+    function render(matches){
+      items=matches; active=-1;
+      if(!matches.length){ list.innerHTML='<div class="ref-ta-empty">No matching codes — you can still type one</div>'; open(); return; }
+      list.innerHTML=matches.map(function(a,i){
+        return '<div class="ref-ta-item" role="option" data-i="'+i+'"><span class="ref-ta-name">'+esc(a.name||a.code)+'</span><span class="ref-ta-code">'+esc(a.code)+'</span></div>';
+      }).join('');
+      open();
+    }
+    function filterNow(){
+      if(justPicked){ justPicked=false; close(); return; }
+      var q=(inp.value||'').trim().toUpperCase();
+      loadAffiliates(function(all){
+        if(!all||!all.length){ close(); return; }
+        var m=all.filter(function(a){
+          var c=(a.code||'').toUpperCase(), n=(a.name||'').toUpperCase();
+          return !q || c.indexOf(q)===0 || n.indexOf(q)===0;
+        }).slice(0,50);
+        render(m);
+      });
+    }
+    inp.addEventListener('focus', filterNow);
+    inp.addEventListener('input', filterNow);
+    // mousedown (not click) so selection fires before the input's blur closes the list
+    list.addEventListener('mousedown', function(e){
+      var it=e.target.closest('.ref-ta-item'); if(!it) return;
+      e.preventDefault(); var i=parseInt(it.getAttribute('data-i'),10); if(items[i]) pick(items[i]);
+    });
+    inp.addEventListener('keydown', function(e){
+      if(list.hidden) return;
+      if(e.key==='ArrowDown'){ e.preventDefault(); active=Math.min(active+1,items.length-1); paintActive(); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); active=Math.max(active-1,0); paintActive(); }
+      else if(e.key==='Enter'){ if(active>=0&&items[active]){ e.preventDefault(); pick(items[active]); } }
+      else if(e.key==='Escape'){ close(); }
+    });
+    inp.addEventListener('blur', function(){ setTimeout(close, 140); });
+    document.addEventListener('click', function(e){ if(!list.hidden && !(e.target.closest&&e.target.closest('.ref-ta-wrap'))) close(); });
+  }
   function injectSignupFields(){
     var form=$('authForm'), btn=$('authSubmitBtn');
     if(!form||!btn||$('da-su-fields')) return;
@@ -15724,9 +15797,10 @@ function hideFlyout(p) {
       '<div class="auth-field"><label for="da-university">Medical school / University <span style="opacity:.55">(optional)</span></label><input id="da-university" type="text" placeholder="e.g. QMUL"></div>'+
       '<div class="auth-field"><label for="da-year">Year of study <span style="opacity:.55">(optional)</span></label><select id="da-year">'+yrOpts()+'</select></div>'+
       '<div class="auth-field"><label for="da-country">Country / region <span style="opacity:.55">(optional)</span></label><input id="da-country" type="text" placeholder="e.g. United Kingdom"></div>'+
-      '<div class="auth-field"><label for="da-refcode">Have a referral code? <span style="opacity:.55">(optional)</span></label><input id="da-refcode" type="text" autocomplete="off" placeholder="e.g. NEUROSOC or a friend’s code"><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">From a society or an individual — enter their code to support whoever sent you.</div><div id="da-refcode-fb" style="font-size:12px;margin-top:6px;font-weight:600;min-height:15px;"></div></div>';
+      '<div class="auth-field"><label for="da-refcode">Have a referral code? <span style="opacity:.55">(optional)</span></label><div class="ref-ta-wrap"><input id="da-refcode" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" placeholder="Start typing to pick from the list, or enter a code"><div id="da-refcode-list" class="ref-ta-list" role="listbox" hidden></div></div><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">From a society or an individual — start typing to pick from the list, or enter their code.</div><div id="da-refcode-fb" style="font-size:12px;margin-top:6px;font-weight:600;min-height:15px;"></div></div>';
     form.insertBefore(wrap, btn);
     wireRefcodeValidation('da-refcode','da-refcode-fb');
+    wireRefcodeTypeahead('da-refcode','da-refcode-list','da-refcode-fb');
   }
 
   window.__authMode='signin';
