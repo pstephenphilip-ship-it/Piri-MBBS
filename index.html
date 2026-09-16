@@ -1446,7 +1446,7 @@ body.da-notes-open #daMemFab{display:none!important;}
       +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'
       +'<div class="wc-trial js-trial-cta" hidden>'
         +'<div class="wc-trial-tx">'
-          +'<div class="wc-trial-t">Try DoctoRise free for 2 weeks</div>'
+          +'<div class="wc-trial-t">Try DoctoRise free for 1 week</div>'
           +'<div class="wc-trial-s">Full access to every note, flashcard, MCQ and mock exam. No card needed &mdash; and nothing to cancel.</div>'
         +'</div>'
         +'<button class="wc-trial-btn" type="button" onclick="if(window.openAuthModal)window.openAuthModal(\'signup\')">Start my free trial</button>'
@@ -14875,10 +14875,10 @@ function hideFlyout(p) {
       if (authMode === 'signup'){
         // If email confirmation is on, there is no active session yet.
         if (res.data && res.data.session){
-          showMsg('Account created — your 14-day free trial starts now.', 'ok');
+          showMsg('Account created — your 7-day free trial starts now.', 'ok');
           setTimeout(closeAuthModal, 700);
         } else {
-          showMsg('Account created. Check your email to confirm — your 14-day free trial starts the moment you first sign in.', 'ok');
+          showMsg('Account created. Check your email to confirm — your 7-day free trial starts the moment you first sign in.', 'ok');
           setAuthMode('signin');
         }
       } else {
@@ -15670,8 +15670,8 @@ function hideFlyout(p) {
         try{ localStorage.setItem('da_pending_profile', JSON.stringify(pdata)); }catch(e){}
         return sb.auth.signUp({email:email,password:password}).then(function(res){
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} aMsg(res.error.message,'err'); btn.disabled=false; btn.textContent=restore; return; }
-          if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Your 14-day free trial starts now — setting things up…','ok'); /* gate reload -> ensureProfile creates it, which stamps trial_ends_at */ }
-          else { aMsg('Account created. Check your email to confirm — your 14-day free trial starts the moment you first sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
+          if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Your 7-day free trial starts now — setting things up…','ok'); /* gate reload -> ensureProfile creates it, which stamps trial_ends_at */ }
+          else { aMsg('Account created. Check your email to confirm — your 7-day free trial starts the moment you first sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
         });
       }).catch(function(err){ aMsg((err&&err.message)||'Something went wrong.','err'); btn.disabled=false; btn.textContent=restore; });
       return false;
@@ -15850,7 +15850,7 @@ function hideFlyout(p) {
       // Paid members come through Stripe -> the `memberships` table -> __isMember().
       // Comp/manual members are flagged on the profile. Either grants access.
       var stripeActive = !!(window.__isMember && window.__isMember());
-      // New signups get a 14-day trial via profiles.trial_ends_at, set server-side
+      // New signups get a 7-day trial via profiles.trial_ends_at, set server-side
       // by a trigger (see supabase/migrations/20260911000000_profiles_free_trial.sql).
       // If that migration has not been applied the field is simply absent and this
       // is false, so the gate behaves exactly as it did before.
