@@ -8815,6 +8815,124 @@ window.MOCK_BANK = {
       explanation:[
         "The plateau (phase 2) is maintained by inward L-type CALCIUM current balancing potassium efflux. This prolongs the action potential and the refractory period, so cardiac muscle cannot tetanise.",
         "It is also why calcium-channel blockers act on cardiac tissue – slowing nodal conduction and reducing contractility."
+      ] },
+    { id:"fcvs-010", type:"mcq", objective:"fcvs-frank-starling",
+      question:"A 30-year-old man is brought to A&E after a road traffic collision with a suspected pelvic bleed; he is tachycardic and hypotensive. A 500 mL intravenous fluid bolus is given and both his blood pressure and stroke volume rise. Which physiological principle best explains why the bolus increased his stroke volume?",
+      options:[
+        "The Frank-Starling mechanism",
+        "Laplace's law",
+        "Poiseuille's law",
+        "Ohm's law applied to the circulation",
+        "Starling's forces (capillary filtration)"],
+      correctIndex:0,
+      explanation:[
+        "The bolus raises preload; greater myocyte stretch gives a more forceful contraction – the FRANK-STARLING mechanism.",
+        "The distractors are all real but describe something else: Laplace's law (wall tension ∝ pressure × radius – aneurysms, dilated ventricles); Poiseuille's law (flow/resistance through a tube, resistance ∝ 1/r⁴); Ohm's law applied to the circulation (ΔP = flow × resistance); and Starling's forces – the confusingly-named other Starling concept, governing capillary fluid exchange, not stroke volume (the key trap)."
+      ] },
+    { id:"fcvs-011", type:"mcq", objective:"fcvs-afterload",
+      question:"A 68-year-old man with severe symptomatic aortic stenosis has a reduced stroke volume. His left ventricle is well-filled with good contractility and he is in sinus rhythm at a normal rate. Which determinant of stroke volume is chiefly responsible for his reduced ejection?",
+      options:[
+        "Increased afterload",
+        "Reduced preload",
+        "Reduced contractility",
+        "Increased heart rate",
+        "Increased contractility"],
+      correctIndex:0,
+      explanation:[
+        "In severe aortic stenosis the ventricle must eject against a fixed, narrowed valve – a pathologically high AFTERLOAD – which limits stroke volume even though preload, contractility and rate are all normal (the stem deliberately excludes those).",
+        "This is the mirror image of why reducing afterload with a vasodilator improves stroke volume in heart failure."
+      ] },
+    { id:"fcvs-012", type:"mcq", objective:"fcvs-co-fast-af",
+      question:"A 68-year-old woman in fast atrial fibrillation (ventricular rate 170 bpm) becomes hypotensive and pre-syncopal. Why does such a fast rate reduce her cardiac output despite the rapid heartbeat?",
+      options:[
+        "The fast rate increases afterload",
+        "Coronary perfusion time increases",
+        "The short diastole reduces ventricular filling and stroke volume",
+        "Contractility falls to zero",
+        "Systemic vascular resistance collapses"],
+      correctIndex:2,
+      explanation:[
+        "At very fast rates DIASTOLE is too short to fill the ventricle, so stroke volume falls disproportionately and cardiac output drops – which is why rate control matters.",
+        "The other options are wrong: a fast rate shortens (not lengthens) coronary perfusion time, does not raise afterload, does not abolish contractility, and does not collapse systemic vascular resistance."
+      ] },
+    { id:"fcvs-013", type:"mcq", objective:"fcvs-bp-svr",
+      question:"A 55-year-old man has essential (primary) hypertension. In most patients with essential hypertension, which haemodynamic change is chiefly responsible for the raised blood pressure?",
+      options:[
+        "A chronically raised cardiac output",
+        "A chronically raised stroke volume",
+        "A chronically raised heart rate",
+        "A chronically raised systemic vascular resistance",
+        "A chronically reduced blood viscosity"],
+      correctIndex:3,
+      explanation:[
+        "Essential hypertension is driven mainly by a raised SYSTEMIC VASCULAR RESISTANCE (arteriolar) – which is why vasodilating drugs (calcium-channel blockers, ACE inhibitors/ARBs) are central to treatment.",
+        "Cardiac output, stroke volume and heart rate are usually normal in established essential hypertension, and blood viscosity is not the driver."
+      ] },
+    { id:"fcvs-014", type:"mcq", objective:"fcvs-baroreflex",
+      data:"<div class=\"mk-obs-h\">Lying vs standing (1 minute)</div><div class=\"mk-obs-grid\"><span>Blood pressure (lying) <b>138/82 mmHg</b></span><span>Blood pressure (standing) <b>108/70 mmHg</b></span><span>Heart rate (lying) <b>72 bpm</b></span><span>Heart rate (standing) <b>74 bpm</b></span></div>",
+      question:"An 82-year-old woman on antihypertensives reports dizziness on standing. Lying and standing measurements are taken, as shown. Which mechanism best explains her postural symptoms?",
+      options:[
+        "An impaired baroreceptor reflex",
+        "Excessive baroreceptor sensitivity",
+        "A sudden rise in cardiac output on standing",
+        "Increased venous return on standing",
+        "A rise in systemic vascular resistance on standing"],
+      correctIndex:0,
+      explanation:[
+        "A systolic drop of 30 mmHg on standing with almost no compensatory rise in heart rate points to a FAILED BARORECEPTOR REFLEX (age, autonomic dysfunction, antihypertensive drugs) – the reflex that should trigger tachycardia and vasoconstriction to defend the blood pressure.",
+        "The other options would each maintain or raise the standing blood pressure, so none fits a postural fall."
+      ] },
+    { id:"fcvs-015", type:"mcq", objective:"fcvs-coronary-diastole",
+      question:"A 64-year-old man with stable angina notices his chest pain comes on whenever his heart races, and his cardiologist explains that heart rate strongly affects the blood supply to the left ventricle. During which phase is the left-ventricular myocardium mainly perfused – the phase shortened by tachycardia?",
+      options:[
+        "Diastole",
+        "Systole",
+        "Isovolumetric contraction",
+        "The ejection phase",
+        "Atrial systole"],
+      correctIndex:0,
+      explanation:[
+        "The left ventricle is perfused in DIASTOLE – during systole the contracting muscle compresses its own intramural vessels and squeezes coronary flow off.",
+        "Tachycardia shortens diastole and worsens ischaemia, which is why slowing the rate with a beta-blocker both cuts oxygen demand and lengthens diastolic perfusion. Systole, isovolumetric contraction, the ejection phase and atrial systole are all times when left-ventricular flow is reduced or minimal."
+      ] },
+    { id:"fcvs-016", type:"mcq", objective:"fcvs-pulse-pressure",
+      question:"An 80-year-old man has a blood pressure of 178/62 mmHg (a pulse pressure of 116 mmHg). His heart sounds are normal with no murmurs. What is the most likely cause of his widened pulse pressure?",
+      options:[
+        "Aortic stenosis",
+        "Mitral regurgitation",
+        "Stiffening of the large arteries with age",
+        "Hypovolaemia",
+        "A high systemic vascular resistance"],
+      correctIndex:2,
+      explanation:[
+        "Age-related ARTERIAL STIFFENING (loss of aortic compliance) widens the pulse pressure – the picture of isolated systolic hypertension.",
+        "Aortic regurgitation also widens it, but the absence of a murmur argues against it; aortic stenosis and hypovolaemia NARROW the pulse pressure, and a high systemic vascular resistance does not by itself widen it."
+      ] },
+    { id:"fcvs-017", type:"categorize", objective:"fcvs-oedema-starling-forces",
+      question:"Sort each cause of oedema by the Starling force chiefly disturbed.",
+      buckets:["Raised hydrostatic pressure","Reduced oncotic pressure","Increased permeability or lymphatic block"],
+      items:[
+        { text:"Heart failure", bucket:0 },
+        { text:"Deep vein thrombosis", bucket:0 },
+        { text:"Nephrotic syndrome", bucket:1 },
+        { text:"Liver failure with low albumin", bucket:1 },
+        { text:"Sepsis (capillary leak)", bucket:2 },
+        { text:"Lymphatic obstruction after axillary surgery", bucket:2 }],
+      explanation:[
+        "Oedema follows a disturbed capillary Starling balance: RAISED HYDROSTATIC pressure pushes fluid out (heart failure with venous congestion; a deep vein thrombosis obstructing venous return); REDUCED ONCOTIC pressure fails to hold fluid in (the hypoalbuminaemia of nephrotic syndrome and liver failure).",
+        "The third group is INCREASED PERMEABILITY or LYMPHATIC BLOCK: inflamed, leaky capillaries in sepsis, and failed lymphatic drainage after axillary surgery (lymphoedema)."
+      ] },
+    { id:"fcvs-018", type:"saq", objective:"fcvs-co-equation",
+      question:"A student is calculating a patient's cardiac output. Cardiac output is the product of heart rate and which other variable?",
+      answer:"Stroke volume",
+      accept:["stroke volume","sv","stroke vol"],
+      markPoints:[
+        "Stroke volume (SV)",
+        "Cardiac output = heart rate × stroke volume",
+        "Resting values ≈ 70 bpm × 70 mL ≈ 5 L/min"],
+      explanation:[
+        "Cardiac output = HEART RATE × STROKE VOLUME. Stroke volume is the volume ejected per beat (end-diastolic minus end-systolic volume).",
+        "At rest this is roughly 70 bpm × 70 mL ≈ 5 L/min – about the whole blood volume each minute."
       ] }
 ]
 };
