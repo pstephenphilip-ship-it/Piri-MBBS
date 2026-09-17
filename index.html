@@ -1447,7 +1447,7 @@ body.da-notes-open #daMemFab{display:none!important;}
       +'<div class="wc-trial js-trial-cta" hidden>'
         +'<div class="wc-trial-tx">'
           +'<div class="wc-trial-t">Try DoctoRise free for 1 week</div>'
-          +'<div class="wc-trial-s">Full access to every note, flashcard, MCQ and mock exam. No card needed &mdash; and nothing to cancel.</div>'
+          +'<div class="wc-trial-s">Every note is free for everyone &mdash; your trial adds all the flashcards, MCQs and mock exams too. No card needed, nothing to cancel.</div>'
         +'</div>'
         +'<button class="wc-trial-btn" type="button" onclick="if(window.openAuthModal)window.openAuthModal(\'signup\')">Start my free trial</button>'
       +'</div>'
@@ -15366,11 +15366,11 @@ function hideFlyout(p) {
   function paywallHTML(){
     return '<div class="da-lock"><div class="da-lock-icon">🔒</div>'
       + '<div class="da-lock-title">This topic is locked</div>'
-      + '<div class="da-lock-sub">Create a <strong>free account</strong> to unlock locked topic <strong>notes</strong> &mdash; up to <strong>6 a day</strong> (max 3 per section). Flashcards, MCQs &amp; mock exams come with membership.</div>'
+      + '<div class="da-lock-sub">Every note on DoctoRise is <strong>free</strong>. Flashcards, MCQs &amp; mock exams come with membership.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
       + '<button class="da-lock-btn mem" onclick="if(window.__openMembership)window.__openMembership();">✨ Get membership</button>'
       + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button></div>'
-      + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
+      + '<div class="da-lock-foot">All notes and OSCE guides are free without an account. Membership unlocks flashcards, MCQs &amp; mock exams.</div></div>';
   }
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
   function dayPassHTML(name, p){
@@ -15508,7 +15508,7 @@ function hideFlyout(p) {
     if(!ov){ ov=document.createElement('div'); ov.id='da-study-blur-'+p; ov.className='da-study-blur'; area.appendChild(ov); }
     ov.innerHTML='<div class="da-study-blur-card"><div style="font-size:38px;margin-bottom:10px;">🔒</div>'
       +'<div class="da-study-blur-title">'+label+' are a premium feature</div>'
-      +'<div class="da-study-blur-sub">Interactive '+sub+' aren’t part of the free tier — full access is coming with membership.<br>Notes stay free on the topics available to you.</div>'
+      +'<div class="da-study-blur-sub">Interactive '+sub+' come with membership.<br>Every note on DoctoRise is free — membership unlocks flashcards, MCQs and mock exams.</div>'
       +'<div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
     ov.style.display='flex';
   }
@@ -15559,7 +15559,7 @@ function hideFlyout(p) {
   window.__showStudyLock = function(mode){
     var label = (mode==='questions') ? 'MCQ practice questions' : (mode==='review') ? 'Spaced-repetition review' : 'Flashcards';
     var noun  = (mode==='questions') ? 'practice questions' : (mode==='review') ? 'review sessions' : 'flashcards';
-    var sub = 'Interactive '+noun+' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.';
+    var sub = 'Interactive '+noun+' &mdash; including spaced-repetition study &mdash; come with membership. Every note on DoctoRise stays free.';
     var id='da-study-lock', ex=document.getElementById(id);
     if(ex){
       var t=ex.querySelector('.da-lock-title'); if(t) t.textContent=label+' are a premium feature';
@@ -15574,7 +15574,7 @@ function hideFlyout(p) {
       +'<div class="da-lock-title">'+label+' are a premium feature</div>'
       +'<div class="da-lock-sub">'+sub+'</div>'
       +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Not now</button></div>'
-      +'<div class="da-lock-foot">Notes stay free on the topics available to you.</div></div>';
+      +'<div class="da-lock-foot">All notes are free &mdash; membership unlocks flashcards, MCQs &amp; mock exams.</div></div>';
     document.body.appendChild(o);
   };
   // Show a small lock on the Flashcards / Questions tabs so non-members can see they're premium.
