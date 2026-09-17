@@ -15569,7 +15569,7 @@ function hideFlyout(p) {
       // dimming and shows a visitor that there is gated content here; dimming on
       // its own just reads as disabled.
       document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
-        var locked = !isUnlocked(p, st.activeSystem, el.dataset.topic);
+        var locked = false;   // notes are free for everyone — no padlock on topic items
         el.classList.toggle('da-locked-item', locked);
         var mini = el.querySelector('.da-lock-mini');
         if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
