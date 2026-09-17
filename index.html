@@ -1102,7 +1102,7 @@ body.da-notes-open #daMemFab{display:none!important;}
 .auth-field{margin-bottom:14px;}
 .auth-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
 .auth-field input{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:var(--sans);font-size:13.5px;padding:10px 12px;outline:none;transition:border-color .15s;}
-.auth-field input:focus{border-color:var(--accent);}
+.auth-field input:focus{border-color:var(--accent);}.ref-ta-wrap{position:relative;}.ref-ta-list{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:60;background:#fff;border:1px solid #D8DAE5;border-radius:10px;box-shadow:0 12px 30px rgba(16,24,40,.16);max-height:220px;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px;}.ref-ta-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:7px;cursor:pointer;font-size:13px;color:#1E2640;}.ref-ta-item:hover,.ref-ta-item.active{background:#EAF7F4;}.ref-ta-name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.ref-ta-code{font-family:var(--mono,monospace);font-size:11px;color:#5A6480;background:#F1F3F8;border-radius:5px;padding:2px 6px;flex-shrink:0;letter-spacing:.03em;}.ref-ta-empty{padding:9px 10px;font-size:12px;color:#9AA3B2;}
 .auth-submit{width:100%;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);color:#04121a;font-family:var(--sans);font-weight:700;font-size:13.5px;border:none;border-radius:var(--radius);padding:11px;cursor:pointer;margin-top:6px;transition:opacity .15s;}
 .auth-submit:hover{opacity:.92;}
 .auth-submit:disabled{opacity:.55;cursor:default;}
@@ -1466,8 +1466,8 @@ body.da-notes-open #daMemFab{display:none!important;}
       +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'
       +'<div class="wc-trial js-trial-cta" hidden>'
         +'<div class="wc-trial-tx">'
-          +'<div class="wc-trial-t">Try DoctoRise free for 2 weeks</div>'
-          +'<div class="wc-trial-s">Full access to every note, flashcard, MCQ and mock exam. No card needed &mdash; and nothing to cancel.</div>'
+          +'<div class="wc-trial-t">Try DoctoRise free for 1 week</div>'
+          +'<div class="wc-trial-s">Every note is free for everyone &mdash; your trial adds all the flashcards, MCQs and mock exams too. No card needed, nothing to cancel.</div>'
         +'</div>'
         +'<button class="wc-trial-btn" type="button" onclick="if(window.openAuthModal)window.openAuthModal(\'signup\')">Start my free trial</button>'
       +'</div>'
@@ -8716,6 +8716,244 @@ window.MOCK_BANK = {
     /* Pharmacology mock paper — questions to be added.
        Same question shape as the entries above. Leaving this empty is fine:
        the picker lists the topic with a 0 Q badge until it is filled. */
+],
+"conditions__CARDIOVASCULAR__Foundations of CVS": [
+    { id:"fcvs-001", type:"mcq", objective:"fcvs-heart-sounds-s1",
+      question:"A 24-year-old woman attends for a pre-employment medical. While auscultating her praecordium you palpate the carotid pulse and confirm that the first heart sound coincides with its upstroke, marking the start of ventricular systole. Which event physically produces the first heart sound (S1)?",
+      options:[
+        "Closure of the mitral and tricuspid valves",
+        "Closure of the aortic and pulmonary valves",
+        "Opening of the aortic and pulmonary valves",
+        "Contraction of the atria",
+        "Rapid ventricular filling"],
+      correctIndex:0,
+      explanation:[
+        "The first heart sound (S1) is produced by closure of the MITRAL and TRICUSPID (atrioventricular) valves at the onset of ventricular systole – which is why it coincides with the carotid upstroke.",
+        "Closure of the aortic and pulmonary (semilunar) valves produces the SECOND sound (S2) at the end of systole; valve opening is normally silent, and atrial contraction and rapid filling are not the source of S1."
+      ] },
+    { id:"fcvs-002", type:"mcq", objective:"fcvs-jvp-cannon-a",
+      data:"<div class=\"mk-obs-h\">Observations</div><div class=\"mk-obs-grid\"><span>Pulse <b>38 bpm, regular</b></span><span>Blood pressure <b>104/70 mmHg</b></span><span>ECG <b>Atrioventricular dissociation (complete heart block)</b></span><span>Neck veins <b>Intermittent giant pulsations</b></span></div>",
+      question:"An 82-year-old man is admitted after two blackouts. His observations are shown. At the bedside you notice intermittent giant pulsations in his neck veins. What produces these cannon a waves?",
+      options:[
+        "Tricuspid regurgitation into the jugular veins",
+        "The atrium contracting against a closed tricuspid valve",
+        "Rapid ventricular filling in early diastole",
+        "Aortic regurgitation transmitted to the neck",
+        "Carotid arterial pulsation"],
+      correctIndex:1,
+      explanation:[
+        "In complete heart block the atria and ventricles beat independently. When the RIGHT ATRIUM happens to contract against a CLOSED TRICUSPID VALVE, blood is thrown back up the jugular vein as a cannon a wave – a bedside clue to atrioventricular dissociation.",
+        "Tricuspid regurgitation gives giant systolic (v) waves, not intermittent cannon waves; and rapid filling, aortic regurgitation and carotid pulsation do not produce this sign."
+      ] },
+    { id:"fcvs-003", type:"mcq", objective:"fcvs-atrial-kick",
+      data:"<div class=\"mk-obs-h\">Observations</div><div class=\"mk-obs-grid\"><span>Pulse <b>140 bpm, irregularly irregular</b></span><span>Blood pressure <b>98/60 mmHg</b></span><span>ECG <b>New atrial fibrillation</b></span></div>",
+      question:"An 80-year-old woman with long-standing hypertension and known left ventricular hypertrophy, previously stable, arrives acutely breathless. Her observations are shown, with new fast atrial fibrillation. Which physiological change best explains her sudden deterioration?",
+      options:[
+        "The shortened diastole increases ventricular filling",
+        "The ventricles stop contracting during the fibrillation",
+        "Loss of the atrial kick reduces ventricular filling",
+        "A sharp rise in systemic vascular resistance",
+        "Increased stroke volume from the faster rate"],
+      correctIndex:2,
+      explanation:[
+        "A stiff, poorly-compliant (hypertrophied) ventricle depends DISPROPORTIONATELY on the atrial kick for filling. Losing it in atrial fibrillation – together with the short diastole of a fast rate – sharply cuts preload and cardiac output.",
+        "The distractors each fail on the physiology: a fast rate SHORTENS diastole and reduces filling (not increases it); it is the ATRIA that fibrillate while the ventricles still contract; systemic vascular resistance does not suddenly rise; and stroke volume falls rather than rises."
+      ] },
+    { id:"fcvs-004", type:"mcq", objective:"fcvs-funny-current",
+      question:"A 68-year-old man with heart failure with reduced ejection fraction remains in sinus rhythm with a resting heart rate of 84 bpm despite a maximally tolerated beta-blocker. His cardiologist adds ivabradine to slow the rate further. Ivabradine acts specifically on the sinoatrial node – which current does it block?",
+      options:[
+        "The fast sodium current (phase 0)",
+        "The L-type calcium current",
+        "The delayed-rectifier potassium current",
+        "The funny current (If)",
+        "The sodium-potassium ATPase"],
+      correctIndex:3,
+      explanation:[
+        "The FUNNY CURRENT (If) drives the spontaneous phase-4 depolarisation of sinoatrial node cells. Ivabradine blocks it, slowing the sinus rate without affecting contractility or blood pressure – and it therefore only works in SINUS rhythm.",
+        "The fast sodium current (phase 0) and the potassium and calcium currents shape the action potential elsewhere, and the sodium-potassium ATPase maintains ionic gradients – none is the pacemaker current ivabradine targets."
+      ] },
+    { id:"fcvs-005", type:"categorize", objective:"fcvs-vaughan-williams",
+      question:"A foundation doctor starting a cardiology rotation is revising antiarrhythmic drugs. Sort each drug by the ion channel it mainly blocks.",
+      buckets:["Sodium channel (Class I)","Potassium channel (Class III)","Calcium channel (Class IV)"],
+      items:[
+        { text:"Flecainide", bucket:0 },
+        { text:"Lidocaine", bucket:0 },
+        { text:"Amiodarone", bucket:1 },
+        { text:"Sotalol", bucket:1 },
+        { text:"Verapamil", bucket:2 },
+        { text:"Diltiazem", bucket:2 }],
+      explanation:[
+        "The Vaughan-Williams classes map onto the action-potential phases: CLASS I blocks the phase-0 sodium current (flecainide, lidocaine), CLASS III blocks the phase-3 potassium current and prolongs the action potential (amiodarone, sotalol), and CLASS IV blocks the nodal calcium current (verapamil, diltiazem).",
+        "Class II (beta-blockers) act on phase-4 sympathetic drive and are not shown here."
+      ] },
+    { id:"fcvs-006", type:"mcq", objective:"fcvs-ecg-mechanical",
+      question:"A 55-year-old man has a normal 12-lead ECG before elective surgery. A student asks how the electrical trace relates to the heart's pumping. During which part of the ECG does ventricular systole (contraction and ejection) take place?",
+      options:[
+        "The P wave",
+        "The PR interval",
+        "The ST segment",
+        "The TP segment",
+        "The QT interval"],
+      correctIndex:4,
+      explanation:[
+        "Ventricular systole begins with depolarisation (the QRS) and lasts until repolarisation is complete, so it spans the QT INTERVAL (from the start of the QRS to the end of the T wave).",
+        "The P wave is atrial systole; the PR interval is atrioventricular conduction before the ventricles activate; the ST segment lies WITHIN systole but is only part of it; and the TP segment is diastole, when the ventricles are relaxed and filling."
+      ] },
+    { id:"fcvs-007", type:"mcq", objective:"fcvs-refractory-r-on-t",
+      question:"A 62-year-old man with symptomatic atrial fibrillation is booked for elective DC cardioversion. The cardiologist explains that the shock will be synchronised to the R wave rather than delivered at a random moment, specifically to avoid landing on the T wave. Why must the shock avoid the T wave?",
+      options:[
+        "A shock landing on the T wave can trigger ventricular fibrillation",
+        "The T wave is when the atria repolarise",
+        "The heart is completely unexcitable during the T wave",
+        "The T wave marks the start of ventricular contraction",
+        "Delivering the shock on the T wave would fail to convert the rhythm"],
+      correctIndex:0,
+      explanation:[
+        "The T wave coincides with the RELATIVE REFRACTORY (vulnerable) PERIOD, when some cells are excitable and others still refractory. A stimulus then can set off re-entry and VENTRICULAR FIBRILLATION – the ‘R-on-T’ phenomenon – which is why cardioversion is synchronised to the R wave.",
+        "The T wave is VENTRICULAR (not atrial) repolarisation; the heart is only in the RELATIVE, not absolute, refractory period (so it is not completely unexcitable – the key point); the T wave is repolarisation, not the start of contraction; and the danger is inducing fibrillation, not merely failing to convert."
+      ] },
+    { id:"fcvs-008", type:"saq", objective:"fcvs-sa-node",
+      question:"A 30-year-old man has a routine ECG showing normal sinus rhythm at 70 bpm. Name the structure that normally sets his heart rate by depolarising faster than any other.",
+      answer:"Sinoatrial (SA) node",
+      accept:["sa node","sinoatrial node","sino-atrial node","sinus node","san"],
+      markPoints:[
+        "Sinoatrial (SA) node",
+        "The fastest intrinsic pacemaker, so it sets the rate",
+        "Located in the right atrium near the superior vena cava"],
+      explanation:[
+        "The SINOATRIAL (SA) NODE has the fastest rate of spontaneous phase-4 depolarisation, so it reaches threshold first and sets the heart rate (normal sinus rhythm).",
+        "Slower subsidiary pacemakers (the AV junction and ventricular tissue) only take over as escape rhythms if the SA node or conduction above them fails."
+      ] },
+    { id:"fcvs-009", type:"saq", objective:"fcvs-plateau-calcium",
+      question:"A 60-year-old man is started on a calcium-channel blocker, and a student asks why this class acts on the heart. In the ventricular myocyte action potential, name the ion whose inward movement maintains the prolonged plateau (phase 2) that gives cardiac muscle its long refractory period.",
+      answer:"Calcium",
+      accept:["calcium","ca","ca2+","ca 2+","calcium ions","calcium ion"],
+      markPoints:[
+        "Calcium (Ca2+)",
+        "Inward L-type calcium current sustains the phase-2 plateau",
+        "Underlies the long refractory period (the heart cannot tetanise) and why calcium-channel blockers act on the heart"],
+      explanation:[
+        "The plateau (phase 2) is maintained by inward L-type CALCIUM current balancing potassium efflux. This prolongs the action potential and the refractory period, so cardiac muscle cannot tetanise.",
+        "It is also why calcium-channel blockers act on cardiac tissue – slowing nodal conduction and reducing contractility."
+      ] },
+    { id:"fcvs-010", type:"mcq", objective:"fcvs-frank-starling",
+      question:"A 30-year-old man is brought to A&E after a road traffic collision with a suspected pelvic bleed; he is tachycardic and hypotensive. A 500 mL intravenous fluid bolus is given and both his blood pressure and stroke volume rise. Which physiological principle best explains why the bolus increased his stroke volume?",
+      options:[
+        "The Frank-Starling mechanism",
+        "Laplace's law",
+        "Poiseuille's law",
+        "Ohm's law applied to the circulation",
+        "Starling's forces (capillary filtration)"],
+      correctIndex:0,
+      explanation:[
+        "The bolus raises preload; greater myocyte stretch gives a more forceful contraction – the FRANK-STARLING mechanism.",
+        "The distractors are all real but describe something else: Laplace's law (wall tension ∝ pressure × radius – aneurysms, dilated ventricles); Poiseuille's law (flow/resistance through a tube, resistance ∝ 1/r⁴); Ohm's law applied to the circulation (ΔP = flow × resistance); and Starling's forces – the confusingly-named other Starling concept, governing capillary fluid exchange, not stroke volume (the key trap)."
+      ] },
+    { id:"fcvs-011", type:"mcq", objective:"fcvs-afterload",
+      question:"A 68-year-old man with severe symptomatic aortic stenosis has a reduced stroke volume. His left ventricle is well-filled with good contractility and he is in sinus rhythm at a normal rate. Which determinant of stroke volume is chiefly responsible for his reduced ejection?",
+      options:[
+        "Increased afterload",
+        "Reduced preload",
+        "Reduced contractility",
+        "Increased heart rate",
+        "Increased contractility"],
+      correctIndex:0,
+      explanation:[
+        "In severe aortic stenosis the ventricle must eject against a fixed, narrowed valve – a pathologically high AFTERLOAD – which limits stroke volume even though preload, contractility and rate are all normal (the stem deliberately excludes those).",
+        "This is the mirror image of why reducing afterload with a vasodilator improves stroke volume in heart failure."
+      ] },
+    { id:"fcvs-012", type:"mcq", objective:"fcvs-co-fast-af",
+      question:"A 68-year-old woman in fast atrial fibrillation (ventricular rate 170 bpm) becomes hypotensive and pre-syncopal. Why does such a fast rate reduce her cardiac output despite the rapid heartbeat?",
+      options:[
+        "The fast rate raises the afterload",
+        "Coronary perfusion time actually rises",
+        "The short diastole limits ventricular filling",
+        "Ventricular contractility falls to zero",
+        "Systemic vascular resistance collapses"],
+      correctIndex:2,
+      explanation:[
+        "At very fast rates DIASTOLE is too short to fill the ventricle, so stroke volume falls disproportionately and cardiac output drops – which is why rate control matters.",
+        "The other options are wrong: a fast rate shortens (not lengthens) coronary perfusion time, does not raise afterload, does not abolish contractility, and does not collapse systemic vascular resistance."
+      ] },
+    { id:"fcvs-013", type:"mcq", objective:"fcvs-bp-svr",
+      question:"A 55-year-old man has essential (primary) hypertension. In most patients with essential hypertension, which haemodynamic change is chiefly responsible for the raised blood pressure?",
+      options:[
+        "A chronically raised cardiac output",
+        "A chronically raised stroke volume",
+        "A chronically raised heart rate",
+        "A chronically raised systemic vascular resistance",
+        "A chronically reduced blood viscosity"],
+      correctIndex:3,
+      explanation:[
+        "Essential hypertension is driven mainly by a raised SYSTEMIC VASCULAR RESISTANCE (arteriolar) – which is why vasodilating drugs (calcium-channel blockers, ACE inhibitors/ARBs) are central to treatment.",
+        "Cardiac output, stroke volume and heart rate are usually normal in established essential hypertension, and blood viscosity is not the driver."
+      ] },
+    { id:"fcvs-014", type:"mcq", objective:"fcvs-baroreflex",
+      data:"<div class=\"mk-obs-h\">Lying vs standing (1 minute)</div><div class=\"mk-obs-grid\"><span>Blood pressure (lying) <b>138/82 mmHg</b></span><span>Blood pressure (standing) <b>108/70 mmHg</b></span><span>Heart rate (lying) <b>72 bpm</b></span><span>Heart rate (standing) <b>74 bpm</b></span></div>",
+      question:"An 82-year-old woman on antihypertensives reports dizziness on standing. Lying and standing measurements are taken, as shown. Which mechanism best explains her postural symptoms?",
+      options:[
+        "An impaired baroreceptor reflex",
+        "Excessive baroreceptor sensitivity",
+        "A sudden rise in cardiac output on standing",
+        "Increased venous return on standing",
+        "A rise in systemic vascular resistance on standing"],
+      correctIndex:0,
+      explanation:[
+        "A systolic drop of 30 mmHg on standing with almost no compensatory rise in heart rate points to a FAILED BARORECEPTOR REFLEX (age, autonomic dysfunction, antihypertensive drugs) – the reflex that should trigger tachycardia and vasoconstriction to defend the blood pressure.",
+        "The other options would each maintain or raise the standing blood pressure, so none fits a postural fall."
+      ] },
+    { id:"fcvs-015", type:"mcq", objective:"fcvs-coronary-diastole",
+      question:"A 64-year-old man with stable angina notices his chest pain comes on whenever his heart races, and his cardiologist explains that heart rate strongly affects the blood supply to the left ventricle. During which phase is the left-ventricular myocardium mainly perfused – the phase shortened by tachycardia?",
+      options:[
+        "Diastole",
+        "Systole",
+        "Isovolumetric contraction",
+        "The ejection phase",
+        "Atrial systole"],
+      correctIndex:0,
+      explanation:[
+        "The left ventricle is perfused in DIASTOLE – during systole the contracting muscle compresses its own intramural vessels and squeezes coronary flow off.",
+        "Tachycardia shortens diastole and worsens ischaemia, which is why slowing the rate with a beta-blocker both cuts oxygen demand and lengthens diastolic perfusion. Systole, isovolumetric contraction, the ejection phase and atrial systole are all times when left-ventricular flow is reduced or minimal."
+      ] },
+    { id:"fcvs-016", type:"mcq", objective:"fcvs-pulse-pressure",
+      question:"An 80-year-old man has a blood pressure of 178/62 mmHg (a pulse pressure of 116 mmHg). His heart sounds are normal with no murmurs. What is the most likely cause of his widened pulse pressure?",
+      options:[
+        "A tightly stenosed aortic valve",
+        "A leaking, regurgitant aortic valve",
+        "Age-related arterial stiffening",
+        "A low circulating blood volume",
+        "A high systemic vascular resistance"],
+      correctIndex:2,
+      explanation:[
+        "Age-related ARTERIAL STIFFENING (loss of aortic compliance) widens the pulse pressure – the picture of isolated systolic hypertension.",
+        "Aortic regurgitation also widens it, but the absence of a murmur argues against it; aortic stenosis and hypovolaemia NARROW the pulse pressure, and a high systemic vascular resistance does not by itself widen it."
+      ] },
+    { id:"fcvs-017", type:"categorize", objective:"fcvs-oedema-starling-forces",
+      question:"Sort each cause of oedema by the Starling force chiefly disturbed.",
+      buckets:["Raised hydrostatic pressure","Reduced oncotic pressure","Increased permeability or lymphatic block"],
+      items:[
+        { text:"Heart failure", bucket:0 },
+        { text:"Deep vein thrombosis", bucket:0 },
+        { text:"Nephrotic syndrome", bucket:1 },
+        { text:"Liver failure with low albumin", bucket:1 },
+        { text:"Sepsis (capillary leak)", bucket:2 },
+        { text:"Lymphatic obstruction after axillary surgery", bucket:2 }],
+      explanation:[
+        "Oedema follows a disturbed capillary Starling balance: RAISED HYDROSTATIC pressure pushes fluid out (heart failure with venous congestion; a deep vein thrombosis obstructing venous return); REDUCED ONCOTIC pressure fails to hold fluid in (the hypoalbuminaemia of nephrotic syndrome and liver failure).",
+        "The third group is INCREASED PERMEABILITY or LYMPHATIC BLOCK: inflamed, leaky capillaries in sepsis, and failed lymphatic drainage after axillary surgery (lymphoedema)."
+      ] },
+    { id:"fcvs-018", type:"saq", objective:"fcvs-co-equation",
+      question:"A student is calculating a patient's cardiac output. Cardiac output is the product of heart rate and which other variable?",
+      answer:"Stroke volume",
+      accept:["stroke volume","sv","stroke vol"],
+      markPoints:[
+        "Stroke volume (SV)",
+        "Cardiac output = heart rate × stroke volume",
+        "Resting values ≈ 70 bpm × 70 mL ≈ 5 L/min"],
+      explanation:[
+        "Cardiac output = HEART RATE × STROKE VOLUME. Stroke volume is the volume ejected per beat (end-diastolic minus end-systolic volume).",
+        "At rest this is roughly 70 bpm × 70 mL ≈ 5 L/min – about the whole blood volume each minute."
+      ] }
 ]
 };
 </script>
@@ -14775,10 +15013,10 @@ function hideFlyout(p) {
       if (authMode === 'signup'){
         // If email confirmation is on, there is no active session yet.
         if (res.data && res.data.session){
-          showMsg('Account created — your 14-day free trial starts now.', 'ok');
+          showMsg('Account created — your 7-day free trial starts now.', 'ok');
           setTimeout(closeAuthModal, 700);
         } else {
-          showMsg('Account created. Check your email to confirm — your 14-day free trial starts the moment you first sign in.', 'ok');
+          showMsg('Account created. Check your email to confirm — your 7-day free trial starts the moment you first sign in.', 'ok');
           setAuthMode('signin');
         }
       } else {
@@ -15122,7 +15360,7 @@ function hideFlyout(p) {
       var list=document.getElementById('topiclist-'+p); if(!list) return;
       var st; try{ st=getState(p); }catch(e){ return; }
       list.querySelectorAll('.condition-item').forEach(function(el){
-        var locked=!isUnlocked(p, st.activeSystem, el.dataset.topic);
+        var locked=false;   // notes are free for everyone — no lock icons in topic lists
         el.classList.toggle('da-locked-item', locked);
         var mini=el.querySelector('.da-lock-mini');
         if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
@@ -15148,11 +15386,11 @@ function hideFlyout(p) {
   function paywallHTML(){
     return '<div class="da-lock"><div class="da-lock-icon">🔒</div>'
       + '<div class="da-lock-title">This topic is locked</div>'
-      + '<div class="da-lock-sub">Create a <strong>free account</strong> to unlock locked topic <strong>notes</strong> &mdash; up to <strong>6 a day</strong> (max 3 per section). Flashcards, MCQs &amp; mock exams come with membership.</div>'
+      + '<div class="da-lock-sub">Every note on DoctoRise is <strong>free</strong>. Flashcards, MCQs &amp; mock exams come with membership.</div>'
       + '<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="openAuthModal&&openAuthModal(\'signup\')">Sign up free</button>'
       + '<button class="da-lock-btn mem" onclick="if(window.__openMembership)window.__openMembership();">✨ Get membership</button>'
       + '<button class="da-lock-btn" onclick="openAuthModal&&openAuthModal(\'signin\')">Sign in</button></div>'
-      + '<div class="da-lock-foot">Free without an account: core Cardiovascular notes, Upper Limb anatomy, Basic Tissues histology, key CV signs, the core OSCE examinations &amp; all calculators.</div></div>';
+      + '<div class="da-lock-foot">All notes and OSCE guides are free without an account. Membership unlocks flashcards, MCQs &amp; mock exams.</div></div>';
   }
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
   function dayPassHTML(name, p){
@@ -15237,34 +15475,11 @@ function hideFlyout(p) {
   }
   // Gate a topic for the current tier; runs `proceed` when the visitor may view it.
   function gateTopic(p, name, skipHash, proceed){
-    var st = getState(p), sys = st.activeSystem;
-    if (isUnlocked(p, sys, name)){ proceed(); return; }
-    // Signed in but the server-side unlock list hasn't loaded yet (e.g. deep-link on first
-    // paint): wait for it, then decide — so a valid unlock isn't briefly shown as locked.
-    if (window.__authed && !_dpLoaded){
-      renderWall(p, name, '<div class="da-lock"><div class="da-lock-icon">⏳</div><div class="da-lock-title">Checking your access…</div></div>', skipHash);
-      _dpReady.then(function(){ hidePaywall(p); gateTopic(p, name, skipHash, proceed); });
-      return;
-    }
-    if (window.__authed){
-      if (dpCanUnlock(p)){
-        window.__dpUnlock = function(){
-          var btn=document.querySelector('#da-paywall-'+p+' .da-lock-btn.primary'); if(btn){ btn.disabled=true; btn.textContent='Unlocking…'; }
-          dpConsume(p, sys, name).then(function(ok){
-            window.__dpUnlock=null; window.__dpCancel=null;
-            if(ok){ clearMini(p, name); hidePaywall(p); proceed(); }
-            else { dpLoadServer().then(function(){ renderWall(p, name, limitHTML(p), skipHash); }); }   // server said no slot left
-          });
-        };
-        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; dismissWall(p); };
-        renderWall(p, name, dayPassHTML(name, p), skipHash);
-      } else {
-        window.__dpCancel = function(){ window.__dpCancel=null; dismissWall(p); };
-        renderWall(p, name, limitHTML(p), skipHash);
-      }
-    } else {
-      showLocked(p, name, skipHash);
-    }
+    // Notes are FREE for everyone — no account and no daily limit. The premium tier is the
+    // interactive study modes (flashcards, MCQs, mock exams), which are gated separately
+    // (study-mode blur + __mockAllowed). So every topic's reading content opens immediately.
+    // (The daily-unlock day-pass machinery above is retained but no longer used to gate notes.)
+    proceed();
   }
 
   var _selectTopic = window.selectTopic;
@@ -15313,7 +15528,7 @@ function hideFlyout(p) {
     if(!ov){ ov=document.createElement('div'); ov.id='da-study-blur-'+p; ov.className='da-study-blur'; area.appendChild(ov); }
     ov.innerHTML='<div class="da-study-blur-card"><div style="font-size:38px;margin-bottom:10px;">🔒</div>'
       +'<div class="da-study-blur-title">'+label+' are a premium feature</div>'
-      +'<div class="da-study-blur-sub">Interactive '+sub+' aren’t part of the free tier — full access is coming with membership.<br>Notes stay free on the topics available to you.</div>'
+      +'<div class="da-study-blur-sub">Interactive '+sub+' come with membership.<br>Every note on DoctoRise is free — membership unlocks flashcards, MCQs and mock exams.</div>'
       +'<div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
     ov.style.display='flex';
   }
@@ -15326,7 +15541,13 @@ function hideFlyout(p) {
     // Topic-level gate still applies (a fully locked topic shows the normal paywall for any mode).
     if (!isUnlocked(p, st.activeSystem, st.activeTopic)){
       var self=this, args=arguments, topic=st.activeTopic;
-      gateTopic(p, topic, skipHash, function(){ _selectTopic.call(self, p, topic, true); _switchMode.apply(self, args); });
+      gateTopic(p, topic, skipHash, function(){
+        _selectTopic.call(self, p, topic, true);
+        var r=_switchMode.apply(self, args);
+        // Notes are free, but premium study modes must still blur for non-members even when the
+        // topic opens via the (now always-proceeding) note gate.
+        if (premium){ Promise.resolve(r).then(function(){ applyStudyBlur(p, mode); }).catch(function(){ applyStudyBlur(p, mode); }); }
+      });
       return;
     }
     // Render the panel, then (for non-members on premium modes) blur it and float the lock card.
@@ -15358,7 +15579,7 @@ function hideFlyout(p) {
   window.__showStudyLock = function(mode){
     var label = (mode==='questions') ? 'MCQ practice questions' : (mode==='review') ? 'Spaced-repetition review' : 'Flashcards';
     var noun  = (mode==='questions') ? 'practice questions' : (mode==='review') ? 'review sessions' : 'flashcards';
-    var sub = 'Interactive '+noun+' aren&rsquo;t part of the free tier. Full access &mdash; including spaced-repetition study &mdash; is coming with membership.';
+    var sub = 'Interactive '+noun+' &mdash; including spaced-repetition study &mdash; come with membership. Every note on DoctoRise stays free.';
     var id='da-study-lock', ex=document.getElementById(id);
     if(ex){
       var t=ex.querySelector('.da-lock-title'); if(t) t.textContent=label+' are a premium feature';
@@ -15373,7 +15594,7 @@ function hideFlyout(p) {
       +'<div class="da-lock-title">'+label+' are a premium feature</div>'
       +'<div class="da-lock-sub">'+sub+'</div>'
       +'<div class="da-lock-actions"><button class="da-lock-btn primary" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';if(window.__openMembership)window.__openMembership();">Click here to upgrade</button><button class="da-lock-btn" onclick="var e=document.getElementById(\'da-study-lock\');if(e)e.style.display=\'none\';">Not now</button></div>'
-      +'<div class="da-lock-foot">Notes stay free on the topics available to you.</div></div>';
+      +'<div class="da-lock-foot">All notes are free &mdash; membership unlocks flashcards, MCQs &amp; mock exams.</div></div>';
     document.body.appendChild(o);
   };
   // Show a small lock on the Flashcards / Questions tabs so non-members can see they're premium.
@@ -15496,6 +15717,79 @@ function hideFlyout(p) {
     run();   // validate any prefilled value
   }
 
+  // Affiliate list for the referral typeahead: fetched once (anon-readable), then filtered
+  // client-side. Degrades silently to no dropdown if the table isn't there yet.
+  var __affCache=null, __affLoading=false, __affWaiters=[];
+  function __affFlush(){ var w=__affWaiters; __affWaiters=[]; w.forEach(function(cb){ try{cb(__affCache);}catch(e){} }); }
+  function loadAffiliates(cb){
+    if(__affCache){ cb(__affCache); return; }
+    __affWaiters.push(cb);
+    if(__affLoading) return;
+    if(!sb){ __affCache=[]; __affLoading=false; __affFlush(); return; }
+    __affLoading=true;
+    try{
+      sb.from('affiliates').select('name,code,type').eq('active',true).order('name')
+        .then(function(r){ __affCache=(r&&!r.error&&Array.isArray(r.data))?r.data:[]; __affLoading=false; __affFlush(); })
+        .catch(function(){ __affCache=[]; __affLoading=false; __affFlush(); });
+    }catch(e){ __affCache=[]; __affLoading=false; __affFlush(); }
+  }
+  // Autocomplete on the referral field: type a letter -> the matching codes drop down; still fully
+  // typeable for a code that isn't listed. Prefix-matches on both the code and the affiliate name.
+  function wireRefcodeTypeahead(inputId, listId, fbId){
+    var inp=$(inputId), list=$(listId); if(!inp||!list) return;
+    function esc(x){ return String(x==null?'':x).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    var items=[], active=-1, justPicked=false;
+    function open(){ list.hidden=false; inp.setAttribute('aria-expanded','true'); }
+    function close(){ list.hidden=true; inp.setAttribute('aria-expanded','false'); active=-1; }
+    function pick(a){
+      inp.value=a.code; close();
+      var fb=$(fbId); if(fb){ fb.textContent='✓ Supporting '+a.name; fb.style.color='var(--rn-green,#1F8B5E)'; }
+      // Suppress the immediate re-open that the refocus below would otherwise trigger, but
+      // auto-clear so the guard can never get stuck if the focus event doesn't fire.
+      justPicked=true; setTimeout(function(){ justPicked=false; }, 350);
+      inp.focus();
+    }
+    function paintActive(){
+      var els=list.querySelectorAll('.ref-ta-item');
+      for(var i=0;i<els.length;i++){ var on=(i===active); els[i].classList.toggle('active',on); if(on) els[i].scrollIntoView({block:'nearest'}); }
+    }
+    function render(matches){
+      items=matches; active=-1;
+      if(!matches.length){ list.innerHTML='<div class="ref-ta-empty">No matching codes — you can still type one</div>'; open(); return; }
+      list.innerHTML=matches.map(function(a,i){
+        return '<div class="ref-ta-item" role="option" data-i="'+i+'"><span class="ref-ta-name">'+esc(a.name||a.code)+'</span><span class="ref-ta-code">'+esc(a.code)+'</span></div>';
+      }).join('');
+      open();
+    }
+    function filterNow(){
+      if(justPicked){ justPicked=false; close(); return; }
+      var q=(inp.value||'').trim().toUpperCase();
+      loadAffiliates(function(all){
+        if(!all||!all.length){ close(); return; }
+        var m=all.filter(function(a){
+          var c=(a.code||'').toUpperCase(), n=(a.name||'').toUpperCase();
+          return !q || c.indexOf(q)===0 || n.indexOf(q)===0;
+        }).slice(0,50);
+        render(m);
+      });
+    }
+    inp.addEventListener('focus', filterNow);
+    inp.addEventListener('input', filterNow);
+    // mousedown (not click) so selection fires before the input's blur closes the list
+    list.addEventListener('mousedown', function(e){
+      var it=e.target.closest('.ref-ta-item'); if(!it) return;
+      e.preventDefault(); var i=parseInt(it.getAttribute('data-i'),10); if(items[i]) pick(items[i]);
+    });
+    inp.addEventListener('keydown', function(e){
+      if(list.hidden) return;
+      if(e.key==='ArrowDown'){ e.preventDefault(); active=Math.min(active+1,items.length-1); paintActive(); }
+      else if(e.key==='ArrowUp'){ e.preventDefault(); active=Math.max(active-1,0); paintActive(); }
+      else if(e.key==='Enter'){ if(active>=0&&items[active]){ e.preventDefault(); pick(items[active]); } }
+      else if(e.key==='Escape'){ close(); }
+    });
+    inp.addEventListener('blur', function(){ setTimeout(close, 140); });
+    document.addEventListener('click', function(e){ if(!list.hidden && !(e.target.closest&&e.target.closest('.ref-ta-wrap'))) close(); });
+  }
   function injectSignupFields(){
     var form=$('authForm'), btn=$('authSubmitBtn');
     if(!form||!btn||$('da-su-fields')) return;
@@ -15506,9 +15800,10 @@ function hideFlyout(p) {
       '<div class="auth-field"><label for="da-university">Medical school / University <span style="opacity:.55">(optional)</span></label><input id="da-university" type="text" placeholder="e.g. QMUL"></div>'+
       '<div class="auth-field"><label for="da-year">Year of study <span style="opacity:.55">(optional)</span></label><select id="da-year">'+yrOpts()+'</select></div>'+
       '<div class="auth-field"><label for="da-country">Country / region <span style="opacity:.55">(optional)</span></label><input id="da-country" type="text" placeholder="e.g. United Kingdom"></div>'+
-      '<div class="auth-field"><label for="da-refcode">Have a referral code? <span style="opacity:.55">(optional)</span></label><input id="da-refcode" type="text" autocomplete="off" placeholder="e.g. NEUROSOC or a friend’s code"><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">From a society or an individual — enter their code to support whoever sent you.</div><div id="da-refcode-fb" style="font-size:12px;margin-top:6px;font-weight:600;min-height:15px;"></div></div>';
+      '<div class="auth-field"><label for="da-refcode">Have a referral code? <span style="opacity:.55">(optional)</span></label><div class="ref-ta-wrap"><input id="da-refcode" type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" placeholder="Start typing to pick from the list, or enter a code"><div id="da-refcode-list" class="ref-ta-list" role="listbox" hidden></div></div><div style="font-size:11px;color:var(--muted2,#6B7280);margin-top:5px;line-height:1.45;">From a society or an individual — start typing to pick from the list, or enter their code.</div><div id="da-refcode-fb" style="font-size:12px;margin-top:6px;font-weight:600;min-height:15px;"></div></div>';
     form.insertBefore(wrap, btn);
     wireRefcodeValidation('da-refcode','da-refcode-fb');
+    wireRefcodeTypeahead('da-refcode','da-refcode-list','da-refcode-fb');
   }
 
   window.__authMode='signin';
@@ -15570,8 +15865,8 @@ function hideFlyout(p) {
         try{ localStorage.setItem('da_pending_profile', JSON.stringify(pdata)); }catch(e){}
         return sb.auth.signUp({email:email,password:password}).then(function(res){
           if(res.error){ try{localStorage.removeItem('da_pending_profile');}catch(e){} aMsg(res.error.message,'err'); btn.disabled=false; btn.textContent=restore; return; }
-          if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Your 14-day free trial starts now — setting things up…','ok'); /* gate reload -> ensureProfile creates it, which stamps trial_ends_at */ }
-          else { aMsg('Account created. Check your email to confirm — your 14-day free trial starts the moment you first sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
+          if(res.data && res.data.session){ aMsg('Welcome, '+username+'! Your 7-day free trial starts now — setting things up…','ok'); /* gate reload -> ensureProfile creates it, which stamps trial_ends_at */ }
+          else { aMsg('Account created. Check your email to confirm — your 7-day free trial starts the moment you first sign in.','ok'); window.setAuthMode('signin'); btn.disabled=false; btn.textContent=restore; }
         });
       }).catch(function(err){ aMsg((err&&err.message)||'Something went wrong.','err'); btn.disabled=false; btn.textContent=restore; });
       return false;
@@ -15750,7 +16045,7 @@ function hideFlyout(p) {
       // Paid members come through Stripe -> the `memberships` table -> __isMember().
       // Comp/manual members are flagged on the profile. Either grants access.
       var stripeActive = !!(window.__isMember && window.__isMember());
-      // New signups get a 14-day trial via profiles.trial_ends_at, set server-side
+      // New signups get a 7-day trial via profiles.trial_ends_at, set server-side
       // by a trigger (see supabase/migrations/20260911000000_profiles_free_trial.sql).
       // If that migration has not been applied the field is simply absent and this
       // is false, so the gate behaves exactly as it did before.
