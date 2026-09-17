@@ -15340,7 +15340,7 @@ function hideFlyout(p) {
       var list=document.getElementById('topiclist-'+p); if(!list) return;
       var st; try{ st=getState(p); }catch(e){ return; }
       list.querySelectorAll('.condition-item').forEach(function(el){
-        var locked=!isUnlocked(p, st.activeSystem, el.dataset.topic);
+        var locked=false;   // notes are free for everyone — no lock icons in topic lists
         el.classList.toggle('da-locked-item', locked);
         var mini=el.querySelector('.da-lock-mini');
         if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
@@ -15455,34 +15455,11 @@ function hideFlyout(p) {
   }
   // Gate a topic for the current tier; runs `proceed` when the visitor may view it.
   function gateTopic(p, name, skipHash, proceed){
-    var st = getState(p), sys = st.activeSystem;
-    if (isUnlocked(p, sys, name)){ proceed(); return; }
-    // Signed in but the server-side unlock list hasn't loaded yet (e.g. deep-link on first
-    // paint): wait for it, then decide — so a valid unlock isn't briefly shown as locked.
-    if (window.__authed && !_dpLoaded){
-      renderWall(p, name, '<div class="da-lock"><div class="da-lock-icon">⏳</div><div class="da-lock-title">Checking your access…</div></div>', skipHash);
-      _dpReady.then(function(){ hidePaywall(p); gateTopic(p, name, skipHash, proceed); });
-      return;
-    }
-    if (window.__authed){
-      if (dpCanUnlock(p)){
-        window.__dpUnlock = function(){
-          var btn=document.querySelector('#da-paywall-'+p+' .da-lock-btn.primary'); if(btn){ btn.disabled=true; btn.textContent='Unlocking…'; }
-          dpConsume(p, sys, name).then(function(ok){
-            window.__dpUnlock=null; window.__dpCancel=null;
-            if(ok){ clearMini(p, name); hidePaywall(p); proceed(); }
-            else { dpLoadServer().then(function(){ renderWall(p, name, limitHTML(p), skipHash); }); }   // server said no slot left
-          });
-        };
-        window.__dpCancel = function(){ window.__dpUnlock=null; window.__dpCancel=null; dismissWall(p); };
-        renderWall(p, name, dayPassHTML(name, p), skipHash);
-      } else {
-        window.__dpCancel = function(){ window.__dpCancel=null; dismissWall(p); };
-        renderWall(p, name, limitHTML(p), skipHash);
-      }
-    } else {
-      showLocked(p, name, skipHash);
-    }
+    // Notes are FREE for everyone — no account and no daily limit. The premium tier is the
+    // interactive study modes (flashcards, MCQs, mock exams), which are gated separately
+    // (study-mode blur + __mockAllowed). So every topic's reading content opens immediately.
+    // (The daily-unlock day-pass machinery above is retained but no longer used to gate notes.)
+    proceed();
   }
 
   var _selectTopic = window.selectTopic;
@@ -15544,7 +15521,13 @@ function hideFlyout(p) {
     // Topic-level gate still applies (a fully locked topic shows the normal paywall for any mode).
     if (!isUnlocked(p, st.activeSystem, st.activeTopic)){
       var self=this, args=arguments, topic=st.activeTopic;
-      gateTopic(p, topic, skipHash, function(){ _selectTopic.call(self, p, topic, true); _switchMode.apply(self, args); });
+      gateTopic(p, topic, skipHash, function(){
+        _selectTopic.call(self, p, topic, true);
+        var r=_switchMode.apply(self, args);
+        // Notes are free, but premium study modes must still blur for non-members even when the
+        // topic opens via the (now always-proceeding) note gate.
+        if (premium){ Promise.resolve(r).then(function(){ applyStudyBlur(p, mode); }).catch(function(){ applyStudyBlur(p, mode); }); }
+      });
       return;
     }
     // Render the panel, then (for non-members on premium modes) blur it and float the lock card.
