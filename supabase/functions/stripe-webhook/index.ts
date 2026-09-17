@@ -33,6 +33,16 @@ const admin = createClient(
 
 const ACTIVE = new Set(["active", "trialing"]);
 
+// Read the period end resiliently. Newer Stripe API versions moved
+// current_period_end from the Subscription object onto its items, so check both
+// and never let a missing/invalid value throw (that would 500 the webhook and
+// leave a paying customer without access).
+function periodEndOf(sub: Stripe.Subscription): string | null {
+  // deno-lint-ignore no-explicit-any
+  const ts = (sub as any).current_period_end ?? (sub.items?.data?.[0] as any)?.current_period_end;
+  return ts ? new Date(ts * 1000).toISOString() : null;
+}
+
 async function upsertMembership(row: Record<string, unknown>) {
   const { error } = await admin
     .from("memberships")
@@ -72,9 +82,16 @@ Deno.serve(async (req) => {
         let periodEnd: string | null = null;
         let plan: string | null = null;
         if (s.subscription) {
-          const sub = await stripe.subscriptions.retrieve(s.subscription as string);
-          periodEnd = new Date(sub.current_period_end * 1000).toISOString();
-          plan = sub.items.data[0]?.price?.id ?? null;
+          // The payment already succeeded, so a failure to enrich the row (e.g. a
+          // wrong-mode STRIPE_SECRET_KEY) must NOT block granting access. Grant
+          // first-class membership regardless; fill in plan/period if we can.
+          try {
+            const sub = await stripe.subscriptions.retrieve(s.subscription as string);
+            periodEnd = periodEndOf(sub);
+            plan = sub.items.data[0]?.price?.id ?? null;
+          } catch (e) {
+            console.error("subscription retrieve failed (granting access anyway):", (e as Error).message);
+          }
         }
         await upsertMembership({
           user_id: userId,
@@ -101,7 +118,7 @@ Deno.serve(async (req) => {
           plan: sub.items.data[0]?.price?.id ?? null,
           stripe_customer_id: sub.customer as string,
           stripe_subscription_id: sub.id,
-          current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
+          current_period_end: periodEndOf(sub),
         });
         break;
       }
