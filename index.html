@@ -15520,6 +15520,15 @@ function hideFlyout(p) {
     document.querySelectorAll('#notearea-'+p+' .mode-panel.da-blurred').forEach(function(panel){ panel.classList.remove('da-blurred'); panel.removeAttribute('aria-hidden'); });
   }
   window.__clearStudyBlur = clearStudyBlur;
+  // Close the premium study-mode lock by returning to the (free) Notes view for this panel.
+  window.__closeStudyBlur = function(p){
+    try{
+      var mb=document.getElementById('modeBar-'+p);
+      var notesTab = mb && (mb.querySelector('.mode-tab[onclick*="notes"]') || mb.querySelector('.mode-tab'));
+      if(notesTab){ notesTab.click(); return; }
+    }catch(e){}
+    clearStudyBlur(p);
+  };
   function applyStudyBlur(p, mode){
     var area=document.getElementById('notearea-'+p); if(!area) return;
     var panel=document.getElementById(mode+'-panel-'+p);
@@ -15529,10 +15538,15 @@ function hideFlyout(p) {
     var sub=(mode==='questions')?'practice questions':'flashcards';
     var ov=document.getElementById('da-study-blur-'+p);
     if(!ov){ ov=document.createElement('div'); ov.id='da-study-blur-'+p; ov.className='da-study-blur'; area.appendChild(ov); }
-    ov.innerHTML='<div class="da-study-blur-card"><div style="font-size:38px;margin-bottom:10px;">🔒</div>'
+    ov.innerHTML='<div class="da-study-blur-card" style="position:relative;">'
+      +'<button type="button" aria-label="Close" onclick="window.__closeStudyBlur&&window.__closeStudyBlur(\''+p+'\')" style="position:absolute;top:8px;right:11px;border:none;background:none;font-size:22px;line-height:1;color:#9AA3B2;cursor:pointer;padding:4px 6px;">&times;</button>'
+      +'<div style="font-size:38px;margin-bottom:10px;">🔒</div>'
       +'<div class="da-study-blur-title">'+label+' are a premium feature</div>'
       +'<div class="da-study-blur-sub">Interactive '+sub+' come with membership.<br>Every note on DoctoRise is free — membership unlocks flashcards, MCQs and mock exams.</div>'
-      +'<div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
+      +'<div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">'
+        +'<button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button>'
+        +'<button class="da-lock-btn" onclick="window.__closeStudyBlur&&window.__closeStudyBlur(\''+p+'\')">Back to notes</button>'
+      +'</div></div>';
     ov.style.display='flex';
   }
 
