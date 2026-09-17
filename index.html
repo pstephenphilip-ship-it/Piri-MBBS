@@ -134,6 +134,26 @@ body{display:flex;flex-direction:column;}
 .fc-card-label{font-family:var(--mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;opacity:0.5;}
 .fc-card-front .fc-card-label{color:#9CA3AF;}.fc-card-back .fc-card-label{color:#00C2A8;}
 .fc-card-text{font-size:14px;line-height:1.6;color:#111827;}
+
+/* ---- flashcard answer formatting ---------------------------------------
+   The back of a card is where you self-check, so its markup has exactly one
+   job: make the thing you were trying to recall findable at a glance.
+   Bold is therefore reserved for the answer core. It is tempting to bold
+   every clinically weighty word, but that is how highlighting stops meaning
+   anything -- if six things are bold, none of them is.
+   A number gets a chip because a dose, cutoff or timing is usually the whole
+   point of the card and it vanishes in running prose. An enumerable answer
+   becomes a list you can count instead of a sentence you have to parse. A
+   caveat sits under a rule so it reads as the trap, not as more answer. */
+.fc-card-text strong{font-weight:700;color:#0B7D6E;}
+.fc-num{font-family:var(--mono);font-size:13px;font-weight:700;
+  background:rgba(0,194,168,.14);color:#0B6F62;border-radius:4px;padding:1px 5px;white-space:nowrap;}
+/* inline-block so the list still centres as a block while its text reads left */
+.fc-list{display:inline-block;text-align:left;margin:0;padding-left:18px;list-style:disc;}
+.fc-list li{margin:4px 0;}
+.fc-caveat{display:block;margin-top:10px;padding-top:9px;
+  border-top:1px solid rgba(0,194,168,.3);font-size:13px;color:#4B5563;}
+.fc-caveat b{color:#B4531A;font-weight:700;}
 .fc-card-hint{font-family:var(--mono);font-size:10px;color:#9CA3AF;margin-top:14px;opacity:0.7;}
 .fc-rating{display:flex;gap:10px;justify-content:center;margin-bottom:20px;}
 .fc-rate-btn{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:7px 18px;border-radius:var(--radius);border:1px solid;cursor:pointer;transition:all 0.15s;}
