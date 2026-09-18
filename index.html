@@ -9112,6 +9112,132 @@ window.MOCK_BANK = {
       explanation:[
         "A QRISK3 of 10% or more is the threshold for PRIMARY prevention: offer ATORVASTATIN 20 mg once daily, irrespective of the baseline cholesterol.",
         "Atorvastatin 80 mg is for SECONDARY prevention (established cardiovascular disease), which he does not have; withholding a statin, or waiting on cholesterol targets, ignores the QRISK-based indication; and aspirin is not used for primary prevention."
+      ] },
+    { id:"htn-010", type:"categorize", objective:"htn-step1-class",
+      question:"Each of these patients has newly diagnosed hypertension confirmed on ambulatory monitoring, meets the threshold for drug treatment, and has no contraindication to either drug class. Sort each by the appropriate first-line (step 1) choice.",
+      buckets:["ACE inhibitor or ARB (A)","Calcium-channel blocker (C)"],
+      items:[
+        { text:"A 46-year-old white British man, a smoker, with stage 2 hypertension and no other medical history", bucket:0 },
+        { text:"A 39-year-old woman with type 1 diabetes of 20 years and an early rise in her urine ACR", bucket:0 },
+        { text:"A 66-year-old man with type 2 diabetes and a BMI of 32, taking metformin", bucket:0 },
+        { text:"A 72-year-old white woman with osteoarthritis and stage 2 hypertension", bucket:1 },
+        { text:"A 44-year-old man of Black African family origin, otherwise fit, with no diabetes", bucket:1 },
+        { text:"A 58-year-old white man with a 15-pack-year smoking history and no diabetes", bucket:1 }],
+      explanation:[
+        "Age and ethnicity are used because they predict renin status. UNDER 55 and not of Black African/Caribbean family origin = high-renin, so an ACE inhibitor or ARB (A) works best; 55 OR OVER, or Black African/Caribbean at any age = low-renin, so a calcium-channel blocker (C) works best.",
+        "Diabetes at any age or ethnicity is treated with A for renoprotection – which is why the 66-year-old with type 2 diabetes still starts on A despite being over 55, and both diabetic patients sit in bucket A."
+      ] },
+    { id:"htn-011", type:"mcq", objective:"htn-arb-over-acei",
+      data:"<div class=\"mk-obs-h\">Review</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Amlodipine 10 mg once daily</b></span><span>Clinic BP <b>150/94 mmHg</b></span><span>HBPM average <b>146/90 mmHg</b></span><span>Potassium <b>4.3 mmol/L</b></span><span>eGFR <b>82 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 54-year-old man of Black African family origin was diagnosed with hypertension three months ago and started on amlodipine, titrated to 10 mg once daily. He works as a bus driver, is a non-smoker, has no diabetes, and takes no other medication. He reports good adherence and no ankle swelling, but his blood pressure remains above target and his clinician decides to add a drug acting on the renin-angiotensin system. Which is the most appropriate choice?",
+      options:[
+        "An ACE inhibitor, such as ramipril",
+        "An angiotensin-receptor blocker, such as candesartan",
+        "Either — there is no preference between the two",
+        "An ACE inhibitor, because ARBs are less effective in this group",
+        "A direct renin inhibitor, such as aliskiren"],
+      correctIndex:1,
+      explanation:[
+        "In people of Black African or African-Caribbean family origin, when a renin-angiotensin drug is used – typically at step 2 alongside a calcium-channel blocker – NICE prefers an ARB to an ACE inhibitor: it is at least as effective and better tolerated, with a notably lower risk of angioedema.",
+        "There is a genuine preference (so ‘either’ is wrong), ARBs are not less effective in this group (option D reverses the truth), and a direct renin inhibitor is not a NICE-recommended option here."
+      ] },
+    { id:"htn-012", type:"mcq", objective:"htn-acei-cough-arb",
+      data:"<div class=\"mk-obs-h\">Review</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Ramipril 10 mg once daily</b></span><span>Clinic BP <b>128/78 mmHg</b></span><span>Chest examination <b>Clear</b></span><span>Potassium <b>4.5 mmol/L</b></span><span>eGFR <b>84 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 60-year-old woman with hypertension and well-controlled hypothyroidism started ramipril eight weeks ago, titrated to 10 mg once daily. Over the past month she has developed a persistent dry, tickly cough that is disturbing her sleep. She has no breathlessness, wheeze, fever or sputum, her chest is clear on examination, and her blood pressure is now well controlled. What is the most appropriate change?",
+      options:[
+        "Switch to a different ACE inhibitor",
+        "Add a cough suppressant and continue the ramipril",
+        "Switch to an angiotensin-receptor blocker",
+        "Stop antihypertensive treatment altogether",
+        "Start an inhaled corticosteroid"],
+      correctIndex:2,
+      explanation:[
+        "The dry cough of an ACE inhibitor is caused by BRADYKININ accumulation. Switching to an ANGIOTENSIN-RECEPTOR BLOCKER keeps the renin-angiotensin benefit – and her good blood-pressure control – without the bradykinin-mediated cough.",
+        "A different ACE inhibitor would simply reproduce the cough; a suppressant or inhaled steroid treats neither the cause nor a genuine respiratory problem; and stopping treatment abandons control of confirmed hypertension."
+      ] },
+    { id:"htn-013", type:"mcq", objective:"htn-step2",
+      data:"<div class=\"mk-obs-h\">Review</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Ramipril 10 mg once daily</b></span><span>HBPM average <b>148/92 mmHg</b></span><span>Potassium <b>4.4 mmol/L</b></span><span>eGFR <b>80 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 50-year-old white British man was diagnosed with hypertension four months ago and started on ramipril, now titrated to 10 mg once daily. He is a non-smoker with no diabetes or renal disease, reports taking his tablet reliably, and is euvolaemic on examination. His home readings remain above target and his recent bloods are satisfactory. What is the most appropriate next step?",
+      options:[
+        "Add a beta-blocker, such as bisoprolol",
+        "Add a calcium-channel blocker, such as amlodipine",
+        "Add spironolactone",
+        "Add an alpha-blocker, such as doxazosin",
+        "Add a second ACE inhibitor"],
+      correctIndex:1,
+      explanation:[
+        "Step 2 is to ADD a CALCIUM-CHANNEL BLOCKER (or a thiazide-like diuretic) to the ACE inhibitor – here amlodipine.",
+        "Spironolactone and alpha- or beta-blockers are step-4 agents for resistant hypertension, and a second ACE inhibitor is never used – dual RAAS blockade risks hyperkalaemia and renal impairment."
+      ] },
+    { id:"htn-014", type:"mcq", objective:"htn-step3",
+      data:"<div class=\"mk-obs-h\">Review</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Ramipril 10 mg + amlodipine 10 mg</b></span><span>Clinic BP <b>152/94 mmHg</b></span><span>HBPM average <b>146/90 mmHg</b></span><span>Potassium <b>4.3 mmol/L</b></span><span>eGFR <b>78 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 63-year-old man with hypertension and osteoarthritis has been taking ramipril 10 mg and amlodipine 10 mg once daily for several months. He confirms good adherence, has no diabetes, and his potassium and renal function are normal. His blood pressure remains above target at home and in clinic. What is the most appropriate addition?",
+      options:[
+        "Spironolactone (an aldosterone antagonist)",
+        "Doxazosin (an alpha-blocker)",
+        "A thiazide-like diuretic (indapamide)",
+        "Bisoprolol (a beta-blocker)",
+        "A loop diuretic (furosemide)"],
+      correctIndex:2,
+      explanation:[
+        "Step 3 completes the A + C + D combination by adding a THIAZIDE-LIKE DIURETIC (indapamide or chlortalidone).",
+        "Spironolactone, doxazosin and bisoprolol are step-4 agents; a loop diuretic is for fluid overload in heart failure, not routine hypertension."
+      ] },
+    { id:"htn-015", type:"mcq", objective:"htn-step4-low-k",
+      data:"<div class=\"mk-obs-h\">Resistant hypertension</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Ramipril + amlodipine + indapamide (max tolerated)</b></span><span>Clinic BP <b>148/92 mmHg</b></span><span>HBPM average <b>146/90 mmHg</b></span><span>Potassium <b>4.2 mmol/L</b></span><span>eGFR <b>76 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 58-year-old woman remains hypertensive despite ramipril 10 mg, amlodipine 10 mg and indapamide 2.5 mg once daily, all at maximum tolerated doses for the past three months. Good adherence has been confirmed with a medicines review, and her home readings match her clinic readings (excluding a white-coat effect). She has no diabetes. What is the most appropriate addition?",
+      options:[
+        "Doxazosin",
+        "Bisoprolol",
+        "An increase in the indapamide dose",
+        "Spironolactone 25 mg once daily",
+        "A loop diuretic"],
+      correctIndex:3,
+      explanation:[
+        "This is resistant hypertension (A + C + D, adherence confirmed, still above target). With a POTASSIUM of 4.5 mmol/L or below, the step-4 choice is low-dose SPIRONOLACTONE, which is especially effective if there is an unrecognised primary aldosteronism component.",
+        "Check U&E before and about a month after starting (hyperkalaemia risk); doxazosin or bisoprolol are reserved for a higher potassium, increasing the indapamide adds little, and a loop diuretic is not indicated."
+      ] },
+    { id:"htn-016", type:"mcq", objective:"htn-step4-high-k",
+      data:"<div class=\"mk-obs-h\">Resistant hypertension</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Ramipril + amlodipine + indapamide (max tolerated)</b></span><span>Clinic BP <b>150/94 mmHg</b></span><span>HBPM average <b>148/92 mmHg</b></span><span>Potassium <b>4.9 mmol/L</b></span><span>eGFR <b>70 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 61-year-old man remains hypertensive despite ramipril 10 mg, amlodipine 10 mg and indapamide 2.5 mg once daily at maximum tolerated doses. Adherence has been confirmed and ambulatory monitoring excludes a white-coat effect. He has stable chronic kidney disease and no diabetes. What is the most appropriate addition?",
+      options:[
+        "Spironolactone 25 mg once daily",
+        "A further increase in the ACE inhibitor",
+        "An oral potassium supplement",
+        "A loop diuretic",
+        "An alpha-blocker, such as doxazosin"],
+      correctIndex:4,
+      explanation:[
+        "In resistant hypertension with a POTASSIUM above 4.5 mmol/L, spironolactone is avoided because of the hyperkalaemia risk; the step-4 choice is an ALPHA-BLOCKER (doxazosin) or BETA-BLOCKER (bisoprolol), with specialist advice.",
+        "Spironolactone would push the potassium higher, the ACE inhibitor is already maximal, a potassium supplement is frankly harmful here, and a loop diuretic is not a step-4 antihypertensive."
+      ] },
+    { id:"htn-017", type:"mcq", objective:"htn-ccb-intolerance",
+      data:"<div class=\"mk-obs-h\">Review</div><div class=\"mk-obs-grid\"><span>Current treatment <b>Amlodipine 10 mg once daily</b></span><span>Clinic BP <b>154/90 mmHg</b></span><span>Ankle oedema / JVP / chest <b>Present / normal / clear</b></span><span>eGFR <b>74 mL/min/1.73m&sup2;</b></span></div>",
+      question:"A 70-year-old woman with stage 2 hypertension and no history of heart failure was started on amlodipine 5 mg, increased to 10 mg once daily six weeks ago. She has since developed troublesome bilateral ankle swelling that is affecting her mobility. Her blood pressure still requires treatment, and examination shows pitting ankle oedema with a normal JVP and clear lung fields. What is the most appropriate change?",
+      options:[
+        "Switch to a thiazide-like diuretic, such as indapamide",
+        "Switch to an ACE inhibitor",
+        "Add a diuretic to the amlodipine",
+        "Switch to a beta-blocker",
+        "Fit compression stockings and continue the amlodipine"],
+      correctIndex:0,
+      explanation:[
+        "Her oedema is a dose-related effect of the calcium-channel blocker, not heart failure (a normal JVP and clear chest). When a CCB is NOT TOLERATED, NICE offers a THIAZIDE-LIKE DIURETIC.",
+        "At 70 she is low-renin, so an ACE inhibitor as monotherapy is less effective; a beta-blocker is not first-line; adding a diuretic leaves her on the drug that is causing the problem; and stockings ignore the cause."
+      ] },
+    { id:"htn-018", type:"mcq", objective:"htn-lifestyle-priority",
+      data:"<div class=\"mk-obs-h\">Lifestyle assessment</div><div class=\"mk-obs-grid\"><span>Diet <b>Low-salt, Mediterranean-style</b></span><span>Exercise <b>Runs 3&times; per week</b></span><span>BMI <b>24 kg/m&sup2;</b></span><span>Smoking <b>Never</b></span><span>Alcohol <b>55 units/week</b></span></div>",
+      question:"A 52-year-old man with hypertension follows a low-salt Mediterranean-style diet, runs three times a week, and has a BMI of 24. He is a lifelong non-smoker. His blood pressure remains above target, and on review the only clearly modifiable factor is that he drinks 55 units of alcohol a week. Which single lifestyle change is most likely to lower his blood pressure?",
+      options:[
+        "Reduce his alcohol intake",
+        "Reduce his dietary salt further",
+        "Increase his aerobic exercise",
+        "Lose weight",
+        "Adopt a DASH-style diet"],
+      correctIndex:0,
+      explanation:[
+        "All five are recommended antihypertensive lifestyle measures, but the effective lever is the one he has NOT yet addressed. He already eats a low-salt DASH-style diet, exercises regularly and has a normal BMI, so excess ALCOHOL (55 units a week) is his dominant reversible contributor – reducing it will give the greatest fall in his blood pressure.",
+        "Further salt restriction, more exercise, weight loss and a DASH diet are all worthwhile in principle but are already optimised in him, so each would add little; the distractors are correct in general yet wrong for this patient."
       ] }
 ]
 };
