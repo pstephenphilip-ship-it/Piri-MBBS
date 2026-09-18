@@ -1282,6 +1282,8 @@ body.da-notes-open #daMemFab{display:none!important;}
 .wc-brand img{width:104px;height:104px;object-fit:contain;margin-bottom:8px;}
 .wc-word{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.01em;background:linear-gradient(135deg,#00C2A8 0%,#0EA5E9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .wc-tag{font-size:14px;color:#6B7280;margin-top:6px;}
+.wc-tag2{font-size:12.5px;color:#8A93A6;margin:9px auto 0;max-width:600px;line-height:1.55;}
+.wc-tag2 strong{color:#0A6DA0;font-weight:700;}
 .wc-copyright{margin:30px auto 12px;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted,#8A93A6);opacity:.7;}
 /* Signed-out trial CTA on the home hero. Hidden for signed-in users via updateHomeActions. */
 .wc-trial{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;text-align:left;
@@ -1463,7 +1465,8 @@ body.da-notes-open #daMemFab{display:none!important;}
       +'<div class="wc-plan-editor"></div>'
       +'</div>') : '';
     return '<div class="welcome-inner"><div class="wc-brand"><img src="logo.png" alt="DoctoRise"><div class="wc-word">DoctoRise</div>'
-      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div></div>'
+      +'<div class="wc-tag">Your complete medical reference &mdash; pick up where you left off.</div>'
+      +'<div class="wc-tag2">Built to the <strong>UK MLA content map</strong> and written from <strong>NICE</strong> and current UK guidelines &mdash; every topic accuracy&#8209;screened for exam-ready reliability.</div></div>'
       +'<div class="wc-trial js-trial-cta" hidden>'
         +'<div class="wc-trial-tx">'
           +'<div class="wc-trial-t">Try DoctoRise free for 1 week</div>'
@@ -15517,6 +15520,15 @@ function hideFlyout(p) {
     document.querySelectorAll('#notearea-'+p+' .mode-panel.da-blurred').forEach(function(panel){ panel.classList.remove('da-blurred'); panel.removeAttribute('aria-hidden'); });
   }
   window.__clearStudyBlur = clearStudyBlur;
+  // Close the premium study-mode lock by returning to the (free) Notes view for this panel.
+  window.__closeStudyBlur = function(p){
+    try{
+      var mb=document.getElementById('modeBar-'+p);
+      var notesTab = mb && (mb.querySelector('.mode-tab[onclick*="notes"]') || mb.querySelector('.mode-tab'));
+      if(notesTab){ notesTab.click(); return; }
+    }catch(e){}
+    clearStudyBlur(p);
+  };
   function applyStudyBlur(p, mode){
     var area=document.getElementById('notearea-'+p); if(!area) return;
     var panel=document.getElementById(mode+'-panel-'+p);
@@ -15526,10 +15538,15 @@ function hideFlyout(p) {
     var sub=(mode==='questions')?'practice questions':'flashcards';
     var ov=document.getElementById('da-study-blur-'+p);
     if(!ov){ ov=document.createElement('div'); ov.id='da-study-blur-'+p; ov.className='da-study-blur'; area.appendChild(ov); }
-    ov.innerHTML='<div class="da-study-blur-card"><div style="font-size:38px;margin-bottom:10px;">🔒</div>'
+    ov.innerHTML='<div class="da-study-blur-card" style="position:relative;">'
+      +'<button type="button" aria-label="Close" onclick="window.__closeStudyBlur&&window.__closeStudyBlur(\''+p+'\')" style="position:absolute;top:8px;right:11px;border:none;background:none;font-size:22px;line-height:1;color:#9AA3B2;cursor:pointer;padding:4px 6px;">&times;</button>'
+      +'<div style="font-size:38px;margin-bottom:10px;">🔒</div>'
       +'<div class="da-study-blur-title">'+label+' are a premium feature</div>'
       +'<div class="da-study-blur-sub">Interactive '+sub+' come with membership.<br>Every note on DoctoRise is free — membership unlocks flashcards, MCQs and mock exams.</div>'
-      +'<div style="margin-top:14px;"><button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button></div></div>';
+      +'<div style="margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">'
+        +'<button class="da-lock-btn primary" onclick="if(window.__openMembership)window.__openMembership();">Click here to upgrade</button>'
+        +'<button class="da-lock-btn" onclick="window.__closeStudyBlur&&window.__closeStudyBlur(\''+p+'\')">Back to notes</button>'
+      +'</div></div>';
     ov.style.display='flex';
   }
 
@@ -15566,7 +15583,7 @@ function hideFlyout(p) {
       // dimming and shows a visitor that there is gated content here; dimming on
       // its own just reads as disabled.
       document.querySelectorAll('#topiclist-'+p+' .condition-item').forEach(function(el){
-        var locked = !isUnlocked(p, st.activeSystem, el.dataset.topic);
+        var locked = false;   // notes are free for everyone — no padlock on topic items
         el.classList.toggle('da-locked-item', locked);
         var mini = el.querySelector('.da-lock-mini');
         if(locked){ if(!mini){ var s=document.createElement('span'); s.className='da-lock-mini'; s.textContent='🔒'; el.appendChild(s); } }
