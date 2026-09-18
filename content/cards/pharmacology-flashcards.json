@@ -200,7 +200,8 @@
     "12 · High-Risk Oral Medicines",
     "13 · High-Risk Injectable Medicines",
     "14 · Medication Errors",
-    "15 · Drug Interactions"
+    "15 · Drug Interactions",
+    "16 · Paediatric Prescribing"
    ]
   },
   {
@@ -21943,6 +21944,198 @@
     "id": "ph_cpt_dint_30",
     "front": "Why is the evidence base for drug interactions often limited?",
     "back": "Clinical trials are underpowered for subset interactions and exclude patients on interacting drugs or with comorbidities; pre-marketing PK studies use small numbers of young healthy volunteers, so the first signal is often case reports/Yellow Cards."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__16 · Paediatric Prescribing": [
+   {
+    "id": "ph_cpt_paed_01",
+    "front": "How should medicine doses be prescribed for children, and against which reference?",
+    "back": "By body weight (or BSA) in mg/micrograms — not in millilitres — checked against the current BNF for Children (BNFC). Never extrapolate down from an adult dose."
+   },
+   {
+    "id": "ph_cpt_paed_02",
+    "front": "Why are children more vulnerable to medication errors than adults?",
+    "back": "Doses are individualised (weight/age/BSA), liquid formulations vary in strength, mL/mg confusion is easy, and a small error trivial in an adult can significantly harm a child."
+   },
+   {
+    "id": "ph_cpt_paed_03",
+    "front": "What is the maintenance fluid rule for children (per 24 hours)?",
+    "back": "100 mL/kg for the first 10 kg, 50 mL/kg for the next 10 kg, and 20 mL/kg for each kg above 20 kg. Divide the 24-h total by 24 for the hourly rate."
+   },
+   {
+    "id": "ph_cpt_paed_04",
+    "front": "What type of fluid is used for routine paediatric maintenance?",
+    "back": "An isotonic crystalloid containing sodium 131–154 mmol/L (e.g. sodium chloride 0.9%, often with glucose 5%). Add potassium once passing urine; check U&Es/glucose every 24 h."
+   },
+   {
+    "id": "ph_cpt_paed_05",
+    "front": "Calculate the maintenance rate for a 32 kg child.",
+    "back": "(100×10)+(50×10)+(20×12) = 1000+500+240 = 1740 mL/24 h → 1740 ÷ 24 ≈ 73 mL/h."
+   },
+   {
+    "id": "ph_cpt_paed_06",
+    "front": "When and by how much should maintenance fluids be reduced?",
+    "back": "Reduce to about two-thirds (50–80%) when SIADH/water retention is likely — e.g. pneumonia, post-operative, meningitis or brain injury."
+   },
+   {
+    "id": "ph_cpt_paed_07",
+    "front": "What are the approximate daily maximum maintenance fluid volumes?",
+    "back": "About 2.5 L in males and 2 L in females per 24 hours."
+   },
+   {
+    "id": "ph_cpt_paed_08",
+    "front": "What is the preferred order of emergency weight-estimation methods in a child?",
+    "back": "1) Body-length tape with pre-calculated doses (e.g. Broselow); 2) paediatric emergency drug chart; 3) age-based formula. Use only until a measured weight is obtained."
+   },
+   {
+    "id": "ph_cpt_paed_09",
+    "front": "Give the simple age-based weight formula (up to 10 years) and its limitation.",
+    "back": "Weight (kg) = (age in years + 4) × 2. It tends to underestimate weight, so use only in emergencies."
+   },
+   {
+    "id": "ph_cpt_paed_10",
+    "front": "Useful weight sense-checks: newborn and 1-year-old?",
+    "back": "A newborn weighs about 3.5 kg and a 1-year-old about 10 kg."
+   },
+   {
+    "id": "ph_cpt_paed_11",
+    "front": "Which drugs are dosed by body surface area rather than weight, and why?",
+    "back": "Toxic/narrow-margin drugs — systemic anticancer therapy and some antimicrobials/antivirals (e.g. aciclovir) — because BSA correlates better with drug handling. Expressed per m²."
+   },
+   {
+    "id": "ph_cpt_paed_12",
+    "front": "First-line oral rehydration for a dehydrated child without shock?",
+    "back": "Oral rehydration solution (ORS) 50 mL/kg over 4 hours plus maintenance fluids, with 5 mL/kg ORS after each watery stool/vomit for ongoing losses."
+   },
+   {
+    "id": "ph_cpt_paed_13",
+    "front": "How is IV rehydration given in a dehydrated child without shock?",
+    "back": "Isotonic fluid (0.9% NaCl ± 5% glucose) at 50 mL/kg PLUS maintenance, over 24 hours (or 48 hours if hypernatraemic)."
+   },
+   {
+    "id": "ph_cpt_paed_14",
+    "front": "How is fluid resuscitation given to a shocked child?",
+    "back": "10 mL/kg bolus of 0.9% sodium chloride, repeated if still shocked, then 100 mL/kg replacement in addition to maintenance; reassess after each bolus."
+   },
+   {
+    "id": "ph_cpt_paed_15",
+    "front": "What is the deficit formula for dehydration?",
+    "back": "Deficit (mL) = % dehydration × weight (kg) × 10. (e.g. 5% × 12 kg × 10 = 600 mL.)"
+   },
+   {
+    "id": "ph_cpt_paed_16",
+    "front": "Over what period is fluid deficit corrected, and when is it slower?",
+    "back": "Normally over 24 hours — but over 48 hours if the child is hypernatraemic."
+   },
+   {
+    "id": "ph_cpt_paed_17",
+    "front": "List the red-flag signs of clinical dehydration/shock in a child.",
+    "back": "Appears unwell/deteriorating, altered responsiveness (lethargy), sunken eyes, tachycardia, tachypnoea, reduced skin turgor."
+   },
+   {
+    "id": "ph_cpt_paed_18",
+    "front": "First-line antibiotics for early-onset neonatal sepsis?",
+    "back": "IV benzylpenicillin plus gentamicin (covers Group B Streptococcus and E. coli). Start immediately if a red flag or ≥2 risk factors — do not wait for cultures."
+   },
+   {
+    "id": "ph_cpt_paed_19",
+    "front": "How is gentamicin monitored and adjusted in neonates?",
+    "back": "Extended-interval dosing (5 mg/kg; second dose ~36 h later); measure the trough (target <1 mg/L). If the trough is high, prolong the interval rather than simply cutting the dose."
+   },
+   {
+    "id": "ph_cpt_paed_20",
+    "front": "What is the main toxicity of gentamicin to counsel about in neonates?",
+    "back": "Largely irreversible ototoxicity (vestibular/cochlear); ask about deafness in maternal relatives. Also mild, usually reversible nephrotoxicity."
+   },
+   {
+    "id": "ph_cpt_paed_21",
+    "front": "Management of convulsive status epilepticus without IV access?",
+    "back": "Buccal midazolam (or rectal diazepam). A maximum of two benzodiazepine doses should be given in total (including any pre-hospital dose)."
+   },
+   {
+    "id": "ph_cpt_paed_22",
+    "front": "First-line IV treatment for status epilepticus, and why lorazepam?",
+    "back": "IV (or IO) lorazepam — rapid onset (1–2 min) and longer duration (up to ~3 h) than diazepam (which redistributes quickly, lasting 15–30 min and is vein-irritant)."
+   },
+   {
+    "id": "ph_cpt_paed_23",
+    "front": "Second-line agents for convulsive status epilepticus in children (Resus Council UK)?",
+    "back": "IV levetiracetam 40–60 mg/kg over 5 min, or phenytoin 20 mg/kg over 20 min, or phenobarbital 20 mg/kg."
+   },
+   {
+    "id": "ph_cpt_paed_24",
+    "front": "IM adrenaline dose for anaphylaxis in a 6-month to 5-year-old child?",
+    "back": "150 micrograms (0.15 mL of 1:1000). Doses by age: <6 m 100–150 mcg; 6 m–5 y 150 mcg; 6–11 y 300 mcg; 12–17 y 500 mcg."
+   },
+   {
+    "id": "ph_cpt_paed_25",
+    "front": "Which adrenaline auto-injector strength by weight, and how many on discharge?",
+    "back": "≤25 kg → 150 micrograms; >25 kg → 300 micrograms. Prescribe TWO auto-injectors; a second may be given after 5–15 minutes; call an ambulance after every use."
+   },
+   {
+    "id": "ph_cpt_paed_26",
+    "front": "First-line management of acute severe asthma in a child ≥5 years?",
+    "back": "Oxygen-driven nebulised salbutamol 5 mg (repeat every 20–30 min) plus oral prednisolone 30–40 mg once daily for about 3 days (no taper needed)."
+   },
+   {
+    "id": "ph_cpt_paed_27",
+    "front": "Treatment of mild croup with a steroid?",
+    "back": "Single dose of oral dexamethasone 150 micrograms/kg (e.g. 12 kg child = 1.8 mg)."
+   },
+   {
+    "id": "ph_cpt_paed_28",
+    "front": "First-line antibiotic for upper UTI/pyelonephritis in a child aged 3 months–16 years?",
+    "back": "Oral cefalexin for 7–10 days (or co-amoxiclav if the organism is known susceptible); IV if very unwell/vomiting or under 3 months."
+   },
+   {
+    "id": "ph_cpt_paed_29",
+    "front": "Why must aspirin be avoided in children under 16 for analgesia?",
+    "back": "Because of its association with Reye's syndrome."
+   },
+   {
+    "id": "ph_cpt_paed_30",
+    "front": "What is the paracetamol precaution regarding suspension strengths?",
+    "back": "Two strengths exist — 120 mg/5 mL (infant) and 250 mg/5 mL — so prescribe in mg and clearly communicate the exact volume for the strength supplied. IV: 15 mg/kg every 4–6 h, max 60 mg/kg/day."
+   },
+   {
+    "id": "ph_cpt_paed_31",
+    "front": "When should ibuprofen be used cautiously in children?",
+    "back": "When the child is dehydrated, not drinking well, or has significant gastroenteritis — NSAIDs can significantly impair renal function in that setting."
+   },
+   {
+    "id": "ph_cpt_paed_32",
+    "front": "Define an 'off-label' medicine versus an 'unlicensed' medicine.",
+    "back": "Off-label = a licensed medicine used outside its marketing authorisation (age/indication/route). Unlicensed = no UK marketing authorisation (e.g. a 'special' or a drug licensed only abroad)."
+   },
+   {
+    "id": "ph_cpt_paed_33",
+    "front": "Why is off-label/unlicensed prescribing common and accepted in paediatrics?",
+    "back": "Clinical trials often exclude children and licensed, age-appropriate formulations frequently don't exist, so a suitable licensed option may not be available."
+   },
+   {
+    "id": "ph_cpt_paed_34",
+    "front": "What are the prescriber's responsibilities when prescribing an unlicensed medicine (GMC)?",
+    "back": "Use only when no suitable licensed option meets the need; be satisfied there is adequate evidence; take responsibility for prescribing and monitoring; document the rationale; and gain informed consent for uncommon uses."
+   },
+   {
+    "id": "ph_cpt_paed_35",
+    "front": "How should suspected adverse drug reactions in children be reported?",
+    "back": "Via the MHRA Yellow Card scheme — all ADRs, serious and minor, including those with unlicensed/off-label medicines; parents and children can report too."
+   },
+   {
+    "id": "ph_cpt_paed_36",
+    "front": "Give two excipient hazards relevant to paediatric prescribing.",
+    "back": "Aspartame (phenylalanine — avoid in PKU); benzyl alcohol (fatal 'gasping' toxicity in neonates); propylene glycol/high ethanol (CNS effects in neonates and young infants)."
+   },
+   {
+    "id": "ph_cpt_paed_37",
+    "front": "How can adherence be improved in children?",
+    "back": "Shorter courses and fewer doses, avoid school-time administration, choose palatable formulations, treat unacceptable side effects, and involve the child and family in decisions."
+   },
+   {
+    "id": "ph_cpt_paed_38",
+    "front": "Which formulations suit which age groups?",
+    "back": "Small-volume liquids and 'melt' formulations for younger children; tablets/capsules for adolescents; oral route preferred long-term; IV for the seriously ill."
    }
   ]
  }
