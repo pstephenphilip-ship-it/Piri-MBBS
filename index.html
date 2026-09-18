@@ -162,6 +162,14 @@ body{display:flex;flex-direction:column;}
    had not. .fc-caveat stays for genuine asides and traps only. */
 .fc-sub{display:block;margin-top:9px;padding-top:8px;border-top:1px solid rgba(0,194,168,.22);}
 .fc-sub b{color:#0B7D6E;font-weight:700;}
+/* Inline variant. .fc-sub and .fc-caveat are BLOCK devices with a dividing
+   rule, so they only work on a clause that TRAILS the answer; used mid-sentence
+   they split it across the rule and strand the remaining punctuation on its own
+   line. An aside that sits inside a sentence or inside a list item gets this
+   instead: the same muted voice, and the same amber for a trap, without
+   breaking the line. */
+.fc-inline{color:#4B5563;}
+.fc-inline b{color:#B4531A;font-weight:700;}
 .fc-card-hint{font-family:var(--mono);font-size:10px;color:#9CA3AF;margin-top:14px;opacity:0.7;}
 .fc-rating{display:flex;gap:10px;justify-content:center;margin-bottom:20px;}
 .fc-rate-btn{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:7px 18px;border-radius:var(--radius);border:1px solid;cursor:pointer;transition:all 0.15s;}
