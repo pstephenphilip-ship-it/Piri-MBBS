@@ -154,6 +154,14 @@ body{display:flex;flex-direction:column;}
 .fc-caveat{display:block;margin-top:10px;padding-top:9px;
   border-top:1px solid rgba(0,194,168,.3);font-size:13px;color:#4B5563;}
 .fc-caveat b{color:#B4531A;font-weight:700;}
+/* A continuation of the answer, NOT an aside: same size and colour as the body
+   text, divided only so multi-part answers are readable. Used where the
+   question explicitly asks for this part -- "what happens, valve state and
+   pressure logic" is three things, and all three are the answer. Demoting any
+   of them into .fc-caveat would tell the reader they had finished when they
+   had not. .fc-caveat stays for genuine asides and traps only. */
+.fc-sub{display:block;margin-top:9px;padding-top:8px;border-top:1px solid rgba(0,194,168,.22);}
+.fc-sub b{color:#0B7D6E;font-weight:700;}
 .fc-card-hint{font-family:var(--mono);font-size:10px;color:#9CA3AF;margin-top:14px;opacity:0.7;}
 .fc-rating{display:flex;gap:10px;justify-content:center;margin-bottom:20px;}
 .fc-rate-btn{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:7px 18px;border-radius:var(--radius);border:1px solid;cursor:pointer;transition:all 0.15s;}
