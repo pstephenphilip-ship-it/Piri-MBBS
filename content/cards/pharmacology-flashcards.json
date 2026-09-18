@@ -197,7 +197,9 @@
     "9 · Dosing & Drug Calculations",
     "10 · Formulation & Administration",
     "11 · Prescribing in Infection",
-    "12 · High-Risk Oral Medicines"
+    "12 · High-Risk Oral Medicines",
+    "13 · High-Risk Injectable Medicines",
+    "14 · Medication Errors"
    ]
   },
   {
@@ -20431,6 +20433,153 @@
     "back": "State the dose in milligrams (or micrograms written out in full for digoxin), never by the number or colour of tablets alone, and never abbreviate 'micrograms'. Clear, unambiguous documentation reduces dose errors at transitions of care."
    }
   ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__13 · High-Risk Injectable Medicines": [
+   {
+    "id": "ph_cpt_inj_01",
+    "front": "Why are injectable medicines a particular safety concern?",
+    "back": "Injectable medicines accounted for about 62% of incidents leading to death or severe harm in the NPSA 'Safety in Doses' report. Potassium chloride, gentamicin and vancomycin can cause serious harm even when used as intended."
+   },
+   {
+    "id": "ph_cpt_inj_02",
+    "front": "Define hypokalaemia and its severity bands.",
+    "back": "Serum potassium <3.5 mmol/L: mild 3.1–3.5, moderate 2.5–3.0, severe <2.5. Mild/moderate is often asymptomatic; features include cramps, weakness, palpitations and constipation, with arrhythmias in severe cases."
+   },
+   {
+    "id": "ph_cpt_inj_03",
+    "front": "Why must magnesium be checked in hypokalaemia?",
+    "back": "Low magnesium makes hypokalaemia resistant to treatment — the potassium will not correct until the magnesium is replaced. Check and correct magnesium alongside potassium."
+   },
+   {
+    "id": "ph_cpt_inj_04",
+    "front": "How is severe hypokalaemia replaced intravenously?",
+    "back": "Give IV potassium chloride 40 mmol in 1 litre of sodium chloride 0.9% over 4–6 hours, with ECG monitoring and a repeat potassium level after each 40 mmol. Mild/moderate hypokalaemia is usually replaced orally (e.g. Sando-K)."
+   },
+   {
+    "id": "ph_cpt_inj_05",
+    "front": "What is the maximum peripheral concentration and infusion rate for IV potassium chloride?",
+    "back": "Peripherally the concentration should not usually exceed 40 mmol/L (higher risks extravasation and tissue necrosis), and the rate should normally not exceed 10 mmol/hour (up to 20 mmol/hour in emergencies with cardiac monitoring). Faster rates can cause cardiac arrest. Concentrations above 40 mmol/L must be given centrally."
+   },
+   {
+    "id": "ph_cpt_inj_06",
+    "front": "What potassium-related error is an NHS Never Event, and what must never be done?",
+    "back": "Mis-selecting/administering a strong potassium concentrate solution IV is a Never Event. Undiluted potassium chloride must NEVER be given by IV injection — it is likely to cause cardiac arrest and death. Concentrate is restricted to critical-care areas, needs a second check, and FY1/FY2 doctors usually may not prescribe it."
+   },
+   {
+    "id": "ph_cpt_inj_07",
+    "front": "Why avoid glucose solutions for initial IV potassium replacement?",
+    "back": "Glucose stimulates insulin release, which drives potassium into cells and can further lower the serum potassium. Initial parenteral potassium replacement should generally use sodium chloride 0.9% rather than a glucose solution."
+   },
+   {
+    "id": "ph_cpt_inj_08",
+    "front": "What are the causes and danger of hyperkalaemia?",
+    "back": "K⁺ >5.3 mmol/L (>6.5 is an emergency). Causes: renal failure, ACE inhibitors/ARBs, potassium-sparing diuretics, NSAIDs, trimethoprim, potassium supplements, acidosis, rhabdomyolysis, Addison's. It causes ECG changes, ventricular fibrillation and cardiac arrest."
+   },
+   {
+    "id": "ph_cpt_inj_09",
+    "front": "What are the three steps of hyperkalaemia management?",
+    "back": "1) Protect the heart (stabilise the myocardium with IV calcium). 2) Reduce serum potassium by shifting it into cells (insulin–glucose, nebulised salbutamol). 3) Rid the body of excess potassium (stop culprit drugs, potassium binders, dialysis if needed)."
+   },
+   {
+    "id": "ph_cpt_inj_10",
+    "front": "What IV calcium doses protect the heart in hyperkalaemia, and which salt when?",
+    "back": "About 6.8 mmol of calcium — either 10 ml of calcium chloride 10% or 30 ml of calcium gluconate 10% (three vials). Calcium gluconate is used for most patients; calcium chloride is preferred in peri-arrest/resuscitation. It has no effect on the potassium level, works within minutes, lasts under an hour and can be repeated. Give with caution in patients on digoxin."
+   },
+   {
+    "id": "ph_cpt_inj_11",
+    "front": "How does insulin-glucose lower serum potassium, and what is a key monitoring point?",
+    "back": "IV insulin (e.g. 10 units soluble insulin with 25 g glucose / 50 ml of 50% glucose) drives potassium into cells, lowering serum potassium by about 0.5–1.0 mmol/L (onset 15–30 min, lasts 2–3 h). Monitor blood glucose closely to detect delayed hypoglycaemia; omit glucose if the blood glucose is already high."
+   },
+   {
+    "id": "ph_cpt_inj_12",
+    "front": "What is the role of nebulised salbutamol in hyperkalaemia?",
+    "back": "Salbutamol activates beta-receptors to shift potassium into cells (its potassium-lowering effect as an adverse effect), lowering serum potassium by about 0.5–1.0 mmol/L. It is an adjunct, not monotherapy (not effective in everyone), and is used with caution in ischaemic heart disease/arrhythmia."
+   },
+   {
+    "id": "ph_cpt_inj_13",
+    "front": "Which potassium binder is preferred in severe hyperkalaemia, and its dose?",
+    "back": "Sodium zirconium cyclosilicate is preferred (well tolerated), usually 10 g three times a day for up to 72 hours or until potassium normalises. Calcium polystyrene sulfonate (Calcium Resonium) is an alternative but is poorly tolerated (constipation — co-prescribe a laxative; stop when potassium falls to ~5)."
+   },
+   {
+    "id": "ph_cpt_inj_14",
+    "front": "What is gentamicin's spectrum, route and a key contraindication?",
+    "back": "Gentamicin is an aminoglycoside active mainly against Gram-negative (and some Gram-positive) bacteria. It is not absorbed orally, so it is given IV (occasionally IM) for systemic infection. It is contraindicated in myasthenia gravis."
+   },
+   {
+    "id": "ph_cpt_inj_15",
+    "front": "How is once-daily gentamicin dosed, and which weight is used?",
+    "back": "Usually 5 mg/kg/day (range 5–7) as a single IV infusion over at least 60 minutes, rounded to the nearest 40 mg. Dose on actual body weight, but use ideal (or adjusted) body weight if the patient is more than 20% over ideal body weight or has a BMI over 30. Avoid high-dose once-daily if creatinine clearance is below 20 ml/min."
+   },
+   {
+    "id": "ph_cpt_inj_16",
+    "front": "When is a multiple-daily gentamicin regimen used instead of once-daily?",
+    "back": "In endocarditis, ascites, extensive burns (>20% BSA), cystic fibrosis, pregnancy (and sometimes children). Once-daily dosing is otherwise preferred because it optimises peak concentration and reduces toxicity."
+   },
+   {
+    "id": "ph_cpt_inj_17",
+    "front": "How is once-daily gentamicin monitored?",
+    "back": "Check renal function before and during treatment. Take a level 6–14 hours after the start of the infusion and read it off a nomogram (Hartford for 7 mg/kg, Urban–Craig for 5 mg/kg) to set the dosing interval, OR use a pre-dose trough target of <1 mg/L. Repeat about every 3 days (daily if renal function is impaired or after a dose change)."
+   },
+   {
+    "id": "ph_cpt_inj_18",
+    "front": "What peak and trough targets are used for a multiple-daily gentamicin regimen?",
+    "back": "Peak (1 hour post-dose) 5–10 mg/L and trough (pre-dose) <2 mg/L for a standard adult; for endocarditis, peak 3–5 mg/L and trough <1 mg/L. First samples are usually taken after 24–48 hours, then every 3 days (more often with renal impairment)."
+   },
+   {
+    "id": "ph_cpt_inj_19",
+    "front": "What is the signature toxicity of gentamicin, and what do you do if it appears?",
+    "back": "Ototoxicity — tinnitus, hearing loss or balance/vestibular problems, which is often irreversible — along with nephrotoxicity. If ototoxicity is suspected the aminoglycoside should be stopped immediately. There is no antidote; haemodialysis may be used in severe toxicity."
+   },
+   {
+    "id": "ph_cpt_inj_20",
+    "front": "Which drug interactions increase gentamicin (and vancomycin) toxicity?",
+    "back": "Drugs that add to ototoxicity — e.g. furosemide — and drugs that add to nephrotoxicity — e.g. NSAIDs, lithium, ACE inhibitors — should be used with caution when co-prescribed with gentamicin or vancomycin."
+   },
+   {
+    "id": "ph_cpt_inj_21",
+    "front": "What is vancomycin's spectrum, and why is IV ineffective for C. difficile?",
+    "back": "Vancomycin is a glycopeptide active against Gram-positive cocci (including MRSA) when given IV. For Clostridioides difficile it is given ORALLY — it is poorly absorbed, achieving high colonic concentrations where it acts; IV vancomycin does not reach the gut lumen, so it is ineffective for C. difficile."
+   },
+   {
+    "id": "ph_cpt_inj_22",
+    "front": "Why is oral vancomycin for C. difficile not monitored with levels?",
+    "back": "Systemic absorption of oral vancomycin through the gut is negligible, so routine serum vancomycin levels are not needed. (Patients with inflamed intestinal mucosa or pseudomembranous colitis may occasionally need monitoring — follow local policy.)"
+   },
+   {
+    "id": "ph_cpt_inj_23",
+    "front": "How is IV vancomycin dosed and what renal measure is used?",
+    "back": "It is nephrotoxic, so dosing must be tailored to renal function using the creatinine clearance, NOT the eGFR (often a loading dose by actual body weight, then maintenance dose bands by renal function). Half-life is about 5–7 hours; it is usually given twice daily."
+   },
+   {
+    "id": "ph_cpt_inj_24",
+    "front": "How is IV vancomycin monitored?",
+    "back": "Measure a trough (pre-dose) level, usually first before the 3rd–6th dose (36–72 h), targeting about 10–15 mg/L (up to 20 for some indications). Repeat twice weekly if renal function and levels are stable, sooner if renal function is poor or unstable."
+   },
+   {
+    "id": "ph_cpt_inj_25",
+    "front": "What is vancomycin flushing syndrome, and how is it prevented/managed?",
+    "back": "It is a histamine-release reaction (flushing/erythema of the upper body, sometimes hypotension) caused by rapid infusion. Prevent it by infusing over at least 60 minutes (rate not exceeding 10 mg/min for doses over 500 mg). Manage it by stopping/slowing the infusion and giving an antihistamine; have adrenaline available as anaphylaxis can occur."
+   },
+   {
+    "id": "ph_cpt_inj_26",
+    "front": "Besides flushing and nephrotoxicity, what other toxicities can vancomycin cause?",
+    "back": "Blood dyscrasias, fever and chills, nausea and vomiting, and serious skin reactions including Stevens-Johnson syndrome and toxic epidermal necrolysis."
+   },
+   {
+    "id": "ph_cpt_inj_27",
+    "front": "Which medicine's adverse effect (hypokalaemia) is deliberately used to treat hyperkalaemia?",
+    "back": "Salbutamol — it causes hypokalaemia by shifting potassium into cells, and this effect (given by nebuliser) is exploited to help lower serum potassium in hyperkalaemia."
+   },
+   {
+    "id": "ph_cpt_inj_28",
+    "front": "What is the minimum infusion time for IV vancomycin, and why?",
+    "back": "At least 60 minutes (with the rate not exceeding 10 mg/min for doses over 500 mg). Rapid infusion risks vancomycin flushing syndrome, severe reactions and even cardiac arrest."
+   },
+   {
+    "id": "ph_cpt_inj_29",
+    "front": "For a patient with severe hypokalaemia (K⁺ 2.4) needing 40 mmol potassium, what is the correct prescription?",
+    "back": "An IV infusion of sodium chloride 0.9% with potassium chloride 40 mmol in 1 litre given peripherally over 4 hours (ideally a ready-to-use pre-diluted bag). Never give undiluted potassium by injection, and avoid glucose solutions for initial replacement."
+   }
+  ],
   "pharmacology__Key Drug Interactions & Monitoring Summary__Drugs Requiring Therapeutic Drug Monitoring (TDM)": [
    {
     "id": "ph_ks_tdm_01",
@@ -21489,6 +21638,158 @@
     "id": "ph_ur_oab_33",
     "front": "What overall approach should guide overactive bladder management from first presentation to drug choice?",
     "back": "Start with conservative measures (bladder training, caffeine reduction, fluid and lifestyle advice). If drugs are needed, use an antimuscarinic first (choosing a better-tolerated/uroselective agent in the elderly) and review at 4 weeks; use mirabegron when antimuscarinics are contraindicated, ineffective or not tolerated, checking BP."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__14 · Medication Errors": [
+   {
+    "id": "ph_cpt_merr_01",
+    "front": "How is a medication error defined?",
+    "back": "A failure in the treatment process that leads to, or has the potential to lead to, harm to the patient. It is preventable — unlike an unavoidable adverse drug reaction."
+   },
+   {
+    "id": "ph_cpt_merr_02",
+    "front": "Roughly how many medication errors occur each year in England, and what proportion could cause severe harm?",
+    "back": "About 237 million per year. ~72% cause little/no harm, but ~2% (~4.7 million) have the potential to cause severe harm."
+   },
+   {
+    "id": "ph_cpt_merr_03",
+    "front": "At which stage of the medication pathway do most errors, and the largest share of prescribing errors, arise?",
+    "back": "Errors occur at prescribing, dispensing, preparation, administration and monitoring. About 1 in 5 (~21%) occur at the prescribing stage."
+   },
+   {
+    "id": "ph_cpt_merr_04",
+    "front": "Why do errors 'multiply' along the medication pathway?",
+    "back": "Each stage has its own reliability; the chances of an untouched order are the product across stages (e.g. five 90%-reliable steps → only ~59% error-free), so defences must exist at every step."
+   },
+   {
+    "id": "ph_cpt_merr_05",
+    "front": "What is the difference between a 'slip' and a 'lapse'?",
+    "back": "Both are skill-based errors. A slip is the right plan but wrong action (e.g. wrong drop-down drug); a lapse is a memory failure (e.g. forgetting to prescribe a regular medicine)."
+   },
+   {
+    "id": "ph_cpt_merr_06",
+    "front": "What distinguishes a 'mistake' from a 'violation' in human-error theory?",
+    "back": "A mistake is an unintended error in planning — knowledge-based (didn't know) or rule-based (applied a wrong rule). A violation is an intentional deviation from a known safe rule."
+   },
+   {
+    "id": "ph_cpt_merr_07",
+    "front": "Contrast the 'person' and 'systems' approaches to error.",
+    "back": "The person approach blames the individual at the sharp end. The systems approach accepts humans are fallible and builds layered defences so a single slip doesn't reach the patient — it is more effective."
+   },
+   {
+    "id": "ph_cpt_merr_08",
+    "front": "What does Reason's Swiss-cheese model illustrate?",
+    "back": "Each safety barrier (double-check, EPMA alert, pharmacist screen, ward review) has holes; harm occurs only when the holes in successive layers line up. Strengthen the barriers rather than blame individuals."
+   },
+   {
+    "id": "ph_cpt_merr_09",
+    "front": "Give three individual factors that contribute to medication errors.",
+    "back": "Fatigue/sleep deprivation, stress, distraction/multitasking, memory lapses, complacency, inexperience, over-reliance on technology, lack of knowledge."
+   },
+   {
+    "id": "ph_cpt_merr_10",
+    "front": "Give three system factors that contribute to medication errors.",
+    "back": "Staffing levels and skill mix, workload, task complexity, environment (noise/interruptions), poor equipment or packaging design, lack of decision-support access, weak training/supervision, organisational culture."
+   },
+   {
+    "id": "ph_cpt_merr_11",
+    "front": "Name five drugs or classes on the high-risk medicines list for serious harm.",
+    "back": "Anticoagulants, insulin, opioids, methotrexate, concentrated potassium (also high-strength midazolam, antipsychotics, antiseizure medicines, NSAIDs, benzodiazepines, adrenaline, amiodarone)."
+   },
+   {
+    "id": "ph_cpt_merr_12",
+    "front": "Why must liposomal and conventional amphotericin B never be used interchangeably?",
+    "back": "They have very different dose regimens. UK fatal overdoses occurred when conventional amphotericin was given at a dose calculated for the higher-dose liposomal/lipid-complex formulation. Always state the intended formulation in full."
+   },
+   {
+    "id": "ph_cpt_merr_13",
+    "front": "Why does the salt or ester of an injectable drug matter for safety?",
+    "back": "A wrong salt can be lethal (sodium nitrite vs bicarbonate confusion caused neonatal deaths). Depot ester injections (e.g. haloperidol decanoate, methylprednisolone acetate) are long-acting IM preparations and are dangerous if given IV."
+   },
+   {
+    "id": "ph_cpt_merr_14",
+    "front": "Which unit abbreviations are acceptable on a prescription, and which must be written in full?",
+    "back": "Only g and mg may be abbreviated. Micrograms, nanograms and units must be written in full (e.g. 'units', never 'U', to avoid a tenfold insulin overdose)."
+   },
+   {
+    "id": "ph_cpt_merr_15",
+    "front": "How should '5 mg' and '0.5 mg' be written safely, and why?",
+    "back": "Write 5 mg (never 5.0 mg — a trailing zero can read as 50). Write 500 micrograms rather than .5 mg. If a decimal is unavoidable use a leading zero (0.5 mL) so the point isn't missed."
+   },
+   {
+    "id": "ph_cpt_merr_16",
+    "front": "What is an 'independent double-check' and when is it used?",
+    "back": "A second competent person independently verifies a high-risk drug, dose or calculation before administration — used for high-risk medicines (e.g. insulin, IV potassium, chemotherapy)."
+   },
+   {
+    "id": "ph_cpt_merr_17",
+    "front": "Give an example of a look-alike/sound-alike drug pair that causes errors.",
+    "back": "Azithromycin vs azathioprine; ephedrine vs epinephrine; also modified-release products of the same drug — check the name twice."
+   },
+   {
+    "id": "ph_cpt_merr_18",
+    "front": "What are the five prescribing-error categories used to screen a chart?",
+    "back": "Contraindication, incorrect dose, incorrect frequency, incorrect route, and interaction (plus watching for monitoring failures)."
+   },
+   {
+    "id": "ph_cpt_merr_19",
+    "front": "A patient with recurrent peptic ulcer is prescribed ibuprofen — which prescribing-error type is this?",
+    "back": "Contraindication — NSAIDs are contraindicated in recurrent GI ulceration."
+   },
+   {
+    "id": "ph_cpt_merr_20",
+    "front": "Methotrexate is written 'once daily' on a discharge summary for rheumatoid arthritis — what error, and what harm?",
+    "back": "Incorrect frequency — methotrexate for RA is once WEEKLY. Daily dosing causes methotrexate toxicity with bone-marrow suppression/pancytopenia."
+   },
+   {
+    "id": "ph_cpt_merr_21",
+    "front": "Enoxaparin is prescribed intramuscularly — what error type, and the correct route?",
+    "back": "Incorrect route — low-molecular-weight heparins are given subcutaneously."
+   },
+   {
+    "id": "ph_cpt_merr_22",
+    "front": "Why can co-prescribing clarithromycin with atorvastatin be an error?",
+    "back": "Interaction — clarithromycin increases atorvastatin exposure, raising rhabdomyolysis risk; pause the statin during the course or cap the dose per guidance."
+   },
+   {
+    "id": "ph_cpt_merr_23",
+    "front": "What is the first priority when you discover a medication error?",
+    "back": "Prompt, appropriate clinical treatment to prevent further harm to the patient (with senior support), before anything else."
+   },
+   {
+    "id": "ph_cpt_merr_24",
+    "front": "Under the duty of candour, is apologising to a patient an admission of liability?",
+    "back": "No. Saying sorry is not an admission of liability — being open, giving the known facts, documenting, and apologising is a statutory requirement (Duty of Candour)."
+   },
+   {
+    "id": "ph_cpt_merr_25",
+    "front": "Should medication errors that caused no harm still be reported?",
+    "back": "Yes — every error should be reported locally even when no harm occurred, so the organisation can learn and improve its systems. Reports feed the LFPSE service."
+   },
+   {
+    "id": "ph_cpt_merr_26",
+    "front": "What is the LFPSE service and who can report to it?",
+    "back": "The Learn from Patient Safety Events service — the national system errors are reported to (via organisations' compliant systems or directly). All healthcare professionals have a duty to report; even the public can submit reports."
+   },
+   {
+    "id": "ph_cpt_merr_27",
+    "front": "What are National Patient Safety Alerts and how are they issued?",
+    "back": "Formal communications requiring specific mandatory actions to reduce risks of death or disability, disseminated via the joint NHS/MHRA Central Alerting System (CAS). Each lists required actions all organisations must complete."
+   },
+   {
+    "id": "ph_cpt_merr_28",
+    "front": "What is a medicines-related 'Never Event'? Give two examples.",
+    "back": "A wholly preventable event with strong national safeguards. Examples: IV chemotherapy given intrathecally; oral/enteral medicine given parenterally; insulin overdose from abbreviation/wrong device; mis-selection of strong potassium or high-strength midazolam."
+   },
+   {
+    "id": "ph_cpt_merr_29",
+    "front": "Roughly how much can electronic prescribing (EPMA) reduce medication errors, and how?",
+    "back": "By more than 50% — through legible complete orders, decision support, and real-time allergy/interaction/contraindication alerts that can block unsafe orders."
+   },
+   {
+    "id": "ph_cpt_merr_30",
+    "front": "Name two new error types introduced by EPMA systems.",
+    "back": "Alert fatigue (important warnings overridden), selection errors from drop-downs, over-reliance on default doses, and workarounds/poor integration giving incomplete records."
    }
   ]
  }
