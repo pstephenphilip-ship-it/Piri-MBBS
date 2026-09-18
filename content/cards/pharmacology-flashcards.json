@@ -199,7 +199,8 @@
     "11 · Prescribing in Infection",
     "12 · High-Risk Oral Medicines",
     "13 · High-Risk Injectable Medicines",
-    "14 · Medication Errors"
+    "14 · Medication Errors",
+    "15 · Drug Interactions"
    ]
   },
   {
@@ -21790,6 +21791,158 @@
     "id": "ph_cpt_merr_30",
     "front": "Name two new error types introduced by EPMA systems.",
     "back": "Alert fatigue (important warnings overridden), selection errors from drop-downs, over-reliance on default doses, and workarounds/poor integration giving incomplete records."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__15 · Drug Interactions": [
+   {
+    "id": "ph_cpt_dint_01",
+    "front": "What defines a drug–drug interaction (DDI)?",
+    "back": "When the effect of one drug is changed by the presence of another (or by food, herbal remedies or smoking), leading to reduced efficacy or an enhanced effect and toxicity."
+   },
+   {
+    "id": "ph_cpt_dint_02",
+    "front": "What are the two main mechanistic classes of drug interaction?",
+    "back": "Pharmacokinetic (one drug alters the ADME — absorption, distribution, metabolism, excretion — and hence the concentration of another) and pharmacodynamic (drugs amplify or oppose each other's effect at the receptor/tissue/organ)."
+   },
+   {
+    "id": "ph_cpt_dint_03",
+    "front": "In a pharmacodynamic interaction, what happens to drug levels?",
+    "back": "They may be unchanged/normal — the interaction is at the level of effect (additive/synergistic or antagonistic), not concentration."
+   },
+   {
+    "id": "ph_cpt_dint_04",
+    "front": "Give the direction of effect for a CYP enzyme INHIBITOR.",
+    "back": "It reduces metabolism → the substrate drug accumulates → increased/toxic effect. Inhibition acts quickly (within hours)."
+   },
+   {
+    "id": "ph_cpt_dint_05",
+    "front": "Give the direction of effect and time-course for a CYP enzyme INDUCER.",
+    "back": "It increases metabolism → the substrate is cleared faster → sub-therapeutic levels/treatment failure. Induction is slow (maximal at 2–3 weeks) and reverses within days of stopping."
+   },
+   {
+    "id": "ph_cpt_dint_06",
+    "front": "Name five common enzyme inhibitors.",
+    "back": "Azole antifungals (fluconazole), macrolides (erythromycin, clarithromycin), ciprofloxacin, isoniazid, diltiazem/verapamil, omeprazole, some SSRIs, grapefruit juice, acute alcohol."
+   },
+   {
+    "id": "ph_cpt_dint_07",
+    "front": "Name five common enzyme inducers.",
+    "back": "Rifampicin (most potent), carbamazepine, phenytoin, phenobarbital, St John's Wort, chronic alcohol, corticosteroids, cigarette smoke."
+   },
+   {
+    "id": "ph_cpt_dint_08",
+    "front": "Why can stopping smoking cause clozapine or olanzapine toxicity?",
+    "back": "Cigarette smoke (polycyclic aromatic hydrocarbons) induces CYP1A2, which metabolises these drugs. Stopping smoking reduces CYP1A2 activity within days, so a stable dose accumulates to toxic levels. Nicotine is not the cause."
+   },
+   {
+    "id": "ph_cpt_dint_09",
+    "front": "Which CYP metabolises about half of all drugs and is the main interaction hub?",
+    "back": "CYP3A4."
+   },
+   {
+    "id": "ph_cpt_dint_10",
+    "front": "Which CYP is non-inducible, and name two of its substrate classes.",
+    "back": "CYP2D6 — substrates include tricyclic antidepressants, SSRIs, opioids (e.g. codeine) and beta-blockers."
+   },
+   {
+    "id": "ph_cpt_dint_11",
+    "front": "Warfarin is a substrate of which CYP, and what happens if it is inhibited?",
+    "back": "CYP2C9. Inhibition (e.g. by miconazole, fluconazole, clarithromycin) raises warfarin levels → increased INR and bleeding risk."
+   },
+   {
+    "id": "ph_cpt_dint_12",
+    "front": "Why can omeprazole reduce the effectiveness of clopidogrel?",
+    "back": "Clopidogrel is a pro-drug activated by CYP2C19; omeprazole inhibits CYP2C19, reducing its activation and antiplatelet effect."
+   },
+   {
+    "id": "ph_cpt_dint_13",
+    "front": "How does chronic alcohol increase paracetamol hepatotoxicity?",
+    "back": "It induces CYP2E1, increasing production of the toxic paracetamol metabolite (NAPQI) → greater risk of liver damage."
+   },
+   {
+    "id": "ph_cpt_dint_14",
+    "front": "How can grapefruit juice cause statin toxicity?",
+    "back": "It inhibits intestinal/hepatic CYP3A4, raising plasma levels of CYP3A4-metabolised statins (simvastatin, atorvastatin) → myopathy/rhabdomyolysis risk."
+   },
+   {
+    "id": "ph_cpt_dint_15",
+    "front": "What is protein-binding displacement and its effect?",
+    "back": "A highly protein-bound drug displaces another from albumin, raising the free (active) fraction and increasing its pharmacological effect — clinically relevant for narrow-index, highly-bound drugs and in low-albumin states."
+   },
+   {
+    "id": "ph_cpt_dint_16",
+    "front": "How does P-glycoprotein cause the digoxin–verapamil/amiodarone interaction?",
+    "back": "P-glycoprotein normally effluxes digoxin back into the gut. Verapamil and amiodarone inhibit P-glycoprotein → increased digoxin absorption/levels → toxicity."
+   },
+   {
+    "id": "ph_cpt_dint_17",
+    "front": "Which drugs reduce lithium's renal clearance and risk toxicity?",
+    "back": "ACE inhibitors, ARBs, NSAIDs and thiazide diuretics — a pharmacokinetic (excretion) interaction."
+   },
+   {
+    "id": "ph_cpt_dint_18",
+    "front": "How do dairy products and antacids reduce ciprofloxacin/tetracycline absorption?",
+    "back": "By chelation — divalent cations (calcium, magnesium; also iron, zinc) bind the drug in the gut. Separate administration by at least 2 hours."
+   },
+   {
+    "id": "ph_cpt_dint_19",
+    "front": "Why is co-administering a nitrate with sildenafil dangerous?",
+    "back": "Both raise cyclic GMP (sildenafil inhibits PDE5; nitrates stimulate guanylyl cyclase) → profound vasodilation and severe hypotension/MI — a pharmacodynamic interaction."
+   },
+   {
+    "id": "ph_cpt_dint_20",
+    "front": "Why do SSRIs increase bleeding risk with anticoagulants or NSAIDs?",
+    "back": "SSRIs impair platelet function; the effect is additive (pharmacodynamic) with anticoagulants (warfarin, DOACs, LMWH) and NSAIDs."
+   },
+   {
+    "id": "ph_cpt_dint_21",
+    "front": "Which combinations risk hyperkalaemia?",
+    "back": "ACE inhibitors/ARBs plus potassium-sparing diuretics (spironolactone, amiloride) or potassium salt-substitutes (e.g. Lo-Salt) — a pharmacodynamic interaction."
+   },
+   {
+    "id": "ph_cpt_dint_22",
+    "front": "Which antibiotic reduces the effectiveness of the combined oral contraceptive, and which do not?",
+    "back": "Rifampicin (an enzyme inducer) reduces its effectiveness. Non-enzyme-inducing antibiotics (amoxicillin, cefalexin, erythromycin, metronidazole) do NOT require extra precautions unless vomiting/diarrhoea occurs."
+   },
+   {
+    "id": "ph_cpt_dint_23",
+    "front": "How long after finishing metronidazole should alcohol be avoided, and why?",
+    "back": "At least 48 hours — alcohol causes a disulfiram-like reaction (flushing, headache, nausea, vomiting)."
+   },
+   {
+    "id": "ph_cpt_dint_24",
+    "front": "What causes a hypertensive crisis with MAOIs and tyramine-rich foods?",
+    "back": "MAOIs inhibit gut metabolism of tyramine; it enters the circulation and displaces noradrenaline → hypertensive crisis. Avoid aged cheese, salami, yeast extract."
+   },
+   {
+    "id": "ph_cpt_dint_25",
+    "front": "Name three important interactions of St John's Wort.",
+    "back": "Potent CYP3A4/P-glycoprotein inducer → reduced ciclosporin (transplant rejection), reduced contraceptive cover, reduced INR on warfarin; also serotonergic → serotonin syndrome risk with SSRIs/MAOIs."
+   },
+   {
+    "id": "ph_cpt_dint_26",
+    "front": "Give two examples of deliberately beneficial drug interactions.",
+    "back": "Methotrexate + folic acid (reduces toxicity); imipenem + cilastatin (cilastatin blocks renal breakdown of imipenem); warfarin + vitamin K reversal; disulfiram + alcohol deterrent."
+   },
+   {
+    "id": "ph_cpt_dint_27",
+    "front": "Which patient groups are at highest risk of harmful drug interactions?",
+    "back": "Older people, those on polypharmacy, patients with hepatic or renal impairment, and anyone on narrow-therapeutic-index drugs (warfarin, digoxin, lithium, phenytoin, theophylline, ciclosporin)."
+   },
+   {
+    "id": "ph_cpt_dint_28",
+    "front": "Where can you check for drug interactions in UK practice?",
+    "back": "The BNF/BNFC interactions checker (graded severe/moderate/mild), the Summary of Product Characteristics via the eMC, and Stockley's Drug Interactions for complex queries."
+   },
+   {
+    "id": "ph_cpt_dint_29",
+    "front": "How and when should a suspected drug interaction be reported?",
+    "back": "Via the MHRA Yellow Card scheme — especially serious/disabling reactions, any interaction with a black-triangle (new) drug or herbal product, and novel interactions. Case reports are often the first signal."
+   },
+   {
+    "id": "ph_cpt_dint_30",
+    "front": "Why is the evidence base for drug interactions often limited?",
+    "back": "Clinical trials are underpowered for subset interactions and exclude patients on interacting drugs or with comorbidities; pre-marketing PK studies use small numbers of young healthy volunteers, so the first signal is often case reports/Yellow Cards."
    }
   ]
  }
