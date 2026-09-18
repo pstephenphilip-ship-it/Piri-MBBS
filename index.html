@@ -8973,6 +8973,134 @@ window.MOCK_BANK = {
         "Cardiac output = HEART RATE × STROKE VOLUME. Stroke volume is the volume ejected per beat (end-diastolic minus end-systolic volume).",
         "At rest this is roughly 70 bpm × 70 mL ≈ 5 L/min – about the whole blood volume each minute."
       ] }
+],
+"conditions__CARDIOVASCULAR__Hypertension": [
+    { id:"htn-001", type:"mcq", objective:"htn-confirm-abpm",
+      data:"<div class=\"mk-obs-h\">Clinic assessment</div><div class=\"mk-obs-grid\"><span>Clinic BP (reading 1) <b>158/97 mmHg</b></span><span>Clinic BP (reading 2) <b>156/96 mmHg</b></span><span>Heart rate <b>74 bpm, regular</b></span><span>BMI <b>27 kg/m&sup2;</b></span><span>Fundoscopy / end-organ damage <b>Normal / none</b></span></div>",
+      question:"A 54-year-old accountant attends a new-patient health check with no symptoms. He takes no regular medication, has no personal or family history of cardiovascular disease, drinks 12 units of alcohol a week and does not smoke. Cardiovascular and fundoscopic examination is normal. What is the most appropriate next step?",
+      options:[
+        "Arrange ambulatory blood pressure monitoring (ABPM) to confirm the diagnosis",
+        "This is stage 1 hypertension, give lifestyle advice",
+        "Diagnose and start an ACE inhibitor",
+        "Repeat the clinic blood pressure in 4 weeks",
+        "Reassure him that a single high reading is unimportant"],
+      correctIndex:0,
+      explanation:[
+        "A clinic blood pressure of 140/90–180/120 mmHg must be CONFIRMED with ambulatory (ABPM) or home (HBPM) monitoring before hypertension is diagnosed – this excludes the white-coat effect and lets you treat to the lower ambulatory threshold.",
+        "You cannot stage or diagnose (let alone treat) from clinic readings alone, so ‘stage 1 – lifestyle advice’ and ‘diagnose and start an ACE inhibitor’ are both premature; a repeat clinic reading is not the NICE-preferred confirmation (ABPM is); and dismissing a reproducibly raised reading risks missing genuine hypertension."
+      ] },
+    { id:"htn-002", type:"mcq", objective:"htn-white-coat",
+      data:"<div class=\"mk-obs-h\">Blood pressure assessment</div><div class=\"mk-obs-grid\"><span>Clinic BP <b>158/94 mmHg</b></span><span>ABPM daytime average (16 readings) <b>128/80 mmHg</b></span><span>ABPM 24-hour average <b>121/73 mmHg</b></span><span>Urine ACR / ECG <b>Normal / normal</b></span><span>QRISK3 <b>6%</b></span></div>",
+      question:"A 49-year-old teacher is referred after several raised readings taken at work and at the pharmacy. She feels well, has no chest pain or breathlessness, takes no medication, and finds clinical settings stressful. Ambulatory monitoring is arranged, with the results shown. What is the most appropriate management?",
+      options:[
+        "Start an ACE inhibitor",
+        "Start a calcium-channel blocker",
+        "Lifestyle advice and reassurance only",
+        "Start a thiazide-like diuretic",
+        "Diagnose stage 2 hypertension and start two drugs"],
+      correctIndex:2,
+      explanation:[
+        "Her ambulatory averages are normal (daytime below 135/85, here 128/80) despite raised clinic readings – this is the WHITE-COAT EFFECT, not hypertension. With no target organ damage and a low QRISK3 she needs lifestyle advice and periodic review, not drugs.",
+        "Starting any antihypertensive – or diagnosing stage 2 – would over-treat a normotensive patient and risk symptomatic hypotension; ABPM exists precisely to prevent this."
+      ] },
+    { id:"htn-003", type:"mcq", objective:"htn-staging",
+      data:"<div class=\"mk-obs-h\">Blood pressure</div><div class=\"mk-obs-grid\"><span>Clinic BP <b>166/102 mmHg</b></span><span>ABPM daytime average <b>152/96 mmHg</b></span></div>",
+      question:"A 60-year-old man with a 20-pack-year smoking history is found to be hypertensive at a routine review. He is asymptomatic. His diagnosis is confirmed on ambulatory monitoring, with the results shown. How is his hypertension best classified?",
+      options:[
+        "Stage 1 hypertension",
+        "Stage 2 hypertension",
+        "Stage 3 (severe) hypertension",
+        "White-coat hypertension",
+        "High-normal blood pressure"],
+      correctIndex:1,
+      explanation:[
+        "Diagnosis and staging are made off the AMBULATORY threshold: a daytime ABPM average of 150/95 mmHg or more (equivalent to a clinic reading of 160/100 or more) is STAGE 2, so treatment is offered regardless of QRISK or target organ damage.",
+        "Stage 1 is ABPM 135/85 or more (clinic 140/90 or more); stage 3/severe is a clinic reading of 180 systolic or 120 diastolic or more; his reproducibly high averages make this neither white-coat nor ‘high-normal’."
+      ] },
+    { id:"htn-004", type:"mcq", objective:"htn-stage1-treat-threshold",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>ABPM daytime average <b>138/86 mmHg</b></span><span>QRISK3 (10-year CV risk) <b>8%</b></span><span>Urine ACR <b>1.2 mg/mmol (normal)</b></span><span>eGFR <b>88 mL/min/1.73m&sup2;</b></span><span>HbA1c <b>38 mmol/mol</b></span><span>ECG <b>No LVH</b></span></div>",
+      question:"A 64-year-old woman is diagnosed with hypertension after a raised clinic reading is confirmed on ambulatory monitoring. She feels well, takes no medication, and has no cardiovascular or renal disease and no diabetes. Her results are shown. What is the most appropriate management?",
+      options:[
+        "Start an ACE inhibitor",
+        "Start a calcium-channel blocker",
+        "Start a thiazide-like diuretic",
+        "Lifestyle measures with review only",
+        "Start two agents together"],
+      correctIndex:3,
+      explanation:[
+        "In stage 1 hypertension in a patient UNDER 80, drug treatment is offered only if there is target organ damage, established cardiovascular or renal disease, diabetes, or a QRISK3 of 10% or more. She has none of these (QRISK3 8%, normal ACR, ECG and eGFR), so the answer is lifestyle measures with review.",
+        "Starting any drug – or two – is not indicated at this threshold on this risk profile; her normal bedside and blood tests confirm there is no target organ damage that would change the decision."
+      ] },
+    { id:"htn-005", type:"mcq", objective:"htn-stage2-treat-regardless",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Clinic BP <b>164/100 mmHg</b></span><span>ABPM daytime average <b>152/96 mmHg</b></span><span>Urine ACR / ECG / eGFR <b>Normal / normal / 90</b></span><span>QRISK3 <b>7%</b></span></div>",
+      question:"A 47-year-old white British man is diagnosed with hypertension. He is asymptomatic, is not diabetic, and has no target organ damage. His results are shown. What is the most appropriate management?",
+      options:[
+        "Lifestyle advice only, as his QRISK3 is below 10%",
+        "Start an ACE inhibitor",
+        "Recheck ABPM in 12 months before deciding",
+        "Start a calcium-channel blocker",
+        "Reassure him, as he has no target organ damage"],
+      correctIndex:1,
+      explanation:[
+        "STAGE 2 hypertension (ABPM 150/95 or more, here 152/96) is treated regardless of age, QRISK3 or target organ damage, so treatment is offered now; being under 55 and not of Black African or African-Caribbean family origin, the first-line drug is an ACE inhibitor.",
+        "‘Lifestyle only because QRISK is below 10%’ is the trap – that reasoning applies to STAGE 1, not stage 2; deferring for 12 months or reassuring him both under-treat confirmed stage 2 disease, and a calcium-channel blocker is the wrong first-line class for his age and ethnicity."
+      ] },
+    { id:"htn-006", type:"mcq", objective:"htn-over80-threshold",
+      data:"<div class=\"mk-obs-h\">Blood pressure</div><div class=\"mk-obs-grid\"><span>Clinic BP <b>148/88 mmHg</b></span><span>ABPM daytime average <b>142/84 mmHg</b></span></div>",
+      question:"An 84-year-old man, independent and active, is reviewed after a raised reading at a flu-clinic appointment. He has mild knee osteoarthritis, has had no falls, and takes only occasional paracetamol. His diagnosis is confirmed on ambulatory monitoring, with the results shown. What is the most appropriate management?",
+      options:[
+        "Start an ACE inhibitor targeting below 140/90",
+        "Start a calcium-channel blocker",
+        "Start two agents together",
+        "Refer for ambulatory review in 7 days",
+        "Lifestyle advice without starting an antihypertensive drug"],
+      correctIndex:4,
+      explanation:[
+        "In people aged 80 and over, antihypertensive treatment is started only when the clinic blood pressure is above 150/90 mmHg (ABPM or HBPM above 145/85). His confirmed readings (148/88 clinic, 142/84 ABPM) sit BELOW that threshold, so lifestyle advice and review are appropriate.",
+        "Aggressive lowering in the very elderly risks falls, syncope and hypoperfusion – even if treated, his clinic target would only be below 150/90 – so starting one or two drugs, or an urgent ambulatory re-review, is unnecessary."
+      ] },
+    { id:"htn-007", type:"categorize", objective:"htn-severe-branches",
+      question:"Each of these patients has a clinic blood pressure of 180/120 mmHg or higher. Sort each by the correct immediate action.",
+      buckets:["Same-day specialist referral","Start treatment now (no wait for ABPM)","Repeat clinic BP / ABPM within 7 days"],
+      items:[
+        { text:"190/124 mmHg with new confusion, headache and papilloedema", bucket:0 },
+        { text:"186/122 mmHg with central chest pain and ischaemic ECG changes", bucket:0 },
+        { text:"184/121 mmHg with left ventricular hypertrophy on the ECG, otherwise asymptomatic", bucket:1 },
+        { text:"188/120 mmHg with a raised urine ACR, otherwise asymptomatic", bucket:1 },
+        { text:"182/120 mmHg, asymptomatic, with normal fundoscopy, ECG and urine", bucket:2 },
+        { text:"184/122 mmHg found at a routine check, with no target organ damage", bucket:2 }],
+      explanation:[
+        "A clinic blood pressure of 180/120 or more has three branches. SAME-DAY referral is for retinal haemorrhage or papilloedema (accelerated hypertension) or life-threatening features (new confusion, chest pain, heart failure, AKI) – the hypertensive emergency pathway. START TREATMENT NOW, without waiting for ABPM, when there is other target organ damage such as LVH or albuminuria – the one time the ‘always confirm first’ rule is waived.",
+        "With NO target organ damage and no emergency features it is not an emergency: repeat the clinic blood pressure (or arrange ABPM) within 7 days and do NOT lower the pressure rapidly – oral treatment and prompt review, not IV therapy."
+      ] },
+    { id:"htn-008", type:"mcq", objective:"htn-inter-arm",
+      data:"<div class=\"mk-obs-h\">Both-arm measurement</div><div class=\"mk-obs-grid\"><span>Right arm <b>150/92 mmHg</b></span><span>Left arm <b>132/80 mmHg</b></span><span>Inter-arm difference <b>18 mmHg</b></span></div>",
+      question:"A 58-year-old man attends for a hypertension review. The practice nurse, following protocol, measures the blood pressure in both arms before recording the result, as shown. Which is the correct approach to his subsequent blood-pressure measurement?",
+      options:[
+        "Use the right (higher-reading) arm from now on",
+        "Use the left (lower-reading) arm from now on",
+        "Average both arms at every visit",
+        "Alternate arms between visits",
+        "Repeat only if symptoms develop"],
+      correctIndex:0,
+      explanation:[
+        "An inter-arm difference greater than 15 mmHg is significant; subsequent measurements should be taken from the arm with the HIGHER reading (here the right), which is used for diagnosis and monitoring.",
+        "Averaging, alternating, or switching to the lower arm would under-record the true pressure; a persistent large inter-arm difference is itself a marker of vascular (for example, subclavian) disease and warrants further assessment."
+      ] },
+    { id:"htn-009", type:"mcq", objective:"htn-qrisk-statin",
+      data:"<div class=\"mk-obs-h\">Cardiovascular risk</div><div class=\"mk-obs-grid\"><span>QRISK3 (10-year CV risk) <b>16%</b></span><span>Total cholesterol <b>5.2 mmol/L</b></span><span>HDL <b>1.1 mmol/L</b></span></div>",
+      question:"A 56-year-old man with newly diagnosed hypertension has no history of cardiovascular disease and is not diabetic. He is started on lifestyle measures, and his cardiovascular risk is assessed, with the results shown. Alongside blood-pressure management, what is the most appropriate additional treatment?",
+      options:[
+        "Atorvastatin 80 mg once daily",
+        "No statin, as he has no established cardiovascular disease",
+        "Atorvastatin 20 mg once daily",
+        "A statin only if cholesterol targets are not met on diet",
+        "Aspirin 75 mg once daily"],
+      correctIndex:2,
+      explanation:[
+        "A QRISK3 of 10% or more is the threshold for PRIMARY prevention: offer ATORVASTATIN 20 mg once daily, irrespective of the baseline cholesterol.",
+        "Atorvastatin 80 mg is for SECONDARY prevention (established cardiovascular disease), which he does not have; withholding a statin, or waiting on cholesterol targets, ignores the QRISK-based indication; and aspirin is not used for primary prevention."
+      ] }
 ]
 };
 </script>
