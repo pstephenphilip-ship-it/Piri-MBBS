@@ -203,7 +203,10 @@
     "15 · Drug Interactions",
     "16 · Paediatric Prescribing",
     "17 · Prescribing in Older People",
-    "18 · Perioperative Prescribing"
+    "18 · Perioperative Prescribing",
+    "19 · Intravenous Fluids",
+    "20 · Drugs of Misuse",
+    "21 · Monitoring Medicines"
    ]
   },
   {
@@ -22472,6 +22475,607 @@
     "id": "ph_cpt_periop_32",
     "front": "What is the key learning from the apixaban 'cautionary tale'?",
     "back": "Anticoagulation was withheld for 10 days and not restarted after the procedure, leading to a fatal stroke — always document the exact stop/restart plan (number of doses) and review it regularly."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__19 · Intravenous Fluids": [
+   {
+    "id": "ph_cpt_fluids_01",
+    "front": "What proportion of body weight is total body water, and how is it split between compartments?",
+    "back": "About 60% in men (55% in women). Two-thirds is intracellular (ICF, ~40% of body weight) and one-third extracellular (ECF, ~20%); the ECF is ~75% interstitial and ~25% intravascular (plasma)."
+   },
+   {
+    "id": "ph_cpt_fluids_02",
+    "front": "How do you make a rough estimate of total body water?",
+    "back": "Body weight × 0.6 in men, × 0.5 in women (e.g. a 70 kg man ≈ 42 L). It is only approximate and inaccurate at extremes of age or in obesity."
+   },
+   {
+    "id": "ph_cpt_fluids_03",
+    "front": "Which electrolyte is the main determinant of water distribution across cell membranes, and what maintains the gradient?",
+    "back": "Extracellular sodium. The Na+/K+-ATPase keeps potassium high inside cells and sodium high outside; water follows osmotically."
+   },
+   {
+    "id": "ph_cpt_fluids_04",
+    "front": "What two Starling forces govern fluid movement across the capillary wall?",
+    "back": "Hydrostatic pressure pushes fluid out into the interstitium; oncotic (colloid osmotic) pressure — mainly from plasma albumin — pulls it back in. Imbalance (low albumin, high hydrostatic pressure) causes oedema."
+   },
+   {
+    "id": "ph_cpt_fluids_05",
+    "front": "What is the normal urine output, and the minimum target during fluid replacement?",
+    "back": "About 1 mL/kg/hour normally (~1.5–2 L/day); aim for a minimum of 0.5 mL/kg/hour in fluid replacement."
+   },
+   {
+    "id": "ph_cpt_fluids_06",
+    "front": "How large are insensible losses and what increases them?",
+    "back": "About 500–800 mL/day (skin and breathing); increased by fever, tachypnoea, sweating and open-cavity surgery."
+   },
+   {
+    "id": "ph_cpt_fluids_07",
+    "front": "What acid–base and electrolyte disturbance results from excessive vomiting or NG loss?",
+    "back": "Loss of H+, Cl- and K+ → a hypochloraemic, hypokalaemic metabolic alkalosis; correct with potassium and chloride replacement."
+   },
+   {
+    "id": "ph_cpt_fluids_08",
+    "front": "Which electrolyte is predominantly lost in a profusely sweating, febrile patient?",
+    "back": "Sodium — sweat has a higher sodium concentration than any other electrolyte."
+   },
+   {
+    "id": "ph_cpt_fluids_09",
+    "front": "How do you calculate a patient's fluid deficit?",
+    "back": "Deficit = total fluid losses − total fluid gains (over the period), remembering to add doubled insensible losses if febrile/tachypnoeic. Replace this in addition to maintenance fluids."
+   },
+   {
+    "id": "ph_cpt_fluids_10",
+    "front": "What is the difference between crystalloids and colloids?",
+    "back": "Crystalloids are solutions of mineral salts (small, freely cross the capillary membrane); colloids contain large molecules that stay intravascular and raise oncotic pressure."
+   },
+   {
+    "id": "ph_cpt_fluids_11",
+    "front": "Why are colloids rarely used in the NHS now?",
+    "back": "They are associated with allergic reactions, coagulopathy, kidney failure and deaths. Human albumin solution 4–5% is reserved for resuscitation in severe sepsis."
+   },
+   {
+    "id": "ph_cpt_fluids_12",
+    "front": "Define isotonic, hypertonic and hypotonic fluids with an example of each.",
+    "back": "Isotonic = same osmolarity as plasma, stays in ECF (0.9% saline, Hartmann's — used for resus/maintenance). Hypertonic = draws water out of cells (3% saline, mannitol). Hypotonic = drives water into cells (0.45% saline)."
+   },
+   {
+    "id": "ph_cpt_fluids_13",
+    "front": "How does 1 litre of 0.9% sodium chloride distribute?",
+    "back": "It stays in the ECF and splits 25% intravascular (~250 mL) and 75% interstitial (~750 mL)."
+   },
+   {
+    "id": "ph_cpt_fluids_14",
+    "front": "How does 1 litre of 5% glucose distribute, and why is it poor for resuscitation?",
+    "back": "The glucose is metabolised leaving free water that spreads across all body water (two-thirds intracellular, one-third extracellular); only about 80 mL stays intravascular — so it barely expands the circulation."
+   },
+   {
+    "id": "ph_cpt_fluids_15",
+    "front": "How much of 1 litre of colloid stays in the intravascular compartment?",
+    "back": "Essentially all of it — 1 L of colloid raises plasma volume by about 1000 mL."
+   },
+   {
+    "id": "ph_cpt_fluids_16",
+    "front": "Why can major haemorrhage not be resuscitated with crystalloid alone?",
+    "back": "Only ~25% stays intravascular, so ~6 L of saline would be needed to replace 1.5 L of blood, dangerously diluting the remaining blood. Stop the bleeding and give blood products."
+   },
+   {
+    "id": "ph_cpt_fluids_17",
+    "front": "What are the 5 Rs of IV fluid prescribing (NICE CG174)?",
+    "back": "Resuscitation, Routine maintenance, Replacement, Redistribution, and Reassessment."
+   },
+   {
+    "id": "ph_cpt_fluids_18",
+    "front": "What is the recommended fluid resuscitation regimen for an adult?",
+    "back": "A 500 mL bolus of an isotonic crystalloid containing sodium 130–154 mmol/L (e.g. 0.9% saline, Hartmann's) over less than 15 minutes, reassessing after each bolus; refractory hypotension needs critical care."
+   },
+   {
+    "id": "ph_cpt_fluids_19",
+    "front": "Which types of shock respond poorly to fluid resuscitation?",
+    "back": "Cardiogenic (MI, heart failure) and obstructive (massive PE, cardiac tamponade) shock — treat the underlying cause (e.g. thrombolysis, pericardiocentesis) rather than giving large volumes."
+   },
+   {
+    "id": "ph_cpt_fluids_20",
+    "front": "Name the four categories of shock with a cause of each.",
+    "back": "Distributive (sepsis, anaphylaxis, neurogenic); hypovolaemic (haemorrhage, burns); cardiogenic (MI, heart failure); obstructive (PE, tamponade)."
+   },
+   {
+    "id": "ph_cpt_fluids_21",
+    "front": "What are the NICE daily maintenance fluid requirements for an adult?",
+    "back": "Water 25–30 mL/kg/day (20–25 if frail/older/heart or renal failure); sodium, potassium and chloride ~1 mmol/kg/day each; and glucose 50–100 g/day to limit starvation ketosis."
+   },
+   {
+    "id": "ph_cpt_fluids_22",
+    "front": "For a 72 kg nil-by-mouth adult, what are the approximate 24-hour maintenance requirements?",
+    "back": "About 1800–2160 mL water, 72 mmol each of sodium, potassium and chloride, and 50–100 g glucose. Divide the total volume by 24 for the hourly rate."
+   },
+   {
+    "id": "ph_cpt_fluids_23",
+    "front": "Why is glucose included in maintenance fluids?",
+    "back": "To provide 50–100 g/day to limit starvation ketosis — it is not for nutrition."
+   },
+   {
+    "id": "ph_cpt_fluids_24",
+    "front": "Which body weight is used to calculate maintenance fluids in an obese patient?",
+    "back": "Ideal body weight (IBW)."
+   },
+   {
+    "id": "ph_cpt_fluids_25",
+    "front": "Why must potassium never be added to a fluid bag by hand?",
+    "back": "It is dangerous (risk of fatal high-concentration errors); use commercially prepared ready-to-use potassium-containing bags, rounding to the nearest available strength."
+   },
+   {
+    "id": "ph_cpt_fluids_26",
+    "front": "What acid–base problem can arise from large volumes of 0.9% sodium chloride?",
+    "back": "A hyperchloraemic metabolic acidosis — which is why balanced crystalloids (Hartmann's, Plasma-Lyte) are often preferred for large-volume resuscitation."
+   },
+   {
+    "id": "ph_cpt_fluids_27",
+    "front": "Give the sodium and chloride content of 0.9% saline and Hartmann's solution.",
+    "back": "0.9% saline: sodium 154, chloride 154 mmol/L. Hartmann's: sodium 131, chloride 111, potassium 5, lactate 29, calcium 2 mmol/L."
+   },
+   {
+    "id": "ph_cpt_fluids_28",
+    "front": "What does replacement fluid aim to do, and how is it prescribed?",
+    "back": "It corrects existing deficits and keeps up with ongoing abnormal losses — added to (or subtracted from) the maintenance prescription, matching the electrolytes actually being lost (e.g. K+ and Cl- for vomiting)."
+   },
+   {
+    "id": "ph_cpt_fluids_29",
+    "front": "Which patients should generally receive reduced maintenance fluid volumes?",
+    "back": "Older or frail patients, those with heart or renal failure, and the malnourished or those at risk of refeeding syndrome (about 20–25 mL/kg/day of water)."
+   },
+   {
+    "id": "ph_cpt_fluids_30",
+    "front": "Is metabolic water counted in fluid-balance calculations?",
+    "back": "No — although the body produces ~400 mL/day of metabolic water, it is standard practice not to include it in fluid-balance calculations."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__20 · Drugs of Misuse": [
+   {
+    "id": "ph_cpt_misuse_01",
+    "front": "Which UK law classifies drugs of abuse, and what do its classes reflect?",
+    "back": "The Misuse of Drugs Act 1971 — it ranks drugs into Classes A, B and C by the harm they cause, which sets the penalty for possession and supply (Class A most serious)."
+   },
+   {
+    "id": "ph_cpt_misuse_02",
+    "front": "Give examples of Class A drugs.",
+    "back": "Cocaine, heroin (diamorphine), MDMA (ecstasy) and LSD."
+   },
+   {
+    "id": "ph_cpt_misuse_03",
+    "front": "Give examples of Class B and Class C drugs.",
+    "back": "Class B: amfetamine, cannabis, ketamine, GHB/GBL. Class C: khat (cathinone), anabolic steroids, nitrous oxide."
+   },
+   {
+    "id": "ph_cpt_misuse_04",
+    "front": "What do the Misuse of Drugs Regulations 2001 govern, and what is a Schedule 1 drug?",
+    "back": "They govern lawful medical use of controlled drugs across 5 Schedules. Schedule 1 drugs (e.g. LSD, raw cannabis) have no recognised medicinal use and need a Home Office licence."
+   },
+   {
+    "id": "ph_cpt_misuse_05",
+    "front": "By what mechanism do stimulant drugs act?",
+    "back": "They are indirectly-acting sympathomimetics — they raise synaptic dopamine, noradrenaline and serotonin by promoting release and/or blocking reuptake (dopamine drives euphoria; depletion causes the later 'crash')."
+   },
+   {
+    "id": "ph_cpt_misuse_06",
+    "front": "What extra mechanism makes cocaine cardiovascularly dangerous?",
+    "back": "Potent alpha-adrenergic vasoconstriction — causing myocardial infarction, stroke and aortic dissection, plus accelerated atherosclerosis with chronic use."
+   },
+   {
+    "id": "ph_cpt_misuse_07",
+    "front": "List the features of the sympathomimetic (stimulant) toxidrome.",
+    "back": "Dilated pupils (mydriasis), tachycardia, hypertension, hyperthermia, sweating, agitation, tremor, hyperreflexia/hypertonia, arrhythmias, rhabdomyolysis and seizures."
+   },
+   {
+    "id": "ph_cpt_misuse_08",
+    "front": "What are the key complications of MDMA (ecstasy) toxicity?",
+    "back": "Hyperthermia, rhabdomyolysis leading to AKI, SIADH with over-drinking causing severe hyponatraemia, lowered seizure threshold, and hypertension predisposing to intracranial haemorrhage."
+   },
+   {
+    "id": "ph_cpt_misuse_09",
+    "front": "What is the first-line drug for agitation, seizures and cocaine chest pain in stimulant toxicity, and which drug class is avoided for cocaine chest pain?",
+    "back": "Benzodiazepines (diazepam/lorazepam) first-line, with nitrates for chest pain. Avoid beta-blockers in cocaine-associated chest pain (unopposed alpha vasoconstriction)."
+   },
+   {
+    "id": "ph_cpt_misuse_10",
+    "front": "A classic long-term complication of chronic intranasal cocaine use?",
+    "back": "Perforation of the nasal septum (and in severe cases erosion of the cribriform plate causing CSF rhinorrhoea)."
+   },
+   {
+    "id": "ph_cpt_misuse_11",
+    "front": "What is the active psychoactive component of cannabis and its receptors; is CBD psychoactive?",
+    "back": "THC (delta-9-tetrahydrocannabinol), acting on CB1 and CB2 receptors. CBD (cannabidiol) is non-psychoactive."
+   },
+   {
+    "id": "ph_cpt_misuse_12",
+    "front": "List the main effects of cannabis.",
+    "back": "Relaxation and sharpened senses, increased appetite, impaired short-term memory and coordination; peripherally tachycardia, vasodilatation and reduced intra-ocular pressure."
+   },
+   {
+    "id": "ph_cpt_misuse_13",
+    "front": "What serious psychiatric association does regular cannabis use carry?",
+    "back": "An increased risk of developing schizophrenia, especially where there is a family history."
+   },
+   {
+    "id": "ph_cpt_misuse_14",
+    "front": "Name three medicinal cannabinoid products and their indications.",
+    "back": "Nabiximols (Sativex) for MS spasticity; cannabidiol (Epidyolex) for rare epilepsy syndromes; nabilone for chemotherapy-induced nausea and vomiting (specialist prescribing)."
+   },
+   {
+    "id": "ph_cpt_misuse_15",
+    "front": "What distinguishes opiates from opioids, and why is heroin especially potent?",
+    "back": "Opiates are natural poppy derivatives (morphine, codeine); opioids also include synthetics (fentanyl, methadone). Heroin (diacetylmorphine) is more lipid-soluble than morphine, crossing the blood-brain barrier faster for an intense high."
+   },
+   {
+    "id": "ph_cpt_misuse_16",
+    "front": "Classify morphine, buprenorphine and naloxone by their action at the opioid receptor.",
+    "back": "Morphine is a full agonist; buprenorphine is a partial agonist (with a ceiling, antagonising other opioids); naloxone is a pure antagonist."
+   },
+   {
+    "id": "ph_cpt_misuse_17",
+    "front": "What are the features of the opioid toxidrome?",
+    "back": "Pinpoint pupils (miosis), respiratory depression, reduced consciousness/coma and sedation — worsened by co-ingested alcohol or benzodiazepines."
+   },
+   {
+    "id": "ph_cpt_misuse_18",
+    "front": "What are the key pharmacological points about naloxone in opioid overdose?",
+    "back": "It is an opioid antagonist given IV with rapid onset but short duration (45–60 min), so repeat doses or an infusion are often needed; titrate to restore breathing and airway reflexes and monitor closely as it can wear off before the opioid. IM/intranasal routes exist."
+   },
+   {
+    "id": "ph_cpt_misuse_19",
+    "front": "How is LSD's mechanism and presentation characterised?",
+    "back": "LSD is a potent 5-HT2 receptor agonist with minimal physiological effects; it causes hallucinations, 'bad trips' with paranoid delusions, and flashbacks."
+   },
+   {
+    "id": "ph_cpt_misuse_20",
+    "front": "What is the mechanism of ketamine, and its major chronic complication?",
+    "back": "It is an NMDA-receptor antagonist producing dissociative anaesthesia and analgesia; chronic misuse causes 'ketamine bladder' (ulcerative cystitis/uropathy) and kidney damage."
+   },
+   {
+    "id": "ph_cpt_misuse_21",
+    "front": "What law governs novel psychoactive substances, and what are its exceptions?",
+    "back": "The Psychoactive Substances Act 2016 bans all psychoactive substances, with exceptions for alcohol, tobacco, caffeine and medicines."
+   },
+   {
+    "id": "ph_cpt_misuse_22",
+    "front": "Why are novel psychoactive substances challenging to manage?",
+    "back": "There is rarely certainty about what was taken, they are not a 'safer' alternative, and most are not detected on standard drug screens; synthetic cannabinoids ('Spice'/'Mamba') in particular cause unpredictable effects including seizures and extreme agitation or sedation."
+   },
+   {
+    "id": "ph_cpt_misuse_23",
+    "front": "List the signs and symptoms of opioid withdrawal.",
+    "back": "Mydriasis, yawning, piloerection ('cold turkey'), rhinorrhoea/lacrimation, nausea, vomiting, diarrhoea, abdominal cramps, anxiety, restlessness, irritability and insomnia. Severity is scored with the COWS scale."
+   },
+   {
+    "id": "ph_cpt_misuse_24",
+    "front": "Which non-opioid medicines give symptomatic relief in opioid withdrawal?",
+    "back": "Paracetamol for pain, hyoscine butylbromide for cramps, loperamide for diarrhoea, an antiemetic, and diazepam for anxiety/agitation."
+   },
+   {
+    "id": "ph_cpt_misuse_25",
+    "front": "Why is methadone the most-used opioid substitute, and what is a key safety concern?",
+    "back": "It is a full agonist with a very long, variable half-life (up to ~60 h) allowing stable once-daily dosing (green solution); it can cause QT prolongation and respiratory depression."
+   },
+   {
+    "id": "ph_cpt_misuse_26",
+    "front": "What is buprenorphine's advantage as an opioid substitute?",
+    "back": "As a partial agonist it has a ceiling effect and antagonises other opioids, so additional heroin gives a poorer 'high', helping reduce use."
+   },
+   {
+    "id": "ph_cpt_misuse_27",
+    "front": "What is the role of naltrexone and clonidine in opioid dependence?",
+    "back": "Naltrexone is an opioid antagonist used to maintain abstinence after detox; clonidine (an alpha-2 agonist) is used off-label to ease detoxification symptoms."
+   },
+   {
+    "id": "ph_cpt_misuse_28",
+    "front": "What is the pharmacological management of acute alcohol withdrawal?",
+    "back": "A reducing benzodiazepine regimen (chlordiazepoxide or diazepam; oxazepam/lorazepam in advanced liver disease) plus prophylactic parenteral thiamine (Pabrinex) to prevent Wernicke's encephalopathy."
+   },
+   {
+    "id": "ph_cpt_misuse_29",
+    "front": "Which drugs are used to prevent relapse after alcohol withdrawal?",
+    "back": "Acamprosate, naltrexone or disulfiram, alongside a psychological intervention."
+   },
+   {
+    "id": "ph_cpt_misuse_30",
+    "front": "Which OTC medicine is misused as a stimulant, and which prescription antiemetic is misused for hallucinatory effects?",
+    "back": "Pseudoephedrine/ephedrine (also a methamfetamine precursor); intravenous cyclizine (suspect misuse if a patient demands it by name)."
+   },
+   {
+    "id": "ph_cpt_misuse_31",
+    "front": "Which drug is most associated with doping in professional sport, and what is its risk?",
+    "back": "Erythropoietin (EPO) — 'blood doping' raises haematocrit and oxygen carriage but increases blood viscosity, predisposing to thrombosis, MI and stroke."
+   },
+   {
+    "id": "ph_cpt_misuse_32",
+    "front": "Name three physical complications of intravenous drug use.",
+    "back": "Tricuspid (right-sided) infective endocarditis, necrotising fasciitis, abscesses, DVT, and blood-borne viruses (HIV, hepatitis B and C)."
+   },
+   {
+    "id": "ph_cpt_misuse_33",
+    "front": "What is GHB, and what are its clinical effects?",
+    "back": "Gamma-hydroxybutyrate — a GABA analogue taken as a clear liquid ('G'). It is a CNS depressant causing euphoria then, at higher doses, anaesthesia and respiratory depression (onset 10–15 min). GBL and 1,4-butanediol are industrial chemicals metabolised to GHB."
+   },
+   {
+    "id": "ph_cpt_misuse_34",
+    "front": "Why is GHB significant in the context of assault and drug screening?",
+    "back": "It causes rapid incapacitation/loss of consciousness (a 'date-rape' drug) and is linked to 'chemsex'. It is NOT detected on standard urine screens — specific gas chromatography must be requested."
+   },
+   {
+    "id": "ph_cpt_misuse_35",
+    "front": "Describe GHB overdose and withdrawal.",
+    "back": "Overdose: bradycardia, hypotension, CNS and respiratory depression, often with abrupt awakening. Chronic use causes a severe withdrawal syndrome, often worse than alcohol or benzodiazepine withdrawal."
+   },
+   {
+    "id": "ph_cpt_misuse_36",
+    "front": "What is the acute toxicity of recreational nitrous oxide, and its legal class?",
+    "back": "Acute toxicity is due to asphyxia — headache, dizziness, confusion, syncope, seizures and arrhythmias. Nitrous oxide is a Class C drug under the Misuse of Drugs Act 1971."
+   },
+   {
+    "id": "ph_cpt_misuse_37",
+    "front": "What is the key complication of chronic nitrous oxide misuse and its treatment?",
+    "back": "Functional vitamin B12 deficiency causing peripheral neuropathy, myelopathy and subacute combined degeneration of the spinal cord; treated with intramuscular hydroxocobalamin (B12), though nerve damage may be permanent."
+   },
+   {
+    "id": "ph_cpt_misuse_38",
+    "front": "What are the hazards of alkyl nitrites ('poppers')?",
+    "back": "Vasodilator 'head-rush'; dangerous drug interactions with PDE5 inhibitors (e.g. sildenafil) and nitrates causing severe hypotension; methaemoglobinaemia (treat with methylthioninium/methylene blue); and 'poppers maculopathy' causing a central scotoma."
+   },
+   {
+    "id": "ph_cpt_misuse_39",
+    "front": "Which weight-loss substance is a highly toxic metabolic stimulant associated with fatalities?",
+    "back": "2,4-Dinitrophenol (DNP) — bought online; causes hyperpyrexia, tachycardia, diaphoresis and tachypnoea and is frequently fatal in overdose."
+   },
+   {
+    "id": "ph_cpt_misuse_40",
+    "front": "What complications result from laxative abuse?",
+    "back": "It is strongly associated with eating disorders (bulimia, anorexia) and causes electrolyte disturbances, dehydration, acute kidney injury, mineral deficiencies and colonic motility problems."
+   },
+   {
+    "id": "ph_cpt_misuse_41",
+    "front": "Give the adverse effects of anabolic androgenic steroid misuse.",
+    "back": "Acne, aggression/mood swings, hypertension, insomnia, liver damage and priapism; chronic use causes testicular atrophy, infertility and gynaecomastia in men, and virilisation in women. Insulin and growth hormone are also abused."
+   },
+   {
+    "id": "ph_cpt_misuse_42",
+    "front": "Which prescription hypnotics are most misused, and why is their use time-limited?",
+    "back": "Benzodiazepines and Z-drugs (zopiclone, zolpidem) — they have a high propensity for dependence, so are recommended for short-term use only (2–4 weeks)."
+   },
+   {
+    "id": "ph_cpt_misuse_43",
+    "front": "How were gabapentinoids reclassified, and which has greater abuse potential?",
+    "back": "Pregabalin and gabapentin were reclassified as Class C / Schedule 3 controlled drugs in April 2019. Pregabalin has the greater abuse potential (euphoria, dissociation, improved sociability)."
+   },
+   {
+    "id": "ph_cpt_misuse_44",
+    "front": "Which ADHD/narcolepsy medicines are misused, and for what effect?",
+    "back": "Methylphenidate and dexamfetamine are misused for their stimulant effects; modafinil is misused to maintain alertness."
+   },
+   {
+    "id": "ph_cpt_misuse_45",
+    "front": "What features distinguish alcohol dependence, and which tools assess it?",
+    "back": "Craving, tolerance, preoccupation with alcohol and continued drinking despite harm. Screen with the AUDIT questionnaire; monitor withdrawal severity with the CIWA-Ar tool."
+   },
+   {
+    "id": "ph_cpt_misuse_46",
+    "front": "Outline the time course of alcohol withdrawal.",
+    "back": "Tremor, sweating, tachycardia and anxiety at 6–12 hours; withdrawal seizures at around 36 hours; and delirium tremens at around 48–72 hours."
+   },
+   {
+    "id": "ph_cpt_misuse_47",
+    "front": "How do you manage an alcohol withdrawal seizure?",
+    "back": "High-flow oxygen plus IV lorazepam 4 mg or IV diazepam 10 mg (alternatives: IM lorazepam, rectal diazepam, or buccal midazolam)."
+   },
+   {
+    "id": "ph_cpt_misuse_48",
+    "front": "What is delirium tremens and how is it treated?",
+    "back": "A severe withdrawal state with confusion, agitation and hallucinations, carrying high mortality if untreated. Treat with high-dose benzodiazepines (often lorazepam), with haloperidol as an adjunct if de-escalation fails."
+   },
+   {
+    "id": "ph_cpt_misuse_49",
+    "front": "What is the classic triad of Wernicke's encephalopathy, and how is it prevented?",
+    "back": "Ophthalmoplegia, ataxia and confusion (the full triad is often absent). Prevent with prophylactic parenteral thiamine (Pabrinex) in anyone withdrawing, malnourished or with decompensated liver disease — maintain a low treatment threshold."
+   },
+   {
+    "id": "ph_cpt_misuse_50",
+    "front": "How is medically assisted alcohol withdrawal delivered?",
+    "back": "A symptom-triggered or reducing benzodiazepine regimen over 7–10 days — chlordiazepoxide or diazepam, or oxazepam/lorazepam in chronic liver disease (no active metabolites)."
+   },
+   {
+    "id": "ph_cpt_misuse_51",
+    "front": "Name the three relapse-prevention drugs after alcohol withdrawal and their mechanisms.",
+    "back": "Acamprosate (functional glutamatergic NMDA antagonist), naltrexone (opioid antagonist that reduces craving/reward), and disulfiram (blocks aldehyde dehydrogenase, causing an aversive acetaldehyde reaction)."
+   },
+   {
+    "id": "ph_cpt_misuse_52",
+    "front": "Which valve is most affected by infective endocarditis in intravenous drug users, and the commonest organism?",
+    "back": "The tricuspid valve, most commonly caused by Staphylococcus aureus."
+   },
+   {
+    "id": "ph_cpt_misuse_53",
+    "front": "Give examples of local injecting-site complications of IV drug use.",
+    "back": "Thrombophlebitis, venous thromboembolism, cellulitis, ulceration and abscess formation; intra-arterial injection can cause gangrene; necrotising fasciitis is a rare but life-threatening complication."
+   },
+   {
+    "id": "ph_cpt_misuse_54",
+    "front": "What is 'dual diagnosis' in substance misuse?",
+    "back": "The co-existence of drug or alcohol misuse with a mental health disorder — commonly depression, anxiety, panic disorder, bipolar affective disorder or schizophrenia."
+   },
+   {
+    "id": "ph_cpt_misuse_55",
+    "front": "Distinguish tolerance, physical dependence and addiction.",
+    "back": "Tolerance: reduced effect with repeated use needing larger doses. Physical dependence: a predictable withdrawal syndrome on stopping. Addiction: physical plus psychological dependence (craving, compulsion) — the psychological component drives relapse."
+   },
+   {
+    "id": "ph_cpt_misuse_56",
+    "front": "Which neural pathway underlies the rewarding effects of drugs of misuse?",
+    "back": "The mesolimbic dopaminergic (reward) pathway — most misused drugs release dopamine here."
+   },
+   {
+    "id": "ph_cpt_misuse_57",
+    "front": "List the features of benzodiazepine withdrawal and the key management principle.",
+    "back": "Agitation, confusion, irritability, insomnia, tremor, nystagmus, hyperreflexia, pyrexia and convulsions. Long-term users should normally be maintained on their usual dose — do not stop abruptly."
+   },
+   {
+    "id": "ph_cpt_misuse_58",
+    "front": "Give two non-pharmacological approaches to drug dependence.",
+    "back": "Opportunistic brief interventions (ED/GP), self-help groups (Narcotics Anonymous / 12-step), contingency management (incentives for good behaviour, e.g. negative drug tests), and behavioural couples therapy."
+   }
+  ],
+  "pharmacology__Clinical Pharmacology & Therapeutics__21 · Monitoring Medicines": [
+   {
+    "id": "ph_cpt_monitor_01",
+    "front": "Why is a baseline measurement taken before starting a monitored medicine?",
+    "back": "So that any later change is more likely to be caused by the drug than by an underlying condition — it provides the reference point for judging effectiveness and adverse effects."
+   },
+   {
+    "id": "ph_cpt_monitor_02",
+    "front": "What five qualities should a good monitoring test have?",
+    "back": "Safe, simple, precise, validated, and acceptable to the patient — with a defined action plan for both normal and abnormal results."
+   },
+   {
+    "id": "ph_cpt_monitor_03",
+    "front": "Where can prescribers find a medicine's monitoring requirements?",
+    "back": "The BNF drug monograph, the Summary of Product Characteristics (via the eMC), the Specialist Pharmacy Service (SPS) summaries, and NICE/specialist and local guidance. Absence from a list does not mean no monitoring is needed."
+   },
+   {
+    "id": "ph_cpt_monitor_04",
+    "front": "What does the GRASPED mnemonic identify?",
+    "back": "Factors making a patient susceptible to adverse effects: Genetics, Reactions (allergies), Age, Sex, Physiology (e.g. pregnancy), Exogenous (other drugs/food/temperature), and Disease states (renal/hepatic)."
+   },
+   {
+    "id": "ph_cpt_monitor_05",
+    "front": "Which genetic test should precede carbamazepine in Han Chinese or Thai patients, and why?",
+    "back": "Test for HLA-B*1502 — carriers are at high risk of Stevens-Johnson syndrome and should not receive carbamazepine."
+   },
+   {
+    "id": "ph_cpt_monitor_06",
+    "front": "Which enzyme deficiency makes a patient susceptible to haemolysis with drugs such as chloroquine/primaquine?",
+    "back": "Glucose-6-phosphate dehydrogenase (G6PD) deficiency."
+   },
+   {
+    "id": "ph_cpt_monitor_07",
+    "front": "Which patients are most susceptible to lithium-induced nephrogenic diabetes insipidus, and to SSRI-induced hyponatraemia?",
+    "back": "Renal impairment increases the risk of lithium-induced nephrogenic diabetes insipidus; older people are most at risk of SSRI-induced hyponatraemia."
+   },
+   {
+    "id": "ph_cpt_monitor_08",
+    "front": "How is levothyroxine monitored?",
+    "back": "Check TFTs 6–8 weeks after any dose change (sampling sooner is misleading), continuing every 6–8 weeks until euthyroid, then annually when stable."
+   },
+   {
+    "id": "ph_cpt_monitor_09",
+    "front": "What are the monitoring requirements for amiodarone?",
+    "back": "TFTs and LFTs at baseline then every 6 months (thyroid and hepatic toxicity), a baseline chest X-ray (pulmonary toxicity/pneumonitis), and baseline potassium."
+   },
+   {
+    "id": "ph_cpt_monitor_10",
+    "front": "How is the combined oral contraceptive monitored?",
+    "back": "Blood pressure and BMI annually (hypertension is a known adverse effect), and asking about migraine/headache at follow-up."
+   },
+   {
+    "id": "ph_cpt_monitor_11",
+    "front": "When is a plasma digoxin level measured, and what is monitored routinely?",
+    "back": "A level is measured only if toxicity is suspected (at least 6 hours post-dose). Routinely, monitor heart rate before dosing and check U&Es at baseline and annually."
+   },
+   {
+    "id": "ph_cpt_monitor_12",
+    "front": "What is monitored with gentamicin?",
+    "back": "Plasma gentamicin concentration (narrow therapeutic window), renal function (nephrotoxicity), and counsel the patient to report tinnitus, dizziness or hearing loss (ototoxicity)."
+   },
+   {
+    "id": "ph_cpt_monitor_13",
+    "front": "Outline the monitoring schedule for methotrexate.",
+    "back": "FBC, U&Es and LFTs at baseline, then fortnightly until the dose is stable for 6 weeks, then monthly for 3 months, then every 2–3 months. Advise the patient to report a sore throat immediately (possible blood dyscrasia)."
+   },
+   {
+    "id": "ph_cpt_monitor_14",
+    "front": "What must be screened for before starting an anti-TNF drug such as adalimumab?",
+    "back": "Active and latent tuberculosis (tuberculin skin test and chest X-ray) because of the increased risk of serious infections; also baseline FBC, renal and liver function (and hepatitis)."
+   },
+   {
+    "id": "ph_cpt_monitor_15",
+    "front": "Describe clozapine's mandatory blood monitoring.",
+    "back": "FBC (white cell/neutrophil count) at baseline, then weekly for the first 18 weeks, fortnightly for the rest of year 1, then monthly — through a registered monitoring service — because of the risk of neutropenia/agranulocytosis."
+   },
+   {
+    "id": "ph_cpt_monitor_16",
+    "front": "How long should a patient be observed after an intravenous iron infusion, and why?",
+    "back": "Closely during and for at least 30 minutes after every dose, because of the risk of serious (anaphylactic) hypersensitivity reactions; test doses are no longer recommended."
+   },
+   {
+    "id": "ph_cpt_monitor_17",
+    "front": "Does low-molecular-weight heparin require INR monitoring, and what monitoring may it need?",
+    "back": "No — LMWH does not affect the INR. It may need platelet monitoring if used beyond 4 days (HIT), potassium if beyond 7 days, and anti-factor Xa activity if there is a bleeding risk (renal impairment, older, extremes of weight)."
+   },
+   {
+    "id": "ph_cpt_monitor_18",
+    "front": "What is monitored about one month after starting vitamin D supplementation, and why?",
+    "back": "The adjusted plasma calcium concentration — because vitamin D (especially with calcium) can unmask undiagnosed primary hyperparathyroidism. Routine 25(OH)D monitoring is not required."
+   },
+   {
+    "id": "ph_cpt_monitor_19",
+    "front": "Give three reasons you might monitor liver function tests for a medicine.",
+    "back": "The medicine is hepatotoxic, is metabolised by the liver, is given with other hepatotoxic drugs, or hepatic impairment would require avoiding/reducing the dose."
+   },
+   {
+    "id": "ph_cpt_monitor_20",
+    "front": "Which medicine classes most commonly cause drug-induced hyponatraemia?",
+    "back": "Antidepressants (especially SSRIs), diuretics, antipsychotics, and some antiseizure medicines (e.g. carbamazepine)."
+   },
+   {
+    "id": "ph_cpt_monitor_21",
+    "front": "What is therapeutic drug monitoring (TDM), and when is it needed?",
+    "back": "Measuring the plasma drug concentration to keep it effective but non-toxic. It is reserved for drugs with a narrow therapeutic window, a risk of toxicity from small dose changes, or non-linear kinetics (e.g. phenytoin)."
+   },
+   {
+    "id": "ph_cpt_monitor_22",
+    "front": "Name the classic drugs that require therapeutic drug monitoring.",
+    "back": "Aminophylline/theophylline, digoxin, gentamicin, lithium, phenytoin, tacrolimus and vancomycin."
+   },
+   {
+    "id": "ph_cpt_monitor_23",
+    "front": "When should a plasma lithium level be taken, and what increases toxicity?",
+    "back": "As close as possible to 12 hours after the dose (earlier sampling reads falsely high). Hyponatraemia increases the risk of lithium toxicity."
+   },
+   {
+    "id": "ph_cpt_monitor_24",
+    "front": "When is the first vancomycin trough level taken on a twice-daily regimen?",
+    "back": "A trough level before the 3rd to 6th dose — most organisations take it before the 4th dose on a BD regimen."
+   },
+   {
+    "id": "ph_cpt_monitor_25",
+    "front": "When are theophylline levels checked, and what affects clearance?",
+    "back": "5 days after starting oral treatment and at least 3 days after any dose change, sampled 4–6 hours post-dose. Smoking induces CYP1A2 so smokers clear it faster and may need higher doses."
+   },
+   {
+    "id": "ph_cpt_monitor_26",
+    "front": "Why should you never ignore a drug level that is 'within range'?",
+    "back": "Because the patient may still be clinically toxic (act on the clinical picture), or may have an inadequate response despite a therapeutic level — the level is interpreted alongside the patient."
+   },
+   {
+    "id": "ph_cpt_monitor_27",
+    "front": "If a drug level is unexpectedly low, what should you check before increasing the dose?",
+    "back": "Adherence — a low level may reflect missed doses rather than underdosing; increasing the dose risks toxicity if the patient then becomes adherent."
+   },
+   {
+    "id": "ph_cpt_monitor_28",
+    "front": "How often should HbA1c be monitored in type 1 diabetes?",
+    "back": "Every 3 to 6 months (more often if control is changing rapidly)."
+   },
+   {
+    "id": "ph_cpt_monitor_29",
+    "front": "Why should monitoring targets be individualised?",
+    "back": "Because underlying disease alters targets (e.g. oxygen saturation targets in COPD), effects change over time (e.g. levothyroxine needs in pregnancy), and guidance changes with new evidence (e.g. HbA1c targets)."
+   },
+   {
+    "id": "ph_cpt_monitor_30",
+    "front": "Who is responsible for monitoring when care crosses primary and secondary care?",
+    "back": "It should be defined by a shared-care protocol; document the reason for tests, record results, chase and hand over outstanding results, and communicate results to the patient and team."
+   },
+   {
+    "id": "ph_cpt_monitor_31",
+    "front": "Which listed medicine is associated with pulmonary toxicity: amiodarone, isotretinoin, lithium or vancomycin?",
+    "back": "Amiodarone (pulmonary pneumonitis/fibrosis) — hence a baseline chest X-ray and investigation of new respiratory symptoms."
    }
   ]
  }
