@@ -18434,7 +18434,8 @@ function hideFlyout(p) {
 (function(){
   var SEL='.rn-table, .note-content table, .rn-classify-table, .rich-note table';
   var PANELS=['notes-panel-conditions','notes-panel-signs','notes-panel-anatomy',
-              'notes-panel-histology','notes-panel-investigations','notes-panel-osce'];
+              'notes-panel-histology','notes-panel-investigations','notes-panel-osce',
+              'pharma-detail'];
   var t=null;
   function mark(tb){
     if(tb.scrollWidth-tb.clientWidth<=2){
@@ -19674,6 +19675,16 @@ function hideFlyout(p) {
   /* full-width concept note in the drug-detail area (SCRIPT / CPT topics) */
   .pharma-note-block{margin-top:6px;}
   .pharma-note-block .rn-section:first-child,.pharma-note-block > .rn-keyfacts:first-child{margin-top:0;}
+  /* A dense .rn-table is width:100% on the desktop pharma note, but Firefox will
+     not shrink a table below its cells' minimum-content width, so a wide table
+     (e.g. slashed tokens like ml/minute/1.73m2) pushes its right column past the
+     section frame -- "a box touching the edge". Make pharma-note tables their own
+     horizontal scroll box at every width (the mobile rule already does this below
+     1100px; here it applies always). If the table fits, it still renders at 100%
+     and nothing scrolls; if it can't, it scrolls inside the frame instead of
+     overflowing it. Scoped to the pharma note, so no other tab is touched. */
+  .pharma-note-block .rn-table,
+  .pharma-note-block .rich-note table{display:block;overflow-x:auto;max-width:100%;}
   .ownt-place{display:flex;gap:8px;margin-top:2px;}
   .ownt-radio{flex:1;border:1.5px solid var(--border,#E2E6F0);border-radius:10px;padding:11px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text,#374151);text-align:center;}
   .ownt-radio.on{border-color:#00C2A8;background:rgba(0,194,168,.08);color:#059E8C;}
