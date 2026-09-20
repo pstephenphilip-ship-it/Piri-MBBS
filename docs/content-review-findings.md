@@ -3009,3 +3009,67 @@ Palliative Care & Routes of Administration (29 cards) and Pain Management &
 Analgesia (27). Held deliberately: they carry the opioid conversion ratios,
 where a ratio stated in the wrong direction is the most dangerous error
 available in the deck, and that work is not worth rushing to close a file.
+
+## Clinical pharmacology — palliative care and analgesia (v1471). FILE NOW COMPLETE 278/278.
+
+110 fields. Markup only, problems: 0.
+
+### Why these two were held back
+They carry the opioid conversion ratios. A ratio stated in the wrong direction
+is the most dangerous error available in this deck: it does not look wrong on
+the page, and acting on it gives a two- or three-fold overdose of a strong
+opioid. So these were audited from raw source BEFORE the markup was applied
+rather than after, and independently of the agent that formatted them.
+
+### Every conversion ratio in the app, with its direction — all correct
+- Oral morphine to SC morphine: divide by 2.
+- Oral morphine to SC diamorphine: divide by 3.
+- Oral morphine to oral oxycodone: divide by 2.
+- Codeine to oral morphine: divide by 10. **This is the one most often taught
+  backwards, and this file has it the right way round.**
+- Opioid rotation: reduce the calculated dose by 25-50% for incomplete
+  cross-tolerance and reassess within 24 hours — correct, and in the safe
+  direction (reduce, never increase).
+Every ratio puts the smaller number on the more potent side. The card opens by
+stating that ratios are drug-specific and must never be carried across to a
+different opioid, and the quiz bank tests exactly that error. The ratios also
+agree with the Analgesia / Pain Ladder topic in
+acute-abdomen-surgical-principles.json, checked directly.
+
+### Absent from the app
+- **Any patch conversion.** No fentanyl or buprenorphine patch is ever
+  converted to or from oral morphine; "micrograms/h" matches zero times in the
+  entire deck. Patches appear only with safety content. Given patches are where
+  conversion errors actually kill people, this is the most significant gap
+  found in the specialty.
+- **Tramadol to morphine conversion.** Tramadol appears four times with its own
+  dosing and never a conversion.
+- **Syringe driver compatibility and dilution.** Zero matches deck-wide for a
+  diluent or compatibility statement alongside a syringe driver. The file gives
+  four end-of-life symptom classes (opioid, antiemetic, antisecretory,
+  sedative), not five — breathlessness has its own card and is deliberately not
+  treated as a syringe-driver symptom.
+
+### Internal tensions (reported, unchanged — both defensible)
+- The palliative naloxone bolus is "20-100 micrograms" on one card and
+  "100 micrograms" on the other. The second is a value inside the first's
+  range, and both correctly titrate against respiratory rate and both
+  explicitly contrast themselves with the resuscitation bolus. Not a conflict.
+- Both breakthrough cards pair modified-release morphine 10 mg BD (20 mg/24 h)
+  with a 5 mg PRN, which is a quarter rather than the stated one sixth. This is
+  what NICE CG140 itself says (20-30 mg/24 h with 5 mg rescue), so it is exactly
+  one sixth only at the top of the range. The rule and the worked example on the
+  same card are both arithmetically right.
+
+### Backs that do not fully answer their front
+- The palliative definition card's front says "(WHO definition)" but the back
+  never attributes it to the WHO.
+- A front names DNACPR and ReSPECT; neither appears in its back.
+- A front asks who makes up the palliative MDT; the back lists services and
+  teams rather than professions, naming no doctor, OT, physio or social worker.
+
+### Misfiled content
+Four cards in Palliative Care & Routes of Administration are about IV fluids —
+NICE fluid requirements, hypovolaemia, crystalloid versus colloid, and
+potassium infusion rules. They are neither palliative care nor a route of
+administration. Formatted on their own terms; flagged for the content owner.
