@@ -3073,3 +3073,96 @@ Four cards in Palliative Care & Routes of Administration are about IV fluids —
 NICE fluid requirements, hypovolaemia, crystalloid versus colloid, and
 potassium infusion rules. They are neither palliative care nor a route of
 administration. Formatted on their own terms; flagged for the content owner.
+
+## Breast and public health (v1476-v1480). BOTH NOW COMPLETE: breast 262/262, public health 96/96.
+
+715 fields across 14 breast topics and 3 public health topics.
+
+### CONTENT FIX: a 2-week-wait threshold that excluded 50-year-olds
+The triple assessment card listing urgent-referral features of nipple discharge
+ended "and age >50". NICE NG12 says "aged 50 and over", and this same file's
+Breast Cancer card already said "50 or over". As written a 50-year-old woman
+with unilateral, single-duct, spontaneous, blood-stained discharge fell outside
+the criterion. The error ran in the direction that delays a cancer diagnosis,
+which is why it was fixed rather than only logged.
+
+TWO fields carried it, not one: the flashcard back, where it was HTML-escaped
+inside a value chip, and the quiz explanation, where it was a bare character.
+The first pass fixed only the card; the guard asserting that no ">50" age
+survived anywhere in the file failed, nothing was written, and the second was
+found. This is the third time this session that an escaped character in raw
+JSON has hidden a second copy of the thing being fixed.
+
+### Verified correct by me, from raw source
+- Tamoxifen for pre-menopausal and anastrozole for post-menopausal ER-positive
+  disease -- correct here and in all 11 statements of it deck-wide.
+- LCIS as a RISK MARKER for future often bilateral cancer, not a cancer and not
+  an obligate precursor. Stated explicitly, which is better than most resources.
+- Phyllodes is NOT called benign: "can be borderline/malignant, recurs locally
+  -- don't assume benign without histology."
+- Fibrocystic change's no-increased-risk claim is correctly restricted to the
+  NON-PROLIFERATIVE form rather than stated flat.
+- Paget's begins ON THE NIPPLE and does not spare it; eczema involves the
+  areola and spares the nipple. Right way round on all three cards stating it.
+- Sensitivity TP/(TP+FN), specificity TN/(TN+FP), PPV TP/(TP+FP), NPV
+  TN/(TN+FN); type I as alpha and false positive, type II as beta and false
+  negative; cohort prospective, case-control retrospective. All four of the
+  most-transposed definition pairs in medicine are the right way round.
+- The notification duty: any GMC-registered doctor with "reasonable grounds for
+  suspecting", to the local authority Proper Officer (in practice the UKHSA
+  Health Protection Team), urgent by phone within 24 hours, routine online
+  within 3 days, with a separate laboratory duty direct to UKHSA within 7 days
+  that does NOT discharge the doctor's.
+
+### Absent from the app
+- **That a normal, CONCORDANT triple assessment still does not entirely exclude
+  cancer**, and that a clinically suspicious lump is excised regardless. The
+  file says a normal ultrasound does not exclude cancer, and a normal mammogram
+  does not either, and that DISCORDANCE mandates re-biopsy -- but the case where
+  all three arms agree and are benign is exactly the one not covered. Checked
+  deck-wide before accepting.
+- **Acute encephalitis and smallpox** are missing from the notifiable list
+  (acute meningitis is missing from this topic but present elsewhere; the topic
+  lists only meningococcal septicaemia, which is a separate statutory entry).
+- **Gynaecomastia appears nowhere in breast.json at all.** It is filed in
+  endocrine, reproductive and paediatrics. A male breast presentation has
+  nowhere to land in the BREAST specialty.
+- **The p-value's common misinterpretation is never flagged.** The definition
+  is correct and conditioned on the null being true, and the arbitrariness of
+  0.05 is stated, but no card says p is not the probability that the null is
+  true. Zero hits deck-wide for any such warning.
+- **Risk-reducing mastectomy** for BRCA carriers: zero mentions deck-wide.
+- **"Health inequality" as a named phrase** never appears anywhere, though the
+  gradient, equity and amenable-mortality concepts are all present and correct.
+
+### Absent from the topic, present in the app
+- Atypical hyperplasia. The benign topic makes NO claim about it, so there is
+  nothing there to be wrong, but a student working only that topic finishes it
+  believing benign breast disease raises no cancer risk in any form. It is
+  handled correctly in Pathology & Staging as a B3 result needing excision.
+- Statutory notification requires no patient consent and lawfully overrides
+  confidentiality -- carried only by evidence-test-interpretation.json. This is
+  the part students most often get wrong in an ethics station.
+- The 2-week-wait pathway is stated in only two of the eight breast
+  presentation topics.
+
+### Internal inconsistencies (reported, not fixed)
+- Nipple Retraction puts ANY newly retracted nipple on the 2-week-wait pathway
+  with no age qualifier, where Breast Cancer restricts retraction 2WW to 50 and
+  over. This errs toward OVER-referral, so nobody is missed, but a student
+  answering from one card is marked wrong by the other.
+- The Axillary Lump topic states no referral pathway at all, though Breast
+  Cancer carries "consider 2WW at 30 or over for an unexplained axillary lump".
+- The mastalgia management card carries no red-flag guard of its own. Read
+  alone it could reassure a woman with painful breasts without examining her.
+  Four other cards in the topic mitigate it heavily.
+
+### The reassurance test
+Presentation-based topics fail dangerously when a benign explanation is offered
+without its guard. I read all eight breast sign topics specifically for this.
+Every benign diagnosis across them is gated behind a confirmation step, and the
+mastalgia card that says isolated breast pain is rarely cancer never separates
+that claim from its qualifier -- they are in the same sentence. There is no
+reassurance trap in any of the eight. The same holds in the 68-card benign
+topic, where every benign entity carries an explicit exclusion guard on or
+beside its own card.
