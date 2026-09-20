@@ -2762,3 +2762,97 @@ a driver of delirium in this group. The agent did not act on my error. This is
 the eighteenth time a brief of mine has been wrong where the file was correct,
 which is the argument for the guards re-deriving every field from disk rather
 than trusting either the brief or the agent.
+
+## Geriatrics — thermoregulation, pressure sores, polypharmacy, malnutrition, CGA (v1465)
+
+244 fields across five topics. Markup only; verified field by field against
+HEAD, problems: 0. Backs covered 125/125; the six uncovered fronts are the
+documented deliberate bare openers, not misses.
+
+### Verified correct by me, deck-wide, not taken on the agents' word
+- **STOPP stops, START starts.** 48 hits across geriatric-medicine.json,
+  geriatric-assessment.json and neurological.json. No reversal in any field,
+  distractors included. This is the reversal that would matter most in this
+  topic and it is not there.
+- **Waterlow and Braden run in OPPOSITE directions, and the app says so.**
+  Waterlow higher = higher risk (>=10 at risk, >=15 high, >=20 very high);
+  Braden LOWER = higher risk (<=9 very high ... 19-23 low). risk-scores-criteria.json
+  states the opposition explicitly on both cards. Correct throughout.
+- **NMS vs serotonin syndrome vs malignant hyperthermia.** Scanned 213,832
+  non-distractor fields for a cross-attributed feature (clonus or hyperreflexia
+  pinned to NMS; lead-pipe rigidity or bradyreflexia pinned to serotonin
+  syndrome). 22 co-occurrences, every one of them the contrast stated
+  CORRECTLY in a single sentence. No reversal anywhere. Cyproheptadine maps to
+  serotonin syndrome and dantrolene to NMS across 45 hits; the one
+  "NMS -> cyproheptadine" string is a quiz distractor whose sibling option is
+  the correct pairing.
+- **Haloperidol is avoided/contraindicated in Parkinson's disease and Lewy
+  body dementia** across six files. geriatric-medicine.json states it as a hard
+  MHRA contraindication where others say "avoid" — a strength-of-wording
+  difference, not a contradiction.
+- **Hypothermia bands** (mild 32-35, moderate 28-32 with shivering STOPPING,
+  severe <28) — contiguous, monotonic, consistent with the <35 definition.
+- **MUST scoring** and the **refeeding direction** (insulin surge -> cellular
+  uptake -> phosphate FALLS; hallmark hypophosphataemia) — both correct, and
+  identical to acute-abdomen-surgical-principles.json on every threshold.
+
+### Absent from the app (checked deck-wide including quiz options)
+- **The drug classes that most commonly cause admissions in older people**
+  (NSAIDs, anticoagulants, diuretics, antiplatelets, hypoglycaemics). The app
+  says ADRs are a major cause of admission but never names the list. The
+  nearest analogues (general-systemic.json Falls[6], neurological.json Falls in
+  the Elderly[4]) are falls-drug lists and name neither NSAIDs nor
+  anticoagulants. A genuine app-level gap.
+- **The blunted shivering response of older people** as an age-specific
+  feature. Every shivering statement in the app is the temperature effect
+  (shivering stops below ~32degC), which is a different claim.
+- **"Rewarming too fast is dangerous"** as stated: 0 hits app-wide. What the
+  app teaches is the danger of rewarming the PERIPHERY first (afterdrop),
+  which is a different mechanism. "Rewarming shock" appears once, in
+  general-systemic.json, and not in the geriatrics topic.
+- **Blanching erythema is NOT a pressure ulcer** — the explicit negative. The
+  app glosses category 1 as "redness that doesn't blanch" but never states the
+  contrast as a discriminator. (dermatology.json has blanching vs non-blanching
+  only in a rash context.)
+
+### Absent from the topic, present in the app
+- **The numeric rewarming rate.** ~0.5-2degC/hour exists in the QUIZ bank of
+  this very topic but on no flashcard in it — a card/quiz mismatch inside one
+  topic, which is the sharper form of this gap.
+- **Discharge planning** appears on no flashcard anywhere in
+  geriatric-medicine.json (only as quiz distractors). It is present in
+  geriatric-assessment.json and acute-abdomen-surgical-principles.json.
+- **FRIDs** as a term, and the anticholinergic syndrome picture with the full
+  ACB-3 drug roster, live only in geriatric-assessment.json.
+
+### Back does not answer its front — one real case
+Hyperthermia/Hypothermia card 19. The front asks what prevents HEAT illness in
+heatwaves; the back answers that, then appends a sentence about winter,
+Cold-Health Alerts and hypothermia as a social diagnosis. Good content on the
+wrong card, and there is no hypothermia-prevention card for it to move to. Left
+in place as an fc-sub continuation; an authoring decision, not a markup one.
+
+### Two files, same criterion, different example — not contradictions
+- START bone protection is triggered by a fragility fracture in
+  geriatric-medicine.json and by long-term oral corticosteroids in
+  geriatric-assessment.json. Both are real START indications; a student meeting
+  only one learns only one trigger.
+- The STOPP NSAID criterion carries eGFR <50 in geriatric-assessment.json and
+  no number in geriatric-medicine.json. Broader, not conflicting.
+- NMS hyporeflexia is called "bradyreflexia" in geriatric-medicine.json and
+  "hyporeflexia" in neurology and psychiatry. Same thing, two words.
+- CANH: the surgical file's "CANH is a medical treatment, NOT basic care" could
+  be misread as denying that ORAL feeding is basic care. The geriatrics card
+  says both halves explicitly. Read together they agree; read alone the
+  surgical phrasing is the weaker one.
+
+### Tooling defect found and fixed
+`ingest.py` resolved its target file from an `FC_FILE` environment variable.
+That variable is sticky: it survives from the previous batch, so this run aimed
+at cardiovascular.json while holding geriatrics content. It raised a KeyError
+only because the key happened not to exist in the stale target — luck, not a
+guard, and the same mistake between two files that shared a key would have
+written to the wrong one. The target is now resolved from the topic key itself
+and asserted unique across the deck; FC_FILE is a cross-check that prints a
+note when it disagrees. This is the second time a default in this script has
+pointed the wrong way (the first was `--coverage` defaulting to apply).
