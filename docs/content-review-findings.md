@@ -2856,3 +2856,64 @@ written to the wrong one. The target is now resolved from the topic key itself
 and asserted unique across the deck; FC_FILE is a cross-check that prints a
 note when it disagrees. This is the second time a default in this script has
 pointed the wrong way (the first was `--coverage` defaulting to apply).
+
+## Geriatrics — delirium, falls, frailty (v1468). GERIATRICS NOW COMPLETE 302/302.
+
+135 fields. Markup only, problems: 0.
+
+### Verified correct by me from raw source
+- The delirium-versus-dementia table, attribute by attribute: acute vs
+  insidious onset, fluctuating vs slowly progressive course, impaired vs normal
+  consciousness, markedly impaired vs relatively preserved attention, usually
+  reversible vs irreversible. Every attribute on the correct side.
+- Hypoactive delirium named as the commonest and most dangerous BECAUSE it is
+  missed. This is the one most often taught backwards and it is right here.
+- Postural hypotension: fall of >=20 mmHg systolic and/or >=10 mmHg diastolic
+  within 3 minutes of standing, measured after >=5 minutes lying then at 1 and
+  3 minutes. Correct.
+- 4AT bands (>=4 possible delirium, 1-3 possible cognitive impairment, 0 makes
+  delirium unlikely) and the Clinical Frailty Scale (9-point, 1 very fit to 9
+  terminally ill, >=5 triggers the pathway, scored on BASELINE function):
+  unanimous across both geriatrics files, no reversal.
+- Gait speed ">5 s to walk 4 m" and the sibling file's "<0.8 m/s" are the SAME
+  threshold expressed two ways, not a disagreement.
+
+### The formatting decision that mattered most in this batch
+The CFS card's safeguard — "always alongside clinical judgement and the
+patient's wishes, never as a sole determinant", and that the CFS is NOT an
+eligibility criterion for stroke thrombolysis or thrombectomy — stays in the
+card body at full weight. Greying that into fc-caveat would have made a
+formatting choice with a clinical effect: a frailty score used alone to
+withhold treatment is the exact harm the sentence exists to prevent. Across the
+whole geriatrics specialty, fc-caveat was used on 5 cards out of 302, and never
+once on anything touching capacity, safeguarding, dignity, or a patient's own
+risk. In the ethics, capacity and safeguarding topics it was used zero times in
+127 fields.
+
+### Absent from the topic, present in the app
+- **"Avoid benzodiazepines in delirium"** as a flat statement appears on no card
+  in the Delirium topic. The restriction is there but distributed: benzodiazepines
+  are first-line for alcohol/benzodiazepine-withdrawal delirium, and the
+  alternative in Parkinson's/Lewy body dementia, with a note that they can
+  themselves deepen delirium. The flat statement exists in
+  acute-abdomen-surgical-principles.json. Worth a card; an authoring decision.
+- **"Anticholinergic burden"** as a named term is absent from all three topics,
+  though anticholinergics are named among the falls-risk-increasing drugs. The
+  term with its ACB-3 threshold is in the same file's Polypharmacy topic.
+- **Frailty is distinct from multimorbidity and from age** is stated flatly only
+  in this topic's QUIZ layer, not on any flashcard — a card/quiz mismatch inside
+  one topic, the same shape as the hypothermia rewarming-rate gap in v1465.
+
+### Genuine redundancies (reported, not fixed)
+- Falls 21's entire answer ("a shortened, externally rotated leg") is already
+  contained in Falls 19.
+- Falls 15 and 19 both carry the anticoagulant CT-head rule; 15 is the fuller
+  version.
+
+### Tooling note
+This agent replaced the fragile index-based check that a dropped separator sits
+at a list join with a builder-level one: the emitter records what it wrote
+immediately before each drop, so a drop is proven to be at a join rather than
+merely proven to be a comma. It also asserted its span list tiles the source
+exactly, so nothing can be dropped, duplicated or reordered. Both are stronger
+than what the shared brief asks for and should migrate into it.
