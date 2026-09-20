@@ -2917,3 +2917,95 @@ immediately before each drop, so a drop is proven to be at a join rather than
 merely proven to be a comma. It also asserted its span list tiles the source
 exactly, so nothing can be dropped, duplicated or reordered. Both are stronger
 than what the shared brief asks for and should migrate into it.
+
+## Clinical pharmacology — 8 of 10 topics (v1469, v1470)
+
+443 fields. Markup only except one content fix, recorded below.
+
+### CONTENT FIX: an eGFR claim that was backwards for obese patients
+The renal dosing card said eGFR "overstates true clearance and leads to
+overdosing" in "small, elderly or very obese patients", and tied the claim to
+body-surface-area normalisation. That mechanism gives the right answer for two
+of those three groups and the wrong one for the third. eGFR is reported per
+1.73 m2, so absolute clearance is eGFR x BSA/1.73. Where BSA is BELOW 1.73
+(small, elderly) the reported figure exceeds true clearance: eGFR overstates,
+and dosing on it overdoses. Where BSA is ABOVE 1.73 (very obese) the reported
+figure understates clearance and the risk is UNDER-dosing.
+
+As written the card taught a student to under-dose a drug while believing they
+were being cautious, which is the direction that does not announce itself.
+Fixed in both fields that carried it, the flashcard back and the quiz
+explanation restating it. The card's separate line about extremes of body
+habitus is safe in both directions and was left alone.
+
+### Verified correct by me, from raw source, not from the agents' reports
+- **Every antidote-poison pairing in the toxicology topic**, thirteen of them
+  named individually in the commit. All correct. The paracetamol nomogram is
+  on the current SINGLE MHRA treatment line from 100 mg/L at 4 hours, with the
+  old high-risk-group second line correctly demoted to "guides clinical concern
+  only". Cyanide has hydroxocobalamin first line with dicobalt edetate
+  restricted to confirmed poisoning — current UK practice, ahead of older texts.
+- **The digoxin potassium nuance**, which is subtle and right: chronic
+  hypokalaemia predisposes to toxicity, but hyperkalaemia in ACUTE overdose
+  marks severe toxicity and is itself an indication for Fab.
+- **The warfarin reversal ladder**, including the switch most often got wrong:
+  vitamin K is ORAL at INR >8 without bleeding and slow IV at INR 5-8 or >8
+  WITH bleeding. PCC is explicitly preferred over FFP for major bleeding, with
+  FFP named only as the fallback.
+- **All four HIT rules**: stop heparin, switch to a non-heparin agent, NOT
+  LMWH because it cross-reacts, do not start warfarin until platelets recover
+  (limb gangrene), do not transfuse platelets.
+- **The steroid equivalence set** and its internal arithmetic against the
+  stated potency ratios; the adrenal crisis regimen including the rule that a
+  cortisol sample must never delay hydrocortisone.
+- **The trimethoprim/nitrofurantoin trimester split** — the classic
+  transposition — correct in all five places the file states it.
+- **The valproate Pregnancy Prevention Programme** at current MHRA strength,
+  including the under-55 and two-specialist conditions.
+
+### Deck-wide audit: antidote bound to the wrong poison
+333,988 fields scanned for six dangerous mis-pairings (naloxone with
+benzodiazepines, flumazenil with opioids, acetylcysteine with salicylates,
+desferrioxamine with lead, bicarbonate with opioids, glucagon with digoxin).
+Two candidates, both false positives on reading: one card says glucagon is
+explicitly NOT the antidote there, the other pairs naloxone with opioids in a
+sentence that separately treats alcohol withdrawal with a benzodiazepine.
+No genuine mis-pairing exists in the deck.
+
+### Absent from the app
+- **Duty of candour after a discovered prescribing error.** Zero hits across
+  the whole Safe Prescribing topic. Incident reporting is present but framed as
+  a system-level SAFEGUARD that prevents errors, not as what you do after
+  making one. No card asks "you have just discovered your own prescribing
+  error - what now?" The concept exists in haematology.json for transfusion
+  incidents, so it is absent from this topic rather than from the app, but the
+  topic that should own it does not.
+- **High-dose insulin euglycaemic therapy** for beta-blocker and
+  calcium-channel-blocker overdose. The file gives atropine and glucagon.
+
+### Absent from the topic, present in the app
+- The **loading versus maintenance dose** distinction does not appear in the
+  Renal/Hepatic topic at all, so it cannot be reversed there. It is stated
+  correctly in the Pharmacokinetics topic of the same file: loading dose
+  follows volume of distribution, maintenance follows clearance, which is the
+  right way round for renal impairment.
+- **Mitral stenosis** appears once in the anticoagulation topic, framed as a
+  reason warfarin is still preferred, and NOT as a DOAC contraindication on the
+  dedicated DOAC cautions card. The substance is there; the framing is not.
+
+### Wording, not errors (reported, unchanged)
+- The salicylate card's acid-base order is correct (respiratory alkalosis then
+  metabolic acidosis), but its gloss "(hyperventilation stimulates the
+  medulla)" inverts the causation: salicylate stimulates the medullary
+  respiratory centre, which causes the hyperventilation.
+- The Safe Prescribing card on prescription legal requirements omits the dose
+  itself and the prescriber's address, though both are covered elsewhere.
+- Lithium is described as accumulating "rather than damaging the kidney" —
+  true of digoxin, an oversimplification for lithium, which does cause
+  nephrogenic DI and chronic tubulointerstitial nephropathy.
+
+### Still outstanding in this file
+Palliative Care & Routes of Administration (29 cards) and Pain Management &
+Analgesia (27). Held deliberately: they carry the opioid conversion ratios,
+where a ratio stated in the wrong direction is the most dangerous error
+available in the deck, and that work is not worth rushing to close a file.
