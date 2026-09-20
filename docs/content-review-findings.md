@@ -2723,3 +2723,42 @@ failed. It also added a balanced-parenthesis check per span after the same bug
 with no digit produced "(e</span>.g. heart failure)", and an "<li> must not
 open on a separator" rule that caught 16 cases of a separator carried into the
 next list item. All three are invisible to every text-level check.
+
+## Geriatrics — NOF fracture and BPPV (v1464)
+
+83 fields formatted across two topics: Neck of Femur (NOF) Fracture
+Peri-operative Care (44) and Benign Paroxysmal Positional Vertigo (39).
+Markup only; verified field by field against HEAD, problems: 0.
+
+### Verified correct (checked from raw source, not from the agent's report)
+- Fracture pattern to operation matching, all four cases:
+  undisplaced intracapsular → internal fixation (or hemiarthroplasty if unfit);
+  displaced intracapsular → replace the joint, THR or hemiarthroplasty, with
+  the disrupted retrograde blood supply given as the reason; stable
+  inter-trochanteric (extracapsular) → dynamic hip screw; sub-trochanteric or
+  reverse-oblique (extracapsular) → intramedullary nail. No mismatch.
+- Dix-Hallpike is the diagnostic manoeuvre and Epley the treatment, checked
+  across bedside-tests.json, ent-audiovestibular.json and ent.json. No
+  reversal anywhere, including in quiz distractors.
+
+### Gaps: absent from the topic, present in the app
+- The NOF topic explains that displaced intracapsular fractures disrupt the
+  retrograde blood supply but never NAMES the medial femoral circumflex artery
+  or the retinacular vessels. Both are named elsewhere in the app, so a student
+  revising this topic alone gets the principle without the vessel.
+
+### Presentational splits — deliberate, NOT to be "corrected"
+- Garden classification numerals are Roman (I-IV) in geriatric-medicine.json
+  and msk.json but Arabic (1-4) in orthopaedics.json. Both conventions are in
+  real use; harmonising would be a style change, not a fix.
+- "Meniere's" vs "Menière's" and "vestibular neuronitis" vs "vestibular
+  neuritis" are both split across files. Both members of each pair are correct.
+
+### Correction to my own brief (brief error #18)
+I told the NOF agent that strong opioids are problematic in hip fracture. The
+file is right and I was wrong: it deliberately states that opioids are OFFERED,
+not withheld, which is the NICE-aligned position — under-treated pain is itself
+a driver of delirium in this group. The agent did not act on my error. This is
+the eighteenth time a brief of mine has been wrong where the file was correct,
+which is the argument for the guards re-deriving every field from disk rather
+than trusting either the brief or the agent.
