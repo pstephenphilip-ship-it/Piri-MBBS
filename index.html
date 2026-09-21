@@ -21869,7 +21869,7 @@ function hideFlyout(p) {
     }
     if(mode==='comfortable') return [['learn','notes',0,1],['learn','flashcards',0,1],['review','flashcards',0,2],['practice','questions',0,2]];
     if(mode==='compressed')  return [['learn','notes',0,1],['learn','flashcards',0,1],['practice','questions',0,2]];
-    return [['learn','notes',1,1],['practice','questions',0,2]];   // sprint: skim + MCQs
+    return [['learn','notes',1,1],['learn','flashcards',0,1],['practice','questions',0,2]];   // sprint: skim notes + learn flashcards + MCQs
   }
   // A topic already learnt for an EARLIER exam only needs refreshing before a later
   // one — start again from active recall (stage 2), or, when time is short, lean on
