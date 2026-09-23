@@ -9509,6 +9509,130 @@ window.MOCK_BANK = {
         "Acute aortic dissection is the EXCEPTION to slow lowering: bring the SYSTOLIC to 100-120 mmHg RAPIDLY (within about 20 minutes) with IV labetalol and analgesia, to reduce aortic wall stress and stop the dissection propagating.",
         "The ≤25%-per-hour rule is for other emergencies; gradual or oral approaches are too slow for a dissection; and keeping the blood pressure high propagates it."
       ] }
+],
+"conditions__CARDIOVASCULAR__Infective Endocarditis": [
+    { id:"ie-001", type:"categorize", objective:"ie-organism-context",
+      question:"Sort each presentation by its most likely causative organism.",
+      buckets:["Staphylococcus aureus","Streptococcus viridans","Coagulase-negative staphylococci"],
+      items:[
+        { text:"An IV drug user with acute tricuspid-valve endocarditis", bucket:0 },
+        { text:"Acute endocarditis on a normal native valve in a previously well adult", bucket:0 },
+        { text:"Subacute endocarditis after dental treatment in a man with poor dentition", bucket:1 },
+        { text:"Insidious endocarditis on a rheumatic mitral valve", bucket:1 },
+        { text:"Endocarditis three weeks after prosthetic valve replacement", bucket:2 },
+        { text:"An infected permanent pacemaker lead", bucket:2 }],
+      explanation:[
+        "STAPH AUREUS is the commonest overall and dominates ACUTE IE – on normal valves and in IV drug use. STREP VIRIDANS causes SUBACUTE IE on abnormal or damaged valves, classically after dental work.",
+        "COAGULASE-NEGATIVE STAPHYLOCOCCI (e.g. Staph epidermidis) infect recently implanted foreign material – early (under 2-month) prosthetic valves and device leads – from perioperative contamination."
+      ] },
+    { id:"ie-002", type:"mcq", objective:"ie-bovis-colonoscopy",
+      question:"A 68-year-old man is treated for subacute infective endocarditis, and his blood cultures grow Streptococcus gallolyticus (formerly Streptococcus bovis). He has noticed a recent change in his bowel habit. Which is the most appropriate additional investigation?",
+      options:[
+        "Colonoscopy",
+        "Oesophagogastroduodenoscopy (OGD)",
+        "CT of the chest",
+        "Dental panoramic radiograph",
+        "Bronchoscopy"],
+      correctIndex:0,
+      explanation:[
+        "Streptococcus gallolyticus (bovis) bacteraemia and endocarditis are strongly associated with COLORECTAL NEOPLASIA – ‘bovis = bowel’ – so arrange a COLONOSCOPY to exclude a colorectal cancer.",
+        "An OGD examines the wrong end of the gut, and a chest CT, dental film and bronchoscopy do not address the colorectal association."
+      ] },
+    { id:"ie-003", type:"mcq", objective:"ie-culture-negative-coxiella",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Blood cultures (3 sets) <b>Negative after prolonged incubation</b></span><span>Echocardiogram <b>Aortic-valve vegetation</b></span><span>Exposure <b>Works with sheep and cattle</b></span><span>Recent antibiotics <b>None</b></span></div>",
+      question:"A 55-year-old sheep farmer has several weeks of fever, weight loss and a new murmur. Echocardiography shows an aortic-valve vegetation, but three sets of blood cultures remain negative after prolonged incubation and he has taken no recent antibiotics. Which is the most likely causative organism?",
+      options:[
+        "Staphylococcus aureus",
+        "Coxiella burnetii",
+        "Streptococcus viridans",
+        "Enterococcus faecalis",
+        "Candida albicans"],
+      correctIndex:1,
+      explanation:[
+        "Culture-negative endocarditis with FARM-ANIMAL exposure points to Q fever – COXIELLA BURNETII – a fastidious intracellular organism that will not grow on standard cultures; it is diagnosed serologically (a phase I IgG titre above 1:800 is itself a Duke major criterion).",
+        "Staph aureus, Strep viridans and Enterococcus all grow readily on standard cultures, and Candida does not fit without prosthetic material or IV drug use."
+      ] },
+    { id:"ie-004", type:"mcq", objective:"ie-culture-negative-antibiotics",
+      question:"A 62-year-old woman has clinical features of infective endocarditis and a vegetation on echocardiography, but her blood cultures are negative. Two weeks earlier her GP prescribed a course of oral amoxicillin for a presumed chest infection. Which is the most likely reason her blood cultures are negative?",
+      options:[
+        "Coxiella burnetii infection",
+        "Fungal endocarditis",
+        "Prior antibiotic therapy",
+        "Non-infective (marantic) endocarditis",
+        "Inadequate culture incubation time"],
+      correctIndex:2,
+      explanation:[
+        "The commonest cause of culture-negative endocarditis in the UK is ANTIBIOTICS GIVEN BEFORE CULTURES were taken – exactly the recent amoxicillin here.",
+        "Fastidious organisms such as Coxiella and Bartonella are rarer causes; fungal and marantic endocarditis are uncommon; and modern automated systems incubate adequately, so incubation time is not the usual reason."
+      ] },
+    { id:"ie-005", type:"mcq", objective:"ie-libman-sacks",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Background <b>Systemic lupus erythematosus</b></span><span>Echocardiogram <b>Vegetations on both mitral leaflet surfaces</b></span><span>Blood cultures (3 sets) <b>Sterile</b></span><span>Temperature <b>Afebrile</b></span></div>",
+      question:"A 30-year-old woman with systemic lupus erythematosus develops a new murmur. Echocardiography shows small vegetations on both surfaces of the mitral valve, three sets of blood cultures are sterile, and she is afebrile. Which is the most likely diagnosis?",
+      options:[
+        "Subacute bacterial endocarditis",
+        "Marantic endocarditis",
+        "Rheumatic fever",
+        "Libman-Sacks endocarditis",
+        "Acute staphylococcal endocarditis"],
+      correctIndex:3,
+      explanation:[
+        "Sterile, verrucous vegetations (often on both leaflet surfaces) in SLE are LIBMAN-SACKS ENDOCARDITIS – a non-infective, immune-complex-mediated process.",
+        "Bacterial and staphylococcal endocarditis give positive cultures and fever; marantic endocarditis is the malignancy-associated sterile form; and rheumatic fever follows streptococcal throat infection with different features."
+      ] },
+    { id:"ie-006", type:"mcq", objective:"ie-marantic",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Background <b>Advanced pancreatic adenocarcinoma</b></span><span>Presentation <b>Two embolic strokes in different territories</b></span><span>Echocardiogram <b>Small sterile mitral vegetations</b></span><span>Blood cultures / temperature <b>Negative / afebrile</b></span></div>",
+      question:"A 70-year-old man with advanced pancreatic adenocarcinoma presents with two embolic strokes in different arterial territories. Echocardiography shows small sterile vegetations on the mitral valve, his blood cultures are negative and he is afebrile. Which is the most likely diagnosis?",
+      options:[
+        "Libman-Sacks endocarditis",
+        "Culture-negative infective endocarditis",
+        "Rheumatic heart disease",
+        "Left atrial myxoma",
+        "Marantic endocarditis"],
+      correctIndex:4,
+      explanation:[
+        "Advanced malignancy (especially adenocarcinoma) creates a hypercoagulable state producing sterile fibrin-platelet vegetations – MARANTIC (non-bacterial thrombotic) ENDOCARDITIS – which embolise, causing strokes in multiple territories, without fever or positive cultures.",
+        "Libman-Sacks is the SLE-associated sterile form; culture-negative infective endocarditis still has infective features; and rheumatic disease and an atrial myxoma present differently."
+      ] },
+    { id:"ie-007", type:"mcq", objective:"ie-strongest-risk",
+      question:"A cardiology team is counselling a patient about their future risk of infective endocarditis. Which of the following is the single strongest risk factor?",
+      options:[
+        "Previous infective endocarditis",
+        "Intravenous drug use",
+        "A bicuspid aortic valve",
+        "Poor dental hygiene",
+        "A small ventricular septal defect"],
+      correctIndex:0,
+      explanation:[
+        "The single strongest risk factor for infective endocarditis is A PREVIOUS EPISODE OF IT.",
+        "IV drug use, a bicuspid valve, poor dentition and a small VSD are all genuine predisposing factors, but none carries as high a risk as prior infective endocarditis."
+      ] },
+    { id:"ie-008", type:"mcq", objective:"ie-late-prosthetic",
+      question:"A 65-year-old man had an aortic valve replacement 18 months ago. He now presents with several weeks of low-grade fever, malaise and weight loss, and a vegetation is seen on the prosthetic valve. Which is the most likely causative organism?",
+      options:[
+        "Coagulase-negative staphylococci",
+        "Streptococcus viridans",
+        "Candida albicans",
+        "Coxiella burnetii",
+        "Pseudomonas aeruginosa"],
+      correctIndex:1,
+      explanation:[
+        "LATE prosthetic-valve endocarditis (beyond about 12 months) resembles NATIVE-valve disease, so the organisms are the community ones – STREP VIRIDANS (and Staph aureus).",
+        "Coagulase-negative staphylococci dominate EARLY (under 2-month, perioperative) prosthetic IE; Candida, Coxiella and Pseudomonas are much less common here."
+      ] },
+    { id:"ie-009", type:"mcq", objective:"ie-ivdu-septic-emboli",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Temperature <b>38.9 &deg;C</b></span><span>Left-sided murmur <b>None</b></span><span>Chest X-ray <b>Multiple peripheral cavitating nodules</b></span></div>",
+      question:"A 28-year-old man who injects heroin presents with fever and pleuritic chest pain. There is no audible left-sided murmur, and his chest X-ray shows multiple peripheral cavitating nodules. Which best explains these lung findings?",
+      options:[
+        "Systemic emboli from mitral-valve endocarditis",
+        "Miliary tuberculosis",
+        "Septic pulmonary emboli from tricuspid endocarditis",
+        "Pulmonary infarction from a bland pulmonary embolism",
+        "Metastatic malignancy"],
+      correctIndex:2,
+      explanation:[
+        "IV drug use causes RIGHT-SIDED (tricuspid) endocarditis, which showers SEPTIC PULMONARY EMBOLI into the lungs – producing multiple peripheral, often cavitating, nodules.",
+        "Left-sided (mitral) emboli travel systemically (brain, spleen, kidney), not to the lungs; miliary TB gives tiny uniform nodules; a bland PE causes wedge infarcts, not multiple cavities; and metastases rarely present with acute fever and pleurisy."
+      ] }
 ]
 };
 </script>
