@@ -9632,6 +9632,138 @@ window.MOCK_BANK = {
       explanation:[
         "IV drug use causes RIGHT-SIDED (tricuspid) endocarditis, which showers SEPTIC PULMONARY EMBOLI into the lungs – producing multiple peripheral, often cavitating, nodules.",
         "Left-sided (mitral) emboli travel systemically (brain, spleen, kidney), not to the lungs; miliary TB gives tiny uniform nodules; a bland PE causes wedge infarcts, not multiple cavities; and metastases rarely present with acute fever and pleurisy."
+      ] },
+    { id:"ie-010", type:"mcq", objective:"ie-janeway-image",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Janeway_lesion.JPG?width=800",
+      imageAlt:"Photograph of the sole of a foot with several flat, red-brown macules.",
+      imageCredit:"Warfieldian, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 34-year-old man with infective endocarditis has the skin lesions shown on his palms and soles. They are flat and completely painless. What are they?",
+      options:[
+        "Janeway lesions",
+        "Osler's nodes",
+        "Splinter haemorrhages",
+        "Roth spots",
+        "Palmar erythema"],
+      correctIndex:0,
+      explanation:[
+        "Painless, flat, erythematous/haemorrhagic macules on the PALMS and SOLES are JANEWAY LESIONS – a vascular/embolic phenomenon (septic micro-emboli).",
+        "Osler's nodes are PAINFUL pulp nodules; splinter haemorrhages are subungual; Roth spots are retinal; and palmar erythema is a chronic-liver-disease sign, not infective endocarditis."
+      ] },
+    { id:"ie-011", type:"mcq", objective:"ie-osler-image",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Osler_Nodules_Hand.jpg?width=800",
+      imageAlt:"Photograph of a hand showing violaceous nodules on the finger pulps.",
+      imageCredit:"Roberto J. Galindo, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 52-year-old woman with subacute infective endocarditis develops the tender, violaceous lesions shown on the pulps of her fingers. What are they?",
+      options:[
+        "Digital gangrene",
+        "Osler's nodes",
+        "Gottron's papules",
+        "Janeway lesions",
+        "Splinter haemorrhages"],
+      correctIndex:1,
+      explanation:[
+        "PAINFUL, tender violaceous nodules on the FINGER and TOE PULPS are OSLER'S NODES – an immune-complex vasculitic phenomenon (‘Osler = Ouch’).",
+        "Janeway lesions are painless and on palms/soles; Gottron's papules are a dermatomyositis sign over the knuckles; splinter haemorrhages are subungual; and digital gangrene is frank tissue death, not a tender nodule."
+      ] },
+    { id:"ie-012", type:"categorize", objective:"ie-embolic-vs-immune",
+      question:"Sort each peripheral finding by its underlying mechanism in infective endocarditis.",
+      buckets:["Embolic / vascular","Immune / vasculitic"],
+      items:[
+        { text:"Janeway lesions", bucket:0 },
+        { text:"A splenic infarct", bucket:0 },
+        { text:"A conjunctival haemorrhage", bucket:0 },
+        { text:"Osler's nodes", bucket:1 },
+        { text:"Roth spots", bucket:1 },
+        { text:"Glomerulonephritis", bucket:1 }],
+      explanation:[
+        "EMBOLIC/VASCULAR phenomena come from septic emboli lodging in vessels – painless Janeway lesions, splenic and renal infarcts, and conjunctival/splinter haemorrhages.",
+        "IMMUNE/VASCULITIC phenomena come from immune-complex deposition – painful Osler's nodes, Roth spots and glomerulonephritis (with a raised rheumatoid factor)."
+      ] },
+    { id:"ie-013", type:"mcq", objective:"ie-echo-vegetation-image",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/Endocarditis_ultrasound.JPG?width=800",
+      imageAlt:"Echocardiogram of the tricuspid valve with an arrow indicating a mass on a leaflet.",
+      imageCredit:"Daisuke Koya et al., CC BY 2.0, via Wikimedia Commons.",
+      question:"A 29-year-old man who injects drugs has fever and blood cultures positive for Staphylococcus aureus. His transthoracic echocardiogram is shown (arrow). What is the arrowed finding?",
+      options:[
+        "A bland (sterile) thrombus",
+        "A papillary fibroelastoma",
+        "A valve vegetation",
+        "Valve leaflet calcification",
+        "A normal valve leaflet"],
+      correctIndex:2,
+      explanation:[
+        "The arrow indicates a mobile echogenic mass on the valve leaflet – a VEGETATION, the key echocardiographic finding of infective endocarditis and a DUKE MAJOR CRITERION.",
+        "A bland thrombus and a fibroelastoma are rare mimics that do not fit this septic picture; calcification is immobile and bright; and this is clearly not a normal leaflet (a normal echo would not exclude IE – TOE if suspicion is high)."
+      ] },
+    { id:"ie-014", type:"mcq", objective:"ie-specific-sign",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Temperature <b>38.2 &deg;C</b></span><span>Cardiac auscultation <b>New early diastolic murmur (not previously documented)</b></span><span>Abdomen <b>Mild splenomegaly</b></span><span>Hands <b>Finger clubbing</b></span><span>Urinalysis <b>Microscopic haematuria</b></span><span>Bloods <b>Hb 10.4 g/L (normocytic), CRP 88 mg/L</b></span></div>",
+      question:"A 63-year-old man with known mitral valve prolapse presents with three weeks of fever, night sweats, fatigue and 4 kg of weight loss, six weeks after a dental extraction. He is febrile and unwell, and his findings are shown while blood cultures are awaited. Which single finding is the most specific for infective endocarditis?",
+      options:[
+        "Fever",
+        "Splenomegaly",
+        "Finger clubbing",
+        "A new regurgitant murmur",
+        "Microscopic haematuria"],
+      correctIndex:3,
+      explanation:[
+        "He has many features of endocarditis, but a genuinely NEW REGURGITANT MURMUR is the most SPECIFIC – it reflects valve destruction and is itself part of a Duke major criterion.",
+        "Fever is the most common (sensitive) sign but very non-specific; splenomegaly, clubbing and haematuria all occur in IE yet appear in countless other illnesses, so none discriminates as well as a new murmur."
+      ] },
+    { id:"ie-015", type:"mcq", objective:"ie-av-block-abscess",
+      data:"<div class=\"mk-obs-h\">Monitoring</div><div class=\"mk-obs-grid\"><span>Organism <b>Staph aureus (aortic valve)</b></span><span>Echo <b>Large aortic-valve vegetation</b></span><span>ECG on admission <b>Sinus rhythm, PR 0.16 s</b></span><span>ECG at 24 hours <b>PR 0.30 s, then complete heart block</b></span><span>Temperature <b>38.4 &deg;C (persistent)</b></span></div>",
+      question:"A 50-year-old woman is being treated for Staphylococcus aureus aortic-valve endocarditis and is on day 5 of IV flucloxacillin with continuous cardiac monitoring. She remains febrile despite treatment, and her telemetry changes over 24 hours as shown. What does this most likely indicate?",
+      options:[
+        "Digoxin toxicity",
+        "Coronary embolism causing an inferior MI",
+        "Electrolyte disturbance",
+        "A vasovagal response",
+        "An aortic root abscess"],
+      correctIndex:4,
+      explanation:[
+        "Progressive PR prolongation to new complete heart block in aortic-valve endocarditis means the infection has extended into the conduction system – an AORTIC ROOT (perivalvular) ABSCESS until proven otherwise. It is a surgical emergency needing urgent cardiothoracic review, and it fits her persistent fever despite antibiotics.",
+        "She is not on digoxin; a coronary embolus would show ischaemic ST changes and is far less common; and electrolyte disturbance or a vasovagal response would not produce a new fixed complete heart block here."
+      ] },
+    { id:"ie-016", type:"mcq", objective:"ie-roth-spots",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Background <b>Bicuspid aortic valve; dental scaling 6 weeks ago</b></span><span>Temperature <b>37.9 &deg;C</b></span><span>Nails <b>A few splinter haemorrhages</b></span><span>Fundoscopy <b>Several retinal haemorrhages, each with a pale centre</b></span></div>",
+      question:"A 55-year-old man with a bicuspid aortic valve is being investigated for six weeks of low-grade fever and malaise following a dental scaling. Infective endocarditis is suspected, and as part of his assessment he undergoes fundoscopy, with the findings shown. What is the fundoscopic finding?",
+      options:[
+        "Roth spots",
+        "Cotton-wool spots",
+        "Hard exudates",
+        "Drusen",
+        "Hollenhorst plaques"],
+      correctIndex:0,
+      explanation:[
+        "Retinal haemorrhages with a characteristic PALE CENTRE are ROTH SPOTS – an immune-complex vasculitic phenomenon that supports the diagnosis of infective endocarditis here.",
+        "Cotton-wool spots are fluffy infarcts without haemorrhage, hard exudates are lipid deposits, drusen are age-related deposits, and Hollenhorst plaques are cholesterol emboli at arteriolar branch points."
+      ] },
+    { id:"ie-017", type:"mcq", objective:"ie-immune-gn",
+      data:"<div class=\"mk-obs-h\">Renal results</div><div class=\"mk-obs-grid\"><span>Creatinine (baseline) <b>78 &micro;mol/L</b></span><span>Creatinine (now) <b>168 &micro;mol/L</b></span><span>Urine microscopy <b>Dysmorphic red cells with red-cell casts</b></span><span>Complement (C3/C4) <b>Low</b></span><span>Rheumatoid factor <b>Raised</b></span></div>",
+      question:"A 44-year-old woman is in week two of treatment for enterococcal infective endocarditis with IV amoxicillin and gentamicin. Her renal function deteriorates and further tests are sent, as shown. What is the most likely mechanism of her renal impairment?",
+      options:[
+        "Acute tubular necrosis from gentamicin",
+        "Immune-complex glomerulonephritis",
+        "A renal infarct from a septic embolus",
+        "Pre-renal acute kidney injury from sepsis",
+        "Obstructive uropathy"],
+      correctIndex:1,
+      explanation:[
+        "Red-cell casts with dysmorphic red cells, LOW COMPLEMENT and a raised rheumatoid factor point to an IMMUNE-COMPLEX GLOMERULONEPHRITIS – the classic immune/vasculitic renal lesion of infective endocarditis.",
+        "Gentamicin ATN is the tempting trap, but it gives a bland urine with granular (not red-cell) casts and normal complement; a septic renal infarct causes loin pain and infarction; pre-renal AKI gives a bland urine; and there is nothing to suggest obstruction."
+      ] },
+    { id:"ie-018", type:"mcq", objective:"ie-subacute-recognition",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Temperature <b>37.8 &deg;C</b></span><span>Hands / nails <b>Finger clubbing, splinter haemorrhages</b></span><span>Abdomen <b>Mild splenomegaly</b></span><span>Haemoglobin <b>10.2 g/L (normocytic)</b></span><span>ESR / CRP <b>78 mm/hr / 46 mg/L</b></span><span>Urinalysis <b>Microscopic haematuria</b></span></div>",
+      question:"A 58-year-old man with a known bicuspid aortic valve presents with two months of low-grade fever, drenching night sweats, fatigue and weight loss. He had a dental extraction three months ago without antibiotics. His examination and bloods are shown. What is the most likely diagnosis?",
+      options:[
+        "Hodgkin lymphoma",
+        "Disseminated tuberculosis",
+        "Infective endocarditis",
+        "Infectious mononucleosis",
+        "Rheumatoid arthritis"],
+      correctIndex:2,
+      explanation:[
+        "An insidious constitutional illness with CLUBBING, SPLINTER HAEMORRHAGES, SPLENOMEGALY, anaemia of chronic disease and haematuria on a PREDISPOSING (bicuspid) valve, weeks after unprotected dental work, is the classic picture of SUBACUTE INFECTIVE ENDOCARDITIS.",
+        "Lymphoma and TB can mimic the constitutional and splenic picture but not the valve-related embolic/immune stigmata; mononucleosis is an acute self-limiting illness in younger patients; and rheumatoid arthritis presents with inflammatory joint disease, not these signs."
       ] }
 ]
 };
