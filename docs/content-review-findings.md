@@ -3166,3 +3166,57 @@ that claim from its qualifier -- they are in the same sentence. There is no
 reassurance trap in any of the eight. The same holds in the 68-card benign
 topic, where every benign entity carries an explicit exclusion guard on or
 beside its own card.
+
+## MEDICAL CONDITIONS COMPLETE (v1483) — 19,722 / 19,763
+
+The `conditions__` prefix is finished. What follows records the 41 cards that
+carry no formatting device, so that a later pass does not mistake them for
+missed work and "fix" them.
+
+### Why 41 cards carry no markup, and should not
+Two shapes, both barred from marking by the rule this project has applied
+throughout — that bolding every element discriminates between none of them.
+
+**The whole back is one term.** Bolding it would bold the entire answer:
+"Fever." (the most consistent sign in infective endocarditis), "Osteomyelitis.",
+"Autosomal recessive.", "Keratin pearls.", "Thrombocytosis.", "Adenocarcinoma."
+(twice), "Squamous cell carcinoma.", "Small cell lung cancer (SCLC).",
+"Leukocytoclastic vasculitis.", "Superficial epidermal necrolysis.",
+"Adult-onset Still's disease.", "Cocaine and amphetamines.", "Alcohol and
+benzodiazepines.", "Viral respiratory infections.", "All new diagnoses.",
+"CBT and motivational interviewing.", "CT-guided percutaneous biopsy.",
+"micro-opioid agonist.", "Anti-TIF1-gamma and anti-NXP2.", and, on the card
+asking whether being transgender is a mental illness, "No."
+
+**An arrow chain in which every node is equally the answer.** The arrows encode
+sequence and are not a droppable separator, so these stay as prose, and no node
+outranks another: the cardinal movements of labour, the steps of IVF, the
+atopic march (twice), the respiratory support escalation ladder, how ECMO
+works, the Barrett's metaplasia-to-adenocarcinoma sequence, the anaphylaxis
+mechanism, retinoblastoma's save-life/save-eye/preserve-vision order, the
+analgesic prescribing framework, and labour analgesia options.
+
+### Separately: 1,123 condition cards have a list or a chip but no bold
+These are formatted, not missed. They are the enumerations where the list IS
+the device and marking each item would mark none — the ten categories of abuse,
+the six qualifying DoLS assessments, the four hepatotoxins, the postural-drop
+numbers carried by value chips. Any future audit counting "cards without
+<strong>" will over-report by this amount.
+
+### The nine marked in this final pass
+Chosen because a discriminator existed that did not swallow the card: the
+rosacea phenotype names plus "NO comedones" (the separator from acne); the
+rungs of the eczema ladder; sacroiliitis and HLA-B27 rather than all four
+ankylosing spondylitis criteria; the DLE/SLE/DIL spectrum; the three colours of
+Raynaud's; the objective red flags for secondary Raynaud's (digital ulcers,
+abnormal capillaries, positive antibodies) rather than the softer historical
+ones; the sight-threatening swab indications in conjunctivitis (hyperacute,
+gonococcal/chlamydial, neonatal); the meralgia paraesthetica escalation rungs;
+and the NUMBER of adrenaline auto-injectors prescribed on discharge, which is
+the examinable point on that card.
+
+### What remains in the deck, outside medical conditions
+- `signs__`          4,518 of 5,526 unformatted
+- `investigations__` 4,029 of 4,198 unformatted
+- `histology__`      2,166 of 2,480 unformatted
+- `anatomy__`            3 of 1,637 unformatted (effectively complete)
