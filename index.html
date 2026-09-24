@@ -9766,6 +9766,127 @@ window.MOCK_BANK = {
       explanation:[
         "An insidious constitutional illness with CLUBBING, SPLINTER HAEMORRHAGES, SPLENOMEGALY, anaemia of chronic disease and haematuria on a PREDISPOSING (bicuspid) valve, weeks after unprotected dental work, is the classic picture of SUBACUTE INFECTIVE ENDOCARDITIS.",
         "Lymphoma and TB can mimic the constitutional and splenic picture but not the valve-related embolic/immune stigmata; mononucleosis is an acute self-limiting illness in younger patients; and rheumatoid arthritis presents with inflammatory joint disease, not these signs."
+      ] },
+    { id:"ie-019", type:"mcq", objective:"ie-culture-technique-stable",
+      question:"A 60-year-old man with a rheumatic mitral valve has three weeks of low-grade fever and malaise. Subacute infective endocarditis is suspected. He is haemodynamically stable and not on antibiotics. How should his blood cultures be taken?",
+      options:[
+        "Three sets from separate sites, taken before antibiotics",
+        "Two sets within one hour, before antibiotics, from separate sites",
+        "One set drawn from his indwelling cannula",
+        "Repeated cultures only during his temperature spikes",
+        "Empirical antibiotics first, culturing only if he fails to respond"],
+      correctIndex:0,
+      explanation:[
+        "In a STABLE/SUBACUTE patient, take THREE sets from different sites, before antibiotics (spaced 6 hours or more apart) – two or more positive with a typical organism is a Duke major criterion, and the bacteraemia is continuous so timing to fever spikes is unnecessary.",
+        "The two-sets-within-an-hour approach is the SEPTIC-SHOCK protocol (take two quickly, then treat immediately) – inappropriate for this stable man; a single cannula sample risks contamination; and giving antibiotics before culturing sabotages the key diagnostic test."
+      ] },
+    { id:"ie-020", type:"mcq", objective:"ie-culture-septic-shock",
+      data:"<div class=\"mk-obs-h\">Observations</div><div class=\"mk-obs-grid\"><span>Blood pressure <b>82/50 mmHg</b></span><span>Heart rate <b>128 bpm</b></span><span>Lactate <b>4.2 mmol/L</b></span><span>Temperature <b>39.4 &deg;C</b></span></div>",
+      question:"A 40-year-old man who injects drugs presents acutely unwell with suspected acute infective endocarditis and is in septic shock, with the observations shown. How should cultures and antibiotics be managed?",
+      options:[
+        "Three sets from separate sites, taken before antibiotics",
+        "Two sets within one hour, then start antibiotics immediately",
+        "Antibiotics now, culturing only if he deteriorates further",
+        "Delay antibiotics until echocardiography confirms a vegetation",
+        "Immediate antibiotics without taking any cultures"],
+      correctIndex:1,
+      explanation:[
+        "In severe sepsis or septic shock, do not delay treatment: take TWO sets from different sites within one hour, then start empirical antibiotics immediately (BSAC).",
+        "The three-sets-before-antibiotics approach is the STABLE-patient protocol – spacing cultures over hours would dangerously delay treatment here; waiting for an echo also delays it; and giving antibiotics with NO cultures loses the diagnosis, since you still get two quick sets first."
+      ] },
+    { id:"ie-021", type:"categorize", objective:"ie-duke-major-minor",
+      question:"Sort each into the correct modified Duke category.",
+      buckets:["Major criterion","Minor criterion"],
+      items:[
+        { text:"A typical organism (e.g. Strep viridans) in two or more separate blood cultures", bucket:0 },
+        { text:"A vegetation on echocardiography", bucket:0 },
+        { text:"New valvular regurgitation", bucket:0 },
+        { text:"Temperature of 38°C or higher", bucket:1 },
+        { text:"Janeway lesions", bucket:1 },
+        { text:"Intravenous drug use", bucket:1 }],
+      explanation:[
+        "MAJOR criteria are the two strong pillars: typical positive blood cultures, and endocardial involvement (a vegetation, abscess, prosthetic dehiscence, or new regurgitation).",
+        "MINOR criteria are predisposition (e.g. IVDU or a cardiac lesion), fever 38°C or higher, vascular phenomena (Janeway lesions), immunologic phenomena, and microbiological evidence not meeting a major. Echo only ever counts as major – there is no echo minor criterion."
+      ] },
+    { id:"ie-022", type:"mcq", objective:"ie-duke-definite",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Blood cultures <b>Staph aureus in 3/3 sets, persistently positive</b></span><span>Echocardiogram <b>No definite vegetation seen</b></span><span>CT chest <b>Multiple septic pulmonary emboli</b></span><span>Temperature <b>38.7 &deg;C</b></span><span>Background <b>Intravenous drug use</b></span></div>",
+      question:"A 34-year-old man who injects heroin has ten days of fever and pleuritic chest pain. His results are shown. Using the modified Duke criteria, how is he best classified?",
+      options:[
+        "Infective endocarditis rejected",
+        "Possible infective endocarditis",
+        "Definite infective endocarditis",
+        "Not classifiable until a vegetation is seen",
+        "Possible IE, pending repeat echocardiography"],
+      correctIndex:2,
+      explanation:[
+        "He has ONE major criterion – a typical organism (Staph aureus) persistently positive across sets – plus THREE minor criteria: predisposition (IVDU), fever 38°C or higher, and a vascular phenomenon (septic pulmonary emboli). 1 major + 3 minor = DEFINITE IE, even with no vegetation seen.",
+        "The absent echo vegetation does NOT downgrade him – echo is only one route to a major criterion, and a normal echo does not exclude IE. This is beyond ‘possible’ (1 major + 1 minor, or 3 minor) and certainly not rejected."
+      ] },
+    { id:"ie-023", type:"mcq", objective:"ie-duke-possible",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Echocardiography <b>Small aortic-valve vegetation</b></span><span>Temperature <b>38.5 &deg;C</b></span><span>Blood cultures <b>Negative (no growth)</b></span><span>Vascular / immune phenomena <b>None</b></span></div>",
+      question:"A 45-year-old man has a fever and an echocardiogram showing a small aortic-valve vegetation, but his blood cultures are negative and he has no peripheral stigmata. How is he best classified on the modified Duke criteria?",
+      options:[
+        "Definite infective endocarditis",
+        "Confirmed by the vegetation alone",
+        "Infective endocarditis rejected",
+        "Possible infective endocarditis",
+        "Five minor criteria are met"],
+      correctIndex:3,
+      explanation:[
+        "He has ONE major criterion (the vegetation) and ONE minor criterion (fever) – that is POSSIBLE IE. Definite requires 2 major, or 1 major + 3 minor, or 5 minor.",
+        "A single major criterion does not by itself confirm the diagnosis, and there are nowhere near five minor criteria here."
+      ] },
+    { id:"ie-024", type:"mcq", objective:"ie-normal-tte-toe",
+      question:"A 55-year-old man has Staphylococcus aureus bacteraemia, fever and a new murmur. His transthoracic echocardiogram (TTE) is reported as normal, but clinical suspicion of endocarditis remains high. What is the most appropriate next step?",
+      options:[
+        "Conclude that infective endocarditis is excluded",
+        "Repeat the same TTE in six weeks",
+        "CT coronary angiography",
+        "Stop investigating and discharge him",
+        "Transoesophageal echocardiography (TOE)"],
+      correctIndex:4,
+      explanation:[
+        "A NORMAL TTE DOES NOT EXCLUDE IE – it is less sensitive. With high clinical suspicion, proceed to TRANSOESOPHAGEAL ECHOCARDIOGRAPHY (TOE), which is far more sensitive, especially for small vegetations, prosthetic valves and complications.",
+        "Excluding IE or discharging him is unsafe, a delayed repeat TTE wastes time, and CT coronary angiography does not address the question."
+      ] },
+    { id:"ie-025", type:"mcq", objective:"ie-toe-exception",
+      question:"A 30-year-old man who injects drugs has Staphylococcus aureus endocarditis. A good-quality transthoracic echocardiogram clearly shows a mobile vegetation on the tricuspid valve, and there is no clinical suspicion of left-sided or perivalvular involvement. Is transoesophageal echocardiography required?",
+      options:[
+        "No – a clear TTE of isolated right-sided native-valve IE can be sufficient",
+        "Yes – TOE is always mandatory in infective endocarditis",
+        "Yes – solely because he injects drugs",
+        "No echocardiogram of any kind is needed",
+        "Only cardiac MRI can confirm the diagnosis"],
+      correctIndex:0,
+      explanation:[
+        "TOE is more sensitive and indicated in most cases, but the recognised exception (ESC) is ISOLATED RIGHT-SIDED NATIVE-VALVE IE with a good-quality, unequivocal TTE – here TOE is not mandatory.",
+        "TOE is not always required, IV drug use alone does not mandate it, some echo is clearly needed, and MRI is not the confirmatory test."
+      ] },
+    { id:"ie-026", type:"mcq", objective:"ie-coxiella-major",
+      question:"A 55-year-old farmer has culture-negative endocarditis. Coxiella burnetii serology returns a phase I IgG titre of 1:1024. How does this result count within the modified Duke criteria?",
+      options:[
+        "It does not feature in the Duke criteria",
+        "It counts as a major criterion on its own",
+        "It counts as a single minor criterion",
+        "It counts only if echocardiography is positive",
+        "It counts as two minor criteria"],
+      correctIndex:1,
+      explanation:[
+        "A single positive blood culture for Coxiella burnetii, or a PHASE I IgG TITRE ABOVE 1:800, counts as a MAJOR criterion on its own – a specific exception within the Duke framework for this fastidious cause of culture-negative IE.",
+        "It is far more than a minor criterion, it is explicitly included, and it does not depend on the echo result."
+      ] },
+    { id:"ie-027", type:"mcq", objective:"ie-contaminant",
+      question:"A 62-year-old woman with no prosthetic material and no history of IV drug use has blood cultures taken for a vague febrile illness. One of three sets grows coagulase-negative staphylococci; the other two are sterile, and her echocardiogram is normal. How should this result be interpreted?",
+      options:[
+        "Definite infective endocarditis",
+        "A major Duke criterion",
+        "A likely skin contaminant – repeat the cultures",
+        "An indication for immediate valve surgery",
+        "An indication to start antifungal therapy"],
+      correctIndex:2,
+      explanation:[
+        "A single set growing COAGULASE-NEGATIVE STAPHYLOCOCCI in a patient without prosthetic material or a device is usually a SKIN CONTAMINANT – repeat the cultures before over-diagnosing.",
+        "It is not a major criterion (which needs a typical organism in two or more sets, or persistent positivity), certainly not definite IE, and there is no basis for surgery or antifungals. In a prosthetic-valve or device patient, CoNS would be taken far more seriously."
       ] }
 ]
 };
