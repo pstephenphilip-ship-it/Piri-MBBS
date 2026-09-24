@@ -3570,3 +3570,126 @@ CTD 42**, "Anti-TIF1-γ and anti-NXP2." Two discrete named antibodies, and
 siblings 40/41 bold their answer cores — but those fronts carry the antibody
 and ask for the meaning, so this one inverts the template and has no identical
 run to look unfinished against. Left bare.
+
+## CT and plain film & fluoroscopy — both files complete
+
+Counted before writing this heading: `ct.json 217 cards, 0 unformatted` and
+`plain-film-fluoroscopy.json 285 cards, 0 unformatted`.
+
+### Correction 1: adrenal adenoma attenuation, at the boundary again
+
+Three fields said a lipid-rich adrenal adenoma is `<10 HU`; two others in the
+same file said `≤10 HU`. A lesion measuring **exactly 10 HU** was therefore a
+benign adenoma needing nothing on one card, and an indeterminate lesion needing
+washout characterisation on another. The standard cut-off is 10 HU or less, so
+the strict-inequality copies moved.
+
+This is the fifth member of a now well-established error class in this deck:
+**a boundary that excludes its own endpoint.** Its siblings are the breast 2WW
+age (`>50` excluding 50-year-olds), the acute-asthma PEF bands (33–50% vs
+50–75%, so exactly 50% met both), the FIGO myometrial invasion depth (`>50%`
+understaging at exactly 50%) and the endometrial thickness above. The check
+that finds them is always the same: ask what happens to a patient sitting
+exactly on the stated number.
+
+Two of the three fields also stored a **bare `<`** rather than `&lt;`. That is
+what made an earlier scan of mine display them garbled — a naive `<[^>]+>` tag
+strip eats `<10 HU ... (` as though it were a tag. Correcting the value removed
+the bare `<` as a side effect. Worth remembering as yet another instance of the
+character-encoding false negative that has now bitten six times.
+
+### Correction 2: scaphoid re-imaging interval
+
+Six fields across four files said repeat the radiograph at **10–14 days**.
+Three fields in `orthopaedics.json` alone said **7–10 days**.
+
+The minority moved, for a clinical reason rather than a majority one: the bone
+resorption that makes an occult scaphoid fracture line visible takes roughly
+10–14 days, so a film repeated at 7 days is likelier to be falsely negative —
+and a false negative here means a missed scaphoid fracture, non-union and
+avascular necrosis.
+
+**The trap in this fix, and why a blanket replace would have been wrong.**
+`orthopaedics.json` also uses 7–10 days for **distal radius** re-imaging, where
+it is correct. Three of the eight `7–10 days` strings in that file are distal
+radius and had to stay. Worse, two of them are character-identical up to the
+end of the chip — `repeat imaging in <chip>7–10 days</chip>` — and are
+distinguished only by what follows: `" if the initial X-ray"` (radius, keep)
+versus `" (a fracture line"` (scaphoid, move). Each anchor had to carry that
+tail. The survivor sweep was also narrowed to exclude fields mentioning distal
+radius, or it would have fired on the cards that were right.
+
+The quiz answer string is simultaneously an option string, so both copies had
+to move together or the answer would no longer match any option.
+
+### Reported, not changed
+
+- **Stanford type B dissection is defined two ways.** `ct.json` Cardiac & Aorta
+  11 says "descending only (distal to left subclavian)"; `cardiovascular.json`
+  Aortic Dissection 8 says "does NOT involve the ascending aorta (arch and/or
+  descending)" and explicitly notes that "distal to the left subclavian" is the
+  narrower **DeBakey III** definition. An arch-only dissection is type B under
+  one card and excluded under the other.
+- **Clavicle fracture site.** `plain-film-fluoroscopy.json` and
+  `orthopaedics.json` both say the middle third (~80%); `upper-limb.json`
+  Osteology & Joints q22 says "the junction of the middle and lateral thirds".
+- **Ottawa rules conflated.** `lower-limb.json` Applied Anatomy 18 answers "what
+  do the Ottawa **ankle** rules assess?" with the navicular and base of the 5th
+  metatarsal — those are the **foot** rule criteria in every other card.
+- **Radio-opaque stone proportion** differs on adjacent cards in one topic:
+  `~90%` (X-ray Abdomen 4) vs `~80–90%` (X-ray Abdomen 11).
+- **Metformin and contrast** is stated three ways across the deck: a conditional
+  eGFR-30 rule in `acute-abdomen-surgical-principles.json`, the older blanket
+  "stop for 48 h" in `endocrinology.json`, and "if renal impairment" in
+  `ct.json`.
+- **Head injury CT wording.** `neurology-neurosurgery.json` says "any CURRENT
+  bleeding or clotting disorder" where NICE says "any history of". All four
+  copies of the head-injury rules otherwise agree with each other and with
+  NG232, including the anticoagulant criterion.
+- **`ct.json` Neck & Facial 2** asked for "three" pre-FESS anatomical variants
+  and listed four. The back is right — all four are real and each endangers a
+  different structure — so the front's count moved, not the content.
+- **`ct.json` Head/Brain 4** said the LP after a CT-negative thunderclap
+  headache is at "~12 hours"; seven other cards across five files say at least
+  12 hours. "~12 hours" admits an LP at 10 h that the others exclude, and an
+  early LP is falsely negative for xanthochromia — a missed SAH. The outlier
+  moved to `≥12 hours`.
+
+### Absences confirmed deck-wide (anchored search, pharmacology excluded)
+
+- **No BTS lung-nodule size thresholds anywhere.** Brock, Herder, Fleischner and
+  "volume doubling" all return zero hits; no card pairs "nodule" with a mm
+  threshold. CT nodule follow-up is qualitative throughout.
+- **No CAD-RADS anywhere.** The Agatston bands in `ct.json` are the deck's only
+  copy, and `cardiovascular.json` holds no competing band, so the divergence I
+  briefed for does not exist.
+- **No radiation dose figure for CT anywhere** — `mSv` appears twice, both
+  nuclear medicine; chest-X-ray-equivalent phrasing and `IR(ME)R` return zero.
+- **No statement that free air is missed on a supine film** — a genuine
+  deck-level gap, though erect-versus-supine is covered for effusion and
+  pneumothorax.
+- **"A normal CXR does not exclude PE"** is nowhere in those words, though
+  `respiratory.json` teaches that the CXR is usually normal in PE.
+- **"Plain CT can look normal early in mesenteric ischaemia"** is absent; the
+  deck attaches the same warning to the lactate instead ("lactate rises late,
+  so a normal lactate does not exclude it").
+- **Contrast allergy and contrast nephropathy appear nowhere in
+  `plain-film-fluoroscopy.json`** except as wrong-answer MCQ distractors, even
+  though several studies in that file use iodinated contrast.
+- **Salter-Harris** is absent from all four plain-film limb topics but well
+  covered in `orthopaedics.json` and `paediatrics.json` — topic gap, not an app
+  gap.
+
+### A brief error of mine, caught by the file
+
+My brief told one agent the lateral cervical film has "three alignment lines".
+The file says **four** (anterior vertebral body, posterior vertebral body,
+spinolaminar, spinous process tips), which is correct. The agent checked the
+source, marked what was there, and reported the divergence rather than
+obeying the brief. The "three lines" in that range are the McGrigor–Campbell
+lines on a **facial** X-ray — a different structure entirely.
+
+Two other briefed items were likewise absent and correctly not invented: the
+"3-3-1" bowel calibre rule (zero deck hits — the deck uses the 3/6/9 rule, and
+all copies of it agree) and the literal "two views at 90 degrees" (present as
+"two orthogonal views", and only outside those topics).
