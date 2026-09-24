@@ -3417,3 +3417,95 @@ Neither was rewritten. v1487 is corrected in this document and v1490 has an
 explicit correction commit of its own. From v1491 the count is run BEFORE the
 commit message is written and the number is pasted into it, which is why that
 message says "342/342, 0 unformatted" rather than "COMPLETE".
+
+## Ultrasound — file complete (306/306, 0 unformatted)
+
+Counted before writing this heading: `306 cards, 0 unformatted`.
+
+### Correction applied: postmenopausal-bleeding endometrial threshold
+
+Two cards in `investigations__ULTRASOUND__Pelvic & Gynae` gave different
+cut-offs for the same decision. Card 11 said `≤4 mm` reassuring / `>4 mm`
+hysteroscopy plus biopsy. Card 7 said `<4–5 mm` reassuring / `≥4–5 mm`
+investigate.
+
+Card 7's fuzzy range is the error, not merely the inconsistency: at 4.5 mm it
+reassures where card 11 investigates. The direction of harm is
+under-investigation of postmenopausal bleeding, i.e. a missed endometrial
+cancer. UK guidance — verified by search, not recalled — is investigate above
+4 mm, reassure at 4 mm or less. Card 7 was moved onto card 11's threshold;
+card 11 untouched.
+
+**The second copy fired again.** The guard refused the write until a third
+field was found: `.q.…Pelvic & Gynae[4].explanation` carried the same loose
+range in plain text ("A stripe <4–5 mm is reassuring"), while its sibling quiz
+card `us_pel_uterus_q01` already taught `>4 mm`. The quiz layer contradicted
+itself. Fixing only the flashcard would have left the quiz teaching the loose
+cut-off. This is the fourth time a threshold correction has found a second copy
+hiding in `q` with different escaping (after breast 2WW age, CHA₂DS₂-VASc and
+the acute-asthma PEF bands). The replacement also removed a bare `<` from that
+explanation string.
+
+### Findings reported, not fixed (agent clinical checks, ultrasound batches)
+
+Absences confirmed deck-wide by anchored search, left for a clinician:
+
+- **TAPSE** — zero hits in any card file. No quantitative RV systolic measure
+  (TAPSE, S′, RV FAC) appears anywhere. PASP from the TR jet is present and
+  correct, including the RAP term (`4v² + RAP`).
+- **"Ultrasound is operator dependent" for MSK** — 6 cards carry the phrase
+  deck-wide, none of them MSK. Within `ultrasound.json` it appears only on
+  Abdomen 3 and Renal/Aorta 17.
+- **Preserved Doppler flow does not exclude testicular torsion** — absent from
+  Small Parts, and Small Parts 11 closes "Doppler flow is the key discriminator"
+  with no qualifier. NOT an app-level gap: it is stated in `urology.json`
+  (Testicular Torsion 4, 12, 14), `sexual-health.json` (Epididymo-orchitis 15)
+  and `renal-urological.json` (Acute Scrotal Pain 2). Topic-level gap only.
+- **Low-flow low-gradient severe AS** — present and correct on a dedicated card
+  (Echo Core 13, dobutamine differentiating true from pseudo-severe), but NOT on
+  Echo Assessment 6, the card carrying the `>40 mmHg` threshold, and the two sit
+  in different topics.
+- **Mitral stenosis** — severe `<1.5 cm²` is right; guidelines usually write it
+  as `≤1.5 cm²` and add "very severe ≤1.0 cm²". No mean gradient or pressure
+  half-time figure appears in either echo topic.
+- **Exaggerated respiratory variation in mitral/tricuspid inflow** (a standard
+  tamponade sign) exists only as an MCQ distractor, on no flashcard.
+- **"Tamponade is a clinical diagnosis supported by echo"** exists in the file,
+  but only in the `q` map's explanation for `us_echo_tte_q02`, not on any back.
+- **RWMA → coronary territory mapping** (anteroseptal→LAD etc.) is asserted as a
+  principle on Echo Core 10 but the mapping itself appears only on the MCQ side
+  here; it does exist in `thorax.json` and `cardiovascular.json`.
+- **Thyroid cyst vs solid nodule** is not distinguished in Small Parts; it is in
+  `ent.json` Neck Lumps 18 and `nuclear-interventional.json`.
+
+### Unresolved cross-file tension: ejection-fraction bands
+
+`ultrasound.json` Echo Core 25 and Echo Assessment 1 give HFrEF `≤40%`,
+HFmrEF `41–49%`, HFpEF `≥50%` — ESC/NICE, and internally consistent.
+`cardiovascular.json` `conditions__CARDIOVASCULAR__Heart Failure` card 0
+(`conditions__cardiovascula_1`) gives HFrEF `<40%` and HFmrEF `40–49%`, which
+contradicts them — and contradicts its own `chf_fc_03`, which gives HFmrEF as
+`41–49%`. An EF of exactly 40% falls in two bands at once across the two files.
+
+A smaller internal one in the same topic: Echo Core 25 calls normal EF `>50%`
+while Echo Assessment 0 calls it `≥50%`, so exactly 50% is both normal and not
+normal. Cosmetic beside the `cardiovascular.json` divergence, but real.
+
+Nothing changed in either file — this is the heart-failure topic owner's call,
+and picking a side here would silently re-band the cardiology deck.
+
+### Editorial notes (no action taken)
+
+- Echo Core 3 attributes *diastolic* collapse to both RA and RV; Echo Assessment
+  11 correctly refines this to RA **systolic** / RV **diastolic**. Core 3's
+  phrasing is the common simplification rather than an error, but read alone it
+  teaches the wrong half.
+- The TOE block states the endocarditis / LA-appendage / prosthetic-valve triad
+  four times (Core 4, 6, 7, 9); Core 4 consequently had no discriminator left to
+  bold on its front and was left deliberately bare.
+- Small Parts 16, 17 and 18 name no organ on the front ("features suggesting
+  malignancy", "women under ~40"), so out of block order they read as orphans,
+  and 1 vs 18 overlap heavily on malignancy features.
+- DDH cards argue from **ossification**, not radiation avoidance — the better
+  answer, but worth knowing the radiation rationale is stated only for pyloric
+  stenosis (Paediatric 10) in this topic.
