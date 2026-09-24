@@ -3220,3 +3220,92 @@ the examinable point on that card.
 - `investigations__` 4,029 of 4,198 unformatted
 - `histology__`      2,166 of 2,480 unformatted
 - `anatomy__`            3 of 1,637 unformatted (effectively complete)
+
+## Risk scores & criteria — 8 of 10 topics (v1486, v1487)
+
+395 fields. NOTE: the v1487 commit message claims "FILE COMPLETE 328/328". That
+is WRONG and is corrected here — Neurology (38 cards) and Alcohol, Sepsis &
+Acute Care (35) were still outstanding at that commit. The true figure was
+255/328. Recorded rather than quietly fixed, because a false completion claim
+in the history is worse than the original miscount.
+
+### CORRECTION 1: the CHA2DS2-VASc sex split (also fixed in cardiovascular.json)
+"Offer anticoagulation if >=2 in men or >=3 in women" is the ESC framing. NICE
+NG196 offers at >=2 REGARDLESS OF SEX, considers at 1 in men, and withholds
+only where the person is under 65 and female sex is their sole risk factor.
+
+Two things made this clear-cut rather than a guideline-vintage judgement call:
+- The deck already contradicted itself. cardiovascular.json's Tachycardia topic
+  teaches the NICE rule twice and explicitly calls the sex-split a
+  MISCONCEPTION, spelling out that female sex scores a point but does not move
+  the threshold. Four fields across two files disagreed with three other cards
+  in the same app.
+- The split created a COVERAGE HOLE. As written, a woman scoring exactly 2 fell
+  in no band at all: not >=3, not 0, not a 1-from-sex-alone. The error and the
+  gap are the same defect seen twice, and fixing the threshold closes both.
+
+The direction matters: this under-anticoagulates women. A woman aged 65-74 with
+one other risk factor scores 2 and would be denied stroke prevention she should
+be offered. That is a documented real-world inequity.
+
+Four fields corrected in total — two in cardiovascular.json (v1484) and two
+here (v1487). In both quiz items the question, options and ANSWER were already
+correct and were left untouched; only the stated reasoning was wrong.
+
+### CORRECTION 2: overlapping acute asthma PEF bands
+Acute severe is PEF 33-50%; moderate was written as PEF 50-75%. A PEF of
+exactly 50% satisfied BOTH bands, and the two differ in disposition. BTS/SIGN
+write moderate as >50-75%. One character, one real decision.
+
+### A near-miss worth recording
+The deck-wide scan that found the CHA2DS2-VASc error first reported ZERO
+mentions of the score. The deck writes it with Unicode subscripts and the
+pattern used ASCII digits, so all 99 mentions across 18 files were invisible.
+Had that "0 hits" been taken at face value it would have read as "this score
+isn't in the deck" rather than "my pattern is wrong". This is the fourth
+character-encoding false negative in this project, after the escaped quotes in
+raw JSON (twice) and the backslash-eaten regex.
+
+An agent hit the same class independently: a plain semicolon list-split matched
+INSIDE the HTML entity "&gt;" on "Fever &gt; 38.5", which would have produced a
+silently mangled inequality across a list join. Its cut matcher now skips any
+separator overlapping an entity or tag span.
+
+### Verified correct by me, from raw source
+- Ottawa ankle/foot/knee framed as high-sensitivity rule-OUT tools -- a
+  negative rule excludes fracture -- not as rule-in tests.
+- The scores that run against intuition, all stated correctly and explicitly:
+  MASCC (higher = LOWER risk), MELD (higher = higher transplant PRIORITY),
+  Braden (LOWER = higher risk, with the opposition to Waterlow named on the
+  card), PERC (a rule-out gate, all eight negative excludes PE), pleural fluid
+  pH (lower = worse), and acute asthma (lower PEF = worse, and a NORMAL PaCO2
+  is a life-threatening sign rather than a reassuring one).
+- Child-Pugh A/B/C mapping to 5-6, 7-9, 10-15 contiguously over the full range.
+- Wells cut-offs hold at 2 for DVT and 4 for PE across all five files.
+
+### Band problems found and reported, not fixed
+- Duke criteria: DEFINITE and POSSIBLE overlap as written. 1 major + 3 minor
+  satisfies both cards. Real BCLC-style hierarchy (definite first, then
+  possible) is not stated, and the third category, REJECTED, is absent.
+- BCLC stages C and D overlap: C is "vascular invasion or PS 1-2", D is
+  "Child-Pugh C or PS 3-4". A patient with PS 1-2 and Child-Pugh C meets both.
+- ISTH DIC fibrinogen: ">1 g/L = 0, <1 g/L = 1" leaves exactly 1 g/L scoring
+  neither.
+- ASA II gives "BMI 30-40" and ASA III "BMI >=40", so BMI exactly 40 is in
+  both. Faithful to the ASA's own published wording, so flagged rather than
+  called an error.
+- Modified Centor (McIsaac) runs -1 to 5, but the antibiotic bands only cover
+  0-4. Scores of -1 and 5 map to nothing.
+- Alvarado bands start at 1, but the score runs 0-10.
+
+### Absent from the app
+- Revised Cardiac Risk Index / Lee index: zero hits deck-wide, and
+  "Perioperative" is exactly where it would belong.
+- Pneumonia Severity Index (PSI/PORT): zero hits deck-wide.
+- MELD 3.0: zero hits deck-wide (MELD-Na is present).
+- ASA I is never defined anywhere, though II to VI all are.
+- The ECOG/Karnofsky inversion is never stated and the two tools never appear
+  on the same card. Both are USED correctly (Karnofsky <80% adverse, ECOG >=2
+  adverse), so the inversion can be inferred but is never taught.
+- No pain-measurement tool exists in the Pain topic, and no card anywhere says
+  a pain score is self-reported and not to be overridden.
