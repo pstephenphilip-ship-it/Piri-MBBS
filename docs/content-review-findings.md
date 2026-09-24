@@ -3509,3 +3509,64 @@ and picking a side here would silently re-band the cardiology deck.
 - DDH cards argue from **ossification**, not radiation avoidance — the better
   answer, but worth knowing the radiation rationale is stated only for pyloric
   stenosis (Paediatric 10) in this topic.
+
+## The tail of `conditions__` / `anatomy__`: 43 bare backs, 4 changed
+
+A sweep found 43 cards in already-completed topics whose backs carried no
+markup at all. The instinct is to treat that as 43 misses. It was not.
+
+**These are mostly a deliberate card type**, not an oversight: short
+"companion retrieval" cards paired with a fuller marked-up card in the same
+topic. The companion's whole back *is* the answer the front already names in
+bold, so marking it would bold the entire back — which is not emphasis.
+
+| Full card (already marked) | Companion (left bare) |
+|---|---|
+| Lung Cancer 9 (list, `keratin pearls` bold) | 11: "Keratin pearls." |
+| Anaphylaxis 39 (`allergy clinic referral`) | 40: "All new diagnoses." |
+| Asthma 21 (`Viral respiratory infections` bold) | 20: "Viral respiratory infections." |
+| Substance Use 36 (6-item list) | 35: "Cocaine and amphetamines." |
+
+Four cards were genuinely unfinished and were changed:
+
+- **Orthopaedics Upper Limb Fractures 96** — the terrible triad (elbow
+  dislocation + radial head + coronoid fracture) became a 3-item `fc-list`.
+- **Respiratory Anaphylaxis 48** — `2 auto-injectors` chipped, matching the
+  topic's own house style (card 45 chips `2 doses`, card 47 chips `2 h`).
+- **Upper Limb Muscles 19** — shoulder extension's prime movers bolded. This
+  is whole-back bold, accepted only because card 18 is its literal template
+  sibling ("Name the prime movers of shoulder flexion") and bolds both movers;
+  left bare, 19 read as unfinished beside three marked twins.
+- **Upper Limb Nerves 16** — the two nerve groups bolded, labels left plain,
+  matching sibling card 21's identical "Label: **content**." prose shape.
+
+### Left bare deliberately, and why it was the right call
+
+- **Lower Back & Spine 8 and 9** (spinal infection and fracture red flags) look
+  like textbook 3-item lists. They are members 3 and 4 of a four-card red-flag
+  run whose **first member, card 7, is itself unbolded prose** with only its
+  value chipped (`Age >50, previous cancer, night pain and weight loss.`).
+  Verified directly against the raw file. Bolding 8 and 9 would have made 7 the
+  odd one out in its own run. The fronts already carry the discriminator in
+  bold (MALIGNANCY / INFECTION / FRACTURE).
+- **Antimicrobial Stewardship 13** — "Right drug, dose, route, duration, for
+  the right diagnosis." "Right" is a shared lead-in that survives in prose and
+  dies in bullets, where the rest become three bare nouns.
+- **Immunobullous 32** — "Conjunctival, nasal, oesophageal and genital
+  erosions." One shared head noun; bulleting attaches "erosions" to "genital"
+  alone and silently changes the claim.
+- **Barrett's 2** — `(low- then high-grade)` refused `fc-inline`: grading drives
+  surveillance and management, so greying it fails the tone test.
+- **Eleven arrow-chain backs** left as prose. On the three ordered ones
+  (cardinal movements of labour, IVF sequence, retinoblastoma treatment
+  priorities) `<ul class="fc-list">` is **unordered**, so converting would have
+  destroyed the ordering the front explicitly demands.
+- **Respiratory Support 2** — "Nasal cannula / mask / NRB / Venturi." `/` is not
+  a droppable separator; a list would require deleting characters off the
+  whitelist.
+
+One card is flagged as a genuine close call rather than settled: **Cutaneous
+CTD 42**, "Anti-TIF1-γ and anti-NXP2." Two discrete named antibodies, and
+siblings 40/41 bold their answer cores — but those fronts carry the antibody
+and ask for the meaning, so this one inverts the template and has no identical
+run to look unfinished against. Left bare.
