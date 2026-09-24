@@ -3309,3 +3309,111 @@ separator overlapping an entity or tag span.
   adverse), so the inversion can be inferred but is never taught.
 - No pain-measurement tool exists in the Pain topic, and no card anywhere says
   a pain score is self-reported and not to be overridden.
+
+## MRI — all 12 topics (v1489-v1491). FILE COMPLETE: 342 cards, 0 unformatted.
+
+Figure taken from a count of the file run before this entry was written. See the
+process note at the end of this section.
+
+### CORRECTION 1: the myeloma-defining event threshold
+Two cards in the same topic disagreed at exactly one lesion. One said ">=1
+unequivocal focal marrow lesion on MRI is a myeloma-defining event indicating
+active (treatment-requiring) myeloma"; the other said "more than one focal
+lesion". The IMWG 2014 SLiM criteria define the M as MORE THAN ONE focal
+lesion, each at least 5 mm. Checked against IMWG, not from memory, because this
+threshold decides whether someone starts chemotherapy.
+
+The error ran toward OVER-treatment: a single focal lesion would have
+reclassified smouldering myeloma as active myeloma requiring therapy. The 5 mm
+floor was added at the same time, since "more than one lesion" without it is
+only half the criterion.
+
+### CORRECTION 2: deep myometrial invasion
+Card 11 gave the cut as "<50% vs >=50%", which is FIGO-correct since stage IB
+is invasion of the outer half. Card 31 wrote "deep (>50%)", excluding a tumour
+invading exactly 50% and understaging it -- and that depth is what drives
+whether lymphadenectomy is done. Card 31 now matches card 11.
+
+This is the THIRD boundary in this project that excluded its own endpoint,
+after the breast 2-week-wait age (">50" where NICE says 50 and over) and the
+acute asthma PEF bands (severe 33-50% against moderate 50-75%, so exactly 50%
+met both). Worth naming as a class: whenever a card states a cut-off, check
+what happens to a patient sitting exactly on it.
+
+### Verified correct by me, from raw source
+- **Every late gadolinium enhancement pattern is paired with the right
+  disease** -- subendocardial or transmural following a coronary territory for
+  infarction, mid-wall septal stripe for dilated cardiomyopathy, subepicardial
+  for myocarditis, patchy mid-wall at the RV insertion points for hypertrophic
+  cardiomyopathy, global subendocardial with failure to null for amyloid. The
+  file also states explicitly that the infarct pattern follows a coronary
+  territory while the others do not, which is what makes the set usable rather
+  than memorised. This is the classic cardiac MRI error and it is not here.
+- **Restricted diffusion is BRIGHT on DWI and DARK on ADC** on all eight cards
+  that state it, with T2 shine-through given as the discriminator and ADC
+  pseudonormalisation correctly timed at days 7-10.
+- **Bone marrow oedema is LOW on T1 and HIGH on fluid-sensitive sequences** on
+  all five cards, and the file teaches the reason (normal marrow is bright on
+  T1 because it is fatty; pathology replaces fat with water or cells) rather
+  than asserting the pairing.
+- **T2\* and iron: LOW T2\* equals HIGH iron.** Correct direction.
+- The cord ends at the conus around L1/L2, so compression below it gives a
+  cauda equina LMN pattern rather than a cord UMN syndrome -- stated with its
+  reasoning.
+- MSCC: whole-spine MRI within 24 hours, dexamethasone 16 mg daily with a PPI,
+  MSCC coordinator referral.
+
+### The soft-tissue sarcoma biopsy pathway is present, twice, in bold
+"An unplanned 'whoops' excision seeds tumour and worsens outcomes ... an
+MDT-planned image-guided core biopsy placed along the future resection line, so
+the biopsy tract can be excised en bloc", and "referred to a bone-tumour /
+sarcoma MDT BEFORE biopsy". Neither is demoted. This is the card that saves a
+limb and it is formatted like it.
+
+### Absent from the app
+- **SWI and GRE**, the blood-sensitive sequences: two hits deck-wide, neither
+  in a brain topic, despite cavernoma and petechial haemorrhage both appearing
+  as brain content. No microbleed, cerebral amyloid angiopathy or
+  haemorrhagic-transformation card exists.
+- **"A normal neurological examination does not exclude cauda equina
+  syndrome."** Absent in any form. The file covers the TIMING half of the point
+  well ("never delay it while waiting for retention to develop") but not the
+  examination half.
+- **Bilateral sciatica** as a cauda equina red flag.
+- **MRI before biopsy in the UK prostate pathway.** Only implied, by the score
+  existing before the biopsy it triggers.
+- **"A normal MRI does not exclude endometriosis"**, and laparoscopy is not
+  mentioned anywhere in the file.
+- **T2-FLAIR mismatch sign** (the IDH-mutant astrocytoma sign). What the file
+  has is the different and correctly described DWI-FLAIR mismatch used for
+  wake-up stroke.
+- The explicit negative form "a normal X does not exclude Y" appears exactly
+  once in the 75 MSK and whole-body cards. The fracture cards make the same
+  point positively ("before radiographs turn positive"), which is a weaker
+  signal to a skimming reader.
+
+### Internal tensions reported, not fixed
+- Viability: one card gives the tripartite scheme (<25% scar viable, 25-50%
+  intermediate, >50% non-viable), another collapses it to "<50% = viable ->
+  revascularise". Both are taught; reconciling them means picking a scheme,
+  which is an authoring decision.
+- Spinal infection: one card says "do not wait for markers or biopsy"
+  (epidural abscess with neurology), another says "get the organism first"
+  (stable discitis). Clinically reconcilable, but neither card says which
+  situation it is in.
+- MRI safety: the file gives one flat hazard list and never distinguishes
+  absolute from relative contraindications. Claustrophobia, the archetypal
+  relative one, is absent from the brain and skull base topics.
+
+### Process note: two false completion claims, and the fix
+Commit v1487 claimed "FILE COMPLETE 328/328" for risk-scores-criteria when it
+was 255/328. Commit v1490 claimed "MRI COMPLETE 342/342" when it was 267/342.
+Both had the same cause: the message was written from "every result file I am
+holding has been applied" rather than from a count of the file. Both were
+caught within minutes by running the count -- but afterwards, with the claim
+already pushed.
+
+Neither was rewritten. v1487 is corrected in this document and v1490 has an
+explicit correction commit of its own. From v1491 the count is run BEFORE the
+commit message is written and the number is pasted into it, which is why that
+message says "342/342, 0 unformatted" rather than "COMPLETE".
