@@ -3936,3 +3936,73 @@ judging by consequence, not by keyword.
   both say a normal CT within 6 hours effectively rules it out; `ct.json` says
   the unqualified form. Not factually contradictory, but a learner meeting only
   one of them gets a different rule.
+
+## The grey-span audit: 362 safety clauses restored to full colour
+
+My keyword scan found ~114 suspect grey spans. A full audit found the real
+shape of the problem:
+
+| | |
+|---|---|
+| Grey spans deck-wide | **5,993** (5,242 `fc-inline`, 751 `fc-caveat`) |
+| Read and judged individually | 1,175 |
+| **Un-greyed** | **362** — 194 `fc-caveat`→`fc-sub`, 168 `fc-inline`→plain body |
+| Kept grey | 5,631 |
+| Fields changed | 354, across 22 files |
+| Word changes | **0** of 213,337 fields compared |
+
+Every grey span in the deck sits in the `fc` map — none in `q` — so there was
+no quiz-layer remediation to do, which is the first time this project has had
+that luck.
+
+### The rule applied
+
+Un-grey when the span, read alone, changes what the reader **does or fails to
+do**: a prohibition or contraindication not already stated in black; an urgent
+or time-critical action; any "X does not exclude Y"; a lethal or irreversible
+consequence of an action the reader might take; a drug-safety monitoring or
+pre-treatment requirement; a drug choice in pregnancy or breastfeeding.
+
+Keep grey when it explains *why* a black directive exists and names only a
+non-lethal consequence, or when it is descriptive, terminological, an eponym, a
+mnemonic or an exam-technique note.
+
+That distinction is what a keyword list cannot make. `(avoid radiation)` is a
+rationale. `Do not confuse a granuloma with granulation tissue` is terminology.
+`Do NOT reduce mortality` is a pharmacology fact about loop diuretics. All
+three match "avoid/do not" and all three should stay demoted. Meanwhile
+`(NOT scrotal; avoids disrupting lymphatic drainage and seeding to inguinal
+nodes)` matched nothing in my list — because `\bavoid\b` does not match
+"avoids" — and is a genuine surgical prohibition. A third residual sweep after
+the edits caught that one and two others.
+
+### Borderline calls, reviewed and upheld
+
+- **`(coning)`** stays grey in two raised-ICP cards. It is a one-word synonym
+  gloss for tonsillar herniation; both the mechanism and the instruction to
+  image first are already in black. This is the keyword I most consciously
+  overrode.
+- **"Do not offer betahistine for tinnitus"** and **"NICE says do not offer
+  vitamin D solely to treat MS"** stay grey. Literal prohibitions, but the
+  consequence is an ineffective prescription, not patient harm.
+- **"A score <10% does not rule treatment out"** (QRISK3) stays grey, though
+  "does not exclude" was otherwise treated as an absolute. Checked directly:
+  the operative instruction, `≥10% → offer atorvastatin 20 mg`, is already in
+  black, so the grey clause only softens it. The consequence is a missed
+  conversation about primary prevention, not a missed diagnosis.
+- **Mirror-image reassurances kept grey deliberately** — `(safe in
+  breastfeeding)` stays demoted while `(not in pregnancy or breastfeeding)` was
+  restored. Missing a warning harms someone; missing a reassurance does not.
+
+### What remains
+
+39 grey spans still match a crude safety-keyword search, down from 114. Every
+one was read: two `(coning)` glosses, five "do not confuse" terminology notes,
+three mnemonic/exam notes, two low-harm guideline prohibitions, one
+pharmacology fact, four clarifications, and 19 uses of "avoid" or "never" as
+rationale, lifestyle advice or idiom. None of them, read alone, changes what a
+clinician does.
+
+No `<strong>` was added to the restored clauses. Un-greying already returns
+full size and colour, and bolding 362 clauses at once would breach the rule
+that if six things are bold, none is.
