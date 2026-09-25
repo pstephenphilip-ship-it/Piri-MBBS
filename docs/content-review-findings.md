@@ -3693,3 +3693,73 @@ Two other briefed items were likewise absent and correctly not invented: the
 "3-3-1" bowel calibre rule (zero deck hits — the deck uses the 3/6/9 rule, and
 all copies of it agree) and the literal "two views at 90 degrees" (present as
 "two orthogonal views", and only outside those topics).
+
+## A systematic sweep for the boundary error class
+
+Five corrections so far had the same shape: a threshold stated with a strict
+inequality in one place and a non-strict one in another, so a patient sitting
+**exactly on the number** falls into two categories at once, or into none. They
+were all found by accident, one at a time. So I wrote a scan for the whole
+class rather than waiting to trip over the sixth.
+
+**Method.** Extract every `<`, `>`, `≤`, `≥` followed by a number and optional
+unit from every field in every card file (pharmacology excluded), then pair
+mentions that share the same number, the same unit and the same *direction* but
+differ in strictness. The naive version returned 187 candidates and was
+useless — "2" is a murmur grade, a lactate, a Wells point, a vertebral body and
+a cortical ratio. Requiring the two contexts to share at least three content
+words (stopwords stripped) cut it to pairs that are plausibly about the same
+thing.
+
+Three collisions were real: one copy disagreeing both with a clear majority and
+with the published definition.
+
+### Fixed
+
+- **SAAG.** `≥11 g/L` in `gastrointestinal.json` (many cards),
+  `special-tests.json` and `ultrasound.json`; `>11 g/L` in `liver.json` alone,
+  across three fields. The definition is ≥11 g/L — and one card in the deck
+  teaches precisely that 11 g/L equals 1.1 g/dL, "the threshold is the same
+  value in different units". At exactly 11, `liver.json` denied portal
+  hypertension.
+- **ICD primary prevention.** `EF ≤35%` on nine cards across four files;
+  `EF <35%` in exactly one quiz explanation. This is the one that really bites:
+  ejection fraction is reported in rounded whole numbers and lands on 35
+  constantly, so a patient at EF 35% qualified for an ICD on every card except
+  that one.
+- **Wells immobilisation.** The published criterion is immobilisation ≥3 days.
+  `respiratory.json` stated it both ways — `≥3` on the flashcard, `>3` in its
+  own quiz explanation.
+
+### Found and deliberately not fixed
+
+- **HVPG 10 mmHg.** `≥10` in `gastrointestinal.json` and
+  `nuclear-interventional.json` ("10 mmHg or more"); `>10` in `liver.json`. The
+  definition of clinically significant portal hypertension is ≥10, so
+  `liver.json` is technically the outlier — but its copy is an MCQ framed
+  "**Above** what hepatic venous pressure gradient…" with a matching `>12`,
+  `>30`, `>50` distractor set. Correcting it means rewriting a sound question
+  and its distractors, and unlike SAAG and EF, HVPG is a continuous
+  catheter measurement that essentially never reads exactly 10. Reported.
+- **PUO duration** (`>3 weeks` vs `≥3 weeks`), **neutropenic sepsis
+  temperature** (`>38°C` vs `≥38°C`) and **UTI fever** (same, within one file).
+  Published guidance genuinely varies in wording on all three, so these are
+  house-style inconsistencies rather than errors. Worth one editorial decision
+  applied deck-wide.
+- **Notation inconsistency:** several cards in `geriatric-medicine.json` and
+  `genetics-molecular.json` write ASCII `>=3` and `<=2` where the rest of the
+  deck uses `≥` and `≤`. Same meaning, but it renders as literal `>=` to the
+  learner.
+
+### Verified absences (checked properly, at sentence level)
+
+Two gaps I had previously reported on an agent's word, now confirmed myself by
+requiring the claim to sit within a single sentence rather than merely
+co-occurring in a card:
+
+- **"A normal neurological examination does not exclude cauda equina"** — zero
+  sentences, deck-wide.
+- **"Ultrasound cannot exclude AAA rupture"** — zero sentences, deck-wide.
+
+Both remain for a clinician. Writing them myself would be authoring new
+clinical content, which is outside what this pass should do.
