@@ -3763,3 +3763,92 @@ co-occurring in a card:
 
 Both remain for a clinician. Writing them myself would be authoring new
 clinical content, which is outside what this pass should do.
+
+## GI and neurological signs — 12 topics, and four more boundary corrections
+
+731 cards across nine GI-signs topics and six neurological-signs topics.
+
+### The scan works; my triage of it did not
+
+The boundary scan from the previous commit produced **546 same-subject
+collisions**, and I eyeballed the top twelve. One of the ones I skipped past
+was real, and an agent found it independently minutes later:
+`scoping-endoscopy.json`'s ALARMS55 card said **"age >55"**, excluding a
+55-year-old, where roughly twenty copies across `upper-gi.json`,
+`microbiology.json` and `gastrointestinal.json` say "≥55" or "55 and over" —
+the NICE wording. A missed 55-year-old here is a missed upper GI cancer.
+
+The lesson is not that the scan failed. It surfaced the pair. The lesson is
+that a screen returning 546 candidates needs a triage pass over all of them,
+not a glance at the head of the list.
+
+### Fixed
+
+- **SBP ascitic neutrophil count.** `≥250 cells/mm³` on eleven fields across
+  `gastrointestinal.json`, `special-tests.json` and `ultrasound.json`; `>250`
+  on six fields in `liver.json` alone. At exactly 250, `liver.json` said this
+  is not SBP. Untreated spontaneous bacterial peritonitis has very high
+  mortality, so this is the worst harm direction the class has produced so far.
+  Found independently by two agents and by the scan.
+  **The trap:** `liver.json` also carries `>250 mcg/g dry weight` for hepatic
+  copper in Wilson's disease, which is correct. Every anchor had to carry its
+  own units, and the survivor sweep had to exempt the copper card explicitly —
+  otherwise the guard would have demanded I "fix" a correct threshold.
+- **Upper-GI 2WW age** — `>55` → `≥55` in `scoping-endoscopy.json`.
+- **IBS / chronic abdominal pain red-flag age** — two cards said `>50` where
+  the sibling topic in the same file says `≥50`. Lower stakes (PR bleeding is
+  separately listed on both cards, so a 50-year-old is still caught), but the
+  same endpoint exclusion.
+- **Status epilepticus.** The ILAE/NICE operational definition is a seizure
+  lasting **5 minutes or more**. `neurological.json` had `≥5`;
+  `neurology-neurosurgery.json` had `>5` and `paediatric.json` had "more than
+  5 minutes", both excluding exactly 5.
+  **The guard fired twice here**, and both times on a copy in the quiz layer:
+  first on an MCQ's `options[2]` (whose text the `answer` string must match
+  exactly, so both had to move together), then on a paediatric quiz
+  explanation. That makes five separate occasions this sweep has found a
+  threshold's second copy hiding in `q` with different escaping.
+
+### Found and deliberately not fixed
+
+- **RMI 250** for gynae-oncology referral: `>250` vs `≥250`. RCOG's own wording
+  is `>250`, RMI is a computed product that essentially never lands on 250, and
+  the majority here favours the strict form.
+- **SBP primary prophylaxis ascitic protein**: `<15 g/L` in two files vs
+  "15 g/L or less" in `liver.json`. Same class; `liver.json` matches NICE here,
+  so the other two are the outliers. Left for a clinician because it changes
+  who gets long-term antibiotics.
+- **Ovarian mass age** `>50` in `obstetrics-gynaecology.json` against `≥50`
+  elsewhere.
+- **Transudate/exudate framing.** `gastrointestinal.json` teaches that the SAAG
+  has *replaced* the old protein-based transudate/exudate split, while
+  `liver.json` and `ultrasound.json` still equate high SAAG with "transudate" —
+  the very split the first cards call superseded. A conceptual contradiction,
+  not a numeric one.
+
+### Absences confirmed deck-wide
+
+- **"New confusion is delirium until proven otherwise"** — zero hits in any
+  phrasing. The deck says "organic until proven otherwise" for psychosis and
+  "always exclude delirium before diagnosing dementia", but never this.
+- **"Tap before antibiotics" in SBP** — zero hits. The deck says do not wait
+  for *culture*, and that deranged clotting must not delay the tap, but never
+  states the ordering.
+- **"A PPI can mask gastric cancer"** exists in `gastrointestinal.json` and
+  `upper-gi.json` but is absent from Dysphagia, Odynophagia and Heartburn —
+  whose card on when to use an empirical PPI trial is its natural home.
+- **A lactate caveat on mesenteric ischaemia** is absent from the abdominal
+  pain topics, though `acute-abdomen-surgical-principles.json` and `ct.json`
+  both say "lactate rises late, so a normal lactate does not exclude it". A
+  reader working only from the signs cards could read a normal lactate as
+  reassurance.
+- **"Ultrasound cannot exclude AAA rupture"** — re-confirmed at zero. The only
+  "does not exclude rupture" hits in the deck are Achilles tendon.
+
+### One boundary with no second copy to contradict it
+
+The deck's only AAA age gate is **"over 60"**, in two cards that agree with
+each other. Nothing contradicts it — but "over 60" excludes 60, so a
+60-year-old with first-episode loin-to-groin pain falls outside the deck's only
+stated AAA rule. There is no majority to appeal to here, so this is a clinician's
+call, not mine.
