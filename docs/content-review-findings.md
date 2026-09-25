@@ -3852,3 +3852,87 @@ each other. Nothing contradicts it — but "over 60" excludes 60, so a
 60-year-old with first-episode loin-to-groin pain falls outside the deck's only
 stated AAA rule. There is no majority to appeal to here, so this is a clinician's
 call, not mine.
+
+## A formatting error of mine, found late: safety content in grey spans
+
+An agent reading another file noticed that `neurology-neurosurgery.json` put
+the list of findings that make a lumbar puncture contraindicated — falling GCS,
+new focal neurology, seizures, papilloedema, abnormal posturing, bradycardia
+with hypertension — inside `<span class="fc-inline">`, which is grey. The same
+file greyed "(coning risk)" immediately after "Never do an LP in obstructive
+hydrocephalus".
+
+I fixed both. Then I scanned the whole deck and found the real scale of it:
+**roughly 114 grey spans carry prohibition or risk language.**
+
+### Why my earlier remediation missed this
+
+Earlier in this project I discovered that my brief described `fc-inline` as
+"an aside that sits inside a sentence" without saying that the CSS greys it,
+and agents had reasonably put safety prohibitions in grey across 18 files. I
+unwrapped 63 such spans and updated the brief.
+
+**That fix was `fc-inline` only.** I never audited `fc-caveat`, which is the
+stronger demotion — grey *and* 13px. The brief bars both devices from
+prohibitions, but my remediation script only searched for one of them. A
+partial fix to a systematic problem reads as a completed fix, and I treated it
+as one.
+
+The general lesson, which has now bitten twice in this project: when a defect
+is found in one device, class or file, the next question is always "where else
+does this shape exist?" — not "is this instance fixed?".
+
+### Fixed directly
+
+- The LP-contraindication list and the hydrocephalus coning risk, un-greyed.
+  Verified word-for-word identical before and after; only the wrapper moved.
+
+A full per-span audit of all grey spans in the deck is running separately,
+against the brief's test: *if a reader skimmed and their eye slid off this text
+because it was grey, could a patient be harmed?* Not every "do not" is a safety
+point — "Do not learn this as a triad" and "Do not confuse a granuloma with
+granulation tissue" are teaching notes and should stay demoted. The audit is
+judging by consequence, not by keyword.
+
+## Other corrections in this batch
+
+- **Mojibake in a clinical value.** The platelet transfusion threshold in
+  `gastrointestinal.json` was written `&#8317;` — U+207D SUPERSCRIPT LEFT
+  PARENTHESIS, not superscript nine — so it rendered as `<50×10⁽/L` instead of
+  `<50×10⁹/L`. It is the only `&#8317;` in the deck; 113 other places write the
+  exponent correctly. This is the rare case where changing a character is
+  required rather than forbidden: the current glyph is not a value at all.
+- **A card contradicting itself.** `liver.json` q[41] asks the transfusion
+  target for a variceal bleed. Its answer says "Restrictive Hb 70–80 g/L,
+  because over-transfusion raises portal pressure"; its own explanation said
+  70–90. The explanation now matches the answer.
+  **Not forced:** `liver.json` fc[49] also says 70–90 for a variceal bleed.
+  That is a real guidance divergence — Baveno targets 70–80 for varices, while
+  70–90 is the general upper-GI figure used across four other files — not a
+  typo. Choosing between them deck-wide is a clinical editorial call. What was
+  indefensible was one card disagreeing with itself at the point of testing.
+- **The loose LP timing had a third home.** After correcting "~12 hours" on the
+  `ct.json` flashcard, the same looseness survived in that file's MCQ:
+  `options[2]`, `answer` and `explanation` all said "around" or "approximately"
+  12 hours, against 25 places in 7 files saying *at least* 12 hours. The option
+  and answer strings had to move together or the card breaks.
+
+## Reported, not changed
+
+- **Listeria cover age.** `neurological.json` adds amoxicillin for Listeria if
+  ">50"; `neurophysiology-csf.json` says ">60" twice. UK sources genuinely
+  differ (55 and 60 both appear in practice), so this is a clinician's call,
+  not a typo to harmonise.
+- **Kasai timing** is "before ~8 weeks" in `gastrointestinal.json` and "before
+  60 days" in `paediatric.json` — two standard formulations of one cut-off, but
+  two different numbers for one decision.
+- **Migraine aura duration** is "5–60 min" in `neurological.json` and
+  "~20–30 minutes" twice in `ophthalmic.json`.
+- **Melaena volume.** "~50 mL of blood" appears exactly once in the deck with
+  nothing to check it against. It matches standard teaching (50–100 mL);
+  flagged only because it is unverifiable internally.
+- **The 6-hour CT rule for SAH** sits alongside the flat "a normal CT does not
+  exclude SAH". `neurology-neurosurgery.json` and `neurophysiology-csf.json`
+  both say a normal CT within 6 hours effectively rules it out; `ct.json` says
+  the unqualified form. Not factually contradictory, but a learner meeting only
+  one of them gets a different rule.
