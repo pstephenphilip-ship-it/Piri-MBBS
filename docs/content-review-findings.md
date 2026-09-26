@@ -4523,3 +4523,69 @@ anaemia, the Wilson's copper threshold, and now this).
 "non-caseating", while the granuloma topic here calls GPA a "necrotising
 granulomatous vasculitis" and omits it from the non-caseating list. Two files
 draw the boundary differently in wording; no value conflicts and neither is wrong.
+
+### pathological-histology.json complete — 338/338, 0 unformatted
+
+665 fields across eight topics. Third histology file finished, and the third
+consecutive batch with no content error requiring a fix.
+
+**Verified correct, on the reversals that matter:** the
+metaplasia → dysplasia → CIS → invasive sequence with reversibility attributed
+to the right steps (CIS is nowhere called reversible, and invasion through the
+basement membrane is named as the irreversible one); plaque components and the
+thin-cap/large-core vulnerability rule, agreeing with `cardiovascular.json` in
+six places; Virchow's triad across five files; the type III → I collagen switch;
+and every tumour-histology attribution — **keratin pearls appear 32 times deck-wide
+and no file attributes them to a non-squamous tumour**, with intercellular
+bridges, gland formation, mucin, signet-ring cells, p40/p63, GATA3, TTF-1 with
+its invasive-mucinous exception, and CK7−/CK20+ all consistent.
+
+### A discrepancy I am reporting rather than fixing, and the reason why
+
+`pathological-histology.json` credits the goblet-cell-requiring Barrett's
+definition to **US/CAP** in three fields; `gastrointestinal.json` credits the
+same definition to **US/ACG** in two. The clinical substance is identical and
+correct in both — the UK/BSG definition needs only a columnar-lined oesophagus,
+the American one also needs intestinal metaplasia.
+
+I fixed the NOF proximal/distal error earlier and am not fixing this, and the
+distinction is worth stating because it is the line I am holding generally.
+**Anatomy is verifiable from first principles**: the iliopsoas inserts on the
+lesser trochanter, which is on the distal fragment, and that settles it without
+reference to any source. **Which professional body published a definition is a
+citation**, and correcting it means asserting a fact about authorship from
+recall while the deck itself disagrees with itself. A student learning "the
+American definition requires goblet cells" gets the right medicine from either
+acronym. Flagged for someone who can check the source.
+
+### Absences confirmed, reported not filled
+
+- **No card states that carcinoma in situ is irreversible.** The deck names
+  invasion as the irreversible step and calls metaplasia and dysplasia
+  "potentially reversible", but never closes the loop on CIS.
+- **The ≥1 cm segment-length criterion for Barrett's is absent** from these
+  topics, though both `gastrointestinal.json` and `upper-gi.json` carry it.
+  Anchored search for any centimetre value across the four topics: zero hits.
+- **No Barrett's surveillance interval** here either — so, consistent by
+  omission with `upper-gi.json`'s 2–3 year / 3–5 year figures rather than in
+  conflict with them.
+
+### Hedging difference worth knowing about
+
+`basic-tissues.json` calls metaplasia flatly "**a reversible** change", while
+this file is more careful — "*potentially* reversible", and "many established
+metaplasias (Barrett's, gastric intestinal metaplasia) persist and rarely fully
+regress". Not a factual conflict, but the second is the better teaching and the
+two files will read differently to a student.
+
+### Deck hygiene, flagged not acted on
+
+`Fibrosis & Repair` cards 10 and 34 are **near-duplicates** — the same four
+wound-strength figures (~10% at one week, ~70–80% plateau by three months, never
+100%) in different phrasing. Both were marked up. Merging them is an editorial
+call.
+
+Also incidental, in files outside this batch: the two **Krukenberg** cards
+disagree on the alternative primary — `obstetrics-gynaecology.json` says
+"gastric — or breast", `reproductive.json` says "gastric (or colonic)". Both are
+recognised primaries, so neither is wrong.
