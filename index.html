@@ -10025,6 +10025,134 @@ window.MOCK_BANK = {
         "In the UK, NICE does NOT recommend routine antibiotic prophylaxis for dental (or GI/GU/respiratory) procedures; the emphasis is GOOD ORAL HYGIENE, prompt treatment of infection, and counselling about piercings and tattoos. A highest-risk group may be offered prophylaxis after shared decision-making, and note ESC does recommend it for high-risk dental work.",
         "Blanket amoxicillin for everyone, a post-procedure course and chlorhexidine mouthwash are all specifically not recommended; and avoiding dental care would worsen her oral health and IE risk."
       ] }
+],
+"conditions__CARDIOVASCULAR__Lipid Disorders / Atherosclerosis": [
+    { id:"lip-001", type:"mcq", objective:"lip-primary-qrisk",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>QRISK3 (10-year) <b>14%</b></span><span>Established CVD / diabetes / CKD <b>None</b></span><span>Blood pressure <b>138/84 mmHg (on amlodipine)</b></span><span>Non-HDL cholesterol <b>4.6 mmol/L</b></span></div>",
+      question:"A 58-year-old taxi driver attends an NHS Health Check. He has hypertension treated with amlodipine 10 mg, smokes 15 cigarettes a day, and has a BMI of 29. His father had a myocardial infarction aged 70. He has no history of cardiovascular disease, diabetes or kidney disease and feels well. What is the most appropriate drug treatment?",
+      options:[
+        "Atorvastatin 20 mg once daily",
+        "Atorvastatin 80 mg once daily",
+        "Ezetimibe alone",
+        "No drug treatment — lifestyle only",
+        "A fibrate"],
+      correctIndex:0,
+      explanation:[
+        "A QRISK3 of 10% or more with no established disease is the threshold for PRIMARY PREVENTION with ATORVASTATIN 20 mg (after a lifestyle discussion); recheck non-HDL at 3 months aiming for a 40% or greater reduction.",
+        "80 mg is the secondary-prevention dose; ezetimibe and fibrates are not first-line here; and ‘lifestyle only’ under-treats a risk of 10% or more."
+      ] },
+    { id:"lip-002", type:"mcq", objective:"lip-ckd-automatic",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>eGFR <b>45 mL/min/1.73m&sup2;</b></span><span>Urine ACR <b>5 mg/mmol</b></span><span>QRISK3 <b>8%</b></span><span>Prior CVD / diabetes <b>None</b></span></div>",
+      question:"A 52-year-old woman attends her annual kidney review. She has stage 3b chronic kidney disease from long-standing hypertension, for which she takes ramipril. She is a lifelong non-smoker with a BMI of 26, no diabetes and no prior cardiovascular event. Her calculated QRISK3 comes out below the usual treatment threshold. What is the most appropriate management?",
+      options:[
+        "No statin, as her QRISK3 is below 10%",
+        "Atorvastatin 20 mg regardless of the QRISK3 score",
+        "Atorvastatin 80 mg",
+        "Recalculate QRISK3 in five years",
+        "Lifestyle measures only"],
+      correctIndex:1,
+      explanation:[
+        "CKD (eGFR below 60, or ACR of 3 or more) is an AUTOMATIC indication for ATORVASTATIN 20 mg, irrespective of QRISK3 – CKD independently multiplies cardiovascular risk.",
+        "Withholding the statin because QRISK is below 10% is the trap; 80 mg is for established CVD; and deferring or lifestyle-only leaves a high-risk patient untreated."
+      ] },
+    { id:"lip-003", type:"mcq", objective:"lip-secondary-dose",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Event <b>Inferior STEMI, 2 weeks ago (PCI + stent)</b></span><span>Total cholesterol <b>4.4 mmol/L (\"normal\")</b></span><span>Current lipid-lowering therapy <b>None</b></span></div>",
+      question:"A 60-year-old man is seen in cardiac rehabilitation two weeks after an inferior STEMI treated with primary PCI and a drug-eluting stent. He has hypertension and is an ex-smoker, and is now taking aspirin, ticagrelor, ramipril and bisoprolol. He is anxious about ‘yet another tablet’ and points out that his cholesterol has always been normal. What is the most appropriate statin therapy?",
+      options:[
+        "Atorvastatin 20 mg once daily",
+        "No statin, as his cholesterol is normal",
+        "Atorvastatin 80 mg once daily",
+        "Ezetimibe alone",
+        "A statin only if his QRISK3 is 10% or more"],
+      correctIndex:2,
+      explanation:[
+        "Established cardiovascular disease means HIGH-INTENSITY ATORVASTATIN 80 mg, given to ALL post-MI patients REGARDLESS of baseline cholesterol – the benefit is risk reduction, not just lipid lowering.",
+        "20 mg is the primary-prevention dose; a ‘normal’ cholesterol does not exempt him; ezetimibe is an add-on; and QRISK3 is not used once disease is established."
+      ] },
+    { id:"lip-004", type:"mcq", objective:"lip-four-as",
+      data:"<div class=\"mk-obs-h\">Discharge check</div><div class=\"mk-obs-grid\"><span>Event <b>NSTEMI (PCI), this admission</b></span><span>Discharge drugs <b>Aspirin, ticagrelor, ramipril, atorvastatin 80 mg</b></span><span>Heart rate / rhythm <b>78 bpm, sinus</b></span></div>",
+      question:"A 62-year-old man with type 2 diabetes and hypertension is being discharged after an NSTEMI managed with PCI. His discharge summary lists aspirin, ticagrelor, ramipril and atorvastatin 80 mg, and the pharmacist is checking the prescription is complete. Which class from optimal secondary prevention is missing?",
+      options:[
+        "A calcium-channel blocker",
+        "A thiazide diuretic",
+        "A long-acting nitrate",
+        "A beta-blocker (bisoprolol)",
+        "A proton-pump inhibitor"],
+      correctIndex:3,
+      explanation:[
+        "Post-MI secondary prevention is the 4 A's – Atorvastatin, Antiplatelet(s), ACE inhibitor and a beta-blocker (‘Blocker’). He is on the first three, so the BETA-BLOCKER (bisoprolol) is missing; it reduces remodelling and sudden-death risk.",
+        "A calcium-channel blocker, thiazide and nitrate are not routine prognostic post-MI agents; a PPI is sometimes added for gastroprotection with DAPT but is not one of the prognostic 4 A's."
+      ] },
+    { id:"lip-005", type:"mcq", objective:"lip-antiplatelet-territory",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Diagnosis <b>Ischaemic stroke (right MCA), confirmed on CT</b></span><span>Rhythm <b>Sinus, no AF on telemetry</b></span><span>Statin <b>High-intensity started</b></span></div>",
+      question:"A 70-year-old man with hypertension and type 2 diabetes is admitted with left-sided weakness. CT confirms an ischaemic infarct in the right middle cerebral artery territory, and he is in sinus rhythm with no atrial fibrillation. He is now medically stable and on a high-intensity statin, and his long-term antiplatelet is being chosen. Which is the most appropriate long-term antiplatelet?",
+      options:[
+        "Aspirin 75 mg once daily, lifelong",
+        "Aspirin plus ticagrelor for 12 months",
+        "Warfarin",
+        "A beta-blocker",
+        "Clopidogrel 75 mg once daily"],
+      correctIndex:4,
+      explanation:[
+        "After an ischaemic stroke or TIA the first-line long-term antiplatelet is CLOPIDOGREL 75 mg (with a high-intensity statin); aspirin is used only if clopidogrel is not tolerated.",
+        "Twelve months of aspirin + ticagrelor is the post-MI DAPT regimen; warfarin would be for a cardioembolic source such as AF (absent here, in sinus rhythm); and a beta-blocker is not an antiplatelet."
+      ] },
+    { id:"lip-006", type:"mcq", objective:"lip-primary-target",
+      data:"<div class=\"mk-obs-h\">Non-HDL cholesterol</div><div class=\"mk-obs-grid\"><span>Baseline <b>4.5 mmol/L</b></span><span>At 3 months <b>3.2 mmol/L</b></span><span>Adherence / diet <b>Good / improved</b></span></div>",
+      question:"A 55-year-old woman started atorvastatin 20 mg for primary prevention three months ago (QRISK3 12%). She has hypertension on ramipril, is a non-smoker, reports taking her statin every night, and has cut down saturated fat and lost 3 kg. Her non-HDL cholesterol is rechecked, with the results shown. What is the most appropriate next step?",
+      options:[
+        "Increase to atorvastatin 80 mg",
+        "Continue the current dose — target achieved",
+        "Stop the statin",
+        "Add a fibrate",
+        "Switch to ezetimibe monotherapy"],
+      correctIndex:0,
+      explanation:[
+        "The primary-prevention target is a REDUCTION IN NON-HDL OF 40% OR MORE at 3 months. Hers has fallen only about 29% (4.5 to 3.2) despite good adherence, so UPTITRATE to the maximum tolerated dose (atorvastatin 80 mg).",
+        "The target is not met, so ‘continue’ or ‘stop’ is wrong; a fibrate is for hypertriglyceridaemia; and switching to ezetimibe alone would lower efficacy."
+      ] },
+    { id:"lip-007", type:"mcq", objective:"lip-secondary-target",
+      data:"<div class=\"mk-obs-h\">Lipids at 3 months</div><div class=\"mk-obs-grid\"><span>LDL cholesterol <b>2.6 mmol/L</b> (target &le;2.0)</span><span>Non-HDL cholesterol <b>3.0 mmol/L</b> (target &le;2.6)</span><span>Statin <b>Atorvastatin 80 mg (maximum), adherent</b></span></div>",
+      question:"A 64-year-old man with hypertension is reviewed three months after an anterior STEMI. He takes aspirin, ticagrelor, ramipril, bisoprolol and atorvastatin 80 mg (the maximum dose), attends cardiac rehab and is fully adherent, but his lipids remain above target. What is the most appropriate next step?",
+      options:[
+        "Increase the atorvastatin dose further",
+        "Add ezetimibe",
+        "Stop the statin",
+        "Add a fibrate",
+        "Reassure him — the target is met"],
+      correctIndex:1,
+      explanation:[
+        "In secondary prevention the targets are LDL 2.0 OR BELOW / NON-HDL 2.6 OR BELOW mmol/L. He is above target on the maximum statin dose, so the next rung of the ladder is to ADD EZETIMIBE.",
+        "Atorvastatin cannot be increased beyond 80 mg; the target is clearly not met; and a fibrate targets triglycerides, not LDL."
+      ] },
+    { id:"lip-008", type:"mcq", objective:"lip-qrisk-not-a-bar",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>QRISK3 (10-year) <b>9%</b></span><span>FH features (xanthomata, very high cholesterol) <b>None</b></span><span>Total cholesterol <b>5.6 mmol/L</b></span></div>",
+      question:"A 48-year-old office manager asks about a statin after his younger brother had a myocardial infarction at 52. He is an ex-smoker (stopped two years ago), has a BMI of 28 and treated hypertension. On examination he has no tendon xanthomata or corneal arcus, and his total cholesterol does not meet familial hypercholesterolaemia criteria. His QRISK3 is 9%, and after a full discussion of benefits and risks he would like to take a statin. What is the most appropriate response?",
+      options:[
+        "Refuse a statin because his QRISK3 is below 10%",
+        "Start atorvastatin 80 mg",
+        "Atorvastatin 20 mg may be offered",
+        "Lifestyle only, and review in five years",
+        "Ezetimibe alone"],
+      correctIndex:2,
+      explanation:[
+        "NICE is explicit that a QRISK3 BELOW 10% IS NOT AN ABSOLUTE BAR – atorvastatin 20 mg may be offered where the person has an informed preference, or where the score may underestimate their risk.",
+        "Flatly refusing ignores that guidance; 80 mg is a secondary-prevention dose; a five-year review dismisses his preference; and ezetimibe is not first-line. His cholesterol and examination do not meet FH criteria, so this is a shared-decision primary-prevention choice, not FH."
+      ] },
+    { id:"lip-009", type:"categorize", objective:"lip-statin-decision",
+      question:"Sort each patient by the most appropriate initial statin decision.",
+      buckets:["Atorvastatin 20 mg","Atorvastatin 80 mg","No statin now"],
+      items:[
+        { text:"A 60-year-old with a QRISK3 of 13% and no cardiovascular disease", bucket:0 },
+        { text:"A 42-year-old with type 1 diabetes of 15 years' duration", bucket:0 },
+        { text:"A patient three weeks after an ischaemic stroke", bucket:1 },
+        { text:"A patient with established peripheral arterial disease and claudication", bucket:1 },
+        { text:"A fit 30-year-old with a QRISK3 of 3% and normal lipids", bucket:2 },
+        { text:"A patient whose raised LDL is due to newly diagnosed, untreated hypothyroidism", bucket:2 }],
+      explanation:[
+        "20 mg is PRIMARY PREVENTION – QRISK3 of 10% or more, or an automatic indication such as long-standing type 1 diabetes (over 10 years). 80 mg is HIGH-INTENSITY SECONDARY PREVENTION for any established arterial disease (stroke, PAD, MI).",
+        "NO STATIN NOW for a genuinely low-risk young person, and where dyslipidaemia is secondary to an untreated cause – correct the hypothyroidism first, then re-measure, as treating the cause may normalise the lipids."
+      ] }
 ]
 };
 </script>
