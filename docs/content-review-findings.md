@@ -5159,3 +5159,113 @@ rewriting the definitions, which is authoring, not correction. Flagged for a cli
 - HIT onset window: ~30 days in one card vs 100 days in another.
 - Borderline B12: `200–300` vs `180–350 ng/L`.
 - Malaria film repeat timing: 36–48 h vs 48–72 h.
+
+## Special tests investigations (160 cards, 319 fields)
+
+Formatted the six `investigations__SPECIAL TESTS__` topics: Endocrine — Adrenal &
+Pituitary (37), Endocrine — Glucose & Water (16), GI Absorption & Breath Tests (22),
+Respiratory & Sleep (27), Hepatology & Biopsy (31), Neurology Bedside (27).
+Zero `fc-caveat` spans emitted in the whole file; the only two grey spans are neutral
+mechanism glosses. Every safety-bearing statement stayed in the body, bolded.
+
+Rule 3 (if the front asks for it, the back cannot demote it) caught four demotions that
+danger-judging alone had missed — `(assay-dependent)` qualifying a peak-cortisol
+threshold the front asks for, the iontophoresis mechanism on a card whose front asks
+*how sweat is generated*, and two `fc-sub`s holding the exact thing their front asks.
+All reverted before writing. This keeps confirming rule 3 is the better test: it is
+mechanical and needs no judgement about what counts as dangerous.
+
+**Confirmed three earlier harmonisations have fully propagated**, with no surviving
+outlier anywhere in the deck: SAAG **≥11 g/L** (the `>12 g/L` hits are the *pleural*
+serum–effusion gradient, a different quantity and correctly `>12`); SBP ascitic
+neutrophils **≥250/mm³**; CF sweat chloride **≥60 mmol/L** with bands `≥60 / 30–59 / <30`
+tiling cleanly in all three files that carry them.
+
+### FIXED — AHI severity bands: an overlap at 15 and a severe cut-off excluding 30
+
+AASM and NICE define mild 5–14.9, moderate 15–29.9, **severe ≥30**.
+`respiratory.json`'s conditions topic already stated exactly that across 9 fields
+(fc 22/23/24/25/35 and q 19/20/21/22). Two other statements were outliers:
+
+| where | was | now |
+|---|---|---|
+| `special-tests.json` Respiratory & Sleep 16 | mild `5-15`, moderate `15-30`, severe `>30` | mild `5-14`, moderate `15-29`, severe `≥30` |
+| `respiratory.json` signs — Snoring & Witnessed Apnoeas 7 | mild `5–15` (with `≥15` moderate) | mild `5–14` |
+
+Two separate defects, both now gone:
+- **An overlap inside a single card.** `5-15` mild alongside `15-30`/`≥15` moderate made
+  an AHI of exactly 15 belong to two named bands at once — a self-contradiction within
+  one field, not merely a cross-file difference.
+- **A boundary excluding its own endpoint** (the deck's recurring error class). `>30`
+  severe alongside `15-30` moderate put an AHI of exactly 30 in the *moderate* band,
+  while respiratory.json called the same value severe. A published definition decides
+  this one, and the majority of the deck already matched it.
+
+Fixed rather than reported because both are mechanical: a published definition settles
+the cut-off, and the overlap is a contradiction visible without any clinical judgement.
+The guard script initially aborted on its own field-count assertion — three anchors sat
+in one field, so one field changed, not three. The guard was wrong, not the content;
+I corrected the guard.
+
+`special-tests.json` q 9 ("AHI of 22 → Moderate") is unaffected — 22 is moderate under
+both the old and new bands.
+
+**Still outstanding:** `lung-function.json` Oxygenation & Respiratory Support 2 carries
+the same `15–30` / `>30` problem **plus a gap** — `5–14` mild then `15–30` moderate
+leaves an AHI of 14.5 in neither band. It is deliberately left for now because an agent
+is mid-pass on that file and editing the text under it would break its token-identity
+check. It will be fixed when that batch lands.
+
+### Open for a clinician: 9am cortisol bands, with divergent management
+
+Two incompatible band sets, and the difference changes what you *do*:
+
+- `endocrinology.json` (Addison's 40, Hypopituitarism 15, q 42/12), both NICE-attributed:
+  **>300 very unlikely / 150–300 equivocal / <150 start replacement and refer**.
+- `special-tests.json` Adrenal & Pituitary 6:
+  **<100 insufficiency likely, do SST / 100-400 indeterminate / >400-500 intact axis**.
+
+A 9am cortisol of **120 nmol/L** means "start replacement and refer" under the first and
+merely "indeterminate, needs dynamic testing" under the second. A value of **350** is
+"insufficiency very unlikely" vs "indeterminate". Separately, `>400-500 nmol/L` is a
+double-bounded inequality whose actual cut is ambiguous — 400 or 500?
+
+**Not patched:** choosing between two published band sets and rewriting the management
+attached to them is authoring, not correction.
+
+### Open: normal CSF opening pressure stated three ways
+
+- `neuroanatomy.json` Ventricles & CSF 10 — "About **7–18** cmH₂O"
+- `neurophysiology-csf.json` CSF Analysis 20 — "**6–20** cmH₂O (up to ~25 borderline)"
+- `neurology-neurosurgery.json` Foundations 219 — "**10-20** cmH₂O"
+
+The IIH threshold **>25 cmH₂O** is consistent everywhere. Reported, not patched — the
+normal range genuinely varies between sources.
+
+### Confirmed consistent (no action)
+
+Short Synacthen test and its interpretation match `endocrinology.json` exactly, including
+the assay-dependence caveat (250 µg tetracosactide, cortisol at 0 and 30 ±60 min, peak
+>550 on older polyclonal assays / ~>420–450 on monoclonal LC-MS, paired ACTH to separate
+primary from secondary, falsely normal in recent-onset secondary insufficiency).
+Water deprivation test safety content is in the body and bolded, not greyed. GTT
+thresholds tile with no gap against the deck's diabetes copy (IFG 6.1–6.9 → fasting ≥7.0;
+IGT 7.8–11.0 → 2-h ≥11.1), every inequality inclusive. Light's criteria, pleural pH <7.2,
+ELF ≥10.51, FibroScan ≥12–15 kPa: no contradicting value anywhere.
+Xanthochromia **≥12 h** confirmed holding across ct.json (×4), microbiology.json (×3),
+mri.json, neurological.json (×6), neurology-neurosurgery.json (×6) and
+neurophysiology-csf.json — **no card anywhere says >12 h or 6 h.**
+
+### Not gaps (present elsewhere in the deck — nothing added)
+
+Biopsy coagulation thresholds (platelets ≥50 ×10⁹/L, INR ≤1.5) live in
+`nuclear-interventional.json`, consistent across its three cards. "A normal oximetry does
+not exclude OSA" lives in `lung-function.json`. Both absent from this topic but present
+in the app.
+
+### Method note worth keeping
+
+An unanchored `AHI` search matched inside "bet**AHI**stine" and returned ~15 phantom
+sleep-medicine hits from ENT/vertigo topics. Anchored, case-sensitive patterns (`\bAHI\b`)
+are required before trusting any count — this is the second time an unanchored search
+has produced phantom hits in this review.
