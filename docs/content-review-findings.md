@@ -5445,3 +5445,169 @@ sits in a **q explanation**, not on the fc side. Nothing changed.
 - **Urine dipstick unreliability over 65** is absent from `bedside-tests.json` entirely
   though present in six other files; **peak-flow technique** is absent from it too, living
   in `lung-function.json`.
+
+## Wave 4 — the rest of `investigations__` (761 cards, 1,314 fields)
+
+| file | cards | fields |
+|---|---|---|
+| microbiology.json | 120 | 240 |
+| lung-function.json | 117 | 234 |
+| scoping-endoscopy.json | 112 | 224 |
+| neurophysiology-csf.json | 73 | 146 |
+| urine.json | 71 | 142 |
+| urology.json | 65 | 130 |
+| therapeutic-drug-monitoring.json | 54 | 108 |
+| toxicology.json | 45 | 90 |
+
+Grey demotion devices barely used again: **zero** `fc-caveat` and zero `fc-inline` in
+lung-function, toxicology, TDM, scoping-endoscopy and neurophysiology-csf; one
+`fc-inline` in microbiology (a Ziehl-Neelsen reagent recipe on a card whose front asks
+*why* mycobacteria need a special stain); three `fc-caveat` in urine/urology, all neutral
+glosses or study-aid meta-commentary. On investigations content almost nothing qualifies
+for demotion, and that is the correct outcome.
+
+**Bare `<` characters escaped as real parse hazards:** 14 in lung-function, 9 in
+neurophysiology-csf, 4 in microbiology, ~30 in urine/urology, plus several in toxicology.
+A field like `<5/hour = normal; …` is swallowed as a pseudo-tag by any HTML parser.
+
+### FIXED — six more values, each harmonised to a published guideline AND the deck majority
+
+| # | where | was | now | authority |
+|---|---|---|---|---|
+| 1 | lung-function AHI bands | `15–30` mod, `>30` severe | `15–29`, `≥30` | AASM; respiratory.json ×9 |
+| 2 | lung-function PEF | `≥50–75%` moderate | `>50–75%` | BTS; risk-scores-criteria |
+| 3 | lung-function triangle of safety | `lateral edge` of lat dorsi | `anterior border` | standard anatomy; 4 other cards + thorax.json |
+| 4 | lung-function adult FeNO | `≥40 ppb` | `≥50 ppb` | current BTS/NICE/SIGN; respiratory.json ×5 |
+| 5 | lung-function LTOT | PaO₂ `≤7.3 kPa` | `<7.3 kPa` | BTS home oxygen; respiratory.json ×4 |
+| 6 | neurophysiology-csf Listeria cover | `>60` | `≥60` | 7 cards across 2 files say "aged 60 and over" |
+
+Plus a spelling correction: **Löwenstein–Jensen** carries an umlaut. `microbiology.json`
+had it both ways (3 with, 4 without) in cards that sit adjacent to each other;
+`respiratory.json` uses the umlaut 8 times. Fixed 4 fields.
+
+Items 1 and 2 were each an **overlap inside a single card** as well as a cross-file
+disagreement — a PEF of exactly 50% was both moderate and acute severe on the same card,
+and the AHI card put exactly 30 in moderate where nine other fields call it severe.
+Item 4's MCQ needed `options[4]` and `answer` to move together; the guard confirmed the
+answer still matches exactly one option afterwards. The paediatric FeNO threshold
+(35 ppb) agrees everywhere and was deliberately left.
+
+Deliberately **not** touched inside these same cards: `lateral edge of pectoralis major`
+(that IS the anterior border of the triangle, and correct), `≥35 ppb` paediatric FeNO,
+the severe PEF band `33–50%`, and lung-function's second LTOT limb `≤8 kPa` (see below).
+
+### The single highest-risk finding in this wave — NOT fixed, needs a clinician
+
+`lung-function.json` Oxygenation & Respiratory Support **18**, whose front asks for
+"the key blood-gas thresholds that **mandate escalation from NIV to intubation**", lists
+`pH <7.25` among them.
+
+`respiratory.json` teaches the **opposite**, explicitly and in about seven places:
+"A pH **<7.25 does NOT mean intubate** — it predicts a higher chance of NIV failure, so
+give NIV in HDU/ICU with immediate access to intubation." That is also what BTS/ICS
+guidance says.
+
+So a learner meeting one card is told pH <7.25 mandates intubation, and the rest of the
+deck tells them it does not. This is a management-changing contradiction, not a boundary.
+
+**Not fixed, on the standing line:** correcting it means either rewriting the question
+stem or removing a threshold from a therapeutic recommendation, both of which are
+authoring rather than correction. Flagged to the user directly as well as here.
+
+### Also reported, not patched
+
+**Guidelines genuinely differ, or the choice would be authoring:**
+- **Upper-GI 2WW pathway mis-assigned.** `scoping-endoscopy.json` Upper GI 1 says bare
+  "age ≥55 with new symptoms … prompt 2-week-wait referral". `upper-gi.json` says the
+  opposite explicitly and repeatedly — bare age ≥55 with new dyspepsia is **not** a 2WW
+  criterion and routes to non-urgent direct-access endoscopy; `gastrointestinal.json`
+  agrees with `upper-gi.json`. The age threshold (≥55) is consistent deck-wide; it is the
+  *pathway* that is wrong on one card. Rewriting the claim is authoring.
+- **Lithium toxicity threshold.** TDM says `>1.2` risk / `>2.0` severe; `psychiatry.json`
+  says toxicity "above about 1.5" in four places. TDM also leaves **1.0–1.2 in no band**.
+- **Warfarin high-INR management, a direct contradiction.**
+  `clinical-pharmacology-prescribing.json` says INR 5–8 without bleeding gets **no**
+  vitamin K; `cardiovascular.json` says vitamin K if INR >5. Opposite instructions for the
+  same patient, and they disagree at exactly 5. Within one topic, "INR 5–8 with bleeding →
+  vitamin K 1–3 mg" also overlaps "significant bleeding → 5 mg + PCC".
+- **Gentamicin sampling: two incompatible protocols**, each presented as *the* method
+  (pre-dose trough before the second dose, vs 6–14 h after the first dose for once-daily).
+- **Paracetamol 8 h**: `4–8h` and `8–24h` bands in one card put exactly 8 h in both, and
+  at 8 h one file plots the nomogram while the other starts NAC.
+- **Salicylate band gap 300–499 mg/L** — and the same topic's MCQ is built on a 320 mg/L
+  level, so a learner meeting that stem finds no band for it.
+- **Antidepressant early-review age**: `under 30` (TDM) vs `under 25` (two other files).
+- **Factor Xa reversal**: andexanet-or-PCC vs PCC-only with "no NICE-recommended antidote".
+- **QTc**: `>500`/`+60 ms` (action) vs `>440/>460` vs `>450` (prolonged) — the deck never
+  says the 500 figure is a different kind of threshold.
+- **COHb threshold excludes its own endpoint**: "greater than 10% in a non-smoker is
+  significant" sits against "smokers have a baseline up to ~10%", so the non-smoker action
+  threshold equals the top of the smoker baseline and exactly 10% is not significant.
+- **Uroflowmetry 150 mL**: "at least 150 mL" on the fc card vs ">150 mL" in its own q map
+  and two other cards — at exactly 150 mL the same topic calls the trace valid and invalid.
+- **Stone MET at exactly 10 mm** is claimed by two management bands (`5–10 mm` → MET and
+  `10–20 mm` → ureteroscopy), and a third card says "under 10 mm", excluding it.
+- **Stone-prevention urine output**: `>2.5 L/day` vs `>2 L/day` in three other cards.
+- **hCG 48-h rise**: "at least 63%" vs ">~63%".
+- **ACR exactly 30** is band A2 by the banding cards yet fires the `≥30` referral pathway.
+- **COHb half-life**: `~4–6 h` air / `~90 min` O₂ vs `~4–5 h` / `~1 h`.
+- **CSF values inside one topic**: normal cell count `<5` on one card and `≤5` on another
+  (disagreeing at exactly 5); pleocytosis `>10` leaves 6–10 unlabelled; protein `>1 g/L`
+  bacterial vs `<1 g/L` viral leaves exactly 1.0 in neither; glucose "60–70% of serum"
+  normal vs "<50%" low leaves 0.55 in neither.
+- **CSF opening pressure**: normal `6–20` (fc) with the q map omitting the fc card's
+  "up to ~25 borderline" clause, so 20–25 falls in no band there; `neurology-neurosurgery`
+  has the same gap independently with `10-20`.
+- **MIP sign convention.** `special-tests.json` states the 20/30/40 rule as
+  "MIP < 30 cmH2O", unsigned — read literally a *normal* MIP of −90 satisfies it.
+  `lung-function.json` has the correct form, "MIP less negative than −30 cmH2O".
+  **Not fixed** because the minimal fix would make the MCQ's correct option the only one
+  worded differently from its distractors — identifiable by format rather than by content —
+  and rewording all five options is authoring an MCQ.
+- **Vaginal pH exactly 4.5** falls in no band (normal `<4.5`, BV `>4.5`), and **GOLD grade
+  bands** leave 79.5% and 49.5% unbanded. Both are standard printing conventions, like the
+  CKD "3 months" case; left alone for the same reason — the endpoint class matters where
+  readings actually land on the endpoint.
+- **Post-void residual 50–100 mL** and **Q_max 10–15 mL/s** are unbanded; the PVR gap is
+  filled in `ultrasound.json` with an age qualifier ("up to ~100 mL may be acceptable in
+  the elderly") that the urology card lacks.
+
+### A disagreement between two agents, resolved against both
+
+The microbiology agent reported the urine-culture threshold as a genuine contradiction —
+`≥10⁵` in two cards against `>10⁵` in seven. The urine/urology agent reported it as
+consistent. **I checked every occurrence in the deck myself. The urine/urology agent was
+right, and for a reason neither stated:** all three cards that *define* the threshold
+(`microbiology.json` fc 5, `urine.json` fc 5, `urology.json` fc 30) use `≥10⁵` and agree.
+Every `>10^5` is inside a **question vignette** — "MSU grows >10⁵ CFU/mL of E. coli" —
+which describes a patient's lab result, not a cutoff, and is correct English for a stem.
+
+Acting on the first report would have "corrected" seven question stems that were right,
+and made them read worse. Recorded because the lesson is not "verify agent reports" — it
+is that a threshold **appearing** in text is not the same as a threshold being **defined**
+there, and a census has to tell those apart.
+
+### Confirmed absent deck-wide (genuine gaps; nothing added)
+
+- **No numeric COHb threshold for hyperbaric oxygen referral** anywhere, though the
+  toxicology MCQ presents a COHb of 28%.
+- **No DLCO/TLCO severity bands** anywhere (the conventional >60 / 40–60 / <40 % split).
+- **No post-polypectomy adenoma surveillance interval** anywhere — and the scoping cards
+  on polypectomy are exactly where a learner meets the problem.
+- **No numeric normal bladder capacity**, though a card asks the learner to recognise a
+  "markedly reduced" one.
+- **No numeric age-specific PSA bands**, though three cards refer to "age-specific
+  thresholds that rise with age".
+- **No numeric nerve-conduction-velocity cut-off** — but the deck's framing is
+  consistently qualitative, so this is a stylistic choice, not a gap.
+- **IV phenytoin rate safety exists only inside one MCQ explanation**, so a learner in
+  card mode never meets it.
+
+### Not gaps (present elsewhere in the app)
+
+Barrett's surveillance intervals and the 3 cm rule (`upper-gi.json`, consistent ×3);
+bowel screening FIT 2-yearly ages 50–74; the ~6-hour torsion salvage window; prostate
+T3a/T3b staging; eGFR/CKD G-bands; SSRI discontinuation syndrome; STOP-BANG; DVLA rules
+for OSA; CPAP adherence ≥4 h/night; the warning-versus-trigger distinction for
+neuromuscular FVC; and the caution that early bacterial meningitis — Listeria especially —
+can give a lymphocytic CSF.
