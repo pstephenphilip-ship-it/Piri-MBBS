@@ -7117,3 +7117,126 @@ inside it, so it cannot pick up the neighbouring card's index.
 The last two bare `<b>` tags in flashcard back text became `<strong>`. They were
 the only two of 748 that sat outside a wrapper, so they rendered plain black-bold
 where every other emphasis on the card renders teal.
+
+## Six same-topic duplicate cards merged (v1544) &mdash; user-authorised
+
+*"If a card is repeated in different topics it's fine, but in the same topic
+should be merged or removed."*
+
+Six fronts appeared **twice inside one topic**, each pair with a *different* back,
+so a plain delete would have lost content. Each pair was merged instead: the
+surviving card's back was rewritten by hand to carry every distinct clause from
+both originals, and only then was the duplicate removed. The survivor is always
+the lower-indexed card, so each topic's running order is undisturbed.
+
+| file | topic | kept | removed |
+|---|---|---|---|
+| cardiovascular | Cardiomyopathies | `cmy_fc_15` | `…CMPGAP__0001` |
+| haematology | Neutropenic Sepsis | `ns_fc_2` | `ns_fc_23` |
+| infectious-disease-immunology | Foundations of Microbiology | `…__0005` | `…__0082` |
+| msk-rheumatology | Vasculitis | `…Vasculitis__0006` | `…Vasculitis__0072` |
+| neurology-neurosurgery | Spinal Cord Disorders | `…__0006` | `…__0040` |
+| nuclear-interventional | IR &mdash; Vascular & Embolisation | `ni_ir_embol_fc_05` | `ni_ir_tace_fc_04` |
+
+What each merge gained, rather than lost:
+
+* **Peripartum cardiomyopathy** &mdash; keeps the EF `<45%` figure *and* the
+  "first ~5 months postpartum" window *and* "the drug treatment differs while the
+  patient is still pregnant".
+* **Neutropenic sepsis** &mdash; keeps the NICE definition, the non-UK
+  "expected to fall within 48 hours" variant, *and* "IV antibiotics within 1 hour".
+* **Prion** &mdash; keeps "no nucleic acid", "normal host protein (PrP)",
+  "templating misfolding" and "self-templating chain reaction".
+* **Behçet's hallmark** &mdash; the surviving card previously answered the wrong
+  question: its front asked for the *hallmark* and its back gave the *definition*.
+  It now leads with the recurrent oral + genital ulcers, keeps the variable-vessel /
+  uveitis / pathergy content, and keeps the three-in-12-months diagnostic threshold.
+* **Central cord syndrome** &mdash; keeps "sacral sparing" and "commonest incomplete
+  cord syndrome" alongside the syringomyelia 'cape' warning.
+* **Post-embolisation syndrome** &mdash; keeps "commonest complication after TACE",
+  right-upper-quadrant pain, raised inflammatory markers, *and* "not antibiotics".
+
+**A machine check enforced the no-content-lost rule rather than my say-so.**
+Every content word in either original back must still be present in the merged
+one, with numbers matched exactly (no stemming &mdash; 45 and 450 are not the same
+dose) and inflections allowed only down to a four-character stem. It caught three
+real drops while I was drafting: `postpartum`, `care`, and `contains`/`proteins`.
+Four words the merges express in the other original's wording are declared
+explicitly, with the substitution named, rather than being allowed to vanish
+quietly: `legs`&rarr;`lower limb`, `arms`&rarr;`upper limb`,
+`spine`&rarr;`canal`, `malaise`&rarr;`nausea`.
+
+None of the six removed ids is referenced anywhere in `index.html`, checked first.
+
+Verified against `HEAD`: exactly 6 cards removed, exactly 6 backs rewritten, no
+card added, and not one other field in any of the 16 changed files moved.
+**Deck: 33,604 &rarr; 33,598 flashcards; 0 duplicate fronts remain within any topic.**
+
+### A layout assumption that was wrong
+
+The splice initially located each card by the literal text `{"id":"…"`. That found
+nothing in `haematology.json`, because **the card files are not all compact JSON**
+&mdash; most are single-line, that one is pretty-printed with `"id": "…"`. The
+locator now matches the id with a whitespace-tolerant pattern and walks back to
+the enclosing brace, so it is layout-agnostic. The earlier sweeps were unaffected;
+their patterns already allowed for whitespace.
+
+## The micrograms split settled, in two directions (v1544) &mdash; user-authorised
+
+**The deck contradicted its own safety card.**
+`clinical-pharmacology-prescribing.json` teaches the dangerous-abbreviation rule
+in as many words &mdash; *"Write them in full &mdash; never 'mcg' or 'µg', which
+can be misread"* &mdash; and the deck then wrote `mcg` 109 times and the micro sign
+110 times against 168 written out in full. Same class of defect as the dyspepsia
+front that contradicted its own back.
+
+**Two directions, not one.** The rule it teaches is a *prescribing* rule: `mcg`
+can be misread as `mg` on a drug chart. It says nothing about laboratory
+reporting, where the micro sign **is** the convention and is what a real lab
+report prints. "Ferritin < 10 micrograms/L" would make the card diverge from the
+report the student is actually handed. So:
+
+* **112 doses** &rarr; spelled out `micrograms` (salbutamol 400, misoprostol 800,
+  atropine 500, adrenaline 500, levothyroxine 25&ndash;125/day, fentanyl 25/hour,
+  isoprenaline 5/min, ethinylestradiol &le;30, levothyroxine 1.6/kg/day)
+* **28 laboratory values** &rarr; the micro sign (GH, prolactin, ferritin,
+  D-dimer, faecal elastase, calprotectin, FIT Hb/g, liver copper, urinary copper)
+
+The lab side needed normalising too: it was written **three** ways &mdash; the
+micro sign U+00B5 (85), the Greek letter mu U+03BC (25, a different codepoint that
+renders differently in many fonts) and `mcg` (23). Greek mu is now 0.
+
+**How each of the 215 occurrences was classified.** The unit suffix decides: `/L`,
+`/g`, `/dL`, `/mL` and `Hb/g` are concentrations; bare, `/min`, `/hour` and
+`/kg/day` are doses. The suffix test and an independent analyte-keyword test were
+run *against each other* across all 215. They agreed on 200; all 15 disagreements
+were read by hand, and the suffix was right in 14 (GH `mcg/L`, FIT `µg Hb/g`,
+D-dimer and ferritin `µg/L` &mdash; the keyword window had simply missed the
+analyte name).
+
+**`/day` is the one genuinely ambiguous suffix**, and it is decided by reading, not
+by a keyword window. All 12 were listed: the 8 in `endocrinology.json` are
+levothyroxine doses, the 4 in `liver.json` are 24-hour urinary copper results.
+A keyword window got one of the liver four wrong &mdash; "copper" sat further back
+in the sentence than the window reached &mdash; so the classification is now a
+declared per-file fact, and an unlisted file carrying a `/day` unit raises rather
+than being guessed at.
+
+**4 occurrences deliberately untouched:** the safety card quoting `'mcg'` and
+`'µg'` in order to forbid them. Converting those would delete the lesson. They are
+the only two `mcg` strings left outside the excluded pharmacology file.
+
+**Chip length** was checked, because expanding `mcg` lengthens any `fc-num` chip
+it sits in: no chip this edit touched exceeds four words. The check found a
+*pre-existing* six-word chip it had not touched &mdash; `6 mg, 12 mg, 18 mg`, the
+adenosine dose ladder in cardiovascular *Supraventricular Tachycardia* &mdash; so
+the check was narrowed to changed chips and that one is recorded here instead.
+
+Verified against `HEAD`: 96 unit-only field changes across 10 further files; every
+changed string is identical to the original once all three spellings are folded to
+one marker; `answer`/`options[correctIndex]` intact everywhere.
+
+**Not touched, by standing instruction:** `pharmacology-flashcards.json` carries
+the same split (`400 mcg`, `25-50 mcg`, `125 mcg/day`, and its own card warning
+against `'mcg'`). It is excluded from every sweep because its player runs fields
+through `escapeHtml()`.
