@@ -4767,3 +4767,90 @@ any `fc-sub` or `fc-caveat` would have split a sentence across the dividing rule
 and stranded a `;` or `—` above it. The agent used neither device at all rather
 than force one — the right call, and a useful datapoint that the device counts
 in these reports are driven by the source's sentence structure, not by taste.
+
+## Endocrine and reproductive histology complete
+
+`endocrine.json` histology **194/194, 0 unformatted** (384 fields).
+`reproductive.json` histology **304/304, 2 unformatted** — those two being the
+documented spermatogenic-sequence exception above (375 fields this batch).
+
+### Fixed: a structure with the wrong name
+
+`embryology.json` calls the 4th-pouch structure the **"ultimopharyngeal body"**
+in four fields. The accepted term is the **ultimobranchial body**, and
+`endocrine.json`'s thyroid card already uses the correct form — so the deck
+disagreed with itself on the name of one structure. Both files already agreed on
+the substance (4th pouch, neural crest, gives the calcitonin-producing C cells),
+so only the name moved.
+
+Corrected rather than reported because it is a **verifiable term, not a
+citation** — the same category as the hydroxyamfetamine spelling, and distinct
+from the Barrett's CAP/ACG question where correcting would mean asserting which
+professional body published a definition from recall.
+
+### Verified correct on the classic swaps
+
+- **Adrenal zones and products in order on every card, no swap** — glomerulosa
+  aldosterone, fasciculata cortisol, reticularis androgens — with the correct
+  mechanism (glomerulosa lacks CYP17, so it cannot make cortisol or androgens)
+  and the medulla's chromaffin cells as modified postganglionic sympathetic
+  neurons of neural-crest origin. Agrees with `endocrinology.json`.
+- **The posterior pituitary correctly stores rather than synthesises**, stated
+  twice, with ADH to the supraoptic and oxytocin to the paraventricular nucleus,
+  and the anterior lobe from Rathke's pouch. Corroborated in six places across
+  two other files.
+- **Follicular versus parafollicular C cells correct on every card**, corroborated
+  in eleven places. The gastric "chief cells" elsewhere in the deck are never
+  blurred with parathyroid chief cells.
+- **Islet proportions and the two-cell ovarian model both right** — theca makes
+  androgens under LH, granulosa aromatises under FSH, with the reciprocal enzyme
+  deficiency stated. A swap here is the classic error and it is not present.
+- **The cervical transformation zone is correctly defined** as the region between
+  the original and new squamocolumnar junctions, with the biopsy-target logic
+  explicit and the right reason (actively dividing metaplastic cells are
+  susceptible to HPV integration). HPV types and CIN grades have **no
+  disagreement anywhere in the deck**.
+
+### The highest-value content finding in this batch, reported not changed
+
+**`obstetrics-gynaecology.json` conflates the transformation zone with the
+squamocolumnar junction.** Asked the same question, it answers "**The
+squamocolumnar junction** — a dynamic zone that moves with oestrogen", and another
+card writes "the transformation zone (squamocolumnar junction)" as though they
+were the same thing. They are not: the transformation zone is the region *between*
+the original and the new SCJ. `reproductive.json` has it right.
+
+This is a real teaching error rather than a wording difference, but correcting it
+means rewriting a definition, which is authoring. Flagged as the item most worth a
+clinician's attention from this batch.
+
+### Also reported, not changed
+
+- **Luteo-placental shift timing:** `~7–9 weeks` in `reproductive.json` against
+  `~8–12 weeks` twice in `obstetrics-gynaecology.json`. Barely overlapping ranges
+  for the same event.
+- **Prolactin threshold in different units:** `>200 ng/mL` here against
+  `>5000 mU/L` in `endocrinology.json`. 200 ng/mL ≈ 4200 mU/L, so it is the same
+  rule, but the deck teaches it in two unit systems.
+- **Cervical adenocarcinoma share:** `~20–25%` against `~20%`.
+
+### Absences confirmed deck-wide
+
+- **Which follicular stages are gonadotrophin-dependent appears nowhere in the
+  deck.** No card says early growth (primordial to preantral) is
+  gonadotrophin-independent while antral and Graafian growth is FSH-dependent.
+  I named this mapping in the brief; the file does not contain it, so nothing was
+  added.
+- **No single "name the follicular stages in order" card exists** — the four
+  stages appear only as four separate cards, and `primordial follicle` and
+  `Graafian` occur only in this one topic deck-wide.
+
+### A rule-4 judgement I agree with
+
+Two agents independently bolded **one term per `<li>`** on enumeration cards
+(the breast duct system, the placental barrier layers, the islet cell types)
+rather than obeying "if six things are bold, none is" literally. That is right:
+rule 4 guards against six *competing* bolds within one claim, not against a
+structural list where every item is the retrieval target and the front asks for
+the whole set. Leaving those bare would have left the card's entire answer
+unmarked.
