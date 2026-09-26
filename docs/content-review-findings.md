@@ -6255,3 +6255,98 @@ epigastric vessels, with Hesselbach's borders agreeing. Charcot's triad and Reyn
 agree across seven files. Gallbladder wall `>3 mm`, cholecystectomy "within ~1 week",
 metoclopramide's MHRA 5-day maximum, hyperemesis `>5%` weight loss, the PPI 2-week and
 antibiotic 4-week washouts, and gastric-ulcer re-scope at 6–8 weeks all agree wherever stated.
+
+## GU, sexual health, geriatric assessment, genetics (314 cards, 628 fields)
+
+`genitourinary-sexual-health.json` 96, `genetics-molecular.json` 102, `geriatric-assessment.json`
+60, `sexual-health-gum.json` 56. **4 grey spans in 628 fields**, all `fc-inline`, zero
+`fc-caveat`, each checked against its own front. 215 legacy `<b>` tags converted; 8 bare `<`
+parse hazards escaped.
+
+One Rule 3 decision worth recording as the counter-example to the two mnemonic greys that
+agent *did* emit: the anticholinergic mnemonic "mad, dry, red, hot, blind" **is** the answer to
+its own front ("Describe the anticholinergic syndrome"), so it stayed in the body even though
+formally it is a mnemonic. A mnemonic is demotable only when it is a nickname for content
+stated elsewhere on the card, not when it is the content.
+
+### A MISTAKE OF MINE: I applied stale output to a file outside scope, and reverted it
+
+My apply command used the shell glob `agentout/sh_*.json`. That matched the 9 files this agent
+wrote (`sh_00`–`sh_08`) **and 13 unrelated files from 20 September** targeting
+`conditions__SEXUAL HEALTH__` topics in `sexual-health.json` — a different file, already fully
+marked, and not in this wave's scope. Five were rejected by the guard; **eight applied**,
+changing 9 fields.
+
+The guard did not stop them because it checks *content integrity*, not *intent*: token identity
+held, so from its point of view nothing was wrong. It reported 0 problems, correctly.
+
+I reverted `sexual-health.json` with `git checkout`. The changes were unreviewed, out of scope,
+and I had no basis for preferring a five-day-old markup pass to the reviewed version in HEAD.
+The 13 stale files are archived out of the glob path so this cannot recur.
+
+**What this says about the tooling:** every guard I have built checks whether an edit is
+*correct*. None checks whether it is the edit I *meant*. A filename glob is not a manifest, and
+using one to select inputs put that judgement in the shell rather than in a checked list. The
+other batches in this review were applied by explicit filename, which is why this happened once.
+
+### Boundary findings — reported, not patched
+
+- **Testicular torsion salvage window: 8 distinct formulations across 6 files** (worse than the
+  5 previously logged). `within 6 hours` in `urology.json` *includes* 6 h; `salvage <6 hours` in
+  `sexual-health.json` *excludes* it — so a presentation at exactly 6 h is both salvageable and
+  outside the window.
+- **HIV window period is self-contradictory across two files.** One card says the combined assay
+  "shortens the window period to about 4 weeks"; another says it detects most infections from
+  about 4 weeks "**but the window period is 45 days**". And 45 days is glossed as "about 6–7
+  weeks" in one file and "about 6 weeks" in another.
+- **Huntington repeat count 27–35 falls in no band** — `≥40` fully penetrant, `36–39` reduced
+  penetrance, `≤26` normal. The intermediate band is **absent deck-wide**, so this is a genuine
+  app-level gap.
+- **Timed Up-and-Go has a gap and a double threshold in one field**: `<10 s` normal, "roughly
+  `≥12 s` is slow (`≥14 s` is often quoted)". 10–11.9 s is in neither band, and 12–13.9 s is
+  slow by one stated threshold and not the other. The file's own `q` map confirms the
+  duplication.
+- **Aneuploidy screening overlaps at exactly 14+0 weeks** (combined 11–14, quadruple 14–20), and
+  **invasive testing gaps at 14+1 to 14+6** (CVS 11–14, amniocentesis ≥15).
+- **Transferrin saturation `>45-50%`** is a range used as a single threshold in three files, so
+  46% is above one endpoint and below the other — **and `liver.json` states a different,
+  sex-specific rule** (`>50%` men, `>40%` women). A man at 46% qualifies under three files and
+  not under `liver.json`; a woman at 42% is the reverse.
+- **AMTS confirmed to carry three incompatible scales under one name**: `≤6/10` for cognitive
+  impairment, `≤8` for CURB-65 confusion, and AMT-4 scored 0/1/2 inside the 4AT. Worse,
+  `respiratory.json` shows `≤4` and `≤6` as MCQ *distractors* for the CURB-65 item, so a learner
+  meets `AMT ≤6` as a wrong answer in one file and `AMTS ≤6/10` as the right one in another.
+- **CFS 4 is on both sides of the frailty threshold**: one card labels 4 "Living with Very Mild
+  Frailty" while another says frailty starts at `≥5` and a third file anchors 4 as "vulnerable".
+- **4AT `≥4` is "likely" delirium in a `q` explanation and "possible" delirium on its own `fc`
+  card**, where a third file states emphatically that it is *possible* and "does not exclude
+  delirium or diagnose dementia".
+- **NSAID renal cut-point**: STOPP at `eGFR <50` ("AKI risk") versus "contraindicated in CKD
+  (`eGFR <30`)" — different strengths at different cut-points with no cross-reference, so at
+  eGFR 40 one card says deprescribe and the other implies permissible.
+- **BRCA1 ovarian lifetime risk**: `~40-60%` in one file, `~40%` in another — the lower bound of
+  one is the whole figure of the other.
+- **Front/back count mismatch**: a front asks for "**two** non-melanoma cancers where BRAF V600E
+  is important" and the back lists three.
+- **A probable text defect**: "Floor: profoundly dependent patients **both** score 0 despite
+  differing needs" — the dangling "both" implies a lost first limb of a contrasted pair.
+- **A `>4-fold` versus `a 4-fold` fall** in syphilis titre response: read literally, "a 4-fold
+  fall" excludes a 16-fold fall.
+
+### One card I cannot verify, and am flagging rather than guessing
+
+`geriatric-assessment.json` DoLS card 0 asserts "**Until June 2026: …** The Supreme Court
+overruled that test in **June 2026**." Today's date is after that, so the card is internally
+self-consistent — but **my knowledge cutoff is May 2026, so I cannot confirm or refute a June
+2026 judgment.** It is also the only card in scope whose correctness turns on a very recent
+ruling, and the DoLS content in two other files does not mention any overruling. Left exactly as
+found; this needs a subject-matter check by someone who can see past my cutoff.
+
+### The reproductive.json transformation-zone conflation — confirmed precisely
+
+`q/histology__REPRODUCTIVE__Cervix[3]`, `options[2]` and the scored answer:
+"Transformation zone (squamocolumnar junction)". The same file contradicts it three times,
+defining the SCJ as a **point** and the TZ as the **region between the original and new**
+junctions — and another MCQ in the file scores that correct definition as the right answer.
+The conflating string is simultaneously the option text and the answer, so any fix must move
+both. Still open for a clinician.
