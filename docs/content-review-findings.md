@@ -6055,3 +6055,121 @@ remaining `<b>` is by definition a leftover. Noted so it is not forgotten.
 Related, and part of the same cleanup: several `<b>` tags sit **inside `fc-sub` blocks**
 written by an earlier pass (for example `<span class="fc-sub">…<b>permanent blindness</b>.
 </span>`), so that sweep should check nesting as well as the tag name.
+
+## Wave 6 — GI first half, psychiatric, renal-urological, endocrine (1,222 cards)
+
+| file | cards | fields |
+|---|---|---|
+| gastrointestinal.json (14 topics, incl. all 8 histology) | 436 | 872 |
+| endocrine.json (16 signs topics) | 192 | 384 |
+| renal-urological.json | 186 | 372 |
+| psychiatric.json | 168 | 336 |
+| psychiatry-cognition.json | 66 | 132 |
+
+Grey spans stayed near-zero on scopes saturated with risk: **3 in 436** GI cards, **2 in 234**
+psychiatric cards, **3 in 378** renal/endocrine cards, and every one confirmed against its own
+front. One agent removed a fourth candidate because its own mechanical Rule 3 test flagged it,
+rather than arguing the case — which is the behaviour the rule is for.
+
+### I CORRECTED MY OWN EARLIER FIX — and the reason matters more than the fix
+
+I reported the subclinical-hypothyroidism threshold harmonised after moving 3 fields in
+`endocrinology.json`'s `q` map. **It was not harmonised. Three `fc` cards still said `>10`**
+(Hypothyroidism 7, 28 and 39), and my search could not see them.
+
+The cause: the threshold sits **inside a chip** —
+`TSH <span class="fc-num">&gt;10</span>` — and my pattern `TSH (&gt;|>)10` **cannot span a tag
+boundary**. The markup hid the value from the search. An agent reading tag-stripped text found
+them immediately.
+
+**2,803 chips deck-wide open with a comparison operator**, so this is a general flaw in the
+method, not one unlucky card. Any threshold search run against an already-marked file could
+miss instances the same way — and I ran several.
+
+So I re-audited every harmonisation I had previously reported complete, this time on
+**tag-stripped, entity-decoded** text. Result: **all of them held.** Every apparent divergence
+was a *different quantity* that my looser regex swept up:
+
+| looked like a divergence | actually |
+|---|---|
+| `SAAG <11` in 6 places | the complementary non-portal band; tiles exactly with `≥11` |
+| `INR ≤1.5` in nuclear medicine | the procedural coagulation threshold, not the ALF definition |
+| `neutrophils <0.5` in Pancytopenia | the Camitta criteria for severe aplastic anaemia — confirmed earlier as must-not-harmonise |
+| `>12 h` in renal | the AKI urine-output criterion, not xanthochromia |
+| `Age >55` in hepatobiliary | the Glasgow/PANCREAS score, a different rule |
+| `<5 min` / `>5 min` in febrile convulsion | the simple-versus-prolonged seizure split, not status epilepticus |
+
+The three `fc` cards are now `≥10 mU/L`, matching NICE NG145's "10 mIU/litre or higher" and
+`biochemistry.json`. Card 7's complementary band ("above the reference range but `<10` with
+symptoms") is correct, untouched, and now tiles exactly at 10.
+
+**Lesson recorded for the rest of this review: a threshold search must strip tags first.**
+Searching raw or parsed field text finds only the thresholds that markup has not split.
+
+### A Rule 3 violation my keyword sweep structurally could not find
+
+`gastrointestinal.json` PR Bleeding 23 greyed *"Note Blatchford/Rockall are for upper-GI
+bleeds"* on a card whose front asks **which score risk-stratifies lower-GI bleeding**. That is
+the applicability limit of the scoring tools, and the front asks for it.
+
+My deck-wide sweep matched risk *words* — and this sentence contains none. **Rule 3 violations
+are invisible to a keyword audit by construction.** Un-greyed, and its `<i>upper</i>` converted
+to `<strong>` since `<i>` is not one of the six devices and the text now sits in the body.
+
+### I taught the guard a general rule rather than whitelisting files
+
+Five psychiatric topics were rejected for welds, and all 16 rejection lines were **first-letter
+mnemonic bolds** — DIGFAST, SCOFF twice, PANDAS, CAGE — exactly as the agent had declared. The
+deck already does this legitimately for AEIOU and Alvarado's MANTRELS.
+
+Rather than whitelist those files, both `ingest.py` and `verify_file.py` now allow a weld **only
+when every affected token maps to exactly its own first letter plus the remainder**, and report
+it as a visible warning. Tested against synthetic cases: it still rejects `fe|male-factor` and
+`hypo|mania`, and passes only true first-letter bolds.
+
+### Content findings — reported, not patched
+
+- **DIPPERS is mislabelled.** `renal-urological.json` Urinary Incontinence 6 labels the mnemonic
+  DIPPERS (7 letters) but lists **8** items, one of which — atrophic vaginitis — carries no
+  letter, and "Endocrine" stands where the standard mnemonic has **E for Excess urine output**.
+  The standard form for that exact item list is **DIAPPERS**, with A for Atrophic vaginitis.
+  The `q` map repeats the same label and items, and it appears nowhere else in the deck, so
+  there is no cross-check. Bulleting makes the defect *more* visible: the unlettered item now
+  sits in its own bullet.
+- **DKA: exactly 3.0 mmol/L is neither diagnostic nor resolved.** Diagnosis is ketones `>3` and
+  resolution is ketones `<3` in the same file, so a patient at 3.0 is in neither state.
+- **Stone size gap**: `<5 mm` usually pass, `>10 mm` rarely pass — 5–10 mm, and exactly 5 and
+  exactly 10, fall in no band on that card. The middle band exists in two other files.
+- **PHQ-9 has two incompatible schemes cutting the same score.** The 5 severity bands tile 0–27
+  perfectly, but NG222's "less severe `<16`" / "more severe `≥16`" slices the 15–19
+  moderately-severe band in half: **a score of 15 is moderately severe by band and less severe
+  by NG222, with opposite drug advice.** And `psychiatry.json` glosses "more severe" as
+  "moderate + severe, PHQ-9 ≥16" while its own moderate band is 10–14 — below 16.
+- **AUDIT bands differ between files**: two bands (`8+`, `20+`) versus three (`8+`, `16+`, `20+`),
+  so 16–19 is "hazardous/harmful" in one and specifically "harmful" in the other.
+- **EPDS**: `≥10–13` prompts assessment in two files, `≥13` in a third, and one MCQ option says
+  "above 13", excluding 13 where both others include it.
+- **Y-BOCS**: bands tile 0–40 perfectly but the management map starts at "Mild 8–15", so 0–7
+  falls in no management band.
+- **CIWA-Ar bands overlap at 15** ("8-15 moderate" and "15 or more severe").
+- **AMTS has three cut-points** in the deck under one instrument name — `≤6/10` for cognitive
+  impairment, `≤8` for CURB-65 confusion, and 4AT `≥4` — with no cross-reference.
+- **TCA overdose bicarbonate trigger**: `QRS >100 ms` on one card, `>100–120 ms` on two others,
+  while `cardiovascular.json` uses 120 ms throughout as the narrow/broad QRS boundary.
+- **Mental Health Act**: s136 is "a PUBLIC place" in one file and "any place other than a
+  private dwelling" in another — differing over a communal stairwell or an A&E waiting room;
+  s4's test is "undesirable delay" in one and "dangerous delay" in another (the statute says
+  undesirable); and an MCQ keys **s5(4)** for a voluntary inpatient on a **medical** ward, where
+  another file states s5(4) applies only to patients receiving inpatient treatment for mental
+  disorder. Its `answer`, `options[2]` and `explanation` would have to move together.
+- **Clozapine neutrophil threshold**: the schedule is in three `fc` cards but the number
+  (`<1.5 ×10⁹/L`, stop immediately) exists **only inside one MCQ explanation** and on no
+  flashcard at all; the amber 1.5–2.0 band appears nowhere. For contrast the deck states the
+  same 1.5 threshold plainly in `fc` prose for carbimazole.
+- **Lithium**: a level of 1.0–1.2 falls in neither the therapeutic band nor the stated toxicity
+  risk; on another file's figures the unlabelled zone is 1.0–1.5.
+- **Wernicke appears three ways** in text a learner reads — `Wernicke's`, `Wernicke` and
+  `Wernicke’s` with a curly apostrophe — so a case-sensitive search for `Wernicke's` misses two
+  of three. All preserved exactly; flagged because it defeats searching.
+- **`>400-500 nmol/L`** in the 9am cortisol bands is a range used as a threshold, so 400–500
+  falls in no band. The two incompatible cortisol band sets remain open.
