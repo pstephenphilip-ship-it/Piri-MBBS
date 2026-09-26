@@ -4470,3 +4470,56 @@ figures in `basic-tissues.json` have nothing to disagree with.
 **A brief/file divergence handled correctly again:** I briefed "van Gieson" as a
 stain to check; the file uses only the abbreviation "EVG". The agent marked what
 was there and did not expand, rename or gloss it.
+
+## Pathological histology: inflammation, granulomas, cell death, neoplasia
+
+330 fields across four topics, clean. A second batch with **no content errors**,
+again on checks aimed at the classic reversals:
+
+- **Caseating versus non-caseating is uniform across the deck** — 98 anchored
+  mentions, caseating to TB, non-caseating to sarcoidosis, Crohn's, foreign body
+  and berylliosis, corroborated in eleven other files. **No card anywhere
+  reverses it.**
+- **Apoptosis versus necrosis is right on all four axes** — membrane integrity,
+  inflammation, ATP dependence and caspases (8 extrinsic, 9 intrinsic, 3/6/7
+  executioners, 1 pyroptosis, necroptosis explicitly caspase-independent). The
+  wrong versions ("apoptosis ruptures the membrane") exist only as MCQ
+  distractors. `caspase` appears nowhere else in the deck, so there is no copy to
+  disagree.
+- **Coagulative versus liquefactive** is consistent, including the brain as the
+  classic exception, and agrees with the caustic-injury cards in three other
+  files (alkali liquefactive, acid coagulative).
+
+### A flag I checked and declined to act on
+
+The agent noted that `cardiovascular.json` contains the deck's only pairing of
+Langhans giant cells with *non-caseating* granulomas, in an MCQ option, and
+suggested it needed review. I read the card: the question is "Which histological
+finding confirms cardiac amyloidosis?", the keyed answer is Congo red with
+apple-green birefringence, and that option is a **distractor describing cardiac
+sarcoidosis**. Langhans-type giant cells genuinely occur in sarcoid granulomas as
+well as in TB, so the distractor is not internally wrong — it is simply not the
+answer to that question. Nothing to fix.
+
+Recording it because declining is as much part of this work as correcting: an
+agent flag is a place to look, not a verdict, and three of the flags this session
+have turned out to be correct content (the Camitta criteria for severe aplastic
+anaemia, the Wilson's copper threshold, and now this).
+
+### Absences confirmed, reported not filled
+
+- **No numeric grading threshold anywhere in these four topics.** The neoplasia
+  cards are entirely qualitative on capsule, invasion, mitotic rate, pleomorphism
+  and nuclear-to-cytoplasmic ratio. Numeric systems do exist elsewhere and do not
+  conflict — Nottingham/SBR in `breast.json`, Ki-67 bands and the Weiss criteria
+  in `endocrine.json`, Breslow in `dermatology.json`.
+- **Congo red appears nowhere in these topics**, including the card on reactive
+  AA amyloidosis, which names SAA and AA amyloid but no stain. It is present and
+  correct in two other files, so this is a topic-level absence.
+
+### A nuance worth distinguishing from a contradiction
+
+`infectious-disease-immunology.json` lists granulomatosis with polyangiitis under
+"non-caseating", while the granuloma topic here calls GPA a "necrotising
+granulomatous vasculitis" and omits it from the non-caseating list. Two files
+draw the boundary differently in wording; no value conflicts and neither is wrong.
