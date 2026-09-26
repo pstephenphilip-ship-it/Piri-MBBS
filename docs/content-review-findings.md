@@ -6938,3 +6938,39 @@ of one- and two-front topics across 33 more files.
   content questions, left for a content pass.
 * The agent independently confirmed the transformation-zone / squamocolumnar
   junction conflation already logged above.
+
+## Subscript normalisation for the respiratory-gas family (v1540)
+
+The deck wrote the same symbol two ways, side by side on the same card:
+CO&#8322; 439 times against CO2 75, O&#8322; 332 against O2 28, SpO&#8322; 158
+against SpO2 54, PaO&#8322; 99 against PaO2 21, PaCO&#8322; 90 against PaCO2 30.
+302 plain tokens moved to the subscript form across 225 fields in 29 files.
+
+Tokens moved: PaCO2, PaO2, SpO2, SaO2, FiO2, EtCO2, pO2, CO2, O2, cmH2O, H2O
+and the rest of that family &mdash; every one a chemical subscript by convention,
+and already the deck's majority spelling.
+
+**Deliberately not moved**, because their `2` is not a subscript and the deck
+writes them plain throughout: T2 (MRI weighting, 432), MEN2 (141), SGLT2 (140),
+JAK2 (88), NF2 (70), HER2 (64), NEWS2 (62), BRCA2, Th2, DQ2, NKCC2, R2, L2/C2
+(vertebrae, 114), S2/P2/A2 (heart sounds), V2 (ECG lead), D2 (receptor),
+Ca2+/Mg2+. Bare `H2` was left alone on purpose: H2-receptor antagonist and
+H&#8322;O disagree, so only the unambiguous cmH2O / H2O forms were touched.
+
+The `id` field was masked out by position before any substitution: 50 of the 352
+raw matches sit inside card ids, which are keys, not text.
+
+Verified field by field against `HEAD`: 225 string fields changed and nothing
+else; each changed string is identical to the original once the subscript is
+mapped back to a plain `2`; every `answer` still equals its
+`options[correctIndex]`; no id moved.
+
+### Not changed, and why
+
+`&#8322;` (214 uses) and the literal `&#8322;` character (2,360) render as the
+same glyph. That is a source-encoding difference with no visible effect, so
+harmonising it would be 214 edits of pure churn.
+
+Search is unaffected: `daNorm`, the only normaliser in the app, is applied to
+topic names and aliases only, never to card body text, and NFD does not
+decompose a subscript in any case.
