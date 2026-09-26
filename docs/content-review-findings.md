@@ -7062,3 +7062,58 @@ the original; `answer`/`options[correctIndex]` intact; no id moved. The 13
 remaining `10^N` and `+/-` strings deck-wide are all inside
 `pharmacology-flashcards.json`, which is excluded from every sweep because its
 player escapes HTML.
+
+## MCQ answer positions de-patterned (v1543) &mdash; user-authorised
+
+**The defect.** 521 of the 1,050 quiz topics with five or more questions &mdash;
+**half the deck**, covering 23,873 questions &mdash; had a correct-answer sequence
+that was either constant (25 topics) or a short repeating cycle of period 2&ndash;6
+(496 topics). Every anatomy topic ran `0,1,2,3,4` on a loop. One surgical topic
+ran `3,0,2,4,1` on a loop. Some topics answered A every single time.
+
+A learner could cycle A&ndash;B&ndash;C&ndash;D&ndash;E and score full marks on those
+topics without reading a word of the question.
+
+**Why it hid.** The deck-wide distribution looked healthy &mdash;
+22.3 / 20.2 / 20.4 / 19.1 / 18.0% across the five positions. The bias was
+*within* each topic, never across the deck, so any aggregate check passed.
+
+**The fix.** Each question's options were permuted and `correctIndex` moved with
+the correct option. **No option text changed; only the order did.** Seeding is a
+sha256 of file + topic + index + id, so the result is deterministic and
+reproducible rather than a one-off random event.
+
+**After:** 0 constant topics, 0 short-cycle topics, distribution
+20.2 / 20.1 / 19.5 / 20.0 / 20.2%. The longest run of a single answer letter
+anywhere in the deck is 7, which is what 23,873 independent draws look like.
+
+**10 questions deliberately excluded** &mdash; those whose option *text* depends on
+position: options referring to other options by letter (`A and B`), and
+`None of the above` / `All of the above`, which belong last by convention.
+Shuffling those would destroy the question. Their current order is already right.
+
+**Verified against `HEAD`, all 80 files, all 24,039 questions with an options
+array:** 23,839 orders changed; the option multiset is unchanged in every single
+question; `options[correctIndex]` is the *same text* as before in every single
+question; every `answer` still equals its `options[correctIndex]`; every
+`correctIndex` is in range; and not one field outside `options`/`correctIndex`
+moved &mdash; no `fc` card was touched at all.
+
+**A correction to my own earlier note.** I previously recorded this defect as
+"742 of 1,050 topics (71%)". The figure I can reproduce with a stated test
+(constant, or a cycle of period 2&ndash;6, on topics with &ge;5 questions) is
+**521 of 1,050, 50%**. The finding stands; the number was overstated.
+
+### What blocked this earlier
+
+Not a permission. The first version of the script asserted that `correctIndex`
+is the key immediately following the options array. That holds for 11,826 arrays
+and fails for 179, which put `answer` first. The script now scans to the end of
+the card object with balanced braces and requires exactly one `correctIndex`
+inside it, so it cannot pick up the neighbouring card's index.
+
+### Also in this commit
+
+The last two bare `<b>` tags in flashcard back text became `<strong>`. They were
+the only two of 748 that sat outside a wrapper, so they rendered plain black-bold
+where every other emphasis on the card renders teal.
