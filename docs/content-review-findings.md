@@ -6594,3 +6594,77 @@ All three aborted before writing, because every assertion runs before any file i
 | unmarked backs | **0** |
 | unmarked long fronts outside the anatomy files | **0** |
 | unmarked long fronts in the nine anatomy files | 1,172 (in progress) |
+
+## Anatomy fronts, part 1 — trunk (424 fronts across 15 topics)
+
+`abdomen.json` 147, `thorax.json` 143, `back-spine.json` 134. **Every front now carries bold;
+not one back changed** (verified against HEAD field by field, not asserted). Median bold share
+**0.333**, mean 0.342, inside the 0.30–0.40 target. Interrogative scaffolding is bolded nowhere.
+
+Only 3 `fc-num` chips in 424 fronts, each a genuine level — `(L1)` for the transpyloric plane,
+`(L1–L2)` for the genitofemoral nerve, `T8, T10 and T12` for the diaphragmatic openings. No
+`fc-list`, `fc-sub`, `fc-caveat` or `fc-inline` on any front, which is correct: a front is one
+question and has nothing to demote.
+
+**7 fronts over 50%**, all genuinely Rule 2a/2a-ii — *"State Courvoisier's law"* (3 words, the
+eponym is the card), *"What is a Sister Mary Joseph nodule?"*, and five stated contrasts
+(pectus excavatum vs carinatum; white vs grey rami communicantes; kyphosis/lordosis/scoliosis;
+spina bifida occulta/meningocele/myelomeningocele; upper vs lower motor neuron lesion). Where an
+over-50 would have meant bolding scaffolding, the agent re-authored instead — *"extrahepatic
+biliary tree"* trimmed to `biliary tree`, and so on.
+
+### The substring/weld class was hit twice more and guarded both times
+
+This is now its fourth and fifth appearance in this work, and the first time it was anticipated
+rather than discovered:
+
+- **`meningocele` is a substring of `myelomeningocele`**, in one front containing both. Guarded
+  with a negative lookbehind. Verified in the applied file: `<strong>meningocele</strong> and
+  <strong>myelomeningocele</strong>` — not `<strong>myelo<strong>meningocele</strong></strong>`.
+- **`hemiazygos` occurs twice** in one front (plain, and inside "accessory hemiazygos veins").
+  Guarded with a lookahead so the two are separate spans.
+
+It also used a **strict allowed-tag pattern** for stripping rather than a loose `<[^>]*>` —
+directly avoiding the defect that corrupted another engine's comparison baseline earlier.
+
+### Content findings — reported, not patched
+
+**Front contradicts its own back, or a value lives only on the front:**
+- A front asks to name "**two** internal features" of the right atrium; the back gives **three**.
+- One card has the vagus supplying "the foregut & midgut (**to the distal ⅓ of the transverse
+  colon**)" while two other cards in the same file put the midgut/SMA boundary at the
+  **proximal ⅔**. Read strictly the two are reconcilable ("up to but not including"), but the
+  phrasing invites the opposite reading.
+
+**Dermatome, myotome and reflex levels differing between files:**
+- **Ankle jerk** is `S1` in `back-spine.json` and `S1–S2` in `lower-limb.json`.
+- **Femoral stretch test** roots are `L2–L4` in one file and `L3/L4` in two others.
+- **Dorsal scapular nerve** is `C4–5` in one file and `C5` in another.
+- **Cardiac referred pain** is `T1–T4/5` in one file and `T1–T4` in another.
+- Trunk dermatome anchors agree (T4 nipple, T10 umbilicus, L1 groin); `thorax.json` alone adds
+  T2 axilla and T6 xiphisternum, and writes the groin as "T12/L1" where another file says
+  "L1 = inguinal ligament".
+
+**One eponym with three incompatible scopes, two of them in the same file:** **Ortner's
+syndrome** is attributed to "an aortic arch aneurysm **or apical lung tumour**" on one card,
+restricted to "a **cardiovascular** cause — the last being Ortner's" on another in the same
+file, and tied specifically to mitral stenosis in a third file.
+
+**Other named-entity divergences:**
+- **Flail chest** is "**≥2** adjacent ribs each fractured in ≥2 places" in `thorax.json` and
+  "**≥3**" in `orthopaedics.json`.
+- **Tension pneumothorax decompression**: "5th ICS mid-axillary" / "5th ICS anterior or
+  mid-axillary (2nd ICS in …)" / "**4th/5th** ICS".
+- **Posterior spinal arteries** arise "from the vertebral arteries" on one card and "from the
+  vertebral arteries/**PICA**" on another — in the same file.
+- **Posterior intercostal arteries** are "from the thoracic aorta" unqualified on one card,
+  "(the upper two spaces from the **costocervical trunk**)" on another, and "(**3rd–11th**)" on
+  a third.
+
+**Checked and clean** (recorded so the negatives are on file): the transpyloric plane is L1
+everywhere; the aortic hiatus is T12 in all 12 occurrences; the sympathetic trunk is T1–L2
+consistently across five files. Also consistent deck-wide: coeliac T12, SMA L1, IMA L3, aortic
+bifurcation L4, IVC formation L5, cisterna chyli L1–L2, caval opening T8, oesophageal hiatus
+T10, sternal angle and carina T4/5, trachea C6, dural sac S2, conus L1/L2, Adamkiewicz left
+T9–T12, Tuffier's line L4, McBurney's point one-third ASIS→umbilicus, and the vertebral artery's
+C6→C1 course.
