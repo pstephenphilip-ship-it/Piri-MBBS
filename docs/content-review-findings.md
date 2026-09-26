@@ -5109,3 +5109,53 @@ C3 **and** low C4" (classical/immune-complex consumption), while `renal.json`
 groups it under "low C3" alongside PSGN and MPGN. Both readings are defensible —
 endocarditis-associated GN classically consumes C3 with low-or-normal C4 — so the
 two files sort the same entity differently rather than contradicting each other.
+
+## Haematology investigations (189 cards, 376 fields)
+
+Formatted the seven `investigations__HAEMATOLOGY__` topics: Anaemia & Haematinics (38),
+ABG (23), Blood Count & Film (32), Haemolysis (23), Coagulation & Thrombosis (28),
+Inflammation & Marrow (20), Transfusion (25).
+
+**Verified against source before applying** — all correct as written, no change needed:
+Hb <70 g/L non-ACS (target 70–90) and <80 g/L in ACS (target 80–100) per NICE NG24;
+FFP for factor deficiency with bleeding at PT/APTT >1.5× normal; cryoprecipitate for
+fibrinogen <1.5 g/L; PCC contains II/VII/IX/X and is always given with IV vitamin K
+(the INR rebounds without it because factor VII is short-lived); TRALI = hypotension,
+non-cardiogenic oedema, **no** diuretics vs TACO = hypertension + raised JVP, furosemide;
+O RhD-negative red cells vs AB plasma as universal donors; G&S valid 72 h if transfused
+or pregnant within 3 months.
+
+**Real fix made in passing:** `Transfusion/13` carried a bare `<` (`reversal <1 h`).
+Bare `<` in a field rendered through `innerHTML` is a parse hazard — escaped to `&lt;1 h`.
+
+**Confirmed propagation of earlier fixes:** every remaining copy of the neutropenic-sepsis
+neutrophil threshold now reads `≤0.5`. `conditions__HAEMATOLOGY__Pancytopenia/14` correctly
+keeps `<0.5` (severe aplastic anaemia) and `<0.2` (very severe) — these are the Camitta
+criteria and **must not** be harmonised with the sepsis threshold.
+
+**Confirmed consistent:** red-cell transfusion thresholds agree across all 8 copies deck-wide.
+
+### Open: platelet threshold endpoints disagree at exactly 50 and 100
+
+`investigations__HAEMATOLOGY__Transfusion/11` states the procedural figures as **targets to
+exceed** — "(>50 surgery, >100 neurosurgery/eye)". Four other copies (including
+`Transfusion/24`) state them as **triggers to transfuse** — "<50 = surgery / major bleeding;
+<100 = critical sites".
+
+At a count of exactly 50 (or 100) the two readings give opposite answers: card 11 says the
+target is not yet met, so transfuse; card 24 says the trigger is not met, so do not. Card 11
+is the lone outlier by count but matches the conventional BSH phrasing ("raise the count
+above 50×10⁹/L for surgery").
+
+**Not patched.** The mechanical fix — moving card 24's `<50`/`<100` to `≤50`/`≤100` — would
+leave a mixed convention inside a single card, because `<10` prophylactic and `<30` for active
+bleeding are written that way universally and are right. Harmonising the five cards means
+rewriting the definitions, which is authoring, not correction. Flagged for a clinician.
+
+### Other endpoint/range divergences found, reported not patched
+
+- Lactate `<2` vs `>2` mmol/L — a lactate of exactly 2.0 falls in neither category.
+- Neutropenic fever `>38` vs `≥38°C` across files.
+- HIT onset window: ~30 days in one card vs 100 days in another.
+- Borderline B12: `200–300` vs `180–350 ng/L`.
+- Malaria film repeat timing: 36–48 h vs 48–72 h.
