@@ -9887,6 +9887,143 @@ window.MOCK_BANK = {
       explanation:[
         "A single set growing COAGULASE-NEGATIVE STAPHYLOCOCCI in a patient without prosthetic material or a device is usually a SKIN CONTAMINANT – repeat the cultures before over-diagnosing.",
         "It is not a major criterion (which needs a typical organism in two or more sets, or persistent positivity), certainly not definite IE, and there is no basis for surgery or antifungals. In a prosthetic-valve or device patient, CoNS would be taken far more seriously."
+      ] },
+    { id:"ie-028", type:"mcq", objective:"ie-empirical-native",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Valve <b>Native (bicuspid aortic)</b></span><span>Blood cultures <b>Sent; results pending</b></span><span>Penicillin allergy <b>None</b></span></div>",
+      question:"A 46-year-old man with a bicuspid aortic valve is admitted with two weeks of fever and a new murmur. Three sets of blood cultures are taken and infective endocarditis is diagnosed clinically while results are awaited. He has no penicillin allergy. Which is the most appropriate empirical regimen?",
+      options:[
+        "Amoxicillin, with or without gentamicin",
+        "Oral doxycycline alone",
+        "Vancomycin plus gentamicin plus rifampicin",
+        "A single dose of IV benzylpenicillin, then oral switch",
+        "No antibiotics until cultures return"],
+      correctIndex:0,
+      explanation:[
+        "For blind/empirical treatment of NATIVE-valve endocarditis in a non-allergic patient, start AMOXICILLIN (with or without gentamicin) intravenously.",
+        "Vancomycin + gentamicin + rifampicin is the empirical PROSTHETIC-valve regimen (and the penicillin-allergic/MRSA native alternative); oral doxycycline or an oral switch are inadequate for IE; and once cultures are taken you should not withhold treatment in a diagnosed case."
+      ] },
+    { id:"ie-029", type:"mcq", objective:"ie-empirical-prosthetic",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Valve <b>Mechanical aortic (replaced 4 years ago)</b></span><span>Blood cultures <b>Sent; results pending</b></span><span>Penicillin allergy <b>None</b></span></div>",
+      question:"A 68-year-old woman who had a mechanical aortic valve replacement four years ago presents with fever, malaise and a raised CRP. Blood cultures are taken and prosthetic-valve endocarditis is suspected while results are pending. She has no penicillin allergy. Which is the most appropriate empirical regimen?",
+      options:[
+        "Amoxicillin plus gentamicin",
+        "Vancomycin plus gentamicin plus rifampicin",
+        "Benzylpenicillin plus gentamicin",
+        "Flucloxacillin plus fusidic acid",
+        "Metronidazole plus gentamicin"],
+      correctIndex:1,
+      explanation:[
+        "Empirical treatment of PROSTHETIC-valve endocarditis is VANCOMYCIN + GENTAMICIN + RIFAMPICIN – broad cover including staphylococci, with rifampicin to penetrate biofilm on the prosthetic material.",
+        "Amoxicillin- or benzylpenicillin-based regimens are too narrow for prosthetic-valve disease; a flucloxacillin combination misses coagulase-negative staphylococci and MRSA; and metronidazole targets anaerobes, not the relevant organisms."
+      ] },
+    { id:"ie-030", type:"mcq", objective:"ie-mssa-native",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Organism <b>Staph aureus, methicillin-sensitive (MSSA)</b></span><span>Valve <b>Native</b></span><span>Penicillin allergy <b>None</b></span></div>",
+      question:"A 39-year-old man with native-valve endocarditis has blood cultures growing methicillin-sensitive Staphylococcus aureus (MSSA). He has no penicillin allergy. Which is the most appropriate directed therapy?",
+      options:[
+        "Vancomycin",
+        "Benzylpenicillin",
+        "Flucloxacillin",
+        "Amoxicillin plus gentamicin",
+        "Ceftriaxone"],
+      correctIndex:2,
+      explanation:[
+        "For MSSA NATIVE-valve endocarditis in a non-allergic patient, the directed agent is FLUCLOXACILLIN (typically 4-6 weeks IV).",
+        "Vancomycin is reserved for MRSA or penicillin allergy; benzylpenicillin is for penicillin-sensitive streptococci; amoxicillin + gentamicin is the enterococcal regimen; and ceftriaxone is not first-line for MSSA here."
+      ] },
+    { id:"ie-031", type:"mcq", objective:"ie-mrsa",
+      question:"A 55-year-old man with native-valve endocarditis grows methicillin-resistant Staphylococcus aureus (MRSA). Which is the most appropriate directed therapy?",
+      options:[
+        "Flucloxacillin",
+        "Amoxicillin",
+        "Benzylpenicillin",
+        "Vancomycin plus rifampicin",
+        "A cephalosporin alone"],
+      correctIndex:3,
+      explanation:[
+        "MRSA endocarditis is treated with VANCOMYCIN (plus rifampicin) – daptomycin is an alternative to vancomycin.",
+        "Flucloxacillin, amoxicillin, benzylpenicillin and standard cephalosporins do not reliably cover MRSA."
+      ] },
+    { id:"ie-032", type:"mcq", objective:"ie-strep-viridans",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Organism <b>Strep viridans, penicillin-sensitive</b></span><span>Valve <b>Native</b></span><span>Penicillin allergy <b>None</b></span></div>",
+      question:"A 62-year-old man with subacute native-valve endocarditis after dental work grows penicillin-sensitive Streptococcus viridans. He has no allergy. Which is the most appropriate directed therapy?",
+      options:[
+        "Vancomycin plus gentamicin",
+        "Flucloxacillin",
+        "Metronidazole",
+        "Ciprofloxacin",
+        "Benzylpenicillin"],
+      correctIndex:4,
+      explanation:[
+        "Penicillin-sensitive Strep viridans endocarditis is treated with BENZYLPENICILLIN (4 weeks, or 2 weeks combined with gentamicin).",
+        "Vancomycin + gentamicin is the penicillin-allergic alternative; flucloxacillin is for staphylococci; and metronidazole and ciprofloxacin do not appropriately cover this organism."
+      ] },
+    { id:"ie-033", type:"mcq", objective:"ie-enterococcus",
+      question:"A 70-year-old man develops endocarditis after a urological procedure. Blood cultures grow Enterococcus faecalis, sensitive to amoxicillin. He has no allergy. Which is the most appropriate directed therapy?",
+      options:[
+        "Flucloxacillin",
+        "Amoxicillin plus gentamicin",
+        "Benzylpenicillin alone",
+        "Metronidazole",
+        "Vancomycin plus rifampicin"],
+      correctIndex:1,
+      explanation:[
+        "Enterococcal endocarditis is treated with AMOXICILLIN PLUS GENTAMICIN (synergistic; 4-6 weeks).",
+        "Flucloxacillin (staphylococci) and benzylpenicillin alone are inadequate for enterococci; metronidazole covers anaerobes; and vancomycin + rifampicin is not the sensitive-enterococcus regimen (vancomycin is the penicillin-allergic alternative)."
+      ] },
+    { id:"ie-034", type:"mcq", objective:"ie-duration-route",
+      data:"<div class=\"mk-obs-h\">Progress</div><div class=\"mk-obs-grid\"><span>Day of treatment <b>12</b></span><span>Temperature <b>Afebrile</b></span><span>CRP <b>Falling</b></span><span>Repeat blood cultures <b>Negative</b></span><span>Echo / complications <b>Small vegetation, no complications</b></span></div>",
+      question:"A 39-year-old man with methicillin-sensitive Staph aureus endocarditis of his native aortic valve has completed 12 days of IV flucloxacillin. He feels well and wants to finish treatment at home on tablets. What is the most appropriate management?",
+      options:[
+        "Switch to oral antibiotics now and discharge him",
+        "Stop antibiotics, as he has clinically recovered",
+        "Shorten to a two-week total course regardless of valve",
+        "Continue intravenous antibiotics for the full course",
+        "Reduce to a single daily oral dose for two weeks"],
+      correctIndex:3,
+      explanation:[
+        "Infective endocarditis needs PROLONGED IV BACTERICIDAL therapy (typically 4-6 weeks for Staph on a native valve) because the vegetation is avascular and poorly penetrated – so continue the full IV course, completing it at home via OPAT if he is otherwise stable.",
+        "Switching to oral or stopping early despite clinical improvement risks relapse; a reduced oral dose is inadequate; and the two-week regimen applies only to specific cases (penicillin-sensitive Strep with gentamicin), not MSSA aortic-valve disease."
+      ] },
+    { id:"ie-035", type:"mcq", objective:"ie-surgery-emboli",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Antibiotics <b>Appropriate, day 10</b></span><span>Temperature / repeat cultures <b>Afebrile / negative</b></span><span>Haemodynamics <b>Stable, no heart failure</b></span><span>Echocardiogram <b>Large 16 mm mobile mitral vegetation</b></span><span>Emboli <b>Second embolic stroke (first on day 3)</b></span></div>",
+      question:"A 52-year-old woman with mitral-valve endocarditis is on day 10 of appropriate IV antibiotics. Her infection appears controlled, but she has just had a second embolic stroke. What is the most appropriate management?",
+      options:[
+        "Continue the current antibiotics unchanged",
+        "Start therapeutic anticoagulation",
+        "Refer for valve surgery",
+        "Add a further antibiotic to broaden cover",
+        "Repeat the echocardiogram in two weeks"],
+      correctIndex:2,
+      explanation:[
+        "RECURRENT SYSTEMIC EMBOLI despite adequate antibiotics – especially with a large (over 10 mm) mobile vegetation – is an indication for SURGERY to remove the embolic source, even when the infection is controlled and she is haemodynamically stable.",
+        "Continuing or broadening antibiotics does not address the mechanical embolic risk (the infection is already controlled); anticoagulation is NOT indicated in native-valve IE and risks haemorrhagic transformation of the infarcts; and delaying echo wastes time while she keeps embolising."
+      ] },
+    { id:"ie-036", type:"mcq", objective:"ie-device-extraction",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Device <b>Permanent pacemaker</b></span><span>Echo <b>Vegetations on a pacing lead</b></span><span>Organism <b>Staph aureus</b></span></div>",
+      question:"A 74-year-old man with a permanent pacemaker develops Staphylococcus aureus bacteraemia, and echocardiography shows vegetations on a pacemaker lead. Which is the most appropriate management?",
+      options:[
+        "Extract the entire system, plus antibiotics",
+        "Prolonged antibiotics alone, leaving it in place",
+        "Remove the leads but leave the generator behind",
+        "Reposition the pacemaker to the opposite side",
+        "Antibiotic lock therapy through the device leads"],
+      correctIndex:0,
+      explanation:[
+        "An infected cardiac device requires COMPLETE SYSTEM EXTRACTION – the generator and all leads – together with antibiotics. Antibiotics alone will not clear organisms adhered to the hardware.",
+        "Leaving any part of the system in place, or lock therapy, fails to eradicate a colonised lead; and repositioning does not remove the infected material."
+      ] },
+    { id:"ie-037", type:"mcq", objective:"ie-prophylaxis",
+      question:"A 40-year-old woman with a history of infective endocarditis is due to have a routine dental scaling. She asks whether she should take antibiotics beforehand. Following NICE guidance, what is the most appropriate advice?",
+      options:[
+        "Give a single dose of amoxicillin one hour before, for everyone",
+        "Prescribe a one-week course of antibiotics afterwards",
+        "Use chlorhexidine mouthwash as prophylaxis instead",
+        "Advise her to avoid all dental treatment in future",
+        "Routine antibiotic prophylaxis is not recommended; emphasise good oral hygiene"],
+      correctIndex:4,
+      explanation:[
+        "In the UK, NICE does NOT recommend routine antibiotic prophylaxis for dental (or GI/GU/respiratory) procedures; the emphasis is GOOD ORAL HYGIENE, prompt treatment of infection, and counselling about piercings and tattoos. A highest-risk group may be offered prophylaxis after shared decision-making, and note ESC does recommend it for high-risk dental work.",
+        "Blanket amoxicillin for everyone, a post-procedure course and chlorhexidine mouthwash are all specifically not recommended; and avoiding dental care would worsen her oral health and IE risk."
       ] }
 ]
 };
