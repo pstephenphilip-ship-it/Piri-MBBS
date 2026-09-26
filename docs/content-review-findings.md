@@ -5775,3 +5775,104 @@ findings or directives sharing no vocabulary with their front and containing no 
 word. Rule 3 as a pure word-overlap test does not catch them; a judgement about whether the
 span is a *finding or a directive* is still required on top of both rules. All seven stayed
 in the body. Worth recording because it bounds what the mechanical tests can do.
+
+## Paediatrics (396 cards, 792 fields)
+
+`paediatric.json`, 28 topics, every card touched. **Zero `fc-caveat` and zero `fc-inline`
+in the whole file** — a deliberate policy, because in paediatrics almost every trailing
+clause is safety-bearing ("do not wait for investigations", "a mimic does not exclude
+co-existing abuse", "NOT routinely"). Second blocks used `fc-sub` (43 times), which
+inherits body size and colour and is not a demotion.
+
+Rule 3 is therefore vacuously satisfied, and the directive-free *finding* shape stayed in
+the body and bolded throughout: bulging fontanelle, grunting, silent chest, non-blanching
+rash, sunken eyes, high-pitched cry, retinal haemorrhages, bruising in a non-mobile infant,
+absent femoral pulses, "classic neck stiffness and photophobia may be absent", and
+"signs are non-specific".
+
+Fixed in passing, as part of the markup: 4 bare `&` (`U&E`, `dip & culture`, `FBC & film`)
+and 1 bare `<` (`<2 weeks`) escaped. The same tokens were already correctly escaped on
+other cards in the same file, so this was an inconsistency, not a uniform convention.
+
+**Note on id conventions:** this file uses two, each stable within its topic —
+`piri_fc__signs__PAEDIATRIC__<slug>__NNNN` for 4 large topics and `<short>-fc-N` for the
+other 24. A single prefix assertion would have failed. Indexing is positional throughout,
+so nothing depended on it.
+
+### A genuine app-level gap, and it is the one I briefed for
+
+I asked specifically about the NICE traffic-light temperature tiers. **The amber criterion
+`≥39°C in the 3–6 month infant` does not exist anywhere in the deck.** An anchored,
+case-sensitive search for `≥39` / `>39` / `39°C` co-occurring with any "3–6 months"
+phrasing returns **zero hits across all 80 files**. `39°C` does appear, but only for
+transfusion reactions, systemic JIA and pneumonia-versus-bronchiolitis. The traffic-light
+system is *named* on five cards across two files, and no card anywhere lists its
+age-banded temperature tiers. Absent deck-wide → a real gap. Nothing added.
+
+The `≥38°C` figure and the "under 3 months" phrasing are, by contrast, **completely
+consistent**: 7 of 7 instances in the file use "under 3 months", and there is no
+`>3 months`, no `3–6 months` and no `3 months to 6 months` anywhere in `paediatric.json` —
+so the age-band phrasing divergence I briefed for does not occur here.
+
+### Also absent deck-wide (nothing added)
+
+- **No age-banded respiratory-rate or heart-rate table exists anywhere.** `paediatric.json`
+  is entirely qualitative (tachypnoea, grunting, recession). The only paediatric numeric
+  respiratory thresholds in the deck are `RR >70` and `RR >60` in one other file, and they
+  are not age-banded at all.
+- **No weight-estimation rule** (no WETFLAG, no `(age+4)×2`) and no weight-for-age figures.
+- **No paediatric dehydration percentage bands.** The deck uses NICE's categorical grading,
+  so there is no % band — but one MCQ stem says "he is 8% dehydrated", with no band anywhere
+  to place that in.
+
+### Internal contradictions found — reported, not patched
+
+- **HUS "tetrad" vs "triad", in the same file.** One card's front asks for the *tetrad* and
+  lists bloody diarrhoea as a fourth component; another asks for the *triad* with bloody
+  diarrhoea as the antecedent. Every other statement in the deck — 6 places across 4 files —
+  is a triad. The "tetrad" card is the lone outlier and HUS is conventionally a triad, but
+  correcting it means restructuring the back as well as the front word, so it is authoring.
+- **SpO₂ 92–94% falls in no band.** One card sets life-threatening asthma at `<92%`, another
+  sets the oxygen target at `≥94%` — a child at 93% is neither life-threatening nor at
+  target, with no stated action. Deck-wide there are **three** action thresholds for the
+  wheezy or bronchiolitic child: 90%, 92% and 94%.
+- **Pyloric stenosis age stated three ways in one file** (`2–8` / `4-8` weeks / "around 6
+  weeks") and two more ways elsewhere (`3–6 weeks`; `2–8 weeks, peak 3–6`).
+- **Apley's rule is repudiated on one card and applied as a red flag on three others.** One
+  card says plainly it "has never been validated" and that pain location "was dropped from
+  the modern consensus criteria"; three others list pain away from the umbilicus as an
+  organic red flag, one of them as an unqualified exam pearl.
+- **A therapy ranking contradicted by its own summary card**: one card says gut-directed
+  hypnotherapy has the strongest evidence with CBT close behind; the summary card drops
+  hypnotherapy and presents CBT as the treatment.
+- **Acute/chronic diarrhoea**: `chronic is ≥2-4 weeks` is malformed (a `≥` on a range) and
+  **leaves anything over 4 weeks in no band at all**. `gastrointestinal.json` has the correct
+  three-tier split (acute `<2`, persistent `2–4`, chronic `>4` weeks). Not patched, for
+  consistency with the other malformed-range cases in this review — fixing it means adding
+  a band, which is authoring.
+- **Infant WCC red flag `below 5 or above 15`** excludes both its own endpoints.
+- **Kocher's criteria** are all strictly-greater (`>38.5°C`, `ESR >40`, `WCC >12`), so
+  exactly 38.5 / 40 / 12 satisfies none. Replicated identically in three other files, so it
+  is house style, not a local slip. Worth noting Kocher uses 38.5°C where the deck's NICE
+  fever threshold is 38°C — different conditions, but a learner meeting both is not told so.
+- **Delayed meconium**: `>48 hours` in four places vs "failure to pass within 48 hours" in
+  four others — at exactly 48 h one trigger fires and the other does not.
+- **Simple vs complex febrile convulsion**: `<15 min` vs `>15 min` across three files leaves
+  exactly 15 minutes in neither.
+- **Kasai timing**: "before 60 days" (two files) vs "before ~8 weeks" (= 56 days) in a third.
+- **DDH imaging crossover**: `under about 4.5 months` vs `<4.5–6 months` vs `~6 months` vs
+  `<6 months` — at 5 months one file X-rays and another still uses ultrasound. And
+  `<6 months` / `>6 months` in one file leaves exactly 6 months in neither.
+- **Limp age→differential mapping does not tile**: "toddler" then "3-10 years" leaves 2–3
+  ambiguous; and Perthes is `3-10 years` on one card but "boys aged 4-8" on another, so a
+  3-year-old gets Perthes from one card and not the other.
+- **Fluid bolus**: `paediatric.json` says 10 mL/kg and explicitly warns that "older sources
+  will say 20" — and `paediatrics.json` still says `10–20 mL/kg`, so the deck contains the
+  very figure the other card warns against. A third file adds a 250 mL cap that neither has.
+
+### Typography inconsistency (in scope, noted for a possible sweep)
+
+The same value is written with an en dash on one card and an ASCII hyphen on another —
+`3–4 months` / `~3-4 months` / `3-4 months`; `3 months–2 years` / `3 months-2 years`. This
+is a visual-consistency issue rather than a content one. Not swept yet; it would touch many
+files and is worth doing as one deliberate pass rather than piecemeal.
