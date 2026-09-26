@@ -6458,3 +6458,95 @@ One soft observation left untouched: a card states, already bolded in the source
 means a negative result "reliably excludes disease and permits reassurance/discharge without
 further testing". That holds only given adequate sensitivity and a genuinely low pre-test
 probability, and the card carries no qualifier.
+
+## haematological.json + msk-rheumatology.json (223 cards, 446 fields) — BACKS COMPLETE
+
+**Zero grey spans in 446 fields** — no `fc-caveat`, no `fc-inline` — and deliberately so: this
+scope is almost entirely safety-bearing (marrow failure, TTP, DIC, purpura fulminans,
+meningococcal sepsis, sickle sequestration, septic arthritis, GCA, compartment syndrome, cord
+compression, NAI safeguarding, B12 subacute combined degeneration). Every second block used
+`fc-sub`, so Rules 1 and 3 hold by construction rather than by judgement.
+
+That agent verified **positively** rather than only negatively — it asserted for each safety
+phrase that it sits inside `<strong>` and outside any grey span, rather than merely asserting no
+grey span contains risk language. Sixteen such phrases confirmed, including *"NEGATIVE Gram stain
+does NOT exclude septic arthritis"* and *"Never simply reassure and discharge"*.
+
+**Both named shapes confirmed by name.** "Pain on passive stretch" is inside `<strong>` and
+ungreyed at all three of its occurrences. "The eye is neither red nor painful" was re-read from
+disk after the pass and re-confirmed still bolded and not grey; it occurs nowhere else in the deck.
+
+**A scope correction it made:** my brief said 6 topics / 116 cards; the file has exactly **5**
+unmarked topics / **115** cards, with 19 topics (837 cards) fully marked and skipped.
+
+### The last unmarked back in the deck
+
+One card sat inside an otherwise-marked topic, so every per-topic scope had passed over it:
+`Juvenile Idiopathic Arthritis[12]`, whose whole back is "Adult-onset Still's disease." — a
+four-word answer where the named disease *is* the content. Bolded. **Unmarked backs remaining
+deck-wide: 0.**
+
+This is the difference between a per-topic and a per-card detector, and it is why the residual
+was 224 rather than 223.
+
+### A process incident, checked rather than trusted
+
+That agent flagged that it had used an unscoped `rm -f agentout/*.json` in a directory shared
+with concurrently running agents, and said it could not rule out having deleted a pending batch.
+
+I did not verify this by counting files — a file count proves nothing about what was lost.
+I verified it **from the deck**: after applying the tail batch, the only files with any unmarked
+back were the two in this final batch. Had a pending `tail_*` batch been destroyed, its topics
+would still be unmarked. Nothing was lost.
+
+Worth recording that this is the second time in one wave that a shared scratch directory caused
+trouble — once for me (a glob selecting stale inputs) and once for an agent (an unscoped delete).
+Both are the same underlying hazard: a shared mutable directory addressed by pattern rather than
+by manifest.
+
+### Content findings — reported, not patched
+
+- **T-score bands overlap at BOTH endpoints.** `≥ −1.0` normal, `−1.0 to −2.5` osteopenia,
+  `≤ −2.5` osteoporosis: exactly −1.0 is both normal and osteopenia, and exactly −2.5 is both
+  osteopenia and osteoporosis. WHO's own definition is half-open. Same double overlap in three
+  places across two files. The `≤ −2.5` value itself is consistent everywhere.
+- **Morning stiffness is the most tangled threshold found in this review.** RA/inflammatory
+  appears as `>30 min`, `≥30 min`, `>30–60 min` and `>1 hour`; OA as `<30 min`, "no longer than
+  30 minutes" (NICE's inclusive wording) and "under 30 minutes". The `>30`/`<30` pairing leaves
+  **exactly 30 minutes in neither** band, while the NICE-worded pairing partitions correctly —
+  so the deck is internally inconsistent about whether 30 minutes is classifiable at all. And
+  `≥30` for axial SpA against `<30` for OA puts exactly 30 in **both**.
+- **PMR age diverges inside one file**: "Over 60" on one card and in a `q` explanation, "Over 50
+  (typically over 60)" on another, and "Over 50" in that `q`'s own option and answer.
+- **Kocher's criteria — confirmed, with a nuance I would have got wrong.** All numeric limbs are
+  strictly-greater, so a child at exactly 38.5 °C, ESR exactly 40 and WCC exactly 12 satisfies
+  **none** and scores 0 despite meeting every stated value. The nuance: only **three** of the
+  four files spell all three limbs numerically — the fourth gives the fever limb as `>38.5°C` and
+  the other two qualitatively. So "all three limbs in four files" was my overstatement.
+- **ISTH DIC score: a fibrinogen of exactly 1 g/L scores in neither band** (`>1` = 0, `<1` = 1),
+  while the platelet and PT bands of the same score partition correctly.
+- **Modified Schober's**: "less than 5 cm" reduced and "more than 5 cm" normal leaves exactly
+  5 cm unclassified, in both the card and its `q` explanation.
+- **Synovial fluid WCC bands are nested, not exclusive**: normal `<200` and non-inflammatory
+  `<2,000` both claim any count below 200. The upper boundaries are clean, and the card's own
+  "no cut-off is absolute — treat on clinical suspicion" is bolded and intact.
+- **Compartment pressure is ambiguous and its `q` disagrees with its `fc`**: the card gives an
+  absolute threshold of `>30–40 mmHg` without saying whether the cut-off is 30 or 40, while a
+  `q` item marks "absolute pressure of 45 mmHg alone" as **not** an indication for fasciotomy —
+  yet 45 exceeds both ends of the card's range.
+- **Variceal transfusion target, fc versus q in one topic**: `Hb 70–90 g/L` on two flashcards,
+  `Hb 70–80 g/L` in a `q` explanation and in that `q`'s options and answer.
+- **Neutropenic sepsis fever limb** disagrees at exactly 38.0 °C — `>38 °C` in six places across
+  two files, `≥38°C` in two places in a third. NICE NG151 says "higher than 38 °C". The
+  neutrophil limb is uniformly `≤0.5 ×10⁹/L`.
+- **Lymph-node persistence** before referral: "beyond about 6 weeks", "4–6 weeks", "changing over
+  3–6 weeks", "beyond a few weeks" across four files. Node *size* is consistent at 2 cm.
+- **A pre-existing inconsistency worth a touch-up**: in the already-marked Compartment Syndrome
+  topic, "worse on passive stretch" and "severe on PASSIVE STRETCH" sit **outside** the bold runs
+  on two cards while the same phrase is bolded on two others. Not a rule violation — the text is
+  neither grey nor demoted — but it is the sign of the pass that marked those cards.
+- Confirmed clean: transfusion triggers (`Hb <70` → target 70–90; `<80` → 80–100 in ACS) across
+  five files with no gap at 70 or 90; CRP antibiotic bands; pancreatitis `CRP >150 at 48 h`;
+  Weber, Garden, Salter-Harris, Ficat and the modified New York criterion; haematocrit target
+  `<0.45`, with the two different PV *diagnostic* thresholds explicitly flagged as different on
+  the cards themselves.
