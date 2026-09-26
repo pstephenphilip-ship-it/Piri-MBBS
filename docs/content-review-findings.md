@@ -7240,3 +7240,90 @@ one marker; `answer`/`options[correctIndex]` intact everywhere.
 the same split (`400 mcg`, `25-50 mcg`, `125 mcg/day`, and its own card warning
 against `'mcg'`). It is excluded from every sweep because its player runs fields
 through `escapeHtml()`.
+
+## Deprivation of liberty brought up to the June 2026 ruling (v1545)
+
+**The lookup I could not do.** 14 cards rested on a June 2026 Supreme Court
+ruling that overruled *Cheshire West*. My knowledge stops at May 2026, so I left
+every one of them alone and asked the user to verify six specific points. They
+came back with:
+
+> **A Reference by the Attorney General for Northern Ireland [2026] UKSC 16**,
+> 2 June 2026, unanimous, overruling *P v Cheshire West and Chester Council*
+> [2014] UKSC 19. Sources cited: the Supreme Court press summary, gov.uk guidance
+> *"Changes to the definition of deprivation of liberty"*, and an RCPsych note of
+> 5 June 2026.
+
+**The cards were substantially right.** The ruling exists, it overruled rather
+than refined, the multifactorial assessment is real, the valid-consent revival is
+real, the effect was immediate with no transition period, and existing
+authorisations need review. Nine fields were edited: four additions and two
+corrections.
+
+### I was wrong about the jurisdiction, and the reason is worth teaching
+
+I flagged the cards' claim of "UK-wide effect" as probably wrong, reasoning that
+the Mental Capacity Act 2005 covers England and Wales only. **The cards were
+right and I was wrong.** The ruling is on the meaning of **Article 5 ECHR**,
+which binds UK-wide through the Human Rights Act; DoLS and the Court of
+Protection remain the England-and-Wales machinery under the MCA. The reference
+came from the Attorney General for **Northern Ireland**, which is what should
+have tipped me off. Both statements on the cards were true and only looked
+contradictory, so the distinction is now spelled out on the card rather than
+left to trip a reader the way it tripped me.
+
+### Added
+
+* **The citation and the case's origin**, on the ruling card and on the
+  geriatric-assessment combined card. A student who has to look this up needs the
+  name.
+* **The prison-cell comparator.** The deck's factor list had type/duration/
+  effects/manner, normality and purpose, but not *how far removed the situation is
+  from a prison cell*, which is one of the factors the Court named.
+* **The Article 5 two-limb distinction** &mdash; the multifactorial test settles
+  whether there is an *objective confinement*; whether the person gives *valid
+  consent* is the separate subjective question.
+* **The practical consequence**: fewer people now meet the threshold at all, so
+  providers must re-examine existing authorisations rather than assume they stand.
+* On the "did contentment matter under the acid test?" card, an explicit
+  **"that is no longer the law"** rider. It was already past-tense, but a reader
+  could take it as current.
+
+### Corrected
+
+* **`psychiatry` MentalHealthLaw__0024** gave the acid test as *the* definition of
+  a deprivation of liberty, with no mention of the change &mdash; directly
+  contradicting the geriatric cards. It now states the framework and notes that
+  the *test* is no longer the acid test.
+* **`psychiatry` q MentalHealthLaw__0001 was made wrong by the ruling itself.**
+  Its stem said the patient "is compliant". Under the new law a compliant person
+  with basic awareness may be giving valid consent, in which case there is no
+  deprivation and option A, "no authorisation is needed", becomes arguable. The
+  stem now specifies **passive compliance with no awareness of the arrangements**,
+  which is expressly not consent, so the keyed answer is sound again and the card
+  teaches the distinction instead of falling foul of it.
+* **`geriatric-medicine` q DOLS__0007** explained the answer with "a benevolent
+  purpose does not by itself remove the need for authorisation" &mdash; an
+  acid-test-era statement, since purpose is now expressly one of the factors
+  weighed. Reworded.
+
+**Deck-wide check after the edit: 0 cards teach the acid test without mentioning
+the change** (there were 4).
+
+### Left as an open question rather than rewritten
+
+The deck lists *"whether the person objects or is content"* among the
+multifactorial **confinement** factors. Contentment may instead belong to
+Article 5's separate subjective limb, valid consent, which the deck already
+teaches on its own card. A clarifying sentence distinguishing the two limbs was
+added; the factor list was left where the deck put it, because restructuring a
+legal test on the strength of a secondary summary is not something to do quietly.
+
+**LPS status was not covered by the lookup.** The two LPS cards already hedge
+correctly &mdash; legislated in the Mental Capacity (Amendment) Act 2019, still
+unimplemented, and "not yet certain the scheme will proceed unchanged after the
+2026 ruling" &mdash; so they are unchanged. Whether the implementation
+consultation has closed, and what it concluded, is still unverified.
+
+Verified: 9 fields changed across 3 files and nothing else; every MCQ's options
+and `correctIndex` are untouched; `answer`/`options[correctIndex]` intact.
