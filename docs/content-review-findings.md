@@ -5950,3 +5950,108 @@ the back unique in the file, and topic keys, card counts and field sets unchange
 The guard also caught my own slip first: matching the topic by substring made
 "Heart Failure" ambiguous against "Acute Heart Failure" and a third topic. Nothing was
 written, because staging completes before any file is touched.
+
+## Ophthalmic, ENT, ophthalmology and ent-audiovestibular (408 cards, 816 fields)
+
+27 topics across four files. Only **4 grey spans in 408 cards**, all four confirmed
+non-safety-bearing against their own fronts (a canal-anatomy rationale, a "same-same" rule
+name, a mnemonic, and an example gloss). On a scope carrying acute angle closure, GCA,
+orbital cellulitis, retinal detachment, chemical eye injury, endophthalmitis, epiglottitis,
+airway obstruction, quinsy and sudden SNHL, nothing safety-bearing is demoted anywhere.
+
+Escaped 6 bare comparison operators, one of which — `(typically < −100 daPa)` — was a real
+parse hazard: a bare `<` followed by a space in a field rendered through `innerHTML`.
+
+**One topic my guard rejected although the agent reported all checks at zero.** An
+`fc-caveat` sat **inside an `<li>`**, which splits the bullet — and inconsistently, because
+the other five bullets in the same list carry their parenthetical examples as plain text.
+Un-greyed for consistency, rendered text asserted identical, then applied.
+
+That agent's own weld guard is worth recording as the state of the art here: it caught three
+genuine failure-mode-B events during authoring, none of which reached output — `scleritis`
+matching inside **epi**scleritis, `venous phase` matching inside arterio**venous**, and three
+apparent welds that were really `</li><li>` seams, which it traced to a bug in its own
+block-tag transparency and fixed in the guard rather than suppressing. Its dropped-string
+inventory contained no letter at all, and conjunctions were never candidates for deletion,
+so failure mode A was ruled out by construction rather than by audit.
+
+### FIXED — three endpoint gaps, all closing a value that fell in NO band
+
+**CRVO — one card with two gaps.** `ophthalmology.json` Central Retinal Vein Occlusion 3
+split the two types as non-ischaemic `(>6/60)` with `<10 disc areas` of non-perfusion, and
+ischaemic `(<6/60)` with `>10 disc areas`. A patient at **exactly 6/60** belonged to neither
+type, and so did one with **exactly 10 disc areas**. Ischaemic CRVO is conventionally vision
+of 6/60 *or worse* with *≥10* disc areas, so the ischaemic side moved to `≤6/60` and
+`≥10 disc areas`. The non-ischaemic side is correct and untouched, and the two now tile
+exactly.
+
+**Sudden SNHL** — `ent.json` Reduced Hearing 3 said `<72h`, excluding exactly 72 hours. The
+same file's `conditions__ENT__Hearing Loss` topic says `≤72 hours` on **four** cards, and
+≤72 h is the published definition. Moved to `≤72h`, written with the literal `≤` character
+to match the neighbouring cards rather than the `&le;` entity — my first attempt used the
+entity and the survival guard caught it.
+
+### Merkel cell carcinoma — the earlier "zero hits" finding has changed, and the gap is real
+
+An earlier pass recorded MCC as absent deck-wide. The string now returns **3 hits** — but
+**all three are MCQ distractors**, in two files, and **not one card anywhere teaches it**.
+No front, back, answer or explanation covers its presentation, AEIOU features, staging or
+management. `Merkel cells` (the normal basal-layer mechanoreceptor with its CK20 perinuclear
+dot) is well covered, which is a different thing.
+
+So the string is no longer absent but **the content gap is genuine and app-level**: the deck
+asks a learner to reject Merkel cell carcinoma as a wrong answer three times without ever
+teaching what it is. Nothing added. This is a better-stated version of the earlier finding
+and supersedes it.
+
+### Reported, not patched
+
+- **Hoarseness referral stated three ways.** The signs card says "beyond 3 weeks" with no age
+  criterion; another file says "hoarseness for 4 weeks"; and the conditions topic gives the
+  actual NICE criterion as "**aged 45 and over** with persistent unexplained hoarseness",
+  with no duration. A learner working from the signs card would refer a 30-year-old at 3
+  weeks, which does not meet the criterion the same file states elsewhere. The deck's own
+  MCQ distractors use "55 and over / six weeks", so its quizzes treat duration as the
+  discriminator. Adding the age criterion is authoring.
+- **Sudden SNHL urgency differs materially** even after the endpoint fix: the signs card says
+  "high-dose corticosteroids within days", the conditions card says "refer to ENT immediately
+  (within 24 hours), start steroids as soon as possible" and adds a "within the past 30 days"
+  eligibility qualifier the signs card lacks. A third card gives the same emergency with no
+  timing at all.
+- **Ocular hypertension has a treatment gap at 22–23 mmHg**: OHT is *defined* at `>21 mmHg`
+  but SLT is *offered* at `≥24 mmHg`, so 22–23 is ocular hypertension with no stated pathway.
+  Not a definitional contradiction.
+- **AACG typical pressure**: `>40-50 mmHg` on one card (malformed — a `>` on a range) versus
+  `50–80 mmHg` on another. Left, consistent with the other malformed-range decisions.
+- **Audiometry bands tile at integers** (`Mild 21-40 / Moderate 41-70 / Severe 71-90 /
+  Profound >90`) with no gap or overlap, and 0–20 correctly unlabelled. Non-integer values
+  fall in no band, which is benign since thresholds are recorded in 5 dB steps. **The real
+  gap is the averaging basis**: the card gives bands "by average threshold" but never says
+  which average, and the 4-frequency average (0.5, 1, 2 and 4 kHz) is defined **exactly once
+  in the whole deck**, in a different file. Present elsewhere → not an app-level gap, but
+  absent from the topic where the learner meets it.
+- **GCA age `>50`** confirmed uniform across 13 places in these and adjacent files, and the
+  ACR criterion is age at onset **≥50**, so at exactly 50 the whole deck disagrees with the
+  guideline. Left as already logged: it is a uniform convention, "over 50" is the standard
+  textbook phrasing, and moving 13 places on my own initiative is the sweeping kind of change
+  I have consistently declined. Still open for a clinician.
+- **A third-nerve palsy needing imaging whatever the pupil does** — confirmed by name that
+  this is **not grey anywhere**: it sits inside an `fc-sub` (body weight, not a demotion) in
+  one file and in an unmarked MCQ explanation. But two cards in *this* scope state the pupil
+  dichotomy **without** the "partial or progressive needs imaging whatever the pupil is
+  doing" qualifier that the other file adds. Present elsewhere → not a gap, but it is missing
+  where a learner meets diplopia.
+- **"The eye is neither red nor painful"** — confirmed by name: 1 occurrence deck-wide, in
+  `msk-rheumatology.json`, already correctly **inside `<strong>`** and not grey.
+
+### Deferred, deliberately: the `<b>` → `<strong>` sweep
+
+There are **4,684 leftover `<b>` tags across 40 files**. Most sit in topics not yet
+formatted, whose own agents convert them as part of the markup pass — so sweeping now would
+rewrite text that live agents are anchoring against and break their token-identity checks.
+This belongs at the end, as one deliberate pass once every topic is marked, when any
+remaining `<b>` is by definition a leftover. Noted so it is not forgotten.
+
+Related, and part of the same cleanup: several `<b>` tags sit **inside `fc-sub` blocks**
+written by an earlier pass (for example `<span class="fc-sub">…<b>permanent blindness</b>.
+</span>`), so that sweep should check nesting as well as the tag name.
