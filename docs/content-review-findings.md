@@ -4171,3 +4171,39 @@ fix.
   early" without the 6-hour qualifier that `neurophysiology-csf.json` attaches,
   and without the flat "a normal CT does not exclude SAH" that `ct.json` states.
   It does carry the safety net of an LP at ≥12 h if negative.
+
+### neurological.json complete — 708/708, 0 unformatted
+
+Counted before writing this heading.
+
+**One app-level gap found, and it is a safety one.** No card anywhere in the
+deck states that **a partial or progressive third-nerve palsy needs imaging
+whatever the pupil does**. Tested across several phrasings (partial /
+incomplete / progressive within 120 characters of third / III / oculomotor and
+of imaging / angiography / CTA / MRA / scan): zero hits.
+
+This matters because three cards state the pupil rule flatly — "pupil-sparing =
+microvascular (diabetes / hypertension)" — with no qualifier. The qualifier
+does exist for the *complete* case: `neurology-neurosurgery.json` Brainstem /
+Cranial-Nerve Syndromes says pupil sparing "only reassures in a COMPLETE,
+isolated palsy in a vasculopath over about 50", and that ischaemic palsies
+"involve the pupil in up to a fifth of cases". So the deck knows the rule is
+conditional, but the sign topics where a learner meets a ptosis or a diplopia
+state it unconditionally, and nothing anywhere covers the partial palsy.
+
+Left for a clinician: writing it would be authoring new clinical content, which
+is outside this pass. Flagged as the highest-priority content gap found so far.
+
+**An entity-boundary defect the agent's own checks caught mid-build**, worth
+recording because it is the fourth variant of the same bug: a list-splitting
+rule matching on `"; "` matched the semicolon *inside* `&rarr;` and `&mdash;`,
+eating the entity and splitting lines mid-sentence. Caught by the token check
+before anything was written. The separator-inside-an-entity family has now
+produced defects on `&gt;`, `&ge;`, `&ndash;`, `&rsquo;`, `&mdash;` and `&rarr;`.
+
+**Checked and consistent** across files, recorded because each looked like a
+contradiction at first pass: pilocarpine `0.1%` for Adie's versus `1%` for a
+third-nerve palsy (different tests, both correct); Bell's palsy prognosis
+`~70–85%` against "about 70% untreated, ~85% with early prednisolone" (the same
+two figures as a range); MS relapse steroids `500 mg daily for 5 days` against
+`0.5 g daily for 5 days` (same value, different unit).
