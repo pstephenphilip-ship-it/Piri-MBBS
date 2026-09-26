@@ -4207,3 +4207,64 @@ third-nerve palsy (different tests, both correct); Bell's palsy prognosis
 `~70–85%` against "about 70% untreated, ~85% with early prednisolone" (the same
 two figures as a range); MS relapse steroids `500 mg daily for 5 days` against
 `0.5 g daily for 5 days` (same value, different unit).
+
+### MSK signs: an anatomy error fixed, and a drug contradiction left for a clinician
+
+**Fixed — NOF fracture, which fragment the muscles pull.** `msk.json` said "the
+**proximal** fragment is pulled up and outward by the iliopsoas and short
+external rotators"; `orthopaedics.json`, on the same question, says the pull is
+on the **distal** fragment.
+
+Anatomy settles this rather than a headcount. In a femoral neck fracture the
+proximal fragment is the head and neck, which stays seated in the acetabulum.
+The iliopsoas inserts on the lesser trochanter and the short external rotators
+on the greater trochanter and intertrochanteric crest — **both on the distal
+fragment**. So it is the distal fragment, the limb, that rides up and externally
+rotates, which is exactly why the leg looks shortened and externally rotated.
+One word, verifiable answer, corrected.
+
+**Reported, not changed — GCA and aspirin. This is the highest-value content
+item found in this wave.** `msk.json` says treatment includes "Add **aspirin**,
+a PPI and bone protection". `msk-rheumatology.json` says, twice: "Routine
+aspirin or antiplatelet therapy is **NOT** recommended for GCA itself; give it
+only if there is a separate cardiovascular indication."
+
+These cannot both be right, and current BSR guidance is against routine aspirin.
+But resolving it means **removing a drug from a treatment list**, which is a
+clinical decision, not a formatting one. The line I am holding: harmonising a
+threshold (`>` to `≥`) is mechanical and reversible; adding or removing a
+therapeutic recommendation is authoring. Flagged for a clinician.
+
+**Also reported, not changed:**
+- **Charcot foot referral timing.** `msk.json` says "the same day";
+  `orthopaedics.json`, `endocrinology.json` and
+  `neurology-neurosurgery.json` all say "within 1 working day (NICE)".
+  `msk.json` is the outlier — but it is the *stricter* one, and I will not make
+  guidance less urgent to win consistency.
+- **GCA age threshold, deck-wide.** Stated as `>50` or "over 50" in **13 fields
+  across 7 files**, uniformly. The ACR criterion is age **≥50** at onset, so the
+  whole deck excludes its own endpoint — but consistently, with no internal
+  contradiction. Deliberately not changed: unlike a SAAG of exactly 11, an EF of
+  exactly 35 or an INR of exactly 1.5, which are rounded lab values that land on
+  the boundary constantly, "anyone over 50" is screening prose and no clinician
+  excludes GCA because a patient is 50 rather than 51. One house-style decision
+  for a clinician, not nine separate fixes.
+- **SUFE age** `10–16` (`msk.json`) vs `10–15` (`paediatrics.json`);
+  **Duchenne onset** `3–5` vs `~2–5`; **occult NOF rate** "around 10%"
+  (`mri.json`) vs "around 2–10%" (`msk-rheumatology.json`).
+- **Kocher criteria variant:** `msk.json` lists "ESR/CRP ↑" where two other
+  files use ESR alone. Not a numeric clash.
+
+**Absences confirmed:** "a palpable gap may be absent" in Achilles rupture
+appears nowhere in the deck — all 15 `palpable gap` hits treat it as a positive
+finding — though the plantarflexion half ("preserved active movement does not
+exclude a rupture") is present and correct. And no card phrases the Charcot/
+cellulitis trap as a prohibition, though the distinction itself is well covered.
+
+**A process note worth recording.** One agent found `msk.json` had changed on
+disk mid-task, because I had applied a sibling agent's output to the same file.
+It re-diffed all 140 of its own cards against its opening snapshot (zero
+differences), re-ran its full verification suite against the live file, and only
+then handed back. That is the behaviour the one-writer design is meant to
+produce: agents read, I write, and a concurrent write to a different topic in
+the same file is detectable and harmless rather than a silent race.
