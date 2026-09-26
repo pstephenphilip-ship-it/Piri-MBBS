@@ -6756,3 +6756,72 @@ and so fall under Rule 2a — *"What is Ménière's disease?"*, *"What is the Be
 concentrated in three files — `respiratory` 498, `cardiovascular` 454,
 `obstetrics-gynaecology` 438 = **1,390 of the 1,776** — which were marked by an earlier pass that
 did backs and long fronts but never the short ones.
+
+## TWO USER-AUTHORISED CLINICAL CORRECTIONS
+
+Both were flagged earlier as decisions I would not make alone. The user made them.
+
+### 1. pH <7.25 does not mandate intubation
+
+`lung-function.json` Oxygenation & Respiratory Support 18 asked for "the key blood-gas thresholds
+that **mandate** escalation from NIV to intubation" and listed `pH <7.25` first.
+
+`respiratory.json` contradicts that in **21 places**, including one MCQ whose **wrong answer** is
+*"Immediate intubation, because a pH below 7.25 is an absolute contraindication to NIV"*. So one
+card taught the deck's own distractor as fact.
+
+The user's framing: *a pH below 7.25 with a rising PaCO₂ is a classic warning sign of inadequate
+ventilation, but it does not automatically mean a patient must be intubated.*
+
+**Both halves of the card needed changing, because the front carried the false premise too.**
+A front asking which gases *mandate* intubation has no correct answer.
+
+- Front: "blood-gas **thresholds that mandate**" → "blood-gas **and clinical triggers for**".
+- Back, first item: "Persistent/worsening acidosis (pH <7.25)" → "**Worsening acidosis or a rising
+  PaCO₂ despite NIV** — a `pH <7.25` by itself does **NOT** mandate intubation: it predicts a
+  higher chance of NIV failure, so NIV is delivered in **HDU/ICU with a documented escalation
+  plan**".
+
+The threshold is still taught, the caveat sits in the body and bolded rather than in a grey span,
+and the three genuinely correct escalation triggers — exhaustion, declining conscious level,
+failure to improve on NIV — are unchanged.
+
+### 2. Anti-D: the deck had invented a discriminator NICE does not use
+
+NICE NG126, recommendations 1.11.1–1.11.3:
+- **Offer** anti-D 250 IU to all rhesus-negative women who have a **surgical procedure** to manage
+  an ectopic pregnancy or a miscarriage.
+- **Do not offer** it to women who receive **solely medical** management for an ectopic or
+  miscarriage, or have a **threatened** miscarriage, a **complete** miscarriage, or a **pregnancy
+  of unknown location**.
+- **Do not use** a Kleihauer test for quantifying feto-maternal haemorrhage here.
+
+**The root of the confusion: NG126 keys this to the MANAGEMENT, not the GESTATION.** The deck had
+invented a 12-week cutoff and then got the surgical half exactly backwards — three cards said
+anti-D is not given below 12 weeks *"whether managed medically **or surgically**"*, when surgical
+management is precisely the case where NICE says to give it.
+
+And the deck already knew better: this same file's MCQ keys *"Give anti-D 250 IU; a Kleihauer test
+is not needed"* for surgical management of an ectopic, explaining *"NICE advises anti-D 250 IU …
+for surgical management (**not for medical/expectant**)"*. The flashcards contradicted their own
+quiz.
+
+**6 fields corrected** across two files:
+- ectopic rules card, miscarriage rules card, and the sensitising-events list in
+  `obstetrics-gynaecology.json`
+- two `q` explanations in the same file that repeated the error
+- the bleeding-in-pregnancy card in `obstetric-gynaecological.json`, whose "<12 weeks only if
+  **heavy/painful** or surgically managed" mixed an older non-NICE criterion into the rule.
+
+**Deliberately left intact:** every later-pregnancy statement — routine antenatal prophylaxis at
+28/34 weeks, the 1500 IU single dose, postnatal anti-D within 72 hours, Kleihauer from 20 weeks,
+anti-D after ECV, APH, invasive procedures and abdominal trauma, and the TOP rules. Those are
+outside NG126's scope and were already correct.
+
+**No MCQ option or answer was touched.** One MCQ's answer ("Miscarriage at 14 weeks") and its
+distractor ("a threatened miscarriage at 8 weeks … no intervention") are both correct under NICE —
+only its explanation was wrong. MCQ answer/option integrity was asserted across both whole files
+afterwards.
+
+**Verified afterwards: zero remaining instances** of the incorrect "whether managed medically or
+surgically" claim anywhere in the deck.
