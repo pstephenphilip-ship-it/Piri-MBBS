@@ -7599,3 +7599,93 @@ own MCQ. Another gave NT-proBNP thresholds with no units.
 Verified against `HEAD`: 296 fields changed and nothing else &mdash; **no card count
 changed anywhere in the file**, every MCQ's `options` and `correctIndex` byte-identical,
 every non-null `answer` still equal to its `options[correctIndex]`.
+
+## Content screen 4 — arrhythmias, heart block and ALS (v1549)
+
+673 cards read (383 flashcards, 290 MCQs). **88 fields changed: 42 fronts, 14 backs,
+21 MCQ stems, 10 MCQ explanations.** Drops held with the rest.
+
+### The empty `TO__` topics were being referenced as if populated
+
+Three Tachycardia cards pointed the reader at the four empty topics:
+
+* *"so it is treated differently **(as per the Regular Broad section)**"*
+* *"**(covered under the irregular broad section)**"*
+* *"(Polymorphic VT / torsades is **covered under irregular broad tachycardias**.)"*
+
+Every one of those sections is an **empty array**. A student following the pointer
+would find nothing. All three now state the treatment or mechanism instead, each of
+which was already taught elsewhere in the same topic. Two further label systems
+(`4A/4B/4C`, `5A/5B/5C`) were deck-internal too and are gone; `Group A/B/C` was kept
+because the topic defines it in-topic, but six cards that used the labels alone now
+name the actual rhythms as well.
+
+### Two defects that should never have reached a student
+
+* **A visible self-correction inside an MCQ explanation.** The CHA&#8322;DS&#8322;-VASc
+  worked example counted age **twice** (A&#8322;=1 *and* A=1), reached
+  *"Total = &hellip; = 6"*, and then continued, in the card text:
+  **"Wait &mdash; age 72 = A&#8322; component (65&ndash;74) = 1 point. Score = 5."**
+  Rewritten as a clean tally of 5, with the age band explained once, and the
+  anticoagulation threshold attributed to both guidelines (NICE &ge;2 in both sexes;
+  ESC &ge;3 in women) rather than asserted as one.
+* **A botched find-replace shipped verbatim.** "HAS-BLED" had been replaced by
+  "a validated bleeding score" without repairing the grammar, leaving a stem reading
+  *"&hellip;of 4. **a validated bleeding score** is 5"* and an explanation reading
+  *"Even with **high a validated bleeding score**"*. Repaired; every fact kept.
+
+### A guideline count that was wrong, and a false attribution I fixed myself
+
+A bradycardia card asked for **"the five life-threatening (adverse) features"**. The
+**Resuscitation Council UK** algorithm box lists **four**: shock, syncope, myocardial
+ischaemia, heart failure. The fifth bullet &mdash; a bradyarrhythmia immediately
+post-ROSC &mdash; is real clinical context but is **not in that box**, and the card
+attributed it to RCUK.
+
+The agent removed the count from the front and, correctly, would not touch the bullet.
+I went further, because the attribution was the actual error: the card now names the
+four as the algorithm's and says plainly that the post-ROSC point demands immediate
+treatment but is not one of the four. **Nothing was deleted.**
+
+### Every resuscitation number checked and found correct
+
+Adrenaline 1 mg IV/IO (10 mL of 1:10,000) with a 20 mL flush every 3&ndash;5 min,
+immediate in PEA/asystole and after the third shock in VF/pVT; amiodarone 300 mg after
+shock 3 and 150 mg after shock 5, never in PEA/asystole; lidocaine 100 mg then 50 mg;
+&ge;150 J biphasic escalating; the stacked-shock exception counting as the first shock;
+30:2 then 10 breaths/min; 5&ndash;6 cm at 100&ndash;120/min; hypothermia <30 &deg;C
+withhold adrenaline and cap at three shocks, 30&ndash;35 &deg;C double the intervals;
+alteplase 50 mg with 60&ndash;90 min of CPR; magnesium 2 g for torsades; post-ROSC
+SpO&#8322; 94&ndash;98%, PaCO&#8322; 4.5&ndash;6.0 kPa, fever &le;37.5 &deg;C for 72 h,
+prognostication at &ge;72 h. **The 4Hs and 4Ts are all eight present**, so that count
+stands. **No dose, energy or cycle timing was changed anywhere.**
+
+Two numbers flagged rather than changed: the card teaches ETCO&#8322; **>2.0 kPa** as
+adequate compressions where RCUK's figure is ~1.33 kPa &mdash; and the deck's own
+poor-prognosis card uses <1.3 kPa, so it disagrees with itself; and the
+"commonly 20&ndash;30 min of asystole" stopping guidance, which is at least correctly
+framed as a team decision.
+
+### "The four AV blocks"
+
+Three cards compared *"the four AV blocks"*. There are **three degrees**, and the
+deck's own card teaches 2:1 block, which that four-row table cannot hold. Rather than
+rewrite the backs, the five comparison fronts now **name the four rows** they actually
+mean. A less invasive fix for a table that is a teaching device rather than a claim
+about medicine.
+
+Counts verified and left: the four high-risk-of-asystole situations (genuinely RCUK's
+four), Cushing's triad, Beck's triad, the WPW triad, the phaeochromocytoma triad, the
+two shockable and two non-shockable rhythms, the three causes each of regular and
+irregular broad-complex tachycardia, CHA&#8322;DS&#8322;-VASc maximum 9.
+
+### Cross-topic overlap, reported and not merged
+
+About **two thirds of the SVT topic is a subset of Tachycardia** (AF classification,
+CHA&#8322;DS&#8322;-VASc, rate and rhythm control, cardioversion timing, flutter and
+CTI ablation, WPW and pre-excited AF, AVNRT/AVRT, adenosine, the 150 bpm rule).
+Palpitations overlaps both plus Syncope and Bradycardias. Left intact by the user's
+rule that repetition across topics is fine.
+
+Verified against `HEAD`: 88 fields changed across 5 topics and nothing else; no card
+count changed; options and `correctIndex` byte-identical.
