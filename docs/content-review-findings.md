@@ -5045,3 +5045,67 @@ Acting here without asking would have made that line unpredictable. With
 authorisation the rule is intact and the change is made — and the GCA aspirin item
 remains open, because it is a genuine dispute between two files rather than an
 un-propagated correction, and nobody has adjudicated it.
+
+## immunology-serology.json complete — 193/193, 0 unformatted
+
+386 fields across eight topics. The whole high-risk list came back clean, which
+matters here because autoantibody attribution is easy to get subtly wrong:
+
+- **Sensitive versus specific is right on every card** — ANA sensitive but
+  non-specific, anti-dsDNA and anti-Sm specific, RF sensitive against anti-CCP
+  specific, anti-intrinsic-factor specific against anti-parietal-cell sensitive.
+  **No card anywhere swaps the two properties**, and it agrees with three other
+  files.
+- **Linear versus granular immunofluorescence matches `renal.json` exactly** —
+  smooth linear IgG along the GBM for anti-GBM, granular for immune-complex,
+  pauci-immune for ANCA.
+- **c-ANCA/PR3 and p-ANCA/MPO are correctly mapped**, and **AMA for PBC against
+  ASMA and anti-LKM for autoimmune hepatitis matches `liver.json` term for term.**
+- **The coeliac safety point is intact and was promoted**: the requirement to be
+  eating gluten when tested is now bold, with the IgA-deficiency caveat and the
+  IgG-based fallback both in the body. A gluten-free diet normalising the serology
+  is a real cause of missed coeliac disease.
+- **44 numeric expressions audited and not one inequality excludes its own
+  endpoint wrongly** — the inclusive ones (`≥12 weeks`, `≥3 vertebral segments`,
+  `≥10%` clonal plasma cells, `≥3 mm` wheal) and the correctly exclusive ones
+  (`CD4 <200`, `<45 years` onset, `>1000 IU/mL` IgE) are each right for what they
+  measure.
+
+### A flagged grey span that I checked and am keeping grey
+
+The agent flagged `infectious-disease-immunology.json`'s
+"**Polyarteritis nodosa is characteristically ANCA-negative.**" sitting in an
+`fc-caveat`, as possibly the same tone defect I have been remediating. I applied
+both of my own tests and it passes:
+
+- **The front-asks rule does not bind.** The front is "Which diseases are
+  associated with cANCA and pANCA?" PAN is *not* associated with ANCA, so its
+  negativity is not part of that answer — it is a contrast note saying the disease
+  you might expect on the list is not on it.
+- **The consequence test does not bind either.** The load-bearing clause on that
+  card — "pANCA is positive in only about a third of eosinophilic GPA, so **a
+  negative ANCA does not exclude it**" — is already in the body, correctly. What
+  is greyed is the adjacent contrast.
+
+So this is a legitimate `fc-caveat`: a trap aside the front does not ask for,
+whose loss costs a learner a distinction rather than a patient anything. Recorded
+because the agent raised it in good faith and the answer is instructive — the
+tests exist precisely so this call is repeatable rather than a matter of taste.
+
+### Absences confirmed, reported not filled
+
+- **The EGPA sensitivity caveat is missing from this file's ANCA cards.** "pANCA
+  is positive in only about a third of eosinophilic GPA, so a negative ANCA does
+  not exclude it" exists in `msk-rheumatology.json` and
+  `infectious-disease-immunology.json` but not in `immunology-serology.json`,
+  whose ANCA-mapping cards state the associations without it.
+- **`liver.json` quantifies AMA at ~95% with 5–10% AMA-negative PBC**; that figure
+  is absent here.
+
+### A classification divergence, not a value conflict
+
+This file groups **infective endocarditis-related glomerulonephritis** under "low
+C3 **and** low C4" (classical/immune-complex consumption), while `renal.json`
+groups it under "low C3" alongside PSGN and MPGN. Both readings are defensible —
+endocarditis-associated GN classically consumes C3 with low-or-normal C4 — so the
+two files sort the same entity differently rather than contradicting each other.
