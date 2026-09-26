@@ -4643,3 +4643,71 @@ investigation — so a student revising "Abdominal Mass" and one revising
 "Cholangiocarcinoma" should both meet Sister Mary Joseph's nodule. That is
 deliberate redundancy across access paths, and removing it would damage the deck
 rather than tidy it.
+
+## Reproductive histology: testis, prostate, endometrium
+
+230 fields across three topics, clean.
+
+### Two backs deliberately left unmarked — a documented exception to the count
+
+`Testis` cards 5 and 19 are pure ordered sequences:
+`Spermatogonia → primary spermatocytes → secondary spermatocytes → spermatids →
+spermatozoa`, and the excurrent duct chain from seminiferous tubule to vas
+deferens. Every element is the answer. Bolding all five or six breaches rule 4
+("if six things are bold, none is"); bolding one arbitrarily privileges a stage;
+and a `<ul>` would require deleting the `→` characters, which are content.
+
+So both backs stay plain, with only their fronts marked. **This means my
+back-only counting predicate will report reproductive.json as having 2
+unformatted cards forever.** Recording it here rather than special-casing the
+counter — a simple predicate with documented exceptions is more honest than a
+predicate tuned to produce a zero.
+
+### Verified correct, on the classic swap
+
+**Sertoli versus Leydig is right on all eight load-bearing cards**, and 52
+anchored mentions deck-wide contain no card attributing the blood-testis barrier,
+FSH, androgen-binding protein, inhibin or AMH to Leydig cells, or testosterone,
+LH or Reinke crystals to Sertoli cells. The barrier is correctly the tight
+junctions *between adjacent Sertoli cells* dividing basal from adluminal
+compartments; Charcot-Böttcher crystals are Sertoli and Reinke crystals Leydig on
+both the definition card and the contrast card.
+
+**The prostate zones have zero disagreement across the entire deck** — 22
+substantive statements in four files, all transition/periurethral zone for BPH and
+peripheral zone for carcinoma, one of them explicitly adding "(not peripheral
+zone)". The only inverted strings anywhere are MCQ distractors with the correct
+answer recorded.
+
+**The endometrial cycle checks out on every day number** — ovulation ~day 14,
+sub-nuclear vacuoles ~days 16–17, predecidual change ~day 23+, implantation window
+days 20–24 (≈LH+7), menstrual phase days 1–4 — and is mutually consistent with
+`obstetrics-gynaecology.json`'s fixed 14-day luteal phase and day-21 mid-luteal
+progesterone.
+
+### Reported, not changed
+
+- **Gleason score construction — a genuine three-way divergence.** The flashcard
+  says the biopsy score is "the primary pattern + the **highest-grade** pattern
+  present"; the MCQ explanation in the same topic says "the two **commonest**
+  patterns are summed"; `urology.json` says "the primary and **secondary**
+  patterns are summed". The first is the current ISUP biopsy rule and the others
+  are the classic/prostatectomy rule, so all three are defensible in context —
+  which is exactly why resolving it is a clinician's call rather than mine.
+- **Spermatogenesis duration** is `64–74 days` here, and `obstetrics-gynaecology.json`
+  says `~74 days` in four places but `~72 days` in a fifth. The inconsistency is
+  internal to that other file; this card's range spans both.
+- **Peripheral-zone cancer proportion** varies within `urology.json` alone:
+  `~70–75%` on a flashcard against `~70–80%` in a quiz explanation.
+- **Terminology:** this file writes "transitional (periurethral) zone",
+  `urology.json` mixes "transition zone" and "transitional zone". Same zone,
+  but it would show up in any string-match audit.
+
+### A false-positive class worth naming
+
+Anchored search for `Charcot-Böttcher` returns 3 hits, all in this file. The same
+search **unanchored on "Charcot" returns 266 phantom hits across 21 files** —
+Charcot joint, Charcot's triad, Charcot-Marie-Tooth. And `Reinke` hits `ent.json`
+too, but for **Reinke's oedema** of the vocal cords, an unrelated eponym. Both
+are the eponym-collision version of the false-negative problem that has bitten
+this project repeatedly from the other direction.
