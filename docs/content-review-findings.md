@@ -7009,3 +7009,56 @@ Verified against `HEAD` character by character: 898 string fields changed,
 nothing else; every changed string is the same length as the original and
 differs only where a `-` became an en-dash; every `answer` still equals its
 `options[correctIndex]`; no id moved.
+
+## Glyph normalisation: exponents, multiplication, plus-minus, degrees (v1542)
+
+Four substitutions, each moving a minority form onto the one the deck already
+uses for the large majority of cases.
+
+| was | is | moved | already correct |
+|---|---|---|---|
+| `10^9`, `10^5`, `10^3`, `10^4`, `10^6` | Unicode superscripts | 47 | 112 |
+| ASCII `x` before a power of ten | `&times;` | 32 | 105 |
+| `+/-` | `&plusmn;` | 44 | 1,293 |
+| `degC` | `&deg;C` | 40 | 552 |
+
+`10^9/L` rendered on the card as the literal string `10^9/L`, and `40degC` as
+the literal `40degC`. The `degC` defect was confined to one file,
+`geriatric-medicine.json`, whose hypothermia bands read `Mild (32-35degC)` while
+the same bands in `general-systemic.json` read `32&ndash;35&deg;C` correctly. All
+40 were preceded by a digit and none sat in an id, both asserted before writing.
+
+The ASCII-`x` count rose from 3 to 32 by design: converting `10^9` to `10&#8313;`
+first makes the `x` in front of it visible to the second rule, which only matches
+an `x` standing between a digit and a power of ten. An `x` inside a word cannot
+be reached by it.
+
+### Read and deliberately left alone
+
+* **`*` (53 uses)** &mdash; every one is a `T2*` MRI sequence or an `HLA-B*15:02`
+  allele. None is a multiplication sign.
+* **`1/2` (20 uses)** &mdash; every one is a spinal level (`L1/2`, `S1/2`), `HSV-1/2`
+  or `COL1A1/COL1A2`. None is a fraction. All three half-lives already use
+  `t&frac12;`.
+* **spacing around `&times;`** &mdash; `5 &times;10&#8313;` (44) against
+  `5 &times; 10&#8313;` (42) is a dead heat. There is no majority to normalise
+  towards, so choosing one would be a coin-flip rewrite of 60-odd fields.
+* **`~` for "approximately" (3,501)** &mdash; it *is* the majority, against 120
+  uses of `&asymp;`.
+* **straight apostrophes (20,162 against 203 curly)** and `&ndash;`/`&deg;`
+  entities against their literal characters &mdash; the entity and the character
+  render as the same glyph, so harmonising them is invisible churn.
+* **`micrograms` (151) / `mcg` (123) / `&micro;g` (170)** &mdash; three spellings of
+  one unit, and the only one of these worth a decision rather than a sweep. UK
+  prescribing standards say write *micrograms* in full and never abbreviate it,
+  which argues for expanding all 293 short forms; against that, the expansion
+  lands inside `fc-num` chips that are held to four words. **Reported, not
+  changed** &mdash; it is a house-style call with a patient-safety argument behind
+  it, not a rendering defect.
+
+Verified against `HEAD`: 114 fields changed across 22 files and nothing else;
+every changed string is reproduced exactly by applying the four substitutions to
+the original; `answer`/`options[correctIndex]` intact; no id moved. The 13
+remaining `10^N` and `+/-` strings deck-wide are all inside
+`pharmacology-flashcards.json`, which is excluded from every sweep because its
+player escapes HTML.
