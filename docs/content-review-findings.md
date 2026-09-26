@@ -5007,3 +5007,41 @@ judgement is required — only propagating a decision the deck has already made.
 - **Type 3 renal tubular acidosis is absent from the whole deck** — normal for
   this syllabus, flagged only because "three main types" could be read as
   complete.
+
+## FIXED (authorised): loop diuretics and hypercalcaemia
+
+The user authorised this after I flagged it, so the two Tubules cards now say what
+the rest of the deck says.
+
+**What changed — only the therapeutic inference:**
+
+- `fc Tubules[30].back` — "…so calcium excretion rises (hypercalciuria) — ~~the
+  basis for loop diuretics in hypercalcaemia~~" → "**a physiological effect, not a
+  treatment for hypercalcaemia**"
+- `q Tubules[21].explanation` — "raising calcium excretion ~~(useful in
+  hypercalcaemia)~~" → "(a physiological effect, not a treatment for
+  hypercalcaemia)"
+
+**The replacement text is not invented.** Both phrases are lifted verbatim from
+the deck's own corrective cards: Foundations[144] already says "a physiological
+effect… not a treatment for hypercalcaemia", and Foundations[14] states the full
+position — "that is IV fluids then an IV bisphosphonate, with a loop only if the
+patient becomes fluid-overloaded". This was propagating a decision the deck had
+already made, not making a new one.
+
+**The physiology was preserved and asserted intact**: the guard requires ROMK, the
+lumen-positive transepithelial voltage, NKCC2, claudin-16/19, the paracellular
+calcium and magnesium reabsorption, and hypercalciuria all to survive verbatim in
+the flashcard. Every one does. Nothing about the mechanism changed; only the
+clinical conclusion drawn from it.
+
+Verified at **zero** deck-wide: no card anywhere now presents a loop diuretic as a
+treatment for hypercalcaemia.
+
+**Why I asked first rather than doing this unprompted.** I had ruled that
+harmonising a threshold is mechanical while adding or removing a therapeutic
+recommendation is authoring, and declined the GCA aspirin item on that basis.
+Acting here without asking would have made that line unpredictable. With
+authorisation the rule is intact and the change is made — and the GCA aspirin item
+remains open, because it is a genuine dispute between two files rather than an
+un-propagated correction, and nobody has adjudicated it.
