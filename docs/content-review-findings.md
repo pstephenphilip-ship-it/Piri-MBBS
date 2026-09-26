@@ -5269,3 +5269,51 @@ An unanchored `AHI` search matched inside "bet**AHI**stine" and returned ~15 pha
 sleep-medicine hits from ENT/vertigo topics. Anchored, case-sensitive patterns (`\bAHI\b`)
 are required before trusting any count — this is the second time an unanchored search
 has produced phantom hits in this review.
+
+## Biochemistry, nuclear/interventional and bedside tests (543 cards, 1,082 fields)
+
+Three files formatted in one wave, each verified independently and clean:
+- `biochemistry.json` — 8 topics, 187 cards, 374 fields. `fc-caveat` used **zero** times.
+- `nuclear-interventional.json` — 7 topics, 197 cards, 391 fields. `fc-caveat` used **once**,
+  on a card whose front asks for "the two core indications" — the demoted clause is a
+  genuinely third, more controversial use, carries no prohibition, and no front asks for it.
+- `bedside-tests.json` — 5 topics, 159 cards, 317 fields. `fc-caveat` and `fc-sub` both
+  **zero**; only two `fc-inline`, both neutral glosses.
+
+On an investigations deck almost every trailing clause is a threshold, a "does not
+exclude", or an action, so essentially nothing qualifies for demotion. That is the right
+outcome and worth stating: the grey devices are for material genuinely outside what the
+card teaches, and on these files that set is nearly empty.
+
+Rule 3 again earned its place over danger-judging. In biochemistry it reverted three
+`fc-inline` spans: `(should be suppressed)` / `(should be raised)` on a card whose front
+asks *why* PTH must be read against calcium — that reasoning is the answer — and
+`(low calcium:creatinine clearance ratio)` on a card whose front asks *how FHH differs*,
+where that ratio is the discriminating test. In nuclear medicine it kept the ¹³¹I absolute
+contraindications, the "benign result must not override a suspicious ultrasound" caveat,
+and the adenosine asthma/AV-block contraindications in the body, all bolded — including
+a card whose source text literally began "Caveat:", which was deliberately **not** promoted
+into an `fc-caveat` span just because of the word.
+
+**Invisible characters: confirmed zero** across all 318 bedside fields — Cf/Cs/Co/Cn
+categories, C0 controls, ZWSP/ZWNJ/ZWJ/BOM/NBSP/soft-hyphen/word-joiner/thin-and-figure
+spaces. The 13 zero-width spaces corrected earlier are gone and none were reintroduced.
+
+**Invisible-character guards were proven to fire on positive controls** rather than merely
+passing — a welded tag boundary, a bare `&`, an unbalanced tag, an over-length chip, an
+`fc-sub` inside an `<li>`, a non-trailing `fc-sub`, and an injected ZWSP were each fed in
+deliberately and each was caught. A check that has never been shown to fail is not evidence.
+
+### Duplicate front worth a look (content, not markup)
+
+`investigations__NUCLEAR & INTERVENTIONAL__IR — Vascular & Embolisation` cards 9 and 18
+have **word-for-word identical fronts** — "What is post-embolisation syndrome?" — inside
+one topic, so no markup on either front can distinguish them. Their backs differ (card 9
+covers raised inflammatory markers and "not antibiotics"; card 18 covers it as the
+commonest complication after TACE with right-upper-quadrant pain). Left unchanged; this
+needs a decision about merging or re-framing, not formatting.
+
+### Near-duplicate pair
+
+`bedside-tests.json` Auscultation 32 and 37 both teach the same pleural-versus-pericardial
+rub breath-hold discriminator. Marked up consistently rather than treating either as odd.
