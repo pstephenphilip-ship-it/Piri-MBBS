@@ -4268,3 +4268,100 @@ differences), re-ran its full verification suite against the live file, and only
 then handed back. That is the behaviour the one-writer design is meant to
 produce: agents read, I write, and a concurrent write to a different topic in
 the same file is detectable and harmless rather than a silent race.
+
+## msk.json complete — 528/528, 0 unformatted. And a better test for grey spans.
+
+Counted before writing this heading. Wave one's eight agents are all applied:
+**1,986 fields across 34 MSK and 26 neurological sign topics.**
+
+### Seven more grey spans restored, and the rule that should have caught them
+
+An agent independently audited all 5,677 grey spans in the deck and confirmed my
+earlier remediation held: **zero grey spans anywhere contain "not exclude" or
+"not rule out"**. But it found one my audit had missed, and chasing that shape
+found six more:
+
+| card | greyed text |
+|---|---|
+| Compartment Syndrome | `(especially on passive stretch)` |
+| Bradycardias / Heart Block | `(hypotension, pallor, diaphoresis, cold extremities, confusion)` |
+| Bradycardias / Heart Block | `(chest pain or ECG ischaemia related to the bradycardia)` |
+| Limb Ischaemia | `(absent distal pulses — confirm with handheld Doppler)` |
+| Limb Ischaemia | `(numbness/tingling — early nerve ischaemia, threatened limb)` |
+| Tachycardia | `(or defibrillation for pulseless VT/VF)` |
+| JIA | `— the eye is neither red nor painful —` |
+| Sickle Cell Disease | `(fever is not required)` |
+
+**Why the audit missed them.** Both pattern passes searched for *directive*
+language — never, do not, urgent, contraindicated, does not exclude. Not one of
+these contains a directive word, because they are clinical **findings**, not
+instructions. Pain on passive stretch is an earliest sign of a limb-threatening
+emergency. "The eye is neither red nor painful" is the entire reason JIA uveitis
+screening exists. "Fever is not required" sits on the commonest cause of death
+in sickle cell disease.
+
+**The rule that already covered four of them, mechanically: rule 3 — if the
+front asks for it, the back cannot demote it.** The fronts read "What are the
+five life-threatening (adverse) features in bradycardia?" and "What are the 6
+P's of acute limb ischaemia?" That makes every one of those features answer
+content by definition, with no judgement about danger required. Checking a span
+against its own front is both easier and more reliable than weighing how harmful
+it would be to skim past it. That is the test to apply in any future sweep.
+
+Left grey deliberately: `(foreign-body sensation, not true pain)` on bacterial
+conjunctivitis. It is a discriminator, but the safety-critical form — "no
+significant pain/photophobia, vision normal" — is already in the body of the
+same card, so the gloss only explains it.
+
+### A guard of mine that was wrong, and how
+
+The first attempt at these edits compared tag-stripped text with tags replaced
+by a **space**, and it failed on `confusion)</span>,` — there is no space before
+that comma, so stripping the tag was *inventing* one, and removing the span
+merged `confusion)` and `,` into a single token. No word changed and the rendered
+text was identical; the guard was measuring an artefact of its own
+normalisation.
+
+For a tag-**removal** edit the correct comparison is what the reader actually
+sees: tags stripped to the empty string. That is unsafe when a field contains a
+bare `<`, so the script asserts no bare `<` in the field first and only then
+makes the comparison. Worth recording because the space-strip is the right
+default everywhere else in this project — it is specifically tag removal that
+needs the other one.
+
+### Two endpoint gaps found that no single card owns
+
+Unlike the nine boundary fixes so far, these are gaps rather than overlaps —
+a value that falls into **neither** category:
+
+- **Morning stiffness.** Inflammatory is `>30–60 min`, mechanical is `<30 min`.
+  A stiffness of **exactly 30 minutes satisfies neither.** The same shape appears
+  in `msk-rheumatology.json` for rheumatoid arthritis and osteoarthritis, so it
+  is a shared deck convention rather than one card's slip.
+- **Monoarthritis tempo.** Acute is "(days)", chronic is "persisting `>6 weeks`".
+  Exactly 6 weeks — and the whole 1-to-6-week band — falls in neither.
+
+By contrast the joint-count boundaries partition cleanly and agree across
+topics: 1 joint, 2–4, then `≥5`.
+
+### Reported, not changed
+
+- **Fibromyalgia: diagnosis of exclusion or positive diagnosis?** `msk.json`
+  frames it as a diagnosis of exclusion in three places, including a front
+  ("Why is fibromyalgia a diagnosis of exclusion...?"). `msk-rheumatology.json`
+  says the opposite twice: "a POSITIVE clinical diagnosis... **not a diagnosis
+  reached by ruling everything else out**", and its CFS card says the same. The
+  modern ACR-2016/EULAR position favours `msk-rheumatology.json`. Fixing it means
+  rewriting a question stem, which is authoring.
+- **Synovial neutrophil fraction in septic arthritis:** `>90%` in `msk.json`
+  against `>75%` in `msk-rheumatology.json`. Both figures are in the literature
+  (>75% commoner, >90% more specific), so this is a harmonisation choice.
+- **"Open fractures must not be closed primarily" appears nowhere in the deck.**
+  Twenty candidate hits all proved unrelated. The nearest statements are "do NOT
+  irrigate in the emergency department" and "refer for debridement in theatre".
+- **"Septic arthritis is a surgical emergency"** as a phrase appears nowhere,
+  though the concept is carried six times in other wording ("joint-threatening
+  emergency", "destroys the joint within days").
+- **"Normal WCC/CRP does not exclude septic arthritis"** exists in
+  `msk-rheumatology.json` (with "around 40% are afebrile") but in none of the
+  seven MSK sign topics where a hot joint is actually presented.
