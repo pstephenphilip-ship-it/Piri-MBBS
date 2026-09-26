@@ -6825,3 +6825,77 @@ afterwards.
 
 **Verified afterwards: zero remaining instances** of the incorrect "whether managed medically or
 surgically" claim anywhere in the deck.
+
+## Short fronts, part 1 — cardiovascular.json (453 fronts)
+
+454 short unmarked fronts found, matching my detector exactly. 453 marked; 1 deliberately left
+bare. Not one back or `q` entry changed. 3 `fc-num` chips, all genuine thresholds.
+
+Bold share runs higher here than on long fronts — median **0.429**, with 109 over 50% — which is
+arithmetic, not over-marking: the denominator is 2–7 words. That agent verified this the right way,
+by extracting the **unbolded remainder** of every over-50% front and confirming it is interrogative
+glue only. Nine fronts are at 1.00 because the front *is* the named entity with no scaffolding to
+leave plain: *"May-Thurner syndrome?"*, *"Virchow's triad?"*, *"NYHA Class IV?"*.
+
+**The one front left bare, and why it is the right call:** `DVT[1]` is *"Gold standard
+investigation?"*. It names no disease, sign, drug, score or procedure — the subject is implicit in
+the topic and the answer is not in the question. Bolding it would mean bolding the scaffolding,
+which Rule 2a forbids. Reported rather than padded, with the observation that read outside its topic
+the card is unanswerable and would be better authored as "Gold standard investigation **for DVT**?".
+
+**The Mobitz near-miss did not recur.** That agent anchored it as `Mobitz I (Wenckebach)` rather
+than `Mobitz I`, and separately confirmed `regular` did not match inside `irregular`, `syncope` not
+inside `pre-syncope`, and `TAA` not inside `TAA-specific`. Its boundary test rejects a neighbouring
+alphanumeric **or hyphen**, which is what stops the hyphenated cases.
+
+### Content findings — reported, not patched
+
+- **A malformed drug name**: a front reads *"Hydrala-nitrate combination: when?"*. There is no such
+  drug — it should be hydralazine plus a nitrate (isosorbide dinitrate). The back is correct
+  ("Afro-Caribbean patients with HFrEF intolerant of ACEi/ARB"). Bolded as written, since an agent
+  may not change content.
+- **Six groups of duplicate fronts**, two with substantive disagreement: *"What is peripartum
+  cardiomyopathy?"* appears **twice in the same topic** with different detail, and *"What is
+  Dressler's syndrome?"* differs on both timing and trigger (`1–6 weeks post-MI` versus `post-MI or
+  post-cardiac surgery, weeks to months`).
+- **A genuine clinical disagreement**: "pill-in-the-pocket" is scoped to **infrequent paroxysmal AF**
+  on one card and to **SVT generally** on another.
+- **~20 of the 454 are redundant** with a sibling card — one topic's indices 0–14 are a terse quiz
+  block re-asking its own full-sentence cards 15–35 almost item for item.
+- A card asking how an **abdominal aortic aneurysm is investigated** sits in the *Abnormal Pulse*
+  topic rather than *Pulsatile Abdominal Mass*, where its palpation card lives.
+
+## BLOCKED: the MCQ answer-position fix
+
+The user authorised this and I could not complete it. **Two permission denials stopped it**, and I
+have not attempted to route around them.
+
+The defect, restated: **742 of 1,050 quiz topics (71%) have a correct-answer sequence that is
+constant or a short repeating cycle**, across 23,873 questions. Some topics answer A every single
+time; most anatomy topics run 0,1,2,3,4 on a loop. A learner can score full marks by cycling A–E
+without reading. The deck-wide distribution (22/20/20/19/18%) looks healthy, which is why it hides:
+the bias is within each topic.
+
+What I built and what happened:
+1. A script that permutes each question's `options` and moves `correctIndex` with the correct
+   option — no option text altered, no other field touched, seeded deterministically per card from
+   a hash of file+topic+index+id so it is reproducible and auditable. Written by raw splice rather
+   than `json.dump`, because a reflow would rewrite every spliced markup field in all 80 files.
+   **Denied by the auto-mode classifier.**
+2. A read-only inspection of one file's raw layout, needed because the first run's own assertion
+   found that `"correctIndex"` does **not** always immediately follow `"options"` — my pairing
+   assumption was wrong and I wanted to see the real format. **Also denied, as "Irreversible Local
+   Destruction", which that command was not.**
+
+I have stopped. The work needs a Bash permission rule, or for the user to run it themselves.
+
+Worth recording that the script's own assertion caught a real flaw in my plan before anything was
+written: I had assumed a fixed key order in the JSON, and at least one file does not have it. Any
+future attempt must locate `correctIndex` by parsing the enclosing object, not by position.
+
+Two safeguards that were designed in and should survive into any retry:
+- **~14 of 24,039 questions must be excluded**: two reference other options **by letter** ("A and
+  B", "B and C"), so shuffling would destroy them outright, and the rest are "None of the
+  above"/"None of these", which belong last by convention.
+- Every shuffle must assert the **option multiset is unchanged**, that `options[correctIndex]` is
+  still the same string as before, and that any denormalised `answer` still equals it.
