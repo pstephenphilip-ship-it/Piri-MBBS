@@ -4006,3 +4006,78 @@ clinician does.
 No `<strong>` was added to the restored clauses. Un-greying already returns
 full size and colour, and bolding 362 clauses at once would breach the rule
 that if six things are bold, none is.
+
+## The boundary triage, done properly this time
+
+Last time the scan produced 546 collisions and I reviewed the top twelve; one I
+skipped was real. So I collapsed the 546 raw pairs into **104 subject groups**
+(merging pairs that share vocabulary) and flagged the **29 "lopsided"** ones —
+a settled majority against one or two outliers, which is the shape every real
+fix so far has had. All 29 were read.
+
+### Fixed: the INR threshold for acute liver failure
+
+The published definition (AASLD/EASL) is coagulopathy with **INR ≥ 1.5**. The
+deck said `>1.5` in **nine** fields across `liver.json` and
+`risk-scores-criteria.json`, and `≥1.5` in three — two in `biochemistry.json`
+and, tellingly, one in **`liver.json`'s own autoimmune-hepatitis card**. So that
+file contradicted itself, and an INR of exactly 1.5 failed the definition on
+nine cards, under-diagnosing a condition whose entire management is early
+referral to a transplant centre.
+
+**This is the first time in this sweep that the majority has had to move.** It
+moves because a published definition decides, not a headcount. Four of the nine
+were in the `q` layer, two of them an MCQ option and its matching answer string
+which had to change together; one was a distractor describing acute-on-chronic
+failure, which moved too, since what makes it wrong is the pre-existing
+cirrhosis, not the INR.
+
+### Fixed: 126 ASCII inequalities rendering literally
+
+The deck uses the real `≥`/`≤` characters 2,651 times, but 126 places stored
+ASCII `>=` / `<=` (some bare, some as `&gt;=`), which renders to the learner as
+a literal `>=`. Squarely a visuals defect, and the largest single cosmetic
+inconsistency found so far — 25 in `geriatric-medicine.json`, 16 in
+`haematology.json`, 15 in `special-tests.json`.
+
+**The interesting part is what nearly went wrong.** My first rule allowed a
+preceding double-quote, on the reasoning that `">=` must be a JSON string
+opening. It is not. The only such case in the deck is
+`class=\"fc-num\">= 0</span>` — a **chip tag** followed by `= 0`. That rule
+would have eaten the tag's closing bracket.
+
+Nothing corrupt reached disk, because the run aborted on an unrelated assertion
+first and I reverted. But I reverted anyway rather than keep the eight files
+already written, because **the guard in place could not have proved they were
+clean**: a `<span>` whose `>` has been eaten still leaves `<span` and `</span>`
+balanced, so the tag-balance check passes. A guard that cannot fail on the
+defect you are worried about is not evidence.
+
+The rule is now whitespace or an opening bracket only, and the guard compares
+the **full ordered tag sequence** of every field before and after. Both
+protected cases — `<strong>= ACh` and the `fc-num` chip — are verifiably
+untouched, and five real conversions were followed by a word rather than a digit
+(`(>=grade 3)`, `>=T2`), which a digit-only rule would have missed.
+
+### Read and deliberately not changed
+
+- **Neutropenic sepsis temperature.** `>38°C` on seven fields (NICE's own
+  wording is "higher than 38°C") against `≥38°C` on two. The majority matches
+  the guideline; the outlier is the safer direction. Left, reported.
+- **PUO duration** (`>3 weeks` vs `≥3 weeks`) and **morning stiffness**
+  (`>30 min` vs `≥30 min`) — published wording genuinely varies for both.
+- **Hyperemesis weight loss** — `>5%` on four fields (RCOG wording) against
+  `≥5%` on one.
+- **Kawasaki fever** `≥5 days` — the two apparent outliers were ASCII `>=5`,
+  i.e. the same value in the wrong notation, now fixed by the notation pass.
+- **False groupings the merge could not separate**, all confirmed by reading:
+  back-pain red-flag `age >55` against upper-GI `age ≥55` (different decisions);
+  lactate `>2 mmol/L` against SOFA `≥2 points` (different quantities); chronic
+  pain `>3 months` against chronic bronchitis `≥3 months/year`; hypercalcaemic
+  emergency `>3.0` against NICE cinacalcet eligibility `≥3.0`.
+
+### Also fixed
+
+- **Neutrophil count for neutropenic sepsis.** `<0.5 ×10⁹/L` in one
+  `haematology.json` quiz explanation against `≤0.5` on five fields in the same
+  file. NICE says 0.5 or lower; exactly 0.5 was excluded.
