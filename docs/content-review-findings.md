@@ -4365,3 +4365,64 @@ topics: 1 joint, 2–4, then `≥5`.
 - **"Normal WCC/CRP does not exclude septic arthritis"** exists in
   `msk-rheumatology.json` (with "around 40% are afebrile") but in none of the
   seven MSK sign topics where a hot joint is actually presented.
+
+## Histology begins: basic tissues (epithelium, muscle, nervous, connective)
+
+307 fields across four topics, clean.
+
+### Another error in my brief, caught by the file
+
+I briefed the apical junctional complex as "tight junction, then adherens, then
+desmosome, **then gap junction**". The gap junction is **not** a member of the
+classical apical junctional complex. No card in the deck includes it, correctly,
+and the agent reported the divergence instead of "correcting" the file toward me.
+
+That is the third time this project my brief has been wrong and the deck right —
+after the lateral cervical film's four alignment lines and the non-existent
+"3-3-1" bowel rule. The pattern is worth stating: a hint in a brief is a place to
+look, never a fact to install, and the instruction that agents report divergence
+rather than reconcile it has now paid for itself three times.
+
+### Checked on all five axes and correct — the cardiac/skeletal muscle comparison
+
+This is the single easiest table in histology to get reversed, so all five axes
+were verified against every copy in the deck:
+striation (skeletal + cardiac, not smooth); nuclei (skeletal **many, peripheral**
+vs cardiac **1–2, central**); intercalated discs (cardiac only, with fascia
+adherens + desmosomes + gap junctions); **T-tubules — cardiac diad at the Z line,
+skeletal triad at the A–I junction**; and voluntary control (skeletal only).
+Nothing reversed anywhere. Excitation–contraction coupling is also right: skeletal
+DHPR mechanically coupled to RyR1 with little extracellular calcium, cardiac
+calcium-induced calcium release via RyR2 requiring it.
+
+Likewise **central versus peripheral myelination**, including the ratios — one
+oligodendrocyte myelinating segments of up to ~50 axons, one Schwann cell to
+exactly one internode — with zero reversals in 30 mentions across three files.
+
+And the **pemphigus/pemphigoid** pairing: desmoglein for pemphigus vulgaris
+(intra-epidermal) against BP180/BP230 hemidesmosome targets for bullous
+pemphigoid (sub-epidermal), consistent across 68 mentions in five files with no
+contradictions.
+
+### Naming gaps in the deck, reported not filled
+
+- **`E-cadherin` is never named as the adherens-junction protein anywhere.** All
+  15 mentions are oncological (lobular breast carcinoma, CDH1 diffuse gastric,
+  EMT). The adherens junction's protein is simply not given on any card.
+- **`connexin`** appears once in the whole deck, and only as an MCQ distractor.
+  The flashcard says "connexons", which is correct — a connexon is the hexamer of
+  connexins — so this is a naming gap, not an error.
+- **`desmocollin`** and **`macula adherens`**: zero hits deck-wide.
+
+### Reported, not changed
+
+- **Duchenne onset age** is now divergent in three places: `~3–5 yr` in
+  `basic-tissues.json` and `msk.json`, `~2–5 yrs` in `paediatrics.json`.
+- **Cardiac myocyte nuclei**: `1–2 central` in `basic-tissues.json` and
+  `msk-rheumatology.json`, but "a **single** central nucleus" in
+  `cardiovascular.json`. Not a swap, and 1–2 is the more standard statement, but
+  the three cards do not agree.
+- **"Satellite cell" is used in two correct but unrelated senses** in one file —
+  the skeletal-muscle stem cell, and the glial cell of a peripheral ganglion.
+  Both standard; flagged only because a learner meeting both in one deck will
+  collide them.
