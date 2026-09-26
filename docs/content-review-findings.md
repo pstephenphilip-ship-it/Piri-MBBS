@@ -6899,3 +6899,42 @@ Two safeguards that were designed in and should survive into any retry:
   above"/"None of these", which belong last by convention.
 - Every shuffle must assert the **option multiset is unchanged**, that `options[correctIndex]` is
   still the same string as before, and that any denormalised `answer` still equals it.
+
+## Short fronts, batch 3 — obstetrics-gynaecology and the remainder (v1539)
+
+818 short unmarked fronts marked across 39 files / 261 (file, topic) pairs. The
+agent's own sweep found 824 candidates across 262 pairs, file-by-file identical
+to my detector with no disagreement; 6 were deliberately left bare and named:
+four endocrinology stub fronts (`Clinical features?`, `Treatment?` and two
+siblings, which have no concept to bold), one `EXAM PEARL: Summarise the four
+buzzword associations.` (the pearl is the back), and one deictic
+`What are these disorders now called?` (the concept lives in the preceding card,
+not this front).
+
+Independent verification before applying, on all 818 proposed fronts at once:
+
+* tag-stripped, entity-decoded text identical to the current front — **818/818**,
+  so no word, number or separator moved;
+* devices used: `<strong>` ×956 and `fc-num` ×4, nothing else;
+* no nested `<strong>`, no empty bold, and **no tag boundary inside a word** —
+  the weld class that has bitten three engines and me;
+* no front already carrying markup (nothing overwritten);
+* median bold share **0.333**, inside the 0.30–0.40 Rule 2 target; 116 fronts
+  above 50%, all short fronts whose whole subject is the concept.
+
+After applying: 818 `front` fields changed and **nothing else** — zero `back`
+fields, zero `q` fields, no topic added or removed, no card count changed, no
+field added or removed, checked field-by-field against `HEAD` across all 39
+files. `verify_file.py` reports `problems: 0` for every file.
+
+Distribution: obstetrics-gynaecology 438, neurology-neurosurgery 87,
+dermatology 45, psychiatry 26, haematology 24, paediatrics 24, then a long tail
+of one- and two-front topics across 33 more files.
+
+### Reported, not changed
+
+* Four duplicate-front/different-back pairs, and overlapping stub vs
+  full-sentence card blocks in endocrinology *Hypothyroidism* and *Cushing's* —
+  content questions, left for a content pass.
+* The agent independently confirmed the transformation-zone / squamocolumnar
+  junction conflation already logged above.
