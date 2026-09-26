@@ -5611,3 +5611,167 @@ T3a/T3b staging; eGFR/CKD G-bands; SSRI discontinuation syndrome; STOP-BANG; DVL
 for OSA; CPAP adherence ≥4 h/night; the warning-versus-trigger distinction for
 neuromuscular FVC; and the caution that early bacterial meningitis — Listeria especially —
 can give a lymphocytic CSF.
+
+## Wave 5 — the first four `signs__` files (1,131 cards, 2,262 fields)
+
+| file | cards | fields |
+|---|---|---|
+| general-systemic.json | 360 | 720 |
+| dermatological.json | 252 | 504 |
+| obstetric-gynaecological.json | 252 | 504 |
+| dermatology.json (2 remaining investigations topics) | 57 | 114 |
+
+Grey devices stayed near-zero on the most safety-dense scope in the deck: 2 spans in
+360 general-systemic cards, 4 in 252 dermatological, 4 in 252 obstetric-gynaecological.
+
+### Two defects my own tooling had, both found here
+
+**1. `ingest.py` silently truncated a batch on any rejection.** The main loop read
+`ok = all(ingest(f, dry) for f in files)`. `all()` short-circuits, so one rejected file
+meant **every remaining file was never looked at** — and only the exit code said so. A
+21-file obstetric batch reported "17 applied" with no mention of the 3 it never opened.
+I found it because 504 − 408 = 96 fields did not add up, not because anything warned me.
+
+Fixed to process every file and print an explicit `N/M ok, REJECTED: …` summary. The very
+next batch proved the fix: general-systemic came back `1/30 ok` and **named all 29
+rejected files**, where the old code would have said "1 applied" and stopped.
+
+This is the same family as the `--coverage`-wrote-the-deck bug already recorded above: a
+batch tool whose failure mode is to do less than it reports is worse than one that crashes.
+
+**2. My rendered-text guard compared entity text, not rendered text.** `seen()` strips tags
+but leaves `&gt;` as `&gt;`, so a `>500 → ≥500` fix tripped a guard written against `>`.
+Narrowed to three explicitly named permitted deltas rather than loosened — and the guard
+had already caught my first attempt, where my allowed-delta key was a fragment of the
+rendered string instead of the whole of it.
+
+### Two agent defects the guard caught that the agents' own checks passed
+
+**1. A tag boundary inserted inside a word.** `og_subfertility` card 2 emitted
+`<strong>fe<strong>male-factor</strong></strong>` — the anchor for "male-factor" matched
+inside "**fe**male-factor", producing nested tags that split the word on screen.
+The agent reported "0 errors" and was not lying: **token identity passes this**, because
+stripping those tags returns "female-factor" intact. Only a tag-boundary/weld check catches
+it. Repaired by hand, asserted to render identically, then re-validated.
+
+**2. 86 conjunctions deleted as if they were list separators.** The general-systemic agent
+classified `" and "`, `", and "`, `" or "`, `", plus "` and `"; also "` as separator
+punctuation droppable at an `<li>` boundary — 76 `and`, 7 `or`, 2 `plus`, 1 `also`. Its
+drop accounting was internally consistent and reported 313/313 drops on a join, which was
+true; the error was in what it counted as a separator. Every other batch in this review
+kept the conjunction inside the final `<li>`.
+
+That is content loss under the standing rule, so I did not accept it. Repaired
+mechanically: for each `<li>`, look at what precedes that item's text **in the source**,
+and if a conjunction sits there, put it back at the start of the `<li>`. All 86 restored,
+and all 30 topics then passed the independent check that had rejected 29 of them.
+
+### FIXED — three Rule 1 violations in already-applied work
+
+Formatting defects from earlier passes, found while agents read neighbouring cards.
+Un-greyed and kept in the body, bolded:
+
+- **`dermatology.json` Skin Cancer 74 (Bowen's disease)** — "persistent and does not respond
+  to topical steroids" was in 13px grey. That is the discriminator which stops an SCC
+  in situ being treated as eczema indefinitely.
+- **`obstetrics-gynaecology.json` IUFD 19** — "how macerated the baby looks does **NOT**
+  predict DIC" was grey, under a bolded 10–30% DIC risk. It prevents false reassurance.
+- **`obstetrics-gynaecology.json` Lactation 87** — the contraceptive effect being
+  **unreliable** was grey, beneath a bolded "suppressing ovulation". A learner could read
+  breastfeeding as contraception.
+
+Three leftover `<b>` tags converted to `<strong>` in the same cards.
+
+**Deliberately left grey, because the device was used correctly:**
+- `dermatology.json` Seborrhoeic Keratosis 12 — "the association is debated: many patients
+  with eruptive SKs have no malignancy". This demotes a **reassurance**, not a risk. Rule 1
+  guards against demoting danger; a hedge that lowers urgency is exactly what grey is for,
+  and the urgent-referral instruction is bolded in the body above it.
+- `obstetrics-gynaecology.json` IUFD 27 — a coronial-reform legal footnote. Not
+  safety-bearing. Its stray `<b>` was still converted.
+
+### FIXED — two thresholds
+
+- **Primary PPH `>500 mL` → `≥500 mL`** (3 fields, one an MCQ option). RCOG defines primary
+  PPH as ≥500 mL, which `obstetrics-gynaecology.json` already said. The old pairing of
+  `>500` here with `<500 = likely normal lochia` in the sibling left exactly 500 mL in
+  neither category. This file stores no denormalised `answer`, so `correctIndex` was
+  unaffected; asserted anyway.
+- **`scoping-endoscopy.json`: postmenopausal endometrium "4 mm or more requires direct
+  assessment" → "more than 4 mm"**. It made exactly 4.0 mm abnormal, contradicting three
+  other files and the "4 mm or less is reassuring" correction made earlier in this review.
+
+### The highest-risk item in this wave — NOT fixed
+
+**Anti-D below 12 weeks: two files give opposite instructions.**
+- `obstetric-gynaecological.json` — give anti-D under 12 weeks "if heavy/painful or
+  surgically managed, or if ectopic or molar".
+- `obstetrics-gynaecology.json`, twice — anti-D is **NOT given** below 12 weeks for
+  miscarriage, threatened miscarriage or ectopic, "whether managed medically or surgically".
+
+For a surgically managed miscarriage at 8 weeks the deck says both give it and don't.
+And `obstetrics-gynaecology.json` **contradicts itself** on the same point: one card says
+anti-D from 12+0 for medical *or* surgical management, while an MCQ explanation says NICE
+advises it for surgical management only, using "give anti-D only for medical management"
+as a distractor. Reported, not touched — this needs a clinician, not a guard.
+
+### Reported, not patched
+
+- **Kleihauer "after 20 weeks" vs "from 20 weeks"** — deliberately left. "After 20 weeks"
+  is BCSH/RCOG's own wording, so the ambiguity at exactly 20+0 is in the source guidance,
+  not in the deck. Fixing it would impose a precision the guideline does not have.
+- **Hypothermia bands**: hypothermia is "below 35°C" yet mild is "32–35°C", so exactly
+  35.0°C is both not-hypothermia and mild; and exactly 32.0°C is in both mild and moderate.
+  `bedside-tests.json` states identical bands, so it is a shared convention.
+- **Heat exhaustion vs heat stroke**: "below 40°C" vs "above 40°C" leaves exactly 40.0°C in
+  neither — and the gap is reproduced in two keyed MCQ options, one of which would be false
+  for a 40.0°C patient.
+- **PUO duration** `>3 weeks` vs `≥3 weeks`; **ME/CFS** `>3 months` vs `≥3 months`;
+  **weight loss** `>5%` where the MUST bands score `5–10%` inclusively — and that card's
+  own MCQ asks for "the minimum threshold" while keying a strict `>5%`, so the stated
+  minimum is itself excluded.
+- **NEWS2 antibiotic timing leaves NEWS2 = 0 in no band** (`≥7` / `5–6` / `1–4`).
+- **BMI 34.1–34.9 falls in no UKMEC band** (`30-34` vs `35 or over`) in
+  `contraception.json`, where `endocrinology.json` correctly uses `30–34.9`.
+- **Malaria film repeat schedule stated four ways**: `12–24 h apart` ×3, `12–24 h then 24 h
+  later`, `3 films over 3 consecutive days`, `48–72 hours`. One of them lives in an MCQ
+  **option**, so it would have to move with its `correctIndex`.
+- **Sepsis Six timing** and **qSOFA's status** differ between files; one file states qSOFA
+  "is no longer recommended as a sole screening tool" and another presents it without that.
+- **Lymph node size**: `>2 cm` concerning (clinical) vs `>1 cm` short axis (radiological) —
+  a factor of two, never contrasted.
+- **Anaphylaxis observation**: a `6–12 hour` range vs NICE's `2 / 6 / 12` risk tiers.
+- **SJS/TEN**: one card gives `<10%` and `>30%` and omits the 10–30% overlap band, so a 25%
+  patient — the subject of that same file's own MCQ stem — falls in neither. Another card in
+  the same topic states all three bands correctly.
+- **SLNB Breslow `>0.8–1.0 mm`** is malformed (a `>` applied to a range), and at exactly
+  1.0 mm with no high-risk feature **neither** stated band claims the patient.
+- **Burns**: the fc card says "15% TBSA or more" and its own MCQ says "greater than 15%".
+- **ABPI**: `0.5–0.8` described as the typical mixed-ulcer range while `≥0.8` is called safe
+  for full compression — but "typically" makes the first descriptive, not a threshold, so
+  this is the vignette-versus-definition distinction again rather than a contradiction.
+  Critical ischaemia is `<0.5` in three cards and `<0.3` in one.
+- **2WW routing for BCC**: `dermatological.json` puts "new, growing, ulcerating, bleeding or
+  non-healing lesion" on the 2-week-wait; `dermatology.json` says in five places that BCC
+  is the exception and usually routine. A non-healing ulcerating lesion is classic BCC.
+- **Transformation zone / squamocolumnar junction** — the conflation already logged in
+  `obstetrics-gynaecology.json` also appears in **`reproductive.json`**, in an MCQ answer
+  string, even though that same file elsewhere defines the TZ correctly as the region
+  *between* the original and new squamocolumnar junctions. A third file.
+- **PMB referral**: all PMB urgent vs `≥55` only. **Secondary amenorrhoea `≥3–6 months`** is
+  malformed (a `≥` on a range). **Antenatal corticosteroids `24–34+ weeks`** is ambiguous
+  notation, and the sibling *considers* rather than *offers* them at 34+0.
+- **Endometrial assessment age differs by symptom within one file**: HMB at `45 or over`,
+  IMB at `over 40`. May be intentional; it reads as one rule.
+
+### A methodological note worth keeping
+
+The general-systemic agent audited the 20 demotions it *considered* and found that
+**rules 1 and 3 together still miss a class.** Seven candidates passed both the keyword
+audit and the front-overlap test and still must not be demoted — among them "in a patient
+who may not mount a fever", "always septic-screen", "so a low threshold and a lactate are
+needed", and "characterised by vasodilatation and often warm peripheries". These are bare
+findings or directives sharing no vocabulary with their front and containing no flagged
+word. Rule 3 as a pure word-overlap test does not catch them; a judgement about whether the
+span is a *finding or a directive* is still required on top of both rules. All seven stayed
+in the body. Worth recording because it bounds what the mechanical tests can do.
