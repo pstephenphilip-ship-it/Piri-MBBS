@@ -5317,3 +5317,131 @@ needs a decision about merging or re-framing, not formatting.
 
 `bedside-tests.json` Auscultation 32 and 37 both teach the same pleural-versus-pericardial
 rub breath-hold discriminator. Marked up consistently rather than treating either as odd.
+
+## Three more boundaries that excluded their own endpoint — FIXED
+
+Each of these had the guideline-accurate form **already present elsewhere in the deck**,
+so the fix was harmonising to what the deck itself already taught, not picking a number.
+
+### A. Subclinical hypothyroidism levothyroxine threshold
+
+NICE NG145: treat when TSH is "**10 mIU/litre or higher** on 2 separate occasions 3 months
+apart" — inclusive. `biochemistry.json` already said `≥10 mU/L` in both its fc card
+(Endocrine 21) and its q explanation (Endocrine 12). `endocrinology.json` q Hypothyroidism 1
+said `>10`, excluding a TSH of exactly 10.0 — a value labs report routinely.
+
+Moved 3 fields: `answer`, `options[0]` and `explanation`. The answer and option are
+identical strings and had to move together or the card breaks.
+
+**Deliberately NOT touched — and this is the point of the check:**
+- q Hypothyroidism 0 explanation, `TSH >10 + low FT4 + symptoms` — that describes **overt**
+  hypothyroidism, where the figure is a rough marker, not the NICE subclinical threshold.
+- q Hypothyroidism 4 `options[3]` "Only adjust if TSH >10" — an **MCQ distractor**.
+- q Hypothyroidism 22 `options[0]` "No — only treat if TSH >10" — an **MCQ distractor**.
+
+Two of the six occurrences are wrong on purpose. A bulk replace would have silently
+"corrected" two distractors and edited a descriptive sentence that was never the threshold.
+The agent that reported this named three `fc` cards; all six occurrences are actually in
+`q`, and three must not move. **This is the seventh time a report located content wrongly
+and the file was what it was** — anchoring each claim to source before editing is what
+keeps catching it.
+
+### B. Moderate acute asthma PEF band — a genuine overlap at exactly 50%
+
+BTS states moderate as "PEF **>**50–75% best or predicted" and acute severe as "33–50%".
+`respiratory.json` wrote moderate as `50–75%` alongside severe `33–50%`, so a PEF of
+**exactly 50% was both moderate and acute severe** — and the two carry different
+management (acute severe means back-to-back nebulisers and senior review).
+`risk-scores-criteria.json` already carried BTS's `>50–75%`.
+
+Moved 4 fields: fc Asthma 49 back, and q Asthma 48's `answer`, `options[4]` and
+`explanation`. Distractor options `[0]` and `[2]` carry deliberately scrambled bands
+and were left alone.
+
+### C. Acute severe asthma PEF endpoint
+
+BTS acute severe is `33–50%`, inclusive of 50. `bedside-tests.json` wrote `<50%`,
+excluding it — so a PEF of exactly 50% was not acute severe there while it was
+everywhere else in the deck. Moved to `≤50%` in 2 fields (fc Point-of-Care Tests 33 back,
+q 19 explanation).
+
+### Guard note
+
+The fix script asserted, before writing: exact occurrence counts for every anchor
+(2+1+1+1+1 = all six `TSH >10` sites accounted for, so none was missed or over-matched);
+that the three strings which must **survive** did; that the old forms did **not**;
+identical topic keys, card counts, field sets and option counts; identical ordered tag
+sequence on any field containing markup; and **that every MCQ answer still matches exactly
+one option**. That last check is what makes moving an `answer` safe.
+
+## Reported, not patched — and why
+
+These came out of the same wave and are all real, but each would mean authoring rather
+than correcting, or the sources genuinely disagree:
+
+- **AST:ALT ratio for alcohol.** `>2` in 4 cards, `≥2:1` in 3 (`liver.json`). No single
+  published definition settles 2.0 exactly; both phrasings are in common use.
+- **Lactate "severe".** `>4` in 3 cards, `≥4` in 2. Surviving Sepsis uses the figure
+  without settling the endpoint. (The `>2` hypoperfusion threshold is consistent everywhere.)
+- **AKI urine output.** `≥6 h` (biochemistry) vs `>6 h` (`renal.json`). **KDIGO reads ≥6 h
+  and NICE CG169 says >6 h** — two guidelines, genuinely opposed. Not mine to pick.
+- **CKD duration.** `≥3 months` / "at least 3 months" / `>3 months` all appear.
+  KDIGO says >3 months, but a duration of exactly 3 months is not a value anyone measures
+  to the boundary, unlike a lab result. Left alone deliberately: the endpoint error class
+  matters where readings actually land on the endpoint.
+- **Capillary refill 2 s.** `bedside-tests.json` says "2 seconds or more is prolonged";
+  `acute-abdomen-surgical-principles.json` says `>2 s`; an `msk-rheumatology.json` vignette
+  treats exactly 2 s as reassuring. So 2.0 s is abnormal in one file and normal in two.
+  The literature does not settle it.
+- **Anion gap normal range.** `8–14` in `endocrinology.json` vs `8–12` in four other files.
+  Published normals genuinely vary with whether K⁺ is included in the formula; `8–14` is
+  within range, so the lone outlier is not wrong.
+- **ABPI.** `<0.5` is "severe PAD, not yet critical" in `bedside-tests.json` and "critical
+  limb ischaemia" in `cardiovascular.json`; and `0.9` sits in two bands at once in **both**
+  files (normal `0.9–1.3` alongside mild PAD `0.5–0.9`). Because both files share the same
+  defect shape it is a deck convention, and ABPI band conventions vary between sources.
+- **DKA ketone endpoint.** `bedside-tests.json` uses `≥3 mmol/L`, JBDS and
+  `endocrinology.json` use `>3`. Note the deck-wide JBDS form leaves **exactly 3.0
+  unassigned** (DKA `>3`, HHS `<3`) while bedside's `≥3` partitions cleanly — so here the
+  outlier is the one without a gap. Fixing either way trades one defect for the other.
+- **Sepsis Six timing.** `bedside-tests.json` fc says a flat "within 1 hour"; its own q and
+  the rest of the deck use NICE's NEWS2-stratified antibiotic timing. These are two
+  different things — the UK Sepsis Trust bundle versus NICE antibiotic timing — so not
+  strictly a contradiction, but a student meeting both would not know that.
+- **Cold thyroid nodule malignancy risk.** `~10–20%` in `nuclear-interventional.json` vs
+  `~5–15%` in four `endocrinology.json` places. Published figures genuinely span both.
+- **NEWS2 parameter count.** "six parameters plus a separate oxygen weighting" vs
+  "7 parameters (including supplemental oxygen)". Both defensible readings of the RCP chart.
+- **IV potassium rate.** `10 mmol/h` peripherally in 4 cards vs "never faster than
+  20 mmol/hour" in one. Not a contradiction — 10 is the peripheral rate, 20 the absolute
+  ceiling with monitoring — but the second states no qualifier.
+- **HVPG.** Checked because it was reported as divergent; `gastrointestinal.json` already
+  reads `≥10 mmHg`. The report was wrong. One `liver.json` q answer says "above 10 mmHg";
+  Baveno defines clinically significant portal hypertension as ≥10, so that single q
+  wording is the only loose one and is not a threshold a learner applies to a number.
+
+### Nuclear medicine: an asymmetry worth a clinician's eye
+
+Two fc cards assert a **normal perfusion scan "effectively excludes" pulmonary embolism**,
+while four other fc cards in the same file teach false negatives (FDG-negative tumours,
+somatostatin analogues, lytic myeloma on bone scan, drugs blocking MIBG) without ever
+generalising the rule. The file's only explicit "a negative scan does not exclude" caveat
+sits in a **q explanation**, not on the fc side. Nothing changed.
+
+### Confirmed absent deck-wide (nothing added)
+
+- **No breastfeeding-interruption interval exists anywhere** for ⁹⁹ᵐTc, ¹²³I, ¹³¹I, ¹⁸F or
+  ⁶⁸Ga. The one card that raises it says only "may need temporary interruption". All eight
+  deck hits for interruption language are contraception or HSV, not radioisotopes.
+- **No radiation dose figure** for CT, plain film, fluoroscopy, V/Q or bone scan; the only
+  two numeric doses in the deck are FDG-PET/CT "6–10 mSv" and ⁹⁹ᵐTc-MDP "a few mSv",
+  neither with a comparator. No diagnostic reference level and no background-dose comparator.
+- **No insulin guidance for PET preparation** — the glucose target `<11 mmol/L` is stated
+  but nothing on how to reach it in an insulin-treated patient, and no reschedule rule.
+- **Percutaneous abscess drainage and nephrostomy carry no "give antibiotics" statement**
+  on the fc side; the fact is in the app but filed in
+  `acute-abdomen-surgical-principles.json` and `urology.json`, not in the IR topic where a
+  student revising drainage meets it.
+- **Urine dipstick unreliability over 65** is absent from `bedside-tests.json` entirely
+  though present in six other files; **peak-flow technique** is absent from it too, living
+  in `lung-function.json`.
