@@ -10279,6 +10279,126 @@ window.MOCK_BANK = {
       explanation:[
         "TENDON XANTHOMATA (Achilles, knuckles) are the hallmark of FH. PALMAR-CREASE (striae palmaris) and TUBEROERUPTIVE xanthomata point to REMNANT/TYPE III disease (ApoE2/E2, mixed hyperlipidaemia, highly atherogenic).",
         "ERUPTIVE xanthomata and lipaemic serum reflect SEVERE HYPERTRIGLYCERIDAEMIA/CHYLOMICRONAEMIA – the danger there is PANCREATITIS, not atherosclerosis, because the triglyceride marks large, non-atherogenic particles."
+      ] },
+    { id:"lip-019", type:"mcq", objective:"lip-statin-mechanism",
+      question:"A medical student asks how atorvastatin lowers LDL cholesterol. Which best describes its mechanism?",
+      options:[
+        "Inhibits HMG-CoA reductase to upregulate LDL receptors",
+        "Blocks intestinal cholesterol absorption at the brush border",
+        "Inhibits PCSK9 to prevent LDL-receptor degradation",
+        "Activates lipoprotein lipase to clear circulating triglycerides",
+        "Binds bile acids to interrupt enterohepatic recycling"],
+      correctIndex:0,
+      explanation:[
+        "Statins inhibit HMG-CoA REDUCTASE (the rate-limiting enzyme of hepatic cholesterol synthesis); the liver responds by UPREGULATING LDL RECEPTORS, which clear LDL from the blood.",
+        "Blocking intestinal absorption is ezetimibe; PCSK9 inhibition is evolocumab/alirocumab; lipoprotein-lipase activation is the fibrates; and bile-acid binding is the resins."
+      ] },
+    { id:"lip-020", type:"mcq", objective:"lip-simvastatin-timing",
+      question:"A 65-year-old man is started on simvastatin 40 mg for primary prevention and asks when he should take it. When should he take his dose?",
+      options:[
+        "First thing in the morning",
+        "At night",
+        "With his largest meal",
+        "At any time of day",
+        "Only on alternate days"],
+      correctIndex:1,
+      explanation:[
+        "SIMVASTATIN is short-acting, and hepatic cholesterol synthesis peaks overnight, so it works best taken AT NIGHT.",
+        "Morning, mealtime or alternate-day dosing reduces its effect; only the long-acting statins (atorvastatin, rosuvastatin) can be taken at any time."
+      ] },
+    { id:"lip-021", type:"mcq", objective:"lip-exclude-secondary",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Total cholesterol <b>8.1 mmol/L</b></span><span>Symptoms <b>Fatigue, cold intolerance, weight gain, constipation</b></span><span>Prior lipid results <b>Previously normal</b></span></div>",
+      question:"A 50-year-old woman has a newly raised cholesterol on screening. She also describes tiredness, cold intolerance, weight gain and constipation over recent months. Before committing her to lifelong treatment, what is the most important initial investigation?",
+      options:[
+        "Start atorvastatin immediately, investigate later",
+        "QRISK3 calculation",
+        "Thyroid function tests",
+        "Liver ultrasound",
+        "A fasting glucose"],
+      correctIndex:2,
+      explanation:[
+        "Raised lipids are often SECONDARY – check THYROID FUNCTION in everyone, as hypothyroidism (suggested here by her symptoms) raises cholesterol, and correcting it may normalise the lipids. Untreated hypothyroidism also INCREASES statin myopathy risk, so it matters twice over.",
+        "Starting a statin blindly risks treating a reversible cause and provoking myopathy; QRISK3, a liver scan and glucose alone do not address the likely thyroid cause."
+      ] },
+    { id:"lip-022", type:"mcq", objective:"lip-macrolide-interaction",
+      question:"A 68-year-old man stable on atorvastatin is prescribed clarithromycin by an out-of-hours GP for a chest infection. What is the most appropriate advice regarding his atorvastatin?",
+      options:[
+        "Continue both at the usual doses",
+        "Double the atorvastatin dose during the infection",
+        "Switch the atorvastatin to simvastatin",
+        "Hold the atorvastatin while taking the clarithromycin",
+        "Stop the atorvastatin permanently"],
+      correctIndex:3,
+      explanation:[
+        "Macrolides (clarithromycin, erythromycin) INHIBIT CYP3A4, raising statin levels and the risk of myopathy, so HOLD THE STATIN during the course (the same applies to azole antifungals).",
+        "Continuing or doubling increases toxicity; switching to simvastatin (also CYP3A4-metabolised) is worse, not better; and permanent discontinuation is unnecessary – restart after the antibiotic."
+      ] },
+    { id:"lip-023", type:"mcq", objective:"lip-pregnancy",
+      question:"A 33-year-old woman with familial hypercholesterolaemia, taking atorvastatin, tells you she has stopped contraception and is trying to conceive. What is the most appropriate advice about her statin?",
+      options:[
+        "Continue it throughout pregnancy",
+        "Switch to rosuvastatin, which is safe in pregnancy",
+        "Halve the dose during pregnancy",
+        "Continue until the first positive pregnancy test, then stop",
+        "Stop the statin before conception"],
+      correctIndex:4,
+      explanation:[
+        "Statins are CONTRAINDICATED IN PREGNANCY (and breastfeeding) and should be STOPPED BEFORE CONCEPTION (about 3 months beforehand).",
+        "No statin is ‘safe’ in pregnancy, and continuing, dose-reducing or waiting for a positive test all risk fetal exposure during early organogenesis."
+      ] },
+    { id:"lip-024", type:"mcq", objective:"lip-muscle-normal-ck",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Symptoms <b>Mild diffuse myalgia, no weakness</b></span><span>Dark urine <b>None</b></span><span>Creatine kinase <b>Normal</b></span></div>",
+      question:"A 60-year-old man on atorvastatin 40 mg for six weeks reports mild, generalised muscle aches. He has no muscle weakness and no dark urine, and his creatine kinase is within the normal range. What is the most appropriate management?",
+      options:[
+        "Withhold, then rechallenge or try a lower dose",
+        "Stop statins permanently and label him intolerant",
+        "Continue unchanged and add a fibrate",
+        "Admit urgently for suspected rhabdomyolysis",
+        "Start a PCSK9 inhibitor now"],
+      correctIndex:0,
+      explanation:[
+        "Most reported muscle symptoms are NOT caused by the statin – blinded trials reproduce about 90% of them on placebo. With a NORMAL CK, withhold and rechallenge, or try a lower dose, a different statin or alternate-day dosing, before declaring intolerance.",
+        "Permanent labelling is premature; adding a fibrate raises myopathy risk; a normal CK excludes rhabdomyolysis; and jumping to a PCSK9 inhibitor skips simpler options."
+      ] },
+    { id:"lip-025", type:"mcq", objective:"lip-diabetes-counselling",
+      question:"A 58-year-old man on atorvastatin for secondary prevention has read that statins cause diabetes and wants to stop his tablet. What is the most appropriate action?",
+      options:[
+        "Stop the statin and manage with lifestyle",
+        "Continue the statin at the current dose",
+        "Switch to ezetimibe monotherapy",
+        "Reduce to a low-intensity statin",
+        "Check an HbA1c and stop the statin if it is raised"],
+      correctIndex:1,
+      explanation:[
+        "Statins carry only a MODEST increase in type 2 diabetes risk, and in established cardiovascular disease the benefit FAR OUTWEIGHS it – CONTINUE at the current dose and reassure him.",
+        "Stopping, switching to ezetimibe or dropping to low intensity all abandon proven secondary prevention; and although diabetes should be screened for and treated if it develops, a raised HbA1c is NOT a reason to stop the statin – you treat the diabetes and keep the statin."
+      ] },
+    { id:"lip-026", type:"mcq", objective:"lip-simvastatin-dose-cap",
+      question:"A 62-year-old woman takes simvastatin 40 mg. She is started on amlodipine for hypertension. What is the most appropriate action regarding her simvastatin?",
+      options:[
+        "Increase the simvastatin to 80 mg",
+        "Continue both at current doses",
+        "Reduce the simvastatin to 20 mg",
+        "Stop the amlodipine instead",
+        "Add a fibrate to the simvastatin"],
+      correctIndex:2,
+      explanation:[
+        "Amlodipine raises simvastatin levels, so simvastatin is CAPPED AT 20 mg when co-prescribed (as with amiodarone, diltiazem and verapamil); an equally acceptable alternative is to SWITCH TO ATORVASTATIN, which is unaffected.",
+        "Increasing to 80 mg or continuing unchanged raises myopathy risk; the amlodipine is needed for her blood pressure; and a fibrate does not address the interaction and itself raises myopathy risk."
+      ] },
+    { id:"lip-027", type:"mcq", objective:"lip-rhabdomyolysis",
+      data:"<div class=\"mk-obs-h\">Assessment</div><div class=\"mk-obs-grid\"><span>Creatine kinase <b>18,000 U/L (over 10x ULN)</b></span><span>Creatinine <b>Rising from baseline (AKI)</b></span><span>Urine dipstick <b>Strongly positive for blood, few red cells seen</b></span><span>Recent change <b>Clarithromycin started 5 days ago</b></span></div>",
+      question:"A 70-year-old man on simvastatin was started on clarithromycin five days ago for a chest infection. He now has severe generalised muscle pain and weakness and has passed dark, cola-coloured urine. His results are shown. What is the most appropriate immediate management?",
+      options:[
+        "Continue the statin and prescribe analgesia",
+        "Halve the dose and recheck CK in a week",
+        "Reassure — this is usually benign",
+        "Stop the statin and give IV fluids",
+        "Add a fibrate to protect the muscle"],
+      correctIndex:3,
+      explanation:[
+        "Severe myalgia and weakness with cola-coloured urine, a CK above 10x ULN and a rising creatinine is RHABDOMYOLYSIS – here precipitated by the statin and the CYP3A4 interaction with clarithromycin. STOP THE STATIN immediately and give IV FLUIDS to protect the kidneys from myoglobinuric AKI, and monitor renal function and potassium.",
+        "The dipstick is positive for ‘blood’ with few red cells because it is detecting MYOGLOBIN. Continuing the statin, dose-halving, reassurance or a fibrate (which itself worsens myopathy) are all unsafe here."
       ] }
 ]
 };
