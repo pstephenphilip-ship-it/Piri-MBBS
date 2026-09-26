@@ -5876,3 +5876,77 @@ The same value is written with an en dash on one card and an ASCII hyphen on ano
 `3–4 months` / `~3-4 months` / `3-4 months`; `3 months–2 years` / `3 months-2 years`. This
 is a visual-consistency issue rather than a content one. Not swept yet; it would touch many
 files and is worth doing as one deliberate pass rather than piecemeal.
+
+## Gastrointestinal, part 2 (132 cards, 264 fields) — and a count correction
+
+Applied 5 topics: Palmar Erythema, Rectal Pain / Perianal Lump, Rovsing's Sign, Spider
+Naevi, Steatorrhoea. Clean. Only 2 grey spans in 132 cards, both exam meta-commentary.
+
+**A correction to that agent's scope report, made by counting the file myself.** It
+reported `gastrointestinal.json` as having 19 outstanding topics / 469 cards with 23
+already done. The file actually has **27 unmarked topics / 776 cards and 15 marked ones
+(515 cards)** — and the agent's own figures do not reconcile with the file (its 23 + 19
+totals 1,338 cards; the file holds 1,291). It had classified the **8 GI histology topics
+(307 cards) as already done when they carry no markup at all** — and those are precisely
+the two histology batches from an earlier wave that never landed.
+
+The practical consequence is a coverage gap to fill rather than an overlap, and it is the
+reason a scope claim gets checked against the file rather than accepted.
+
+Worth recording as a good catch on its side too: its dropped-string inventory proved
+failure mode A directly rather than by inference, counting conjunctions in rendered source
+versus rendered output (`" and "` 191→191, `" or "` 45→45) and showing that the 10
+serial-comma cases dropped the comma while keeping the conjunction inside the final `<li>`.
+Its weld check also found 8 welds, correctly identified all 8 as pre-existing deliberate
+letter-level bolds in an Alvarado mnemonic, and emitted no new ones.
+
+## Deck-wide Rule 1 / Rule 3 sweep of pre-existing grey spans — 13 FIXED
+
+An audit of every existing `fc-caveat` and `fc-inline` in the deck against a risk lexicon
+returned **48 hits**. Most are correct use of the device and were left alone:
+
+- **study-aid meta-commentary** — "Do not learn this as a 'triad'", "the letters of MAPT do
+  not encode the true frequency order", "Newer data question how real this harm is, but
+  'avoid' remains the expected exam answer";
+- **"do not confuse X with Y" differentials**, which are revision scaffolding rather than
+  clinical directives (neurogenic vs spinal shock, granuloma vs granulation tissue, the
+  cerebellum's functions vs its anatomical divisions);
+- **one-word or short glosses** whose content the body already carries — `(avoid radiation)`,
+  `(one missed meal)`, `(to avoid hypos)`, `(circulatory delay)`.
+
+A keyword audit alone would have "fixed" all 48. That is why each was judged against its
+own front.
+
+**The 13 genuine violations, un-greyed**, on one of three grounds — (a) the span is a bare
+clinical **finding**, the shape a keyword audit misses; (b) **Rule 3**, the card's own front
+asks for exactly what the span holds; (c) it is a **prescribing or action directive**:
+
+| file | card | was grey | ground |
+|---|---|---|---|
+| cardiovascular | Acute Heart Failure 7 | "cool clammy peripheries, mottling, oliguria, confusion, rising lactate" | a, b |
+| cardiovascular | Acute Heart Failure 20 | the same finding list, driving the stated strategy | a |
+| cardiovascular | Heart Failure 32 | "Do NOT reduce mortality" | b |
+| cardiovascular | Varicose Veins 24 | "An ABPI >1.3 … is unreliable" | b, c |
+| cardiovascular | DVT 18 | "Homan's sign … is unreliable" | c |
+| respiratory | Increased Work of Breathing 30 | "(falling RR, silent chest, drowsy)" | a |
+| respiratory | Respiratory and Oxygen Support 31 | which patients need acute NIV vs a compensated retainer | c |
+| neurology-neurosurgery | Raised ICP 20 | "(coning)" | b |
+| neurology-neurosurgery | Raised ICP 21 | "(coning)" | a |
+| neurology-neurosurgery | Dystonia 15 | "serum copper alone is unreliable" | c |
+| paediatrics | Neonatal Medicine 99 | "(bedside glucometers are unreliable at low values)" | b |
+| ent | Hearing Loss 104 | "Do not offer betahistine to treat tinnitus (NICE)" | b, c |
+| ophthalmology | CRAO 1 | "(urgent work-up + secondary prevention)" | b |
+
+Three of these are the exact shape recorded earlier as the one both mechanical rules miss:
+`rising lactate` and `falling RR, silent chest, drowsy` are **bare findings** with no
+directive word in them, and `(coning)` is a single greyed word that happens to be the whole
+answer to its own front ("Why is lumbar puncture contraindicated in raised ICP?").
+
+**The fix only removes the wrapper.** No word was added, removed or reordered and no new
+emphasis was invented — the text returns to body size and colour, which is all Rule 1
+requires. Asserted per span: rendered text identical before and after, the raw JSON form of
+the back unique in the file, and topic keys, card counts and field sets unchanged.
+
+The guard also caught my own slip first: matching the topic by substring made
+"Heart Failure" ambiguous against "Acute Heart Failure" and a third topic. Nothing was
+written, because staging completes before any file is touched.
