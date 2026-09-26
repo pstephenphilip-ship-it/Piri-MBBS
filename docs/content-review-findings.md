@@ -4922,3 +4922,88 @@ that bolding nine of ten would imply a hierarchy the card does not claim. That i
 the same reasoning as the spermatogenic-sequence exception, reached
 independently, and I agree with it: where the answer is an ordered set, the
 ordering is the content and selective emphasis distorts it.
+
+## renal.json histology complete — 210/210, 0 unformatted
+
+415 fields across six topics.
+
+### THE HIGHEST-PRIORITY CONTENT ITEM OF THE PROJECT SO FAR
+
+**The deck tells a reader both that loop diuretics treat hypercalcaemia and that
+they do not.** Two cards in the Tubules topic say they do:
+
+- `Tubules[30].back` — "…so calcium excretion rises (hypercalciuria) — **the
+  basis for loop diuretics in hypercalcaemia**"
+- `Tubules[21].explanation` — "raising calcium excretion **(useful in
+  hypercalcaemia)**"
+
+Against that, **seven** statements across three files say the opposite, several
+in terms:
+
+- `renal.json` Foundations[14] — "a physiological fact, **not a treatment**"
+- `renal.json` Foundations[4] — "…but **that does not make them a treatment**"
+- `renal.json` Foundations[144] — "**not a treatment for hypercalcaemia**"
+- `renal.json` Electrolytes[21] — "**Furosemide is no longer routinely
+  recommended**"
+- `haematology.json` Myeloma[30] — "**loop diuretics are not first-line**"
+- `endocrinology.json` — an entire run of cards: furosemide **only after** IV
+  rehydration, giving it before fluids is "**dangerous and contraindicated**",
+  and an MCQ whose keyed answer is "**Furosemide caused diuresis, leading to
+  haemoconcentration and worsened hypercalcaemia**"
+
+**Why this matters more than the earlier contradictions.** The GCA aspirin item
+was a genuine dispute — two files, two defensible positions, current guidance
+favouring one. This is not a dispute. **The deck has already adjudicated it**, in
+writing, in the same file: one card exists specifically to say that the physiology
+does not license the treatment. The two Tubules cards carry an **un-propagated
+correction** — someone fixed this and missed two fields.
+
+And the harm path is already documented inside the deck: a student who learns
+"loop diuretics are useful in hypercalcaemia" may give furosemide to a dehydrated
+hypercalcaemic patient, which the endocrinology cards call dangerous and
+contraindicated, causing haemoconcentration and **worsening** the very
+hypercalcaemia being treated.
+
+**I am still not changing it**, and the reason is consistency rather than
+comfort. I ruled earlier that harmonising a threshold is mechanical while adding
+or removing a **therapeutic recommendation** is authoring, and I declined the GCA
+aspirin item on exactly that basis. Reversing that here because this instance
+feels worse would make my own line unpredictable, which is worse than being
+conservative.
+
+What makes this cheap to fix for whoever owns the content: **it is two fields, and
+the correct wording already exists elsewhere in the same file.** No new clinical
+judgement is required — only propagating a decision the deck has already made.
+
+### Verified correct — the whole high-risk list came back clean
+
+- **The filtration barrier order is right in all six statements deck-wide**
+  (fenestrated endothelium → GBM → podocyte foot processes), and both reversals
+  appear only as MCQ distractors with the correct answer keyed. **The negative
+  charge is attributed to the GBM and its heparan sulfate on every card that names
+  a layer** — no card mislocates it.
+- **No transporter is on the wrong segment**, checked by reading around 30 NKCC2,
+  14 NCC and 33 ENaC mentions: PCT bulk reabsorption with SGLT2, thick ascending
+  limb NKCC2 with loop diuretics, DCT NCC with thiazides, collecting duct ENaC
+  plus aquaporin-2 and ROMK under aldosterone and ADH.
+- **Tubuloglomerular feedback runs the right way** — raised macula densa NaCl →
+  adenosine → afferent constriction → reduced GFR and reduced renin; the reverse
+  via COX-2/PGE2. No reversal anywhere, and the SGLT2-inhibitor mechanism is
+  consistent with it.
+- **Podocyte effacement is correctly minimal change disease** (normal light
+  microscopy, negative immunofluorescence) against granular immunofluorescence for
+  immune-complex disease and linear for anti-GBM.
+
+### Also reported, not changed
+
+- **"Main size barrier" is attributed two ways**: the basement membrane in one
+  topic, the podocyte slit diaphragm in another. The *charge* attribution agrees
+  everywhere; only size diverges.
+- **Commonest primary adult nephrotic syndrome**: FSGS unqualified in one topic,
+  membranous "in older White adults" in another. Reconcilable via the qualifier,
+  but one states it flatly.
+- **Charge-selectivity loss** is attributed to the podocyte in one quiz
+  explanation where the flashcards locate the charge barrier in the GBM.
+- **Type 3 renal tubular acidosis is absent from the whole deck** — normal for
+  this syllabus, flagged only because "three main types" could be read as
+  complete.
