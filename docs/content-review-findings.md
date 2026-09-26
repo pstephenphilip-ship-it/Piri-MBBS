@@ -4589,3 +4589,57 @@ Also incidental, in files outside this batch: the two **Krukenberg** cards
 disagree on the alternative primary — `obstetrics-gynaecology.json` says
 "gastric — or breast", `reproductive.json` says "gastric (or colonic)". Both are
 recognised primaries, so neither is wrong.
+
+## A duplicate-card sweep, and why none of them should be deleted
+
+Agents have flagged near-duplicate cards by hand several times now (the two
+wound-strength cards in Fibrosis & Repair, Shenton's line in two plain-film
+topics, the TOE indication triad stated four times). Since duplicates are
+allowed to be deleted, it was worth measuring the real scale before anyone acts.
+
+**Result: 28 groups of same-topic duplicate fronts, and ZERO of them have an
+identical back.** That single fact settles what to do with them: every pair says
+two different things, so deleting either member loses content. They are
+candidates for **merging**, which is authoring, not for deletion. Reported, none
+touched.
+
+The genuine pairs cluster into one recognisable pattern — a terse front and a
+full one asking the same thing, which looks like two generations of card
+authoring merged:
+
+| topic | the pair |
+|---|---|
+| DVT | "Virchow's triad?" / "What is Virchow's triad?" |
+| DVT | "Post-thrombotic syndrome?" / "What is post-thrombotic syndrome?" |
+| Cushing's | "Treatment of Cushing's disease?" / "What is the treatment for Cushing's disease?" |
+| Addison's | "Waterhouse-Friderichsen syndrome?" / "What is Waterhouse-Friderichsen syndrome?" |
+| Skin Cancer | "What is an actinic (solar) keratosis?" / "What is actinic keratosis (solar keratosis)?" |
+| Anaemia | "What causes megaloblastic macrocytic anaemia?" / "What are the megaloblastic causes of macrocytic anaemia?" |
+
+### Two methodological notes, because the first version of this scan was wrong
+
+**Dropping short tokens destroyed the signal.** The first pass ignored tokens
+under three characters and produced 373 "duplicate" groups — because the
+distinguishing token *was* the short one: Category **1/2/3/4** pressure ulcer,
+hepatitis **A/B/C/D/E**, Ground **A/B/C/D/E** of the Abortion Act, Type
+**I/II/IV** hypersensitivity. Every one of those was a false positive, and they
+buried the 28 real ones.
+
+**Comparing token SETS is order-blind, and some cards differ only by order.**
+These remaining false positives are genuinely complementary pairs that a set
+comparison cannot separate:
+`low target + HIGH pituitary hormone` against `high target + LOW pituitary
+hormone`; `HIGH TSH + LOW free T4` against `LOW TSH + HIGH free T4`; "how does
+bullous pemphigoid differ from pemphigus vulgaris" against the same question
+reversed. Any future duplicate detection needs to be order-sensitive.
+
+### Cross-file repeats are not duplication at all
+
+The scan also found 272 groups spanning topics or files — Sister Mary Joseph's
+nodule on four cards, the cauda equina red flags on four, the 6 P's of acute limb
+ischaemia on four, Fitz-Hugh-Curtis on four. **These should stay.** The deck is
+organised three ways at once — by system, by presenting sign, and by
+investigation — so a student revising "Abdominal Mass" and one revising
+"Cholangiocarcinoma" should both meet Sister Mary Joseph's nodule. That is
+deliberate redundancy across access paths, and removing it would damage the deck
+rather than tidy it.
