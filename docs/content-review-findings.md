@@ -4711,3 +4711,59 @@ Charcot joint, Charcot's triad, Charcot-Marie-Tooth. And `Reinke` hits `ent.json
 too, but for **Reinke's oedema** of the vocal cords, an unrelated eponym. Both
 are the eponym-collision version of the false-negative problem that has bitten
 this project repeatedly from the other direction.
+
+### lymphoid-immune.json complete — 192/192, 0 unformatted
+
+383 fields across six topics. Clean, and clean on the two swaps that matter most:
+
+- **Lymph node compartments are not swapped on any of six cards** — cortex and
+  follicles B-cell, paracortex T-cell with interdigitating dendritic cells — and
+  agree with the MALT and spleen cards.
+- **Thymic selection is placed correctly**: positive selection in the **cortex**
+  ("death by neglect"), negative selection in the **medulla and at the
+  corticomedullary junction**, stated independently on two cards, with AIRE
+  correctly attributed to medullary cells and Hassall's corpuscles in the medulla
+  on all three cards that give a location.
+- **The splenic PALS is correctly a T-cell cuff** around the central arteriole
+  with B-cell follicles attached, and the marginal zone correctly at the
+  white/red interface.
+
+**The post-splenectomy safety content is present and agrees with every copy in
+the deck** — vaccination plus antibiotic prophylaxis, lifelong risk of rapidly
+fatal OPSI, and the pneumococcus/meningococcus/Hib organism list, matching four
+other files. It is in the body and bolded, not greyed.
+
+### An absence in a file I named in the brief
+
+I told the agent to check the splenectomy requirement against
+`immunology-serology.json`. **That file contains no splenectomy or OPSI content at
+all** — zero hits for `spleen` and `OPSI`, and its one `splen` hit is
+"splenomegaly" in an EBV Monospot stem. So there was nothing there to agree or
+disagree with, and the deck's authoritative version lives in
+`infectious-disease-immunology.json`. Another case of my brief pointing at the
+wrong file and the agent checking rather than assuming.
+
+The operational detail — phenoxymethylpenicillin, the vaccine list, the ≥2-week
+timing, the patient alert card — is **absent from the spleen topic** (zero hits
+for each) and lives only in `infectious-disease-immunology.json`. A learner
+drilling the spleen histology topic meets "vaccination and antibiotic
+prophylaxis" without the specifics. Topic-level absence, not filled.
+
+### Two nuances that are scope differences, not contradictions
+
+- The thymus cards derive it from the **3rd** pharyngeal pouch, while
+  `embryology.json` attributes DiGeorge to failure of the **3rd and 4th**. Both
+  correct — the 4th gives the superior parathyroid — just narrower scope.
+- A MALT card says selective IgA deficiency "can cause anaphylactic reactions to
+  IgA-containing blood products" unqualified, where
+  `infectious-disease-immunology.json` adds that the risk is confined to those
+  with anti-IgA antibodies and that routine pre-transfusion screening is
+  therefore not required. A completeness difference.
+
+### Zero block devices used in 192 cards, and the reason is structural
+
+No back in this topic has a second sentence. Every one is a single sentence, so
+any `fc-sub` or `fc-caveat` would have split a sentence across the dividing rule
+and stranded a `;` or `—` above it. The agent used neither device at all rather
+than force one — the right call, and a useful datapoint that the device counts
+in these reports are driven by the source's sentence structure, not by taste.
