@@ -7327,3 +7327,106 @@ consultation has closed, and what it concluded, is still unverified.
 
 Verified: 9 fields changed across 3 files and nothing else; every MCQ's options
 and `correctIndex` are untouched; `answer`/`options[correctIndex]` intact.
+
+## Content screen 1 — Foundations of CVS (v1546)
+
+A new screen, on **content** rather than markup: fronts that are too vague to be
+answerable, counts that came from the notes rather than from medicine, and cards
+that only make sense after the one before them. 245 flashcards and 181 MCQs read
+in full.
+
+**54 fields changed: 33 flashcard fronts, 7 flashcard backs, 10 MCQ stems,
+4 MCQ explanations. 7 cards merged away. 245 &rarr; 238 flashcards; the 181 MCQs
+all stayed.**
+
+### Class 1 — a count that came from the notes, not from medicine
+
+*"What are the **four ways** angiotensin II raises BP?"* The back listed four
+bullets, but two of them already carried two mechanisms each
+(`↑ADH + thirst`, `direct renal Na⁺ reabsorption + efferent arteriolar
+constriction`), and **sympathetic facilitation was missing altogether**. The count
+was an artefact of the source notes. The front now asks *"by what mechanisms"*
+with no number, and the back lists six, adding ↑central sympathetic outflow and
+↑presynaptic noradrenaline release, plus a note on long-term cardiac and vascular
+remodelling.
+
+The same problem, smaller, in *"What **four categories** of information is the ECG
+the bedside readout of?"* &mdash; rate/rhythm, conduction, ischaemia,
+electrolyte/drug. But **the deck itself teaches chamber size and cardiac axis** on
+two other cards in the same topic, so four was incomplete on the deck's own
+evidence. The count is gone and the back now has five bullets.
+
+Counts that *are* real were left alone and checked: systole/diastole (two), the
+three determinants of stroke volume, the two isovolumetric phases, the two
+timescales of BP control, the four mechanisms of oedema, the two coronary
+peculiarities.
+
+### Class 2 — fronts that describe the note instead of asking a question
+
+Thirty-three fronts asked about the structure of the notes rather than about
+medicine. The **backs held real content** the whole time; the fronts just never
+asked for it. So every rewrite asks for exactly what its own back already
+answers, and no content moved.
+
+| was | now |
+|---|---|
+| What is the organising principle of the cardiac cycle? | What single rule determines when each **heart valve** opens and closes? |
+| Why does the cardiac cycle matter clinically? | Which **bedside cardiovascular signs** are direct read-outs of the cardiac cycle? |
+| Why is the plateau (phase 2) the key feature of the contractile myocyte AP? | What does the **calcium influx of phase 2** achieve, and why must the AP last about 300 ms? |
+| What is the unifying idea for interpreting any abnormal ECG? | Any abnormal ECG falls into one of **three categories** &mdash; what are they? |
+| Why do arterioles control everything, per the r&#8308; relationship? | Why does a **small change in arteriolar radius** have such a large effect on resistance? |
+| What is the clinical payoff of high oxygen extraction when a coronary artery is stenosed? | Why does a **coronary stenosis** cause chest pain **on exertion** that is **relieved by rest**? |
+| What is the decisive distinction between the two types of cardiac cell? | What is the difference between a **pacemaker cell** and a **contractile myocyte**? |
+
+### Class 3 — carry-ons
+
+* *"What are the two linked ideas in **this topic**?"* &rarr; *"What is the
+  difference between the cardiac conduction system and a cardiac action
+  potential?"* Same answer, and it now stands alone.
+* *"Why does the conduction system & action potentials **topic** matter?"* &rarr;
+  *"Which parts of clinical cardiology rest directly on conduction and
+  action-potential physiology?"*
+* *"**Because** there is little extraction reserve, how must the heart meet
+  increased demand?"* &rarr; the premise is now stated in the front:
+  *"The heart already extracts most of the oxygen from coronary blood at rest.
+  How then does it meet increased demand?"*
+* *"What governs the two levers of cardiac output, **and where is each
+  covered**?"* &mdash; the back literally contained the cross-references
+  *"(Starling note)"* and *"(conduction/AP note)"*. **Deck-internal navigation
+  inside card content.** Both removed.
+* One back contained a sentence about itself: *"This note is the physiological
+  basis&hellip;, not a full interpretation tutorial."* That card turned out to be
+  a duplicate and is gone.
+* Four MCQ explanations opened *"The organising principle is that&hellip;"* /
+  *"The unifying idea is&hellip;"*, which no longer matched their rewritten stems.
+  Reworded to open on the fact.
+
+### The 7 merged away, and why none of them cost a fact
+
+| dropped | absorbed into |
+|---|---|
+| ECG-Basis__0002 (organising principle of the ECG) | ECG-Basis__0005, which states the same rule **and** adds the perpendicular &rarr; biphasic case; its extra sentence moved across |
+| ECG-Basis__0003 (why does the ECG matter) | ECG-Basis__0031, same four categories; the rest was a sentence about the note |
+| Cardiac-Output__0007 (**"Recap:"**) | the three dedicated preload / afterload / contractility cards |
+| Cardiac-Output__0008 (ejection fraction) | Starlings-Law__0019, same formula and range **plus** HFpEF |
+| Vascular__0030 (hypertension haemodynamically) | Blood-Pressure-Regulation__0022; its r&#8308; point and drug list moved across |
+| Vascular__0032 (shock haemodynamically) | Blood-Pressure-Regulation__0025; its vasopressor point moved across |
+| Coronary-Circulation__0003 (why does it matter) | Coronary-Circulation__0001; its one sentence moved across verbatim |
+
+**A machine check enforced this rather than my say-so:** every content word of a
+dropped card must still appear somewhere in the topic, with numbers matched
+exactly and inflections allowed only to a four-character stem. **It caught a real
+loss** &mdash; dropping the ECG card would have taken the words *upward* and
+*downward* out of the topic entirely, since the keeper said only
+*positive/negative*. The keeper now reads *"positive (upward)"* and
+*"negative (downward)"*.
+
+### One accuracy fix found on the way
+
+An MCQ explanation said the heart *"extracts **almost all** the oxygen from
+coronary blood at rest"*. The flashcards in the same topic say **~70&ndash;80%**,
+which is high but is not almost all. Corrected to match.
+
+Verified against `HEAD`: 54 fields changed, 7 cards removed, none added, nothing
+outside this topic touched; every MCQ's options and `correctIndex` are byte-identical
+and every `answer` still equals its `options[correctIndex]`.
