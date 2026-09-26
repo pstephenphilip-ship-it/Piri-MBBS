@@ -4081,3 +4081,93 @@ untouched, and five real conversions were followed by a word rather than a digit
 - **Neutrophil count for neutropenic sepsis.** `<0.5 ×10⁹/L` in one
   `haematology.json` quiz explanation against `≤0.5` on five fields in the same
   file. NICE says 0.5 or lower; exactly 0.5 was excluded.
+
+## Wave: MSK and neurological signs (in progress)
+
+### Fixed: one drug name spelled two ways in one file
+
+`neurological.json` wrote the Horner's pharmacological localisation test as
+**hydroxyamphetamine** in the Horner's Syndrome topic (3 fields) and
+**hydroxyamfetamine** in Ptosis and Abnormal Pupils (4 fields) — same drug, same
+test, same file. The deck's other amfetamine drug names are uniformly INN/BNF
+spelling (lisdexamfetamine ×16, dexamfetamine ×5), so the minority moved.
+
+Scope kept deliberately narrow to this one named drug. The broader
+`amphetamine(s)` vs `amfetamine(s)` split elsewhere is the general noun for a
+drug class, where both spellings read naturally; changing that is a house-style
+decision across many files, not a name disagreeing with itself.
+
+### Fixed: 13 invisible characters
+
+`bedside-tests.json` stored U+200B ZERO WIDTH SPACE inside its postural-drop
+inequalities — `≥<ZWSP>20 mmHg systolic`. Invisible to the reader, so not a
+visual defect, but it silently defeats every search: an audit of postural-drop
+thresholds anchored on the value skipped those cards entirely. Same
+false-negative class as the CHA₂DS₂-VASc subscript scan that returned zero hits
+across 99 real mentions. The threshold is now findable in four fields where
+search could not see it.
+
+### The recurring shape: present in the app, absent where the learner meets it
+
+Three agents independently hit the same pattern, and it is worth naming as a
+class rather than a list of one-offs. A fact is in the deck, sometimes **in the
+same file**, but not on the card that needs it:
+
+- **"Oxygen saturations fall late in Guillain-Barré"** appears four times in
+  `neurological.json` — Weakness, Bulbar Palsy, Ptosis — but not on the three
+  GBS cards that say to monitor FVC.
+- **"Folate before B12 precipitates subacute combined degeneration"** is in
+  `haematology.json` five times; the three SACD/B12 cards in neurological signs
+  carry no such warning.
+- **"Irreversible cord damage"** in cervical myelopathy is in `msk.json` and
+  `neurology-neurosurgery.json`; the Hoffmann's topic says only that a new
+  myelopathy "should not be left to deteriorate".
+- **Serotonin syndrome** is absent from Movement Disorders but present twice in
+  the neighbouring Increased Tone topic of the same file.
+- **Foot drop urgency** exists only in its full bilateral-triad form. No card
+  anywhere says a foot drop with back pain alone, or with new bladder symptoms
+  alone, warrants urgent imaging — though the general cauda equina rule is
+  covered 138 times across 19 files.
+- **A limping child's "never dismissed without excluding malignancy and
+  infection"** exists only as two separate halves, never as the combined rule.
+
+None of these is an app-level gap, so none was authored in. But the distinction
+matters: a deck-wide absence is a content decision, whereas a fact sitting in
+the topic next door is an editing decision, and the second is much cheaper to
+fix.
+
+### Verified correct, worth recording because they are easy to get wrong
+
+- **Romberg's sign.** All 64 mentions deck-wide audited: not one card asserts it
+  tests cerebellar function. Two cards state the correction explicitly ("it is
+  **not** a test of cerebellar function", "NOT a cerebellar ataxia"). The 24
+  Howship–Romberg hits in the hernia topics are a different eponym, correctly
+  used.
+- **Functional neurological disorder.** No card implies the symptoms are
+  feigned; Hoover's is framed as a rule-IN sign and FND as a positive diagnosis
+  rather than one of exclusion, corroborated in psychiatry. `respiratory.json`
+  defines a different Hoover's sign (paradoxical rib movement in COPD) — both
+  correct, neither cross-referencing the other.
+- **Neurofibromatosis criteria.** `≥6` café-au-lait macules (inclusive) each
+  `>5 mm` pre-puberty / `>15 mm` post-puberty (strict), consistent in every copy
+  and matching the NIH wording. No endpoint-exclusion defect.
+- **Kocher criteria** for septic arthritis: `>38.5°C`, `>40`, `>12` and the
+  strict `>` identical across seven copies in four files.
+- **Soft-tissue sarcoma red flags**: `>5 cm` strict and "deep to the fascia",
+  identical in every copy across four files, with no `≥5 cm` variant anywhere.
+
+### Reported, not changed
+
+- **SUFE age range** is `10–16` in `msk.json` and `10–15` in `paediatrics.json`.
+- **Ankle jerk root** is `S1` in four places and `S1–S2` in `lower-limb.json`;
+  both are standard teaching.
+- **Reflex root values** generally: `S1 / L3-4 / C5-6 / C7` in three files
+  against the two-root form `S1–2 / L3–4 / C5–6 / C7–8` in
+  `neurology-neurosurgery.json`.
+- **Tetrabenazine's depression and suicidality contraindication** is on the
+  Huntington's cards in `neurology-neurosurgery.json` but not on the Movement
+  Disorders card that names the drug.
+- **SAH CT sensitivity.** A Neck Stiffness card says CT is "near 100% sensitive
+  early" without the 6-hour qualifier that `neurophysiology-csf.json` attaches,
+  and without the flat "a normal CT does not exclude SAH" that `ct.json` states.
+  It does carry the safety net of an LP at ≥12 h if negative.
