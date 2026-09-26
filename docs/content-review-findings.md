@@ -4854,3 +4854,71 @@ rule 4 guards against six *competing* bolds within one claim, not against a
 structural list where every item is the retrieval target and the front asks for
 the whole set. Leaving those bare would have left the card's entire answer
 unmarked.
+
+### skin-special-senses.json complete — 288/288, 0 unformatted
+
+573 fields across seven topics, the largest single-agent assignment of the project.
+
+### Fixed: the cystic fibrosis sweat chloride threshold
+
+The CF diagnostic threshold is **≥60 mmol/L** (30–59 intermediate, <30 normal).
+The deck said `≥60` in **nine** fields across three files and `>60` in **four**,
+all inside `respiratory.json`'s Goblet Cells & Cilia topic.
+
+At exactly 60 mmol/L those four cards move a **diagnostic** result into the
+**intermediate** band — in a child with suggestive symptoms, a delayed CF
+diagnosis. Majority, published threshold and direction of harm all pointed the
+same way, so the outlier topic moved. One of the four sat inside an `fc-num`
+chip, so the anchor had to carry the tag; my first plain-text anchor could not
+match it and the run aborted before writing anything, which is the guard working
+as intended. Two others were an MCQ option and its matching answer string.
+
+### Verified correct on the reversals that matter
+
+- **Pemphigus versus pemphigoid is consistent across the ENTIRE deck** — checked
+  against 14 cards in `dermatology.json`, four in `basic-tissues.json`, and cards
+  in three more files. Every one puts pemphigus intra-epidermal with
+  anti-desmoglein at the desmosome, and pemphigoid sub-epidermal with
+  anti-BP180/BP230 at the hemidesmosome. **No intra- versus sub-epidermal swap
+  anywhere.** The basement-membrane ladder card correctly places dystrophic
+  epidermolysis bullosa at type VII collagen below the lamina densa.
+- **The organ of Corti is right on all four points** — inner hair cells as the
+  transducers carrying ~95% of afferent CN VIII signal, outer hair cells as the
+  prestin-driven amplifier receiving mostly efferent input, base-to-apex tonotopy
+  (stiff narrow base high frequency), and high frequencies lost first because the
+  basal outer hair cells are most vulnerable. That last point matches `ent.json`
+  in substance.
+- **Light passes through the inner retina to reach the photoreceptors**, stated
+  explicitly, with the ten retinal layers in standard order and the fovea
+  correctly cone-only and avascular.
+- **Taste innervation correct** — CN VII chorda tympani anterior two-thirds, CN IX
+  posterior third, CN X epiglottis — agreeing with seven other files.
+- **The stratum lucidum is correctly restricted to thick skin** on all three
+  cards that mention it.
+
+### An app-level gap worth naming
+
+**`Merkel cell carcinoma` returns zero hits in the entire deck.** Merkel cells
+and their CK20 perinuclear-dot marker are covered, but the malignancy is absent
+everywhere — not a topic-level absence. Reported, not authored.
+
+### Reported, not changed
+
+- **Ménière's is a "tetrad" here and a "triad" in `ent.json`** — the same four
+  features either way (episodic vertigo, tinnitus, aural fullness, fluctuating
+  low-frequency sensorineural loss), just a different count label.
+- **Taste laterality** is specified as ipsilateral VPM and gustatory cortex here,
+  and left unspecified in `neurology-neurosurgery.json`. Less specific, not
+  contradictory.
+- **Intra-file duplication:** hidradenitis suppurativa has near-duplicate cards in
+  the Hair Follicle and Sweat Glands topics, and Muir–Torre appears twice in Hair
+  Follicle. Mutually consistent.
+
+### An editorial choice I want on the record
+
+On the two ordered-layer cards — the five epidermal layers and the ten retinal
+layers — the agent bulleted the items but left them **unbolded**, on the grounds
+that bolding nine of ten would imply a hierarchy the card does not claim. That is
+the same reasoning as the spermatogenic-sequence exception, reached
+independently, and I agree with it: where the answer is an ordered set, the
+ordering is the content and selective emphasis distorts it.
