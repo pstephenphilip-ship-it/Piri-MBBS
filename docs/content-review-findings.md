@@ -6350,3 +6350,111 @@ defining the SCJ as a **point** and the TZ as the **region between the original 
 junctions — and another MCQ in the file scores that correct definition as the right answer.
 The conflating string is simultaneously the option text and the answer, so any fix must move
 both. Still open for a clinician.
+
+## The tail — 41 topics across 15 files (240 cards, 449 fields)
+
+Zero `fc-caveat` in the whole batch; 2 grey spans, both acronym expansions. 48 legacy `<b>`
+pairs converted, 12 bare `<`/`>`/`&` escaped. 31 cards already had a marked front, and those
+31 fronts were left byte-identical.
+
+Applied from an **explicit filename manifest**, not a glob — the direct consequence of the
+misapply recorded above.
+
+### The entity/tag-delimiter class appeared for a THIRD time, in a third engine
+
+Independently of the two instances already recorded, this agent hit both halves of it:
+- a `'; '` list separator matched the `;` **inside `&amp;`**, silently eating a word
+  (`&amp; vision` → `&amp` + ` vision`);
+- stripping tags with a loose `<[^>]*>` **ate a real span of text** between a bare `<50` and a
+  later `>`, corrupting the comparison baseline itself.
+
+Both were caught and fixed in the engine. Three independent instances in three separate engines
+makes this the single most reproducible defect class in this work, and it has two faces: a
+delimiter that also terminates an entity (`;`), and a delimiter that also delimits a tag
+(`<`, `>`). Neither can be used on un-decoded, un-stripped text.
+
+### AN ERROR IN MY OWN ACCOUNTING: every "outstanding" figure I reported was backs-only
+
+That agent questioned my detector's wording, and it was right to. `todo.py` tests **the back
+only**:
+
+```python
+n = sum(1 for c in cs if '<strong>' not in c['back'] and 'fc-' not in c['back'] and '<ul' not in c['back'])
+```
+
+So a card whose **back** was marked by an earlier pass but whose **front** was never touched
+counted as *done*. Measured deck-wide:
+
+| | count |
+|---|---|
+| cards with an unmarked back | 224 |
+| cards with an unmarked **front** | 3,604 |
+| **marked back but unmarked front** — never counted | **3,381** |
+| of those, fronts **over 7 words**, where Rule 2 applies | **1,416** |
+
+Rule 2 is my own brief's second rule — *"Every front over ~7 words must carry bold. A wall of
+unmarked front text is the commonest failure."* So this is not a technicality: **1,416 fronts
+are outstanding work that my figures hid.**
+
+They are concentrated in the anatomy files, which an earlier pass marked backs-only:
+embryology 189, neuroanatomy 155, lower-limb 141, head-neck 139, pelvis-perineum 123,
+upper-limb 115, abdomen 113, thorax 113, back-spine 84 — **1,172 between them** — plus
+msk-rheumatology 104 and haematological 79, which are in the final agent's scope.
+
+Typical examples, all plainly in scope for Rule 2: *"List the layers of the anterior abdominal
+wall from superficial to deep."* (12 words), *"What is Scarpa's fascia continuous with, and why
+does it matter?"* (11), *"Where is McBurney's point, and what does it overlie?"* (9).
+
+Every completion figure in this document before this entry should be read as **backs**. The
+front pass on the anatomy files is a distinct remaining piece of work.
+
+### Content findings — reported, not patched
+
+- **PoTS heart-rate criterion three ways in one file**: "more than 30 bpm" on one card,
+  "≥30 bpm (≥40 in adolescents) within 10 minutes" on another, "more than 30 bpm" in the `q`.
+  At exactly 30 bpm one card diagnoses PoTS and the other two do not; two of the three also omit
+  the 10-minute window and the adolescent value.
+- **Faecal elastase at exactly 200 µg/g**: the bands card calls 200 mild-moderate insufficiency;
+  two other files call `<200` insufficiency, so 200 is normal there. The topic's own MCQ
+  deliberately offers "Exactly 200 micrograms/g" as an option — correctly not the answer under
+  its own bands, which makes the cross-file disagreement sharper, not softer.
+- **A range written with a comparison operator is genuinely ambiguous, not merely inconsistent**:
+  `>150-250` for calprotectin, `>3-4 mm` and `>15-17 mm` for pyloric stenosis. A calprotectin of
+  200 or a wall of 3.5 mm cannot be classified from the text at all.
+- **The likelihood-ratio ladder shares its band endpoints**: LR+ `>10` / `5–10` / `2–5` and
+  `~0.5–2` negligible means an LR of exactly 5 is both moderate and small, exactly 2 is both
+  small and negligible, and 0.5 and 0.2 are likewise doubled. The outer edges are clean.
+- **Newborn blood-spot panel: an `fc`/`q` contradiction inside one topic.** The `fc` card says
+  **10** conditions, correctly noting "Wales and Northern Ireland currently screen for 9", and
+  another file agrees on 10. The `q` explanation for that very topic gives **9** unqualified as
+  *the* UK number and omits tyrosinaemia. The MCQ's answer is unaffected, so this is an
+  explanation-only divergence — the one place in this batch where `q` text would need to move to
+  match its own `fc`.
+- **Breast screening age** given once as `50-71` against nine other places saying `50-70`.
+- **The deck contradicts its own rule of thumb**: a `q` explanation says an LR+ of 2–5 gives
+  "roughly +15–20 points mid-range", where the deck's own McGee card gives 2/5/10 → +15/+30/+45.
+  Under its own rule an LR of 5 adds ~30, not 20.
+- **Kasai timing**: "by ~8 weeks" (56 days) versus "before 60 days", so a 58-day-old is inside
+  one window and outside the other. One card states both.
+- **Duplicated cards**: two bare one-line lung-biopsy cards restate what an adjacent marked card
+  already delivers as a two-item list, and the atopic march appears twice with the middle term
+  spelled differently.
+
+### evidence-test-interpretation checked against first principles — nothing wrong
+
+All 37 cards verified: sensitivity, specificity, PPV, NPV, LR+ `sens/(1−spec)`, LR−
+`(1−sens)/spec`, SnNOut and SpPIn mapped to the right result direction *and* the right ratio,
+PPV↑/NPV↓ with prevalence, sensitivity and specificity intrinsic while LRs are
+prevalence-independent, cut-off effects, AUC, parallel versus serial testing, and the
+odds↔probability conversions. All four worked MCQ calculations are arithmetically correct,
+including one that correctly labels an 80/110 ≈ 73% PPV as the trap.
+
+Because no half of any definition was wrong, no half was bolded: the markup marks the
+numerator/denominator pair and the population qualifier (*WITH* / *WITHOUT the disease*), never
+one side of a definition. Recorded because "check it rather than assume the deck is wrong" is the
+finding.
+
+One soft observation left untouched: a card states, already bolded in the source, that a high NPV
+means a negative result "reliably excludes disease and permits reassurance/discharge without
+further testing". That holds only given adequate sensitivity and a genuinely low pre-test
+probability, and the card carries no qualifier.

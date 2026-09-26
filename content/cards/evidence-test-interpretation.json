@@ -3,188 +3,188 @@
     "investigations__EVIDENCE & TEST INTERPRETATION__Diagnostic Test Accuracy (Sensitivity, Specificity)": [
       {
         "id": "ev_ss_fc_01",
-        "front": "Define sensitivity and give its formula.",
-        "back": "Sensitivity = TP / (TP + FN). It is the proportion of people WITH the disease who test positive (the detection rate). A highly sensitive test has few false negatives."
+        "front": "Define <strong>sensitivity</strong> and give its formula.",
+        "back": "Sensitivity = <strong>TP / (TP + FN)</strong>. It is the proportion of people <strong>WITH the disease</strong> who <strong>test positive</strong> (the <strong>detection rate</strong>). <span class=\"fc-sub\">A highly sensitive test has <strong>few false negatives</strong>.</span>"
       },
       {
         "id": "ev_ss_fc_02",
-        "front": "Define specificity and give its formula.",
-        "back": "Specificity = TN / (TN + FP). It is the proportion of people WITHOUT the disease who test negative. A highly specific test has few false positives."
+        "front": "Define <strong>specificity</strong> and give its formula.",
+        "back": "Specificity = <strong>TN / (TN + FP)</strong>. It is the proportion of people <strong>WITHOUT the disease</strong> who <strong>test negative</strong>. <span class=\"fc-sub\">A highly specific test has <strong>few false positives</strong>.</span>"
       },
       {
         "id": "ev_ss_fc_03",
-        "front": "What do the mnemonics SnNOut and SpPIn mean?",
-        "back": "SnNOut: a highly Sensitive test that is Negative rules the disease OUT. SpPIn: a highly Specific test that is Positive rules the disease IN."
+        "front": "What do the mnemonics <strong>SnNOut</strong> and <strong>SpPIn</strong> mean?",
+        "back": "<ul class=\"fc-list\"><li><strong>SnNOut</strong>: a highly <strong>Sensitive</strong> test that is <strong>Negative rules the disease OUT</strong></li><li><strong>SpPIn</strong>: a highly <strong>Specific</strong> test that is <strong>Positive rules the disease IN</strong>.</li></ul>"
       },
       {
         "id": "ev_ss_fc_04",
-        "front": "How does lowering the positivity cut-off affect sensitivity and specificity?",
-        "back": "Lowering the threshold raises sensitivity (catches more true cases, fewer false negatives) but lowers specificity (more false positives). It is a trade-off shown by the ROC curve."
+        "front": "How does <strong>lowering the positivity cut-off</strong> affect sensitivity and specificity?",
+        "back": "Lowering the threshold <strong>raises sensitivity</strong> (catches more true cases, fewer false negatives) but <strong>lowers specificity</strong> (more false positives). <span class=\"fc-sub\">It is a <strong>trade-off</strong> shown by the <strong>ROC curve</strong>.</span>"
       },
       {
         "id": "ev_ss_fc_05",
-        "front": "What does the ROC AUC tell you, and what values are meaningful?",
-        "back": "The area under the ROC curve summarises overall discrimination. AUC near 1.0 = excellent discrimination; AUC of 0.5 = no better than chance (useless test)."
+        "front": "What does the <strong>ROC AUC</strong> tell you, and what values are meaningful?",
+        "back": "The area under the ROC curve summarises <strong>overall discrimination</strong>. <ul class=\"fc-list\"><li><span class=\"fc-num\">AUC near 1.0</span> = <strong>excellent discrimination</strong></li><li><span class=\"fc-num\">AUC of 0.5</span> = <strong>no better than chance</strong> (useless test).</li></ul>"
       },
       {
         "id": "dta_combine_fc_01",
-        "front": "How do parallel and serial testing strategies affect net sensitivity and specificity?",
-        "back": "<b>Parallel</b> testing (positive if either test is positive) raises net <b>sensitivity</b> (better for ruling out). <b>Serial</b> testing (positive only if both are positive) raises net <b>specificity</b> (better for ruling in)."
+        "front": "How do <strong>parallel</strong> and <strong>serial</strong> testing strategies affect <strong>net sensitivity and specificity</strong>?",
+        "back": "<ul class=\"fc-list\"><li><strong>Parallel</strong> testing (positive if either test is positive) raises net <strong>sensitivity</strong> (<strong>better for ruling out</strong>)</li><li><strong>Serial</strong> testing (positive only if both are positive) raises net <strong>specificity</strong> (<strong>better for ruling in</strong>).</li></ul>"
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Predictive Values & Prevalence Effect (PPV / NPV)": [
       {
         "id": "ev_pv_fc_01",
-        "front": "Define positive predictive value (PPV) and give its formula.",
-        "back": "PPV = TP/(TP+FP). It is the probability that a person with a POSITIVE test truly has the disease."
+        "front": "Define <strong>positive predictive value (PPV)</strong> and give its formula.",
+        "back": "PPV = <span class=\"fc-num\">TP/(TP+FP)</span>. It is the probability that a person with a <strong>POSITIVE test</strong> <strong>truly has the disease</strong>."
       },
       {
         "id": "ev_pv_fc_02",
-        "front": "Define negative predictive value (NPV) and give its formula.",
-        "back": "NPV = TN/(TN+FN). It is the probability that a person with a NEGATIVE test truly is disease-free."
+        "front": "Define <strong>negative predictive value (NPV)</strong> and give its formula.",
+        "back": "NPV = <span class=\"fc-num\">TN/(TN+FN)</span>. It is the probability that a person with a <strong>NEGATIVE test</strong> <strong>truly is disease-free</strong>."
       },
       {
         "id": "ev_pv_fc_03",
-        "front": "Which test characteristics depend on prevalence and which do not?",
-        "back": "PPV and NPV depend on prevalence (pre-test probability). Sensitivity and specificity are intrinsic to the test and do NOT change with prevalence."
+        "front": "Which test characteristics <strong>depend on prevalence</strong> and which do not?",
+        "back": "<ul class=\"fc-list\"><li><strong>PPV and NPV depend on prevalence</strong> (pre-test probability)</li><li><strong>Sensitivity and specificity</strong> are intrinsic to the test and <strong>do NOT change with prevalence</strong>.</li></ul>"
       },
       {
         "id": "ev_pv_fc_04",
-        "front": "As prevalence rises, what happens to PPV and NPV for a fixed test?",
-        "back": "PPV increases and NPV decreases."
+        "front": "As <strong>prevalence rises</strong>, what happens to <strong>PPV and NPV</strong> for a fixed test?",
+        "back": "<strong>PPV increases</strong> and <strong>NPV decreases</strong>."
       },
       {
         "id": "ev_pv_fc_05",
-        "front": "Why does screening a low-prevalence population produce so many false positives?",
-        "back": "With few truly diseased people, even a small false-positive rate applied to the large well population outnumbers the true positives, so PPV falls and most positives are false alarms."
+        "front": "Why does screening a <strong>low-prevalence population</strong> produce so many <strong>false positives</strong>?",
+        "back": "With few truly diseased people, even a <strong>small false-positive rate</strong> applied to the <strong>large well population</strong> outnumbers the true positives, so <strong>PPV falls</strong> and most positives are <strong>false alarms</strong>."
       },
       {
         "id": "ppv_confirm_fc_01",
-        "front": "A screening test is positive in a low-prevalence population — what should you do, and what do you tell the patient?",
-        "back": "Because PPV is low, treat it as <b>provisional</b> and confirm with a <b>definitive diagnostic test</b> before diagnosis/treatment. Counsel that a positive screen is <b>not a diagnosis</b> and most positives in this setting are false."
+        "front": "A screening test is <strong>positive</strong> in a <strong>low-prevalence population</strong> — what should you do, and what do you tell the patient?",
+        "back": "Because <strong>PPV is low</strong>, treat it as <strong>provisional</strong> and confirm with a <strong>definitive diagnostic test</strong> before diagnosis/treatment. <span class=\"fc-sub\">Counsel that a positive screen is <strong>not a diagnosis</strong> and <strong>most positives in this setting are false</strong>.</span>"
       },
       {
         "id": "npv_apply_fc_01",
-        "front": "How is a negative test used in a low-prevalence setting?",
-        "back": "NPV is very high, so a negative result <b>reliably excludes</b> disease and permits reassurance/discharge without further testing."
+        "front": "How is a <strong>negative test</strong> used in a <strong>low-prevalence setting</strong>?",
+        "back": "<strong>NPV is very high</strong>, so a negative result <strong>reliably excludes</strong> disease and permits <strong>reassurance/discharge</strong> without further testing."
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Likelihood Ratios (LR+/LR−, SpPIn / SnNOut)": [
       {
         "id": "ev_lr_fc_01",
-        "front": "Formula for LR+ (positive likelihood ratio)?",
-        "back": "LR+ = sensitivity / (1 − specificity). It measures how much a positive test result raises the odds of disease. LR+ > 10 is strong evidence to rule the disease IN."
+        "front": "Formula for <strong>LR+</strong> (positive likelihood ratio)?",
+        "back": "LR+ = <strong>sensitivity / (1 − specificity)</strong>. It measures how much a positive test result <strong>raises the odds</strong> of disease. <span class=\"fc-sub\"><span class=\"fc-num\">LR+ &gt; 10</span> is <strong>strong evidence to rule the disease IN</strong>.</span>"
       },
       {
         "id": "ev_lr_fc_02",
-        "front": "Formula for LR− (negative likelihood ratio)?",
-        "back": "LR− = (1 − sensitivity) / specificity. It measures how much a negative result lowers the odds of disease. LR− < 0.1 is strong evidence to rule the disease OUT."
+        "front": "Formula for LR− (<strong>negative likelihood ratio</strong>)?",
+        "back": "LR− = <strong>(1 − sensitivity) / specificity</strong>. It measures how much a negative result <strong>lowers the odds</strong> of disease. <span class=\"fc-sub\"><span class=\"fc-num\">LR− &lt; 0.1</span> is <strong>strong evidence to rule the disease OUT</strong>.</span>"
       },
       {
         "id": "ev_lr_fc_03",
-        "front": "Why are likelihood ratios superior to predictive values?",
-        "back": "LRs are properties of the test itself and are INDEPENDENT of prevalence, whereas PPV and NPV change with the prevalence of disease in the tested population."
+        "front": "Why are <strong>likelihood ratios</strong> superior to <strong>predictive values</strong>?",
+        "back": "LRs are <strong>properties of the test itself</strong> and are <strong>INDEPENDENT of prevalence</strong>, whereas <strong>PPV and NPV change with the prevalence</strong> of disease in the tested population."
       },
       {
         "id": "ev_lr_fc_04",
-        "front": "How do you use an LR to update disease probability?",
-        "back": "Pre-test odds × LR = post-test odds. Convert probability to odds [odds = p/(1−p)], multiply by the LR, then convert back [p = odds/(1+odds)]. The Fagan nomogram does this graphically."
+        "front": "How do you use an LR to <strong>update disease probability</strong>?",
+        "back": "<strong>Pre-test odds × LR = post-test odds</strong>. <ul class=\"fc-list\"><li>Convert probability to odds [odds = p/(1−p)]</li><li>multiply by the LR</li><li>then convert back [p = odds/(1+odds)].</li></ul> <span class=\"fc-sub\">The <strong>Fagan nomogram</strong> does this graphically.</span>"
       },
       {
         "id": "ev_lr_fc_05",
-        "front": "What do SpPIn and SnNOut mean?",
-        "back": "SpPIn: a Specific test with a Positive result rules the disease IN (high LR+). SnNOut: a Sensitive test with a Negative result rules the disease OUT (low LR−)."
+        "front": "What do <strong>SpPIn</strong> and <strong>SnNOut</strong> mean?",
+        "back": "<ul class=\"fc-list\"><li><strong>SpPIn</strong>: a <strong>Specific</strong> test with a <strong>Positive</strong> result <strong>rules the disease IN</strong> (high LR+)</li><li><strong>SnNOut</strong>: a <strong>Sensitive</strong> test with a <strong>Negative</strong> result <strong>rules the disease OUT</strong> (low LR−).</li></ul>"
       },
       {
         "id": "lr_ladder_fc_01",
-        "front": "Give the full likelihood-ratio interpretation ladder.",
-        "back": "<b>LR+</b>: >10 large, 5–10 moderate, 2–5 small (rule-in). <b>LR−</b>: <0.1 large, 0.1–0.2 moderate, 0.2–0.5 small (rule-out). <b>LR ~0.5–2 = negligible</b> shift; LR = 1 useless."
+        "front": "Give the full likelihood-ratio <strong>interpretation ladder</strong>.",
+        "back": "<ul class=\"fc-list\"><li><strong>LR+</strong>: &gt;10 large, 5–10 moderate, 2–5 small (<strong>rule-in</strong>)</li><li><strong>LR−</strong>: &lt;0.1 large, 0.1–0.2 moderate, 0.2–0.5 small (<strong>rule-out</strong>)</li><li><strong>LR ~0.5–2 = negligible</strong> shift; LR = 1 <strong>useless</strong>.</li></ul>"
       },
       {
         "id": "lr_mcgee_fc_01",
-        "front": "What is the bedside (nomogram-free) rule for how much an LR shifts probability?",
-        "back": "McGee’s rule: LRs of <b>2/5/10</b> add roughly <b>+15/+30/+45</b> percentage points; LRs of <b>0.5/0.2/0.1</b> subtract ~15/30/45 points (in the mid-probability range)."
+        "front": "What is the <strong>bedside (nomogram-free) rule</strong> for how much an LR shifts probability?",
+        "back": "<strong>McGee</strong>’s rule: <ul class=\"fc-list\"><li>LRs of <strong>2/5/10</strong> add roughly <strong>+15/+30/+45</strong> percentage points</li><li>LRs of <strong>0.5/0.2/0.1</strong> subtract ~15/30/45 points (in the mid-probability range).</li></ul>"
       },
       {
         "id": "lr_multilevel_fc_01",
-        "front": "Why are multi-level (stratum-specific) likelihood ratios more useful than a single cut-off?",
-        "back": "Each result band has its own LR, so a strongly positive result shifts probability far more than a weakly positive one. Dichotomising a graded test (e.g. D-dimer level, troponin band) discards this information — an advantage LR has over sens/spec/PPV."
+        "front": "Why are <strong>multi-level (stratum-specific)</strong> likelihood ratios more useful than a <strong>single cut-off</strong>?",
+        "back": "<strong>Each result band has its own LR</strong>, so a <strong>strongly positive</strong> result shifts probability far more than a <strong>weakly positive</strong> one. <span class=\"fc-sub\"><strong>Dichotomising</strong> a graded test (e.g. D-dimer level, troponin band) <strong>discards this information</strong> — an advantage LR has over sens/spec/PPV.</span>"
       }
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Screening Principles (Wilson–Jungner)": [
-      {"id": "ev_screen_fc_01", "front": "What is the purpose of screening, and how does it differ from diagnosis?", "back": "Screening tests apparently well people to identify those at higher risk of a condition before symptoms appear — it estimates risk, it does not diagnose. A positive screen must always be followed by a confirmatory diagnostic test before the condition is confirmed, which is why screening is judged on sensitivity, specificity and predictive values rather than on being 'right'."},
+      {"id": "ev_screen_fc_01", "front": "What is the <strong>purpose of screening</strong>, and how does it differ from <strong>diagnosis</strong>?", "back": "Screening tests <strong>apparently well people</strong> to identify those at <strong>higher risk</strong> of a condition <strong>before symptoms appear</strong> — it <strong>estimates risk, it does not diagnose</strong>. <span class=\"fc-sub\">A positive screen <strong>must always be followed by a confirmatory diagnostic test</strong> before the condition is confirmed, which is why screening is judged on sensitivity, specificity and predictive values rather than on being 'right'.</span>"},
       {
         "id": "ev_screen_fc_02",
-        "front": "List the four Wilson & Jungner domains and their core requirement.",
-        "back": "CONDITION: important problem with a recognisable latent stage and understood natural history. TEST: simple, safe, acceptable, valid with an agreed cut-off. TREATMENT: an accepted effective treatment exists and early treatment beats late. PROGRAMME: cost-effective, continuous, with adequate facilities and an agreed policy on whom to treat."
+        "front": "List the <strong>four Wilson &amp; Jungner domains</strong> and their core requirement.",
+        "back": "<ul class=\"fc-list\"><li><strong>CONDITION</strong>: important problem with a <strong>recognisable latent stage</strong> and understood <strong>natural history</strong></li><li><strong>TEST</strong>: simple, safe, acceptable, valid with an <strong>agreed cut-off</strong></li><li><strong>TREATMENT</strong>: an <strong>accepted effective treatment</strong> exists and early treatment beats late</li><li><strong>PROGRAMME</strong>: <strong>cost-effective</strong>, continuous, with adequate facilities and an agreed policy on whom to treat.</li></ul>"
       },
       {
         "id": "ev_screen_fc_03",
-        "front": "Define lead-time bias.",
-        "back": "Earlier detection by screening moves the diagnosis date forward, lengthening measured survival from diagnosis even when the actual date of death is unchanged. It makes screen-detected survival look falsely better without anyone living longer."
+        "front": "Define <strong>lead-time bias</strong>.",
+        "back": "Earlier detection by screening <strong>moves the diagnosis date forward</strong>, <strong>lengthening measured survival</strong> from diagnosis even when the actual <strong>date of death is unchanged</strong>. <span class=\"fc-sub\">It makes screen-detected survival look falsely better <strong>without anyone living longer</strong>.</span>"
       },
       {
         "id": "ev_screen_fc_04",
-        "front": "Define length-time bias.",
-        "back": "Screening preferentially detects slow-growing, indolent disease with a long pre-clinical phase and inherently better prognosis, while aggressive fast-growing disease surfaces symptomatically between screens. This overstates the apparent benefit of screening."
+        "front": "Define <strong>length-time bias</strong>.",
+        "back": "Screening preferentially detects <strong>slow-growing, indolent disease</strong> with a <strong>long pre-clinical phase</strong> and inherently <strong>better prognosis</strong>, while <strong>aggressive fast-growing disease</strong> surfaces symptomatically <strong>between screens</strong>. <span class=\"fc-sub\">This <strong>overstates the apparent benefit</strong> of screening.</span>"
       },
       {
         "id": "ev_screen_fc_05",
-        "front": "Give the UK adult and infant screening programmes with their targets.",
-        "back": "Cervical (hrHPV, women 25-64), breast (mammography, 50-71, 3-yearly), bowel (FIT, 50-74, 2-yearly), AAA (one-off ultrasound, men at 65), antenatal (infections, Down's, anomaly scan) and newborn bloodspot (day 5 heel-prick for CF, congenital hypothyroidism, sickle cell and other conditions)."
+        "front": "Give the UK adult and infant <strong>screening programmes</strong> with their <strong>targets</strong>.",
+        "back": "<ul class=\"fc-list\"><li><strong>Cervical</strong> (hrHPV, women <span class=\"fc-num\">25-64</span>)</li><li><strong>breast</strong> (mammography, <span class=\"fc-num\">50-71</span>, 3-yearly)</li><li><strong>bowel</strong> (FIT, <span class=\"fc-num\">50-74</span>, 2-yearly)</li><li><strong>AAA</strong> (one-off ultrasound, <span class=\"fc-num\">men at 65</span>)</li><li><strong>antenatal</strong> (infections, Down's, anomaly scan) and <strong>newborn bloodspot</strong> (<span class=\"fc-num\">day 5</span> heel-prick for CF, congenital hypothyroidism, sickle cell and other conditions).</li></ul>"
       },
       {
         "id": "scr_nsc_fc_01",
-        "front": "Which body decides UK screening programmes, and against what?",
-        "back": "The <b>UK National Screening Committee (NSC)</b> appraises evidence against modernised Wilson–Jungner criteria (RCT benefit, cost-effectiveness, acceptable harm–benefit) and advises the four UK governments whether to introduce, modify or stop a programme."
+        "front": "Which body decides <strong>UK screening programmes</strong>, and against what?",
+        "back": "The <strong>UK National Screening Committee (NSC)</strong> appraises evidence against <strong>modernised Wilson–Jungner criteria</strong> (RCT benefit, cost-effectiveness, acceptable harm–benefit) and advises the <strong>four UK governments</strong> whether to introduce, modify or stop a programme."
       },
       {
         "id": "scr_consent_fc_01",
-        "front": "Why does screening require informed choice?",
-        "back": "Because it invites <b>well people</b> and carries real harms (false positives, overdiagnosis, overtreatment); participants must understand benefits and harms and may <b>decline</b>."
+        "front": "Why does screening require <strong>informed choice</strong>?",
+        "back": "Because it invites <strong>well people</strong> and carries <strong>real harms</strong> (false positives, overdiagnosis, overtreatment); participants <strong>must understand benefits and harms</strong> and may <strong>decline</strong>."
       },
-      {"id": "scr_newborn_fc_01", "front": "Name the three UK newborn screening programmes.", "back": "<b>Bloodspot</b> (day 5, 10 conditions), <b>newborn hearing</b> (OAE ± AABR), and <b>NIPE</b> (physical examination at 72 h and 6–8 weeks)."}
+      {"id": "scr_newborn_fc_01", "front": "Name the three UK <strong>newborn screening programmes</strong>.", "back": "<ul class=\"fc-list\"><li><strong>Bloodspot</strong> (<span class=\"fc-num\">day 5</span>, <span class=\"fc-num\">10 conditions</span>)</li><li><strong>newborn hearing</strong> (OAE ± AABR)</li><li>and <strong>NIPE</strong> (physical examination at 72 h and 6–8 weeks).</li></ul>"}
     ],
     "investigations__EVIDENCE & TEST INTERPRETATION__Notifiable Diseases & Notification Process": [
       {
         "id": "ev_notify_fc_01",
-        "front": "What triggers the legal duty to notify a notifiable disease in the UK?",
-        "back": "Reasonable CLINICAL SUSPICION of the disease by the attending registered medical practitioner. You must notify promptly without waiting for laboratory confirmation."
+        "front": "What triggers the <strong>legal duty to notify</strong> a notifiable disease in the UK?",
+        "back": "<strong>Reasonable CLINICAL SUSPICION</strong> of the disease by the <strong>attending registered medical practitioner</strong>. <span class=\"fc-sub\">You <strong>must notify promptly</strong> <strong>without waiting for laboratory confirmation</strong>.</span>"
       },
       {
         "id": "ev_notify_fc_02",
-        "front": "To whom is a notifiable disease reported, and how quickly?",
-        "back": "To the proper officer of the local authority / UKHSA. Urgent cases (e.g. meningococcal disease, diphtheria, VHF) same day by phone; routine cases in writing within 3 days."
+        "front": "To whom is a notifiable disease <strong>reported</strong>, and <strong>how quickly</strong>?",
+        "back": "To the <strong>proper officer</strong> of the <strong>local authority / UKHSA</strong>. <ul class=\"fc-list\"><li><strong>Urgent cases</strong> (e.g. meningococcal disease, diphtheria, VHF) <span class=\"fc-num\">same day by phone</span></li><li><strong>routine cases</strong> in writing <span class=\"fc-num\">within 3 days</span>.</li></ul>"
       },
       {
         "id": "ev_notify_fc_03",
-        "front": "Name six common notifiable diseases in the UK.",
-        "back": "Measles, mumps, rubella, meningococcal disease/meningitis, TB, cholera, diphtheria, whooping cough (pertussis), food poisoning, acute infectious hepatitis, HUS, malaria, rabies, viral haemorrhagic fever, COVID-19 (any six)."
+        "front": "Name <strong>six common notifiable diseases</strong> in the UK.",
+        "back": "<strong>Measles, mumps, rubella</strong>, <strong>meningococcal disease/meningitis</strong>, <strong>TB</strong>, cholera, diphtheria, whooping cough (pertussis), <strong>food poisoning</strong>, acute infectious hepatitis, HUS, malaria, rabies, viral haemorrhagic fever, COVID-19 (<strong>any six</strong>)."
       },
       {
         "id": "ev_notify_fc_04",
-        "front": "Is HIV a statutorily notifiable disease in the UK?",
-        "back": "No. HIV is NOT on the statutory notifiable list (patient confidentiality); it is monitored through confidential voluntary surveillance instead."
+        "front": "Is <strong>HIV</strong> a <strong>statutorily notifiable</strong> disease in the UK?",
+        "back": "<strong>No</strong>. HIV is <strong>NOT on the statutory notifiable list</strong> (<strong>patient confidentiality</strong>); it is monitored through <strong>confidential voluntary surveillance</strong> instead."
       },
       {
         "id": "ev_notify_fc_05",
-        "front": "What is the public-health purpose of prompt notification?",
-        "back": "To enable contact tracing, prophylaxis of contacts, early outbreak detection, and outbreak control before further spread occurs. Diagnostic laboratories must separately report notifiable causative organisms."
+        "front": "What is the <strong>public-health purpose</strong> of <strong>prompt notification</strong>?",
+        "back": "To enable <strong>contact tracing</strong>, <strong>prophylaxis of contacts</strong>, <strong>early outbreak detection</strong>, and <strong>outbreak control</strong> before further spread occurs. <span class=\"fc-sub\"><strong>Diagnostic laboratories must separately report</strong> notifiable causative organisms.</span>"
       },
       {
         "id": "notif_not_fc_01",
-        "front": "Which common infections are NOT statutorily notifiable in England?",
-        "back": "<b>HIV, seasonal influenza, Lyme disease, MRSA, C. difficile and the common cold</b> — the classic exam traps. But note the April 2025 changes: chickenpox (varicella), CJD, congenital syphilis and disseminated gonococcal infection all BECAME notifiable, so chickenpox is no longer a valid 'not notifiable' answer."
+        "front": "Which common infections are <strong>NOT statutorily notifiable</strong> in England?",
+        "back": "<strong>HIV, seasonal influenza, Lyme disease, MRSA, C. difficile and the common cold</strong> — the classic exam traps. <span class=\"fc-sub\">But note the <span class=\"fc-num\">April 2025</span> changes: chickenpox (varicella), CJD, congenital syphilis and disseminated gonococcal infection all <strong>BECAME notifiable</strong>, so chickenpox is <strong>no longer a valid</strong> 'not notifiable' answer.</span>"
       },
       {
         "id": "notif_consent_fc_01",
-        "front": "Does statutory notification of a notifiable disease need the patient’s consent?",
-        "back": "<b>No</b> — it is a lawful public-interest/statutory disclosure that overrides the usual duty of confidentiality; you notify even if the patient objects. (HIV is kept confidential precisely because it is non-statutory.)"
+        "front": "Does <strong>statutory notification</strong> of a notifiable disease need the patient’s <strong>consent</strong>?",
+        "back": "<strong>No</strong> — it is a <strong>lawful public-interest/statutory disclosure</strong> that <strong>overrides the usual duty of confidentiality</strong>; you notify <strong>even if the patient objects</strong>. <span class=\"fc-sub\">(HIV is kept confidential precisely because it is non-statutory.)</span>"
       },
       {
         "id": "notif_mening_fc_01",
-        "front": "What follows notification of suspected meningococcal disease?",
-        "back": "Notify <b>same day by phone</b>; UKHSA arranges <b>single-dose ciprofloxacin</b> (or rifampicin) prophylaxis for close/household contacts."
+        "front": "What follows notification of <strong>suspected meningococcal disease</strong>?",
+        "back": "Notify <strong>same day by phone</strong>; <strong>UKHSA</strong> arranges <strong>single-dose ciprofloxacin</strong> (or rifampicin) prophylaxis for <strong>close/household contacts</strong>."
       }
     ]
   },
