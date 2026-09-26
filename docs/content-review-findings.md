@@ -7430,3 +7430,75 @@ which is high but is not almost all. Corrected to match.
 Verified against `HEAD`: 54 fields changed, 7 cards removed, none added, nothing
 outside this topic touched; every MCQ's options and `correctIndex` are byte-identical
 and every `answer` still equals its `options[correctIndex]`.
+
+## Content screen 2 — the six CVS histology topics (v1547)
+
+269 cards read (154 flashcards, 115 MCQs). **24 fields changed: 17 fronts, 6 backs,
+1 MCQ stem. 4 duplicates merged away. 154 &rarr; 150 flashcards.**
+
+These topics were much cleaner than the physiology topic, and the screen says so:
+**245 of 269 cards were left alone.** Heart Wall needed exactly one change.
+
+### Two real content defects, both verified against the raw card before acting
+
+* **A front contradicting its own back.** Capillaries[14] asked *"Why are capillaries
+  ideal for exchange **despite** slow flow?"* — while its own third bullet says slow
+  flow **maximises** time for diffusion. Slow flow is the *reason*, not an obstacle.
+  The front now asks for the three features its back actually lists.
+* **Risk content in a grey aside.** Conducting System[13] had the WPW+AF
+  do-not-give list — adenosine, verapamil/diltiazem, digoxin, beta-blockers — inside
+  `<span class="fc-inline">`, which renders grey. That is the tone rule this project
+  has enforced all along: **no grey span may carry risk.** Same words, now an
+  em-dash clause with the drug names emphasised.
+
+### Counts verified as genuinely correct and left alone
+
+The three tunicae (intima/media/adventitia), the three capillary types
+(continuous/fenestrated/sinusoidal), the three layers of the heart wall, the three
+valve-cusp layers, the four Starling mechanisms of oedema, Virchow's triad, the two
+lymphatic valve systems. **No count in these six topics was an artefact**, none was
+made smaller, and none was invented. A screen that finds nothing in a clean topic is
+the screen working.
+
+### The no-content-lost check did real work again
+
+I wrote the four keeper backs by hand rather than appending the agent's `absorb`
+strings, because those were phrased as *instructions to me* — *"Keeper must gain the
+word filtered: ..."* — and appending them verbatim would have printed that sentence
+onto a card. Valid markup, no lost facts, and completely wrong: exactly the class of
+defect a guard cannot catch, which is why the drops were hand-authored.
+
+The word check then rejected my own first four drafts in turn, and each rejection was
+a real vocabulary loss, not a false alarm:
+
+| rejected because | fix |
+|---|---|
+| `via` | kept *via* rather than substituting *through* |
+| `system` | *collecting system* &rarr; *collecting vessel* is the same thing; listed as generic |
+| `blood`, `fraction`, `L`, `lymphatics` | rewrote the bullet to keep all four words |
+| `circulation`, `litres` | *blood* &rarr; **blood circulation**; L and litres are one unit |
+| `bradykinin-driven`, `emigration`, `postcapillary`, `venule`, `causes` | kept *emigration*; taught the checker to split hyphens; put the keeper's **front** in the pool |
+
+Two of those were checker bugs worth keeping fixed: `bradykinin-driven` did not match
+`bradykinin` because the tokeniser kept hyphens, and the keeper's **front** was not in
+the survival pool at all, so a word preserved in the question read as lost.
+
+### Reported, not changed
+
+* **MCQ near-duplicates within a topic** — seven pairs (Capillaries q5&asymp;q14 and
+  q4&asymp;q11, Lymphatics q1&asymp;q10, Veins q1&asymp;q18, Arteries q1&asymp;q4,
+  Heart Wall q2&asymp;q4 and q8&asymp;q16). The proposal schema's `drop` addresses
+  flashcards only, so these need a separate pass.
+* **Cross-topic overlap left intact** by the user's rule that repetition across topics
+  is fine: venules and sinusoids in both Veins and Capillaries, Purkinje histology in
+  both Heart Wall and Conducting System, endothelial markers in three topics.
+* **Image placeholders: there are none in this file.** Every HTML tag in
+  `cardiovascular.json` was enumerated — only `strong/b/i/br/li/ul/span` with the
+  deck's four span classes. No `<img>`, no bracket or brace placeholder, so the
+  standing instruction not to disturb them could not be breached here.
+* Lymphatics uses plain hyphens where the deck's convention is an en-dash, including
+  the ranges `~L1-2` and `~T4-5`. Markup, deferred.
+
+Verified against `HEAD`: 24 fields changed, 4 cards removed, none added, **nothing
+outside the six histology topics touched**, every MCQ's options and `correctIndex`
+byte-identical.
