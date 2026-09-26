@@ -6550,3 +6550,47 @@ by manifest.
   Weber, Garden, Salter-Harris, Ficat and the modified New York criterion; haematocrit target
   `<0.45`, with the two different PV *diagnostic* thresholds explicitly flagged as different on
   the cards themselves.
+
+## Fronts, part 1 — the 62 non-anatomy stragglers
+
+With every back marked, the remaining Rule 2 work was 1,234 unmarked fronts over 7 words.
+1,172 sit in the nine anatomy files and are with agents. The other **62 were scattered
+singletons across 19 files** — a card here and there whose back an earlier pass marked and
+whose front it never touched. All 62 are now marked.
+
+Bold went on the term the card turns on, never on the interrogative scaffolding (*what, which,
+where, name, list, describe*). **Median bold share 0.25**, min 0.10, max 0.75. Five fronts
+exceed 50%, all of the form *"What is <long named entity>?"* where the only unbolded words are
+the scaffolding — Rule 2a, not 2a-ii:
+habit (psychogenic / tic) cough; traumatic tympanic membrane (TM) perforation; Deprivation of
+Liberty Safeguards (DoLS); chronic fatigue syndrome / ME (ME/CFS); somatisation / medically
+unexplained symptom disorders.
+
+### My own script hit the weld hazard I had just briefed agents about
+
+The uniqueness assertion fired on **"Mobitz I" inside "Mobitz II"**: a first-match replace on
+*"Distinguish Mobitz I and Mobitz II second-degree AV block"* would have emitted
+`<strong>Mobitz I</strong>I`, splitting the word. Precisely the `fe|male-factor` class, in my
+own code, one turn after writing the warning into the brief.
+
+The fix is general rather than a special case: substitute the **longest term first via a
+sentinel**, asserting uniqueness at the moment of use, then restore. Recording it because the
+lesson is not "be careful with Mobitz" — it is that *knowing* about a defect class does not
+protect you from it, and only the assertion does.
+
+Two further defects the assertions caught before any write:
+- **The raw front string is not unique in the file.** One front's text recurs in another topic
+  and in the `q` map, so a string replace would have hit the wrong card. Switched to a
+  positional splice using `ingest.py`'s own card locator.
+- **"Heart Failure" matches three topics** (plus Acute and Chronic). Exact topic-tail match
+  first, substring only as a fallback — the same fix the grey-span sweep needed.
+
+All three aborted before writing, because every assertion runs before any file is touched.
+
+### Deck state
+
+| | count |
+|---|---|
+| unmarked backs | **0** |
+| unmarked long fronts outside the anatomy files | **0** |
+| unmarked long fronts in the nine anatomy files | 1,172 (in progress) |
