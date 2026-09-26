@@ -6974,3 +6974,38 @@ harmonising it would be 214 edits of pure churn.
 Search is unaffected: `daNorm`, the only normaliser in the app, is applied to
 topic names and aliases only, never to card body text, and NFD does not
 decompose a subscript in any case.
+
+## Numeric range separators normalised to the en-dash (v1541)
+
+4,803 numeric ranges were already written with an en-dash (`5&ndash;10`) and
+1,285 with a hyphen (`5-10`), the two forms appearing on the same card.
+**1,161 hyphens moved to en-dashes across 898 fields in 58 files.**
+
+A hyphen was only touched when it sits between two numbers AND:
+
+1. nothing alphanumeric, no dot and no other dash sits immediately before the
+   left number &mdash; this alone excludes `D2-40`, `C5-6`, `T12-L1`, `HLA-B27`,
+   `5-HT`, `COX-2` and every other letter-anchored label;
+2. no digit, dot or dash follows the right number &mdash; excluding chained forms
+   such as the 4-2-1 fluid rule and 1-2-3 enumerations;
+3. **the range ascends.** This is the rule that catches what the other two miss.
+
+All 274 distinct number pairs the filter admitted were listed and read before a
+single edit was made. Every one is a genuine quantity range: `1-2 weeks`,
+`88-92%`, `scored 0-4`, `grades 0-1`, `SA node (20-40)`, `>0.12-0.24 s`. No
+named entity was among them.
+
+The ascending rule earned its place. The 13 hyphens it left behind are exactly
+the ones that must not move:
+
+* **`CA 19-9`** (9 uses) &mdash; a tumour marker, not a range. It passes rules 1
+  and 2 (the space after `CA` means no letter is adjacent), and only the
+  descending test rejects it.
+* **`(40-20)`** (4 uses) &mdash; a literal **subtraction** inside the corrected-
+  calcium formula, `1.9 + 0.02 &times; (40-20)`. An en-dash there would turn an
+  arithmetic operator into a range and make the worked example unreadable.
+
+Verified against `HEAD` character by character: 898 string fields changed,
+nothing else; every changed string is the same length as the original and
+differs only where a `-` became an en-dash; every `answer` still equals its
+`options[correctIndex]`; no id moved.
