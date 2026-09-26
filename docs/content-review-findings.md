@@ -4426,3 +4426,47 @@ contradictions.
   the skeletal-muscle stem cell, and the glial cell of a peripheral ganglion.
   Both standard; flagged only because a learner meeting both in one deck will
   collide them.
+
+### basic-tissues.json complete — 325/325, 0 unformatted
+
+Counted before writing this heading. 649 fields across eight topics.
+
+**This batch found no content errors at all**, which is worth recording rather
+than passing over, because the checks were aimed squarely at the things that are
+usually wrong in histology:
+
+- **Haematoxylin and eosin are not reversed anywhere.** All six relevant cards
+  are right: haematoxylin is the *basic* dye binding *acidic* (basophilic)
+  structures, eosin the *acidic* dye binding *basic* (eosinophilic) ones,
+  including the Romanowsky card and the cartilage-GAG basophilia card. This is
+  the single most commonly muddled pair in the subject.
+- **Every special stain is correctly attributed and unanimous deck-wide**: PAS
+  (13 mentions), Congo red with apple-green birefringence (48), Perls' Prussian
+  blue (24), Ziehl–Neelsen with auramine–rhodamine as the fluorescent
+  alternative (48), reticulin silver, toluidine blue *by metachromasia*,
+  Grocott's for Pneumocystis, Warthin–Starry for spirochaetes, von Kossa for
+  calcium.
+- **The osteoclast lineage is right**, which was the highest-risk item briefed:
+  osteoclasts from the monocyte/macrophage haematopoietic line, with
+  osteoprogenitor, osteoblast and osteocyte mesenchymal. **No card anywhere in
+  the deck derives the osteoclast from mesenchyme.**
+- **All three cartilage types are correctly sited**, corroborated from four other
+  files (pinna and epiglottis elastic; intervertebral disc, pubic symphysis,
+  menisci and TMJ fibrocartilage), with the no-perichondrium claim correctly
+  limited to fibrocartilage and articular hyaline.
+
+**One pair that looks like a contradiction and is not**, recorded so it is not
+"fixed" later by mistake: hypersegmented neutrophils are `>5 lobes` in
+`basic-tissues.json` and `≥6 nuclear lobes` in `haematology.json`. Those are
+arithmetically identical.
+
+**Absences confirmed, reported not filled:** no card anywhere teaches **van
+Gieson on its own as a collagen stain** — all three mentions are
+"Verhoeff–Van Gieson" for elastic fibres, consistently. And `haematology.json`
+carries **no white-cell differential percentages, no haematocrit reference range,
+no red-cell or platelet diameters and no platelet lifespan** at all, so the
+figures in `basic-tissues.json` have nothing to disagree with.
+
+**A brief/file divergence handled correctly again:** I briefed "van Gieson" as a
+stain to check; the file uses only the abbreviation "EVG". The agent marked what
+was there and did not expand, rename or gloss it.
