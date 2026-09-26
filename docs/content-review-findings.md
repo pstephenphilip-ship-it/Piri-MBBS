@@ -7502,3 +7502,100 @@ the survival pool at all, so a word preserved in the question read as lost.
 Verified against `HEAD`: 24 fields changed, 4 cards removed, none added, **nothing
 outside the six histology topics touched**, every MCQ's options and `correctIndex`
 byte-identical.
+
+## Content screen 3 — 32 cardiovascular topics, wording pass (v1548)
+
+Five agent batches, screened against the three defect classes. **296 fields changed
+across 32 topics: 114 flashcard fronts, 77 backs, 71 MCQ stems, 34 MCQ explanations.**
+No card added or removed in this commit — the 131 proposed deletions are held for a
+separate reviewed pass, because removing content is not the same kind of change as
+rewording it.
+
+### False counts found, each settled by the deck's own other cards
+
+| card | claimed | why it was an artefact |
+|---|---|---|
+| ACS: modifiable risk factors | six | diet, alcohol, psychosocial stress and stimulant use missing &mdash; the deck spends five cards on cocaine-induced ACS |
+| ACS: silent MI groups | two | the deck's own Chest Pain card says "diabetics, the elderly **and women**" |
+| ACS: causes of Type 2 MI | five | one bullet carried two mechanisms and the sub-clause added four more; the real count is nine |
+| ACS: add-on anti-anginals | three | **the back listed four** |
+| Chest Pain: can't-miss causes | six | myocarditis, acute chest syndrome, cocaine vasospasm, severe pneumonia/sepsis missing |
+| Chest Pain: ECG territories | three | the next two cards teach RV and posterior MI |
+| Leg Pain: causes on walking | four | the same topic teaches popliteal entrapment, chronic exertional compartment syndrome and Buerger's |
+| Valves: AS triad on pulse/sounds | three | the deck's own card lists four &mdash; the S4 belongs |
+| Murmur: eponymous AR signs | three | the deck has a separate card for each of six |
+| Cardiomyopathies: named beyond the classic three | two | **peripartum cardiomyopathy is taught in the same topic** |
+| Myocarditis: main consequences | three | the same topic teaches progression to DCM and sudden cardiac death |
+| Gangrene: main types | two | the topic teaches four (dry/wet/gas/Fournier's) |
+| Leg Ulcers: atypical painful causes | two | calciphylaxis missing |
+| HTN: goals of the work-up | two | quantifying 10-year CV risk is taught on two other cards |
+
+Counts checked and **left alone** because they are genuinely right: the modified Duke
+criteria (two major, five minor, and the definite/possible arithmetic), Jones (five
+major with the four minors on their own card), the 6 Ps, Fontaine I&ndash;IV,
+Rutherford, Stanford (two) and DeBakey (three), NYHA (four), Beck's, Virchow's,
+Mackler's and the AS symptom triad, the HCM Risk-SCD seven variables, SODIUM, FAILURE,
+Levine 1&ndash;6, the three ESC syncope categories, the three capillary types.
+Two predicted defects **did not exist**: there is no "four stages of hypertension"
+card (NG136 has three and so does the deck) and no counted secondary-hypertension card.
+
+### Four numeric or factual errors, each verified against my own knowledge before applying
+
+* **The DVT Wells score was given as "0&ndash;8 points".** It runs **&minus;2 to +9**
+  &mdash; nine +1 features and &minus;2 for "alternative diagnosis at least as likely"
+  &mdash; and **the topic's own MCQ says so**, so the deck contradicted itself. The
+  variable list also omitted four items. Rewritten with the correct range, all ten
+  items, and both label pairs. Checked: no PE-specific Wells items have leaked in, and
+  the &ge;2/&le;1 cut-off used throughout is the DVT one.
+* **SGLT2 inhibitors were credited with a mortality benefit in HFpEF.** EMPEROR-Preserved
+  and DELIVER show a reduction in **heart-failure hospitalisation**, not mortality
+  &mdash; and the card's own MCQ already said so. Corrected.
+* **A hypertension explanation said the >80 target loosens "unless significant CVD/CKD
+  warrants tighter control".** Per NG136 the clinic target is **<150/90 regardless of
+  established CVD** (ABPM/HBPM <145/85); only CKD with ACR &ge;70 mg/mmol tightens it to
+  <130/80. Corrected.
+* **An aortic-dissection mnemonic taught "B = Below/Beyond the subclavian"** &mdash;
+  which is the error the neighbouring card's own caveat warns against (that is DeBakey
+  III; Stanford B can involve the arch). Changed to "B = Beyond the ascending aorta",
+  with "below the left subclavian" moved into a caveat labelled DeBakey III.
+
+### Deck-internal references removed from card content
+
+Thirteen MCQ explanations in the valve topic cited **the notes instead of the
+medicine** &mdash; *"The murmur master table lists&hellip;"*, *"The timing diagram
+labels&hellip;"*, *"The notes state&hellip;"*, *"The S2 card notes&hellip;"* &mdash; all
+rewritten to give the mechanism. One card began *"Every valve lesion in **this
+reference** follows the same revision template."* An acute-heart-failure card ended
+*"See Cardiac Markers for the thresholds used in the UK"* &mdash; replaced with the
+actual rule-out threshold. Another ended *"increasingly examined at finals"*. A pulse
+card's back said *"(see the Beck's-triad card)"* &mdash; the triad is now spelled out.
+`"EXAM PEARL:"` / `"Exam pearl:"` labels were stripped from fronts and stems across
+Gangrene, DVT, Infective Endocarditis, Myocarditis and Valvular Heart Disease.
+
+### Vagueness with no number at all
+
+A chronic-heart-failure card said the iron threshold in HF is *"higher than the usual
+one"* **and gave no figure** &mdash; completed with ferritin <100 &micro;g/L, or
+100&ndash;299 &micro;g/L with TSAT <20%, matching the number already in that topic's
+own MCQ. Another gave NT-proBNP thresholds with no units.
+
+### Reported and deliberately not changed
+
+* Two guideline figures where the deck is internally consistent but may differ from
+  current ESC/AHA: indexed LVESD **>24 mm/m&#178;** for AR surgery (ESC 2021 uses >25)
+  and LVEF **<55%** for asymptomatic severe AS (ESC uses <50%). Flagged rather than
+  silently edited.
+* A CABG threshold given as EF &le;35% on one card and <30% on an MCQ.
+* One MCQ's **correct option itself** reads *"They are listed precipitants that raise
+  LA pressure&hellip;"* &mdash; a notes-reference inside a keyed option, which the
+  options rule forbids touching.
+* Dressler's timing is given three different ways across topics
+  (1&ndash;6 weeks / weeks to months / 2&ndash;10 weeks).
+* A DVT card still treats superficial thrombophlebitis conservatively, contradicting
+  the varicose-veins cards (fondaparinux/LMWH 45 days if &ge;5 cm).
+* Every MCQ in the "Heart Failure" topic has `answer: null`, with only `correctIndex`
+  set. A data issue, untouched.
+
+Verified against `HEAD`: 296 fields changed and nothing else &mdash; **no card count
+changed anywhere in the file**, every MCQ's `options` and `correctIndex` byte-identical,
+every non-null `answer` still equal to its `options[correctIndex]`.
