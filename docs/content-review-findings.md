@@ -6668,3 +6668,91 @@ bifurcation L4, IVC formation L5, cisterna chyli L1–L2, caval opening T8, oeso
 T10, sternal angle and carina T4/5, trachea C6, dural sac S2, conus L1/L2, Adamkiewicz left
 T9–T12, Tuffier's line L4, McBurney's point one-third ASIS→umbilicus, and the vertebral artery's
 C6→C1 course.
+
+## Anatomy fronts, parts 2 and 3 — limbs/pelvis and head/neuro/embryo (1,213 fronts)
+
+`upper-limb` 217, `pelvis-perineum` 179, `lower-limb` 181, `embryology` 252, `head-neck` 200,
+`neuroanatomy` 184. **Every front marked; not one back changed** in any of the six files,
+verified field by field against HEAD. Median bold share 0.300 and 0.333. Only 11 `fc-num` chips
+across 1,213 fronts, all genuine values; zero block or grey devices on any front.
+
+**Rule 2 for long fronts is now complete deck-wide: 0 unmarked fronts over 7 words.**
+
+### The substring class was anticipated and neutralised everywhere
+
+Both agents built anchor resolution that requires a **whole-term match count of exactly 1**, never
+first-match. One reported the raw-substring count alongside, which makes the trap visible:
+`meningocele` has raw count **2** in *"spina bifida occulta, meningocele and myelomeningocele"*
+but whole-term count 1. Handled the same way: `pharyngeal` vs `pharyngeal arch/pouch/cleft`,
+`arch` vs `aortic arch`, `nucleus` vs `lentiform nucleus`, `foramen` vs `foramen ovale/rotundum/
+spinosum`, `ventricle` vs `third/fourth ventricle`, `oesophageal` inside `tracheo-oesophageal`,
+`scalp` vs `SCALP`, `foregut` twice in one front, and the cranial-nerve numerals — **`VI` inside
+`VII`/`VIII`, `CN I` inside `CN III`**.
+
+`fe|male` came through clean too: `<strong>female</strong> from the <strong>male pelvis</strong>`.
+
+Both also masked entities out of the matchable region before searching and used strict
+allowed-tag stripping — so the defect class that appeared three times earlier appeared zero times
+in 1,213 fronts once it was written into the brief.
+
+### Two flagged "conflicts" dissolved when I checked them myself
+
+Worth recording, because the value of checking is symmetrical — it catches false positives too:
+
+- **"brachial plexus C5–T1 versus L1–S3"** was reported as a possible error. The card actually
+  reads *"the cervical enlargement (C5–T1) for the upper limb (brachial plexus) and the
+  lumbosacral enlargement (L1–S3) for the lower limb"*. The `L1–S3` belongs to the lumbosacral
+  enlargement, not the brachial plexus; a co-occurrence scan put them in one field. **Not an error.**
+- **Sacroiliac joint "part fibrous" versus "part syndesmosis"** was reported as two labels for the
+  posterior component. A syndesmosis **is** a fibrous joint — the two cards differ in specificity,
+  not in fact. **Not a conflict.**
+- **Commonest clavicle fracture site** — "the middle third" on one card and "the junction of the
+  middle and lateral thirds" on another. I did *not* fix this either: the junction is the classical
+  weakest point and lies within the middle-third region, so this is a specificity difference rather
+  than a contradiction. Three other cards say middle third (one with ~80%).
+
+### Content findings — reported, not patched
+
+- **CN V's nuclear complex is placed in two different brainstem levels**: one card's summary maps
+  "PONS → V, VI, VII, VIII" while two others put the **mesencephalic nucleus of V in the midbrain**.
+  The usual simplification-versus-detail split, but the cards read as contradictory side by side.
+- **Pelvic sympathetic origin stated three ways inside one file**: `T10/T12–L2`, `T12–L2`, and
+  `L1–2` on the bladder summary card.
+- **Perineal body and episiotomy**: one card says it is "cut in an episiotomy" unqualified, while
+  two others say a **midline** episiotomy incises it and a **mediolateral** one is deliberately
+  directed away from it.
+- **Lung maturation windows overlap**: canalicular "weeks ~16–26" and saccular "roughly week 24 to
+  birth" put weeks 24–26 in both stages.
+- **Corticospinal decussation arithmetic does not close**: "~85–90% cross … ~10% remain uncrossed" —
+  the complement of 85–90% is 10–15%.
+- **Pudendal nerve rendered four ways** (`S2, S3 & S4`, `S2–4`, `S2–S4`) and several nerve roots
+  written long-form in one file and short-form in another (`C5–C6` vs `C5-6`, `C3–5` vs `C3–C5`,
+  accessory nerve `C3–C4` / `C3-4` / `C2-3`).
+- **Femoral nerve `L2–L4` vs `L1–L2`** and **lumbar plexus `T12–L4` vs `L1–L4`** across files.
+- **`pharyngeal pouch` names two different structures** — the embryological endodermal pouches and
+  the clinical Zenker's diverticulum. A terminology collision, not an error, but it is exactly the
+  substring trap this deck is full of.
+- **Five exact-duplicate fronts across topics**, with backs agreeing in substance but differing in
+  wording. Both agents anchored each duplicate pair identically so the rendered fronts stay
+  consistent.
+- **Confirmed clean**: `ultimobranchial body` is correctly spelled and a deck-wide search for
+  malformed derivative coinages found none surviving. All pharyngeal arch, pouch and cleft
+  derivatives are internally consistent. Every embryological remnant pair agrees across cards
+  (ductus venosus → ligamentum venosum, vitelline duct → Meckel's, notochord → nucleus pulposus,
+  Rathke's pouch → craniopharyngioma, and the rest).
+
+## Where the deck now stands
+
+| | count |
+|---|---|
+| total flashcards (excluding pharmacology) | **33,604** |
+| unmarked **backs** | **0** |
+| unmarked **fronts over 7 words** (Rule 2) | **0** |
+| unmarked **short fronts** (≤7 words, Rule 2a) | **1,776** |
+
+The 1,776 are the remaining work. They are not noise: a sample shows most name a specific concept
+and so fall under Rule 2a — *"What is Ménière's disease?"*, *"What is the Bentall procedure?"*,
+*"What are Janeway lesions?"*, *"Define placenta percreta."*, *"What is tracheal tug?"*. They are
+concentrated in three files — `respiratory` 498, `cardiovascular` 454,
+`obstetrics-gynaecology` 438 = **1,390 of the 1,776** — which were marked by an earlier pass that
+did backs and long fronts but never the short ones.
