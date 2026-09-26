@@ -6173,3 +6173,85 @@ it as a visible warning. Tested against synthetic cases: it still rejects `fe|ma
   of three. All preserved exactly; flagged because it defeats searching.
 - **`>400-500 nmol/L`** in the 9am cortisol bands is a range used as a threshold, so 400–500
   falls in no band. The two incompatible cortisol band sets remain open.
+
+## gastrointestinal.json COMPLETE — final 8 topics (208 cards, 416 fields)
+
+Dyspepsia & Epigastric Pain 33, Grey Turner's & Cullen's 18, Groin Lump 33,
+Hepatomegaly & Splenomegaly 33, Leukonychia 18, Migratory Thrombophlebitis 18,
+Murphy's Sign 18, Nausea & Vomiting 37. Every card in the file's 42 topics — **1,291
+cards** — now carries markup; 655 more `<b>` pairs converted, none left in the file.
+
+**1 grey span in 208 cards** (`"a classic viva distinction"`, pure exam meta), zero
+`fc-caveat`. One safety line was **newly bolded** rather than demoted: `Do not force
+reduction of a tender, tense hernia` had no emphasis at all before this pass.
+
+### The tag-boundary lesson recurred in a second form, and is worth generalising
+
+I had warned that agent to strip tags before searching, because `>` inside a tag breaks
+pattern matching. It hit the *same class of bug inside its own list splitter*: **`&mdash;`
+ends in a semicolon**, so a `;` separator matched inside the entity and silently split one
+list item into three. Its expected-item-count assertion caught it before anything shipped.
+
+So the general statement is: **entity boundaries break `;`-based splitting exactly the way
+tag boundaries break `>`-based matching.** Any character that terminates an HTML entity —
+`;` — or opens/closes a tag — `<` `>` — cannot be used as a delimiter on un-decoded text.
+
+### FIXED — a card that contradicted itself, and a decision I reversed
+
+`Dyspepsia & Epigastric Pain 11`: the **front** said "in a patient **over 55**" while its
+own **back** said `≥55`. The two halves of one card gave opposite answers at exactly 55.
+
+**I declined this earlier in the review as "editing a question stem".** I have changed that,
+and the reason is a fact I did not have then: this is not a judgement about which guideline
+to follow — it is a card contradicting *itself*, and the correct value is settled beyond
+doubt. A tag-stripped deck-wide search found **18 inclusive statements across four files**
+(`upper-gi.json` ×14, `gastrointestinal.json` ×4, `scoping-endoscopy.json`,
+`microbiology.json`) against exactly two exclusive ones — the front, and a `q` explanation
+copy. Those two were the only "over 55" instances in this context anywhere.
+
+Both moved together to "55 or over". No clinical claim changed; the front now agrees with
+its own back. The `q` item's stem patient is 68, so no option or answer text needed to move,
+and MCQ integrity was asserted across the whole file afterwards.
+
+### Reported, not patched
+
+- **The gallstone "5 Fs" diverge three ways.** One card gives the fifth F as **Family
+  history**, a histology card gives **Fair**, and `hepatobiliary-pancreatic.json` lists only
+  **four** Fs despite naming the mnemonic for five. The classic fifth is *Fair*; family
+  history is a real risk factor but is not the mnemonic's F. Correcting it would mean
+  removing a true risk factor and substituting another — authoring, not correction.
+- **Biliary colic `<6 hours` versus cholecystitis `>6 hours`** leaves exactly 6 hours in
+  neither band, echoed in the `q` map. No other card states a duration cutoff, so there is
+  nothing to harmonise against — a shared convention, left as such for the same reason as
+  the GOLD bands and the vaginal-pH gap.
+- **H. pylori test-of-cure has three different anchors and windows**: "at least 4 weeks after
+  finishing antibiotics", "4–8 weeks after completing", and — NICE-attributed —
+  "**6–8 weeks after starting**". "After starting" versus "after completing" is a different
+  anchor point entirely, so a test at 4 weeks post-course satisfies two cards and is too
+  early under the third.
+- **Triple-therapy duration** `7 days` on three cards versus `7-14 days` on a histology card
+  in the same file.
+- **Nephrotic-range proteinuria**: `>3.5 g/day` in three places versus `>3 g/day` in
+  `renal.json`, so a patient at 3.2 g/day is nephrotic by one file and not the other. And
+  `renal.json` pairs `<3 g` with `>3 g/day`, leaving exactly 3 g/day in neither band.
+- **Pyloric stenosis**: this file says a **3–6-week-old** where the deck's presenting window
+  is `2–8 weeks` in four places (one explicitly "2–8 weeks, peak 3–6"). The card states the
+  *peak* as though it were the presenting range.
+- **Bare versus treatment-resistant dyspepsia at 55+**: two cards route bare new dyspepsia to
+  routine endoscopy, where `upper-gi.json` states — NICE-attributed — that the non-urgent
+  direct-access criterion is **treatment-resistant** dyspepsia.
+- **An internal contradiction in `acute-abdomen-surgical-principles.json`**: one card says
+  inguinal and femoral hernias "cannot be told apart reliably at the bedside, refer any groin
+  hernia in a woman urgently", while its own MCQ calls the pubic-tubercle relation "the single
+  highest-yield discriminator". Outside the scope of this pass.
+
+### Checks that came back clean (recorded so the negatives are on file)
+
+Glasgow-Blatchford (score 0, some centres ≤1) agrees across five independent statements.
+Rockall components and maxima agree, and no risk-band cutoff exists anywhere to conflict.
+Hernia anatomy is fully consistent across six files — inguinal superomedial and femoral
+inferolateral to the pubic tubercle, indirect lateral and direct medial to the inferior
+epigastric vessels, with Hesselbach's borders agreeing. Charcot's triad and Reynolds' pentad
+agree across seven files. Gallbladder wall `>3 mm`, cholecystectomy "within ~1 week",
+metoclopramide's MHRA 5-day maximum, hyperemesis `>5%` weight loss, the PPI 2-week and
+antibiotic 4-week washouts, and gastric-ulcer re-scope at 6–8 weeks all agree wherever stated.
