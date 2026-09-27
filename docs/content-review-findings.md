@@ -8982,3 +8982,29 @@ that is already MCQ-heavy, and deletion is irreversible. Kept.
 - **A "do not stop treatment" instruction sits in an `fc-sub`** in Wilson's. That
   class renders in body colour, not grey, so it is not a breach — recorded because
   two agents this round flagged `fc-sub` as grey and it is not.
+
+## Renal: the "(high-yield)" suffix, stripped ahead of the screen (v1563)
+
+Twenty fronts in Foundations of Nephrology ended with a parenthetical
+"(high-yield)" or "(the classic, high-yield)". In every case the question itself
+was fine — "How do the afferent and efferent arterioles control GFR? (high-yield)"
+— so this was a pure label strip and not a rewrite, and doing it before the screen
+started kept it off the agents' plates.
+
+Three examiner labels in Renal Vascular are deliberately **not** included, because
+the phrase is load-bearing in the sentence rather than a suffix: "Why is 'flash'
+pulmonary oedema a high-yield clue for RAS?" Those need a real rewrite and are
+part of the screen.
+
+Also recorded from the pre-flight: the applier located all 1,452 renal cards with
+zero mismatches; the markup and tone guards found **zero** real defects (three
+grey spans match a risk word and all three are false positives — the DBD and DCD
+expansions, and "(irreversible)" as a definitional gloss); and the **16 renal and
+urological sign topics are completely clean** on every automated class — no
+examiner labels, no meta-framing, no deck-internal pointers, no step carry-ons
+across 378 cards.
+
+The numeric same-measurement check flagged exactly one thing in this system and it
+is a false positive: AKI urine output <0.5 mL/kg/h on three cards against <0.3 on
+a fourth. Checked — 0.5 is KDIGO stages 1 and 2, 0.3 is stage 3. Correct as
+written.
