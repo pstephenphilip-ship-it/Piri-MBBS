@@ -9008,3 +9008,148 @@ The numeric same-measurement check flagged exactly one thing in this system and 
 is a false positive: AKI urine output <0.5 mL/kg/h on three cards against <0.3 on
 a fourth. Checked — 0.5 is KDIGO stages 1 and 2, 0.3 is stage 3. Correct as
 written.
+
+## Content screen — Renal, all 14 topics in renal.json (v1564)
+
+8 condition topics and 6 histology topics, **1,074 cards read in full**. 175 fields
+rewritten, 38 same-topic duplicates removed, zero cards added, zero MCQ options or
+keys moved. The 16 sign topics in `renal-urological.json` are still being screened.
+
+### The histology topics needed almost nothing, and that is the finding
+
+Six topics, 334 cards, and **7 edits**. Zero meta-framing of the "organising
+principle" kind, zero examiner labels, zero deck-internal pointers, zero step
+carry-ons, and no front asking for something its back lacks. Two checks I asked
+for specifically came back clean: **tubuloglomerular feedback runs the right way on
+all six cards that state it**, and the **filtration barrier's layer roles are right
+everywhere** — charge in the GBM heparan sulphate with the endothelial glycocalyx,
+size in the podocyte slit diaphragm. Every count was verified against its own back
+rather than assumed: the three barrier layers, the three JGA components, the
+nephron segments in order, the ureter's reversed muscle layers with the extra outer
+longitudinal in the lower third.
+
+### One factual correction in histology
+
+A card comparing the collecting duct with the convoluted tubules said the DCT has
+"indistinct borders". That is the **PCT's** feature — the same topic gives it as a
+defining PCT finding (lateral interdigitations) — and in standard histology the
+DCT's outlines are *clearer* than the PCT's, with the collecting duct's sharpest of
+all. Rewritten so the three segments form a real gradient.
+
+### Prose-carried contradictions: eight more, none of them numeric
+
+This is now the fourth system where the numeric check found nothing and the reading
+found plenty. In this system it flagged one thing and that was a false positive
+(the AKI urine-output thresholds, which are correct per KDIGO stage). What reading
+found:
+
+- **The one that mattered most.** A renal-artery-stenosis card said, unqualified,
+  that ACE inhibitors "can be used but with caution and close creatinine
+  monitoring", while three other cards in the same topic say they must be **avoided**
+  in bilateral stenosis or a solitary functioning kidney. Read on its own — which is
+  the whole point of making cards standalone — it licensed exactly the prescription
+  the rest of the topic forbids. The contraindication is now on it, in bold, outside
+  any grey span.
+- **A phosphate-binder ladder missing a rung**: the flashcard went calcium acetate →
+  sevelamer, its own MCQ explanation goes calcium acetate → calcium carbonate →
+  sevelamer only if calcium-based binders are unsuitable. The MCQ was right.
+- **Two cards said "the ACR axis is what NICE uses for risk"**, contradicting their
+  own first sentence (the G+A heat map), the referral card (the kidney failure risk
+  equation), and in one case the MCQ's own keyed answer, which is "low eGFR and high
+  ACR **together**".
+- **Membranous nephropathy's thickened basement membrane** was put on light
+  microscopy by one card and electron microscopy by another.
+- **An eGFR boundary classified two ways**: stage 1 as ">90" in an MCQ explanation
+  against "≥90" on the flashcard and in KDIGO, so an eGFR of exactly 90 fell in two
+  places at once.
+- **Alport syndrome called "X-linked dominant"** in an explanation where two
+  flashcards correctly say X-linked in most cases with rarer autosomal forms.
+- **A "not a direct swap" caveat** correctly denying that the collecting duct
+  exchanges Na⁺ for K⁺ one-for-one, while four other cards in the same topic teach
+  exactly that swap. The caveat was right; the mechanism is now stated
+  electrochemically (ENaC entry makes the lumen negative, which drives K⁺ out, and
+  H⁺ is secreted separately by intercalated cells).
+- **RPGN listed as a nephritic disease** where another card says it is "not one
+  disease but a pattern" — and ANCA-associated GN was missing from the nephritic
+  list despite being the commonest cause of that pattern.
+
+### False counts, each contradicted by a named sibling
+
+"Which type of RTA — (1, 2, 4)" where the same topic teaches type 3; the potassium
+row of the RTA table omitting type 3; "the four major complications of CKD" where
+one sibling lists five and another three more; "three hypertension patterns
+suggesting RAS" (accelerated/malignant hypertension added); aldosterone's "two main
+effects" where the second bundled K⁺ and H⁺ and the topic's own MCQ asks for three
+ions; and "the three RRT modalities" on five separate fronts in a topic whose MCQs
+offer **haemofiltration** as an option.
+
+### Content that existed only as a wrong answer
+
+Three things were reachable only by getting an MCQ wrong, and are now taught:
+**cystatin C** (a distractor in the CKD topic, now on the creatinine-caveats card
+with its reason), **"principal cell"** (a distractor in Foundations while the same
+card already named intercalated cells), and **haemofiltration** (a distractor for a
+modality five fronts said did not exist). Two more were reachable only through an
+MCQ explanation and are now on the card: **ADAMTS13 deficiency with urgent plasma
+exchange for TTP** — which existed nowhere in the file at all, while both HUS/TTP
+cards delivered their content by pointing at other systems — and the creatinine
+caveats for **diet and for trimethoprim/cimetidine**.
+
+### Risk content in grey spans that my guard cannot see
+
+Five, none containing a word my risk list looks for, which is exactly the limit
+worth recording: "an observed clue, **not a test to perform deliberately**" (do not
+give an ACE inhibitor as a diagnostic challenge — and a deliberate challenge is an
+MCQ distractor in that very topic); "**This does not apply to fibromuscular
+dysplasia**, where angioplasty is the treatment of choice" (skim it and you withhold
+the one intervention that cures FMD hypertension); "Dialysis is **not** the first
+response to pulmonary oedema"; "catheterise only if…"; and "(except cardioprotective
+aspirin 75 mg)", which is a *do not stop* instruction. All promoted.
+
+### Figures added where a card had none
+
+Four safety figures were missing and are now present, each taken from the deck's own
+cards elsewhere rather than invented: hypertonic saline as 150 mL of 3% over 20
+minutes repeated up to twice with the 5 mmol/L first-hour target; the free water
+deficit formula; IV calcium gluconate 10–20 mL of 10% in 50–100 mL of 5% glucose
+over 10 minutes with cardiac monitoring; and the real indications for dialysis in
+hyperkalaemia in place of a single clause. The renal blood flow share of cardiac
+output was absent from all 240 Foundations cards and is carried in from the deck's
+own histology figure, where it makes the filtration-fraction arithmetic checkable.
+
+### A `<b>` sweep, narrow and verified
+
+13 `<b>` tags remained in renal.json against 2,271 `<strong>`. `<b>` is **not**
+legacy markup in this deck — `.fc-caveat b` and `.fc-inline b` are styled orange and
+`.mk-exp-li b` styles MCQ explanations, with no `<strong>` rule in either container,
+so a blind conversion strips styling. That is a mistake I made and retracted earlier
+in this session. Here I checked each condition first: renal.json only, flashcard
+front and back fields only so no MCQ explanation is touched, and **none of the 13
+inside a grey span**. A bare `<b>` in card text matches no rule and renders plain
+bold in body colour where `.fc-card-text strong` is teal, so these were the odd ones
+out. Converted, with any found inside a grey span skipped by construction.
+
+### Left for the user
+
+- **"CKD for >3 months" should be ≥3 months** (KDIGO and NICE both say "at least 3
+  months"), but the exact phrase is inside a keyed MCQ option, so the flashcard
+  cannot move alone.
+- **The AKI/CKD boundary is loose by construction**: the staging cards define a G
+  stage by eGFR alone, so read standalone an AKI with eGFR 12 satisfies "stage 5 —
+  plan dialysis". A persistence clause has been added to the staging cards, but the
+  MCQ shares the shape.
+- **AKI diuretics read three ways** across two topics — withheld, used only for
+  symptomatic overload, and required before dialysis. All reconcilable, but one card
+  alone reads as a contraindication.
+- **Hypernatraemia correction ceiling differs across files**: 10 mmol/L per 24 h in
+  renal, 10–12 (≈0.5/hr) in the endocrinology diabetes insipidus topic. Both are
+  within UK teaching; renal is the more conservative. Hyponatraemia figures agree
+  across the two files.
+- **Gaps needing new cards, not edits**: no scleroderma renal crisis anywhere — the
+  one renovascular emergency where an ACE inhibitor is the *treatment*, in a topic
+  that drills ACE-inhibitor caution four times without naming the exception; no
+  Fabry, Bartter, Gitelman or Liddle syndrome in the Inherited topic although every
+  transporter they hit is taught in Foundations; no urine pH for type 2 or type 4
+  RTA (only type 1); membranoproliferative GN never assigned a side, a biopsy
+  appearance or an aetiology; no renal infarction; no AKI referral card; and no
+  cause given for Fanconi syndrome anywhere.
