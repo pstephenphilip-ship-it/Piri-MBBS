@@ -7956,3 +7956,111 @@ one condition per card.
 Verified against `HEAD`: 515 fields changed across 8 files and 48 topics, 80 cards
 removed, none added, no field outside `front`/`back`/`question`/`explanation` touched, and
 every MCQ's options and `correctIndex` byte-identical.
+
+## Content screen 6b — the final respiratory batch, and a correction (v1552)
+
+551 cards read (307 flashcards, 244 MCQs) in Pneumonia, Cystic Fibrosis, Sarcoidosis,
+Tuberculosis, Cough and Increased Work of Breathing. **72 fields changed, 9 cards merged
+away, 29 proposed deletions declined.** Plus the examiner-label sweep below.
+
+### A CORRECTION: the raw `<` "rendering bug" was not a bug
+
+In v1551 I reported that a raw `<` before a digit breaks rendering, that **54 explanations
+in `respiratory.json`** were affected, and that a deck-wide sweep was outstanding. I then
+measured it deck-wide: **1,211 fields**.
+
+**That was wrong, and the true count of real hazards is zero.**
+
+Per the HTML5 tokenizer's tag-open state, a tag begins only when an ASCII **letter**,
+`/`, `!` or `?` follows the `<`. Anything else &mdash; a digit, a space, an `=` &mdash; is
+a parse error that **emits a literal `<` character** and returns to the data state. So
+`BDR <12%`, `BMI <18.5` and `<4 weeks` all render exactly as written. Checked strictly
+across every card field in the deck: **0 cases** where a `<` is immediately followed by a
+letter that is not one of the deck's real tags.
+
+The fault was in **my own markup guard**: its tag pattern was `<\s*/?\s*([a-zA-Z0-9]+)`,
+which allows digits in a tag name and inserts optional whitespace the spec does not
+permit. It read `<12%` as a tag called `12`. The pattern is now
+`</?([a-zA-Z][a-zA-Z0-9-]*)`, retested to still catch `<marquee>` and welds while passing
+`BDR <12%`.
+
+I did escape that one COPD explanation to `&lt;12%` before discovering this. It renders
+identically and is the more defensive spelling, so it stays &mdash; but it fixed nothing,
+and no sweep is needed. **This changes nothing in the deck; it retracts a claim I made
+about it.**
+
+### Also worth knowing: the MCQ shuffle is now belt-and-braces
+
+While tracing the renderer I found that `loadQView` in `index.html` already performs a
+**serve-time option shuffle** on a disposable clone, with a comment saying preset answer
+positions *"follow a fixed pattern in the source data, which is gameable"*. So the defect
+I fixed in the data at v1543 was independently identified and also fixed at render time.
+
+The data-level fix is not wasted &mdash; the source JSON is no longer gameable for anyone
+reading it directly, and the runtime shuffle only protects that one view &mdash; but the
+user should know the protection is now double. Nothing to undo.
+
+### This batch's findings
+
+* **A front contradicting its own back**: a TB card asked what hepatic monitoring applies
+  to *"all four"* TB drugs while its back correctly names **three** (ethambutol's toxicity
+  is ocular). Resolved by dropping it as a near-verbatim copy of another card.
+* **A back that was wrong read literally**: the consolidation card ended *"Contrast a
+  pleural effusion, where **both** are REDUCED"* &mdash; "both" had no antecedent among
+  four listed findings, and percussion in an effusion is **stony dull**, not reduced. Now
+  names breath sounds and vocal resonance.
+* **A front asking where content lives**: *"Which added sound points to the upper airway,
+  **and where is it covered**?"* with the back ending *"See the dedicated Stridor topic."*
+  Deck navigation in a **front** &mdash; the worst form of the class.
+* **Reversed causality**: an explanation said flucloxacillin prophylaxis *"explains why
+  S. aureus is the early organism and Pseudomonas the later one"*.
+* **Chronic cough closed at three** with a normal film, while the same topic teaches
+  non-asthmatic eosinophilic bronchitis, ACE-inhibitor cough, bronchiectasis, ILD and
+  pertussis. The named construct is kept; the front now asks what else must be excluded.
+* **Extrapulmonary TB** listed five sites as if that were the set, while the topic teaches
+  pericardial and bone/joint TB elsewhere. Count gone, back completed.
+* Two false "triads": the consolidation "focal triad" (four findings) and an "empyema
+  triad" that is not one.
+* Six more grey spans carrying risk emptied, including *"Give IM adrenaline immediately"*,
+  the DIOS *"medical not surgical"* message, and CF sweat-test **false-negative** causes.
+* Seven more deck-internal references replaced with content.
+
+**Every threshold repeated within these topics was checked and none is stated two ways**:
+sweat chloride (&ge;60 / <30 / 30&ndash;59 on four separate cards), Mantoux &ge;5 mm,
+ALT/AST >5&times; and >3&times; ULN, pleural pH <7.2, CD4 <200, the oxygen targets. CURB-65,
+CRB-65, RIPE, Ghon focus vs complex, L&ouml;fgren's, Heerfordt's and the Scadding stages
+are all correct and untouched.
+
+### One contradiction I cannot fix: two MCQs with different keyed answers
+
+`Pneumonia q[3]` is keyed **"Right lower lobe"** and `q[41]` &mdash; the same question
+&mdash; is keyed **"Right middle/lower lobe"**. Three flashcards in the topic say right
+lower lobe, superior segment. `q[41]` is a duplicate with the looser key, but **fixing it
+means editing a keyed option**, which is out of bounds for this whole project. Left intact
+and raised here; deleting that one MCQ would resolve it.
+
+### The examiner-label sweep
+
+Your instruction: *"it shouldn't say that, but it should be tested in other ways."* For the
+cards I **declined** to delete, the label still had to go. 43 fields:
+
+* **30 fronts de-labelled mechanically** &mdash; the `Exam pearl:` / `EXAM PEARL:` prefix
+  stripped and the next letter capitalised, handling the cases where markup opens
+  immediately after the colon. Content untouched.
+* **13 fields authored by hand**, because the label was load-bearing in the sentence
+  (*"Summarise the Venturi exam pearl"*, *"Summarise the PEEP exam pearl"*,
+  *"Summarise the ARDS exam pearl (mechanism and severity)"*). Each now asks for what its
+  back answers &mdash; e.g. *"Which oxygen mask gives a **fixed FiO&#8322;**, why does that
+  matter in **COPD**, and what do you do if the patient is very tachypnoeic?"*
+* One of the 13 was a back: *"know doses by age"* &mdash; an instruction to the student
+  rather than content &mdash; now *"the paediatric doses are **banded by age**, so check
+  them against the child's age rather than estimating."*
+* One apparent hit was a false positive (*"the classic example"* matching *"the classic
+  exam"*) and was correctly left alone.
+
+**Zero examiner labels remain in `respiratory.json`.** Nine remain elsewhere in
+`paediatrics.json`, `ent.json` and `embryology.json`, in topics outside this system's
+scope; they are recorded for those rounds rather than reached into here.
+
+**Respiratory total across v1551 and v1552: 587 fields changed, 89 flashcards merged
+away, 120 proposed deletions declined.**
