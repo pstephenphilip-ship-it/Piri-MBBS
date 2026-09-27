@@ -10990,3 +10990,98 @@ UKMEC 3, so the deck is now internally consistent too.
 - **The under-50 FSH criteria for stopping contraception are missing** from the
   topic (only the ≥50 limb exists). An agent declined to write them rather than
   guess, which was the right call.
+
+## Sexual Health (v1586) — 13 topics, 542 cards, all read
+
+Four agents read every card. **146 field rewrites** and **22 same-topic
+deletions**, verified field-by-field against a pre-image: 146/146 exact, zero
+collateral change, every id preserved, the MCQ section byte-identical through the
+deletion stage, and **zero changes to any `options`, `correctIndex` or `answer`**.
+
+### The misfile my verification caught
+An agent set out to fix Chlamydia q[11], whose explanation muddled two different
+timings ("a test of cure is done separately at ≥3–5 weeks", conflating the 3-week
+wait with the 3–5 weeks a NAAT stays positive). It filed the fix at **q[12]**
+— the card whose **id suffix is 0012**. q[12] is an unrelated MCQ about a
+penicillin-allergic man with chlamydia, keyed to doxycycline. Applying it would
+have replaced a correct rationale with text about re-testing, leaving the keyed
+answer unexplained. Relocated to q[11], where it reads correctly and fixes the
+defect; q[12]'s original explanation is untouched.
+
+This is the sixth time across ten systems that an agent has used a card's **id
+suffix as its array index**. It is the single most consistent failure mode, and it
+is only ever caught by reading the edit against the card it claims to change.
+
+**The neighbour-overlap heuristic remains useless for this.** Run over all 146
+edits it produced 25 flags, all `fc`, every one a false positive on inspection —
+and it did not flag the one real misfile, which was a `q`. What caught the misfile
+was the numeric-delta check: the old explanation had "100" and "7" (doxycycline
+100 mg for 7 days) and the new one did not, which is not something a legitimate
+rewrite of that card would do. **Compare old and new content, not index
+neighbourhoods.**
+
+### An undisclosed addition I removed, then reinstated properly
+Epididymo-orchitis fc[16] gained a clause asserting the ceftriaxone dose "is 1 g,
+not the older 500 mg, which is out of date" — while the same agent's report said
+it had added no figures to that topic at all. I stripped it, which then made the
+edit a no-op and left the agent's paired deletion of fc[17] (a whole card whose
+only content is that dose note) about to lose the point entirely. Resolved by
+allowing the deletion with the note restored as the keeper's `absorb`: nothing
+added that was not already in the deck, nothing lost, one redundant card fewer.
+
+### Findings I verified and accepted
+- **Gonorrhoea test of cure was out of date.** fc[13] read "not automatically for
+  everyone any more" and its `fc-sub` gave the pre-2019 exception for a
+  susceptible isolate — while the topic's own q[14] and q[16] explanations both
+  say test of cure is needed for all cases. Corrected to "recommended for every
+  patient", keeping the five situations as where it matters most.
+- **Chlamydia and gonorrhoea first-line regimens are current** — doxycycline
+  100 mg BD for 7 days and ceftriaxone 1 g IM monotherapy. No card still leads
+  with azithromycin 1 g, and none teaches cephalosporin-plus-azithromycin dual
+  therapy as current.
+- **Cross-deck correction**: SH said caesarean "is recommended" at a maternal HIV
+  viral load of 50–399 copies/mL where the Obs & Gynae deck says "consider".
+  BHIVA is with O&G, and the SH card conceded the point in a grey aside while its
+  main text over-committed. Corrected on the SH side only.
+- **PEP risk assessment was entirely absent** from all 53 HIV cards — nothing
+  mentioned the source's viral load, and nothing said PEP is not recommended when
+  the source is on ART with a confirmed undetectable load. Added, deliberately
+  without a copies/mL figure since UK sources quote both <50 and <200.
+- **CD4 thresholds were missing** for cerebral toxoplasmosis, cryptococcal
+  meningitis and MAC, though PCP <200 and CMV <50 were present and correct. Added
+  <100, <100 and <50. No existing pairing was attached to the wrong threshold.
+- **Trichomoniasis never said topical metronidazole does not work** — a real
+  hazard in a file where the BV card two topics away offers intravaginal gel.
+- **BV**: the 2 g single dose was present with no statement that it is less
+  effective; and a risk factor list contained "some hygiene practices", the one
+  piece of hygiene-blaming register in the deck. Replaced with the specific
+  practice (washing inside the vagina) plus an explicit "BV is not caused by poor
+  hygiene — it is over-washing and douching that strip the lactobacilli".
+- **Grey-span audit was substantial here, as expected**: 155 `fc-inline` against
+  1 `fc-caveat`. Agents enumerated and adjudicated all of them and promoted 81 —
+  including a scabies card whose grey span was the literal answer to its own
+  front, and a BV card with contraceptive unreliability during and after
+  treatment sitting in grey.
+
+### Flagged for a human — not changed
+- **NGU moxifloxacin duration**: fc[15] says 10 days; fc[18], q[3]'s keyed option
+  and q[11]'s explanation all say 7. 10 days matches BASHH for macrolide-resistant
+  *M. genitalium*; 7 matches no BASHH regimen. The 7 is inside a keyed option.
+- **Gonorrhoea ciprofloxacin indication**: the flashcard requires a sensitive
+  isolate AND ceftriaxone being unusable; BASHH makes a known-sensitive isolate
+  sufficient. The restrictive reading is baked into q[6]'s option set.
+- **HIV PEP follow-up testing** (fc[28]) gives "45 days after finishing the
+  course" and "12 weeks after the exposure" joined by an em dash as though
+  equivalent; they are ~73 and ~84 days. No number changed — the fix is to make
+  them read as alternatives, which needs a decision on which the deck teaches.
+- **Scabies permethrin application**: the deck teaches neck-down for adults (NICE
+  CKS); BASHH advises whole body including head and neck in everyone. Three cards
+  agree with each other, so this is one editorial decision, not a defect.
+- **Scabies fc[20] states oral ivermectin is licensed in the UK** for scabies —
+  probably now true, but worth a BNF check.
+- **Secondary syphilis timing**: fc[5] says 6–12 weeks, q[1] says ~6–10. Both
+  defensible and the narrower sits inside the wider.
+- **The whole 542-card deck has no under-16 / Gillick / Fraser / safeguarding
+  content, and no mention of GUMCAD** — the surveillance route by which these
+  infections are actually reported. Both are real gaps for a GUM deck and need
+  new cards.
