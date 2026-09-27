@@ -9153,3 +9153,101 @@ out. Converted, with any found inside a grey span skipped by construction.
   RTA (only type 1); membranoproliferative GN never assigned a side, a biopsy
   appearance or an aetiology; no renal infarction; no AKI referral card; and no
   cause given for Fanconi syndrome anywhere.
+
+## Content screen — the 16 renal and urological sign topics (v1565)
+
+378 cards read in full. **21 fields rewritten, 6 duplicates removed, 362 cards left
+alone** — and that restraint is the result, not a shortfall. My automated pass had
+already found these topics clean on every class, so the agent was told to stop
+hunting and verify instead. Only **3 of 186 fronts** needed reframing, better even
+than the endocrine sign set's 9 of 192.
+
+### The template is two templates, and the seam is visible in the ids
+
+Eleven topics use one id prefix and noun-phrase fronts exclusively; five use short
+slugs, hold exactly 12 cards each, and contain **all 15** of the file's vignette
+fronts ("A patient has X. What…?"). The short-slug batch is the better-written half
+— Periorbital Oedema is the best topic in the file. If these are ever standardised,
+that is the style to standardise on.
+
+### A duplicate-detector worth reusing
+
+The template gives slot 0 a "what is X / how do I confirm X" card and, several slots
+later, a "how does X differ from its sibling" card — and **slot 0's back almost
+always already carries the contrast as a trailing clause**. That produced 4 of the 6
+drops and 4 more pairs left in place. It is the same slot-0 duplication the endocrine
+sign round found, in a different disguise: there it hid behind a meta-framed front,
+here it hides in slot 0's *back*. The cheap test for the next system: **for each
+topic, check whether slot 0's back is a superset of a later card.**
+
+### The template's real defect: it names measurements and owns none of their numbers
+
+Every topic's investigations card names ACR/PCR, post-void residual, PSA and the
+bladder diary, and **no card anywhere gave the value that counts as abnormal**. That
+is structural — the template asks "which investigations?" and never "what value is
+abnormal?". Three gaps are now filled and one deliberately is not:
+
+- **The NICE suspected-cancer criteria for haematuria** did not exist anywhere in
+  378 cards, and non-visible haematuria was never mentioned at all. Added: ≥45 with
+  unexplained visible haematuria or visible haematuria persisting after a treated
+  UTI; ≥60 with unexplained non-visible haematuria plus dysuria or a raised white
+  cell count.
+- **Post-obstructive diuresis had no volume** — added as >200 mL/hr for two
+  consecutive hours or >3 L/day.
+- **Proteinuria had no ACR threshold** — the string `mg/mmol` appeared nowhere in the
+  file, on a card whose front asks how proteinuria is *quantified*, so the card could
+  not answer itself. Added the NICE bands.
+- **PSA age-specific thresholds were referenced but never given.** One card tells the
+  student to refer "if the PSA is above the age-specific threshold" — a phrase that
+  appears exactly once, with no table anywhere: functionally a pointer at nothing.
+  Not filled, because two incompatible UK tables are in circulation; both are
+  recorded in the proposal notes for you to choose between. **Post-void residual
+  cut-offs were left for the same reason** — the taught values are not standardised.
+
+### Three individual finds worth naming
+
+- **A mnemonic that cannot account for its own list.** The reversible causes of
+  incontinence were headed **DIPPERS** — seven letters — above an **eight**-item back,
+  and the extra item, atrophic vaginitis, was the only bullet without a bolded
+  initial while every other bullet had one. The standard mnemonic is **DIAPPERS**,
+  where A is atrophic vaginitis; DIPPERS is the variant that omits it. The label and
+  the list came from different variants. Fixed on the card and in the MCQ.
+- **A false count that also got the physiology wrong.** "The two mechanistic
+  categories of polyuria" above a back listing three — and primary polydipsia is not
+  a third mechanism, it *is* a water diuresis, the kind with appropriately suppressed
+  ADH. Recast rather than renumbered.
+- **A half-finished edit**: "Why should PSA ideally be taken before (not just after) a
+  DRE?" — "not just after" says the opposite of what the back means.
+
+### My weld guard was wrong, and is now right
+
+Applying the DIAPPERS fix was **rejected by my own markup guard**, which flagged
+`<strong>D</strong>elirium` as "a tag boundary inside a word". It is — by
+construction: that is the deck's first-letter mnemonic device. I had known these were
+legitimate since the respiratory round and had been reading past the warnings, which
+is not good enough once the guard starts blocking real fixes.
+
+So I scanned the whole deck to size the device before touching the check, and it
+appears in four shapes, all legitimate: initial (`<strong>D</strong>elirium`),
+internal (`o<strong>E</strong>sophagus`, for CREST), mixed case
+(`<strong>Ve</strong>ntricular`), lowercase (`<strong>l</strong>umbricals`, for LOAF),
+and with the next character uppercase (`<strong>B</strong>MI`). The exception is now:
+a bolded run of **1–3 letters** with word characters continuing immediately after the
+closing tag, suppressed by span **overlap** rather than a single index, because a
+mnemonic welded on both sides produces two warnings, one at each tag.
+
+Verified both directions. Deck-wide weld warnings went from 14 to **zero**, and a
+nine-case test confirms every legitimate shape passes while every genuine weld still
+fires: `card<strong>iogenic`, `<strong>hyper</strong>tension`, `word</strong>word`
+and nested `<strong>` all still reject.
+
+### Red flags: checked one by one
+
+Present, correct and consistent: **testicular torsion** as time-critical with the
+6-hour window and the clinical-not-ultrasound rule, stated consistently on nine cards
+across two topics; **a painless testicular lump as cancer until proven otherwise**,
+with the subtle version (a reactive hydrocele concealing a tumour) taught too; **when
+loin-to-groin pain is a leaking AAA**, with the age threshold consistent across four
+cards; and the **periorbital oedema** differential, which is the best-differentiated
+red flag in the file — a four-way localisation table plus orbital versus preseptal
+cellulitis, both kinds of angioedema, SVC obstruction and contact dermatitis.
