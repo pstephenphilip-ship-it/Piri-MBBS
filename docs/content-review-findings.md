@@ -10271,3 +10271,66 @@ teaching aid rather than examiner-facing framing, so both stay.
 - **Bone & Joint Infection has 17 spaced ASCII hyphens** where the file's other 726 dashes
   are literal em dashes. Cosmetic, left for a formatting-only pass rather than mixed into a
   content commit.
+
+---
+
+## The 248 unreachable flashcards — diffed, with a per-topic recommendation
+
+I said earlier I had not diffed the five stranded cardiovascular topics against the nav
+topics that replaced them, because resurrect and retire are opposite actions. I have now
+done that diff: for each stranded card, what fraction of its content words already appear
+somewhere in its replacement topic(s). The answer is **not uniform**, so a single decision
+for all five would be wrong.
+
+| stranded topic | cards | replacement topic(s) in the nav | mean coverage | cards <50% covered | recommendation |
+|---|---|---|---|---|---|
+| `DVT` | 37 | **none — no DVT entry exists at all** | 0% | 37 | **resurrect** |
+| `Gangrene` | 38 | Peripheral Arterial Disease / Limb Ischaemia | 53% | 13 | **resurrect** |
+| `Pericardial Effusion / Tamponade` | 24 | Pericarditis | 70% | 2 | **resurrect** |
+| `Supraventricular Tachycardia` | 40 | Tachycardia | 73% | 4 | **your call — see below** |
+| `Heart Failure` | 33 | Acute + Chronic Heart Failure | 78% | 1 | **retire** |
+
+The detail behind the recommendations:
+
+- **`DVT` is simply missing.** There is no DVT entry anywhere in the cardiovascular nav, so
+  none of its 37 cards is covered by anything — gold-standard investigation, when D-dimer
+  is useful, first-line anticoagulation, provoked-vs-unprovoked duration. This is the
+  clearest case in the set and I would add it without hesitation.
+- **`Gangrene` is only half covered**, and what is missing is the part that is not
+  peripheral arterial disease at all: the mechanism and treatment of **gas gangrene**, and
+  **Fournier's gangrene**. Limb ischaemia does not teach those.
+- **`Pericardial Effusion / Tamponade` is mostly covered by Pericarditis, but the two
+  uncovered cards are the emergency ones** — the emergency treatment of tamponade, and
+  which cause of tamponade is a contraindication to pericardiocentesis. Losing exactly
+  those two is the worst possible pair to lose.
+- **`Supraventricular Tachycardia` is mis-scoped rather than simply duplicated.** Its four
+  least-covered cards are **atrial fibrillation** content — dabigatran reversal, factor Xa
+  inhibitor reversal, rate versus rhythm control, and pill-in-the-pocket therapy — sitting
+  in a topic named for SVT. So the honest options are to expose it as-is, or to move those
+  four cards into the AF/Tachycardia material and retire the rest. That is a content
+  decision rather than a navigation one, which is why I am not making it.
+- **`Heart Failure` is genuinely superseded.** 78% coverage and a single card below 50%:
+  "Why are CCBs (except amlodipine/felodipine) contraindicated in HFrEF?" If that one fact
+  is confirmed present in Acute or Chronic Heart Failure, the topic can be retired
+  outright; if not, it is one card to carry over first.
+
+Method note and its limits: this is a **token-coverage estimate, not a semantic diff**. It
+can overstate coverage when two topics share vocabulary while making different points, and
+understate it when the same fact is worded differently. It is good enough to rank the five
+and to tell "missing entirely" from "taught twice", which is what the decision needs — but
+before deleting anything I would read the low-coverage cards named above rather than trust
+the percentage.
+
+Still unchanged: nothing here has been acted on. Adding a nav entry is a one-line change per
+topic in `CONDITIONS_SYSTEMS`; retiring one means deleting cards, which I will not do on an
+estimate.
+
+### Correction to my own dermatology brief
+
+I told the screening agents that `dermatology.json` contains "zero HTML entities of any
+kind". That is wrong, and an agent was right to push back. The file holds **41 `&gt;`, 21
+`&lt;` and 10 `&amp;`** — structural entities that are *required* to render a literal `<`,
+`>` or `&` inside HTML, and which must be left alone. What I had actually measured was the
+absence of **typographic** entities (`&mdash;`, `&rarr;`, `&ndash;`), which is the thing the
+house-style rule is about. The instruction agents acted on ("literal glyphs, never emit
+`&mdash;`/`&rarr;`") was right; my justification for it overstated the measurement.
