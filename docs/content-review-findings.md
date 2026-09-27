@@ -8648,3 +8648,101 @@ Verified the same way as the "and" sweep: applied per `<ul>` so the single-versu
 multi test is made on the real list, then checked per file that only `back` fields
 differ, that each difference is exactly the removed prefix, and that no options
 array or `correctIndex` moved.
+
+## Content screen — Hepatobiliary & Pancreatic, all 7 topics (v1560)
+
+393 cards read in full. 80 fields rewritten, 25 same-topic duplicates removed,
+zero cards added, zero MCQ options or keys moved.
+
+This was the best-authored system screened so far, and the pre-flight said so
+before any agent started: the applier located all 393 cards with zero mismatches,
+the markup and tone guards found **zero** defects, there were **no** deck-internal
+pointers and **no** step carry-ons, and only 6 meta-framing fronts and 4 examiner
+labels existed in the whole file. So the agents were told where those were by
+index and pointed at duplicates and figures instead of hunting for volume that
+was not there.
+
+### Corrections made
+
+**A false closed count, with eight counter-examples in its own topic.** "The three
+presentations of gallstone disease" appeared on a flashcard and in an MCQ stem.
+The same topic teaches eight more — choledocholithiasis, gallstone pancreatitis,
+Mirizzi, empyema, chronic cholecystitis, Bouveret's, gallstone ileus and
+gallbladder cancer, each with its own MCQ. Count removed, both backs completed.
+
+**A card contradicted by its own topic, carried entirely in prose.** A cholangitis
+card said ultrasound "shows bile duct dilation + duct stones". The topic's own MCQ
+explanation says the opposite — "a CBD stone itself is often not seen" — and its
+keyed option reads "a dilated bile duct, with or without a visible stone". The MCQ
+is right; the flashcard now says "dilation ± the duct stone itself".
+
+**Courvoisier's law was stated as an absolute in three places** in a file that
+teaches Mirizzi's syndrome — a stone causing obstructive jaundice — on five cards.
+All three now read "unlikely to be gallstones" and name the exceptions. One of the
+three was outside the reporting agent's own topics and it said so rather than
+reaching for it; I made that edit.
+
+**An imprecise resection.** One card gave "intrahepatic/Klatskin (perihilar)" a
+single operation, "partial hepatectomy + biliary tree reconstruction". An
+intrahepatic tumour needs a liver resection and no duct excision; a perihilar
+tumour needs hepatectomy **plus** excision of the extrahepatic ducts, regional
+lymphadenectomy and a Roux-en-Y hepaticojejunostomy. Split properly.
+
+**The revised Atlanta classification was used without ever being defined.** Mild,
+moderately severe and severe are now defined by organ failure and the 48-hour
+line; the acute peripancreatic fluid collection and pseudocyst pair and the acute
+necrotic collection and walled-off necrosis pair are now separated by the 4-week
+line, where one card had silently merged the two necrotic stages.
+
+**The severity score was not named and a prognostic marker was sitting inside it.**
+The topic uses the modified Glasgow (Imrie) score but never said so, and CRP
+>150 mg/L at 48 h sat in the answer to "how is the Glasgow score used", inviting a
+student to read it as a ninth criterion. Both fixed; all eight PANCREAS components
+and the ≥3 cut-off verified correct and consistent.
+
+**Histology non-specificity, and a wrong attribution.** Two cards implied a biopsy
+separates alcohol-related from non-alcoholic steatohepatitis; it does not, and the
+deck's NAFLD topic says so. Separately, the delayed-cholecystectomy window is
+given as "more than 4 weeks after diagnosis (NICE)" in three places. CG188 gives
+the **early** window — within 1 week — and gives no delayed figure at all. The
+4-week figure is locked inside a keyed MCQ option, so it stays and the deck stays
+internally consistent; what has gone is the false NICE attribution.
+
+**Editing debris:** one five-item risk-factor list named the oral contraceptive
+pill twice.
+
+### The automated same-measurement check has a blind spot, now confirmed
+
+The check I built compares the three words before each number and reported no
+within-topic figure splits in this file. The agents found four real same-topic
+contradictions it could not see, because **none of them is a number**: the
+ultrasound-stones claim above; "moderate acute pancreatitis" against "severe or
+moderately severe" two cards away; a card saying the Glasgow score "is what
+separates" mild from severe where another says severity is defined by organ
+failure, not points; and "stop alcohol" as the single most important step where
+the topic's own MCQ adds smoking cessation. Worth knowing: the check is a useful
+net for numeric splits and no help at all for prose ones.
+
+A second blind spot found: a **step number hidden inside an `fc-num` chip**
+(`step 3` of the chronic pancreatitis cycle), which a text scan for "Step 1/2/3"
+missed entirely.
+
+### Gaps with nothing to correct
+
+Gallstone prevalence and the asymptomatic proportion appear **nowhere**, and nor
+does the NICE position on not operating on asymptomatic stones in a normal
+gallbladder — the largest hole on the axis. Also absent: any ultrasound
+wall-thickness threshold; the post-ERCP pancreatitis risk; intraoperative
+cholangiography and laparoscopic bile duct exploration by name; the pain-duration
+discriminator between colic and cholecystitis; acute-on-chronic pancreatitis as an
+entity investigated and resuscitated as acute pancreatitis; the Bismuth–Corlette
+classification (zero hits in the file); the metal-versus-plastic biliary stent
+choice; IPMN and the other cystic neoplasms; ampullary carcinoma as a tumour
+rather than a site of stone obstruction; and capecitabine as the adjuvant regimen
+after cholangiocarcinoma resection.
+
+### Left for the user
+
+The "more than 4 weeks" delayed-cholecystectomy figure, which is inside a keyed
+option. Conventional UK teaching is ~6 weeks, and no card anywhere on the axis
+says 6 weeks, so the deck is consistent at 4 — it just is not NICE's figure.
