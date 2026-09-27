@@ -10816,3 +10816,44 @@ changes** — a full reflow of seventeen decks. Reverted and redone as a raw-tex
 splice with the grey-span ranges masked on the raw JSON (where the class
 attribute appears escaped as `class=\"fc-inline\"`). The correct diff is 70
 lines. Never re-serialise these files; splice them.
+
+## Deck-wide formatting sweep (v1582) — bullet fossils and mis-scoped number chips
+
+A census of every live deck for formatting defect classes, independent of the
+system-by-system content passes, found two real ones worth fixing at once.
+
+**Bullet fossils — 14 deck-wide, 13 fixed.** A `<li>` beginning with an em dash
+used as an appositive marker, e.g. `<li>— the dangerous one — <strong>malignant
+(necrotising) otitis externa</strong>`. `.fc-list` is `list-style:disc`, so this
+renders as "• — the dangerous one — malignant otitis externa": a bullet
+immediately followed by a dash. Stripped the leading dash from each; no words
+lost. Found in cardiovascular (3), haematology (3), paediatrics (2), ENT,
+msk-rheumatology, neurology, orthopaedics and respiratory. The fourteenth is in
+contraception, which agents are editing right now — it goes in with that batch.
+
+One of the fourteen was invisible to a raw-text scan because that file stores its
+em dash as the escaped `—` while the rest of the corpus stores it literally.
+The same file mixes both forms. Any future raw-text pass over these decks has to
+match both.
+
+**Number chips holding prose — 14 found, 7 fixed.** `.fc-num` is a monospace
+`white-space:nowrap` chip whose whole purpose is to make a dose, cutoff or timing
+findable. Seven were carrying a label or a whole clause instead:
+`(10-year cardiovascular risk)` ×2 (unchipped — it is a label, not a number),
+`total cholesterol &gt;7.5 mmol/L` and `&gt;9.0 mmol/L`, `transferrin saturation
+&lt;20%` (chip narrowed to the threshold, the analyte moved outside),
+`10–15 micrograms/kg once daily` and `~ −5 cmH₂O at FRC` (chip narrowed to the
+figure).
+
+The other seven were left deliberately: `6 mg, 12 mg, 18 mg` (the adenosine
+sequence), `BP = CO × SVR` ×2 (a formula, which is what a mono chip is for),
+`1 major + 3 minor` (Duke), `2 hr/week × 3 months`, `100–150 micrograms
+(0.1–0.15 mL)` and `≥3 months/yr × 2 yrs`. All are numeric or formulaic, so the
+chip is the right device.
+
+**Also measured, not yet acted on:** 62 ASCII-hyphen number ranges (`2-4`,
+`50-70`) where the corpus uses en dashes, 182 spaced ASCII hyphens used as
+dashes, and 1,565 typographic entities (`&plusmn;` `&ge;` `&ldquo;`) in the
+unscreened decks where the screened decks use literal glyphs. These render
+acceptably today, so they are consistency rather than breakage — queued behind
+the content passes.
