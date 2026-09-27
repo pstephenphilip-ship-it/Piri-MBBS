@@ -10916,3 +10916,77 @@ uniform in its JSON layout, so a raw-text key scan needs `"explanation"\s*:\s*"`
 Both mistakes are the same shape as the `—`-vs-literal-em-dash trap recorded
 above: **the raw text of these decks is less uniform than it looks, and every
 raw pass needs verifying against a parsed diff afterwards.**
+
+## Contraception (v1585) — 9 topics, 344 cards, all read
+
+Three agents read every card in the deck. **49 field rewrites** (47 agent edits
+plus 2 fixes of my own) and **9 same-topic deletions**, verified field-by-field
+against a pre-image: 47/47 exact, zero collateral change, every id preserved, the
+MCQ section byte-identical through the deletion stage.
+
+### The defect that mattered most: a UKMEC bullet in the wrong list
+COCP fc[16] — the **UKMEC 4** (absolute contraindication) list — ended with
+"more than one risk factor for VTE or arterial disease". UKMEC classifies
+**multiple risk factors for cardiovascular disease as CHC category 3**, not 4.
+Category 4 means "do not use"; category 3 means "risks usually outweigh
+benefits". Moved the bullet to fc[15], the UKMEC 3 list. Checked first that no
+MCQ keys on it — only that one card mentions it — so no option is disturbed. The
+deck's own Depo fc[18] already has "multiple cardiovascular risk factors" under
+UKMEC 3, so the deck is now internally consistent too.
+
+### Agent findings I verified and accepted
+- **Special Groups fc[11] claimed "the LNG-IUS" can provide the HRT progestogen
+  and contraception.** Only the **52 mg** device is licensed for that, and the
+  deck's own fc[4]/fc[5] and IUD fc[13] say the rule does not apply to the
+  lower-dose devices. Corrected to "the 52 mg LNG-IUS".
+- **Patch fc[12]'s week-3 detachment branch** told the reader to apply a new
+  patch and omit the patch-free week but omitted the 7 days of extra cover, while
+  fc[11] requires it for any mid-cycle lapse of 48 hours or more. Added.
+- **UAE-style debris**: IUD fc[12] and q[3] both contained "(FSRH)" in
+  parentheses mid-sentence, reading as a stripped citation marker and leaving the
+  unit implicit ("supports 5"). Now "FSRH supports 5 years".
+- **Emergency Contraception never said the LNG-IUS is not emergency
+  contraception** — it is taught only in the IUD topic. Added to the card that
+  lists the three methods.
+- **Language**: "progestogens aid menstrual suppression and dysphoria" (Special
+  Groups fc[22] and q[11]) read as aiding dysphoria; a broken clause in fc[24]
+  ("and having vaginal sex with pregnancy risk"); and Gillick/Fraser content that
+  assumed the young person's gender.
+
+### Verification work
+- **8 numeric deltas**, every one a figure already on a sibling card in the same
+  topic. Nothing invented.
+- **7 of 10 proposed deletions were rejected by the guard.** Six were
+  word-form artefacts and were adjudicated against source before an `ok_loss`
+  was declared — including one that is purely abbreviation-vs-expansion (the
+  keeper says "no STI protection" where the dropped card spelled out "sexually
+  transmitted infections").
+- **One deletion was abandoned.** POP fc[22] explains why the traditional POP has
+  a stricter window *than* the desogestrel/drospirenone pills. The proposed
+  keeper fc[2] covers the traditional half in full but nothing in the topic
+  carries "a wider safety margin and longer window" for the newer pills — that
+  half lives on fc[3]. No single keeper covers the card, so it stays. The agent
+  had flagged this itself.
+- **6 MCQ stem rewrites and 3 explanation rewrites** each re-checked against the
+  full option list; every keyed answer remains uniquely correct.
+
+### Flagged for a human — I deliberately did not change these
+- **Patch fc[10]/fc[11] treat *any* late start of a new patch cycle as needing 7
+  days of cover plus EC, with no under-48-hour grace**, while every other lapse
+  in the topic has one. I believe FSRH gives the same 48-hour grace to a late
+  start, which would make these two cards stricter than guidance — but they agree
+  with each other, they err on the cautious side, and I was not confident enough
+  to rewrite a rule card. Worth checking against FSRH directly.
+- **IUD fc[8]/q[6] give days 1–5 as the window for immediate LNG-IUS
+  effectiveness**; it may be days 1–7 for the IUS specifically. No internal
+  disagreement to resolve, and q[6]'s key holds either way. If corrected it must
+  **not** be propagated to the implant, injection or POP cards, where 1–5 is right.
+- **Special Groups fc[5]/q[14] "change every 5 years"** for the LNG-IUS as HRT
+  progestogen vs IUD fc[12]'s "licensed 4 years, FSRH supports 5". The 5 years
+  is inside q[14]'s keyed option, so the clean fix is in the IUD wording.
+- **Special Groups fc[19]/q[15] "contraception is needed from day 5"** after
+  miscarriage or abortion — loose; it should be started immediately, and day 5 is
+  the no-extra-cover quick-start window. The phrase is q[15]'s keyed option.
+- **The under-50 FSH criteria for stopping contraception are missing** from the
+  topic (only the ≥50 limb exists). An agent declined to write them rather than
+  guess, which was the right call.
