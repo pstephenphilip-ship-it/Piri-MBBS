@@ -9788,3 +9788,61 @@ as hypertension with bradycardia** (no card says tachycardia), uncal-ipsilateral
 tonsillar herniation, the **chiasm compressed from below losing superior quadrants
 first** with craniopharyngioma correctly opposite, and the complete status epilepticus
 and DVLA figure sets.
+
+---
+
+## Two infrastructure findings from the neurology round
+
+### 1. Which decks are actually reachable from the site — I had this wrong
+
+I had "neurology wave 2" planned over `neurological.json` (38 signs topics, 708
+flashcards), `neuroanatomy.json` (7 topics, 184) and `neurophysiology-csf.json`
+(3 topics, 73) — 965 flashcards and 741 MCQs of work. **None of those three files is
+reachable from the website.**
+
+Cards are fetched as `content/cards/' + slug + '.json`, and `slug` comes only from
+`content/manifest.json`'s `systems` array. That array has **29 entries**, and the three
+files above match none of them. They are orphaned decks, which the user has already
+said to leave alone.
+
+Measured properly: **28 of the 81 card files are live**; **53 are orphaned**. The live
+set is exactly the 28 system decks (the 29th manifest slug, `surgery-general`, has no
+card file at all and is correctly marked `hasCards: false`). The orphans include the
+whole parallel "signs" family (`neurological`, `dermatological`, `haematological`,
+`psychiatric`, `ophthalmic`, `paediatric`, `obstetric-gynaecological`,
+`renal-urological`, `genitourinary-sexual-health`, `general-systemic`), the anatomy
+family (`neuroanatomy`, `thorax`, `abdomen`, `head-neck`, `upper-limb`, `lower-limb`,
+`pelvis-perineum`, `back-spine`, `embryology`), the imaging family (`ct`, `mri`,
+`ultrasound`, `plain-film-fluoroscopy`, `nuclear-interventional`), the labs family
+(`biochemistry`, `microbiology`, `immunology-serology`, `pathological-histology`,
+`urine`, `haematological`), and `pharmacology-flashcards` (which must never be edited
+anyway, because its player escapes HTML).
+
+**Neurology is therefore complete at one file, not four.** Recording this because I was
+about to spend a full round on content no student can reach, and because the same trap
+waits at every remaining system — several have an orphaned "signs" twin with a
+confusingly similar name (`psychiatric.json` is not `psychiatry.json`;
+`endocrine.json` is not `endocrinology.json`; `gastrointestinal.json` is not
+`gastroenterology-hepatology.json`; `msk.json` is not `msk-rheumatology.json`).
+**Check the manifest slug before screening anything.**
+
+### 2. The home screen's headline card counts were wrong, and I corrected them
+
+`index.html` sets `stat-flashcards` and `stat-questions` by summing `fcards` and
+`qcards` across `manifest.json`'s systems. **25 of the 29 entries were stale**, so the
+home screen understated the deck by **84 flashcards and 498 MCQs** — it showed 21,389
+and 15,444 against a true 21,473 and 15,942.
+
+Most of the drift predates this session and runs in both directions: ENT was understated
+by 198 flashcards and ophthalmology by 146, while endocrinology was *overstated* by 213
+and cardiovascular by 68. Cards have evidently been added and removed without the
+manifest being regenerated.
+
+Recomputed all 25 with the project's own formula, taken from `tools/split_content.py`
+lines 123–124 (`sum(len(v) for v in cd['fc'].values())`), and rewrote the file with the
+same `json.dumps(..., ensure_ascii=False, indent=1)` the tool uses, so the layout is
+unchanged. **`version` and `slugMap` are untouched** — `version` is a build-provenance
+hash the app never reads (`loadManifest` uses only `slugMap` and `systems`), so
+recomputing it would have been a guess at input I do not have. Verified afterwards that
+no field other than `fcards` and `qcards` changed on any entry. `notes` counts are left
+alone; those count note files, which I have not measured.
