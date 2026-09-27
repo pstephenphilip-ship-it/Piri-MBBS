@@ -10098,3 +10098,176 @@ behind a nav that no longer names it.
 
 Recorded rather than fixed because "resurrect" and "retire" are opposite actions and the
 choice is the user's.
+
+---
+
+## MSK / Rheumatology — all 24 topics
+
+Eight parallel screens read every card in all 24 topics — **1,545 cards** (951 flashcards
++ 594 MCQs), no sampling. Applied **212 field rewrites** (199 flashcard fields + 13 MCQ
+fields, of which 4 were stems and 9 explanations) and **51 flashcard deletions**.
+Flashcards 951 → 900; **all 594 MCQs survive and no `options`, `correctIndex` or `answer`
+was touched anywhere**, verified field-by-field against the pre-image.
+
+This file uses two topic-key prefixes — `conditions__MSK / RHEUMATOLOGY__` for 19 topics
+and `investigations__MSK / RHEUMATOLOGY__` for 5.
+
+### The off-by-one problem is systemic, and it nearly destroyed a card
+
+Three separate agents this round mis-filed an edit by reading a card's **id suffix** as
+its **array index**. One of them would have destroyed content:
+
+**Compartment Syndrome.** The pulse edit was filed under `fc[8]` but belongs to `fc[7]`
+(id `0008`), and the diagnosis/delta-pressure edit under `fc[9]` but belongs to `fc[8]`
+(id `0009`). As submitted, the diagnosis text would have overwritten **`fc[9]` — "What do
+investigations show in compartment syndrome?" — destroying its X-ray, CK, U&E, AKI and
+myoglobinuria content**, while `fc[7]` went unedited and `fc[8]` lost its back. Both
+remapped by content; `fc[9]` untouched. Note the same agent targeted `fc[2]` and `fc[12]`
+correctly, so the error was not uniform — every edit had to be checked individually.
+
+**Vasculitis.** A PMR explanation fix was filed under `q[31]`. `q[31]` is the **GPA**
+vignette (saddle nose + haemoptysis + haematuria, keyed "Granulomatosis with
+polyangiitis"); applying it would have replaced a correct GPA explanation with PMR
+content. The PMR question is `q[30]` (id suffix `0031`). Moved — and the contradiction is
+real there: the keyed option says "Over 50 … (usually with a raised ESR)" while the
+explanation said "over 60 + raised ESR", contradicting its own key on both the age floor
+and whether raised markers are mandatory.
+
+**Connective Tissue Diseases.** A report flagged the Sjögren's lymphoma-magnitude conflict
+at `q[41]`; it is at `q[40]` (id suffix `0041`). The conflict itself is real — `fc[81]`
+says "roughly 5 to 10 times", `q[40]` said "~5–16×" — and I aligned the explanation to the
+flashcard, since an MCQ explanation should not contradict its own topic and the magnitude
+is not load-bearing for a keyed option asking *which* complication.
+
+I tried to automate detection of this class with a front/back word-overlap score and
+**abandoned it: 33 flags, essentially all false positives.** A good back deliberately does
+*not* echo its front, and adjacent cards on one disease share vocabulary. What did work was
+a targeted check — *which back edits drop original words?* — which found 35 candidates, of
+which 8 involved a possibly-clinical word; I read all 8 and every one turned out to retain
+or expand the original meaning.
+
+### Two more defects I introduced or nearly introduced, caught by checking
+
+- I wrote a replacement for the GALS Schober's card using a **10 cm / 5 cm** variant. The
+  file consistently teaches a **15 cm span opening to more than 20 cm**, in four other
+  places. Corrected before applying — my version would have contradicted four cards.
+- I wrote `<strong>` into an MCQ explanation. **All 594 explanations in this file carry no
+  markup at all**, so it would have been the only styled one. Stripped. I then checked
+  every agent proposal for the same slip and found none.
+
+### The defects worth naming
+
+1. **A rule made diagnostic that its own topic says is not.** Seronegative SpA `fc[23]`
+   gave "inflammatory back pain + sacroiliitis + **HLA-B27** = ankylosing spondylitis",
+   flatly contradicting `fc[21]` and `q[8]`, which make B27 supportive only — neither
+   necessary nor sufficient.
+2. **Three methotrexate safety items absent from the entire RA topic**: pneumonitis, the
+   trimethoprim/co-trimoxazole interaction, and what to do in intercurrent infection. The
+   never-daily rule was only implied; it now says so explicitly.
+3. **A safety instruction rendering grey.** Compartment Syndrome `fc[12]` had "(splitting
+   the cast alone is not enough)" in an `fc-inline` grey span — an action-critical
+   instruction as an aside. Also promoted: the delta-pressure definition (what makes the
+   30 mmHg threshold mean anything), and in other topics the whole DVT pathway on the
+   don't-miss-a-DVT card, the antipsychotic-free JIA corticosteroid strategy, red-flag
+   interpretation "(especially leukaemia)", the drug-dependency line on the
+   fibromyalgia do-not-start card, and "(screen for latent TB and hepatitis B before
+   starting)".
+4. **"Capillary refill" appeared nowhere in the Compartment Syndrome topic** — the deck
+   taught that a present pulse is not reassuring but never said the same of capillary
+   refill. Added. (No card anywhere implied a normal pulse *was* reassuring — that verdict
+   came back clean.)
+5. **The bisphosphonate counselling card was the one card missing "remain upright for at
+   least 30 minutes"**, a figure already present on three sibling cards. Its mirror in the
+   investigations topic omitted "before food". These are the two cards a student would use
+   to counsel a patient.
+6. **An explanation arguing against its own keyed answer.** Bone & Joint Infection `q[6]`
+   keys "Aspirate the joint to exclude septic arthritis" for a hot swollen big toe, then
+   explained that "a typical first-MTP presentation can be diagnosed clinically (NICE)".
+   Rescoped to the *recurrent* flare in established gout, which is what the guideline
+   actually permits.
+7. **"The only difference is the skin"** — CTD `fc[85]` on polymyositis vs dermatomyositis,
+   contradicted by its own `fc[87]` (malignancy especially DM) and `fc[88]` (anti-Jo-1 vs
+   anti-Mi-2).
+8. **A cross-topic biochemistry trap.** Metabolic Bone Disease classes renal
+   osteodystrophy as a form of osteomalacia, where every osteomalacia row says phosphate
+   is **LOW**, while the investigations topic correctly gives CKD-MBD **↑PO₄**. A student
+   in one topic learns low phosphate then is told to lower it. One clause added.
+9. **False closed counts**, each confirmed against named siblings first: Bone Tumours
+   `fc[12]` "the three classic benign bone tumours" omitted osteoid osteoma, which the
+   topic's own `fc[11]` teaches and `q[7]` examines; Crystal `fc[13]` "the two classic drug
+   causes of gout" against `fc[12]`'s four; JIA `fc[8]` "the four subtypes" against a fifth
+   at `fc[7]`; Bursitis `fc[12]` "two other named bursitides" against six more; Foundations
+   `fc[47]` "the two key molecular players at the NMJ" against four on the deck's own
+   evidence; plus SpA `fc[31]`, RA `fc[2]`, Anxiety-style artefacts elsewhere.
+10. **Deck-internal pointers a reader cannot follow.** GALS `fc[15]` and `q[4]` both said
+    "(links to Schober's test)" — one of them inside a grey span — without ever saying what
+    the test is. Replaced with the measurement, using the file's own figures.
+11. **House-style violations**, all four in the file: `PO&#8324;` and `Paget&rsquo;s` in two
+    investigations fronts (against `PO₄` 11 times and `Paget's` 75 times), and the file's
+    single stray `&mdash;`. Plus four stray `<b>` converted to `<strong>` (checked first:
+    none sat in a grey span).
+
+### Verdicts returned clean
+
+Every inversion I most expected is absent. **Crystal discrimination**: gout =
+needle-shaped, negatively birefringent urate; pseudogout = rhomboid, positively
+birefringent CPPD — stated on 11 flashcards and 7 MCQs with **zero crossings**, and the
+inverted forms correctly keyed as distractors. **Lens dislocation**: up in Marfan, down in
+homocystinuria, correct on 8 cards. **ANCA**: c-ANCA/PR3→GPA, p-ANCA/MPO→MPA and EGPA, not
+swapped, and agreeing with the investigations topic. **Autoantibody
+sensitivity vs specificity** not inverted (ANA sensitive, anti-dsDNA and anti-Sm specific);
+anti-centromere↔limited and Scl-70↔diffuse correct five times over, with pulmonary
+hypertension and pulmonary fibrosis attached to the right subtype. **Bone tumours**:
+sunburst/Codman vs onion-skin not crossed; metaphysis vs diaphysis correct. **Osteoblast
+vs osteoclast** not swapped, and the RANK/RANKL direction correct. **GCA**: immediate
+steroids before biopsy, the 40/60 mg split, IV methylprednisolone for visual loss, and
+"a normal ESR/CRP does not exclude it" all present and none of it in grey. **Septic
+arthritis**: aspirate before antibiotics, a normal WCC/CRP does not exclude, a negative
+Gram stain does not exclude, Kocher correctly qualified as probability not rule-out.
+**ME/CFS is already NG206-compliant** — all five mentions of graded exercise therapy are
+explicit rejections, and the deconditioning premise is rejected too. **Fibromyalgia** uses
+central/nociplastic framing, mentions tender points only to say they are superseded, and
+recommends no opioids. **Scleroderma renal crisis** correct, including that this is the one
+setting where an ACE inhibitor is continued in a rising creatinine, and no card suggests
+steroids for it. **DEXA** T vs Z not confused and the WHO bands identical in four places.
+
+### Meta-framing: the regex's recall measured again
+
+`MSK_HITS.md` located 34 hits. Agents reading the cards found **about 60 more** — the
+investigations agent's sweep alone listed 51, including a family my pattern missed
+entirely: **"What is the management principle for X?"** (14 instances), plus "KEY
+investigation", carry-on "What other …" fronts, and 5 hits in **backs**, invisible to any
+front-only scan. Recall was roughly 35%.
+
+After this round the `core concept`, `high-yield`, `overarching`, `Summarise`, `trap`,
+`mnemonic`, `organising principle` and `management principle` families are all at **zero**
+in MSK, as are the two bare-uppercase `KEY` fronts. Nineteen fronts still match a
+case-insensitive `key`, and I judged all nineteen acceptable: they use "key" as an ordinary
+clinical adjective for a real concept — key mimic, key differential, key late complication,
+key safety issue, key antibody, key early sign — not as examiner framing. Two backs keep a
+"Memory hook:" (osteoBlasts Build / osteoClasts Consume); a mnemonic in a *back* is a
+teaching aid rather than examiner-facing framing, so both stay.
+
+### Flagged for the user, not changed
+
+- **A cross-topic figure conflict inside one file**: Vasculitis `fc[19]` says a temporal
+  artery biopsy "can stay positive for 2–6 weeks after steroids begin"; the investigations
+  topic's `fc[8]` says "~1–2 weeks". The clinical message (treat first) agrees; the numbers
+  do not. The vasculitis figure is the safer statement.
+- **Clozapine-style tension in Metabolic Bone Disease**: `fc[20]` says anyone over 50 with
+  a fragility fracture gets a DEXA, while `fc[21]`/`q[12]` and the investigations topic say
+  ≥75 or a vertebral/hip fracture is treated *without* one. Only the "unless" is missing.
+- **Tertiary hyperparathyroidism is absent from all three bone topics.** So are Kawasaki
+  disease, polyarteritis nodosa, IgA vasculitis/HSP and cryoglobulinaemic vasculitis — a
+  grep confirms none appears anywhere in `msk-rheumatology.json`, so there is no Kawasaki
+  card (criteria, fever duration, IVIG, the one paediatric aspirin indication, coronary
+  aneurysms) and no PAN–hepatitis B card. Also missing: the ACR/EULAR SLE criteria, the
+  ISN/RPS lupus nephritis classes, MCTD (which exists only as a wrong option and a grey
+  aside), anti-U1-RNP, pseudoxanthoma elasticum, Colles' vs Smith's, the Jones fracture,
+  and **both Ottawa rules** — which appear only as wrong-answer distractors.
+- **RA stiffness is ">30 min" in the RA topic and ">30–60 min" in the OA topic**; the
+  Ehlers-Danlos card uses "Ghent criteria" where the current name is the revised Ghent
+  nosology; GCT is called benign without "locally aggressive".
+- **Bone & Joint Infection has 17 spaced ASCII hyphens** where the file's other 726 dashes
+  are literal em dashes. Cosmetic, left for a formatting-only pass rather than mixed into a
+  content commit.
