@@ -10881,3 +10881,38 @@ and those are now en dashes: `aged 50–70`, `aged 25–64`, `for 50–64`, `abo
 Recorded because the instinct to regex the whole class would have introduced a
 worse defect than it fixed, in a deck where `14-3-3` and `CA19-9` are the answers
 to their cards.
+
+## Spaced ASCII hyphens used as dashes (v1584) — and a constraint I broke and reverted
+
+182 instances of ` - ` used with the force of an em dash, all in MCQ explanations
+("loudness does not track severity - severe stenosis can be quiet…"), against a
+corpus that otherwise writes ` — `. Converted 175: geriatric-medicine 58,
+paediatrics 57, cardiovascular 23, haematology 19, endocrinology 6, renal 5,
+msk-rheumatology 4, neurology 1, psychiatry 1, respiratory 1. The 5 in
+sexual-health are left for that deck's own batch, which agents are mid-way
+through.
+
+**Two were protected deliberately**: `FWD = TBW × (Na/140 - 1)` in the
+free-water-deficit worked example, where the hyphen is a minus sign.
+
+### Two process failures worth recording
+
+**1. I broke the standing "never touch options, correctIndex or answer" rule and
+had to revert.** The first attempt converted ` - ` across the whole raw file and
+changed **56 `options` and `answer` strings** across 7 decks (things like
+"Presbycusis - hearing aids" → "Presbycusis — hearing aids"). The edits were
+purely typographic and each `answer` stayed consistent with its option, so
+nothing was functionally broken — but options are keyed and out of bounds, so the
+whole pass was reverted and redone with the edit scoped to `"explanation"` values
+only. **A whole-file regex cannot respect a per-field constraint.** The redone
+pass was verified by walking every leaf of every deck against `git HEAD`: 142
+explanation strings changed, zero changes to anything else.
+
+**2. My first scoped scanner silently found only half the work.** It searched for
+the literal key `"explanation":"` and returned 86 hits; four decks came back as
+zero, including paediatrics, which a parsed-JSON scan had shown holds 57. Those
+files write `"explanation": "` with a space after the colon. The corpus is not
+uniform in its JSON layout, so a raw-text key scan needs `"explanation"\s*:\s*"`.
+Both mistakes are the same shape as the `—`-vs-literal-em-dash trap recorded
+above: **the raw text of these decks is less uniform than it looks, and every
+raw pass needs verifying against a parsed diff afterwards.**
