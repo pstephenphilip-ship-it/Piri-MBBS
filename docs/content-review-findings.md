@@ -8435,3 +8435,193 @@ and `content/notes/` contain none.
 **How it was found.** Not by a sweep I planned. An agent screening sixteen
 12-card endocrine sign topics noticed it in 28 of the 35 list backs it read and
 said the template was probably shared. It was — by 71 files.
+
+## Content screen — endocrinology, all 46 topics (v1558)
+
+The whole endocrinology system: 24 condition topics in `endocrinology.json`, 6
+histology and 16 sign topics in `endocrine.json`. **3,105 cards read in full.**
+598 fields rewritten, 220 same-topic duplicates removed, 1 duplicate MCQ
+deleted, zero cards added, zero MCQ options or keys moved.
+
+### Two structural checks before any content was touched
+
+The applier located all 3,105 cards with **zero mismatches**, and the markup and
+tone guards found **zero defects** — no nested tags, no over-long value chips,
+no long front without a bold. That is the cleanest baseline of any system so
+far. Six grey spans carried a risk word; the agents fixed three, I promoted two
+more (the OSA management in acromegaly, and "chronic stable heart failure is NOT
+a reason to stop metformin"), and one remains deliberately — "(sepsis drives
+counter-regulatory hormones)" is a mechanism, not an instruction.
+
+I also checked whether the deck's **duplicate card ids** matter. They do not:
+`endocrinology.json` has 15 duplicated `fc` ids and 16 duplicated `q` ids, but
+every collision is *across* topics, progress is stored per topic
+(`fcProgKey(plan, system, topic)`), and there are **zero within-topic duplicate
+ids anywhere in the deck**. Nothing to fix.
+
+### Corrections I made on my own judgement
+
+- **The free androgen index formula was incomplete.** A proposal added
+  "calculated free androgen index (total testosterone ÷ SHBG)". FAI is
+  (total testosterone ÷ SHBG) **× 100**; the ratio alone is not the index.
+- **The Cushing's microadenoma was given three sizes in one topic** — <3 mm,
+  <5 mm and <10 mm. Dropping the <3 mm card left two, and I made the remaining
+  pair read as what they are: 10 mm is the *definition* of a microadenoma, and
+  in Cushing's disease the lesion is usually much smaller.
+- **An edit that only converted `<b>` to `<strong>` was rejected.** In an MCQ
+  explanation, `index.html` styles `.mk-exp-li b` and `.mk-exp-correct b` and
+  has no rule for `strong` in either container, so the conversion would have
+  silently stripped the colour. `<b>` is a supported device in this deck, not
+  legacy markup — the same mistake I made and retracted earlier in this session.
+
+### One MCQ deleted
+
+**PCOS** asked "Is the LH:FSH ratio >2:1 a diagnostic criterion for PCOS?" twice
+in one topic, keyed the same way both times. The survivor is the one whose
+explanation states all three Rotterdam criteria; the thinner twin is gone.
+
+### Where a card was contradicted by its own topic
+
+Fixed by completing the back, never by keeping a count the deck's own evidence
+denies: the "six main anterior pituitary hormones" (FLAT PEG is seven, and the
+card's own back listed seven); POMC's "two other hormones"; the "three
+physiological actions of PTH" (the deck's own next card teaches that PTH is
+phosphaturic); the "top 3 causes of SIADH" (the topic teaches five CNS, five
+pulmonary, seven drug causes); the "four main types of thyroid carcinoma" (the
+same topic teaches Hashimoto's-related lymphoma as a fifth); the "five main
+indications for thyroidectomy" (six); aldosterone's "3 actions that explain
+everything" (direct myocardial and vascular fibrosis is a fourth, taught on
+three other cards); Addison's "three triggers of crisis"; the "two subtypes" of
+relative polycythaemia; the "two-step" myeloma pathway; MDS's "three definitive
+distinguishers"; the "three classical MPDs" versus a keyed four (both right once
+scoped to BCR-ABL-negative); Cushing's "two steps" of the endogenous work-up
+(imaging is the third); leukostasis' "two symptom domains" (priapism is called
+the third two cards later).
+
+### Factual errors found and corrected
+
+- **Thy3–5 does not all go to surgery.** A card said "Thy3-5 require surgical
+  intervention". Thy3a does not; three other cards in the deck correctly
+  restrict surgery to Thy3f/4/5.
+- **Anti-TPO is not a NICE threshold for treating subclinical hypothyroidism.**
+  Three cards listed it as an indication; two others and NICE say otherwise.
+- **The empirical HbA1c monitoring interval** in type 2 diabetes was "then
+  annually" on one card against the keyed MCQ answer and NG28's 6-monthly.
+- **Antipsychotic metabolic monitoring** was "3-monthly" against CG178's
+  baseline, 3 months, then annually.
+- **Fronts transposed between two cards** in Diabetic Complications: each asked
+  for what the *other* card's back answered.
+- **A front asking for "the four stages of rhinocerebral mucormycosis"** whose
+  back contained no stages at all.
+- **Four cards whose backs still carried the old step number** — front "Step 2",
+  back opening "Step 3:" — the source list had been renumbered at the front only.
+  There is no Step 6 anywhere.
+- **Investigation cards numbered Step 1, Step 2 and Step 4** in polycythaemia,
+  with no Step 3.
+- **A garbled mechanism**: "low-sodium diet — reduces proximal tubular
+  reabsorption, increasing water reabsorption passively" contradicts itself and
+  the topic's own two other cards.
+- **A card that was simply wrong**: the MEN family screen given as "serum Ca
+  (MEN1) vs RET testing (MEN2)", which the same topic denies in terms.
+
+### The coverage guard: 152 rejections across the eight batches, all adjudicated
+
+Of 220 deletions, 152 failed the guard on at least one word. None was waved
+through. Each carries a per-drop declaration naming the word; **60 were read in
+place**, and that reading changed the outcome six times — in each case I
+extended the absorb rather than accept the loss:
+
+- Addison's replacement: the keeper said "largest on waking" but gave no split,
+  and "2/3 morning, 1/3 midday" existed nowhere else in the topic.
+- Addison's hyperpigmentation: the keeper had the ACTH/MSH mechanism but not the
+  **sites** — buccal mucosa, palmar creases, scars — and "palmar" appeared
+  nowhere else.
+- MEN2's phaeo-first rule: the keeper said the phaeochromocytoma must be
+  *excluded* before other surgery but never said what to do when one is found.
+  "Resect it first" appeared nowhere else in the topic. That is a safety
+  instruction, and it is now on the keeper.
+- Steroids in hypercalcaemia: the keeper listed the indications but not that they
+  do **not** work in primary hyperparathyroidism or PTHrP-mediated hypercalcaemia.
+- Metformin: "titrate slowly for GI tolerance" appeared only on the card being
+  dropped.
+- The pineal mass-effect inference, already carried by its proposal's absorb.
+
+One deletion carries a **declared factual loss**: the Cushing's "<3 mm"
+microadenoma figure, for the reason given above.
+
+The guard's four-character prefix comparison produced tokenisation artefacts
+again, each verified before being waved past: `thyroid` against the deck's
+*hypothyroidism*, `pulsatile` against *secreted in pulses*, `crest` against
+*neural-crest derived*, `prick` against *heel-prick*, `mcg` against *micrograms*,
+`htn` against *hypertension*, `ppi` against *PPIs*, `tls`/`ph`/`vvc`/`tshr-ab`
+against their spelled-out forms.
+
+### Left for the user — keyed options that cannot be fixed from a stem
+
+- **Hypothyroidism has two MCQs on the same situation keyed to opposite
+  answers**: persistent symptoms with a normal TSH. One keys combination T4+T3
+  in selected patients; the other, its own explanation, and the flashcard all
+  say liothyronine is not routinely offered (NICE). One of the two has to go or
+  be re-keyed.
+- **A distractor reads "Levothyroxine supplementation given given alongside…"**
+  — a doubled word in a hyperthyroidism option. It is a pure typo that changes
+  no meaning and no index, but it is inside an option, so I have not touched it.
+  Say the word and it is a one-character fix.
+- **Hypercalcaemia fluid volume**: one keyed option says 2–4 L/day where every
+  flashcard and two explanations say 4–6 L over 24 h.
+- **Chvostek's false-positive rate**: two keyed options say 10% where their own
+  explanations and the flashcard say up to a quarter. I reconciled the
+  explanations to "around 10% (up to a quarter in some series)".
+- **FHH**: two keyed options say "↑PTH" where four cards correctly say normal or
+  only mildly raised.
+- **Hypothyroidism** keys "start 50 micrograms" in a 45-year-old, against the
+  1.6 micrograms/kg full replacement taught for under-65s.
+- **Conn's confirmatory saline suppression** keys >170 pmol/L, which sits inside
+  the Endocrine Society's indeterminate band (>277 confirms, <139 excludes).
+- **Neutropenic sepsis, diabetic-foot mucormycosis, MDS transfusion overload and
+  a lymphoma "buzzword"** each have debris or a contradiction inside the keyed
+  option; all four are named in the haematology section above.
+- **SIADH severity bands contradict each other**: three flashcards use
+  125–135 / 120–125 / <120 while an MCQ explanation gives the European
+  130–135 / 125–129 / <125, under which another MCQ's 122 mmol/L would be
+  profound though its key calls it moderate. No number was changed.
+
+### Gaps with nothing to correct (they need new cards, not edits)
+
+- **No paediatric DKA protocol anywhere.** Two cards name children as the
+  highest cerebral-oedema risk, but every fluid and insulin figure in the topic
+  is the adult JBDS regimen and the separate BSPED protocol (48-hour rehydration,
+  10 mL/kg boluses, insulin started 1–2 h after fluids) appears nowhere. A
+  student reading the two cards together would give a child 1 L/hr.
+- **Retinopathy grades R0 and M1 are never stated**, though R1/R2/R3 are used
+  throughout and one card teaches the R0-driven 2-yearly recall.
+- **Ten Acid-Base topics are taught only on the MCQ side** with no flashcard at
+  all: Winter's formula, the delta-delta, the urine anion gap and RTA types,
+  base excess, lactic acidosis A versus B, the alkalosis–hypokalaemia cycle with
+  paradoxical aciduria, Addison's acid-base picture, and massive transfusion.
+- **No TSH or free T4 reference range** in Hypothyroidism, although eight cards
+  turn on "a TSH within the reference range".
+- **The corrected-calcium formula is absent from the hypercalcaemia topic**,
+  which has 14 cards depending on the adjusted value. It is correct in the
+  hypocalcaemia topic.
+- **Sistrunk's operation appears nowhere** in Neck Lumps, and the non-thyroid
+  content there is thin: branchial cyst has site and age only, cystic hygroma
+  exists only as a transillumination answer, and the submandibular gland and
+  salivary stones are absent although the topic's own first card advertises
+  salivary pathology.
+- **Thyroid eye disease mimics** keyed in two Exophthalmos MCQs — orbital
+  inflammatory syndrome and pseudoproptosis — have no flashcard in the topic.
+- **Heat & Cold Intolerance teaches two endocrine emergencies without their
+  treatment**: thyroid storm has no carbimazole, beta-blocker, steroid or
+  Lugol's iodine; myxoedema coma has no IV T3/T4, hydrocortisone or rewarming.
+
+### Cross-topic figure disagreements, reported not changed
+
+Papillary thyroid cancer is ~80%, 70–80% and 70% in three different topics;
+anaplastic is <2% and 1%; the thyroid red-flag age is "<20 or >70" in two topics
+and "<20 or >60" in two others; one topic gives total thyroidectomy for all
+papillary and follicular cancer where another correctly gives lobectomy for
+small low-risk tumours; the prolactinoma threshold is >5000 mU/L in the clinical
+topic and >200 ng/mL in the histology topic. The microprolactinoma band is
+2000–5000 on one card and 2000–4000 on another, and the stalk-effect ceiling is
+given three ways, one of them inside a keyed option.
