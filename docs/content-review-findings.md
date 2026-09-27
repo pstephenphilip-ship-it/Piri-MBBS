@@ -8186,3 +8186,56 @@ ways, with the MCQ figure inside a keyed option; FIGO 2009 endometrial staging, 
 by FIGO 2023 but internally consistent; and one genuinely garbled MASCC item
 (*"solid tumour **or** no previous fungal infection"*) which was corrected to the real
 criterion **without altering any point value** &mdash; the score still sums to 26.
+
+## Content screen — haematology, coagulation and bleeding (v1555)
+
+Six topics screened card by card: Coagulation & Thrombosis (investigations),
+DIC, Haemophilia / Von Willebrand Disease, Thrombocytopenia, Bruising &
+Bleeding, Petechiae & Purpura. 94 fields rewritten, 18 same-topic duplicates
+removed, zero cards added, zero MCQ options or keys touched.
+
+**Verified before applying.** A doubled `<strong><strong>Urgent plasma
+exchange</strong></strong>` and the nested parentheses in a membranous-
+nephropathy back were both confirmed in the raw source before the fix went
+in.
+
+**A grey span promoted rather than a guard weakened.** The risk guard flagged
+`haemorrhagic` inside a grey `fc-inline` listing the vascular causes of
+bruising. Rather than teach the guard to ignore it, the examples were
+promoted into body text as an em-dash clause with hereditary haemorrhagic
+telangiectasia bolded. Same decision as the respiratory round: when a grey
+span holds something that can harm, the span is wrong, not the guard.
+
+**Four drops the coverage check rejected, resolved one at a time.** The guard
+compares the dropped card's vocabulary against its keeper and refuses the
+deletion when a word does not survive. Four drops failed on a single token
+each. Rather than extend the global framing list again — a coverage check is
+a safety net against careless deletion, not an oracle to be tuned until it
+agrees — I added a per-drop `ok_loss` field: the proposal must name the word
+and the reason is written into the record. Each was read in place first:
+
+- `Coagulation & Thrombosis fc[9] → fc[25]` — unmatched token
+  `non-correction`, a nominalisation of the keeper's "Does not correct = an
+  inhibitor". The mechanistic clause "(replaced by normal plasma)" would have
+  been lost, so it is carried into the keeper as a sentence of its own.
+- `DIC fc[35] → fc[29]` — unmatched tokens `question` and `separate`, from the
+  framing phrase "is a separate question". The keeper teaches the same point
+  in clinical words.
+- `Haemophilia fc[15] → fc[14]` — unmatched token `called`. The keeper carries
+  the identical Stephen Christmas sentence.
+- `Thrombocytopenia fc[29] → fc[19]` — unmatched token `post-heparin`. The
+  timing itself survives twice over: fc[18] "platelet fall typically 5–10 days
+  after starting heparin" and fc[24] "HIT: thrombosis + heparin 5–10d".
+
+**Two drops the guard passed but I checked by hand anyway**, because the
+sibling-card fallback reports rather than rejects and both looked clinical:
+
+- `DIC fc[32]` (an EXAM PEARL summarising the triggers) loses the obstetric
+  and malignancy vocabulary from that card. All of it is taught properly
+  elsewhere in the same topic: fc[10] lists amniotic fluid embolism, HELLP,
+  abruption and retained products; fc[11] and fc[13] carry APML.
+- `DIC fc[34]` loses "TTP/HUS: thrombocytopenia + schistocytes but normal
+  coagulation screen". fc[23] states the normal PT/APTT and fibrinogen in
+  TTP/HUS explicitly and fc[24] the schistocytes, so the fact survives in the
+  form a student can actually use.
+
