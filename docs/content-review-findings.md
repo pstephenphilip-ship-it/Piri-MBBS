@@ -9846,3 +9846,195 @@ hash the app never reads (`loadManifest` uses only `slugMap` and `systems`), so
 recomputing it would have been a guess at input I do not have. Verified afterwards that
 no field other than `fcards` and `qcards` changed on any entry. `notes` counts are left
 alone; those count note files, which I have not measured.
+
+---
+
+## Psychiatry — all 21 topics
+
+Six parallel screens read every card in all 21 topics — **1,484 cards** (920 flashcards
++ 564 MCQs), no sampling. Applied **217 field rewrites** (197 flashcard fields + 20 MCQ
+fields, of which 4 were stems and 16 explanations) and **46 flashcard deletions**.
+Flashcards 920 → 874; **all 564 MCQs survive and no `options`, `correctIndex` or
+`answer` was touched anywhere**, verified field-by-field against the pre-image.
+
+After this round the markup, grey-span and front-emphasis guards all return **completely
+clean** on `psychiatry.json` — no warnings of any kind.
+
+### Two agent defects my verification caught before they shipped
+
+These are the reason every stem rewrite gets printed against its option list and every
+numeric change gets diffed.
+
+1. **A rewritten stem that destroyed its own MCQ.** Wernicke-Korsakoff `q[10]` asks
+   "Besides chronic alcohol misuse, which of the following is an at-risk group?", keyed
+   to **hyperemesis gravidarum**. The proposal replaced the stem with "Which *route* of
+   thiamine is required in the acute treatment…?" — leaving the keyed option no longer
+   an answer to the question, and the other four options (iron-deficiency anaemia,
+   controlled hypertension, seasonal allergy, well-nourished athletes) equally
+   nonsensical. The stated justification was also false: `q[10]`'s stem never contained
+   the dated phrase "alcohol misusers" that the edit claimed to fix — only `fc[19]`'s
+   back did, and that fix was correct and was kept. **Stem rejected; `q[10]` untouched.**
+2. **An off-by-one index that would have deleted a card's content.** The MAOI washout
+   text (2 weeks, 5 weeks after fluoxetine) was submitted under Depressive Disorders
+   `fc[34]` — whose front is "What causes serotonin syndrome?" and whose back is the
+   cause list (SSRI + MAOI, SSRI + a triptan/tramadol, overdose). Applying it there
+   would have **deleted that cause list** and left the front unanswered. The text is
+   plainly an extension of `fc[33]`, the MAOI card, whose existing back it quotes
+   verbatim. **Moved to `fc[33]`, whose front was widened to cover the washout;
+   `fc[34]` untouched.**
+
+### One agent addition I corrected rather than applied
+
+The ADHD growth-monitoring sentence read "height and weight plotted every 6 months in
+children and young people". NG87 plots **height** 6-monthly but **weight** 3-monthly up
+to age 10 and 6-monthly thereafter. Rewritten to say that, rather than applied as
+offered or dropped.
+
+### The defects worth naming
+
+1. **A card that contradicted its own keyed MCQ.** Bipolar `fc[5]` ended "Severity,
+   **not duration**, is what separates it from mania" — while `fc[3]` says they differ
+   in "severity, **duration** and psychosis", `fc[4]` gives mania ≥7 days against
+   `fc[5]`'s own ≥4 days, and **`q[1]` is keyed to "Mania lasts 7 days or more…"**. A
+   student who learned `fc[5]` would mark the deck's own question wrong.
+2. **A valproate restriction stated as an absolute bar.** Bipolar `fc[19]` said valproate
+   is "not at all" for women of childbearing potential; `fc[20]` and `q[14]`'s
+   explanation both say "never **without a pregnancy prevention programme**". `fc[19]`
+   was the outlier and would have mis-taught its own MCQ.
+3. **A false exclusivity claim.** Dementias `fc[70]`: "Risperidone is the **only**
+   antipsychotic licensed in the UK for this." Haloperidol also holds a UK licence for
+   persistent aggression in moderate-to-severe Alzheimer's and vascular dementia after
+   other measures fail. Only the word "only" was removed; no figure changed and the
+   haloperidol indication was **not** added.
+4. **A scoring tool that double-classified a score.** Substance Use `fc[46]` gave CIWA-Ar
+   bands as "8–15 moderate, and 15 or more severe" — 15 fell in two bands at once.
+   Changed to "above 15"; no guideline figure altered.
+5. **A flashcard that undermined its own keyed MCQ.** Substance Use `fc[44]` had CAGE in
+   a grey span labelled "a legacy screen still widely quoted", while the topic's `q[30]`
+   keys CAGE as the correct answer. Promoted out of grey and reworded.
+6. **A stigmatising mnemonic in two MCQ stems.** Personality Disorders `q[3]` and `q[4]`
+   used "Mad, **Bad**, Sad" — Cluster B as "bad". It is also a carry-on: no flashcard in
+   the topic teaches it (the deck teaches Weird/Wild/Worried). Removed from both stems;
+   keyed options verified still uniquely correct.
+7. **An organising card built on the wrong axis.** Somatisation `fc[1]` made "is the
+   patient consciously feigning?" the organising question for the whole group and ended
+   "These two questions separate every diagnosis" — which current practice rejects, and
+   which the deck's own `fc[2]` had to correct in a caveat. Rescoped to
+   factitious/malingering.
+8. **A guideline restriction flattened in an explanation.** PTSD `q[3]` said NICE makes
+   "TF-CBT or EMDR" first-line, erasing the restriction `fc[17]` exists to teach (EMDR
+   only after non-combat trauma, only from 3 months).
+9. **A monitoring rule pointed at the wrong action.** ADHD `fc[18]` framed the cardiac
+   red-flag list as an indication for an **ECG**; NG87 makes those features an
+   indication to seek a **cardiology opinion before starting**. Baseline height and
+   weight were also missing.
+10. **Backs that were a single word.** Gender Dysphoria `fc[3]` asked "Is being
+    transgender a mental illness?" and the entire back was "No." Completed with the
+    ICD-11 position and what does need treating. `fc[20]` asked for the thrombotic risk
+    to monitor on oestrogen and the back was "Venous thromboembolism (VTE)." and nothing
+    else.
+11. **Safety content rendering grey.** Promoted out of `fc-caveat`/`fc-inline`:
+    antipsychotic sensitivity in DLB and the manifestations of that reaction (Dementias
+    `fc[71]`, `fc[43]`); the whole mortality teaching in Learning Disability `fc[12]`
+    (aspiration pneumonia, IHD, epilepsy); "treat now with parenteral thiamine"
+    (Wernicke `fc[2]`); hypoglycaemia as a marker of medical risk and the
+    glucose-is-LOW correction in anorexia (`fc[15]`, `fc[16]`); laxative-misuse
+    metabolic acidosis (`fc[52]`); the FND positive-signs rule (Somatisation `fc[2]`);
+    the suicide-monitoring threshold note (Anxiety `fc[26]`).
+12. **Real safety gaps filled from the deck's own evidence**: "never restart clozapine
+    after neutropenia without haematology advice" (absent from the whole file — the
+    words `haematolog` and `rechalleng` appeared nowhere); lithium teratogenicity
+    (`Ebstein` appeared **zero** times in the file); s117 aftercare (absent entirely);
+    the alcohol withdrawal **seizure window** (only the ~36 h peak was given, never the
+    6–48 h range); central sleep apnoea and the parasomnia-vs-nocturnal-seizure
+    discriminators (each existed only as a keyed-wrong distractor).
+13. **False closed counts**, each confirmed against named siblings first: "the **five**
+    cross-class drug emergencies" (claimed on two cards *and* embedded in `q[3]`'s stem,
+    while the topic itself teaches TCA overdose, benzodiazepine withdrawal seizures,
+    clozapine myocarditis and lamotrigine SJS as well), schizophrenia `fc[18]`'s "three
+    other classic features", anxiety `fc[6]`'s "two key distinctions", ADHD `fc[7]`'s
+    symptom criteria, gender dysphoria `fc[10]`'s "two concepts".
+
+### Verdicts returned clean
+
+The safety-critical checks I most wanted came back sound. **The deck is already
+NG225-compliant on suicide risk**: no card anywhere presents a score, tool or checklist
+as *predicting* suicide or implies a low score permits discharge — the opposite is
+taught on seven cards, and `q[13]`'s "self-harm reliably predicts imminent suicide in
+the individual" is correctly keyed wrong. **Mental Health Act sections are not
+inverted** — s2/s3/s4/s5(2)/s5(4)/s17A/s135/s136 durations, doctor counts and
+renewability all verified against the keyed options, and the 72 h / 6 h pair is the
+right way round. **MCA and MHA are not conflated**, and the causal-link limb most decks
+omit is present. Also verified and left: Wernicke's triad membership and the
+often-incomplete caveat (stated three times), parenteral thiamine before glucose,
+dementia subtype discriminators including the one-year DLB/PDD rule, all refeeding
+figures and MEED risk markers, the alcohol withdrawal timeline, opioid/naloxone
+handling, personality disorder cluster allocation, the stepped-care numbering, lithium
+levels and monitoring intervals, and clozapine's FBC schedule.
+
+Language was better than expected: no "committed suicide", no diagnosis used as a noun,
+no "manipulative", no "mental retardation". The six uses of "attention-seeking" all
+describe **histrionic PD**, where it is the diagnostic descriptor, and the one use
+attached to self-harm appears only inside a prohibition ("never assume
+'attention-seeking'"). Fixed: "elderly dementia" → "older people with dementia",
+"schizophrenic hallucinations" → "the hallucinations of schizophrenia", "Patients die"
+→ "People with schizophrenia die", "alcohol misusers" → "chronic alcohol misuse".
+
+### Meta-framing: the detector's real failure rate, measured
+
+My regex located 57 hits. Agents reading the cards found **68 more** — a detector
+recall of about 46%. It missed four whole families: `Summarise …` (16), `organising
+principle` (5), mnemonic labels such as `(LITHIUM mnemonic)` and `the 'C's'`, and
+`trap`. Three hits were in **backs**, invisible to any front-only scan.
+
+After this round the `core concept`, `high-yield`, `overarching principle`,
+`organising principle` and `trap` families are all at **zero** in psychiatry. Nineteen
+fronts still match the expanded patterns and I judged them acceptable rather than
+defects: 13 are `Summarise <named thing>` fronts, which state precisely what the back
+delivers and are answerable cold; 4 name a mnemonic *after* the clinical question
+("What are the side effects of lithium (LITHIUM mnemonic)?"), which helps rather than
+hides; 2 are "key axis"/"key note" where the axis named is genuine. I did fix the one
+genuine carry-on in that set — "**Besides the LITHIUM mnemonic**, what other adverse
+effects…", which cannot stand without the previous card — plus a vague "key note" front
+and one long front carrying no emphasis.
+
+### Flagged for the user, not changed
+
+- **A legal claim I cannot verify.** Mental Health Law `fc[23]` and `q[0]` both assert a
+  **June 2026 Supreme Court ruling** replacing the DoLS "acid test" with a
+  multifactorial assessment, and that a person lacking MCA capacity may still give valid
+  consent. That is **after my knowledge cutoff**, and `q[0]`'s keyed answer depends on it
+  ("passive compliance is not consent"). The two are internally consistent, which
+  suggests it was added deliberately rather than in error. I moved the sentence out of a
+  grey span — no words changed — and left the substance entirely alone. **This needs a
+  human check against current law.**
+- **Wernicke's Pabrinex regimen, `fc[18]`**: "2–3 pairs three times daily for 3–5 days".
+  BNF/CG100 is 2–3 pairs TDS for 2 days, then 1 pair daily for 5 days if responding. The
+  card errs toward more treatment, which is the safer direction, and `fc[21]`'s
+  prophylactic "1 pair daily for 3–5 days" is a different indication, so there is no
+  internal contradiction. Dose regimens are the riskiest thing to edit, so it is
+  reported, not changed.
+- **Self-harm `fc[5]`** gives the one-year post-self-harm suicide multiplier as "30–50×";
+  commonly quoted UK figures are ~50–100×. No internal contradiction.
+- **Clozapine adequate-trial length differs between two topics in the same file** — 6–8
+  weeks in Psychotropic Drug Classes, 4–6 weeks in Schizophrenia. NICE says 6–8. Cross-
+  topic, so not merged, but it is a figure disagreeing with itself inside one deck.
+- **`q[13]` (drugs)** is keyed to "treatment-resistant schizophrenia **only**"; clozapine
+  also has a place in Parkinson's disease psychosis. Not fixable without touching
+  options, so the explanation was improved instead.
+- **Substance Use `q[0]` option 3** contains "Deciding whether the person is truly 'an
+  addict'". It is a keyed-**wrong** distractor in scare quotes, but the word is on
+  screen. Options are out of bounds.
+- **Gaps reported, not invented**: the bulimia/binge-eating frequency threshold is absent
+  from the whole Eating Disorders topic; binge-eating disorder is managed but never
+  defined (nothing says there is no compensatory purging); no CAGE cut-off (≥2 of 4)
+  anywhere; no paracetamol nomogram, NAC dosing or staggered-overdose card; antipsychotic
+  baseline metabolic monitoring is absent from Psychotropic Drug Classes (it lives in
+  Schizophrenia); no card defines the schizophrenia prodrome; no sleep-architecture
+  figures (~90 min cycle, REM proportion, N1/N2/N3).
+- **Six psychiatry topics have gaps in their card-id suffix sequences** (Substance Use,
+  Psychotropic Drug Classes, Personality Disorders, Anxiety, and two MCQ arrays). An
+  agent flagged these as a possibly half-finished deletion. They are not: `psychiatry.json`
+  was untouched before this round, the arrays are contiguous, and there are **no duplicate
+  ids**. They are historic deletions where the id suffixes were never renumbered — cosmetic
+  and harmless, since ids are keys rather than ordering.
