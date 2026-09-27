@@ -10679,3 +10679,110 @@ I skipped (neurology and psychiatry are `conditions__` only; MSK and dermatology
 `investigations__`; breast has all three), so the "all N topics" claims in those entries hold.
 The 18 `histology__` topics in live decks sit in cardiovascular, renal and respiratory, and
 earlier rounds screened them by index.
+
+## Obstetrics & Gynaecology (v1579) — 33 topics, 2,709 cards, all read
+
+Eleven agents read every front, back, stem, option list and explanation across
+all 33 O&G topics. **386 field rewrites** (375 from agents + 11 cross-topic
+harmonisations of my own) and **67 same-topic deletions** applied, verified
+field-by-field against a pre-image: 375/375 and 11/11 exact, zero collateral
+change, every card id preserved, the MCQ `q` section byte-identical through the
+deletion stage.
+
+### A rejected finding: the "584 no-space span boundaries" are not a defect
+An agent reported four Pelvic backs rendering as `lactobacilli)although`,
+`insertion.Pregnant` etc. because a `<span>` opens with no separating space. A
+deck-wide scan found 583 such boundaries (cardiovascular 222, respiratory 141,
+ophthalmology 43, neurology 36, sexual-health 36, lower-gi 25, …). **It is a
+false alarm.** 524 of them open `.fc-sub` and 57 open `.fc-caveat`, and both are
+`display:block` (`index.html:165` and `:156`), so the text starts on its own line
+below a dividing rule regardless of the preceding character. Only 3 involve a
+genuinely inline class (`.fc-inline`), and all 3 already carry a space inside the
+span. **Real run-together defects deck-wide: zero.** No commit was made. Checking
+the CSS before believing a rendering report saved a 584-field no-op edit.
+
+### Cross-topic conflicts I resolved (11 fields)
+Agents are scoped to their own topics and correctly refused to change another
+topic's figure. These were mine to adjudicate:
+- **RMI ultrasound score was medically wrong** in `Gynae — Uterine & Ovarian`:
+  "0–1 feature → U=1" awards a point to a normal scan. Corrected to U=0 / U=1 /
+  U=3, matching `Gynaecological Cancers` fc[43].
+- **RMI referral operator** harmonised to **≥250** (was `>250` on three cards
+  against `≥250` on four). No case sits on 250, so no keyed answer moves.
+- **PPH volume bands**: minor 500–1000, major >1000, "moderate 1000–2000"
+  classified exactly 1000 mL twice. Now **1001**–2000 (RCOG GTG 52).
+- **Cervical length at 15 mm** was classified oppositely across topics.
+  `investigations` now reads **>15 mm unlikely / ≤15 mm short**, matching NG25 and
+  the two conditions cards.
+- **Dating scan vs combined test**: the antenatal card gave the *combined-test*
+  window (11⁺²–14⁺¹) as the dating-scan window. Dating scan is now 10⁺⁰–14⁺¹
+  with the combined test at 11⁺²–14⁺¹ at the same visit.
+- **RFM CTG threshold**: one card said CTG from 26⁺⁰ weeks where two others say
+  after 28 weeks (RCOG GTG 57). Harmonised to 28⁺⁰.
+- **Engorgement timing** harmonised to days 2–5 (was 3–5 on two of six cards).
+- **Postnatal GDM follow-up**: NG3 offers fasting plasma glucose at 6–13 weeks
+  and HbA1c only after 13 weeks; the card offered either at 6–13 weeks.
+- **VZIG**: one explanation said VZIG is "reserved for those unable to take oral
+  antivirals" where four cards say it is **withdrawn in the UK**. Corrected; the
+  keyed answer (oral aciclovir) is untouched.
+- **Spermatogenesis duration** harmonised to ~74 days.
+- **UAE was labelled fertility-sparing** in Menstrual Disorders against Benign
+  Uterine, which correctly calls it uterine-sparing and says it is avoided when
+  fertility is wanted. Fixed in the wrong topic, against the right one.
+
+### Verification that caught things
+- **16 numeric deltas** across 33 proposal files, each checked in context. All
+  legitimate; the four figures agents flagged for veto all stand (anti-D within
+  72 hours — already the deck's own figure elsewhere; the 140/90 treatment
+  threshold; the 12-week postpartum smear deferral; POP-Q stages 0–4).
+- **One typographic regression repaired before applying**: an agent wrote ASCII
+  hyphens (`75-150`, `20-24`) where the deck uses en dashes.
+- **75 back/explanation edits lose word-stems**; all inspected. Every loss is an
+  examiner label being removed ("a classic trap", "the exam-safe answer", "see
+  the labour-emergency note"), a deliberate language fix, or a word moved into
+  the front. Nothing clinical lost.
+- **8 of 67 deletions were rejected by the guard** and each was adjudicated
+  against source before an `ok_loss` was declared — e.g. the dropped ICP card's
+  "third-trimester" is taught unhyphenated on the ICP definition card; the
+  dropped RFM card's "re-presentation" is verbatim on fc[12] as "re-present
+  immediately if RFM recurs"; the dropped chorioamnionitis card's management limb
+  is taught in full on fc[16]. No drop was allowed on an agent's assurance alone.
+- **7 MCQ stem rewrites** each re-checked against the full option list and keyed
+  index; all keyed answers remain uniquely correct.
+- **Residue after the batch**: `front-no-bold` 0, `long-num-chip` 0 (an fc-num
+  chip had swallowed "1 month; it can be given while breastfeeding"), and the
+  4 remaining risk-in-grey hits are false positives — a nodule *type*, a sign's
+  explanatory aside, "a warning, not the emergency", and "a 'blind' sampler".
+
+### Commissioning gaps found — content that is absent from the whole 2,709-card deck
+These need **new cards**; the edit schema cannot add any. Listed for a decision:
+- **Sodium valproate and epilepsy in pregnancy: zero matches deck-wide.** No
+  Pregnancy Prevention Programme, nothing on not stopping antiepileptics abruptly.
+  The single largest gap.
+- **Amniotic fluid embolism** and **uterine inversion** exist only as MCQ
+  distractors — one stem offers both as an option for conditions never taught.
+- **Uterine rupture has no recognition card**: zero hits for scar pain/tenderness
+  or loss of station, though the deck names "suspected uterine rupture" as a
+  category-1 caesarean trigger.
+- **Urinary incontinence types: zero hits deck-wide** (no urodynamics, no
+  oxybutynin/mirabegron/duloxetine) — in a deck with a Pelvic Floor topic.
+- **Pre-existing diabetes in pregnancy**, **thyroid disease in pregnancy** (only
+  taught postnatally), **recurrent miscarriage** and **septic miscarriage**,
+  **HPO axis/puberty** (zero Tanner), **face and brow presentation and
+  occipito-posterior malposition** (in a topic titled "Malpresentation &
+  Malposition"), **vaginal cancer**, **vulvodynia**, **cervical polyps**,
+  **postpartum VTE prophylaxis**, **tongue-tie**, and the **18⁺⁰–20⁺⁶ anomaly
+  scan**.
+
+### Still needs a human: option-level defects (options are keyed, so out of bounds)
+- `investigations … Early Pregnancy` q[3]: keyed to "diagnose miscarriage now" at
+  CRL 9 mm with no heartbeat, and its explanation says a repeat scan is needed
+  only below 7 mm — but `conditions` fc[34] and q[18] teach a second opinion
+  and/or a repeat scan ≥7 days (NG126's "and/or"). Option 2 is also defensible.
+- `Benign Vulvovaginal` q[29]: the keyed option includes a **smear** as part of
+  excluding cervical cancer, which three other cards explicitly forbid for a
+  suspicious cervix.
+- `Menstrual Disorders`: fc[15]/q[6] recommend mefenamic acid for HMB while
+  fc[35]/q[16] teach it is now less favoured — both keyed.
+- `Labour Interventions` q[20] option 4 says "scarring makes the cervix
+  incompetent" — outdated term *and* a false mechanism, as a keyed-wrong option.
