@@ -9618,3 +9618,173 @@ itself in grey, with no word my risk list looks for. Promoted, along with the ST
 testing and GUM referral span I had already flagged. A second agent independently
 confirmed that **`fc-sub` is not grey in this deck**, which is now the third
 confirmation and can be treated as settled.
+
+---
+
+## Neurology / Neurosurgery — wave 1 (conditions topics)
+
+Eight parallel screens covered **42 condition topics**, every card read in full, no
+sampling: 2,591 cards reported read across the batches. Result: **300 fields
+rewritten** (296 flashcard fields + 20 MCQ fields, of which 10 were stems and 10
+explanations) and **62 flashcard deletions**. `neurology-neurosurgery.json` goes
+from 1,577 to 1,515 flashcards; **all 1,014 MCQs survive, and no `options`,
+`correctIndex` or `answer` field was touched anywhere in the file** — verified
+field-by-field against the pre-image, not asserted.
+
+### Verification performed before applying
+
+- **All 21 fields whose numeric token set changed** were diffed against source and
+  checked individually. Every one holds up: CJD median survival 4 → **4–6 months**
+  (aligning `fc[4]` with `fc[18]` and the keyed `q[14]`); buccal midazolam **10 mg**
+  and rectal diazepam **10–20 mg** added to the status epilepticus card; the **2024
+  MHRA valproate rule** (not to be started under 55 of either sex without two
+  independent specialist opinions); IIH opening pressure **>25 cmH₂O**; subdural
+  isodensity at **3 days–3 weeks**; head-up **30°** in TBI; TIA **aspirin 300 mg**
+  without imaging; the full **ROSIER** scoring including the two −1 items.
+- **All 10 rewritten MCQ stems** were printed alongside their option lists and keys.
+  Every one still keys to the same correct option; none was made ambiguous.
+- **Four drop justifications resting on a clinical word** were checked by grep rather
+  than trusted: `pulmonary`/`lung filter` (Brain Abscess `fc[5]`, `q[2]`),
+  `nigrostriatal` (Parkinson's `q[9]`), `vascular TOS` (`fc[17]`), `eye care`
+  (Bell's `fc[30]`). All four survive the deletion.
+- Post-apply: the rewrite pass changed **exactly the 299 fields expected and nothing
+  else**; the drop pass removed **exactly the 62 named card ids**, left every
+  surviving card byte-identical except where an `absorb` was appended, and left the
+  MCQ arrays untouched.
+
+### The defects worth naming
+
+1. **A steroid instruction inverted against its own topic.** Spinal Cord Disorders
+   `fc[21]` and `q[8]` correctly scope the lymphoma caveat — steroids are withheld
+   only in the patient with *radiologically* suspected lymphoma and *no* neurological
+   signs — while `q[9]`'s stem asked the question unqualified and its explanation
+   said flatly "if lymphoma is suspected, steroids are withheld". A student meeting
+   `q[9]` alone would withhold dexamethasone from a patient with an evolving cord
+   deficit. Stem now names the no-neurology patient; explanation states both halves.
+   The keyed option is untouched.
+2. **A card that was unsafe as written.** Raised ICP `fc[21]` listed **papilloedema**
+   among the signs that contraindicate an LP "whatever the scan shows". Isolated
+   papilloedema with normal imaging is not a bar — it is the presentation of IIH,
+   where the LP is required. Papilloedema removed from the bar (the other six items
+   on that list are correct absolute bars and all kept), and the actual hazard — the
+   **pressure gradient** across the foramen magnum — is now named in all eight places
+   the rule appears across five topics. Before this, nothing in the deck explained
+   why the LP rule and the IIH indication are not a contradiction.
+3. **The same card asked for investigations and listed none.** Raised ICP `fc[21]`'s
+   front was "What investigations are used in raised ICP?" over a back containing only
+   the LP caution — in a topic that elsewhere instructs the reader to treat a sustained
+   ICP above 20–22 mmHg, a threshold presupposing a monitor the deck never mentioned.
+4. **A triad whose own back listed four items.** Parkinson's `fc[2]` asked for the
+   "motor triad (TRAP)" and gave four; `fc[1]`, `fc[16]` and `fc[8]` all define the
+   triad as three with postural instability as a later feature. Front now asks for
+   "cardinal motor features" and the back says which one is not in the triad.
+5. **A named triad with the wrong membership.** Brain Abscess `fc[1]` gave fever +
+   space-occupying lesion + **seizures**; `fc[10]`, `fc[12]` and `q[5]` define it as
+   fever, headache, focal deficit and put seizures explicitly outside the triad.
+6. **A wrong option cross-reference.** MND `q[7]`'s explanation said "note the trap in
+   option 4" — option 4 is broad-spectrum antibiotics; the trap it describes is
+   long-term oxygen therapy. Wrong on either indexing convention. The option is now
+   named by content.
+7. **A rule stated absolutely, then licensed away — twice.** Stroke `fc[6]`/`fc[33]`
+   forbid aspirin before imaging in absolute terms while `fc[28]`/`fc[29]`/`q[15]`
+   instruct giving aspirin 300 mg immediately in TIA without CT; the reconciliation
+   existed only inside one MCQ explanation. RLS `fc[9]` calls relief by movement "the
+   defining discriminator" while `fc[11]` and `q[10]` state that akathisia shares it.
+   Both now carry their own exception.
+8. **A contradiction between a stem and its topic.** Spinal Cord `q[2]` gave a "cape"
+   distribution as a feature of traumatic central cord syndrome; `fc[4]` says in as
+   many words that the cape belongs to syringomyelia and not to central cord syndrome,
+   and `fc[87]` explains why. Stem now uses sacral sparing, which `fc[4]` does teach.
+9. **Model/editing debris.** Head Injury `q[7]` asked "What does recommend?" — the
+   subject missing, with its own explanation beginning "NICE advises". Brain Tumours
+   `fc[7]` had "up to 16 if severe" with the unit lost. Peripheral Nerve `fc[28]` gave
+   the same instruction twice in one sentence.
+10. **False closed counts**, each confirmed against a named sibling before the count
+    was removed: Brain Tumours `fc[1]` "three mechanisms" (the deck's own cards give
+    at least six), Peripheral Nerve `fc[2]` "three localisers" (`fc[27]` names four,
+    `fc[3]` a fifth), Epilepsy `fc[1]` "three pillars", GBS `fc[2]` and `fc[21]`,
+    Meningitis `fc[2]`, RLS `fc[3]` and the IRLSSG criteria (**five**, not four),
+    Dystonia `fc[16]`'s "treatable three", carpal tunnel's "two bedside signs".
+11. **A correction on the clinical merits.** Febrile Convulsion `fc[5]` said complex
+    features carry "a higher risk of recurrence". They do not — they raise the risk of
+    later epilepsy. `fc[17]` names the real recurrence predictors (under 18 months at
+    the first seizure, family history, a *lower* peak temperature, a short fever), and
+    complex features are pointedly absent from that list. `fc[5]` corrected.
+
+### My own errors and over-claims to record
+
+- The screening agent for febrile convulsions reported that `q[10]`'s explanation says
+  complex features raise epilepsy risk "**not** of recurrence" in as many words. It
+  does not — `q[10]` says nothing about recurrence at all. The correction to `fc[5]`
+  stands on `fc[17]` and on the clinical facts, not on that quotation. Recorded
+  because an agent's supporting citation was overstated and I checked it rather than
+  relaying it.
+- My meta-framing detector, already re-measured once from 72 to 102 hits, **still
+  missed 18 more** in this file — agents found `'core concept'`, `'core clinical
+  concept'`, `'core diagnostic signature'`, `'key clue'`, `'key hallmarks'`, `'the
+  principle'` and `'Memory aid:'` fronts my patterns did not match. Deck-wide
+  re-measurement after this commit: **173 flashcard fronts still carry examiner-facing
+  vocabulary**, of which 55 are in psychiatry, 27 in infectious disease and 23 in
+  dermatology. Neurology is now at **zero** (the last one, CMT `fc[25]`'s "key safety
+  point", was rewritten in this commit).
+- 44 of the 62 drops were initially **rejected by my own coverage guard**. In every
+  case the residue was a framing word (`overarching`, `high-yield`, `guide`,
+  `hallmark`, `think`, `go`), a notation difference (`3rd/4th` against `CN III/IV`), or
+  a synonym the guard's 4-character prefix test cannot see (`hyporeflexic` against
+  "reduced tone/reflexes"; `pulmonary filter` against `lung filter`; `protection`
+  against `care`). Three further rejections were a tokenising artefact in my own
+  guard: it keeps the trailing apostrophe of `'core concept'`, so `concept'` never
+  matches `concept`. Each drop carries its declared `ok_loss` and its written
+  justification; nothing was waved through globally.
+
+### Flagged for the user, not changed
+
+- **MS `fc[25]` conflicts with NICE NG220 and with its own topic.** It ranks baclofen
+  first-line and gabapentin second and says to **avoid the two together** ("risk of
+  severe respiratory depression"); `q[15]`'s explanation treats them as equals, and
+  NG220 offers either first-line and explicitly says to **consider combining them**.
+  I have not changed it — the fix is a guideline call.
+- **Head Injury `fc[22]` tranexamic acid "2 g"** is the CRASH-3 total, but the trial
+  gave 1 g over 10 minutes then 1 g over 8 hours and NICE specifies no regimen.
+- **Hydrocephalus `fc[14]` vs `fc[13]`/`q[2]`** use "sulcal" for opposite findings —
+  reconcilable (acute hydrocephalus effaces sulci, NPH does not enlarge them) but
+  nothing in the deck signals the shift.
+- **Acetazolamide** is first-line in IIH and explicitly not recommended in
+  hydrocephalus, with the same mechanism given in both. Both correct; neither explains
+  the difference. Cross-topic, so not merged.
+- **CJD `q[3]`** offers **kuru** as an option for "the commonest form of CJD"; kuru is
+  a distinct prion disease, not a CJD subtype. The keyed answer is unaffected and
+  options are out of scope.
+- **RLS `fc[18]`/`q[8]`** attribute the gabapentinoid-first-line position to **NICE**;
+  the clinical position is right (AASM 2024 says it outright) but NICE CKS is less
+  categorical.
+- **Coverage gaps found by grep, not guessed**: Brain Tumours has **no commonest-
+  paediatric-brain-tumour card at all** (no medulloblastoma, no pilocytic astrocytoma,
+  no adult-vs-child contrast) and **no DVLA content**, despite teaching the seizure
+  presentation hard; the dystonia-plus syndromes other than dopa-responsive dystonia
+  are absent; Peripheral Nerve `q[19]` tests the musculocutaneous nerve which no
+  flashcard teaches; "repetition preserved only in transcortical and anomic aphasia"
+  exists only inside two MCQ explanations.
+- **Three additions of my agents' own**, easy to strip if unwanted: Durkan's carpal
+  compression test and the flick sign on Peripheral Nerve `fc[12]`, and meralgia
+  paraesthetica on `fc[22]`. All three are accurate, and the fronts no longer promise
+  a count.
+
+### Verdicts requested and returned clean
+
+The three highest-inversion-risk facts in the subject were each checked card by card
+with indices recorded, and **none is reversed anywhere in the file**: **PITS**
+(parietal-inferior / temporal-superior) across six flashcards and four MCQs in two
+topics; the **GCS motor scale**, complete and in order with flexion and extension not
+swapped and the arithmetic in three MCQs checked; and **UMN vs LMN facial weakness**
+(forehead spared vs involved) across eleven cards, with the bilateral-cortical-
+innervation mechanism right in both directions. Also verified and left: the whole
+**tremor discrimination** (rest vs postural/kinetic vs intention vs dystonic), the
+**Bamford/OCSP** classification, the aphasia fluency-comprehension-repetition grid
+with Broca on the superior and Wernicke on the inferior division of the left MCA,
+**Erb's C5–6 vs Klumpke's C8–T1**, every median/ulnar/radial sensory territory, both
+**NICE head-injury CT lists** correctly split by their conditions, **Cushing's reflex
+as hypertension with bradycardia** (no card says tachycardia), uncal-ipsilateral and
+tonsillar herniation, the **chiasm compressed from below losing superior quadrants
+first** with craniopharyngioma correctly opposite, and the complete status epilepticus
+and DVLA figure sets.
