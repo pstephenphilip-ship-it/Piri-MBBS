@@ -8239,3 +8239,168 @@ sibling-card fallback reports rather than rejects and both looked clinical:
   TTP/HUS explicitly and fc[24] the schistocytes, so the fact survives in the
   form a student can actually use.
 
+
+## Content screen — haematology, the remaining 26 topics (v1556)
+
+Foundations, Anaemia, the haemoglobinopathies, the malignancies, transfusion,
+the oncological emergencies and the seven haematological signs. 394 fields
+rewritten, 141 same-topic duplicates removed, one unfixable MCQ deleted, zero
+cards added, zero MCQ options or keys moved.
+
+### Corrections I made on my own judgement
+
+**TACO risk assessment: "especially over 50" → "over 70".** The SHOT/BSH TACO
+checklist risk factor is age over 70. "under 50 kg" sits in the same sentence
+and the number 50 had plainly been copied onto the age as well. The card
+already cites SHOT.
+
+**The B12 indeterminate zone was stated two ways.** Anaemia & Haematinics
+fc[18] gives it as ~180–350 ng/L citing NICE; fc[12] said "borderline
+(200–300 ng/L)". fc[12] now points at the zone the topic itself defines, so
+the file no longer appears to hold two definitions. No figure invented and
+none removed.
+
+**The empirical-antifungal trigger in neutropenic sepsis was 4–6 days on some
+cards and 4–7 days (≈96 h) on others.** Harmonised to 4–7 days in every field
+I may touch (two flashcards, two MCQ stems, one explanation). One residual:
+**q[17]'s keyed option still reads "antifungals (4–6 days)"**. Options are out
+of bounds, and its explanation restates the option, so both were left as they
+are rather than desynchronising the question. That option is the one place the
+deck still says 4–6.
+
+**Group & Save validity.** The card answered only the 72-hour case. The longer
+validity now carries the figure UK labs commonly use — up to 7 days — stated
+explicitly as local laboratory policy rather than a national rule.
+
+### One MCQ deleted
+
+**Polycythaemia q[28]** asked "Where does the full PV detail live, per the
+cross-reference?" and all five options were the names of other notes. No stem
+rewrite can save a question whose entire option set is out of bounds and holds
+no medicine, and its flashcard twin had already gone as a duplicate. Removed
+by a script that verifies exactly one MCQ left that topic and that no other
+card in the file changed by a character.
+
+### Where I checked an agent's work and disagreed
+
+- **Sickle cell analgesia timing.** Flagged as possibly wrong. It is not: the
+  card correctly attributes 30 minutes to NICE and separately names a tighter
+  RCEM emergency-department target, and the keyed MCQ answer uses the NICE
+  figure. The RCEM sentence is the one claim in that card I have not verified
+  against the RCEM standard itself — left as written and recorded here.
+- **Hypersegmented neutrophils at ≥6 lobes.** Flagged as possibly wrong. The
+  ≥6-lobe definition for a single hypersegmented neutrophil is standard. No
+  change.
+- **Myelodysplasia q[21].** Its key ("MDS") did not answer its old stem. The
+  stem was rewritten so the existing key is correct, and the explanation now
+  notes that dysplasia also occurs in AML and that it is the ≥20% blast count
+  that defines AML. Checked and accepted; re-keying to "aplastic anaemia"
+  would have been the alternative and would have meant touching the key.
+
+### The coverage guard: 65 rejections, all adjudicated
+
+The guard refuses a deletion when a word in the dropped card does not survive
+in its keeper. 65 of the 141 drops failed. Rather than loosen the global
+framing list again, each was recorded against a per-drop `ok_loss` declaration
+naming the word. **Nineteen were read in place** because the flagged token
+could have been clinical; each has its own justification in the record. The
+other 46 failed on framing or function words only, and no drop anywhere was
+rejected for an unmatched numeral — the guard refuses those outright, so no
+number was lost.
+
+**Three guard tokenisation artefacts worth knowing.** The word check compares
+4-character prefixes, so it reported real content as missing where the deck
+uses a different word for the same thing:
+
+- `thyroid` vs the deck's `hypothyroidism` — no shared prefix. Hypothyroidism
+  is on five cards of the same topic.
+- `PO₄` vs the deck's `phosphate` — the tumour-lysis biochemistry survives in
+  full on Lymphoma fc[25].
+- `TLS` and `Ph` against the deck's `tumour lysis syndrome` and
+  `t(9;22) Philadelphia` — abbreviations, spelled out on the keeper.
+
+Two drops the guard *passed* were still read by hand because the vocabulary
+looked clinical, and both are fully taught by sibling cards: the sickle cell
+curative-options card (BCL11A and the MHRA approval are on fc[26]) and the
+neutropenic septic-screen card (LFTs, U&E, CRP, lactate and paired cultures
+are all on fc[24], with clotting and sputum/stool carried in).
+
+### Reported, not changed — keyed options that hold debris
+
+Four MCQs have junk inside the option the answer is keyed to, which cannot be
+cleaned without moving a key:
+
+- Neutropenic Sepsis q[19] — keyed option reads "Fluoroquinolone ± G-CSF;
+  cross-ref chemo complications (TLS, marrow failure)", and all four
+  distractors also say "cross-ref".
+- Myelodysplasia q[14] — keyed option reads "For transfusion overload
+  (cross-ref haemochromatosis/thalassaemia)".
+- Lymphoma q[7] — keyed option contains the examiner word "buzzword".
+- Pancytopenia q[21] — an option carries the empty-table-cell debris
+  "blasts —" that was fixed on the flashcard.
+
+### Other things found and fixed by the screen
+
+- **False closed counts, each contradicted by the deck's own other cards:**
+  the "six major oncological emergencies" (raised ICP from brain metastases,
+  malignant pericardial tamponade, upper airway obstruction and hyperviscosity
+  added); the "four main causes" of pancytopenia (six taught); leukostasis'
+  "two symptom domains" (priapism is called the third classic presentation two
+  cards later); relative polycythaemia's "two subtypes" (diuretics are a
+  third); angular stomatitis' "three broad categories" (the dermatological and
+  irritant group was missing); myeloma's "two-step investigation pathway" (a
+  three-stage chain); MDS's "three things that definitively distinguish MDS
+  from aplastic anaemia" (hypercellularity is named as definitive there and
+  denied on two other cards); "the three classical MPDs" versus a keyed option
+  giving four — both are right once scoped, so the front and stem now say
+  BCR-ABL-negative.
+- **Real clinical gaps completed:** the thalassaemia management card for
+  transfusion-dependent disease omitted iron chelation entirely, two cards
+  before iron overload is named the leading cause of death; Foundations'
+  microcytic list omitted lead poisoning and its macrocytic list omitted
+  myelodysplasia and drugs, both taught by the Anaemia topic in the same file;
+  the secondary-polycythaemia causes omitted the drug causes the topic's own
+  MCQs teach.
+- **Investigation cards numbered Step 1, Step 2 and Step 4** in Polycythaemia,
+  with no Step 3 anywhere. All three fronts and the two MCQ stems carrying step
+  numbers now ask the clinical question instead.
+- **Deck-internal pointers replaced with content**, including one that pointed
+  out of haematology into the renal material ("the VTE risk noted in the
+  nephrotic syndrome topic"), "the full PV detail lives in the
+  Myeloproliferative Disorders note", "Monitoring and chelation are covered
+  under Thalassaemia", and "In the 2×2 master grid".
+- **Examiner-facing content removed from backs**, not just from fronts: "If a
+  question offers both, the NICE criterion is the safer answer" and "Read the
+  stem carefully — the two 'commonest' facts are easily swapped" were caveats
+  addressed to an exam candidate, not clinical teaching.
+- **Grey spans holding risk promoted into body text**, including the safety
+  reason for the sickle cell transfusion Hb ceiling, "irreversible if B12 not
+  replaced promptly", and the 2-week-wait referral for a tongue lesion.
+
+### Left for the user
+
+- **Anaemia fc[86] and its MCQ both give maintenance hydroxocobalamin as
+  "1 mg every 2–3 months"** for pernicious anaemia without neurological
+  involvement; the BNF says every 3 months. The identical wording is the keyed
+  option, so the flashcard cannot be corrected alone without creating a
+  flashcard/MCQ conflict — both have to move together.
+- **Lymphoma cure rate stated as ~85% on three cards and >80% on two others.**
+  Compatible but inconsistent, and "~85%" is inside a keyed option.
+- **Two different "PV triads" in one topic** — JAK2 + low EPO + aquagenic
+  pruritus on fc[25]/q[24] versus pruritus + plethora + splenomegaly on q[39].
+  Both keyed.
+- **Plethora q[11] keys "a red-cell mass study"** while fc[11] of the same
+  topic says such studies are now rarely available in UK practice.
+- **Thalassaemia teaches one entity as "non-transfusion-dependent" on fc[7]
+  and as "intermedia" on fc[35]** without ever saying they are the same
+  disease.
+- **All 108 MCQs in `haematological.json` have `"answer": null`** where
+  `haematology.json` populates the field. `correctIndex` is correct in every
+  one checked, so it is mechanically repairable from `correctIndex` and
+  `options` — but it writes to a keyed field, so it is your call.
+- **Gaps with nothing to correct:** no massive/major haemorrhage protocol
+  anywhere in the deck (no activation criteria, component ratio, TXA in
+  traumatic haemorrhage, calcium or rewarming); no component volumes or
+  FFP/cryoprecipitate storage; nothing names the five human malaria species or
+  teaches *P. knowlesi* beyond a parenthetical.
+
