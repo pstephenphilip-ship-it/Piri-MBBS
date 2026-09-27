@@ -10795,6 +10795,143 @@ window.MOCK_BANK = {
       explanation:[
         "VIRAL causes dominate in the UK (Coxsackie B, adenovirus, parvovirus, influenza, SARS-CoV-2). NON-VIRAL INFECTIONS include toxin-mediated diphtheria, spirochaetal Lyme, and protozoal Chagas and toxoplasmosis.",
         "NON-INFECTIVE causes include autoimmune/infiltrative disease (SLE, sarcoidosis, giant cell) and drugs/toxins (doxorubicin, checkpoint inhibitors, clozapine, cocaine)."
+      ] },
+    { id:"myo-021", type:"mcq", objective:"myo-ecg-image",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/PericarditisMyocarditis.jpg?width=1000",
+      imageAlt:"Twelve-lead electrocardiogram with ST-segment changes.",
+      imageCredit:"James Heilman, MD, CC BY-SA 4.0, via Wikimedia Commons.",
+      question:"A 23-year-old man with pleuritic chest pain after a coryzal illness has the ECG shown, and his troponin is raised. Which ECG feature most suggests myopericarditis rather than an acute STEMI?",
+      options:[
+        "Widespread ST elevation with PR-segment depression",
+        "ST elevation with reciprocal ST depression",
+        "ST elevation confined to one coronary territory",
+        "Pathological Q waves",
+        "Hyperacute T waves in the anterior leads"],
+      correctIndex:0,
+      explanation:[
+        "Myopericarditis gives WIDESPREAD (non-territorial) ST elevation, often with PR-SEGMENT DEPRESSION and NO reciprocal change.",
+        "Reciprocal ST depression, elevation confined to a single coronary territory, pathological Q waves and hyperacute T waves all point instead to an acute STEMI."
+      ] },
+    { id:"myo-022", type:"mcq", objective:"myo-ecg-heart-block",
+      image:"https://commons.wikimedia.org/wiki/Special:FilePath/CompleteHeartBlock.jpg?width=1000",
+      imageAlt:"Twelve-lead electrocardiogram.",
+      imageCredit:"James Heilman, MD, CC BY-SA 3.0, via Wikimedia Commons.",
+      question:"A 40-year-old woman admitted with myocarditis and on continuous cardiac monitoring becomes light-headed. Her ECG is shown. What does it show?",
+      options:[
+        "First-degree AV block",
+        "Complete (third-degree) heart block",
+        "Atrial fibrillation",
+        "Ventricular tachycardia",
+        "Normal sinus rhythm"],
+      correctIndex:1,
+      explanation:[
+        "Independent atrial (P) and ventricular (QRS) activity – AV DISSOCIATION – is COMPLETE (third-degree) HEART BLOCK. Myocarditis can inflame the conduction system, which is why patients are admitted for CONTINUOUS MONITORING to detect this and other life-threatening arrhythmias.",
+        "First-degree block only prolongs the PR interval with 1:1 conduction; AF has no P waves and an irregular rhythm; VT is a broad-complex tachycardia; and this is not normal sinus rhythm."
+      ] },
+    { id:"myo-023", type:"mcq", objective:"myo-bnp",
+      question:"A patient with myocarditis becomes breathless with signs of heart failure. Which blood test best reflects the degree of ventricular dysfunction?",
+      options:[
+        "Troponin",
+        "C-reactive protein",
+        "BNP / NT-proBNP",
+        "D-dimer",
+        "Ferritin"],
+      correctIndex:2,
+      explanation:[
+        "BNP / NT-proBNP rises with ventricular wall stress and reflects the degree of VENTRICULAR DYSFUNCTION / heart failure.",
+        "Troponin marks myocyte damage, CRP marks inflammation, D-dimer is non-specific, and ferritin is an acute-phase/iron marker – none quantifies ventricular dysfunction."
+      ] },
+    { id:"myo-024", type:"mcq", objective:"myo-viral-serology",
+      question:"A foundation doctor wants to send a broad viral serology panel to identify the cause in a patient with clinically diagnosed myocarditis. What is the most appropriate advice?",
+      options:[
+        "Send a full viral panel in every case",
+        "It is needed to confirm the diagnosis",
+        "It determines antiviral therapy in all cases",
+        "Viral serology is not routinely required",
+        "It must be sent before any treatment is started"],
+      correctIndex:3,
+      explanation:[
+        "VIRAL SEROLOGY IS NOT ROUTINE – it rarely changes management. Send it only if a specific treatable infection is suspected; the diagnosis rests on the clinical picture, troponin and cardiac MRI.",
+        "It neither confirms the diagnosis nor dictates antiviral therapy in most cases, and treatment should not wait on it."
+      ] },
+    { id:"myo-025", type:"mcq", objective:"myo-echo-role",
+      question:"A 28-year-old woman with acute myocarditis has an echocardiogram. Which finding is most typical?",
+      options:[
+        "A regional wall-motion abnormality in a coronary territory",
+        "Severe concentric left ventricular hypertrophy",
+        "Vegetations on the mitral valve",
+        "A normal study, which excludes myocarditis",
+        "Global LV hypokinesia, often with a pericardial effusion"],
+      correctIndex:4,
+      explanation:[
+        "Myocarditis typically causes GLOBAL (diffuse) LV HYPOKINESIA – often with dilatation and a pericardial effusion in myopericarditis.",
+        "A regional wall-motion abnormality in a coronary territory suggests ischaemia/MI; concentric LVH is hypertensive or HCM; mitral vegetations are endocarditis; and importantly a NORMAL echo does NOT exclude myocarditis (proceed to cardiac MRI if suspicion is high)."
+      ] },
+    { id:"myo-026", type:"mcq", objective:"myo-mri-lge-image",
+      image:"assets/img/myocarditis_lge.png",
+      imageAlt:"Cardiac MRI short-axis image of the left ventricle.",
+      question:"A 30-year-old man with suspected myocarditis has the cardiac MRI shown, which demonstrates late gadolinium enhancement. What does this finding indicate?",
+      options:[
+        "Myocardial inflammation and fibrosis",
+        "Significant coronary artery stenosis",
+        "A pericardial effusion",
+        "An intracardiac thrombus",
+        "Entirely normal myocardium"],
+      correctIndex:0,
+      explanation:[
+        "LATE GADOLINIUM ENHANCEMENT on cardiac MRI indicates MYOCARDIAL INFLAMMATION AND FIBROSIS – CMR is the key non-invasive test, using the updated Lake Louise criteria (a T2 marker of oedema plus a T1 marker of injury such as LGE).",
+        "It does not show coronary stenosis (that needs angiography), and it is not depicting an effusion, a thrombus or normal myocardium."
+      ] },
+    { id:"myo-027", type:"mcq", objective:"myo-mri-without-biopsy",
+      question:"A haemodynamically stable young man with suspected myocarditis has a cardiac MRI that meets the Lake Louise criteria. What is the most appropriate next step?",
+      options:[
+        "Proceed to endomyocardial biopsy to confirm before treating",
+        "Diagnose myocarditis on the CMR and manage without biopsy",
+        "Repeat the cardiac MRI in 48 hours before deciding",
+        "Perform coronary angiography to complete the diagnosis",
+        "Withhold the diagnosis until viral serology returns"],
+      correctIndex:1,
+      explanation:[
+        "In a LOW-TO-INTERMEDIATE-RISK patient, a cardiac MRI meeting the Lake Louise criteria ESTABLISHES THE DIAGNOSIS WITHOUT BIOPSY (ESC) – so diagnose and manage on the CMR.",
+        "Biopsy is reserved for high-risk cases; a repeat scan is done at about 6 months (not 48 hours) to judge healing; angiography excludes ACS but is not needed to ‘complete’ a diagnosis the CMR has already made; and viral serology does not change management."
+      ] },
+    { id:"myo-028", type:"mcq", objective:"myo-biopsy-indication",
+      question:"Endomyocardial biopsy is the pathological gold standard but is used selectively. In which patient is it most strongly indicated?",
+      options:[
+        "A stable patient whose cardiac MRI already meets the Lake Louise criteria",
+        "A patient improving on supportive care after five days",
+        "A young man in cardiogenic shock with new heart block and refractory VT",
+        "A patient with mild LV impairment (EF 50%) responding to treatment",
+        "A patient with a confirmed viral cause on PCR and stable haemodynamics"],
+      correctIndex:2,
+      explanation:[
+        "Biopsy is most strongly indicated in HIGH-RISK disease – ACUTE HEART FAILURE or CARDIOGENIC SHOCK, and where GIANT-CELL or EOSINOPHILIC myocarditis is suspected. Shock with new heart block and refractory VT is exactly that picture (giant-cell until proven otherwise), and the result changes management (immunosuppression, transplant work-up).",
+        "In the others the result would not change management: a diagnostic CMR in a stable patient, an improving or mildly-affected patient, and a case with the cause already known and stable haemodynamics are all managed without biopsy."
+      ] },
+    { id:"myo-029", type:"mcq", objective:"myo-histology",
+      question:"An endomyocardial biopsy is taken from a patient with typical viral myocarditis. Which histological finding is most characteristic?",
+      options:[
+        "Multinucleated giant cells",
+        "A dense eosinophilic infiltrate",
+        "Non-caseating granulomas",
+        "A lymphocytic infiltrate with myocyte necrosis",
+        "Amyloid deposits on Congo red staining"],
+      correctIndex:3,
+      explanation:[
+        "Typical (viral/lymphocytic) myocarditis shows a LYMPHOCYTIC inflammatory infiltrate with MYOCYTE NECROSIS (the Dallas criteria).",
+        "Multinucleated giant cells indicate giant-cell myocarditis; a dense eosinophilic infiltrate indicates eosinophilic myocarditis; non-caseating granulomas suggest sarcoidosis; and Congo-red-positive amyloid indicates cardiac amyloidosis."
+      ] },
+    { id:"myo-030", type:"saq", objective:"myo-biopsy-gold-standard",
+      question:"A patient with rapidly progressive heart failure and suspected giant-cell myocarditis needs a definitive tissue diagnosis. Name the investigation that provides the pathological gold-standard diagnosis.",
+      answer:"Endomyocardial biopsy",
+      accept:["endomyocardial biopsy","emb","myocardial biopsy","cardiac biopsy","heart biopsy"],
+      markPoints:[
+        "Endomyocardial biopsy",
+        "Pathological gold standard – Dallas criteria (lymphocytic infiltrate + myocyte necrosis), with immunohistochemistry and viral PCR",
+        "Reserved for high-risk cases (cardiogenic shock, suspected giant-cell or eosinophilic myocarditis)"],
+      explanation:[
+        "ENDOMYOCARDIAL BIOPSY is the pathological gold standard; histology shows the inflammatory infiltrate and myocyte necrosis and identifies the aetiology (giant-cell, eosinophilic, viral).",
+        "It is used selectively because of its risk – here the suspected giant-cell myocarditis makes it essential, as the result prompts urgent immunosuppression and transplant assessment."
       ] }
 ]
 };
