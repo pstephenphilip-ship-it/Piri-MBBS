@@ -9251,3 +9251,87 @@ loin-to-groin pain is a leaking AAA**, with the age threshold consistent across 
 cards; and the **periorbital oedema** differential, which is the best-differentiated
 red flag in the file — a four-way localisation table plus orbital versus preseptal
 cellulitis, both kinds of angioedema, SVC obstruction and contact dermatitis.
+
+## Content screen — Urology, first 5 of 15 topics (v1566)
+
+Prostate Cancer, Bladder Cancer, BPH, Acute & Chronic Urinary Retention and
+Urinary Incontinence. **275 cards read in full**; 39 fields rewritten, 11
+same-topic duplicates removed. The remaining ten topics are still being screened.
+
+### Two keyed MCQs in one file, keyed to contradictory numbers
+
+**Post-obstructive diuresis fluid replacement.** The BPH topic teaches "replace
+50% of urine output" on a flashcard, and its MCQ's **keyed option** says 50%. The
+Retention topic teaches "replace about three-quarters of losses", and its MCQ's
+**keyed option** says ~75%. Each figure has its own topic's flashcard behind it, and
+both appear in the literature. No number was changed: 50% is the commoner UK
+teaching and has three cards behind it, so standardising there is the sensible
+call, but it means editing a keyed option, which is yours.
+
+### Prose-carried contradictions: three more
+
+- **A failed trial-without-catheter question demanded "at least 48 hours"** before
+  the TWOC, ruling out the 24-hour end of the window its own topic and the Retention
+  topic both teach (24–48 hours, within a 24–72 hour window). Fixed in the
+  explanation; the keyed option was already right.
+- **An alpha-blocker plus PDE5 inhibitor was called "contraindicated together"** in
+  one explanation where the flashcard says in terms "not true contraindications but
+  key cautions — use caution and separate doses". Fixed to a caution with careful
+  titration, per the BNF.
+- **Intravesical therapy for high-risk non-muscle-invasive bladder cancer** was
+  answered "BCG or mitomycin C", contradicted inside the same topic by a card putting
+  mitomycin's best evidence in *low*-risk disease and by an MCQ keying BCG with
+  cystectomy — not mitomycin — as the alternative. Both drugs kept, each now in its
+  own risk band.
+- **Active surveillance monitoring** was taught in one explanation as exactly the
+  option another MCQ in the same topic keys as **wrong**.
+
+### False counts, each contradicted by the deck's own cards
+
+"The four types of incontinence" — where three of its own MCQs name **functional
+incontinence** as a fifth and one adds the fistula, none of which the flashcards
+taught. "The two main risk factors for BPH" — contradicted by its own back, which
+added obesity and metabolic syndrome in a continuation. And bladder cancer's T-stage
+front enumerating "T0, Ta, T1, T2, T3, T4" where the topic's own cards teach **Tis**.
+
+### Halves of taught pairs that were missing
+
+- **"Low-pressure" chronic retention appeared nowhere** in the Retention topic,
+  although three cards teach the high-pressure form — so "why only one causes renal
+  impairment" was unanswerable and the instruction not to attempt a TWOC in
+  high-pressure retention had no counterpart.
+- A front asking students to contrast acute and chronic retention **by volume** was
+  answered only with "moderate volumes" and "very large volumes".
+- The post-obstructive diuresis threshold was stated in an MCQ and not on the card.
+
+### Checked and found correct
+
+**Prostate zones are right in every one of the eight cards that state them** across
+three topics — transitional for BPH, peripheral for cancer, with no swap anywhere.
+**The T2 muscle-invasive boundary is right on all fourteen cards that touch it**:
+nothing puts T2 in the non-muscle-invasive group or offers BCG or TURBT alone for it.
+The IPSS bands, the post-void residual thresholds, finasteride halving the PSA, the
+alpha-blocker-versus-5-ARI onset times, the TURP complication rates, the Qmax bands,
+the bladder-diary and pelvic-floor-training durations, and the drug-to-incontinence-
+type mapping were all verified and left alone.
+
+### Reported, not fixable
+
+- **An MCQ whose distractor is also true.** A TURBT question is keyed to "a single
+  instillation of mitomycin C **at the time of** TURBT" while option 0 reads "**within
+  24 hours** of TURBT" — and the deck's own flashcards teach the 24-hour window
+  (ideally 6 hours). The stem does say "at the time of", so the key is the better
+  match, but the distractor needs replacing rather than the stem rewriting.
+- **A BCG contraindication keyed against itself**: the keyed answer is
+  immunosuppression, but another option ("immediately post-TURBT for high-grade T1")
+  is listed as a contraindication by the topic's own flashcard *and* by that
+  question's own explanation.
+- **Pembrolizumab for BCG-unresponsive non-muscle-invasive disease** is an FDA
+  licence, not EMA or NICE, and is stated unqualified.
+- **No "proctitis" anywhere in urology.json**, and the external-beam radiotherapy
+  card lists no side effects at all; prostatectomy harms exist only inside MCQs.
+- Gaps needing new cards: no BPH card on adding an antimuscarinic or mirabegron for
+  storage symptoms persisting on an alpha blocker (all that teaching sits in the
+  Incontinence topic, and oxybutynin appears in BPH only as a distractor); no card
+  listing the complications of acute retention as a set; and formal low/intermediate/
+  high risk stratification is never defined in the Prostate Cancer topic.
