@@ -10334,3 +10334,180 @@ kind". That is wrong, and an agent was right to push back. The file holds **41 `
 absence of **typographic** entities (`&mdash;`, `&rarr;`, `&ndash;`), which is the thing the
 house-style rule is about. The instruction agents acted on ("literal glyphs, never emit
 `&mdash;`/`&rarr;`") was right; my justification for it overstated the measurement.
+
+---
+
+## Dermatology — all 23 topics
+
+Eight parallel screens read every card in all 23 topics — **1,871 cards** (1,077 flashcards
++ 794 MCQs), the largest deck screened so far, no sampling. Applied **235 field rewrites**
+(221 flashcard fields + 14 MCQ fields, all explanations or stems) and **32 flashcard
+deletions**. Flashcards 1,077 → 1,045; **all 794 MCQs survive and no `options`,
+`correctIndex` or `answer` was touched anywhere**, verified field-by-field against the
+pre-image. The markup, grey-span and emphasis guards return **completely clean** afterwards.
+
+### A wrong keyed option — for the user, because I will not edit options
+
+**Benign Skin Lumps `q[42]`.** Xanthelasma vignette. The keyed option (index 1) and its
+`answer` field both read "Check a **fasting** lipid profile and assess cardiovascular risk".
+Three other cards in the same topic say the opposite: `fc[56]` ("check a full lipid profile
+— *a fasting sample is not needed*"), `fc[60]` ("A fasting sample is not needed"), and
+`q[48]`, whose own keyed option is "A full lipid profile (**no fasting needed**)" and whose
+explanation explains that non-HDL replaced LDL precisely because it needs no fasting.
+
+The fix is one word: delete `fasting ` from `q[42]`'s option 1 and from its `answer` string.
+The keyed index does not change and no other option mentions lipids, so the discrimination is
+untouched. I have not made it, because options are out of bounds by standing instruction —
+this is the case where the reason for that rule does not apply, but it is still the user's
+call. The explanation has been rewritten so it no longer teaches that fasting is required.
+
+### A claim in my own brief that the deck contradicts, and the deck is probably right
+
+I told the acne screener that the **isotretinoin two-prescriber rule for under-18s** applies.
+The deck says the opposite, deliberately and in two places: `fc[25]` ("No second prescriber's
+sign-off is required") and `q[15]`, whose **keyed option** is "No second prescriber sign-off
+is needed", with an explanation saying the measure was replaced by an updated Acknowledgement
+of Risk Form, a patient information video and a national audit. The agent's reading is that
+the April-2023 MHRA two-prescriber measure was dropped before implementation.
+
+**Nothing was changed**, correctly — a keyed option asserts it, so the card and the MCQ would
+have to move together or not at all. **This needs checking against the current MHRA Drug
+Safety Update.** Recording it because the error was mine: I asserted a regulatory position in
+a brief that I could not verify, and an agent was right to refuse it.
+
+### A correction to my own CSS model, and a correction to that correction
+
+An agent challenged my long-standing instruction that "grey is `.fc-caveat` and
+`.fc-inline`". I checked, and:
+
+- **`.fc-inline{color:#4B5563}`** — grey. **`.fc-caveat{… font-size:13px; color:#4B5563}`** —
+  also grey. My instruction was right. My first grep missed the `.fc-caveat` rule because a
+  long CSS comment sat between the selector and the brace, and I briefly concluded I had been
+  wrong for several rounds. I had not been.
+- **`.fc-sub` has no `color` property at all** — body-coloured. That is now the fifth
+  independent confirmation.
+- The agent's real contribution stands and sharpens the rule: **the test for whether
+  converting `<b>`→`<strong>` is safe is not "is the container grey" but "does the container
+  have a `strong` rule of the same colour as its `b` rule".** `.fc-sub b` is `#0B7D6E`, the
+  same teal as `.fc-card-text strong`, so converting inside `fc-sub` is colour-neutral.
+  `.fc-caveat b` and `.fc-inline b` are `#B4531A` orange with no matching `strong` rule, and
+  `.fc-card-text strong` is a descendant selector that *would* apply — so converting there
+  silently repaints orange to teal. The single `<b>` inside a caveat (`Cutaneous Signs of
+  Systemic Disease` `fc[42]`, `pseudoglucagonoma`) was flagged in the brief and left untouched.
+
+The repo's own CSS comment states the design intent: *".fc-caveat stays for genuine asides
+and traps only"* — which is exactly the premise the grey-span promotion work rests on.
+
+### The defects worth naming
+
+1. **A card contradicting its own keyed MCQ.** Psoriasis `fc[28]` answered "how is guttate
+   psoriasis managed" with "Narrowband UVB + antibiotics", relegating self-resolution to a
+   parenthetical — while its own `q[18]` is keyed to "Reassure — it usually settles over 3–4
+   months" and marks "a course of oral antibiotics to clear the rash" **wrong**. A student
+   learning the flashcard fails the deck's own question.
+2. **An over-reassuring cancer card.** Seborrhoeic Keratosis `fc[7]` ended on reassurance —
+   "it can mimic melanoma *but* dermoscopy shows the reassuring milia-like cysts" — in effect
+   treating a stuck-on warty appearance plus dermoscopy as sufficient rule-out. Rewritten to
+   keep the dermoscopic help but end on the urgent suspected-cancer referral.
+3. **An invitation to destroy a possible melanoma.** Benign Skin Lumps `fc[28]` said "excise
+   any chronic/atypical lesion to exclude melanoma" with no route, contradicting four other
+   cards; a reader could curette an amelanotic melanoma. Rewritten to route it to the urgent
+   pathway.
+4. **A defining feature that was not one.** Emergencies `fc[13]` called ≥2-site mucosal
+   involvement "a defining feature" of SJS/TEN while its own `q[5]` says its absence does not
+   exclude the diagnosis — so the card would have a student rule out TEN wrongly.
+5. **Timing that silently under-resuscitates.** Burns `fc[14]` had "(timed from the moment of
+   injury)" inside a grey `fc-inline`. Parkland timed from arrival rather than from injury
+   under-resuscitates a major burn. Promoted and sharpened to "not from arrival".
+6. **A fire hazard rendering grey.** Eczema `fc[16]` had the MHRA **emollient fire-hazard**
+   warning inside an `fc-caveat`. Burn risk as a visual aside. Promoted.
+7. **An MHRA prescribing test rendering grey.** Emergencies `fc[16]` had HLA-B*15:02 testing
+   before carbamazepine inside a caveat. Promoted.
+8. **Explanations contradicting their own topic**: Skin Infections `q[3]` said fungal
+   confirmation "is recommended before oral antifungals and for capitis", the exact opposite
+   of `fc[12]`'s rule that capitis and kerion are treated empirically; Immunobullous `q[44]`
+   said coeliac serology is used "with a duodenal biopsy" where `fc[56]` says a duodenal
+   biopsy is *not* needed once skin immunofluorescence has confirmed dermatitis herpetiformis;
+   Systemic Signs `q[12]` listed **Addison's disease** as a cause of acanthosis nigricans,
+   which its own `q[0]` uses as an *incorrect* option (Addison's causes diffuse
+   hyperpigmentation, not velvety flexural thickening).
+9. **A false closed count contradicted by its own MCQ options.** Bedside & Microscopy `fc[11]`
+   asked for "three" conditions with a positive Nikolsky sign; its own `q[8]` explanation names
+   four and offers pemphigus foliaceus as an option. Same shape in Cutaneous CTD `fc[2]` ("the
+   three main cutaneous CTDs", while the topic's MCQs use systemic sclerosis, anti-centromere
+   and anti-Scl-70 as distractors) and Immunobullous `fc[2]`/`fc[17]`.
+10. **A safety contraindication missing from the whole 1,871-card file**: the
+    isotretinoin–tetracycline interaction (raised intracranial pressure). Added. The
+    finger-tip unit and every topical-steroid side effect except atrophy were likewise absent.
+11. **One antibody inconsistency**: Immunobullous `fc[2]` gave pemphigus vulgaris as
+    "anti-desmoglein 3" alone against `fc[25]`, `fc[26]`, `q[18]` and `q[24]`'s "desmoglein 1
+    and 3"; corrected to "3 (± 1)", which is more precise than either.
+
+### Verdicts returned clean
+
+**The pemphigus/pemphigoid inversion — the most-inverted pair in dermatology — is not
+present.** All 19 pemphigus-vulgaris cards and all 15 pemphigoid cards are correct on split
+level, antibody, blister character, mucosal involvement, Nikolsky and immunofluorescence
+pattern, and the two reciprocal comparison cards agree with each other. **Anaphylaxis
+adrenaline is correct**: IM 500 micrograms of 1 in 1000, anterolateral thigh, repeat at 5
+minutes, steroids explicitly not first-line — and a grep confirms **no IV adrenaline dose
+exists anywhere in the file**. Bradykinin-mediated angioedema is handled unusually well,
+including that a threatened airway still gets IM adrenaline while the mechanism is
+established. **Compression in arterial disease is safe** — ABPI before compression on five
+cards, never-compress-arterial on four, thresholds mutually consistent, falsely high ABPI in
+diabetes flagged. **BCC and SCC metastatic behaviour is not swapped.** Also verified: melanoma
+ABCDE and Breslow, that shave or punch biopsy of suspected melanoma is forbidden, keloid vs
+hypertrophic scar (keloid extends beyond the margin), scarring vs non-scarring alopecia,
+vitiligo as depigmentation and not framed as cosmetic, eczema flexor vs psoriasis extensor,
+allergic vs irritant contact dermatitis, that no card recommends a steroid for rosacea, the
+Parkland arithmetic (I re-summed the rule of nines to 100% and checked 4 × 70 × 30 = 8400 mL),
+and every morphology definition.
+
+### Flagged for the user, not changed
+
+- **The `q[42]` fasting option** and **the isotretinoin two-prescriber question**, above.
+- **A one-character inconsistency in the morphology thresholds**: macule `<1 cm` and patch
+  `>1 cm`, but papule and vesicle `≤1 cm`. Exactly 1 cm is therefore a papule and a vesicle
+  but neither a macule nor a patch — while `fc[7]` asserts the cut-off is shared with
+  macule/papule and `fc[11]` exists to say it is shared. One operator needs changing; I did
+  not guess which.
+- **A burns threshold that disagrees with itself**: `fc[12]` says formal resuscitation at
+  "15% TBSA or more" (≥15) while `q[3]`'s keyed option says "greater than 15%" (>15). A
+  patient at exactly 15% is resuscitated by one and not the other. Convention is >15% in
+  adults, so `q[3]` is the one I would follow.
+- **Whole-topic coverage gaps, all confirmed by grep and none invented**: **scabies is absent
+  from the entire deck** (no permethrin, no household treatment, no crusted scabies — it
+  appears only as two unkeyed distractors); **anaphylaxis is absent from the topic named
+  "Dermatological Emergencies"**; **DRESS is never defined** anywhere although an MCQ is keyed
+  to it; **purpura fulminans** does not occur in the file; **no scleroderma content at all**
+  (no morphoea, no CREST, no capillaroscopy) although the CTD topic's own MCQs use systemic
+  sclerosis and its antibodies as distractors; **pyoderma gangrenosum**, **melasma**,
+  **acne keloidalis nuchae**, **pomade acne**, **dermatosis papulosa nigra** and **central
+  centrifugal cicatricial alopecia** are all missing; and Benign Skin Lumps teaches only four
+  lesions — no lipoma, pilar cyst, neurofibroma or milia.
+- **Cross-topic margin tension**: the conditions topic gives melanoma wide local excision by
+  **stage**, the investigations topic by **Breslow band**. A 1.6 mm non-ulcerated melanoma
+  yields ≥1 cm in one and ~1–2 cm in the other — NICE-by-stage against BAD-by-thickness, never
+  reconciled.
+- **The lentigo maligna exception**: four cards state an absolute "never partially biopsy a
+  suspected melanoma" while three others instruct sampling the most atypical area of a
+  suspected lentigo maligna. Both are correct practice; one `fc-sub` clause now records the
+  exception, flagged for veto.
+
+### Skin-tone equity — the deck's weakest dimension, measured
+
+Worth recording as a pattern rather than a list of cards. **46 cards across 14 topics already
+carry a violaceous/dusky/darker-skin clause**, so the deck has a house device for this — the
+best examples being Rosacea `fc[3]` ("most underdiagnosed in skin of colour, where the
+erythema looks dusky or violaceous") and Leg Ulcers `fc[37]`. But the distribution is very
+uneven: **Skin Infections had zero such clauses across 132 flashcards** despite erythema
+being a named recognition feature on six of them, and Hair & Pigmentation, Seborrhoeic
+Keratosis and Acne had none either. Agents added clauses to the highest-yield cards in each,
+modelled word-for-word on the deck's own existing wording, and all are listed as additions to
+veto. The single most consequential one: **Bedside & Microscopy `fc[19]`** told a student to
+spot a non-blanching rash and give immediate IV antibiotics with no warning that it is far
+harder to see in brown and black skin.
+
+One was deliberately left alone and should be a human decision: **Skin Infections `fc[128]`
+uses "spreading erythema" as a necrotising-fasciitis escalation trigger** — the most
+dangerous colour-dependent sign in the file, and not something to reword without sign-off.
