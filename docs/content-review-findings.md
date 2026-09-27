@@ -10857,3 +10857,27 @@ dashes, and 1,565 typographic entities (`&plusmn;` `&ge;` `&ldquo;`) in the
 unscreened decks where the screened decks use literal glyphs. These render
 acceptably today, so they are consistency rather than breakage — queued behind
 the content passes.
+
+## ASCII-hyphen ranges (v1583) — a defect class that is NOT blanket-fixable
+
+62 digit-hyphen-digit occurrences exist across the live decks where the corpus
+otherwise uses en dashes. **Inspecting all 62 before touching any was the whole
+value of the exercise: most are not ranges at all**, and a find-and-replace would
+have corrupted them:
+
+- `14-3-3 protein` (the CJD CSF marker) — 8 occurrences
+- `CA19-9`, `CA15-3`, `CEA/CA 19-9` — 10 occurrences
+- `D2-40` (podoplanin), `LYVE-1` — 5
+- the `2-4-6 rule` (pre-operative fasting) — 6
+- the `60-40-20 rule` (body fluid compartments) — 8
+- `2-1-1` event-based PrEP dosing — 4
+- spinal and vertebral levels: `C5-6`, `C3-5`, `S2-4`, `~L1-2`, `~T4-5` — 7
+  (hyphenated by convention in UK teaching; left alone deliberately)
+
+In every one of those a hyphen is correct. Only **8 were genuine numeric ranges**
+and those are now en dashes: `aged 50–70`, `aged 25–64`, `for 50–64`, `about
+4–8h`, `CrCl >15–25`, `16–17-year-olds`, and `3–6-monthly` ×2.
+
+Recorded because the instinct to regex the whole class would have introduced a
+worse defect than it fixed, in a deck where `14-3-3` and `CA19-9` are the answers
+to their cards.
