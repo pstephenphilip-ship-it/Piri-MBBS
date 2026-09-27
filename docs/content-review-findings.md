@@ -8090,3 +8090,99 @@ HFrEF drugs are introduced one at a time or offered together (the topics disagre
 NICE on both sides), and "fantastic four" vs "four pillars" as the house term. And the
 consolidation question itself &mdash; nine facts still live **only** in the "Heart Failure"
 topic, so folding it in means migrating those first.
+
+## Content screen 7 — haematology, first three batches (v1554)
+
+Haematology is topic 3 in the app's own `CONDITIONS_SYSTEMS` order, so it follows
+cardiovascular and respiratory. 54 topics, 1,926 flashcards, 1,447 MCQs across six files;
+eight agents. Three batches applied here: lymphoid histology, immunology/serology, and
+haematology investigations + genetics + risk scores.
+
+**47 fields changed** (22 fronts, 22 backs, 2 MCQ stems, 1 explanation) and **14 cards
+merged away** from 810 cards read.
+
+### The third histology round confirms the pattern
+
+Lymphoid/immune histology: 312 cards read, **2 fronts and 1 back changed**, 11 merges.
+Tonsils needed **nothing at all**. **Zero false counts** &mdash; only 7 fronts in the file
+carry a number and every one is right, including the myeloid:erythroid ratio 2&ndash;4:1
+which the topic's own MCQ keys identically. No examiner labels, no editing debris, no
+deck-internal references, no risk in grey spans, and no image placeholders anywhere in the
+file.
+
+That is now three histology rounds with the same answer, and it is worth stating plainly:
+**"this topic is clean" has been the correct result for histology every time.** The counts
+that looked like candidates &mdash; cortex/paracortex/medulla, red vs white pulp, Waldeyer's
+ring, Peyer's patches, red vs yellow marrow &mdash; were all verified against their backs
+and left. One card claimed nothing about "three tonsils": it lists all four of the ring,
+and so does its MCQ.
+
+### Immunology and serology: the antibody pairings are clean
+
+I asked that agent to hunt antibody-to-disease contradictions specifically, because marker
+topics are where two cards most easily disagree. **None found.** Checked in both directions
+across flashcards and MCQ text: anti-CCP vs RF, ANA/dsDNA/Sm, c-ANCA/PR3 vs p-ANCA/MPO,
+anti-tTG vs EMA, Scl-70 vs centromere, AChR vs MuSK, AQP4 vs MOG, desmoglein 3 vs BP180/230,
+anti-IF vs anti-parietal-cell. Every sensitivity, specificity, titre and complement pattern
+checked and correct.
+
+**Two gaps rather than defects**, reported not invented: the **lectin complement pathway is
+never mentioned anywhere in the file**, and **type II hypersensitivity is absent** while
+types I, III and IV are each taught. Neither is a wrong statement; both are holes.
+
+### Real editing debris found
+
+* `<strong><strong>Urgent plasma exchange</strong></strong>` &mdash; a doubled tag.
+* Nested parentheses inside a sentence: *"primary membranous nephropathy (a leading cause of
+  primary nephrotic syndrome in adults (especially older Caucasian patients)), positive
+  in&hellip;"* &mdash; re-punctuated with every word kept.
+* **A question left inside an answer**: a marrow-biopsy back read *"&hellip;fibrosis and
+  infiltration. **From where and how?** The posterior iliac crest, under local
+  anaesthetic."*
+* A carry-on ending *"Same 'antibody &rarr; hunt the tumour' logic as MG/LEMS."*
+
+### Three more false counts
+
+*"Name **two** non-melanoma cancers where BRAF V600E is important"* &mdash; the back names
+three. *"Which **two** blood-film findings in G6PD"* &mdash; the back names three. *"Which
+**two** further tests complete the paraprotein screen"* &mdash; immunofixation is itself part
+of the screen, and the topic's own full-myeloma-screen card lists four components.
+
+### A deck-wide markup audit, and two things it settled
+
+I had only ever run the markup guard against agent *proposals*, never against the existing
+deck. Doing that turned up:
+
+* **293 apparent "welds"** (a tag boundary inside a word) that are all the **legitimate
+  first-letter mnemonic bold** &mdash; `<strong>S</strong>uprarenals, <strong>A</strong>orta`
+  for SAD PUCKER. A further 7 that my mnemonic pattern missed are also legitimate, including
+  the deliberate `<strong>AB</strong>duct` / `<strong>AD</strong>duct` contrast. **Zero
+  genuine welds deck-wide.**
+* **One genuine nested `<strong>`**: `non-<strong>cardiogenic oedema</strong></strong>` in a
+  TRALI/TACO card. Unnested; the visible text is byte-identical. **Zero nested emphasis
+  remains deck-wide.**
+
+### A real bug in my own applier, caught by its own assertion
+
+Cutting a card out of a **pretty-printed** file left a dangling comma and produced invalid
+JSON. The applier looked for the separating comma *immediately* adjacent to the closing
+brace, which holds in compact JSON and for a middle element of a pretty-printed array, but
+fails for the **last** element, where the comma sits before the object behind whitespace.
+The `json.loads` assertion caught it and **nothing was written**. Comma handling is now
+whitespace-tolerant in both directions. Two files in the deck are pretty-printed
+(`haematology.json`, `lymphoid-immune.json`), so this would have bitten again.
+
+### Loudest flag: an out-of-date figure locked inside a keyed option
+
+The CVS/amniocentesis procedure-related miscarriage risk is given as **0.5&ndash;1%**, and
+an MCQ **keys that figure as the correct option** and repeats it in its explanation. The
+current RCOG figures are roughly **0.1&ndash;0.2%** (amniocentesis ~0.11%, CVS ~0.22%)
+&mdash; about a fifth of what the deck teaches. Nothing was changed: correcting the
+flashcard alone would contradict its own topic's keyed MCQ, and options are out of bounds
+for this project. **This one needs a decision that moves both cards together.**
+
+Also flagged and untouched: a malaria film repeat schedule stated two partly-overlapping
+ways, with the MCQ figure inside a keyed option; FIGO 2009 endometrial staging, superseded
+by FIGO 2023 but internally consistent; and one genuinely garbled MASCC item
+(*"solid tumour **or** no previous fungal infection"*) which was corrected to the real
+criterion **without altering any point value** &mdash; the score still sums to 26.
