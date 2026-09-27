@@ -11085,3 +11085,114 @@ added that was not already in the deck, nothing lost, one redundant card fewer.
   content, and no mention of GUMCAD** — the surveillance route by which these
   infections are actually reported. Both are real gaps for a GUM deck and need
   new cards.
+
+## Ophthalmology (v1589) — 22 topics, 955 cards, all read
+
+Six agents read every card. **168 field rewrites** and **30 same-topic deletions**,
+verified field-by-field against a pre-image: 168/168 exact, zero collateral change,
+every id preserved, the MCQ section byte-identical through the deletion stage, and
+**zero changes to any `options`, `correctIndex` or `answer`**.
+
+### The defect that mattered most: a steroid softening in a dendritic ulcer
+`investigations … Core Examination` fc[28] asked "why must corticosteroids not be
+given **alone** for a dendritic ulcer?" and ended "steroids only ever under
+specialist supervision"; q[15]'s explanation said management is "topical aciclovir
+with avoidance of steroids **alone**". Both permit, by implication, a steroid plus
+an antiviral in epithelial disease — while the deck's own HSV Keratitis topic says
+the opposite in four places ("CONTRAINDICATED", "can cause corneal perforation",
+"Do NOT start steroid drops"). Both rewritten to say contraindicated in epithelial
+(dendritic) disease, with corneal melt and perforation named, and steroids-with-
+antiviral-cover confined to stromal/disciform disease under ophthalmology. Verified
+afterwards that no card and no keyed option anywhere in the deck gives a steroid to
+a red eye with a dendritic ulcer.
+
+### A guideline figure corrected
+Strabismus fc[17], fc[21] and q[5] said an abnormal red reflex **on its own** is an
+"urgent suspected-cancer referral, seen within **2 weeks** (NICE)" — while
+Cataracts fc[13], Core Examination fc[7] and the **keyed answer** of Core
+Examination q[3] all say **same-day**. NICE NG12 recommends a **very urgent
+referral, appointment within 48 hours**, for a child with an absent red reflex;
+there is no 2-week retinoblastoma pathway. Corrected to 48 hours, same-day in a
+neonate, with "never a routine or watch-and-wait pathway" stated. The distractor
+offering 2 weeks was already keyed wrong and is untouched.
+
+### Other verified corrections
+- **Cotton-wool spots and R2.** Diabetic q[0]'s explanation said cotton-wool spots
+  "would make it pre-proliferative (R2)", contradicting fc[5] and q[6], which both
+  take the NHS DESP line that cotton-wool spots alone do **not** upgrade to R2.
+  Aligned to the deck's own position. Worth noting my brief had implied the looser
+  textbook grouping and the agent was right to follow the deck and DESP instead.
+- **Copper wiring and hypertensive grading, twice.** fc[6], fc[7] and fc[10] all say
+  the wirings mark arteriolosclerosis severity and must not be used to assign a
+  Keith–Wagener grade — but q[0]'s explanation assigned grade 2 partly on copper
+  wiring (a sign its own stem never mentions), and q[12]'s said outright "copper
+  wiring and AV nipping are grade 2 features". Both fixed.
+- **A "do not" instruction inside a grey span.** Hypertensive fc[6]'s `fc-caveat`
+  contained "do not use it to assign a grade" — a straight breach of the
+  no-risk-in-grey rule. Promoted, along with 80 other grey spans across the deck,
+  including two sight-saving surgical windows in Retinal Detachment (~24 hours for
+  macula-on, ~2–3 days for macula-off) and a drug list for ANCA-associated
+  vasculitis in Scleritis.
+- **A normal ESR/CRP does not exclude giant cell arteritis** was stated nowhere in
+  the CRAO topic. Added beside its existing negative-biopsy caveat.
+- **Cotton-wool spots occur in both** diabetic and hypertensive retinopathy — the
+  diabetic-vs-hypertensive contrast card omitted that caveat entirely while its
+  mirror card carried it in grey. Both now agree, in body text.
+- **A painful third-nerve palsy with a dilated pupil** had the right attribution
+  (posterior communicating artery aneurysm) but never said what to do, and the
+  load-bearing phrase was in grey. Now names it an emergency with immediate CT/CTA
+  and neurosurgical referral, and contrasts the pupil-sparing microvascular palsy.
+- **Seronegative spondyloarthropathy** was listed among the important scleritis
+  associations in an MCQ explanation, contradicting the flashcard that says HLA-B27
+  disease is the classic cause of anterior uveitis, **not** scleritis. Fixed.
+- **Language**: "a diabetic patient" opened **nine** Diabetic Retinopathy MCQ stems
+  plus stems in Retinal Detachment and Cellulitis; all now "a person with diabetes".
+
+### One figure I vetoed
+An agent added "the retina tolerates only about **90–100 minutes** of complete
+arterial occlusion" to the CRAO acute-measures card. The deck deliberately says only
+"a window measured in minutes", the figure is contested (experimental primate data
+against a clinical literature that quotes several hours), and the card's job is to
+say the measures are low-evidence and must not delay referral. Removed — and since
+that was the card's only change, the card is left exactly as it was.
+
+**A method note**: my first attempt to strip that sentence used a regex that could
+not cross the nested `fc-num` chip inside the span, so it cut the span in half and
+left orphaned text. The applier's markup guard rejected the file. Fixed by dropping
+the edit rather than patching the patch.
+
+### Verification notes
+- **One agent caught its own misfile and said so**: it had filed the CRAO
+  acute-measures edit at fc[20], which is the **thrombolysis** card. I re-verified
+  fc[18]–fc[21] independently; the correction to fc[19] is right and thrombolysis is
+  untouched.
+- **8 numeric deltas**, all checked. Two were not figures at all (HLA-B27; "type 1"),
+  three were the red-reflex correction, and the rest were the deck's own numbers
+  copied from a sibling card.
+- **One typographic regression repaired** before applying: an agent reintroduced a
+  spaced ASCII hyphen into an explanation, in the class I had just swept deck-wide.
+- **12 of 30 deletions were rejected by the guard**, each adjudicated against source
+  before declaring the loss — including two that looked alarming and were not: a
+  dropped card's "don't wait for biopsy" is carried more strongly by its keeper as
+  "give immediate high-dose corticosteroid **before any biopsy**" with the regimen,
+  and "only-seeing eye" is a hyphenation artefact of the keeper's "only seeing eye".
+
+### Flagged for a human — not changed
+- **The M1 (diabetic maculopathy) referral urgency.** The deck routes R3 urgently
+  (~2 weeks) and M1 routinely, which is NHS DESP. My brief had implied maculopathy
+  should be urgent. The agent declined to change it and I agree — overruling DESP
+  here would be the dangerous edit — but it is worth a deliberate decision.
+- **Absent from the whole 955-card deck**: **fourth (trochlear) nerve palsy** —
+  "trochlear", "CN IV" and "fourth nerve" appear nowhere, so vertical diplopia, head
+  tilt and the three-step test are untaught; **optic atrophy** in the Systemic
+  Disease topic, so swollen disc vs pale disc cannot be made there; the **pituitary
+  adenoma vs craniopharyngioma quadrant order**; **tessellated/myopic fundus**;
+  **perimetry types beyond Humphrey static**; **colour vision/Ishihara in Core
+  Examination**; and **inferior quadrantanopia → parietal lobe**, which one agent
+  added to the temporal-lobe card.
+- **Diabetic screening interval**: the Imaging topic says "annual" unqualified where
+  the Diabetic Retinopathy topic gives the England two-yearly R0M0 rule and the
+  gestational-diabetes exclusion. Not wrong, but incomplete against its sibling.
+- **CRVO ischaemic threshold**: one card says "often ≤6/60", an MCQ stem says
+  "<6/60", so exactly 6/60 falls inside one and outside the other.
+- **A cosmetic wart**: CRAO fc[4] renders "~>95%" — "approximately greater than".
