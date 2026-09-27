@@ -8746,3 +8746,148 @@ after cholangiocarcinoma resection.
 The "more than 4 weeks" delayed-cholecystectomy figure, which is inside a keyed
 option. Conventional UK teaching is ~6 weeks, and no card anywhere on the axis
 says 6 weeks, so the deck is consistent at 4 — it just is not NICE's figure.
+
+## Content screen — Liver, 10 of 14 topics (v1561)
+
+**A note on the record first: part of this work is inside the previous commit.**
+The hepatobiliary commit (v1560) used `git add -A` while the liver batches were
+already applied to the working tree, so it carries a slice of liver.json that its
+message does not describe. Nothing is lost or wrong in the deck, but the commit
+boundary is misleading, and the figures below are the totals for the liver work
+across **both** commits: **118 fields rewritten, 45 same-topic duplicates removed,
+zero cards added, zero MCQ options or keys moved.** Haemochromatosis, Wilson's,
+α1-antitrypsin deficiency and HCC are still being screened and are not included.
+
+Pre-flight, as with hepatobiliary: all 970 cards located with zero mismatches and
+**zero markup or tone defects**. 31 meta-framing fronts and 6 examiner labels in
+the whole file, all located by index up front.
+
+### Where I stopped the screen from creating churn
+
+Five fronts read "Summarise hepatitis A/B/C/D/E: genome, transmission,
+chronicity, vaccine, treatment." "Summarise" is on the meta-framing list, but
+those fronts name exactly what the answer must contain, so they are not the
+defect — the defect is a front that names no content at all. I wrote that
+distinction into the brief before the agents started, and all five are untouched.
+The genuine one in that topic, "the two decisive forks that organise the whole
+topic", was rewritten.
+
+### Corrections made
+
+**Three real gaps in the hepatitis B serology**, which is the highest-risk content
+in the system. The **window period was absent from the entire topic** — now on the
+card that contrasts anti-HBc IgM and IgG. **Chronic infection was never defined** —
+HBsAg beyond 6 months, added, which completes the four patterns a student has to
+separate. And a card said anti-HBc IgG means past infection full stop; it persists
+for life and is also positive in chronic infection. The good news, checked card by
+card: nothing anywhere read "anti-HBc positive with anti-HBs positive" as
+vaccination, which is the classic way that table goes wrong.
+
+**Hepatitis D co-infection versus superinfection was missing from the Viral
+Hepatitis topic** while the Acute Hepatitis topic teaches it explicitly — same
+file, one topic apart. Added, with the specific antiviral named (bulevirtide,
+where the card previously said only "a specific antiviral is now available").
+
+**A front asking for a dose whose back has none.** "How is NAC dosed and timed?"
+— the back contains no dose and no regimen. Front rewritten to what the back
+answers; the regimen itself is a genuine gap and is reported, not invented.
+
+**Two false closed counts in the metabolism topic, each contradicted by the deck's
+own cards**: "the three gluconeogenic precursors" (its own MCQ explanation lists
+four, and pyruvate is the common entry point) and "the two main scenarios in which
+ammonia accumulates" — contradicted by that card's own grey caveat, which two
+other cards teach in full. Both counts dropped, both backs completed.
+
+**Four MCQ stems asking for something their keyed option does not contain** — in
+one of them the option that answers both halves of the question is a *distractor*.
+All four tightened to what the key actually says.
+
+**The alcoholic/non-alcoholic histology conflation.** Two cards taught
+Mallory-Denk bodies as the biopsy finding of alcohol-related hepatitis with no
+caveat, while the NAFLD topic correctly teaches that the two are histologically
+indistinguishable and the distinction is the alcohol history. Read from the ALD
+side alone, a student concludes a biopsy separates them.
+
+**NAFLD contradicted itself about what NAFLD is.** One card correctly closes
+"these cause secondary steatotic liver disease rather than NAFLD itself" while
+four other places call rapid weight loss and drug causes causes "of NAFLD". The
+two MCQ stems now say "secondary hepatic steatosis", keeping both keys correct.
+
+**A false count in PSC**: "the two cancers to fear" where the topic's own
+surveillance card names gallbladder cancer as a third.
+
+**The variceal transfusion target: the deck was marking its own student wrong.**
+Two flashcards said target Hb 70–90 g/L; both MCQs are keyed to 70–80. Both
+figures are real — 70–90 is the general restrictive target for acute upper GI
+bleeding, 70–80 is the variceal-specific BSG/Baveno target — and these are
+variceal-bleed cards, so the flashcards have come to 70–80.
+
+**Two examinable figures reachable only through an MCQ** are now on the flashcard:
+the DILI R-ratio cut-offs (≥5 hepatocellular, ≤2 cholestatic) and hepatitis E as
+the classic DILI mimic. **A card that never answered its own question**: "why is
+raised IgG a diagnostic pillar" restated the claim instead. **A card promising an
+imaging contrast** gave one only for PSC, with no PBC line at all.
+
+**The ATP convention.** The deck is consistent on ~30–32 / ~26–28 and never says
+36–38 anywhere, but it never said which convention it uses either. One line now
+names it and the P:O ratios behind it (~2.5 per NADH, ~1.5 per FADH₂), with 36–38
+named as the older figure. That introduces two numbers the deck did not have; they
+are standard and correct, and the sentence is separable if you want it out.
+
+### A guard miss I caught by hand
+
+The coverage check passed a drop of "What scale guides benzodiazepine dosing in
+alcohol withdrawal? The CIWA-Ar scale", flagging only the word `scale`. I searched
+the topic: **CIWA-Ar appears on no other flashcard** — only inside an MCQ's keyed
+option. Dropping it would have left the named tool reachable only by answering a
+question. It is now carried into the keeper. This is the first time the guard has
+passed something that mattered, and the reason is that its sibling pool is
+flashcards only while the missing token existed in an option.
+
+### The structure of a 242-card topic
+
+Foundations of Metabolism is four merged note sets, each split in two, and the id
+prefix marks every seam: glycolysis, Krebs, oxidative phosphorylation, glycogen
+and gluconeogenesis, fat and ketones, the fed–fasted switch, protein and the urea
+cycle, drug metabolism. The shape differs from every previous large topic: there
+is **no trailing recap block**. Each sub-set opens with its framing cards — which
+is exactly where 14 meta-framing fronts sat — and closes with a clinical block,
+and each thin carve-out sits immediately beside its parent rather than at the end.
+
+### Gaps with nothing to correct
+
+**The whole pentose phosphate pathway and NADPH are absent**, and with them G6PD
+deficiency — the topic teaches that red cells depend on glycolysis alone and
+teaches glutathione, and never joins them. Also absent: McArdle's disease (the
+card that sets it up perfectly is there), MCAD deficiency, PDH deficiency,
+hereditary fructose intolerance and galactosaemia (neither sugar is mentioned at
+all), **no alcohol screening card anywhere — no CAGE, no AUDIT**, the NAC infusion
+regimen, the simplified AIH diagnostic score, DILI drug monitoring in its entirety
+(which drugs mandate LFTs and at what interval, and which to stop versus continue),
+small-duct PSC, any FibroScan kPa threshold, the ammonia caveat that a serum level
+does not correlate with encephalopathy grade, and incubation periods for any of
+the hepatitides.
+
+### Left for the user
+
+- **Hepatitis B adult chronicity is given as "under 5%"** in four places, two of
+  them keyed options. Most sources say 5–10%, and the deck omits childhood
+  acquisition entirely.
+- **Obeticholic acid is the keyed second-line answer in PBC.** Its conditional EU
+  authorisation was revoked after the confirmatory trial failed, and current
+  positioning favours the PPAR agonists.
+- **NAFLD states that drug therapy for NASH with fibrosis is "now licensed in the
+  UK".** Internally consistent with its MCQ, but it overturns the "no licensed
+  drug" teaching that the off-label vitamin E and pioglitazone cards rest on.
+- **HCC surveillance is keyed two ways**: "6-monthly ultrasound ± AFP" in one MCQ
+  and "AFP + USS every 6 months" in another, which makes AFP obligatory. The
+  interval never disagrees. The flashcards follow the second; NICE follows the
+  first.
+- **Three more prose-only same-topic splits** the numeric check cannot see: a man
+  "in his 30s or 40s" against "aged 30–40" three-to-one in PSC; gluconeogenesis
+  "dominant by ~24 hours" against an explanation's "by around 18 hours"; and
+  valproate classed as intrinsic DILI where it is conventionally
+  idiosyncratic-metabolic.
+- **The MASLD/MASH renaming appears nowhere.** The deck is 100% consistent on
+  NAFLD/NASH, so there is nothing to fix — except two cards that say "metabolic
+  fatty liver disease" with no antecedent anywhere in the file.
