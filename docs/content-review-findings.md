@@ -7781,3 +7781,178 @@ fixed in v1549, so nothing now sends a student to an empty section.
 Verified against `HEAD`: 69 cards removed, none added, and **every surviving card
 byte-identical** in the deletion step &mdash; the six front rewrites and two
 reference fixes were applied as separate, separately-verified edits.
+
+## Content screen 6 — respiratory, seven of eight batches (v1551)
+
+2,622 flashcards and 1,876 MCQs read across **56 topics in 10 files**. Seven batches
+applied here; the infection/TB/CF/sarcoid batch is still in progress.
+
+**515 fields changed** &mdash; 195 flashcard fronts, 133 backs, 129 MCQ stems,
+58 MCQ explanations. **80 flashcards merged away.** No MCQ deleted; no `options`,
+`correctIndex` or `answer` touched anywhere.
+
+### A rendering bug the guard caught, and it is not isolated
+
+A COPD MCQ explanation contained the raw text `BDR <12%`. That is **not escaped HTML**,
+and these explanations render as HTML &mdash; so a browser reads `<12%; asthma = …` as
+the start of a tag and swallows everything to the next `>`. **54 explanations in
+`respiratory.json` alone have a raw `<` immediately before a digit.** Fixed in the card
+this batch touched; the rest is a separate deck-wide sweep, recorded below as
+outstanding.
+
+### The user's own example, fixed as asked
+
+> *"What **three conditions** are grouped under lower respiratory infection & wheeze in
+> young children? … in reality there are more than 3."*
+
+The front now asks for the differential and **the back was completed, not shrunk**:
+bronchiolitis, viral-induced wheeze, pertussis, community-acquired pneumonia, asthma,
+inhaled foreign body or irritant, congenital/structural airway disease including CF, and
+cardiac failure. The original three still lead the list.
+
+The card beside it &mdash; *"What is the **organising principle** for these
+conditions?"*, which was meta-framing **and** a carry-on ("these conditions") &mdash; now
+reads in the shape the user suggested: **"What is the age and pattern for: bronchiolitis,
+whooping cough and viral-induced (pre-school) wheeze?"**
+
+### Foundations of Respiratory was as bad as Foundations of CVS
+
+**37 of 248 fronts** were meta-framing, in the same shapes: "State the organising
+principle" &times;6, "Why does X matter clinically?" &times;6, "What is the clinical
+payoff?" &times;3, "Summarise X" &times;4, "Explain the logic behind X" &times;4.
+
+And the `(Starling note)` class of defect recurred, including **a cross-reference into
+the cardiovascular deck**: *"Like the vascular Poiseuille r&#8308; point"*. Also
+*"(the hypercapnia of **the gas-exchange note**)"*, *"(the CO&#8322; transport chemistry
+**again**)"*, *"&mdash; tying in to gas exchange"*, *"(the link to the dissociation
+curve)"*. All replaced with the content they pointed at.
+
+### False counts, each settled by the deck's own cards
+
+Low TLCO "four" and raised TLCO "four" (the low-TLCO card even smuggled two causes into
+one bullet and omitted loss of lung units and the smoking/COHb effect) &middot; "four
+structural trends distally" when the topic teaches a fifth &middot; asbestos-related
+diseases listed as four when six exist and the topic itself teaches a fifth &middot;
+"three occupational-health actions" &middot; "two pulmonary-renal syndromes" when the
+topic teaches microscopic polyangiitis as a third &middot; "two paraneoplastic pairings"
+whose own first bullet held four &middot; "four percussion notes" when the topic teaches
+tympanic as a fifth &middot; "four causes of unilateral reduced expansion" when the topic
+teaches five more &middot; "two ways airway obstruction kills" against a card listing
+four &middot; the CT nodule "five features" omitting attenuation, cavitation and
+upper-lobe location &middot; "three therapeutic uses of bronchoscopy" when the back lists
+four &middot; "four reasons patients abandon CPAP" &middot; "three triage questions".
+
+**Counts verified and left**: the five causes of hypoxaemia (the deck already says five
+and correctly includes low inspired PO&#8322;, so there was nothing to fix), Light's
+criteria, the Berlin definition, PERC's eight, CURB-65, CRB-65, Westley, Centor,
+FeverPAIN, STOP-BANG, Epworth, the five WHO pulmonary-hypertension groups, the three
+forms of CO&#8322; carriage summing to 100%, CHARTS, Horner's, HPOA, the epiglottitis
+4 D's, pertussis's three stages, the two-level Wells items.
+
+### The Wells score, checked hard, and clean this time
+
+The cardiovascular deck had the DVT Wells range wrong. Here **both instruments are kept
+properly separate**: the PE seven items with correct weights and the >4/&le;4 cut-off, the
+DVT version with &ge;2/&le;1, no items crossed over, and the flashcards agree with their
+MCQs throughout. The deck states no total range, so the "0&ndash;8 points" error has no
+counterpart. The true PE maximum (12.5) and a do-not-confuse line were added to one
+explanation.
+
+### Internal contradictions found
+
+* **ARDS oxygenation cut-off** given as `<300 mmHg` on one card and `&le;300` on two
+  others with non-overlapping bands. The deck's own cards and the Berlin definition settle
+  it at &le;300; corrected.
+* **Effusion CXR volume** ~200 mL on one card, >300 mL inside the *keyed option text* of
+  two MCQs. Reconciled in the explanations without breaking the keys.
+* **Laryngomalacia**: two cards treat stridor from birth as a red flag *against* it,
+  while two MCQs key laryngomalacia for stridor "since birth". Fixed in the stems.
+* **Acute bronchitis**: one card gave antibiotics for "bacterial features" while another
+  says explicitly that bacterial superinfection is *not* a NICE trigger.
+* **MUDPILES**: the U was given as "urate". It is **uraemia**. Now "uraemia with retained
+  urate", correcting the mnemonic without losing a word.
+* **Arterial O&#8322;** described as "equilibrated ~13 kPa" in an explanation, against the
+  card that correctly teaches the physiological shunt and the A&ndash;a gradient.
+
+### Editing debris left in card text
+
+An MCQ explanation ending **"making E wrong"** &mdash; options are not lettered for the
+student, and it pointed at the wrong option anyway. A stem reading **"A child with
+stridor has stridor audible at rest"**. A Wells item rendered as the unparseable
+**"PE #1 diagnosis 3"**. Centor's *"fever >38C"* missing its degree sign. A sentence
+printed twice in a COPD back. An axoneme written "(9x2 + 2)" against the deck's own
+"9+2". `70 m2` for `70 m&#178;`. Five backs running text straight into a grey span with
+no space.
+
+**Reported, not touched** (inside options, which are off limits): a distractor reading
+*"oxygen is **considerably considerably** more soluble"*.
+
+### Risk content moved out of grey spans — 30 places
+
+Among them: the whole management of SVC obstruction; "screen all silicosis patients with
+Mantoux/IGRA"; "never withhold O&#8322;"; "drain a pneumothorax before NIV"; the oxygen
+fire hazard; bupropion's eating-disorder contraindication; "NO routine thrombophilia
+screen"; "a tension pneumothorax is decompressed before imaging"; adrenaline
+500 micrograms; "no throat exam, no cannulas"; riociguat with a PDE-5 inhibitor; and
+aminophylline's narrow therapeutic window.
+
+### Deletions: 80 applied, 91 declined
+
+Same discipline as cardiovascular: with `absorb` counted but nothing else assumed, a card
+goes only if its medical content survives in the topic. **91 proposals were declined**
+because they did not.
+
+I extended the framing list once, deliberately and narrowly, to cover **examiner-label
+vocabulary** &mdash; `clue`, `pearl`, `summarise`, `rx`, `takeaways`, `internalise`,
+`sba`, `examinable`, `picture`, `spot`, `hook`. Refusing to delete a card because the junk
+label the screen exists to remove fails to survive is perverse. That moved 6 drops. I then
+stopped: the 37 still declined include real clinical tokens &mdash; `mo`/`yr` (croup ages),
+`normalising` (a normalising PaCO&#8322; in acute asthma), `diameter`/`visualisation` (the
+HRCT bronchiectasis criteria), `tb` (**the T of CHARTS**), `dullness`, `oxygenation` &mdash;
+and those cards stay.
+
+### Anaphylaxis: every figure checked, none changed
+
+IM adrenaline 1 mg/mL (1:1000); 500 micrograms adult and >12 y; 300 micrograms 6&ndash;12 y;
+150 micrograms 6 months&ndash;6 y; anterolateral thigh, middle third; repeat at 5 minutes;
+refractory after two IM doses &rarr; infusion, specialist only; fluids 500&ndash;1000 mL
+adult / 10 mL/kg child; steroids out of the algorithm; observation 2/6/12 h; tryptase
+timings. All correct as written.
+
+### One band I did change, and it is easy to revert
+
+A snoring card read "5&ndash;14 mild, **&ge;15** moderate, &ge;30 severe" &mdash;
+overlapping, and inconsistent with the AHI bands corrected earlier in this project.
+Changed to **15&ndash;29**, in the card and its MCQ explanation. Nothing else.
+
+### Flagged and deliberately not changed
+
+* **Nintedanib funding**: a card says FVC 50&ndash;80% **and also above 80% predicted**.
+  NICE TA379 is 50&ndash;80% for IPF; the >80% claim looks like TA747
+  (progressive fibrosing ILD) leaking in. **I believe this one is wrong.**
+* Reversibility criteria stated two ways in one topic (&ge;12% and &ge;200 mL vs ATS/ERS
+  2022 >10% of predicted), with an MCQ keyed to the older one.
+* The needle-decompression site disagrees across three topics.
+* A superseded pneumothorax size ladder in one topic against the 2023 BTS pathway in
+  another.
+* Paediatric respiratory-rate bands that look narrow against APLS.
+* GOLD-vs-NICE labelling inside two COPD cards whose own backs say NICE.
+* Varenicline availability claims; solriamfetol/modafinil licensing.
+* Dressler-style timing spread: mesothelioma latency given as "20&ndash;40+" and
+  "up to 45" years in the same topic &mdash; resolved by carrying both, deleting neither.
+* Keyed options that contradict their own explanations (`<300 mmHg`, `>300 mL`, Meigs
+  "transudate") &mdash; options are off limits.
+* Every MCQ in `embryology.json` has **no `answer` key at all**; the neonatal and
+  respiratory-stridor MCQs have `"answer": "None"` as a string. Pipeline artefacts.
+
+### Where the answer was "nothing wrong"
+
+`anatomy__EMBRYOLOGY__Respiratory` &mdash; **zero changes across all 44 cards.** The five
+lung stages, the diaphragm's four contributions, arches 4 and 6, C3/4/5, the 85% TOF
+figure and L:S >2 are all correct. Neonatal Respiratory Distress &mdash; zero changes; the
+feared "four causes" card **does not exist**, and the topic teaches the full standard set
+one condition per card.
+
+Verified against `HEAD`: 515 fields changed across 8 files and 48 topics, 80 cards
+removed, none added, no field outside `front`/`back`/`question`/`explanation` touched, and
+every MCQ's options and `correctIndex` byte-identical.
