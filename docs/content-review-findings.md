@@ -10511,3 +10511,171 @@ harder to see in brown and black skin.
 One was deliberately left alone and should be a human decision: **Skin Infections `fc[128]`
 uses "spreading erythema" as a necrotising-fasciitis escalation trigger** — the most
 dangerous colour-dependent sign in the file, and not something to reword without sign-off.
+
+---
+
+## Breast — all 12 topics
+
+Three parallel screens read every card in all 12 topics — **486 cards** (262 flashcards +
+224 MCQs), no sampling. Applied **76 field rewrites** (59 flashcard fields + 17 MCQ fields,
+7 of them stems) and **6 flashcard deletions**. Flashcards 262 → 256; **all 224 MCQs survive
+and no `options`, `correctIndex` or `answer` was touched**, verified against the pre-image.
+Guards clean afterwards, and **zero** meta-framing fronts remain.
+
+This deck uses **three** key prefixes — `conditions__` (2 topics), `signs__` (8) and
+`investigations__` (2). I confirmed all 12 are reachable from the app before screening,
+which is now a standing pre-check after the neurology lesson.
+
+### The index-discipline warning worked
+
+I added an explicit instruction to this round's brief: indices are zero-based array
+positions, four agents in earlier systems had filed an edit using a card's id suffix, and
+every agent must re-read the card at its chosen index afterwards and say so. **Two of the
+three agents reported catching an off-by-one in their own draft and fixing it before
+submitting** — one had mis-anchored the mastalgia pair, the other had filed a
+lactational-mastitis edit onto the periductal mastitis card, which would have destroyed its
+smoking, fistula and duct-ectasia content. Neither reached me as a defect.
+
+I did raise a false alarm of my own on the second one: my split captured that agent's file
+mid-write, so I diffed the pre-correction draft and briefly concluded the misfile was live.
+Re-splitting from the final files showed the fix was already in. Worth recording as a
+process lesson — **do not split proposal files until every agent has handed back**, because
+a mid-write snapshot looks exactly like a defect.
+
+### The signs template, measured
+
+The eight `signs__` topics are uniformly 12 fc + 12 q, which I suspected was template
+output. It is:
+
+- **`q[11]` is the same slot in all eight topics** — "What is the correct overall approach
+  to <the sign>?", five long prose options, a sweeping explanation. Pairwise front
+  similarity 0.73–0.85. Left alone (each is answerable and correctly keyed), but a student
+  working through the topics meets it eight times.
+- **Skin Change and Painful Red Breast are near-clones**: `Skin fc[8]` ↔ `Red fc[9]` backs
+  at 0.93 similarity, `Skin fc[4]` ↔ `Red fc[6]` at 0.88, plus two matching MCQ pairs.
+- **Three template slots were never filled with content**, all in Nipple Retraction:
+  `fc[6]`'s entire back is the single word "Smoking.", `fc[10]` is one clause, and `fc[9]`
+  gave the 2-week-wait pathway with **no age threshold at all**.
+- Cross-prefix duplication between a `signs__` topic and a `conditions__` topic is by design
+  here — the signs topics re-teach condition content from a presenting-complaint angle — so
+  it was reported and never merged. All six deletions are within a single topic.
+
+Worth noting for planning: of the 50 `signs__` topics across live decks, **19 are this exact
+12+12 shape — the 8 in breast and 11 in ENT.** Cardiovascular's and respiratory's signs
+topics are larger and irregular, so they were not template-generated.
+
+### The defects worth naming
+
+1. **Deck-internal references inside MCQ stems.** Benign Breast `q[2]`, `q[3]`, `q[4]` and
+   `q[5]` asked "According to the **triage table**…", "The **triage table** flags…", "The
+   **notes** highlight three…". No table or notes exist in the card the student sees. `q[0]`
+   was worse — it asked what is "described as **the spine of the whole cluster**", a question
+   about the source notes' own metaphor rather than about medicine. All rewritten as clinical
+   questions with the keyed options verified unchanged; `q[0]` now asks which assessment
+   framework must be applied before a benign label is accepted, keyed to triple assessment.
+2. **The "benign = no risk" pattern.** The Benign Breast topic states or implies no increased
+   cancer risk across the board, which is correct for fibroadenoma, simple cysts,
+   non-proliferative fibrocystic change, duct ectasia, periductal mastitis and fat necrosis —
+   but the **increased-risk tier is missing entirely**. Atypical ductal hyperplasia and
+   lobular carcinoma in situ are absent, and intraductal papilloma was under-claimed as
+   carrying risk only "with atypia". A student learns that "benign" means "no risk", full
+   stop. `fc[32]` now carries both tiers. Radial scar and sclerosing adenosis remain absent
+   and were not invented.
+3. **Triple-negative breast cancer was never defined** in the Breast Cancer topic — `fc[12]`
+   and `q[8]` gave only "worse prognosis, chemo-reliant". Now defined as ER-, PR- and HER2-
+   negative, matching the Pathology topic.
+4. **A reporting-code contradiction between two topics.** Triple Assessment `fc[1]` applied
+   one 1–5 scale across P/M/U/B/C and said "1 = normal", which contradicts Pathology `fc[5]`
+   and `q[5]` where **C1 = inadequate/acellular**. Corrected on the Triple side to "1 =
+   normal or inadequate/non-diagnostic"; nothing merged across topics.
+5. **An age boundary that excluded the boundary.** Breast Cancer `q[11]`'s explanation said
+   mammography is for those "**over** 40", contradicting `fc[16]`'s "40 and over" and the
+   Triple topic's "≥40". A 40-year-old fell outside it.
+6. **Missing 2-week-wait thresholds, not wrong ones.** Where a threshold was stated it was
+   correct NG12 and no topic disagreed with another. But **four of the eight signs topics
+   gave a referral route with no age criterion at all** — Nipple Discharge, Nipple Retraction
+   (`fc[9]`, the referral card itself), Axillary Lump and Skin Change. Each now carries the
+   relevant NG12 criterion, and Nipple Retraction keeps "new unilateral retraction at any age
+   is cancer until proven otherwise" so the age cannot be read as licence to reassure a
+   45-year-old.
+7. **Two safety gaps in the painful red breast.** The antibiotic-failure card named biopsy but
+   **no referral** — now "refer urgently on the suspected-cancer pathway and biopsy". And
+   inflammatory carcinoma's **absence of fluctuance and frequent absence of fever** appeared
+   on none of the 24 cards in the two red-breast topics.
+8. **Peau d'orange was mechanistically loose and had no benign mimic.** "Dermal lymphatic
+   infiltration" became obstruction of the dermal lymphatics with the skin tethered at the
+   follicles, plus the point that the same appearance follows axillary surgery or
+   radiotherapy — so what points to cancer is rapid change in a previously untreated breast.
+9. **Mastalgia's two gaps**: evening primrose oil was absent (now stated as no longer
+   recommended), and so was "breast pain alone is rarely the presenting feature of cancer but
+   does not exclude it" — without which `fc[36]` read simply as "mastalgia = reassure".
+10. **Examiner-facing text in backs**: "rarely needed at student level" in `fc[36]` and
+    `q[31]`, and three "golden rule"/"governing rule"/"key rule" fronts.
+
+### Verdicts returned clean
+
+**Endocrine therapy is not inverted anywhere** — tamoxifen for pre-menopausal, aromatase
+inhibitors for post-menopausal, on six cards across three topics, with the best card
+explaining that AIs are ineffective as monotherapy in functioning ovaries. **Paget's versus
+nipple eczema is correct on all 24 cards** that state any of it (nipple-first and unilateral
+and steroid-resistant versus areola-involving, nipple-sparing, itchy and steroid-responsive);
+the defect there was repetition, not error — the same discrimination appears four times in a
+twelve-card topic. **The Nottingham Prognostic Index arithmetic checks out**, including the
+worked example (3 cm, 2 nodes, grade 2 → 4.6, landing in the band its explanation claims).
+Also verified: HER2 scoring and trastuzumab's cardiac monitoring, sentinel node biopsy as a
+staging procedure before clearance, core biopsy preferred over FNA, that **no card implies a
+normal mammogram excludes cancer** (two cards say the opposite explicitly), DCIS never
+described as harmless, and that no card permits treating inflammatory carcinoma as infection.
+
+### Two agent flags I checked and dissolved
+
+Recording these because passing on an agent's flag uncritically is its own failure mode.
+
+- **The screening range.** An agent flagged "50–70" against a possible "50–71", and that
+  `q[24]`'s keyed option locks 50–70. On inspection this is not a defect: "every 3 years,
+  aged 50–70" is the standard statement and the keyed option matches it; the Triple topic
+  additionally mentions the 47–73 age-extension, which is the AgeX trial. Uneven detail
+  between two topics, not a contradiction. Left.
+- **Triple `q[3]`.** Flagged because it keys a 2-week-wait referral for unilateral bloody
+  nipple discharge in a **45-year-old**, below NG12's ≥50 nipple-change criterion. But
+  unilateral spontaneous bloody discharge warrants urgent referral at any age, and of the
+  five options it is unambiguously the only one that does. The MCQ is sound. Left.
+
+### Flagged for the user, not changed
+
+- **Male breast disease is absent from the entire deck.** "male" occurs **zero** times in
+  `breast.json` — no male breast cancer card, no gynaecomastia card. Every Breast Lump
+  vignette is female, and one MCQ uses "Only in men" as a *distractor*. Reported, not
+  invented. Related and fixed where it was a clinical error rather than a gap: `fc[8]` said
+  triple assessment is "for all **women** with a discrete palpable mass" — now "any patient,
+  men included".
+- **No BRCA1/BRCA2 risk figure and no high-risk surveillance age or interval** anywhere in
+  the file; `fc[2]`'s back is a bare "BRCA1 / BRCA2". Ovarian suppression (GnRH agonist)
+  appears nowhere, LCIS is absent from Pathology & Staging, and trastuzumab's cardiac
+  monitoring is absent from that topic although it prescribes the drug.
+- **Two one-word backs and a card in the wrong topic**: Nipple Retraction `fc[6]`
+  ("Smoking.") and `fc[10]`, and Skin Change `fc[7]`, which is a Paget's/eczema card sitting
+  outside the Paget's topic. Deletion or relocation candidates.
+- **Ductography** is still listed as a nipple-discharge investigation; it is largely
+  superseded in UK practice. Left rather than silently editing an investigation list.
+- **Skin-tone coverage was zero across this entire deck** before this round — no "skin of
+  colour", "darker skin", "dusky" or "violaceous" anywhere. Clauses were added to the five
+  highest-yield colour-dependent cards (inflammatory carcinoma in two topics, the mastitis
+  wedge, peau d'orange, skin change), modelled word-for-word on the deck's existing device in
+  dermatology. Roughly a dozen further colour-only descriptions are listed in the proposals
+  and were deliberately left rather than repeating the same sentence in every topic.
+
+### An open item from v1486 now closed
+
+That commit recorded outstanding formatting work outside medical conditions: `signs__` 4,518
+of 5,526 unformatted, `investigations__` 4,029 of 4,198, `histology__` 2,166 of 2,480. I
+re-measured across live decks: **zero unformatted flashcard backs out of all 21,344** — every
+one carries `<strong>`, a span class, a list or emphasis. The large residue those figures
+counted was in orphaned decks, which are out of scope. That item is complete for everything a
+student can reach.
+
+Also confirmed while checking: the decks screened in this run of work contain no topic prefix
+I skipped (neurology and psychiatry are `conditions__` only; MSK and dermatology add
+`investigations__`; breast has all three), so the "all N topics" claims in those entries hold.
+The 18 `histology__` topics in live decks sit in cardiovascular, renal and respiratory, and
+earlier rounds screened them by index.
