@@ -9335,3 +9335,111 @@ type mapping were all verified and left alone.
   Incontinence topic, and oxybutynin appears in BPH only as a distractor); no card
   listing the complications of acute retention as a set; and formal low/intermediate/
   high risk stratification is never defined in the Prostate Cancer topic.
+
+## Content screen — Urology, the remaining condition topics (v1567)
+
+UTI, Pyelonephritis, Renal Stone Disease, Renal Cell Carcinoma and Testicular
+Cancer. **313 cards read in full**; 61 fields rewritten, 24 same-topic duplicates
+removed, **3 MCQs deleted**. Two investigation topics and three scrotal/foreskin
+topics are still being screened.
+
+### Three MCQs deleted, and why each was beyond repair
+
+- **A question whose key was medically wrong.** Stem: cannonball metastases on
+  chest X-ray in a patient with haematuria. Option 0 was "Renal cell carcinoma of
+  the upper pole" and the question's own explanation says the answer is RCC — but
+  `correctIndex` pointed at "Bladder cancer (transitional cell carcinoma)", and the
+  `answer` field agreed with the wrong option, so this was not a stale answer string
+  but a wrong key. A student answering correctly was marked wrong. **Re-keying to
+  option 0 would have been the better fix and is a one-line change** — I deleted
+  instead because moving a key is the one thing I have been asked not to do, and the
+  content survives on the topic's own flashcard and a second MCQ. Say the word and I
+  will re-key it rather than lose the question.
+- **Two copy-paste accidents.** A varicocele stem ("a left-sided varicocele that does
+  not decompress on lying down should prompt investigation for:") carried a
+  near-verbatim copy of the Bladder Cancer topic's muscle-invasive treatment options,
+  with the correct varicocele text still in the explanation. And a stem asking which
+  medication prevents calcium oxalate stone recurrence carried the option set from a
+  UTI dipstick question — the word "thiazide" appeared in no option, while the
+  explanation was about thiazides. Neither can be saved by a stem rewrite, and both
+  have correctly built twins.
+
+### A mistake of mine, and the repair
+
+My first attempt at those deletions wrote both topic keys to temp files named from
+the first word of the topic — and both topics begin "Renal", so the second
+overwrote the first and **all three deletions landed on Renal Stone Disease**. Two
+good MCQs were removed and the intended RCC pair was untouched.
+
+Recovery was exact rather than patched: this batch's five topics are disjoint from
+the five already committed, and every proposal indexes within its own topic, so I
+reverted `urology.json` to HEAD and replayed the batch, then repeated the deletions
+with distinct filenames and with the expected card id printed for each index before
+removing it. Verified afterwards that exactly the three intended ids are gone and
+that no other topic lost an MCQ.
+
+### Prose-carried contradictions: eight more
+
+- **Partial versus radical nephrectomy for the same patient.** A flashcard offers
+  elective partial nephrectomy for T1a **and T1b** tumours with a normal
+  contralateral kidney; an MCQ presents a 6 cm (T1b) mass with a normal contralateral
+  kidney and is **keyed to radical** nephrectomy, its explanation asserting partial is
+  for T1a only. The flashcard matches current practice; the MCQ is keyed against it.
+- **"Teratoma" used in two incompatible senses in one topic** — once as the UK
+  convention for any non-seminomatous germ cell tumour in an adult, and twice as one
+  component *inside* an NSGCT.
+- **Is the pyelonephritis triad definitional?** One card says "typical presentation,
+  **not a definition**", one MCQ stem asked which triad "**defines**" it while its own
+  explanation says the opposite, and another explanation says "defined by". Fixed in
+  the two explanations and the stem.
+- **ESWL versus ureteroscopy for the same stone**: one card licenses ESWL for stones
+  under 2 cm in the renal pelvis *or proximal ureter*, while another card and a keyed
+  MCQ give ureteroscopy for ureteric stones of 10–20 mm. NG118 agrees with the
+  latter. Reported, not changed — it is a threshold.
+- **A card contradicting its own front**: a front asking for "non-antibiotic
+  measures" for recurrent UTI whose last bullet was prophylactic trimethoprim.
+- **An explanation belonging to a different question** — the ADPKD "next step"
+  question was explained entirely with dialysis and smoking risk factors.
+- Plus two explanations that never explained their own key, and a stem giving clear
+  cell as ~75% of renal cancers where its own explanation and flashcard say ~80%.
+
+### A number stated three ways that the numeric check still missed
+
+Untreated asymptomatic bacteriuria in pregnancy progressing to pyelonephritis is
+given as "a quarter to a third", "~30%" and "25–40%" in one topic. My check compares
+the three words before each number and these three phrasings differ, so it saw
+nothing. Reported, not changed — 40% looks too high and all three should probably
+read "up to about 30%".
+
+### Verified correct
+
+**The testicular tumour markers are right on all 23 cards that state them** — AFP is
+never attributed to seminoma, beta-hCG's 10–20% of seminomas is consistent, and the
+half-lives agree. One real gap there: the headline "what are the tumour markers"
+card omitted **LDH** although three other cards include it. **The RCC triad is never
+presented as the usual presentation**, so the framing defect I looked for does not
+exist — but its rarity sat in a grey span and no card said most RCCs are now found
+incidentally; both fixed. **The infected-obstructed-kidney rule is consistent across
+all three infection topics**: "antibiotics alone" appears only as a keyed-wrong
+distractor. The one soft spot was a renal abscess card whose aetiology mentions an
+obstructed kidney a few lines from a grey aside saying small abscesses may resolve
+on antibiotics alone; the aside is now in body text with the decompression
+requirement attached.
+
+### Figures I believe are wrong and did not change
+
+- **RCC T staging**: "T4: Gerota fascia invasion" overlaps the same card's own T3a
+  (perinephric fat within Gerota fascia). TNM 8 makes T4 invasion **beyond** Gerota
+  fascia, including the ipsilateral adrenal.
+- **Medical expulsive therapy threshold** stated as "under 10 mm" and "≤10 mm" in the
+  same topic, including a stem and its own explanation disagreeing. NICE says less
+  than 10 mm.
+
+### Gaps needing new cards
+
+Royal Marsden staging is never named in Testicular Cancer; retroperitoneal lymph
+node dissection and single-dose adjuvant carboplatin for stage I seminoma exist only
+in MCQs; papillary necrosis appears nowhere in `urology.json` so it is never taught
+as a pyelonephritis complication; the paediatric exception to CT KUB is absent from
+Renal Stone Disease (only the pregnancy one); and Pyelonephritis has 14 MCQs and not
+one tests the admission criteria.
