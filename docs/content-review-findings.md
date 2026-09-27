@@ -8625,3 +8625,26 @@ small low-risk tumours; the prolactinoma threshold is >5000 mU/L in the clinical
 topic and >200 ng/mL in the histology topic. The microprolactinoma band is
 2000–5000 on one card and 2000–4000 on another, and the stalk-effect ceiling is
 given three ways, one of them inside a keyed option.
+
+## Deck-wide: the "or" bullets, settled (v1559)
+
+The v1557 sweep stripped 3,048 bullets beginning `<li>and ` and deliberately left
+all 299 beginning `<li>or `, on the grounds that "or" can carry logic "and"
+cannot — the difference between "all of these" and "any one of these". That was
+the right caution, and measuring the lists settles it.
+
+Of the 277 affected lists, **259 contain exactly one "or" bullet, and in 257 of
+those it is the last item**. That is prose grammar — "A, B, or C" — not logical
+marking: an author marking genuine alternation marks every alternative, not just
+the last one. The two mid-list singletons were read individually and are the same
+fossil. All 259 are stripped.
+
+**The remaining 18 lists (39 bullets) are correct as written and were left
+alone.** Each marks every alternative after the first — "A / or B / or C" — so
+the alternation is explicit and unambiguous. There is nothing to fix there, which
+is a better outcome than the lead-in rewrites I had expected to owe.
+
+Verified the same way as the "and" sweep: applied per `<ul>` so the single-versus-
+multi test is made on the real list, then checked per file that only `back` fields
+differ, that each difference is exactly the removed prefix, and that no options
+array or `correctIndex` moved.
