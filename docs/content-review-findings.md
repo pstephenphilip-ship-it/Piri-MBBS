@@ -7689,3 +7689,95 @@ rule that repetition across topics is fine.
 
 Verified against `HEAD`: 88 fields changed across 5 topics and nothing else; no card
 count changed; options and `correctIndex` byte-identical.
+
+## Content screen 5 — the deletions pass (v1550)
+
+The agents proposed **146 same-topic deletions**. I applied **73** and **declined 73**,
+and the split was decided by a check rather than by my impression of each card.
+
+**69 flashcards deleted** here, plus the 4 histology merges already applied.
+**cardiovascular.json: 2,355 &rarr; 2,286 flashcards.** No MCQ was deleted.
+
+### Why half the proposals were declined
+
+The user's condition was explicit: delete a card *"because it's covered elsewhere"*.
+So the test is whether the card's **medical content still exists in the topic after the
+deletion**. With every `absorb` string stripped, so that nothing was propped up by a
+promise to move text later:
+
+* **73 of 146 would have lost medical content** and were kept.
+* Measured against the *named keeper* alone, only 20 passed. Measured against
+  **anywhere in the topic** &mdash; which is what "covered elsewhere" means &mdash; 73
+  passed. The looser standard is the right one, and it is stated here so the number can
+  be checked rather than taken on trust.
+
+Things the check saved, each a fact that existed on exactly one card:
+
+| would have lost | from |
+|---|---|
+| `immunosuppression` &mdash; the third limb of the diabetic foot triad | Gangrene |
+| `myonecrosis`, `exotoxins` | Gangrene |
+| `foul-smelling`, `oedematous`, `blurred margins`, `cold`, `pulseless`, `shrunken` | the dry- vs wet-gangrene appearance cards |
+| `pill-in-pocket` | SVT |
+| `intracranial pressure`, `triad` &mdash; Cushing's reflex | Bradycardias |
+| `temporary` pacing | Bradycardias |
+| `brain`, `coronary`, `kidneys` &mdash; the embolisation stream | Infective endocarditis |
+| `nodules`, `small-vessel` &mdash; the immune-complex stream | Infective endocarditis |
+| `10`, `5`, `7`, `bd` &mdash; the apixaban loading regimen | DVT |
+| `never`, `safe` &mdash; a compression-bandaging safety rule | PAD |
+| `triglyceride-lowering`, `precipitate` &mdash; pancreatitis risk | Lipid stigmata |
+| `five-fold` &mdash; the AF stroke-risk multiplier | Tachycardia |
+
+I also resisted the temptation to keep loosening the framing list until more deletions
+passed. A coverage check is a safety net against careless deletion, not an oracle to be
+tuned until it agrees. Where it flagged real clinical vocabulary, the card stayed.
+
+### Where the deletions came from
+
+Valvular Heart Disease gave up **19**: a recognition block that describes each murmur,
+followed by per-lesion sections describing the same murmur again, plus an explicit
+eleven-card recap block. Both *directions* of each murmur card were kept
+(description&rarr;lesion and lesion&rarr;description) because they test different
+skills. Myocarditis 6, Tachycardia 5, ALS 5, Heart Failure 5, Pericarditis 4, ACS 4.
+
+### The "EXAM PEARL" cards, handled as the user asked
+
+> *"The exam pearls for example, it shouldn't say that, but it should be tested in
+> other ways."*
+
+So the label goes and the content stays testable. Of the 17 exam-pearl cards proposed
+for deletion, **11 were genuinely duplicated and went**; the other **6 were not, so
+they were kept and their fronts rewritten as real questions** &mdash; backs untouched:
+
+| was | now |
+|---|---|
+| EXAM PEARL: What is the diabetic foot triad that leads to gangrene? | Which **three factors** combine in the **diabetic foot** to produce gangrene, and what does each contribute? |
+| EXAM PEARL: What is the Wells DVT score threshold for imaging? | At which **Wells score** do you go straight to **duplex ultrasound** rather than a D-dimer, and what combination **excludes** DVT? |
+| Exam pearl: summarise the AS symptom mnemonic and its prognostic implication. | Which **three exertional symptoms** mark aortic stenosis becoming symptomatic, and what do they mean for **prognosis**? |
+| Exam pearl: what does the timing of the opening snap in MS tell you&hellip; | In **mitral stenosis**, what does an **earlier opening snap** tell you about severity, and what does its **absence** mean? |
+
+**Zero "EXAM PEARL" strings remain in the file.**
+
+### The last four deck-internal references
+
+* A palpitations card ended *"(The red-flag/sinister features are covered separately.)"*
+  in a grey caveat. Replaced with the red flags themselves &mdash; syncope or chest
+  pain, palpitations on exertion, family history of sudden cardiac death under 40,
+  known structural or ischaemic disease &mdash; so the card stands alone. Also moves
+  risk content **out of a grey span**, which the tone rule required anyway.
+* One card asked about *"**the** timing diagram"*, implying a specific diagram the deck
+  does not contain. Now *"a murmur-timing diagram"*, the generic concept. Two sibling
+  cards already said "a murmur-timing diagram" and were left.
+
+**Zero deck-internal references remain in cardiovascular.json.**
+
+### The orphaned topics, left alone
+
+The four empty `TO__` shells (`Regular Broad`, `Irregular Narrow`, `Irregular Broad`,
+`Regular Narrow`) are **kept**: the user confirmed they are orphaned decks that never
+appear on the site. The three Tachycardia cards that *pointed readers at them* were
+fixed in v1549, so nothing now sends a student to an empty section.
+
+Verified against `HEAD`: 69 cards removed, none added, and **every surviving card
+byte-identical** in the deletion step &mdash; the six front rewrites and two
+reference fixes were applied as separate, separately-verified edits.
