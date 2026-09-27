@@ -8404,3 +8404,34 @@ cleaned without moving a key:
   FFP/cryoprecipitate storage; nothing names the five human malaria species or
   teaches *P. knowlesi* beyond a parenthetical.
 
+
+## Deck-wide: the prose fossil at the front of a list bullet (v1557)
+
+Many list backs were written as a sentence and then chopped into `<li>` items
+without removing the conjunction, so the last bullet rendered as
+
+> • previous attempts
+> • **and** protective factors
+
+**3,048 bullets across 71 card files** began `<li>and `. All are stripped.
+
+Only "and" was stripped. A bulleted list is conjunctive by default, so a leading
+"and" carries nothing the list does not already say. A leading "or" does carry
+logic — it can be the difference between "all of these" and "any one of these" —
+so the **299 "or" bullets are left alone**. 260 of them are the only "or" in
+their list and are probably the same fossil; the other 39 sit in 18 lists that
+hold two or more, which are genuine alternations. Both groups need the list's
+lead-in read before the conjunction can go, so they are a separate pass.
+
+**Scope and verification.** Every one of the 3,309 affected fields is a `back`.
+Not one front, MCQ stem, explanation or option contained the pattern, so nothing
+keyed was at risk. The fix was applied by raw regex to preserve each file's
+layout, then verified structurally per file: only `back` fields may differ, each
+difference must be exactly the removal of that prefix, and no options array or
+`correctIndex` may move. `content/cards/pharmacology-flashcards.json` is excluded
+as always — its player escapes HTML and would print markup as text. `index.html`
+and `content/notes/` contain none.
+
+**How it was found.** Not by a sweep I planned. An agent screening sixteen
+12-card endocrine sign topics noticed it in 28 of the 35 list backs it read and
+said the template was probably shared. It was — by 71 files.
