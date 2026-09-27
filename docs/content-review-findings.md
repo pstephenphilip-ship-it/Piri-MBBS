@@ -9532,3 +9532,89 @@ nothing searching for digits could see it, and a sibling MCQ adds a fifth.
 One cosmetic fix of my own: a single `&beta;hCG` entity in a file whose house style
 is literal glyphs, normalised to `β-hCG` to match the other 23 cards that state the
 markers.
+
+## Content screen — Urology complete: torsion, scrotal lumps, phimosis (v1569)
+
+127 cards read in full; 30 fields rewritten, 4 same-topic duplicates removed.
+**Urology is now complete: all 15 topics, 817 cards, 222 fields rewritten, 48
+duplicates removed and 3 MCQs deleted across the system.**
+
+### A flashcard that named the wrong commonest cause, and how it happened
+
+A card asked for "the commonest **pathological** cause of phimosis" and answered
+with recurrent balanitis at the head of a list. **Balanitis xerotica obliterans was
+not named on either causes card** — while four MCQs in the same topic say
+unambiguously that BXO *is* the commonest pathological cause (one stem is even
+phrased "**Apart from** balanitis xerotica obliterans, which…"), and six more cards
+treat BXO as the pathological phimosis that needs circumcision.
+
+The mechanism of the defect is visible in the card pair: the "commonest cause" card
+had been given the *other-causes* list, and the "list **other** causes" card was
+given the identical list — so the commonest cause fell out of the flashcards
+entirely and the word "other" lost its antecedent. BXO is now first with its white
+scarred preputial ring, and the duplicate card is gone. I verified the claim against
+the deck's own four explanations and independently before accepting it, because this
+changes which cause the deck calls commonest.
+
+### Rules stated absolutely on one card and licensed away on another
+
+- **"Never biopsy or aspirate through the scrotum"** on one card against **"never
+  aspirate or biopsy a scrotal swelling *before imaging*"** on another — the second
+  permits exactly what the first forbids, once an ultrasound is done. A third card
+  held the correct nuance (never as a *diagnostic* step). Only the wrong one was
+  rewritten, so all three now say one thing.
+- **"Ballooning of the foreskin on micturition"** listed among the clinical features
+  of phimosis, where the very next card's whole point is that ballooning usually
+  indicates nothing abnormal and needs no treatment or referral. Read alone, the
+  first card drives exactly the over-treatment of a normal non-retractile foreskin
+  that the topic elsewhere warns against. The qualifier is now on the bullet.
+- **The one hydrocele management card with no ultrasound in it** — read alone it
+  reassures an un-imaged new adult hydrocele. Now prefixed with the imaging step
+  that the topic's five other hydrocele cards all carry.
+
+### A front asking one thing and answering another
+
+"How does paraphimosis **present**?" answered with analgesia, penile block, firm
+sustained compression, a wrapped cold pack and an osmotic agent — which is
+management, and which is why that card and its neighbour said the same thing. Front
+fixed to what the back answers and the thinner twin dropped. Worth recording as a
+consequence: **no flashcard now asks how paraphimosis presents.** It survives in an
+MCQ stem and three other cards, and no card was invented to fill the slot.
+
+### Checked and found right everywhere
+
+**Every torsion figure.** The 6-hour window on three cards, all measured from pain
+onset; the salvage table (>90% under 6 h, ~50% at 12–24 h, <10% beyond 24 h)
+agreeing with its MCQ; the neonatal and pubertal age peaks; bell-clapper anatomy
+being usually bilateral and therefore fixing both sides, consistent across six
+cards; and the viable-versus-non-viable operative split. **No card anywhere lets
+imaging gate surgery**, and every mention of Doppler carries the caveat that a normal
+scan does not exclude torsion — as does every card mentioning the cremasteric reflex
+or Prehn's sign. One gap, no number invented: the 6–12 hour salvage band is missing,
+so "salvage at 8 hours" is unanswerable.
+
+**The whole scrotal discrimination framework** — can you get above it, is it separate
+from or part of the testis, does it transilluminate — is internally consistent, and
+**every** card mentioning a transilluminating hydrocele also carries that it can be
+secondary to a tumour. The varicocele red flags agree across three cards, including
+that an isolated right-sided or non-decompressing varicocele needs abdominal imaging.
+
+### Deck-wide absences closed and flagged
+
+**"Appendix testis" and "blue dot sign" appeared nowhere in `content/cards/`** — a
+full-directory grep returned zero hits in any file. Both are now on the torsion
+differential card, with "if the distinction is not certain, still explore" in body
+text rather than in a grey span. And the **solid-intratesticular-mass rule existed
+only inside an MCQ option and its explanation**, never on a flashcard; it now sits
+beside the markers.
+
+Also noted, as a single point of failure rather than a defect: **the Dundee technique
+appears exactly once in the whole deck.**
+
+### One more grey-span breach of the kind my guard cannot see
+
+"Treat as torsion `(surgical exploration)` until proven otherwise" — the management
+itself in grey, with no word my risk list looks for. Promoted, along with the STI
+testing and GUM referral span I had already flagged. A second agent independently
+confirmed that **`fc-sub` is not grey in this deck**, which is now the third
+confirmation and can be treated as settled.
