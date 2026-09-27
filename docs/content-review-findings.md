@@ -10038,3 +10038,63 @@ and one long front carrying no emphasis.
   was untouched before this round, the arrays are contiguous, and there are **no duplicate
   ids**. They are historic deletions where the id suffixes were never renumbered — cosmetic
   and harmless, since ids are keys rather than ordering.
+
+---
+
+## 248 flashcards exist but cannot be reached from the app
+
+Found while checking the manifest. This is a navigation defect, not a content one, and it
+is **the user's call whether to resurrect or retire** — so nothing has been changed.
+
+### How reachability works
+
+Cards load into `PRESET_FC` keyed by their full topic key, and `loadFCView` looks up
+exactly `<tab> + '__' + <system> + '__' + <topic>`. The clickable topic list comes from
+`renderTopicList(p, sysData.conditions || sysData.topics)`, fed from `CONDITIONS_SYSTEMS`
+for the conditions tab and `TAB_DATA_MAP[tab]` (`TAB_SIGNS`, `TAB_INVESTIGATIONS`,
+`TAB_ANATOMY`, `TAB_HISTOLOGY`, `TAB_OSCE`) otherwise. **Nothing merges the loaded card
+keys back into the nav**, so a card topic whose name is absent from its tab's list is
+unreachable, however many cards it holds.
+
+Checked all 28 live decks, matching each key's prefix against the right tab. **21,427 of
+21,679 live flashcards are reachable. 12 topic keys are not:**
+
+| what | cards | why |
+|---|---|---|
+| `CARDIOVASCULAR__Supraventricular Tachycardia` | 40 | nav has `Tachycardia` only |
+| `CARDIOVASCULAR__Gangrene` | 38 | nav has `Peripheral Arterial Disease / Limb Ischaemia` |
+| `CARDIOVASCULAR__DVT` | 37 | no DVT entry anywhere in the CVS nav |
+| `CARDIOVASCULAR__Heart Failure` | 33 | nav was split into `Acute Heart Failure` + `Chronic Heart Failure` |
+| `CARDIOVASCULAR__Pericardial Effusion / Tamponade` | 24 | nav has `Pericarditis` only |
+| `ACUTE ABDOMEN…__Analgesia / Pain Ladder` | 40 | absent from the nav list |
+| `GASTROENTEROLOGY / HEPATOLOGY__IBD — Crohn's Disease` | 20 | the whole **system** is missing from `CONDITIONS_SYSTEMS` |
+| `GASTROENTEROLOGY / HEPATOLOGY__IBD — Ulcerative Colitis` | 20 | same |
+| `CARDIOVASCULAR__TO__Regular Broad` and three siblings | 0 | **malformed keys** — four `__` segments, and empty |
+
+**Zero dangling nav entries**: every name the nav offers does have cards behind it, so no
+one ever lands on an empty topic. The failure is one-directional — content stranded
+behind a nav that no longer names it.
+
+### What each case probably is, and my recommendation
+
+- **The five cardiovascular ones look like rename casualties.** The nav was restructured
+  (heart failure split into acute and chronic; SVT folded into `Tachycardia`; tamponade
+  folded into `Pericarditis`) and the old card topics were never renamed or migrated to
+  match. Whether their 172 cards are *superseded duplicates* of the new topics or
+  *unique content that was simply dropped* determines whether to re-expose them or
+  delete them — I have not diffed them, because the answer changes the action completely.
+- **`Analgesia / Pain Ladder` (40 cards) looks like a plain omission.** The nav already
+  carries `Fluid Therapy` and `Nutrition (malnutrition, feeding routes)`, so an analgesia
+  entry belongs beside them. This is the one I would add without hesitation.
+- **`GASTROENTEROLOGY / HEPATOLOGY` looks superseded.** Its only two topics are Crohn's
+  and ulcerative colitis, and `LOWER GI & BOWEL` already offers both in its nav. It is
+  still in `manifest.json`, so its 40 flashcards and 24 MCQs count toward the home-screen
+  totals while being unreachable — which is why its manifest entry was among the stale
+  ones. Retiring the deck (and dropping it from the manifest) is probably right, but that
+  reduces the advertised card count, so it is a product decision.
+- **The four `…__TO__…` keys are debris.** Four `__` segments instead of three, and zero
+  cards. They can never resolve. Safe to delete whenever cardiovascular.json is next
+  edited; left alone for now to avoid touching a deck mid-screen.
+
+Recorded rather than fixed because "resurrect" and "retire" are opposite actions and the
+choice is the user's.
