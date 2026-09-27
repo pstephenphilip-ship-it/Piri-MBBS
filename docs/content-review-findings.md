@@ -8064,3 +8064,29 @@ scope; they are recorded for those rounds rather than reached into here.
 
 **Respiratory total across v1551 and v1552: 587 fields changed, 89 flashcards merged
 away, 120 proposed deletions declined.**
+
+## Ejection-fraction bands harmonised (v1553)
+
+The heart-failure screen flagged three contradictions between the deck's three
+heart-failure topics. Two of them turn on guideline currency or terminology and need a
+decision; **one was an unambiguous classification error and is now fixed.**
+
+An ejection fraction of **exactly 40%** was classified two ways depending on which card a
+student drew:
+
+| card | said |
+|---|---|
+| Heart Failure[0] | HFrEF `<40%`, HFmrEF `40&ndash;49%` |
+| Heart Failure[19] | HFrEF `= EF <40%` |
+| Chronic Heart Failure[1] | HFrEF `&le;40%` |
+| Chronic Heart Failure[2] | HFmrEF `41&ndash;49%` |
+
+ESC 2021 and NICE both use **HFrEF &le;40%, HFmrEF 41&ndash;49%, HFpEF &ge;50%**, so the
+Chronic Heart Failure cards were right and the two Heart Failure cards were wrong. Both
+corrected; checked afterwards that no card in the file classifies EF 40 the old way.
+
+**Still open, both needing a decision rather than a fix:** whether the four first-line
+HFrEF drugs are introduced one at a time or offered together (the topics disagree and cite
+NICE on both sides), and "fantastic four" vs "four pillars" as the house term. And the
+consolidation question itself &mdash; nine facts still live **only** in the "Heart Failure"
+topic, so folding it in means migrating those first.
