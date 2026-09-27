@@ -9443,3 +9443,92 @@ in MCQs; papillary necrosis appears nowhere in `urology.json` so it is never tau
 as a pyelonephritis complication; the paediatric exception to CT KUB is absent from
 Renal Stone Disease (only the pregnancy one); and Pyelonephritis has 14 MCQs and not
 one tests the admission criteria.
+
+## Content screen — Urology, the two investigation topics (v1568)
+
+Bladder & Urodynamics and Cancer Imaging & Biopsy. 102 cards read in full; 31
+fields rewritten, 5 same-topic duplicates removed.
+
+### Two "absent" claims from earlier in this round were wrong, and I repeated one
+
+The sign-topic screen reported that **no post-void residual cut-off exists anywhere
+in the deck**, and the incontinence screen reported that the **bladder-diary
+duration was missing** from its topic. I passed the first of those into a brief as
+fact. Both are wrong, and checking took one grep each:
+
+- Post-void residual thresholds are in the urodynamics topic (<50 mL normal,
+  >100 mL warrants review, >300 mL suggesting chronic retention), in
+  `ultrasound.json`, and in the Chronic Urinary Retention sign card — **and all
+  three agree**.
+- The bladder diary is "≥3 days, including a mix of work and leisure days" on
+  Urinary Incontinence fc[11], with its MCQ keyed to the same.
+
+The lesson is about scope, not about the agents: "absent from my topics" and
+"absent from the deck" are different claims, and I should not have promoted one to
+the other. The genuinely deck-wide absence in this area stands and is confirmed by
+a full grep: **there is no age-specific PSA table anywhere in the deck**, in a deck
+where two cards tell the student to compare against "the age-specific threshold".
+
+### The verdict on the six figures the condition topics reference
+
+- **PI-RADS** is present and correct, and agrees with `mri.json`. But **"Likert"
+  appears exactly once in the whole deck** — inside a Prostate Cancer MCQ
+  explanation — and no card ever defines it. A line now bridges the two.
+- **Transperineal versus TRUS biopsy** is present and correct, and is the deck's
+  **only** copy: "transperineal" occurs once in all of `content/cards/`. No card
+  anywhere listed prostate-biopsy complications, which appeared only as MCQ
+  distractors; they are now on the card.
+- **PSA age-specific thresholds**: absent from the whole deck, as above.
+- **Post-void residual** and **bladder diary duration**: present, consistent, as above.
+- **Urodynamics indications**: the investigations topic and the Incontinence topic
+  are both right and the LUTS sign card is the outlier, listing flow rate and
+  urodynamics among routine first-line LUTS investigations where NICE makes
+  multichannel cystometry selective. Worth knowing: the two correct cards look like
+  they disagree — one says "before prostate surgery", the other "not before
+  surgery" — because they mean male BPH surgery and female stress-incontinence
+  surgery respectively, and neither said so. The investigations card now states the
+  NICE negative explicitly.
+
+### The best find: a stem describing a physical impossibility
+
+An MCQ read "During a **filling** cystometrogram a 68-year-old man **voids** with a
+maximum detrusor pressure of 95 cmH₂O but a maximum flow rate of only 6 mL/s."
+Voiding does not happen during the filling phase — a pressure-flow measurement *is*
+the voiding phase — and it contradicts the same topic's own card defining the
+filling cystometrogram as the storage phase. Fixed to the voiding phase of a
+pressure-flow study, with the explanation now naming which phase each pattern is
+read from. The keyed answer was already right.
+
+### Terms used repeatedly and never defined
+
+**Bladder compliance** was referenced five times across the topic and defined
+nowhere; **cystometric capacity** appeared nowhere at all; **urodynamic stress
+incontinence on the trace** was treated as a premise by one card and used as an MCQ
+distractor without anything saying what it looks like; and **video urodynamics**
+existed only as the parenthetical "(non-video)" inside an explanation. All four are
+now defined, and the two phases of cystometry are taught alongside the
+P_det = P_ves − P_abd subtraction.
+
+### Another false count invisible to a digit-based check
+
+"Give **two** key indications" above a back containing four — spelled as a word, so
+nothing searching for digits could see it, and a sibling MCQ adds a fifth.
+
+### Reported, not changed
+
+- **A bone-scan trigger keyed at PSA >10 ng/mL** where the card's own explanation
+  gives no figure and the usual threshold is >20.
+- **A topic called "Cancer Imaging & Biopsy" with no renal-cancer imaging card**, no
+  Bosniak classification, nothing on why renal masses are not biopsied routinely,
+  and no FDG-PET limitations — partly because ten of its 38 flashcards are CT KUB
+  and acute-scrotum ultrasound rather than cancer imaging at all.
+- **A PSMA card that says only "significantly more accurate… changed management in
+  many patients"** — the proPSMA figures would fix it, but the deck states no trial
+  numbers anywhere and the agent rightly declined to insert them.
+- **TWOC has no post-void residual cut-off anywhere**, only "acceptably low".
+- `Q_max` written with a literal underscore on five cards where a sibling uses a
+  proper subscript and the BPH topic writes `Qmax`. Normalised per context.
+
+One cosmetic fix of my own: a single `&beta;hCG` entity in a file whose house style
+is literal glyphs, normalised to `β-hCG` to match the other 23 cards that state the
+markers.
