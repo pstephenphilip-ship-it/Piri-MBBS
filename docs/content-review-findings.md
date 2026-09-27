@@ -8891,3 +8891,94 @@ the hepatitides.
 - **The MASLD/MASH renaming appears nowhere.** The deck is 100% consistent on
   NAFLD/NASH, so there is nothing to fix — except two cards that say "metabolic
   fatty liver disease" with no antecedent anywhere in the file.
+
+## Content screen — Liver, the last 4 topics (v1562)
+
+Haemochromatosis, Wilson's disease, α1-antitrypsin deficiency and hepatocellular
+carcinoma. 196 cards read in full; 52 fields rewritten, 7 same-topic duplicates
+removed. **Liver is now complete: all 14 topics, 970 cards, 170 fields rewritten
+and 52 duplicates removed in total.**
+
+### The wrong-way-round checks all came back clean
+
+These four topics are where a swapped metal, gene, organ or lobe would do real
+damage, so each was checked claim by claim. The haemochromatosis-versus-Wilson's
+comparison is correct in both directions; Wilson's is ATP7B on chromosome 13 with
+copper and haemochromatosis HFE on chromosome 6 with iron everywhere they appear;
+ATP7A and "deferoxamine chelates copper" occur only as correctly-keyed-wrong
+distractors. **α1-antitrypsin emphysema is basal on every localising card**, with
+every mention of apices correctly attached to smoking-related COPD — there is no
+upper-lobe claim in the topic.
+
+### Corrections made
+
+**Editing debris:** an explanation read "markedly elevated a markedly raised
+transferrin saturation" — a botched find-replace.
+
+**A wording bug that inverts its own sentence:** "an alternative chelator if
+penicillamine is intolerant". The drug cannot be intolerant; the patient can.
+
+**Two false closed counts, each contradicted by a named sibling.** Wilson's "two
+main organ targets (plus the eye sign)" where two other cards in the topic say
+copper accumulates in liver, brain, cornea **and kidneys**; and A1AT's "two classic
+presentations" whose second bullet already carried two, making three in the back.
+
+**Carry-on fronts, concentrated in one topic: 13 of Haemochromatosis' 20
+flashcards never named the condition** — "What are the iron study findings?", "What
+is the mainstay of treatment?", "What joints are typically affected?". All now
+standalone, with no back content removed.
+
+**A figure conflict between two MCQs in one topic:** maintenance venesection
+2–4 monthly in a keyed option against 2–3 months in another explanation. The
+explanation is now aligned to the keyed option and the BSH figure.
+
+**Additions where the topic named a system but never used it.** The HCC topic named
+BCLC and listed the treatments as four unlinked cards without ever mapping a stage
+to a treatment, and **terminal stage / best supportive care appeared nowhere** — the
+stage-to-treatment map is now on the card. AFP's card claimed to give "the key
+limitation" and taught only poor sensitivity; its poor specificity is now there
+too. And the disproportionately low ALP with a very high bilirubin in Wilsonian
+acute liver failure was absent — added, deliberately without the ALP:bilirubin
+ratio, because that ratio is defined with bilirubin in mg/dL and this deck reports
+µmol/L.
+
+### The MCQ-heavy topic problem, quantified
+
+Haemochromatosis has **38 MCQs against 20 flashcards**, and that asymmetry is its
+real defect: a student who only reads the cards never meets material the questions
+examine. Five such facts have been moved onto flashcards — the early triad of
+fatigue, arthralgia and erectile dysfunction; why ferritin alone is a poor screen;
+that HCC surveillance is 6-monthly ultrasound ± AFP once cirrhotic and that the
+risk persists after iron depletion; the maintenance venesection interval; and why
+desferrioxamine is second-line, which was nowhere at all. Still MCQ-only and
+reported rather than invented: **the entire hepcidin/ferroportin mechanism** (no
+flashcard mentions hepcidin — the single biggest gap), the ferritin >1000 µg/L
+biopsy-for-staging role, MRI T2*/R2*, the treatment of established complications,
+that 500 mL of blood removes ~250 mg of iron, and the distinction between being
+homozygous and having disease.
+
+### Three MCQ deletions recommended and declined
+
+The three "EXAM PEARL:"-labelled MCQs in Haemochromatosis were proposed for
+deletion as duplicates. The labels are now stripped, which is what made them
+defective; as ordinary questions they are legitimate extra practice in a topic
+that is already MCQ-heavy, and deletion is irreversible. Kept.
+
+### Left for the user
+
+- **The venesection-reversal MCQ is substantively incomplete and cannot be fixed
+  from a stem.** Its keyed option says venesection "reverses most features but NOT
+  cirrhosis or arthropathy"; another card's explanation adds that established
+  **hypogonadism and diabetes** also fail to regress. The explanations now agree;
+  the option text is yours.
+- **"Perl's" versus "Perls'".** Perls is the correct possessive. The reachable
+  instance is fixed; the other is inside an MCQ option.
+- **One card teaches restrictive-then-dilated cardiomyopathy** where two MCQs key
+  "dilated" only — two emphases rather than a contradiction, both keyed.
+- **A1AT PiSS and PiSZ are never taught** beyond a bare distractor.
+- **LI-RADS is absent from HCC**; the deck uses the wash-in/wash-out route instead,
+  which is right for finals, so nothing was introduced. HCC also never ranks which
+  cirrhosis aetiologies carry the highest risk.
+- **A "do not stop treatment" instruction sits in an `fc-sub`** in Wilson's. That
+  class renders in body colour, not grey, so it is not a breach — recorded because
+  two agents this round flagged `fc-sub` as grey and it is not.
