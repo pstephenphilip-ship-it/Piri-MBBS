@@ -10786,3 +10786,33 @@ These need **new cards**; the edit schema cannot add any. Listed for a decision:
   fc[35]/q[16] teach it is now less favoured — both keyed.
 - `Labour Interventions` q[20] option 4 says "scarring makes the cervix
   incompetent" — outdated term *and* a false mechanism, as a keyed-wrong option.
+
+## Deck-wide `<b>` sweep (v1581) — and a correction to v1580
+
+The v1580 commit message claimed contraception and sexual-health "now have zero
+`<b>`, as every other live deck does". **That was wrong.** Checking it
+immediately afterwards found **1,832 stray `<b>` still live across 18 decks** —
+cardiovascular 844, respiratory 721, neurology 61, urology 40, endocrinology 39,
+ophthalmology 35, paediatrics 25 and eleven more. Only the decks screened
+system-by-system had been converted.
+
+A blanket find-and-replace would have been wrong too. `.fc-caveat b` and
+`.fc-inline b` are **#B4531A orange** with no matching `strong` rule
+(`index.html:158,174`), so converting a `<b>` inside a grey span repaints
+deliberately-amber trap text teal. `.fc-sub b` and `.fc-card-text strong` are
+both **#0B7D6E**, so a conversion there is colour-neutral.
+
+Measured split: **1,780 safe** (body text or `.fc-sub`) and **52 inside a grey
+span**. Converted the 1,780; left the 52 as `<b>` so they keep their amber.
+Result: zero `<b>` outside a grey span anywhere in the live decks, and every
+remaining one is orange by design.
+
+`content/cards/pharmacology-flashcards.json` is excluded, as always — its player
+runs fields through `escapeHtml()`, so markup there renders as literal text.
+
+**Method note worth keeping.** The first attempt wrote the files back with
+`json.dumps(indent=1)` and produced **234,637 insertions for 1,780 one-word
+changes** — a full reflow of seventeen decks. Reverted and redone as a raw-text
+splice with the grey-span ranges masked on the raw JSON (where the class
+attribute appears escaped as `class=\"fc-inline\"`). The correct diff is 70
+lines. Never re-serialise these files; splice them.
