@@ -11337,3 +11337,169 @@ The remaining nine losses were framing words ("priority", "such", "like",
 ### Commissioning gaps noticed in ENT
 
 Nothing found this pass that is not already on the list above.
+
+---
+
+## Paediatrics — full deck review (v1591–v1592)
+
+**Scope:** all 30 topics of `content/cards/paediatrics.json`, read card by card by nine
+agents. 1,390 flashcards and 772 MCQs before the pass; 1,339 and 772 after.
+
+**Applied:** 259 field rewrites and 51 flashcard deletions (14 carrying an `absorb`
+into their keeper). Verified against a pre-image: 259/259 exact, **zero collateral
+change**, every surviving id preserved in order, no ids added, no duplicate ids, the
+MCQ section byte-identical through the deletion stage, and **zero changes to any
+`options`, `correctIndex` or `answer`** anywhere in the deck.
+
+A prior commit (v1591) normalised the deck's 6 typographic entities and 4 curly
+quotes and removed its only `<p>` tag. The formatting baseline was already the
+cleanest of any deck reviewed — zero `<b>`, zero bullet fossils, zero nested
+`<strong>`, zero malformed chips — so almost all of this pass is content.
+
+### Clinical corrections applied
+
+Three were dose or guideline figures that were simply wrong:
+
+- **Levetiracetam in status epilepticus** (`Paediatric Seizures` fc[33]) gave
+  `40 mg/kg, max 2.5 g`. NICE NG217 and the EcLiPSE protocol give **40 mg/kg, max
+  3 g**; 2 g is the *phenytoin* cap, so this looks like a transcription collision
+  between the two drugs. Corrected to 3 g.
+- **Neonatal glucose infusion** (`Neonatal Medicine` fc[103]) gave
+  `60–100 mL/kg/day` of 10% glucose as "roughly 4–6 mg/kg/min". 100 mL/kg/day of
+  10% is 6.9 mg/kg/min, so the bracket is **4–7**. Arithmetic corrected; both
+  volumes left alone.
+- **Orchidopexy timing** (`Neonatal Screening` fc[15]) had "orchidopexy by
+  ~6 months", conflating the referral target with the operation. Now: refer so the
+  child is **seen by ~6 months**, with orchidopexy usually between **6 and 12
+  months**.
+
+Two were internal contradictions that made the deck teach against itself:
+
+- **Pierre Robin airway severity** (`Genetic Syndromes` fc[33]) said the **isolated
+  (non-syndromic)** form is "often the more airway-severe group". It is the other way
+  round — syndromic PRS has the more severe and more persistent airway course.
+  Inverted. Checked first that no MCQ keys on it; none does.
+- **Turner fertility** (`Genetic Syndromes` fc[17]) said flatly "infertile", while
+  the deck's own fc[41] says "usually infertile" and `Chromosomal Disorders` q[20]
+  teaches that conception is possible with donor-egg IVF. Aligned to the other two.
+
+And the HUS proportions, which did not add up across four cards: fc[5] made
+typical 90% and "atypical (aHUS)" 10%, which is already 100%, while fc[8] adds
+pneumococcal HUS at ~5% and q[16] called the same entity ~5–15%. fc[5]'s 10% is
+now explicitly the **whole non-STEC group**, mostly complement-mediated with
+pneumococcal HUS making up much of the rest, and q[16] is aligned to fc[8]'s ~5%.
+Separately, `HUS` fc[1] claimed HUS is the commonest cause of acute kidney injury
+in children; it is the commonest **intrinsic renal** cause in young children, with
+pre-renal AKI commoner overall. Rewritten to say exactly that.
+
+One MCQ explanation was rewritten because it read as contradicting its own key:
+`Neonatal GI` q[22] keys "C-section — to protect the sac from rupture" for a
+**giant, liver-containing** exomphalos, and its explanation closed "caesarean is not
+required simply to protect the sac". That clause is scoped to the *smaller*
+exomphalos, but nothing said so. The explanation now states the scope explicitly.
+Options untouched.
+
+Also applied: **the four Kocher criteria written out** (see the gap below); the
+**FGM mandatory reporting duty** added to Safeguarding, which existed nowhere in the
+deck; the **two NG195 neonatal-sepsis red flags** that were missing (a co-twin with
+suspected or confirmed infection, and maternal parenteral antibiotics for invasive
+bacterial infection around birth) plus the "in a term baby" qualifier on the
+ventilation flag; the **full septic screen** on the under-3-month UTI card; and the
+**current SACN vitamin D bands** on the rickets prevention card, which had a flat
+"400 IU daily" where the topic's own q[11] already carried the banding.
+
+### A flag I checked and rejected
+
+An agent reported that the deck has chickenpox notifiability backwards —
+`Childhood Exanthems` fc[2] and q[0] say "notifiable in **England and Northern
+Ireland** (not Scotland or Wales)". **The deck is right and current.** Varicella
+became notifiable in England in October 2025; the UKHSA Green Book chapter is headed
+"NOTIFIABLE IN ENGLAND AND NORTHERN IRELAND". No change made. Worth recording
+because the older teaching (Scotland and Northern Ireland only) is still widespread.
+
+### Commissioning gaps — cards that do not exist
+
+These cannot be fixed by editing. Each was confirmed by grepping the whole deck.
+
+1. **Septic arthritis and osteomyelitis are not taught anywhere.** In 2,162 cards,
+   `Kocher` appeared exactly **once**, inside an aside, with the criteria never
+   stated; `osteomyelitis` appeared exactly **once**, as a wrong-answer distractor.
+   A missed septic joint is the classic paediatric disaster. As an interim I put the
+   emergency into `Paediatric Orthopaedics` fc[0] (age never excludes infection;
+   fever plus refusal to weight-bear needs same-day assessment) and spelled the four
+   Kocher criteria out in fc[26] as body text. **It still needs its own cards.**
+2. **No brain-tumour card exists.** "Brain tumour", "papilloedema", "medulloblastoma",
+   "posterior fossa" and "morning headache" do not occur anywhere in the file, so the
+   early-morning headache and vomiting, new squint, papilloedema and behaviour-change
+   red flags are simply absent from a deck that has a Paediatric Cancers topic.
+3. **No bone-tumour card exists.** `osteosarcoma` appears 13 times but is never the
+   subject of a front or a stem; `Ewing` does not appear at all.
+4. **Childhood pneumonia is not taught.** In a topic called "Lower Respiratory
+   Infection & Wheeze", CAP appears only as a differential to exclude from
+   bronchiolitis — no organisms, no antibiotic, no duration, no admission criteria,
+   no empyema. `amoxicillin` appears on three cards in the whole deck, none of them
+   for pneumonia.
+5. **Paediatric appendicitis is not taught.** All 36 mentions are comparators inside
+   the mesenteric-adenitis block; no card teaches appendicitis itself.
+6. **Oesophageal atresia/TOF** exists only as a clause buried in a card about the
+   associations of **duodenal** atresia — orphaned in the wrong card and unfindable.
+7. **Transient tachypnoea of the newborn** has no card of its own, only a mention as
+   a differential.
+8. **The status epilepticus ladder stops after the second benzodiazepine** — the
+   phenytoin/valproate alternatives and the RSI step are absent. I deliberately did
+   not write those doses in.
+
+### Disagreements left for your decision
+
+- **Pyloric stenosis peak age**: `Paediatric Surgical GI` says peak 3–6 weeks,
+  `investigations__…Paediatric GI / Surgical` says peak 4–6. (The 2–8 week *window*
+  agrees everywhere, and Surgical GI's own internal contradiction — one card giving
+  4–6 weeks as the whole window — has been aligned to its siblings.)
+- **HIDA scan in biliary atresia**: `Neonatal GI` fc[38] says it is "largely
+  superseded… delays surgery"; `investigations__…Paediatric GI / Surgical` fc[26] and
+  q[16] tell the student to order it urgently. A student meeting both is told to
+  order a test the other card says delays the operation that determines outcome.
+- **Developmental milestones across three topics**: sitting unsupported given as
+  9 months in Neurodevelopmental and 8 months (NICE-attributed) in Cerebral Palsy;
+  hand preference as 12 months on six cards and 18 months on one.
+- **Croup — nebulised adrenaline**: `Stridor & Upper Airway` restricts it to
+  **severe**; `investigations__…Other Paediatric` teaches **moderate/severe**.
+- **SUFE age**: 10–16 years on one ortho card, 10–15 on two others.
+- **ALL blast threshold**: a flashcard and a keyed MCQ option both say ">20% blasts";
+  the WHO threshold is **≥20%**. Fixing the card alone would make it disagree with
+  the option, which is out of bounds — so both need changing together, or neither.
+- **"Failure to thrive" vs "faltering growth"**: `Genetic Syndromes` uses the older
+  phrase nine times where Congenital Heart Disease consistently uses the current one.
+  Not harmonised, because q[9]'s keyed **option** contains "failure to thrive" and
+  fixing the rest would leave that option stranded.
+- **Kawasaki-versus-coronary aspirin, Turner pregnancy, enema success rates, pyloric
+  ultrasound wall thickness and Kasai timing** each differ between two topics by a
+  small margin; indices are in the agents' notes.
+
+### Language
+
+`wheelchair-bound` was removed from three places in Neuromuscular Disorders, and
+`Neuromuscular` fc[57]'s "the child is mentally normal, 'trapped' in a weak body"
+became "cognitive development is unaffected despite profound muscle weakness".
+"DMD boys" and "DM1 patients" became person-first. "Failure to thrive" became
+"faltering growth" in the two places where it did not strand a keyed option. The
+deck was otherwise clean: no "suffers from", no "an autistic", no "a CP child", no
+"a Down's child", and every one of the twelve uses of "spastic" in Cerebral Palsy is
+the clinical subtype name, correctly used.
+
+### Deletions
+
+51 flashcards removed, each a strict subset of a named keeper in the same topic, each
+passing the applier's independent coverage guard. Twenty-one were initially rejected
+by that guard; I inspected all twenty-one in situ and recorded the justification
+against each drop. The ones where the lost word could have been clinical:
+
+- `stridor fc[4]` lost "do not lie them flat" and the Hib-vaccine note. Verified the
+  prohibition survives at fc[23] and the Hib fact at fc[25] and fc[36].
+- `surgicalgi fc[27]` lost "boy". Verified the male predominance survives verbatim at
+  fc[29] ("boys ~4:1, especially firstborn males") and in q[11]'s stem.
+- `seizures fc[18]` lost the steroid-avoidance rule in tuberous sclerosis. The absorb
+  states it outright on the keeper.
+- `nephrotic fc[5]` lost "puffy eyes"; the keeper opens "Periorbital puffiness" and
+  the absorb carries the morning timing, the scrotal/labial extension and anasarca.
+- `neonatal fc[6]` lost "IDM"; the keeper spells out "Infant of a diabetic mother".
