@@ -13659,8 +13659,14 @@ initTab('conditions');
   function applyHighlights(p, annots){
     var panel=getContentPanel(p);
     if(!panel) return;
+    // Unwrap existing highlight marks by moving their CHILD NODES back into place — NOT by
+    // flattening to el.textContent, which destroys any <strong>/<b>/<em>/<sub> or coloured span
+    // sitting inside the highlight (that flattening was why bold/coloured words lost their styling
+    // whenever highlights were re-applied — e.g. adding another highlight or switching subtab).
     panel.querySelectorAll('.annot-highlight').forEach(function(el){
-      el.parentNode.replaceChild(document.createTextNode(el.textContent),el);
+      var par=el.parentNode; if(!par) return;
+      while(el.firstChild) par.insertBefore(el.firstChild, el);
+      par.removeChild(el);
     });
     panel.normalize();
     if(!annots.length) return;
