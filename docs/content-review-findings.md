@@ -11927,3 +11927,71 @@ The 14 orphaned option blocks are gone. They were well-written question material
 nothing **taught** is lost with them — every fact they tested lives in the topic's
 flashcards and explanations. If you ever want them back as new questions, they are
 recoverable from this commit's parent.
+
+---
+
+## The commissioning gaps filled, and two keyed defects (v1602)
+
+**108 new cards** (65 flashcards, 43 MCQs) across four decks, appended to existing live
+topics so no index shifted. Verified: **zero existing cards modified** in any of the
+three decks receiving new material, no duplicate ids, every `answer` byte-identical to
+its key.
+
+| Deck | Topic | Subject | fc | q |
+|---|---|---|---|---|
+| Paediatrics | Paediatric Surgical GI | **Appendicitis** | 14 | 7 |
+| Paediatrics | Neonatal GI & Abdominal Wall | **Oesophageal atresia / TOF** | 12 | 6 |
+| Paediatrics | Neonatal Medicine | **Transient tachypnoea** | 7 | 4 |
+| Paediatrics | Paediatric Seizures | **Status epilepticus ladder** | 7 | 4 |
+| Renal | Renal Vascular | **Scleroderma renal crisis** | 6 | 6 |
+| Renal | Inherited Kidney Disease | **RTA urine pH, Fanconi causes** | 4 | 6 |
+| Renal | Glomerulonephritis | **MPGN aetiology** | 4 | 5 |
+| Haematology | Blood Transfusion Products | **Massive haemorrhage protocol** | 8 | 8 |
+
+Every figure was itemised by its author as *from the deck*, *new*, or *deliberately
+omitted*. The ones I owned and verified myself before shipping: **tranexamic acid 1 g
+over 10 minutes then 1 g over 8 hours, within 3 hours of injury** and the instruction
+not to give it beyond 3 hours without evidence of hyperfibrinolysis (NICE NG39); and
+the **1:1 plasma-to-red-cell ratio**, which NG39 gives as 1:1–1:2. Deliberately not
+written: the Alvarado/PAS score cut-offs, any sodium valproate status dose (40 mg/kg
+sits dangerously close to levetiracetam's), the prednisolone threshold for scleroderma
+renal crisis, and any MPGN progression percentage.
+
+**Scleroderma renal crisis** went into `Renal Vascular` specifically because that topic
+drills ACE-inhibitor caution six times without ever naming the one renovascular
+emergency where an ACE inhibitor is the treatment.
+
+### Two keyed defects found and fixed
+
+**1. A keyed answer that was simply wrong.** `Inflammatory Effect` `q[18]`
+(`inflam_mcq_019`) asks: *"Life-threatening organ dysfunction caused by a dysregulated
+host response to infection is defined as:"* — the verbatim Sepsis-3 definition. Option 0
+is **"Sepsis"**. `correctIndex` pointed at option 3, **"An abscess — a walled-off
+collection of pus"**. The card's own explanation opens by stating the Sepsis-3
+definition, and four other cards across two topics agree. It was teaching that the
+definition of sepsis defines an abscess. `correctIndex` 3 → 0, `answer` → "Sepsis".
+
+This is the **second** keying defect found in the whole review, after the ENT Hearing
+Loss block. Unlike those, this one had the right option present, so it was a two-field
+fix.
+
+**2. A tetanus immunoglobulin rule that was wrong for the dangerous subset.**
+`Tetanus & Rabies` `fc[14]` said a patient primed within 10 years needs **"nothing is
+needed, whatever the wound"**, and `q[5]`'s explanation repeated it. The Green Book
+(chapter 30) is explicit: for a **high-risk** tetanus-prone wound, human tetanus
+immunoglobulin is given **irrespective of the patient's immunisation history**. The
+deck's own `fc[15]` defines the high-risk category correctly, so the card contradicted
+its sibling. Both now say no *vaccine* is needed but immunoglobulin is still given for
+a high-risk wound. The keyed option was unaffected.
+
+### A cross-file dose conflict left for you
+
+`pharmacology-flashcards.json` `ph_cpt_paed_23` gives **"IV levetiracetam 40–60 mg/kg
+over 5 min"** for paediatric convulsive status epilepticus, attributed to Resuscitation
+Council UK. That contradicts `paediatrics.json`, where I corrected the figure to
+**40 mg/kg, max 3 g** (NICE NG217 / EcLiPSE). **I have not touched it**, because that
+file is under a standing instruction never to edit it. The two decks now disagree on a
+paediatric anticonvulsant dose and one of them needs to move.
+
+I should record that I initially reported this conflict did not exist — my first search
+of that file was too shallow and missed the card. The agent that raised it was right.
