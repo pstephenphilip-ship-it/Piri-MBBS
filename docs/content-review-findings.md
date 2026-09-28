@@ -11759,3 +11759,113 @@ General…* (matching "refer") and "acute/emergency settings". Rather than bypas
 guard, it now accepts an **`ok_grey`** declaration that works like `ok_loss` — each
 entry must be a substring of the grey span it excuses, so a declaration cannot silence
 an unrelated span, and a written justification is recorded beside it.
+
+---
+
+## The flagged decisions, worked through (v1597)
+
+With permission to make the editorial changes **where accuracy is confirmed**, I went
+back through every item on the decision list. The most useful result is how many of my
+own flags did not survive checking: **of 24 items examined, 11 were wrong or
+overstated and the deck was right.** Those are recorded below so nobody re-raises them.
+
+### Applied — 22 fields across five decks
+
+**Endocrinology (10 fields)**
+- **Hypercalcaemia `q[47]`** keyed "IV 0.9% saline (2–4 L/day)" while **its own
+  explanation**, `q[19]`, `q[34]` and Society for Endocrinology guidance all give
+  **4–6 L over 24 h**. Option and `answer` corrected.
+- **FHH `q[16]`** keyed "↑Ca + ↑PTH"; four cards in the same topic correctly say the
+  PTH is normal or only mildly raised. Changed to "a non-suppressed PTH".
+- **Hypothyroidism `q[36]`** asked "what approach may be tried?" for persistent
+  symptoms with a normal TSH, keyed to combination T4+T3. The key is defensible — NICE
+  permits a consultant-led trial — but as written the stem invited it as a *first*
+  answer, against `q[9]`. **Stem rewritten** to place it after adherence is confirmed
+  and other causes excluded. No option touched.
+- **SIADH**: the deck's symptom bands (125–135 / 120–125 / <120) clash with the
+  European guideline's biochemical bands (mild 130–135, moderate 125–129, profound
+  <125) quoted in its own `q[11]`. `q[12]`'s stem called 122 mmol/L "this moderate
+  range". The stem no longer labels it, the explanation now states both, and the two
+  flashcard fronts no longer assert a band name. Symptom mapping unchanged.
+- A doubled word (`"given given"`) in a hyperthyroidism distractor.
+
+**Haematology (3 fields)** — three cards each called a *different* set "the PV triad".
+There is no canonical triad, so the definite article is gone from the two that claimed
+it; no key or option changed. Thalassaemia now states that **non-transfusion-dependent
+beta-thalassaemia and beta-thalassaemia intermedia are the same entity**, which the
+deck taught under both names without ever connecting them.
+
+**Liver (8 fields)**
+- **Venesection `q[26]`** keyed "reverses most features but NOT cirrhosis or
+  arthropathy". Established **hypogonadism and diabetes** also fail to regress; the
+  option now says so.
+- **HCC surveillance**: the Liver Cirrhosis topic made AFP obligatory ("AFP + USS every
+  6 months") where every other topic in the file, and NICE, give **6-monthly
+  ultrasound with AFP optional**. Flashcard, option, `answer` and explanation aligned.
+- Two cards said "metabolic fatty liver disease", a phrase with no antecedent anywhere
+  in a deck that uses NAFLD throughout.
+
+**Paediatrics (28 fields)**
+- **The WHO blast threshold is ≥20%, not >20%** — corrected in the keyed option, the
+  `answer` and the explanation together.
+- **"Failure to thrive" → "faltering growth"** deck-wide: 25 instances including three
+  keyed options, which is why this could not be done before. NICE NG75's term.
+
+**Geriatrics (2 fields)** — the two remaining "elderly" usages, both inside distractors.
+
+Across all of it: **no `correctIndex` was moved, every `answer` still matches its key
+byte-for-byte, no card was added or removed, and every deck still parses.**
+
+### Checked and NOT changed — my flag was wrong, the deck was right
+
+These were on the decision list because I had recorded them as defects. They are not.
+
+- **Obeticholic acid in PBC.** I flagged the keyed answer because the EU revoked the
+  conditional authorisation in September 2024 and it was withdrawn in the US in 2025.
+  **The MHRA has made no change**, so OCA remains licensed and NICE-positioned as
+  UK second-line, alongside the PPAR agonists the card already names. Deck correct.
+- **"Drug therapy for NASH with fibrosis is now licensed in the UK."** Correct:
+  **resmetirom was MHRA-authorised on 3 June 2026**, after my knowledge cutoff. The
+  off-label vitamin E and pioglitazone cards do not contradict it — they only say those
+  two agents are off-label, which remains true.
+- **Hydroxocobalamin maintenance.** I claimed the BNF says every 3 months. It says
+  **every 2–3 months** for pernicious anaemia without neurological involvement, exactly
+  as the deck has it.
+- **Conn's saline suppression at >170 pmol/L.** I claimed this sat in the indeterminate
+  band. **170 pmol/L is a real Endocrine Society cut-off** for the seated saline
+  infusion test; the 140–280 indeterminate range belongs to a different protocol.
+- **"CKD for >3 months".** I claimed KDIGO says "at least 3 months". KDIGO's own
+  definition reads **">3 months"**. Deck correct.
+- **Hepatitis B adult chronicity "under 5%"** is standard teaching, not an error.
+- **The red-cell mass study** genuinely is the best test to separate true from apparent
+  polycythaemia; that it is rarely available in UK practice is a separate point the
+  deck already makes on another card. No contradiction.
+- **The two hypothyroidism MCQs** are not keyed to opposite answers — they test
+  different points in the same NICE pathway.
+- **Chvostek's false-positive rate** at 10% is within the published range and the
+  explanation already reconciles it with "up to a quarter".
+- **The cardiovascular ABPI thresholds** are not a contradiction: <0.5 is severe /
+  critical limb ischaemia, <0.3 is critical ischaemia **with tissue loss**, which is
+  precisely what each card asks about.
+- **Lymphoma cure rate** "~85%" and ">80%" are compatible, not conflicting.
+
+### Retired without action
+
+**The 108 `"answer": null` MCQs in `haematological.json` are a non-issue.** The app
+reads `q.answer` only for short-answer questions; the MCQ player uses `correctIndex`
+alone. Populating the field would be churn with a real risk of introducing a mismatch.
+
+**Orphaned cards and MCQs from deleted topics are to be left alone**, per your
+instruction. The 248 unreachable flashcards are no longer on the decision list.
+
+### Still open, deliberately
+
+- **Delayed cholecystectomy at "more than 4 weeks"** — conventional UK teaching is
+  ~6 weeks, but 4–6 weeks is within normal practice and the deck is internally
+  consistent at 4. Not confident enough that it is wrong.
+- **Valproate listed as an example of intrinsic DILI.** Most texts class valproate
+  hepatotoxicity as idiosyncratic, but the taxonomy is genuinely contested and the drug
+  has a dose-related component. Left alone rather than assert a side.
+- **A falls card's "four or more falls-risk-increasing drugs"** threshold, still
+  unsourced to a national guideline.
+- The remaining commissioning gaps, which need new cards rather than edits.
