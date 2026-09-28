@@ -11598,3 +11598,158 @@ Four gaps remain unfilled, all recorded above: **paediatric appendicitis** (36
 mentions, never the subject of a card), **oesophageal atresia/TOF** (orphaned inside a
 card about duodenal atresia), **transient tachypnoea of the newborn**, and the
 **status epilepticus ladder beyond the second benzodiazepine**.
+
+---
+
+## Geriatric Medicine — full deck review (v1593–v1595)
+
+**Scope:** all 13 topics of `content/cards/geriatric-medicine.json`, read card by card
+by three agents. 302 flashcards and 204 MCQs before the pass; 298 and 204 after.
+
+**Applied:** 126 field rewrites and 4 flashcard deletions (3 carrying an `absorb`).
+Verified against a pre-image: 126/126 exact, **zero collateral change**, every
+surviving id preserved in order, no ids added, no duplicate ids, the MCQ section
+byte-identical through the deletion stage, and **zero changes to any `options`,
+`correctIndex` or `answer`**.
+
+### The law moved, and my brief was the thing that was wrong
+
+I wrote the brief telling the agent that the DoLS **acid test** — not free to leave
+AND under continuous supervision and control — is current law, and asked it to check
+the deck against that. **That was wrong.** On **2 June 2026** the Supreme Court, in
+*A Reference by the Attorney General for Northern Ireland* [2026] UKSC 16, unanimously
+**overruled *Cheshire West***. The acid-test factors remain relevant but are no longer
+jointly sufficient; the objective Article 5 element is now a **multifactorial
+assessment**; and a person lacking Mental Capacity Act capacity may give valid
+subjective consent to their arrangements.
+
+The agent flagged the brief rather than obeying it. I verified the judgment
+independently before accepting it.
+
+**The deck was already correct and current.** All 21 DoLS flashcards and 16 MCQs
+handle the change consistently — the acid-test cards are past-tense, the MCQ stems say
+"before June 2026", and the multifactorial test is what is keyed. Had the brief been
+followed obediently, a current deck would have been "corrected" back to superseded law.
+
+Recorded here because the deck's DoLS topic should not be re-checked against the acid
+test by anyone, human or agent, working from pre-June-2026 knowledge.
+
+### What was actually wrong in the law topics
+
+- **`DoLS` fc[20] said "DoLS/LPS sit within the MCA"**, implying both operate. LPS was
+  legislated in the Mental Capacity (Amendment) Act 2019, has been repeatedly delayed,
+  and **has no implementation date**. Fixed, with LPS moved to an aside saying it
+  *would* sit there but is not implemented.
+- **The five statutory MCA principles were in a grey span** on that same card, whose
+  front asks how DoLS fits within the MCA — the principles *are* the answer. Promoted
+  to body text.
+- **`DoLS` fc[5] asserted that leaving an existing authorisation in place pending
+  review "is not itself unlawful".** Neither the agent nor I could source that as law.
+  The DHSC position is weaker: authorisations should be reviewed as soon as
+  practicable, but **there is no expectation that every one is revisited immediately**.
+  Replaced with that. In a student deck a wrong legal assertion is worse than a
+  cautious one.
+- **Three Elder Abuse cards contradicted their own MCQ explanations**: the Safeguarding
+  Adults Board membership omitted the **integrated care board**; a statutory SAR
+  condition ("concern that the agencies could have worked together more effectively")
+  was missing; and the information-sharing gateways listed three where the deck's own
+  MCQ lists four, and said "GDPR" where the MCQ correctly says "UK GDPR".
+- **A real content gap**: nowhere did the deck say a **property-and-affairs LPA can be
+  used while the donor still has capacity**, leaving a student able to infer that
+  neither type operates before capacity is lost.
+
+**Checked and found sound:** the four things students conflate about refusing
+life-sustaining treatment — an advance statement, an ADRT, a health-and-welfare LPA
+with express life-sustaining authority, and a DNACPR/ReSPECT form — are cleanly
+separated throughout, and one card states flatly that family cannot consent or refuse.
+No card anywhere has a family demanding or refusing CPR.
+
+### Clinical corrections
+
+- **The Osborn (J) wave contradicted itself.** A flashcard says it is "not present in
+  every patient, so a normal J point does not exclude hypothermia"; an MCQ explanation
+  said "invariably present <30°C". Both cannot be true. The explanation was aligned to
+  the flashcard.
+- **A NICE criterion was stated wrongly.** A malnutrition explanation claimed an 8%
+  weight loss "sits in the 'two or more' list". It meets neither list — the threshold
+  is **>10% in 3–6 months** — and the deck's own flashcard states it correctly.
+- **Moisture lesions were missing entirely** from Pressure Sores, and the contributing-
+  forces card listed moisture in a way that reads as if a moisture lesion *were*
+  pressure damage. Now stated: moisture-associated damage is not a pressure ulcer, is
+  diffuse and in skin folds rather than over a bony prominence, and is not categorised.
+- **A cooling-target disagreement** was harmonised: one explanation said "<39–40°C"
+  against its own keyed option's "<39" and both flashcards' "<39, stop at 38.5".
+- **A BPPV nystagmus duration** was aligned: two flashcards say "under 30 seconds", an
+  explanation said "20–60 seconds".
+- **The falls guidance card was right but broken as a card.** Its front asked "what are
+  the two headline changes in the current falls guidance", which is a question about
+  the source notes rather than about falls, and **NG249 (29 April 2025, replacing
+  CG161)** has more than two. Rewritten to ask what a student can be examined on: the
+  age groups covered, and the position against falls-risk-prediction tools. I verified
+  NG249's publication date, its replacement of CG161, the extension to **50–64 at
+  higher risk**, and the recommendation against prediction tools.
+- **Pre-existing conversion damage found:** a BPPV card contained the literal strings
+  `45deg` and `~20–30deg`. An agent attributed these to my `&deg;` pass; **I checked
+  the parent commit and both were already there**, so they predate this work. Fixed to
+  literal `°`, matching the other 39 degree values in the file and the ENT deck's
+  wording of the same two figures.
+
+### Grey spans — the densest surface reviewed
+
+119 grey spans across 302 flashcards, about one per 2.5 cards. All 119 were enumerated
+and read; **39 were promoted out of grey.** The rule applied: *if the front asks you to
+name a list, a gloss on each item is a genuine aside and stays grey; if the grey span
+IS the answer to the front, it comes out.* The ones that mattered:
+
+- **The stroke red flags in BPPV** — ataxia, diplopia, dysarthria, cranial-nerve signs
+  — were grey. Central red flags must never render grey.
+- **"Haloperidol prolongs the QTc"** was grey on the delirium antipsychotic card.
+- **"A hip fracture is often the presentation of an acute illness — sepsis, MI,
+  arrhythmia, stroke, delirium"** was grey on a pre-operative card, and is the basis of
+  that topic's own MCQ.
+- A "not routine" instruction, half a MUST criterion, the LMWH timing and catheter
+  avoidance, and both glosses defining multidimensional/multidisciplinary care.
+
+**Checked and found safe:** antipsychotics in delirium are a last resort after
+de-escalation, and the **Parkinson's / Lewy body contraindication is in black body
+text, called a hard contraindication rather than a caution**, with lorazepam named as
+the alternative and the MCQs keyed consistently. Thiamine before glucose is correct, as
+is chlordiazepoxide for uncomplicated withdrawal versus lorazepam for established DT.
+Every STOPP and START example named is a real criterion. The hypothermia temperature
+bands, rewarming methods, arrhythmia-on-handling rule and the qualifiers on "not dead
+until warm and dead" all agree across every card that states them. Pressure ulcer
+grading correctly uses categories 1–4 only, with unstageable and deep tissue injury
+each given a card and **no number**. The NOF 36-hour standard, the analgesia ladder
+including the fascia iliaca block, and the fracture-type-to-operation mapping are
+correct card by card.
+
+### Language
+
+**23 instances of "the elderly" or "elderly" applied to a person** were fixed, plus
+"the frail" and "fallers"/"faller" as nouns. Frailty is never framed as inevitable —
+"a normal and inevitable consequence of ageing" appears only as a keyed-wrong
+distractor, which is the right place for it.
+
+### Left for your decision
+
+- **A DoLS MCQ option reads "Being elderly and living permanently in a residential care
+  home."** It breaches the deck's own language rule, but it sits inside a keyed option
+  and is therefore out of bounds under the constraint set for this review. It is the
+  only language breach left in the deck.
+- **A falls card says four or more falls-risk-increasing drugs triggers review.**
+  Neither the agent nor I could source that threshold to a national guideline; the
+  ≥5-medicines polypharmacy definition is solid and consistent across three cards.
+- **A BPPV MCQ whose five options are all mnemonics.** Answerable, but it tests tool
+  recognition rather than clinical reasoning.
+- **A polypharmacy card** can be read as saying STOPP/START v3 *introduced* the
+  falls-risk and opioid sections; those existed in v2, and the genuinely new material
+  is the anticholinergic burden.
+
+### A change to the tooling
+
+The applier's guard rejects any edit that puts a risk word inside a grey span. It fired
+twice here on false positives: the law-report citation *A Reference by the Attorney
+General…* (matching "refer") and "acute/emergency settings". Rather than bypass the
+guard, it now accepts an **`ok_grey`** declaration that works like `ok_loss` — each
+entry must be a substring of the grey span it excuses, so a declaration cannot silence
+an unrelated span, and a written justification is recorded beside it.
