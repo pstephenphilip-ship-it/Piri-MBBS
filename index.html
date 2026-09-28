@@ -13840,13 +13840,24 @@ initTab('conditions');
     ov.onclick=function(){ ov.remove(); };
     document.body.appendChild(ov);
   };
-  // setItem that won't throw the note away if the image busts the storage quota.
+  // setItem that won't throw the note away if the image busts the storage quota — and, when the
+  // failure is NOT about an image, tells the truth (the site's localStorage is full) instead of
+  // blaming a non-existent image. A full store also blocks Supabase's own session write, which is
+  // why "storage full" shows up as being logged out on every refresh.
   function annotStore(key, annots){
     try{ localStorage.setItem(key, JSON.stringify(annots)); return true; }
     catch(e){
-      annots.forEach(function(a){ if(a){ delete a.image; } });
-      try{ localStorage.setItem(key, JSON.stringify(annots)); }catch(_){}
-      try{ alert('That image was too large to save, so the note was kept without it.'); }catch(_){}
+      var hadImage = annots.some(function(a){ return a && a.image; });
+      if(hadImage){
+        // An oversized attached image is the usual cause — drop it and keep the note.
+        annots.forEach(function(a){ if(a){ delete a.image; } });
+        try{ localStorage.setItem(key, JSON.stringify(annots));
+             try{ alert('That image was too large to save, so the note was kept without it.'); }catch(_){}
+             return true; }catch(_){}
+      }
+      // No image involved (or removing it didn't free enough): this browser is genuinely out of
+      // DoctoRise storage on this device. Say so, and point at the safe fix.
+      try{ alert('This browser has run out of storage for DoctoRise, so that couldn’t be saved — and it’s also why you keep getting logged out.\n\nFix: make sure you’re signed in (your notes back up to your account), then clear this site’s data in your browser settings. Your saved notes reload from your account afterwards.'); }catch(_){}
       return false;
     }
   }
