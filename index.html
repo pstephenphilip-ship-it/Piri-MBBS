@@ -13107,8 +13107,21 @@ initTab('conditions');
     try{
       var tm = annotTextMap(panel);
       var sc = range.startContainer, so = range.startOffset, normStart = -1;
+      // Fast path: the selection starts inside a mapped text node.
       for(var i=0;i<tm.map.length;i++){ var m=tm.map[i]; if(m.node===sc && m.off>=so){ normStart=i; break; } }
-      if(normStart<0) return 0;   // start not in the text map (element/whitespace boundary) -> first
+      // Robust path: the start is an ELEMENT boundary (e.g. selecting from the very start of a
+      // <strong>/<b> word), so no text-node char matches exactly. Find the first mapped char at or
+      // after the selection start in DOM order. Without this the start fell back to "first
+      // occurrence", so highlighting (say) the 2nd copy of a term landed on the 1st — very visible
+      // in pharmacology, where the same terms repeat across the Mechanism/Indications/... cards.
+      if(normStart<0){
+        for(var j=0;j<tm.map.length;j++){
+          var mm=tm.map[j], cmp;
+          try{ cmp = range.comparePoint(mm.node, mm.off); }catch(e){ cmp = -1; }
+          if(cmp>=0){ normStart=j; break; }   // 0 = within (start..end), 1 = past end; both are ≥ start
+        }
+      }
+      if(normStart<0) return 0;   // start not locatable -> first
       var occ=0, from=0, idx;
       while((idx=tm.norm.indexOf(target, from))>=0 && idx < normStart){ occ++; from=idx+target.length; }
       return occ;
