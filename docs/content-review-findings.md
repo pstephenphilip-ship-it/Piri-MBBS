@@ -11869,3 +11869,61 @@ instruction. The 248 unreachable flashcards are no longer on the decision list.
 - **A falls card's "four or more falls-risk-increasing drugs"** threshold, still
   unsourced to a national guideline.
 - The remaining commissioning gaps, which need new cards rather than edits.
+
+---
+
+## ENT Hearing Loss — the 14 corrupted MCQs, repaired (v1598)
+
+The last item on the decision list is closed. All 14 cards in
+`conditions__ENT__Hearing Loss` whose option block did not belong to their stem now
+have options written for the stem they sit on.
+
+### Why fresh options rather than re-pairing
+
+Before writing anything I tested whether the blocks had simply been **shuffled among
+the 14 stems**, which would have let the repair re-pair existing content and lose
+nothing. It is not a shuffle. Only two stems have a matching block anywhere in the
+topic — `q[19]`'s answer sat in `q[40]`'s block, and `q[28]`'s in `q[1]`'s. For the
+other twelve **the correct answer did not exist among any of the 78 cards' options**,
+and two of the orphaned blocks were near-duplicates of each other. The corruption
+destroyed option content, so the only honest repair was to write it.
+
+### How each key was derived
+
+Every card's **stem and explanation were already correct and paired** — only the
+options were wrong. So the explanation was used as the source of truth: the keyed
+option states what that card's own explanation says, in the explanation's terms.
+Nothing new was asserted and no figure was invented. Two examples:
+
+- `q[1]` asks the audiometric criterion for SSNHL; the explanation gives "≥30 dB
+  across 3 consecutive frequencies developing over ≤72 hours", so the key is a loss of
+  at least 30 dB across 3 contiguous frequencies within 72 hours.
+- `q[28]` asks the tuning-fork pattern in unilateral otosclerosis; the explanation
+  gives "negative Rinne and Weber to the affected ear", so that is the key — with the
+  sensorineural pattern (Weber to the *better* ear) as the discriminating distractor.
+
+Distractors were drawn from the topic's own vocabulary so they discriminate:
+cholesteatoma, endolymphatic hydrops, vestibular neuritis and outer-hair-cell loss as
+wrong pathologies for otosclerosis; presbycusis mechanisms as wrong explanations for
+the otosclerotic voice; reassuring features as wrong answers to "what would make you
+doubt presbycusis".
+
+### Verification
+
+- **14 cards rewritten, zero collateral drift** — every stem and explanation in the
+  deck is byte-identical to before, and no card outside the 14 changed in any field.
+- `answer` matches `options[correctIndex]` byte-for-byte in all 14, and deck-wide.
+- No duplicate options in any card; every `correctIndex` in range.
+- Key positions spread across all five slots (1/3/4/3/3) rather than clustered.
+- House style matched: one line each, no markup, no typographic entities, no `<`, `>`
+  or `&` in any of the 70 new options. The 23 options elsewhere in the file that do
+  contain entities are pre-existing, out of bounds and render correctly.
+- 12 of the 14 keys moved index, which is the expected signature of a real repair
+  rather than a re-labelling.
+
+### What this does not fix
+
+The 14 orphaned option blocks are gone. They were well-written question material, but
+nothing **taught** is lost with them — every fact they tested lives in the topic's
+flashcards and explanations. If you ever want them back as new questions, they are
+recoverable from this commit's parent.
