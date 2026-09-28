@@ -11503,3 +11503,98 @@ against each drop. The ones where the lost word could have been clinical:
 - `nephrotic fc[5]` lost "puffy eyes"; the keeper opens "Periorbital puffiness" and
   the absorb carries the morning timing, the scrotal/labial extension and anasarca.
 - `neonatal fc[6]` lost "IDM"; the keeper spells out "Infant of a diabetic mother".
+
+---
+
+## Paediatrics — the missing cards (v1594)
+
+Four of the eight commissioning gaps recorded above are now filled. **84 new cards
+(55 flashcards, 29 MCQs)**, appended to their existing live topics so no index shifted
+and no existing card was touched — verified: 84/84 match their proposal byte-for-byte,
+**zero pre-existing cards modified**, no duplicate ids.
+
+Paediatrics is now 1,394 flashcards and 801 MCQs.
+
+### 1. Septic arthritis and osteomyelitis — 18 fc, 10 q
+
+The most serious gap: a missed septic joint is the classic paediatric disaster and the
+deck taught neither condition. Now covered: why cartilage destruction begins within
+hours; **the neonate who is only irritable, off feeds or pseudoparalytic and may have
+no fever**; the flexed/abducted/externally rotated infected hip; organisms by age with
+*Kingella kingae* under 4 and the sickle-cell/*Salmonella* association (while keeping
+*Staph aureus* commonest even in sickle cell); **joint aspiration before the first dose
+of antibiotic**, and why — antibiotics first sterilise the sample and commit the child
+to weeks of blind treatment; urgent washout; osteomyelitis's metaphyseal predilection
+and the hairpin-capillary reason; that plain films are normal for the first 7–10 days;
+MRI as the investigation of choice; and the transphyseal vessels that make bone and
+joint infection one disease in the neonate.
+
+**The Kocher criteria now have a card whose front actually asks for them.** They had
+been written into fc[26], but that card's front asks about age and habitus, so a
+student drilling Kocher never reached them. A second card states what the criteria do
+**not** do: they are a probability tool, not a rule-out test, derived for the hip, and
+a low score must never be used to send home a child you are worried about.
+
+### 2. Brain tumours — 11 fc, 6 q
+
+CNS tumours are the commonest solid tumour of childhood and the deck did not mention
+them once. Now covered: the posterior fossa as the commonest site; why headache and
+vomiting are worst on waking; **the HeadSmart red flags**; the infant who presents with
+a crossing head circumference and a bulging fontanelle rather than a headache; the
+sixth nerve palsy as a false localising sign; papilloedema as objective evidence of
+raised pressure; MRI as definitive and **lumbar puncture as the thing that must not be
+done first**; and how a tumour headache differs from migraine or tension headache.
+
+### 3. Bone tumours — 10 fc, 5 q
+
+Osteosarcoma appeared 13 times but was never the subject of a card, and Ewing sarcoma
+did not appear at all. Now covered: both sarcomas, the age peaks and sites in words,
+**persistent bone pain that wakes the child at night**, why these are diagnosed late,
+the radiographic appearances, and that the biopsy must be done at the specialist
+sarcoma centre that will carry out the definitive surgery.
+
+### 4. Childhood pneumonia — 16 fc, 8 q
+
+In a topic called "Lower Respiratory Infection & Wheeze", CAP had appeared only as a
+differential. Now covered: organisms by age; *Streptococcus pneumoniae* as the
+commonest bacterial cause and what the vaccines changed; *Mycoplasma* in the older
+child; why **a raised respiratory rate is the most sensitive sign**, with the WHO/BTS
+thresholds by age; that **a chest X-ray is not routine in uncomplicated CAP**;
+**amoxicillin first-line** with a macrolide in penicillin allergy; the admission
+criteria; and **empyema** as the reason a child is still febrile at 48 hours.
+
+### Figures — what was written and what was refused
+
+Both agents itemised every figure. The ones worth your eye:
+
+- **The amoxicillin mg age bands** (125 / 250 / 500 mg three times a day, by NICE
+  NG138 and BNFC bands) and the **5-day course, then review** are the only genuinely
+  new paediatric dose figures. They sit on **a card of their own**, so deleting that
+  one card removes them and loses nothing else — every other pneumonia card names
+  amoxicillin without a dose. The card itself says doses are higher in severe
+  infection, are weight-capped, and to check the current BNFC, and that a baby under
+  1 month is a specialist problem rather than an age band.
+- **No flucloxacillin dose was written**, because the deck states one nowhere. The
+  bone-and-joint antibiotic card names agents and reasoning, gives duration as "weeks,
+  not days", and points at BNFc and local policy.
+- **Every referral urgency is NG12's "within 48 hours"**, which is already the
+  Paediatric Cancers topic's own idiom. **No age or duration was written as a referral
+  trigger anywhere** — no "headache for more than 4 weeks", no bone-pain clock, no age
+  bracket. That restraint is deliberate: the ENT deck had to be corrected for exactly
+  those invented thresholds.
+- **No percentages were written at all.** "~25% of childhood cancers" and "~60%
+  infratentorial" were both considered and dropped rather than sourced to nothing; the
+  cards say "commonest solid tumour of childhood" and "the posterior fossa is the
+  commonest site" in words.
+- The pneumonia admission thresholds (**SpO₂ <92%**, **RR >70/min in an infant**) are
+  deliberately the same two numbers the topic already uses for bronchiolitis, so the
+  two diseases share one admission idiom. The bronchiolitis **oxygen** threshold
+  (<90%) was deliberately *not* harmonised, because that is a different NICE figure for
+  a different purpose. Flagged rather than quietly merged — **your call**.
+
+### Still open
+
+Four gaps remain unfilled, all recorded above: **paediatric appendicitis** (36
+mentions, never the subject of a card), **oesophageal atresia/TOF** (orphaned inside a
+card about duodenal atresia), **transient tachypnoea of the newborn**, and the
+**status epilepticus ladder beyond the second benzodiazepine**.
