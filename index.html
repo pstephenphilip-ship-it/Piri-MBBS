@@ -17129,7 +17129,7 @@ function hideFlyout(p) {
   // synchronously in localStorage. Anonymous visitors have no valid token → writes stay
   // unflagged, so logging in still lets the cloud win rather than anon data clobbering it.
   function tokenAuthed(){
-    try{ var raw=rawGet('sb-'+PROJECT_REF+'-auth-token'); if(!raw) return false; var o=JSON.parse(raw); var s=o&&(o.currentSession||o); if(!s) return false; if(s.expires_at) return (s.expires_at*1000)>Date.now(); return !!s.access_token; }catch(e){ return false; }
+    try{ var raw=rawGet('sb-'+PROJECT_REF+'-auth-token'); if(!raw) return false; var o=JSON.parse(raw); var s=o&&(o.currentSession||o); if(!s) return false; if(s.refresh_token) return true; if(s.expires_at) return (s.expires_at*1000)>Date.now(); return !!s.access_token; }catch(e){ return false; }
   }
   function isAuthed(){ return !!user || tokenAuthed(); }
   // Bump a monotonically increasing token (not a constant '1') on every local change, so a push
@@ -17269,6 +17269,13 @@ function hideFlyout(p) {
       if(!raw) return false;
       var o = JSON.parse(raw); var sess = o && (o.currentSession || o);
       if(!sess) return false;
+      // A stored session that still has a refresh token is LOGGED IN, even if the
+      // short-lived access token has expired — Supabase refreshes it automatically on
+      // load. Previously an expired-but-refreshable token read as "logged out", so the
+      // page painted signed-out (gated notes, no highlights, "start trial" CTA) on every
+      // refresh once the ~1h access token lapsed. On real sign-out Supabase deletes this
+      // key entirely, so a signed-out user has no token here and still reads false.
+      if(sess.refresh_token) return true;
       if(sess.expires_at) return (sess.expires_at*1000) > Date.now();
       return !!sess.access_token;
     }catch(e){ return false; }
