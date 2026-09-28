@@ -10756,9 +10756,15 @@ topic's figure. These were mine to adjudicate:
 
 ### Commissioning gaps found — content that is absent from the whole 2,709-card deck
 These need **new cards**; the edit schema cannot add any. Listed for a decision:
-- **Sodium valproate and epilepsy in pregnancy: zero matches deck-wide.** No
-  Pregnancy Prevention Programme, nothing on not stopping antiepileptics abruptly.
-  The single largest gap.
+- **Sodium valproate and epilepsy in pregnancy: zero matches in the O&G deck.**
+  Nothing on not stopping antiepileptics abruptly. **Correction to an earlier
+  version of this line, which said "zero matches deck-wide" — that was wrong.**
+  Valproate is taught in 18 decks and the Pregnancy Prevention Programme appears
+  in seven of them (clinical pharmacology, neurology, psychiatry, dermatology,
+  haematology, therapeutic drug monitoring and the pharmacology flashcards), with
+  25 cards pairing valproate with pregnancy or teratogenicity. The real gap is
+  narrower: a student working through **Obstetrics & Gynaecology** alone never
+  meets it.
 - **Amniotic fluid embolism** and **uterine inversion** exist only as MCQ
   distractors — one stem offers both as an option for conditions never taught.
 - **Uterine rupture has no recognition card**: zero hits for scar pain/tenderness
