@@ -11995,3 +11995,83 @@ paediatric anticonvulsant dose and one of them needs to move.
 
 I should record that I initially reported this conflict did not exist — my first search
 of that file was too shallow and missed the card. The agent that raised it was right.
+
+---
+
+## Infectious Disease & Immunology — full deck review (v1599, v1603)
+
+**Scope:** all 21 topics of `content/cards/infectious-disease-immunology.json`, read card
+by card by four agents — **1,384 cards**, no sampling. 783 flashcards and 601 MCQs
+before; 756 and 601 after.
+
+**Applied:** 290 field rewrites and 27 flashcard deletions (18 carrying an `absorb`).
+Verified: **290/290 exact, zero collateral change**, every surviving id preserved in
+order, no ids added, no duplicates, the MCQ section byte-identical through the deletion
+stage, and **zero changes to any `options`, `correctIndex` or `answer`** in this stage.
+(The two keyed fixes shipped separately in v1602.)
+
+### The keyed defect, found independently twice
+
+Two agents working different buckets both flagged `Inflammatory Effect` `q[18]`. That
+corroboration matters: it is the only card in 1,384 where the key contradicted the
+stem, the explanation and four other cards across two topics. Fixed in v1602.
+
+### What the deck got wrong
+
+- **Droplet precautions taught as "surgical mask, single room" only** (`Infection
+  Control` fc[13]) while the same topic's `q[9]` explanation carries eye protection,
+  **FFP3 for aerosol-generating procedures** and the meningococcal 24-hour step-down. A
+  student revising the flashcard alone would wear a surgical mask to an intubation.
+  Those facts are now on the card.
+- **Three safety rules sitting in grey**, all in Infection Control: *"(not alcohol
+  gel)"* for *C. difficile*, *"(metronidazole is no longer first-line)"*, and the
+  fluid-repellent gown for splash risk. Promoted, along with the TNF-α inhibitor **"screen
+  for TB before starting"** and the definition of immunocompromise attached to an
+  absolute live-vaccine contraindication.
+- **Three MCQ explanations contradicted their own topic's flashcards**, all in Fever in
+  the Returning Traveller: chikungunya treated with NSAIDs where the topic says withhold
+  NSAIDs until dengue is excluded; "rusty metals" as the tetanus risk where the topic
+  teaches the soil is the risk, not the rust; and artesunate *or* quinine presented as
+  equivalent where the topic says quinine only if artesunate is not immediately
+  available.
+- **An over-generalisation**: "all antifungals act on the wall or membrane because fungi
+  have ergosterol", contradicted by its own MCQ and by the fungal topic (flucytosine
+  acts on DNA/RNA).
+- **A card contradicting its own topic**: the alpha-herpesvirus group listed as VZV
+  alone where the topic's MCQ keys HSV-1 + HSV-2 + VZV.
+- **A false closed enumeration**: a card asking for the **four** axes of bacterial
+  classification whose back gave three bullets, the third silently carrying two axes.
+  The count was right, so the back was completed rather than the front shrunk.
+- **Nine deck-internal cross-references** a student cannot follow, and two MCQ stems
+  asking what *"the note"* said.
+- **Mnemonic debris**: adenovirus taught through capitalisation artefacts
+  (`keratoConjunctivitis`, `gastroEnteritis`) — a letter trick rather than the fact.
+
+### Verified and found sound
+
+**Sepsis-3 is taught correctly throughout** — organ dysfunction defines sepsis, qSOFA is
+presented with its limits rather than as a diagnostic rule, and the phrase "severe
+sepsis" occurs exactly **once in the whole 1,384-card file**: on the card saying it was
+retired. **Antibiotics-not-delayed-for-cultures** appears in three places, all in body
+text. **Every meningococcal timing** checked out. **The E. coli O157 rule** (avoid
+antibiotics *and* antimotility agents) is taught in six flashcards and four MCQs and
+**agrees with the paediatrics, renal and microbiology decks** — five files, one rule.
+**Malaria** verified end to end including the three-negative-films rule. **The live
+vaccine list** is identical and correct on the two cards that carry it, and four topics
+agree that the UK shingles vaccine is recombinant, not live. **The UK schedule is
+current** post-January-2026 with no older-schedule material anywhere. **Gell–Coombs**
+has no type II/III swap. **Rabies PEP** is internally consistent on every step.
+
+### Left for your decision
+
+- **NEWS2's lower band is written "1–4" in four places**; NICE uses 0–4. Internally
+  consistent, so it moves in all four or none.
+- **COVID-19 anosmia** is the lead symptom on a card whose MCQ keys on it — pre-Omicron
+  framing that cannot be softened without breaking the key.
+- **Ciprofloxacin in pregnancy**: two topics say avoid fluoroquinolones in pregnancy
+  while Meningococcal Disease gives single-dose ciprofloxacin as contact prophylaxis
+  "at any age including pregnancy". Both defensible, but they read as contradictory.
+- **IV-to-oral switch is taught as ACED**; the NHS England national criteria are usually
+  taught as **COMS**. Content identical.
+- A temporal-artery-biopsy timing tension in PUO, a pertussis-in-pregnancy window given
+  two ways, and a lowercase option in a vaccines MCQ.
