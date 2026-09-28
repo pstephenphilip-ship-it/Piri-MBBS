@@ -11196,3 +11196,144 @@ the edit rather than patching the patch.
 - **CRVO ischaemic threshold**: one card says "often ≤6/60", an MCQ stem says
   "<6/60", so exactly 6/60 falls inside one and outside the other.
 - **A cosmetic wart**: CRAO fc[4] renders "~>95%" — "approximately greater than".
+
+---
+
+## ENT — full deck review (v1590)
+
+**Scope:** all 29 topics of `content/cards/ent.json`, read card by card by six agents.
+882 flashcards and 623 MCQs before the pass; 837 and 623 after.
+
+**Applied:** 197 field rewrites, 45 flashcard deletions (16 of which carried an
+`absorb` clause into their keeper), and **2** MCQ key fields. Verified against a
+pre-image: 197/197 exact, 213 surviving fields changed in total (197 rewrites +
+16 absorbs), zero collateral change, every surviving id preserved in its original
+order, no ids added, no duplicate ids, and the `q` section byte-identical through
+the deletion stage.
+
+### The MCQ keying defect in Hearing Loss
+
+This is the first deck in the review where MCQ keying itself was wrong, and it
+needs a decision from you.
+
+In `conditions__ENT__Hearing Loss`, **15 MCQs** carry an option block that does not
+belong to their stem. The explanation is written for the stem and is correct; the
+five options are a different question's options. There is **no consistent offset** —
+it is not an off-by-one that a script can undo.
+
+I tested two automated detectors against the 15 known cards and **both failed**: a
+lexical stem/option overlap check produced 436 flags that were overwhelmingly false
+positives, and a stricter variant produced 6,012 flags because it fires on any
+vignette whose options are short disease names. The defect is only visible to a
+reader.
+
+You chose "fix `correctIndex` only" — change the key where the right option is
+already present among the five, and leave option text alone. On inspection **only
+1 of the 15 qualifies**, including two of the three I had earlier called the most
+dangerous:
+
+- **Fixed:** `piri_q__conditions__ENT__HL_Tinnitus__0012` (`q[74]`). The stem
+  describes *symmetrical* tinnitus; the keyed option read "MRI of the internal
+  auditory meati, **because it is unilateral**". Option 4, "No imaging at all,
+  since most tinnitus is entirely benign", is present and is exactly what the
+  card's own explanation endorses. `correctIndex` 0 → 4 and `answer` updated to
+  match. **Exactly 2 fields changed deck-wide; no option text touched.**
+
+- **Not fixable by `correctIndex`** — the correct answer is simply not among the
+  five options on the card. These 14 need their option blocks rewritten, which is
+  outside the constraint you set. Indices within `conditions__ENT__Hearing Loss`:
+  **1, 7, 19, 25, 27, 28, 40, 46, 48, 56, 57, 64, 70, 73.**
+
+**Decision needed:** whether I may rewrite option text on those 14.
+
+### How far the defect spreads — audit result
+
+Because a keying fault is far more serious than a wording fault, I ran dedicated
+keying audits on the three largest decks. Each agent read every assigned card
+stem → keyed option → explanation.
+
+| Deck | MCQs read | MISKEYED | WRONG BLOCK | AMBIGUOUS |
+|---|---|---|---|---|
+| Respiratory (×3 buckets) | 1,626 | 0 | 0 | 0 |
+| Cardiovascular (×3 buckets) | 1,709 | 0 | 0 | 1 |
+| Obstetrics & Gynaecology (×2 buckets) | 1,050 | 0 | 0 | 0 |
+| **Total** | **4,385** | **0** | **0** | **1** |
+
+So the Hearing Loss corruption looks **local**, not deck-wide. Two corroborating
+facts: across the audited scope every card that carries an `answer` string has it
+matching `options[correctIndex]` byte-for-byte, which means `answer` is generated
+*from* the key — so ENT's fault sits upstream of both fields, in whatever pasted
+the option block. And the neighbour-overlap heuristic that failed on ENT also
+produced 25 false positives and zero true positives when tried on ophthalmology.
+
+A single non-keying item the cardiovascular audit surfaced, for your decision:
+**the deck teaches two different ABPI thresholds for critical ischaemia.**
+`Gangrene [5]` keys `<0.3` (and its own explanation supports it), while `PAD [3]`,
+`PAD [36]` and `PAD [38]` all use `<0.5`. Neither key is wrong for its own stem;
+the deck is inconsistent with itself.
+
+### Clinical corrections applied
+
+The pattern that recurred in ENT was **invented referral thresholds** — age and
+duration criteria that NICE NG12 does not set:
+
+- **Neck lump**: an age cut-off of ">45" was stated as the referral trigger in
+  `HNC_Synthesis` (flashcard and MCQ explanation). NG12 sets *no* age threshold and
+  *no* fixed duration for a persistent unexplained neck lump. Rewritten to say the
+  risk rises steeply with age without turning that into a criterion.
+- **Laryngeal cancer**: "smoker/drinker over 45–50" narrowed to "aged 45 and over",
+  and the vague "urgent referral" made explicit as the suspected-cancer
+  (2-week-wait) pathway.
+- **The "three persistent >3 week oral red flags"**: a memorised triad that is
+  wrong on its own terms. The >3 week rule belongs to the **oral ulcer**; a neck
+  lump has no duration criterion; erythroplakia is referred **on appearance alone**.
+  Rewritten in both the flashcard and the MCQ, with the per-finding durations spelt
+  out. MCQ options untouched — the keyed option lists the three findings, which is
+  still correct.
+- **Glue ear**: "2 occasions 6–12 weeks apart" corrected to the NICE interval of
+  about 3 months.
+- **Fish-bone graze**: a fabricated "settles within 24–48 hours" replaced with
+  "settles on its own" — the card's point is safety-netting, and the invented
+  window would license discharge at 48 hours.
+- **Orbital floor fracture**: the nasal-trauma red-flag card listed "associated
+  facial/orbital fractures" with no way to recognise one; now carries diplopia,
+  restricted eye movement and infraorbital numbness, and the CT request.
+- **CSF rhinorrhoea**: the halo sign was named but never described; the card now
+  says how to elicit it.
+
+### Deletions
+
+45 flashcards removed, each a strict subset of a named keeper in the same topic,
+and each passed the applier's independent coverage guard. Fourteen were initially
+**rejected** by that guard for losing a word; I inspected all fourteen in situ
+before declaring them safe, and the justification is recorded against each drop.
+The ones worth naming, because the lost word *could* have been clinical:
+
+- `hearingloss fc[77]` lost "pars flaccida". Verified the term survives at nine
+  places in the Cholesteatoma topic plus Hearing Loss `q[54]`.
+- `hearingloss fc[54]` lost "low-frequency". The keeper states verbatim
+  "Otosclerosis: conductive, LOW-frequency loss".
+- `hearingloss fc[50]` lost "preferentially". The keeper says noise damage hits
+  "especially outer hair cells at the base".
+- `tracheostomy fc[26]` lost "cut". The keeper says "A surgical tracheostomy is
+  cut… A percutaneous tract is dilated rather than cut".
+- `nasaltrauma fc[27]` lost "examination finding". The keeper carries the palpation
+  discriminator and the absorb carries "If you are unsure, treat it as a haematoma
+  and refer the same day."
+
+The remaining nine losses were framing words ("priority", "such", "like",
+"one-line summary", a possessive fragment).
+
+### Defects I caught in the agents' proposals before applying
+
+- **Multi-word dose phrases inside `fc-num` chips** ("500 mg four times a day").
+  The chip is `white-space:nowrap`; narrowed to the figure.
+- A **half-cut `<span>`**: my own regex for removing a vetoed figure could not cross
+  a nested `fc-num` chip and would have left orphaned text. The markup-balance guard
+  rejected it and I dropped the edit rather than patching the patch.
+- Two agents **self-caught their own off-by-one** before writing (CRAO `fc[20]`→
+  `fc[19]`; hoarseness `fc[10]`→`fc[9]`).
+
+### Commissioning gaps noticed in ENT
+
+Nothing found this pass that is not already on the list above.
