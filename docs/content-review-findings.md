@@ -12224,3 +12224,243 @@ the absence is the finding.
 
 Every deck in the app has now been read card by card: **28 decks, 37,200 cards**
 (21,183 flashcards, 16,017 MCQs). The per-deck record is in the sections above.
+
+---
+
+## After the review: the cross-cutting pass, and a correction to the scope
+
+### The correction first
+
+I told you the review was finished at **28 decks, 37,200 cards**. That number is right, but
+my description of it was not. 37,200 is what `content/manifest.json` attributes to the
+28 decks the home page lists — and the manifest covers **only those decks**. The card tree
+actually holds **56,633 cards** across five tabs:
+
+| tab | cards |
+|---|---|
+| conditions | 33,165 |
+| signs | 10,071 |
+| investigations | 6,659 |
+| histology | 4,032 |
+| anatomy | 2,704 |
+
+I checked reachability properly this time, rather than inferring it: `getTabData()` returns
+`CONDITIONS_SYSTEMS` for the conditions tab and `TAB_SIGNS` / `TAB_INVESTIGATIONS` /
+`TAB_ANATOMY` / `TAB_HISTOLOGY` for the others, all four declared in `index.html`. Every
+system name used by a card file is declared in its tab's structure — **nothing is orphaned at
+system level**. At topic level, **523 cards in 8 topics are unreachable**, and they are the
+orphans you told me to leave alone:
+
+- `CARDIOVASCULAR` — Supraventricular Tachycardia (87), Gangrene (78), DVT (77),
+  Heart Failure (73), Pericardial Effusion / Tamponade (64)
+- `ACUTE ABDOMEN & SURGICAL PRINCIPLES` — Analgesia / Pain Ladder (80)
+- `GASTROENTEROLOGY / HEPATOLOGY` — the two IBD topics (32 each); this whole system is
+  in the manifest but absent from `CONDITIONS_SYSTEMS`
+
+Most look like renames the cards never followed: the nav declares *Acute Heart Failure* and
+*Chronic Heart Failure*, not *Heart Failure*; *Tachycardia*, not *Supraventricular
+Tachycardia*. None of the eight is duplicated under a reachable key, so those card objects
+are dead — but the subject matter is taught elsewhere under the current names.
+
+The number that matters: **19,428 cards are reachable and were never part of the
+deck-by-deck review** — the 52 files behind the Signs, Investigations, Anatomy and
+Histology taxonomies (`neurological.json`, `msk.json`, `bedside-tests.json`, `ct.json`,
+`mri.json`, `ultrasound.json`, `microbiology.json`, `neuroanatomy.json`,
+`basic-tissues.json`, `urine.json`, `risk-scores-criteria.json` and the rest). My earlier
+"248 unreachable flashcards" figure was wrong and is withdrawn.
+
+### A whole-tree integrity sweep, which came back clean
+
+Before touching anything I ran every MCQ and flashcard in the tree through a structural
+check: missing or empty required fields, fewer than two options, `correctIndex` out of
+range, `answer` not equal to `options[correctIndex]`, duplicated options within one MCQ,
+unbalanced or unknown markup tags, double-escaped entities. Across **56,633 cards**:
+**zero** key desyncs, **zero** duplicate-option MCQs, **zero** unbalanced tags, **zero**
+missing fields. Two things surfaced, neither a defect: 21 numeric comparisons written
+`< 70 g/L` with a space (HTML5 emits `<` literally before whitespace, so they render
+correctly), and one anchor tag — which was a real defect, below.
+
+### The two defects I found myself
+
+- **A cross-link pill inside a flashcard.** `sexual-health-gum.json` fc[5] carried
+  `<a class="cp-dx" href="#conditions/SEXUAL%20HEALTH/Syphilis">` — the only anchor in any
+  of the 56,633 cards. Card bodies are inserted raw into
+  `<div class="fc-card" onclick="flipCard(...)">`, so tapping that pill fired **both** the
+  anchor (setting the hash, which `restoreFromHash` then acted on) and the flip handler:
+  the reader was thrown out of their Investigations deck into the Conditions tab
+  mid-session. The route itself was valid, so this was a gesture conflict, not a dead link.
+  `.cp-dx` is also styled almost entirely under `#tab-signs` / `#tab-conditions` /
+  `#tab-investigations` / `#tab-anatomy`, so in a flashcard it picked up only the unscoped
+  base rule. Replaced with a plain `fc-sub` cross-reference — the pointer to Syphilis
+  survives, the hazard does not.
+- **A safety instruction sitting in grey.** `acute-abdomen-surgical-principles.json` fc[18],
+  the medical-mimics-of-acute-abdomen card, had `always do an ECG` inside a grey
+  `fc-inline` gloss — de-emphasised on the one card whose purpose is to stop a missed MI
+  going to theatre. The referred-pain gloss stays grey; the ECG directive is now body text
+  and bold. (My own guard then flagged "referred" as a risk word in the remaining grey
+  span — "referred pain" is anatomy, not "refer the patient", so it is declared rather
+  than moved.)
+
+### Where I was wrong again: the NEWS2 lower band
+
+I had flagged `1–4` as an error for the RCP's `0–4`. **It is not an error.** "Total 1–4" is
+a genuine row of the RCP clinical-response chart (minimum 4–6 hourly observations,
+registered-nurse assessment) sitting inside the 0–4 **low-risk band**, and 1–4 is also the
+low-risk tier of **NICE NG253** (*Suspected sepsis in people aged 16 or over*, published
+19 November 2025, partially replacing NG51), where it maps to antibiotics within 6 hours.
+The right fix was not to move the figure but to name the framework and add the very-low
+(0) tier — which is what was done. An obedient pass would have introduced an error.
+
+The real NEWS2 errors, found while checking my bad premise:
+
+- `risk-scores-criteria.json` fc[10] said NEWS2 has **"7 physiological parameters"**. It has
+  **six**, plus a score for supplemental oxygen — seven scoring rows. Corrected, and it had
+  been contradicting `bedside-tests.json` fc[0].
+- fc[13] gave the whole 0–4 band "routine, ≥12-hourly obs", which is the **0** row only,
+  and gave the red score (any single parameter = 3) the 5–6 row's response. The red score
+  is **low–medium**: hourly observations, nurse informs the medical team, who review.
+- `bedside-tests.json` fc[2] lumped the red score in with 5–6 as "medium risk".
+- **Scale 1's target was wrong in two places** — "default to Scale 1 (target 96%)". 96% is
+  Scale 1's *score-0 cut-off*; the target range is **94–98%** (BTS), which the deck already
+  said correctly in `acute-abdomen` fc[26]. Also: Scale 2 is applied only on a documented
+  competent clinical decision.
+
+### The decision-list items, worked through
+
+**IV potassium** (7 cards, 4 topics) — the deck said 10 mmol/hour in Safe Prescribing, Fluid
+Therapy and Renal, and "never faster than 20 mmol/hour" in Palliative Care. Both are
+defensible, so every site now carries both **with their conditions**: 10 mmol/hour is the
+general-ward peripheral ceiling at ≤40 mmol/L; up to 20 mmol/hour only in severe
+hypokalaemia, for short periods, with central access, a volumetric pump and continuous
+cardiac monitoring in critical care; never a bolus; pre-mixed bags only. No figure was
+deleted. The palliative MCQ asked for "the maximum safe rate" and was keyed to 20 — its
+**stem** was rescoped to "in severe hypokalaemia on a monitored unit", which makes the
+existing keyed option true as written and needed no option edit.
+
+**Sick-day steroid rules** (7 cards, 3 topics) — the deck contradicted *itself*: fc[19] and
+q[14] gave the stress-dose floor as "at least 40 mg oral hydrocortisone/day **or ≥10 mg oral
+prednisolone/day**", while fc[16], q[13] and fc[20] said no extra dose is needed at
+**≥15 mg/day** and that those on 5–15 mg/day should take 10 mg twice daily (= 20 mg/day,
+double its own stated floor). **NICE NG243** (*Adrenal insufficiency*, 28 August 2024)
+settles it, and I verified it on two independently-worded searches rather than taking the
+agent's word: during significant physiological stress, at least 40 mg oral hydrocortisone
+daily in 2–4 divided doses **or** at least 10 mg oral prednisolone daily in 1–2 divided
+doses; someone already on ≥10 mg prednisolone daily needs no additional sick-day dosing but
+may split the total into two equal doses. So the 15 mg threshold moved to 10 mg and
+"10 mg twice daily" became "at least 10 mg/day in 1–2 divided doses" — both onto figures
+the deck already stated elsewhere. "Double the dose" is kept, correctly attached to
+**hydrocortisone replacement** (15–25 mg/day doubling to the ~40 mg/day target). The
+100 mg IM/IV rule for vomiting was already consistent in 11 places and was left alone;
+`endocrine.json` fc[11] gained the missing 100 mg IM figure.
+
+**Ciprofloxacin in pregnancy** (7 cards, 4 topics) — the deck said "avoid in pregnancy" in
+its fluoroquinolone teaching and recommended single-dose ciprofloxacin for meningococcal
+contact prophylaxis "at any age including pregnancy". Both are right; as written they
+contradicted. The exception is now explicit at **both** ends: the class and stewardship
+cards say the caution applies to **treatment courses** and name the prophylaxis exception;
+the prophylaxis cards say why the single dose is the deliberate exception (UKHSA guidance
+for the public health management of meningococcal disease). The MHRA restriction was
+already stated in its current form and gained its date (Drug Safety Update, January 2024).
+One keyed option was rewritten, because as written the *correct answer* was the sentence
+the meningococcal cards contradict — a student was being marked correct for a statement
+that would make them withhold recommended prophylaxis.
+
+**GCA temporal artery biopsy** (18 cards) — the app said **four different things**: "1–2
+weeks", "2–6 weeks", "some days", "days–weeks", "a short while". All now say one thing:
+take the biopsy as soon as possible, ideally **within 1 week** of starting glucocorticoids;
+it can stay positive for **2–6 weeks** afterwards; **steroids are never delayed for it**.
+Verified against the BSR giant cell arteritis guideline, 2020 (Mackie et al.,
+*Rheumatology* 2020;59:e1–e23), including the ≥1 cm segment. The pre-existing "2–6 weeks"
+was the correct outlier; the "1–2 weeks" figures moved. The safety point is now in body
+text or `<strong>` on every one of those cards — never in grey.
+
+**IV-to-oral switch** (10 cards) — "COMS" appeared **nowhere** in the tree; ACED was in two
+places, and several other topics carried *unlabelled* criteria sets of their own. The
+stewardship cards now teach the national IVOS criteria in their five published sections with
+every letter expanded, **ACED demoted to a labelled older aide-memoire** with all four of
+its clauses preserved, and the other five sites relabelled so none reads as a rival
+criteria set.
+
+**COVID-19 anosmia** (2 cards) — anosmia was listed first, reading as the cardinal feature.
+It is kept and dated: characteristic of the earlier pre-Omicron variants, much less frequent
+since (16.7% of Omicron-period vs 52.7% of Delta-period infections; Menni et al., *Lancet*
+2022;399:1618–24), plus the point that **absence of anosmia does not argue against COVID-19**.
+The MCQ's stem was rescoped to "in the earlier, pre-Omicron waves", which made the existing
+key correct without touching its options.
+
+**Cholecystectomy timing** — **my flag was stale.** Both files already taught early
+laparoscopic cholecystectomy within 1 week as the default, with the >4-week interval
+operation correctly framed as the fallback. Four cards changed for attribution and one real
+discrepancy (one file anchored the week to *presentation*, the other to *diagnosis* — NICE
+CG188 says diagnosis), and one card was corrected for asserting that the >4-week figure is
+"conventional practice rather than a NICE figure" — it is in NICE QS104.
+
+**Valproate as an intrinsic DILI** — real, and in exactly one card: `liver.json` fc[5]
+listed valproate among the intrinsic (dose-predictable) examples. Valproate's serious
+hepatotoxicity is **idiosyncratic — the metabolic sub-type**. Amiodarone stays (it is a
+named direct hepatotoxin); valproate is replaced there and moved to fc[8] with the content
+that matters: microvesicular steatosis to liver failure, not dose-predictable, latency weeks
+to months, risk concentrated in children under 2, antiepileptic polytherapy and
+mitochondrial disease / POLG mutations — and, separately and far more commonly, the
+asymptomatic transaminase rise and hyperammonaemia that do **not** mean liver failure.
+
+**The falls "4 or more" threshold** — a genuine category error. `geriatric-medicine.json`
+fc[9] said "four or more falls-risk-increasing drugs commonly triggers review". The counts
+belong to **polypharmacy**, never to FRIDs: ≥5 regular medicines is the conventional
+definition, ≥4 in total is a flag for structured review, and **there is no threshold number
+of FRIDs — any one earns a review**. Reattached, and the FRID class list completed in both
+geriatric files (alpha-blockers, diuretics, antiepileptics, hypoglycaemics added; nothing
+removed). Polypharmacy raises falls risk mainly when the list contains a FRID, and
+problematic polypharmacy is defined by appropriateness, not count. NICE **NG249** (*Falls*,
+29 April 2025, replacing CG161) sets no FRID count; STOPPFall names 14 classes and no
+threshold.
+
+**Public Health deck** — the ten near-duplicate MCQs (`phs_q_01`–`phs_q_10`) were the
+contiguous tail block, every keeper at index ≤21, so nothing shifted. Four of the ten
+carried something real, and each was **folded into its keeper first**: the only prose
+contrast of the four Wilson-Jungner groups; the only card teaching that FIT is the screening
+test and colonoscopy the follow-on; the "in that person's lifetime" qualifier on
+overdiagnosis; and the three levels of health promotion. My own coverage guard rejected all
+ten on the first pass — correctly, because it pooled only MCQs, not the topic's flashcards.
+Widened to three tiers (keeper → rest of topic → rest of deck) it passed all ten, and every
+remaining flagged token turned out to sit in the **dropped card's own wrong distractors** or
+to be pure wording; each is declared. Topic went 35 → 25 MCQs.
+
+Also: **"diabetics" is gone from that deck** (three options and one `answer`; the keyed one
+was kept the *same length* rather than lengthened, because at 17 words against 3–6-word
+distractors it would have been answerable without knowing anything). **Diabetic eye
+screening** keeps "annually" and gains its condition — 2-yearly after two consecutive
+screens graded R0M0, per the UK NSC recommendation of January 2016 and NHS DESP England
+from 1 October 2023, already in place in the other three nations. The licence for that was
+the deck contradicting itself: `endocrinology.json` fc[70] and q[74] already taught the
+longer interval. **Quaternary prevention** stopped being an undefined distractor: it is now
+taught (Jamoulle 1986; WONCA International Dictionary 1999 — both verified), which also
+gives overdiagnosis somewhere to sit conceptually.
+
+### The gap that was filled
+
+The Public Health deck had **no models of behaviour change** — confirmed across the whole
+tree, not just that deck: zero hits for stages of change, precontemplation, transtheoretical,
+health belief, COM-B, capability, self-efficacy, choice architecture, Nuffield or intervention
+ladder. Only "motivational interviewing" existed (9 hits, all in Smoking Cessation, only ever
+named, never defined) and "nudge" once, undefined. **15 new cards** (12 flashcards, 3 MCQs):
+transtheoretical stages and what the clinician does at each; health belief model constructs;
+COM-B and its link to the behaviour change wheel's 9 intervention functions and 7 policy
+categories; self-efficacy and Bandura's four sources; motivational interviewing's core idea
+and where it fits against very brief advice; nudge and choice architecture; the Nuffield
+intervention ladder's eight rungs; and a card mapping which model answers which question.
+
+### Still open
+
+- **"COMS" could not be verified as the national mnemonic.** The national IVOS criteria
+  demonstrably have five sections, and COMS/COMH are *local* NHS mnemonics for them. The
+  cards therefore present the five sections as the national criteria and COMS as a bedside
+  mnemonic, rather than asserting COMS is national. If you can reach the NHS England/UKHSA
+  decision aid, that one word is worth confirming.
+- **`fc[25]` of the Public Health Summary** calls legislation and taxation "nudge". They are
+  higher rungs of the ladder, not nudges. The new card says so explicitly; the old card was
+  left alone because it was outside the five items. Worth tightening.
+- **231 cards have a non-string `id`.** They work (JS coerces the key), but it is worth
+  knowing before anything else starts keying off ids.
+- **The levetiracetam conflict in `pharmacology-flashcards.json`** still needs one look at
+  the BNFC. That file remains under the never-edit instruction.

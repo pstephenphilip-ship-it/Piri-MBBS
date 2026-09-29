@@ -14,12 +14,12 @@
       {
         "id": "bt_vs_news2_fc_03",
         "front": "What are the key NEWS2 <strong>escalation thresholds</strong>?",
-        "back": "<ul class=\"fc-list\"><li>Aggregate <span class=\"fc-num\">0</span> = routine</li><li><span class=\"fc-num\">1–4</span> = ward nurse assessment</li><li>any single parameter <span class=\"fc-num\">=3</span> or aggregate <span class=\"fc-num\">5–6</span> = urgent doctor review (medium risk)</li><li><span class=\"fc-num\">≥7</span> = emergency critical-care assessment.</li></ul> A score <span class=\"fc-num\">≥5</span> triggers a <strong>sepsis screen</strong>."
+        "back": "<ul class=\"fc-list\"><li>Aggregate <span class=\"fc-num\">0\u20134</span> = <strong>LOW</strong> risk \u2014 at <span class=\"fc-num\">0</span>, routine monitoring with minimum 12-hourly observations; at <span class=\"fc-num\">1\u20134</span>, minimum 4\u20136 hourly observations with ward nurse assessment</li><li>any single parameter <span class=\"fc-num\">=3</span> (a \"red score\") = <strong>LOW\u2013MEDIUM</strong> risk \u2014 minimum hourly observations, and the nurse informs the medical team, who review</li><li>aggregate <span class=\"fc-num\">5\u20136</span> = <strong>MEDIUM</strong> risk, the urgent response threshold \u2014 minimum hourly observations and urgent doctor review by a clinician with core competencies in acute illness</li><li>aggregate <span class=\"fc-num\">\u22657</span> = <strong>HIGH</strong> risk, the emergency response threshold \u2014 continuous monitoring and emergency critical-care assessment.</li></ul> A score <span class=\"fc-num\">\u22655</span> with suspected infection triggers a <strong>sepsis screen</strong>. <span class=\"fc-sub\">Bands and responses: RCP, National Early Warning Score (NEWS) 2 \u2014 updated report of a working party, December 2017; RCP clinical-response chart, 2019.</span>"
       },
       {
         "id": "bt_vs_news2_fc_04",
         "front": "When is SpO₂ <strong>Scale 2</strong> used and what target saturation does it assume?",
-        "back": "For patients with <strong>hypercapnic (type 2) respiratory failure</strong> and an agreed target of <span class=\"fc-num\">88–92%</span>, typically COPD. On Scale 2, 88–92% on air scores 0 and high saturations on oxygen score points because over-oxygenation is harmful."
+        "back": "For patients with <strong>hypercapnic (type 2) respiratory failure</strong> and an agreed target of <span class=\"fc-num\">88\u201392%</span>, typically COPD. On Scale 2, 88\u201392% on air scores 0 and high saturations on oxygen score points because over-oxygenation is harmful. <span class=\"fc-sub\">Scale 2 is applied only on the decision of a competent clinical decision maker and is documented; everyone else uses Scale 1, which scores 0 at SpO\u2082 <span class=\"fc-num\">\u226596%</span> (usual target range 94\u201398%).</span>"
       },
       {
         "id": "bt_vs_news2_fc_05",
@@ -815,7 +815,7 @@
         "options": ["3","1","0","4","2"],
         "correctIndex": 0,
         "answer": "3",
-        "explanation": "A respiratory rate of ≥25 breaths/min scores the maximum 3 points for that parameter. Respiratory rate is the most sensitive early indicator of deterioration, and any single parameter scoring 3 is itself an escalation trigger."
+        "explanation": "A respiratory rate of \u226525 breaths/min scores the maximum 3 points for that parameter. Respiratory rate is the most sensitive early indicator of deterioration, and any single parameter scoring 3 is itself an escalation trigger \u2014 a \"red score\" places the patient in the LOW\u2013MEDIUM band, needing at least hourly observations and review by the medical team even when the aggregate is only 3 (RCP NEWS2 report, December 2017; RCP clinical-response chart, 2019)."
       },
       {
         "id": "bt_vs_news2_q02",
@@ -824,7 +824,7 @@
         "options": ["≥9","≥2","≥11","≥5","≥3"],
         "correctIndex": 3,
         "answer": "≥5",
-        "explanation": "A total NEWS2 of 5 or more indicates a medium risk of clinical deterioration and should trigger urgent review with consideration of a sepsis screen. The mnemonic '5 = think sepsis' captures this threshold."
+        "explanation": "A total NEWS2 of 5 or more is the RCP urgent response threshold: 5\u20136 is the MEDIUM risk band and 7 or more is HIGH risk. Either should trigger urgent review with consideration of a sepsis screen. The mnemonic \"5 = think sepsis\" captures this threshold. (RCP, National Early Warning Score (NEWS) 2 \u2014 updated report of a working party, December 2017; RCP clinical-response chart, 2019.)"
       },
       {
         "id": "bt_vs_news2_q03",
@@ -1004,7 +1004,7 @@
         "options": ["CT chest and echocardiography","The Sepsis Six (blood cultures, lactate, urine output; oxygen, IV antibiotics, IV fluids)","Full septic screen then await results","Repeat NEWS2 in 4 hours","A fluid challenge only"],
         "correctIndex": 1,
         "answer": "The Sepsis Six (blood cultures, lactate, urine output; oxygen, IV antibiotics, IV fluids)",
-        "explanation": "NEWS2 ≥5 with suspected infection should trigger the Sepsis Six: Take 3 (cultures, lactate, urine output) and Give 3 (oxygen, IV antibiotics, IV fluids). Timing is stratified (NICE): at NEWS2 5–6 clinical review is within 1 hour and antibiotics within 3 hours; NEWS2 ≥7, or any red flag, needs antibiotics within 1 hour."
+        "explanation": "NEWS2 \u22655 with suspected infection should trigger the Sepsis Six: Take 3 (cultures, lactate, urine output) and Give 3 (oxygen, IV antibiotics, IV fluids). Antibiotic timing is stratified by risk (NICE NG253, 2025): NEWS2 5\u20136 is moderate risk \u2014 urgent clinical review within 1 hour and antibiotics within 3 hours; NEWS2 \u22657, or 5\u20136 with a single parameter scoring 3 or another cause for clinical concern, is high risk and needs antibiotics within 1 hour. NEWS2 1\u20134 is low risk (within 6 hours) and NEWS2 0 is very low risk."
       },
       {
         "id": "vs_pos_q01",

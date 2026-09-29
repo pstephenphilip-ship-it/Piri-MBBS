@@ -869,12 +869,12 @@
       {
         "id": "rsc_acute_news2_fc_01",
         "front": "How many <strong>parameters</strong> does NEWS2 use and what is the <strong>score range</strong> per parameter?",
-        "back": "<span class=\"fc-num\">7</span> physiological parameters (respiratory rate, SpO₂, supplemental oxygen, systolic BP, pulse, consciousness/ACVPU, temperature), each scored <span class=\"fc-num\">0–3</span>, aggregate range <span class=\"fc-num\">0–20</span>."
+        "back": "<span class=\"fc-num\">6</span> physiological parameters \u2014 respiratory rate, SpO\u2082, systolic BP, pulse, consciousness/ACVPU and temperature \u2014 <strong>plus</strong> a score for supplemental oxygen, giving <span class=\"fc-num\">7</span> scoring rows. Each physiological parameter scores <span class=\"fc-num\">0\u20133</span> and supplemental oxygen scores <span class=\"fc-num\">0 or 2</span>, so the aggregate range is <span class=\"fc-num\">0\u201320</span>."
       },
       {
         "id": "rsc_acute_news2_fc_02",
         "front": "What NEWS2 total score triggers <strong>sepsis consideration</strong> and urgent review?",
-        "back": "A total of <span class=\"fc-num\">≥5</span> (MEDIUM or HIGH risk) should trigger sepsis screening/consideration and <strong>urgent senior/clinician review</strong>."
+        "back": "A total of <span class=\"fc-num\">\u22655</span> (MEDIUM or HIGH risk) should trigger sepsis screening/consideration and <strong>urgent senior/clinician review</strong>. <span class=\"fc-sub\"><span class=\"fc-num\">\u22655</span> is the RCP <strong>urgent response threshold</strong> and <span class=\"fc-num\">\u22657</span> the <strong>emergency response threshold</strong>.</span>"
       },
       {
         "id": "rsc_acute_news2_fc_03",
@@ -884,12 +884,12 @@
       {
         "id": "rsc_acute_news2_fc_04",
         "front": "How do the NEWS2 <strong>risk bands</strong> map to <strong>escalation</strong>?",
-        "back": "<ul class=\"fc-list\"><li><span class=\"fc-num\">0–4</span> = low (routine, ≥12-hrly obs)</li><li> <strong>any single parameter =3</strong> (red) = urgent clinician review, hourly obs</li><li> <span class=\"fc-num\">5–6</span> = medium (urgent review, consider sepsis, hourly obs)</li><li> <span class=\"fc-num\">≥7</span> = high (emergency critical-care assessment, continuous monitoring).</li></ul>"
+        "back": "<ul class=\"fc-list\"><li><span class=\"fc-num\">0\u20134</span> = low \u2014 at <span class=\"fc-num\">0</span> routine monitoring with <span class=\"fc-num\">\u226512-hrly obs</span>; at <span class=\"fc-num\">1\u20134</span> minimum 4\u20136 hourly obs with registered-nurse assessment</li><li> <strong>any single parameter =3</strong> (red) = low\u2013medium \u2014 hourly obs, and the nurse informs the medical team, who review</li><li> <span class=\"fc-num\">5\u20136</span> = medium (urgent response threshold \u2014 urgent clinician review, consider sepsis, hourly obs)</li><li> <span class=\"fc-num\">\u22657</span> = high (emergency response threshold \u2014 emergency critical-care assessment, continuous monitoring).</li></ul><span class=\"fc-sub\">RCP, National Early Warning Score (NEWS) 2 \u2014 updated report of a working party, December 2017; RCP clinical-response chart, 2019.</span>"
       },
       {
         "id": "rsc_acute_news2_fc_05",
         "front": "When should <strong>SpO₂ Scale 2</strong> be used in NEWS2 and what is the caveat?",
-        "back": "Only in patients with confirmed risk of <strong>hypercapnic respiratory failure</strong> (e.g. COPD), on a senior clinical decision, with a target of <span class=\"fc-num\">88–92%</span>. <strong>Do not over-oxygenate</strong>; default to Scale 1 (target <span class=\"fc-num\">96%</span>) otherwise."
+        "back": "Only in patients with confirmed risk of <strong>hypercapnic respiratory failure</strong> (e.g. COPD), on a documented senior clinical decision, with a target of <span class=\"fc-num\">88\u201392%</span>. <strong>Do not over-oxygenate</strong>; default to Scale 1 otherwise, which scores 0 at SpO\u2082 <span class=\"fc-num\">\u226596%</span> (usual target range <span class=\"fc-num\">94\u201398%</span>)."
       },
       {
         "id": "rsc_acute_atls_fc_01",
@@ -2607,7 +2607,7 @@
         "options": ["Repeat observations in 12 hours only","No escalation as no single parameter scores 3","Discharge with safety-netting advice","Continue routine 12-hourly observations","Urgent review by a clinician and active consideration of sepsis"],
         "correctIndex": 4,
         "answer": "Urgent review by a clinician and active consideration of sepsis",
-        "explanation": "A NEWS2 total of 5–6 is the MEDIUM band and, in a patient with suspected infection, ≥5 is the recommended trigger to screen for and consider sepsis with urgent clinician review and at least hourly observations."
+        "explanation": "A NEWS2 total of 5\u20136 is the MEDIUM band, and 5 or more is the RCP urgent response threshold; in a patient with suspected infection \u22655 is the recommended trigger to screen for and consider sepsis with urgent clinician review and at least hourly observations (RCP NEWS2 report, December 2017; RCP clinical-response chart, 2019)."
       },
       {
         "id": "rsc_acute_news2_q02",
@@ -2625,7 +2625,7 @@
         "options": ["All patients receiving supplemental oxygen","Every patient over 65 years","Patients with confirmed risk of hypercapnic respiratory failure, e.g. COPD, on senior decision","Pregnant patients","Any patient with a SpO₂ below 96%"],
         "correctIndex": 2,
         "answer": "Patients with confirmed risk of hypercapnic respiratory failure, e.g. COPD, on senior decision",
-        "explanation": "Scale 2 is reserved for patients with a confirmed or prior risk of type 2 (hypercapnic) respiratory failure, typically COPD, and should be applied only on a senior clinical decision with a target of 88–92% to avoid over-oxygenation. All other patients use Scale 1 (target 96%)."
+        "explanation": "Scale 2 is reserved for patients with a confirmed or prior risk of type 2 (hypercapnic) respiratory failure, typically COPD, and should be applied only on a documented senior clinical decision with a target of 88\u201392% to avoid over-oxygenation. All other patients use Scale 1, which scores 0 at SpO\u2082 \u226596% (usual target range 94\u201398%)."
       },
       {
         "id": "rsc_acute_atls_q01",
