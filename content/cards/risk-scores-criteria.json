@@ -864,7 +864,7 @@
       {
         "id": "rsc_acute_sofa_fc_05",
         "front": "List the <strong>Sepsis Six</strong> (3 in, 3 out) and the <strong>time target</strong>.",
-        "back": "Deliver within <span class=\"fc-num\">1 hour</span>. <strong>IN:</strong> <ul class=\"fc-list\"><li>high-flow Oxygen</li><li> IV Fluids</li><li> IV broad-spectrum Antibiotics.</li></ul> <strong>OUT:</strong> <ul class=\"fc-list\"><li>blood Cultures (before antibiotics)</li><li> serum Lactate</li><li> Urine output monitoring.</li></ul> Mnemonic: <strong>BUFALO</strong>."
+        "back": "Deliver within <span class=\"fc-num\">1 hour</span>. <strong>IN:</strong> <ul class=\"fc-list\"><li>Oxygen \u2014 titrate to target saturations (<span class=\"fc-num\">94\u201398%</span>, or <span class=\"fc-num\">88\u201392%</span> if at risk of hypercapnic respiratory failure)</li><li> IV Fluids</li><li> IV broad-spectrum Antibiotics.</li></ul> <strong>OUT:</strong> <ul class=\"fc-list\"><li>blood Cultures (before antibiotics)</li><li> serum Lactate</li><li> Urine output monitoring.</li></ul> Mnemonic: <strong>BUFALO</strong>. <span class=\"fc-sub\">Antibiotic timing is itself risk-stratified in <strong>NICE NG253</strong> (19 November 2025, partially replacing NG51): <strong>high risk</strong> \u2014 NEWS2 <span class=\"fc-num\">&ge;7</span>, or 5\u20136 with a single parameter scoring 3 or other clinical concern \u2014 antibiotics <strong>within 1 hour</strong>; <strong>moderate risk</strong> (NEWS2 5\u20136) within <strong>3 hours</strong>; <strong>low risk</strong> (NEWS2 1\u20134) within <strong>6 hours</strong>; NEWS2 0 is very low risk.</span>"
       },
       {
         "id": "rsc_acute_news2_fc_01",
@@ -991,7 +991,7 @@
         "front": "What is <strong>AVPU</strong> and how does it relate to GCS?",
         "back": "A simpler bedside screen: <strong>Alert</strong> / responds to <strong>Voice</strong> / responds to <strong>Pain</strong> / <strong>Unresponsive</strong>. 'P' (responds only to pain) corresponds roughly to a GCS of <span class=\"fc-num\">8</span>."
       }
-    ],
+    ,{"id": "piri_fc__investigations__RISK SCORES & CRITERIA__GCS-VERBAL__0001", "front": "How do you score the <strong>VERBAL</strong> response on the GCS?", "back": "<ul class=\"fc-list\"><li><strong>5</strong> = orientated</li><li><strong>4</strong> = confused <span class=\"fc-inline\">(converses, but disorientated)</span></li><li><strong>3</strong> = words <span class=\"fc-inline\">(intelligible single words, no exchange)</span></li><li><strong>2</strong> = sounds <span class=\"fc-inline\">(groans, moans — no words)</span></li><li><strong>1</strong> = none.</li></ul><span class=\"fc-sub\">In an <strong>intubated</strong> patient the verbal score cannot be tested: record it as <span class=\"fc-num\">1</span> and mark the total with <strong>T</strong>, so a fully alert intubated patient scores <span class=\"fc-num\">10T</span>, not 15. If a component is untestable, report the components rather than a single sum.</span>"}],
     "investigations__RISK SCORES & CRITERIA__Perioperative, Pain & Renal/Urology": [
       {
         "id": "rsc_periop_apfel_fc_01",
@@ -2598,7 +2598,7 @@
         "options": ["Broad-spectrum antibiotics should be given before taking blood cultures to avoid delay","The bundle should be completed within 6 hours of recognition","Urine output monitoring is optional and only for patients already in shock","Oxygen is withheld until the lactate result is available","Blood cultures should be taken before antibiotics, and the whole bundle delivered within 1 hour"],
         "correctIndex": 4,
         "answer": "Blood cultures should be taken before antibiotics, and the whole bundle delivered within 1 hour",
-        "explanation": "The Sepsis Six is delivered within the first hour ('golden hour'). Blood cultures are taken before antibiotics to maximise diagnostic yield, then broad-spectrum IV antibiotics are given. The 'three in' are oxygen, IV fluids and IV antibiotics; the 'three out' are cultures, lactate and urine output. Oxygen is given promptly (not delayed for lactate), and urine output monitoring is a core part of the bundle for all patients, not optional."
+        "explanation": "The Sepsis Six bundle is delivered within the first hour ('golden hour'). Blood cultures are taken before antibiotics to maximise diagnostic yield, then broad-spectrum IV antibiotics are given. The 'three in' are oxygen, IV fluids and IV antibiotics; the 'three out' are cultures, lactate and urine output. Oxygen is given promptly (not delayed for lactate) and titrated to target saturations of 94\u201398%, or 88\u201392% if at risk of hypercapnic respiratory failure, and urine output monitoring is a core part of the bundle for all patients, not optional. Antibiotic timing itself is risk-stratified in NICE NG253 (19 November 2025, partially replacing NG51): high risk (NEWS2 \u22657, or 5\u20136 with a single parameter scoring 3 or other clinical concern) within 1 hour, moderate risk (NEWS2 5\u20136) within 3 hours, low risk (NEWS2 1\u20134) within 6 hours."
       },
       {
         "id": "rsc_acute_news2_q01",

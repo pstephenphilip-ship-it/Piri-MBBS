@@ -179,7 +179,7 @@
       {
         "id": "vs_sep_fc_01",
         "front": "What is the <strong>Sepsis Six</strong> and its time target?",
-        "back": "Deliver within <span class=\"fc-num\">1 hour</span>. <strong>Take 3</strong>: blood cultures, lactate, urine output. <strong>Give 3</strong>: oxygen, IV antibiotics, IV fluids. Lactate <span class=\"fc-num\">&gt;2</span> = hypoperfusion, <span class=\"fc-num\">&ge;4</span> = septic-shock territory."
+        "back": "Deliver within <span class=\"fc-num\">1 hour</span>. <strong>Take 3</strong>: blood cultures, lactate, urine output. <strong>Give 3</strong>: oxygen, IV antibiotics, IV fluids. Lactate <span class=\"fc-num\">&gt;2</span> = hypoperfusion, <span class=\"fc-num\">&ge;4</span> = septic-shock territory. <span class=\"fc-sub\">Antibiotic timing is itself risk-stratified in <strong>NICE NG253</strong> (19 November 2025, partially replacing NG51): <strong>high risk</strong> \u2014 NEWS2 <span class=\"fc-num\">&ge;7</span>, or 5\u20136 with a single parameter scoring 3 or other clinical concern \u2014 antibiotics <strong>within 1 hour</strong>; <strong>moderate risk</strong> (NEWS2 5\u20136) within <strong>3 hours</strong>; <strong>low risk</strong> (NEWS2 1\u20134) within <strong>6 hours</strong>; NEWS2 0 is very low risk.</span>"
       },
       {
         "id": "vs_pos_fc_01",
@@ -1038,11 +1038,11 @@
       {
         "id": "bt_poc_ecg_q03",
         "type": "mcq",
-        "question": "Which finding on a 12-lead ECG defines a STEMI in the chest leads?",
-        "options": ["ST elevation ≥ 2 mm in two contiguous chest leads","ST elevation ≥ 1 mm in two contiguous chest leads","ST depression ≥ 0.5 mm in any chest lead","T-wave inversion in V1–V3","A QRS duration ≥ 0.12 s"],
+        "question": "Which finding on a 12-lead ECG meets the ST-elevation criteria for a STEMI?",
+        "options": ["ST elevation ≥ 1 mm in two contiguous leads, except V2–V3, where it is ≥ 2 mm in men (≥ 1.5 mm in women)","ST elevation ≥ 2 mm in two contiguous leads, except V2–V3, where it is ≥ 1 mm in men (≥ 0.5 mm in women)","ST depression ≥ 0.5 mm in any two contiguous chest leads","T-wave inversion in V1–V3 with ST elevation ≥ 0.5 mm","A QRS duration ≥ 0.12 s with ST elevation in V1"],
         "correctIndex": 0,
-        "answer": "ST elevation ≥ 2 mm in two contiguous chest leads",
-        "explanation": "The chest-lead threshold for STEMI is ST elevation of at least 2 mm in two contiguous leads (the limb-lead threshold is lower at 1 mm). This finding warrants immediate reperfusion via primary PCI."
+        "answer": "ST elevation ≥ 1 mm in two contiguous leads, except V2–V3, where it is ≥ 2 mm in men (≥ 1.5 mm in women)",
+        "explanation": "New ST elevation at the J point in two contiguous leads, with a cut-point of \u22651 mm in every lead EXCEPT V2\u2013V3. In V2\u2013V3 the threshold is higher and sex- and age-specific: \u22652 mm in men aged 40 or over, \u22652.5 mm in men under 40, and \u22651.5 mm in women of any age (Fourth Universal Definition of Myocardial Infarction, 2018). So the common shorthand \"2 mm in the chest leads\" is wrong for V4\u2013V6, where 1 mm is enough, and \"1 mm everywhere\" is wrong for V2\u2013V3. This finding warrants immediate reperfusion by primary PCI."
       },
       {
         "id": "bt_poc_bm_q01",

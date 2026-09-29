@@ -12464,3 +12464,150 @@ intervention ladder's eight rungs; and a card mapping which model answers which 
   knowing before anything else starts keying off ids.
 - **The levetiracetam conflict in `pharmacology-flashcards.json`** still needs one look at
   the BNFC. That file remains under the never-edit instruction.
+
+---
+
+## The unreviewed tabs, first wave: 4,272 cards read
+
+Four decks' worth of the 19,428 reachable cards the deck-by-deck review never covered.
+The headline is that these decks are in **much better shape than "never reviewed"
+suggested** — 4,272 cards read, **17 changed**. That is a defect yield of 0.4%, against
+roughly 10% in the conditions decks. Worth knowing before committing effort to the
+remaining 15,000.
+
+| deck | tab | read | changed | deleted |
+|---|---|---|---|---|
+| `neurological.json` | signs | 1,279 | 3 | 0 |
+| `msk.json` | signs | 990 | 2 | 1 |
+| `general-systemic.json` | signs | 720 | 3 | 1 |
+| `basic-tissues.json` | histology | 527 | 0 | 0 |
+| `pathological-histology.json` | histology | 573 | 3 | 3 |
+| `risk-scores-criteria.json` | investigations | 526 | 3 | 0 |
+| `biochemistry.json` | investigations | 293 | 3 | 0 |
+| `bedside-tests.json` | investigations | 254 | 3 | 0 |
+| `urine.json` | investigations | 110 | 0 | 0 |
+
+`basic-tissues.json` and `urine.json` came back with **nothing to fix at all**.
+
+### The one that mattered
+
+**`msk.json` signs / Hip Pain fc[11] told students to aspirate a suspected infected
+prosthetic hip at the bedside.** Its sub-line read "Applies to native **and prosthetic**
+joints." Three cards the same student will meet say the opposite — `signs__MSK__Acute Hot
+Swollen Joint` fc[5] ("Do not aspirate it at the bedside — refer to orthopaedics for
+aspiration in theatre, to avoid seeding the prosthesis") and q[4] in the same file, and
+`msk-rheumatology.json` Bone & Joint Infection fc[16], which names the prosthetic joint as
+the single exception to "aspirate every acutely hot joint". The card now carries the deck's
+own majority rule. This is the most clinically serious single defect found anywhere in the
+review so far, and it was in a deck nobody had read.
+
+### The other defects fixed
+
+- **An unanswerable STEMI MCQ.** `bedside-tests.json` q[2] keyed "ST elevation ≥2 mm in two
+  contiguous chest leads" against a distractor of "≥1 mm in two contiguous chest leads".
+  **Neither is correct.** The Fourth Universal Definition of Myocardial Infarction (2018)
+  sets ≥1 mm in every lead *other than* V2–V3, where it is ≥2 mm in men ≥40, ≥2.5 mm in men
+  under 40 and ≥1.5 mm in women of any age. So the keyed option was wrong for V4–V6 and the
+  distractor was wrong only for V2–V3 — a student who knew the real rule could not answer.
+  Options rewritten so exactly one is correct, with the wrong one a **mirror image of the
+  same length**, so option length gives nothing away.
+- **A wrong collagen type, where the deck contradicted itself.**
+  `pathological-histology.json` Fibrosis & Repair q[11] said keloids are "excess **(type
+  III)** collagen"; fc[19] of the same topic said "raised type **I:III** ratio". fc[19] is
+  right — keloid I/III procollagen mRNA ratio 22.1 versus 5.2 in normal skin (Uitto et al.,
+  *J Surg Res* 1993), while hypertrophic scar sits near normal at 7.73. The type III token
+  is kept, reassigned to the hypertrophic-scar pattern.
+- **A GFR banding that could not be mapped.** `biochemistry.json` fc[10] labelled the bands
+  "G1–G5" and then listed **six** ranges, while its own sibling MCQ requires the answer
+  "G3b A3". The KDIGO 2012 G3a/G3b split is now attached; every original range kept.
+- **"High-flow oxygen" in a sepsis card**, contradicting the Scale 2 88–92% teaching two
+  cards away. Replaced with oxygen titrated to 94–98%, or 88–92% where Scale 2 applies.
+- **Four cards still gave a flat "Sepsis Six within 1 hour"** including antibiotics, which
+  the NG253 tiering in the same topics had superseded. Brought into line; the 1-hour bundle
+  target and Take 3 / Give 3 are kept verbatim.
+- **Three closed differentials that the same topic contradicted.** Generalised oedema's
+  "three great causes" omitted hypoalbuminaemia and drugs — and the topic's own q[8] keys
+  hypoalbuminaemia as the answer. Pallor's "three broad explanations" omitted the
+  non-anaemic endocrine group — and q[7] keys hypothyroidism. The frailty giants were given
+  as a closed four, omitting iatrogenic harm. All three completed rather than shrunk.
+- **A Ménière's card presented diuretics as standard prophylaxis**, contradicting its own
+  topic twice over and the reviewed ENT deck, which says flatly that diuretics are not
+  routinely used in the UK. Now stated with its condition.
+- **An SAH card left "early" undefined** — "CT head first (near 100% sensitive early)" —
+  while the same deck has a CT negative at 8 hours that still needs an LP. The window is now
+  named, per NICE NG228 (November 2022): negative CT within 6 h, radiologist-reported, do not
+  routinely offer LP; beyond 6 h, consider LP, allowing ≥12 h from onset.
+- **Reflex root values reconciled** with the project's own anatomy decks — ankle S1 → "S1
+  (S1/2)", supinator noted as predominantly C6 — additively, with S1 still leading so the
+  dependent MCQs stay correct.
+- **A seronegative-spondyloarthropathy card listed DIP joints** as a feature of the whole
+  group, on a card headed "large-joint", where the deck elsewhere attributes DIP disease
+  specifically to psoriatic arthritis.
+- **The last temporal-artery-biopsy outlier.** `cardiovascular.json` q[15] still said the
+  biopsy stays positive 1–2 weeks; every other site in the app now says 2–6 weeks. Swept.
+
+### A gap filled
+
+**The GCS verbal scale was enumerated nowhere in the app.** `risk-scores-criteria.json`
+fc[30] introduces E/V/M, fc[31] scores eye, fc[32] scores motor — and verbal is simply
+skipped, with only the "/5" maximum given. Added in the same style, including the point
+students get wrong: in an intubated patient the verbal score cannot be tested, so it is
+recorded as 1 and the total marked with T — a fully alert intubated patient scores 10T,
+not 15.
+
+### Six same-topic duplicates removed
+
+`pathological-histology.json`: a second wound-strength-timeline card, a second GATA3
+specificity card, and a second adenocarcinoma-of-unknown-primary marker card — each keeper
+enriched first where the dropped card held a clause it lacked. `general-systemic.json`: a
+category-4 pressure-ulcer card whose answer sits verbatim inside the grading card (the
+category-1 card was deliberately *kept*, because it adds "over a bony prominence").
+`msk.json`: a second Froment's-sign mechanism card, where the keeper also gives the nerve
+supply.
+
+### A bug in my own applier, found by it refusing a sound deletion
+
+`ok_loss` declarations written as a **single string** rather than a list were being joined
+character-by-character, so the declaration became a set of individual letters and was
+silently ignored. This only ever made the guard *stricter* — it never let a lossy drop
+through — but it blocked sound ones, and every earlier proposal that used the string form
+had its declaration quietly discarded. Both forms are now normalised. Worth recording
+because the failure was invisible: the guard simply reported words as unaccounted for that
+had in fact been accounted for.
+
+### Calibration: things that looked wrong and were not
+
+This is the most useful output of the pass, because it is what stops the next one breaking
+things. Verified correct and left alone: **abnormal** head-impulse test being the
+*reassuring* peripheral finding; Trendelenburg's pelvis dropping on the *swing* side;
+pyramidal weakness (arm extensors, leg flexors) versus pyramidal spasticity (arm flexors,
+leg extensors); pituitary compression from below giving *superior* temporal field loss;
+acute UMN lesions being flaccid and areflexic; a **shorter** S2–opening-snap interval
+meaning *more* severe mitral stenosis; melaena from a source proximal to the caecum;
+"acidophilic means basic"; high-grade dysplasia being equated with carcinoma in situ;
+fibrocartilage being predominantly type I; one oligodendrocyte myelinating up to ~50 axons
+against one Schwann cell per internode; Hb in **g/dL** in LRINEC where the rest of the app
+uses g/L, because LRINEC is defined that way; and pregnancy appearing as a cause of
+falsely *low* HbA1c on one card while another forbids using HbA1c in pregnancy — both right,
+and the first is why the second is true.
+
+Systematic checks that came back clean: every unit in 1,183 investigations cards; **every
+score recomputed component by component** (some sixty of them, from CURB-65 and both Wells
+scores to SCORTEN, LRINEC and Oakland) with no missing component and no wrong band; every
+worked arithmetic example recomputed by hand, including corrected calcium, FENa, fractional
+excretion of urea, the PCR-to-g/24 h conversion and the urine anion gap — **nothing failed
+to come out**; no SnNOut/SpPIn inversion anywhere; every `fc-num` chip within four words;
+and **no red flag sitting in a grey span** in any of the nine decks.
+
+### Still open from this wave
+
+- **`ent.json` and `neurological.json` each carry a "2 weeks" near GCA biopsy material** —
+  both checked, both are *distractors* ("review in 2 weeks"), not duration claims. Not
+  defects; recorded so the next sweep does not re-flag them.
+- **PaCO₂ normal range** is 4.6–6.0 kPa in `risk-scores-criteria.json` and 4.7–6.0 in
+  `endocrinology.json`. Trivial lab-range variation; left alone.
+- **Ménière's "normal gait"**, **Hoffmann's "rostral to C5/6"** (strictly C8–T1 for the
+  finger flexors), and **"geotropic" used of posterior-canal BPPV** are all overstatements
+  rather than errors, and two of them sit in option text. Flagged, not changed.
+- **Cortical bone surface area** given as ~90% where the usual paired figure is ~80%;
+  the mass split (80/20) is right and attributable, the surface-area sentence is not.
