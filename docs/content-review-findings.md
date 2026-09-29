@@ -12692,3 +12692,54 @@ Fourteen DWI/ADC occurrences all had restricted diffusion bright on DWI and dark
 - **The paediatric signs deck has no age-banded observations, no milestones or limit ages, no Tanner staging and no exanthem incubation periods** — so several planned cross-checks passed vacuously rather than by being correct.
 - **The psychiatric signs deck states no MHA section numbers and no cognitive-test cut-offs**, so those checks had no material either. (*Cheshire West* is correctly handled: `psychiatry.json` already reflects [2026] UKSC 16.)
 - **The imaging decks give the thrombolysis window as a flat 4.5 h**, where `neurology-neurosurgery.json` adds the extended 4.5–9 h and wake-up windows with perfusion selection. Nothing false, but incomplete.
+
+---
+
+## The unreviewed tabs, third wave (part 1): 2,828 cards read
+
+| deck | tab | read | changed | deleted |
+|---|---|---|---|---|
+| `endocrine.json` | signs + histology | 678 | 1 | 0 |
+| `dermatological.json` | signs | 504 | 3 | 1 |
+| `renal-urological.json` | signs | 372 | 1 | 0 |
+| `reproductive.json` | histology | 489 | 1 | 1 |
+| `skin-special-senses.json` | histology | 484 | 4 | 4 |
+| `lymphoid-immune.json` | histology | 301 | 0 | 0 |
+
+**`lymphoid-immune.json` needed nothing at all**, and `endocrine.json`'s only change was a units fix rather than a defect. Running total for the unreviewed tabs: **12,645 of 19,428 cards read.**
+
+### Defects fixed
+
+- **A closed differential that its own topic contradicted twice over.** `dermatological.json` Rash fc[1] asked "Which **four** rash presentations are emergencies?" — while fc[9] calls eczema herpeticum "a dermatological emergency requiring aciclovir" and fc[10] calls necrotising fasciitis "a surgical emergency", both in the same topic, and fc[7] adds DRESS. The count is gone and the three are added; all four originals kept. The MCQ explanation that re-closed the list at four was extended to match.
+- **A mnemonic that lost a letter.** `renal-urological.json` q[11] wrote the reversible causes of incontinence as **DIPPERS**; fc[6] and q[7] in the same topic both spell **DIAPPERS** and expand all eight letters. The missing **A** is *atrophic vaginitis* — which this deck separately teaches as a cause of dysuria.
+- **Two mutually exclusive Gleason rules in one topic.** `reproductive.json` fc[21] says the biopsy score is the primary pattern plus the **highest-grade** pattern; q[12]'s explanation said the **two commonest** patterns are summed. Both are right, for different specimens, and I verified it independently: on needle biopsy the most prevalent pattern is primary and *any amount* of a worse pattern is secondary; on prostatectomy it is primary plus secondary with tertiary reported separately (ISUP 2014 consensus, Epstein et al., *Am J Surg Pathol* 2016;40:244–252). Now stated with its condition, the Grade Groups carried across.
+- **Glaucoma defined by pressure on one card and by neuropathy on another.** `skin-special-senses.json` fc[22] is explicit that it is "a progressive **optic neuropathy** with disc cupping… IOP is not always raised (normal-tension glaucoma)"; q[13] asserted flatly that impaired drainage raises IOP and that this damages the nerve. Explanation rewritten, and the keyed option reordered to "Optic-nerve damage with disc cupping, **usually** with raised intraocular pressure" — the neuropathy leads, as the deck's own flashcard says.
+- **A sarcoma pathway that skipped its first step.** `dermatological.json` q[0] said a suspicious soft-tissue lump "needs urgent MRI and biopsy", where fc[6], fc[10] and q[8] all say urgent **ultrasound** first and that MRI and biopsy happen at the specialist unit, *not in primary care*.
+- **The tectorial membrane taught two ways.** `skin-special-senses.json` fc[13] and fc[12] are explicit that only the **outer** hair cells' tallest stereocilia are embedded in it while inner hair cell stereocilia lie free; q[2]'s explanation asserted of all hair cells what the flashcards restrict to the outer ones — and did so about the cells carrying ~95% of the afferent signal.
+
+### A units fix, not a threshold change
+
+`endocrine.json` fc[16] gives the prolactinoma cut-off as **">200 ng/mL"** — the only US-unit figure in a deck that is otherwise SI throughout, whose own Galactorrhoea card quotes 9,000 mU/L. A UK student cannot compare that number with what their lab reports. The figure is **unchanged and still leads**; the SI equivalent (≈4,000 mU/L) is added alongside with the conversion factor stated, so the card is transparent rather than asserting a new threshold. No card in the deck contradicted the original, so this was not licensed as a threshold change and was not made as one.
+
+### Six deletions, and what the guard caught this time
+
+All six passed only after their declarations named the exact token the guard flagged — and every flag was a **tokenisation or synonym artefact**, not lost content: "two-layered" where the keeper says "Two layers of cuboidal cells"; "cancer" where the keeper says "carcinoma"; "usually bilateral" where the keeper says "typically bilateral"; "most CNS neurons" where the keeper compares against other neurons. This is the pattern to expect from a *sound* deletion proposal, and it is visibly different from last wave's imaging set, where the flagged tokens were Asherman's syndrome, tripoding and MRI-conditional — real content the keeper did not carry.
+
+### Calibration: looked wrong, was correct
+
+- **"Cytotrophoblast (Langhans cells)"** is the *correct* eponym — Theodor Langhans' cytotrophoblastic layer — not a Langerhans slip. Every occurrence of both words across these three decks was checked; the app-wide finding of zero confusions still holds.
+- **The retina layer order is right**, in all ten layers and the correct direction, and nothing transposes inner for outer on any of the dozen retinal cards. This was the trap the brief specifically warned about.
+- **Bowman's anterior, Descemet's posterior** — the usual corneal transposition — correct everywhere, and consistent with `ophthalmology.json` placing Kayser-Fleischer rings in Descemet's.
+- **The adrenal cortex zones are not transposed**: glomerulosa/fasciculata/reticularis outside-in with salt/sugar/sex, correct in seven cards.
+- **Human "apocrine" sweat glands secrete largely by merocrine exocytosis** — the true decapitation-apocrine gland is the lactating breast. Reads like a contradiction with the gland's own name; it is correct.
+- **"Hutchinson's sign" means two different things in one deck** — nail-fold pigment spread (subungual melanoma) and nose-tip vesicle (herpes zoster ophthalmicus). Both genuine, both correctly paired.
+- **Pretibial myxoedema belongs to HYPERthyroidism**, and the deck flags the trap itself.
+- **A phaeochromocytoma card carrying both the "rule of 10s" and "modern data put the hereditary proportion at 30–40%"** is the state-each-figure-with-its-condition pattern done correctly, not two contradicting figures.
+
+Cross-file figure checks across the renal/urology decks found **no disagreements at all**: the 6-hour torsion window, stone size bands, NG12 haematuria thresholds, ACR bands and post-obstructive diuresis criteria all match word for word between the signs deck and the reviewed conditions decks.
+
+### Noted, not acted on
+
+- **Vesicle/bulla at 5 mm** where several texts use 10 mm. The deck is internally consistent and gives no other lesion-size threshold to conflict with, and no single UK threshold could be attributed.
+- **Lid lag and lid retraction are named but never distinguished or given a mechanism** anywhere in the endocrine deck. No card conflates them and no two disagree, so this is a gap rather than a defect.
+- **Three vestigial sub-lines** in the lymphoid deck repeat something the main text already says ("The appendix is one of them"), apparently residue from an earlier pass. Redundant, not wrong.
