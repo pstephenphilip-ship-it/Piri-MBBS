@@ -12117,3 +12117,110 @@ Two dose "corrections" in this review have now been checked against primary sour
 interval. The pattern is that a plausible search summary is not a formulary. Where a
 deck figure is traceable to a named UK trial or guideline, it should take precedence
 over anything I cannot attribute as firmly.
+
+---
+
+## Clinical Pharmacology and Public Health — the last two decks (v1605)
+
+**Scope:** all 10 topics of `clinical-pharmacology-prescribing.json` (476 cards) and all
+3 of `public-health-evidence-based-medicine.json` (169 cards), read card by card by
+three agents. **With these, every deck in the app has been reviewed.**
+
+**Applied:** 90 field rewrites, 17 flashcard deletions, and **one option repair**.
+Verified: 90/90 exact, zero collateral change, every surviving id preserved in order,
+no ids added, no duplicates, the MCQ sections byte-identical through the deletion stage.
+
+### The rule that shaped this batch, and what it bought
+
+Both briefs opened with an instruction that overrode everything else: **do not change a
+dose, threshold, interval, conversion ratio or INR target** unless the deck contradicts
+itself and the specific sibling cards that settle it can be named. Everything else went
+into a `notes` section headed "FIGURES I DID NOT CHANGE".
+
+That rule was written because two figure "corrections" earlier in this review turned out
+to be wrong with the deck right — and a third was found while this batch was running
+(see the levetiracetam entry above). **Across 645 cards in the two most figure-dense
+decks left, not one dose was changed.** The deck did not contradict itself on any of
+them.
+
+What the rule bought instead was a set of verified-correct audits, which is worth more
+than edits would have been:
+
+- **Every opioid conversion in the file tabulated with indices** — oral morphine to
+  subcutaneous morphine ÷2, oral morphine to subcutaneous diamorphine ÷3, codeine to
+  morphine ÷10, breakthrough = 24-hour dose ÷6 — **all agree wherever they appear**, and
+  every worked example is arithmetically right. A conversion disagreeing with itself
+  would have been the most dangerous defect this deck could hold; there isn't one. Only
+  oral-morphine-to-oxycodone is stated **once** in the entire file, so it has no internal
+  cross-check. Recorded, not changed.
+- **The steroid equivalence table is arithmetically self-consistent at every point**
+  (20 mg hydrocortisone = 5 mg prednisolone = 4 mg methylprednisolone = 750 micrograms
+  dexamethasone, and every derived multiple checks out).
+- **Every CYP450 inducer and inhibitor is on the correct side**, with no
+  self-contradiction across six cards and four MCQs.
+- **All twelve-plus antidote pairings verified with their reasoning**, not just the pair.
+- **The statistics topic was worked item by item and is right** — PPV/NPV correctly
+  stated as prevalence-dependent, confidence-interval null values correctly attached to
+  ratios (1) and differences (0), the p value correctly phrased, type I and type II not
+  swapped. Three worked examples were recomputed from their 2×2 tables and all are
+  correct, including NNT = 1/ARR = 20.
+
+### The defects that were real
+
+- **An unanswerable MCQ, repaired.** `Safe Prescribing` `q[4]` (`sp_mcq_005`) asked which
+  prescription is written correctly and offered **two byte-identical options** —
+  "Levothyroxine 50 micrograms" at index 1 and index 4, keyed to 1. Two options were
+  equally correct and the explanation's "only this one follows all the rules" was false
+  of the set. Option 4 is now **"Levothyroxine 50 mcg"**, which is wrong for exactly the
+  reason the card's own explanation gives (micrograms must be written in full). This is
+  the only duplicate-option card in the deck.
+- **Three risk-bearing grey spans in decks my detector scored at zero**, which is a
+  useful check on the detector: a palliative midazolam dose reduction for the frail or
+  renally impaired; the "do not use at term" limit on nitrofurantoin, sitting in grey on
+  the card recommending it; and gabapentin/pregabalin's Schedule 3 controlled-drug status
+  with its dependence warning.
+- **Two false closed enumerations**, both completed rather than shrunk: "two pain
+  classifications" where the topic teaches three axes, and "four commonly examined ADR
+  pairings" where its own MCQ teaches a fifth that appeared on no flashcard.
+- **The notifiable-diseases card was incomplete**, and the fix is recorded separately
+  above because I got the date wrong first.
+
+### Left for your decision
+
+- **The IV potassium rate is stated two ways across topics** — "not normally faster than
+  10 mmol/hour" in Safe Prescribing, "never faster than 20 mmol/hour" in Palliative
+  Care. Both are defensible (the usual peripheral ward ceiling versus the absolute
+  maximum with central access and cardiac monitoring), so neither is an outlier. This is
+  a **Never Event drug**, so the right fix is to state each rate *with its condition*
+  rather than pick one.
+- **The sick-day steroid rule is stated two ways** — "double the usual dose" versus the
+  Steroid Emergency Card's "10 mg twice daily" for those on 5–15 mg prednisolone. Both
+  are in current UK guidance. A wording fix, not a figure fix.
+- **Ten near-duplicate MCQ pairs in Public Health Summary** (`phs_q_01`–`phs_q_10` re-run
+  `q[1]`–`q[24]`). Every pair was checked and **none conflict** — they are keyed to the
+  same facts. So ten of thirty-five questions do no new work. Deleting MCQs is your call.
+- **"Diabetics" survives in four keyed options** in the Public Health deck after the
+  editable instances were fixed.
+- **Diabetic eye screening is given as "annually"**, where lower-risk patients moved to
+  two-yearly. The phrase is also inside a keyed option and its `answer`.
+- **Quaternary prevention** appears as a distractor in two MCQs while the deck teaches
+  four levels and never defines a fifth.
+- **52 cards in the Anticoagulation topic carry `PUBLIC-HEALTH-INFECTIOUS-DISEASE` in
+  their id** — wrong system, and the suffix is 1-based against a 0-based index, which is
+  very likely what every agent that filed an edit at an id suffix was tripping over.
+  **Do not rename them**: `index.html` writes `localStorage.setItem('piri_fc__'…)` and
+  reads `seen[a.id]`, so ids are the keys for a user's seen/mastered progress, and
+  renaming would silently reset it.
+
+### A gap, not a defect
+
+The Public Health deck **contains no models of behaviour change** — no
+transtheoretical/stages-of-change, no health belief model, no COM-B. Nothing to verify;
+the absence is the finding.
+
+---
+
+## The review, complete
+
+Every deck in the app has now been read card by card: **28 decks, 37,200 cards**
+(21,183 flashcards, 16,017 MCQs). The per-deck record is in the sections above.
