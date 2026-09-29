@@ -12852,3 +12852,121 @@ Machine-compared across all five decks and against wave two's table: **no nerve 
 different root values anywhere in the anatomy tab**, and every shared vertebral level
 matches — T8 caval, T12 aortic hiatus, L1 transpyloric, L1/L2 conus, L3/4–L4/5 for lumbar
 puncture, L4 bifurcation, L5 IVC formation.
+
+---
+
+## Wave four: 2,171 cards read, 7 changed — including a wrong answer in a deck I had already reviewed
+
+| deck | tab | read | changed |
+|---|---|---|---|
+| `obstetric-gynaecological.json` | signs | 504 | 0 |
+| `ophthalmic.json` | signs | 264 | 0 |
+| `special-tests.json` | investigations | 252 | 1 |
+| `haematological.json` | signs | 214 | 0 |
+| `genitourinary-sexual-health.json` | signs | 192 | 0 |
+| `lung-function.json` | investigations | 187 | 0 |
+| `scoping-endoscopy.json` | investigations | 181 | 1 |
+| `psychiatry-cognition.json` | investigations | 107 | 1 |
+| `geriatric-assessment.json` | investigations | 92 | 1 |
+| `sexual-health-gum.json` | investigations | 89 | 1 |
+| `ent-audiovestibular.json` | investigations | 89 | 1 |
+
+Five of the eleven needed nothing. Plus **one card fixed in `obstetrics-gynaecology.json`**,
+which is not an unreviewed deck at all — see below.
+
+### The one that matters: a keyed answer that told students to withhold a safe examination
+
+`obstetrics-gynaecology.json` q[13] of Preterm & Peripartum asked what must be avoided in
+suspected placenta praevia and keyed **"A digital *or speculum* vaginal examination"**, with
+an explanation saying a speculum "can provoke catastrophic haemorrhage and must be avoided".
+
+Two flashcards **in the same file** say the opposite — fc[2] of Antepartum Haemorrhage: "do
+NOT perform a vaginal examination until praevia is excluded (**a speculum is safe**, a
+digital exam is not)"; fc[16]: "**A speculum (not digital) exam may assess bleeding**" — as
+does the signs deck. I verified independently: a sterile speculum examination is safe before
+placental localisation and is useful to see cervical dilatation or a lower genital tract
+source, while digital examination must wait until ultrasound excludes praevia (RCOG GTG 63
+*Antepartum Haemorrhage*; GTG 27a *Placenta Praevia and Placenta Accreta*). The option is
+narrowed to the digital examination, which remains the only correct answer of the five.
+
+**This card is in a deck the 28-deck review had already passed.** It was found by an agent
+reading a *different* deck and checking across. Two lessons worth recording: the
+cross-checking is doing work the single-deck read did not, and "reviewed" is not the same as
+"clean".
+
+### The other defects
+
+- **A rendering defect, which is what this session is nominally for.**
+  `ent-audiovestibular.json` fc[0] had a list whose first `<li>` held the bare label
+  `Adult:` and whose second `<li>` ran both halves together — `pull the pinna up and back.
+  Child: pull the pinna down and back`. A student saw one empty bullet and one bullet
+  merging both sides of an adult-versus-child contrast. Rewritten as two parallel items;
+  every word preserved.
+- **An arithmetically impossible card.** `psychiatry-cognition.json` fc[2] asked "What five
+  dimensions does **each Y-BOCS item** rate?" while fc[1] in the same topic says "10 items…
+  each scored 0–4, giving a total of 0–40". Five dimensions per item at 0–4 would give 200.
+  The five listed *are* the five items, rated once for obsessions and again for
+  compulsions. Front reworded, back untouched.
+- **An AHI band that put 30 in two places at once.** `special-tests.json` q[9] said
+  "15–30 defines moderate OSA" where fc[16] of the same topic gives 15–29 moderate and ≥30
+  severe.
+- **A 2-week-wait rule that contradicted two reviewed decks.** `scoping-endoscopy.json`
+  fc[1] listed every ALARMS55 letter and said "These prompt 2-week-wait referral". Age ≥55
+  with new dyspepsia alone is **not** a 2WW criterion — it is non-urgent direct-access
+  endoscopy — and both `upper-gi.json` and `gastrointestinal.json` already say so, one of
+  them explicitly warning that "several ALARM letters are not themselves referral criteria"
+  (NICE NG12). Every letter kept; only what they trigger is corrected.
+- **A falls-risk threshold the deck had already disowned.** `geriatric-assessment.json`
+  q[0] read a Timed Up-and-Go of 15 s as exceeding "both the ≥12 s and ≥14 s thresholds…
+  indicating increased falls risk", where fc[1] in the same topic says NICE **advises
+  against** falls-risk-prediction tools and that the TUG is "not for generating a predicted
+  falls risk". The flashcard had been brought into line and the MCQ had not. Both figures
+  retained, now described as slow rather than predictive.
+- **An HIV window period the deck contradicted itself on.** `sexual-health-gum.json` fc[0]
+  said the 4th-generation assay "shortens the window period to about 4 weeks", while fc[1]
+  says a negative test is only reliable at 45 days and q[0] keys "repeat at 45 days". A
+  student meeting fc[0] first would exclude HIV at 28 days. Resolved with the wording the
+  project's own reviewed deck already uses — detects most infections from about 4 weeks,
+  but the window period is 45 days (BHIVA/BASHH). No figure changed; only the label moved.
+
+### Recorded, not acted on
+
+- **PMB and the 2-week-wait age criterion.** The signs deck teaches "all postmenopausal
+  bleeding → urgent 2WW"; `obstetrics-gynaecology.json` states NICE NG12 precisely (refer
+  ≥55, *consider* under 55). No card mis-triages a named patient — every vignette is 55 or
+  over — but the general statement is stricter than NICE. Adding an age threshold to a deck
+  that carries none is a rewrite, not a contradiction fix.
+- **Hearing-loss severity bands** given as severe 71–90 / profound >90 dB HL, where the
+  British Society of Audiology descriptors are usually 71–95 / ≥95. Nothing in the app
+  states a competing set, so there is no internal contradiction to license a change, and no
+  dated document could be reached to attribute one.
+- **PEF variability `>20%` versus `≥20%`**, and **endometrial thickness `≥4 mm` versus
+  `>4 mm`** in the same topic. Both differ only at exactly the boundary value.
+- **Primary PPH after caesarean** given as >1000 mL in the signs deck against the reviewed
+  deck's "≥500 mL, major if >1000 mL or any volume with shock". Both defensible, and the
+  signs deck already scopes ≥500 mL to vaginal delivery.
+
+### Calibration from wave four
+
+The Rinne/Weber table was rebuilt from scratch and **every card in two decks checked against
+it — none transposed**, including the false-negative Rinne in a dead ear and its resolution
+by Weber. The head-impulse test was verified across **four** decks and all four agree that
+the *abnormal* result is the reassuring peripheral one. Every worked calculation in the lung
+function, psychiatry and geriatric decks was recomputed by hand — reversibility, PEF
+variability, GOLD bands, z-scores, 6MWD, CPET, and the maxima and bands of PHQ-9, GAD-7,
+Y-BOCS, EPDS, AUDIT, SCOFF, Epworth, 4AT, ACB and Barthel — **with no arithmetic defect
+found anywhere**.
+
+Correct-but-surprising, left alone: **CRVO called a "stormy sunset" fundus** in one deck and
+"blood and thunder" in another (both standard, identical component signs); two reversibility
+thresholds in one deck, each stated with its condition; an air–bone gap given as "≥10 dB"
+and ">10 dB" in different decks with no worked example turning on exactly 10.
+
+### Gaps found
+
+`psychiatry-cognition.json` has **no ACE-III, clock-drawing or GPCOG card**;
+`respiratory.json` contains **no KCO card at all**, so half the transfer-factor teaching
+exists only in `lung-function.json`; partner-notification **look-back periods are named as a
+concept in the GUM deck but no numbers appear**; and Horner's, Holmes-Adie and Argyll
+Robertson are absent from `ophthalmic.json` entirely, living only in `ophthalmology.json`
+and `neurological.json` — which agree with each other.
