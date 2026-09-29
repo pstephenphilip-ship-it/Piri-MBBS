@@ -12793,3 +12793,62 @@ likewise carries no acetylcysteine regimen and no staggered-overdose dose thresh
 PCR/GDH-positive, toxin-negative *C. difficile* result "carriage, not disease" flatly,
 where `gi-physiology-stool.json` calls it "ambiguous — carrier *or* early/low-toxin
 disease". Both are defensible and the softer wording is the safer one.
+
+### Wave three (part 3): the five remaining anatomy decks — 1,601 cards, 2 changed
+
+`embryology.json`, `head-neck.json`, `neuroanatomy.json`, `pelvis-perineum.json` and
+`abdomen.json`. Combined with the four limb-and-trunk decks done in wave two, **the whole
+anatomy tab is now read: 2,704 cards, 3 changed.** That is the cleanest material in the
+project by a wide margin.
+
+**The one defect: the cerebellopontine-angle cranial-nerve order was reversed.**
+`neuroanatomy.json` fc[13] and q[7] taught a vestibular schwannoma as involving CN VIII
+"and then CN VII (and V)". Four other cards put V before VII, two of them explicitly:
+`neurology-neurosurgery.json` q[10] — "compresses CN VIII first…, **then CN V** (reduced
+corneal reflex)" — and fc[15], which says "**facial weakness (VII) is a LATE feature**";
+`neurological.json` fc[13] says "the facial nerve is relatively resistant and tends to be
+involved late"; and `head-neck.json` q[13], **inside the same tab**, has V next. The
+neuroanatomy deck was the sole outlier in the corpus and contradicted its own tab. Fixed,
+with the "VII relatively resistant" caveat added; no nerve dropped.
+
+### Three cross-deck inconsistencies recorded rather than fixed
+
+- **Normal CSF opening pressure is given three ways** — 7–18 cmH₂O (`neuroanatomy.json`),
+  6–20 with ~25 borderline (`neurophysiology-csf.json`), 10–20 (`neurology-neurosurgery.json`).
+  All three agree the *abnormal* threshold is >25 cmH₂O, which is the figure that matters
+  clinically; the disagreement is confined to the normal range, and no single UK source
+  could be named for it. The investigations deck is the natural owner if this is ever
+  harmonised.
+- **The female greater sciatic notch is given as ~90°** where the usual quoted value is
+  nearer 60–75°. Everything else on that card is right and matches its own MCQ, and no
+  corrected figure could be attributed.
+- **AFB smear detection limit** appears as "~5,000–10,000 organisms/mL" in one microbiology
+  topic and "~10,000" in another. Not contradictory — 10,000 sits inside the range — but
+  the same fact in two forms in one deck.
+
+### Four gaps in the anatomy material
+
+Absences, not errors: **the jaw-jerk reflex arc appears nowhere**, although `neurological.json`
+uses the jaw jerk clinically in five cards to separate bulbar from pseudobulbar palsy (the
+corneal, gag and pupillary arcs are all present and agree across decks); the **left/right
+recurrent laryngeal asymmetry is absent from `head-neck.json`**, though it is correctly
+stated in the embryology and thorax decks; the **male "water under the bridge"** — the vas
+crossing anterior to the ureter — appears nowhere in the project, while all four female
+statements of it are present and identical; and the **parotid's contents are never given in
+superficial-to-deep order**, though each structure is covered separately.
+
+### Calibration from the anatomy tab
+
+Verified correct and left alone: **"six pharyngeal arches, numbered 1, 2, 3, 4, 6"** (the
+standard convention, and the deck's own MCQ keys "the 5th regresses"); the **subclavian
+given three branches** where the limb deck's table says four, because the card asks only
+about the first part; **nerve to levator ani S3–S4 against pelvic floor S2–S4**, which are
+different structures, not a root-value clash; **Meckel's "2 feet" against "~60 cm"** in
+another deck, the same distance; and the vagus reaching "the distal third of the transverse
+colon" against "hindgut from the distal third onward", which is the same junction described
+from either side.
+
+Machine-compared across all five decks and against wave two's table: **no nerve has two
+different root values anywhere in the anatomy tab**, and every shared vertebral level
+matches — T8 caval, T12 aortic hiatus, L1 transpyloric, L1/L2 conus, L3/4–L4/5 for lumbar
+puncture, L4 bifurcation, L5 IVC formation.
