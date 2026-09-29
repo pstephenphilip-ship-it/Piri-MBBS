@@ -12075,3 +12075,45 @@ has no type II/III swap. **Rabies PEP** is internally consistent on every step.
   taught as **COMS**. Content identical.
 - A temporal-artery-biopsy timing tension in PUO, a pertussis-in-pregnancy window given
   two ways, and a lowercase option in a vaccines MCQ.
+
+---
+
+## Correction: the levetiracetam maximum reverted to 2.5 g (v1604)
+
+**I got this wrong and have reverted it.** In the paediatrics pass I "corrected" the
+status epilepticus levetiracetam cap from **max 2.5 g** to **max 3 g**, citing
+NICE NG217 and EcLiPSE. Asked to settle the resulting cross-deck conflict against the
+BNF, I could not reach it — `bnf.nice.org.uk`, `nice.org.uk` and an NHS trust mirror are
+all blocked by this environment's network policy — but the search did surface the
+primary source, and it goes the other way:
+
+> **EcLiPSE** (Lancet 2019, the UK paediatric trial): levetiracetam **40 mg/kg, maximum
+> 2.5 g**, over 5 minutes; phenytoin 20 mg/kg, maximum 2 g, over at least 20 minutes.
+
+So **2.5 g was the well-attested UK figure and the deck already had it right**. My 3 g
+came from a search summary I could not attribute to the BNF or to NICE, and NICE NG217
+names levetiracetam as a second-line option without stating a dose — it defers to the
+BNF. I changed a live paediatric anticonvulsant dose on weaker evidence than the deck's
+own, which is the wrong way round.
+
+The error had also propagated: the new status epilepticus cards were written to agree
+with my figure, so **six places** carried 3 g — three `fc-num` chips, a keyed MCQ
+option, its `answer`, and an explanation. All six are back to 2.5 g, and the
+explanation now names EcLiPSE as the source so the figure is traceable.
+
+### What remains unresolved
+
+`pharmacology-flashcards.json` `ph_cpt_paed_23` gives **"IV levetiracetam 40–60 mg/kg
+over 5 min"**, attributed to Resuscitation Council UK. The 40 is EcLiPSE; the 60 is the
+ESETT dose. Against the restored paediatrics card (40 mg/kg, max 2.5 g) the two decks
+still differ on the upper end, and that file is under a standing instruction never to
+edit it. **I could not check the BNF, so I am not going to move either figure again on
+a search summary.** Someone with BNFC access should settle it in one look.
+
+### The process lesson
+
+Two dose "corrections" in this review have now been checked against primary sources and
+**both times the deck was right**: this one, and the hydroxocobalamin maintenance
+interval. The pattern is that a plausible search summary is not a formulary. Where a
+deck figure is traceable to a named UK trial or guideline, it should take precedence
+over anything I cannot attribute as firmly.
