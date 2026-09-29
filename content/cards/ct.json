@@ -24,7 +24,7 @@
       {
         "id": "ct_hb_nc_fc_05",
         "front": "A patient with <strong>thunderclap headache</strong> has a <strong>normal CT head</strong>. Does this exclude subarachnoid haemorrhage?",
-        "back": "<strong>No.</strong> A normal CT does not exclude SAH. If clinical suspicion persists, perform a <strong>lumbar puncture</strong> at <span class=\"fc-num\">≥12 hours</span> from onset looking for <strong>xanthochromia</strong>."
+        "back": "<strong>Not always.</strong> A non-contrast CT performed <strong>within 6 hours</strong> of onset and reported normal by a radiologist is close to <span class=\"fc-num\">100% sensitive</span> and <strong>effectively excludes SAH</strong>. Sensitivity falls after 6 hours, so a normal <strong>later</strong> CT does NOT exclude it: if clinical suspicion persists, perform a <strong>lumbar puncture</strong> at <span class=\"fc-num\">\u226512 hours</span> from onset looking for <strong>xanthochromia</strong>."
       },
       {
         "id": "ct_hb_contrast_fc_01",
@@ -54,12 +54,12 @@
       {
         "id": "ct_hb_stroke_fc_01",
         "front": "What is the <strong>primary purpose</strong> of the first-line non-contrast CT (NCCT) in the <strong>acute stroke protocol</strong>?",
-        "back": "To <strong>exclude intracranial haemorrhage</strong>, because management of ischaemic vs haemorrhagic stroke diverges completely (thrombolysis is contraindicated if there is blood). <span class=\"fc-sub\">It also shows early ischaemic signs.</span>"
+        "back": "To <strong>exclude intracranial haemorrhage</strong>, because management of ischaemic vs haemorrhagic stroke diverges completely (thrombolysis is contraindicated if there is blood). <span class=\"fc-sub\">It also shows early ischaemic signs \u2014 but early ischaemia is often invisible, so <strong>a normal CT does not exclude stroke</strong>.</span>"
       },
       {
         "id": "ct_hb_stroke_fc_02",
         "front": "List <strong>four</strong> early ischaemic signs on non-contrast CT.",
-        "back": "<ul class=\"fc-list\"><li>Loss of grey-white differentiation</li><li>loss of the insular ribbon (insular ribbon sign)</li><li>sulcal effacement</li><li>the <strong>hyperdense MCA/vessel sign</strong> (visible thrombus).</li></ul> <span class=\"fc-sub\"><strong>ASPECTS</strong> quantifies MCA-territory change.</span>"
+        "back": "<ul class=\"fc-list\"><li>Loss of grey-white differentiation</li><li>loss of the insular ribbon (insular ribbon sign)</li><li>sulcal effacement</li><li>the <strong>hyperdense MCA/vessel sign</strong> (visible thrombus).</li></ul> <span class=\"fc-sub\"><strong>ASPECTS</strong> quantifies MCA-territory change. An established infarct is a <strong>wedge-shaped hypodensity</strong> in a vascular territory.</span>"
       },
       {
         "id": "ct_hb_stroke_fc_03",
@@ -89,7 +89,7 @@
       {
         "id": "ct_hb_cow_fc_03",
         "front": "Outline the <strong>imaging pathway</strong> for a suspected subarachnoid haemorrhage.",
-        "back": "<ul class=\"fc-list\"><li><strong>Non-contrast CT head</strong> first (blood in basal cisterns).</li><li>If negative but suspicion remains, <strong>lumbar puncture</strong> at <span class=\"fc-num\">≥12 hours</span> for xanthochromia.</li><li>If SAH is confirmed, <strong>CTA (or DSA)</strong> to find the aneurysm.</li></ul>"
+        "back": "<ul class=\"fc-list\"><li><strong>Non-contrast CT head</strong> first (blood in basal cisterns) \u2014 within <span class=\"fc-num\">6 hours</span> of onset it is close to 100% sensitive, so a normal scan reported by a radiologist effectively excludes SAH.</li><li>If the CT is negative but was performed <strong>beyond 6 hours</strong>, or suspicion persists, <strong>lumbar puncture</strong> at <span class=\"fc-num\">\u226512 hours</span> for xanthochromia.</li><li>If SAH is confirmed, <strong>CTA (or DSA)</strong> to find the aneurysm.</li></ul>"
       },
       {
         "id": "ct_hb_cow_fc_04",
@@ -1131,7 +1131,7 @@
         "options": ["Immediate lumbar puncture now","Lumbar puncture at least 12 hours from onset to look for xanthochromia","Arrange outpatient MRI in 6 weeks","Start intravenous thrombolysis","Reassure and discharge as CT has excluded serious pathology"],
         "correctIndex": 1,
         "answer": "Lumbar puncture at least 12 hours from onset to look for xanthochromia",
-        "explanation": "A normal CT does not exclude subarachnoid haemorrhage. With persisting clinical suspicion, proceed to lumbar puncture, timed at least 12 hours from headache onset, to allow xanthochromia (bilirubin breakdown) to develop and be detected. Thrombolysis is contraindicated and reassurance/discharge is unsafe."
+        "explanation": "A non-contrast CT performed within 6 hours of onset and reported normal by a radiologist is close to 100% sensitive and effectively excludes subarachnoid haemorrhage \u2014 but sensitivity falls after 6 hours, so this scan at 10 hours does not. With persisting clinical suspicion, proceed to lumbar puncture, timed at least 12 hours from headache onset, to allow xanthochromia (bilirubin breakdown) to develop and be detected. Thrombolysis is contraindicated and reassurance/discharge is unsafe."
       },
       {
         "id": "ct_hb_contrast_q01",
@@ -1209,10 +1209,10 @@
         "id": "ct_hb_cow_q03",
         "type": "mcq",
         "question": "A 45-year-old woman has a thunderclap headache. Non-contrast CT head at 3 hours is reported as normal, but the clinical suspicion of subarachnoid haemorrhage remains high. What is the most appropriate next step?",
-        "options": ["Lumbar puncture at ≥12 hours from headache onset, looking for xanthochromia","Reassure and discharge with analgesia","Start empirical nimodipine","Arrange outpatient MRI brain","Immediate CT angiogram of the Circle of Willis"],
+        "options": ["No lumbar puncture — a radiologist-reported normal CT within 6 hours of onset effectively excludes SAH; discuss with a senior decision-maker","Lumbar puncture at ≥12 hours from onset, looking for xanthochromia","Start empirical nimodipine","Arrange outpatient MRI brain","Immediate CT angiogram of the Circle of Willis"],
         "correctIndex": 0,
-        "answer": "Lumbar puncture at ≥12 hours from headache onset, looking for xanthochromia",
-        "explanation": "CT sensitivity for SAH falls with time, so a negative early CT does not exclude it when suspicion is high. LP performed at ≥12 hours allows time for red-cell breakdown to produce xanthochromia (detected by spectrophotometry), distinguishing true SAH from a traumatic tap. Discharge would be unsafe; CTA is reserved for once SAH is confirmed; nimodipine is treatment for confirmed aneurysmal SAH."
+        "answer": "No lumbar puncture — a radiologist-reported normal CT within 6 hours of onset effectively excludes SAH; discuss with a senior decision-maker",
+        "explanation": "A normal non-contrast CT reported by a radiologist <strong>within 6 hours</strong> of headache onset is close to 100% sensitive for subarachnoid haemorrhage (Perry JJ et al., BMJ 2011;343:d4277 \u2014 sensitivity 100%, 95% CI 97\u2013100%), so at 3 hours it effectively excludes it and a lumbar puncture is not routinely needed; NICE NG228 (November 2022) advises discussing the case with a senior decision-maker rather than proceeding straight to LP. Beyond 6 hours that no longer holds \u2014 then LP at \u226512 hours from onset is the right next step, to allow xanthochromia to develop and distinguish true SAH from a traumatic tap. Nimodipine treats vasospasm in confirmed SAH, not undiagnosed headache; outpatient MRI is too slow; and CT angiography looks for an aneurysm, which is a question for after SAH is confirmed."
       },
       {
         "id": "ct_hb_ctv_q01",
@@ -1683,7 +1683,7 @@
         "id": "ct_ch_staging_q03",
         "type": "mcq",
         "question": "A 60-year-old presents with right arm pain, wasting of the small muscles of the hand, and a right-sided ptosis and miosis. CXR shows a right apical opacity. Which single statement best fits this presentation?",
-        "options": ["Horner's syndrome here excludes malignancy and suggests a benign cause","This is most likely small-cell carcinoma that is always operable at this stage","This is SVC obstruction and mandates immediate thrombolysis","This is a Pancoast (superior sulcus) tumour causing Horner's syndrome, requiring urgent assessment and staging","No 2-week-wait referral is needed as symptoms are musculoskeletal"],
+        "options": ["Horner's syndrome here excludes malignancy and suggests a benign cause","This is most likely small-cell carcinoma that is always operable","This is SVC obstruction and mandates immediate thrombolysis","This is a Pancoast (superior sulcus) tumour causing Horner's syndrome, requiring urgent assessment and staging","No 2-week-wait referral is needed as symptoms are musculoskeletal"],
         "correctIndex": 3,
         "answer": "This is a Pancoast (superior sulcus) tumour causing Horner's syndrome, requiring urgent assessment and staging",
         "explanation": "An apical (superior sulcus/Pancoast) tumour invading the sympathetic chain and brachial plexus produces Horner's syndrome (ptosis, miosis, anhidrosis), arm pain and T1 wasting — a red-flag presentation needing urgent 2-week-wait referral and staging CT. It is not SVC obstruction, is not benign, and there is no basis to call it operable small-cell disease."

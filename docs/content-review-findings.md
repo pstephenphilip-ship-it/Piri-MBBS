@@ -12611,3 +12611,84 @@ and **no red flag sitting in a grey span** in any of the nine decks.
   rather than errors, and two of them sit in option text. Flagged, not changed.
 - **Cortical bone surface area** given as ~90% where the usual paired figure is ~80%;
   the mass split (80/20) is right and attributable, the surface-area sentence is not.
+
+---
+
+## The unreviewed tabs, second wave: 5,545 cards read
+
+| deck | tab | read | changed | deleted |
+|---|---|---|---|---|
+| `gastrointestinal.json` | signs + histology | 2,084 | 4 | 5 |
+| `mri.json` · `ct.json` · `plain-film-fluoroscopy.json` | investigations | 1,374 | 23 | 0 |
+| `upper-limb.json` · `lower-limb.json` · `thorax.json` · `back-spine.json` | anatomy | 1,103 | 1 | 0 |
+| `paediatric.json` | signs | 748 | 4 | 2 |
+| `psychiatric.json` | signs | 336 | 0 | 0 |
+
+Plus **96 padded MCQ options repaired tree-wide** and **73 person-first language edits** — both described below. Running total for the unreviewed tabs: **9,817 of 19,428 cards read.**
+
+### The dangerous one
+
+**`ct.json` q[11] taught students to lumbar-puncture a patient whose CT had already excluded the diagnosis.** The stem gives a thunderclap headache with a radiologist-reported **normal CT at 3 hours**; the keyed answer was "LP at ≥12 hours", and the explanation read *"CT sensitivity for SAH falls with time, so a negative **early** CT does not exclude it"* — a premise that supports the opposite conclusion at three hours. A normal CT within 6 hours of onset is ~100% sensitive (Perry JJ et al., *BMJ* 2011;343:d4277; sensitivity 100%, 95% CI 97–100%), and NICE NG228 says not to offer LP routinely in that window but to discuss with a senior decision-maker.
+
+The agent proposed deleting the card. **I repaired it instead**, because the sub-6-hour case is precisely the discrimination students get wrong, and deleting would have left the deck teaching only the 10-hour case (q[2], where LP genuinely is the answer). The old keyed option survives as a distractor, now correct only beyond 6 hours. The same 6-hour rule was separately applied to `neurological.json` in wave one, and the two decks now agree.
+
+### The other defects fixed
+
+- **An LGE viability threshold that contradicted its own topic** — `mri.json` Cardiac fc[30] said "<50% wall thickness = viable"; fc[7] and q[3] in the same topic give <25% viable / 25–50% uncertain / >50% non-viable. A 40% scar was "viable" on one card and "uncertain" on another.
+- **The 5 Fs of gallstones, answered two different ways in one file** — Fat/Female/Forty/Fertile/**Family history** versus Female/Forty/Fat/Fertile/**Fair**. The reviewed clinical deck sidesteps this by teaching only four. Both cards now keep the agreed four and name the fifth as *variously Family history or Fair*.
+- **A cholecystectomy card measuring from the wrong event** — "early (same-admission)… **not** delayed interval surgery". NICE measures from *diagnosis*, and provides the interval route the card denied.
+- **HUS called a tetrad** in `paediatric.json`, with the STEC prodrome counted as a defining component. It is a triad, and the same deck says so two topics away.
+- **A pyloric stenosis window that excluded the deck's own vignette** — two cards said 4–8 weeks while three said 2–8 weeks, and one of those three presents a **3-week-old** keyed to pyloric stenosis. Widened to 2–8, which is the safe direction and the figure the project's own conditions deck uses.
+- **Cyclical vomiting syndrome called "a diagnosis of exclusion"** where the flashcard side of the same topic makes the opposite its headline point in capitals.
+- **The commonest site of clavicular fracture, given two ways** in one anatomy deck — "middle third" versus "junction of the middle and lateral thirds". Both are standard and reconcilable, so the card now states both with their relation.
+
+### 96 padded MCQ options, repaired tree-wide
+
+Two agents independently flagged options welded with filler to match the length of the correct answer. Sweeping the whole tree found **96 across 19 files** — visible nonsense a student actually reads:
+
+> "Primary herpetic gingivostomatitis **here here here here**"
+> "H. pylori stool antigen **here here here here here here here**"
+> "Introduce solids early to settle the baby **on assessment in this setting on assessment in this setting on assessment in this setting**"
+
+All 96 were distractors; no keyed option, `answer` or `correctIndex` was touched. **The honest cost:** the padding existed to level option lengths, so stripping it raises "keyed option is the longest" from 26/96 to 77/96. I judged that worth paying — the margins are mostly one to five characters, which is not a usable cue, whereas padding is a *perfect* one (padded ⇒ always wrong) and is visible nonsense besides.
+
+Three padded-looking options were correctly left alone because they are **keyed** and the word is genuine English — "ADH and oxytocin are made in hypothalamic nuclei and stored/released **here**". The rule that the tool never edits a keyed option is what caught them.
+
+Also repaired: two paediatric MCQs that wasted two option slots on the same distractor ("Sweat chloride testing" *and* "Sweat test"; "Post-infectious lactose intolerance" *and* "Lactose intolerance"), and a truncated option reading just "Toddler's".
+
+### Person-first language: 73 edits, and three traps avoided
+
+Bare plural labels — "diabetics", "asthmatics", "alcoholics" — replaced across 27 files, in flashcards and in MCQ options alike. What matters is what was **excluded**, because reviewing the candidate list changed the scope twice:
+
+- **The singular forms were dropped entirely.** "a diabetic" is frequently *adjectival* in this corpus — "a diabetic CN III palsy", "a diabetic Charcot foot", "a diabetic middle-aged woman", "a diabetic / hypertensive patient" — and no following-word heuristic separates those from the noun use reliably. A plural cannot be adjectival, so only plurals were touched.
+- **A word-boundary match was rewriting inside hyphenated compounds.** "non-**diabetics**" and "anti-**epileptics**" would have become "non-people with diabetes" and "anti-people with epilepsy". Five such edits were caught and blocked by a negative lookbehind.
+- **"non-compliant" turned out to be two different words**, and the sweep yields *zero* edits. Sixteen of eighteen occurrences are the **physiological** sense — a rigid pericardium, a stiff non-compliant ventricle, non-compliant lungs — where "non-adherent" would be a serious error. The remaining two describe a clinician *labelling* a patient non-compliant on a card that then criticises exactly that. My original flag was wrong.
+
+"the elderly" was deliberately left alone throughout: 168 occurrences of standard UK medical register, where changing them would be pure churn with no accuracy gain.
+
+### Where the agents' claims did not survive checking
+
+W2C proposed **35 same-topic deletions**. I applied **none of them**. The coverage guard rejected the batch, and at least three would have lost real content the keeper does not carry — **Asherman's syndrome**, **tripoding**, and **MRI-conditional** (pacemaker safety). This is the first wave where a deletion set failed verification at that rate, and it is the reason the guard pools the keeper rather than the whole topic.
+
+The 18 edits that were meant to *enable* those deletions had already been applied. That is a safe half-state — they are additive folds that enrich keepers — and I verified it: across all three imaging decks, exactly five applied edits dropped any word at all, four of them trivial wording, the fifth my own SAH rewrite, whose dropped mechanism detail ("spectrophotometry", "red-cell breakdown") survives in five other cards including the CSF Analysis topic.
+
+Two deletions I declined on my own judgement: a pectinate-line card that is part of a deliberate epithelium / innervation / drainage triad, and a transient-synovitis MCQ the agent itself flagged as a judgement call.
+
+### A detector I built and threw away
+
+I tried to find MCQs with two effectively-identical options by testing whether one option's tokens nest inside another's. It returned **4,967 pairs**, almost all of them *good* MCQ design — options deliberately differing in one detail ("Ribs 9–11" vs "Ribs 6–8", "Vein, artery, ureter" vs "Artery, vein, ureter", "2 hours, 4 hours, 6 hours" vs "2 hours, 6 hours, 4 hours"). The defect class is real but needs semantic judgement, not token nesting. Recording it so nobody rebuilds the same useless detector.
+
+### Calibration: the wave-two "looked wrong, was correct" list
+
+Verified and left alone: **retropulsion of a posterior bony fragment** as a *benign* osteoporotic feature (malignancy gives a convex bulging cortex); **"fat out, iron in"** (the in-phase echo has the longer TE, so T2* decay is worse there); the **left** hemidiaphragm being the one effaced on the lateral chest film; **Meyerding I–IV** having no grade V in the original description; **Fabry's low native T1**; longitudinal temporal bone fractures giving conductive loss and transverse giving SNHL; **no contrast enema of any kind in toxic megacolon**; **McBurney's point** described from opposite ends of the same line in two topics ("one-third from the ASIS to the umbilicus" and "two-thirds from the umbilicus to the ASIS"); **Cullen's sign** originally described in ruptured ectopic rather than pancreatitis; the stomach's extra **inner oblique** muscle layer; **obturator externus** as a medial-compartment muscle; **pronator quadratus** as the primary pronator; and — the one the brief specifically warned about — **hypotension already taught as a late sign in children**, on a card devoted to saying so.
+
+Fourteen DWI/ADC occurrences all had restricted diffusion bright on DWI and dark on ADC. No SnNOut/SpPIn inversion anywhere. No red flag in a grey span in any wave-two deck.
+
+### Still open
+
+- **35 W2C deletions** need per-item verification before any can be applied; three are known not to be strict subsets.
+- **"Mallory–Weiss" is spelled with an en-dash in one card and a hyphen in another** in the same topic — cosmetic, but it is why a deletion guard flagged the eponym as missing from its own keeper.
+- **The NICE traffic-light AMBER column is absent from the whole project**, in both the signs and the conditions paediatric decks. The RED column is present and correctly assigned. Amber is the column that drives safety-netting, so this is the largest content gap found so far.
+- **The paediatric signs deck has no age-banded observations, no milestones or limit ages, no Tanner staging and no exanthem incubation periods** — so several planned cross-checks passed vacuously rather than by being correct.
+- **The psychiatric signs deck states no MHA section numbers and no cognitive-test cut-offs**, so those checks had no material either. (*Cheshire West* is correctly handled: `psychiatry.json` already reflects [2026] UKSC 16.)
+- **The imaging decks give the thrombolysis window as a flat 4.5 h**, where `neurology-neurosurgery.json` adds the extended 4.5–9 h and wake-up windows with perfusion selection. Nothing false, but incomplete.
