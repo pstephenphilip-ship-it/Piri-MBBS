@@ -13840,23 +13840,38 @@ initTab('conditions');
     ov.onclick=function(){ ov.remove(); };
     document.body.appendChild(ov);
   };
-  // setItem that won't throw the note away if the image busts the storage quota — and, when the
-  // failure is NOT about an image, tells the truth (the site's localStorage is full) instead of
-  // blaming a non-existent image. A full store also blocks Supabase's own session write, which is
-  // why "storage full" shows up as being logged out on every refresh.
+  // Rough current localStorage footprint (bytes). Used to stop a signed-out inline image from
+  // filling the browser's ~5 MB cap for the site.
+  function __lsUsedBytes(){
+    try{ var n=0; for(var i=0;i<localStorage.length;i++){ var k=localStorage.key(i); n+=k.length+((localStorage.getItem(k)||'').length); } return n; }
+    catch(e){ return 0; }
+  }
+  // setItem that won't throw the note away if an image busts the storage quota — and tells the
+  // TRUTH when the store is simply full (rather than always blaming an image). A full store also
+  // blocks Supabase's own session write, which is why "storage full" showed up as being logged
+  // out on every refresh. Cloud-hosted images are short http(s) URLs and are always kept; only
+  // signed-out INLINE base64 images (data: URLs) are large enough to matter here.
+  function __isInlineImg(a){ return !!(a && a.image && /^data:/i.test(a.image)); }
   function annotStore(key, annots){
+    // Proactive: if the store is already near the cap, drop any NEW inline base64 image up front
+    // (keeping the note text) so the save can't fail. Sign in and images go to the cloud instead.
+    try{
+      if(__lsUsedBytes() > 4200000 && annots.some(__isInlineImg)){
+        annots.forEach(function(a){ if(__isInlineImg(a)) delete a.image; });
+        try{ alert('This browser is nearly out of storage, so the pasted image wasn’t saved — your note text was kept. Sign in so images save to your account instead of this browser.'); }catch(_){}
+      }
+    }catch(e){}
     try{ localStorage.setItem(key, JSON.stringify(annots)); return true; }
     catch(e){
-      var hadImage = annots.some(function(a){ return a && a.image; });
-      if(hadImage){
-        // An oversized attached image is the usual cause — drop it and keep the note.
-        annots.forEach(function(a){ if(a){ delete a.image; } });
-        try{ localStorage.setItem(key, JSON.stringify(annots));
-             try{ alert('That image was too large to save, so the note was kept without it.'); }catch(_){}
-             return true; }catch(_){}
-      }
-      // No image involved (or removing it didn't free enough): this browser is genuinely out of
-      // DoctoRise storage on this device. Say so, and point at the safe fix.
+      var hadInline = annots.some(__isInlineImg);
+      // Reactive: strip inline images from this note and retry — an oversized image is the usual
+      // cause, but a genuinely full store also lands here.
+      annots.forEach(function(a){ if(__isInlineImg(a)) delete a.image; });
+      try{ localStorage.setItem(key, JSON.stringify(annots));
+           try{ alert(hadInline ? 'That image was too large to save, so the note was kept without it.'
+                                : 'This browser is out of storage for DoctoRise, so the note couldn’t be saved.'); }catch(_){}
+           return true; }catch(_){}
+      // Still failing: the browser is genuinely out of DoctoRise storage on this device.
       try{ alert('This browser has run out of storage for DoctoRise, so that couldn’t be saved — and it’s also why you keep getting logged out.\n\nFix: make sure you’re signed in (your notes back up to your account), then clear this site’s data in your browser settings. Your saved notes reload from your account afterwards.'); }catch(_){}
       return false;
     }
