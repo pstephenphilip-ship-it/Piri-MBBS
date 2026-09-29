@@ -12743,3 +12743,53 @@ Cross-file figure checks across the renal/urology decks found **no disagreements
 - **Vesicle/bulla at 5 mm** where several texts use 10 mm. The deck is internally consistent and gives no other lesion-size threshold to conflict with, and no single UK threshold could be attributed.
 - **Lid lag and lid retraction are named but never distinguished or given a mechanism** anywhere in the endocrine deck. No card conflates them and no two disagree, so this is a gap rather than a defect.
 - **Three vestigial sub-lines** in the lymphoid deck repeat something the main text already says ("The appendix is one of them"), apparently residue from an earlier pass. Redundant, not wrong.
+
+### Wave three (part 2): the eight small investigations decks — 1,039 cards, 4 changed
+
+`therapeutic-drug-monitoring.json`, `immunology-serology.json`, `microbiology.json`,
+`genetics-molecular.json`, `neurophysiology-csf.json` and `gi-physiology-stool.json` all
+came back needing **nothing**. The four changes are in toxicology and evidence:
+
+- **A paracetamol card that made its own sibling impossible.** `toxicology.json` fc[3]
+  listed three triggers for empirical acetylcysteine (>8 h, staggered, unknown timing) and
+  then said "the nomogram is **invalid** in these situations". That is true for staggered
+  and unknown timing but false for late presentation — the nomogram still applies to a
+  single acute overdose with a known time, and the deck's own fc[6] depends on exactly
+  that, saying NAC can be stopped when "a **valid timed level** (single acute, known time)
+  later falls below the treatment line". The reviewed pharmacology deck agrees. "Invalid"
+  is now scoped to staggered and unknown timing.
+- **King's College criteria missing the condition that makes them meaningful.** The pH
+  criterion was given as "pH <7.3 after resuscitation", omitting **>24 hours
+  post-ingestion**. Both reviewed decks carry it in full — `clinical-pharmacology-prescribing.json`
+  fc[14] says "arterial pH <7.3 **more than 24h after ingestion** (after fluid
+  resuscitation)", and `risk-scores-criteria.json` uses a 30-hour case to make the point.
+  Fixed on the flashcard and in the matching MCQ. Every figure (7.3, 6.5, 100 s,
+  300 µmol/L, grade III/IV) unchanged.
+- **A likelihood-ratio card contradicting its own ladder.** The explanation said an LR+ of
+  2–5 shifts probability "roughly +15–20 points" where the deck's own fc[6] gives **+30**
+  for LR 5, citing McGee. Rewritten against the deck's own +15/+30/+45 ladder.
+
+**Arithmetic recomputed and confirmed correct**: theophylline 10–20 mg/L ≈ 55–110 µmol/L
+(MW 180.16 → 55.5 and 111); phenytoin 10–20 mg/L ≈ 40–80 µmol/L (MW 252.27 → 39.6 and
+79.3); the whole salicylate ladder (MW 138.12 → 2.17, 3.62, 5.07 against the card's 2.2,
+3.6, 5.1); Wilson's urinary and hepatic copper conversions; two CSF glucose ratios.
+**Every recurrence risk in the genetics deck was recomputed** — and it turns out the deck
+contains no Hardy-Weinberg calculation at all, which is worth knowing rather than
+rediscovering.
+
+**Imprinting is absent from the genetics deck**, so the Prader-Willi/Angelman direction
+could not be checked there — but it was checked where it does live, `paediatrics.json`,
+and it is **the right way round**: PWS from loss of the *paternal* 15q11-q13, Angelman
+from loss of *maternal* UBE3A, with methylation analysis separating them.
+
+**Gaps found in the TDM deck, not fixed** (each would mean importing a figure): no
+methotrexate content at all; a gentamicin card teaching "high peak, low trough" with no
+peak target and no peak sampling time; a vancomycin trough target with **no sampling
+time**, where every other drug in the deck states one explicitly; and a phenytoin card
+saying to correct the level without giving the Sheiner-Tozer formula. `toxicology.json`
+likewise carries no acetylcysteine regimen and no staggered-overdose dose threshold.
+
+**One cross-deck tension reported rather than edited**: `microbiology.json` calls a
+PCR/GDH-positive, toxin-negative *C. difficile* result "carriage, not disease" flatly,
+where `gi-physiology-stool.json` calls it "ambiguous — carrier *or* early/low-toxin
+disease". Both are defensible and the softer wording is the safer one.
