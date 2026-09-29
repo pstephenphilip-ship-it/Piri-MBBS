@@ -12970,3 +12970,66 @@ exists only in `lung-function.json`; partner-notification **look-back periods ar
 concept in the GUM deck but no numbers appear**; and Horner's, Holmes-Adie and Argyll
 Robertson are absent from `ophthalmic.json` entirely, living only in `ophthalmology.json`
 and `neurological.json` — which agree with each other.
+
+### Wave four, final deck group: ultrasound, nuclear medicine, cardiac investigations — 872 cards, 7 changed
+
+**This completes the whole card tree.** Every reachable card in all five tabs has now been
+read: **19,428 previously-unreviewed cards across 52 files**, on top of the 28 manifest decks.
+
+**The find: a DAPT duration attached to the wrong indication, contradicting a discrimination
+the app explicitly examines.** `cardiac-investigations.json` q[3] has a stem reading
+"a drug-eluting stent placed **for stable angina**", and its explanation said DAPT "is
+continued for ~12 months". Meanwhile `cardiovascular.json` q[70] keys "DAPT for **6 months**"
+and its explanation ends: *"The 12-month DAPT duration is the figure for ACS, not for elective
+PCI — **that is the discrimination being tested**."*
+
+So one deck taught, as the correct reading of a stable-angina stem, precisely what another
+deck marks as the wrong answer. Both figures are right for their own indication (6 months
+after elective stenting in stable CAD, 12 after ACS; 2018 ESC/EACTS revascularization
+guidelines), so each is now stated with its condition rather than one being deleted. The
+keyed answer was unaffected either way — the patient is two months in.
+
+Also fixed:
+- **A PoTS threshold contradicting itself inside one topic** — "more than 30 bpm" in two
+  cards against "≥30 bpm (≥40 in adolescents) within 10 minutes" in a third. Aligned to
+  the form the topic already taught.
+- **An endometrium that was brightest twice.** One sentence said it is "thinnest and
+  **brightest** just after menses… then progressively thickens to become maximal and **most
+  echogenic** in the secretory phase". Rewritten to the correct sequence: thin echogenic
+  line → trilaminar late proliferative → thickest and most echogenic secretory.
+- **An MCQ with two true options.** A bone-scan radiation-safety question asked which
+  statement "is correct" and offered, as a distractor, "Breastfeeding can continue without
+  any interruption" — which is **true** for ⁹⁹ᵐTc-MDP (ICRP 106 places Tc-99m phosphonates
+  in the no-interruption category), alongside a keyed answer that is also true. Distractor
+  replaced with a three-week interruption, which is clearly wrong for this tracer.
+- **A sentence with no full stop** before a `fc-sub` block that renders as its own
+  bordered block, so the main clause read as unterminated.
+
+**Systematic checks, all clean.** A ~60-row echogenicity table was built and every card
+checked against it: **zero errors**, with fluid→posterior enhancement and stone/gas→shadowing
+the right way round in all 21 places they appear. A 20-row radiopharmaceutical table likewise:
+**every tracer paired with the right scan and every hot/cold polarity correct across 311
+cards**. Arithmetic recomputed: bladder volume 8×6×5×0.52 = 125 mL, SAAG 30−15 = 15, Bernoulli
+4×4.6² = 85 mmHg, GLS −21→−16 = 23.8%, tilt HR 78→120 = 42 bpm.
+
+Calibration items verified correct and left: the **carotid string sign** having paradoxically
+*low* velocity (the easiest thing in the deck to get backwards); renal artery stenosis giving
+a *low* distal resistive index; **ovarian torsion with preserved Doppler flow**; a bone scan
+being *cold* in myeloma; a normal DaTSCAN in drug-induced parkinsonism.
+
+**Gaps, not defects:** the ultrasound deck never defines **dirty shadowing** against clean
+shadowing, has **no card on the twinkle artefact**, and — across all 491 cards — **no card
+says what red and blue mean on colour Doppler**, nor covers aliasing or the Nyquist limit.
+
+**One figure flagged rather than changed:** placenta praevia delivery timing is given as
+"~37–38 weeks" where RCOG GTG 27a (September 2018) says 36+0–37+0 for uncomplicated praevia.
+It is attributable, but it appears **once** in the whole app with nothing contradicting it,
+so the two-part test — internal contradiction *and* a named source — was not met. The exact
+replacement clause is written out in the working notes for a human to approve.
+
+---
+
+## The whole tree is now read
+
+**56,616 cards. 5 tabs. Zero answer/key desyncs, zero duplicate-option MCQs, zero unbalanced
+markup, manifest in sync.**
