@@ -1205,6 +1205,7 @@ body.da-notes-open #daMemFab{display:none!important;}
     <div class="nav-tab" onclick="switchMainTab('osce',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="12" height="11" rx="2"/><path d="M6 4V3a1 1 0 012 0v1m2 0V3a1 1 0 012 0v1"/><path d="M6 9h6m-6 3h4"/></svg></span>OSCE</div>
     <div class="nav-tab" onclick="switchMainTab('pharmacology',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="8" height="5" rx="1"/><path d="M7 7v9m4-9v9M5 11h8"/><path d="M6 2V1m6 1V1"/></svg></span>Pharmacology</div>
     <div class="nav-tab" onclick="switchMainTab('calculator',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="12" height="14" rx="2"/><path d="M6 6h6M6 10h2m4 0h-2m-2 0v3m-2 0h6"/></svg></span>Calculator</div>
+    <div class="nav-tab" onclick="switchMainTab('publications',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5C7.5 3.2 5.5 3 3.5 3.3V14c2-.3 4 0 5.5 1.2M9 4.5c1.5-1.3 3.5-1.5 5.5-1.2V14c-2-.3-4 0-5.5 1.2M9 4.5V15"/></svg></span>Student Publications</div>
   </div>
   <button class="nav-arrow nav-arrow-right" id="navArrowR" type="button" aria-label="Scroll tabs right" onclick="scrollNavTabs(1)">&#8250;</button>
   <div class="account-area" id="accountArea">
@@ -2262,6 +2263,69 @@ body.da-notes-open #daMemFab{display:none!important;}
 .mk-exp-correct b{color:#1F8B5E;}
 .mk-empty-msg{text-align:center;color:#6B7280;padding:40px;font-size:14px;}
 </style>
+<style>
+/* ===================== STUDENT PUBLICATIONS ===================== */
+.pub-wrap{max-width:1000px;margin:0 auto;padding:24px 20px 90px;}
+.pub-head{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;justify-content:space-between;}
+.pub-title{font-family:var(--sans);font-size:24px;font-weight:800;color:var(--rn-text,#1E2640);margin:0;}
+.pub-sub{font-size:13.5px;color:var(--rn-sub,#5A6480);max-width:640px;line-height:1.55;margin-top:6px;}
+.pub-submit-btn{flex-shrink:0;cursor:pointer;border:none;border-radius:10px;padding:11px 18px;font-family:var(--sans);font-size:13.5px;font-weight:700;color:#fff;background:linear-gradient(135deg,#00C2A8,#0EA5E9);white-space:nowrap;}
+.pub-submit-btn:hover{box-shadow:0 6px 18px rgba(14,165,233,.28);}
+.pub-note{background:var(--rn-blue-bg,#EBF2FF);border:1px solid #B0CCEF;border-radius:10px;padding:12px 16px;font-size:12.5px;color:var(--rn-text,#1E2640);line-height:1.55;margin:16px 0 2px;}
+.pub-note strong{color:var(--rn-text,#1E2640);}
+.pub-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:18px;}
+.pub-card{background:var(--rn-card,#fff);border:1.5px solid var(--rn-border,#E2E6F0);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.pub-card-type{align-self:flex-start;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#0A6DA0;background:#E7F2FB;border-radius:6px;padding:3px 8px;}
+.pub-card-title{font-size:15.5px;font-weight:800;color:var(--rn-text,#1E2640);line-height:1.35;}
+.pub-card-meta{font-size:12px;color:var(--rn-sub,#5A6480);}
+.pub-card-abstract{font-size:12.5px;color:var(--rn-sub,#5A6480);line-height:1.5;flex:1;}
+.pub-card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;flex-wrap:wrap;}
+.pub-read{font-size:13px;font-weight:700;color:#0A6DA0;text-decoration:none;}
+.pub-read:hover{text-decoration:underline;}
+.pub-del{font-size:11.5px;color:#C4123C;background:none;border:none;cursor:pointer;padding:0;}
+.pub-empty{text-align:center;color:var(--rn-sub,#6B7280);padding:48px 20px;font-size:14px;line-height:1.6;grid-column:1/-1;}
+.pub-pending-tag{font-size:10.5px;font-weight:700;color:#8A5A00;background:#FEF5E4;border:1px solid #E8CE93;border-radius:6px;padding:2px 7px;}
+.pub-modal-ov{position:fixed;inset:0;z-index:100000;background:rgba(11,16,32,.55);display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);}
+.pub-modal{background:#fff;border-radius:16px;box-shadow:0 24px 60px rgba(16,24,40,.35);max-width:520px;width:100%;margin:auto;padding:22px 24px;}
+.pub-modal h3{margin:0 0 4px;font-size:18px;font-weight:800;color:#1E2640;}
+.pub-modal-sub{font-size:12.5px;color:#5A6480;margin-bottom:16px;line-height:1.5;}
+.pub-field{margin-bottom:13px;}
+.pub-field>label{display:block;font-size:12px;font-weight:700;color:#3A4254;margin-bottom:5px;}
+.pub-field input,.pub-field select,.pub-field textarea{width:100%;box-sizing:border-box;border:1.5px solid #D8DAE5;border-radius:9px;padding:10px 12px;font-family:var(--sans);font-size:13.5px;color:#1E2640;background:#fff;}
+.pub-field textarea{min-height:80px;resize:vertical;}
+.pub-field input:focus,.pub-field select:focus,.pub-field textarea:focus{outline:none;border-color:#00C2A8;}
+.pub-row{display:flex;gap:10px;}
+.pub-row>.pub-field{flex:1;}
+.pub-consent{background:#FFF8E6;border:1px solid #E8D48A;border-radius:10px;padding:12px 14px;margin:6px 0 14px;}
+.pub-consent-item{display:flex;gap:9px;align-items:flex-start;margin-bottom:9px;}
+.pub-consent-item:last-child{margin-bottom:0;}
+.pub-consent-item input{margin-top:2px;flex-shrink:0;}
+.pub-consent-item label{font-size:12px;color:#5A3E00;line-height:1.45;}
+.pub-consent-item label strong{color:#5A3E00;}
+.pub-modal-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:6px;}
+.pub-btn{font-family:var(--sans);font-weight:700;font-size:13.5px;border-radius:10px;padding:10px 18px;cursor:pointer;border:1px solid #D8DBE8;background:#fff;color:#1E2640;}
+.pub-btn-primary{background:linear-gradient(135deg,#00C2A8,#0EA5E9);color:#fff;border:none;}
+.pub-btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+.pub-msg{font-size:12.5px;margin-top:10px;line-height:1.45;}
+.pub-msg.err{color:#C4123C;}
+.pub-msg.ok{color:#1F8B5E;}
+@media (max-width:560px){.pub-row{flex-direction:column;gap:0;}}
+</style>
+<div id="tab-publications" class="tab-view">
+  <div class="pub-wrap">
+    <div class="pub-head">
+      <div>
+        <h1 class="pub-title">Student Publications</h1>
+        <div class="pub-sub">Research projects, SSCs, dissertations, audits and case reports shared by medical students. Free to read &mdash; and you can submit your own.</div>
+      </div>
+      <button class="pub-submit-btn" type="button" onclick="pubOpenSubmit()">+ Submit your work</button>
+    </div>
+    <div class="pub-note"><strong>How it works:</strong> submissions are reviewed before they appear, to protect quality and patient confidentiality. <strong>Never upload anything containing patient-identifiable information.</strong></div>
+    <div id="pub-list" class="pub-list"></div>
+    <div id="pub-empty" class="pub-empty" style="display:none;"></div>
+  </div>
+</div>
+
 <div id="tab-mock" class="tab-view">
   <div class="mk-wrap">
     <div class="mk-screen" id="mockSetup"></div>
@@ -12352,6 +12416,7 @@ function switchMainTab(id, el, skipHash) {
   }
   if (id === 'mock') { initMock(); return; }
   if (id === 'pharmacology') { initPharma(); return; }
+  if (id === 'publications') { initPublications(); return; }
   const st = getState(id);
   if (!st.initialised) { initTab(id); st.initialised = true; }
   else if (!skipHash) {
@@ -23861,5 +23926,147 @@ function hideFlyout(p) {
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(initMount,60); }); else setTimeout(initMount,60);
 })();
 </script>
+<script>
+/* ===================== STUDENT PUBLICATIONS ===================== */
+(function(){
+  function sbc(){ return window.__sb || null; }
+  function esc(x){ return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function el(id){ return document.getElementById(id); }
+  var PTYPES = ['SSC','Dissertation','Audit','Case report','Research','Other'];
+  var _me = null;
+
+  function currentUser(cb){
+    var sb=sbc(); if(!sb){ cb(null); return; }
+    try{ sb.auth.getSession().then(function(r){ cb((r&&r.data&&r.data.session)?r.data.session.user:null); }).catch(function(){ cb(null); }); }
+    catch(e){ cb(null); }
+  }
+  function fileUrl(path){
+    var sb=sbc(); if(!sb||!path) return '';
+    try{ var p=sb.storage.from('publications').getPublicUrl(path); return (p&&p.data&&p.data.publicUrl)||''; }catch(e){ return ''; }
+  }
+
+  window.initPublications = function(){
+    var list=el('pub-list'), empty=el('pub-empty'); if(!list) return;
+    var sb=sbc();
+    if(!sb){ list.innerHTML=''; empty.style.display=''; empty.textContent='Publications need a connection — please check back shortly.'; return; }
+    list.innerHTML='<div class="pub-empty">Loading publications…</div>'; empty.style.display='none';
+    currentUser(function(u){
+      _me=u;
+      sb.from('publications').select('*').order('created_at',{ascending:false})
+        .then(function(r){
+          if(r.error){ list.innerHTML=''; empty.style.display=''; empty.textContent='Publications aren’t available yet.'; return; }
+          render(r.data||[]);
+        })
+        .catch(function(){ list.innerHTML=''; empty.style.display=''; empty.textContent='Couldn’t load publications.'; });
+    });
+  };
+
+  function render(rows){
+    var list=el('pub-list'), empty=el('pub-empty');
+    var visible=rows.filter(function(p){ return p.status==='approved' || (_me && p.user_id===_me.id); });
+    if(!visible.length){ list.innerHTML=''; empty.style.display=''; empty.innerHTML='No publications yet.<br>Be the first to share your work — tap <strong>Submit your work</strong>.'; return; }
+    empty.style.display='none';
+    list.innerHTML=visible.map(function(p){
+      var mine=_me && p.user_id===_me.id, pending=p.status!=='approved';
+      var meta=[p.authors,p.university,p.year].filter(Boolean).map(esc).join(' · ');
+      var ab=p.abstract?'<div class="pub-card-abstract">'+esc(p.abstract.length>200?p.abstract.slice(0,200)+'…':p.abstract)+'</div>':'';
+      var url=fileUrl(p.file_path);
+      return '<div class="pub-card">'+
+        '<span class="pub-card-type">'+esc(p.ptype||'Project')+'</span>'+
+        '<div class="pub-card-title">'+esc(p.title)+'</div>'+
+        '<div class="pub-card-meta">'+meta+'</div>'+ab+
+        '<div class="pub-card-foot">'+
+          (url?'<a class="pub-read" href="'+esc(url)+'" target="_blank" rel="noopener">Read PDF ›</a>':'<span class="pub-card-meta">File unavailable</span>')+
+          (pending?'<span class="pub-pending-tag">Pending review</span>':'')+
+          (mine?'<button class="pub-del" type="button" onclick="pubDelete(\''+esc(p.id)+'\')">Delete</button>':'')+
+        '</div>'+
+      '</div>';
+    }).join('');
+  }
+
+  window.pubDelete=function(id){
+    var sb=sbc(); if(!sb) return;
+    if(!window.confirm('Delete this publication? This cannot be undone.')) return;
+    sb.from('publications').delete().eq('id',id).then(function(){ window.initPublications(); }).catch(function(){});
+  };
+
+  window.pubOpenSubmit=function(){
+    currentUser(function(u){
+      if(!u){ if(window.openAuthModal) window.openAuthModal('signin'); else alert('Please sign in to submit your work.'); return; }
+      buildModal();
+    });
+  };
+
+  function closeModal(){ var o=el('pub-modal-ov'); if(o&&o.parentNode) o.parentNode.removeChild(o); }
+  window.pubCloseSubmit=closeModal;
+
+  function buildModal(){
+    closeModal();
+    var ov=document.createElement('div'); ov.id='pub-modal-ov'; ov.className='pub-modal-ov';
+    var opts=PTYPES.map(function(t){ return '<option value="'+t+'">'+t+'</option>'; }).join('');
+    ov.innerHTML=
+      '<div class="pub-modal" role="dialog" aria-modal="true">'+
+        '<h3>Submit your work</h3>'+
+        '<div class="pub-modal-sub">Shared with other students once reviewed. PDF only, up to 20&nbsp;MB.</div>'+
+        '<div class="pub-field"><label>Title *</label><input id="pub-f-title" type="text" maxlength="200" placeholder="e.g. The role of … in …"></div>'+
+        '<div class="pub-field"><label>Author(s) *</label><input id="pub-f-authors" type="text" maxlength="200" placeholder="Your name (and co-authors)"></div>'+
+        '<div class="pub-row">'+
+          '<div class="pub-field"><label>University</label><input id="pub-f-uni" type="text" maxlength="120" placeholder="e.g. Queen Mary, KCL"></div>'+
+          '<div class="pub-field"><label>Year</label><input id="pub-f-year" type="number" min="2000" max="2100" placeholder="2026"></div>'+
+        '</div>'+
+        '<div class="pub-row">'+
+          '<div class="pub-field"><label>Type *</label><select id="pub-f-type">'+opts+'</select></div>'+
+          '<div class="pub-field"><label>PDF file *</label><input id="pub-f-file" type="file" accept="application/pdf"></div>'+
+        '</div>'+
+        '<div class="pub-field"><label>Abstract / summary</label><textarea id="pub-f-abstract" maxlength="1500" placeholder="A few sentences on what it is and what you found…"></textarea></div>'+
+        '<div class="pub-consent">'+
+          '<div class="pub-consent-item"><input type="checkbox" id="pub-c1"><label for="pub-c1">This contains <strong>no patient-identifiable information</strong> (names, DOB, hospital numbers, identifiable images or identifying details).</label></div>'+
+          '<div class="pub-consent-item"><input type="checkbox" id="pub-c2"><label for="pub-c2">I am an author and have the right to share it. I understand this may count as prior publication and could affect future journal submission or my university’s rules.</label></div>'+
+          '<div class="pub-consent-item"><input type="checkbox" id="pub-c3"><label for="pub-c3">I grant DoctoRise permission to host and display it, and can request removal at any time.</label></div>'+
+        '</div>'+
+        '<div class="pub-modal-foot"><button class="pub-btn" type="button" onclick="pubCloseSubmit()">Cancel</button><button class="pub-btn pub-btn-primary" id="pub-submit-go" type="button" onclick="pubDoSubmit()">Submit</button></div>'+
+        '<div id="pub-msg" class="pub-msg"></div>'+
+      '</div>';
+    document.body.appendChild(ov);
+    ov.addEventListener('click', function(e){ if(e.target===ov) closeModal(); });
+  }
+
+  window.pubDoSubmit=function(){
+    var msg=el('pub-msg'); function err(t){ msg.className='pub-msg err'; msg.textContent=t; }
+    var title=(el('pub-f-title').value||'').trim();
+    var authors=(el('pub-f-authors').value||'').trim();
+    var uni=(el('pub-f-uni').value||'').trim();
+    var year=parseInt(el('pub-f-year').value,10);
+    var ptype=el('pub-f-type').value;
+    var abstract=(el('pub-f-abstract').value||'').trim();
+    var file=el('pub-f-file').files[0];
+    if(!title){ err('Please add a title.'); return; }
+    if(!authors){ err('Please add the author(s).'); return; }
+    if(!file){ err('Please choose a PDF file.'); return; }
+    if(file.type!=='application/pdf' && !/\.pdf$/i.test(file.name)){ err('The file must be a PDF.'); return; }
+    if(file.size>20*1024*1024){ err('That PDF is over 20 MB — please compress it first.'); return; }
+    if(!el('pub-c1').checked||!el('pub-c2').checked||!el('pub-c3').checked){ err('Please confirm all three boxes before submitting.'); return; }
+    var sb=sbc(); if(!sb){ err('No connection — try again shortly.'); return; }
+    var go=el('pub-submit-go'); go.disabled=true; msg.className='pub-msg'; msg.textContent='Uploading…';
+    currentUser(function(u){
+      if(!u){ go.disabled=false; err('Please sign in and try again.'); return; }
+      var safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_').slice(-80);
+      var path=u.id+'/'+Date.now()+'-'+safe;
+      sb.storage.from('publications').upload(path, file, {contentType:'application/pdf', upsert:false})
+        .then(function(up){
+          if(up&&up.error){ go.disabled=false; err('Upload failed: '+up.error.message); return; }
+          var row={ user_id:u.id, title:title, authors:authors, university:uni||null, ptype:ptype, year:(isNaN(year)?null:year), abstract:abstract||null, file_path:path, status:'pending' };
+          sb.from('publications').insert(row).then(function(ins){
+            if(ins&&ins.error){ go.disabled=false; err('Couldn’t save: '+ins.error.message); return; }
+            msg.className='pub-msg ok'; msg.textContent='Submitted! It’ll appear once reviewed — you’ll see it below marked “Pending review”.';
+            setTimeout(function(){ closeModal(); window.initPublications(); }, 1500);
+          }).catch(function(){ go.disabled=false; err('Couldn’t save your submission.'); });
+        })
+        .catch(function(){ go.disabled=false; err('Upload failed — please try again.'); });
+    });
+  };
+})();
+</script>
+
 </body>
 </html>
