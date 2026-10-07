@@ -58,7 +58,7 @@ function page(opts) {
     '<meta name="twitter:card" content="summary">' +
     jsonld +
     "<style>" +
-    ":root{--ink:#1E2640;--sub:#5A6480;--acc:#0A6DA0;--line:#E2E6F0;--bg:#F4F6FA;}" +
+    ":root{--ink:#1E2640;--sub:#5A6480;--acc:#0A6DA0;--line:#E2E6F0;--bg:#F7F8FC;}" +
     "*{box-sizing:border-box;}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}" +
     ".top{background:#0B1222;padding:14px 20px;}.top a{color:#4FD1C5;font-weight:800;text-decoration:none;font-size:18px;letter-spacing:.02em;}" +
     ".wrap{max-width:720px;margin:0 auto;padding:34px 20px 70px;}" +
@@ -81,7 +81,6 @@ function page(opts) {
     ".article h1,.article h2,.article h3,.article h4{color:var(--ink);line-height:1.3;margin:20px 0 8px;}" +
     ".article h1{font-size:19px;} .article h2{font-size:17px;} .article h3{font-size:15.5px;} .article h4{font-size:14px;}" +
     "a{color:var(--acc);}" +
-    "@media(prefers-color-scheme:dark){:root{--ink:#E6E9F2;--sub:#9AA3B8;--acc:#5BB3E6;--line:#2A3350;--bg:#0E1424;}body{background:var(--bg);}.card,.article{background:#141C30;}.abstract,.article p{color:#CBD3E6;}.type{background:#10263A;}.btn.ghost{background:#141C30;}}" +
     "</style></head><body>" +
     '<div class="top"><a href="/">' + SITE_NAME + "</a></div>" +
     '<div class="wrap">' + opts.body + "</div></body></html>"
@@ -128,7 +127,7 @@ async function pubPage(id, origin, env) {
     "</div>" +
     '<div class="foot">Shared by a medical student on ' + SITE_NAME + ", a free UK medical-education platform. Published work is the author’s own.</div>";
   return new Response(page({ title: p.title, metaDesc: metaDesc, canonical: canonical, body: body, jsonld: jsonld }), {
-    headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300, s-maxage=600" },
+    headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=60, s-maxage=120" },
   });
 }
 
