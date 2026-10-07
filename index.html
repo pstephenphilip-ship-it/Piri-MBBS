@@ -2299,6 +2299,13 @@ a.pub-card-title-link:hover{text-decoration:underline;color:#0A6DA0;}
 .pub-row{display:flex;gap:10px;}
 .pub-row>.pub-field{flex:1;}
 .pub-consent{background:#FFF8E6;border:1px solid #E8D48A;border-radius:10px;padding:12px 14px;margin:6px 0 14px;}
+.pub-howto{display:flex;flex-direction:column;gap:12px;margin:4px 0 16px;}
+.pub-howto-row{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:#2C3550;line-height:1.5;}
+.pub-step{flex:none;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#00C2A8,#0EA5E9);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.pub-email{font-weight:800;color:#0A6DA0;text-decoration:none;word-break:break-all;}
+.pub-email:hover{text-decoration:underline;}
+.pub-consent-head{font-size:12px;font-weight:800;color:#8A5A00;margin-bottom:8px;}
+.pub-bullet{flex:none;color:#8A5A00;font-weight:800;}
 .pub-consent-item{display:flex;gap:9px;align-items:flex-start;margin-bottom:9px;}
 .pub-consent-item:last-child{margin-bottom:0;}
 .pub-consent-item input{margin-top:2px;flex-shrink:0;}
@@ -2320,9 +2327,9 @@ a.pub-card-title-link:hover{text-decoration:underline;color:#0A6DA0;}
         <h1 class="pub-title">Student Publications</h1>
         <div class="pub-sub">Research projects, SSCs, dissertations, audits and case reports shared by medical students. Free to read &mdash; and you can submit your own.</div>
       </div>
-      <button class="pub-submit-btn" type="button" onclick="pubOpenSubmit()">+ Submit your work</button>
+      <button class="pub-submit-btn" type="button" onclick="pubOpenSubmit()">How to get published</button>
     </div>
-    <div class="pub-note"><strong>How it works:</strong> submissions are reviewed before they appear, to protect quality and patient confidentiality. <strong>Never upload anything containing patient-identifiable information.</strong></div>
+    <div class="pub-note"><strong>Want your work featured?</strong> Email it to us and we&rsquo;ll review and publish it &mdash; tap <strong>How to get published</strong> for the details. Please never share anything containing patient-identifiable information.</div>
     <div id="pub-list" class="pub-list"></div>
     <div id="pub-empty" class="pub-empty" style="display:none;"></div>
   </div>
@@ -23993,81 +24000,39 @@ function hideFlyout(p) {
     sb.from('publications').delete().eq('id',id).then(function(){ window.initPublications(); }).catch(function(){});
   };
 
-  window.pubOpenSubmit=function(){
-    currentUser(function(u){
-      if(!u){ if(window.openAuthModal) window.openAuthModal('signin'); else alert('Please sign in to submit your work.'); return; }
-      buildModal();
-    });
-  };
+  window.pubOpenSubmit=function(){ buildModal(); };
 
   function closeModal(){ var o=el('pub-modal-ov'); if(o&&o.parentNode) o.parentNode.removeChild(o); }
   window.pubCloseSubmit=closeModal;
 
+  // Submission is by EMAIL (no on-site upload). This modal explains how, to whom, and the
+  // confidentiality / prior-publication points. The admin reviews and adds approved work.
   function buildModal(){
     closeModal();
+    var EMAIL='doctorise22@gmail.com';
+    var subject=encodeURIComponent('Student publication submission');
+    var body=encodeURIComponent('Title:\nAuthor(s):\nUniversity:\nYear:\nType (SSC / dissertation / audit / case report / research / other):\n\nShort summary / abstract:\n\n(Please attach your project as a PDF.)\n\nI confirm:\n- This contains NO patient-identifiable information.\n- I am an author and have the right to share it.\n- I understand this may count as prior publication.');
+    var mailto='mailto:'+EMAIL+'?subject='+subject+'&body='+body;
     var ov=document.createElement('div'); ov.id='pub-modal-ov'; ov.className='pub-modal-ov';
-    var opts=PTYPES.map(function(t){ return '<option value="'+t+'">'+t+'</option>'; }).join('');
     ov.innerHTML=
       '<div class="pub-modal" role="dialog" aria-modal="true">'+
-        '<h3>Submit your work</h3>'+
-        '<div class="pub-modal-sub">Shared with other students once reviewed. PDF only, up to 20&nbsp;MB.</div>'+
-        '<div class="pub-field"><label>Title *</label><input id="pub-f-title" type="text" maxlength="200" placeholder="e.g. The role of … in …"></div>'+
-        '<div class="pub-field"><label>Author(s) *</label><input id="pub-f-authors" type="text" maxlength="200" placeholder="Your name (and co-authors)"></div>'+
-        '<div class="pub-row">'+
-          '<div class="pub-field"><label>University</label><input id="pub-f-uni" type="text" maxlength="120" placeholder="e.g. Queen Mary, KCL"></div>'+
-          '<div class="pub-field"><label>Year</label><input id="pub-f-year" type="number" min="2000" max="2100" placeholder="2026"></div>'+
+        '<h3>How to get published</h3>'+
+        '<div class="pub-modal-sub">Share your research with other students — SSCs, dissertations, audits, case reports and projects are all welcome. Email it to us and we’ll review and publish it, with a shareable, Google-searchable page.</div>'+
+        '<div class="pub-howto">'+
+          '<div class="pub-howto-row"><span class="pub-step">1</span><div>Email your project as a <strong>PDF</strong> to <a class="pub-email" href="'+mailto+'">'+EMAIL+'</a>.</div></div>'+
+          '<div class="pub-howto-row"><span class="pub-step">2</span><div>Include the <strong>title, author(s), university, year, type</strong> and a short <strong>abstract / summary</strong>.</div></div>'+
+          '<div class="pub-howto-row"><span class="pub-step">3</span><div>We review it and, once approved, it appears here for everyone to read.</div></div>'+
         '</div>'+
-        '<div class="pub-row">'+
-          '<div class="pub-field"><label>Type *</label><select id="pub-f-type">'+opts+'</select></div>'+
-          '<div class="pub-field"><label>PDF file *</label><input id="pub-f-file" type="file" accept="application/pdf"></div>'+
-        '</div>'+
-        '<div class="pub-field"><label>Abstract / summary</label><textarea id="pub-f-abstract" maxlength="1500" placeholder="A few sentences on what it is and what you found…"></textarea></div>'+
         '<div class="pub-consent">'+
-          '<div class="pub-consent-item"><input type="checkbox" id="pub-c1"><label for="pub-c1">This contains <strong>no patient-identifiable information</strong> (names, DOB, hospital numbers, identifiable images or identifying details).</label></div>'+
-          '<div class="pub-consent-item"><input type="checkbox" id="pub-c2"><label for="pub-c2">I am an author and have the right to share it. I understand this may count as prior publication and could affect future journal submission or my university’s rules.</label></div>'+
-          '<div class="pub-consent-item"><input type="checkbox" id="pub-c3"><label for="pub-c3">I grant DoctoRise permission to host and display it, and can request removal at any time.</label></div>'+
+          '<div class="pub-consent-head">Before you send, please make sure:</div>'+
+          '<div class="pub-consent-item"><span class="pub-bullet">•</span><label>It contains <strong>no patient-identifiable information</strong> (names, DOB, hospital numbers, identifiable images or identifying details).</label></div>'+
+          '<div class="pub-consent-item"><span class="pub-bullet">•</span><label>You are an author and have the right to share it — and understand posting it may count as prior publication, which can affect a future journal submission or your university’s rules.</label></div>'+
         '</div>'+
-        '<div class="pub-modal-foot"><button class="pub-btn" type="button" onclick="pubCloseSubmit()">Cancel</button><button class="pub-btn pub-btn-primary" id="pub-submit-go" type="button" onclick="pubDoSubmit()">Submit</button></div>'+
-        '<div id="pub-msg" class="pub-msg"></div>'+
+        '<div class="pub-modal-foot"><button class="pub-btn" type="button" onclick="pubCloseSubmit()">Close</button><a class="pub-btn pub-btn-primary" href="'+mailto+'" style="text-decoration:none;">Email your work</a></div>'+
       '</div>';
     document.body.appendChild(ov);
     ov.addEventListener('click', function(e){ if(e.target===ov) closeModal(); });
   }
-
-  window.pubDoSubmit=function(){
-    var msg=el('pub-msg'); function err(t){ msg.className='pub-msg err'; msg.textContent=t; }
-    var title=(el('pub-f-title').value||'').trim();
-    var authors=(el('pub-f-authors').value||'').trim();
-    var uni=(el('pub-f-uni').value||'').trim();
-    var year=parseInt(el('pub-f-year').value,10);
-    var ptype=el('pub-f-type').value;
-    var abstract=(el('pub-f-abstract').value||'').trim();
-    var file=el('pub-f-file').files[0];
-    if(!title){ err('Please add a title.'); return; }
-    if(!authors){ err('Please add the author(s).'); return; }
-    if(!file){ err('Please choose a PDF file.'); return; }
-    if(file.type!=='application/pdf' && !/\.pdf$/i.test(file.name)){ err('The file must be a PDF.'); return; }
-    if(file.size>20*1024*1024){ err('That PDF is over 20 MB — please compress it first.'); return; }
-    if(!el('pub-c1').checked||!el('pub-c2').checked||!el('pub-c3').checked){ err('Please confirm all three boxes before submitting.'); return; }
-    var sb=sbc(); if(!sb){ err('No connection — try again shortly.'); return; }
-    var go=el('pub-submit-go'); go.disabled=true; msg.className='pub-msg'; msg.textContent='Uploading…';
-    currentUser(function(u){
-      if(!u){ go.disabled=false; err('Please sign in and try again.'); return; }
-      var safe=file.name.replace(/[^a-zA-Z0-9._-]/g,'_').slice(-80);
-      var path=u.id+'/'+Date.now()+'-'+safe;
-      sb.storage.from('publications').upload(path, file, {contentType:'application/pdf', upsert:false})
-        .then(function(up){
-          if(up&&up.error){ go.disabled=false; err('Upload failed: '+up.error.message); return; }
-          var row={ user_id:u.id, title:title, authors:authors, university:uni||null, ptype:ptype, year:(isNaN(year)?null:year), abstract:abstract||null, file_path:path, status:'pending' };
-          sb.from('publications').insert(row).then(function(ins){
-            if(ins&&ins.error){ go.disabled=false; err('Couldn’t save: '+ins.error.message); return; }
-            msg.className='pub-msg ok'; msg.textContent='Submitted! It’ll appear once reviewed — you’ll see it below marked “Pending review”.';
-            setTimeout(function(){ closeModal(); window.initPublications(); }, 1500);
-          }).catch(function(){ go.disabled=false; err('Couldn’t save your submission.'); });
-        })
-        .catch(function(){ go.disabled=false; err('Upload failed — please try again.'); });
-    });
-  };
 })();
 </script>
 
