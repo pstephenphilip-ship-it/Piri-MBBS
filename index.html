@@ -2279,7 +2279,7 @@ body.da-notes-open #daMemFab{display:none!important;}
 .pub-search:focus{outline:none;border-color:#00C2A8;box-shadow:0 0 0 3px rgba(0,194,168,.12);}
 .pub-search::placeholder{color:#9AA3B2;}
 .pub-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:14px;}
-.pub-article-view{max-width:760px;margin:6px auto 0;}
+.pub-article-view{max-width:100%;margin:6px 0 0;}
 .pub-back{background:none;border:none;color:#0A6DA0;font-weight:700;font-size:13.5px;cursor:pointer;padding:0;margin-bottom:16px;}
 .pub-back:hover{text-decoration:underline;}
 .pub-art-title{font-size:23px;font-weight:800;color:var(--rn-text,#1E2640);line-height:1.25;margin:10px 0 8px;}
@@ -2292,6 +2292,11 @@ body.da-notes-open #daMemFab{display:none!important;}
 .pub-art-body td,.pub-art-body th{border:1px solid var(--rn-border,#E2E6F0);padding:6px 9px;vertical-align:top;} .pub-art-body td p{margin:0 0 4px;}
 .pub-art-body h1,.pub-art-body h2,.pub-art-body h3,.pub-art-body h4{color:var(--rn-text,#1E2640);line-height:1.3;margin:20px 0 8px;}
 .pub-art-foot{margin-top:18px;}
+.pub-sec-nav{position:sticky;top:0;z-index:6;display:flex;gap:8px;overflow-x:auto;padding:10px 0;margin:0 0 10px;background:var(--rn-bg,#F7F8FC);scrollbar-width:thin;-webkit-overflow-scrolling:touch;}
+.pub-sec-nav::-webkit-scrollbar{height:0;}
+.pub-sec-chip{flex:none;border:1px solid var(--rn-border,#E2E6F0);background:#fff;color:var(--rn-sub,#5A6480);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .12s,color .12s,border-color .12s;}
+.pub-sec-chip:hover{border-color:#00C2A8;color:#0A6DA0;}
+.pub-sec-chip.active{background:linear-gradient(135deg,#00C2A8,#0EA5E9);color:#fff;border-color:transparent;}
 .pub-card{background:var(--rn-card,#fff);border:1.5px solid var(--rn-border,#E2E6F0);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
 .pub-card-type{align-self:flex-start;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#0A6DA0;background:#E7F2FB;border-radius:6px;padding:3px 8px;}
 .pub-card-title{font-size:15.5px;font-weight:800;color:var(--rn-text,#1E2640);line-height:1.35;}
@@ -24033,19 +24038,69 @@ function hideFlyout(p) {
       '<span class="pub-card-type">'+esc(p.ptype||'Project')+'</span>'+
       '<h1 class="pub-art-title">'+esc(p.title)+'</h1>'+
       '<div class="pub-art-meta">'+metaBits+'</div>'+
+      '<div class="pub-sec-nav" id="pub-sec-nav" style="display:none;"></div>'+
       '<div class="pub-art-body"><div class="pub-empty">Loading…</div></div>'+
       (pdf?'<div class="pub-art-foot"><a class="pub-read" href="'+esc(pdf)+'" target="_blank" rel="noopener">Download PDF ↓</a></div>':'');
     var body=art.querySelector('.pub-art-body');
     var fb=p.abstract?('<p>'+esc(p.abstract).replace(/\n/g,'<br>')+'</p>'):'<p>Article unavailable.</p>';
+    function done(h){ body.innerHTML = h || fb; buildSectionNav(body); }
     if(p.html){
       fetch('/'+String(p.html).replace(/^\/+/,''),{cache:'no-cache'})
         .then(function(r){ return r.ok?r.text():''; })
-        .then(function(h){ body.innerHTML = h || fb; })
-        .catch(function(){ body.innerHTML = fb; });
-    } else { body.innerHTML = fb; }
+        .then(function(h){ done(h); })
+        .catch(function(){ done(''); });
+    } else { done(''); }
     try{ var w=document.getElementById('tab-publications'); if(w) w.scrollTop=0; }catch(e){}
     return false;
   };
+
+  // Build the horizontal "section slider": major sections only (Abstract + the main headings
+  // after the abstract's keywords), clickable to scroll to each, with scroll-spy highlighting.
+  var _secs=[], _spyWired=false;
+  function buildSectionNav(bodyEl){
+    var nav=el('pub-sec-nav'); if(!nav) return;
+    var MAJOR=['abstract','introduction','background','method','methods','methodology','materials and methods','result','results','discussion','conclusion','conclusions','reference','references','limitations','keywords','key terms'];
+    var kids=bodyEl.children, cands=[];
+    for(var i=0;i<kids.length;i++){
+      var e=kids[i];
+      if(e.tagName!=='P' || !e.querySelector('strong')) continue;
+      var raw=(e.textContent||'').trim(); if(!raw || raw.length>40) continue;
+      var key=raw.replace(/[:.]+$/,'').trim().toLowerCase();
+      if(MAJOR.indexOf(key)>=0) cands.push({el:e, name:raw.replace(/[:.]+$/,'').trim(), key:key});
+    }
+    var absIdx=-1, kwIdx=-1;
+    for(var a=0;a<cands.length;a++){ if(absIdx<0&&cands[a].key==='abstract') absIdx=a; if(kwIdx<0&&(cands[a].key==='keywords'||cands[a].key==='key terms')) kwIdx=a; }
+    var picked=[]; if(absIdx>=0) picked.push(cands[absIdx]);
+    var from = kwIdx>=0? kwIdx+1 : (absIdx>=0? absIdx+1 : 0), seen={};
+    for(var m=from;m<cands.length;m++){ var c=cands[m]; if(c.key==='keywords'||c.key==='key terms') continue; if(seen[c.key]) continue; seen[c.key]=1; picked.push(c); }
+    nav.innerHTML=''; _secs=[];
+    if(picked.length<2){ nav.style.display='none'; return; }
+    nav.style.display='';
+    picked.forEach(function(c,idx){
+      c.el.id='pub-sec-'+idx;
+      var chip=document.createElement('button'); chip.type='button'; chip.className='pub-sec-chip'; chip.textContent=c.name;
+      chip.onclick=function(){ scrollToSection(c.el); };
+      nav.appendChild(chip);
+      _secs.push({el:c.el, chip:chip});
+    });
+    wireSpy(); highlightSpy();
+  }
+  function scrollToSection(elp){
+    var cont=document.getElementById('tab-publications');
+    if(cont){ var top=elp.getBoundingClientRect().top - cont.getBoundingClientRect().top + cont.scrollTop - 62; cont.scrollTo({top:Math.max(0,top), behavior:'smooth'}); }
+    else { try{ elp.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){} }
+  }
+  function highlightSpy(){
+    var cont=document.getElementById('tab-publications'); if(!cont||!_secs.length) return;
+    var top=cont.getBoundingClientRect().top, active=0;
+    for(var i=0;i<_secs.length;i++){ if(_secs[i].el.getBoundingClientRect().top - top <= 90) active=i; }
+    for(var j=0;j<_secs.length;j++){ _secs[j].chip.classList.toggle('active', j===active); }
+  }
+  function wireSpy(){
+    if(_spyWired) return; var cont=document.getElementById('tab-publications'); if(!cont) return; _spyWired=true;
+    var ticking=false;
+    cont.addEventListener('scroll', function(){ if(ticking) return; ticking=true; requestAnimationFrame(function(){ ticking=false; var art=el('pub-article'); if(art && art.style.display!=='none') highlightSpy(); }); });
+  }
 
   // Submission is by EMAIL (no on-site upload). This modal explains how, to whom, and the
   // confidentiality / prior-publication points.
