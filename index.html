@@ -23944,95 +23944,62 @@ function hideFlyout(p) {
 <script>
 /* ===================== STUDENT PUBLICATIONS ===================== */
 (function(){
-  function sbc(){ return window.__sb || null; }
   function esc(x){ return String(x==null?'':x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
   function el(id){ return document.getElementById(id); }
-  var PTYPES = ['SSC','Dissertation','Audit','Case report','Research','Other'];
-  var _me = null;
+  function fileUrl(f){ return f?('/'+String(f).replace(/^\/+/,'')):''; }
+  var _visible=[];
 
-  function currentUser(cb){
-    var sb=sbc(); if(!sb){ cb(null); return; }
-    try{ sb.auth.getSession().then(function(r){ cb((r&&r.data&&r.data.session)?r.data.session.user:null); }).catch(function(){ cb(null); }); }
-    catch(e){ cb(null); }
-  }
-  function fileUrl(path){
-    var sb=sbc(); if(!sb||!path) return '';
-    try{ var p=sb.storage.from('publications').getPublicUrl(path); return (p&&p.data&&p.data.publicUrl)||''; }catch(e){ return ''; }
-  }
-
-  window.initPublications = function(){
+  // Repo-backed: the list of published work lives in /content/publications.json (added by the
+  // site owner). Free to read; no accounts, no uploads. Submission is by email (see the modal).
+  window.initPublications=function(){
     var list=el('pub-list'), empty=el('pub-empty'); if(!list) return;
-    var sb=sbc();
-    if(!sb){ list.innerHTML=''; empty.style.display=''; empty.textContent='Publications need a connection — please check back shortly.'; return; }
-    list.innerHTML='<div class="pub-empty">Loading publications…</div>'; empty.style.display='none';
-    currentUser(function(u){
-      _me=u;
-      sb.from('publications').select('*').order('created_at',{ascending:false})
-        .then(function(r){
-          if(r.error){ list.innerHTML=''; empty.style.display=''; empty.textContent='Publications aren’t available yet.'; return; }
-          render(r.data||[]);
-        })
-        .catch(function(){ list.innerHTML=''; empty.style.display=''; empty.textContent='Couldn’t load publications.'; });
-    });
+    list.innerHTML='<div class="pub-empty">Loading publications…</div>'; if(empty) empty.style.display='none';
+    fetch('/content/publications.json',{cache:'no-cache'})
+      .then(function(r){ return r.ok?r.json():[]; })
+      .then(function(rows){ render(Array.isArray(rows)?rows:[]); })
+      .catch(function(){ render([]); });
   };
 
-  var _visible=[];
   function render(rows){
-    _visible=rows.filter(function(p){ return p.status==='approved' || (_me && p.user_id===_me.id); });
+    _visible=rows.slice();
     var sw=el('pub-search-wrap'); if(sw) sw.style.display=_visible.length?'':'none';
-    var si=el('pub-search'); paint(_visible, (si&&si.value||'').trim());
+    var si=el('pub-search'); paint(_visible,(si&&si.value||'').trim());
   }
-  // Filter the loaded list by title / authors / university / type / year / abstract.
   window.pubFilter=function(q){
     q=(q||'').trim();
     if(!q){ paint(_visible,''); return; }
     var qq=q.toLowerCase();
-    var f=_visible.filter(function(p){
-      return [p.title,p.authors,p.university,p.ptype,p.year,p.abstract].filter(Boolean).join(' \u0001 ').toLowerCase().indexOf(qq)>=0;
-    });
-    paint(f, q);
+    var f=_visible.filter(function(p){ return [p.title,p.authors,p.university,p.ptype,p.year,p.abstract].filter(Boolean).join(' \u0001 ').toLowerCase().indexOf(qq)>=0; });
+    paint(f,q);
   };
-  function paint(listArr, q){
+  function paint(listArr,q){
     var list=el('pub-list'), empty=el('pub-empty');
     if(!listArr.length){
-      list.innerHTML=''; empty.style.display='';
-      empty.innerHTML = q ? ('No publications match “'+esc(q)+'”.')
-                          : 'No publications yet.<br>Share your work — tap <strong>How to get published</strong>.';
+      list.innerHTML='';
+      if(empty){ empty.style.display=''; empty.innerHTML=q?('No publications match “'+esc(q)+'”.'):'No publications yet.<br>Share your work — tap <strong>How to get published</strong>.'; }
       return;
     }
-    empty.style.display='none';
+    if(empty) empty.style.display='none';
     list.innerHTML=listArr.map(function(p){
-      var mine=_me && p.user_id===_me.id, pending=p.status!=='approved';
       var meta=[p.authors,p.university,p.year].filter(Boolean).map(esc).join(' · ');
-      var ab=p.abstract?'<div class="pub-card-abstract">'+esc(p.abstract.length>200?p.abstract.slice(0,200)+'…':p.abstract)+'</div>':'';
-      var url=fileUrl(p.file_path);
+      var ab=p.abstract?'<div class="pub-card-abstract">'+esc(p.abstract.length>220?p.abstract.slice(0,220)+'…':p.abstract)+'</div>':'';
+      var url=fileUrl(p.file);
       return '<div class="pub-card">'+
         '<span class="pub-card-type">'+esc(p.ptype||'Project')+'</span>'+
-        (pending?'<div class="pub-card-title">'+esc(p.title)+'</div>'
-                :'<a class="pub-card-title pub-card-title-link" href="/p/'+esc(p.id)+'">'+esc(p.title)+'</a>')+
+        '<a class="pub-card-title pub-card-title-link" href="/p/'+esc(p.id)+'">'+esc(p.title)+'</a>'+
         '<div class="pub-card-meta">'+meta+'</div>'+ab+
         '<div class="pub-card-foot">'+
-          (url?'<a class="pub-read" href="'+esc(url)+'" target="_blank" rel="noopener">Read PDF ›</a>':'<span class="pub-card-meta">File unavailable</span>')+
-          (pending?'<span class="pub-pending-tag">Pending review</span>':'')+
-          (mine?'<button class="pub-del" type="button" onclick="pubDelete(\''+esc(p.id)+'\')">Delete</button>':'')+
+          (url?'<a class="pub-read" href="'+esc(url)+'" target="_blank" rel="noopener">Read PDF ›</a>':'')+
         '</div>'+
       '</div>';
     }).join('');
   }
 
-  window.pubDelete=function(id){
-    var sb=sbc(); if(!sb) return;
-    if(!window.confirm('Delete this publication? This cannot be undone.')) return;
-    sb.from('publications').delete().eq('id',id).then(function(){ window.initPublications(); }).catch(function(){});
-  };
-
+  // Submission is by EMAIL (no on-site upload). This modal explains how, to whom, and the
+  // confidentiality / prior-publication points.
   window.pubOpenSubmit=function(){ buildModal(); };
-
   function closeModal(){ var o=el('pub-modal-ov'); if(o&&o.parentNode) o.parentNode.removeChild(o); }
   window.pubCloseSubmit=closeModal;
-
-  // Submission is by EMAIL (no on-site upload). This modal explains how, to whom, and the
-  // confidentiality / prior-publication points. The admin reviews and adds approved work.
   function buildModal(){
     closeModal();
     var EMAIL='doctorise22@gmail.com';

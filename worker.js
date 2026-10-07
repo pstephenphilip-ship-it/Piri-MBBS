@@ -3,18 +3,14 @@
  * ----------------------------------------------------------------------------
  * The site is otherwise a static SPA served from the ASSETS binding. This worker
  * runs ONLY for paths that aren't static files, and adds three crawlable routes:
- *   /p/<id>        a server-rendered page per APPROVED publication (title, abstract,
+ *   /p/<id>        a server-rendered page per publication (title, abstract,
  *                  metadata, link to the PDF) — this is what Google indexes.
- *   /sitemap.xml   every approved publication's URL, so Google can discover them.
+ *   /sitemap.xml   every publication's URL, so Google can discover them.
  *   /robots.txt    allows crawling and points at the sitemap.
- * Anything else falls through to the static assets, and ANY error falls through
- * too, so this can never take the main site down.
+ * Data comes from the repo file /content/publications.json (served via ASSETS).
+ * Anything else falls through to static assets, and ANY error falls through too,
+ * so this can never take the main site down.
  * ========================================================================== */
-
-const SB = "https://ynkyqovqlfmnpkdsaonu.supabase.co";
-// Public anonymous key (already shipped in the client; RLS limits anon reads to
-// approved publications only).
-const ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlua3lxb3ZxbGZtbnBrZHNhb251Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3MzQ4NzAsImV4cCI6MjA5ODMxMDg3MH0.HW3EZ7CY4OgwIXZkPfAoIjJ6l8HJhznUIiBKVz0uRys";
 
 const SITE_NAME = "DoctoRise";
 
@@ -25,30 +21,23 @@ function esc(x) {
 }
 function clip(s, n) { s = String(s || ""); return s.length > n ? s.slice(0, n - 1).trim() + "…" : s; }
 
-async function sbGet(pathAndQuery) {
-  const r = await fetch(SB + "/rest/v1/" + pathAndQuery, {
-    headers: { apikey: ANON, Authorization: "Bearer " + ANON, Accept: "application/json" },
-    cf: { cacheTtl: 300, cacheEverything: true },
-  });
-  if (!r.ok) throw new Error("sb " + r.status);
-  return r.json();
-}
-function pdfUrl(filePath) {
-  return SB + "/storage/v1/object/public/publications/" + filePath.split("/").map(encodeURIComponent).join("/");
+async function loadPubs(origin, env) {
+  try {
+    const r = await env.ASSETS.fetch(new Request(origin + "/content/publications.json"));
+    if (!r.ok) return [];
+    const j = await r.json();
+    return Array.isArray(j) ? j : [];
+  } catch (e) { return []; }
 }
 
 function notFound(origin) {
-  const html = page({
+  return new Response(page({
     title: "Not found",
     metaDesc: "This publication could not be found.",
     canonical: origin + "/",
-    body:
-      '<h1>Publication not found</h1>' +
-      '<p>This page may have been removed, or the link is incorrect.</p>' +
-      '<p><a class="btn" href="/">Go to ' + SITE_NAME + "</a></p>",
+    body: '<h1>Publication not found</h1><p>This page may have been removed, or the link is incorrect.</p><p><a class="btn" href="/">Go to ' + SITE_NAME + "</a></p>",
     noindex: true,
-  });
-  return new Response(html, { status: 404, headers: { "content-type": "text/html; charset=utf-8" } });
+  }), { status: 404, headers: { "content-type": "text/html; charset=utf-8" } });
 }
 
 function page(opts) {
@@ -91,27 +80,22 @@ function page(opts) {
   );
 }
 
-async function pubPage(id, origin) {
-  const rows = await sbGet(
-    "publications?id=eq." + encodeURIComponent(id) +
-    "&status=eq.approved&select=id,title,authors,university,ptype,year,abstract,file_path,created_at&limit=1"
-  );
-  const p = rows && rows[0];
+async function pubPage(id, origin, env) {
+  const rows = await loadPubs(origin, env);
+  const p = rows.find(function (x) { return x && String(x.id) === id; });
   if (!p) return notFound(origin);
   const canonical = origin + "/p/" + p.id;
   const metaBits = [p.authors, p.university, p.year, p.ptype].filter(Boolean).map(String);
   const metaDesc = clip(p.abstract || (p.title + " — " + metaBits.join(", ")), 300);
-  const abstractHtml = p.abstract
-    ? '<div class="card"><h2>Abstract</h2><div class="abstract">' + esc(p.abstract) + "</div></div>"
-    : "";
+  const fileUrl = p.file ? origin + "/" + String(p.file).replace(/^\/+/, "") : "";
+  const abstractHtml = p.abstract ? '<div class="card"><h2>Abstract</h2><div class="abstract">' + esc(p.abstract) + "</div></div>" : "";
   const jsonld = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    headline: p.title,
-    name: p.title,
+    headline: p.title, name: p.title,
     author: String(p.authors || "").split(/\s*,\s*|\s+and\s+/).filter(Boolean).map(function (n) { return { "@type": "Person", name: n }; }),
     abstract: p.abstract || undefined,
-    datePublished: p.year ? String(p.year) : (p.created_at || undefined),
+    datePublished: p.date || (p.year ? String(p.year) : undefined),
     url: canonical,
     publisher: { "@type": "Organization", name: SITE_NAME, url: origin + "/" },
   });
@@ -121,35 +105,29 @@ async function pubPage(id, origin) {
     '<div class="meta">' + esc(metaBits.join(" · ")) + "</div>" +
     abstractHtml +
     '<div class="cta">' +
-    '<a class="btn" href="' + esc(pdfUrl(p.file_path)) + '" target="_blank" rel="noopener">Read the full PDF</a>' +
+    (fileUrl ? '<a class="btn" href="' + esc(fileUrl) + '" target="_blank" rel="noopener">Read the full PDF</a>' : "") +
     '<a class="btn ghost" href="/#publications">Browse more on ' + SITE_NAME + "</a>" +
     "</div>" +
-    '<div class="foot">Shared by a medical student on ' + SITE_NAME +
-    ", a free UK medical-education platform. Published work is the author’s own.</div>";
+    '<div class="foot">Shared by a medical student on ' + SITE_NAME + ", a free UK medical-education platform. Published work is the author’s own.</div>";
   return new Response(page({ title: p.title, metaDesc: metaDesc, canonical: canonical, body: body, jsonld: jsonld }), {
     headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300, s-maxage=600" },
   });
 }
 
-async function sitemap(origin) {
-  let rows = [];
-  try {
-    rows = await sbGet("publications?status=eq.approved&select=id,created_at&order=created_at.desc&limit=5000");
-  } catch (e) { rows = []; }
+async function sitemap(origin, env) {
+  const rows = await loadPubs(origin, env);
   const urls = ['<url><loc>' + origin + "/</loc></url>"];
   for (const p of rows) {
-    const lm = p.created_at ? "<lastmod>" + String(p.created_at).slice(0, 10) + "</lastmod>" : "";
+    if (!p || !p.id) continue;
+    const lm = p.date ? "<lastmod>" + String(p.date).slice(0, 10) + "</lastmod>" : "";
     urls.push("<url><loc>" + origin + "/p/" + p.id + "</loc>" + lm + "</url>");
   }
-  const xml =
-    '<?xml version="1.0" encoding="UTF-8"?>' +
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls.join("") + "</urlset>";
+  const xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls.join("") + "</urlset>";
   return new Response(xml, { headers: { "content-type": "application/xml; charset=utf-8", "cache-control": "public, max-age=600, s-maxage=1800" } });
 }
 
 function robots(origin) {
-  const txt = "User-agent: *\nAllow: /\n\nSitemap: " + origin + "/sitemap.xml\n";
-  return new Response(txt, { headers: { "content-type": "text/plain; charset=utf-8" } });
+  return new Response("User-agent: *\nAllow: /\n\nSitemap: " + origin + "/sitemap.xml\n", { headers: { "content-type": "text/plain; charset=utf-8" } });
 }
 
 export default {
@@ -158,12 +136,11 @@ export default {
       const url = new URL(request.url);
       const path = url.pathname;
       if (path === "/robots.txt") return robots(url.origin);
-      if (path === "/sitemap.xml") return await sitemap(url.origin);
-      const m = path.match(/^\/p\/([0-9a-fA-F-]{8,})\/?$/);
-      if (m) return await pubPage(m[1], url.origin);
+      if (path === "/sitemap.xml") return await sitemap(url.origin, env);
+      const m = path.match(/^\/p\/([a-z0-9][a-z0-9-]{2,})\/?$/i);
+      if (m) return await pubPage(m[1], url.origin, env);
       return env.ASSETS.fetch(request);
     } catch (e) {
-      // Never break the site: fall through to the static asset handler.
       try { return env.ASSETS.fetch(request); } catch (_) { return new Response("", { status: 502 }); }
     }
   },
