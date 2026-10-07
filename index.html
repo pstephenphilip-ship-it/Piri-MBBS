@@ -2265,7 +2265,8 @@ body.da-notes-open #daMemFab{display:none!important;}
 </style>
 <style>
 /* ===================== STUDENT PUBLICATIONS ===================== */
-.pub-wrap{max-width:1000px;margin:0 auto;padding:24px 20px 90px;}
+#tab-publications{flex-direction:column;background:var(--rn-bg,#F7F8FC);overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.pub-wrap{max-width:1000px;margin:0 auto;width:100%;padding:24px 20px 90px;}
 .pub-head{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;justify-content:space-between;}
 .pub-title{font-family:var(--sans);font-size:24px;font-weight:800;color:var(--rn-text,#1E2640);margin:0;}
 .pub-sub{font-size:13.5px;color:var(--rn-sub,#5A6480);max-width:640px;line-height:1.55;margin-top:6px;}
@@ -23973,7 +23974,7 @@ function hideFlyout(p) {
   function render(rows){
     var list=el('pub-list'), empty=el('pub-empty');
     var visible=rows.filter(function(p){ return p.status==='approved' || (_me && p.user_id===_me.id); });
-    if(!visible.length){ list.innerHTML=''; empty.style.display=''; empty.innerHTML='No publications yet.<br>Be the first to share your work — tap <strong>Submit your work</strong>.'; return; }
+    if(!visible.length){ list.innerHTML=''; empty.style.display=''; empty.innerHTML='No publications yet.<br>Share your work — tap <strong>How to get published</strong>.'; return; }
     empty.style.display='none';
     list.innerHTML=visible.map(function(p){
       var mine=_me && p.user_id===_me.id, pending=p.status!=='approved';
