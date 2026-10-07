@@ -2274,7 +2274,11 @@ body.da-notes-open #daMemFab{display:none!important;}
 .pub-submit-btn:hover{box-shadow:0 6px 18px rgba(14,165,233,.28);}
 .pub-note{background:var(--rn-blue-bg,#EBF2FF);border:1px solid #B0CCEF;border-radius:10px;padding:12px 16px;font-size:12.5px;color:var(--rn-text,#1E2640);line-height:1.55;margin:16px 0 2px;}
 .pub-note strong{color:var(--rn-text,#1E2640);}
-.pub-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:18px;}
+.pub-search-wrap{margin-top:16px;}
+.pub-search{width:100%;box-sizing:border-box;border:1.5px solid var(--rn-border,#E2E6F0);border-radius:10px;padding:11px 14px;font-family:var(--sans);font-size:14px;color:var(--rn-text,#1E2640);background:#fff;}
+.pub-search:focus{outline:none;border-color:#00C2A8;box-shadow:0 0 0 3px rgba(0,194,168,.12);}
+.pub-search::placeholder{color:#9AA3B2;}
+.pub-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:14px;}
 .pub-card{background:var(--rn-card,#fff);border:1.5px solid var(--rn-border,#E2E6F0);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;box-shadow:0 1px 4px rgba(0,0,0,.05);}
 .pub-card-type{align-self:flex-start;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#0A6DA0;background:#E7F2FB;border-radius:6px;padding:3px 8px;}
 .pub-card-title{font-size:15.5px;font-weight:800;color:var(--rn-text,#1E2640);line-height:1.35;}
@@ -2331,6 +2335,7 @@ a.pub-card-title-link:hover{text-decoration:underline;color:#0A6DA0;}
       <button class="pub-submit-btn" type="button" onclick="pubOpenSubmit()">How to get published</button>
     </div>
     <div class="pub-note"><strong>Want your work featured?</strong> Email it to us and we&rsquo;ll review and publish it &mdash; tap <strong>How to get published</strong> for the details. Please never share anything containing patient-identifiable information.</div>
+    <div id="pub-search-wrap" class="pub-search-wrap" style="display:none;"><input id="pub-search" class="pub-search" type="text" placeholder="Search by title, author, university or type&hellip;" oninput="pubFilter(this.value)" autocomplete="off"></div>
     <div id="pub-list" class="pub-list"></div>
     <div id="pub-empty" class="pub-empty" style="display:none;"></div>
   </div>
@@ -23971,12 +23976,32 @@ function hideFlyout(p) {
     });
   };
 
+  var _visible=[];
   function render(rows){
+    _visible=rows.filter(function(p){ return p.status==='approved' || (_me && p.user_id===_me.id); });
+    var sw=el('pub-search-wrap'); if(sw) sw.style.display=_visible.length?'':'none';
+    var si=el('pub-search'); paint(_visible, (si&&si.value||'').trim());
+  }
+  // Filter the loaded list by title / authors / university / type / year / abstract.
+  window.pubFilter=function(q){
+    q=(q||'').trim();
+    if(!q){ paint(_visible,''); return; }
+    var qq=q.toLowerCase();
+    var f=_visible.filter(function(p){
+      return [p.title,p.authors,p.university,p.ptype,p.year,p.abstract].filter(Boolean).join(' \u0001 ').toLowerCase().indexOf(qq)>=0;
+    });
+    paint(f, q);
+  };
+  function paint(listArr, q){
     var list=el('pub-list'), empty=el('pub-empty');
-    var visible=rows.filter(function(p){ return p.status==='approved' || (_me && p.user_id===_me.id); });
-    if(!visible.length){ list.innerHTML=''; empty.style.display=''; empty.innerHTML='No publications yet.<br>Share your work — tap <strong>How to get published</strong>.'; return; }
+    if(!listArr.length){
+      list.innerHTML=''; empty.style.display='';
+      empty.innerHTML = q ? ('No publications match “'+esc(q)+'”.')
+                          : 'No publications yet.<br>Share your work — tap <strong>How to get published</strong>.';
+      return;
+    }
     empty.style.display='none';
-    list.innerHTML=visible.map(function(p){
+    list.innerHTML=listArr.map(function(p){
       var mine=_me && p.user_id===_me.id, pending=p.status!=='approved';
       var meta=[p.authors,p.university,p.year].filter(Boolean).map(esc).join(' · ');
       var ab=p.abstract?'<div class="pub-card-abstract">'+esc(p.abstract.length>200?p.abstract.slice(0,200)+'…':p.abstract)+'</div>':'';
