@@ -23983,13 +23983,12 @@ function hideFlyout(p) {
     list.innerHTML=listArr.map(function(p){
       var meta=[p.authors,p.university,p.year].filter(Boolean).map(esc).join(' · ');
       var ab=p.abstract?'<div class="pub-card-abstract">'+esc(p.abstract.length>220?p.abstract.slice(0,220)+'…':p.abstract)+'</div>':'';
-      var url=fileUrl(p.file);
       return '<div class="pub-card">'+
         '<span class="pub-card-type">'+esc(p.ptype||'Project')+'</span>'+
         '<a class="pub-card-title pub-card-title-link" href="/p/'+esc(p.id)+'">'+esc(p.title)+'</a>'+
         '<div class="pub-card-meta">'+meta+'</div>'+ab+
         '<div class="pub-card-foot">'+
-          (url?'<a class="pub-read" href="'+esc(url)+'" target="_blank" rel="noopener">Read PDF ›</a>':'')+
+          '<a class="pub-read" href="/p/'+esc(p.id)+'">Read ›</a>'+
         '</div>'+
       '</div>';
     }).join('');
