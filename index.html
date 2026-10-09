@@ -1205,7 +1205,8 @@ body.da-notes-open #daMemFab{display:none!important;}
     <div class="nav-tab" onclick="switchMainTab('osce',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="12" height="11" rx="2"/><path d="M6 4V3a1 1 0 012 0v1m2 0V3a1 1 0 012 0v1"/><path d="M6 9h6m-6 3h4"/></svg></span>OSCE</div>
     <div class="nav-tab" onclick="switchMainTab('pharmacology',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="8" height="5" rx="1"/><path d="M7 7v9m4-9v9M5 11h8"/><path d="M6 2V1m6 1V1"/></svg></span>Pharmacology</div>
     <div class="nav-tab" onclick="switchMainTab('calculator',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2" width="12" height="14" rx="2"/><path d="M6 6h6M6 10h2m4 0h-2m-2 0v3m-2 0h6"/></svg></span>Calculator</div>
-    <div class="nav-tab" onclick="switchMainTab('publications',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5C7.5 3.2 5.5 3 3.5 3.3V14c2-.3 4 0 5.5 1.2M9 4.5c1.5-1.3 3.5-1.5 5.5-1.2V14c-2-.3-4 0-5.5 1.2M9 4.5V15"/></svg></span>Student Publications</div>
+    <!-- PUBLICATIONS HIDDEN (work-in-progress): to re-enable, delete the style="display:none" below. -->
+    <div class="nav-tab" id="navtab-publications" style="display:none" onclick="switchMainTab('publications',this)"><span class="nav-tab-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5C7.5 3.2 5.5 3 3.5 3.3V14c2-.3 4 0 5.5 1.2M9 4.5c1.5-1.3 3.5-1.5 5.5-1.2V14c-2-.3-4 0-5.5 1.2M9 4.5V15"/></svg></span>Student Publications</div>
   </div>
   <button class="nav-arrow nav-arrow-right" id="navArrowR" type="button" aria-label="Scroll tabs right" onclick="scrollNavTabs(1)">&#8250;</button>
   <div class="account-area" id="accountArea">
@@ -12450,7 +12451,12 @@ function switchMainTab(id, el, skipHash) {
   }
   if (id === 'mock') { initMock(); return; }
   if (id === 'pharmacology') { initPharma(); return; }
-  if (id === 'publications') { initPublications(); return; }
+  if (id === 'publications') {
+    // PUBLICATIONS HIDDEN: while the nav tab is hidden, a direct #publications link goes Home.
+    var _pt = document.getElementById('navtab-publications');
+    if (_pt && _pt.style.display === 'none') { if (window.goHome) window.goHome(true); return; }
+    initPublications(); return;
+  }
   const st = getState(id);
   if (!st.initialised) { initTab(id); st.initialised = true; }
   else if (!skipHash) {

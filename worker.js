@@ -14,6 +14,11 @@
 
 const SITE_NAME = "DoctoRise";
 
+// PUBLICATIONS HIDDEN (work-in-progress): set to true to re-enable the public /p/<id>
+// article pages, /sitemap.xml and /robots.txt. While false, the worker just passes
+// everything through to the static assets. All the code below is kept intact.
+const PUBLICATIONS_PUBLIC = false;
+
 function esc(x) {
   return String(x == null ? "" : x).replace(/[&<>"']/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -152,10 +157,12 @@ export default {
     try {
       const url = new URL(request.url);
       const path = url.pathname;
-      if (path === "/robots.txt") return robots(url.origin);
-      if (path === "/sitemap.xml") return await sitemap(url.origin, env);
-      const m = path.match(/^\/p\/([a-z0-9][a-z0-9-]{2,})\/?$/i);
-      if (m) return await pubPage(m[1], url.origin, env);
+      if (PUBLICATIONS_PUBLIC) {
+        if (path === "/robots.txt") return robots(url.origin);
+        if (path === "/sitemap.xml") return await sitemap(url.origin, env);
+        const m = path.match(/^\/p\/([a-z0-9][a-z0-9-]{2,})\/?$/i);
+        if (m) return await pubPage(m[1], url.origin, env);
+      }
       return env.ASSETS.fetch(request);
     } catch (e) {
       try { return env.ASSETS.fetch(request); } catch (_) { return new Response("", { status: 502 }); }
