@@ -81,6 +81,14 @@ const EQS = {
   Wmg: { eq: 'W = m × g', words: 'weight (N) = mass (kg) × gravitational field strength (N/kg)', status: 'recall' },
   rho: { eq: 'ρ = m / V', words: 'density (kg/m³) = mass (kg) / volume (m³)', status: 'recall' },
   WFd: { eq: 'E = F × d', words: 'work done (J) = force (N) × distance moved in the direction of the force (m)', status: 'recall' },
+  // Topic 10 electricity
+  QIt: { eq: 'Q = I × t', words: 'charge (C) = current (A) × time (s)', status: 'recall' },
+  EQV: { eq: 'E = Q × V', words: 'energy transferred (J) = charge moved (C) × potential difference (V)', status: 'recall' },
+  VIR: { eq: 'V = I × R', words: 'potential difference (V) = current (A) × resistance (Ω)', status: 'recall' },
+  EIVt: { eq: 'E = I × V × t', words: 'energy transferred (J) = current (A) × potential difference (V) × time (s)', status: 'given' },
+  PEt: { eq: 'P = E ÷ t', words: 'power (W) = energy transferred (J) ÷ time taken (s)', status: 'recall' },
+  PIV: { eq: 'P = I × V', words: 'electrical power (W) = current (A) × potential difference (V)', status: 'recall' },
+  PI2R: { eq: 'P = I² × R', words: 'electrical power (W) = current squared (A²) × resistance (Ω)', status: 'recall' },
 };
 const eqStatus = k => EQS[k].status === 'recall' ? 'Recall: you must learn this' : 'Given on the Physics Equations List';
 
@@ -541,6 +549,114 @@ function init(DECK) {
     s.addShape(SH.RECTANGLE, { x: cx + 0.33, y: cy - 0.55, w: 0.2, h: 0.22, fill: { color: C.red }, line: { color: C.red }, rotate: -45 });
   }
 
+  // ---------- graph with axes through the origin (for I–V characteristics, a.c. traces) ----------
+  // same g object as axes(); xmin/ymin may be negative. Tick labels sit beside the axes; 0 is labelled once.
+  function axesO(s, g) {
+    box(s, g.x, g.y, g.w, g.h, C.white, null);
+    const minor = g.minor || 1;
+    if (g.grid !== false) {
+      for (let v = g.xmin; v <= g.xmax + 1e-9; v += g.xstep / minor) {
+        const maj = Math.abs(Math.round((v - g.xmin) / g.xstep) * g.xstep - (v - g.xmin)) < 1e-9;
+        line(s, px(g, v), g.y, px(g, v), g.y + g.h, maj ? 'C9D3E6' : 'E6EBF4', 0.5);
+      }
+      for (let v = g.ymin; v <= g.ymax + 1e-9; v += g.ystep / minor) {
+        const maj = Math.abs(Math.round((v - g.ymin) / g.ystep) * g.ystep - (v - g.ymin)) < 1e-9;
+        line(s, g.x, py(g, v), g.x + g.w, py(g, v), maj ? 'C9D3E6' : 'E6EBF4', 0.5);
+      }
+    }
+    const X0 = px(g, Math.max(g.xmin, Math.min(0, g.xmax))), Y0 = py(g, Math.max(g.ymin, Math.min(0, g.ymax)));
+    line(s, g.x, Y0, g.x + g.w, Y0, C.ink, 1.5);
+    line(s, X0, g.y + g.h, X0, g.y, C.ink, 1.5);
+    const fmt = g.fmt || (v => String(+v.toFixed(3)));
+    for (let v = g.xmin; v <= g.xmax + 1e-9; v += g.xstep) {
+      if (Math.abs(v) < 1e-9 && g.xmin < 0) continue;
+      line(s, px(g, v), Y0, px(g, v), Y0 + 0.06, C.ink, 1);
+      label(s, px(g, v) - 0.3, Y0 + 0.06, 0.6, fmt(v), { size: 10, h: 0.2 });
+    }
+    for (let v = g.ymin; v <= g.ymax + 1e-9; v += g.ystep) {
+      if (Math.abs(v) < 1e-9 && (g.xmin < 0 || g.ymin < 0)) continue;
+      line(s, X0 - 0.06, py(g, v), X0, py(g, v), C.ink, 1);
+      label(s, X0 - 0.5, py(g, v) - 0.1, 0.42, (g.yfmt || fmt)(v), { size: 10, h: 0.2, align: 'right' });
+    }
+    if (g.xmin < 0) label(s, X0 - 0.3, Y0 + 0.04, 0.24, '0', { size: 10, h: 0.2, align: 'right' });
+    if (g.xlabel) label(s, g.x + g.w - (g.xlw || 2.2), Y0 - 0.3, g.xlw || 2.2, g.xlabel, { size: 10.5, bold: true, align: 'right' });
+    if (g.ylabel) label(s, X0 + 0.08, g.y + 0.02, g.ylw || 2.2, g.ylabel, { size: 10.5, bold: true, align: 'left' });
+  }
+
+  // ================= circuit symbols (UK / Edexcel convention), native shapes =================
+  // comp(s, type, x1, y1, x2, y2, o) draws the wire from (x1,y1) to (x2,y2) with the symbol centred on its
+  // midpoint. Use horizontal or vertical wires (rectangles are axis-aligned).
+  // types: wire, cell, battery, switchOpen, switchClosed, lamp, resistor, varResistor, ammeter, voltmeter,
+  //        motor, diode, led, ldr, thermistor, fuse
+  // cell/battery: long (+) plate towards (x1,y1) unless o.flip. diode/led: arrow points from (x1,y1) to (x2,y2)
+  // (forward bias = conventional current in that direction). o.label text, o.side ±1 picks the side,
+  // o.off label offset (in), o.lw label width.
+  function comp(s, type, x1, y1, x2, y2, o = {}) {
+    const col = o.color || C.ink, lw = o.width || 1.5, k = o.size || 1;
+    const L = Math.hypot(x2 - x1, y2 - y1), ux = (x2 - x1) / L, uy = (y2 - y1) / L;
+    const nx = -uy, ny = ux;
+    const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    const P = (u, v) => [mx + u * ux + v * nx, my + u * uy + v * ny];
+    const seg = (u1, v1, u2, v2, c = col, w = lw, oo) => { const a = P(u1, v1), b = P(u2, v2); line(s, a[0], a[1], b[0], b[1], c, w, oo); };
+    const arr = (u1, v1, u2, v2) => { const a = P(u1, v1), b = P(u2, v2); arrow(s, a[0], a[1], b[0], b[1], col, 1.25); };
+    const circ = (r, fill = C.white) => s.addShape(SH.OVAL, { x: mx - r, y: my - r, w: 2 * r, h: 2 * r, fill: fill ? { color: fill } : { type: 'none' }, line: { color: col, width: lw } });
+    const rect = (hl, hw) => { const a = P(-hl, -hw), b = P(hl, hw); box(s, Math.min(a[0], b[0]), Math.min(a[1], b[1]), Math.abs(b[0] - a[0]), Math.abs(b[1] - a[1]), C.white, col, { lw }); };
+    const leads = h => { seg(-L / 2, 0, -h, 0); seg(h, 0, L / 2, 0); };
+    const letter = t => s.addText(t, { x: mx - 0.2 * k, y: my - 0.2 * k, w: 0.4 * k, h: 0.4 * k, fontFace: F.body, fontSize: 13 * k, bold: true, color: col, align: 'center', valign: 'middle', margin: 0 });
+    let off = 0.38 * k;
+    switch (type) {
+      case 'wire': seg(-L / 2, 0, L / 2, 0); off = 0.18; break;
+      case 'cell': { const h = 0.06 * k, f = o.flip ? -1 : 1; leads(h); seg(-h * f, -0.22 * k, -h * f, 0.22 * k, col, lw); seg(h * f, -0.11 * k, h * f, 0.11 * k, col, 4.5); off = 0.36 * k; break; }
+      case 'battery': {
+        const f = o.flip ? -1 : 1, a = 0.17 * k, b = 0.07 * k; leads(a);
+        seg(-a * f, -0.22 * k, -a * f, 0.22 * k); seg(-b * f, -0.11 * k, -b * f, 0.11 * k, col, 4.5);
+        seg(-b, 0, b, 0);
+        seg(b * f, -0.22 * k, b * f, 0.22 * k); seg(a * f, -0.11 * k, a * f, 0.11 * k, col, 4.5);
+        off = 0.36 * k; break;
+      }
+      case 'switchOpen': case 'switchClosed': {
+        const t = 0.18 * k, r = 0.035 * k; leads(t);
+        [-t, t].forEach(u => { const [cx, cy] = P(u, 0); s.addShape(SH.OVAL, { x: cx - r, y: cy - r, w: 2 * r, h: 2 * r, fill: { color: col }, line: { color: col, width: 1 } }); });
+        if (type === 'switchOpen') seg(-t, 0, t * 0.85, -0.2 * k); else seg(-t, 0, t, 0);
+        off = 0.32 * k; break;
+      }
+      case 'lamp': { const r = 0.18 * k, d = r * 0.7071; leads(r); circ(r); seg(-d, -d, d, d); seg(-d, d, d, -d); off = 0.36 * k; break; }
+      case 'resistor': { leads(0.27 * k); rect(0.27 * k, 0.1 * k); off = 0.3 * k; break; }
+      case 'varResistor': { leads(0.27 * k); rect(0.27 * k, 0.1 * k); arr(-0.32 * k, 0.22 * k, 0.34 * k, -0.24 * k); off = 0.38 * k; break; }
+      case 'ammeter': case 'voltmeter': case 'motor': { const r = 0.19 * k; leads(r); circ(r); letter(type === 'ammeter' ? 'A' : type === 'voltmeter' ? 'V' : 'M'); off = 0.36 * k; break; }
+      case 'fuse': { leads(0.27 * k); rect(0.27 * k, 0.09 * k); seg(-0.27 * k, 0, 0.27 * k, 0); off = 0.3 * k; break; }
+      case 'thermistor': { leads(0.27 * k); rect(0.27 * k, 0.1 * k); seg(-0.42 * k, 0.21 * k, -0.3 * k, 0.21 * k); seg(-0.3 * k, 0.21 * k, 0.3 * k, -0.21 * k); off = 0.38 * k; break; }
+      case 'ldr': {
+        const r = 0.3 * k; s.addShape(SH.OVAL, { x: mx - r, y: my - r, w: 2 * r, h: 2 * r, fill: { color: C.white }, line: { color: col, width: lw } });
+        leads(0.2 * k); rect(0.2 * k, 0.075 * k);
+        arr(-0.48 * k, -0.62 * k, -0.2 * k, -0.33 * k); arr(-0.2 * k, -0.7 * k, 0.04 * k, -0.37 * k);
+        off = 0.45 * k; break;
+      }
+      case 'diode': case 'led': {
+        const b = -0.12 * k, a = 0.11 * k, hw = 0.14 * k;
+        leads(0); // wire runs through the symbol
+        const [cx, cy] = P((a + b) / 2, 0), ang = Math.atan2(uy, ux) * 180 / Math.PI + 90;
+        s.addShape(SH.ISOSCELES_TRIANGLE, { x: cx - hw, y: cy - (a - b) / 2, w: 2 * hw, h: a - b, rotate: ang, fill: { color: col }, line: { color: col, width: 1 } });
+        seg(a, -hw, a, hw, col, 2);
+        if (type === 'led') { arr(-0.02 * k, -0.2 * k, 0.16 * k, -0.42 * k); arr(0.12 * k, -0.2 * k, 0.3 * k, -0.42 * k); off = 0.42 * k; }
+        else off = 0.3 * k;
+        break;
+      }
+      default: throw new Error('unknown component ' + type);
+    }
+    if (o.label) {
+      const side = o.side || -1, d = o.off != null ? o.off : off, w = o.lw || 1.3, h = o.lh || 0.26;
+      const [lx, ly] = P(0, side * d);
+      const fs = o.fs || 10.5;
+      if (Math.abs(nx) > 0.5) label(s, lx < mx ? lx - w : lx, ly - h / 2, w, o.label, { h, size: fs, bold: true, color: o.lcolor || col, align: lx < mx ? 'right' : 'left' });
+      else label(s, lx - w / 2, ly - h / 2, w, o.label, { h, size: fs, bold: true, color: o.lcolor || col });
+    }
+  }
+  // polyline wire through points [[x,y],...]
+  function wire(s, pts, color = C.ink, width = 1.5) { for (let i = 0; i < pts.length - 1; i++) line(s, pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1], color, width); }
+  // junction dot
+  function dot(s, x, y, color = C.ink, r = 0.055) { s.addShape(SH.OVAL, { x: x - r, y: y - r, w: 2 * r, h: 2 * r, fill: { color }, line: { color, width: 0.5 } }); }
+
   // pptxgenjs 3.12 emits one <a:pPr> per run, so multi-run paragraphs lose their bullet in
   // PowerPoint/LibreOffice. Keep only the first <a:pPr> in each paragraph, then write the file.
   function fixParagraphs(xml) {
@@ -567,7 +683,7 @@ function init(DECK) {
     pres, SH, C, F, W, H, DECK, spec, newSlide, footer, pill, contentHeader, panel, card, workedSteps, quickCheck, notes,
     contentSlide, coverSlide, objectivesSlide, retrievalSlide, recapSlide, keyWords, equationsSlide, fullQuestion, levels6, homework,
     line, arrow, forceArrow, label, box, spring, hspring, massHanger, clampStand, ruler, px, py, axes, ticks, points, plotLine, fnLine, areaTriangle,
-    liquidColumn, floatingObject, pencil, rich, para, eqStatus, save, get slideNo() { return slideNo; },
+    liquidColumn, floatingObject, pencil, rich, para, eqStatus, save, axesO, comp, wire, dot, get slideNo() { return slideNo; },
   };
 }
 
