@@ -89,6 +89,9 @@ const EQS = {
   PEt: { eq: 'P = E ÷ t', words: 'power (W) = energy transferred (J) ÷ time taken (s)', status: 'recall' },
   PIV: { eq: 'P = I × V', words: 'electrical power (W) = current (A) × potential difference (V)', status: 'recall' },
   PI2R: { eq: 'P = I² × R', words: 'electrical power (W) = current squared (A²) × resistance (Ω)', status: 'recall' },
+  // Topic 9 forces and their effects (+ Topic 2 link)
+  MFd: { eq: 'M = F × d', words: 'moment of a force (N m) = force (N) × distance normal to the direction of the force (m)', status: 'recall' },
+  Fma: { eq: 'F = m × a', words: 'force (N) = mass (kg) × acceleration (m/s²)', status: 'recall' },
 };
 const eqStatus = k => EQS[k].status === 'recall' ? 'Recall: you must learn this' : 'Given on the Physics Equations List';
 
