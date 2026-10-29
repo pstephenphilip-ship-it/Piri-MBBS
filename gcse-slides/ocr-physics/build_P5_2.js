@@ -118,7 +118,7 @@ function table(s, rows, o) {
 
 // ======================= 1 COVER =======================
 reg(D.coverSlide({
-  bigTitle: 'Using radioactive materials safely',
+  bigTitle: 'Using radioactivity safely',
   rows: [
     { icon: '§', text: `Specification ${DECK.specRange} • suggested practical: identifying radiation with absorbers and a GM tube` },
     { icon: 'H', text: 'Higher & Foundation in one deck • HT pill = Higher tier only (P5.1.9 ratio questions in the practice)' },
@@ -299,7 +299,7 @@ reg(R1.s, 'Recap 1');
 reg(D.contentSlide({
   title: 'Suggested practical: identifying radiation',
   subtitle: `Specification ${sp('P5.2.1')} • teacher demonstration with absorbers and a GM tube`,
-  tag: 'Practical', pag: 'SUGGESTED PRACTICAL', caption: 'source, absorber and GM tube fixed in a line; counter records counts',
+  tag: 'Practical', pag: 'SUGGESTED PRACTICAL', caption: 'NOT to scale: source, absorber and GM tube fixed in a line',
   draw: (s, p) => {
     // bench
     box(s, 0.65, 4.3, 5.7, 0.12, 'C99A5B', '8A6A3A');
@@ -357,9 +357,9 @@ const GB = { x: 1.5, y: 1.6, w: 4.75, h: 3.45, xmin: 0, xmax: 4, ymin: 0, ymax: 
   });
   label(s, GB.x, py(GB, 0) + 0.32, GB.w, 'absorber', { size: 10.5, bold: true });
   // annotations
-  label(s, px(GB, 1.75), py(GB, 470), 2.6, 'no real drop → **no alpha**', { size: 10.5, color: ALPHA, align: 'left' });
-  label(s, px(GB, 2.05), py(GB, 330), 2.4, 'big drop → **beta**', { size: 10.5, color: BETA, align: 'left' });
-  label(s, px(GB, 2.85) - 0.2, py(GB, 230), 1.6, 'left after Al → **gamma**', { size: 10.5, color: GAMMA, align: 'left', h: 0.42, valign: 'top' });
+  label(s, px(GB, 2.1), py(GB, 470), 2.3, 'paper: no real drop → **no alpha**', { size: 10.5, color: ALPHA, align: 'left' });
+  label(s, px(GB, 2.1), py(GB, 410), 2.3, 'Al: big drop → **beta**', { size: 10.5, color: BETA, align: 'left' });
+  label(s, px(GB, 2.1), py(GB, 350), 2.3, 'still counts after Al → **gamma**', { size: 10.5, color: GAMMA, align: 'left' });
   const hd = ['Absorber', 'Count 1', 'Count 2', 'Count 3', 'Mean', 'Corrected'];
   const rows = [['Background', ...bgCounts, BG, '—'], ...PR.map(([n, c, m, corr]) => [n, ...c, m, corr])];
   table(s, [hd, ...rows], { boldCols: [5], t: { x: 6.8, y: 1.3, w: 6.08, colW: [1.58, 0.85, 0.85, 0.85, 0.85, 1.1], rowH: 0.27, fontSize: 10.5 } });
@@ -437,8 +437,8 @@ reg(D.contentSlide({
     // cell
     s.addShape(SH.OVAL, { x: 0.75, y: 1.75, w: 3.0, h: 2.6, fill: { color: 'FBEFE3' }, line: { color: 'C99A5B', width: 1.5 } });
     s.addShape(SH.OVAL, { x: 1.35, y: 2.3, w: 1.8, h: 1.5, fill: { color: 'EAD7F0' }, line: { color: '8A5BA0', width: 1.25 } });
-    label(s, 0.8, 1.45, 1.4, 'cell', { size: 10.5, bold: true, color: '8A6A3A', align: 'left' });
-    label(s, 2.9, 3.85, 1.4, 'nucleus', { size: 10.5, bold: true, color: '8A5BA0', align: 'left' });
+    label(s, 0.95, 4.0, 1.0, 'cell', { size: 10.5, bold: true, color: '8A6A3A', align: 'left' });
+    label(s, 1.6, 3.82, 1.3, 'nucleus', { size: 10.5, bold: true, color: '8A5BA0' });
     // DNA ladder
     const x0 = 1.55, x1 = 2.95, yt = 2.85, yb = 3.25, n = 24;
     let la = [x0, yt], lb = [x0, yb];
@@ -453,7 +453,7 @@ reg(D.contentSlide({
     arrow(s, 0.55, 1.6, 2.2, 2.95, ALPHA, 2.5);
     s.addShape(SH.STAR_5_POINT || 'star5', { x: 2.12, y: 2.85, w: 0.3, h: 0.3, fill: { color: 'F5A742' }, line: { color: C.orange, width: 0.75 } });
     label(s, 0.45, 1.25, 0.9, 'radiation', { size: 10.5, bold: true, color: ALPHA });
-    label(s, 2.2, 2.3, 1.3, 'DNA broken', { size: 10.5, bold: true, color: C.orange });
+    label(s, 1.6, 3.42, 1.3, 'DNA broken', { size: 10.5, bold: true, color: C.orange });
     // outcomes
     const outs = [['Repaired', 'cell works normally', C.green], ['Cell dies', 'high doses kill many cells', C.grey], ['Mutation', 'cell may divide out of control → **cancer**', C.red]];
     arrow(s, 3.75, 3.05, 4.05, 3.05, C.ink, 1.5);
@@ -481,7 +481,7 @@ reg(D.contentSlide({
 }), 'Damage to cells');
 
 // ======================= 13 RECAP 3 =======================
-const R3 = D.recapSlide(3, 'Background radiation and damage to cells', [
+const R3 = D.recapSlide(3, 'Specification P5.2 context • background radiation and damage to cells', [
   { q: 'Give **two** natural sources and **one** man-made source of background radiation.', marks: 3, ms: 'Natural: any two of radon gas; rocks/soil/building materials; cosmic rays; food and drink (1 each). Man-made: medical X-rays/scans; nuclear fallout; nuclear power/industry (1).' },
   { q: 'Radon contributes **50%** of the average background dose and medical sources **15%**. How many times larger is the radon contribution?', marks: 1, ms: '50 ÷ 15 = 3.3 times (1). Accept 3 to 3.5.' },
   { q: 'Explain why ionising radiation can kill cells or cause cancer.', marks: 3, ms: 'It ionises atoms/molecules in cells (1); damages DNA (1); cell dies or mutates and divides uncontrollably → cancer (1).' },
@@ -539,7 +539,7 @@ reg(D.contentSlide({
     label(s, 2.45, 3.37, 1.0, 'skin', { size: 10.5, color: '8A6A3A', align: 'left' });
     box(s, 0.7, 2.15, 0.4, 0.8, '4A5262', '2E3442', { shape: SH.ROUNDED_RECTANGLE, r: 0.04 });
     arrow(s, 1.15, 2.0, 2.49, 2.0, ALPHA, 2.5); label(s, 1.2, 1.7, 1.2, 'α stops at skin', { size: 10.5, bold: true, color: ALPHA, align: 'left' });
-    line(s, 1.15, 2.55, 2.95, 2.55, BETA, 2.5); ball(s, 2.95, 2.55, 0.045, BETA); label(s, 3.05, 2.42, 2.0, 'β: a few mm in', { size: 10.5, bold: true, color: BETA, align: 'left' });
+    line(s, 1.15, 2.55, 2.95, 2.55, BETA, 2.5); ball(s, 2.95, 2.55, 0.045, BETA); label(s, 3.05, 2.42, 2.0, 'β: a short way in', { size: 10.5, bold: true, color: BETA, align: 'left' });
     waveP(s, 1.15, 3.05, 6.35, 3.05, 0.05, 12, GAMMA, 1.75); label(s, 3.9, 2.73, 2.3, 'γ passes through', { size: 10.5, bold: true, color: GAMMA, align: 'left' });
     label(s, 0.65, 3.62, 5.7, 'Source INSIDE the body (swallowed or breathed in)', { size: 11.5, bold: true, color: C.ink, align: 'left' });
     tissue(0.7, 3.95, 5.5, 1.75);
@@ -621,8 +621,8 @@ reg(D.contentSlide({
     [2.5, 2.75, 3.25, 3.5].forEach((x, i) => waveP(s, x, 4.25, x + (i < 2 ? -0.15 : 0.15) * 0, 2.85, 0.04, 4, GAMMA, 1.5));
     label(s, 0.6, 3.3, 1.9, 'γ rays leave the body', { size: 10.5, bold: true, color: GAMMA, align: 'left' });
     // syringe
-    box(s, 4.85, 3.6, 0.8, 0.14, 'E6EBF4', '6B7385'); line(s, 4.85, 3.67, 4.65, 3.95, '6B7385', 1.5);
-    label(s, 4.6, 3.25, 1.9, 'tracer injected', { size: 10.5, bold: true, align: 'left' });
+    box(s, 4.6, 3.75, 0.8, 0.14, 'E6EBF4', '6B7385'); line(s, 4.6, 3.82, 4.4, 4.15, '6B7385', 1.5);
+    label(s, 4.5, 3.4, 1.9, 'tracer injected', { size: 10.5, bold: true, align: 'left' });
     // monitor with image
     line(s, 4.1, 2.55, 4.6, 2.55, C.ink, 1.25); line(s, 4.6, 2.55, 4.6, 2.2, C.ink, 1.25);
     box(s, 4.4, 1.5, 1.85, 1.2, C.ink, null, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
@@ -647,13 +647,13 @@ reg(D.contentSlide({
 reg(D.contentSlide({
   title: 'Radiotherapy and sterilising',
   subtitle: `Specification ${sp('P5.2.4')} • killing unwanted cells and bacteria with gamma rays`,
-  tag: 'P5.2.4', caption: 'top: beams from several directions meet at the tumour; bottom: sealed packs pass a gamma source',
+  tag: 'P5.2.4', caption: 'beams meet at the tumour; sealed packs pass a gamma source',
   draw: (s, p) => {
     // radiotherapy
-    const cx = 2.4, cy = 2.95;
+    const cx = 2.3, cy = 3.0;
     s.addShape(SH.OVAL, { x: cx - 1.35, y: cy - 1.05, w: 2.7, h: 2.1, fill: { color: 'F7DCCB' }, line: { color: 'C99A5B', width: 1.25 } });
     [0, 60, 120].forEach(a => {
-      const L = 3.2, w = 0.3;
+      const L = 2.8, w = 0.3;
       s.addShape(SH.RECTANGLE, { x: cx - L / 2, y: cy - w / 2, w: L, h: w, rotate: a, fill: { color: GAMMA, transparency: 70 }, line: { type: 'none' } });
       const r = a * Math.PI / 180, hx = cx - (L / 2 + 0.15) * Math.cos(r), hy = cy - (L / 2 + 0.15) * Math.sin(r);
       s.addShape(SH.RECTANGLE, { x: hx - 0.22, y: hy - 0.16, w: 0.44, h: 0.32, rotate: a, fill: { color: '4A5262' }, line: { color: '2E3442', width: 0.75 } });
@@ -738,7 +738,7 @@ reg(D.contentSlide({
     // smoke detector
     label(s, 0.65, 1.42, 2.8, 'Smoke detector (α)', { size: 11.5, bold: true, color: ALPHA, align: 'left' });
     box(s, 0.75, 1.95, 0.12, 1.6, '8C96A8', '4A5262'); box(s, 2.6, 1.95, 0.12, 1.6, '8C96A8', '4A5262');
-    box(s, 1.5, 1.8, 0.45, 0.2, '4A5262', '2E3442'); label(s, 1.15, 1.55, 1.2, 'Am-241', { size: 10, bold: true, h: 0.22 });
+    box(s, 1.5, 1.8, 0.45, 0.2, '4A5262', '2E3442'); label(s, 2.0, 1.79, 0.6, 'Am-241', { size: 10, bold: true, h: 0.22, align: 'left' });
     [[1.6, 2.6], [1.72, 2.75], [1.85, 2.6]].forEach(([x2, y2]) => arrow(s, 1.72, 2.02, x2, y2, ALPHA, 1.5));
     [[1.15, 2.95], [1.6, 3.15], [2.1, 2.95], [2.3, 3.3], [1.3, 3.35]].forEach(([x, y]) => ionPair(s, x, y, 0.035));
     // circuit around
@@ -751,7 +751,7 @@ reg(D.contentSlide({
     box(s, gx, 2.85, 2.8, 0.08, 'FFFDF5', '9C8F6A', { lw: 0.75 });
     [[gx + 0.35, 2.55], [gx + 0.35, 3.23]].forEach(([x, y]) => s.addShape(SH.OVAL, { x: x - 0.25, y: y - 0.25, w: 0.5, h: 0.5, fill: { color: 'C9CED8' }, line: { color: '6B7385', width: 1 } }));
     label(s, gx - 0.05, 3.5, 0.8, 'rollers', { size: 10.5, bold: true });
-    arrow(s, gx + 1.0, 2.75, gx + 1.6, 2.75, C.ink, 1.25); label(s, gx + 1.6, 2.6, 1.0, 'paper', { size: 10.5, align: 'left', h: 0.24 });
+    arrow(s, gx + 2.35, 2.72, gx + 2.8, 2.72, C.ink, 1.25); label(s, gx + 2.3, 2.42, 0.6, 'paper', { size: 10.5, h: 0.24 });
     box(s, gx + 1.75, 3.4, 0.5, 0.35, '4A5262', '2E3442'); label(s, gx + 2.3, 3.45, 0.75, 'β source', { size: 10.5, bold: true, align: 'left', h: 0.24 });
     [gx + 1.9, gx + 2.1].forEach(x => arrow(s, x, 3.38, x, 2.25, BETA, 1.5));
     box(s, gx + 1.7, 1.85, 0.6, 0.38, 'D5DCEB', '4A5262', { shape: SH.ROUNDED_RECTANGLE, r: 0.06 }); label(s, gx + 1.7, 1.85, 0.6, 'GM', { h: 0.38, size: 10.5, bold: true });
@@ -793,7 +793,7 @@ reg(D.contentSlide({
     box(s, 1.95, 3.18, 0.18, 0.18, '4A5262', '2E3442');
     [[1.95, 3.25, 1.2, 2.85], [1.95, 3.3, 1.2, 3.3]].forEach(([a, b, c, d]) => arrow(s, a, b, c, d, C.red, 1.25));
     label(s, 0.6, 2.3, 1.6, 'pointed away from people', { size: 10.5, bold: true, color: C.red, align: 'left', h: 0.45, valign: 'top' });
-    label(s, 1.5, 3.5, 1.8, 'long tongs', { size: 10.5, bold: true, align: 'left', h: 0.24 });
+    label(s, 2.15, 3.45, 1.1, 'long tongs', { size: 10.5, bold: true, align: 'left', h: 0.24 });
     // film badge
     const bx = 4.55, by = 1.75;
     box(s, bx, by, 1.75, 2.4, 'E6EBF4', '4A5262', { shape: SH.ROUNDED_RECTANGLE, r: 0.06, lw: 1.25 });
@@ -807,7 +807,7 @@ reg(D.contentSlide({
       box(s, bx + 0.95, y, 0.65, 0.48, ['2B2B2B', '7A7A7A', 'D6D6D6'][i], '4A5262', { lw: 0.5 });
     });
     label(s, bx + 0.9, by + 2.2, 0.8, 'film', { size: 10, italic: true, h: 0.2 });
-    label(s, bx - 0.1, by + 2.45, 1.95, 'dark under open and Al, light under lead → **β** and some **γ**', { size: 10.5, align: 'left', valign: 'top', h: 0.85 });
+    label(s, bx - 0.1, by + 2.45, 1.95, 'darkest under open, grey under Al, lightest under lead → **β** and **γ**', { size: 10.5, align: 'left', valign: 'top', h: 0.85 });
     // TDS strip
     box(s, 0.75, 4.75, 5.6, 0.95, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
     [['TIME', 'as short as possible'], ['DISTANCE', 'as far away as possible'], ['SHIELDING', 'lead, concrete, lead apron']].forEach(([h, t], i) => {
@@ -835,32 +835,32 @@ reg(D.contentSlide({
   subtitle: 'Ideas about Science • making decisions about using radioactive materials',
   tag: 'IaS', caption: 'a decision weighs benefits against risks',
   draw: (s, p) => {
-    const cx = 3.5, cy = 2.45, L = 2.2, ang = -8 * Math.PI / 180;
+    const cx = 3.45, cy = 2.1, L = 1.95, ang = 8 * Math.PI / 180;
     s.addShape(SH.ISOSCELES_TRIANGLE, { x: cx - 0.3, y: cy + 0.05, w: 0.6, h: 0.9, fill: { color: '5A6275' }, line: { color: '3B4252', width: 1 } });
     box(s, cx - 0.9, cy + 0.95, 1.8, 0.12, '5A6275', '3B4252');
     // beam rotated: left end down (benefits heavier)
-    s.addShape(SH.RECTANGLE, { x: cx - L, y: cy - 0.05, w: 2 * L, h: 0.1, rotate: -ang * 180 / Math.PI, fill: { color: '4A5262' }, line: { color: '2E3442', width: 0.75 } });
-    const ends = [[cx - L * Math.cos(ang), cy - L * Math.sin(ang) * -1], [cx + L * Math.cos(ang), cy + L * Math.sin(ang) * -1]];
+    s.addShape(SH.RECTANGLE, { x: cx - L, y: cy - 0.05, w: 2 * L, h: 0.1, rotate: -8, fill: { color: '4A5262' }, line: { color: '2E3442', width: 0.75 } });
+    const ends = [[cx - L * Math.cos(ang), cy + L * Math.sin(ang)], [cx + L * Math.cos(ang), cy - L * Math.sin(ang)]];
     const pans = [['BENEFITS', ['finds and treats disease', 'sterile equipment', 'safer, longer-lasting food'], C.green], ['RISKS', ['small extra chance of cancer', 'contamination if mishandled', 'waste to store'], C.red]];
     ends.forEach(([ex, ey], i) => {
       const [h, items, col] = pans[i];
       line(s, ex, ey, ex - 0.6, ey + 0.55, C.grey, 1); line(s, ex, ey, ex + 0.6, ey + 0.55, C.grey, 1);
-      box(s, ex - 1.05, ey + 0.55, 2.1, 1.35, C.white, col, { shape: SH.ROUNDED_RECTANGLE, r: 0.05, lw: 1.5 });
+      box(s, ex - 1.0, ey + 0.55, 2.0, 1.25, C.white, col, { shape: SH.ROUNDED_RECTANGLE, r: 0.05, lw: 1.5 });
       label(s, ex - 1.0, ey + 0.58, 2.0, h, { size: 11, bold: true, color: col, h: 0.26 });
-      items.forEach((t, j) => label(s, ex - 1.0, ey + 0.86 + j * 0.33, 2.0, t, { size: 10.5, h: 0.3 }));
+      items.forEach((t, j) => label(s, ex - 0.95, ey + 0.86 + j * 0.3, 1.9, t, { size: 10.5, h: 0.28 }));
     });
     table(s, [['Risks feel BIGGER when they are…', 'Risks feel SMALLER when they are…'],
       ['unfamiliar, invisible', 'familiar (e.g. driving)'],
       ['imposed on you', 'chosen by you'],
       ['possibly catastrophic', 'under your control']],
-    { t: { x: 0.7, y: 4.55, w: 5.6, colW: [2.8, 2.8], rowH: 0.29, fontSize: 10.5 } });
+    { t: { x: 0.7, y: 4.6, w: 5.6, colW: [2.8, 2.8], rowH: 0.29, fontSize: 10.5 } });
   },
   head: 'Weighing it up',
   lines: [
     'Every use of radiation has a **risk** (chance of harm × how serious it is) and a **benefit**.',
     'It is used when the **benefit outweighs the risk**, e.g. a scan that finds a cancer early.',
     'Keep doses **as low as reasonably possible**; consider who gets the benefit and who takes the risk.',
-    '**Perceived risk** is how big people *think* a risk is. Radiation is often feared more than familiar risks that are actually larger.',
+    '**Perceived risk** is how big people think a risk is. Radiation is often feared more than familiar risks that are actually larger.',
   ],
   worked: { head: 'Worked example: should the patient have the scan?', q: '',
     steps: [['Benefit', 'the scan can show whether the kidney is damaged'], ['Risk', 'a small dose from a short half-life gamma tracer'], ['Reduce risk', 'lowest activity that gives a clear image'], ['Answer', 'yes: the benefit is much greater than the small risk']], size: 10.5 },
@@ -869,7 +869,7 @@ reg(D.contentSlide({
 }), 'IaS Risk and benefit');
 
 // ======================= 25 RECAP 6 =======================
-const R6 = D.recapSlide(6, 'Other uses, safety and risk', [
+const R6 = D.recapSlide(6, `Specification ${sp('P5.2.4')} context and Ideas about Science • other uses, safety and risk`, [
   { q: 'Explain why **beta** radiation is used to monitor the thickness of paper.', marks: 2, ms: 'Beta is partly absorbed by paper (1); so the count rate changes when the thickness changes (alpha would be completely stopped; gamma would pass straight through) (1).' },
   { q: 'Give **three** precautions a hospital technician takes when preparing a radioactive tracer.', marks: 3, ms: 'Any three: tongs/remote handling; gloves; lead shielding/screen/lead-lined syringe; minimise time; maximise distance; wear a film badge/dosimeter (1 each).' },
   { q: 'Explain what is meant by **perceived risk**, and why it may differ from the actual risk.', marks: 2, ms: 'How big people think the risk is (1); may be larger if unfamiliar/invisible/imposed/catastrophic, or smaller if familiar/voluntary (1).' },
@@ -934,7 +934,7 @@ function levelsHW() {
     l1: 'Gives simple statements about the radiation type, half-life, a benefit or a risk.',
   });
 }
-D.homework('Foundation: answer Q1–Q4, Q6 and Q7 (15 marks). Higher: answer all questions.', HW, 17, { ht: true });
+D.homework('Foundation: answer Q1–Q4, Q6 and Q7 (15 marks). Higher: answer all questions.', HW, 17, { ht: true, dividerSub: 'P5.2 Using radioactive materials safely • 17 marks • about 30 minutes' });
 SLIDES.push(`${D.slideNo - 1}. Homework divider`);
 SLIDES.push(`${D.slideNo}. Homework`);
 
