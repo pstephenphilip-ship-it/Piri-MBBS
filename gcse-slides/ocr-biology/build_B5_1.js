@@ -177,30 +177,30 @@ function heart(s) {
   // chamber names inside
   label(s, 2.62, 2.8, 0.72, 'right\natrium', { size: 10, bold: true, color: DEE, h: 0.75 });
   label(s, 4.62, 2.8, 0.72, 'left\natrium', { size: 10, bold: true, color: OXE, h: 0.75 });
-  label(s, 2.62, 4.15, 1.18, 'right\nventricle', { size: 10.5, bold: true, color: DEE, h: 0.6 });
-  label(s, 4.1, 4.15, 0.92, 'left\nventricle', { size: 10.5, bold: true, color: OXE, h: 0.6 });
+  label(s, 2.62, 4.55, 1.18, 'right\nventricle', { size: 10.5, bold: true, color: DEE, h: 0.6 });
+  label(s, 4.1, 4.45, 0.92, 'left\nventricle', { size: 10.5, bold: true, color: OXE, h: 0.6 });
   // flow arrows (white on vessels, ink in chambers)
   flow(s, 2.1, 1.75, 2.1, 2.3, C.white); flow(s, 2.1, 5.45, 2.1, 4.6, C.white);
-  flow(s, 2.95, 3.25, 2.95, 4.05, DEE); flow(s, 3.35, 5.05, 3.55, 4.15, DEE);
+  flow(s, 2.95, 3.25, 2.95, 4.05, DEE); flow(s, 3.4, 4.5, 3.56, 4.02, DEE);
   flow(s, 3.56, 3.3, 3.56, 2.55, C.white);
   flow(s, 3.25, 2.25, 2.7, 2.25, C.white); flow(s, 4.6, 2.25, 5.12, 2.25, C.white);
-  flow(s, 4.82, 3.2, 4.82, 4.05, OXE); flow(s, 4.6, 4.85, 4.35, 4.15, OXE);
+  flow(s, 4.82, 3.2, 4.82, 4.05, OXE); flow(s, 4.42, 4.45, 4.28, 4.02, OXE);
   flow(s, 4.28, 3.3, 4.28, 2.0, C.white); flow(s, 5.95, 1.95, 5.95, 2.42, C.white);
   flow(s, 6.4, 2.98, 5.8, 2.98, C.white); flow(s, 6.4, 3.36, 5.8, 3.36, C.white);
   // labels: left side
   tag(s, 2.0, 1.62, 1.75, 1.62, '**vena cava** from the body', 'l', 1.25, { h: 0.45 });
-  tag(s, 2.68, 2.25, 2.35, 2.62, '**pulmonary artery** to the lungs', 'l', 1.6, { h: 0.45 });
+  tag(s, 2.68, 2.25, 1.9, 2.4, '**pulmonary artery** to the lungs', 'l', 1.3, { h: 0.45 });
   tag(s, 2.8, 3.72, 1.75, 3.72, '**valve**: stops backflow into the atrium', 'l', 1.25, { h: 0.6, size: 10 });
   tag(s, 2.5, 4.95, 1.75, 4.95, 'thin wall: pumps to the **lungs**', 'l', 1.25, { h: 0.45, size: 10 });
   tag(s, 2.0, 5.55, 1.75, 5.55, 'vena cava', 'l', 1.25, { size: 10 });
   // labels: right side
   tag(s, 5.6, 1.5, 6.0, 1.42, '**aorta** to the body', 'r', 1.55, { h: 0.45 });
-  tag(s, 5.0, 2.25, 6.35, 2.2, '**pulmonary artery**', 'r', 1.25, { size: 10 });
+  label(s, 4.48, 1.86, 1.4, 'to the lungs', { size: 10, italic: true, color: DEE, align: 'left', h: 0.24 });
   tag(s, 6.45, 3.17, 6.55, 3.17, '**pulmonary vein** from the lungs', 'r', 1.05, { h: 0.6, size: 10 });
   tag(s, 5.4, 4.6, 6.0, 4.6, 'thick wall of **cardiac muscle**: pumps to the whole **body**', 'r', 1.6, { h: 0.6, size: 10 });
-  tag(s, 4.92, 3.68, 6.0, 3.92, '**valve**', 'r', 1.0, { size: 10 });
-  tag(s, 3.95, 5.3, 4.5, 5.95, '**septum** keeps the two sides apart', 'r', 2.6, { size: 10 });
-  tag(s, 3.56, 3.72, 3.3, 5.95, 'valves at the base of the arteries', 'l', 2.4, { size: 10 });
+  tag(s, 4.92, 3.68, 6.0, 3.92, '**valves**: one-way flow', 'r', 1.45, { size: 10 });
+  line(s, 4.42, 3.72, 6.0, 3.92, C.ink, 0.75);
+  tag(s, 3.95, 5.32, 6.0, 5.32, '**septum**: keeps the two sides apart', 'r', 1.6, { h: 0.45, size: 10 });
 }
 
 // ======================= 1 COVER =======================
@@ -291,32 +291,32 @@ reg(D.contentSlide({
   subtitle: `Specification ${sp('B5.1.1')} • substances organisms must take in or get rid of, and why`,
   tag: 'B5.1.1', caption: 'a simplified human: where each substance enters (green) or leaves (red)',
   draw: (s, p) => {
-    // body outline
-    ball(s, 2.1, 1.85, 0.36, 'F6E3D3', 'B07A50', 1.25);
-    box(s, 1.45, 2.3, 1.3, 2.4, 'F6E3D3', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.35, lw: 1.25 });
-    box(s, 1.55, 4.6, 0.48, 1.15, 'F6E3D3', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1.25 });
-    box(s, 2.17, 4.6, 0.48, 1.15, 'F6E3D3', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1.25 });
-    // organs
-    oval(s, 1.82, 2.85, 0.42, 0.7, 'F4B6B6', OXE, { lw: 1 }); oval(s, 2.38, 2.85, 0.42, 0.7, 'F4B6B6', OXE, { lw: 1 });
-    line(s, 2.1, 2.15, 2.1, 2.6, '8C96A8', 3);
-    box(s, 1.7, 3.55, 0.8, 0.55, 'F2D29B', 'B8730A', { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1 });
-    oval(s, 1.72, 4.3, 0.2, 0.3, 'B5651D', '7A3E10'); oval(s, 2.48, 4.3, 0.2, 0.3, 'B5651D', '7A3E10');
-    label(s, 1.55, 2.62, 1.1, 'lungs', { size: 10, bold: true, h: 0.22 });
-    label(s, 1.7, 3.55, 0.8, 'gut', { size: 10, bold: true, h: 0.55 });
-    label(s, 1.6, 4.45, 1.0, 'kidneys', { size: 10, bold: true, h: 0.22 });
-    // in arrows (left, green) and out arrows (right, red)
-    const IN = [[1.95, 'oxygen', 2.7], [3.25, 'water', 3.7], [3.65, 'dissolved food molecules', 3.8], [4.05, 'mineral ions', 3.9]];
-    IN.forEach(([y, t, ty]) => { arrow(s, 0.95, y, 1.42, ty, C.green, 2); label(s, 0.55, y - 0.3, 1.15, t, { size: 10, bold: true, color: C.green, h: 0.3, valign: 'bottom', align: 'left' }); });
-    const OUT = [[2.75, 'carbon dioxide', 1.95], [3.05, 'water (breath)', 2.55], [4.3, 'urea (in urine)', 4.55], [3.9, 'water (urine, sweat)', 4.95]];
-    OUT.forEach(([fy, t, ty]) => { arrow(s, 2.78, fy, 3.35, ty, C.red, 2); label(s, 3.4, ty - 0.14, 2.0, t, { size: 10, bold: true, color: C.red, h: 0.28, align: 'left' }); });
+    // body outline (shifted right to leave room for the labels)
+    const X = 0.4;
+    ball(s, 2.1 + X, 1.85, 0.36, 'F6E3D3', 'B07A50', 1.25);
+    box(s, 1.45 + X, 2.3, 1.3, 2.4, 'F6E3D3', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.35, lw: 1.25 });
+    box(s, 1.55 + X, 4.6, 0.48, 1.15, 'F6E3D3', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1.25 });
+    box(s, 2.17 + X, 4.6, 0.48, 1.15, 'F6E3D3', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1.25 });
+    oval(s, 1.82 + X, 2.85, 0.42, 0.7, 'F4B6B6', OXE, { lw: 1 }); oval(s, 2.38 + X, 2.85, 0.42, 0.7, 'F4B6B6', OXE, { lw: 1 });
+    line(s, 2.1 + X, 2.15, 2.1 + X, 2.6, '8C96A8', 3);
+    box(s, 1.7 + X, 3.55, 0.8, 0.55, 'F2D29B', 'B8730A', { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1 });
+    oval(s, 1.72 + X, 4.3, 0.2, 0.3, 'B5651D', '7A3E10'); oval(s, 2.48 + X, 4.3, 0.2, 0.3, 'B5651D', '7A3E10');
+    label(s, 1.55 + X, 3.25, 1.1, 'lungs', { size: 10, bold: true, h: 0.22 });
+    label(s, 1.7 + X, 3.55, 0.8, 'gut', { size: 10, bold: true, h: 0.55 });
+    label(s, 1.6 + X, 4.47, 1.0, 'kidneys', { size: 10, bold: true, h: 0.22 });
+    // in arrows (left, green): label right-aligned just before the arrow tail
+    const IN = [[2.0, 'oxygen', 2.1 + X - 0.25, 2.75], [3.05, 'water', 1.7 + X, 3.65], [3.55, 'dissolved food molecules', 1.7 + X, 3.82], [4.15, 'mineral ions', 1.7 + X, 3.98]];
+    IN.forEach(([y, t, tx, ty]) => { arrow(s, 1.3, y, tx, ty, C.green, 2); label(s, 0.52, y - 0.25, 0.76, t, { size: 10, bold: true, color: C.green, h: 0.5, align: 'right' }); });
+    // out arrows (right, red)
+    const OUT = [[2.75, 'carbon dioxide', 2.0], [3.05, 'water (breath)', 2.55], [4.3, 'urea (in urine)', 4.55], [3.95, 'water (urine, sweat)', 5.0]];
+    OUT.forEach(([fy, t, ty]) => { arrow(s, 2.6 + X, fy, 3.55, ty, C.red, 2); label(s, 3.6, ty - 0.14, 1.25, t, { size: 10, bold: true, color: C.red, h: 0.28, align: 'left' }); });
     // other organisms
-    box(s, 4.25, 1.45, 2.15, 1.95, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
-    label(s, 4.3, 1.48, 2.05, 'Other organisms', { size: 10.5, bold: true, color: C.blue, h: 0.26 });
-    oval(s, 4.75, 2.1, 0.6, 0.42, 'E6F0F5', '7FA9C4', { lw: 1 }); ball(s, 4.75, 2.1, 0.08, C.nucleus, C.nucleusEdge);
-    label(s, 5.1, 1.85, 1.3, 'single cell: all through its membrane', { size: 10, h: 0.5, align: 'left', valign: 'top' });
-    oval(s, 4.75, 2.85, 0.6, 0.25, C.chloro, C.chloroEdge, { rot: -20 });
-    label(s, 5.1, 2.6, 1.3, 'plant: gases at leaves; water, ions at roots', { size: 10, h: 0.7, align: 'left', valign: 'top' });
-    label(s, 0.6, 5.9, 3.5, '', { size: 10 });
+    box(s, 4.85, 1.45, 1.55, 2.3, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
+    label(s, 4.9, 1.48, 1.45, 'Other organisms', { size: 10.5, bold: true, color: C.blue, h: 0.26 });
+    oval(s, 5.2, 2.0, 0.5, 0.36, 'E6F0F5', '7FA9C4', { lw: 1 }); ball(s, 5.2, 2.0, 0.07, C.nucleus, C.nucleusEdge);
+    label(s, 4.95, 2.22, 1.4, 'single cell: all through its membrane', { size: 10, h: 0.5, align: 'left', valign: 'top' });
+    oval(s, 5.2, 2.92, 0.5, 0.22, C.chloro, C.chloroEdge, { rot: -20 });
+    label(s, 4.95, 3.08, 1.4, 'plant: gases at leaves; water, ions at roots', { size: 10, h: 0.6, align: 'left', valign: 'top' });
   },
   head: 'Substances that must be transported',
   lines: [
@@ -527,7 +527,7 @@ reg(D.contentSlide({
     // labels
     tag(s, 2.37, 1.8, 2.75, 1.6, '**trachea**', 'r', 1.0);
     tag(s, 2.75, 2.88, 3.05, 2.45, '**bronchus**', 'r', 1.0);
-    tag(s, 3.25, 3.75, 3.95, 4.2, '**bronchioles**', 'r', 1.1);
+    tag(s, 1.42, 3.68, 0.8, 2.12, '**bronchioles**', 'r', 1.0);
     tag(s, 1.05, 4.45, 0.75, 4.95, '**alveoli**', 'l', 0.6, { size: 10 });
     label(s, 2.3, 5.4, 1.6, '**diaphragm**', { size: 10.5, align: 'left' });
     label(s, 0.55, 1.42, 1.5, "person's right lung", { size: 10, italic: true, color: C.grey, align: 'left' });
@@ -541,8 +541,8 @@ reg(D.contentSlide({
     [4.55, 5.0, 5.55, 6.0].forEach((x, i) => rbc(s, x, 3.76, 0.11));
     arrow(s, 4.3, 4.12, 6.25, 4.12, C.ink, 1.5);
     label(s, 4.25, 4.18, 2.1, 'blood flow in a **capillary**', { size: 10, h: 0.24 });
-    arrow(s, 5.0, 2.95, 5.0, 3.62, C.green, 2.25); label(s, 4.2, 3.05, 0.78, 'O₂ in', { size: 10.5, bold: true, color: C.green, align: 'right' });
-    arrow(s, 5.6, 3.62, 5.6, 2.95, C.red, 2.25); label(s, 5.65, 3.05, 0.75, 'CO₂ out', { size: 10.5, bold: true, color: C.red, align: 'left' });
+    arrow(s, 5.08, 2.95, 5.08, 3.62, C.green, 2.25); label(s, 4.2, 3.05, 0.8, 'O₂ in', { size: 10.5, bold: true, color: C.green, align: 'right' });
+    arrow(s, 5.46, 3.62, 5.46, 2.95, C.red, 2.25); label(s, 5.55, 3.05, 0.8, 'CO₂ out', { size: 10.5, bold: true, color: C.red, align: 'left' });
     label(s, 4.25, 4.5, 2.1, 'walls: **one cell thick**; total distance about **1 µm**', { size: 10, h: 0.45, valign: 'top' });
     label(s, 4.25, 5.0, 2.1, 'moist lining: gases dissolve first', { size: 10, h: 0.45, valign: 'top' });
   },
@@ -584,18 +584,15 @@ reg(D.contentSlide({
     // enlarged villus
     box(s, 4.15, 1.45, 2.25, 4.4, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
     label(s, 4.2, 1.5, 2.15, 'One villus', { size: 10.5, bold: true, color: C.blue, h: 0.26 });
-    box(s, 4.85, 1.95, 0.9, 3.4, 'F6D5C8', 'B5654A', { shape: SH.ROUNDED_RECTANGLE, r: 0.42, lw: 2 });
-    for (let y = 2.3; y < 5.3; y += 0.12) { line(s, 4.85, y, 4.77, y, 'B5654A', 0.75); line(s, 5.75, y, 5.83, y, 'B5654A', 0.75); }
-    // capillary loop
-    vessel(s, [[5.12, 5.35], [5.12, 2.45], [5.48, 2.45], [5.48, 5.35]], OXL, OX, 0.08);
-    line(s, 5.48, 2.6, 5.48, 5.3, DE, 2.5);
-    tag(s, 5.48, 4.1, 5.95, 4.1, '**capillary** network', 'r', 0.5, { h: 0.6, size: 10 });
-    tag(s, 4.8, 2.6, 4.45, 2.35, '**one layer** of cells', 'l', 0.3, { h: 0.0001, size: 10 });
-    label(s, 4.2, 2.0, 0.62, '**one layer** of cells', { size: 10, h: 0.5, align: 'left', valign: 'top' });
-    tag(s, 4.79, 3.6, 4.45, 3.9, 'micro-villi', 'l', 0.3, { h: 0.0001 });
-    label(s, 4.2, 3.92, 0.62, 'micro-villi', { size: 10, h: 0.45, align: 'left', valign: 'top' });
-    arrow(s, 4.4, 4.9, 4.95, 4.9, C.orange, 1.75);
-    label(s, 4.2, 5.0, 0.7, 'glucose in', { size: 10, bold: true, color: C.orange, h: 0.45, align: 'left', valign: 'top' });
+    box(s, 4.4, 1.95, 0.8, 3.4, 'F6D5C8', 'B5654A', { shape: SH.ROUNDED_RECTANGLE, r: 0.38, lw: 2 });
+    for (let y = 2.3; y < 5.3; y += 0.12) { line(s, 4.4, y, 4.32, y, 'B5654A', 0.75); line(s, 5.2, y, 5.28, y, 'B5654A', 0.75); }
+    vessel(s, [[4.62, 5.35], [4.62, 2.45], [4.98, 2.45], [4.98, 5.35]], OXL, OX, 0.08);
+    line(s, 4.98, 2.6, 4.98, 5.3, DE, 2.5);
+    tag(s, 5.18, 2.75, 5.38, 2.75, '**one layer** of cells', 'r', 0.95, { h: 0.45, size: 10 });
+    tag(s, 5.26, 3.55, 5.38, 3.55, '**microvilli**', 'r', 0.95, { size: 10 });
+    tag(s, 4.98, 4.25, 5.38, 4.25, '**capillary** network', 'r', 0.95, { h: 0.45, size: 10 });
+    arrow(s, 6.05, 5.0, 5.3, 5.0, C.orange, 1.75);
+    label(s, 5.38, 5.08, 0.95, 'glucose in', { size: 10, bold: true, color: C.orange, h: 0.26, align: 'left' });
   },
   head: 'How villi are adapted',
   lines: [
@@ -652,7 +649,7 @@ reg(D.contentSlide({
     flow(s, 3.42, 3.1, 3.42, 2.6, C.white); flow(s, 4.1, 2.5, 4.1, 3.0, C.white);
     flow(s, 4.95, 4.05, 5.5, 4.05, C.white); flow(s, 5.9, 4.3, 5.9, 4.85, C.white);
     flow(s, 1.25, 4.85, 1.25, 4.0, C.white); flow(s, 1.6, 3.45, 2.3, 3.45, C.white);
-    label(s, 1.6, 2.65, 1.75, 'pulmonary artery', { size: 10, align: 'right', h: 0.24 }); line(s, 3.35, 2.77, 3.32, 2.77, C.ink, 0.75);
+    label(s, 1.6, 2.65, 1.62, 'pulmonary artery', { size: 10, align: 'right', h: 0.24 });
     label(s, 4.25, 2.6, 1.6, 'pulmonary vein', { size: 10, align: 'left', h: 0.24 });
     label(s, 4.5, 3.75, 1.4, 'aorta', { size: 10, bold: true, align: 'left', h: 0.24 });
     label(s, 0.55, 3.0, 1.5, 'vena cava', { size: 10, bold: true, align: 'left', h: 0.24 });
@@ -684,7 +681,6 @@ reg(D.contentSlide({
   const s = D.contentHeader('The structure of the heart', `Specification ${sp('B5.1.4')} • four chambers, four valves, four main blood vessels`, { tag: 'B5.1.4' });
   D.panel(s, 0.45, 1.3, 7.2, 4.95);
   heart(s);
-  label(s, 0.55, 1.33, 2.3, '', { size: 10 });
   box(s, 0.6, 5.97, 6.9, 0.26, C.white, null);
   label(s, 0.6, 5.97, 6.9, "Illustrative diagram — front view: the person's **RIGHT** side is on **YOUR LEFT**. Red = oxygenated, blue = deoxygenated.", { size: 10, italic: true, color: C.grey, h: 0.26 });
   D.card(s, 7.85, 1.3, 5.03, 4.95, 'How the structure fits the job', [
@@ -772,7 +768,6 @@ reg(D.contentSlide({
     rbc(s, 5.5, 2.55, 0.26);
     label(s, 4.75, 1.4, 1.5, '**Capillary**', { size: 11, color: C.blue });
     label(s, 4.65, 3.38, 1.7, 'wall **one cell thick**; lumen fits one red cell', { size: 10, h: 0.45, valign: 'top' });
-    tag(s, 1.95, 2.95, 2.3, 3.2, '', 'r', 0.1);
     // vein lengthways with valves
     const vy = 4.55, x1 = 0.85, x2 = 6.15;
     box(s, x1, vy - 0.32, x2 - x1, 0.64, DEL, null);
@@ -798,7 +793,7 @@ reg(D.contentSlide({
     steps: [['Divide', '1 ÷ 0.001'], ['Answer', '1000 times thicker'], ['Why', 'the artery resists high pressure; the capillary lets substances diffuse']], size: 10.5 },
   workedH: 1.75,
   qc: 'Explain why **veins** need valves but **arteries** do not.',
-  notes: 'QUICK CHECK ANSWER: Blood in veins is at low pressure and could flow backwards (e.g. in the legs, against gravity); valves stop this (1). Blood in arteries is at high pressure from the heart pushing it forward, so it does not flow back (1).\nB5.1.5 wording (search extract): "explain how the structures of arteries, veins and capillaries are adapted to their functions, including differences in the vessel walls and the presence of valves". Wall thicknesses are typical values (UNVERIFIED for any one vessel); node: 1 ÷ 0.001 = 1000. The stray leader on the artery is decorative only — see render check.',
+  notes: 'QUICK CHECK ANSWER: Blood in veins is at low pressure and could flow backwards (e.g. in the legs, against gravity); valves stop this (1). Blood in arteries is at high pressure from the heart pushing it forward, so it does not flow back (1).\nB5.1.5 wording (search extract): "explain how the structures of arteries, veins and capillaries are adapted to their functions, including differences in the vessel walls and the presence of valves". Wall thicknesses are typical values (UNVERIFIED for any one vessel); node: 1 ÷ 0.001 = 1000.',
 }), 'B5.1.5 Arteries, veins, capillaries');
 
 // ======================= 20 BLOOD =======================
