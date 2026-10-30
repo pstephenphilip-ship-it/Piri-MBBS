@@ -34,12 +34,14 @@ const pct = (a, b) => (b - a) / a * 100;
 // slide 5: species richness in a pond survey
 calc('pond: 5 species lost of 25, % remaining', (25 - 5) / 25 * 100, 80, 1e-9);
 calc('QC: 12 of 40 species lost %', 12 / 40 * 100, 30, 1e-9);
+calc('orchard 30 ÷ 3', 30 / 3, 10, 1e-9);
+calc('orchard lost 30 − 10', 30 - 10, 20, 1e-9);
 // slide 8: forest grid (10 × 10 squares, each 1 km²)
 const FOREST = [
   '1111111111', '1111111111', '1111111111', '1111111111', '1111111111',
   '1111111111', '1111111111', '1111111111', '0000000000', '0000000000'];
 const FOREST2 = [
-  '1111000111', '1111000111', '1100000011', '0000000000', '1110001110',
+  '1111000111', '1111000111', '1100000011', '1111001111', '1110001110',
   '1110001110', '0000000000', '1100110011', '0000000000', '0000000000'];
 const cnt = g => g.join('').split('').filter(c => c === '1').length;
 const f1 = calc('forest squares before', cnt(FOREST), 80);
@@ -85,6 +87,9 @@ const dM = calc('daisies per m² (quadrat 0.25 m²)', dQ / 0.25, 20, 1e-9);
 calc('daisies on 50 m² lawn', dM * 50, 1000, 1e-9);
 calc('quadrat area 0.5 × 0.5', 0.5 * 0.5, 0.25, 1e-12);
 calc('A/B ratio', mA / mB, 8 / 3, 1e-9);
+calc('site 10 × 10', 10 * 10, 100);
+calc('sampled 5 × 0.25', 5 * 0.25, 1.25, 1e-12);
+calc('% sampled', 1.25 / 100 * 100, 1.25, 1e-12);
 // slide 19: world population (UN approximate; 2050 projected; UNVERIFIED to 2 s.f.)
 const POP_Y = [1950, 1975, 2000, 2025, 2050];
 const POP = [2.5, 4.1, 6.1, 8.2, 9.7];
@@ -164,6 +169,16 @@ function chimney(s, x, base, h) {
 }
 function lichen(s, cx, cy, r, col = 'B9C96A') {
   [[0, 0], [0.6, 0.3], [-0.5, 0.4], [0.2, -0.6]].forEach(([dx, dy]) => ball(s, cx + dx * r, cy + dy * r, r * 0.55, col, '7D8A3A', 0.5));
+}
+// small bird (blue tit style) facing left
+function bird(s, cx, cy, k = 1) {
+  oval(s, cx + 0.12 * k, cy, 0.42 * k, 0.26 * k, '5B9BD5', '2F5F8F', { lw: 0.75 });
+  oval(s, cx + 0.12 * k, cy + 0.03 * k, 0.26 * k, 0.14 * k, 'F2D16B', 'C9A63A', { lw: 0.5 });
+  ball(s, cx - 0.12 * k, cy - 0.08 * k, 0.1 * k, '5B9BD5', '2F5F8F');
+  s.addShape(SH.ISOSCELES_TRIANGLE, { x: cx - 0.3 * k, y: cy - 0.11 * k, w: 0.08 * k, h: 0.07 * k, rotate: 270, fill: { color: '3A3A3A' }, line: { color: '3A3A3A', width: 0.5 } });
+  ball(s, cx - 0.14 * k, cy - 0.1 * k, 0.015 * k + 0.008, C.ink);
+  s.addShape(SH.ISOSCELES_TRIANGLE, { x: cx + 0.3 * k, y: cy - 0.08 * k, w: 0.16 * k, h: 0.12 * k, rotate: 90, fill: { color: '2F5F8F' }, line: { color: '2F5F8F', width: 0.5 } });
+  line(s, cx + 0.05 * k, cy + 0.12 * k, cx + 0.05 * k, cy + 0.22 * k, '6B7385', 1);
 }
 function seedJar(s, x, y, w, h, col = 'B5833A') {
   box(s, x, y + 0.12, w, h - 0.12, 'EAF2F8', '6B7385', { shape: SH.ROUNDED_RECTANGLE, r: 0.05, lw: 1.25 });
@@ -252,7 +267,7 @@ reg(D.objectivesSlide([
       'Maths: **percentage change**, **means**, **ranges**, reading and plotting **graphs**, scaling quadrat counts.',
     ], { size: 11 }),
   ], { x: 7.55, y: 4.35, w: 5.15, h: 2.4, valign: 'top', margin: 0, fontFace: 'Calibri' });
-  D.notes(s, 'J260 Chapter B6 has three sub-topics (OCR J260 Advance Information June 2022 lists B6.1, B6.2, B6.3; docbrown combined page lists B6.3 as the biodiversity sub-topic). J257 Biology B has four (B6.2 sexual and asexual reproduction is J257 only), which is why biodiversity is B6.4 in J257.\nOverlap control: quadrats, transects and abiotic / biotic factors were taught in Chapter B3 (Living together) and are recapped only (slides 16–17). The GM technique is in B1 and is recapped only (slide 20). Natural selection and extinction belong to B6.1; species and classification to B6.2; both are only mentioned.\nJ260 biology ends with this deck: the specification has six biology chapters B1–B6, then C1–C6 and P1–P6, plus BCP7 Ideas about Science and BCP8 Practical skills.');
+  D.notes(s, 'J260 Chapter B6 has three sub-topics (OCR J260 Advance Information June 2022 lists B6.1, B6.2, B6.3; docbrown combined page lists B6.3 as the biodiversity sub-topic). J257 Biology B has four (B6.2 sexual and asexual reproduction is J257 only), which is why biodiversity is B6.4 in J257.\nOverlap control: quadrats, transects and abiotic / biotic factors were taught in Chapter B3 (Living together) and are recapped only (slides 16–17). The GM technique is in B1 and is recapped only (slide 20). Natural selection belongs to B6.1 and species / classification to B6.2; both are only mentioned. Extinction is NOT taught in B6.1 (SPEC_B6_1.md) and is taught here (slides 8–9).\nJ260 biology ends with this deck: the specification has six biology chapters B1–B6, then C1–C6 and P1–P6, plus BCP7 Ideas about Science and BCP8 Practical skills.');
   reg(s, 'Where this fits');
 }
 
@@ -262,9 +277,9 @@ reg(D.retrievalSlide([
   { from: 'B3 • sampling', q: 'Describe how to use a **quadrat** to estimate the number of daisies on a field. What is a **transect** for?' },
   { from: 'B3 • ecosystems', q: 'Name **two abiotic** and **two biotic** factors that affect where organisms live.' },
   { from: 'B6.2 • classification', q: 'What is a **species**? Why do scientists need to name and classify species?' },
-  { from: 'B6.1 • evolution', q: 'What is **extinction**? Give **one** cause of a species becoming extinct.' },
+  { from: 'KS3 • extinction', q: 'What is **extinction**? Give **one** cause of a species becoming extinct.' },
   { from: 'B1 • genes', q: 'What is **genetic modification**? (A field of **12** quadrats has a mean of **4** daisies: total counted?)' },
-], { subtitle: 'Recall from B1, B3, B6.1 and B6.2 • 6 minutes • no notes', notes: 'ANSWERS\n1. Species depend on each other for food, shelter, pollination etc. E.g. remove rabbits: foxes have less food (fall), grass increases.\n2. Place quadrats at random (random coordinates), count daisies in each, find the mean per quadrat, scale up to the area of the field. A transect (line with quadrats at intervals) shows how distribution changes across a habitat, e.g. with light or distance from water.\n3. Abiotic: light, temperature, water, pH, oxygen, carbon dioxide, soil nutrients. Biotic: food, predators, competitors, pathogens, pollinators.\n4. A group of organisms that can breed together to produce fertile offspring. To identify organisms, to count and monitor biodiversity and to see relationships (B6.2; recap only).\n5. When no individuals of a species are left. Causes: habitat loss, new predator or disease, new competitor, climate change, hunting (B6.1 recap).\n6. Changing an organism\'s genome by adding a gene from another organism (B1). 12 × 4 = 48 daisies counted.' }), 'Retrieval starter');
+], { subtitle: 'Recall from B1, B3, B6.1 and B6.2 • 6 minutes • no notes', notes: 'ANSWERS\n1. Species depend on each other for food, shelter, pollination etc. E.g. remove rabbits: foxes have less food (fall), grass increases.\n2. Place quadrats at random (random coordinates), count daisies in each, find the mean per quadrat, scale up to the area of the field. A transect (line with quadrats at intervals) shows how distribution changes across a habitat, e.g. with light or distance from water.\n3. Abiotic: light, temperature, water, pH, oxygen, carbon dioxide, soil nutrients. Biotic: food, predators, competitors, pathogens, pollinators.\n4. A group of organisms that can breed together to produce fertile offspring. To identify organisms, to count and monitor biodiversity and to see relationships (B6.2; recap only).\n5. When no individuals of a species are left. Causes: habitat loss, new predator or disease, new competitor, climate change, hunting (KS3; extinction is taught in this deck, not in B6.1).\n6. Changing an organism\'s genome by adding a gene from another organism (B1). 12 × 4 = 48 daisies counted.' }), 'Retrieval starter');
 
 // ======================= 5 WHAT IS BIODIVERSITY =======================
 reg(D.contentSlide({
@@ -284,8 +299,7 @@ reg(D.contentSlide({
     // species: different organisms
     flower(s, 2.9, 3.3, 0.6, 'E8C43A'); tree(s, 3.65, 3.3, 0.9);
     squirrel(s, 3.0, 4.15, 0.75); fish(s, 3.85, 4.15, 0.55);
-    s.addShape(SH.ISOSCELES_TRIANGLE, { x: 4.05, y: 2.55, w: 0.25, h: 0.25, rotate: 90, fill: { color: '3A3A3A' }, line: { color: '3A3A3A' } });
-    oval(s, 4.0, 2.67, 0.22, 0.12, '3A3A3A', '3A3A3A');
+    bird(s, 3.05, 2.55, 0.8);
     label(s, 2.65, 4.55, 1.7, '5 species', { size: 10, bold: true, color: C.blue, h: 0.25 });
     // ecosystem: wood, pond, meadow
     tree(s, 4.95, 3.0, 0.7); tree(s, 5.4, 3.0, 0.8); tree(s, 5.95, 3.0, 0.7);
@@ -319,15 +333,15 @@ reg(D.contentSlide({
   tag: 'B6.3.2', caption: 'a woodland food web; arrows show the direction of energy flow',
   draw: (s) => {
     const N = {
-      oak: [1.4, 4.7, 'Oak tree', LEAF[0]], grass: [3.4, 4.7, 'Grass', '7DBE6A'], flow: [5.4, 4.7, 'Wildflowers', 'E8C43A'],
-      cat: [1.1, 3.45, 'Caterpillar', '9BC53D'], rab: [3.0, 3.45, 'Rabbit', 'B9A68A'], bee: [5.4, 3.45, 'Bee', 'F2B705'],
-      bird: [1.6, 2.2, 'Blue tit', '5B9BD5'], fox: [3.6, 2.2, 'Fox', 'D2691E'], hawk: [2.6, 1.6, 'Hawk', '7A5C3A'],
+      oak: [1.3, 4.7, 'Oak tree', LEAF[0]], flow: [3.4, 4.7, 'Wildflowers', 'E8C43A'], grass: [5.5, 4.7, 'Grass', '7DBE6A'],
+      cat: [1.1, 3.45, 'Caterpillar', '9BC53D'], bee: [3.0, 3.45, 'Bee', 'F2B705'], rab: [5.2, 3.45, 'Rabbit', 'B9A68A'],
+      bird: [2.0, 2.3, 'Blue tit', '5B9BD5'], fox: [5.5, 2.3, 'Fox', 'D2691E'], hawk: [3.7, 1.65, 'Hawk', '7A5C3A'],
     };
-    const E = [['oak', 'cat'], ['cat', 'bird'], ['bird', 'hawk'], ['grass', 'rab'], ['rab', 'fox'], ['rab', 'hawk'], ['flow', 'bee'], ['bee', 'bird'], ['oak', 'rab']];
+    const E = [['oak', 'cat'], ['cat', 'bird'], ['bee', 'bird'], ['flow', 'bee'], ['grass', 'rab'], ['rab', 'fox'], ['rab', 'hawk'], ['bird', 'hawk']];
     E.forEach(([a, b]) => arrow(s, N[a][0], N[a][1] - 0.2, N[b][0], N[b][1] + 0.2, C.ink, 1.25));
     Object.values(N).forEach(([x, y, t, c]) => { box(s, x - 0.6, y - 0.19, 1.2, 0.38, c, C.ink, { shape: SH.ROUNDED_RECTANGLE, r: 0.06, lw: 0.75 }); label(s, x - 0.6, y - 0.19, 1.2, `**${t}**`, { size: 10, h: 0.38, color: C.ink }); });
-    arrow(s, 5.4, 3.65, 5.4, 4.5, HI, 1.5, { dash: 'dash' });
-    label(s, 4.3, 3.9, 1.0, 'pollinates', { size: 10, bold: true, color: HI, h: 0.22, align: 'right' });
+    arrow(s, 3.35, 3.65, 3.75, 4.5, HI, 1.5, { dash: 'dash' });
+    label(s, 3.75, 3.85, 1.0, 'pollinates', { size: 10, bold: true, color: HI, h: 0.22, align: 'left' });
     label(s, 0.65, 5.2, 5.75, 'Remove the bees: wildflowers are not pollinated, blue tits lose food → the whole web changes', { size: 10.5, italic: true, color: C.grey, h: 0.5 });
   },
   head: 'Ecosystem services',
@@ -340,8 +354,11 @@ reg(D.contentSlide({
     'Also **enjoyment**, tourism and the moral idea that other species have a right to exist.',
   ],
   size: 11.5,
+  worked: { head: 'Worked example: value of pollinators', q: 'An apple orchard yields 30 tonnes. Without insect pollination the yield would be one third of this.',
+    steps: [['Without', '30 ÷ 3 = 10 tonnes'], ['Lost', '30 − 10 = 20 tonnes'], ['Answer', 'insects provide **20 tonnes** (two thirds) of the crop']], size: 10.5 },
+  workedH: 1.55,
   qc: 'Give **three** ecosystem services. Explain why a food web with **many** species is more **stable** than one with few.',
-  notes: 'QUICK CHECK ANSWER: Any three from food, medicines, pollination, pest control, nutrient recycling, clean water / air, flood control, carbon storage, timber, tourism. With many species, each predator has several food sources, so if one prey species declines the predator can eat others; the web is less likely to collapse.\nB6.3.2 asks for benefits of maintaining biodiversity: this slide is the "benefits" half; slide 13 gives the challenges. Food web is simplified (illustrative).',
+  notes: 'QUICK CHECK ANSWER: Any three from food, medicines, pollination, pest control, nutrient recycling, clean water / air, flood control, carbon storage, timber, tourism. With many species, each predator has several food sources, so if one prey species declines the predator can eat others; the web is less likely to collapse.\nB6.3.2 asks for benefits of maintaining biodiversity: this slide is the "benefits" half; slide 13 gives the challenges. Food web is simplified (illustrative). Orchard figures illustrative (asserted: 30 ÷ 3 = 10; 30 − 10 = 20).',
 }), 'B6.3.1–2 Why biodiversity matters');
 
 // ======================= 7 RECAP 1 =======================
@@ -373,7 +390,7 @@ reg(R1.s, 'Recap 1');
     '**Building**: housing, industry, quarries and landfill take land.',
     '**Peat bogs** drained and dug for compost: habitats lost and stored **carbon** released as CO₂.',
     '**Hedgerows** removed to make bigger fields: fewer nesting sites and wildlife corridors.',
-    'Fewer habitats → fewer **niches** → fewer species can live there.',
+    'Fewer habitats → fewer species. A species that loses all its habitat dies out: **extinction** (none left anywhere).',
   ], { size: 11 });
   D.workedSteps(s, 6.8, 4.4, 6.08, 1.85, 'Worked example: percentage of forest lost', 'Use the two grids.', [
     ['Lost', `${f1} − ${f2} = ${f1 - f2} km²`], ['Divide', `${f1 - f2} ÷ ${f1} × 100`], ['Answer', '**45%** of the forest was lost']], { size: 10.5 });
@@ -391,13 +408,14 @@ reg(D.contentSlide({
     // eutrophication chain
     const steps = ['Fertiliser or sewage washes into the lake', 'Algae grow fast and cover the surface', 'Plants below get no light and die', 'Bacteria decompose them and use up oxygen', 'Fish and other animals die'];
     // lake
-    box(s, 0.7, 1.55, 2.7, 1.9, WAT[0], WAT[1], { shape: SH.ROUNDED_RECTANGLE, r: 0.08, lw: 1.25 });
-    box(s, 0.7, 1.55, 2.7, 0.22, '7DBE6A', '3E7F2E', { lw: 0.75 });
-    label(s, 0.7, 1.55, 2.7, 'algal bloom', { size: 10, bold: true, color: '1E4D14', h: 0.22 });
+    box(s, 0.9, 1.55, 2.5, 1.9, WAT[0], WAT[1], { shape: SH.ROUNDED_RECTANGLE, r: 0.08, lw: 1.25 });
+    box(s, 0.9, 1.55, 2.5, 0.22, '7DBE6A', '3E7F2E', { lw: 0.75 });
+    label(s, 0.9, 1.55, 2.5, 'algal bloom', { size: 10, bold: true, color: '1E4D14', h: 0.22 });
+    arrow(s, 0.55, 2.0, 1.05, 2.0, '7A5520', 1.5);
+    label(s, 1.1, 1.82, 1.7, 'run-off from fields', { size: 10, bold: true, color: '7A5520', align: 'left', h: 0.24 });
     fish(s, 1.4, 2.5, 0.5, '9AA3B0', '5A6275'); fish(s, 2.4, 2.9, 0.45, '9AA3B0', '5A6275');
     label(s, 0.75, 3.05, 2.6, 'dead fish: little **oxygen**', { size: 10, color: C.ink, h: 0.3 });
-    box(s, 0.6, 1.35, 0.55, 0.2, 'C9A46B', null);
-    arrow(s, 1.0, 1.3, 1.1, 1.62, '7A5520', 1.5);
+
     steps.forEach((t, i) => {
       pbox(s, 3.6, 1.48 + i * 0.4, 2.8, 0.34, `${i + 1} ${t}`, i % 2 ? C.white : 'EAF5E4', '7DBE6A', { size: 10, lw: 0.75 });
     });
@@ -430,21 +448,21 @@ reg(D.contentSlide({
 {
   const s = D.contentHeader('Evidence: indicator species', `Specification ${sp('B6.3.3')} • evaluate evidence for the effect of environmental change on distribution`, { ht: true, tag: 'B6.3.3' });
   D.panel(s, 0.45, 1.3, 6.6, 4.95, 'plotted to scale from the survey tables (illustrative data)');
-  const g1 = { x: 1.3, y: 1.55, w: 2.3, h: 2.9, xmin: 0, xmax: 10, ymin: 0, ymax: 70, xstep: 2, ystep: 10, minor: 1, xlabel: 'Distance from city / km', ylabel: '' };
-  const g2 = { x: 4.45, y: 1.55, w: 2.3, h: 2.9, xmin: 0, xmax: 10, ymin: 0, ymax: 25, xstep: 2, ystep: 5, minor: 1, xlabel: 'Distance downstream / km', ylabel: '' };
+  const g1 = { x: 1.3, y: 1.55, w: 2.3, xmin: 0, xmax: 10, ymin: 0, ymax: 70, xstep: 2, ystep: 10, minor: 1, h: 2.55, xlabel: 'Distance from city / km', ylabel: '' };
+  const g2 = { x: 4.45, y: 1.55, w: 2.3, h: 2.55, xmin: 0, xmax: 10, ymin: 0, ymax: 25, xstep: 2, ystep: 5, minor: 1, xlabel: 'Distance downstream / km', ylabel: '' };
   D.axes(s, g1); D.axes(s, g2);
   const p1 = DIST.map((d, i) => [d, SO2[i]]), p2 = DIST.map((d, i) => [d, LICH[i] * 5]);
   D.plotLine(s, g1, p1, '7A7A7A', 2); D.points(s, g1, p1, C.ink);
   D.plotLine(s, g1, p2, '7D8A3A', 2); D.points(s, g1, p2, C.ink);
   label(s, g1.x, g1.y - 0.25, 2.3, '**Air**: SO₂ and lichens', { size: 10.5, h: 0.22 });
   label(s, D.px(g1, 0.3), D.py(g1, 66), 1.2, 'SO₂ / µg/m³', { size: 10, bold: true, color: '5A5A5A', align: 'left', h: 0.2 });
-  label(s, D.px(g1, 4.8), D.py(g1, 66), 1.2, 'lichen species ×5', { size: 10, bold: true, color: '5E6A1E', align: 'left', h: 0.2 });
+  label(s, D.px(g1, 4.6), D.py(g1, 6), 1.3, 'lichen species ×5', { size: 10, bold: true, color: '5E6A1E', align: 'left', h: 0.2 });
   const q1 = DIST.map((d, i) => [d, DO[i] * 2]), q2 = DIST.map((d, i) => [d, STONE[i]]);
   D.plotLine(s, g2, q1, WAT[1], 2); D.points(s, g2, q1, C.ink);
   D.plotLine(s, g2, q2, '8A5A2B', 2); D.points(s, g2, q2, C.ink);
   label(s, g2.x, g2.y - 0.25, 2.3, '**Water**: oxygen and stoneflies', { size: 10.5, h: 0.22 });
   label(s, D.px(g2, 0.3), D.py(g2, 24), 1.4, 'oxygen mg/L ×2', { size: 10, bold: true, color: WAT[1], align: 'left', h: 0.2 });
-  label(s, D.px(g2, 5.2), D.py(g2, 13), 1.0, 'stonefly nymphs', { size: 10, bold: true, color: '8A5A2B', align: 'left', h: 0.2 });
+  label(s, D.px(g2, 6.8), D.py(g2, 9), 1.0, 'stonefly nymphs', { size: 10, bold: true, color: '8A5A2B', align: 'left', h: 0.2 });
   const rows = [[HDR('km'), ...DIST.map(d => HDR(String(d)))],
     [tcell('SO₂', 0, { bold: true }), ...SO2.map(v => tcell(String(v), 0))], [tcell('Lichens', 1, { bold: true }), ...LICH.map(v => tcell(String(v), 1))],
     [tcell('O₂ mg/L', 0, { bold: true }), ...DO.map(v => tcell(String(v), 0))], [tcell('Stoneflies', 1, { bold: true }), ...STONE.map(v => tcell(String(v), 1))]];
@@ -453,12 +471,12 @@ reg(D.contentSlide({
     '**Lichens** are killed by **sulfur dioxide** (an atmospheric gas from burning fuels): more lichen species = cleaner air.',
     '**Stonefly** and mayfly nymphs need a lot of **dissolved oxygen**; sludgeworms and rat-tailed maggots survive in polluted, low-oxygen water.',
     'Rising **temperature** and CO₂: species shift their range towards the poles or uphill.',
-  ], { size: 11 });
+  ], { size: 12 });
   D.card(s, 7.3, 4.1, 5.58, 2.15, 'Evaluating the evidence', [
     'Both data sets show a **correlation**. A **mechanism** (SO₂ damages lichens; nymphs need O₂) makes **cause** more likely.',
     'But other factors change with distance too (light, temperature, trees). Only **one** transect: **repeat** it at other cities and rivers.',
     'Is the sample big enough? Were species identified correctly?',
-  ], { size: 10.5 });
+  ], { size: 11.5 });
   D.quickCheck(s, 'Describe the pattern in the lichen data. Give **one** reason why the data do not **prove** that SO₂ limits lichens.');
   D.notes(s, `QUICK CHECK ANSWER: As distance from the city increases, SO₂ falls (60 → 8 µg/m³) and the number of lichen species rises (1 → 13): a negative correlation between SO₂ and lichen diversity. Not proof: other variables (e.g. temperature, humidity, soot, tree species) also change with distance; only one transect / no repeats; correlation does not show cause (IaS).\nHT statement B6.3.3 "evaluate evidence for the impact of environmental changes on the distribution of organisms, with reference to water and atmospheric gases" (J257 wording; "(HT only)" in the revision map extract). If your J260 copy shows it in normal type, teach this slide to all.\nData illustrative; monotonic trends asserted in node. Lichens are plotted ×5 and oxygen ×2 so they share an axis: point this out (a common exam trap: read the key). Stonefly mean of first three sites = ${fmt(sf(10 / 3, 3))}.`);
   reg(s, 'B6.3.3 Evidence: indicator species (HT)');
@@ -604,8 +622,7 @@ reg(D.contentSlide({
     label(s, 4.2, 3.65, 2.0, 'quadrat 0.5 m × 0.5 m = **0.25 m²**', { size: 10, h: 0.4 });
     // key
     box(s, 4.2, 4.15, 2.0, 1.05, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
-    label(s, 4.25, 4.18, 1.9, '**Key**: petals? → yes → colour? ...', { size: 10, h: 0.5, align: 'left', valign: 'top' });
-    label(s, 4.25, 4.68, 1.9, 'identify each species', { size: 10, italic: true, color: C.grey, h: 0.3, align: 'left' });
+    label(s, 4.25, 4.18, 1.9, '**Key**\n1 Petals? yes → 2; no → grass\n2 Yellow? yes → buttercup; no → daisy', { size: 10, h: 0.98, align: 'left', valign: 'top' });
     label(s, 0.75, 4.9, 3.2, 'random coordinates from a random number generator', { size: 10, h: 0.45, valign: 'top' });
   },
   head: 'Method',
@@ -617,6 +634,9 @@ reg(D.contentSlide({
     '**Safety**: wash hands; watch for stinging plants, dog mess and allergies.',
   ],
   size: 11,
+  worked: { head: 'Worked example: how much was sampled?', q: 'Site A is 10 m × 10 m. Five 0.25 m² quadrats were used.',
+    steps: [['Site area', '10 × 10 = 100 m²'], ['Sampled', '5 × 0.25 = 1.25 m²'], ['Answer', '1.25 ÷ 100 × 100 = **1.25%** of the site sampled']], size: 10.5 },
+  workedH: 1.55,
   qc: 'Why are quadrats placed **randomly**? Why should the **same** quadrat size be used at both sites?',
   notes: 'QUICK CHECK ANSWER: Random placement avoids bias (choosing interesting patches) so the sample is representative. Same size so that the number of species is compared fairly: a bigger quadrat would find more species.\nThis is a suggested activity to apply B6.3.2 (judging biodiversity with data). Random quadrat sampling and transects were taught in Chapter B3 (J260 B3 practical work; PAG B2 in the OCR practical scheme covers sampling, UNVERIFIED code) and are recapped only. No PAG is linked to B6.3 in any source found.',
 }), 'Activity: comparing two sites (method)');
@@ -625,7 +645,7 @@ reg(D.contentSlide({
 {
   const s = D.contentHeader('Comparing two sites: results', `Specification ${sp('B6.3.2')} • means, ranges and scaling up from quadrats`, { pag: 'SUGGESTED ACTIVITY', tag: 'Activity' });
   D.panel(s, 0.45, 1.3, 6.6, 4.95, 'bar chart of mean species per quadrat, to scale; bars show the range');
-  const g = { x: 1.5, y: 1.55, w: 5.2, h: 3.6, xmin: 0, xmax: 3, ymin: 0, ymax: 12, xstep: 1, ystep: 2, minor: 2, ylabel: 'Species per quadrat', fmt: () => '' };
+  const g = { x: 1.5, y: 1.55, w: 5.2, h: 3.6, xmin: 0, xmax: 3, ymin: 0, ymax: 12, xstep: 1, ystep: 2, minor: 2, ylabel: 'Species per quadrat', fmt: () => '', yfmt: v => String(v) };
   D.axes(s, g);
   bars(s, g, [[1, mA, '7DBE6A'], [2, mB, 'C9B21E']]);
   [[1, QA], [2, QB]].forEach(([xv, q]) => {
@@ -677,7 +697,7 @@ reg(R4.s, 'Recap 4');
       const pts = POP_Y.map((y, i) => [y, POP[i]]);
       D.plotLine(s, g, pts.slice(0, 4), C.blue, 2.25); D.plotLine(s, g, pts.slice(3), C.blue, 2.25, { dash: 'dash' });
       D.points(s, g, pts, C.ink);
-      POP.forEach((v, i) => label(s, D.px(g, POP_Y[i]) - 0.35, D.py(g, v) - 0.3, 0.7, String(v), { size: 10, bold: true, color: C.blue, h: 0.22 }));
+      POP.forEach((v, i) => label(s, D.px(g, POP_Y[i]) - 0.55, D.py(g, v) - 0.3, 0.5, String(v), { size: 10, bold: true, color: C.blue, h: 0.22 }));
     },
     head: 'Threats to food security',
     lines: [
@@ -709,7 +729,8 @@ reg(D.contentSlide({
     label(s, 0.65, 2.5, 5.7, '**2** Insert it into the plant cell\'s DNA (using a bacterium or virus as a **vector**)', { size: 10.5, align: 'left', h: 0.3 });
     D.plantCell(s, 1.1, 2.9, 1.9, 1.3);
     arrow(s, 3.2, 3.55, 3.9, 3.55, C.ink, 2);
-    label(s, 0.65, 4.3, 5.7, '**3** Grow the cell into a whole plant: every cell has the new gene', { size: 10.5, align: 'left', h: 0.3 });
+    label(s, 3.15, 3.25, 0.8, '**3** grow', { size: 10, h: 0.25 });
+    label(s, 0.65, 4.65, 5.7, '**3** Grow the cell into a whole plant: every cell has the new gene', { size: 10.5, align: 'left', h: 0.3 });
     // plants: one eaten (holes), one GM healthy
     const plant = (cx, base, gm) => {
       line(s, cx, base, cx, base - 1.3, '3E7F2E', 2.5);
@@ -719,9 +740,9 @@ reg(D.contentSlide({
       });
     };
     plant(4.4, 4.2, false); plant(5.6, 4.2, true);
-    label(s, 3.9, 4.0, 1.0, 'pest damage', { size: 10, color: HI, bold: true, h: 0.22 });
-    label(s, 5.1, 4.0, 1.0, 'GM: resists pest', { size: 10, color: C.green, bold: true, h: 0.22 });
-    label(s, 0.65, 4.7, 5.7, 'Other GM examples: drought-tolerant maize, Golden Rice (vitamin A), herbicide-tolerant soya', { size: 10, italic: true, color: C.grey, h: 0.45, align: 'left' });
+    label(s, 3.85, 4.25, 1.1, 'pest damage', { size: 10, color: HI, bold: true, h: 0.22 });
+    label(s, 5.0, 4.25, 1.3, 'GM: resists pest', { size: 10, color: C.green, bold: true, h: 0.22 });
+    label(s, 0.65, 5.05, 5.7, 'Other GM examples: drought-tolerant maize, Golden Rice (vitamin A), herbicide-tolerant soya', { size: 10, italic: true, color: C.grey, h: 0.45, align: 'left' });
   },
   head: 'Ways to produce more food',
   lines: [
@@ -752,7 +773,7 @@ reg(R5.s, 'Recap 5');
 reg(D.keyWords([
   ['Biodiversity', 'The variety of living organisms in an area: genes, species and ecosystems.'],
   ['Ecosystem services', 'Benefits from nature: food, medicines, pollination, clean water, carbon storage.'],
-  ['Interdependence', 'Species in a community depend on each other (B3 recap).'],
+  ['Extinction', 'When no individuals of a species are left anywhere; biodiversity is lost for ever.'],
   ['Monoculture', 'A large area growing one crop variety: low biodiversity.'],
   ['Deforestation', 'Cutting down forests for farmland, timber or building.'],
   ['Eutrophication', 'Nutrient pollution → algal bloom → plants die → oxygen used up → animals die.'],
