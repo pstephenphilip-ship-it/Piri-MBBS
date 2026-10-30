@@ -242,11 +242,11 @@ reg(D.contentSlide({
     oval(s, 1.35, 2.35, 1.3, 1.05, 'F3D3A6', G.adr[1], { lw: 1.5 });
     [[1.05, 2.15], [1.4, 2.05], [1.7, 2.3], [1.15, 2.55], [1.5, 2.6]].forEach(([x, y]) => hormone(s, x, y, 0.07));
     label(s, 0.7, 1.45, 1.4, '1  Endocrine **gland**', { size: 11, color: G.adr[1], align: 'left' });
-    label(s, 0.65, 2.95, 1.6, 'makes the hormone and **secretes** it into the blood', { size: 10, h: 0.45, valign: 'top' });
+    label(s, 0.6, 2.95, 1.35, 'makes the hormone and **secretes** it into the blood', { size: 10, h: 0.6, valign: 'top', align: 'left' });
     // blood vessel
     const vy = 3.65;
     box(s, 0.65, vy, 5.7, 0.62, 'F8D2D4', C.red, { shape: SH.ROUNDED_RECTANGLE, r: 0.3, lw: 1.5 });
-    arrow(s, 1.55, 2.9, 1.55, vy + 0.1, G.adr[1], 2);
+    arrow(s, 1.9, 2.75, 2.25, vy + 0.1, G.adr[1], 2);
     [[1.9, 0.18], [2.6, 0.42], [3.3, 0.22], [4.1, 0.45], [4.9, 0.2], [5.7, 0.4]].forEach(([x, dy]) => hormone(s, x, vy + dy, 0.07));
     [[2.25, 0.4], [3.75, 0.2], [5.3, 0.46]].forEach(([x, dy]) => ball(s, x, vy + dy, 0.09, 'D9534F', '8E2A33'));
     arrow(s, 2.4, vy + 0.82, 4.4, vy + 0.82, C.red, 1.75);
@@ -258,12 +258,12 @@ reg(D.contentSlide({
     oval(s, 3.57, 2.25, 0.4, 0.34, C.nucleus, C.nucleusEdge);
     receptor(s, 3.1, 2.79, 0.24, C.green, true); receptor(s, 3.9, 2.79, 0.24, C.green, false);
     label(s, 2.7, 1.45, 1.75, '3  **Target** cell', { size: 11, color: C.green });
-    arrow(s, 3.9, 3.55, 3.9, 3.1, 'E08A1E', 1.5);
+    arrow(s, 3.9, 3.62, 3.9, 3.0, 'E08A1E', 1.5);
     box(s, 4.65, 1.8, 1.65, 1.15, C.cyto, C.membrane, { shape: SH.ROUNDED_RECTANGLE, r: 0.1, lw: 1.5 });
     oval(s, 5.47, 2.25, 0.4, 0.34, C.nucleus, C.nucleusEdge);
     box(s, 4.85, 2.79, 0.3, 0.16, 'B8C0CD', '6B7385', { lw: 0.75 }); box(s, 5.75, 2.79, 0.3, 0.16, 'B8C0CD', '6B7385', { lw: 0.75 });
     label(s, 4.6, 1.45, 1.75, 'Other cell', { size: 11, color: C.grey });
-    label(s, 2.7, 3.0, 1.75, 'matching receptors: **responds**', { size: 10, color: C.green, h: 0.3 });
+    label(s, 2.72, 3.0, 1.1, 'matching receptors: **responds**', { size: 10, color: C.green, h: 0.45, valign: 'top', align: 'left' });
     label(s, 4.6, 3.0, 1.75, 'no matching receptor: no effect', { size: 10, color: C.grey, h: 0.3 });
     label(s, 0.7, 4.95, 5.6, '4  The hormone **binds** to its receptor and the target organ **responds**. The response lasts as long as the hormone is in the blood.', { size: 10.5, align: 'left', h: 0.5, valign: 'top' });
   },
@@ -286,22 +286,23 @@ reg(D.contentSlide({
 {
   const s = D.contentHeader('The endocrine system', `Specification ${sp('B5.3.1')} • where the main glands are, and the hormones they make`, { tag: 'B5.3.1' });
   D.panel(s, 0.45, 1.3, 6.1, 4.95, 'front view; the glands are drawn larger than life');
-  const P = body(s, 3.15, 1.45, 0.95);
-  callout(s, 4.5, 1.75, 1.9, 'Pituitary gland', P.pit[0] + 0.06, P.pit[1], G.pit[1]);
-  callout(s, 0.6, 2.28, 1.75, 'Thyroid gland', P.thy[0] - 0.13, P.thy[1], G.thy[1]);
-  callout(s, 0.6, 3.05, 1.75, 'Adrenal glands', P.adrL[0] - 0.05, P.adrL[1], G.adr[1]);
-  line(s, 2.39, 3.05, P.adrR[0], P.adrR[1] + 0.02, G.adr[1], 0.75, { dash: 'dash' });
-  callout(s, 4.5, 2.9, 1.9, 'Pancreas', P.pan[0] + 0.3, P.pan[1] - 0.05, G.pan[1]);
-  callout(s, 0.6, 3.92, 1.75, 'Ovaries (female)', P.ovL[0] - 0.08, P.ovL[1], G.ov[1]);
-  line(s, 2.39, 3.92, P.ovR[0], P.ovR[1] + 0.02, G.ov[1], 0.75, { dash: 'dash' });
-  label(s, 4.5, 3.3, 1.9, 'kidneys (not glands) under the adrenals', { size: 10, italic: true, color: C.grey, align: 'left', h: 0.42, valign: 'top' });
-  line(s, 4.48, 3.4, P.kid[0] + 0.1, P.kid[1], C.grey, 0.75);
+  const P = body(s, 3.4, 1.45, 0.95);
+  callout(s, 4.62, 1.75, 1.8, 'Pituitary gland', P.pit[0] + 0.06, P.pit[1], G.pit[1]);
+  callout(s, 0.55, 2.28, 1.5, 'Thyroid gland', P.thy[0] - 0.13, P.thy[1], G.thy[1]);
+  callout(s, 0.55, 3.05, 1.5, 'Adrenal glands', P.adrL[0] - 0.05, P.adrL[1], G.adr[1]);
+  line(s, 2.09, 3.05, P.adrR[0], P.adrR[1] + 0.02, G.adr[1], 0.75, { dash: 'dash' });
+  callout(s, 4.62, 2.9, 1.8, 'Pancreas', P.pan[0] + 0.3, P.pan[1] - 0.05, G.pan[1]);
+  callout(s, 0.55, 3.92, 1.5, 'Ovaries (female)', P.ovL[0] - 0.08, P.ovL[1], G.ov[1]);
+  line(s, 2.09, 3.92, P.ovR[0], P.ovR[1] + 0.02, G.ov[1], 0.75, { dash: 'dash' });
+  label(s, 4.62, 3.3, 1.8, 'kidneys (not glands) under the adrenals', { size: 10, italic: true, color: C.grey, align: 'left', h: 0.42, valign: 'top' });
+  line(s, 4.6, 3.4, P.kid[0] + 0.1, P.kid[1], C.grey, 0.75);
   // testes inset
   box(s, 4.55, 4.2, 1.85, 1.6, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
   label(s, 4.6, 4.24, 1.75, 'Male: **testes**', { size: 11, color: G.tes[1] });
-  box(s, 4.85, 4.55, 1.25, 0.45, SKIN, SKIN_EDGE, { shape: SH.ROUNDED_RECTANGLE, r: 0.12, lw: 1.5 });
-  oval(s, 5.47, 5.25, 0.62, 0.42, SKIN, SKIN_EDGE, { lw: 1.5 });
-  oval(s, 5.32, 5.25, 0.2, 0.26, G.tes[0], G.tes[1]); oval(s, 5.62, 5.25, 0.2, 0.26, G.tes[0], G.tes[1]);
+  [true, false].forEach(ep => [[4.9, 4.55, 1.15, 0.4], [4.9, 4.7, 0.36, 0.75], [5.69, 4.7, 0.36, 0.75]].forEach(([x, y, w, h]) =>
+    s.addShape(SH.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.12, fill: { color: SKIN }, line: ep ? { color: SKIN_EDGE, width: 2 } : { type: 'none' } })));
+  oval(s, 5.475, 5.12, 0.42, 0.36, SKIN, SKIN_EDGE, { lw: 1.5 });
+  oval(s, 5.39, 5.13, 0.15, 0.22, G.tes[0], G.tes[1]); oval(s, 5.56, 5.13, 0.15, 0.22, G.tes[0], G.tes[1]);
   label(s, 4.6, 5.48, 1.75, 'in the scrotum', { size: 10, italic: true, color: C.grey });
   // table
   const rows = [[HDR('Gland'), HDR('Hormone(s)'), HDR('Main job')],
@@ -350,7 +351,9 @@ reg(D.contentSlide({
     ];
     tg.forEach(([x, h, org, eff, col]) => {
       arrow(s, 3.5 + (x - 3.5) * 0.12, 2.9, x, 3.95, G.pit[0], 2);
-      label(s, x - 0.8 + (x - 3.5) * 0.32, 3.22, 1.6, `**${h}**`, { size: 10.5, color: G.pit[1] });
+      const mx = (3.5 + (x - 3.5) * 0.12 + x) / 2;
+      if (x < 3) label(s, mx - 1.2, 3.25, 1.05, `**${h}**`, { size: 10.5, color: G.pit[1], align: 'right' });
+      else label(s, mx + 0.12, 3.25, 1.5, `**${h}**`, { size: 10.5, color: G.pit[1], align: 'left' });
       pbox(s, x - 0.82, 4.0, 1.64, 0.62, org, C.white, col[1], { bold: true, color: col[1] });
       label(s, x - 0.85, 4.66, 1.7, eff, { size: 10, h: 0.48, valign: 'top' });
     });
@@ -380,9 +383,9 @@ reg(D.contentSlide({
   label(s, 0.65, 1.42, 5.7, '**Nervous system**: electrical impulses along neurones', { size: 11, color: C.blue, align: 'left' });
   const ny = 2.2;
   ball(s, 0.95, ny, 0.16, 'D8C8EC', '6A4C93', 1.25);
-  line(s, 1.11, ny, 5.6, ny, '6A4C93', 3);
+  line(s, 1.11, ny, 5.55, ny, '6A4C93', 3);
   [[5.7, ny - 0.12], [5.75, ny], [5.7, ny + 0.12]].forEach(([x, y]) => line(s, 5.6, ny, x, y, '6A4C93', 1.5));
-  muscleIcon(s, 6.05, ny + 0.35, 0.6);
+  muscleIcon(s, 6.05, ny, 0.6); label(s, 5.7, ny + 0.15, 0.7, 'muscle', { size: 10, italic: true, color: C.grey });
   for (let i = 0; i < 4; i++) { const x = 1.6 + i * 1.0; box(s, x, ny - 0.07, 0.35, 0.14, 'F5D76E', 'B8930A', { lw: 0.75 }); }
   arrow(s, 2.0, ny - 0.3, 4.8, ny - 0.3, '6A4C93', 1.5);
   label(s, 0.65, 2.6, 5.7, 'fast • to **one** place (a muscle or gland) • short-lived', { size: 10.5, align: 'left' });
@@ -390,9 +393,9 @@ reg(D.contentSlide({
   label(s, 0.65, 3.25, 5.7, '**Endocrine system**: hormones carried in the blood', { size: 11, color: G.adr[1], align: 'left' });
   const by = 4.0;
   oval(s, 0.95, by, 0.45, 0.4, 'F3D3A6', G.adr[1], { lw: 1.25 });
-  box(s, 1.2, by - 0.22, 4.4, 0.44, 'F8D2D4', C.red, { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1.25 });
+  box(s, 1.2, by - 0.22, 4.3, 0.44, 'F8D2D4', C.red, { shape: SH.ROUNDED_RECTANGLE, r: 0.2, lw: 1.25 });
   [1.6, 2.4, 3.3, 4.2, 5.1].forEach((x, i) => hormone(s, x, by + (i % 2 ? 0.05 : -0.04), 0.065));
-  [[3.0, 4.65], [4.6, 4.65], [5.9, by]].forEach(([x, y], i) => {
+  [[3.0, 4.65], [4.6, 4.65], [6.05, by]].forEach(([x, y], i) => {
     if (i < 2) line(s, x, by + 0.22, x, y - 0.2, C.red, 1.5);
     box(s, x - 0.32, y - 0.2, 0.64, 0.4, C.cyto, C.membrane, { shape: SH.ROUNDED_RECTANGLE, r: 0.08, lw: 1 });
     receptor(s, x, y - 0.2, 0.2, C.green, true);
@@ -474,7 +477,7 @@ reg(D.contentSlide({
 
 // ======================= 12 HEART RATE DATA =======================
 {
-  const s = D.contentHeader('Data: heart rate after a fright', `Specification ${sp('B5.3.2')} • suggested activity: interpret a graph • percentage change`, { tag: 'B5.3.2', ht: true, pag: true });
+  const s = D.contentHeader('Data: heart rate after a fright', `Specification ${sp('B5.3.2')} • suggested activity: interpret a graph • percentage change`, { tag: 'B5.3.2', ht: true, pag: 'Suggested activity' });
   D.panel(s, 0.45, 1.3, 6.4, 4.95, 'sample data for one student; the loud noise is at 2 min');
   const g = { x: 1.45, y: 1.55, w: 5.05, h: 3.65, xmin: 0, xmax: 10, ymin: 60, ymax: 130, xstep: 1, ystep: 10, minor: 2, xlabel: 'time / min', ylabel: 'heart rate / beats per min' };
   D.axes(s, g);
@@ -486,7 +489,7 @@ reg(D.contentSlide({
   // resting line
   line(s, g.x, D.py(g, hrRest), g.x + g.w, D.py(g, hrRest), C.blue, 1, { dash: 'dash' });
   label(s, D.px(g, 7.3), D.py(g, hrRest) - 0.3, 1.5, `resting ${hrRest}`, { size: 10, color: C.blue, align: 'left' });
-  label(s, D.px(g, 4) + 0.1, D.py(g, hrPeak) - 0.12, 1.2, `peak ${hrPeak}`, { size: 10, bold: true, color: C.red, align: 'left' });
+  label(s, D.px(g, 4) + 0.22, D.py(g, hrPeak) - 0.2, 1.2, `peak ${hrPeak}`, { size: 10, bold: true, color: C.red, align: 'left' });
   // table
   const rows = [[HDR('Time / min'), ...HR.map(p => HDR(String(p[0])))], [{ text: 'Rate / bpm', options: { bold: true } }, ...HR.map(p => ({ text: String(p[1]) }))]];
   s.addTable(rows, { x: 7.1, y: 1.3, w: 5.78, colW: [1.17, ...Array(11).fill(4.61 / 11)], rowH: 0.3, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
