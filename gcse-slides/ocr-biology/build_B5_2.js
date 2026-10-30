@@ -300,7 +300,7 @@ reg(D.contentSlide({
     'Nerves connect the CNS to the rest of the body (the **peripheral** nervous system).',
     'Information travels along **neurones** (nerve cells) as **electrical impulses**. A nerve is a bundle of many neurones.',
   ],
-  size: 11,
+  size: 12.5,
   worked: { head: 'Worked example: trace the pathway', q: 'You see a ball coming and catch it. Identify each part of the pathway.',
     steps: [['Stimulus', 'light from the moving ball'], ['Receptor', 'light receptor cells in the eye'], ['Coordinator', 'CNS (brain) → motor neurones'], ['Effector', 'arm and hand muscles contract: catch']], size: 10.5 },
   qc: 'Name the **two** parts of the CNS. What is the job of the **coordinator** in the pathway from stimulus to response?',
@@ -341,7 +341,7 @@ reg(D.contentSlide({
     '**Effectors** are **muscles** or **glands**. They receive impulses along **motor neurones**.',
     'The response is coordinated, so the right effector responds at the right time.',
   ],
-  size: 11,
+  size: 12.5,
   worked: { head: 'Worked example: identify', q: 'A cyclist hears a car horn and brakes. Identify the receptor, the coordinator and the effector.',
     steps: [['Stimulus', 'sound of the horn'], ['Receptor', 'sound receptors in the ear'], ['Coordinator', 'CNS (brain and spinal cord)'], ['Effector', 'hand muscles contract: squeeze the brake']], size: 10.5 },
   qc: 'Your hand touches a sharp pin. Name the **receptor**, the **effector** and the **response**.',
@@ -362,16 +362,16 @@ reg(R1.s, 'Recap 1');
   const s = D.contentHeader('The structure of a neurone', `Specification ${sp('B5.2.2')} • a motor neurone: structure linked to function`, { tag: 'B5.2.2' });
   D.panel(s, 0.45, 1.3, 7.3, 4.95, 'motor neurone (much shorter than real); arrows show the direction of the impulse');
   const y = 2.75;
-  cellBody(s, 1.35, y, 0.34, NC.body, { n: 7, spread: 200, base: 180 });
-  axonH(s, 1.69, 6.25, y, NC.body, { w: 3, start: 0.3, h: 0.24, seg: 0.5 });
+  cellBody(s, 1.8, y, 0.32, NC.body, { n: 7, spread: 200, base: 180 });
+  axonH(s, 2.12, 6.25, y, NC.body, { w: 3, start: 0.3, h: 0.24, seg: 0.5 });
   terminals(s, 6.25, y, NC.body, 0.95);
   muscleBlock(s, 6.75, 2.15, 0.62, 1.2);
   [[3.2, 3.35], [4.75, 4.9]].forEach(([a, b]) => arrow(s, a, y + 0.5, b, y + 0.5, C.red, 2));
   label(s, 3.0, y + 0.58, 2.2, 'direction of impulse', { size: 10.5, color: C.red, bold: true });
   // labels
-  label(s, 0.55, 1.42, 1.3, '**dendrites**', { size: 11, align: 'left' }); lead(s, 0.95, 1.7, 0.8, 2.2);
-  label(s, 1.6, 1.42, 1.6, '**cell body**', { size: 11, align: 'left' }); lead(s, 1.85, 1.7, 1.5, 2.48);
-  label(s, 0.55, 3.75, 1.4, '**nucleus**', { size: 11, align: 'left' }); lead(s, 1.0, 3.75, 1.33, 2.82);
+  label(s, 0.6, 1.42, 1.3, '**dendrites**', { size: 11, align: 'left' }); lead(s, 0.95, 1.7, 1.15, 2.3);
+  label(s, 2.05, 1.42, 1.2, '**cell body**', { size: 11, align: 'left' }); lead(s, 2.3, 1.7, 1.98, 2.5);
+  label(s, 0.6, 3.75, 1.4, '**nucleus**', { size: 11, align: 'left' }); lead(s, 1.1, 3.78, 1.76, 2.82);
   label(s, 3.3, 1.42, 2.4, '**axon**: long, carries the impulse', { size: 11, align: 'left' }); lead(s, 3.5, 1.7, 3.6, 2.73);
   label(s, 4.05, 1.85, 2.6, '**myelin sheath**: fatty insulating layer', { size: 11, align: 'left' }); lead(s, 4.4, 2.12, 4.5, 2.65);
   label(s, 5.55, 3.45, 1.4, '**axon terminals**', { size: 11, align: 'left' }); lead(s, 6.3, 3.45, 6.55, 3.05);
@@ -388,7 +388,7 @@ reg(R1.s, 'Recap 1');
     '**Axon**: long, thin extension that carries impulses **away** from the cell body.',
     '**Myelin sheath**: insulates the axon so the impulse travels **faster**.',
     '**Axon terminals**: pass the impulse on, at a **synapse**.',
-  ], { size: 10.5 });
+  ], { size: 11.5 });
   D.workedSteps(s, 8.0, 4.27, 4.88, 1.98, 'Worked example: why myelin matters', 'An impulse travels 1.0 m along a motor neurone at 100 m/s. How long does it take?', [
     ['Equation', 'time = distance ÷ speed'], ['Substitute', 'time = 1.0 m ÷ 100 m/s'], ['Answer', '0.01 s = 10 ms (without myelin ~1 m/s: about 1 s)']], { size: 10.5 });
   D.quickCheck(s, 'State the function of the **myelin sheath**. An impulse travels **0.8 m** at **80 m/s**: how many **ms** does it take?');
@@ -408,27 +408,27 @@ reg(R1.s, 'Recap 1');
   line(s, 3.4, y, 3.4, y - 0.32, NC.sens, 2); ball(s, 3.4, y - 0.42, 0.13, 'D6E4F5', NC.sens, 1.25); ball(s, 3.4, y - 0.42, 0.055, C.nucleus, C.nucleusEdge);
   terminals(s, 5.6, y, NC.sens, 0.7);
   arrow(s, 1.9, y + 0.3, 2.6, y + 0.3, NC.sens, 2); arrow(s, 4.2, y + 0.3, 4.9, y + 0.3, NC.sens, 2);
-  label(s, 3.55, y - 0.58, 1.3, 'cell body', { size: 10, align: 'left' });
+  label(s, 3.6, y - 0.55, 1.3, 'cell body', { size: 10, align: 'left' });
   label(s, 0.6, y + 0.22, 0.9, 'receptor', { size: 10 });
   // relay
   y = 3.55;
   box(s, 0.6, 2.8, 6.1, 1.25, 'F7F3FB', '8A7AA8', { shape: SH.ROUNDED_RECTANGLE, r: 0.05, lw: 0.75 });
   label(s, 0.7, 2.83, 4.5, '**Relay neurone**: inside the CNS; links sensory to motor', { size: 11, color: NC.relay, align: 'left' });
   label(s, 5.4, 2.83, 1.25, 'CNS', { size: 10.5, bold: true, color: '8A7AA8', align: 'right' });
-  cellBody(s, 2.7, y, 0.2, NC.relay, { n: 7, spread: 300, base: 180 });
-  axonH(s, 2.9, 4.4, y, NC.relay, { myelin: false });
+  cellBody(s, 3.0, y, 0.12, NC.relay, { n: 7, spread: 300, base: 180 });
+  axonH(s, 3.12, 4.4, y, NC.relay, { myelin: false });
   terminals(s, 4.4, y, NC.relay, 0.55);
   arrow(s, 3.3, y + 0.25, 3.9, y + 0.25, NC.relay, 2);
-  label(s, 0.75, y - 0.15, 1.4, 'many short dendrites', { size: 10, h: 0.45, valign: 'top' });
+  label(s, 0.75, y - 0.12, 1.75, 'many short dendrites', { size: 10, align: 'right' });
   // motor
-  y = 5.0;
+  y = 5.15;
   label(s, 0.6, 4.25, 4.5, '**Motor neurone**: CNS → effector', { size: 11, color: NC.motor, align: 'left' });
-  cellBody(s, 1.2, y, 0.22, NC.motor, { n: 6 });
-  axonH(s, 1.42, 5.5, y, NC.motor, { start: 0.2 });
+  cellBody(s, 1.3, y, 0.17, NC.motor, { n: 6 });
+  axonH(s, 1.47, 5.5, y, NC.motor, { start: 0.2 });
   terminals(s, 5.5, y, NC.motor, 0.6);
-  muscleBlock(s, 5.95, 4.6, 0.5, 0.8);
+  muscleBlock(s, 5.95, 4.75, 0.5, 0.8);
   arrow(s, 2.2, y + 0.3, 2.9, y + 0.3, NC.motor, 2); arrow(s, 3.9, y + 0.3, 4.6, y + 0.3, NC.motor, 2);
-  label(s, 5.75, 5.42, 0.9, 'muscle', { size: 10 });
+  label(s, 5.75, 5.57, 0.9, 'muscle', { size: 10 });
   // table
   const rows = [[HDR('Neurone'), HDR('Carries impulse'), HDR('Features')],
     [tcell('Sensory', 0, { bold: true, color: NC.sens }), tcell('receptor → CNS', 0), tcell('long; cell body to one side', 0)],
@@ -522,8 +522,6 @@ reg(D.contentSlide({
     const skin = 'F8E4D4', edge = 'C9A88A';
     poly(s, [[0.95, 3.1], [4.35, 3.0], [4.35, 3.8], [0.95, 3.66]], skin, edge);
     oval(s, 0.85, 3.38, 0.6, 0.5, skin, edge);
-    line(s, 2.45, 3.06, 2.45, 3.72, edge, 0.75, { dash: 'dash' });
-    label(s, 2.15, 3.82, 0.6, 'elbow', { size: 10, color: C.grey });
     flame(s, 0.75, 4.75);
     label(s, 0.95, 4.2, 1.2, '**stimulus**: heat', { size: 10.5, color: C.orange, align: 'left' });
     // muscle (biceps) on the upper arm
@@ -542,10 +540,10 @@ reg(D.contentSlide({
     pline(s, rel, NC.relay, 2.25); ball(s, 5.96, 3.22, 0.07, 'D7EBDD', NC.relay, 1.25);
     // synapses
     oval(s, 5.86, 2.98, 0.2, 0.2, null, C.ink, { lw: 1, dash: 'dash' });
-    oval(s, 5.84, 3.55, 0.2, 0.2, null, C.ink, { lw: 1, dash: 'dash' });
+    oval(s, 5.86, 3.56, 0.18, 0.18, null, C.ink, { lw: 1, dash: 'dash' });
     // motor neurone: cell body in ventral horn -> ventral root -> biceps
-    ball(s, 5.78, 3.62, 0.1, 'F6D3D6', NC.motor, 1.25); ball(s, 5.78, 3.62, 0.04, C.nucleus, C.nucleusEdge);
-    const mot = [[5.7, 3.68], [5.2, 3.95], [4.3, 3.88], [3.95, 3.66]];
+    line(s, 5.87, 3.6, 5.8, 3.74, NC.motor, 2); ball(s, 5.78, 3.78, 0.1, 'F6D3D6', NC.motor, 1.25); ball(s, 5.78, 3.78, 0.04, C.nucleus, C.nucleusEdge);
+    const mot = [[5.69, 3.82], [5.2, 3.95], [4.3, 3.88], [3.95, 3.66]];
     pline(s, mot, NC.motor, 2.25);
     terminals(s, 3.95, 3.66, NC.motor, -0.45);
     midArrow(s, mot[1], mot[2], NC.motor);
@@ -646,7 +644,7 @@ reg(D.contentSlide({
     // dropper's hand at the top
     oval(s, rx + 0.19, y0 - 30 * per - 0.12, 0.65, 0.32, 'F2C9A5', 'B07A50', { lw: 1 });
     box(s, rx + 0.45, y0 - 30 * per - 0.2, 1.1, 0.18, 'F2C9A5', 'B07A50', { shape: SH.ROUNDED_RECTANGLE, r: 0.08, lw: 1 });
-    label(s, 3.55, 1.5, 2.9, '**Person A** holds the top of the ruler, then drops it **without warning**', { size: 10.5, align: 'left', h: 0.6, valign: 'top' });
+    label(s, 3.75, 1.85, 2.7, '**Person A** holds the top of the ruler, then drops it **without warning**', { size: 10.5, align: 'left', h: 0.6, valign: 'top' });
     // catcher's hand: thumb and finger either side of zero, forearm on the bench
     oval(s, rx - 0.2, y0 + 0.02, 0.38, 0.16, 'F2C9A5', 'B07A50', { lw: 1 });
     oval(s, rx + 0.58, y0 + 0.02, 0.38, 0.16, 'F2C9A5', 'B07A50', { lw: 1 });
@@ -670,7 +668,7 @@ reg(D.contentSlide({
     'Repeat while B counts backwards in 3s (the **distraction**). Calculate the **mean** d for each.',
     'Convert each mean distance to a **reaction time** using a table or graph.',
   ],
-  size: 10.5,
+  size: 12,
   worked: { head: 'Variables and safety', q: '', steps: [['Independent', 'distraction (none / counting backwards)'], ['Dependent', 'distance fallen → reaction time'], ['Control', 'same person, ruler, hand, start height, catching position'], ['Safety', 'low risk: no caffeine or energy drinks for this test']], size: 10.5 },
   workedH: 2.0,
   qc: 'Why must person A drop the ruler **without warning**? Why does B use the **same hand** every time?',
@@ -689,15 +687,18 @@ reg(D.contentSlide({
   const ax = 0.45 + 2.3 + 3 * 1.0, ay = 1.55 + 2 * 0.36;
   box(s, ax + 0.18, ay + 0.02, 0.64, 0.32, null, C.red, { shape: SH.OVAL, lw: 1.5 });
   label(s, 0.45, 2.68, 12.4, `!!${ANOM.toFixed(1)}!! is an **anomaly** (far from the other four results): it is left out of the mean. Reaction times come from the conversion graph on the next slide.`, { size: 10.5, align: 'left', h: 0.3 });
-  D.workedSteps(s, 0.45, 3.1, 6.1, 3.15, 'Worked example: calculating the means', '', [
+  D.workedSteps(s, 0.45, 3.1, 6.1, 1.9, 'Worked example: calculating the means', '', [
     ['No distraction', `(16.2 + 14.8 + 15.5 + 17.1 + 15.4) ÷ 5 = ${fmt(sumA)} ÷ 5 = **${mA.toFixed(1)} cm**`],
     ['Counting backwards', `leave out ${ANOM}: (22.6 + 24.1 + 21.5 + 23.8) ÷ 4 = ${fmt(sumB)} ÷ 4 = **${mB.toFixed(1)} cm**`],
     ['Check', `keeping the anomaly would give ${fmt(mean(PB))} cm: too high`],
     ['Answer', `mean d = ${mA.toFixed(1)} cm and ${mB.toFixed(1)} cm → about ${sf(tA, 2)} s and ${sf(tB, 2)} s`]], { size: 10.5 });
+  D.card(s, 0.45, 5.12, 6.1, 1.13, 'Conclusion', [
+    `With the distraction the mean reaction time rose from about **${sf(tA, 2)} s** to **${sf(tB, 2)} s**: the brain was busy with the counting.`,
+  ], { size: 10.5 });
   // bar chart to scale
   D.panel(s, 6.8, 3.1, 6.08, 3.15);
   const g = { x: 8.1, y: 3.3, w: 4.4, h: 2.2, xmin: 0, xmax: 2, ymin: 0, ymax: 250, xstep: 2, ystep: 50, ylabel: 'mean reaction time / ms', grid: true };
-  D.axes(s, Object.assign({}, g, { xstep: 1, fmt: () => '' }));
+  D.axes(s, Object.assign({}, g, { xstep: 1, fmt: () => '', yfmt: v => String(v) }));
   [[tA, 'no distraction', C.blue], [tB, 'counting backwards', C.orange]].forEach(([t, nm, col], i) => {
     const ms = t * 1000, bx = D.px(g, 0.5 + i) - 0.45, by = D.py(g, ms);
     box(s, bx, by, 0.9, D.py(g, 0) - by, col, col);
