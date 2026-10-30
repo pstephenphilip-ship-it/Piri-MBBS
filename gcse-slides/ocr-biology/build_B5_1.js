@@ -148,59 +148,64 @@ function node(s, x, y, w, h, t, fill, edge, o = {}) {
 // ---------- the heart (front view: the person's RIGHT side is on the viewer's LEFT) ----------
 // fixed layout designed for the panel x 0.45–7.65, y 1.3–6.25. Returns nothing; draws labels too.
 function heart(s) {
-  // vena cava (superior and inferior) as one tube on the left, entering the right atrium
+  // vena cava: superior from above and inferior from below (cut short), both entering the right atrium
   vessel(s, [[2.1, 1.5], [2.1, 3.0], [2.62, 3.0]], DE, DEE, 0.3);
-  vessel(s, [[2.1, 5.75], [2.1, 3.0]], DE, DEE, 0.3);
+  vessel(s, [[2.1, 4.6], [2.1, 3.0]], DE, DEE, 0.3);
   // heart muscle body
-  box(s, 2.4, 2.62, 3.2, 3.13, MUS, MUSE, { shape: SH.ROUNDED_RECTANGLE, r: 0.45, lw: 1.5 });
-  // cavities
-  box(s, 2.62, 2.8, 0.72, 0.75, DEL, DEE, { shape: SH.ROUNDED_RECTANGLE, r: 0.12, lw: 1 }); // RA
-  box(s, 4.62, 2.8, 0.72, 0.75, OXL, OXE, { shape: SH.ROUNDED_RECTANGLE, r: 0.12, lw: 1 }); // LA
-  box(s, 2.62, 3.8, 1.18, 1.62, DEL, DEE, { shape: SH.ROUNDED_RECTANGLE, r: 0.18, lw: 1 }); // RV (thin wall 0.22)
-  box(s, 4.1, 3.8, 0.92, 1.33, OXL, OXE, { shape: SH.ROUNDED_RECTANGLE, r: 0.18, lw: 1 }); // LV (thick wall 0.58)
+  box(s, 2.4, 2.62, 3.2, 3.13, 'D98E80', MUSE, { shape: SH.ROUNDED_RECTANGLE, r: 0.3, lw: 1.5 });
+  // cavities: right ventricle wall THIN (0.12 in), left ventricle wall THICK (0.75 in)
+  box(s, 2.6, 2.8, 0.74, 0.75, DEL, DEE, { shape: SH.ROUNDED_RECTANGLE, r: 0.12, lw: 1 }); // RA
+  box(s, 4.52, 2.8, 0.72, 0.75, OXL, OXE, { shape: SH.ROUNDED_RECTANGLE, r: 0.12, lw: 1 }); // LA
+  box(s, 2.52, 3.8, 1.28, 1.83, DEL, DEE, { shape: SH.ROUNDED_RECTANGLE, r: 0.16, lw: 1 }); // RV
+  box(s, 4.1, 3.8, 0.75, 1.2, OXL, OXE, { shape: SH.ROUNDED_RECTANGLE, r: 0.16, lw: 1 }); // LV
   // atrioventricular openings + valves (flaps point into the ventricle)
   box(s, 2.72, 3.5, 0.52, 0.35, DEL, null);
-  box(s, 4.66, 3.5, 0.32, 0.35, OXL, null);
-  const flaps = (x1, x2, y, col) => { line(s, x1, y, x1 + 0.13, y + 0.26, col, 3); line(s, x2, y, x2 - 0.13, y + 0.26, col, 3); };
-  flaps(2.72, 3.24, 3.56, 'F5F5F5'); flaps(4.66, 4.98, 3.56, 'F5F5F5');
-  flaps(2.72, 3.24, 3.56, C.ink); flaps(4.66, 4.98, 3.56, C.ink);
-  // pulmonary artery from the right ventricle (blue), branches to both lungs; drawn before the aorta (it passes behind)
+  box(s, 4.56, 3.5, 0.28, 0.35, OXL, null);
+  const flaps = (x1, x2, y, col) => { line(s, x1, y, x1 + 0.12, y + 0.26, col, 3); line(s, x2, y, x2 - 0.12, y + 0.26, col, 3); };
+  flaps(2.72, 3.24, 3.56, C.ink); flaps(4.56, 4.84, 3.56, C.ink);
+  // pulmonary artery from the right ventricle (blue); its lung branches end well clear of the vena cava.
+  // Drawn before the aorta, so the right branch passes behind it.
   vessel(s, [[3.56, 3.95], [3.56, 2.25]], DE, DEE, 0.3);
-  vessel(s, [[2.62, 2.25], [5.15, 2.25]], DE, DEE, 0.26);
+  vessel(s, [[2.95, 2.25], [5.15, 2.25]], DE, DEE, 0.26);
   // aorta from the left ventricle (red), arches over and down
-  vessel(s, [[4.28, 3.95], [4.28, 1.75], [4.55, 1.5], [5.6, 1.5], [5.95, 1.8], [5.95, 2.45]], OX, OXE, 0.32);
+  vessel(s, [[4.26, 3.95], [4.26, 1.75], [4.55, 1.5], [5.6, 1.5], [5.95, 1.8], [5.95, 2.45]], OX, OXE, 0.32);
   // pulmonary veins into the left atrium (red)
-  vessel(s, [[6.45, 2.98], [5.3, 2.98]], OX, OXE, 0.22);
-  vessel(s, [[6.45, 3.36], [5.3, 3.36]], OX, OXE, 0.22);
+  vessel(s, [[6.45, 2.98], [5.2, 2.98]], OX, OXE, 0.22);
+  vessel(s, [[6.45, 3.36], [5.2, 3.36]], OX, OXE, 0.22);
   // semilunar valves at the base of the arteries
-  [[3.56, 0.3], [4.28, 0.32]].forEach(([x, w]) => { line(s, x - w / 2 + 0.03, 3.62, x, 3.78, C.ink, 2.25); line(s, x + w / 2 - 0.03, 3.62, x, 3.78, C.ink, 2.25); });
-  // chamber names inside
-  label(s, 2.62, 2.8, 0.72, 'right\natrium', { size: 10, bold: true, color: DEE, h: 0.75 });
-  label(s, 4.62, 2.8, 0.72, 'left\natrium', { size: 10, bold: true, color: OXE, h: 0.75 });
-  label(s, 2.62, 4.55, 1.18, 'right\nventricle', { size: 10.5, bold: true, color: DEE, h: 0.6 });
-  label(s, 4.1, 4.45, 0.92, 'left\nventricle', { size: 10.5, bold: true, color: OXE, h: 0.6 });
-  // flow arrows (white on vessels, ink in chambers)
-  flow(s, 2.1, 1.75, 2.1, 2.3, C.white); flow(s, 2.1, 5.45, 2.1, 4.6, C.white);
-  flow(s, 2.95, 3.25, 2.95, 4.05, DEE); flow(s, 3.4, 4.5, 3.56, 4.02, DEE);
+  [[3.56, 0.3], [4.26, 0.32]].forEach(([x, w]) => { line(s, x - w / 2 + 0.03, 3.62, x, 3.78, C.ink, 2.25); line(s, x + w / 2 - 0.03, 3.62, x, 3.78, C.ink, 2.25); });
+  // chamber names (atria: at the top of the cavity, clear of the flow arrows)
+  label(s, 2.6, 2.82, 0.74, 'right\natrium', { size: 10, bold: true, color: DEE, h: 0.38 });
+  label(s, 4.52, 2.82, 0.72, 'left\natrium', { size: 10, bold: true, color: OXE, h: 0.38 });
+  label(s, 2.52, 4.65, 1.28, 'right\nventricle', { size: 10.5, bold: true, color: DEE, h: 0.6 });
+  label(s, 4.1, 4.38, 0.75, 'left\nventricle', { size: 10, bold: true, color: OXE, h: 0.55 });
+  // flow arrows (white on vessels, coloured in chambers)
+  flow(s, 2.1, 1.75, 2.1, 2.3, C.white); flow(s, 2.1, 4.45, 2.1, 3.7, C.white);
+  flow(s, 2.95, 3.25, 2.95, 4.15, DEE); flow(s, 3.4, 4.5, 3.56, 4.02, DEE);
   flow(s, 3.56, 3.3, 3.56, 2.55, C.white);
-  flow(s, 3.25, 2.25, 2.7, 2.25, C.white); flow(s, 4.6, 2.25, 5.12, 2.25, C.white);
-  flow(s, 4.82, 3.2, 4.82, 4.05, OXE); flow(s, 4.42, 4.45, 4.28, 4.02, OXE);
-  flow(s, 4.28, 3.3, 4.28, 2.0, C.white); flow(s, 5.95, 1.95, 5.95, 2.42, C.white);
+  flow(s, 3.25, 2.25, 3.0, 2.25, C.white); flow(s, 4.6, 2.25, 5.12, 2.25, C.white);
+  flow(s, 4.7, 3.25, 4.7, 4.1, OXE); flow(s, 4.42, 4.35, 4.3, 4.02, OXE);
+  flow(s, 4.26, 3.3, 4.26, 2.0, C.white); flow(s, 5.95, 1.95, 5.95, 2.42, C.white);
   flow(s, 6.4, 2.98, 5.8, 2.98, C.white); flow(s, 6.4, 3.36, 5.8, 3.36, C.white);
+  // wall-thickness markers: thin right ventricle wall, thick left ventricle wall
+  line(s, 2.4, 5.12, 2.52, 5.12, C.ink, 1.5);
+  line(s, 4.85, 4.6, 5.6, 4.6, C.ink, 1.5, { head: true, tail: true });
   // labels: left side
   tag(s, 2.0, 1.62, 1.75, 1.62, '**vena cava** from the body', 'l', 1.25, { h: 0.45 });
-  tag(s, 2.68, 2.25, 1.9, 2.4, '**pulmonary artery** to the lungs', 'l', 1.3, { h: 0.45 });
-  tag(s, 2.8, 3.72, 1.75, 3.72, '**valve**: stops backflow into the atrium', 'l', 1.25, { h: 0.6, size: 10 });
-  tag(s, 2.5, 4.95, 1.75, 4.95, 'thin wall: pumps to the **lungs**', 'l', 1.25, { h: 0.45, size: 10 });
-  tag(s, 2.0, 5.55, 1.75, 5.55, 'vena cava', 'l', 1.25, { size: 10 });
+  label(s, 2.34, 1.62, 1.3, '**pulmonary artery**\nto the lungs', { size: 10.5, align: 'left', h: 0.45 });
+  tag(s, 2.8, 3.72, 2.25, 3.72, '', 'l', 0.01);
+  line(s, 1.95, 3.72, 1.8, 3.72, C.ink, 0.75);
+  label(s, 0.5, 3.47, 1.26, '**valve**: stops backflow into the atrium', { size: 10, align: 'right', h: 0.5 });
+  tag(s, 2.0, 4.45, 1.75, 4.45, 'vena cava from the lower body', 'l', 1.25, { h: 0.45, size: 10 });
+  tag(s, 2.42, 5.12, 1.75, 5.12, '**thin** wall: pumps only to the **lungs**', 'l', 1.25, { h: 0.6, size: 10 });
   // labels: right side
   tag(s, 5.6, 1.5, 6.0, 1.42, '**aorta** to the body', 'r', 1.55, { h: 0.45 });
-  label(s, 4.48, 1.86, 1.4, 'to the lungs', { size: 10, italic: true, color: DEE, align: 'left', h: 0.24 });
+  label(s, 4.46, 1.86, 1.4, 'to the lungs', { size: 10, italic: true, color: DEE, align: 'left', h: 0.24 });
   tag(s, 6.45, 3.17, 6.55, 3.17, '**pulmonary vein** from the lungs', 'r', 1.05, { h: 0.6, size: 10 });
-  tag(s, 5.4, 4.6, 6.0, 4.6, 'thick wall of **cardiac muscle**: pumps to the whole **body**', 'r', 1.6, { h: 0.6, size: 10 });
-  tag(s, 4.92, 3.68, 6.0, 3.92, '**valves**: one-way flow', 'r', 1.45, { size: 10 });
-  line(s, 4.42, 3.72, 6.0, 3.92, C.ink, 0.75);
-  tag(s, 3.95, 5.32, 6.0, 5.32, '**septum**: keeps the two sides apart', 'r', 1.6, { h: 0.45, size: 10 });
+  tag(s, 5.6, 4.6, 6.0, 4.6, '**thick** wall of **cardiac muscle**: pumps to the whole **body**', 'r', 1.6, { h: 0.6, size: 10 });
+  tag(s, 4.82, 3.68, 6.0, 3.92, '**valves**: one-way flow', 'r', 1.45, { size: 10 });
+  line(s, 4.4, 3.72, 6.0, 3.92, C.ink, 0.75);
+  tag(s, 3.95, 5.08, 6.0, 5.4, '**septum**: keeps the two sides apart', 'r', 1.6, { h: 0.45, size: 10 });
 }
 
 // ======================= 1 COVER =======================

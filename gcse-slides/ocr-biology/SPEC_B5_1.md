@@ -94,7 +94,7 @@ There are 62 asserted calcs in total.
 ## Heart diagram check (slide 16)
 - **Orientation:** front view, so the person's right side is on the viewer's left.
 - **Chambers:** right atrium and right ventricle (blue) on the left; left atrium and left ventricle (red) on the right.
-- **Wall thickness:** the left ventricle wall (0.58 in) is thicker than the right ventricle wall (0.22 in).
-- **Vessels:** vena cava → right atrium; right ventricle → pulmonary artery, which branches to both lungs and passes behind the aorta; pulmonary veins → left atrium; left ventricle → aorta, which arches.
+- **Wall thickness:** the left ventricle wall (0.75 in, marked with a double-headed arrow) is much thicker than the right ventricle wall (0.12 in).
+- **Vessels:** vena cava (from above and below) → right atrium; right ventricle → pulmonary artery, which branches to both lungs, stops clear of the vena cava and passes behind the aorta; pulmonary veins → left atrium; left ventricle → aorta, which arches.
 - **Valves:** valves between the atria and ventricles, and valves at the base of both arteries.
 - **Septum:** labelled.
