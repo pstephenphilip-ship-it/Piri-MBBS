@@ -204,7 +204,7 @@ function diamond3D(s, ox, oy, size, o = {}) {
   const deg = p => bonds.filter(b => b[0] === p || b[1] === p).length;
   atomsL.forEach(p => assert(deg(p) <= 4, 'no carbon has more than 4 bonds'));
   assert(atomsL.some(p => deg(p) === 4), 'interior carbons have 4 bonds');
-  const th = o.th == null ? 0.5 : o.th, ph = o.ph == null ? 0.38 : o.ph;
+  const th = o.th == null ? 0.0 : o.th, ph = o.ph == null ? 0.4 : o.ph;
   const proj = ([x, y, z]) => {
     x -= 0.25; y -= 0.25; z -= 0.25;
     const x1 = x * Math.cos(th) + z * Math.sin(th), z1 = -x * Math.sin(th) + z * Math.cos(th);
@@ -354,8 +354,8 @@ reg(D.contentSlide({
     label(s, 4.45, 1.5, 1.95, '**Diamond**', { size: 11.5, align: 'left', h: 0.28 });
     label(s, 4.45, 1.8, 1.95, 'every C bonded to **4** others in 3D: very hard, does not conduct', { size: 10, align: 'left', valign: 'top', h: 0.8 });
     // graphite: two layers
-    honeycomb(s, 2.7, 3.5, 1.5, 0.9, 0.22, 0.4, { skew: 0.25, r: 0.03 });
-    honeycomb(s, 2.7 + 0.19, 4.1, 1.5, 0.9, 0.22, 0.4, { skew: 0.25, r: 0.03 });
+    honeycomb(s, 2.7, 3.5, 1.5, 0.9, 0.22, 0.5, { skew: 0, r: 0.03 });
+    honeycomb(s, 2.7 + 0.19, 4.1, 1.5, 0.9, 0.22, 0.5, { skew: 0, r: 0.03 });
     [[3.1, 3.75], [3.75, 3.75]].forEach(([x, y]) => line(s, x, y, x + 0.05, y + 0.42, IMF, 1, { dash: 'dash' }));
     label(s, 4.75, 3.45, 1.7, '**Graphite**', { size: 11.5, align: 'left', h: 0.28 });
     label(s, 4.75, 3.75, 1.7, 'layers of C bonded to **3** others: soft, slippery, conducts', { size: 10, align: 'left', valign: 'top', h: 0.8 });
@@ -548,7 +548,7 @@ reg(D.contentSlide({
   subtitle: `Specification ${sp('C4.2.3')}, ${sp('C4.2.4')} • a continuous network of covalent bonds`,
   tag: 'C4.2.3', stretch: true, caption: 'diamond: real 3D unit cell; silicon dioxide: 2D model',
   draw: (s) => {
-    const r = diamond3D(s, 2.0, 2.95, 2.0);
+    const r = diamond3D(s, 1.95, 3.05, 1.9);
     label(s, 0.6, 1.4, 2.8, '**Diamond** (carbon)', { size: 11.5, h: 0.28 });
     label(s, 0.6, 4.35, 2.8, 'each C: **4** covalent bonds, tetrahedral, in 3D', { size: 10, h: 0.45, valign: 'top' });
     silica2D(s, 3.85, 2.05, 4, 4, 0.55);
@@ -578,7 +578,7 @@ reg(D.contentSlide({
   const s = D.contentHeader('Graphite: layers and free electrons', `Specification ${sp('C4.2.4')} • explaining the properties of diamond and graphite`, { tag: 'C4.2.4' });
   D.panel(s, 0.45, 1.3, 6.1, 4.95, 'three layers of graphite in perspective; not to scale');
   const L = [];
-  [1.75, 2.85, 3.95].forEach((y, i) => L.push(honeycomb(s, 0.9 + (i % 2) * 0.24, y, 3.0, 1.45, 0.28, 0.4, { skew: 0.35, r: 0.04 })));
+  [1.75, 2.85, 3.95].forEach((y, i) => L.push(honeycomb(s, 0.95 + (i % 2) * 0.24, y, 4.0, 1.4, 0.28, 0.5, { skew: 0, r: 0.04 })));
   // weak forces between layers
   [[1.55, 2.5], [3.0, 2.5], [4.3, 2.5], [1.75, 3.55], [3.2, 3.55], [4.5, 3.55]].forEach(([x, y]) => line(s, x, y, x, y + 0.35, IMF, 1.25, { dash: 'sysDot' }));
   // delocalised electrons on the top layer + arrow
