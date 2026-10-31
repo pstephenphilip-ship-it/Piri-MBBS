@@ -654,7 +654,7 @@ reg(R3.s, 'Recap 3');
 reg(D.contentSlide({
   title: 'Cross-linking slime: method',
   subtitle: `Specification ${sp('C4.2.2')} • how does the amount of cross-linker change how a polymer flows?`,
-  tag: 'Practical', pag: 'SUGGESTED PRACTICAL', caption: 'apparatus: measuring cylinders, beaker, glass rod, tile on a block, ruler, stopwatch',
+  tag: 'Practical', pag: 'SUGGESTED PRACTICAL', caption: 'apparatus: measuring cylinders, beaker, glass rod, tile on a block, stopwatch',
   draw: (s) => {
     cylinder(s, 0.85, 1.6, 0.42, 1.7, 0.75, 'F4F0FA');
     label(s, 0.55, 3.45, 1.05, '25 cm³ of 4% **PVA**', { size: 10, h: 0.42, valign: 'top' });

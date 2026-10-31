@@ -43,7 +43,7 @@ No PAG code was found linked to C4.2. Slides 16–17 are a **suggested practical
 - Melting points (approx. data-book values): CH₄ −182, H₂O 0, poly(ethene) ~110 (softens), NaCl 801, Cu 1085, SiO₂ 1710, diamond ~3550 °C. NaCl − CH₄ = 983 °C.
 - Alkane chain length vs melting point (approx.): C10 −30, C20 37, C30 66, C40 81 °C (UNVERIFIED ±2 °C). Rises 67, 29, 15 °C.
 - Poly(ethene) Mr: 28 × 5000 = 140 000; PVC 62.5 × 2000 = 125 000.
-- Diamond: 4 bonds per atom, each shared → 2 bonds per atom; graphite 3/2 = 1.5. Stretch: 2 × 347 = 694 kJ to break the bonds in 12 g diamond (C–C 347 kJ/mol, data-book average).
+- Diamond: 4 bonds per atom, each shared → 2 bonds per atom; graphite 3/2 = 1.5 (QC 10 atoms → 15 bonds); SiO₂ O per Si = 4 ÷ 2 = 2. Stretch: 2 × 347 = 694 kJ. CO₂ from carbon: 6 g → 22 g, 3 g → 11 g. Delocalised electrons: 10 Mg → 20, 50 Al → 150. Graph read-off at 2.5 cm³ ≈ 32 s (least-squares quadratic) to break the bonds in 12 g diamond (C–C 347 kJ/mol, data-book average).
 - Practical: means 3, 10, 24, 41, 62 (anomaly 88 excluded), 87 s; uncertainty ±2 s; 2.3%.
 - Equations (atom balance asserted): C(s) + O₂(g) → CO₂(g); Si(s) + O₂(g) → SiO₂(s); 2Na(s) + Cl₂(g) → 2NaCl(s); n C₂H₄(g) → (C₂H₄)ₙ(s).
 
