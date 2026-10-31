@@ -665,7 +665,7 @@ reg(D.contentSlide({
     dArrow(s, D.px(g, 4.7), D.py(g, RP.R), D.py(g, RP.peak), C.blue, 1.5);
     dArrow(s, D.px(g, 3.0), D.py(g, RP.R), D.py(g, RP.peakCat) + 0.03, C.red, 1.5);
     label(s, D.px(g, 4.75), D.py(g, 150) - 0.11, 1.0, '**Ea** = 80', { size: 10, color: C.blue, h: 0.22, align: 'left' });
-    label(s, D.px(g, 1.0), D.py(g, 128) - 0.21, 1.15, '**Ea** = 40\n(catalyst, dashed)', { size: 10, color: C.red, h: 0.42, align: 'left' });
+    label(s, D.px(g, 0.9), D.py(g, 160) - 0.21, 1.2, '**Ea** = 40\n(with catalyst)', { size: 10, color: C.red, h: 0.42, align: 'left' });
     line(s, D.px(g, 5.3), D.py(g, RP.R), D.px(g, 5.3), D.py(g, RP.P), C.green, 1.5, { head: true });
     label(s, D.px(g, 5.32), D.py(g, 75) - 0.11, 0.9, 'energy\nout 60', { size: 10, bold: true, color: C.green, h: 0.4, align: 'left' });
     label(s, D.px(g, 0.5), D.py(g, RP.R) + 0.04, 1.2, 'reactants', { size: 10, bold: true, h: 0.22, align: 'left' });
