@@ -388,7 +388,7 @@ reg(D.contentSlide({
   // electrons moving through the metal (top row) to the edges of the drop
   [[2.1, 4.3], [2.5, 4.3], [4.5, 4.3], [4.9, 4.3]].forEach(([x, y]) => ball(s, x, y, 0.075, 'F5D547', 'B8912A'));
   arrow(s, 3.25, 4.3, 2.65, 4.3, 'B8912A', 1.75); arrow(s, 3.75, 4.3, 4.35, 4.3, 'B8912A', 1.75);
-  label(s, 2.0, 4.42, 0.6, 'e⁻', { size: 10.5, bold: true, h: 0.22 }); label(s, 4.4, 4.42, 0.6, 'e⁻', { size: 10.5, bold: true, h: 0.22 });
+  label(s, 2.05, 3.9, 0.6, '← **e⁻**', { size: 10.5, h: 0.2, color: 'B8912A' }); label(s, 4.35, 3.9, 0.6, '**e⁻** →', { size: 10.5, h: 0.2, color: 'B8912A' });
   // oxygen arrives at the edges of the drop
   arrow(s, 1.75, 3.45, 1.95, 3.95, C.blue, 1.5); arrow(s, 5.25, 3.45, 5.05, 3.95, C.blue, 1.5);
   label(s, 0.6, 2.95, 1.7, 'edge: O₂ from air\ngains electrons', { size: 10, color: C.blue, bold: true, h: 0.45 });
@@ -426,22 +426,22 @@ reg(D.contentSlide({
   tag: 'C4.4.1', caption: 'steel in cross-section; coating thickness exaggerated',
   draw: (s) => {
     label(s, 0.7, 1.45, 5.6, '**1** Painted steel: the paint keeps out air and water', { size: 10.5, align: 'left' });
-    section(s, 0.9, 1.85, 5.2, { coat: PAINT });
-    label(s, 6.1 - 0.9, 1.6, 0.9, 'paint', { size: 10, bold: true, color: PAINT[1], align: 'right', h: 0.22 });
-    [1.4, 2.6, 3.8, 5.0].forEach(x => { arrow(s, x, 1.55, x, 1.82, WAT[1], 1.25); });
-    label(s, 0.95, 2.7, 3, 'O₂ and H₂O blocked', { size: 10, italic: true, color: WAT[1], align: 'left', h: 0.22 });
-    label(s, 0.7, 3.1, 5.6, '**2** Scratched paint: air and water reach the steel, which rusts', { size: 10.5, align: 'left' });
-    section(s, 0.9, 3.5, 5.2, { coat: PAINT, scratch: 3.5, rustAt: 3.5 });
-    arrow(s, 3.5, 3.2, 3.5, 3.6, WAT[1], 1.5);
-    label(s, 3.65, 3.25, 1.6, 'rust spreads under paint', { size: 10, bold: true, color: RUST[1], align: 'left', h: 0.22 });
+    section(s, 0.9, 2.05, 5.2, { coat: PAINT });
+    label(s, 5.2, 1.78, 0.9, 'paint', { size: 10, bold: true, color: PAINT[1], align: 'right', h: 0.22 });
+    [1.4, 2.6, 3.8].forEach(x => { arrow(s, x, 1.76, x, 2.02, WAT[1], 1.25); });
+    label(s, 0.95, 2.85, 3, 'O₂ and H₂O blocked', { size: 10, italic: true, color: WAT[1], align: 'left', h: 0.22 });
+    label(s, 0.7, 3.12, 5.6, '**2** Scratched paint: air and water reach the steel, which rusts', { size: 10.5, align: 'left' });
+    section(s, 0.9, 3.72, 5.2, { coat: PAINT, scratch: 3.5, rustAt: 3.5 });
+    arrow(s, 3.5, 3.45, 3.5, 3.82, WAT[1], 1.5);
+    label(s, 3.65, 3.45, 2.2, 'rust spreads under paint', { size: 10, bold: true, color: RUST[1], align: 'left', h: 0.22 });
     // examples row
     const ex = [['Paint', 'cars, bridges, gates', PAINT[0]], ['Oil / grease', 'bike chains, tools', OIL[0]], ['Plastic', 'wire fences, dish racks', '5FB37A'], ['Tin plating', 'food cans', ZINC[0]]];
     ex.forEach(([h, t, c], i) => {
       const x = 0.7 + i * 1.42;
-      box(s, x, 4.55, 1.32, 1.05, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
-      box(s, x + 0.1, 4.65, 1.12, 0.14, c, C.ink, { lw: 0.5 });
-      label(s, x + 0.03, 4.82, 1.26, `**${h}**`, { size: 10.5, h: 0.26 });
-      label(s, x + 0.03, 5.08, 1.26, t, { size: 10, italic: true, color: C.grey, h: 0.45, valign: 'top' });
+      box(s, x, 4.65, 1.32, 1.0, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
+      box(s, x + 0.1, 4.75, 1.12, 0.14, c, C.ink, { lw: 0.5 });
+      label(s, x + 0.03, 4.92, 1.26, `**${h}**`, { size: 10.5, h: 0.26 });
+      label(s, x + 0.03, 5.18, 1.26, t, { size: 10, italic: true, color: C.grey, h: 0.45, valign: 'top' });
     });
   },
   head: 'Barrier methods',
@@ -467,10 +467,12 @@ reg(D.contentSlide({
   tag: 'C4.4.1', caption: 'galvanised steel (top); ship hull with zinc blocks (bottom); not to scale',
   draw: (s) => {
     label(s, 0.7, 1.45, 3.9, '**Galvanised** steel, scratched', { size: 10.5, align: 'left' });
-    section(s, 0.9, 1.85, 3.6, { coat: ZINC, scratch: 2.7 });
-    label(s, 0.9, 1.6, 0.9, 'zinc', { size: 10, bold: true, color: ZINC[1], align: 'left', h: 0.22 });
-    arrow(s, 2.7, 1.55, 2.7, 1.95, WAT[1], 1.5);
-    label(s, 0.7, 2.7, 3.9, 'Zinc still corrodes **instead of** the iron: no rust', { size: 10, italic: true, color: C.green, align: 'left', h: 0.25 });
+    section(s, 0.9, 2.1, 3.6, { coat: ZINC, scratch: 2.7 });
+    label(s, 3.3, 1.82, 1.2, 'zinc layer', { size: 10, bold: true, color: ZINC[1], align: 'right', h: 0.22 });
+    arrow(s, 2.7, 1.78, 2.7, 2.18, WAT[1], 1.5);
+    label(s, 1.3, 1.82, 1.3, 'O₂ and H₂O', { size: 10, italic: true, color: WAT[1], align: 'right', h: 0.22 });
+    [2.5, 2.9].forEach(x => ball(s, x, 2.1, 0.07, 'F4F4F4', '9AA3B0'));
+    label(s, 0.7, 2.92, 3.9, 'Zinc next to the scratch corrodes **instead of** the iron: no rust', { size: 10, italic: true, color: C.green, align: 'left', h: 0.4, valign: 'top' });
     // reactivity bar
     const R = [['Mg', MG], ['Al', 'E3E6EA'], ['Zn', ZINC[0]], ['Fe', STEEL[0]], ['Sn', 'C9CDD3'], ['Cu', CU[0]]];
     label(s, 4.75, 1.4, 1.7, '**Reactivity** (C3)', { size: 10.5, h: 0.25 });
@@ -478,12 +480,12 @@ reg(D.contentSlide({
     arrow(s, 4.85, 3.75, 4.85, 1.75, C.blue, 2);
     label(s, 4.3, 3.82, 1.95, 'more reactive at top', { size: 10, italic: true, color: C.blue, h: 0.22 });
     // ship hull
-    poly(s, [[0.8, 4.35], [4.4, 4.35], [4.0, 5.25], [1.2, 5.25]], '7D8794', '4A5568', { lw: 1.25 });
-    box(s, 0.6, 4.75, 5.3, 0.9, WAT[0], null, { tr: 35 });
-    line(s, 0.6, 4.75, 5.9, 4.75, WAT[1], 1.25);
-    [1.7, 2.6, 3.5].forEach(x => box(s, x - 0.17, 5.1, 0.34, 0.16, ZINC[0], ZINC[1], { lw: 1 }));
-    label(s, 4.15, 4.95, 1.75, 'zinc blocks on the hull, replaced when used up', { size: 10, bold: true, color: ZINC[1], h: 0.6, align: 'left', valign: 'top' });
-    label(s, 0.8, 4.05, 3.6, 'steel ship in salt water', { size: 10, italic: true, color: C.grey, h: 0.25 });
+    poly(s, [[0.8, 3.95], [4.4, 3.95], [4.0, 4.85], [1.2, 4.85]], '7D8794', '4A5568', { lw: 1.25 });
+    box(s, 0.6, 4.35, 5.3, 1.1, WAT[0], null, { tr: 35 });
+    line(s, 0.6, 4.35, 5.9, 4.35, WAT[1], 1.25);
+    [1.7, 2.6, 3.5].forEach(x => box(s, x - 0.17, 4.7, 0.34, 0.16, ZINC[0], ZINC[1], { lw: 1 }));
+    label(s, 4.15, 4.55, 1.75, 'zinc blocks on the hull, replaced when used up', { size: 10, bold: true, color: ZINC[1], h: 0.6, align: 'left', valign: 'top' });
+    label(s, 0.8, 3.65, 3.6, 'steel ship in salt water', { size: 10, italic: true, color: C.grey, h: 0.25 });
   },
   head: 'Sacrificial protection',
   lines: [
@@ -544,7 +546,7 @@ reg(D.contentSlide({
     '**IV**: protection method. **DV**: mass gain / mg. **Control**: nail size, volume, temperature, time.',
     '**Safety**: eye protection; salt solution low hazard; wash hands; nails are sharp.',
   ],
-  size: 10.5,
+  size: 11.5,
   worked: { head: 'Worked example: % mass increase', q: 'Nail A: 5.000 g → 5.045 g.',
     steps: [['Gain', '5.045 − 5.000 = 0.045 g = 45 mg'], ['Answer', '0.045 ÷ 5.000 × 100 = **0.90%**']], size: 10.5 },
   workedH: 1.3,
@@ -556,7 +558,7 @@ reg(D.contentSlide({
 {
   const s = D.contentHeader('Practical: results and analysis', `Specification ${sp('C4.4.1')} • tables, graphs, rates and errors`, { pag: 'SUGGESTED PRACTICAL', tag: 'Practical' });
   D.panel(s, 0.45, 1.3, 6.6, 4.95, 'graph plotted to scale from the daily readings (illustrative data)');
-  const g = { x: 1.45, y: 1.55, w: 5.3, h: 3.55, xmin: 0, xmax: 7, ymin: 0, ymax: 100, xstep: 1, ystep: 20, minor: 2, xlabel: 'Time / days', ylabel: 'Mass gain / mg' };
+  const g = { x: 1.45, y: 1.55, w: 5.3, h: 2.9, xmin: 0, xmax: 7, ymin: 0, ymax: 100, xstep: 1, ystep: 20, minor: 2, xlabel: 'Time / days', ylabel: 'Mass gain / mg' };
   D.axes(s, g);
   const pA = DAYS.map((d, i) => [d, TAP[i]]), pB = DAYS.map((d, i) => [d, SALT[i]]);
   D.plotLine(s, g, [[0, 0], [7, 45]], WAT[1], 2); D.points(s, g, pA, C.ink);
@@ -564,16 +566,16 @@ reg(D.contentSlide({
   label(s, D.px(g, 4.6), D.py(g, 80), 1.6, '**B** salt water', { size: 10.5, color: RUST[1], align: 'left', h: 0.22 });
   label(s, D.px(g, 5.0), D.py(g, 22), 1.6, '**A** tap water', { size: 10.5, color: WAT[1], align: 'left', h: 0.22 });
   const rows = [[HDR('Tube'), ...TUBES.map(t => HDR(t[0]))], [tcell('Method', 0, { bold: true }), ...TUBES.map(t => tcell(t[1], 0))], [tcell('Gain / mg', 1, { bold: true }), ...TUBES.map(t => tcell(String(t[2]), 1))]];
-  s.addTable(rows, { x: 0.7, y: 5.45, w: 6.1, colW: [1.1, 1, 1, 1, 1, 1], rowH: 0.21, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.5 } });
-  D.workedSteps(s, 7.3, 1.3, 5.58, 2.05, 'Worked example: rate of rusting', 'Use the 7-day values.', [
+  s.addTable(rows, { x: 0.7, y: 4.98, w: 6.1, colW: [1.1, 1, 1, 1, 1, 1], rowH: 0.21, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.5 } });
+  D.workedSteps(s, 7.3, 1.3, 5.58, 1.6, 'Worked example: rate of rusting', 'Use the 7-day values.', [
     ['A', `45 ÷ 7 = ${fmt(sf(rTap, 2))} mg per day`], ['B', `90 ÷ 7 = ${fmt(sf(rSalt, 2))} mg per day`],
     ['Answer', 'salt water rusts the nail **2.0 times** as fast']], { size: 10.5 });
-  D.card(s, 7.3, 3.5, 5.58, 2.75, 'Conclusion and errors', [
+  D.card(s, 7.3, 3.05, 5.58, 3.2, 'Conclusion and errors', [
     '**D** (zinc) best: 0 mg, zinc corrodes instead. **C** (paint) 3 mg: barrier works until chipped.',
     '**E** (copper) 70 mg, **more** than A: a less reactive metal makes iron rust **faster**.',
     '**Errors**: rust flakes fall off (gain too low); nail still wet (too high); nails differ → use one batch.',
     '**Improve**: 3 nails per tube and find a **mean**; spot anomalies; keep tubes at the same temperature.',
-  ], { size: 10.5 });
+  ], { size: 11.5 });
   D.quickCheck(s, 'Use the graph: how much mass did nail **B** gain between day **2** and day **5**? Explain why tube **E** gained **more** mass than tube **A**.');
   D.notes(s, `QUICK CHECK ANSWER: Day 2 = 25 mg, day 5 = 64 mg: 64 − 25 = 39 mg (accept 38–40 from the graph). Copper is less reactive than iron, so the iron is oxidised in preference (it acts as the sacrificial metal); the iron corrodes faster than on its own.\nAll values illustrative; asserted in node: daily readings rise each day; day-7 values match the table; rates 45 ÷ 7 = ${fmt(rTap)} → 6.4 and 90 ÷ 7 = ${fmt(rSalt)} → 13 mg per day; B ÷ A = 2.0; E ÷ A = 1.6 (2 s.f.). The lines are lines of best fit through the origin (straight: constant rate over one week).`);
   reg(s, 'Practical: results and analysis');
@@ -634,7 +636,7 @@ reg(D.contentSlide({
 {
   const s = D.contentHeader('LCA data: paper or plastic bag?', `Specification ${sp('C4.4.5')} • interpreting data from a life-cycle assessment`, { tag: 'C4.4.5' });
   D.panel(s, 0.45, 1.3, 6.6, 4.95, 'stacked bars plotted to scale from the table (illustrative LCA data)');
-  const g = { x: 1.5, y: 1.55, w: 3.6, h: 3.3, xmin: 0, xmax: 3, ymin: 0, ymax: 2.0, xstep: 1, ystep: 0.4, minor: 2, ylabel: 'Energy per bag / MJ', fmt: () => '', yfmt: v => v.toFixed(1) };
+  const g = { x: 1.5, y: 1.55, w: 3.6, h: 2.95, xmin: 0, xmax: 3, ymin: 0, ymax: 2.0, xstep: 1, ystep: 0.4, minor: 2, ylabel: 'Energy per bag / MJ', fmt: () => '', yfmt: v => v.toFixed(1) };
   D.axes(s, g);
   stackBar(s, g, 1, PLA, STAGECOL); stackBar(s, g, 2, PAP, STAGECOL);
   label(s, D.px(g, 1) - 0.7, g.y + g.h + 0.08, 1.4, '**Plastic** (LDPE)', { size: 10.5, h: 0.24 });
@@ -645,7 +647,7 @@ reg(D.contentSlide({
   const rows = [[HDR('MJ per bag'), ...STAGES.map(t => HDR(t)), HDR('Total')],
     [tcell('Plastic', 0, { bold: true }), ...PLA.map(v => tcell(v.toFixed(2), 0)), tcell(pT.toFixed(2), 0, { bold: true })],
     [tcell('Paper', 1, { bold: true }), ...PAP.map(v => tcell(v.toFixed(2), 1)), tcell(qT.toFixed(2), 1, { bold: true })]];
-  s.addTable(rows, { x: 0.7, y: 5.25, w: 6.1, colW: [1.05, 1.05, 1.05, 0.95, 0.95, 1.05], rowH: 0.22, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.5 } });
+  s.addTable(rows, { x: 0.7, y: 4.92, w: 6.1, colW: [1.05, 1.05, 1.05, 0.95, 0.95, 1.05], rowH: 0.22, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.5 } });
   D.card(s, 7.3, 1.3, 5.58, 2.65, 'Reading the LCA', [
     'Paper uses **2.25 times** the energy of plastic per bag, mostly in **manufacture** (pulping, drying).',
     'But paper is from **renewable** trees and is **biodegradable**; plastic is from **crude oil** (finite) and persists as **litter**.',
@@ -678,7 +680,7 @@ reg(D.contentSlide({
     const lv = [['Reduce', 'use less material in the first place', '2E8B57'], ['Reuse', 'use the product again (refill, repair)', '4FA36B'],
       ['Recycle', 'make the material into new products', '8DBE5A'], ['Recover energy', 'incinerate and generate electricity', 'E3A93A'], ['Landfill', 'bury in the ground: last resort', 'C8414C']];
     lv.forEach(([t, d, c], i) => {
-      const w = 5.6 - i * 0.7, x = 3.5 - w / 2, y = 1.5 + i * 0.75;
+      const w = 5.1 - i * 0.65, x = 3.75 - w / 2, y = 1.5 + i * 0.75;
       box(s, x, y, w, 0.65, c, C.ink, { lw: 0.75 });
       label(s, x, y + 0.02, w, `**${t}**`, { size: 11.5, color: C.white, h: 0.3 });
       label(s, x, y + 0.3, w, d, { size: 10, color: C.white, h: 0.3 });

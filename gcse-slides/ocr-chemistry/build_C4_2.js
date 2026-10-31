@@ -26,6 +26,7 @@ const sp = D.spec;
 const SLIDES = [];
 const reg = (s, name) => { SLIDES.push(`${s._no}. ${name}`); return s; };
 const fmt = v => String(+v.toFixed(6));
+let DIA = null;
 const mean = a => a.reduce((x, y) => x + y, 0) / a.length;
 
 // ======================= EQUATION ATOM-BALANCE CHECK =======================
@@ -131,7 +132,7 @@ function pbox(s, x, y, w, h, text, fill, edge, o = {}) {
 // colours for structure types
 const CARB = ['4A4A55', '22222A'], NA = ['8E7CC3', '5B3A8C'], CL = ['7DBE6A', '3E7F2E'], SI = ['E0A458', '9A6420'], OX = ['D9534F', '8E2A27'];
 const METAL = ['D7A15E', '8A5A2B'], ELEC = '2F7FC1', IMF = 'C8414C', XLINK = 'C8414C';
-const TYPECOL = { sm: '7DBE6A', po: 'E0A458', io: '8E7CC3', me: 'D7A15E', gc: '4A4A55' };
+const TYPECOL = { sm: '7DBE6A', po: '8EC3E6', io: '8E7CC3', me: 'D7A15E', gc: '4A4A55' };
 // ionic lattice (2D slice): alternating + and − ions
 function ionicGrid(s, x0, y0, nx, ny, step, o = {}) {
   const r1 = o.r1 || step * 0.32, r2 = o.r2 || step * 0.45;
@@ -155,12 +156,13 @@ function metalGrid(s, x0, y0, nx, ny, step, o = {}) {
 }
 // simple molecules: diatomic pairs spaced apart (e.g. Cl2 / Br2)
 function molecules(s, x0, y0, w, h, n = 6, col = CL) {
-  const spots = [[0.15, 0.2, 20], [0.55, 0.15, -30], [0.85, 0.35, 60], [0.3, 0.6, -10], [0.7, 0.7, 35], [0.12, 0.85, 80], [0.48, 0.9, -50]];
+  const spots0 = [[0.15, 0.2, 20], [0.55, 0.15, -30], [0.85, 0.35, 60], [0.3, 0.6, -10], [0.7, 0.7, 35], [0.12, 0.85, 80], [0.48, 0.9, -50]];
+  const spots = spots0.map(([a, b, c]) => [a, b, c]);
   spots.slice(0, n).forEach(([fx, fy, a]) => {
-    const cx = x0 + fx * w, cy = y0 + fy * h, d = 0.11, rad = a * Math.PI / 180;
+    const cx = x0 + fx * w, cy = y0 + fy * h, d = 0.15, rad = a * Math.PI / 180;
     const x1 = cx - d * Math.cos(rad), y1 = cy - d * Math.sin(rad), x2 = cx + d * Math.cos(rad), y2 = cy + d * Math.sin(rad);
-    ball(s, x1, y1, 0.11, col[0], col[1], 1); ball(s, x2, y2, 0.11, col[0], col[1], 1);
-    line(s, x1, y1, x2, y2, C.ink, 2.5);
+    line(s, x1, y1, x2, y2, C.ink, 3);
+    ball(s, x1, y1, 0.1, col[0], col[1], 1); ball(s, x2, y2, 0.1, col[0], col[1], 1);
   });
 }
 // silica 2D network: Si at grid points, O on each Si–Si edge
@@ -180,27 +182,38 @@ function silica2D(s, x0, y0, nx, ny, step) {
   }
   for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) ion(s, x0 + i * step, y0 + j * step, step * 0.2, SI[0], SI[1], 'Si', 10, C.ink);
 }
-// diamond cubic cell projected to 2D: bonds then atoms back-to-front
+// diamond cluster projected to 2D: real diamond-cubic sites within radius R of the centre; bonds then atoms back-to-front
 function diamond3D(s, ox, oy, size, o = {}) {
-  const fcc = []; for (let i = 0; i <= 2; i++) for (let j = 0; j <= 2; j++) for (let k = 0; k <= 2; k++) if ((i + j + k) % 2 === 0) fcc.push([i / 2, j / 2, k / 2]);
-  const inner = [[0.25, 0.25, 0.25], [0.75, 0.75, 0.25], [0.75, 0.25, 0.75], [0.25, 0.75, 0.75]];
-  const bonds = [];
-  inner.forEach(p => fcc.forEach(q => { const d = Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]); if (Math.abs(d - Math.sqrt(3) / 4) < 1e-6) bonds.push([p, q]); }));
-  assert.strictEqual(bonds.length, 16, 'diamond cell bonds');
-  inner.forEach(p => assert.strictEqual(bonds.filter(b => b[0] === p).length, 4, 'each inner C has 4 bonds'));
-  const used = [...inner, ...fcc.filter(q => bonds.some(b => b[1] === q))];
-  const th = o.th == null ? 0.42 : o.th, ph = o.ph == null ? 0.32 : o.ph;
+  const R = o.R || 0.72, sites = [];
+  const base = [[0, 0, 0], [0, 0.5, 0.5], [0.5, 0, 0.5], [0.5, 0.5, 0]];
+  for (let a = -1; a <= 1; a++) for (let b = -1; b <= 1; b++) for (let c = -1; c <= 1; c++) base.forEach(f => [0, 0.25].forEach(d => {
+    const p = [f[0] + a + d, f[1] + b + d, f[2] + c + d];
+    if (Math.hypot(p[0] - 0.25, p[1] - 0.25, p[2] - 0.25) <= R + 1e-9) sites.push(p);
+  }));
+  let atomsL = sites, bonds = [];
+  for (let iter = 0; iter < 5; iter++) {
+    bonds = [];
+    for (let i = 0; i < atomsL.length; i++) for (let j = i + 1; j < atomsL.length; j++) {
+      const p = atomsL[i], q = atomsL[j];
+      if (Math.abs(Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]) - Math.sqrt(3) / 4) < 1e-6) bonds.push([p, q]);
+    }
+    const deg = p => bonds.filter(b => b[0] === p || b[1] === p).length;
+    const keep = atomsL.filter(p => deg(p) >= 1);
+    if (keep.length === atomsL.length) break; atomsL = keep;
+  }
+  const deg = p => bonds.filter(b => b[0] === p || b[1] === p).length;
+  atomsL.forEach(p => assert(deg(p) <= 4, 'no carbon has more than 4 bonds'));
+  assert(atomsL.some(p => deg(p) === 4), 'interior carbons have 4 bonds');
+  const th = o.th == null ? 0.5 : o.th, ph = o.ph == null ? 0.38 : o.ph;
   const proj = ([x, y, z]) => {
-    x -= 0.5; y -= 0.5; z -= 0.5;
+    x -= 0.25; y -= 0.25; z -= 0.25;
     const x1 = x * Math.cos(th) + z * Math.sin(th), z1 = -x * Math.sin(th) + z * Math.cos(th);
     const y2 = y * Math.cos(ph) - z1 * Math.sin(ph), z2 = y * Math.sin(ph) + z1 * Math.cos(ph);
     return [ox + x1 * size, oy - y2 * size, z2];
   };
-  bonds.forEach(([p, q]) => { const a = proj(p), b = proj(q); line(s, a[0], a[1], b[0], b[1], '5A5A66', 2.25); });
-  used.map(p => [p, proj(p)]).sort((a, b) => a[1][2] - b[1][2]).forEach(([p, [x, y, z]]) => {
-    const front = z > 0; ball(s, x, y, size * (inner.includes(p) ? 0.065 : 0.058), front ? CARB[0] : '8A8A96', CARB[1], 0.75);
-  });
-  return { bonds: bonds.length, atoms: used.length };
+  bonds.forEach(([p, q]) => { const a = proj(p), b = proj(q); line(s, a[0], a[1], b[0], b[1], '5A5A66', 2); });
+  atomsL.map(p => proj(p)).sort((a, b) => a[2] - b[2]).forEach(([x, y, z]) => ball(s, x, y, size * 0.05, z > 0 ? CARB[0] : '8A8A96', CARB[1], 0.75));
+  return { bonds: bonds.length, atoms: atomsL.length, four: atomsL.filter(p => deg(p) === 4).length };
 }
 // honeycomb (graphite layer) in perspective: y squashed
 function honeycomb(s, ox, oy, w, h, a, sq, o = {}) {
@@ -337,12 +350,12 @@ reg(D.contentSlide({
     label(s, 0.55, 3.2, 1.35, 'not hard, not soft, not shiny, does not conduct', { size: 10, italic: true, color: C.grey, h: 0.62, valign: 'top' });
     arrow(s, 1.65, 2.3, 2.55, 1.95, C.ink, 1.75); arrow(s, 1.65, 2.8, 2.55, 3.55, C.ink, 1.75);
     // diamond
-    diamond3D(s, 3.6, 2.15, 1.3);
+    diamond3D(s, 3.55, 2.45, 1.45);
     label(s, 4.45, 1.5, 1.95, '**Diamond**', { size: 11.5, align: 'left', h: 0.28 });
     label(s, 4.45, 1.8, 1.95, 'every C bonded to **4** others in 3D: very hard, does not conduct', { size: 10, align: 'left', valign: 'top', h: 0.8 });
     // graphite: two layers
-    honeycomb(s, 2.7, 3.45, 1.55, 0.95, 0.19, 0.42, { skew: 0.35, r: 0.03 });
-    honeycomb(s, 2.7 + 0.16, 4.05, 1.55, 0.95, 0.19, 0.42, { skew: 0.35, r: 0.03 });
+    honeycomb(s, 2.7, 3.5, 1.5, 0.9, 0.22, 0.4, { skew: 0.25, r: 0.03 });
+    honeycomb(s, 2.7 + 0.19, 4.1, 1.5, 0.9, 0.22, 0.4, { skew: 0.25, r: 0.03 });
     [[3.1, 3.75], [3.75, 3.75]].forEach(([x, y]) => line(s, x, y, x + 0.05, y + 0.42, IMF, 1, { dash: 'dash' }));
     label(s, 4.75, 3.45, 1.7, '**Graphite**', { size: 11.5, align: 'left', h: 0.28 });
     label(s, 4.75, 3.75, 1.7, 'layers of C bonded to **3** others: soft, slippery, conducts', { size: 10, align: 'left', valign: 'top', h: 0.8 });
@@ -365,7 +378,7 @@ reg(D.contentSlide({
     steps: [['Mr', 'CO₂ = 12 + 2 × 16 = 44'], ['Ratio', '12 g C gives 44 g CO₂'], ['Answer', '6 g gives 44 × 6 ÷ 12 = **22 g** (the same for graphite)']], size: 10.5 },
   workedH: 1.5,
   qc: 'Why does it make no sense to say "a carbon atom is hard"? What mass of CO₂ forms when **3 g** of graphite burns?',
-  notes: 'QUICK CHECK ANSWER: Hardness is a bulk property of a large collection of bonded atoms; it depends on how the atoms are bonded and arranged, and one atom on its own has no bonds to resist scratching. 3 g × 44 ÷ 12 = 11 g CO₂.\nEquation atom balance asserted in node (C 1 = 1, O 2 = 2). The diamond cell is drawn from real diamond-cubic coordinates (16 bonds, every inner atom bonded to 4: asserted). Models: ball-and-stick drawings exaggerate the gaps between atoms (limitation of the model).',
+  notes: 'QUICK CHECK ANSWER: Hardness is a bulk property of a large collection of bonded atoms; it depends on how the atoms are bonded and arranged, and one atom on its own has no bonds to resist scratching. 3 g × 44 ÷ 12 = 11 g CO₂.\nEquation atom balance asserted in node (C 1 = 1, O 2 = 2). The diamond cell is drawn from real diamond-cubic coordinates (cluster of real diamond-cubic sites; no carbon has more than 4 bonds and interior carbons have exactly 4: asserted). Models: ball-and-stick drawings exaggerate the gaps between atoms (limitation of the model).',
 }), 'C4.2.1 Properties come from bonds, not atoms');
 
 // ======================= 6 FOUR STRUCTURES =======================
@@ -389,8 +402,9 @@ reg(D.contentSlide({
     [tcell('Metallic', 1, { bold: true }), tcell('+ ions in a sea of **delocalised** electrons', 1), tcell('high m.p.; malleable; conducts heat and electricity', 1)]];
   rows.forEach(r => r.forEach(c => { c.text = c.text.replace(/\*\*/g, ''); }));
   s.addTable(rows, { x: 6.8, y: 1.3, w: 6.08, colW: [1.35, 2.43, 2.3], rowH: [0.3, 0.55, 0.55, 0.55, 0.55], fontFace: 'Calibri', fontSize: 10.5, color: C.text, valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
-  D.workedSteps(s, 6.8, 4.25, 6.08, 2.0, 'Worked example: identify the structure', 'Substance X melts at 1600 °C. It does not conduct when solid or when molten.', [
+  D.workedSteps(s, 6.8, 4.0, 6.08, 1.5, 'Worked example: identify the structure', 'Substance X melts at 1600 °C. It does not conduct when solid or when molten.', [
     ['High m.p.', 'many strong bonds must break: a **giant** structure'], ['No conduction', 'not a metal (solid) and not ionic (molten)'], ['Answer', 'X is **giant covalent** (e.g. silicon dioxide)']], { size: 10.5 });
+  D.card(s, 6.8, 5.62, 6.08, 0.63, null, ['**Exception**: graphite is giant covalent but **conducts** (slide 13).'], { size: 11 });
   D.quickCheck(s, 'Y melts at **−7 °C** and does not conduct. Z conducts when **solid** and can be hammered flat. Name the structure of Y and Z.');
   D.notes(s, 'QUICK CHECK ANSWER: Y: simple molecular (low melting point: only weak intermolecular forces to overcome; no ions or free electrons), e.g. bromine (m.p. −7 °C). Z: metallic (delocalised electrons carry charge; layers of ions can slide).\nThis slide recaps C2 (ionic, covalent) and C3.1 (metallic) and links each to bulk properties, which is the C4.2.1 requirement. Ionic equation recap: 2Na(s) + Cl₂(g) → 2NaCl(s) (balance asserted). Graphite is the main exception to "giant covalent does not conduct" (slide 13). The 2D silica drawing keeps the 1 : 2 ratio of Si : O (used on slide 12). Limitation: 2D models cannot show the real 3D tetrahedral arrangement.');
   reg(s, 'C4.2.1 Four types of structure');
@@ -409,14 +423,14 @@ reg(R1.s, 'Recap 1');
 {
   const s = D.contentHeader('Bonds versus intermolecular forces', `Specification ${sp('C4.2.1')} • bond strength compared with the forces between molecules`, { tag: 'C4.2.1' });
   D.panel(s, 0.45, 1.3, 6.1, 4.95, 'bar chart drawn to scale from approximate data-book melting points');
-  const g = { x: 1.35, y: 1.5, w: 5.0, h: 3.35, xmin: 0, xmax: 7, ymin: -500, ymax: 4000, xstep: 7, ystep: 500, minor: 1, ylabel: 'Melting point / °C', fmt: () => '' };
+  const g = { x: 1.35, y: 1.5, w: 5.0, h: 3.35, xmin: 0, xmax: 7, ymin: -500, ymax: 4000, xstep: 7, ystep: 500, minor: 1, ylabel: 'Melting point / °C', fmt: () => '', yfmt: v => String(v).replace('-', '−') };
   D.axes(s, g);
   line(s, g.x, D.py(g, 0), g.x + g.w, D.py(g, 0), C.ink, 1);
   MP.forEach(([n, v, t], i) => {
     const cx = D.px(g, i + 0.5), bw = 0.42;
     const y1 = D.py(g, Math.max(v, 0)), y2 = D.py(g, Math.min(v, 0));
     box(s, cx - bw / 2, y1, bw, Math.max(y2 - y1, 0.02), TYPECOL[t], C.ink, { lw: 0.75 });
-    label(s, cx - 0.36, v >= 0 ? y1 - 0.22 : y2 + 0.01, 0.72, String(v), { size: 10, bold: true, h: 0.2 });
+    label(s, cx - 0.36, v >= 0 ? y1 - 0.22 : y2 + 0.01, 0.72, String(v).replace('-', '−'), { size: 10, bold: true, h: 0.2 });
     label(s, cx - 0.37, g.y + g.h + 0.04, 0.74, n === 'poly(ethene)' ? 'poly-\n(ethene)' : n, { size: 10, h: 0.38, valign: 'top' });
   });
   const leg = [['sm', 'simple molecular'], ['po', 'polymer'], ['io', 'ionic'], ['me', 'metal'], ['gc', 'giant covalent']];
@@ -425,7 +439,7 @@ reg(R1.s, 'Recap 1');
     '**Simple molecules**: the covalent bonds **inside** each molecule are strong, but the **intermolecular forces** between molecules are **weak**. Melting or boiling only overcomes these weak forces: **low** melting points.',
     '**Giant** structures (ionic, giant covalent, metallic): melting must break **many strong bonds**: **high** melting points.',
     '**Polymers** are in between: chains are long, so the forces between them add up.',
-  ], { size: 11 });
+  ], { size: 12 });
   D.workedSteps(s, 6.8, 4.4, 6.08, 1.85, 'Worked example: reading the chart', 'How much higher is the melting point of NaCl than CH₄?', [
     ['Values', 'NaCl 801 °C; CH₄ −182 °C'], ['Subtract', '801 − (−182) = 801 + 182'], ['Answer', '**983 °C** higher']], { size: 10.5 });
   D.quickCheck(s, 'When water **boils**, are the O–H bonds broken? Explain. How much higher is the melting point of SiO₂ than NaCl?');
@@ -440,7 +454,7 @@ reg(D.contentSlide({
   tag: 'C4.2.2', caption: 'poly(ethene): one chain (top) and many tangled chains (bottom); not to scale',
   draw: (s) => {
     // structural formula of poly(ethene) repeat unit
-    const y = 1.95, x0 = 1.0, dx = 0.6;
+    const y = 1.95, x0 = 0.95, dx = 0.7;
     for (let i = 0; i < 7; i++) {
       const x = x0 + i * dx;
       label(s, x - 0.15, y - 0.15, 0.3, 'C', { size: 13, bold: true, h: 0.3 });
@@ -450,9 +464,9 @@ reg(D.contentSlide({
     }
     line(s, x0 - 0.45, y, x0 - 0.15, y, C.ink, 1.25, { dash: 'dash' }); line(s, x0 + 6 * dx + 0.15, y, x0 + 6 * dx + 0.45, y, C.ink, 1.25, { dash: 'dash' });
     // repeat-unit brackets around atoms 2–3
-    const bx1 = x0 + 2 * dx - 0.32, bx2 = x0 + 3 * dx + 0.32;
+    const bx1 = x0 + 1.5 * dx, bx2 = x0 + 3.5 * dx;
     [bx1, bx2].forEach((bx, k) => { line(s, bx, y - 0.62, bx, y + 0.62, C.red, 1.75); line(s, bx, y - 0.62, bx + (k ? -0.08 : 0.08), y - 0.62, C.red, 1.75); line(s, bx, y + 0.62, bx + (k ? -0.08 : 0.08), y + 0.62, C.red, 1.75); });
-    label(s, bx2 + 0.02, y + 0.42, 0.25, 'n', { size: 12, bold: true, color: C.red, h: 0.25 });
+    label(s, bx2 + 0.03, y + 0.45, 0.18, 'n', { size: 12, bold: true, color: C.red, h: 0.25 });
     label(s, 0.65, 2.75, 5.7, '**repeat unit** –CH₂–CH₂–   • strong **covalent** bonds along the chain', { size: 10.5, h: 0.28 });
     line(s, 0.65, 3.12, 6.35, 3.12, C.line, 1, { dash: 'dash' });
     // tangled chains
@@ -469,7 +483,7 @@ reg(D.contentSlide({
     'Chains can **slide** past each other: many polymers are **flexible** and **soften** when heated.',
     'All the electrons are held in covalent bonds: **no** free electrons or ions, so polymers **do not conduct** (good insulators).',
   ],
-  size: 11,
+  size: 12,
   worked: { head: 'Worked example: Mr of a polymer chain', q: 'A poly(ethene) chain has 5000 repeat units of C₂H₄. (C = 12, H = 1)',
     steps: [['Repeat unit', 'Mr = 2 × 12 + 4 × 1 = 28'], ['Multiply', '28 × 5000'], ['Answer', 'Mr = **140 000**']], size: 10.5 },
   workedH: 1.5,
@@ -491,7 +505,7 @@ reg(D.contentSlide({
     const sm = []; for (let i = 0; i < pts.length - 1; i++) for (let k = 0; k < 10; k++) { const t = k / 10, a = pts[i], b = pts[i + 1]; sm.push([a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * (t * (2 - t) * 0.35 + t * 0.65)]); }
     sm.push(pts[pts.length - 1]);
     D.plotLine(s, g, sm, C.blue, 2); D.points(s, g, pts, C.ink);
-    pts.forEach(([n, v]) => label(s, D.px(g, n) + 0.05, D.py(g, v) - 0.05, 0.45, String(v), { size: 10, bold: true, color: C.blue, h: 0.2, align: 'left' }));
+    pts.forEach(([n, v]) => label(s, D.px(g, n) + 0.05, D.py(g, v) - 0.05, 0.45, String(v).replace('-', '−'), { size: 10, bold: true, color: C.blue, h: 0.2, align: 'left' }));
     // two models
     const y0 = 4.35;
     box(s, 0.7, y0 - 0.25, 2.65, 1.6, C.white, C.line, { shape: SH.ROUNDED_RECTANGLE, r: 0.05 });
@@ -511,7 +525,7 @@ reg(D.contentSlide({
     '**Thermosoftening** polymers (no cross-links) soften when heated and can be **reshaped** and recycled, e.g. poly(ethene) bags.',
     '**Thermosetting** polymers (cross-linked) do **not** soften; strong heating **chars** them, e.g. plug sockets, pan handles.',
   ],
-  size: 11,
+  size: 12,
   worked: { head: 'Worked example: describe the trend', q: 'Use the graph values.',
     steps: [['C10 → C20', '37 − (−30) = 67 °C rise'], ['C30 → C40', '81 − 66 = 15 °C rise'], ['Answer', 'm.p. **rises** with chain length, but **less steeply** for longer chains']], size: 10.5 },
   workedH: 1.5,
@@ -534,7 +548,7 @@ reg(D.contentSlide({
   subtitle: `Specification ${sp('C4.2.3')}, ${sp('C4.2.4')} • a continuous network of covalent bonds`,
   tag: 'C4.2.3', stretch: true, caption: 'diamond: real 3D unit cell; silicon dioxide: 2D model',
   draw: (s) => {
-    const r = diamond3D(s, 2.0, 2.95, 2.1);
+    const r = diamond3D(s, 2.0, 2.95, 2.0);
     label(s, 0.6, 1.4, 2.8, '**Diamond** (carbon)', { size: 11.5, h: 0.28 });
     label(s, 0.6, 4.35, 2.8, 'each C: **4** covalent bonds, tetrahedral, in 3D', { size: 10, h: 0.45, valign: 'top' });
     silica2D(s, 3.85, 2.05, 4, 4, 0.55);
@@ -542,7 +556,7 @@ reg(D.contentSlide({
     label(s, 3.5, 4.35, 2.95, 'each Si: **4** O; each O: **2** Si', { size: 10, h: 0.45, valign: 'top' });
     label(s, 0.65, 4.95, 5.7, 'No separate molecules: the whole crystal is **one giant structure**.', { size: 10.5, h: 0.3 });
     label(s, 0.65, 5.27, 5.7, 'Si(s) + O₂(g) → SiO₂(s)', { size: 10.5, italic: true, color: C.grey, h: 0.28 });
-    assert.strictEqual(r.bonds, 16);
+    assert(r.four >= 4, 'several 4-bonded carbons drawn'); DIA = r;
   },
   head: 'Properties of giant covalent structures',
   lines: [
@@ -551,12 +565,12 @@ reg(D.contentSlide({
     '**Do not conduct** electricity: every outer electron is used in a bond; there are no ions and no free electrons.',
     '**Insoluble** in water.',
   ],
-  size: 11,
+  size: 12,
   worked: { head: 'Worked example: formula from the structure', q: 'Use the silicon dioxide model.',
     steps: [['Bonds', 'each Si bonds to 4 O; each O is shared by 2 Si'], ['Count', 'O per Si = 4 ÷ 2 = 2'], ['Answer', 'Si : O = 1 : 2, so the formula is **SiO₂**']], size: 10.5 },
   workedH: 1.5,
   qc: 'Explain why diamond is used on **drill tips**. STRETCH: each C–C bond needs **347 kJ/mol**. Each C shares 4 bonds. Estimate the energy to break 1 mol of diamond.',
-  notes: 'QUICK CHECK ANSWER: Diamond is very hard because every carbon is joined to four others by strong covalent bonds in a rigid 3D network, so it can cut / scratch other materials without wearing; very high melting point too, so it does not melt from friction. STRETCH: each bond is shared by 2 atoms, so bonds per atom = 4 ÷ 2 = 2; 1 mol of C has 2 mol C–C bonds; 2 × 347 = 694 kJ (a data-book average bond energy; the measured value is a little higher). GRADE 7–9 STRETCH, not a J260 statement.\nThe diamond drawing uses real diamond-cubic coordinates (16 bonds, each inner atom 4 bonds: asserted in node). Si(s) + O₂(g) → SiO₂(s) balance asserted. Real SiO₂ is 3D (tetrahedral SiO₄ units); the 2D grid model keeps the 1 : 2 ratio but not the shape (limitation).',
+  notes: 'QUICK CHECK ANSWER: Diamond is very hard because every carbon is joined to four others by strong covalent bonds in a rigid 3D network, so it can cut / scratch other materials without wearing; very high melting point too, so it does not melt from friction. STRETCH: each bond is shared by 2 atoms, so bonds per atom = 4 ÷ 2 = 2; 1 mol of C has 2 mol C–C bonds; 2 × 347 = 694 kJ (a data-book average bond energy; the measured value is a little higher). GRADE 7–9 STRETCH, not a J260 statement.\nThe diamond drawing uses real diamond-cubic coordinates (no carbon has more than 4 bonds; interior carbons 4: asserted in node). Si(s) + O₂(g) → SiO₂(s) balance asserted. Real SiO₂ is 3D (tetrahedral SiO₄ units); the 2D grid model keeps the 1 : 2 ratio but not the shape (limitation).',
 }), 'C4.2.3 Giant covalent: diamond and silica');
 
 // ======================= 13 GRAPHITE =======================
@@ -564,7 +578,7 @@ reg(D.contentSlide({
   const s = D.contentHeader('Graphite: layers and free electrons', `Specification ${sp('C4.2.4')} • explaining the properties of diamond and graphite`, { tag: 'C4.2.4' });
   D.panel(s, 0.45, 1.3, 6.1, 4.95, 'three layers of graphite in perspective; not to scale');
   const L = [];
-  [1.75, 2.8, 3.85].forEach((y, i) => L.push(honeycomb(s, 0.9 + (i % 2) * 0.19, y, 3.2, 1.6, 0.19, 0.4, { skew: 0.45, r: 0.035 })));
+  [1.75, 2.85, 3.95].forEach((y, i) => L.push(honeycomb(s, 0.9 + (i % 2) * 0.24, y, 3.0, 1.45, 0.28, 0.4, { skew: 0.35, r: 0.04 })));
   // weak forces between layers
   [[1.55, 2.5], [3.0, 2.5], [4.3, 2.5], [1.75, 3.55], [3.2, 3.55], [4.5, 3.55]].forEach(([x, y]) => line(s, x, y, x, y + 0.35, IMF, 1.25, { dash: 'sysDot' }));
   // delocalised electrons on the top layer + arrow
@@ -598,17 +612,17 @@ reg(D.contentSlide({
     metalGrid(s, 0.95, 2.0, 5, 3, 0.36, { r: 0.13 });
     arrow(s, 2.95, 2.36, 3.5, 2.36, C.ink, 2);
     metalGrid(s, 3.85, 2.0, 5, 3, 0.36, { r: 0.13, slip: 0.36, slipRow: 1 });
-    arrow(s, 0.5, 2.36, 0.75, 2.36, C.red, 2.5); label(s, 0.45, 1.98, 0.6, 'force', { size: 10, bold: true, color: C.red, h: 0.2 });
+    arrow(s, 0.5, 2.36, 0.75, 2.36, C.red, 2.5); label(s, 0.42, 2.5, 0.6, 'force', { size: 10, bold: true, color: C.red, h: 0.2 });
     line(s, 0.65, 3.12, 6.35, 3.12, C.line, 1, { dash: 'dash' });
     label(s, 0.65, 3.22, 5.7, '**Ionic**: layer shifts, **like charges line up and repel** → **brittle**, it shatters', { size: 10.5, h: 0.28 });
     ionicGrid(s, 1.0, 3.85, 5, 3, 0.36, { r1: 0.12, r2: 0.16 });
     arrow(s, 2.95, 4.2, 3.5, 4.2, C.ink, 2);
     // shifted ionic lattice: top row moved by one ion
     for (let j = 0; j < 3; j++) for (let i = 0; i < 5; i++) {
-      const neg = (i + j + (j === 0 ? 1 : 0)) % 2 === 1, cx = 3.9 + i * 0.36 + (j === 0 ? 0.36 : 0), cy = 3.85 + j * 0.36;
+      const neg = (i + j) % 2 === 1, cx = 3.9 + i * 0.36 + (j === 0 ? 0.36 : 0), cy = 3.85 + j * 0.36;
       if (neg) ion(s, cx, cy, 0.16, CL[0], CL[1], '−', 11, C.ink); else ion(s, cx, cy, 0.12, NA[0], NA[1], '+', 11, C.white);
     }
-    [[4.26, 0.36], [4.98, 0.36], [5.7, 0.36]].forEach(([x]) => { line(s, x - 0.08, 4.0, x + 0.08, 4.1, C.red, 2); line(s, x - 0.08, 4.1, x + 0.08, 4.0, C.red, 2); });
+    [4.26, 4.62, 4.98, 5.34].forEach(x => { line(s, x - 0.08, 4.0, x + 0.08, 4.1, C.red, 2); line(s, x - 0.08, 4.1, x + 0.08, 4.0, C.red, 2); });
     label(s, 3.75, 4.75, 2.6, 'repulsion between like charges', { size: 10, bold: true, color: C.red, h: 0.24 });
     label(s, 0.65, 5.15, 5.7, 'blue dots: **delocalised electrons**; + metal ions; Na⁺ purple, Cl⁻ green', { size: 10, italic: true, color: C.grey, h: 0.28 });
   },
@@ -619,7 +633,7 @@ reg(D.contentSlide({
     '**Conduct** electricity and heat: delocalised electrons move through the lattice.',
     '**Ionic** solids: hard, high melting point, but **brittle**. They conduct only when **molten** or **dissolved**, when ions can move.',
   ],
-  size: 11,
+  size: 12,
   worked: { head: 'Worked example: counting free electrons', q: 'Each magnesium atom gives 2 electrons to the sea: Mg → Mg²⁺ + 2e⁻',
     steps: [['Per atom', '2 delocalised electrons'], ['10 atoms', '10 × 2 = 20 electrons'], ['Answer', '**20** delocalised electrons; the charges balance (+20 and −20)']], size: 10.5 },
   workedH: 1.5,
@@ -654,12 +668,12 @@ reg(D.contentSlide({
     const bx = 0.9, by = 5.3;
     box(s, bx + 2.9, by - 0.6, 0.55, 0.6, 'C99A5B', '8A5A2B');
     poly(s, [[bx, by], [bx + 3.45, by - 0.6], [bx + 3.45, by - 0.5], [bx, by + 0.1]], C.white, '6B7385', { lw: 1.25 });
-    label(s, bx + 2.9, by - 0.15, 0.55, 'block', { size: 10, h: 0.2 });
+    label(s, bx + 2.9, by - 0.25, 0.55, 'block', { size: 10, h: 0.2 });
     // slime blob at top + 10 cm marks
     s.addShape(SH.OVAL, { x: bx + 2.65, y: by - 0.78, w: 0.45, h: 0.22, rotate: -10, fill: { color: 'B9A3E0' }, line: { color: '6A4C93', width: 1 } });
     [[bx + 2.6, by - 0.45], [bx + 0.95, by - 0.16]].forEach(([x, y], i) => { line(s, x, y - 0.12, x, y + 0.12, C.red, 2); });
-    label(s, bx + 1.2, by - 0.68, 1.5, '10 cm', { size: 10, bold: true, color: C.red, h: 0.22 });
-    line(s, bx + 1.0, by - 0.22, bx + 2.55, by - 0.49, C.red, 1, { dash: 'dash', head: true });
+    label(s, bx + 1.0, by - 0.72, 1.6, 'flows 10 cm', { size: 10, bold: true, color: C.red, h: 0.22 });
+    line(s, bx + 2.55, by - 0.49, bx + 1.0, by - 0.22, C.red, 1, { dash: 'dash', head: true });
     stopwatch(s, 5.6, 2.55, 0.42);
     label(s, 4.9, 3.05, 1.4, 'time to flow **10 cm**', { size: 10, h: 0.42, valign: 'top' });
     label(s, 0.65, 5.5, 5.7, 'Repeat for 0, 1, 2, 3, 4 and 5 cm³ of borax; three trials each', { size: 10.5, h: 0.3 });
@@ -699,12 +713,12 @@ reg(D.contentSlide({
   label(s, ax - 1.75, ay - 0.12, 1.6, 'anomaly 88 s (not used)', { size: 10, bold: true, color: C.orange, h: 0.22, align: 'right' });
   const rows = [[HDR('Borax / cm³'), HDR('Trial 1 / s'), HDR('Trial 2 / s'), HDR('Trial 3 / s'), HDR('Mean / s')],
     ...TR.map((r, i) => [tcell(String(VOL[i]), i, { bold: true }), ...r.map((v, j) => tcell(String(v), i, (i === ANOM[0] && j === ANOM[1]) ? { color: C.orange, bold: true } : {})), tcell(fmt(MEANS[i]), i, { bold: true })])];
-  s.addTable(rows, { x: 6.8, y: 1.3, w: 6.08, colW: [1.28, 1.2, 1.2, 1.2, 1.2], rowH: 0.24, fontFace: 'Calibri', fontSize: 10.5, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
-  D.workedSteps(s, 6.8, 3.15, 6.08, 1.65, 'Worked example: mean and uncertainty', '', [
+  s.addTable(rows, { x: 6.8, y: 1.3, w: 6.08, colW: [1.28, 1.2, 1.2, 1.2, 1.2], rowH: 0.26, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
+  D.workedSteps(s, 6.8, 3.45, 6.08, 1.4, 'Worked example: mean and uncertainty', '', [
     ['4 cm³ mean', '88 s is anomalous: (61 + 63) ÷ 2 = **62 s**'],
     ['5 cm³ range', `(89 − 85) ÷ 2 = ±${fmt(unc5)} s`],
     ['Answer', `87 ± 2 s, a ${fmt(sf(unc5 / MEANS[5] * 100, 2))}% uncertainty`]], { size: 10.5 });
-  D.card(s, 6.8, 4.95, 6.08, 1.3, 'Conclusion and errors', [
+  D.card(s, 6.8, 4.97, 6.08, 1.28, 'Conclusion and errors', [
     'More borax → longer flow time: more **cross-links** stop chains sliding. The curve gets steeper.',
     'Errors: judging when the slime reaches the line; slime sticks to the beaker. Improve: video it; use a fixed mass.',
   ], { size: 10.5 });
