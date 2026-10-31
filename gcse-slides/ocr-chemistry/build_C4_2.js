@@ -576,9 +576,9 @@ reg(D.contentSlide({
 // ======================= 13 GRAPHITE =======================
 {
   const s = D.contentHeader('Graphite: layers and free electrons', `Specification ${sp('C4.2.4')} • explaining the properties of diamond and graphite`, { tag: 'C4.2.4' });
-  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'three layers of graphite in perspective; not to scale');
+  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'three layers of graphite seen at an angle; not to scale');
   const L = [];
-  [1.75, 2.85, 3.95].forEach((y, i) => L.push(honeycomb(s, 0.95 + (i % 2) * 0.24, y, 4.0, 1.4, 0.28, 0.5, { skew: 0, r: 0.04 })));
+  [1.75, 2.85, 3.95].forEach((y, i) => L.push(honeycomb(s, 0.85 + (i % 2) * 0.24, y, 3.4, 1.4, 0.28, 0.5, { skew: 0, r: 0.04 })));
   // weak forces between layers
   [[1.55, 2.5], [3.0, 2.5], [4.3, 2.5], [1.75, 3.55], [3.2, 3.55], [4.5, 3.55]].forEach(([x, y]) => line(s, x, y, x, y + 0.35, IMF, 1.25, { dash: 'sysDot' }));
   // delocalised electrons on the top layer + arrow
@@ -612,7 +612,7 @@ reg(D.contentSlide({
     metalGrid(s, 0.95, 2.0, 5, 3, 0.36, { r: 0.13 });
     arrow(s, 2.95, 2.36, 3.5, 2.36, C.ink, 2);
     metalGrid(s, 3.85, 2.0, 5, 3, 0.36, { r: 0.13, slip: 0.36, slipRow: 1 });
-    arrow(s, 0.5, 2.36, 0.75, 2.36, C.red, 2.5); label(s, 0.42, 2.5, 0.6, 'force', { size: 10, bold: true, color: C.red, h: 0.2 });
+    arrow(s, 0.5, 2.36, 0.75, 2.36, C.red, 2.5); label(s, 0.4, 2.06, 0.4, 'force', { size: 10, bold: true, color: C.red, h: 0.2 });
     line(s, 0.65, 3.12, 6.35, 3.12, C.line, 1, { dash: 'dash' });
     label(s, 0.65, 3.22, 5.7, '**Ionic**: layer shifts, **like charges line up and repel** → **brittle**, it shatters', { size: 10.5, h: 0.28 });
     ionicGrid(s, 1.0, 3.85, 5, 3, 0.36, { r1: 0.12, r2: 0.16 });
