@@ -280,7 +280,7 @@ reg(D.objectivesSlide([
   { code: 'C5.1.2', text: 'Distinguish the **scientific** meaning of **pure** from its **everyday** meaning.' },
   { code: 'C5.1.3', text: 'Use **melting point** data to tell **pure** from **impure** substances.' },
   { code: 'C5.1.4', text: 'Recall that chromatography has a **stationary** and a **mobile phase**.' },
-  { code: 'C5.1.5', text: '**Interpret chromatograms** and calculate **R~~f~~ values**.' },
+  { code: 'C5.1.5', text: '**Interpret chromatograms** and calculate **Rf values**.' },
   { code: 'C5.1.6', text: 'Suggest **chromatographic methods**: solvents and **locating agents**.' },
   { code: 'C5.1.7', text: 'Describe **filtration**, **crystallisation**, **simple** and **fractional distillation**.' },
   { code: 'C5.1.8', text: 'Suggest a suitable **purification technique** from data about the substances.' },
@@ -324,7 +324,7 @@ reg(D.objectivesSlide([
     ...D.para([
       'No C5.1 statement is Higher-only, so **everything** here is for both tiers.',
       'Practicals: **PAG C3** separation techniques, **PAG C2** distillation, **PAG C4** production of salts.',
-      'Maths: **R~~f~~** ratios, **percentages**, **gradients**, reading and plotting **graphs** to scale.',
+      'Maths: **Rf** ratios, **percentages**, **gradients**, reading and plotting **graphs** to scale.',
     ], { size: 11 }),
   ], { x: 7.55, y: 4.35, w: 5.15, h: 2.4, valign: 'top', margin: 0, fontFace: 'Calibri' });
   D.notes(s, 'J260 Chapter C5 has three sub-topics. C5.1 title: OCR C5 scheme-of-work extract. C5.2: the docbrown combined page heading "Chapter C5.2 How are the amounts of substances in reactions calculated?" (J258 C5.3; the planning booklet gives 10 h separate / 6.5 h combined). C5.3 amounts of chemicals in solution (J258 C5.4), inferred with medium confidence.\nPAG codes: OCR\'s example set of Combined Science practicals lists PAG C2 Distillation, PAG C3 Separation techniques and PAG C4 Production of salts; the OCR PAG C3 document links its chromatography activity to Suite B C5.1.4 and C5.1.6.\nOverlap control: moles, masses in reactions, concentration and titration belong to C5.2 and C5.3 (other decks) and are not taught here. Making a salt is used only as a separation practical (filtration and crystallisation); no yield calculation.');
@@ -399,7 +399,7 @@ reg(D.contentSlide({
     label(s, D.px(g, 0.05), D.py(g, 122) - 0.25, 1.9, 'data-book value 122 °C', { size: 10, color: C.grey, align: 'left', h: 0.22 });
     D.plotLine(s, g, [[0, 104], [2, 122], [6, 122], [8, 132]], C.blue, 2.5);
     D.plotLine(s, g, [[0, 101], [1.6, 115], [6.4, 119], [8, 127]], C.red, 2.5, { dash: 'dash' });
-    label(s, D.px(g, 4.1), D.py(g, 127.5), 2.3, '**pure**: melts at **122 °C** (sharp)', { size: 10.5, color: C.blue, align: 'left', h: 0.24 });
+    label(s, D.px(g, 2.1), D.py(g, 126.5), 2.6, '**pure**: melts at **122 °C** (sharp)', { size: 10.5, color: C.blue, align: 'left', h: 0.24 });
     label(s, D.px(g, 2.2), D.py(g, 112.5), 2.9, '**impure**: melts over **115–119 °C**', { size: 10.5, color: C.red, align: 'left', h: 0.24 });
     label(s, 0.7, 5.45, 5.6, 'Flat line: energy is used to melt the solid, so the temperature stays constant', { size: 10.5, italic: true, h: 0.3 });
   },
@@ -482,7 +482,7 @@ reg(D.contentSlide({
 
 // ======================= 9 INTERPRETING CHROMATOGRAMS =======================
 reg(D.contentSlide({
-  title: 'Interpreting chromatograms: R~~f~~ values',
+  title: 'Interpreting chromatograms: Rf values',
   subtitle: `Specification ${sp('C5.1.5')} • interpret chromatograms, including calculating Rf values`,
   tag: 'C5.1.5', caption: 'chromatogram drawn to scale: 1 cm on the paper = 0.45 in here',
   draw: (s) => {
@@ -506,18 +506,18 @@ reg(D.contentSlide({
   },
   head: 'Reading a chromatogram',
   lines: [
-    { t: 'R~~f~~ = distance moved by substance ÷ distance moved by solvent', b: true, color: C.blue, nob: true },
+    { t: 'Rf = distance moved by substance ÷ distance moved by solvent', b: true, color: C.blue, nob: true },
     'Measure both from the **baseline**, to the **centre** of the spot and to the **solvent front**.',
-    'R~~f~~ has **no units** and is always **between 0 and 1**.',
-    'The **same** substance has the **same R~~f~~** in the same solvent and paper, so we can **identify** it.',
+    'Rf has **no units** and is always **between 0 and 1**.',
+    'The **same** substance has the **same Rf** in the same solvent and paper, so we can **identify** it.',
     'A **pure** substance gives **one** spot; a **mixture** gives **two or more**.',
     'X has spots that match **A**, **B** and **D**, but not C.',
   ],
   size: 11.5,
-  worked: { head: 'Worked example: R~~f~~ of dye B', q: 'Use the chromatogram.',
-    steps: [['Measure', 'spot 4.8 cm; solvent front 8.0 cm'], ['Answer', `R~~f~~ = 4.8 ÷ 8.0 = **${f2(RF.B)}**`]], size: 10.5 },
+  worked: { head: 'Worked example: Rf of dye B', q: 'Use the chromatogram.',
+    steps: [['Measure', 'spot 4.8 cm; solvent front 8.0 cm'], ['Answer', `Rf = 4.8 ÷ 8.0 = **${f2(RF.B)}**`]], size: 10.5 },
   workedH: 1.3,
-  qc: 'A spot moves **3.1 cm** while the solvent front moves **6.2 cm**. Calculate R~~f~~. Is ink **X** pure? Explain.',
+  qc: 'A spot moves **3.1 cm** while the solvent front moves **6.2 cm**. Calculate Rf. Is ink **X** pure? Explain.',
   notes: `QUICK CHECK ANSWER: Rf = 3.1 ÷ 6.2 = 0.50. X is not pure: it gives three spots, so it is a mixture of (at least) three dyes, A, B and D.\nChromatogram drawn to scale and asserted in node: front 8.0 cm; A 2.4 cm (Rf ${f2(RF.A)}), B 4.8 (${f2(RF.B)}), C 5.6 (${f2(RF.C)}), D 6.8 (${f2(RF.D)}); X spots match A, B and D. C5.1.5 "interpret chromatograms, including calculating Rf values". A spot that stays on the baseline is insoluble in that solvent (Rf = 0).`,
 }), 'C5.1.5 Interpreting chromatograms');
 
@@ -549,12 +549,12 @@ reg(D.contentSlide({
   lines: [
     'Choose a solvent that the substances **dissolve** in: **aqueous** (water) or **non-aqueous** (e.g. ethanol).',
     'To test **purity**, run the sample in **two or more** different solvents. A pure substance gives a **single** spot in **every** solvent.',
-    'Run **pure reference** samples on the same paper and compare R~~f~~ values.',
+    'Run **pure reference** samples on the same paper and compare Rf values.',
     '**Colourless** substances: spray the dried chromatogram with a **locating agent**, which reacts to make **coloured** spots, e.g. **ninhydrin** for amino acids.',
   ],
   size: 11,
   worked: { head: 'Worked example: amino acids', q: 'After spraying, spots are at 1.8 cm and 3.6 cm. The solvent front is at 6.0 cm.',
-    steps: [['R~~f~~', '1.8 ÷ 6.0 = 0.30 and 3.6 ÷ 6.0 = 0.60'], ['Answer', '**two** different amino acids: a **mixture**']], size: 10.5 },
+    steps: [['Rf', '1.8 ÷ 6.0 = 0.30 and 3.6 ÷ 6.0 = 0.60'], ['Answer', '**two** different amino acids: a **mixture**']], size: 10.5 },
   workedH: 1.45,
   qc: 'A **permanent** marker ink does not move from the baseline in water. What should the student change? Why?',
   notes: 'QUICK CHECK ANSWER: Use a non-aqueous solvent such as ethanol (or propanone): the ink is insoluble in water, so it stays on the baseline; it dissolves in the non-aqueous solvent and can then move and separate.\nC5.1.6 "suggest chromatographic methods for distinguishing pure from impure substances, including paper chromatography, aqueous and non-aqueous solvents, and locating agents". A substance can give one spot in one solvent by chance (two substances with the same Rf), which is why two solvents are used.\nCLEAPSS-style hazards: ninhydrin spray is HARMFUL if swallowed and an IRRITANT (it stains skin purple); its ethanol solvent is HIGHLY FLAMMABLE. Teacher sprays in a fume cupboard; wear gloves and eye protection. Ethanol and propanone are HIGHLY FLAMMABLE and cause serious eye irritation: no naked flames. Data illustrative (Rf asserted).',
@@ -563,7 +563,7 @@ reg(D.contentSlide({
 // ======================= 11 RECAP 2 =======================
 const R2 = D.recapSlide(2, `Specification ${sp('C5.1.4')}–${sp('C5.1.6')} • chromatography`, [
   { q: 'Name the **stationary** phase and the **mobile** phase in paper chromatography.', marks: 2, ms: 'Stationary: the paper (1); mobile: the solvent (1).' },
-  { q: 'A dye moves **4.2 cm**. The solvent front moves **6.0 cm**. Calculate the R~~f~~ value of the dye.', marks: 2, ms: '4.2 ÷ 6.0 (1); = 0.70 (1). No units.' },
+  { q: 'A dye moves **4.2 cm**. The solvent front moves **6.0 cm**. Calculate the Rf value of the dye.', marks: 2, ms: '4.2 ÷ 6.0 (1); = 0.70 (1). No units.' },
   { q: 'Explain why two dyes in an ink travel **different distances** up the paper.', marks: 2, ms: 'They are distributed differently between the two phases / have different solubility in the solvent / attraction to the paper (1); the one spending more time in the mobile phase (more soluble) moves further (1).' },
   { q: 'Describe how chromatography can show that a substance is **pure**.', marks: 2, ms: 'Gives only one spot (1); in several / two different solvents (1). Accept: matches the Rf of a pure reference sample in each solvent.' },
 ]);
@@ -595,15 +595,15 @@ reg(D.contentSlide({
     // capillary tube
     line(s, 0.85, 2.2, 1.12, 3.4, '7D8794', 3);
     oval(s, 1.13, 3.45, 0.1, 0.07, DYE.blue, null);
-    label(s, 0.45, 1.72, 1.2, 'capillary tube', { size: 10, h: 0.42, valign: 'top' });
+    label(s, 0.5, 3.6, 0.85, 'capillary tube', { size: 10, h: 0.42, valign: 'top' });
   },
   head: 'Method',
   lines: [
     'Draw a **pencil** line 1.5 cm from the bottom of the paper. Put a **small** spot of each dye on it with a capillary tube; let it dry; repeat to concentrate.',
     'Add solvent (water) to about **1 cm** depth. Hang the paper so the bottom dips in but the **baseline is above** the solvent. Put the lid on.',
     'When the solvent is near the top, remove the paper and **mark the solvent front** in pencil at once. Dry it.',
-    'Measure the distances and calculate **R~~f~~** values.',
-    '**IV**: the dye. **DV**: distance moved / R~~f~~. **Control**: solvent, paper, temperature, baseline height.',
+    'Measure the distances and calculate **Rf** values.',
+    '**IV**: the dye. **DV**: distance moved / Rf. **Control**: solvent, paper, temperature, baseline height.',
     '**Safety**: eye protection. Food dyes low hazard; if ethanol is used, HIGHLY FLAMMABLE: no naked flames.',
   ],
   size: 10.5,
@@ -613,7 +613,7 @@ reg(D.contentSlide({
 
 // ======================= 13 PAG C3 RESULTS =======================
 {
-  const s = D.contentHeader('Practical: chromatography results', `Specification ${sp('C5.1.5')} • tables, a graph to scale, R~~f~~ values and errors`.replace(/~~/g, ''), { pag: 'PAG C3', tag: 'PAG C3' });
+  const s = D.contentHeader('Practical: chromatography results', `Specification ${sp('C5.1.5')} • tables, a graph to scale, Rf values and errors`, { pag: 'PAG C3', tag: 'PAG C3' });
   D.panel(s, 0.45, 1.3, 6.6, 4.95, 'graph plotted to scale from four runs stopped at different times (illustrative data)');
   const g = { x: 1.45, y: 1.55, w: 5.2, h: 2.85, xmin: 0, xmax: 8, ymin: 0, ymax: 5, xstep: 1, ystep: 1, minor: 2, xlabel: 'Distance moved by solvent front / cm', ylabel: 'Distance moved by dye / cm' };
   D.axes(s, g);
@@ -625,13 +625,13 @@ reg(D.contentSlide({
     [tcell('Red dye / cm', 0, { bold: true }), ...RED.map(v => tcell(v.toFixed(1), 0))],
     [tcell('Yellow dye / cm', 1, { bold: true }), ...YEL.map(v => tcell(v.toFixed(1), 1))]];
   s.addTable(rows, { x: 0.7, y: 4.98, w: 6.1, colW: [1.7, 1.1, 1.1, 1.1, 1.1], rowH: 0.21, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.5 } });
-  D.workedSteps(s, 7.3, 1.3, 5.58, 1.75, 'Worked example: R~~f~~ from the graph', 'R~~f~~ = gradient of the line of best fit.', [
+  D.workedSteps(s, 7.3, 1.3, 5.58, 1.75, 'Worked example: Rf from the graph', 'Rf = gradient of the line of best fit.', [
     ['Red', '4.8 ÷ 8.0 = **0.60**'], ['Yellow', '2.4 ÷ 8.0 = **0.30**'], ['Answer', 'they match dyes **B** (0.60) and **A** (0.30)']], { size: 10.5 });
   D.card(s, 7.3, 3.2, 5.58, 3.05, 'Conclusion and errors', [
-    'Straight lines through the origin: R~~f~~ stays the **same** as the run goes on, so it identifies the dye.',
+    'Straight lines through the origin: Rf stays the **same** as the run goes on, so it identifies the dye.',
     '**Errors**: large spots spread and overlap; measuring to the spot **edge**, not the centre; front marked late.',
     'Baseline under the solvent: dyes wash into the solvent. Uneven paper or no lid: the front is not level.',
-    '**Improve**: small spots, mark the front at once, repeat and find a **mean** R~~f~~, run reference dyes on the same paper.',
+    '**Improve**: small spots, mark the front at once, repeat and find a **mean** Rf, run reference dyes on the same paper.',
   ], { size: 11 });
   D.quickCheck(s, 'Use the graph: how far had the **red** dye moved when the solvent front was at **5.0 cm**? Why is the line straight?');
   D.notes(s, 'QUICK CHECK ANSWER: 0.60 × 5.0 = 3.0 cm (read from the graph: accept 2.9–3.1 cm). The distance moved by the dye is always the same fraction (the Rf) of the distance moved by the solvent, so the ratio is constant and the graph is a straight line through the origin.\nData illustrative; each reading is within ±0.03 of the stated Rf (asserted in node). Rf red 0.60 and yellow 0.30 asserted. This graph links C5.1.5 with the maths skill of finding a gradient.');
@@ -643,7 +643,7 @@ const R3 = D.recapSlide(3, `Specification ${sp('C5.1.5')}, ${sp('C5.1.6')} • t
   { q: 'Give **two** variables that must be **controlled** when comparing dyes by chromatography.', marks: 2, ms: 'Any two (1 each): same solvent; same type of paper; same temperature; same height of baseline; same depth of solvent; run on the same paper at the same time.' },
   { q: 'Explain why the solvent front must be marked **as soon as** the paper is removed.', marks: 2, ms: 'The solvent evaporates and the front can no longer be seen (1); so the solvent distance would be measured too short / Rf values wrong (too large) (1).' },
   { q: 'A student\'s spots were **smudged** and **overlapped**. Suggest a cause and an improvement.', marks: 2, ms: 'Spots too large / too much dye applied / baseline below solvent (1); use smaller spots with a capillary tube, dry between applications / keep the baseline above the solvent (1).' },
-  { q: 'A dye has R~~f~~ = **0.30**. The solvent front moved **7.0 cm**. How far did the dye move?', marks: 2, ms: '0.30 × 7.0 (1); = 2.1 cm (1).' },
+  { q: 'A dye has Rf = **0.30**. The solvent front moved **7.0 cm**. How far did the dye move?', marks: 2, ms: '0.30 × 7.0 (1); = 2.1 cm (1).' },
 ]);
 reg(R3.s, 'Recap 3');
 
@@ -703,14 +703,14 @@ reg(D.contentSlide({
     thermo(s, 1.45, 1.42, top - 0.25);
     conical(s, 5.15, 3.8, 1.1, 1.45, 0.3, WAT[0]);
     tripodBunsen(s, 1.45, 4.5, 5.75, { hw: 0.55 });
-    arrow(s, cd.in[0] + 0.4, cd.in[1] + 0.05, cd.in[0] + 0.03, cd.in[1] - 0.05, C.blue, 1.5);
-    label(s, cd.in[0] + 0.15, cd.in[1] + 0.06, 1.3, '**cold water in**', { size: 10, color: C.blue, h: 0.22, align: 'left' });
+    arrow(s, cd.in[0], cd.in[1] + 0.24, cd.in[0], cd.in[1] + 0.01, C.blue, 1.5);
+    label(s, cd.in[0] - 0.6, cd.in[1] + 0.25, 1.0, '**cold water in**', { size: 10, color: C.blue, h: 0.22 });
     arrow(s, cd.out[0], cd.out[1] + 0.02, cd.out[0] + 0.35, cd.out[1] - 0.2, C.blue, 1.5);
     label(s, cd.out[0] + 0.35, cd.out[1] - 0.38, 1.1, '**water out**', { size: 10, color: C.blue, h: 0.22, align: 'left' });
     callout(s, 3.75, 2.05, 1.6, 'Liebig condenser', 3.3, 2.95);
     callout(s, 1.75, 1.45, 1.5, 'thermometer bulb level with the side arm', 1.53, top - 0.25, { h: 0.42 });
     callout(s, 2.4, 4.15, 1.6, 'salt water + anti-bumping granules', 1.95, 4.1, { h: 0.42 });
-    callout(s, 4.1, 5.4, 1.4, '**distillate**: pure water', 5.0, 5.05, { h: 0.42 });
+    callout(s, 3.3, 5.3, 1.45, '**distillate**: pure water', 4.95, 5.05, { h: 0.42, align: 'right' });
   },
   head: 'How it works',
   lines: [
@@ -747,15 +747,15 @@ reg(D.contentSlide({
     thermo(s, 1.45, 1.4, cTop - 0.15);
     conical(s, 4.95, 3.3, 1.0, 1.4, 0.25, ETH);
     // temperature gradient bar
-    for (let i = 0; i < 6; i++) box(s, 0.8, cTop + i * (cBot - cTop) / 6, 0.18, (cBot - cTop) / 6, ['5B9BD5', '86A9D8', 'B1A7C9', 'D69A9A', 'D9736F', 'C8414C'][i], null);
-    label(s, 0.45, cTop - 0.3, 0.9, 'cooler', { size: 10, h: 0.22, bold: true, color: '3A6FB0' });
-    label(s, 0.45, cBot + 0.02, 0.9, 'hotter', { size: 10, h: 0.22, bold: true, color: C.red });
-    callout(s, 2.15, 2.7, 1.55, 'fractionating column with glass beads', 1.62, 3.0, { h: 0.42 });
-    callout(s, 1.75, 1.42, 1.6, 'reads 78 °C while ethanol distils', 1.53, cTop - 0.15, { h: 0.42 });
+    for (let i = 0; i < 6; i++) box(s, 0.6, cTop + i * (cBot - cTop) / 6, 0.18, (cBot - cTop) / 6, ['5B9BD5', '86A9D8', 'B1A7C9', 'D69A9A', 'D9736F', 'C8414C'][i], null);
+    label(s, 0.25, cTop - 0.3, 0.9, 'cooler', { size: 10, h: 0.22, bold: true, color: '3A6FB0' });
+    label(s, 0.25, cBot + 0.02, 0.9, 'hotter', { size: 10, h: 0.22, bold: true, color: C.red });
+    callout(s, 2.0, 3.2, 1.45, 'fractionating column with glass beads', 1.62, 3.0, { h: 0.42 });
+    callout(s, 2.6, 1.4, 2.4, 'thermometer reads 78 °C while ethanol distils', 1.53, cTop - 0.15, { h: 0.24 });
     callout(s, 2.55, 4.3, 1.4, 'ethanol + water', 1.95, 4.5);
-    callout(s, 3.6, 5.0, 1.2, 'ethanol (first fraction)', 4.75, 4.5, { h: 0.42, align: 'right' });
+    label(s, 4.05, 4.76, 1.8, 'ethanol (first fraction)', { size: 10, h: 0.24 });
     label(s, cd.in[0] - 0.4, cd.in[1] + 0.02, 0.8, 'water in', { size: 10, color: C.blue, bold: true, h: 0.22 });
-    label(s, cd.out[0] - 0.45, cd.out[1] - 0.24, 0.9, 'water out', { size: 10, color: C.blue, bold: true, h: 0.22 });
+    label(s, cd.out[0] + 0.1, cd.out[1] - 0.02, 0.9, 'water out', { size: 10, color: C.blue, bold: true, h: 0.22, align: 'left' });
     pbox(s, 2.6, 5.5, 1.75, 0.34, '**ethanol** boils at **78 °C**', C.white, '8DB04A', { size: 10, lw: 0.75 });
     pbox(s, 4.45, 5.5, 1.75, 0.34, '**water** boils at **100 °C**', C.white, WAT[1], { size: 10, lw: 0.75 });
   },
@@ -872,8 +872,8 @@ reg(D.contentSlide({
     label(s, 2.25, 1.75, 1.2, 'add **CuO** until some is left over', { size: 10, h: 0.6, align: 'left', valign: 'top' });
     label(s, 0.75, 3.02, 2.6, 'warm dilute sulfuric acid', { size: 10, h: 0.25, italic: true });
     // 2 filter
-    funnel(s, 4.4, 1.85, 0.9, 0.55, { residue: [CUO, CUO], drip: CUSO4[0], stem: 0.3 });
-    conical(s, 4.4, 2.6, 0.9, 0.6, 0.4, CUSO4[0]);
+    funnel(s, 4.4, 1.8, 0.9, 0.5, { residue: [CUO, CUO], drip: CUSO4[0], stem: 0.25 });
+    conical(s, 4.4, 2.45, 0.9, 0.5, 0.4, CUSO4[0]);
     label(s, 5.0, 1.75, 1.3, '**filter** off excess CuO', { size: 10, h: 0.45, align: 'left', valign: 'top' });
     label(s, 3.65, 3.02, 2.6, 'filtrate: copper sulfate solution', { size: 10, h: 0.25, italic: true });
     // 3 evaporate
@@ -917,7 +917,7 @@ reg(D.contentSlide({
   line(s, D.px(g, 80), D.py(g, 55.0), D.px(g, 20), D.py(g, 55.0), C.red, 1, { dash: 'dash' });
   line(s, D.px(g, 20), D.py(g, 55.0), D.px(g, 20), D.py(g, 20.7), C.red, 1.5, { head: true });
   label(s, D.px(g, 21), D.py(g, 42), 1.6, '**34.3 g** crystallises', { size: 10.5, color: C.red, align: 'left', h: 0.24 });
-  label(s, D.px(g, 44), D.py(g, 60), 1.5, 'cool 80 → 20 °C', { size: 10, color: C.red, align: 'left', h: 0.22 });
+  label(s, D.px(g, 30), D.py(g, 63), 1.5, 'cool 80 → 20 °C', { size: 10, color: C.red, align: 'left', h: 0.22 });
   const rows = [[HDR('CuO added / g'), HDR('dry excess CuO / g'), HDR('CuO reacted / g'), HDR('dry crystals / g')], [tcell('2.50', 0), tcell('0.51', 0), tcell('1.99', 0, { bold: true }), tcell('4.40', 0)]];
   s.addTable(rows, { x: 0.7, y: 5.0, w: 6.1, colW: [1.525, 1.525, 1.525, 1.525], rowH: 0.25, fontFace: 'Calibri', fontSize: 10, color: C.text, align: 'center', valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.5 } });
   D.workedSteps(s, 7.3, 1.3, 5.58, 1.75, 'Worked example: crystals from cooling', 'A solution in 100 g of water is saturated at 80 °C and cooled to 20 °C.', [
@@ -965,8 +965,8 @@ reg(D.keyWords([
 // ======================= FULL QUESTION =======================
 reg(D.fullQuestion('A food scientist tests a green food colouring **G** with paper chromatography, and checks the **salt** used in a sweet factory.', [
   { l: 'a', q: 'Name the **stationary** phase and the **mobile** phase in paper chromatography.', marks: 2, ms: 'Stationary: paper (1); mobile: solvent / water (1).' },
-  { l: 'b', q: 'One spot from G moved **3.0 cm**. The solvent front moved **7.5 cm**. Calculate its R~~f~~ value.', marks: 2, ms: '3.0 ÷ 7.5 (1); = 0.40 (1). No units.' },
-  { l: 'c', q: 'G gave spots with R~~f~~ **0.40** and **0.75**. Allowed dyes: E102 (0.40), E133 (0.75). Banned dye Z: 0.55. What does this show?', marks: 2, ms: 'G is a mixture / not pure (two spots) (1); it contains E102 and E133 and not the banned dye Z (1).', h: 1.2 },
+  { l: 'b', q: 'One spot from G moved **3.0 cm**. The solvent front moved **7.5 cm**. Calculate its Rf value.', marks: 2, ms: '3.0 ÷ 7.5 (1); = 0.40 (1). No units.' },
+  { l: 'c', q: 'G gave spots with Rf **0.40** and **0.75**. Allowed dyes: E102 (0.40), E133 (0.75). Banned dye Z: 0.55. What does this show?', marks: 2, ms: 'G is a mixture / not pure (two spots) (1); it contains E102 and E133 and not the banned dye Z (1).', h: 1.2 },
   { l: 'd', q: 'Explain how the scientist could check that a sample of E133 is **pure** using chromatography.', marks: 2, ms: 'Run it in two or more different solvents (1); a pure sample gives a single spot every time / matches the Rf of a pure reference (1).', h: 1.1 },
   { l: 'e', q: 'Pure sodium chloride melts at **801 °C**. The salt melts between **785 °C and 795 °C**. What does this show? Explain.', marks: 2, ms: 'The salt is impure (1); it melts below 801 °C / over a range of temperatures (1).', h: 1.1 },
   { l: 'f', q: 'The salt is contaminated with **sand**. Describe how to obtain **pure, dry** salt crystals.', marks: 3, ms: 'Dissolve in (warm) water and stir (1); filter to remove the sand (residue) (1); heat the filtrate to the crystallisation point / evaporate some water, leave to cool, then filter and dry the crystals (1).', h: 1.4 },
@@ -989,7 +989,7 @@ function levelsHW() {
 }
 const HW = [
   { n: '1', q: 'State what is meant by a **formulation**.', marks: 1, ms: 'A mixture designed as a useful product (with components in measured amounts / each with a purpose) (1).' },
-  { n: '2', q: 'A spot moves **2.7 cm**; the solvent front moves **9.0 cm**. Calculate the R~~f~~ value.', marks: 2, ms: '2.7 ÷ 9.0 (1); = 0.30 (1).' },
+  { n: '2', q: 'A spot moves **2.7 cm**; the solvent front moves **9.0 cm**. Calculate the Rf value.', marks: 2, ms: '2.7 ÷ 9.0 (1); = 0.30 (1).' },
   { n: '3', q: 'Give **two** reasons why the baseline is drawn in **pencil** and kept **above** the solvent.', marks: 2, ms: 'Pencil (graphite) is insoluble so it does not run / separate (1); above the solvent so the spots do not dissolve into the solvent pool / wash off the paper (1).' },
   { n: '4', q: 'Inky water is distilled. What does the thermometer read while the distillate is collected? Why does cold water enter the condenser at the **bottom**?', marks: 2, ms: '100 °C (1); so the condenser jacket fills completely / cooling is more efficient (1).', h: 1.2 },
   { n: '5', q: 'Explain what a **locating agent** is and when one is needed.', marks: 2, ms: 'A chemical sprayed on the dried chromatogram that reacts to make spots coloured / visible (1); needed when the substances are colourless, e.g. amino acids with ninhydrin (1).' },
