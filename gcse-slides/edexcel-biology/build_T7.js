@@ -161,7 +161,7 @@ function body(s, cx, top, k = 1, o = {}) {
       line: edgePass ? { color: SKIN_EDGE, width: 2.5 } : { type: 'none' } });
   }));
   line(s, cx, top + 2.95 * k, cx, top + 4.5 * k, SKIN_EDGE, 1.25);
-  const P = { chest: [cx + 0.15 * k, top + 1.35 * k], thighL: [cx - 0.37 * k, top + 3.2 * k], thighR: [cx + 0.37 * k, top + 3.2 * k] };
+  const P = { chest: [cx + 0.15 * k, top + 1.22 * k], thighL: [cx - 0.37 * k, top + 3.2 * k], thighR: [cx + 0.37 * k, top + 3.2 * k] };
   oval(s, cx, top + 0.3 * k, 0.52 * k, 0.36 * k, 'F4C7D0', 'C98393', { lw: 0.75 });
   P.brain = [cx, top + 0.3 * k];
   P.pit = [cx, top + 0.53 * k]; ball(s, P.pit[0], P.pit[1], 0.055 * k, G.pit[0], G.pit[1], 1);
@@ -345,14 +345,14 @@ function kidney(s, cx, cy, w, h, side, o = {}) {
   oval(s, cx, cy, w, h, KID[0], KID[1], { lw: 1.5 });
   oval(s, cx, cy, w * 0.72, h * 0.8, 'C9706A', null);                     // medulla zone (paler)
   const hx = cx - side * w * 0.5;                                            // hilum on the medial side
-  oval(s, hx, cy, w * 0.42, h * 0.38, o.bg || C.panel, null);               // notch → bean shape
-  poly(s, [[hx - side * 0.02, cy - h * 0.14], [cx - side * w * 0.08, cy - h * 0.06], [cx - side * w * 0.08, cy + h * 0.06], [hx - side * 0.02, cy + h * 0.14]], URI[0], URI[1], { lw: 0.75 }); // renal pelvis
+  oval(s, hx, cy, w * 0.26, h * 0.3, o.bg || C.panel, null);               // notch → bean shape
+  poly(s, [[hx + side * 0.04, cy - h * 0.1], [cx - side * w * 0.02, cy - h * 0.2], [cx - side * w * 0.02, cy + h * 0.2], [hx + side * 0.04, cy + h * 0.1]], URI[0], URI[1], { lw: 0.75 }); // renal pelvis (funnel into the ureter)
   return [hx, cy];
 }
 
 // ======================= 1 COVER =======================
 reg(D.coverSlide({
-  bigTitle: 'Coordination & Homeostasis',
+  bigTitle: 'Control & Homeostasis',
   rows: [
     { icon: '§', text: `Specification ${DECK.specRange} • no Core Practical in this topic` },
     { icon: 'H', text: 'Higher & Foundation in one deck • HT and BIOLOGY ONLY slides are marked' },
@@ -503,7 +503,7 @@ reg(D.contentSlide({
   ],
   worked: { head: 'Compare: nervous vs hormonal', q: '',
     steps: [['Signal', 'electrical impulse in neurones / chemical in the blood'], ['Speed', 'very fast / slower'], ['Duration', 'short / longer lasting'], ['Answer', 'nerves: precise, rapid; hormones: widespread, long-lasting']] },
-  qc: 'Insulin travels all round the body in the blood. Explain why it affects liver cells but not skin cells... (hint: receptors)',
+  qc: 'Insulin travels all round the body in the blood. Explain why it affects liver cells but not skin cells.',
   notes: 'QUICK CHECK ANSWER: liver cells have receptors that insulin binds to / fits (1); skin cells do not have these receptors (so they do not respond) (1).\n7.1 includes "how they are transported from endocrine glands to their target organs": in the blood (plasma). Endocrine glands are ductless.',
 }), '7.1 How hormones travel');
 
@@ -516,12 +516,12 @@ reg(D.contentSlide({
     const cx = 3.5, top = 1.42, k = 0.97;
     const P = body(s, cx, top, k, { glands: false, adrenal: true });
     heartIcon(s, P.chest[0], P.chest[1], 0.8);
-    liverShape(s, cx - 0.72 * k, top + 1.5 * k, 0.7 * k, 0.4 * k);
+    liverShape(s, cx - 0.74 * k, top + 1.42 * k, 0.72 * k, 0.32 * k);
     muscleIcon(s, P.thighR[0], P.thighR[1], 0.75);
     muscleIcon(s, P.thighL[0], P.thighL[1], 0.75);
     callout(s, 0.55, 3.15, 1.6, 'Adrenal glands release **adrenalin**', P.adrL[0] - 0.05, P.adrL[1], G.adr[1], { h: 0.5, size: 10.5 });
     callout(s, 4.75, 2.05, 1.7, '**Heart rate** ↑ and **blood pressure** ↑', P.chest[0] + 0.15, P.chest[1], 'B8323A', { h: 0.5, size: 10.5 });
-    callout(s, 0.55, 2.2, 1.6, '**Liver**: glycogen → glucose; **blood sugar** ↑', cx - 0.5, top + 1.68 * k, LIV[1], { h: 0.5, size: 10.5 });
+    callout(s, 0.55, 2.2, 1.6, '**Liver**: glycogen → glucose; **blood sugar** ↑', cx - 0.5, top + 1.55 * k, LIV[1], { h: 0.5, size: 10.5 });
     callout(s, 4.75, 4.45, 1.7, '**Muscles**: more blood flow', P.thighR[0] + 0.2, P.thighR[1], 'A33E48', { h: 0.5, size: 10.5 });
     label(s, 0.55, 4.55, 1.9, 'Trigger: fear, stress, excitement', { size: 10.5, italic: true, color: C.grey, align: 'left', h: 0.5, valign: 'top' });
   },
@@ -709,8 +709,8 @@ reg(D.contentSlide({
 // ======================= 14 EVALUATE CONTRACEPTION =======================
 {
   const s = D.contentHeader('Evaluating contraception', 'Specification 7.7 • hormonal and barrier methods compared', { tag: '7.7' });
-  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'approximate typical-use data (CDC); green = hormonal, blue = barrier, grey = non-hormonal IUD');
-  const g = { x: 1.55, y: 1.55, w: 4.75, h: 3.45, xmin: 0, xmax: 6, ymin: 0, ymax: 20, xstep: 1, ystep: 5, minor: 1, ylabel: 'pregnancies per 100 women per year', grid: true, fmt: () => '' };
+  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'approximate CDC typical-use data; green hormonal, blue barrier');
+  const g = { x: 1.55, y: 1.55, w: 4.75, h: 3.45, xmin: 0, xmax: 6, ymin: 0, ymax: 20, xstep: 1, ystep: 5, minor: 1, ylabel: 'pregnancies per 100 women per year', grid: true, fmt: () => '', yfmt: v => String(v) };
   axes(s, g);
   FAIL.forEach(([n, v, t], i) => {
     const col = t === 'h' ? C.green : t === 'b' ? '3B7DD8' : C.grey;
@@ -720,8 +720,8 @@ reg(D.contentSlide({
   });
   label(s, 0.7, 5.5, 5.7, 'Typical use = how people really use it (missed pills, condom errors).', { size: 10, italic: true, color: C.grey, h: 0.3 });
   const rows = [[HDR(''), HDR('Hormonal (pill, implant, injection)'), HDR('Barrier (condom, diaphragm)')],
-    ['Advantages', 'very effective; implant/injection last months–years; can reduce heavy periods', 'no hormone side effects; **condoms protect against STIs**; used only when needed'],
-    ['Disadvantages', 'side effects (mood, weight, blood clots); **no STI protection**; pill must be taken daily', 'less effective in typical use; can split or slip; must be used every time'],
+    ['Advantages', 'very effective; implant/injection last months–years; can reduce heavy periods', 'no hormone side effects; condoms protect against STIs; used only when needed'],
+    ['Disadvantages', 'side effects (mood, weight, blood clots); no STI protection; pill must be taken daily', 'less effective in typical use; can split or slip; must be used every time'],
   ].map((r, i) => i === 0 ? r : r.map((t, j) => tcell(t, i, j === 0 ? { bold: true, color: C.ink } : {})));
   s.addTable(rows, { x: 6.8, y: 1.3, w: 6.08, colW: [1.25, 2.42, 2.41], rowH: [0.45, 1.05, 1.05], fontFace: 'Calibri', fontSize: 10.5, color: C.text, valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
   D.workedSteps(s, 6.8, 4.05, 6.08, 2.2, 'Worked example: evaluate (use the data)', 'Compare the pill and the male condom.', [
@@ -793,7 +793,7 @@ reg(D.contentSlide({
     axes(s, g);
     line(s, g.x, py(g, SET), g.x + g.w, py(g, SET), C.orange, 1.25, { dash: 'dash' });
     curve(s, g, fb, C.red, 2.25);
-    label(s, g.x + g.w - 1.5, py(g, SET) - 0.02, 1.45, 'normal level (37 °C)', { size: 10, bold: true, color: C.orange, align: 'right' });
+    label(s, g.x + g.w - 1.8, g.y - 0.3, 1.8, 'normal level (37 °C)', { size: 10, bold: true, color: C.orange, align: 'right' });
   },
   head: 'Why keep conditions constant?',
   lines: [
@@ -811,13 +811,13 @@ reg(D.contentSlide({
 // ======================= 18 IMPORTANCE 7.10B =======================
 {
   const s = D.contentHeader('Why homeostasis matters', 'Specification 7.10B • thermoregulation and enzymes; osmoregulation and animal cells', { tag: '7.10B', p: true });
-  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'enzyme model data (relative activity); red blood cells drawn to scale with each other');
+  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'enzyme model data; red blood cells in three solutions');
   const g = { x: 1.3, y: 1.5, w: 4.9, h: 1.85, xmin: 0, xmax: 60, ymin: 0, ymax: 100, xstep: 10, ystep: 25, minor: 1, xlabel: 'temperature / °C', ylabel: 'activity / %' };
   axes(s, g);
   const sm = []; for (let i = 0; i < ENZ.length - 1; i++) { const [a, ya] = ENZ[i], [b, yb] = ENZ[i + 1]; for (let j = 0; j < 8; j++) { const t = j / 8, u = (1 - Math.cos(t * Math.PI)) / 2; sm.push([a + (b - a) * t, ya + (yb - ya) * u]); } } sm.push(ENZ[ENZ.length - 1]);
   plotLine(s, g, sm, C.blue, 2.5); points(s, g, ENZ, C.ink);
   line(s, px(g, 37), g.y, px(g, 37), g.y + g.h, C.orange, 1.25, { dash: 'dash' });
-  label(s, px(g, 37) + 0.05, g.y + 0.02, 1.2, '37 °C', { size: 10.5, bold: true, color: C.orange, align: 'left' });
+  label(s, px(g, 37) - 1.25, g.y + 0.02, 1.2, '37 °C', { size: 10.5, bold: true, color: C.orange, align: 'left' });
   label(s, px(g, 46), py(g, 70), 1.2, 'denatured', { size: 10, italic: true, color: C.red, align: 'left' });
   const ys = 4.75;
   [['concentrated (too little water)', 'shrink', 1.55, 'water leaves: cell shrinks'], ['same concentration', 'normal', 3.4, 'no net movement'], ['dilute (too much water)', 'swell', 5.25, 'water enters: cell swells, may burst']].forEach(([t, st, cx, r]) => {
@@ -855,7 +855,7 @@ reg(D.contentSlide({
     // hair, follicle and erector muscle
     const hx = 1.35;
     oval(s, hx, 3.55, 0.32, 0.7, 'EBC9A8', '8A6A3A', { lw: 1 });
-    line(s, hx, 3.8, hx - 0.2, 1.45, '4A3A2A', 3);
+    line(s, hx, 3.8, hx - 0.3, 1.5, '4A3A2A', 3);
     line(s, hx + 0.12, 3.35, hx + 0.6, 2.6, 'C76A72', 3.5);
     // sweat gland (coil) and duct to a pore
     const sx = 2.55;
@@ -869,7 +869,7 @@ reg(D.contentSlide({
     s.addShape(SH.ARC, { x: vx - 0.15, y: 2.38, w: 0.4, h: 0.34, angleRange: [180, 0], line: { color: ART, width: 3 }, fill: { type: 'none' } });
     line(s, vx - 0.15, 3.65, vx + 0.25, 3.65, '9E4A7A', 2); label(s, vx + 0.3, 3.5, 0.6, 'shunt', { size: 10, italic: true, color: '9E4A7A', align: 'left' });
     // receptor (nerve ending)
-    line(s, 1.9, 2.42, 1.9, 4.2, 'E0B000', 1.5); ball(s, 1.9, 2.42, 0.07, 'F5C342', '8A6A0A', 1);
+    line(s, 3.1, 2.42, 3.1, 4.2, 'E0B000', 1.5); ball(s, 3.1, 2.42, 0.07, 'F5C342', '8A6A0A', 1);
     // labels on the right
     callout(s, 4.75, 2.12, 1.6, 'Epidermis', x1 - 0.05, 2.12, C.ink);
     callout(s, 4.75, 2.65, 1.6, 'Capillary loop', vx + 0.05, 2.45, ART);
@@ -877,14 +877,14 @@ reg(D.contentSlide({
     callout(s, 4.75, 3.6, 1.6, 'Dermis', x1 - 0.1, 3.75, C.ink);
     callout(s, 4.75, 4.7, 1.6, 'Fat (insulation)', x1 - 0.1, 4.75, '8A6A0A');
     // labels on the left/top
-    label(s, 0.55, 1.45, 0.75, '**Hair**', { size: 10.5, align: 'right' });
-    callout(s, 2.25, 1.6, 1.3, 'Sweat pore', sx, yS - 0.03, '2F5F8F', { size: 10.5 });
+    label(s, 1.15, 1.42, 0.6, '**Hair**', { size: 10.5, align: 'left' });
+    callout(s, 2.85, 1.6, 1.2, 'Sweat pore', sx + 0.03, yS - 0.03, '2F5F8F', { size: 10.5 });
     label(s, 0.72, 5.3, 1.2, 'hair erector muscle', { size: 10, h: 0.3, color: 'A33E48', align: 'left' });
     line(s, 1.3, 5.3, hx + 0.4, 2.95, 'A33E48', 0.75);
     label(s, 1.95, 5.3, 1.25, 'sweat gland', { size: 10, h: 0.3, color: '2F5F8F', align: 'left' });
     line(s, 2.45, 5.3, sx, 4.15, '2F5F8F', 0.75);
     label(s, 2.95, 5.55, 1.8, 'temperature receptor', { size: 10, h: 0.3, color: '8A6A0A', align: 'left' });
-    line(s, 3.05, 5.6, 1.9, 4.2, '8A6A0A', 0.75);
+    line(s, 3.15, 5.55, 3.1, 4.2, '8A6A0A', 0.75);
   },
   head: 'The skin as an effector',
   lines: [
@@ -901,8 +901,8 @@ reg(D.contentSlide({
 
 // ======================= 20 HYPOTHALAMUS + VASO (HT, B) =======================
 reg(D.contentSlide({
-  title: 'The hypothalamus, vasodilation and vasoconstriction',
-  subtitle: 'Specification 7.12B • how the brain controls body temperature',
+  title: 'Vasodilation and vasoconstriction',
+  subtitle: 'Specification 7.12B • the hypothalamus controls blood flow to the skin',
   tag: '7.12B', ht: true, p: true, caption: 'skin arterioles widen or narrow; capillaries themselves do not change',
   draw: (s, p) => {
     brainIcon(s, 1.25, 1.95, 1.3);
@@ -910,21 +910,24 @@ reg(D.contentSlide({
     label(s, 2.0, 1.55, 4.4, '**Hypothalamus**: thermoregulatory centre in the brain. Detects **blood temperature**; gets impulses from **skin receptors**.', { size: 10.5, align: 'left', h: 0.75, valign: 'top' });
     // two skin panels
     const panelSkin = (x, hot) => {
-      const w = 2.75, y = 2.75;
-      box(s, x, y, w, 2.85, C.white, hot ? HOT : COLD, { shape: SH.ROUNDED_RECTANGLE, r: 0.05, lw: 1.5 });
-      label(s, x + 0.1, y + 0.05, w - 0.2, hot ? '**Too hot: vasodilation**' : '**Too cold: vasoconstriction**', { size: 11, color: hot ? HOT : COLD });
-      if (hot) sunIcon(s, x + w - 0.3, y + 0.55, 0.12); else snowIcon(s, x + w - 0.3, y + 0.55, 0.16);
-      const ys = y + 0.75;
-      box(s, x + 0.15, ys, w - 0.3, 0.2, 'F2CFB4', 'B98E6E', { lw: 0.75 });
-      label(s, x + 0.15, ys - 0.28, 1.2, 'skin surface', { size: 10, italic: true, color: C.grey, align: 'left' });
-      // arteriole: wide (hot) or narrow (cold) rising to capillary under surface
-      const aw = hot ? 0.3 : 0.1, ax = x + 0.75;
-      box(s, ax - aw / 2, ys + 0.45, aw, 1.4, ART, ARTE, { lw: 0.75 });
-      box(s, ax - aw / 2, ys + 0.3, w - 1.4, hot ? 0.16 : 0.06, ART, ARTE, { lw: 0.5 });
-      label(s, ax + 0.25, ys + 1.0, 1.6, hot ? 'arteriole **wider**' : 'arteriole **narrower**', { size: 10, align: 'left' });
-      if (hot) { [0, 1, 2].forEach(i => { const hx = x + 0.6 + i * 0.5; polyline(s, wavy(hx, hx + 0.001, ys - 0.1, 0.0, 1), HOT, 1); arrow(s, hx, ys - 0.05, hx, ys - 0.4, HOT, 1.75); }); }
-      else { arrow(s, x + 1.2, ys - 0.05, x + 1.2, ys - 0.25, HOT, 1); }
-      label(s, x + 0.1, ys + 1.95, w - 0.2, hot ? 'more blood near the surface → **more** heat lost by radiation' : 'less blood near the surface → **less** heat lost', { size: 10, h: 0.5, valign: 'top' });
+      const w = 2.75, y = 2.65, ph = 3.05;
+      box(s, x, y, w, ph, C.white, hot ? HOT : COLD, { shape: SH.ROUNDED_RECTANGLE, r: 0.05, lw: 1.5 });
+      label(s, x + 0.1, y + 0.05, w - 0.5, hot ? '**Too hot: vasodilation**' : '**Too cold: vasoconstriction**', { size: 11, color: hot ? HOT : COLD, align: 'left' });
+      if (hot) sunIcon(s, x + w - 0.3, y + 0.25, 0.11); else snowIcon(s, x + w - 0.3, y + 0.25, 0.15);
+      const ys = y + 0.85;
+      box(s, x + 0.15, ys, w - 0.3, 0.22, 'F2CFB4', 'B98E6E', { lw: 0.75 });
+      label(s, x + 0.15, ys + 0.22, 1.3, 'epidermis', { size: 10, italic: true, color: C.grey, align: 'left', h: 0.22 });
+      const ax = x + 0.6, vx = x + 2.15, yc = ys + 0.55, yb = ys + 1.6;
+      const aw = hot ? 0.22 : 0.06;
+      box(s, vx - 0.06, yc, 0.12, yb - yc, VEIN, VEINE, { lw: 0.5 });
+      box(s, ax, yc - 0.04, vx - ax, hot ? 0.12 : 0.04, hot ? ART : 'F2B8BB', hot ? ARTE : 'E58A8F', { lw: 0.5 });
+      box(s, ax - aw / 2, yc, aw, yb - yc, ART, ARTE, { lw: 0.75 });
+      if (!hot) { box(s, ax - 0.12, yc + 0.45, 0.07, 0.25, '8E2A33', null); box(s, ax + 0.05, yc + 0.45, 0.07, 0.25, '8E2A33', null); }
+      label(s, ax + 0.2, yc + 0.35, 1.3, hot ? 'arteriole **wider**' : 'arteriole **narrower** (muscle contracts)', { size: 10, align: 'left', h: 0.5, valign: 'top' });
+      label(s, x + 0.15, ys - 0.5, 0.6, 'heat', { size: 10, bold: true, color: HOT, align: 'left' });
+      if (hot) [0, 1, 2].forEach(i => arrow(s, x + 0.8 + i * 0.55, ys - 0.03, x + 0.8 + i * 0.55, ys - 0.33, HOT, 1.75));
+      else arrow(s, x + 1.35, ys - 0.03, x + 1.35, ys - 0.18, HOT, 1);
+      label(s, x + 0.1, y + ph - 0.55, w - 0.2, hot ? 'more blood near surface → **more** heat lost' : 'less blood near surface → **less** heat lost', { size: 10, h: 0.5 });
     };
     panelSkin(0.7, true); panelSkin(3.65, false);
   },
@@ -955,7 +958,7 @@ reg(R4.s, 'Recap 4');
 reg(D.contentSlide({
   title: 'Insulin controls blood glucose',
   subtitle: 'Specification 7.13 • the pancreas responds to a rise in blood glucose',
-  tag: '7.13', caption: 'after a meal: insulin makes cells take up glucose and the liver store it as glycogen',
+  tag: '7.13', caption: 'after a meal: cells take up glucose; the liver stores it as glycogen',
   draw: (s, p) => {
     box(s, 0.7, 1.55, 5.6, 0.65, 'F6C9CC', ART, { lw: 1.5 });
     label(s, 0.8, 1.55, 2.6, '**blood**: glucose concentration **high** (after a meal)', { size: 10.5, align: 'left', h: 0.65 });
@@ -964,7 +967,7 @@ reg(D.contentSlide({
     label(s, 0.7, 3.55, 2.0, '**Pancreas** detects the rise', { size: 10.5, color: G.pan[1], h: 0.3 });
     arrow(s, 1.7, 2.7, 1.7, 2.25, INS, 2.5);
     label(s, 1.85, 2.3, 1.6, '**insulin** released', { size: 10.5, color: '9A5A0A', align: 'left' });
-    hormone(s, 2.6, 1.9, 0.09);
+    hormone(s, 1.45, 2.45, 0.09);
     // liver
     liverShape(s, 3.4, 2.7, 1.5, 0.95);
     label(s, 3.3, 3.7, 1.8, '**Liver**', { size: 11, color: LIV[1] });
@@ -1039,8 +1042,8 @@ reg(D.contentSlide({
     key(s, px(g, 100), py(g, 19) - 0.05, C.red, 'type 1 (no insulin)', 1.6);
     points(s, g, [[120, gNorm(120)], [120, gT1(120)]], C.ink);
     line(s, px(g, 120), py(g, 0), px(g, 120), py(g, gT1(120)), C.grey, 1, { dash: 'dash' });
-    insulinPen(s, 1.6, 5.4, 1.3);
-    label(s, 3.1, 5.3, 3.1, 'insulin injected (pen or pump)', { size: 10.5, italic: true, color: C.grey, align: 'left' });
+    insulinPen(s, 1.6, 5.56, 1.1);
+    label(s, 2.9, 5.5, 3.1, 'insulin injected (pen or pump)', { size: 10.5, italic: true, color: C.grey, align: 'left' });
   },
   head: 'Cause and control',
   lines: [
@@ -1099,7 +1102,7 @@ reg(D.contentSlide({
     label(s, cx + 0.85, wy - 0.15, 0.9, '**waist**', { size: 11, color: C.orange, align: 'left' });
     label(s, cx + 0.92, hy - 0.15, 0.9, '**hips**', { size: 11, color: C.blue, align: 'left' });
     // BMI category bar
-    const bx = 3.75, bw = 0.55, y0 = 1.55, y1 = 5.55;
+    const bx = 4.25, bw = 0.55, y0 = 1.55, y1 = 5.55;
     const g = { xmin: 0, xmax: 1, ymin: 15, ymax: 45, x: bx, y: y0, w: bw, h: y1 - y0 };
     const cats = [[15, 18.5, '7FA9E0', 'underweight'], [18.5, 25, '7BC596', 'healthy'], [25, 30, 'F5C342', 'overweight'], [30, 40, 'F08A4B', 'obese'], [40, 45, 'C8414C', 'severely obese']];
     cats.forEach(([a, b, c, n]) => { box(s, bx, py(g, b), bw, py(g, a) - py(g, b), c, C.white, { lw: 0.75 }); label(s, bx + bw + 0.08, (py(g, a) + py(g, b)) / 2 - 0.14, 1.4, n, { size: 10, align: 'left' }); });
@@ -1128,7 +1131,7 @@ reg(D.contentSlide({
   subtitle: 'Specification 7.17 • evaluate the correlation',
   tag: '7.17', caption: 'illustrative data: % of adults with type 2 diabetes in each BMI group',
   draw: (s, p) => {
-    const g = { x: 1.4, y: 1.6, w: 4.8, h: 3.45, xmin: 0, xmax: 4, ymin: 0, ymax: 25, xstep: 1, ystep: 5, minor: 1, ylabel: '% with type 2 diabetes', fmt: () => '' };
+    const g = { x: 1.4, y: 1.6, w: 4.8, h: 3.45, xmin: 0, xmax: 4, ymin: 0, ymax: 25, xstep: 1, ystep: 5, minor: 1, ylabel: '% with type 2 diabetes', fmt: () => '', yfmt: v => String(v) };
     axes(s, g);
     T2D.forEach(([n, v], i) => {
       bar(s, g, i + 0.5, v, 0.7, ['7BC596', 'F5C342', 'F08A4B', 'C8414C'][i], null);
@@ -1187,17 +1190,16 @@ reg(D.contentSlide({
     oval(s, bx, by, 1.25, 0.82, URI[0], URI[1], { lw: 1.75 });
     oval(s, bx, by - 0.05, 0.9, 0.5, 'F7E39A', null);
     tube(s, [[bx, by + 0.4], [bx, 5.8]], URI[0], URI[1], 5);
-    arrow(s, 2.62, 3.75, 2.72, 4.15, URI[1], 1.5);
     // labels
-    callout(s, 0.55, 1.75, 1.15, 'Kidney', cxL - 0.3, ky - 0.5, KID[1]);
+    callout(s, 0.55, 1.55, 1.15, 'Kidney', cxL - 0.2, ky - 0.55, KID[1]);
     callout(s, 0.55, 3.75, 1.15, 'Ureter', hL[0] + 0.02, 3.6, URI[1]);
     callout(s, 0.55, 4.55, 1.55, 'Vena cava', vcx - 0.08, 4.3, VEINE);
     callout(s, 5.55, 1.75, 0.9, 'Aorta', aox + 0.08, 1.85, ARTE);
-    callout(s, 5.45, 3.95, 1.0, 'Renal vein', cxR - 0.6, ky + 0.13, VEINE);
+    callout(s, 5.45, 4.3, 1.0, 'Renal vein', 4.0, ky + 0.13, VEINE);
     callout(s, 5.45, 2.0, 1.0, 'Renal artery', 4.3, ky - 0.2, ARTE);
     callout(s, 4.6, 4.75, 1.4, 'Bladder', bx + 0.55, by, URI[1]);
     callout(s, 4.6, 5.5, 1.4, 'Urethra', bx + 0.05, 5.6, URI[1]);
-    label(s, 0.55, 2.0, 1.5, 'filters the blood; makes urine', { size: 10, italic: true, color: C.grey, align: 'right', h: 0.45, valign: 'top' });
+    label(s, 0.55, 1.72, 1.05, 'filters blood; makes urine', { size: 10, italic: true, color: C.grey, align: 'left', h: 0.45, valign: 'top' });
   },
   head: 'Structure and route of urine',
   lines: [
@@ -1223,38 +1225,45 @@ reg(D.contentSlide({
   line(s, 0.6, 3.27, 7.85, 3.27, KID[1], 1, { dash: 'dash' });
   label(s, 6.9, 1.45, 0.9, 'cortex', { size: 10, italic: true, color: KID[1], align: 'right' });
   label(s, 6.9, 3.3, 0.9, 'medulla', { size: 10, italic: true, color: KID[1], align: 'right' });
-  // capillary network beside the tubule (drawn first, behind)
-  const capPts = [[1.95, 2.85], ...wavy(2.2, 3.95, 2.62, 0.13, 4).map(([x, y]) => [x, y + 0.24]).slice(0, 61), [4.05, 3.0], [4.05, 5.15], [4.35, 5.35], [4.85, 5.15], [4.85, 3.2], [5.1, 2.95], [5.9, 2.95]];
-  polyline(s, capPts, 'E58A8F', 2.5);
+  // geometry
+  const bcX = 1.85, bcY = 2.3, bcR = 0.48, TW = 9;
+  const pct = wavy(bcX + bcR - 0.02, 3.9, bcY, 0.17, 4);
+  const loop = [[3.9, bcY], [3.9, 5.0], [3.95, 5.2], [4.15, 5.3], [4.4, 5.3], [4.6, 5.2], [4.65, 5.0], [4.65, 2.6]];
+  const dct = wavy(4.65, 6.05, 2.6, 0.15, 3);
+  // capillary network: efferent arteriole → round the tubules → venule (to renal vein); drawn first, behind the tubule
+  const cap1 = [[1.0, 2.95], [2.45, 2.95], ...wavy(2.45, 3.75, 2.95, 0.08, 4).slice(1), [4.12, 2.95], [4.12, 5.05], [4.27, 5.15], [4.43, 5.05], [4.43, 3.0]];
+  const cap2 = [[4.43, 3.0], ...wavy(4.6, 6.0, 3.05, 0.08, 3), [6.25, 3.05]];
+  polyline(s, cap1, 'E58A8F', 2.5); polyline(s, cap2, '8FA8D6', 2.5);
+  arrow(s, 6.25, 3.05, 6.25, 3.25, VEINE, 1.5);
+  label(s, 4.75, 3.32, 1.4, 'to renal vein', { size: 10, italic: true, color: VEINE, align: 'right', h: 0.25 });
   // tubule
-  const TW = 9;
-  const bcX = 1.55, bcY = 2.2, bcR = 0.5;
-  const pct = wavy(bcX + bcR - 0.02, 3.9, 2.2, 0.17, 4);
-  const loop = [[3.9, 2.2], [3.9, 5.0], [3.95, 5.2], [4.15, 5.3], [4.4, 5.3], [4.6, 5.2], [4.65, 5.0], [4.65, 2.6]];
-  const dct = wavy(4.65, 6.05, 2.45, 0.15, 3).map(([x, y]) => [x, y + 0.15]).concat([[6.3, 2.0]]);
-  tube(s, pct, TUB[0], TUB[1], TW); tube(s, loop, TUB[0], TUB[1], TW); tube(s, dct.slice(0, -1), TUB[0], TUB[1], TW);
+  tube(s, pct, TUB[0], TUB[1], TW); tube(s, loop, TUB[0], TUB[1], TW); tube(s, dct, TUB[0], TUB[1], TW);
   tube(s, [[6.05, 2.6], [6.6, 2.6]], TUB[0], TUB[1], TW);
-  tube(s, [[6.6, 1.5], [6.6, 5.75]], 'FFF3B0', URI[1], 15);
-  arrow(s, 6.6, 5.2, 6.6, 5.95, URI[1], 2.5);
+  tube(s, [[6.6, 1.5], [6.6, 5.4]], 'FFF3B0', URI[1], 15);
+  arrow(s, 6.6, 5.3, 6.6, 5.82, URI[1], 2.5);
+  label(s, 6.75, 5.5, 1.2, 'urine → ureter', { size: 10, italic: true, color: URI[1], align: 'left', h: 0.25 });
+  // water leaving the collecting duct and loop
+  [[4.55], [4.95]].forEach(([y]) => { arrow(s, 6.45, y, 6.05, y, WAT, 2); });
+  label(s, 5.35, 4.6, 0.65, 'water', { size: 10, bold: true, color: WAT, align: 'right', h: 0.25 });
   // Bowman's capsule (cup) with glomerulus
   oval(s, bcX, bcY, 2 * bcR, 2 * bcR, TUB[0], TUB[1], { lw: 2.5 });
   oval(s, bcX - 0.06, bcY, 2 * bcR - 0.24, 2 * bcR - 0.24, 'FFF9E8', TUB[1], { lw: 1 });
   [[-0.12, -0.12], [0.08, -0.15], [0.15, 0.05], [-0.02, 0.12], [-0.2, 0.08], [0.0, -0.02]].forEach(([dx, dy]) => oval(s, bcX - 0.06 + dx, bcY + dy, 0.2, 0.17, 'F6C9CC', ART, { lw: 1.5 }));
-  // afferent (wide) and efferent (narrow) arterioles enter on the left
-  tube(s, [[0.65, 1.9], [bcX - 0.32, 2.1]], ART, ARTE, 8);
-  tube(s, [[bcX - 0.32, 2.32], [0.95, 2.6], [0.95, 2.85], [1.95, 2.85]], ART, ARTE, 4.5);
-  label(s, 0.62, 1.47, 1.8, '**afferent arteriole** (wide)', { size: 10, color: ARTE, align: 'left' });
-  label(s, 0.62, 3.0, 1.9, '**efferent arteriole** (narrow)', { size: 10, color: ARTE, align: 'left' });
-  // callouts
-  callout(s, 2.35, 1.6, 1.3, 'Glomerulus', bcX - 0.05, bcY - 0.1, ARTE, { size: 10.5 });
-  callout(s, 0.7, 3.75, 1.55, "Bowman's capsule", bcX - 0.2, bcY + bcR - 0.05, TUB[1], { size: 10.5 });
-  callout(s, 2.45, 3.85, 1.15, 'Proximal (first) convoluted tubule', 3.0, 2.3, TUB[1], { size: 10, h: 0.55 });
-  callout(s, 2.45, 4.9, 1.15, 'Loop of Henle', 3.9, 4.6, TUB[1], { size: 10.5, h: 0.45 });
-  callout(s, 4.75, 1.6, 1.55, 'Distal (second) convoluted tubule', 5.3, 2.55, TUB[1], { size: 10, h: 0.5 });
-  callout(s, 6.85, 4.45, 1.05, 'Collecting duct', 6.7, 4.3, URI[1], { size: 10.5, h: 0.5 });
-  callout(s, 5.0, 4.0, 1.25, 'Capillaries', 4.85, 4.2, 'C8414C', { size: 10.5 });
-  label(s, 5.85, 5.75, 1.6, 'urine → ureter', { size: 10, italic: true, color: URI[1], align: 'right' });
-  badge(s, bcX + 0.45, bcY - 0.48, 1, C.orange); badge(s, 2.9, 1.82, 2, C.blue); badge(s, 6.25, 3.8, 3, '3B7DD8');
+  // afferent (wide) in; efferent (narrow) out and down to the capillaries
+  tube(s, [[0.62, 1.95], [bcX - 0.32, 2.17]], ART, ARTE, 8);
+  tube(s, [[bcX - 0.32, 2.4], [1.0, 2.62], [1.0, 2.95]], ART, ARTE, 4.5);
+  label(s, 0.6, 1.5, 2.0, '**afferent arteriole** (wide)', { size: 10, color: ARTE, align: 'left' });
+  label(s, 0.55, 3.0, 2.0, '**efferent arteriole** (narrow)', { size: 10, color: ARTE, align: 'left', h: 0.25 });
+  // labels
+  callout(s, 2.75, 1.55, 1.1, 'Glomerulus', bcX - 0.06, bcY - 0.05, ARTE, { size: 10.5 });
+  callout(s, 0.6, 3.75, 1.5, "Bowman's capsule", bcX - 0.25, bcY + 0.4, TUB[1], { size: 10.5 });
+  callout(s, 2.3, 4.05, 1.3, 'Proximal (first) convoluted tubule', 3.05, bcY + 0.1, TUB[1], { size: 10, h: 0.55 });
+  callout(s, 2.5, 4.95, 1.1, 'Loop of Henle', 3.9, 4.7, TUB[1], { size: 10.5, h: 0.45 });
+  label(s, 4.45, 1.48, 1.9, 'Distal (second) convoluted tubule', { size: 10, bold: true, color: TUB[1], align: 'left', h: 0.4, valign: 'top' });
+  line(s, 5.3, 1.9, 5.3, 2.42, TUB[1], 1); ball(s, 5.3, 2.42, 0.03, TUB[1]);
+  callout(s, 6.85, 4.0, 1.05, 'Collecting duct', 6.72, 3.8, URI[1], { size: 10.5, h: 0.5 });
+  callout(s, 4.75, 4.15, 1.15, 'Capillaries', 4.43, 4.15, 'C8414C', { size: 10.5 });
+  badge(s, bcX + 0.38, bcY + 0.52, 1, C.orange); badge(s, 3.35, 1.88, 2, C.blue); badge(s, 6.25, 3.75, 3, '3B7DD8');
   // right card + key
   D.card(s, 8.25, 1.3, 4.63, 3.25, 'Parts of a nephron', [
     '**Glomerulus**: a knot of capillaries; blood at **high pressure**.',
@@ -1285,9 +1294,9 @@ reg(D.contentSlide({
   box(s, 0.7, 2.66, 5.6, 0.75, TUB[0], TUB[1], { lw: 1.25 });
   label(s, 0.75, 3.13, 1.5, 'filtrate in capsule', { size: 10, italic: true, color: TUB[1], align: 'left', h: 0.25 });
   // big things stay
-  ball(s, 2.5, 2.2, 0.17, HOT, '8E2A33', 1); ball(s, 2.9, 2.32, 0.17, HOT, '8E2A33', 1);
-  oval(s, 3.55, 2.2, 0.42, 0.24, 'B39DDB', '5E2D73', { lw: 1 });
-  label(s, 2.2, 2.4, 1.9, 'cells, **protein** stay', { size: 10, bold: true, color: C.red, h: 0.22 });
+  ball(s, 2.5, 2.08, 0.15, HOT, '8E2A33', 1); ball(s, 2.88, 2.12, 0.15, HOT, '8E2A33', 1);
+  oval(s, 3.4, 2.1, 0.42, 0.24, 'B39DDB', '5E2D73', { lw: 1 });
+  label(s, 2.0, 2.33, 1.9, 'cells, **protein** stay', { size: 10, bold: true, color: C.red, h: 0.22 });
   // small things pass
   [[4.3, 'water', WAT], [4.85, 'glucose', GLU], [5.35, 'urea', '8A6A0A'], [5.85, 'ions', '6B7385']].forEach(([x, t, c]) => {
     arrow(s, x, 2.05, x, 3.0, c, 2);
@@ -1295,18 +1304,18 @@ reg(D.contentSlide({
   });
   // stage 2 + 3: tubule and capillary
   label(s, 0.65, 3.55, 5.7, '**2–3 Reabsorption** along the tubule back into the blood', { size: 11, color: C.blue, align: 'left' });
-  box(s, 0.7, 3.9, 5.6, 0.6, 'F6C9CC', ART, { lw: 1.25 });
-  label(s, 0.75, 3.92, 1.6, 'capillary (blood)', { size: 10, italic: true, color: ARTE, align: 'left', h: 0.25 });
-  box(s, 0.7, 4.6, 5.6, 0.75, TUB[0], TUB[1], { lw: 1.25 });
-  label(s, 0.75, 5.07, 1.5, 'tubule (filtrate)', { size: 10, italic: true, color: TUB[1], align: 'left', h: 0.25 });
-  arrow(s, 6.05, 4.97, 6.35, 4.97, TUB[1], 1.5);
+  box(s, 0.7, 3.85, 5.6, 0.55, 'F6C9CC', ART, { lw: 1.25 });
+  label(s, 0.75, 3.87, 1.6, 'capillary (blood)', { size: 10, italic: true, color: ARTE, align: 'left', h: 0.25 });
+  box(s, 0.7, 4.5, 5.6, 0.62, TUB[0], TUB[1], { lw: 1.25 });
+  label(s, 0.75, 4.85, 1.5, 'tubule (filtrate)', { size: 10, italic: true, color: TUB[1], align: 'left', h: 0.25 });
+  arrow(s, 6.0, 4.81, 6.3, 4.81, TUB[1], 1.5);
   [[2.3, GLU, '**all** glucose (active transport)'], [3.9, WAT, '**most water** (osmosis)'], [5.2, '6B7385', 'some ions']].forEach(([x, c, t]) => {
-    arrow(s, x, 4.95, x, 4.2, c, 2.5);
-    label(s, x - 0.75, 5.4, 1.5, t, { size: 10, bold: true, color: c, h: 0.4, valign: 'top' });
+    arrow(s, x, 4.95, x, 4.15, c, 2.5);
+    label(s, x - 0.95, 5.15, 1.9, t, { size: 10, bold: true, color: c, h: 0.25 });
   });
-  label(s, 0.7, 5.7, 5.6, 'Left in the tubule → **urine**: urea, excess water, excess ions', { size: 10.5, bold: true, color: URI[1], h: 0.25 });
+  label(s, 0.7, 5.45, 5.6, 'Left in the tubule → **urine**: urea, excess water, excess ions', { size: 10.5, bold: true, color: URI[1], h: 0.25 });
   const rows = [[HDR('g per dm³'), HDR('Protein'), HDR('Glucose'), HDR('Urea'), HDR('Ions')],
-    ...[['Blood plasma', KD.plasma], ['Filtrate', KD.filtrate], ['Urine', KD.urine]].map(([n, v], i) => [tcell(n, i, { bold: true, color: C.ink }), ...v.map(x => tcell(String(x), i, { align: 'center' }))])];
+    ...[['Blood plasma', KD.plasma], ['Filtrate', KD.filtrate], ['Urine', KD.urine]].map(([n, v], i) => [tcell(n, i, { bold: true, color: C.ink }), ...v.map((x, j) => tcell(j === 1 && x ? x.toFixed(1) : String(x), i, { align: 'center' }))])];
   s.addTable(rows, { x: 6.8, y: 1.3, w: 6.08, colW: [1.6, 1.12, 1.12, 1.12, 1.12], rowH: 0.38, fontFace: 'Calibri', fontSize: 11, color: C.text, valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
   D.card(s, 6.8, 2.95, 6.08, 1.55, 'What the table shows', [
     '**Protein**: 0 in filtrate – too large to be filtered. **Glucose**: in filtrate but **0 in urine** – all reabsorbed.',
@@ -1328,19 +1337,17 @@ reg(D.contentSlide({
     // tubule lumen (top) and capillary (bottom) either side of a tubule cell
     box(s, 0.7, 1.5, 5.6, 0.75, TUB[0], TUB[1], { lw: 1.25 });
     label(s, 0.8, 1.52, 3.0, 'filtrate in the tubule (lumen)', { size: 10.5, italic: true, color: TUB[1], align: 'left', h: 0.25 });
-    for (let i = 0; i < 24; i++) box(s, 1.3 + i * 0.17, 2.0, 0.09, 0.3, 'F8DCCB', '8A6D3B', { lw: 0.5, shape: SH.ROUNDED_RECTANGLE, r: 0.04 });
-    box(s, 1.2, 2.3, 4.3, 2.0, 'FBF3DF', '8A6D3B', { lw: 1.5 });
-    ball(s, 2.0, 3.3, 0.3, NUC[0], NUC[1], 1);
-    [[3.0, 2.75], [3.9, 3.0], [4.7, 2.7], [3.3, 3.75], [4.4, 3.8]].forEach(([x, y]) => { oval(s, x, y, 0.55, 0.28, 'F2B279', 'A4561C', { lw: 1 }); line(s, x - 0.18, y, x + 0.18, y, 'A4561C', 0.75); });
+    for (let i = 0; i < 20; i++) box(s, 1.15 + i * 0.17, 2.0, 0.09, 0.3, 'F8DCCB', '8A6D3B', { lw: 0.5, shape: SH.ROUNDED_RECTANGLE, r: 0.04 });
+    box(s, 1.0, 2.3, 3.6, 2.0, 'FBF3DF', '8A6D3B', { lw: 1.5 });
+    ball(s, 1.7, 3.3, 0.3, NUC[0], NUC[1], 1);
+    [[2.45, 2.75], [3.6, 3.05], [4.1, 2.65], [2.6, 3.8], [3.8, 3.85]].forEach(([x, y]) => { oval(s, x, y, 0.55, 0.28, 'F2B279', 'A4561C', { lw: 1 }); line(s, x - 0.18, y, x + 0.18, y, 'A4561C', 0.75); });
     box(s, 0.7, 4.55, 5.6, 0.7, 'F6C9CC', ART, { lw: 1.25 });
-    label(s, 0.8, 4.95, 2.6, 'blood capillary', { size: 10.5, italic: true, color: ARTE, align: 'left', h: 0.25 });
-    // glucose transport
-    glucose(s, 5.85, 1.95, 0.08); arrow(s, 5.85, 2.1, 5.85, 4.75, GLU, 2.5);
-    label(s, 0.75, 5.3, 1.9, '**microvilli**: large surface area', { size: 10.5, align: 'left', h: 0.45, valign: 'top' });
-    line(s, 1.4, 5.3, 1.35, 2.15, '8A6D3B', 0.75);
-    label(s, 2.75, 5.3, 2.4, '**many mitochondria**: energy (ATP) for **active transport**', { size: 10.5, align: 'left', h: 0.45, valign: 'top' });
-    line(s, 3.4, 5.3, 3.3, 3.9, 'A4561C', 0.75);
-    label(s, 5.0, 5.3, 1.35, '**glucose** to blood', { size: 10.5, color: GLU, align: 'left', h: 0.45, valign: 'top' });
+    label(s, 0.8, 4.95, 1.6, 'blood capillary', { size: 10.5, italic: true, color: ARTE, align: 'left', h: 0.25 });
+    glucose(s, 3.1, 1.9, 0.08); arrow(s, 3.1, 2.05, 3.1, 4.8, GLU, 2.5);
+    label(s, 3.2, 4.85, 2.9, '**glucose** reabsorbed into the blood', { size: 10.5, color: GLU, align: 'left', h: 0.3 });
+    callout(s, 4.85, 2.05, 1.4, '**microvilli**: large surface area', 4.35, 2.15, '8A6D3B', { size: 10, h: 0.5, bold: false });
+    callout(s, 4.85, 3.05, 1.4, '**many mitochondria**: energy for **active transport**', 4.1, 2.75, 'A4561C', { size: 10, h: 0.75, bold: false });
+    callout(s, 4.85, 3.95, 1.4, 'tubule wall cell', 4.6, 3.95, '8A6D3B', { size: 10 });
   },
   head: 'Structure → function',
   lines: [
@@ -1409,7 +1416,7 @@ reg(D.contentSlide({
 reg(D.contentSlide({
   title: 'Kidney failure: dialysis',
   subtitle: 'Specification 7.21B • a machine does the work of the kidneys',
-  tag: '7.21B', p: true, caption: 'blood and dialysis fluid flow in opposite directions, separated by a partially permeable membrane',
+  tag: '7.21B', p: true, caption: 'haemodialysis; blood and fluid flow in opposite directions',
   draw: (s, p) => {
     // arm
     s.addShape(SH.ROUNDED_RECTANGLE, { x: 0.7, y: 1.5, w: 4.3, h: 0.5, rectRadius: 0.2, fill: { color: SKIN }, line: { color: SKIN_EDGE, width: 2 } });
@@ -1463,30 +1470,33 @@ reg(D.contentSlide({
 // ======================= 36 TRANSPLANT 7.21B =======================
 {
   const s = D.contentHeader('Kidney failure: transplants (organ donation)', 'Specification 7.21B • comparing the two treatments', { tag: '7.21B', p: true });
-  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'the donor kidney is placed low in the abdomen; the failed kidneys are usually left in place');
+  D.panel(s, 0.45, 1.3, 6.1, 4.95, 'donor kidney placed low in the abdomen (simplified)');
   // torso outline
-  const tx = 1.3, tw = 4.0, ty = 1.5, th = 4.2;
+  const tx = 0.85, tw = 3.6, ty = 1.5, th = 4.25;
   s.addShape(SH.ROUNDED_RECTANGLE, { x: tx, y: ty, w: tw, h: th, rectRadius: 0.6, fill: { color: SKIN }, line: { color: SKIN_EDGE, width: 2.5 } });
-  const cx = tx + tw / 2;
-  tube(s, [[cx - 0.2, 1.7], [cx - 0.2, 4.0], [cx - 0.8, 5.0]], VEIN, VEINE, 9);
-  tube(s, [[cx + 0.2, 1.7], [cx + 0.2, 4.0], [cx + 0.8, 5.0]], ART, ARTE, 8);
+  const cx = tx + tw / 2, yS = 4.0, yE = 5.5;
+  // vena cava (blue) and aorta (red), each splitting into two iliac vessels
+  tube(s, [[cx - 0.15, 1.7], [cx - 0.15, yS], [cx - 0.95, yE]], VEIN, VEINE, 8); tube(s, [[cx - 0.15, yS], [cx + 0.85, yE]], VEIN, VEINE, 7);
+  // donor artery passes behind the vein: draw it before the left red iliac
+  const dk = [cx - 1.25, 4.35];
+  const aL = [cx - 0.39, yS + 0.6 * (yE - yS) * 1.2], vL = [cx - 0.63, 4.72];
+  tube(s, [[dk[0] + 0.25, dk[1] - 0.12], [cx - 0.45, 4.6]], ART, ARTE, 5);
+  tube(s, [[cx + 0.15, 1.7], [cx + 0.15, yS], [cx - 0.75, yE]], ART, ARTE, 7); tube(s, [[cx + 0.15, yS], [cx + 1.05, yE]], ART, ARTE, 6);
+  tube(s, [[dk[0] + 0.28, dk[1] + 0.1], vL], VEIN, VEINE, 5);
   // failed kidneys (pale)
-  oval(s, cx - 1.05, 2.5, 0.6, 1.0, 'D9C2BE', 'A08A86', { lw: 1.25 }); oval(s, cx + 1.05, 2.5, 0.6, 1.0, 'D9C2BE', 'A08A86', { lw: 1.25 });
-  label(s, cx - 1.6, 3.05, 1.1, 'failed kidney', { size: 10, italic: true, color: C.grey, h: 0.25 });
-  // bladder
-  oval(s, cx, 5.15, 0.8, 0.5, URI[0], URI[1], { lw: 1.5 });
-  // donor kidney on the patient's right (viewer's left), joined to iliac vessels
-  const dk = [cx - 1.15, 4.35];
-  tube(s, [[dk[0] + 0.3, dk[1] - 0.05], [cx - 0.55, 4.55]], ART, ARTE, 5);
-  tube(s, [[dk[0] + 0.3, dk[1] + 0.12], [cx - 0.62, 4.75]], VEIN, VEINE, 5);
-  tube(s, [[dk[0] + 0.15, dk[1] + 0.35], [cx - 0.5, 5.05], [cx - 0.35, 5.1]], URI[0], URI[1], 4);
-  oval(s, dk[0], dk[1], 0.62, 0.95, KID[0], KID[1], { lw: 1.75 });
-  callout(s, 0.6, 5.5, 1.4, '**donor kidney**', dk[0] - 0.05, dk[1] + 0.3, KID[1], { size: 10.5 });
-  callout(s, 4.6, 5.45, 1.5, 'its ureter → bladder', cx - 0.3, 5.1, URI[1], { size: 10 });
-  callout(s, 4.6, 4.25, 1.5, 'joined to artery and vein', cx - 0.58, 4.6, ARTE, { size: 10, h: 0.45 });
+  oval(s, cx - 0.95, 2.45, 0.55, 0.95, 'D9C2BE', 'A08A86', { lw: 1.25 }); oval(s, cx + 0.95, 2.45, 0.55, 0.95, 'D9C2BE', 'A08A86', { lw: 1.25 });
+  label(s, tx + 0.1, 3.0, 1.2, 'failed kidneys (left in place)', { size: 10, italic: true, color: C.grey, h: 0.45, valign: 'top' });
+  // bladder and donor ureter
+  oval(s, cx, 5.25, 0.75, 0.45, URI[0], URI[1], { lw: 1.5 });
+  tube(s, [[dk[0] + 0.12, dk[1] + 0.4], [cx - 0.55, 5.25], [cx - 0.37, 5.25]], URI[0], URI[1], 4);
+  oval(s, dk[0], dk[1], 0.6, 0.92, KID[0], KID[1], { lw: 1.75 });
+  label(s, tx + 0.1, 3.6, 1.3, '**donor kidney**', { size: 10.5, color: KID[1], align: 'left' });
+  callout(s, 4.65, 4.3, 1.75, 'joined to the iliac artery and vein', cx - 0.5, 4.62, ARTE, { size: 10, h: 0.45 });
+  callout(s, 4.65, 5.35, 1.75, 'donor ureter → bladder', cx + 0.3, 5.3, URI[1], { size: 10, h: 0.45 });
+  callout(s, 4.65, 2.2, 1.75, 'aorta and vena cava', cx + 0.15, 2.2, ARTE, { size: 10, h: 0.45 });
   const rows = [[HDR(''), HDR('Dialysis'), HDR('Transplant')],
-    ['For', 'available to most patients; no need to wait for a donor; no rejection', '**cure** – normal life, free diet; cheaper over many years'],
-    ['Against', 'hours each week; strict diet; not a cure; expensive; infection risk', 'shortage of **donors**; tissue must **match**; **rejection** – lifelong immunosuppressant drugs; surgery risks'],
+    ['For', 'available to most patients; no need to wait for a donor; no rejection', 'a cure – normal life and diet; cheaper over many years'],
+    ['Against', 'hours each week; strict diet; not a cure; expensive; infection risk', 'shortage of donors; tissue must match; rejection – lifelong immunosuppressant drugs; surgery risks'],
   ].map((r, i) => i === 0 ? r : r.map((t, j) => tcell(t, i, j === 0 ? { bold: true, color: C.ink } : {})));
   s.addTable(rows, { x: 6.8, y: 1.3, w: 6.08, colW: [1.0, 2.54, 2.54], rowH: [0.42, 1.15, 1.35], fontFace: 'Calibri', fontSize: 10.5, color: C.text, valign: 'middle', border: { type: 'solid', color: C.line, pt: 0.75 } });
   D.card(s, 6.8, 4.37, 6.08, 1.88, 'Why rejection happens', [
@@ -1527,7 +1537,7 @@ reg(D.keyWords([
 ], { notes: 'Use as a cover-and-recall activity: hide the definitions, students say them, then reveal. HT terms: thyroxine loop, LH/FSH interactions, vasodilation, glucagon, ADH.' }), 'Summary: key words');
 
 // ======================= 39 FULL QUESTION =======================
-reg(D.fullQuestion('The table shows the concentration of some substances in the **blood plasma**, the **filtrate** in Bowman\'s capsule and the **urine** of a healthy person (g per dm³): protein 80 / 0 / 0; glucose 1.0 / 1.0 / 0; urea 0.3 / 0.3 / 18.', [
+reg(D.fullQuestion('Concentrations (g per dm³) in the **blood plasma** / **filtrate** in Bowman\'s capsule / **urine** of a healthy person:  protein 80 / 0 / 0;  glucose 1.0 / 1.0 / 0;  urea 0.3 / 0.3 / 18.', [
   { l: 'a', q: 'Name the part of the nephron where the blood is filtered.', marks: 1, ms: 'Glomerulus (1) (accept Bowman\'s capsule / glomerulus and Bowman\'s capsule).' },
   { l: 'b', q: 'Explain why there is no protein in the filtrate.', marks: 2, ms: 'Protein molecules are too large (1); cannot pass through the filter / capillary and capsule walls (1).' },
   { l: 'c', q: 'Explain why the concentration of glucose in the urine is 0.', marks: 2, ms: 'All glucose is (selectively) reabsorbed (1); in the (proximal) tubule into the blood, by active transport (1).' },
