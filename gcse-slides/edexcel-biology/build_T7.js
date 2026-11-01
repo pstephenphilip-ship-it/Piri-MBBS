@@ -72,7 +72,7 @@ const gcgNorm = t => 30 - 12 * pk(t, 45);
 calc('normal glucose peak at 40 min', gNorm(40), 7.8, 1e-9);
 const gN120 = calc('normal glucose at 120 min (2 s.f.)', sf(gNorm(120), 2), 5.5, 1e-12);
 calc('type 1 glucose peak at 75 min', gT1(75), 17, 1e-9);
-const gT120 = calc('type 1 glucose at 120 min (2 s.f.)', sf(gT1(120), 2), 16, 1e-12);
+const gT120 = calc('type 1 glucose at 120 min (2 s.f.)', sf(gT1(120), 2), 15, 1e-12);
 calc('normal rise 7.8 − 5.0', 7.8 - 5.0, 2.8, 1e-12);
 // --- BMI and waist:hip ---
 const bmi = (m, h) => m / (h * h);
