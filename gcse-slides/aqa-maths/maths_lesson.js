@@ -269,7 +269,7 @@ function init(DECK) {
         rect(s, x, y, cw, ch, ok ? C.greenSoft : C.greyLight, ok ? C.green : C.greyLight, { round: true, lw: ok ? 3 : 1 });
         circle(s, x + 0.5, y + ch / 2, 0.62, ok ? C.green : C.accent);
         txt(s, 'ABCD'[i], x + 0.19, y + ch / 2 - 0.31, 0.62, 0.62, { size: 22, bold: true, color: C.white, align: 'center', valign: 'middle' });
-        txt(s, op, x + 1.05, y, cw - 1.3, ch, { size: 20, valign: 'middle', color: reveal && !ok ? C.grey : C.ink });
+        txt(s, op, x + 1.05, y, cw - 1.3, ch, { size: o.options.every(t => t.length <= 12) ? 34 : 20, bold: o.options.every(t => t.length <= 12), valign: 'middle', color: reveal && !ok ? C.grey : C.ink });
       });
       if (o.notes) notes(s, o.notes);
       return s;
