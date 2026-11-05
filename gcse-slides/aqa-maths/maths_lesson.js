@@ -1,20 +1,20 @@
 // maths_lesson.js — clean lesson-style house template for AQA GCSE Mathematics (8300) decks.
 // Designed for maths: one idea per slide, large type (body >= 18 pt), real stacked fractions,
 // "My turn / Your turn" example pairs with answer-reveal slides, hinge questions, practice + answers,
-// AQA-style exam questions with M1/A1/B1 mark schemes. Widths are measured with the Carlito metrics
-// (metric-compatible with Calibri) so inline maths lines up without guessing.
+// AQA-style exam questions with M1/A1/B1 mark schemes. Widths are measured with the Arial metrics
+// (Liberation Sans = Arial metrics, so layout is identical on Windows, Mac, iPhone and LibreOffice) so inline maths lines up without guessing.
 'use strict';
 const pptxgen = require('pptxgenjs');
 const assert = require('assert');
 const path = require('path');
-const WID = require(path.join(__dirname, 'carlito_widths.json'));
+const WID = require(path.join(__dirname, 'arial_widths.json'));
 
 const C = {
   ink: '2B1A22', maroon: '7A1F3D', accent: 'A3284F', soft: 'FBF1F4', line: 'E9D3DB',
   orange: 'C86B12', orangeSoft: 'FFF4E6', green: '1E7A4C', greenSoft: 'EAF6EF', grey: '6E6670',
   greyLight: 'F4F2F3', white: 'FFFFFF', blue: '2F5DA8', blueSoft: 'EEF3FB', red: 'C0392B',
 };
-const FONT = 'Calibri';
+const FONT = 'Arial';
 const W = 13.333, H = 7.5, MX = 0.6;
 
 // ---------- measuring ----------
@@ -69,7 +69,7 @@ function init(DECK) {
     s.addText(rich(str, { color: o.color || C.ink }), Object.assign({ x, y, w, h, fontFace: FONT, fontSize: o.size || 20, color: o.color || C.ink, bold: !!o.bold, italic: !!o.italic, align: o.align || 'left', valign: o.valign || 'top', margin: 0, paraSpaceAfter: o.psa || 0, lineSpacingMultiple: 1.0 }, o.extra || {}));
   }
   function rect(s, x, y, w, h, fill, line, o = {}) {
-    s.addShape(o.round ? SH.roundRect : SH.rect, { x, y, w, h, fill: { color: fill }, line: { color: line || fill, width: o.lw || 1 }, rectRadius: o.round ? (o.r || 0.08) : undefined });
+    s.addShape(SH.rect, { x, y, w, h, fill: { color: fill }, line: { color: line || fill, width: o.lw || 1 } });
   }
   function hline(s, x1, y, x2, color, w = 1.25) { s.addShape(SH.line, { x: x1, y, w: x2 - x1, h: 0, line: { color, width: w } }); }
   function vline(s, x, y1, y2, color, w = 1.25) { s.addShape(SH.line, { x, y: y1, w: 0, h: y2 - y1, line: { color, width: w } }); }
@@ -126,8 +126,6 @@ function init(DECK) {
   function titleSlide(o) {
     const s = frame('', { bare: true, bg: C.maroon });
     rect(s, 0, 0, W, H, C.maroon);
-    s.addShape(SH.ellipse, { x: 9.2, y: -1.6, w: 6.2, h: 6.2, fill: { color: 'FFFFFF', transparency: 92 }, line: { color: 'FFFFFF', transparency: 100 } });
-    s.addShape(SH.ellipse, { x: 10.6, y: 3.9, w: 4.2, h: 4.2, fill: { color: 'FFFFFF', transparency: 94 }, line: { color: 'FFFFFF', transparency: 100 } });
     txt(s, 'AQA GCSE MATHEMATICS (8300)', 0.9, 1.0, 9, 0.4, { size: 15, bold: true, color: 'F2C9D6', extra: { charSpacing: 3 } });
     txt(s, `${DECK.code}  ${DECK.title}`, 0.9, 1.7, 10.5, 1.0, { size: 44, bold: true, color: C.white, valign: 'middle' });
     txt(s, o.subtitle, 0.9, 2.85, 9.5, 0.9, { size: 22, color: 'F6DCE4' });
@@ -207,15 +205,17 @@ function init(DECK) {
   function steps(s, list, x, y, w, o = {}) {
     for (const st of list) {
       const pt = o.size || 21;
-      if (st.label) txt(s, st.label, x, y + (hasFrac(st.math) ? 0.33 : 0), 1.6, 0.45, { size: 16, bold: true, color: o.labelColor || C.accent });
-      const sx = st.label ? x + 1.6 : x, sw = st.label ? w - 1.6 : w;
+      const lw = o.labelW || 1.6, lpt = o.labelSize || 16;
+      if (st.label) txt(s, st.label, x, y + (hasFrac(st.math) ? 0.33 : 0), lw - 0.1, 0.45, { size: lpt, bold: !o.labelPlain, color: o.labelColor || C.accent });
+      const sx = st.label ? x + lw : x, sw = st.label ? w - lw : w;
+      const labH = st.label ? textH(st.label, lpt, lw - 0.1, !o.labelPlain) : 0;
       if (st.math) {
-        const h = hasFrac(st.math) ? 1.05 : 0.55;
+        const h = Math.max(hasFrac(st.math) ? 1.05 : 0.55, labH);
         math(s, sx, y + h / 2, st.math, { size: pt, bold: !!st.bold, color: st.color });
         y += h + 0.12;
       } else {
-        const h = textH(st.text, pt, sw, st.bold);
-        txt(s, st.text, sx, y, sw, h + 0.05, { size: pt, bold: !!st.bold, color: st.color });
+        const th = textH(st.text, pt, sw, st.bold), h = Math.max(th, labH);
+        txt(s, st.text, sx, y, sw, th + 0.05, { size: pt, bold: !!st.bold, color: st.color });
         y += h + 0.18;
       }
     }
@@ -236,7 +236,7 @@ function init(DECK) {
       const qh = textH(o.mine.q, 20, cw - 0.6);
       txt(s, o.mine.q, MX + 0.3, y, cw - 0.6, qh + 0.05, { size: 20 });
       y += qh + 0.25;
-      steps(s, o.mine.steps, MX + 0.3, y, cw - 0.6, { size: o.stepSize || 20 });
+      steps(s, o.mine.steps, MX + 0.3, y, cw - 0.6, { size: o.stepSize || 20, labelW: o.labelW, labelSize: o.labelSize, labelPlain: o.labelPlain, labelColor: o.labelColor });
       // Your turn
       const x2 = MX + cw + gap;
       rect(s, x2, top, cw, bottom - top, C.orangeSoft, 'F3D9B5', { round: true });
@@ -247,7 +247,8 @@ function init(DECK) {
       const qh2 = textH(o.yours.q, 20, cw - 0.6);
       txt(s, o.yours.q, x2 + 0.3, y2, cw - 0.6, qh2 + 0.05, { size: 20 });
       y2 += qh2 + 0.25;
-      if (reveal) steps(s, o.yours.steps, x2 + 0.3, y2, cw - 0.6, { size: o.stepSize || 20, labelColor: C.green });
+      if (reveal) steps(s, o.yours.steps, x2 + 0.3, y2, cw - 0.6, { size: o.stepSize || 20, labelW: o.labelW, labelSize: o.labelSize, labelPlain: o.labelPlain, labelColor: o.labelColor || C.green });
+      else if (o.showYourQs) steps(s, o.yours.steps.map(st => ({ label: st.label, text: ' ' })), x2 + 0.3, y2, cw - 0.6, { size: o.stepSize || 20, labelW: o.labelW, labelSize: o.labelSize, labelPlain: o.labelPlain, labelColor: o.labelColor });
       else txt(s, 'Write your working on your whiteboard.', x2 + 0.3, bottom - 0.65, cw - 0.6, 0.4, { size: 16, italic: true, color: C.grey });
       if (o.notes) notes(s, o.notes);
       return s;
@@ -303,7 +304,7 @@ function init(DECK) {
     const cols = [0.8, 5.6, 1.4, W - 2 * MX - 0.8 - 5.6 - 1.4];
     const heads = ['Part', 'Answer', 'Marks', 'Notes'];
     const rowsData = o.scheme;
-    const opts = { x: MX, y: 1.4, w: W - 2 * MX, colW: cols, fontFace: FONT, fontSize: 17, color: C.ink, border: { type: 'solid', color: C.line, pt: 1 }, valign: 'middle', margin: 0.08 };
+    const opts = { x: MX, y: 1.4, w: W - 2 * MX, colW: cols, fontFace: FONT, fontSize: o.schemeSize || 20, color: C.ink, border: { type: 'solid', color: C.line, pt: 1 }, valign: 'middle', margin: 0.08 };
     const hdr = heads.map(t => ({ text: t, options: { bold: true, color: C.white, fill: { color: C.maroon } } }));
     const body = rowsData.map((r, i) => r.map((c, j) => ({ text: c, options: { fill: { color: i % 2 ? C.white : C.soft }, bold: j === 0 } })));
     m.addTable([hdr, ...body], opts);
