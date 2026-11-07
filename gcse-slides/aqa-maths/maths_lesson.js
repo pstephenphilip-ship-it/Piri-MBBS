@@ -127,7 +127,7 @@ function init(DECK) {
     const s = frame('', { bare: true, bg: C.maroon });
     rect(s, 0, 0, W, H, C.maroon);
     txt(s, 'AQA GCSE MATHEMATICS (8300)', 0.9, 1.0, 9, 0.4, { size: 15, bold: true, color: 'F2C9D6', extra: { charSpacing: 3 } });
-    txt(s, `${DECK.code}  ${DECK.title}`, 0.9, 1.7, 10.5, 1.0, { size: 44, bold: true, color: C.white, valign: 'middle' });
+    txt(s, `${DECK.code}  ${DECK.title}`, 0.9, 1.7, 11.5, 1.0, { size: textW(`${DECK.code}  ${DECK.title}`, 44, true) > 11.3 ? 36 : 44, bold: true, color: C.white, valign: 'middle' });
     txt(s, o.subtitle, 0.9, 2.85, 9.5, 0.9, { size: 22, color: 'F6DCE4' });
     hline(s, 0.9, 3.95, 3.4, 'F2B544', 3);
     (o.bullets || []).forEach((b, i) => txt(s, b, 0.9, 4.35 + i * 0.55, 10, 0.45, { size: 18, color: C.white }));
