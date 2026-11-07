@@ -23,6 +23,6 @@ From now on, every new build script, spec note and finished deck is saved here.
     cd gcse-slides && npm install pptxgenjs@3.12.0
     NODE_PATH=node_modules node <build script>
 
-## AQA Trilogy biology (new format)
+## AQA GCSE Biology 8461 (new format)
 
-`aqa-trilogy-biology/` holds the two-hour lesson decks for AQA Combined Science: Trilogy (8464) Biology, built in the same phone-safe style as the maths decks (Arial, plain shapes, a PDF with every deck). They reuse `aqa-maths/maths_lesson.js`; the deck's `DECK.kicker`, `DECK.footer` and `DECK.palette` set the science branding.
+`aqa-biology/` holds the two-hour lesson decks for AQA GCSE Biology (8461, separate science), built in the same phone-safe style as the maths decks (Arial, plain shapes, a PDF with every deck). They reuse `aqa-maths/maths_lesson.js`; the deck's `DECK.kicker`, `DECK.footer` and `DECK.palette` set the science branding.

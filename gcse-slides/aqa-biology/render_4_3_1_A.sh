@@ -4,11 +4,11 @@ set -e
 cd "$(dirname "$0")"
 NODE_PATH=/home/user/Piri-MBBS/gcse-slides/node_modules node build_4_3_1_A.js
 rm -rf render_4_3_1_A && mkdir -p render_4_3_1_A
-soffice -env:UserInstallation=file://$PWD/lo_4_3_1_A --headless --norestore --convert-to pdf --outdir render_4_3_1_A "$PWD/AQA_8464_Bio_4.3.1_A_CommunicableDiseases.pptx" >/dev/null 2>&1
+soffice -env:UserInstallation=file://$PWD/lo_4_3_1_A --headless --norestore --convert-to pdf --outdir render_4_3_1_A "$PWD/AQA_8461_Bio_4.3.1_A_CommunicableDiseases.pptx" >/dev/null 2>&1
 python3 - <<'PY'
 import pymupdf
 from PIL import Image
-doc = pymupdf.open('render_4_3_1_A/AQA_8464_Bio_4.3.1_A_CommunicableDiseases.pdf')
+doc = pymupdf.open('render_4_3_1_A/AQA_8461_Bio_4.3.1_A_CommunicableDiseases.pdf')
 files = []
 for i, pg in enumerate(doc):
     f = f'render_4_3_1_A/s{i+1:02d}.png'; pg.get_pixmap(dpi=110).save(f); files.append(f)

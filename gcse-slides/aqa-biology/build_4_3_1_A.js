@@ -1,4 +1,4 @@
-// build_4_3_1_A.js — AQA GCSE Combined Science: Trilogy (8464) Biology 4.3.1 Communicable diseases, lesson 1 of 3
+// build_4_3_1_A.js — AQA GCSE Biology (8461) 4.3.1 Communicable diseases, lesson 1 of 3
 // 4.3.1.1 Communicable diseases, 4.3.1.2 Viral, 4.3.1.3 Bacterial, 4.3.1.4 Fungal, 4.3.1.5 Protist diseases.
 // One two-hour lesson for a Higher student. Uses the phone-safe lesson template (Arial, plain shapes).
 // Run: NODE_PATH=/home/user/Piri-MBBS/gcse-slides/node_modules node build_4_3_1_A.js
@@ -9,8 +9,8 @@ const { C } = T;
 
 const DECK = {
   code: '4.3.1', title: 'Communicable diseases',
-  kicker: 'AQA GCSE COMBINED SCIENCE: TRILOGY (8464)  •  BIOLOGY  •  HIGHER',
-  footer: 'AQA Trilogy 8464 Biology', author: 'GCSE Combined Science', docPrefix: 'AQA 8464',
+  kicker: 'AQA GCSE BIOLOGY (8461)  •  HIGHER',
+  footer: 'AQA GCSE Biology 8461', author: 'GCSE Biology', docPrefix: 'AQA 8461',
   palette: { maroon: '1D4E63', accent: '2A6F8E', soft: 'EEF5F8', line: 'D3E3EA', ink: '1C2730' },
   light: 'CFE3EC',
 };
@@ -57,7 +57,7 @@ const COL = { virus: '8E3B8C', bacteria: '2A6F8E', fungus: 'B0631A', protist: '2
 D.titleSlide({
   subtitle: 'Pathogens, how they make us ill and spread, and the viral, bacterial, fungal and protist diseases on the spec',
   bullets: ['Part 1: pathogens and how diseases spread (4.3.1.1)', 'Part 2: viral diseases: measles, HIV, TMV (4.3.1.2)', 'Part 3: bacterial and fungal diseases (4.3.1.3, 4.3.1.4)', 'Part 4: protist diseases: malaria (4.3.1.5)'],
-  notes: 'AQA 8464 Combined Science: Trilogy, Biology 4.3 Infection and response, 4.3.1 Communicable diseases. Lesson 1 of 3. Lesson 2: human defences and vaccination (4.3.1.6, 4.3.1.7). Lesson 3: antibiotics, painkillers and developing new drugs (4.3.1.8, 4.3.1.9). Monoclonal antibodies (4.3.2) and plant disease (4.3.3) are separate Biology only, not Trilogy. About two hours.',
+  notes: 'AQA 8461 GCSE Biology 4.3 Infection and response, 4.3.1 Communicable diseases. Lesson 1 of 3. Lesson 2: human defences and vaccination (4.3.1.6, 4.3.1.7). Lesson 3: antibiotics, painkillers and developing new drugs (4.3.1.8, 4.3.1.9). Then 4.3.2 Monoclonal antibodies (HT) and 4.3.3 Plant disease. About two hours.',
 });
 
 D.objectives({
@@ -313,7 +313,7 @@ D.myTurnYourTurn({
   notes(s1, 'Use these two slides for revision: cover a column and test each other.');
   const s2 = frame('Summary: the seven diseases (2)', { tag: 'Revision' });
   table(s2, [['Gonorrhoea', 'Bacterium', 'Sexual contact', 'Antibiotics; condoms'], ['Rose black spot', 'Fungus', 'Spores in wind and water', 'Fungicide; remove and destroy leaves'], ['Malaria', 'Protist', 'Mosquito bites (vector)', 'Stop mosquitoes breeding; nets']]);
-  notes(s2, 'Seven named diseases in Trilogy 4.3.1.2–4.3.1.5.');
+  notes(s2, 'Seven named diseases in 4.3.1.2–4.3.1.5.');
 }
 
 D.myTurnYourTurn({
@@ -390,4 +390,4 @@ D.examQuestion({
   notes(s, 'Answers: 1) bacteria reproduce rapidly and make toxins that damage tissues; viruses reproduce inside cells and damage them  2) mosaic discoloured patches; less chlorophyll, less photosynthesis, less growth  3) yellow/green discharge, pain urinating; sexual contact; antibiotics, condoms  4) mosquitoes are vectors; nets stop bites, so protists are not passed into the blood  5) close contact/droplets; contaminated water; more people to infect  6) shared needles transfer infected blood; do not share needles / needle exchange.');
 }
 
-D.save(path.join(__dirname, 'AQA_8464_Bio_4.3.1_A_CommunicableDiseases.pptx')).then(f2 => console.log('saved', f2, 'slides', D.count));
+D.save(path.join(__dirname, 'AQA_8461_Bio_4.3.1_A_CommunicableDiseases.pptx')).then(f2 => console.log('saved', f2, 'slides', D.count));
