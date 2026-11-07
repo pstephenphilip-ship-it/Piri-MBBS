@@ -55,10 +55,14 @@ function calc(label, value, expected, tol = 1e-9) {
 }
 
 function init(DECK) {
+  // optional overrides so other subjects can reuse this template: DECK.palette (colour overrides),
+  // DECK.kicker (title-slide line), DECK.footer (slide footer prefix), DECK.author, DECK.light (pale title-slide text)
+  if (DECK.palette) Object.assign(C, DECK.palette);
+  const KICKER = DECK.kicker || 'AQA GCSE MATHEMATICS (8300)', FOOT = DECK.footer || 'AQA GCSE Mathematics 8300', LIGHT = DECK.light || 'F2C9D6';
   const pres = new pptxgen();
   pres.layout = 'LAYOUT_WIDE';
-  pres.author = 'GCSE Mathematics';
-  pres.title = `AQA 8300 ${DECK.code} ${DECK.title}`;
+  pres.author = DECK.author || 'GCSE Mathematics';
+  pres.title = `${DECK.docPrefix || 'AQA 8300'} ${DECK.code} ${DECK.title}`;
   let n = 0;
   const SH = pres.ShapeType;
 
@@ -115,7 +119,7 @@ function init(DECK) {
         txt(s, o.tag, W - MX - tw, 0.4, tw, 0.4, { size: 13, bold: true, color: o.tagText || C.accent, align: 'center', valign: 'middle' });
       }
       hline(s, MX, 1.08, W - MX, C.line, 1.5);
-      txt(s, `AQA GCSE Mathematics 8300  •  ${DECK.code} ${DECK.title}`, MX, 7.08, 8, 0.28, { size: 10, color: C.grey });
+      txt(s, `${FOOT}  •  ${DECK.code} ${DECK.title}`, MX, 7.08, 8, 0.28, { size: 10, color: C.grey });
       txt(s, String(n), W - MX - 1, 7.08, 1, 0.28, { size: 10, color: C.grey, align: 'right' });
     }
     return s;
@@ -126,12 +130,12 @@ function init(DECK) {
   function titleSlide(o) {
     const s = frame('', { bare: true, bg: C.maroon });
     rect(s, 0, 0, W, H, C.maroon);
-    txt(s, 'AQA GCSE MATHEMATICS (8300)', 0.9, 1.0, 9, 0.4, { size: 15, bold: true, color: 'F2C9D6', extra: { charSpacing: 3 } });
+    txt(s, KICKER, 0.9, 1.0, 11, 0.4, { size: 15, bold: true, color: LIGHT, extra: { charSpacing: 3 } });
     txt(s, `${DECK.code}  ${DECK.title}`, 0.9, 1.7, 11.5, 1.0, { size: textW(`${DECK.code}  ${DECK.title}`, 44, true) > 11.3 ? 36 : 44, bold: true, color: C.white, valign: 'middle' });
-    txt(s, o.subtitle, 0.9, 2.85, 9.5, 0.9, { size: 22, color: 'F6DCE4' });
+    txt(s, o.subtitle, 0.9, 2.85, 9.5, 0.9, { size: 22, color: DECK.light || 'F6DCE4' });
     hline(s, 0.9, 3.95, 3.4, 'F2B544', 3);
     (o.bullets || []).forEach((b, i) => txt(s, b, 0.9, 4.35 + i * 0.55, 10, 0.45, { size: 18, color: C.white }));
-    txt(s, o.footer || 'Teacher deck  •  answers and mark schemes in the speaker notes', 0.9, 6.75, 10, 0.35, { size: 12, italic: true, color: 'F2C9D6' });
+    txt(s, o.footer || 'Teacher deck  •  answers and mark schemes in the speaker notes', 0.9, 6.75, 10, 0.35, { size: 12, italic: true, color: LIGHT });
     if (o.notes) notes(s, o.notes);
     return s;
   }
@@ -311,7 +315,7 @@ function init(DECK) {
     assert(y < 6.95, `exam question overflows: y=${y.toFixed(2)}`);
     if (o.notes) notes(s, o.notes);
     // mark scheme
-    const m = frame((o.title || 'Exam question') + ': mark scheme', { tag: 'M1 method • A1 accuracy • B1 independent' });
+    const m = frame((o.title || 'Exam question') + ': mark scheme', { tag: o.schemeTag || 'M1 method • A1 accuracy • B1 independent' });
     const cols = [0.8, 5.2, 1.8, W - 2 * MX - 0.8 - 5.2 - 1.8];
     const heads = ['Part', 'Answer', 'Marks', 'Notes'];
     const rowsData = o.scheme;
