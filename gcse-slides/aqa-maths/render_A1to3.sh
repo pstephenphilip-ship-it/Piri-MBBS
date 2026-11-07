@@ -2,16 +2,16 @@
 # Build and render the A1 deck to PDF, slide PNGs and 3x3 contact sheets.
 set -e
 cd "$(dirname "$0")"
-NODE_PATH=/home/user/Piri-MBBS/gcse-slides/node_modules node build_A1.js
-rm -rf render_A1 && mkdir -p render_A1
-soffice -env:UserInstallation=file://$PWD/lo_A1 --headless --norestore --convert-to pdf --outdir render_A1 "$PWD/AQA_8300_A1_AlgebraicNotation.pptx" >/dev/null 2>&1
+NODE_PATH=/home/user/Piri-MBBS/gcse-slides/node_modules node build_A1to3.js
+rm -rf render_A1to3 && mkdir -p render_A1to3
+soffice -env:UserInstallation=file://$PWD/lo_A1to3 --headless --norestore --convert-to pdf --outdir render_A1to3 "$PWD/AQA_8300_A1-A3_AlgebraBasics.pptx" >/dev/null 2>&1
 python3 - <<'PY'
 import pymupdf
 from PIL import Image
-doc = pymupdf.open('render_A1/AQA_8300_A1_AlgebraicNotation.pdf')
+doc = pymupdf.open('render_A1to3/AQA_8300_A1-A3_AlgebraBasics.pdf')
 files = []
 for i, pg in enumerate(doc):
-    f = f'render_A1/s{i+1:02d}.png'; pg.get_pixmap(dpi=110).save(f); files.append(f)
+    f = f'render_A1to3/s{i+1:02d}.png'; pg.get_pixmap(dpi=110).save(f); files.append(f)
 print('pages', len(files))
 for c in range(0, len(files), 9):
     ims = [Image.open(f) for f in files[c:c+9]]
@@ -19,5 +19,5 @@ for c in range(0, len(files), 9):
     sheet = Image.new('RGB', (sw*3+20, sh*3+20), 'white')
     for j, im in enumerate(ims):
         sheet.paste(im.resize((sw, sh)), ((j%3)*(sw+10), (j//3)*(sh+10)))
-    sheet.save(f'render_A1/c{c//9+1}.png')
+    sheet.save(f'render_A1to3/c{c//9+1}.png')
 PY
