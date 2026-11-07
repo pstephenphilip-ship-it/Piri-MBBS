@@ -269,7 +269,8 @@ function init(DECK) {
         rect(s, x, y, cw, ch, ok ? C.greenSoft : C.greyLight, ok ? C.green : C.greyLight, { round: true, lw: ok ? 3 : 1 });
         circle(s, x + 0.5, y + ch / 2, 0.62, ok ? C.green : C.accent);
         txt(s, 'ABCD'[i], x + 0.19, y + ch / 2 - 0.31, 0.62, 0.62, { size: 22, bold: true, color: C.white, align: 'center', valign: 'middle' });
-        txt(s, op, x + 1.05, y, cw - 1.3, ch, { size: o.options.every(t => t.length <= 12) ? 34 : 20, bold: o.options.every(t => t.length <= 12), valign: 'middle', color: reveal && !ok ? C.grey : C.ink });
+        const big = o.options.every(t => t.length <= 12), mid = o.options.every(t => t.length <= 18);
+        txt(s, op, x + 1.05, y, cw - 1.3, ch, { size: big ? 34 : mid ? 28 : 20, bold: big || mid, valign: 'middle', color: reveal && !ok ? C.grey : C.ink });
       });
       if (o.notes) notes(s, o.notes);
       return s;
@@ -301,7 +302,7 @@ function init(DECK) {
     if (o.notes) notes(s, o.notes);
     // mark scheme
     const m = frame((o.title || 'Exam question') + ': mark scheme', { tag: 'M1 method • A1 accuracy • B1 independent' });
-    const cols = [0.8, 5.6, 1.4, W - 2 * MX - 0.8 - 5.6 - 1.4];
+    const cols = [0.8, 5.2, 1.8, W - 2 * MX - 0.8 - 5.2 - 1.8];
     const heads = ['Part', 'Answer', 'Marks', 'Notes'];
     const rowsData = o.scheme;
     const opts = { x: MX, y: 1.4, w: W - 2 * MX, colW: cols, fontFace: FONT, fontSize: o.schemeSize || 20, color: C.ink, border: { type: 'solid', color: C.line, pt: 1 }, valign: 'middle', margin: 0.08 };
