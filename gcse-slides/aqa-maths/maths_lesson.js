@@ -260,8 +260,9 @@ function init(DECK) {
   function hinge(o) {
     const make = reveal => {
       const s = frame(reveal ? `${o.title}: answer` : o.title, { tag: o.tag || 'Show me on your whiteboard' });
-      const qh = textH(o.q, 24, W - 2 * MX);
-      txt(s, o.q, MX, 1.4, W - 2 * MX, qh + 0.1, { size: 24, bold: true });
+      let qh = textH(o.q, 24, W - 2 * MX);
+      if (o.qMath) { qh = 1.0; txt(s, o.q, MX, 1.4, W - 2 * MX, qh, { size: 24, bold: true, valign: 'middle' }); math(s, MX + textW(plain(o.q), 24, true) + 0.2, 1.9, o.qMath, { size: 26, bold: true }); }
+      else txt(s, o.q, MX, 1.4, W - 2 * MX, qh + 0.1, { size: 24, bold: true });
       const top = 1.4 + qh + 0.35, gap = 0.3, cw = (W - 2 * MX - gap) / 2, ch = (6.85 - top - gap) / 2;
       o.options.forEach((op, i) => {
         const c = i % 2, r = Math.floor(i / 2), x = MX + c * (cw + gap), y = top + r * (ch + gap);
@@ -269,8 +270,11 @@ function init(DECK) {
         rect(s, x, y, cw, ch, ok ? C.greenSoft : C.greyLight, ok ? C.green : C.greyLight, { round: true, lw: ok ? 3 : 1 });
         circle(s, x + 0.5, y + ch / 2, 0.62, ok ? C.green : C.accent);
         txt(s, 'ABCD'[i], x + 0.19, y + ch / 2 - 0.31, 0.62, 0.62, { size: 22, bold: true, color: C.white, align: 'center', valign: 'middle' });
-        const big = o.options.every(t => t.length <= 12), mid = o.options.every(t => t.length <= 18);
-        txt(s, op, x + 1.05, y, cw - 1.3, ch, { size: big ? 34 : mid ? 28 : 20, bold: big || mid, valign: 'middle', color: reveal && !ok ? C.grey : C.ink });
+        if (Array.isArray(op)) math(s, x + 1.05, y + ch / 2, op, { size: 34, bold: true, color: reveal && !ok ? C.grey : C.ink });
+        else {
+          const big = o.options.every(t => typeof t !== 'string' || t.length <= 12), mid = o.options.every(t => typeof t !== 'string' || t.length <= 18);
+          txt(s, op, x + 1.05, y, cw - 1.3, ch, { size: big ? 34 : mid ? 28 : 20, bold: big || mid, valign: 'middle', color: reveal && !ok ? C.grey : C.ink });
+        }
       });
       if (o.notes) notes(s, o.notes);
       return s;
@@ -287,12 +291,18 @@ function init(DECK) {
     if (o.table) y = o.table(s, y) + 0.2;
     for (const p of o.parts) {
       const qw = W - 2 * MX - 1.6;
-      txt(s, `(${p.l})`, MX, y, 0.6, 0.45, { size: pt, bold: true, color: C.maroon });
-      const h = textH(p.q, pt, qw - 0.6);
-      txt(s, p.q, MX + 0.6, y, qw - 0.6, h + 0.05, { size: pt });
-      txt(s, `[${p.m} mark${p.m > 1 ? 's' : ''}]`, W - MX - 1.5, y, 1.5, 0.45, { size: pt - 2, bold: true, color: C.orange, align: 'right' });
+      const off = p.math ? 0.28 : 0;
+      txt(s, `(${p.l})`, MX, y + off, 0.6, 0.45, { size: pt, bold: true, color: C.maroon });
+      let h = textH(p.q, pt, qw - 0.6);
+      if (p.math) {
+        // one-line question with a stacked fraction after the words
+        h = 1.0;
+        txt(s, p.q, MX + 0.6, y, qw - 0.6, h, { size: pt, valign: 'middle' });
+        math(s, MX + 0.6 + textW(plain(p.q), pt) + 0.15, y + h / 2, p.math, { size: pt });
+      } else txt(s, p.q, MX + 0.6, y, qw - 0.6, h + 0.05, { size: pt });
+      txt(s, `[${p.m} mark${p.m > 1 ? 's' : ''}]`, W - MX - 1.5, y + off, 1.5, 0.45, { size: pt - 2, bold: true, color: C.orange, align: 'right' });
       y += h + 0.05;
-      const nl = p.lines || 1;
+      const nl = p.lines == null ? 1 : p.lines;
       for (let k = 0; k < nl; k++) { y += gapL; hline(s, MX + 0.6, y, W - MX - 1.7, 'BFB5BA', 1); }
       y += 0.22;
     }
