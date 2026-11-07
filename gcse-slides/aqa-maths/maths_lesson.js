@@ -88,7 +88,7 @@ function init(DECK) {
     for (const p of parts) {
       if (typeof p === 'string') {
         const w = textW(p, pt, bold);
-        s.addText(p, { x: cx, y: y - lh / 2, w: w + 0.05, h: lh, fontFace: FONT, fontSize: pt, bold, color, margin: 0, valign: 'middle' });
+        s.addText(p, { x: cx, y: y - lh / 2, w: w + 0.15, h: lh, fontFace: FONT, fontSize: pt, bold, color, margin: 0, valign: 'middle' });
         cx += w;
       } else {
         const fw = Math.max(textW(String(p.n), pt, bold), textW(String(p.d), pt, bold)) + 0.14;
