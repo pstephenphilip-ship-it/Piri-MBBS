@@ -26,3 +26,13 @@ From now on, every new build script, spec note and finished deck is saved here.
 ## AQA GCSE Biology 8461 (new format)
 
 `aqa-biology/` holds the two-hour lesson decks for AQA GCSE Biology (8461, separate science), built in the same phone-safe style as the maths decks (Arial, plain shapes, a PDF with every deck). They reuse `aqa-maths/maths_lesson.js`; the deck's `DECK.kicker`, `DECK.footer` and `DECK.palette` set the science branding.
+
+## AQA GCSE Chemistry 8462 (separate science)
+
+`aqa-chemistry/` holds the two-hour lesson decks for AQA GCSE Chemistry (8462), in the same style as the Biology decks (Arial, plain shapes, a PDF with every deck, Higher content tagged in red). They reuse `aqa-maths/maths_lesson.js`. `aqa-chemistry/chem_common.js` sets the purple Chemistry branding and adds a formula parser, so every formula's atom count and every balanced equation is checked when a deck is built.
+
+Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_template.sh` is the starting point for a new lesson.
+
+| Lesson | Deck |
+|---|---|
+| 4.1 A | Atoms, elements, compounds, equations, mixtures and separation |
