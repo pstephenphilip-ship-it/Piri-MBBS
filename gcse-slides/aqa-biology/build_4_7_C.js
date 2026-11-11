@@ -62,7 +62,7 @@ function twoCards(s, top, h, a, b, ca, cb, fa, fb, size = 18) {
 D.titleSlide({
   subtitle: 'Biodiversity, pollution, deforestation, global warming, conservation and food production',
   bullets: ['Part 1: biodiversity and waste (4.7.3.1, 4.7.3.2)', 'Part 2: land use, deforestation and global warming (4.7.3.3–4.7.3.5)', 'Part 3: maintaining biodiversity (4.7.3.6)', 'Part 4: food security and food production (4.7.5)'],
-  notes: 'AQA 8461 GCSE Biology 4.7, lesson 3 of 3: the final lesson of the course. 4.7.5 Food production is separate Biology only. About two hours.',
+  notes: 'AQA 8461 GCSE Biology 4.7, lesson 3 of 3: the final lesson of topic 4.7. 4.7.5 Food production is separate Biology only. About two hours.',
 });
 
 D.objectives({
@@ -271,7 +271,7 @@ D.examQuestion({
 {
   const s = frame('Exit ticket', { tag: 'On your own • 5 minutes' });
   D.qCards(s, ['Give one biological effect of global warming.', 'Why are hedgerows good for biodiversity?', 'What is a fishing quota?', 'Give one threat to food security.'], { cols: 2, size: 25 });
-  notes(s, 'Answers: 1) habitat loss, species distribution changes, migration changes, extinctions  2) they provide habitats and food for many species  3) a limit on how many fish of a species can be caught  4) birth rate, diet changes, pests/pathogens, drought, cost, conflict. Revisit the objectives: the AQA GCSE Biology course is complete.');
+  notes(s, 'Answers: 1) habitat loss, species distribution changes, migration changes, extinctions  2) they provide habitats and food for many species  3) a limit on how many fish of a species can be caught  4) birth rate, diet changes, pests/pathogens, drought, cost, conflict. Revisit the objectives: topic 4.7 is complete.');
 }
 
 {
