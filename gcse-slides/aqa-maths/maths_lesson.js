@@ -29,9 +29,16 @@ function runs(str) {
   const out = []; const re = /\*\*([^*]+)\*\*/g; let last = 0, m;
   while ((m = re.exec(str))) { if (m.index > last) out.push({ t: str.slice(last, m.index), b: false }); out.push({ t: m[1], b: true }); last = re.lastIndex; }
   if (last < str.length) out.push({ t: str.slice(last), b: false });
-  return out;
+  // "^{...}" marks a superscript run (e.g. 10^{−10}), for digits the font has no superscript glyph for
+  const out2 = [];
+  for (const r of out) {
+    const re2 = /\^\{([^}]*)\}/g; let l2 = 0, m2;
+    while ((m2 = re2.exec(r.t))) { if (m2.index > l2) out2.push({ t: r.t.slice(l2, m2.index), b: r.b }); out2.push({ t: m2[1], b: r.b, sup: true }); l2 = re2.lastIndex; }
+    if (l2 < r.t.length) out2.push({ t: r.t.slice(l2), b: r.b });
+  }
+  return out2;
 }
-function plain(str) { return str.replace(/\*\*/g, ''); }
+function plain(str) { return str.replace(/\*\*/g, '').replace(/\^\{([^}]*)\}/g, '$1'); }
 // number of wrapped lines for a string in a box of width w (inches)
 function lineCount(str, pt, w, bold = false) {
   let lines = 0;
@@ -67,7 +74,7 @@ function init(DECK) {
   const SH = pres.ShapeType;
 
   function rich(str, base = {}) {
-    return runs(str).map(r => ({ text: r.t, options: Object.assign({}, base, r.b ? { bold: true } : {}) }));
+    return runs(str).map(r => ({ text: r.t, options: Object.assign({}, base, r.b ? { bold: true } : {}, r.sup ? { superscript: true } : {}) }));
   }
   function txt(s, str, x, y, w, h, o = {}) {
     s.addText(rich(str, { color: o.color || C.ink }), Object.assign({ x, y, w, h, fontFace: FONT, fontSize: o.size || 20, color: o.color || C.ink, bold: !!o.bold, italic: !!o.italic, align: o.align || 'left', valign: o.valign || 'top', margin: 0, paraSpaceAfter: o.psa || 0, lineSpacingMultiple: 1.0 }, o.extra || {}));
@@ -124,7 +131,7 @@ function init(DECK) {
     }
     return s;
   }
-  function notes(s, str) { s.addNotes(str); }
+  function notes(s, str) { s.addNotes(str.replace(/\^\{([^}]*)\}/g, '^$1')); }
 
   // ---------- slide types ----------
   function titleSlide(o) {
