@@ -38,3 +38,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.1 A | Atoms, elements, compounds, equations, mixtures and separation |
 | 4.1 B | Atomic model history, subatomic particles, isotopes, relative atomic mass, electronic structure |
 | 4.1 C | The periodic table, metals and non-metals, groups 0, 1 and 7, transition metals |
+| 4.2 A | Ionic, covalent and metallic bonding, dot-and-cross diagrams, ionic formulae |
