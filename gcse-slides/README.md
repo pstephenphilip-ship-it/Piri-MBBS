@@ -50,3 +50,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.5 A | Exothermic and endothermic reactions, RP4 temperature changes, reaction profiles, (HT) bond energies |
 | 4.5 B | Chemical cells and batteries, hydrogen fuel cells, (HT) fuel cell half equations |
 | 4.6 A | Measuring rates, mean rate, rate graphs, (HT) tangents and mol/s, factors, RP5 |
+| 4.6 B | Collision theory, concentration, pressure, surface area, temperature, catalysts |
