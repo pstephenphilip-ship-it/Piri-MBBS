@@ -41,3 +41,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.2 A | Ionic, covalent and metallic bonding, dot-and-cross diagrams, ionic formulae |
 | 4.2 B | States of matter, predicting states, properties of ionic, molecular, polymer, giant covalent and metallic substances, alloys |
 | 4.2 C | Diamond, graphite, graphene, fullerenes, nanoparticles, surface area to volume ratio |
+| 4.3 A | Conservation of mass, relative formula mass, mass changes with gases, uncertainty |
