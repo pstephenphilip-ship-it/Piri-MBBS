@@ -44,3 +44,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.3 A | Conservation of mass, relative formula mass, mass changes with gases, uncertainty |
 | 4.3 B | (HT) Moles, Avogadro constant, reacting masses, balancing from masses, limiting reactants |
 | 4.3 C | Concentration (g/dm³), percentage yield, atom economy, (HT) titration calculations and gas volumes |
+| 4.4 A | Metal oxides, reactivity series, displacement, extraction with carbon, (HT) ionic and half equations |
