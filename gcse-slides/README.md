@@ -45,3 +45,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.3 B | (HT) Moles, Avogadro constant, reacting masses, balancing from masses, limiting reactants |
 | 4.3 C | Concentration (g/dm³), percentage yield, atom economy, (HT) titration calculations and gas volumes |
 | 4.4 A | Metal oxides, reactivity series, displacement, extraction with carbon, (HT) ionic and half equations |
+| 4.4 B | Reactions of acids, salts, RP1 soluble salt, pH, neutralisation, RP2 titration, (HT) strong and weak acids |
