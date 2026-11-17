@@ -53,3 +53,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.6 B | Collision theory, concentration, pressure, surface area, temperature, catalysts |
 | 4.6 C | Reversible reactions, energy changes, dynamic equilibrium, (HT) Le Chatelier |
 | 4.7 A | Crude oil, alkanes, fractional distillation, properties, combustion, cracking, bromine water test |
+| 4.7 B | Alkenes and addition reactions, alcohols and fermentation, carboxylic acids, (HT) weak acids, esters |
