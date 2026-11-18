@@ -55,3 +55,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.7 A | Crude oil, alkanes, fractional distillation, properties, combustion, cracking, bromine water test |
 | 4.7 B | Alkenes and addition reactions, alcohols and fermentation, carboxylic acids, (HT) weak acids, esters |
 | 4.7 C | Addition polymers, (HT) condensation polymers and amino acids, DNA and natural polymers |
+| 4.8 A | Pure substances, formulations, chromatography and Rf (RP6), gas tests |
