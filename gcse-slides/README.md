@@ -57,3 +57,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.7 C | Addition polymers, (HT) condensation polymers and amino acids, DNA and natural polymers |
 | 4.8 A | Pure substances, formulations, chromatography and Rf (RP6), gas tests |
 | 4.8 B | Flame tests, hydroxide precipitates, carbonate/halide/sulfate tests (RP7), instrumental methods |
+| 4.9 | The atmosphere: evolution, greenhouse effect, climate change, carbon footprint, pollutants |
