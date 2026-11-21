@@ -59,3 +59,4 @@ Build and render one deck with `aqa-chemistry/render_<lesson>.sh`; `render_templ
 | 4.8 B | Flame tests, hydroxide precipitates, carbonate/halide/sulfate tests (RP7), instrumental methods |
 | 4.9 | The atmosphere: evolution, greenhouse effect, climate change, carbon footprint, pollutants |
 | 4.10 A | Sustainability, potable water, RP8, waste water, (HT) phytomining and bioleaching, LCA, recycling |
+| 4.10 B | Corrosion, alloys, ceramics, polymers, composites, Haber process (HT conditions), NPK fertilisers |
