@@ -8,7 +8,7 @@ no dependencies — plain HTML/CSS and ES modules.
 | Tab | What's there |
 | --- | --- |
 | **Exercises** | Searchable bank, filter by movement pattern & equipment. Detail page: muscles, cues, common mistakes, regressions/progressions, media placeholder. |
-| **Knowledge** | 9 categories. **Anatomy is written**: 21 articles on terminology, the skeletal system, joints, the major joints, connective tissue and common conditions, each with tables, trainer-application notes and self-test questions. **Muscles is written**: 76 muscles in 17 topics, each with origin, insertion, action, exercises and trainer notes. Other categories have stubs. Global search. |
+| **Knowledge** | 103 articles (~42,000 words) following the Level 3 Diploma in Fitness Instructing and Personal Training syllabus: Anatomy, Muscles (76 muscles), Physiology, Fitness & programme design, Nutrition, Consultation & coaching, Screening & assessment, Delivering sessions, Special populations, and Health, safety & professional. Each has tables, trainer-application and safety notes, and self-test questions. Global search. |
 | **Clients** | Add/edit/delete clients. Each client has tabs: Overview, PAR-Q, Consent, Goals (SMART), Assessment, Notes. Signature pad, PAR-Q "Yes" flag, onboarding progress. |
 
 ## Run locally

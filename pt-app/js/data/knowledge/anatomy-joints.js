@@ -145,7 +145,7 @@ ${table(['Movement', 'Definition', 'Example'], [
 ${table(['Movement', 'Definition', 'Example'], [
   ['<strong>Medial (internal) rotation</strong>', 'Rotating towards the midline', 'Shoulder in a cable internal rotation'],
   ['<strong>Lateral (external) rotation</strong>', 'Rotating away from the midline', 'Shoulder in a band external rotation; hip in a clamshell'],
-  ['<strong>Horizontal abduction / adduction</strong>', 'Moving the arm away from / towards the midline with the arm at shoulder height', 'Reverse fly (abduction); chest fly or bench press (adduction)'],
+  ['<strong>Horizontal abduction / adduction</strong> (also called horizontal extension / flexion)', 'Moving the arm away from / towards the midline with the arm at shoulder height', 'Reverse fly (abduction); chest fly or bench press (adduction)'],
   ['<strong>Pronation / supination</strong>', 'Rotating the forearm so the palm faces down / up', 'Supination finishes a dumbbell curl'],
   ['<strong>Spinal rotation</strong>', 'Twisting the trunk or neck', 'Woodchop, thoracic rotation drills'],
   ['<strong>Protraction / retraction</strong>', 'Scapula moves forward around the rib cage / back towards the spine', 'Push-up plus (protraction); squeezing shoulder blades in a row (retraction)'],

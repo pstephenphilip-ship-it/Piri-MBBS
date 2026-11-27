@@ -294,6 +294,15 @@ ${callout('key', 'Memory aid', '<p>Breakfast at 7, lunch at 12, dinner at 5: 7 c
 <p>Discs make up about a quarter of the spine's length. They have very little blood supply and are nourished by fluid moving in and out with loading and unloading, which is one reason regular movement is good for spinal health. Discs lose some water overnight under load and rehydrate lying down, so people are slightly taller in the morning.</p>
 <p>A <strong>disc herniation</strong> (often called a "slipped disc", although discs don't slip) is when nucleus material pushes through a weakened annulus, most often towards the back and side at L4/L5 or L5/S1. It can press on a nerve root and cause leg pain (sciatica). Many disc bulges seen on scans cause no symptoms at all and they often improve with time.</p>
 
+<h3>Ligaments of the spine</h3>
+${table(['Ligament', 'Where', 'Role'], [
+  ['<strong>Anterior longitudinal ligament (ALL)</strong>', 'Down the front of the vertebral bodies and discs, from the skull to the sacrum', 'Limits extension (backward bending)'],
+  ['<strong>Posterior longitudinal ligament (PLL)</strong>', 'Down the back of the vertebral bodies, inside the spinal canal', 'Limits flexion; helps contain the discs'],
+  ['<strong>Ligamentum flavum</strong>', 'Between the laminae of neighbouring vertebrae', 'Elastic (yellow) ligament; helps the spine return upright from flexion and protects the cord'],
+  ['<strong>Interspinous ligaments</strong>', 'Between neighbouring spinous processes', 'Limit flexion'],
+  ['<strong>Supraspinous ligament</strong>', 'Along the tips of the spinous processes (in the neck it becomes the ligamentum nuchae)', 'Limits flexion'],
+])}
+
 <h3>The spinal curves</h3>
 ${table(['Curve', 'Direction', 'Type'], [
   ['Cervical', '<strong>Lordosis</strong> (curves forwards, concave at the back)', 'Secondary: develops as a baby starts to hold up its head'],
