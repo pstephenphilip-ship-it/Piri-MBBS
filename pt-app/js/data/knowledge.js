@@ -6,6 +6,9 @@
 import { FOUNDATIONS, SKELETAL } from './knowledge/anatomy-skeleton.js';
 import { JOINTS } from './knowledge/anatomy-joints.js';
 import { APPLIED } from './knowledge/anatomy-applied.js';
+import { UPPER } from './knowledge/muscles-upper.js';
+import { TRUNK } from './knowledge/muscles-trunk.js';
+import { LOWER } from './knowledge/muscles-lower.js';
 
 // Topic fields: id, title, body (HTML or null = coming soon),
 //   optional group (section heading in the category list), summary (one line).
@@ -18,10 +21,11 @@ export const CATEGORIES = [
       ...SKELETAL,
       ...JOINTS,
       ...APPLIED,
-      { id: 'lower-limb', group: 'Muscles', title: 'Muscles of the lower limb', body: null },
-      { id: 'upper-limb', group: 'Muscles', title: 'Muscles of the upper limb', body: null },
-      { id: 'trunk', group: 'Muscles', title: 'Muscles of the trunk & core', body: null },
     ],
+  },
+  {
+    id: 'muscles', name: 'Muscles', emoji: '💪', blurb: 'Origin, insertion, action and training for each muscle',
+    topics: [...UPPER, ...TRUNK, ...LOWER],
   },
   {
     id: 'physiology', name: 'Physiology', emoji: '❤️', blurb: 'Energy systems, cardio-respiratory, muscle',

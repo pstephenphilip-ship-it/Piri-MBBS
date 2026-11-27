@@ -302,3 +302,14 @@ dl.kv dd { margin: 0; }
 .quiz details[open] summary { margin-bottom: 6px; }
 .quiz details p { margin: 0; color: var(--ok); }
 .prose code { font-size: .9em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+
+/* ---------- Muscle cards ---------- */
+.muscle { margin: 18px 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+.muscle h3 { margin: 0 0 10px; font-size: 17px; }
+.muscle dl.kv { grid-template-columns: 84px 1fr; font-size: 15px; gap: 8px 12px; }
+.muscle dl.kv dt { font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .03em; padding-top: 2px; }
+.muscle-notes { margin-top: 12px; padding: 10px 12px; border-radius: 8px; background: var(--accent-soft); font-size: 15px; }
+.muscle-notes > strong { display: block; color: var(--accent); font-size: 13px; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 2px; }
+.muscle-notes ul { margin: 0; padding-left: 18px; }
+.muscle-notes p { margin: 0; }
+@media (max-width: 420px) { .muscle dl.kv { grid-template-columns: 1fr; gap: 2px; } .muscle dl.kv dd { margin-bottom: 8px; } }
