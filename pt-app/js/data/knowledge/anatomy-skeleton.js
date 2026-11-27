@@ -1,5 +1,6 @@
 // Anatomy — foundations and the skeletal system.
 import { table, callout, quiz, ex, kb } from './_helpers.js';
+import { PLANES, PLANES_AXES } from './diagrams/joints.js';
 import { SKELETON } from './diagrams/skeleton.js';
 import { LONG_BONE, BONE_SHAPES, REMODELLING, BONE_MASS } from './diagrams/bones.js';
 import { SKULL, THORACIC_CAGE, SPINE_LATERAL, VERTEBRA } from './diagrams/axial.js';
@@ -64,7 +65,9 @@ ${table(['Plane', 'Divides body into', 'Axis', 'Main movements', 'Exercise examp
   ['<strong>Frontal (coronal)</strong>', 'Front and back', 'Sagittal (antero-posterior)', 'Abduction, adduction, lateral flexion, inversion, eversion', 'Lateral raise, side lunge, jumping jack, side bend'],
   ['<strong>Transverse (horizontal)</strong>', 'Top and bottom', 'Longitudinal (vertical)', 'Rotation, horizontal ab/adduction, pronation, supination', 'Woodchop, Russian twist, cable fly, golf swing'],
 ])}
+${PLANES}
 <p>Real movements usually combine planes. A tennis serve or a throw is <strong>multiplanar</strong>.</p>
+${PLANES_AXES}
 ${callout('pt', 'Trainer application', '<p>Most gym programmes are heavily sagittal. Including frontal and transverse work (lateral lunges, anti-rotation presses, carries, rotational med-ball throws) builds clients who are more robust for sport and daily life, where movement happens in every direction.</p>')}
 ${quiz([
   ['Which plane does a lateral raise happen in?', 'The frontal plane (abduction of the shoulder).'],

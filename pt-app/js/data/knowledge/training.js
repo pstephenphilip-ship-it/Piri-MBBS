@@ -1,5 +1,6 @@
 // Fitness & programme design — Level 3 Diploma syllabus (Units 1, 3 & 4), in our own words.
 import { table, callout, quiz, ex, kb } from './_helpers.js';
+import { HR_ZONES } from './diagrams/systems.js';
 
 export const TRAINING = [
   {
@@ -240,6 +241,7 @@ ${table(['Zone', '% MHR', 'Feels like'], [
 ])}
 <p>Example: a 40-year-old with a resting HR of 70 working at 70%: MHR 180; Karvonen = ((180 − 70) × 0.7) + 70 = <strong>147 bpm</strong>.</p>
 
+${HR_ZONES}
 <p><strong>Rating of perceived exertion (RPE)</strong></p>
 <ul>
   <li><strong>Borg 6–20 scale</strong>: 6 = no exertion, 20 = maximal. Roughly, RPE × 10 ≈ heart rate in young adults. Moderate is about 12–14.</li>

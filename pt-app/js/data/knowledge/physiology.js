@@ -1,5 +1,6 @@
 // Physiology — Unit 1 of the Level 3 Diploma syllabus, in our own words.
 import { table, callout, quiz, ex, kb } from './_helpers.js';
+import { HEART, LUNGS, ENERGY_CHART } from './diagrams/systems.js';
 
 const note = html => callout('key', 'Course note', html);
 
@@ -93,6 +94,7 @@ ${quiz([
 <h3>Pathway of air</h3>
 <p>Nose/mouth → <strong>pharynx</strong> (throat) → <strong>larynx</strong> (voice box) → <strong>trachea</strong> (windpipe, held open by C-shaped cartilage rings) → left and right <strong>bronchi</strong> → <strong>bronchioles</strong> → <strong>alveoli</strong> (tiny air sacs surrounded by capillaries). The nose warms, moistens and filters air.</p>
 
+${LUNGS}
 <h3>Mechanics of breathing</h3>
 ${table(['', 'Inspiration (breathing in)', 'Expiration (breathing out)'], [
   ['At rest', 'Diaphragm contracts and flattens; external intercostals lift the ribs up and out. Chest volume increases, pressure in the lungs falls, air flows in', '<strong>Passive</strong>: diaphragm and intercostals relax; the lungs recoil'],
@@ -164,6 +166,7 @@ ${table(['Chamber', 'Receives', 'Sends to'], [
   ['<strong>Left atrium</strong>', 'Oxygenated blood from the lungs (via the pulmonary veins)', 'Left ventricle'],
   ['<strong>Left ventricle</strong>', 'Blood from the left atrium', 'The whole body (via the aorta). It has the thickest wall because it pumps furthest'],
 ])}
+${HEART}
 <h3>Valves</h3>
 <p>Valves stop blood flowing backwards:</p>
 <ul>
@@ -349,6 +352,7 @@ ${table(['', 'Creatine phosphate (ATP-PC)', 'Lactate (anaerobic glycolysis)', 'A
   ['Examples', '1RM lift, 100 m sprint, jump, tennis serve', '400 m run, 1-minute hard interval, high-rep set to failure', 'Walking, jogging, long cycle or swim, rest'],
 ])}
 
+${ENERGY_CHART}
 <h3>Lactate and fatigue</h3>
 <p>As intensity rises, lactate is produced faster than it can be cleared. The point where blood lactate starts to rise sharply is the <strong>lactate threshold</strong>; the point where it accumulates rapidly (around 4 mmol/L) is called <strong>OBLA (onset of blood lactate accumulation)</strong>. Fatigue at this level is caused mainly by hydrogen ions (acidity) and other metabolites, not by lactate itself. Lactate is actually recycled as a fuel by the heart, liver and other muscles.</p>
 <p>Interval training raises the lactate threshold, so clients can work harder before fatigue sets in.</p>

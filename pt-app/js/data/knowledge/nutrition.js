@@ -1,5 +1,6 @@
 // Nutrition — Unit 2 of the Level 3 Diploma syllabus, in our own words.
 import { table, callout, quiz, kb } from './_helpers.js';
+import { EATWELL } from './diagrams/systems.js';
 
 export const NUTRITION = [
   {
@@ -38,6 +39,7 @@ ${table(['Food group', 'Share of diet', 'Advice'], [
   ['<strong>Oils and spreads</strong>', 'About 1%', 'Unsaturated oils, in small amounts'],
   ['Foods high in fat, salt and sugar', 'Outside the main guide', 'Eat less often and in small amounts'],
 ])}
+${EATWELL}
 <p>Also: drink 6–8 glasses of fluid a day; adults should have no more than 6 g of salt a day; check food labels.</p>
 
 <h3>Key UK daily reference values</h3>

@@ -1,6 +1,7 @@
 // Anatomy — muscle tissue, fibre types, muscle actions and the life course.
 // Syllabus follows the Level 3 Diploma (Unit 1); written in our own words.
 import { table, callout, quiz, ex, kb } from './_helpers.js';
+import { MUSCLE_STRUCTURE, AGONIST_PAIR } from './diagrams/systems.js';
 
 const G = 'Muscular system';
 
@@ -44,6 +45,7 @@ ${table(['Level', 'Wrapped by', 'Description'], [
 </ol>
 <p>The filaments themselves don't shorten: they slide past each other, so the sarcomere, and the whole muscle, shortens.</p>
 
+${MUSCLE_STRUCTURE}
 ${callout('pt', 'Trainer application', '<p>Muscle needs a steady supply of ATP and calcium control to contract. When ATP supply can\'t keep up (high intensity) the muscle fatigues. See ' + kb('physiology', 'energy-systems', 'energy systems') + '.</p>')}
 
 ${quiz([
@@ -112,6 +114,7 @@ ${table(['Role', 'Job', 'Example: biceps curl (lifting)'], [
 ])}
 <p>Muscles swap roles depending on the movement. In a ${ex('push-up', 'push-up')}, pectoralis major is the agonist, anterior deltoid and triceps are synergists, and the trunk muscles are fixators stopping the hips sagging.</p>
 
+${AGONIST_PAIR}
 <h3>Reciprocal inhibition</h3>
 <p>When the agonist contracts, the nervous system signals the antagonist to relax. This makes smooth movement possible and is used in stretching: contracting the quadriceps helps the hamstrings relax into a stretch.</p>
 

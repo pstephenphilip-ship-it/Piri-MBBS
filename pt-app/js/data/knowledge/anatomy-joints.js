@@ -1,5 +1,6 @@
 // Anatomy — joints (classification, synovial joints, movements, major joints).
 import { table, callout, quiz, ex, kb } from './_helpers.js';
+import { SYNOVIAL_JOINT, JOINT_TYPES, KNEE } from './diagrams/joints.js';
 
 export const JOINTS = [
   {
@@ -44,6 +45,7 @@ ${table(['Structure', 'Description', 'Function'], [
   ['<strong>Ligaments</strong>', 'Bands of dense connective tissue joining bone to bone, inside or outside the capsule', 'Stabilise the joint and stop excessive or unwanted movement'],
 ])}
 
+${SYNOVIAL_JOINT}
 <h3>Accessory structures (in some joints)</h3>
 <ul>
   <li><strong>Menisci and articular discs</strong>: pads of fibrocartilage that improve the fit between bones and absorb shock, e.g. the medial and lateral menisci of the knee, the disc in the temporomandibular joint.</li>
@@ -89,6 +91,7 @@ ${table(['Type', 'Shape', 'Axes', 'Movements', 'Examples'], [
   ['<strong>Gliding (plane)</strong>', 'Flat or slightly curved surfaces slide over each other', 'Non-axial (sliding)', 'Small gliding movements', 'Between carpals and tarsals, acromioclavicular joint, facet joints of the spine, sacroiliac joint'],
 ])}
 
+${JOINT_TYPES}
 <h3>Shoulder vs hip: the mobility–stability trade-off</h3>
 ${table(['', 'Shoulder (glenohumeral)', 'Hip'], [
   ['Socket', 'Glenoid fossa: very shallow; covers only about a quarter to a third of the humeral head', 'Acetabulum: deep; holds most of the femoral head'],
@@ -386,6 +389,7 @@ ${callout('key', 'Memory aid', '<p>The <strong>cruciate</strong> ligaments cross
 </ul>
 <p>The "unhappy triad" is a combined injury to the ACL, MCL and medial meniscus.</p>
 
+${KNEE}
 <h3>The screw-home mechanism</h3>
 <p>In the last part of knee extension, the tibia rotates slightly outward on the femur, locking the knee for stable standing. To bend from fully straight, <strong>popliteus</strong> unlocks it by rotating it back.</p>
 
