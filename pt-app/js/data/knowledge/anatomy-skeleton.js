@@ -1,5 +1,9 @@
 // Anatomy — foundations and the skeletal system.
 import { table, callout, quiz, ex, kb } from './_helpers.js';
+import { SKELETON } from './diagrams/skeleton.js';
+import { LONG_BONE, BONE_SHAPES, REMODELLING, BONE_MASS } from './diagrams/bones.js';
+import { SKULL, THORACIC_CAGE, SPINE_LATERAL, VERTEBRA } from './diagrams/axial.js';
+import { SCAPULA_HUMERUS, HAND, PELVIS, LEG_BONES, FOOT } from './diagrams/limbs.js';
 
 export const FOUNDATIONS = [
   {
@@ -93,6 +97,7 @@ ${table(['Division', 'Bones', 'Main role'], [
   ['<strong>Axial skeleton</strong> (80 bones)', 'Skull (22), middle-ear ossicles (6), hyoid (1), vertebral column (26), thoracic cage: sternum + 24 ribs (25)', 'Forms the central axis: protects the brain, spinal cord and thoracic organs and supports the trunk'],
   ['<strong>Appendicular skeleton</strong> (126 bones)', 'Pectoral (shoulder) girdles (4), upper limbs (60), pelvic girdle (2), lower limbs (60)', 'Attaches the limbs to the axial skeleton and allows movement and manipulation'],
 ])}
+${SKELETON}
 <p>See ${kb('anatomy', 'axial-skeleton', 'the axial skeleton')}, ${kb('anatomy', 'vertebral-column', 'the vertebral column')}, ${kb('anatomy', 'upper-limb-bones', 'upper limb bones')} and ${kb('anatomy', 'lower-limb-bones', 'pelvis & lower limb bones')} for the detail.</p>
 
 ${callout('key', 'Key facts', '<ul><li>206 bones in the adult: 80 axial + 126 appendicular.</li><li>Bone is living tissue: it has a blood supply and nerves, and is constantly broken down and rebuilt.</li><li>About half the bones in the body are in the hands and feet (54 in the hands, 52 in the feet).</li></ul>')}
@@ -116,6 +121,7 @@ ${table(['Type', 'Description', 'Examples', 'Main role'], [
   ['<strong>Irregular</strong>', 'Complex shapes that don\'t fit other groups', 'Vertebrae, sacrum, facial bones', 'Varied: protection, support, attachment'],
   ['<strong>Sesamoid</strong>', 'Small bones that develop inside a tendon', 'Patella (largest), pisiform, two under the big toe', 'Protect the tendon and improve its leverage'],
 ])}
+${BONE_SHAPES}
 ${callout('pt', 'Why the patella matters', '<p>The patella holds the quadriceps tendon further from the knee\'s axis of rotation, increasing the quads\' leverage (moment arm). That is why it is called a sesamoid "pulley".</p>')}
 
 <h3>Parts of a long bone</h3>
@@ -129,6 +135,7 @@ ${callout('pt', 'Why the patella matters', '<p>The patella holds the quadriceps 
   <li><strong>Nutrient foramen</strong>: a small hole where the main artery enters the bone.</li>
 </ul>
 
+${LONG_BONE}
 <h3>Compact vs spongy bone</h3>
 ${table(['', 'Compact (cortical)', 'Spongy (cancellous / trabecular)'], [
   ['Where', 'Outer layer of all bones; thick in the shaft of long bones', 'Inside the ends of long bones and inside flat, short and irregular bones'],
@@ -181,10 +188,12 @@ ${callout('pt', 'Training young people', '<p>Supervised resistance training is s
   <li>When breakdown exceeds building, density falls (ageing, menopause, inactivity, bed rest, spaceflight, low energy availability, some medications such as long-term steroids).</li>
 </ul>
 
+${REMODELLING}
 <h3>Peak bone mass</h3>
 <p>Bone mass rises through childhood and especially adolescence (around a quarter of adult bone is laid down in the two years around the growth spurt), and peaks around the late twenties to about 30. From about the age of 40 it slowly declines. Women lose bone faster for several years after menopause because oestrogen, which restrains osteoclasts, falls sharply.</p>
 <p>The higher the peak, the longer it takes for bone to fall to fracture-risk levels later. Active, well-fed adolescents bank bone for life.</p>
 
+${BONE_MASS}
 <h3>Wolff's law and the mechanostat</h3>
 <p><strong>Wolff's law</strong>: bone adapts to the loads placed upon it. Osteocytes sense the tiny deformation (strain) caused by loading. If strain stays above a threshold, bone is added; if loading is too low, bone is removed. Tennis players' racket arms have measurably thicker bone than their other arms.</p>
 
@@ -228,6 +237,7 @@ ${quiz([
 </ul>
 <p>Also part of the axial skeleton: the 6 <strong>auditory ossicles</strong> (malleus, incus and stapes in each ear) and the <strong>hyoid</strong> bone in the neck, the only bone that doesn't form a joint with another bone. It anchors the tongue and swallowing muscles.</p>
 
+${SKULL}
 <h3>Thoracic cage (25 bones)</h3>
 <p>The rib cage protects the heart and lungs, supports the shoulder girdle and moves with every breath.</p>
 <ul>
@@ -242,6 +252,7 @@ ${quiz([
   <li><strong>Costal cartilage</strong> (hyaline) lets the cage expand during breathing.</li>
 </ul>
 
+${THORACIC_CAGE}
 <h3>The rib cage and breathing</h3>
 <p>When the diaphragm contracts and flattens, and the external intercostals lift the ribs, the chest expands up and out (often described as a "pump handle" movement for the upper ribs and a "bucket handle" movement for the lower ribs). This lowers pressure in the lungs and air flows in.</p>
 ${callout('pt', 'Trainer application', `<ul>
@@ -275,6 +286,7 @@ ${table(['Region', 'Vertebrae', 'Key features', 'Movement favoured'], [
 ${callout('key', 'Memory aid', '<p>Breakfast at 7, lunch at 12, dinner at 5: 7 cervical, 12 thoracic, 5 lumbar.</p>')}
 <p>The two top vertebrae form special joints: the <strong>atlanto-occipital</strong> joint (skull on C1) allows the "yes" nod; the <strong>atlanto-axial</strong> joint (C1 rotating around the dens of C2) is a pivot joint allowing about half of all neck rotation, the "no" movement.</p>
 
+${SPINE_LATERAL}
 <h3>Structure of a typical vertebra</h3>
 <ul>
   <li><strong>Body</strong>: the thick, weight-bearing front section.</li>
@@ -294,6 +306,7 @@ ${callout('key', 'Memory aid', '<p>Breakfast at 7, lunch at 12, dinner at 5: 7 c
 <p>Discs make up about a quarter of the spine's length. They have very little blood supply and are nourished by fluid moving in and out with loading and unloading, which is one reason regular movement is good for spinal health. Discs lose some water overnight under load and rehydrate lying down, so people are slightly taller in the morning.</p>
 <p>A <strong>disc herniation</strong> (often called a "slipped disc", although discs don't slip) is when nucleus material pushes through a weakened annulus, most often towards the back and side at L4/L5 or L5/S1. It can press on a nerve root and cause leg pain (sciatica). Many disc bulges seen on scans cause no symptoms at all and they often improve with time.</p>
 
+${VERTEBRA}
 <h3>Ligaments of the spine</h3>
 ${table(['Ligament', 'Where', 'Role'], [
   ['<strong>Anterior longitudinal ligament (ALL)</strong>', 'Down the front of the vertebral bodies and discs, from the skull to the sacrum', 'Limits extension (backward bending)'],
@@ -367,6 +380,7 @@ ${table(['Landmark', 'Where / what', 'Why it matters'], [
   <li><strong>Trochlea and capitulum</strong>: joint surfaces for the ulna and radius at the elbow.</li>
 </ul>
 
+${SCAPULA_HUMERUS}
 <h3>Forearm</h3>
 <ul>
   <li><strong>Radius</strong>: on the <strong>lateral (thumb) side</strong>. Its distal end is wide and forms most of the wrist joint, which is why falls on an outstretched hand often fracture the distal radius. It rotates around the ulna during pronation and supination.</li>
@@ -381,6 +395,7 @@ ${callout('key', 'Memory aid', '<p><strong>R</strong>adius = <strong>r</strong>o
   <li><strong>Metacarpals (5)</strong>: the palm, numbered 1 (thumb) to 5 (little finger).</li>
   <li><strong>Phalanges (14)</strong>: 3 per finger (proximal, middle, distal) and 2 in the thumb.</li>
 </ul>
+${HAND}
 
 ${callout('pt', 'Trainer application', `<ul>
 <li>The scapula needs to move freely for healthy overhead movement. It upwardly rotates as the arm rises (see ${kb('anatomy', 'shoulder-complex', 'the shoulder complex')}).</li>
@@ -410,6 +425,7 @@ ${quiz([
   <li><strong>Pubis</strong>: the front part. The two pubic bones meet at the <strong>pubic symphysis</strong>, a cartilaginous joint.</li>
 </ul>
 <p>The two hip bones and the sacrum form the <strong>pelvis</strong>, joined at the back by the two <strong>sacroiliac (SI) joints</strong>. These are strong, mostly very stable joints with only a few degrees of movement. The pelvis transfers weight from the spine to the legs and protects the pelvic organs.</p>
+${PELVIS}
 <h3>Male and female pelvis</h3>
 <p>On average the female pelvis is wider, shallower and has a larger, rounder inlet to allow childbirth. The wider pelvis increases the <strong>Q-angle</strong> (the angle between the line of the quadriceps pull and the patellar tendon), one of several factors linked to higher rates of some knee injuries in female athletes.</p>
 <h3>Pelvic tilt</h3>
@@ -435,6 +451,7 @@ ${quiz([
   <li><strong>Fibula</strong>: the thin <strong>lateral</strong> bone. It carries little body weight but is important for muscle attachment and ankle stability. Its lower end is the <strong>lateral malleolus</strong>, the outer ankle bump, which sits lower than the medial one.</li>
 </ul>
 
+${LEG_BONES}
 <h3>Foot (26 bones each)</h3>
 <ul>
   <li><strong>Tarsals (7)</strong>: <strong>talus</strong> (sits between the tibia and fibula to form the ankle joint; no muscles attach to it), <strong>calcaneus</strong> (heel bone, the largest tarsal; Achilles tendon attachment), <strong>navicular</strong>, <strong>cuboid</strong> and three <strong>cuneiforms</strong> (medial, intermediate, lateral).</li>
@@ -442,6 +459,7 @@ ${quiz([
   <li><strong>Phalanges (14)</strong>: 3 per toe, 2 in the big toe (hallux).</li>
   <li>Two small sesamoid bones under the head of the first metatarsal.</li>
 </ul>
+${FOOT}
 <h3>Arches of the foot</h3>
 <p>The <strong>medial longitudinal arch</strong> (the highest, on the inside), the <strong>lateral longitudinal arch</strong> and the <strong>transverse arch</strong> (across the midfoot) work like springs. They are supported by the shape of the bones, by ligaments and the plantar fascia, and by muscles. Arches flatten slightly to absorb shock and stiffen to push off.</p>
 <p>Foot types vary widely. A low arch ("flat foot") or high arch is not a problem in itself if the person is pain-free and functions well.</p>

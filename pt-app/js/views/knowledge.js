@@ -76,7 +76,7 @@ function renderTopic(ctx, catId, topicId) {
   const i = c.topics.indexOf(t);
   const prev = c.topics[i - 1], next = c.topics[i + 1];
 
-  ctx.el.append(h(`<div class="stack">
+  const page = h(`<div class="stack">
     <article class="card prose">
       <p class="muted small" style="margin-bottom:4px">${esc(c.name)}</p>
       <h2 style="margin-bottom:12px">${esc(t.title)}</h2>
@@ -86,5 +86,69 @@ function renderTopic(ctx, catId, topicId) {
       ${prev ? `<a class="btn" href="#/knowledge/${c.id}/${prev.id}">‹ Prev</a>` : '<span></span>'}
       ${next ? `<a class="btn" href="#/knowledge/${c.id}/${next.id}">Next ›</a>` : '<span></span>'}
     </div>
-  </div>`));
+  </div>`);
+  ctx.el.append(page);
+  wireDiagrams(page);
+}
+
+/* ---------- Diagram tools: label quiz + enlarge ---------- */
+
+function wireDiagrams(root) {
+  root.addEventListener('click', e => {
+    const btn = e.target.closest('[data-dg]');
+    if (btn) {
+      const fig = btn.closest('.dg');
+      if (btn.dataset.dg === 'quiz') toggleQuiz(fig, btn);
+      if (btn.dataset.dg === 'zoom') enlarge(fig);
+      return;
+    }
+    const lbl = e.target.closest('.dg-quiz .lbl');
+    if (lbl) lbl.classList.toggle('revealed');
+  });
+}
+
+function addMasks(svg) {
+  if (svg.dataset.masked) return;
+  svg.querySelectorAll('.lbl').forEach(g => {
+    const t = g.querySelector('.lbl-text');
+    let bb; try { bb = t.getBBox(); } catch { return; }
+    if (!bb.width) return;
+    const m = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    m.setAttribute('class', 'lbl-mask');
+    m.setAttribute('x', bb.x - 4); m.setAttribute('y', bb.y - 2);
+    m.setAttribute('width', bb.width + 8); m.setAttribute('height', bb.height + 4);
+    g.appendChild(m);
+  });
+  svg.dataset.masked = '1';
+}
+
+function toggleQuiz(fig, btn) {
+  const on = !fig.classList.contains('dg-quiz');
+  addMasks(fig.querySelector('svg'));
+  fig.classList.toggle('dg-quiz', on);
+  fig.querySelectorAll('.lbl.revealed').forEach(l => l.classList.remove('revealed'));
+  btn.setAttribute('aria-pressed', String(on));
+  btn.textContent = on ? 'Show labels' : 'Hide labels';
+}
+
+function enlarge(fig) {
+  const ov = h(`<div class="dg-overlay dg ${fig.classList.contains('dg-quiz') ? 'dg-quiz' : ''}" role="dialog" aria-modal="true" aria-label="Enlarged diagram">
+    <div class="dg-overlay-bar">
+      <strong>${esc(fig.querySelector('.dg-title').textContent)}</strong>
+      <button type="button" class="btn sm" data-close>Close</button>
+    </div>
+    <div class="dg-canvas"></div>
+  </div>`);
+  const svg = fig.querySelector('svg').cloneNode(true);
+  delete svg.dataset.masked;
+  svg.querySelectorAll('.lbl-mask').forEach(m => m.remove());
+  ov.querySelector('.dg-canvas').append(svg);
+  const close = () => { ov.remove(); document.removeEventListener('keydown', onKey); };
+  const onKey = e => { if (e.key === 'Escape') close(); };
+  ov.querySelector('[data-close]').addEventListener('click', close);
+  ov.addEventListener('click', e => { const l = e.target.closest('.lbl'); if (l && ov.classList.contains('dg-quiz')) l.classList.toggle('revealed'); });
+  document.addEventListener('keydown', onKey);
+  document.body.append(ov);
+  if (ov.classList.contains('dg-quiz')) addMasks(svg);
+  ov.querySelector('[data-close]').focus();
 }
