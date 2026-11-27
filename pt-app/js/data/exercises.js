@@ -13,8 +13,9 @@
 //   poster        optional still image shown before a video file plays
 
 import { MORE_EXERCISES } from './exercises-more.js';
+import { STRETCHES } from './stretches.js';
 
-export const PATTERNS = ['Squat', 'Hinge', 'Push', 'Pull', 'Lunge', 'Carry', 'Core', 'Isolation', 'Conditioning'];
+export const PATTERNS = ['Squat', 'Hinge', 'Push', 'Pull', 'Lunge', 'Carry', 'Core', 'Isolation', 'Conditioning', 'Dynamic stretch', 'Static stretch'];
 export const EQUIPMENT = ['Bodyweight', 'Barbell', 'Dumbbell', 'Kettlebell', 'Cable', 'Machine', 'Band'];
 
 // Shared breathing patterns
@@ -413,5 +414,5 @@ const BASE = [
 ];
 
 // All exercises, grouped by movement pattern then name.
-export const EXERCISES = [...BASE, ...MORE_EXERCISES]
+export const EXERCISES = [...BASE, ...MORE_EXERCISES, ...STRETCHES]
   .sort((a, b) => PATTERNS.indexOf(a.pattern) - PATTERNS.indexOf(b.pattern) || a.name.localeCompare(b.name));

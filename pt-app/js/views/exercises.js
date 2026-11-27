@@ -65,10 +65,10 @@ function renderList(ctx) {
 
 // Map muscle names to their Muscles articles (first keyword match wins).
 const MUSCLE_LINKS = [
-  [/quadric|vastus|rectus femoris/i, 'quadriceps'], [/glute/i, 'glutes'], [/hamstring|biceps femoris/i, 'hamstrings'],
-  [/adductor/i, 'adductors'], [/hip flexor/i, 'hip-flexors'], [/gastroc|soleus|calf|calves|tibialis|fibularis/i, 'lower-leg'],
-  [/pector|serratus/i, 'chest'], [/deltoid|shoulders/i, 'deltoids'], [/rotator|supraspinatus|infraspinatus/i, 'rotator-cuff'],
-  [/lat|teres major/i, 'lats'], [/trap|rhomboid/i, 'upper-back'], [/triceps/i, 'triceps'], [/biceps|brachialis|brachioradialis/i, 'elbow-flexors'],
+  [/quadric|vastus|rectus femoris/i, 'quadriceps'], [/glute|piriformis|hip rotator/i, 'glutes'], [/hamstring|biceps femoris/i, 'hamstrings'],
+  [/adductor|gracilis/i, 'adductors'], [/hip flexor/i, 'hip-flexors'], [/gastroc|soleus|calf|calves|tibialis|fibularis|achilles/i, 'lower-leg'],
+  [/pector|serratus/i, 'chest'], [/deltoid|shoulders/i, 'deltoids'], [/rotator cuff|supraspinatus|infraspinatus|teres minor/i, 'rotator-cuff'],
+  [/lat|teres major/i, 'lats'], [/trap|rhomboid|levator scapulae/i, 'upper-back'], [/triceps/i, 'triceps'], [/biceps|brachialis|brachioradialis/i, 'elbow-flexors'],
   [/forearm/i, 'forearm'], [/erector|quadratus lumborum|multifidus/i, 'back-extensors'],
   [/abdomin|oblique|core/i, 'abdominals'],
 ];
@@ -93,11 +93,12 @@ function renderDetail(ctx, id) {
   const x = EXERCISES.find(e => e.id === id);
   if (!x) { ctx.setTitle('Not found'); ctx.el.append(h('<p class="empty">Exercise not found.</p>')); return; }
   ctx.setTitle(x.name);
+  const st = x.kind === 'stretch';
 
   const ul = items => `<ul class="ex-list">${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>`;
   const ol = items => `<ol class="ex-steps">${items.map(i => `<li>${esc(i)}</li>`).join('')}</ol>`;
   const sec = (title, inner, cls = '') => inner ? `<section class="card ex-sec ${cls}"><h3>${title}</h3>${inner}</section>` : '';
-  const joints = x.joints?.length ? `<div class="table-wrap"><table><thead><tr><th>Joint</th><th>Movement (lifting phase)</th><th>Plane</th></tr></thead><tbody>${x.joints.map(([j, m, p]) => `<tr><td>${esc(j)}</td><td>${esc(m)}</td><td>${esc(p)}</td></tr>`).join('')}</tbody></table></div>` : '';
+  const joints = x.joints?.length ? `<div class="table-wrap"><table><thead><tr><th>Joint</th><th>${st ? 'Movement creating the stretch' : 'Movement (lifting phase)'}</th><th>Plane</th></tr></thead><tbody>${x.joints.map(([j, m, p]) => `<tr><td>${esc(j)}</td><td>${esc(m)}</td><td>${esc(p)}</td></tr>`).join('')}</tbody></table></div>` : '';
 
   ctx.el.append(h(`<div class="stack prose ex-detail">
     <div class="card stack detail-grid" style="align-items:center">
@@ -108,9 +109,10 @@ function renderDetail(ctx, id) {
           <span class="tag ${x.level === 'Beginner' ? 'ok' : x.level === 'Advanced' ? 'danger' : 'warn'}">${esc(x.level)}</span>
         </div>
         <dl class="kv">
-          <dt>Primary</dt><dd>${x.primary.map(muscleLink).join(', ')}</dd>
-          <dt>Secondary</dt><dd>${x.secondary.map(muscleLink).join(', ')}</dd>
-          ${x.dose ? `<dt>Start with</dt><dd>${esc(x.dose)}</dd>` : ''}
+          <dt>${st ? 'Stretches' : 'Primary'}</dt><dd>${x.primary.map(muscleLink).join(', ')}</dd>
+          ${x.secondary.length ? `<dt>${st ? 'Also' : 'Secondary'}</dt><dd>${x.secondary.map(muscleLink).join(', ')}</dd>` : ''}
+          ${x.dose ? `<dt>${st ? 'Dose' : 'Start with'}</dt><dd>${esc(x.dose)}</dd>` : ''}
+          ${st ? `<dt>Use in</dt><dd>${x.pattern === 'Dynamic stretch' ? 'Warm-up (prepares muscles and joints for movement)' : 'Cool-down (maintains or develops flexibility)'}</dd>` : ''}
         </dl>
       </div>
       ${videoBlock(x)}
@@ -123,7 +125,7 @@ function renderDetail(ctx, id) {
       ${sec('1. Set-up: from the ground up', x.setup && ol(x.setup), 'span-2" id="ex-setup')}
       ${sec('2. Execution', x.execution && ol(x.execution), 'span-2" id="ex-execution')}
       ${sec('Breathing & bracing', x.breathing && `<p>${esc(x.breathing)}</p>`, '" id="ex-breathing')}
-      ${sec('Stability: what stays still', x.stability && ul(x.stability), '" id="ex-stability')}
+      ${sec(st ? 'Keep still' : 'Stability: what stays still', x.stability && ul(x.stability), '" id="ex-stability')}
       ${sec('Joint actions', joints, 'span-2" id="ex-joints')}
       ${sec('Coaching cues', ul(x.cues), '" id="ex-coaching')}
       ${sec('Common mistakes', ul(x.mistakes))}
