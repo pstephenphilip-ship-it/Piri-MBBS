@@ -442,3 +442,13 @@ dl.kv dd { margin: 0; }
 .dg .mm-chest { fill: #e98a80; } .dg .mm-shoulder { fill: #f2b48a; } .dg .mm-back { fill: #b9a6ec; } .dg .mm-arm { fill: #f2b8c6; }
 .dg .mm-core { fill: #efd27a; } .dg .mm-glute { fill: #8fc7e8; } .dg .mm-leg { fill: #a8dcd3; } .dg .mm-calf { fill: #c6e3a4; }
 .dg .band-mm { stroke: #a8dcd3; }
+
+/* ---------- Exercise detail ---------- */
+.ex-sec h3 { margin: 0 0 8px; font-size: 16px; }
+.ex-sec p { margin: 0; }
+.ex-steps, .ex-list { margin: 0; padding-left: 22px; }
+.ex-steps li + li, .ex-list li + li { margin-top: 6px; }
+.ex-steps li::marker { font-weight: 700; color: var(--accent); }
+.ex-safety { border-left: 4px solid var(--warn); }
+.ex-sec { scroll-margin-top: calc(var(--topbar-h) + var(--safe-t) + 12px); }
+.ex-sec .table-wrap { margin: 0; }
