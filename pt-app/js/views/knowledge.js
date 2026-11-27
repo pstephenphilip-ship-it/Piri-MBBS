@@ -39,11 +39,11 @@ function renderHome(ctx) {
   });
 }
 
-const topicRow = (c, t) => `
+const topicRow = (c, t, showCat = true) => `
   <li><a href="#/knowledge/${c.id}/${t.id}">
     <div class="grow">
       <div class="title">${esc(t.title)}</div>
-      <div class="sub">${esc(c.name)}${t.body ? '' : ' · coming soon'}</div>
+      <div class="sub">${t.body ? esc(showCat ? c.name : (t.summary || '')) : 'Coming soon'}</div>
     </div>${chevron}
   </a></li>`;
 
@@ -51,9 +51,19 @@ function renderCategory(ctx, catId) {
   const c = CATEGORIES.find(x => x.id === catId);
   if (!c) { ctx.setTitle('Not found'); ctx.el.append(h('<p class="empty">Category not found.</p>')); return; }
   ctx.setTitle(c.name);
+  // Group topics under their section headings, preserving order.
+  const groups = [];
+  for (const t of c.topics) {
+    const g = t.group || '';
+    if (!groups.length || groups[groups.length - 1].name !== g) groups.push({ name: g, topics: [] });
+    groups[groups.length - 1].topics.push(t);
+  }
+  const done = c.topics.filter(t => t.body).length;
   ctx.el.append(h(`<div class="stack">
-    <p class="muted">${esc(c.blurb)}</p>
-    <ul class="list cols">${c.topics.map(t => topicRow(c, t)).join('')}</ul>
+    <p class="muted">${esc(c.blurb)} · ${done} of ${c.topics.length} topics written</p>
+    ${groups.map(g => `
+      ${g.name ? `<div class="section-title">${esc(g.name)}</div>` : ''}
+      <ul class="list cols">${g.topics.map(t => topicRow(c, t, false)).join('')}</ul>`).join('')}
   </div>`));
 }
 

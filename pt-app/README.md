@@ -8,7 +8,7 @@ no dependencies — plain HTML/CSS and ES modules.
 | Tab | What's there |
 | --- | --- |
 | **Exercises** | Searchable bank, filter by movement pattern & equipment. Detail page: muscles, cues, common mistakes, regressions/progressions, media placeholder. |
-| **Knowledge** | 9 categories (Anatomy, Physiology, Biomechanics, Programme design, Nutrition, Special populations, Screening, Coaching, Business). A few sample articles; the rest are stubs. Global search. |
+| **Knowledge** | 9 categories. **Anatomy is written**: 21 articles on terminology, the skeletal system, joints, the major joints, connective tissue and common conditions, each with tables, trainer-application notes and self-test questions. Other categories have stubs. Global search. |
 | **Clients** | Add/edit/delete clients. Each client has tabs: Overview, PAR-Q, Consent, Goals (SMART), Assessment, Notes. Signature pad, PAR-Q "Yes" flag, onboarding progress. |
 
 ## Run locally
@@ -39,7 +39,9 @@ pt-app/
 ### Adding content
 
 - **Exercise** → add an object to `EXERCISES` in `js/data/exercises.js`.
-- **Knowledge article** → fill a topic's `body` (HTML) in `js/data/knowledge.js`.
+- **Knowledge article** → fill a topic's `body` (HTML) in `js/data/knowledge.js`, or for a big
+  category put the topics in their own file under `js/data/knowledge/` (see the anatomy files).
+  `js/data/knowledge/_helpers.js` has `table()`, `callout()`, `quiz()` and link helpers.
 - **New client form** → add a schema to `FORMS` in `js/data/forms.js`; it shows up as a tab on every client automatically.
 
 ## Before real-world use

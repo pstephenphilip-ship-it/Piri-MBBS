@@ -3,28 +3,24 @@
 // where content goes. Write content in your own words or from properly
 // licensed sources.
 
+import { FOUNDATIONS, SKELETAL } from './knowledge/anatomy-skeleton.js';
+import { JOINTS } from './knowledge/anatomy-joints.js';
+import { APPLIED } from './knowledge/anatomy-applied.js';
+
+// Topic fields: id, title, body (HTML or null = coming soon),
+//   optional group (section heading in the category list), summary (one line).
+// Larger categories live in their own files under ./knowledge/.
 export const CATEGORIES = [
   {
-    id: 'anatomy', name: 'Anatomy', emoji: '🦴', blurb: 'Muscles, bones, joints and planes of motion',
+    id: 'anatomy', name: 'Anatomy', emoji: '🦴', blurb: 'Skeleton, bones, joints, movement terms and the major joints',
     topics: [
-      {
-        id: 'planes-axes', title: 'Planes & axes of movement',
-        body: `
-<p>All human movement can be described in three planes, each rotating about a perpendicular axis.</p>
-<h3>Sagittal plane</h3>
-<p>Divides the body into left and right. Movements: flexion and extension. Examples: squat, biceps curl, running.</p>
-<h3>Frontal (coronal) plane</h3>
-<p>Divides the body into front and back. Movements: abduction, adduction, lateral flexion. Examples: lateral raise, side lunge, jumping jacks.</p>
-<h3>Transverse plane</h3>
-<p>Divides the body into top and bottom. Movements: rotation, horizontal ab/adduction. Examples: woodchop, golf swing, cable fly.</p>
-<h3>Why it matters for programming</h3>
-<p>Most gym programmes are heavily sagittal. Including frontal and transverse plane work builds more robust, sport- and life-ready clients.</p>`,
-      },
-      { id: 'skeletal', title: 'The skeletal system', body: null },
-      { id: 'joints', title: 'Joint types & movements', body: null },
-      { id: 'lower-limb', title: 'Muscles of the lower limb', body: null },
-      { id: 'upper-limb', title: 'Muscles of the upper limb', body: null },
-      { id: 'trunk', title: 'Muscles of the trunk & core', body: null },
+      ...FOUNDATIONS,
+      ...SKELETAL,
+      ...JOINTS,
+      ...APPLIED,
+      { id: 'lower-limb', group: 'Muscles', title: 'Muscles of the lower limb', body: null },
+      { id: 'upper-limb', group: 'Muscles', title: 'Muscles of the upper limb', body: null },
+      { id: 'trunk', group: 'Muscles', title: 'Muscles of the trunk & core', body: null },
     ],
   },
   {
