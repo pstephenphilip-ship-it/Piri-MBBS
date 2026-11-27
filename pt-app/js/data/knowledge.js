@@ -13,6 +13,7 @@ import { MUSCLE_TISSUE } from './knowledge/anatomy-muscle-tissue.js';
 import { UPPER } from './knowledge/muscles-upper.js';
 import { TRUNK } from './knowledge/muscles-trunk.js';
 import { LOWER } from './knowledge/muscles-lower.js';
+import { OVERVIEW } from './knowledge/muscles-overview.js';
 import { PHYSIOLOGY } from './knowledge/physiology.js';
 import { TRAINING } from './knowledge/training.js';
 import { NUTRITION } from './knowledge/nutrition.js';
@@ -31,7 +32,7 @@ export const CATEGORIES = [
   {
     id: 'muscles', name: 'Muscles', emoji: '💪', unit: 'Unit 1',
     blurb: 'Origin, insertion, action and training for each muscle',
-    topics: [...UPPER, ...TRUNK, ...LOWER],
+    topics: [...OVERVIEW, ...UPPER, ...TRUNK, ...LOWER],
   },
   {
     id: 'physiology', name: 'Physiology', emoji: '❤️', unit: 'Unit 1',

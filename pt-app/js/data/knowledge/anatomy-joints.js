@@ -1,6 +1,7 @@
 // Anatomy — joints (classification, synovial joints, movements, major joints).
 import { table, callout, quiz, ex, kb } from './_helpers.js';
 import { SYNOVIAL_JOINT, JOINT_TYPES, KNEE } from './diagrams/joints.js';
+import { MOVES_SAGITTAL, MOVES_FRONTAL, MOVES_TRANSVERSE } from './diagrams/movements.js';
 
 export const JOINTS = [
   {
@@ -133,6 +134,7 @@ ${table(['Movement', 'Definition', 'Example'], [
   ['<strong>Anterior / posterior pelvic tilt</strong>', 'Top of the pelvis tips forward / backward', 'Posterior tilt at the top of a hip thrust'],
 ])}
 
+${MOVES_SAGITTAL}
 <h3>Frontal plane</h3>
 ${table(['Movement', 'Definition', 'Example'], [
   ['<strong>Abduction</strong>', 'Moving away from the midline', 'Shoulder in a lateral raise; hip in a side-lying leg raise'],
@@ -144,6 +146,7 @@ ${table(['Movement', 'Definition', 'Example'], [
   ['<strong>Upward / downward rotation</strong> (scapula)', 'The glenoid turns to face up / down', 'Upward rotation during overhead press; downward rotation returning from it'],
 ])}
 
+${MOVES_FRONTAL}
 <h3>Transverse plane</h3>
 ${table(['Movement', 'Definition', 'Example'], [
   ['<strong>Medial (internal) rotation</strong>', 'Rotating towards the midline', 'Shoulder in a cable internal rotation'],
@@ -154,6 +157,7 @@ ${table(['Movement', 'Definition', 'Example'], [
   ['<strong>Protraction / retraction</strong>', 'Scapula moves forward around the rib cage / back towards the spine', 'Push-up plus (protraction); squeezing shoulder blades in a row (retraction)'],
 ])}
 
+${MOVES_TRANSVERSE}
 <h3>Multiplanar and special movements</h3>
 <ul>
   <li><strong>Circumduction</strong>: a circular movement combining flexion, abduction, extension and adduction, e.g. arm circles. Possible at ball and socket, condyloid and saddle joints.</li>
