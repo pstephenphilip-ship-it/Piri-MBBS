@@ -12,6 +12,8 @@
 //                 or a YouTube / Vimeo link (e.g. 'https://youtu.be/XXXXXXXXXXX')
 //   poster        optional still image shown before a video file plays
 
+import { MORE_EXERCISES } from './exercises-more.js';
+
 export const PATTERNS = ['Squat', 'Hinge', 'Push', 'Pull', 'Lunge', 'Carry', 'Core', 'Isolation', 'Conditioning'];
 export const EQUIPMENT = ['Bodyweight', 'Barbell', 'Dumbbell', 'Kettlebell', 'Cable', 'Machine', 'Band'];
 
@@ -19,7 +21,7 @@ export const EQUIPMENT = ['Bodyweight', 'Barbell', 'Dumbbell', 'Kettlebell', 'Ca
 const BRACE = 'Breathe in through the nose into your belly and sides (360°), then brace the trunk as if about to be prodded in the stomach. Hold the brace through the hardest part of the rep and breathe out as you pass the sticking point or at the top. Take a fresh breath between reps. For lighter sets, simply breathe in on the way down and out on the way up. Clients with high blood pressure should not hold their breath: exhale steadily on the effort.';
 const EXHALE_EFFORT = 'Breathe in during the lowering (eccentric) phase and out during the lifting (concentric) phase, keeping a light brace throughout. Never hold your breath for long.';
 
-export const EXERCISES = [
+const BASE = [
   /* ---------------- Squat ---------------- */
   {
     id: 'goblet-squat', name: 'Goblet Squat', pattern: 'Squat', equipment: 'Dumbbell', level: 'Beginner',
@@ -409,3 +411,7 @@ export const EXERCISES = [
     dose: 'Aerobic base: 15–30 min at RPE 4–5. Intervals: 6–10 × 1 min hard / 1 min easy.',
   },
 ];
+
+// All exercises, grouped by movement pattern then name.
+export const EXERCISES = [...BASE, ...MORE_EXERCISES]
+  .sort((a, b) => PATTERNS.indexOf(a.pattern) - PATTERNS.indexOf(b.pattern) || a.name.localeCompare(b.name));

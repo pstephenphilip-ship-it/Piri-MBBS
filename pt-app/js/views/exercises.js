@@ -68,7 +68,7 @@ const MUSCLE_LINKS = [
   [/quadric|vastus|rectus femoris/i, 'quadriceps'], [/glute/i, 'glutes'], [/hamstring|biceps femoris/i, 'hamstrings'],
   [/adductor/i, 'adductors'], [/hip flexor/i, 'hip-flexors'], [/gastroc|soleus|calf|calves|tibialis|fibularis/i, 'lower-leg'],
   [/pector|serratus/i, 'chest'], [/deltoid|shoulders/i, 'deltoids'], [/rotator|supraspinatus|infraspinatus/i, 'rotator-cuff'],
-  [/lat|teres major/i, 'lats'], [/trap|rhomboid/i, 'upper-back'], [/triceps/i, 'triceps'], [/biceps|brachialis/i, 'elbow-flexors'],
+  [/lat|teres major/i, 'lats'], [/trap|rhomboid/i, 'upper-back'], [/triceps/i, 'triceps'], [/biceps|brachialis|brachioradialis/i, 'elbow-flexors'],
   [/forearm/i, 'forearm'], [/erector|quadratus lumborum|multifidus/i, 'back-extensors'],
   [/abdomin|oblique|core/i, 'abdominals'],
 ];
