@@ -8,6 +8,9 @@
 //   joints[]      [joint, movement (lifting/concentric phase), plane]
 //   cues[], mistakes[], safety[], regressions[], progressions[]
 //   dose          a sensible starting prescription
+//   video         optional demo: a file in pt-app/videos/ (e.g. 'videos/goblet-squat.mp4')
+//                 or a YouTube / Vimeo link (e.g. 'https://youtu.be/XXXXXXXXXXX')
+//   poster        optional still image shown before a video file plays
 
 export const PATTERNS = ['Squat', 'Hinge', 'Push', 'Pull', 'Lunge', 'Carry', 'Core', 'Isolation', 'Conditioning'];
 export const EQUIPMENT = ['Bodyweight', 'Barbell', 'Dumbbell', 'Kettlebell', 'Cable', 'Machine', 'Band'];

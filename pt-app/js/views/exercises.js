@@ -77,6 +77,18 @@ const muscleLink = m => {
   return hit ? `<a href="#/knowledge/muscles/${hit[1]}">${esc(m)}</a>` : esc(m);
 };
 
+/** Demo video: a local file (e.g. 'videos/goblet-squat.mp4'), or a YouTube / Vimeo link. */
+function videoBlock(x) {
+  const v = x.video;
+  if (!v) return `<div class="ex-video ex-video-empty muted small">No video yet</div>`;
+  const yt = v.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{11})/);
+  const vm = v.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  const src = yt ? `https://www.youtube-nocookie.com/embed/${yt[1]}` : vm ? `https://player.vimeo.com/video/${vm[1]}` : null;
+  if (src) return `<div class="ex-video"><iframe src="${esc(src)}" title="${esc(x.name)} demo" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    <a class="small" href="${esc(v)}" target="_blank" rel="noopener">Open video in a new tab</a>`;
+  return `<div class="ex-video"><video controls playsinline preload="metadata" ${x.poster ? `poster="${esc(x.poster)}"` : ''}><source src="${esc(v)}">Your browser can't play this video.</video></div>`;
+}
+
 function renderDetail(ctx, id) {
   const x = EXERCISES.find(e => e.id === id);
   if (!x) { ctx.setTitle('Not found'); ctx.el.append(h('<p class="empty">Exercise not found.</p>')); return; }
@@ -101,7 +113,7 @@ function renderDetail(ctx, id) {
           ${x.dose ? `<dt>Start with</dt><dd>${esc(x.dose)}</dd>` : ''}
         </dl>
       </div>
-      <div style="max-width:100%;aspect-ratio:16/9;border-radius:10px;background:var(--surface-2);display:grid;place-items:center" class="muted small">Video / demo image</div>
+      ${videoBlock(x)}
     </div>
     <nav class="chips ex-jump" aria-label="Jump to section">
       ${[['setup', 'Set-up'], ['execution', 'Execution'], ['breathing', 'Breathing'], ['stability', 'Stability'], ['joints', 'Joint actions'], ['coaching', 'Coaching'], ['safety', 'Safety'], ['options', 'Options']]
