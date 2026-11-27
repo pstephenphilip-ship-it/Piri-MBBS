@@ -18,7 +18,7 @@ function renderList(ctx) {
     <div class="chips" data-group="pattern"></div>
     <div class="chips" data-group="equipment"></div>
     <p class="muted small" data-count></p>
-    <ul class="list"></ul>
+    <ul class="list cols"></ul>
   </div>`);
   ctx.el.append(root);
 
@@ -72,22 +72,23 @@ function renderDetail(ctx, id) {
     ? `<div class="card"><h3>${title}</h3><ul class="prose" style="margin:0;padding-left:20px">${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>` : '';
 
   ctx.el.append(h(`<div class="stack">
-    <div class="card stack">
-      <div class="tags">
+    <div class="card stack detail-grid" style="align-items:center">
+      <div class="stack"><div class="tags">
         <span class="tag">${esc(x.pattern)}</span>
         <span class="tag">${esc(x.equipment)}</span>
         <span class="tag ${x.level === 'Beginner' ? 'ok' : x.level === 'Advanced' ? 'danger' : 'warn'}">${esc(x.level)}</span>
       </div>
-      <!-- Placeholder for demo video / image -->
-      <div style="aspect-ratio:16/9;border-radius:10px;background:var(--surface-2);display:grid;place-items:center" class="muted small">Video / demo image</div>
       <dl class="kv">
         <dt>Primary</dt><dd>${esc(x.primary.join(', '))}</dd>
         <dt>Secondary</dt><dd>${esc(x.secondary.join(', '))}</dd>
       </dl>
+      </div>
+      <!-- Placeholder for demo video / image -->
+      <div style="max-width:100%;aspect-ratio:16/9;border-radius:10px;background:var(--surface-2);display:grid;place-items:center" class="muted small">Video / demo image</div>
     </div>
-    ${list('Coaching cues', x.cues)}
-    ${list('Common mistakes', x.mistakes)}
-    <div class="grid-2">
+    <div class="detail-grid">
+      ${list('Coaching cues', x.cues)}
+      ${list('Common mistakes', x.mistakes)}
       ${list('Regressions', x.regressions)}
       ${list('Progressions', x.progressions)}
     </div>

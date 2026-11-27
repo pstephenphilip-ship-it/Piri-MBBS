@@ -19,6 +19,23 @@ export function toast(msg) {
   setTimeout(() => t.remove(), 2300);
 }
 
+/**
+ * Two-tap confirmation for destructive buttons (native confirm() dialogs are
+ * blocked in some embedded viewers). First tap arms the button, second tap
+ * within 4 s runs the action.
+ */
+export function confirmButton(btn, armedLabel, action) {
+  const label = btn.textContent;
+  let timer = null;
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    if (btn.classList.contains('confirm-armed')) { clearTimeout(timer); action(); return; }
+    btn.classList.add('confirm-armed');
+    btn.textContent = armedLabel;
+    timer = setTimeout(() => { btn.classList.remove('confirm-armed'); btn.textContent = label; }, 4000);
+  });
+}
+
 export const fmtDate = iso => iso ? new Date(iso).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' }) : '';
 
 export const initials = name => name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');

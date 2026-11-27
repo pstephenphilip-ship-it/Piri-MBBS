@@ -13,7 +13,7 @@ function renderHome(ctx) {
   const root = h(`<div class="stack">
     <input class="search" type="search" placeholder="Search all topics…" aria-label="Search topics">
     <div data-results></div>
-    <div class="grid-2" data-grid>
+    <div class="grid-2 tiles" data-grid>
       ${CATEGORIES.map(c => `
         <a class="tile" href="#/knowledge/${c.id}">
           <span class="emoji" aria-hidden="true">${c.emoji}</span>
@@ -34,7 +34,7 @@ function renderHome(ctx) {
       .filter(t => t.title.toLowerCase().includes(q) || (t.body || '').toLowerCase().includes(q))
       .map(t => ({ c, t })));
     results.innerHTML = hits.length
-      ? `<ul class="list">${hits.map(({ c, t }) => topicRow(c, t)).join('')}</ul>`
+      ? `<ul class="list cols">${hits.map(({ c, t }) => topicRow(c, t)).join('')}</ul>`
       : '<p class="empty">No topics match.</p>';
   });
 }
@@ -53,7 +53,7 @@ function renderCategory(ctx, catId) {
   ctx.setTitle(c.name);
   ctx.el.append(h(`<div class="stack">
     <p class="muted">${esc(c.blurb)}</p>
-    <ul class="list">${c.topics.map(t => topicRow(c, t)).join('')}</ul>
+    <ul class="list cols">${c.topics.map(t => topicRow(c, t)).join('')}</ul>
   </div>`));
 }
 
@@ -72,7 +72,7 @@ function renderTopic(ctx, catId, topicId) {
       <h2 style="margin-bottom:12px">${esc(t.title)}</h2>
       ${t.body ?? '<p class="muted">Content coming soon. Add it in <code>js/data/knowledge.js</code>.</p>'}
     </article>
-    <div class="btn-row">
+    <div class="btn-row narrow">
       ${prev ? `<a class="btn" href="#/knowledge/${c.id}/${prev.id}">‹ Prev</a>` : '<span></span>'}
       ${next ? `<a class="btn" href="#/knowledge/${c.id}/${next.id}">Next ›</a>` : '<span></span>'}
     </div>

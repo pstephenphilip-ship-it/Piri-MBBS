@@ -1,6 +1,6 @@
 import * as store from '../store.js';
 import { FORMS } from '../data/forms.js';
-import { esc, h, chevron, toast, fmtDate, initials, ageFrom } from '../ui.js';
+import { esc, h, chevron, toast, fmtDate, initials, ageFrom, confirmButton } from '../ui.js';
 
 // Routes:
 //   #/clients                    list
@@ -49,7 +49,7 @@ function renderList(ctx) {
 
   const root = h(`<div class="stack">
     <input class="search" type="search" placeholder="Search clients…" aria-label="Search clients">
-    <ul class="list"></ul>
+    <ul class="list cols"></ul>
   </div>`);
   ctx.el.append(root);
   const listEl = root.querySelector('.list');
@@ -101,8 +101,8 @@ function sectionTabs(client, active) {
 function renderOverview(ctx, c) {
   const st = formStatus(c);
   const age = ageFrom(c.dob);
-  ctx.el.append(h(`<div class="stack">
-    ${st.flag ? `<div class="banner warn"><strong>PAR-Q flag:</strong> one or more "Yes" answers. Obtain medical clearance before training.</div>` : ''}
+  ctx.el.append(h(`<div class="detail-grid">
+    ${st.flag ? `<div class="banner warn span-2"><strong>PAR-Q flag:</strong> one or more "Yes" answers. Obtain medical clearance before training.</div>` : ''}
     <div class="card stack">
       <div style="display:flex;gap:12px;align-items:center">
         <span class="avatar" style="width:52px;height:52px;font-size:18px">${esc(initials(c.name))}</span>
@@ -119,7 +119,7 @@ function renderOverview(ctx, c) {
         ${c.emergency ? `<dt>Emergency</dt><dd>${esc(c.emergency)}</dd>` : ''}
       </dl>
     </div>
-    <div class="section-title">Onboarding</div>
+    <div class="stack"><div class="section-title" style="margin-top:0">Onboarding</div>
     <ul class="list">
       ${FORMS.map(f => `<li><a href="#/clients/${c.id}/${f.id}">
         <div class="grow">
@@ -130,12 +130,13 @@ function renderOverview(ctx, c) {
         ${chevron}
       </a></li>`).join('')}
     </ul>
-    <div class="section-title">Coming soon</div>
+    </div>
+    <div class="stack span-2"><div class="section-title">Coming soon</div>
     <ul class="list">
       <li><div class="row muted"><div class="grow">Programmes &amp; workouts</div></div></li>
       <li><div class="row muted"><div class="grow">Progress charts</div></div></li>
       <li><div class="row muted"><div class="grow">Session booking</div></div></li>
-    </ul>
+    </ul></div>
   </div>`));
 }
 
@@ -145,7 +146,7 @@ function renderProfileForm(ctx, client) {
   ctx.setTitle(client ? 'Edit client' : 'New client');
   ctx.setBack(true);
   const v = client || {};
-  const form = h(`<form class="stack" novalidate>
+  const form = h(`<form class="stack narrow" novalidate>
     <label class="field"><span>Full name *</span><input name="name" required autocomplete="off" value="${esc(v.name)}"></label>
     <label class="field"><span>Date of birth</span><input name="dob" type="date" value="${esc(v.dob)}"></label>
     <label class="field"><span>Phone</span><input name="phone" type="tel" value="${esc(v.phone)}"></label>
@@ -171,8 +172,8 @@ function renderProfileForm(ctx, client) {
     }
   });
 
-  form.querySelector('[data-del]')?.addEventListener('click', () => {
-    if (!confirm(`Delete ${client.name} and all their records? This cannot be undone.`)) return;
+  const del = form.querySelector('[data-del]');
+  if (del) confirmButton(del, `Tap again to permanently delete ${client.name}`, () => {
     store.deleteClient(client.id);
     location.replace('#/clients');
   });
@@ -212,7 +213,7 @@ function renderForm(ctx, client, schema) {
     }
   };
 
-  const form = h(`<form class="stack" novalidate>
+  const form = h(`<form class="stack narrow" novalidate>
     <p class="muted small">${esc(schema.description)}</p>
     ${saved ? `<div class="banner ok">Last saved ${fmtDate(saved.savedAt)}</div>` : ''}
     ${schema.flag && saved && schema.flag(values) ? '<div class="banner warn">One or more "Yes" answers — medical clearance recommended before training.</div>' : ''}
@@ -287,11 +288,11 @@ function signaturePad(canvas, initial) {
 /* ---------------- Notes ---------------- */
 
 function renderNotes(ctx, client) {
-  const form = h(`<form class="stack">
+  const form = h(`<form class="stack narrow">
     <label class="field"><span>New session note</span><textarea name="text" placeholder="What did you do today? How did they feel?"></textarea></label>
     <button class="btn primary block" type="submit">Add note</button>
   </form>`);
-  const list = h('<div class="stack" style="margin-top:16px"></div>');
+  const list = h('<div class="stack narrow" style="margin-top:16px"></div>');
   ctx.el.append(form, list);
 
   const draw = () => {
@@ -300,7 +301,7 @@ function renderNotes(ctx, client) {
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
           <span class="muted small">${fmtDate(n.at)}</span>
-          <button class="btn sm danger" data-del="${n.id}" aria-label="Delete note">Delete</button>
+          <button type="button" class="btn sm danger" data-del="${n.id}" aria-label="Delete note">Delete</button>
         </div>
         <p style="margin:6px 0 0;white-space:pre-wrap">${esc(n.text)}</p>
       </div>`).join('') : '<p class="empty">No notes yet.</p>';
@@ -312,13 +313,12 @@ function renderNotes(ctx, client) {
     if (!text) return;
     store.addNote(client.id, text);
     form.reset();
-    draw();
+    draw2();
   });
-  list.addEventListener('click', e => {
-    const b = e.target.closest('[data-del]'); if (!b) return;
-    if (!confirm('Delete this note?')) return;
-    store.deleteNote(client.id, b.dataset.del);
+  const draw2 = () => {
     draw();
-  });
-  draw();
+    list.querySelectorAll('[data-del]').forEach(b =>
+      confirmButton(b, 'Tap again to delete', () => { store.deleteNote(client.id, b.dataset.del); draw2(); }));
+  };
+  draw2();
 }
