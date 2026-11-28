@@ -9,7 +9,7 @@ no dependencies — plain HTML/CSS and ES modules.
 | --- | --- |
 | **Exercises** | 81 entries: 55 exercises plus 26 stretches (10 dynamic warm-up, 16 static maintenance), searchable and filterable by pattern and equipment. Each has set-up from the ground up, step-by-step execution, breathing and bracing, stability (what stays still and which muscles hold it), joint actions with planes, coaching cues, common mistakes, safety and who should modify, regressions, progressions and a starting prescription. Muscle names link to the Muscles articles. |
 | **Knowledge** | 103 articles (~42,000 words) following the Level 3 Diploma in Fitness Instructing and Personal Training syllabus: Anatomy, Muscles (76 muscles), Physiology, Fitness & programme design, Nutrition, Consultation & coaching, Screening & assessment, Delivering sessions, Special populations, and Health, safety & professional. Each has tables, trainer-application and safety notes, and self-test questions. Global search. |
-| **Clients** | Add/edit/delete clients. Each client has tabs: Overview, PAR-Q, Consent, Goals (SMART), Assessment, Notes. Signature pad, PAR-Q "Yes" flag, onboarding progress. |
+| **Clients** | Onboarding in the manual's four stages: PAR-Q (with medical-clearance tracking), informed consent & data, lifestyle & history questionnaire, special considerations (age, pregnancy/postnatal, medical, musculoskeletal, neurological, disability), assessment with automatic BP category, BMI, waist risk and Rockport VO₂ max, and SMART goals by short/medium/long term. The client file shows referral alerts, consideration cards (avoid / modify / monitor / refer) and exercises to avoid or use with caution. |
 
 ## Run locally
 
